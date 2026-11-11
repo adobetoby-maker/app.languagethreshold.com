@@ -1,3 +1,4 @@
+import { orCleaningLesson } from "./or-cleaning.ts";
 import { placeLesson } from "./place-directions.ts";
 import { soundLesson } from "./sound-like-a-native.ts";
 import { spanishBasicsLesson } from "./spanish-basics.ts";
@@ -1227,6 +1228,12 @@ function missionFromLesson(
     language,
     module.learnDirection === "en-target" ? "Spanish" : "English",
   );
+  const cleaning = orCleaningLesson(
+    module.id,
+    lesson.n,
+    language,
+    language === "English" ? "Spanish" : "English",
+  );
   const military = language === "English" ? militaryLessonPractice(module.id, lesson.n) : null;
   const basics =
     spanishBasicsLesson(module.id, lesson.n, language, "English") ??
@@ -1254,6 +1261,7 @@ function missionFromLesson(
     moduleEmoji: module.emoji,
     learnerRole: projectTextForLanguage(module.userRole, language),
     partnerRole:
+      cleaning?.partnerRole ??
       place?.partnerRole ??
       sound?.partnerRole ??
       basics?.partnerRole ??
@@ -1312,6 +1320,7 @@ function missionFromLesson(
       },
     ],
     openingLine:
+      cleaning?.openingLine ??
       place?.openingLine ??
       sound?.openingLine ??
       basics?.openingLine ??

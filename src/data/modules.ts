@@ -1756,6 +1756,36 @@ const CATALOG: AppModule[] = [
       "blessing",
     ],
   },
+  {
+    id: "or-cleaning",
+    name: "OR Cleaning Crew · Spanish",
+    emoji: "🫧",
+    category: "Medical",
+    authoredPair: { target: "Spanish", native: "English" },
+    languages: ["Spanish"],
+    nativeLanguages: ["English"],
+    priceCents: 999,
+    blurb:
+      "Spanish for OR cleaning crews: room turnover, equipment, supplies, contact time, clarification, reporting and shift handover.",
+    userRole: "OR cleaning crew member communicating in Spanish",
+    aiPersona:
+      "Roleplay an OR circulating nurse, cleaning supervisor or coworker. Teach practical Latin American Spanish with English explanations when requested. Distinguish limpieza, desinfección, campo estéril and tiempo de contacto. Keep instructions tied to the product label and local protocol; do not invent contact times. Honor requests to slow down and clarify.",
+    challengePrompts: [
+      "Ask the nurse whether you may enter the room.",
+      "Confirm the contact time on the disinfectant label.",
+      "Explain what remains before the room is ready.",
+      "Ask your coworker to repeat a cleaning instruction.",
+    ],
+    vocabFocus: [
+      "quirófano",
+      "limpieza",
+      "desinfección",
+      "tiempo de contacto",
+      "equipo de protección personal",
+      "campo estéril",
+      "sala lista",
+    ],
+  },
   // ── OR Environmental Services ────────────────────────────────────────────
   {
     id: "or-evs",

@@ -1,0 +1,6155 @@
+{
+  "or-evs": {
+    "version": 1,
+    "module": "or-evs",
+    "baseModule": "or-evs",
+    "stage": "core",
+    "language": "English",
+    "nativeLanguage": "Spanish",
+    "headline": "OR Cleaning Crew · Core",
+    "threshold": "Communicate during OR cleaning shifts in English, ask for clarification and confirm room readiness.",
+    "reviewed": false,
+    "lessons": [
+      {
+        "n": 1,
+        "title": "Hello & Introductions",
+        "objective": "Handle hello & introductions in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss hello & introductions with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "quirófano",
+            "es": "operating room",
+            "kind": "term",
+            "note": "Se abrevia OR en el hospital."
+          },
+          {
+            "en": "departamento",
+            "es": "department",
+            "kind": "term"
+          },
+          {
+            "en": "servicios ambientales",
+            "es": "environmental services",
+            "kind": "term",
+            "note": "También se dice EVS o housekeeping."
+          },
+          {
+            "en": "supervisor",
+            "es": "supervisor",
+            "kind": "term"
+          },
+          {
+            "en": "compañero de trabajo",
+            "es": "coworker",
+            "kind": "term"
+          },
+          {
+            "en": "enfermero, enfermera",
+            "es": "nurse",
+            "kind": "term"
+          },
+          {
+            "en": "cirujano",
+            "es": "surgeon",
+            "kind": "term"
+          },
+          {
+            "en": "sala de descanso",
+            "es": "break room",
+            "kind": "term"
+          },
+          {
+            "en": "nombre",
+            "es": "name",
+            "kind": "term"
+          },
+          {
+            "en": "turno",
+            "es": "shift",
+            "kind": "term"
+          },
+          {
+            "en": "credencial de identificación",
+            "es": "badge",
+            "kind": "term"
+          },
+          {
+            "en": "equipo",
+            "es": "team",
+            "kind": "term"
+          },
+          {
+            "en": "Hola, me llamo Ana.",
+            "es": "Hello, my name is Ana.",
+            "kind": "phrase",
+            "note": "Cambia Ana por tu nombre."
+          },
+          {
+            "en": "Mucho gusto.",
+            "es": "Nice to meet you.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Trabajo en servicios ambientales.",
+            "es": "I work in environmental services.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Buenos días, ¿cómo está?",
+            "es": "Good morning, how are you?",
+            "kind": "phrase"
+          },
+          {
+            "en": "Soy nuevo en este turno.",
+            "es": "I am new on this shift.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Dónde está la sala de descanso?",
+            "es": "Where is the break room?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-1"
+      },
+      {
+        "n": 2,
+        "title": "Numbers, Days & Time",
+        "objective": "Handle numbers, days & time in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss numbers, days & time with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "turno",
+            "es": "shift",
+            "kind": "term",
+            "note": "Se usa para el horario de trabajo: day shift, night shift."
+          },
+          {
+            "en": "horario",
+            "es": "schedule",
+            "kind": "term"
+          },
+          {
+            "en": "hora",
+            "es": "hour",
+            "kind": "term",
+            "note": "Hora como unidad de tiempo. Para la hora del reloj se dice time."
+          },
+          {
+            "en": "minuto",
+            "es": "minute",
+            "kind": "term"
+          },
+          {
+            "en": "mañana",
+            "es": "morning",
+            "kind": "term",
+            "note": "Parte del día, hasta el mediodía."
+          },
+          {
+            "en": "tarde",
+            "es": "afternoon",
+            "kind": "term",
+            "note": "Desde el mediodía hasta la tarde-noche."
+          },
+          {
+            "en": "lunes",
+            "es": "Monday",
+            "kind": "term",
+            "note": "En inglés los días se escriben con mayúscula."
+          },
+          {
+            "en": "viernes",
+            "es": "Friday",
+            "kind": "term"
+          },
+          {
+            "en": "hoy",
+            "es": "today",
+            "kind": "term"
+          },
+          {
+            "en": "cambio de sala",
+            "es": "turnover",
+            "kind": "term",
+            "note": "Limpieza y preparación del quirófano entre dos cirugías."
+          },
+          {
+            "en": "en punto",
+            "es": "o'clock",
+            "kind": "term",
+            "note": "Solo con horas exactas: 7 o'clock."
+          },
+          {
+            "en": "¿Qué hora es?",
+            "es": "What time is it?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Qué día es hoy?",
+            "es": "What day is today?",
+            "kind": "phrase"
+          },
+          {
+            "en": "Mi turno empieza a las 7:00 AM.",
+            "es": "My shift starts at 7:00 AM.",
+            "kind": "phrase",
+            "note": "AM es antes del mediodía y PM es después."
+          },
+          {
+            "en": "¿Cuántas horas dura mi turno?",
+            "es": "How many hours is my shift?",
+            "kind": "phrase"
+          },
+          {
+            "en": "El quirófano está listo a las 10:30.",
+            "es": "The room is ready at 10:30.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Puede repetir la hora?",
+            "es": "Can you say the time again?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-2"
+      },
+      {
+        "n": 3,
+        "title": "Asking for Help",
+        "objective": "Handle asking for help in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss asking for help with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "supervisor",
+            "es": "supervisor",
+            "kind": "term"
+          },
+          {
+            "en": "compañero de trabajo",
+            "es": "coworker",
+            "kind": "term"
+          },
+          {
+            "en": "quirófano",
+            "es": "OR",
+            "kind": "term",
+            "note": "Se dice \"O-R\", letra por letra."
+          },
+          {
+            "en": "cambio de sala",
+            "es": "room turnover",
+            "kind": "term",
+            "note": "Limpieza entre una cirugía y la siguiente."
+          },
+          {
+            "en": "bolsa de riesgo biológico",
+            "es": "biohazard bag",
+            "kind": "term"
+          },
+          {
+            "en": "contenedor de objetos punzocortantes",
+            "es": "sharps container",
+            "kind": "term"
+          },
+          {
+            "en": "letrero",
+            "es": "sign",
+            "kind": "term"
+          },
+          {
+            "en": "piso",
+            "es": "floor",
+            "kind": "term"
+          },
+          {
+            "en": "mesa Mayo",
+            "es": "mayo stand",
+            "kind": "term"
+          },
+          {
+            "en": "equipo de protección personal",
+            "es": "PPE",
+            "kind": "term",
+            "note": "Se dice \"P-P-E\", letra por letra."
+          },
+          {
+            "en": "Disculpe, ¿puede ayudarme?",
+            "es": "Excuse me, can you help me?",
+            "kind": "phrase"
+          },
+          {
+            "en": "No entiendo.",
+            "es": "I don't understand.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Puede mostrarme?",
+            "es": "Can you show me?",
+            "kind": "phrase"
+          },
+          {
+            "en": "Muchas gracias.",
+            "es": "Thank you very much.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Puede repetirlo, por favor?",
+            "es": "Can you say that again, please?",
+            "kind": "phrase"
+          },
+          {
+            "en": "Necesito ayuda con esta sala.",
+            "es": "I need help with this room.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-3"
+      },
+      {
+        "n": 4,
+        "title": "Your Workplace — Rooms & Areas",
+        "objective": "Handle your workplace — rooms & areas in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss your workplace — rooms & areas with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "habitación del paciente",
+            "es": "patient room",
+            "kind": "term"
+          },
+          {
+            "en": "estación de enfermería",
+            "es": "nurse station",
+            "kind": "term"
+          },
+          {
+            "en": "cuarto de suministros",
+            "es": "supply room",
+            "kind": "term"
+          },
+          {
+            "en": "elevador",
+            "es": "elevator",
+            "kind": "term"
+          },
+          {
+            "en": "muelle de carga",
+            "es": "loading dock",
+            "kind": "term"
+          },
+          {
+            "en": "sala de descanso",
+            "es": "break room",
+            "kind": "term"
+          },
+          {
+            "en": "salida",
+            "es": "exit",
+            "kind": "term"
+          },
+          {
+            "en": "piso",
+            "es": "floor",
+            "kind": "term"
+          },
+          {
+            "en": "pasillo",
+            "es": "hallway",
+            "kind": "term"
+          },
+          {
+            "en": "escaleras",
+            "es": "stairs",
+            "kind": "term",
+            "note": "Casi siempre se usa en plural."
+          },
+          {
+            "en": "¿Dónde está el cuarto de suministros?",
+            "es": "Where is the supply room?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Cómo llego al piso 3?",
+            "es": "How do I get to the 3rd floor?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿La sala de descanso está en este piso?",
+            "es": "Is the break room on this floor?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Dónde está la salida más cercana?",
+            "es": "Where is the nearest exit?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Me puede mostrar, por favor?",
+            "es": "Can you show me, please?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-4"
+      },
+      {
+        "n": 5,
+        "title": "Tools & Equipment Names",
+        "objective": "Handle tools & equipment names in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss tools & equipment names with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "trapeador",
+            "es": "mop",
+            "kind": "term",
+            "note": "En algunos países se dice mapo o fregona."
+          },
+          {
+            "en": "balde",
+            "es": "bucket",
+            "kind": "term"
+          },
+          {
+            "en": "carrito",
+            "es": "cart",
+            "kind": "term"
+          },
+          {
+            "en": "aspiradora",
+            "es": "vacuum",
+            "kind": "term"
+          },
+          {
+            "en": "desinfectante",
+            "es": "disinfectant",
+            "kind": "term"
+          },
+          {
+            "en": "toallitas",
+            "es": "wipes",
+            "kind": "term",
+            "note": "Casi siempre se usa en plural."
+          },
+          {
+            "en": "guantes",
+            "es": "gloves",
+            "kind": "term"
+          },
+          {
+            "en": "bolsas",
+            "es": "bags",
+            "kind": "term"
+          },
+          {
+            "en": "escoba",
+            "es": "broom",
+            "kind": "term"
+          },
+          {
+            "en": "limpiavidrios de goma",
+            "es": "squeegee",
+            "kind": "term",
+            "note": "Herramienta con tira de goma para quitar el agua del piso o de superficies."
+          },
+          {
+            "en": "piso",
+            "es": "floor",
+            "kind": "term"
+          },
+          {
+            "en": "Uso el trapeador para limpiar el piso.",
+            "es": "I use the mop to clean the floor.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Esta es la escoba.",
+            "es": "This is the broom.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Dónde está el desinfectante?",
+            "es": "Where is the disinfectant?",
+            "kind": "phrase"
+          },
+          {
+            "en": "Necesito más guantes, por favor.",
+            "es": "I need more gloves, please.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Cómo se llama esta herramienta?",
+            "es": "What is this tool called?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-5"
+      },
+      {
+        "n": 6,
+        "title": "Safety Warnings",
+        "objective": "Handle safety warnings in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss safety warnings with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "letrero de piso mojado",
+            "es": "wet floor sign",
+            "kind": "term"
+          },
+          {
+            "en": "contenedor de objetos punzantes",
+            "es": "sharps container",
+            "kind": "term"
+          },
+          {
+            "en": "aislamiento",
+            "es": "isolation",
+            "kind": "term"
+          },
+          {
+            "en": "EPP (equipo de protección personal)",
+            "es": "PPE",
+            "kind": "term",
+            "note": "Se dice letra por letra: P-P-E."
+          },
+          {
+            "en": "puerta",
+            "es": "door",
+            "kind": "term"
+          },
+          {
+            "en": "piso",
+            "es": "floor",
+            "kind": "term"
+          },
+          {
+            "en": "riesgo biológico",
+            "es": "biohazard",
+            "kind": "term"
+          },
+          {
+            "en": "guantes",
+            "es": "gloves",
+            "kind": "term"
+          },
+          {
+            "en": "mascarilla",
+            "es": "mask",
+            "kind": "term"
+          },
+          {
+            "en": "enfermera o enfermero",
+            "es": "nurse",
+            "kind": "term"
+          },
+          {
+            "en": "mesa",
+            "es": "table",
+            "kind": "term"
+          },
+          {
+            "en": "objeto punzante o filoso",
+            "es": "sharp",
+            "kind": "term",
+            "note": "Como aviso corto se usa solo, sin sustantivo."
+          },
+          {
+            "en": "Piso mojado. No entre.",
+            "es": "Wet floor. Do not enter.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Este cuarto está en aislamiento.",
+            "es": "This room is on isolation.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Cuidado, objeto punzante.",
+            "es": "Careful, sharp.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Llamen para pedir ayuda.",
+            "es": "Call for help.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Necesito ayuda aquí.",
+            "es": "I need help here.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Por favor, espere afuera.",
+            "es": "Please wait outside.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-6"
+      },
+      {
+        "n": 7,
+        "title": "Following Instructions",
+        "objective": "Handle following instructions in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss following instructions with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "supervisor",
+            "es": "supervisor",
+            "kind": "term"
+          },
+          {
+            "en": "cambio de sala",
+            "es": "turnover",
+            "kind": "term",
+            "note": "Es la limpieza y preparación entre una cirugía y otra."
+          },
+          {
+            "en": "EPP (equipo de protección personal)",
+            "es": "PPE",
+            "kind": "term",
+            "note": "Se dice letra por letra: pi-pi-i."
+          },
+          {
+            "en": "bolsa de riesgo biológico",
+            "es": "biohazard bag",
+            "kind": "term"
+          },
+          {
+            "en": "contenedor de objetos punzantes",
+            "es": "sharps container",
+            "kind": "term"
+          },
+          {
+            "en": "mesa quirúrgica",
+            "es": "OR table",
+            "kind": "term"
+          },
+          {
+            "en": "mesa de Mayo",
+            "es": "mayo stand",
+            "kind": "term",
+            "note": "Es la mesa pequeña para instrumentos."
+          },
+          {
+            "en": "sala lista",
+            "es": "room ready",
+            "kind": "term"
+          },
+          {
+            "en": "tiempo de contacto",
+            "es": "dwell time",
+            "kind": "term",
+            "note": "Tiempo que el desinfectante debe quedar húmedo en la superficie."
+          },
+          {
+            "en": "desinfectante",
+            "es": "disinfectant",
+            "kind": "term"
+          },
+          {
+            "en": "¿Puede repetir eso, por favor?",
+            "es": "Can you repeat that, please?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Es correcto?",
+            "es": "Is that right?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Entonces primero me pongo el EPP y luego limpio la mesa quirúrgica?",
+            "es": "So first I put on PPE, then I clean the OR table?",
+            "kind": "phrase",
+            "note": "Úsela para repetir los pasos y confirmar."
+          },
+          {
+            "en": "¿Cuál es el siguiente paso?",
+            "es": "What is the next step?",
+            "kind": "phrase"
+          },
+          {
+            "en": "Por favor, hable más despacio.",
+            "es": "Please speak more slowly.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Entiendo. Empiezo ahora.",
+            "es": "I understand. I will start now.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-7"
+      },
+      {
+        "n": 8,
+        "title": "Shift Communication",
+        "objective": "Handle shift communication in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss shift communication with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "turno",
+            "es": "shift",
+            "kind": "term"
+          },
+          {
+            "en": "traspaso de turno",
+            "es": "handoff",
+            "kind": "term",
+            "note": "También se dice shift report en algunos hospitales."
+          },
+          {
+            "en": "carrito de suministros",
+            "es": "supply cart",
+            "kind": "term"
+          },
+          {
+            "en": "cambio de sala entre cirugías",
+            "es": "turnover",
+            "kind": "term",
+            "note": "Es la limpieza rápida entre un caso y el siguiente."
+          },
+          {
+            "en": "limpieza terminal",
+            "es": "terminal clean",
+            "kind": "term"
+          },
+          {
+            "en": "contenedor de objetos punzocortantes",
+            "es": "sharps container",
+            "kind": "term"
+          },
+          {
+            "en": "bolsa de riesgo biológico",
+            "es": "biohazard bag",
+            "kind": "term"
+          },
+          {
+            "en": "registro de limpieza",
+            "es": "cleaning log",
+            "kind": "term"
+          },
+          {
+            "en": "supervisor",
+            "es": "supervisor",
+            "kind": "term"
+          },
+          {
+            "en": "sala lista",
+            "es": "room ready",
+            "kind": "term",
+            "note": "Se dice cuando la sala está limpia y lista para el siguiente caso."
+          },
+          {
+            "en": "Terminé las salas 210 y 212.",
+            "es": "I finished rooms 210 and 212.",
+            "kind": "phrase"
+          },
+          {
+            "en": "La sala 214 todavía necesita una limpieza terminal.",
+            "es": "Room 214 still needs a terminal clean.",
+            "kind": "phrase"
+          },
+          {
+            "en": "El carrito de suministros está reabastecido.",
+            "es": "The supply cart is restocked.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Puede repetir eso, por favor?",
+            "es": "Can you repeat that, please?",
+            "kind": "phrase"
+          },
+          {
+            "en": "Por favor, revise el contenedor de objetos punzocortantes.",
+            "es": "Please check the sharps container.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Por favor, firme el registro de limpieza.",
+            "es": "Please sign the cleaning log.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-8"
+      },
+      {
+        "n": 9,
+        "title": "Isolation Room Procedures",
+        "objective": "Handle isolation room procedures in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss isolation room procedures with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "habitación de aislamiento",
+            "es": "isolation room",
+            "kind": "term"
+          },
+          {
+            "en": "bata de aislamiento",
+            "es": "gown",
+            "kind": "term",
+            "note": "Bata desechable que cubre la ropa."
+          },
+          {
+            "en": "guantes",
+            "es": "gloves",
+            "kind": "term"
+          },
+          {
+            "en": "mascarilla",
+            "es": "mask",
+            "kind": "term"
+          },
+          {
+            "en": "EPP (equipo de protección personal)",
+            "es": "PPE",
+            "kind": "term",
+            "note": "Se dice pi-pi-í en inglés."
+          },
+          {
+            "en": "precauciones",
+            "es": "precautions",
+            "kind": "term"
+          },
+          {
+            "en": "precauciones de contacto",
+            "es": "contact precautions",
+            "kind": "term"
+          },
+          {
+            "en": "precauciones por vía aérea",
+            "es": "airborne precautions",
+            "kind": "term"
+          },
+          {
+            "en": "precauciones por gotas",
+            "es": "droplet precautions",
+            "kind": "term"
+          },
+          {
+            "en": "letrero",
+            "es": "sign",
+            "kind": "term"
+          },
+          {
+            "en": "¿Qué EPP necesito?",
+            "es": "What PPE do I need?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Es esta una habitación de aislamiento?",
+            "es": "Is this an isolation room?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Qué precauciones indica este letrero?",
+            "es": "Which precautions are on this sign?",
+            "kind": "phrase"
+          },
+          {
+            "en": "Necesito una bata y guantes.",
+            "es": "I need a gown and gloves.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Dónde me quito la bata?",
+            "es": "Where do I take off my gown?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-9"
+      },
+      {
+        "n": 10,
+        "title": "Clean vs. Dirty — Contamination Language",
+        "objective": "Handle clean vs. dirty — contamination language in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss clean vs. dirty — contamination language with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "mesa quirúrgica",
+            "es": "OR table",
+            "kind": "term"
+          },
+          {
+            "en": "piso",
+            "es": "floor",
+            "kind": "term"
+          },
+          {
+            "en": "derrame",
+            "es": "spill",
+            "kind": "term"
+          },
+          {
+            "en": "bolsa de riesgo biológico",
+            "es": "biohazard bag",
+            "kind": "term"
+          },
+          {
+            "en": "guantes",
+            "es": "gloves",
+            "kind": "term"
+          },
+          {
+            "en": "contaminado",
+            "es": "contaminated",
+            "kind": "term"
+          },
+          {
+            "en": "limpio",
+            "es": "clean",
+            "kind": "term"
+          },
+          {
+            "en": "sucio",
+            "es": "dirty",
+            "kind": "term"
+          },
+          {
+            "en": "supervisor",
+            "es": "supervisor",
+            "kind": "term"
+          },
+          {
+            "en": "contenedor de objetos punzocortantes",
+            "es": "sharps container",
+            "kind": "term"
+          },
+          {
+            "en": "basura",
+            "es": "trash",
+            "kind": "term"
+          },
+          {
+            "en": "trapeador",
+            "es": "mop",
+            "kind": "term"
+          },
+          {
+            "en": "La sala 302 está terminada.",
+            "es": "Room 302 is done.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Ya limpié la sala.",
+            "es": "I already cleaned the room.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Esta área necesita limpieza.",
+            "es": "This area needs to be cleaned.",
+            "kind": "phrase"
+          },
+          {
+            "en": "La sala 304 tiene un derrame.",
+            "es": "Room 304 has a spill.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Necesito una bolsa de riesgo biológico.",
+            "es": "I need a biohazard bag.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Esta sala está contaminada.",
+            "es": "This room is contaminated.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-10"
+      },
+      {
+        "n": 11,
+        "title": "Trash & Disposal",
+        "objective": "Handle trash & disposal in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss trash & disposal with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "basura",
+            "es": "trash",
+            "kind": "term"
+          },
+          {
+            "en": "riesgo biológico",
+            "es": "biohazard",
+            "kind": "term",
+            "note": "También se usa para las bolsas rojas de desechos biológicos."
+          },
+          {
+            "en": "objetos punzocortantes",
+            "es": "sharps",
+            "kind": "term",
+            "note": "Agujas, hojas de bisturí, etc. Siempre se usa en plural."
+          },
+          {
+            "en": "contenedor para punzocortantes",
+            "es": "sharps container",
+            "kind": "term"
+          },
+          {
+            "en": "reciclaje",
+            "es": "recycling",
+            "kind": "term"
+          },
+          {
+            "en": "desecho común",
+            "es": "regular waste",
+            "kind": "term"
+          },
+          {
+            "en": "bolsa",
+            "es": "bag",
+            "kind": "term"
+          },
+          {
+            "en": "contenedor",
+            "es": "container",
+            "kind": "term"
+          },
+          {
+            "en": "codificado por colores",
+            "es": "color-coded",
+            "kind": "term"
+          },
+          {
+            "en": "desechos de quimioterapia",
+            "es": "chemo waste",
+            "kind": "term",
+            "note": "Chemo es la forma corta de chemotherapy."
+          },
+          {
+            "en": "bolsa roja",
+            "es": "red bag",
+            "kind": "term"
+          },
+          {
+            "en": "¿Dónde va esto?",
+            "es": "Where does this go?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Esto es de riesgo biológico o desecho común?",
+            "es": "Is this biohazard or regular waste?",
+            "kind": "phrase"
+          },
+          {
+            "en": "La política del hospital dice que las bolsas rojas son de riesgo biológico.",
+            "es": "The hospital policy says red bags are biohazard.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Los punzocortantes van en el contenedor para punzocortantes.",
+            "es": "Sharps go in the sharps container.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Necesito una bolsa nueva para este contenedor.",
+            "es": "I need a new bag for this container.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Esto es desecho de quimioterapia?",
+            "es": "Is this chemo waste?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-11"
+      },
+      {
+        "n": 12,
+        "title": "Chemical Safety — MSDS/SDS",
+        "objective": "Handle chemical safety — msds/sds in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss chemical safety — msds/sds with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "desinfectante",
+            "es": "disinfectant",
+            "kind": "term"
+          },
+          {
+            "en": "cloro",
+            "es": "bleach",
+            "kind": "term",
+            "note": "En inglés, bleach es el cloro de limpieza (lejía)."
+          },
+          {
+            "en": "amoníaco",
+            "es": "ammonia",
+            "kind": "term",
+            "note": "Nunca se mezcla con bleach: produce gases peligrosos."
+          },
+          {
+            "en": "guantes",
+            "es": "gloves",
+            "kind": "term"
+          },
+          {
+            "en": "lentes de seguridad",
+            "es": "goggles",
+            "kind": "term"
+          },
+          {
+            "en": "producto químico",
+            "es": "chemical",
+            "kind": "term"
+          },
+          {
+            "en": "salpicadura",
+            "es": "splash",
+            "kind": "term"
+          },
+          {
+            "en": "contacto con la piel",
+            "es": "skin contact",
+            "kind": "term"
+          },
+          {
+            "en": "hoja de datos de seguridad",
+            "es": "safety data sheet",
+            "kind": "term",
+            "note": "También se dice SDS. Antes se llamaba MSDS."
+          },
+          {
+            "en": "etiqueta",
+            "es": "label",
+            "kind": "term"
+          },
+          {
+            "en": "¿Dónde está la hoja de datos de seguridad?",
+            "es": "Where is the safety data sheet?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Qué dice la etiqueta?",
+            "es": "What does the label say?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Necesito diluir esto primero?",
+            "es": "Do I need to dilute this first?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Es seguro mezclar estos productos?",
+            "es": "Is it safe to mix these products?",
+            "kind": "phrase"
+          },
+          {
+            "en": "Tengo una salpicadura en la piel.",
+            "es": "I have a splash on my skin.",
+            "kind": "phrase",
+            "note": "Avise de inmediato a su supervisor."
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-12"
+      },
+      {
+        "n": 13,
+        "title": "Reporting a Problem",
+        "objective": "Handle reporting a problem in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss reporting a problem with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "gotera en el techo",
+            "es": "leaking ceiling",
+            "kind": "term"
+          },
+          {
+            "en": "supervisor",
+            "es": "supervisor",
+            "kind": "term"
+          },
+          {
+            "en": "mantenimiento",
+            "es": "maintenance",
+            "kind": "term"
+          },
+          {
+            "en": "mesa quirúrgica",
+            "es": "OR table",
+            "kind": "term"
+          },
+          {
+            "en": "letrero de piso mojado",
+            "es": "wet floor sign",
+            "kind": "term"
+          },
+          {
+            "en": "lavamanos",
+            "es": "sink",
+            "kind": "term"
+          },
+          {
+            "en": "inodoro",
+            "es": "toilet",
+            "kind": "term"
+          },
+          {
+            "en": "piso",
+            "es": "floor",
+            "kind": "term"
+          },
+          {
+            "en": "equipo",
+            "es": "equipment",
+            "kind": "term"
+          },
+          {
+            "en": "succión",
+            "es": "suction",
+            "kind": "term"
+          },
+          {
+            "en": "problema",
+            "es": "problem",
+            "kind": "term"
+          },
+          {
+            "en": "sala",
+            "es": "room",
+            "kind": "term"
+          },
+          {
+            "en": "Disculpe, hay un problema en la sala 6.",
+            "es": "Excuse me, there's a problem in room 6.",
+            "kind": "phrase",
+            "note": "Cambie el número según la sala."
+          },
+          {
+            "en": "El inodoro está descompuesto.",
+            "es": "The toilet is broken.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Alguien puede arreglarlo?",
+            "es": "Can someone fix it?",
+            "kind": "phrase"
+          },
+          {
+            "en": "El techo tiene una gotera.",
+            "es": "The ceiling is leaking.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Este equipo no funciona.",
+            "es": "This equipment is not working.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Voy a poner un letrero junto a la puerta.",
+            "es": "I am going to put a sign by the door.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-13"
+      },
+      {
+        "n": 14,
+        "title": "Working with Nursing Staff",
+        "objective": "Handle working with nursing staff in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss working with nursing staff with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "enfermera / enfermero",
+            "es": "nurse",
+            "kind": "term"
+          },
+          {
+            "en": "enfermera jefe / enfermero jefe",
+            "es": "charge nurse",
+            "kind": "term",
+            "note": "Es la enfermera que dirige al personal del turno."
+          },
+          {
+            "en": "paciente",
+            "es": "patient",
+            "kind": "term"
+          },
+          {
+            "en": "pasillo",
+            "es": "hallway",
+            "kind": "term"
+          },
+          {
+            "en": "camilla",
+            "es": "stretcher",
+            "kind": "term"
+          },
+          {
+            "en": "cambio de sala",
+            "es": "turnover",
+            "kind": "term",
+            "note": "Limpieza y preparación entre una cirugía y la siguiente."
+          },
+          {
+            "en": "contenedor de objetos punzantes",
+            "es": "sharps container",
+            "kind": "term"
+          },
+          {
+            "en": "EPP (equipo de protección personal)",
+            "es": "PPE",
+            "kind": "term",
+            "note": "Se pronuncia letra por letra: pi-pi-i."
+          },
+          {
+            "en": "mesa quirúrgica",
+            "es": "OR table",
+            "kind": "term"
+          },
+          {
+            "en": "sala lista",
+            "es": "room ready",
+            "kind": "term",
+            "note": "Frase corta que se usa para avisar que la sala está lista."
+          },
+          {
+            "en": "Necesito limpiar esta sala, ¿puedo entrar?",
+            "es": "I need to clean this room, so is it okay to enter?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Está bien limpiar ahora con el paciente en el pasillo?",
+            "es": "Is it okay to clean now with the patient in the hallway?",
+            "kind": "phrase"
+          },
+          {
+            "en": "Por favor, dígame cuándo puedo empezar.",
+            "es": "Please tell me when I can start.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Voy a esperar aquí hasta que usted diga que está bien.",
+            "es": "I will wait here until you say it is okay.",
+            "kind": "phrase"
+          },
+          {
+            "en": "La sala está lista para el próximo paciente.",
+            "es": "The room is ready for the next patient.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-14"
+      },
+      {
+        "n": 15,
+        "title": "Elevator & Transport Language",
+        "objective": "Handle elevator & transport language in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss elevator & transport language with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "ascensor",
+            "es": "elevator",
+            "kind": "term",
+            "note": "En EE. UU. se dice elevator, no lift."
+          },
+          {
+            "en": "carro",
+            "es": "cart",
+            "kind": "term"
+          },
+          {
+            "en": "pasillo",
+            "es": "hallway",
+            "kind": "term"
+          },
+          {
+            "en": "piso",
+            "es": "floor",
+            "kind": "term"
+          },
+          {
+            "en": "sótano",
+            "es": "basement",
+            "kind": "term"
+          },
+          {
+            "en": "camilla",
+            "es": "stretcher",
+            "kind": "term"
+          },
+          {
+            "en": "puerta",
+            "es": "door",
+            "kind": "term"
+          },
+          {
+            "en": "bolsa de riesgo biológico",
+            "es": "biohazard bag",
+            "kind": "term"
+          },
+          {
+            "en": "contenedor de objetos punzantes",
+            "es": "sharps container",
+            "kind": "term"
+          },
+          {
+            "en": "ascensor de servicio",
+            "es": "service elevator",
+            "kind": "term"
+          },
+          {
+            "en": "cuarto de desechos sucios",
+            "es": "soiled utility room",
+            "kind": "term"
+          },
+          {
+            "en": "visitante",
+            "es": "visitor",
+            "kind": "term"
+          },
+          {
+            "en": "Necesito llevar este carro al sótano.",
+            "es": "I need to take this cart to the basement.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Está libre el ascensor?",
+            "es": "Is the elevator free?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Puede sostener la puerta?",
+            "es": "Can you hold the door?",
+            "kind": "phrase",
+            "note": "Es cortés y común en el hospital."
+          },
+          {
+            "en": "Disculpe, ¿cómo llego al ascensor de servicio?",
+            "es": "Excuse me, how do I get to the service elevator?",
+            "kind": "phrase"
+          },
+          {
+            "en": "Perdón, adelante.",
+            "es": "Sorry, go ahead.",
+            "kind": "phrase",
+            "note": "Útil para ceder el paso a un paciente."
+          },
+          {
+            "en": "Gracias por esperar.",
+            "es": "Thank you for waiting.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-15"
+      },
+      {
+        "n": 16,
+        "title": "Laundry & Linens",
+        "objective": "Handle laundry & linens in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss laundry & linens with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "sábana",
+            "es": "sheet",
+            "kind": "term"
+          },
+          {
+            "en": "funda de almohada",
+            "es": "pillowcase",
+            "kind": "term"
+          },
+          {
+            "en": "toalla",
+            "es": "towel",
+            "kind": "term"
+          },
+          {
+            "en": "manta",
+            "es": "blanket",
+            "kind": "term"
+          },
+          {
+            "en": "ropa de cama sucia",
+            "es": "soiled linen",
+            "kind": "term",
+            "note": "En hospitales se dice soiled, no dirty."
+          },
+          {
+            "en": "ropa de cama limpia",
+            "es": "clean linen",
+            "kind": "term"
+          },
+          {
+            "en": "cesto de ropa sucia",
+            "es": "hamper",
+            "kind": "term"
+          },
+          {
+            "en": "carro de lencería",
+            "es": "linen cart",
+            "kind": "term"
+          },
+          {
+            "en": "conteo",
+            "es": "count",
+            "kind": "term"
+          },
+          {
+            "en": "cuarto de lencería",
+            "es": "linen room",
+            "kind": "term"
+          },
+          {
+            "en": "nivel establecido de existencias",
+            "es": "par level",
+            "kind": "term",
+            "note": "Es la cantidad fija que el hospital define para cada carro."
+          },
+          {
+            "en": "intercambio",
+            "es": "exchange",
+            "kind": "term"
+          },
+          {
+            "en": "Tengo 12 sábanas sucias y 6 toallas.",
+            "es": "I have 12 soiled sheets and 6 towels.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Necesito 14 sábanas limpias para este carro.",
+            "es": "I need 14 clean sheets for this cart.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Puede revisar mi conteo otra vez?",
+            "es": "Can you check my count again?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Dónde pongo la ropa de cama sucia?",
+            "es": "Where do I put the soiled linen?",
+            "kind": "phrase"
+          },
+          {
+            "en": "Necesito cambiar esta ropa de cama.",
+            "es": "I need to exchange this linen.",
+            "kind": "phrase"
+          },
+          {
+            "en": "El cesto está lleno.",
+            "es": "The hamper is full.",
+            "kind": "phrase",
+            "note": "Útil para avisar que hay que vaciarlo."
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-16"
+      },
+      {
+        "n": 17,
+        "title": "Emergency Codes",
+        "objective": "Handle emergency codes in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss emergency codes with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "Código Azul",
+            "es": "Code Blue",
+            "kind": "term",
+            "note": "Por lo general es una emergencia médica; confirma el significado en la política de tu hospital."
+          },
+          {
+            "en": "Código Rojo",
+            "es": "Code Red",
+            "kind": "term",
+            "note": "Por lo general indica fuego; sigue el plan del hospital."
+          },
+          {
+            "en": "Código Amarillo",
+            "es": "Code Yellow",
+            "kind": "term",
+            "note": "El significado cambia según el hospital; pregunta a tu supervisor."
+          },
+          {
+            "en": "cierre de emergencia",
+            "es": "lockdown",
+            "kind": "term",
+            "note": "Las puertas se aseguran y la gente se queda dentro."
+          },
+          {
+            "en": "evacuación",
+            "es": "evacuation",
+            "kind": "term"
+          },
+          {
+            "en": "alerta",
+            "es": "alert",
+            "kind": "term"
+          },
+          {
+            "en": "salida",
+            "es": "exit",
+            "kind": "term"
+          },
+          {
+            "en": "lugar seguro",
+            "es": "safe location",
+            "kind": "term"
+          },
+          {
+            "en": "aviso por altavoz",
+            "es": "overhead page",
+            "kind": "term"
+          },
+          {
+            "en": "escalera (hueco de escaleras)",
+            "es": "stairwell",
+            "kind": "term"
+          },
+          {
+            "en": "enfermera jefa de turno",
+            "es": "charge nurse",
+            "kind": "term"
+          },
+          {
+            "en": "Hay un Código Rojo en el piso 3.",
+            "es": "There is a Code Red on floor 3.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Necesito salir del área.",
+            "es": "I need to leave the area.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Dónde está la salida?",
+            "es": "Where is the exit?",
+            "kind": "phrase"
+          },
+          {
+            "en": "Escuché el Código Azul.",
+            "es": "I heard the Code Blue.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Voy a un lugar seguro.",
+            "es": "I am going to a safe location.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Me quedo aquí o me voy?",
+            "es": "Do I stay put or leave?",
+            "kind": "phrase",
+            "note": "Stay put significa quedarse donde estás."
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-17"
+      },
+      {
+        "n": 18,
+        "title": "Kitchen & Cafeteria Tasks",
+        "objective": "Handle kitchen & cafeteria tasks in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss kitchen & cafeteria tasks with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "cafetería",
+            "es": "cafeteria",
+            "kind": "term"
+          },
+          {
+            "en": "derrame",
+            "es": "spill",
+            "kind": "term"
+          },
+          {
+            "en": "letrero de piso mojado",
+            "es": "wet floor sign",
+            "kind": "term"
+          },
+          {
+            "en": "trapeador",
+            "es": "mop",
+            "kind": "term"
+          },
+          {
+            "en": "mesas",
+            "es": "tables",
+            "kind": "term"
+          },
+          {
+            "en": "servilletas",
+            "es": "napkins",
+            "kind": "term"
+          },
+          {
+            "en": "vasos",
+            "es": "cups",
+            "kind": "term"
+          },
+          {
+            "en": "máquina de café",
+            "es": "coffee machine",
+            "kind": "term"
+          },
+          {
+            "en": "charola",
+            "es": "tray",
+            "kind": "term"
+          },
+          {
+            "en": "bote de basura",
+            "es": "trash can",
+            "kind": "term"
+          },
+          {
+            "en": "piso",
+            "es": "floor",
+            "kind": "term"
+          },
+          {
+            "en": "área",
+            "es": "area",
+            "kind": "term"
+          },
+          {
+            "en": "El área necesita ser trapeada.",
+            "es": "The area needs to be mopped.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Las mesas están limpias.",
+            "es": "The tables are clean.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Puedes reabastecer las servilletas?",
+            "es": "Can you restock the napkins?",
+            "kind": "phrase"
+          },
+          {
+            "en": "Hay un derrame junto a la máquina de café.",
+            "es": "There is a spill by the coffee machine.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Voy a traer un trapeador.",
+            "es": "I am going to get a mop.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¡Nos vemos luego!",
+            "es": "See you later!",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-18"
+      },
+      {
+        "n": 19,
+        "title": "Breaks & Scheduling",
+        "objective": "Handle breaks & scheduling in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss breaks & scheduling with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "descanso",
+            "es": "break",
+            "kind": "term",
+            "note": "Es un descanso corto durante el turno."
+          },
+          {
+            "en": "almuerzo",
+            "es": "lunch",
+            "kind": "term"
+          },
+          {
+            "en": "turno",
+            "es": "shift",
+            "kind": "term"
+          },
+          {
+            "en": "horario",
+            "es": "schedule",
+            "kind": "term"
+          },
+          {
+            "en": "horas extra",
+            "es": "overtime",
+            "kind": "term"
+          },
+          {
+            "en": "supervisor",
+            "es": "supervisor",
+            "kind": "term"
+          },
+          {
+            "en": "horas de trabajo",
+            "es": "hours",
+            "kind": "term",
+            "note": "Se usa para hablar de las horas que trabajas."
+          },
+          {
+            "en": "reloj de control de horario",
+            "es": "time clock",
+            "kind": "term"
+          },
+          {
+            "en": "cambio de quirófano",
+            "es": "turnover",
+            "kind": "term",
+            "note": "Es la limpieza y preparación entre una cirugía y otra."
+          },
+          {
+            "en": "día libre",
+            "es": "day off",
+            "kind": "term"
+          },
+          {
+            "en": "¿A qué hora es mi descanso?",
+            "es": "What time is my break?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Cuándo termina mi turno?",
+            "es": "When does my shift end?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Puedo trabajar horas extra este viernes?",
+            "es": "Can I work overtime this Friday?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Dónde registro mi entrada?",
+            "es": "Where do I clock in?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Puedo ver el horario de la próxima semana?",
+            "es": "Can I see the schedule for next week?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Quién cubre mi sala durante mi descanso?",
+            "es": "Who covers my room during my break?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-19"
+      },
+      {
+        "n": 20,
+        "title": "HR Basics — Paycheck & Benefits",
+        "objective": "Handle hr basics — paycheck & benefits in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss hr basics — paycheck & benefits with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "cheque de pago",
+            "es": "paycheck",
+            "kind": "term",
+            "note": "Es el pago de cada periodo, también en talón digital."
+          },
+          {
+            "en": "deducción",
+            "es": "deduction",
+            "kind": "term"
+          },
+          {
+            "en": "impuesto",
+            "es": "tax",
+            "kind": "term",
+            "note": "Plural: taxes."
+          },
+          {
+            "en": "seguro",
+            "es": "insurance",
+            "kind": "term"
+          },
+          {
+            "en": "beneficios",
+            "es": "benefits",
+            "kind": "term",
+            "note": "Casi siempre en plural: seguro médico, días libres, etc."
+          },
+          {
+            "en": "depósito directo",
+            "es": "direct deposit",
+            "kind": "term"
+          },
+          {
+            "en": "formulario W-2",
+            "es": "W-2",
+            "kind": "term",
+            "note": "Formulario de EE. UU. con tus ingresos y los impuestos del año."
+          },
+          {
+            "en": "aumento de sueldo",
+            "es": "raise",
+            "kind": "term"
+          },
+          {
+            "en": "Recursos Humanos",
+            "es": "HR",
+            "kind": "term",
+            "note": "Se dice H-R, letra por letra."
+          },
+          {
+            "en": "periodo de pago",
+            "es": "pay period",
+            "kind": "term"
+          },
+          {
+            "en": "turno",
+            "es": "shift",
+            "kind": "term"
+          },
+          {
+            "en": "Tengo una pregunta sobre mi cheque de pago.",
+            "es": "I have a question about my paycheck.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Creo que hay un error.",
+            "es": "I think there is an error.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Puedo hablar con alguien?",
+            "es": "Can I speak with someone?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Para qué es esta deducción?",
+            "es": "What is this deduction for?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Cuándo empieza mi aumento?",
+            "es": "When does my raise start?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Puede revisar mi depósito directo?",
+            "es": "Can you check my direct deposit?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-20"
+      },
+      {
+        "n": 21,
+        "title": "Giving Updates to a Supervisor",
+        "objective": "Handle giving updates to a supervisor in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss giving updates to a supervisor with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "actualización de estado",
+            "es": "status update",
+            "kind": "term"
+          },
+          {
+            "en": "supervisor",
+            "es": "supervisor",
+            "kind": "term"
+          },
+          {
+            "en": "informe de avance",
+            "es": "progress report",
+            "kind": "term"
+          },
+          {
+            "en": "cambio de sala",
+            "es": "turnover",
+            "kind": "term",
+            "note": "Es la limpieza y preparación entre una cirugía y la siguiente."
+          },
+          {
+            "en": "limpieza terminal",
+            "es": "terminal clean",
+            "kind": "term"
+          },
+          {
+            "en": "tiempo de contacto",
+            "es": "dwell time",
+            "kind": "term",
+            "note": "Es el tiempo que el desinfectante debe permanecer mojado; sigue la etiqueta."
+          },
+          {
+            "en": "contenedor de objetos punzocortantes",
+            "es": "sharps container",
+            "kind": "term"
+          },
+          {
+            "en": "riesgo biológico",
+            "es": "biohazard",
+            "kind": "term"
+          },
+          {
+            "en": "equipo de protección personal",
+            "es": "PPE",
+            "kind": "term",
+            "note": "Se dice pi-pi-í."
+          },
+          {
+            "en": "sala lista",
+            "es": "room ready",
+            "kind": "term",
+            "note": "Es el aviso de que la sala está lista para el siguiente caso."
+          },
+          {
+            "en": "Terminé el quirófano 2 y el quirófano 3.",
+            "es": "I finished OR 2 and OR 3.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Ahora estoy en el quirófano 4.",
+            "es": "I am now in OR 4.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Terminaré en unos 30 minutos.",
+            "es": "I will be done in about 30 minutes.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Necesito ayuda con el cambio de sala.",
+            "es": "I need help with the turnover.",
+            "kind": "phrase"
+          },
+          {
+            "en": "La sala todavía no está lista por el tiempo de contacto.",
+            "es": "The room is not ready yet because of dwell time.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Le daré otra actualización pronto.",
+            "es": "I will give you another update soon.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-21"
+      },
+      {
+        "n": 22,
+        "title": "Asking for Clarification",
+        "objective": "Handle asking for clarification in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss asking for clarification with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "cambio de quirófano",
+            "es": "turnover",
+            "kind": "term",
+            "note": "Es la limpieza y preparación entre una cirugía y la siguiente."
+          },
+          {
+            "en": "recipiente de succión",
+            "es": "suction canister",
+            "kind": "term"
+          },
+          {
+            "en": "bolsa de riesgo biológico",
+            "es": "biohazard bag",
+            "kind": "term"
+          },
+          {
+            "en": "mesa Mayo",
+            "es": "mayo stand",
+            "kind": "term",
+            "note": "Mesa pequeña de instrumentos junto al paciente."
+          },
+          {
+            "en": "contenedor de objetos punzocortantes",
+            "es": "sharps container",
+            "kind": "term"
+          },
+          {
+            "en": "mesa de operaciones",
+            "es": "OR table",
+            "kind": "term"
+          },
+          {
+            "en": "tiempo de contacto",
+            "es": "dwell time",
+            "kind": "term",
+            "note": "Tiempo que el desinfectante debe permanecer húmedo; se sigue la etiqueta del producto."
+          },
+          {
+            "en": "quirófano listo",
+            "es": "room ready",
+            "kind": "term"
+          },
+          {
+            "en": "equipo de protección personal",
+            "es": "PPE",
+            "kind": "term",
+            "note": "Se pronuncia pi-pi-í."
+          },
+          {
+            "en": "enfermera encargada",
+            "es": "charge nurse",
+            "kind": "term"
+          },
+          {
+            "en": "Lo siento, no entendí.",
+            "es": "I'm sorry, I didn't understand.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Puede repetir eso?",
+            "es": "Can you say that again?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Puede hablar más despacio?",
+            "es": "Can you speak more slowly?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Puede escribirlo?",
+            "es": "Can you write that down?",
+            "kind": "phrase"
+          },
+          {
+            "en": "Déjeme asegurarme de que entendí.",
+            "es": "Let me make sure I understand.",
+            "kind": "phrase",
+            "note": "Úsela antes de repetir los pasos con sus propias palabras."
+          },
+          {
+            "en": "¿Podría explicarme eso, por favor?",
+            "es": "Could you explain that, please?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-22"
+      },
+      {
+        "n": 23,
+        "title": "Being Friendly with Patients",
+        "objective": "Handle being friendly with patients in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss being friendly with patients with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "habitación de paciente",
+            "es": "patient room",
+            "kind": "term"
+          },
+          {
+            "en": "guantes",
+            "es": "gloves",
+            "kind": "term"
+          },
+          {
+            "en": "barandal de la cama",
+            "es": "bed rail",
+            "kind": "term",
+            "note": "También se dice side rail."
+          },
+          {
+            "en": "desinfectante",
+            "es": "disinfectant",
+            "kind": "term"
+          },
+          {
+            "en": "botón de llamada",
+            "es": "call button",
+            "kind": "term",
+            "note": "El botón que el paciente usa para llamar a enfermería."
+          },
+          {
+            "en": "bote de basura",
+            "es": "trash can",
+            "kind": "term"
+          },
+          {
+            "en": "piso",
+            "es": "floor",
+            "kind": "term"
+          },
+          {
+            "en": "trapeador",
+            "es": "mop",
+            "kind": "term"
+          },
+          {
+            "en": "cortina de privacidad",
+            "es": "privacy curtain",
+            "kind": "term"
+          },
+          {
+            "en": "ropa de cama",
+            "es": "linens",
+            "kind": "term",
+            "note": "Sábanas y toallas del hospital."
+          },
+          {
+            "en": "contenedor de objetos punzocortantes",
+            "es": "sharps container",
+            "kind": "term"
+          },
+          {
+            "en": "visitante",
+            "es": "visitor",
+            "kind": "term"
+          },
+          {
+            "en": "Estoy aquí para limpiar su habitación.",
+            "es": "I'm here to clean your room.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Está bien si empiezo?",
+            "es": "Is it okay if I start?",
+            "kind": "phrase",
+            "note": "Siempre pida permiso antes de entrar o empezar."
+          },
+          {
+            "en": "Terminaré pronto.",
+            "es": "I'll be finished soon.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Perdone la interrupción.",
+            "es": "Sorry for the interruption.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Necesita algo antes de que me vaya?",
+            "es": "Do you need anything before I go?",
+            "kind": "phrase"
+          },
+          {
+            "en": "Por favor, presione el botón de llamada si necesita una enfermera.",
+            "es": "Please press the call button if you need a nurse.",
+            "kind": "phrase",
+            "note": "Usted no da atención médica; dirija al paciente a enfermería."
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-23"
+      },
+      {
+        "n": 24,
+        "title": "Team Meetings in English",
+        "objective": "Handle team meetings in english in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss team meetings in english with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "reunión de equipo",
+            "es": "team meeting",
+            "kind": "term"
+          },
+          {
+            "en": "supervisora",
+            "es": "supervisor",
+            "kind": "term"
+          },
+          {
+            "en": "rotación de sala",
+            "es": "turnover",
+            "kind": "term",
+            "note": "Es el cambio de sala entre una cirugía y la siguiente."
+          },
+          {
+            "en": "contenedor de objetos punzantes",
+            "es": "sharps container",
+            "kind": "term"
+          },
+          {
+            "en": "equipo de protección personal",
+            "es": "PPE",
+            "kind": "term",
+            "note": "Se dicen las letras: pi-pi-i."
+          },
+          {
+            "en": "limpieza terminal",
+            "es": "terminal clean",
+            "kind": "term"
+          },
+          {
+            "en": "política",
+            "es": "policy",
+            "kind": "term"
+          },
+          {
+            "en": "pregunta",
+            "es": "question",
+            "kind": "term"
+          },
+          {
+            "en": "problema",
+            "es": "problem",
+            "kind": "term"
+          },
+          {
+            "en": "riesgo biológico",
+            "es": "biohazard",
+            "kind": "term"
+          },
+          {
+            "en": "Tengo una pregunta.",
+            "es": "I have a question.",
+            "kind": "phrase"
+          },
+          {
+            "en": "En mi área, hay un problema con el frasco de succión.",
+            "es": "In my area, there is a problem with the suction canister.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Qué debo hacer?",
+            "es": "What should I do?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Podría repetir eso, por favor?",
+            "es": "Could you repeat that, please?",
+            "kind": "phrase",
+            "note": "Útil cuando la persona habla rápido."
+          },
+          {
+            "en": "Entiendo.",
+            "es": "I understand.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Le avisaré cuando la sala esté lista.",
+            "es": "I will tell you when the room is ready.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-24"
+      },
+      {
+        "n": 25,
+        "title": "Performance Review Language",
+        "objective": "Handle performance review language in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss performance review language with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "evaluación de desempeño",
+            "es": "performance review",
+            "kind": "term"
+          },
+          {
+            "en": "supervisor",
+            "es": "supervisor",
+            "kind": "term"
+          },
+          {
+            "en": "comentarios y retroalimentación",
+            "es": "feedback",
+            "kind": "term",
+            "note": "En inglés es incontable: se dice some feedback, no feedbacks."
+          },
+          {
+            "en": "fortaleza",
+            "es": "strength",
+            "kind": "term"
+          },
+          {
+            "en": "área de mejora",
+            "es": "area for improvement",
+            "kind": "term"
+          },
+          {
+            "en": "rotación de sala (limpieza entre cirugías)",
+            "es": "turnover",
+            "kind": "term"
+          },
+          {
+            "en": "lista de verificación",
+            "es": "checklist",
+            "kind": "term"
+          },
+          {
+            "en": "tiempo de contacto del desinfectante",
+            "es": "dwell time",
+            "kind": "term",
+            "note": "Es el tiempo que la superficie debe permanecer húmeda según la etiqueta del producto."
+          },
+          {
+            "en": "sala lista",
+            "es": "room ready",
+            "kind": "term"
+          },
+          {
+            "en": "meta",
+            "es": "goal",
+            "kind": "term"
+          },
+          {
+            "en": "limpieza terminal",
+            "es": "terminal clean",
+            "kind": "term"
+          },
+          {
+            "en": "Gracias por los comentarios.",
+            "es": "Thank you for the feedback.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Voy a trabajar en eso.",
+            "es": "I will work on that.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Puede ayudarme a entender qué necesito hacer mejor?",
+            "es": "Can you help me understand what I need to do better?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Puede darme un ejemplo?",
+            "es": "Can you give me an example?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Cuál es mi meta para la próxima evaluación?",
+            "es": "What is my goal for the next review?",
+            "kind": "phrase"
+          },
+          {
+            "en": "Quiero mejorar mi tiempo de rotación.",
+            "es": "I want to improve my turnover time.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-25"
+      },
+      {
+        "n": 26,
+        "title": "Asking for a Raise",
+        "objective": "Handle asking for a raise in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss asking for a raise with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "aumento de sueldo",
+            "es": "raise",
+            "kind": "term",
+            "note": "En EE. UU. se dice raise para un aumento de salario."
+          },
+          {
+            "en": "salario",
+            "es": "salary",
+            "kind": "term"
+          },
+          {
+            "en": "supervisor",
+            "es": "supervisor",
+            "kind": "term"
+          },
+          {
+            "en": "contribuciones",
+            "es": "contributions",
+            "kind": "term"
+          },
+          {
+            "en": "experiencia",
+            "es": "experience",
+            "kind": "term"
+          },
+          {
+            "en": "evaluación de desempeño",
+            "es": "performance review",
+            "kind": "term"
+          },
+          {
+            "en": "limpieza terminal",
+            "es": "terminal clean",
+            "kind": "term"
+          },
+          {
+            "en": "cambio de sala",
+            "es": "turnover",
+            "kind": "term"
+          },
+          {
+            "en": "contenedor de objetos punzantes",
+            "es": "sharps container",
+            "kind": "term"
+          },
+          {
+            "en": "riesgo biológico",
+            "es": "biohazard",
+            "kind": "term"
+          },
+          {
+            "en": "sala lista",
+            "es": "room ready",
+            "kind": "term"
+          },
+          {
+            "en": "horario",
+            "es": "schedule",
+            "kind": "term"
+          },
+          {
+            "en": "Me gustaría hablar sobre mi salario.",
+            "es": "I would like to discuss my salary.",
+            "kind": "phrase",
+            "note": "Forma cortés y profesional."
+          },
+          {
+            "en": "He estado aquí 2 años.",
+            "es": "I have been here 2 years.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Siempre llego a tiempo.",
+            "es": "I always arrive on time.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Podemos hablar sobre un aumento?",
+            "es": "Can we talk about a raise?",
+            "kind": "phrase"
+          },
+          {
+            "en": "Me gustaría explicar mis contribuciones.",
+            "es": "I would like to explain my contributions.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Cuándo podemos hablar de nuevo?",
+            "es": "When can we talk again?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-26"
+      },
+      {
+        "n": 27,
+        "title": "Training a New Coworker",
+        "objective": "Handle training a new coworker in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss training a new coworker with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "guantes",
+            "es": "gloves",
+            "kind": "term"
+          },
+          {
+            "en": "equipo de protección personal",
+            "es": "PPE",
+            "kind": "term",
+            "note": "Se dice pi-pi-í. Incluye guantes, bata y mascarilla."
+          },
+          {
+            "en": "baño",
+            "es": "bathroom",
+            "kind": "term"
+          },
+          {
+            "en": "superficies",
+            "es": "surfaces",
+            "kind": "term"
+          },
+          {
+            "en": "desinfectante",
+            "es": "disinfectant",
+            "kind": "term"
+          },
+          {
+            "en": "tiempo de contacto",
+            "es": "dwell time",
+            "kind": "term",
+            "note": "Tiempo que el desinfectante debe permanecer húmedo sobre la superficie; lo indica la etiqueta."
+          },
+          {
+            "en": "riesgo biológico",
+            "es": "biohazard",
+            "kind": "term",
+            "note": "Se usa para desechos con sangre o fluidos."
+          },
+          {
+            "en": "contenedor de objetos punzocortantes",
+            "es": "sharps container",
+            "kind": "term"
+          },
+          {
+            "en": "barandilla de la cama",
+            "es": "bed rail",
+            "kind": "term"
+          },
+          {
+            "en": "trapeador",
+            "es": "mop",
+            "kind": "term"
+          },
+          {
+            "en": "lista de verificación",
+            "es": "checklist",
+            "kind": "term"
+          },
+          {
+            "en": "Primero, ponte los guantes.",
+            "es": "First, put on gloves.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Deja que te muestre cómo limpiamos esta habitación.",
+            "es": "Let me show you how we clean this room.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Tienes alguna pregunta?",
+            "es": "Do you have any questions?",
+            "kind": "phrase"
+          },
+          {
+            "en": "Revisa la etiqueta para ver el tiempo de contacto.",
+            "es": "Check the label for the dwell time.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Pregúntame si no estás seguro.",
+            "es": "Ask me if you are not sure.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Sigue los mismos pasos cada vez.",
+            "es": "Follow the same steps every time.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-27"
+      },
+      {
+        "n": 28,
+        "title": "Workplace Culture & Respect",
+        "objective": "Handle workplace culture & respect in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss workplace culture & respect with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "compañero de trabajo",
+            "es": "coworker",
+            "kind": "term"
+          },
+          {
+            "en": "supervisor",
+            "es": "supervisor",
+            "kind": "term"
+          },
+          {
+            "en": "respeto",
+            "es": "respect",
+            "kind": "term"
+          },
+          {
+            "en": "conducta profesional",
+            "es": "professional conduct",
+            "kind": "term"
+          },
+          {
+            "en": "expectativas",
+            "es": "expectations",
+            "kind": "term"
+          },
+          {
+            "en": "tono de voz",
+            "es": "tone of voice",
+            "kind": "term"
+          },
+          {
+            "en": "comentarios, retroalimentación",
+            "es": "feedback",
+            "kind": "term",
+            "note": "Es incontable en inglés: no se usa en plural."
+          },
+          {
+            "en": "trabajo en equipo",
+            "es": "teamwork",
+            "kind": "term"
+          },
+          {
+            "en": "cambio de sala",
+            "es": "turnover",
+            "kind": "term"
+          },
+          {
+            "en": "malentendido",
+            "es": "misunderstanding",
+            "kind": "term"
+          },
+          {
+            "en": "sala lista",
+            "es": "room ready",
+            "kind": "term"
+          },
+          {
+            "en": "Disculpa, quisiera hablar contigo.",
+            "es": "Excuse me, I would like to talk to you.",
+            "kind": "phrase",
+            "note": "Forma cortés y directa para iniciar una conversación difícil."
+          },
+          {
+            "en": "Me sentí incómodo cuando me gritaste.",
+            "es": "I felt uncomfortable when you yelled at me.",
+            "kind": "phrase",
+            "note": "Habla de tu sentimiento, no acuses a la persona."
+          },
+          {
+            "en": "Le agradecería que usara un tono de voz más tranquilo.",
+            "es": "I would appreciate it if you used a calmer tone of voice.",
+            "kind": "phrase",
+            "note": "Después de appreciate va la palabra it."
+          },
+          {
+            "en": "¿Podemos hablar después del cambio de sala?",
+            "es": "Can we talk after the turnover?",
+            "kind": "phrase"
+          },
+          {
+            "en": "Quiero que trabajemos bien juntos.",
+            "es": "I want us to work well together.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Quisiera hablar con mi supervisor.",
+            "es": "I would like to speak with my supervisor.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-28"
+      },
+      {
+        "n": 29,
+        "title": "Emergency Communication Practice",
+        "objective": "Handle emergency communication practice in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss emergency communication practice with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "paciente",
+            "es": "patient",
+            "kind": "term"
+          },
+          {
+            "en": "enfermera / enfermero",
+            "es": "nurse",
+            "kind": "term"
+          },
+          {
+            "en": "pasillo",
+            "es": "hallway",
+            "kind": "term"
+          },
+          {
+            "en": "derrame",
+            "es": "spill",
+            "kind": "term"
+          },
+          {
+            "en": "letrero de piso mojado",
+            "es": "wet floor sign",
+            "kind": "term"
+          },
+          {
+            "en": "camilla",
+            "es": "stretcher",
+            "kind": "term"
+          },
+          {
+            "en": "lesión",
+            "es": "injury",
+            "kind": "term"
+          },
+          {
+            "en": "supervisor / supervisora",
+            "es": "supervisor",
+            "kind": "term"
+          },
+          {
+            "en": "reporte del incidente",
+            "es": "incident report",
+            "kind": "term"
+          },
+          {
+            "en": "alarma de incendio",
+            "es": "fire alarm",
+            "kind": "term"
+          },
+          {
+            "en": "salida de emergencia",
+            "es": "emergency exit",
+            "kind": "term"
+          },
+          {
+            "en": "botiquín de primeros auxilios",
+            "es": "first aid kit",
+            "kind": "term"
+          },
+          {
+            "en": "¡Necesito una enfermera ahora mismo!",
+            "es": "I need a nurse right now!",
+            "kind": "phrase",
+            "note": "Úsala para pedir ayuda urgente."
+          },
+          {
+            "en": "¡Un paciente se cayó en la habitación 212!",
+            "es": "A patient fell in room 212!",
+            "kind": "phrase",
+            "note": "Cambia el número según la habitación."
+          },
+          {
+            "en": "Por favor, no muevan al paciente.",
+            "es": "Please do not move the patient.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Mantengan la calma y síganme.",
+            "es": "Stay calm and follow me.",
+            "kind": "phrase"
+          },
+          {
+            "en": "¿Dónde está la salida de emergencia más cercana?",
+            "es": "Where is the nearest emergency exit?",
+            "kind": "phrase"
+          },
+          {
+            "en": "¡Mi compañero de trabajo está herido en el pasillo!",
+            "es": "My coworker is hurt in the hallway!",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-29"
+      },
+      {
+        "n": 30,
+        "title": "THRESHOLD — Full Shift Without Spanish",
+        "objective": "Handle threshold — full shift without spanish in English and confirm understanding with the OR team.",
+        "focus": "Communicate clearly during the cleaning shift",
+        "speaking": "Discuss threshold — full shift without spanish with the OR team in English. Explain what you need, ask a follow-up question, and confirm the next step.",
+        "words": [
+          {
+            "en": "cambio de sala (limpieza entre cirugías)",
+            "es": "turnover",
+            "kind": "term",
+            "note": "En el quirófano se dice turnover para la limpieza rápida entre un caso y otro."
+          },
+          {
+            "en": "limpieza terminal",
+            "es": "terminal clean",
+            "kind": "term",
+            "note": "Limpieza profunda, normalmente al final del día."
+          },
+          {
+            "en": "bolsa de riesgo biológico",
+            "es": "biohazard bag",
+            "kind": "term"
+          },
+          {
+            "en": "contenedor de objetos punzantes",
+            "es": "sharps container",
+            "kind": "term"
+          },
+          {
+            "en": "campo estéril",
+            "es": "sterile field",
+            "kind": "term",
+            "note": "No lo toques; solo el equipo quirúrgico lo maneja."
+          },
+          {
+            "en": "soporte mayo (mesa de instrumentos)",
+            "es": "mayo stand",
+            "kind": "term"
+          },
+          {
+            "en": "mesa quirúrgica",
+            "es": "OR table",
+            "kind": "term"
+          },
+          {
+            "en": "EPP (equipo de protección personal)",
+            "es": "PPE",
+            "kind": "term",
+            "note": "Se pronuncia letra por letra: pi-pi-i."
+          },
+          {
+            "en": "tiempo de contacto del desinfectante",
+            "es": "dwell time",
+            "kind": "term",
+            "note": "Según la etiqueta del producto."
+          },
+          {
+            "en": "sala lista",
+            "es": "room ready",
+            "kind": "term"
+          },
+          {
+            "en": "recipiente de succión",
+            "es": "suction canister",
+            "kind": "term"
+          },
+          {
+            "en": "resumen del turno",
+            "es": "shift summary",
+            "kind": "term"
+          },
+          {
+            "en": "Buenos días, ¿qué sala limpio primero?",
+            "es": "Good morning, which room do I clean first?",
+            "kind": "phrase"
+          },
+          {
+            "en": "El contenedor de objetos punzantes está casi lleno.",
+            "es": "The sharps container is almost full.",
+            "kind": "phrase"
+          },
+          {
+            "en": "Necesito revisar el tiempo de contacto en la etiqueta.",
+            "es": "I need to check the dwell time on the label.",
+            "kind": "phrase"
+          },
+          {
+            "en": "La Sala 4 está lista para el próximo caso.",
+            "es": "Room 4 is ready for the next case.",
+            "kind": "phrase",
+            "note": "Case significa cirugía o procedimiento en este contexto."
+          },
+          {
+            "en": "Tengo una pregunta sobre el recipiente de succión.",
+            "es": "I have a question about the suction canister.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-en-or-evs-lesson-30"
+      }
+    ]
+  },
+  "or-cleaning": {
+    "version": 1,
+    "module": "or-cleaning",
+    "baseModule": "or-cleaning",
+    "stage": "core",
+    "language": "Spanish",
+    "nativeLanguage": "English",
+    "headline": "OR Cleaning Crew · Core",
+    "threshold": "Communicate during OR cleaning shifts in Spanish, ask for clarification and confirm room readiness.",
+    "reviewed": false,
+    "lessons": [
+      {
+        "n": 1,
+        "title": "Hello & Introductions",
+        "objective": "Handle hello & introductions in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Present routines",
+        "speaking": "You are an OR cleaning crew member. Discuss hello & introductions with your partner in Spanish. Use the lesson vocabulary and present routines. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "quirófano",
+            "en": "operating room",
+            "kind": "term"
+          },
+          {
+            "es": "departamento",
+            "en": "department",
+            "kind": "term"
+          },
+          {
+            "es": "servicios ambientales",
+            "en": "environmental services",
+            "kind": "term"
+          },
+          {
+            "es": "supervisor",
+            "en": "supervisor",
+            "kind": "term"
+          },
+          {
+            "es": "compañero de trabajo",
+            "en": "coworker",
+            "kind": "term"
+          },
+          {
+            "es": "enfermero, enfermera",
+            "en": "nurse",
+            "kind": "term"
+          },
+          {
+            "es": "cirujano",
+            "en": "surgeon",
+            "kind": "term"
+          },
+          {
+            "es": "sala de descanso",
+            "en": "break room",
+            "kind": "term"
+          },
+          {
+            "es": "nombre",
+            "en": "name",
+            "kind": "term"
+          },
+          {
+            "es": "turno",
+            "en": "shift",
+            "kind": "term"
+          },
+          {
+            "es": "credencial de identificación",
+            "en": "badge",
+            "kind": "term"
+          },
+          {
+            "es": "equipo",
+            "en": "team",
+            "kind": "term"
+          },
+          {
+            "es": "Hola, me llamo Ana.",
+            "en": "Hello, my name is Ana.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Mucho gusto.",
+            "en": "Nice to meet you.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Trabajo en servicios ambientales.",
+            "en": "I work in environmental services.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Buenos días, ¿cómo está?",
+            "en": "Good morning, how are you?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Soy nuevo en este turno.",
+            "en": "I am new on this shift.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Dónde está la sala de descanso?",
+            "en": "Where is the break room?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-1",
+        "grammar": {
+          "focus": "Present routines: Present forms describe routines. Use no before the verb for a negative.",
+          "examples": [
+            {
+              "es": "Trabajo con el equipo y reviso la sala.",
+              "en": "I work with the team and check the room."
+            },
+            {
+              "es": "Reviso el equipo antes de entrar.",
+              "en": "I check the equipment before entering."
+            }
+          ]
+        }
+      },
+      {
+        "n": 2,
+        "title": "Numbers, Days & Time",
+        "objective": "Handle numbers, days & time in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Present routines",
+        "speaking": "You are an OR cleaning crew member. Discuss numbers, days & time with your partner in Spanish. Use the lesson vocabulary and present routines. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "turno",
+            "en": "shift",
+            "kind": "term"
+          },
+          {
+            "es": "horario",
+            "en": "schedule",
+            "kind": "term"
+          },
+          {
+            "es": "hora",
+            "en": "hour",
+            "kind": "term"
+          },
+          {
+            "es": "minuto",
+            "en": "minute",
+            "kind": "term"
+          },
+          {
+            "es": "mañana",
+            "en": "morning",
+            "kind": "term"
+          },
+          {
+            "es": "tarde",
+            "en": "afternoon",
+            "kind": "term"
+          },
+          {
+            "es": "lunes",
+            "en": "Monday",
+            "kind": "term"
+          },
+          {
+            "es": "viernes",
+            "en": "Friday",
+            "kind": "term"
+          },
+          {
+            "es": "hoy",
+            "en": "today",
+            "kind": "term"
+          },
+          {
+            "es": "cambio de sala",
+            "en": "turnover",
+            "kind": "term"
+          },
+          {
+            "es": "en punto",
+            "en": "o'clock",
+            "kind": "term"
+          },
+          {
+            "es": "¿Qué hora es?",
+            "en": "What time is it?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Qué día es hoy?",
+            "en": "What day is today?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Mi turno empieza a las 7:00 AM.",
+            "en": "My shift starts at 7:00 AM.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Cuántas horas dura mi turno?",
+            "en": "How many hours is my shift?",
+            "kind": "phrase"
+          },
+          {
+            "es": "El quirófano está listo a las 10:30.",
+            "en": "The room is ready at 10:30.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Puede repetir la hora?",
+            "en": "Can you say the time again?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-2",
+        "grammar": {
+          "focus": "Present routines: Present forms describe routines. Use no before the verb for a negative.",
+          "examples": [
+            {
+              "es": "Trabajo con el equipo y reviso la sala.",
+              "en": "I work with the team and check the room."
+            },
+            {
+              "es": "Reviso el equipo antes de entrar.",
+              "en": "I check the equipment before entering."
+            }
+          ]
+        }
+      },
+      {
+        "n": 3,
+        "title": "Asking for Help",
+        "objective": "Handle asking for help in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Present routines",
+        "speaking": "You are an OR cleaning crew member. Discuss asking for help with your partner in Spanish. Use the lesson vocabulary and present routines. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "supervisor",
+            "en": "supervisor",
+            "kind": "term"
+          },
+          {
+            "es": "compañero de trabajo",
+            "en": "coworker",
+            "kind": "term"
+          },
+          {
+            "es": "quirófano",
+            "en": "OR",
+            "kind": "term"
+          },
+          {
+            "es": "cambio de sala",
+            "en": "room turnover",
+            "kind": "term"
+          },
+          {
+            "es": "bolsa de riesgo biológico",
+            "en": "biohazard bag",
+            "kind": "term"
+          },
+          {
+            "es": "contenedor de objetos punzocortantes",
+            "en": "sharps container",
+            "kind": "term"
+          },
+          {
+            "es": "letrero",
+            "en": "sign",
+            "kind": "term"
+          },
+          {
+            "es": "piso",
+            "en": "floor",
+            "kind": "term"
+          },
+          {
+            "es": "mesa Mayo",
+            "en": "mayo stand",
+            "kind": "term"
+          },
+          {
+            "es": "equipo de protección personal",
+            "en": "PPE",
+            "kind": "term"
+          },
+          {
+            "es": "Disculpe, ¿puede ayudarme?",
+            "en": "Excuse me, can you help me?",
+            "kind": "phrase"
+          },
+          {
+            "es": "No entiendo.",
+            "en": "I don't understand.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Puede mostrarme?",
+            "en": "Can you show me?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Muchas gracias.",
+            "en": "Thank you very much.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Puede repetirlo, por favor?",
+            "en": "Can you say that again, please?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Necesito ayuda con esta sala.",
+            "en": "I need help with this room.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-3",
+        "grammar": {
+          "focus": "Present routines: Present forms describe routines. Use no before the verb for a negative.",
+          "examples": [
+            {
+              "es": "Trabajo con el equipo y reviso la sala.",
+              "en": "I work with the team and check the room."
+            },
+            {
+              "es": "Reviso el equipo antes de entrar.",
+              "en": "I check the equipment before entering."
+            }
+          ]
+        }
+      },
+      {
+        "n": 4,
+        "title": "Your Workplace — Rooms & Areas",
+        "objective": "Handle your workplace — rooms & areas in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Present routines",
+        "speaking": "You are an OR cleaning crew member. Discuss your workplace — rooms & areas with your partner in Spanish. Use the lesson vocabulary and present routines. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "habitación del paciente",
+            "en": "patient room",
+            "kind": "term"
+          },
+          {
+            "es": "estación de enfermería",
+            "en": "nurse station",
+            "kind": "term"
+          },
+          {
+            "es": "cuarto de suministros",
+            "en": "supply room",
+            "kind": "term"
+          },
+          {
+            "es": "elevador",
+            "en": "elevator",
+            "kind": "term"
+          },
+          {
+            "es": "muelle de carga",
+            "en": "loading dock",
+            "kind": "term"
+          },
+          {
+            "es": "sala de descanso",
+            "en": "break room",
+            "kind": "term"
+          },
+          {
+            "es": "salida",
+            "en": "exit",
+            "kind": "term"
+          },
+          {
+            "es": "piso",
+            "en": "floor",
+            "kind": "term"
+          },
+          {
+            "es": "pasillo",
+            "en": "hallway",
+            "kind": "term"
+          },
+          {
+            "es": "escaleras",
+            "en": "stairs",
+            "kind": "term"
+          },
+          {
+            "es": "¿Dónde está el cuarto de suministros?",
+            "en": "Where is the supply room?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Cómo llego al piso 3?",
+            "en": "How do I get to the 3rd floor?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿La sala de descanso está en este piso?",
+            "en": "Is the break room on this floor?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Dónde está la salida más cercana?",
+            "en": "Where is the nearest exit?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Me puede mostrar, por favor?",
+            "en": "Can you show me, please?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-4",
+        "grammar": {
+          "focus": "Present routines: Present forms describe routines. Use no before the verb for a negative.",
+          "examples": [
+            {
+              "es": "Trabajo con el equipo y reviso la sala.",
+              "en": "I work with the team and check the room."
+            },
+            {
+              "es": "Reviso el equipo antes de entrar.",
+              "en": "I check the equipment before entering."
+            }
+          ]
+        }
+      },
+      {
+        "n": 5,
+        "title": "Tools & Equipment Names",
+        "objective": "Handle tools & equipment names in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Present routines",
+        "speaking": "You are an OR cleaning crew member. Discuss tools & equipment names with your partner in Spanish. Use the lesson vocabulary and present routines. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "trapeador",
+            "en": "mop",
+            "kind": "term"
+          },
+          {
+            "es": "balde",
+            "en": "bucket",
+            "kind": "term"
+          },
+          {
+            "es": "carrito",
+            "en": "cart",
+            "kind": "term"
+          },
+          {
+            "es": "aspiradora",
+            "en": "vacuum",
+            "kind": "term"
+          },
+          {
+            "es": "desinfectante",
+            "en": "disinfectant",
+            "kind": "term"
+          },
+          {
+            "es": "toallitas",
+            "en": "wipes",
+            "kind": "term"
+          },
+          {
+            "es": "guantes",
+            "en": "gloves",
+            "kind": "term"
+          },
+          {
+            "es": "bolsas",
+            "en": "bags",
+            "kind": "term"
+          },
+          {
+            "es": "escoba",
+            "en": "broom",
+            "kind": "term"
+          },
+          {
+            "es": "limpiavidrios de goma",
+            "en": "squeegee",
+            "kind": "term"
+          },
+          {
+            "es": "piso",
+            "en": "floor",
+            "kind": "term"
+          },
+          {
+            "es": "Uso el trapeador para limpiar el piso.",
+            "en": "I use the mop to clean the floor.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Esta es la escoba.",
+            "en": "This is the broom.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Dónde está el desinfectante?",
+            "en": "Where is the disinfectant?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Necesito más guantes, por favor.",
+            "en": "I need more gloves, please.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Cómo se llama esta herramienta?",
+            "en": "What is this tool called?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-5",
+        "grammar": {
+          "focus": "Present routines: Present forms describe routines. Use no before the verb for a negative.",
+          "examples": [
+            {
+              "es": "Trabajo con el equipo y reviso la sala.",
+              "en": "I work with the team and check the room."
+            },
+            {
+              "es": "Reviso el equipo antes de entrar.",
+              "en": "I check the equipment before entering."
+            }
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "title": "Safety Warnings",
+        "objective": "Handle safety warnings in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Present routines",
+        "speaking": "You are an OR cleaning crew member. Discuss safety warnings with your partner in Spanish. Use the lesson vocabulary and present routines. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "letrero de piso mojado",
+            "en": "wet floor sign",
+            "kind": "term"
+          },
+          {
+            "es": "contenedor de objetos punzantes",
+            "en": "sharps container",
+            "kind": "term"
+          },
+          {
+            "es": "aislamiento",
+            "en": "isolation",
+            "kind": "term"
+          },
+          {
+            "es": "EPP (equipo de protección personal)",
+            "en": "PPE",
+            "kind": "term"
+          },
+          {
+            "es": "puerta",
+            "en": "door",
+            "kind": "term"
+          },
+          {
+            "es": "piso",
+            "en": "floor",
+            "kind": "term"
+          },
+          {
+            "es": "riesgo biológico",
+            "en": "biohazard",
+            "kind": "term"
+          },
+          {
+            "es": "guantes",
+            "en": "gloves",
+            "kind": "term"
+          },
+          {
+            "es": "mascarilla",
+            "en": "mask",
+            "kind": "term"
+          },
+          {
+            "es": "enfermera o enfermero",
+            "en": "nurse",
+            "kind": "term"
+          },
+          {
+            "es": "mesa",
+            "en": "table",
+            "kind": "term"
+          },
+          {
+            "es": "objeto punzante o filoso",
+            "en": "sharp",
+            "kind": "term"
+          },
+          {
+            "es": "Piso mojado. No entre.",
+            "en": "Wet floor. Do not enter.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Este cuarto está en aislamiento.",
+            "en": "This room is on isolation.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Cuidado, objeto punzante.",
+            "en": "Careful, sharp.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Llamen para pedir ayuda.",
+            "en": "Call for help.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Necesito ayuda aquí.",
+            "en": "I need help here.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Por favor, espere afuera.",
+            "en": "Please wait outside.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-6",
+        "grammar": {
+          "focus": "Present routines: Present forms describe routines. Use no before the verb for a negative.",
+          "examples": [
+            {
+              "es": "Trabajo con el equipo y reviso la sala.",
+              "en": "I work with the team and check the room."
+            },
+            {
+              "es": "Reviso el equipo antes de entrar.",
+              "en": "I check the equipment before entering."
+            }
+          ]
+        }
+      },
+      {
+        "n": 7,
+        "title": "Following Instructions",
+        "objective": "Handle following instructions in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Present routines",
+        "speaking": "You are an OR cleaning crew member. Discuss following instructions with your partner in Spanish. Use the lesson vocabulary and present routines. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "supervisor",
+            "en": "supervisor",
+            "kind": "term"
+          },
+          {
+            "es": "cambio de sala",
+            "en": "turnover",
+            "kind": "term"
+          },
+          {
+            "es": "EPP (equipo de protección personal)",
+            "en": "PPE",
+            "kind": "term"
+          },
+          {
+            "es": "bolsa de riesgo biológico",
+            "en": "biohazard bag",
+            "kind": "term"
+          },
+          {
+            "es": "contenedor de objetos punzantes",
+            "en": "sharps container",
+            "kind": "term"
+          },
+          {
+            "es": "mesa quirúrgica",
+            "en": "OR table",
+            "kind": "term"
+          },
+          {
+            "es": "mesa de Mayo",
+            "en": "mayo stand",
+            "kind": "term"
+          },
+          {
+            "es": "sala lista",
+            "en": "room ready",
+            "kind": "term"
+          },
+          {
+            "es": "tiempo de contacto",
+            "en": "dwell time",
+            "kind": "term"
+          },
+          {
+            "es": "desinfectante",
+            "en": "disinfectant",
+            "kind": "term"
+          },
+          {
+            "es": "¿Puede repetir eso, por favor?",
+            "en": "Can you repeat that, please?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Es correcto?",
+            "en": "Is that right?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Entonces primero me pongo el EPP y luego limpio la mesa quirúrgica?",
+            "en": "So first I put on PPE, then I clean the OR table?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Cuál es el siguiente paso?",
+            "en": "What is the next step?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Por favor, hable más despacio.",
+            "en": "Please speak more slowly.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Entiendo. Empiezo ahora.",
+            "en": "I understand. I will start now.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-7",
+        "grammar": {
+          "focus": "Present routines: Present forms describe routines. Use no before the verb for a negative.",
+          "examples": [
+            {
+              "es": "Trabajo con el equipo y reviso la sala.",
+              "en": "I work with the team and check the room."
+            },
+            {
+              "es": "Reviso el equipo antes de entrar.",
+              "en": "I check the equipment before entering."
+            }
+          ]
+        }
+      },
+      {
+        "n": 8,
+        "title": "Shift Communication",
+        "objective": "Handle shift communication in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Present routines",
+        "speaking": "You are an OR cleaning crew member. Discuss shift communication with your partner in Spanish. Use the lesson vocabulary and present routines. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "turno",
+            "en": "shift",
+            "kind": "term"
+          },
+          {
+            "es": "traspaso de turno",
+            "en": "handoff",
+            "kind": "term"
+          },
+          {
+            "es": "carrito de suministros",
+            "en": "supply cart",
+            "kind": "term"
+          },
+          {
+            "es": "cambio de sala entre cirugías",
+            "en": "turnover",
+            "kind": "term"
+          },
+          {
+            "es": "limpieza terminal",
+            "en": "terminal clean",
+            "kind": "term"
+          },
+          {
+            "es": "contenedor de objetos punzocortantes",
+            "en": "sharps container",
+            "kind": "term"
+          },
+          {
+            "es": "bolsa de riesgo biológico",
+            "en": "biohazard bag",
+            "kind": "term"
+          },
+          {
+            "es": "registro de limpieza",
+            "en": "cleaning log",
+            "kind": "term"
+          },
+          {
+            "es": "supervisor",
+            "en": "supervisor",
+            "kind": "term"
+          },
+          {
+            "es": "sala lista",
+            "en": "room ready",
+            "kind": "term"
+          },
+          {
+            "es": "Terminé las salas 210 y 212.",
+            "en": "I finished rooms 210 and 212.",
+            "kind": "phrase"
+          },
+          {
+            "es": "La sala 214 todavía necesita una limpieza terminal.",
+            "en": "Room 214 still needs a terminal clean.",
+            "kind": "phrase"
+          },
+          {
+            "es": "El carrito de suministros está reabastecido.",
+            "en": "The supply cart is restocked.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Puede repetir eso, por favor?",
+            "en": "Can you repeat that, please?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Por favor, revise el contenedor de objetos punzocortantes.",
+            "en": "Please check the sharps container.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Por favor, firme el registro de limpieza.",
+            "en": "Please sign the cleaning log.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-8",
+        "grammar": {
+          "focus": "Present routines: Present forms describe routines. Use no before the verb for a negative.",
+          "examples": [
+            {
+              "es": "Trabajo con el equipo y reviso la sala.",
+              "en": "I work with the team and check the room."
+            },
+            {
+              "es": "Reviso el equipo antes de entrar.",
+              "en": "I check the equipment before entering."
+            }
+          ]
+        }
+      },
+      {
+        "n": 9,
+        "title": "Isolation Room Procedures",
+        "objective": "Handle isolation room procedures in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Present routines",
+        "speaking": "You are an OR cleaning crew member. Discuss isolation room procedures with your partner in Spanish. Use the lesson vocabulary and present routines. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "habitación de aislamiento",
+            "en": "isolation room",
+            "kind": "term"
+          },
+          {
+            "es": "bata de aislamiento",
+            "en": "gown",
+            "kind": "term"
+          },
+          {
+            "es": "guantes",
+            "en": "gloves",
+            "kind": "term"
+          },
+          {
+            "es": "mascarilla",
+            "en": "mask",
+            "kind": "term"
+          },
+          {
+            "es": "EPP (equipo de protección personal)",
+            "en": "PPE",
+            "kind": "term"
+          },
+          {
+            "es": "precauciones",
+            "en": "precautions",
+            "kind": "term"
+          },
+          {
+            "es": "precauciones de contacto",
+            "en": "contact precautions",
+            "kind": "term"
+          },
+          {
+            "es": "precauciones por vía aérea",
+            "en": "airborne precautions",
+            "kind": "term"
+          },
+          {
+            "es": "precauciones por gotas",
+            "en": "droplet precautions",
+            "kind": "term"
+          },
+          {
+            "es": "letrero",
+            "en": "sign",
+            "kind": "term"
+          },
+          {
+            "es": "¿Qué EPP necesito?",
+            "en": "What PPE do I need?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Es esta una habitación de aislamiento?",
+            "en": "Is this an isolation room?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Qué precauciones indica este letrero?",
+            "en": "Which precautions are on this sign?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Necesito una bata y guantes.",
+            "en": "I need a gown and gloves.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Dónde me quito la bata?",
+            "en": "Where do I take off my gown?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-9",
+        "grammar": {
+          "focus": "Present routines: Present forms describe routines. Use no before the verb for a negative.",
+          "examples": [
+            {
+              "es": "Trabajo con el equipo y reviso la sala.",
+              "en": "I work with the team and check the room."
+            },
+            {
+              "es": "Reviso el equipo antes de entrar.",
+              "en": "I check the equipment before entering."
+            }
+          ]
+        }
+      },
+      {
+        "n": 10,
+        "title": "Clean vs. Dirty — Contamination Language",
+        "objective": "Handle clean vs. dirty — contamination language in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Present routines",
+        "speaking": "You are an OR cleaning crew member. Discuss clean vs. dirty — contamination language with your partner in Spanish. Use the lesson vocabulary and present routines. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "mesa quirúrgica",
+            "en": "OR table",
+            "kind": "term"
+          },
+          {
+            "es": "piso",
+            "en": "floor",
+            "kind": "term"
+          },
+          {
+            "es": "derrame",
+            "en": "spill",
+            "kind": "term"
+          },
+          {
+            "es": "bolsa de riesgo biológico",
+            "en": "biohazard bag",
+            "kind": "term"
+          },
+          {
+            "es": "guantes",
+            "en": "gloves",
+            "kind": "term"
+          },
+          {
+            "es": "contaminado",
+            "en": "contaminated",
+            "kind": "term"
+          },
+          {
+            "es": "limpio",
+            "en": "clean",
+            "kind": "term"
+          },
+          {
+            "es": "sucio",
+            "en": "dirty",
+            "kind": "term"
+          },
+          {
+            "es": "supervisor",
+            "en": "supervisor",
+            "kind": "term"
+          },
+          {
+            "es": "contenedor de objetos punzocortantes",
+            "en": "sharps container",
+            "kind": "term"
+          },
+          {
+            "es": "basura",
+            "en": "trash",
+            "kind": "term"
+          },
+          {
+            "es": "trapeador",
+            "en": "mop",
+            "kind": "term"
+          },
+          {
+            "es": "La sala 302 está terminada.",
+            "en": "Room 302 is done.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Ya limpié la sala.",
+            "en": "I already cleaned the room.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Esta área necesita limpieza.",
+            "en": "This area needs to be cleaned.",
+            "kind": "phrase"
+          },
+          {
+            "es": "La sala 304 tiene un derrame.",
+            "en": "Room 304 has a spill.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Necesito una bolsa de riesgo biológico.",
+            "en": "I need a biohazard bag.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Esta sala está contaminada.",
+            "en": "This room is contaminated.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-10",
+        "grammar": {
+          "focus": "Present routines: Present forms describe routines. Use no before the verb for a negative.",
+          "examples": [
+            {
+              "es": "Trabajo con el equipo y reviso la sala.",
+              "en": "I work with the team and check the room."
+            },
+            {
+              "es": "Reviso el equipo antes de entrar.",
+              "en": "I check the equipment before entering."
+            }
+          ]
+        }
+      },
+      {
+        "n": 11,
+        "title": "Trash & Disposal",
+        "objective": "Handle trash & disposal in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Plans and obligations",
+        "speaking": "You are an OR cleaning crew member. Discuss trash & disposal with your partner in Spanish. Use the lesson vocabulary and plans and obligations. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "basura",
+            "en": "trash",
+            "kind": "term"
+          },
+          {
+            "es": "riesgo biológico",
+            "en": "biohazard",
+            "kind": "term"
+          },
+          {
+            "es": "objetos punzocortantes",
+            "en": "sharps",
+            "kind": "term"
+          },
+          {
+            "es": "contenedor para punzocortantes",
+            "en": "sharps container",
+            "kind": "term"
+          },
+          {
+            "es": "reciclaje",
+            "en": "recycling",
+            "kind": "term"
+          },
+          {
+            "es": "desecho común",
+            "en": "regular waste",
+            "kind": "term"
+          },
+          {
+            "es": "bolsa",
+            "en": "bag",
+            "kind": "term"
+          },
+          {
+            "es": "contenedor",
+            "en": "container",
+            "kind": "term"
+          },
+          {
+            "es": "codificado por colores",
+            "en": "color-coded",
+            "kind": "term"
+          },
+          {
+            "es": "desechos de quimioterapia",
+            "en": "chemo waste",
+            "kind": "term"
+          },
+          {
+            "es": "bolsa roja",
+            "en": "red bag",
+            "kind": "term"
+          },
+          {
+            "es": "¿Dónde va esto?",
+            "en": "Where does this go?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Esto es de riesgo biológico o desecho común?",
+            "en": "Is this biohazard or regular waste?",
+            "kind": "phrase"
+          },
+          {
+            "es": "La política del hospital dice que las bolsas rojas son de riesgo biológico.",
+            "en": "The hospital policy says red bags are biohazard.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Los punzocortantes van en el contenedor para punzocortantes.",
+            "en": "Sharps go in the sharps container.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Necesito una bolsa nueva para este contenedor.",
+            "en": "I need a new bag for this container.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Esto es desecho de quimioterapia?",
+            "en": "Is this chemo waste?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-11",
+        "grammar": {
+          "focus": "Plans and obligations: Conjugate ir or tener; the following verb stays in the infinitive.",
+          "examples": [
+            {
+              "es": "Voy a revisar la sala; tengo que confirmar la hora.",
+              "en": "I am going to check the room; I have to confirm the time."
+            },
+            {
+              "es": "Tengo que confirmar la hora.",
+              "en": "I have to confirm the time."
+            }
+          ]
+        }
+      },
+      {
+        "n": 12,
+        "title": "Chemical Safety — MSDS/SDS",
+        "objective": "Handle chemical safety — msds/sds in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Plans and obligations",
+        "speaking": "You are an OR cleaning crew member. Discuss chemical safety — msds/sds with your partner in Spanish. Use the lesson vocabulary and plans and obligations. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "desinfectante",
+            "en": "disinfectant",
+            "kind": "term"
+          },
+          {
+            "es": "cloro",
+            "en": "bleach",
+            "kind": "term"
+          },
+          {
+            "es": "amoníaco",
+            "en": "ammonia",
+            "kind": "term"
+          },
+          {
+            "es": "guantes",
+            "en": "gloves",
+            "kind": "term"
+          },
+          {
+            "es": "lentes de seguridad",
+            "en": "goggles",
+            "kind": "term"
+          },
+          {
+            "es": "producto químico",
+            "en": "chemical",
+            "kind": "term"
+          },
+          {
+            "es": "salpicadura",
+            "en": "splash",
+            "kind": "term"
+          },
+          {
+            "es": "contacto con la piel",
+            "en": "skin contact",
+            "kind": "term"
+          },
+          {
+            "es": "hoja de datos de seguridad",
+            "en": "safety data sheet",
+            "kind": "term"
+          },
+          {
+            "es": "etiqueta",
+            "en": "label",
+            "kind": "term"
+          },
+          {
+            "es": "¿Dónde está la hoja de datos de seguridad?",
+            "en": "Where is the safety data sheet?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Qué dice la etiqueta?",
+            "en": "What does the label say?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Necesito diluir esto primero?",
+            "en": "Do I need to dilute this first?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Es seguro mezclar estos productos?",
+            "en": "Is it safe to mix these products?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Tengo una salpicadura en la piel.",
+            "en": "I have a splash on my skin.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-12",
+        "grammar": {
+          "focus": "Plans and obligations: Conjugate ir or tener; the following verb stays in the infinitive.",
+          "examples": [
+            {
+              "es": "Voy a revisar la sala; tengo que confirmar la hora.",
+              "en": "I am going to check the room; I have to confirm the time."
+            },
+            {
+              "es": "Tengo que confirmar la hora.",
+              "en": "I have to confirm the time."
+            }
+          ]
+        }
+      },
+      {
+        "n": 13,
+        "title": "Reporting a Problem",
+        "objective": "Handle reporting a problem in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Plans and obligations",
+        "speaking": "You are an OR cleaning crew member. Discuss reporting a problem with your partner in Spanish. Use the lesson vocabulary and plans and obligations. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "gotera en el techo",
+            "en": "leaking ceiling",
+            "kind": "term"
+          },
+          {
+            "es": "supervisor",
+            "en": "supervisor",
+            "kind": "term"
+          },
+          {
+            "es": "mantenimiento",
+            "en": "maintenance",
+            "kind": "term"
+          },
+          {
+            "es": "mesa quirúrgica",
+            "en": "OR table",
+            "kind": "term"
+          },
+          {
+            "es": "letrero de piso mojado",
+            "en": "wet floor sign",
+            "kind": "term"
+          },
+          {
+            "es": "lavamanos",
+            "en": "sink",
+            "kind": "term"
+          },
+          {
+            "es": "inodoro",
+            "en": "toilet",
+            "kind": "term"
+          },
+          {
+            "es": "piso",
+            "en": "floor",
+            "kind": "term"
+          },
+          {
+            "es": "equipo",
+            "en": "equipment",
+            "kind": "term"
+          },
+          {
+            "es": "succión",
+            "en": "suction",
+            "kind": "term"
+          },
+          {
+            "es": "problema",
+            "en": "problem",
+            "kind": "term"
+          },
+          {
+            "es": "sala",
+            "en": "room",
+            "kind": "term"
+          },
+          {
+            "es": "Disculpe, hay un problema en la sala 6.",
+            "en": "Excuse me, there's a problem in room 6.",
+            "kind": "phrase"
+          },
+          {
+            "es": "El inodoro está descompuesto.",
+            "en": "The toilet is broken.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Alguien puede arreglarlo?",
+            "en": "Can someone fix it?",
+            "kind": "phrase"
+          },
+          {
+            "es": "El techo tiene una gotera.",
+            "en": "The ceiling is leaking.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Este equipo no funciona.",
+            "en": "This equipment is not working.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Voy a poner un letrero junto a la puerta.",
+            "en": "I am going to put a sign by the door.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-13",
+        "grammar": {
+          "focus": "Plans and obligations: Conjugate ir or tener; the following verb stays in the infinitive.",
+          "examples": [
+            {
+              "es": "Voy a revisar la sala; tengo que confirmar la hora.",
+              "en": "I am going to check the room; I have to confirm the time."
+            },
+            {
+              "es": "Tengo que confirmar la hora.",
+              "en": "I have to confirm the time."
+            }
+          ]
+        }
+      },
+      {
+        "n": 14,
+        "title": "Working with Nursing Staff",
+        "objective": "Handle working with nursing staff in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Plans and obligations",
+        "speaking": "You are an OR cleaning crew member. Discuss working with nursing staff with your partner in Spanish. Use the lesson vocabulary and plans and obligations. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "enfermera / enfermero",
+            "en": "nurse",
+            "kind": "term"
+          },
+          {
+            "es": "enfermera jefe / enfermero jefe",
+            "en": "charge nurse",
+            "kind": "term"
+          },
+          {
+            "es": "paciente",
+            "en": "patient",
+            "kind": "term"
+          },
+          {
+            "es": "pasillo",
+            "en": "hallway",
+            "kind": "term"
+          },
+          {
+            "es": "camilla",
+            "en": "stretcher",
+            "kind": "term"
+          },
+          {
+            "es": "cambio de sala",
+            "en": "turnover",
+            "kind": "term"
+          },
+          {
+            "es": "contenedor de objetos punzantes",
+            "en": "sharps container",
+            "kind": "term"
+          },
+          {
+            "es": "EPP (equipo de protección personal)",
+            "en": "PPE",
+            "kind": "term"
+          },
+          {
+            "es": "mesa quirúrgica",
+            "en": "OR table",
+            "kind": "term"
+          },
+          {
+            "es": "sala lista",
+            "en": "room ready",
+            "kind": "term"
+          },
+          {
+            "es": "Necesito limpiar esta sala, ¿puedo entrar?",
+            "en": "I need to clean this room, so is it okay to enter?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Está bien limpiar ahora con el paciente en el pasillo?",
+            "en": "Is it okay to clean now with the patient in the hallway?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Por favor, dígame cuándo puedo empezar.",
+            "en": "Please tell me when I can start.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Voy a esperar aquí hasta que usted diga que está bien.",
+            "en": "I will wait here until you say it is okay.",
+            "kind": "phrase"
+          },
+          {
+            "es": "La sala está lista para el próximo paciente.",
+            "en": "The room is ready for the next patient.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-14",
+        "grammar": {
+          "focus": "Plans and obligations: Conjugate ir or tener; the following verb stays in the infinitive.",
+          "examples": [
+            {
+              "es": "Voy a revisar la sala; tengo que confirmar la hora.",
+              "en": "I am going to check the room; I have to confirm the time."
+            },
+            {
+              "es": "Tengo que confirmar la hora.",
+              "en": "I have to confirm the time."
+            }
+          ]
+        }
+      },
+      {
+        "n": 15,
+        "title": "Elevator & Transport Language",
+        "objective": "Handle elevator & transport language in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Plans and obligations",
+        "speaking": "You are an OR cleaning crew member. Discuss elevator & transport language with your partner in Spanish. Use the lesson vocabulary and plans and obligations. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "ascensor",
+            "en": "elevator",
+            "kind": "term"
+          },
+          {
+            "es": "carro",
+            "en": "cart",
+            "kind": "term"
+          },
+          {
+            "es": "pasillo",
+            "en": "hallway",
+            "kind": "term"
+          },
+          {
+            "es": "piso",
+            "en": "floor",
+            "kind": "term"
+          },
+          {
+            "es": "sótano",
+            "en": "basement",
+            "kind": "term"
+          },
+          {
+            "es": "camilla",
+            "en": "stretcher",
+            "kind": "term"
+          },
+          {
+            "es": "puerta",
+            "en": "door",
+            "kind": "term"
+          },
+          {
+            "es": "bolsa de riesgo biológico",
+            "en": "biohazard bag",
+            "kind": "term"
+          },
+          {
+            "es": "contenedor de objetos punzantes",
+            "en": "sharps container",
+            "kind": "term"
+          },
+          {
+            "es": "ascensor de servicio",
+            "en": "service elevator",
+            "kind": "term"
+          },
+          {
+            "es": "cuarto de desechos sucios",
+            "en": "soiled utility room",
+            "kind": "term"
+          },
+          {
+            "es": "visitante",
+            "en": "visitor",
+            "kind": "term"
+          },
+          {
+            "es": "Necesito llevar este carro al sótano.",
+            "en": "I need to take this cart to the basement.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Está libre el ascensor?",
+            "en": "Is the elevator free?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Puede sostener la puerta?",
+            "en": "Can you hold the door?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Disculpe, ¿cómo llego al ascensor de servicio?",
+            "en": "Excuse me, how do I get to the service elevator?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Perdón, adelante.",
+            "en": "Sorry, go ahead.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Gracias por esperar.",
+            "en": "Thank you for waiting.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-15",
+        "grammar": {
+          "focus": "Plans and obligations: Conjugate ir or tener; the following verb stays in the infinitive.",
+          "examples": [
+            {
+              "es": "Voy a revisar la sala; tengo que confirmar la hora.",
+              "en": "I am going to check the room; I have to confirm the time."
+            },
+            {
+              "es": "Tengo que confirmar la hora.",
+              "en": "I have to confirm the time."
+            }
+          ]
+        }
+      },
+      {
+        "n": 16,
+        "title": "Laundry & Linens",
+        "objective": "Handle laundry & linens in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Plans and obligations",
+        "speaking": "You are an OR cleaning crew member. Discuss laundry & linens with your partner in Spanish. Use the lesson vocabulary and plans and obligations. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "sábana",
+            "en": "sheet",
+            "kind": "term"
+          },
+          {
+            "es": "funda de almohada",
+            "en": "pillowcase",
+            "kind": "term"
+          },
+          {
+            "es": "toalla",
+            "en": "towel",
+            "kind": "term"
+          },
+          {
+            "es": "manta",
+            "en": "blanket",
+            "kind": "term"
+          },
+          {
+            "es": "ropa de cama sucia",
+            "en": "soiled linen",
+            "kind": "term"
+          },
+          {
+            "es": "ropa de cama limpia",
+            "en": "clean linen",
+            "kind": "term"
+          },
+          {
+            "es": "cesto de ropa sucia",
+            "en": "hamper",
+            "kind": "term"
+          },
+          {
+            "es": "carro de lencería",
+            "en": "linen cart",
+            "kind": "term"
+          },
+          {
+            "es": "conteo",
+            "en": "count",
+            "kind": "term"
+          },
+          {
+            "es": "cuarto de lencería",
+            "en": "linen room",
+            "kind": "term"
+          },
+          {
+            "es": "nivel establecido de existencias",
+            "en": "par level",
+            "kind": "term"
+          },
+          {
+            "es": "intercambio",
+            "en": "exchange",
+            "kind": "term"
+          },
+          {
+            "es": "Tengo 12 sábanas sucias y 6 toallas.",
+            "en": "I have 12 soiled sheets and 6 towels.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Necesito 14 sábanas limpias para este carro.",
+            "en": "I need 14 clean sheets for this cart.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Puede revisar mi conteo otra vez?",
+            "en": "Can you check my count again?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Dónde pongo la ropa de cama sucia?",
+            "en": "Where do I put the soiled linen?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Necesito cambiar esta ropa de cama.",
+            "en": "I need to exchange this linen.",
+            "kind": "phrase"
+          },
+          {
+            "es": "El cesto está lleno.",
+            "en": "The hamper is full.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-16",
+        "grammar": {
+          "focus": "Plans and obligations: Conjugate ir or tener; the following verb stays in the infinitive.",
+          "examples": [
+            {
+              "es": "Voy a revisar la sala; tengo que confirmar la hora.",
+              "en": "I am going to check the room; I have to confirm the time."
+            },
+            {
+              "es": "Tengo que confirmar la hora.",
+              "en": "I have to confirm the time."
+            }
+          ]
+        }
+      },
+      {
+        "n": 17,
+        "title": "Emergency Codes",
+        "objective": "Handle emergency codes in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Plans and obligations",
+        "speaking": "You are an OR cleaning crew member. Discuss emergency codes with your partner in Spanish. Use the lesson vocabulary and plans and obligations. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "Código Azul",
+            "en": "Code Blue",
+            "kind": "term"
+          },
+          {
+            "es": "Código Rojo",
+            "en": "Code Red",
+            "kind": "term"
+          },
+          {
+            "es": "Código Amarillo",
+            "en": "Code Yellow",
+            "kind": "term"
+          },
+          {
+            "es": "cierre de emergencia",
+            "en": "lockdown",
+            "kind": "term"
+          },
+          {
+            "es": "evacuación",
+            "en": "evacuation",
+            "kind": "term"
+          },
+          {
+            "es": "alerta",
+            "en": "alert",
+            "kind": "term"
+          },
+          {
+            "es": "salida",
+            "en": "exit",
+            "kind": "term"
+          },
+          {
+            "es": "lugar seguro",
+            "en": "safe location",
+            "kind": "term"
+          },
+          {
+            "es": "aviso por altavoz",
+            "en": "overhead page",
+            "kind": "term"
+          },
+          {
+            "es": "escalera (hueco de escaleras)",
+            "en": "stairwell",
+            "kind": "term"
+          },
+          {
+            "es": "enfermera jefa de turno",
+            "en": "charge nurse",
+            "kind": "term"
+          },
+          {
+            "es": "Hay un Código Rojo en el piso 3.",
+            "en": "There is a Code Red on floor 3.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Necesito salir del área.",
+            "en": "I need to leave the area.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Dónde está la salida?",
+            "en": "Where is the exit?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Escuché el Código Azul.",
+            "en": "I heard the Code Blue.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Voy a un lugar seguro.",
+            "en": "I am going to a safe location.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Me quedo aquí o me voy?",
+            "en": "Do I stay put or leave?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-17",
+        "grammar": {
+          "focus": "Plans and obligations: Conjugate ir or tener; the following verb stays in the infinitive.",
+          "examples": [
+            {
+              "es": "Voy a revisar la sala; tengo que confirmar la hora.",
+              "en": "I am going to check the room; I have to confirm the time."
+            },
+            {
+              "es": "Tengo que confirmar la hora.",
+              "en": "I have to confirm the time."
+            }
+          ]
+        }
+      },
+      {
+        "n": 18,
+        "title": "Kitchen & Cafeteria Tasks",
+        "objective": "Handle kitchen & cafeteria tasks in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Plans and obligations",
+        "speaking": "You are an OR cleaning crew member. Discuss kitchen & cafeteria tasks with your partner in Spanish. Use the lesson vocabulary and plans and obligations. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "cafetería",
+            "en": "cafeteria",
+            "kind": "term"
+          },
+          {
+            "es": "derrame",
+            "en": "spill",
+            "kind": "term"
+          },
+          {
+            "es": "letrero de piso mojado",
+            "en": "wet floor sign",
+            "kind": "term"
+          },
+          {
+            "es": "trapeador",
+            "en": "mop",
+            "kind": "term"
+          },
+          {
+            "es": "mesas",
+            "en": "tables",
+            "kind": "term"
+          },
+          {
+            "es": "servilletas",
+            "en": "napkins",
+            "kind": "term"
+          },
+          {
+            "es": "vasos",
+            "en": "cups",
+            "kind": "term"
+          },
+          {
+            "es": "máquina de café",
+            "en": "coffee machine",
+            "kind": "term"
+          },
+          {
+            "es": "charola",
+            "en": "tray",
+            "kind": "term"
+          },
+          {
+            "es": "bote de basura",
+            "en": "trash can",
+            "kind": "term"
+          },
+          {
+            "es": "piso",
+            "en": "floor",
+            "kind": "term"
+          },
+          {
+            "es": "área",
+            "en": "area",
+            "kind": "term"
+          },
+          {
+            "es": "El área necesita ser trapeada.",
+            "en": "The area needs to be mopped.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Las mesas están limpias.",
+            "en": "The tables are clean.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Puedes reabastecer las servilletas?",
+            "en": "Can you restock the napkins?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Hay un derrame junto a la máquina de café.",
+            "en": "There is a spill by the coffee machine.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Voy a traer un trapeador.",
+            "en": "I am going to get a mop.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¡Nos vemos luego!",
+            "en": "See you later!",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-18",
+        "grammar": {
+          "focus": "Plans and obligations: Conjugate ir or tener; the following verb stays in the infinitive.",
+          "examples": [
+            {
+              "es": "Voy a revisar la sala; tengo que confirmar la hora.",
+              "en": "I am going to check the room; I have to confirm the time."
+            },
+            {
+              "es": "Tengo que confirmar la hora.",
+              "en": "I have to confirm the time."
+            }
+          ]
+        }
+      },
+      {
+        "n": 19,
+        "title": "Breaks & Scheduling",
+        "objective": "Handle breaks & scheduling in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Plans and obligations",
+        "speaking": "You are an OR cleaning crew member. Discuss breaks & scheduling with your partner in Spanish. Use the lesson vocabulary and plans and obligations. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "descanso",
+            "en": "break",
+            "kind": "term"
+          },
+          {
+            "es": "almuerzo",
+            "en": "lunch",
+            "kind": "term"
+          },
+          {
+            "es": "turno",
+            "en": "shift",
+            "kind": "term"
+          },
+          {
+            "es": "horario",
+            "en": "schedule",
+            "kind": "term"
+          },
+          {
+            "es": "horas extra",
+            "en": "overtime",
+            "kind": "term"
+          },
+          {
+            "es": "supervisor",
+            "en": "supervisor",
+            "kind": "term"
+          },
+          {
+            "es": "horas de trabajo",
+            "en": "hours",
+            "kind": "term"
+          },
+          {
+            "es": "reloj de control de horario",
+            "en": "time clock",
+            "kind": "term"
+          },
+          {
+            "es": "cambio de quirófano",
+            "en": "turnover",
+            "kind": "term"
+          },
+          {
+            "es": "día libre",
+            "en": "day off",
+            "kind": "term"
+          },
+          {
+            "es": "¿A qué hora es mi descanso?",
+            "en": "What time is my break?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Cuándo termina mi turno?",
+            "en": "When does my shift end?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Puedo trabajar horas extra este viernes?",
+            "en": "Can I work overtime this Friday?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Dónde registro mi entrada?",
+            "en": "Where do I clock in?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Puedo ver el horario de la próxima semana?",
+            "en": "Can I see the schedule for next week?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Quién cubre mi sala durante mi descanso?",
+            "en": "Who covers my room during my break?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-19",
+        "grammar": {
+          "focus": "Plans and obligations: Conjugate ir or tener; the following verb stays in the infinitive.",
+          "examples": [
+            {
+              "es": "Voy a revisar la sala; tengo que confirmar la hora.",
+              "en": "I am going to check the room; I have to confirm the time."
+            },
+            {
+              "es": "Tengo que confirmar la hora.",
+              "en": "I have to confirm the time."
+            }
+          ]
+        }
+      },
+      {
+        "n": 20,
+        "title": "HR Basics — Paycheck & Benefits",
+        "objective": "Handle hr basics — paycheck & benefits in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Plans and obligations",
+        "speaking": "You are an OR cleaning crew member. Discuss hr basics — paycheck & benefits with your partner in Spanish. Use the lesson vocabulary and plans and obligations. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "cheque de pago",
+            "en": "paycheck",
+            "kind": "term"
+          },
+          {
+            "es": "deducción",
+            "en": "deduction",
+            "kind": "term"
+          },
+          {
+            "es": "impuesto",
+            "en": "tax",
+            "kind": "term"
+          },
+          {
+            "es": "seguro",
+            "en": "insurance",
+            "kind": "term"
+          },
+          {
+            "es": "beneficios",
+            "en": "benefits",
+            "kind": "term"
+          },
+          {
+            "es": "depósito directo",
+            "en": "direct deposit",
+            "kind": "term"
+          },
+          {
+            "es": "formulario W-2",
+            "en": "W-2",
+            "kind": "term"
+          },
+          {
+            "es": "aumento de sueldo",
+            "en": "raise",
+            "kind": "term"
+          },
+          {
+            "es": "Recursos Humanos",
+            "en": "HR",
+            "kind": "term"
+          },
+          {
+            "es": "periodo de pago",
+            "en": "pay period",
+            "kind": "term"
+          },
+          {
+            "es": "turno",
+            "en": "shift",
+            "kind": "term"
+          },
+          {
+            "es": "Tengo una pregunta sobre mi cheque de pago.",
+            "en": "I have a question about my paycheck.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Creo que hay un error.",
+            "en": "I think there is an error.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Puedo hablar con alguien?",
+            "en": "Can I speak with someone?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Para qué es esta deducción?",
+            "en": "What is this deduction for?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Cuándo empieza mi aumento?",
+            "en": "When does my raise start?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Puede revisar mi depósito directo?",
+            "en": "Can you check my direct deposit?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-20",
+        "grammar": {
+          "focus": "Plans and obligations: Conjugate ir or tener; the following verb stays in the infinitive.",
+          "examples": [
+            {
+              "es": "Voy a revisar la sala; tengo que confirmar la hora.",
+              "en": "I am going to check the room; I have to confirm the time."
+            },
+            {
+              "es": "Tengo que confirmar la hora.",
+              "en": "I have to confirm the time."
+            }
+          ]
+        }
+      },
+      {
+        "n": 21,
+        "title": "Giving Updates to a Supervisor",
+        "objective": "Handle giving updates to a supervisor in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Completed actions and reports",
+        "speaking": "You are an OR cleaning crew member. Discuss giving updates to a supervisor with your partner in Spanish. Use the lesson vocabulary and completed actions and reports. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "actualización de estado",
+            "en": "status update",
+            "kind": "term"
+          },
+          {
+            "es": "supervisor",
+            "en": "supervisor",
+            "kind": "term"
+          },
+          {
+            "es": "informe de avance",
+            "en": "progress report",
+            "kind": "term"
+          },
+          {
+            "es": "cambio de sala",
+            "en": "turnover",
+            "kind": "term"
+          },
+          {
+            "es": "limpieza terminal",
+            "en": "terminal clean",
+            "kind": "term"
+          },
+          {
+            "es": "tiempo de contacto",
+            "en": "dwell time",
+            "kind": "term"
+          },
+          {
+            "es": "contenedor de objetos punzocortantes",
+            "en": "sharps container",
+            "kind": "term"
+          },
+          {
+            "es": "riesgo biológico",
+            "en": "biohazard",
+            "kind": "term"
+          },
+          {
+            "es": "equipo de protección personal",
+            "en": "PPE",
+            "kind": "term"
+          },
+          {
+            "es": "sala lista",
+            "en": "room ready",
+            "kind": "term"
+          },
+          {
+            "es": "Terminé el quirófano 2 y el quirófano 3.",
+            "en": "I finished OR 2 and OR 3.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Ahora estoy en el quirófano 4.",
+            "en": "I am now in OR 4.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Terminaré en unos 30 minutos.",
+            "en": "I will be done in about 30 minutes.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Necesito ayuda con el cambio de sala.",
+            "en": "I need help with the turnover.",
+            "kind": "phrase"
+          },
+          {
+            "es": "La sala todavía no está lista por el tiempo de contacto.",
+            "en": "The room is not ready yet because of dwell time.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Le daré otra actualización pronto.",
+            "en": "I will give you another update soon.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-21",
+        "grammar": {
+          "focus": "Completed actions and reports: Present perfect uses he/ha/hemos/han + an unchanged participle; abierto, hecho and visto are irregular.",
+          "examples": [
+            {
+              "es": "He revisado la sala y he informado a la enfermera.",
+              "en": "I have checked the room and informed the nurse."
+            },
+            {
+              "es": "Hemos terminado la limpieza.",
+              "en": "We have finished cleaning."
+            }
+          ]
+        }
+      },
+      {
+        "n": 22,
+        "title": "Asking for Clarification",
+        "objective": "Handle asking for clarification in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Completed actions and reports",
+        "speaking": "You are an OR cleaning crew member. Discuss asking for clarification with your partner in Spanish. Use the lesson vocabulary and completed actions and reports. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "cambio de quirófano",
+            "en": "turnover",
+            "kind": "term"
+          },
+          {
+            "es": "recipiente de succión",
+            "en": "suction canister",
+            "kind": "term"
+          },
+          {
+            "es": "bolsa de riesgo biológico",
+            "en": "biohazard bag",
+            "kind": "term"
+          },
+          {
+            "es": "mesa Mayo",
+            "en": "mayo stand",
+            "kind": "term"
+          },
+          {
+            "es": "contenedor de objetos punzocortantes",
+            "en": "sharps container",
+            "kind": "term"
+          },
+          {
+            "es": "mesa de operaciones",
+            "en": "OR table",
+            "kind": "term"
+          },
+          {
+            "es": "tiempo de contacto",
+            "en": "dwell time",
+            "kind": "term"
+          },
+          {
+            "es": "quirófano listo",
+            "en": "room ready",
+            "kind": "term"
+          },
+          {
+            "es": "equipo de protección personal",
+            "en": "PPE",
+            "kind": "term"
+          },
+          {
+            "es": "enfermera encargada",
+            "en": "charge nurse",
+            "kind": "term"
+          },
+          {
+            "es": "Lo siento, no entendí.",
+            "en": "I'm sorry, I didn't understand.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Puede repetir eso?",
+            "en": "Can you say that again?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Puede hablar más despacio?",
+            "en": "Can you speak more slowly?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Puede escribirlo?",
+            "en": "Can you write that down?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Déjeme asegurarme de que entendí.",
+            "en": "Let me make sure I understand.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Podría explicarme eso, por favor?",
+            "en": "Could you explain that, please?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-22",
+        "grammar": {
+          "focus": "Completed actions and reports: Present perfect uses he/ha/hemos/han + an unchanged participle; abierto, hecho and visto are irregular.",
+          "examples": [
+            {
+              "es": "He revisado la sala y he informado a la enfermera.",
+              "en": "I have checked the room and informed the nurse."
+            },
+            {
+              "es": "Hemos terminado la limpieza.",
+              "en": "We have finished cleaning."
+            }
+          ]
+        }
+      },
+      {
+        "n": 23,
+        "title": "Being Friendly with Patients",
+        "objective": "Handle being friendly with patients in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Completed actions and reports",
+        "speaking": "You are an OR cleaning crew member. Discuss being friendly with patients with your partner in Spanish. Use the lesson vocabulary and completed actions and reports. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "habitación de paciente",
+            "en": "patient room",
+            "kind": "term"
+          },
+          {
+            "es": "guantes",
+            "en": "gloves",
+            "kind": "term"
+          },
+          {
+            "es": "barandal de la cama",
+            "en": "bed rail",
+            "kind": "term"
+          },
+          {
+            "es": "desinfectante",
+            "en": "disinfectant",
+            "kind": "term"
+          },
+          {
+            "es": "botón de llamada",
+            "en": "call button",
+            "kind": "term"
+          },
+          {
+            "es": "bote de basura",
+            "en": "trash can",
+            "kind": "term"
+          },
+          {
+            "es": "piso",
+            "en": "floor",
+            "kind": "term"
+          },
+          {
+            "es": "trapeador",
+            "en": "mop",
+            "kind": "term"
+          },
+          {
+            "es": "cortina de privacidad",
+            "en": "privacy curtain",
+            "kind": "term"
+          },
+          {
+            "es": "ropa de cama",
+            "en": "linens",
+            "kind": "term"
+          },
+          {
+            "es": "contenedor de objetos punzocortantes",
+            "en": "sharps container",
+            "kind": "term"
+          },
+          {
+            "es": "visitante",
+            "en": "visitor",
+            "kind": "term"
+          },
+          {
+            "es": "Estoy aquí para limpiar su habitación.",
+            "en": "I'm here to clean your room.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Está bien si empiezo?",
+            "en": "Is it okay if I start?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Terminaré pronto.",
+            "en": "I'll be finished soon.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Perdone la interrupción.",
+            "en": "Sorry for the interruption.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Necesita algo antes de que me vaya?",
+            "en": "Do you need anything before I go?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Por favor, presione el botón de llamada si necesita una enfermera.",
+            "en": "Please press the call button if you need a nurse.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-23",
+        "grammar": {
+          "focus": "Completed actions and reports: Present perfect uses he/ha/hemos/han + an unchanged participle; abierto, hecho and visto are irregular.",
+          "examples": [
+            {
+              "es": "He revisado la sala y he informado a la enfermera.",
+              "en": "I have checked the room and informed the nurse."
+            },
+            {
+              "es": "Hemos terminado la limpieza.",
+              "en": "We have finished cleaning."
+            }
+          ]
+        }
+      },
+      {
+        "n": 24,
+        "title": "Team Meetings in Spanish",
+        "objective": "Handle team meetings in spanish in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Completed actions and reports",
+        "speaking": "You are an OR cleaning crew member. Discuss team meetings in spanish with your partner in Spanish. Use the lesson vocabulary and completed actions and reports. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "reunión de equipo",
+            "en": "team meeting",
+            "kind": "term"
+          },
+          {
+            "es": "supervisora",
+            "en": "supervisor",
+            "kind": "term"
+          },
+          {
+            "es": "rotación de sala",
+            "en": "turnover",
+            "kind": "term"
+          },
+          {
+            "es": "contenedor de objetos punzantes",
+            "en": "sharps container",
+            "kind": "term"
+          },
+          {
+            "es": "equipo de protección personal",
+            "en": "PPE",
+            "kind": "term"
+          },
+          {
+            "es": "limpieza terminal",
+            "en": "terminal clean",
+            "kind": "term"
+          },
+          {
+            "es": "política",
+            "en": "policy",
+            "kind": "term"
+          },
+          {
+            "es": "pregunta",
+            "en": "question",
+            "kind": "term"
+          },
+          {
+            "es": "problema",
+            "en": "problem",
+            "kind": "term"
+          },
+          {
+            "es": "riesgo biológico",
+            "en": "biohazard",
+            "kind": "term"
+          },
+          {
+            "es": "Tengo una pregunta.",
+            "en": "I have a question.",
+            "kind": "phrase"
+          },
+          {
+            "es": "En mi área, hay un problema con el frasco de succión.",
+            "en": "In my area, there is a problem with the suction canister.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Qué debo hacer?",
+            "en": "What should I do?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Podría repetir eso, por favor?",
+            "en": "Could you repeat that, please?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Entiendo.",
+            "en": "I understand.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Le avisaré cuando la sala esté lista.",
+            "en": "I will tell you when the room is ready.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-24",
+        "grammar": {
+          "focus": "Completed actions and reports: Present perfect uses he/ha/hemos/han + an unchanged participle; abierto, hecho and visto are irregular.",
+          "examples": [
+            {
+              "es": "He revisado la sala y he informado a la enfermera.",
+              "en": "I have checked the room and informed the nurse."
+            },
+            {
+              "es": "Hemos terminado la limpieza.",
+              "en": "We have finished cleaning."
+            }
+          ]
+        }
+      },
+      {
+        "n": 25,
+        "title": "Performance Review Language",
+        "objective": "Handle performance review language in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Completed actions and reports",
+        "speaking": "You are an OR cleaning crew member. Discuss performance review language with your partner in Spanish. Use the lesson vocabulary and completed actions and reports. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "evaluación de desempeño",
+            "en": "performance review",
+            "kind": "term"
+          },
+          {
+            "es": "supervisor",
+            "en": "supervisor",
+            "kind": "term"
+          },
+          {
+            "es": "comentarios y retroalimentación",
+            "en": "feedback",
+            "kind": "term"
+          },
+          {
+            "es": "fortaleza",
+            "en": "strength",
+            "kind": "term"
+          },
+          {
+            "es": "área de mejora",
+            "en": "area for improvement",
+            "kind": "term"
+          },
+          {
+            "es": "rotación de sala (limpieza entre cirugías)",
+            "en": "turnover",
+            "kind": "term"
+          },
+          {
+            "es": "lista de verificación",
+            "en": "checklist",
+            "kind": "term"
+          },
+          {
+            "es": "tiempo de contacto del desinfectante",
+            "en": "dwell time",
+            "kind": "term"
+          },
+          {
+            "es": "sala lista",
+            "en": "room ready",
+            "kind": "term"
+          },
+          {
+            "es": "meta",
+            "en": "goal",
+            "kind": "term"
+          },
+          {
+            "es": "limpieza terminal",
+            "en": "terminal clean",
+            "kind": "term"
+          },
+          {
+            "es": "Gracias por los comentarios.",
+            "en": "Thank you for the feedback.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Voy a trabajar en eso.",
+            "en": "I will work on that.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Puede ayudarme a entender qué necesito hacer mejor?",
+            "en": "Can you help me understand what I need to do better?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Puede darme un ejemplo?",
+            "en": "Can you give me an example?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Cuál es mi meta para la próxima evaluación?",
+            "en": "What is my goal for the next review?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Quiero mejorar mi tiempo de rotación.",
+            "en": "I want to improve my turnover time.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-25",
+        "grammar": {
+          "focus": "Completed actions and reports: Present perfect uses he/ha/hemos/han + an unchanged participle; abierto, hecho and visto are irregular.",
+          "examples": [
+            {
+              "es": "He revisado la sala y he informado a la enfermera.",
+              "en": "I have checked the room and informed the nurse."
+            },
+            {
+              "es": "Hemos terminado la limpieza.",
+              "en": "We have finished cleaning."
+            }
+          ]
+        }
+      },
+      {
+        "n": 26,
+        "title": "Asking for a Raise",
+        "objective": "Handle asking for a raise in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Completed actions and reports",
+        "speaking": "You are an OR cleaning crew member. Discuss asking for a raise with your partner in Spanish. Use the lesson vocabulary and completed actions and reports. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "aumento de sueldo",
+            "en": "raise",
+            "kind": "term"
+          },
+          {
+            "es": "salario",
+            "en": "salary",
+            "kind": "term"
+          },
+          {
+            "es": "supervisor",
+            "en": "supervisor",
+            "kind": "term"
+          },
+          {
+            "es": "contribuciones",
+            "en": "contributions",
+            "kind": "term"
+          },
+          {
+            "es": "experiencia",
+            "en": "experience",
+            "kind": "term"
+          },
+          {
+            "es": "evaluación de desempeño",
+            "en": "performance review",
+            "kind": "term"
+          },
+          {
+            "es": "limpieza terminal",
+            "en": "terminal clean",
+            "kind": "term"
+          },
+          {
+            "es": "cambio de sala",
+            "en": "turnover",
+            "kind": "term"
+          },
+          {
+            "es": "contenedor de objetos punzantes",
+            "en": "sharps container",
+            "kind": "term"
+          },
+          {
+            "es": "riesgo biológico",
+            "en": "biohazard",
+            "kind": "term"
+          },
+          {
+            "es": "sala lista",
+            "en": "room ready",
+            "kind": "term"
+          },
+          {
+            "es": "horario",
+            "en": "schedule",
+            "kind": "term"
+          },
+          {
+            "es": "Me gustaría hablar sobre mi salario.",
+            "en": "I would like to discuss my salary.",
+            "kind": "phrase"
+          },
+          {
+            "es": "He estado aquí 2 años.",
+            "en": "I have been here 2 years.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Siempre llego a tiempo.",
+            "en": "I always arrive on time.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Podemos hablar sobre un aumento?",
+            "en": "Can we talk about a raise?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Me gustaría explicar mis contribuciones.",
+            "en": "I would like to explain my contributions.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Cuándo podemos hablar de nuevo?",
+            "en": "When can we talk again?",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-26",
+        "grammar": {
+          "focus": "Completed actions and reports: Present perfect uses he/ha/hemos/han + an unchanged participle; abierto, hecho and visto are irregular.",
+          "examples": [
+            {
+              "es": "He revisado la sala y he informado a la enfermera.",
+              "en": "I have checked the room and informed the nurse."
+            },
+            {
+              "es": "Hemos terminado la limpieza.",
+              "en": "We have finished cleaning."
+            }
+          ]
+        }
+      },
+      {
+        "n": 27,
+        "title": "Training a New Coworker",
+        "objective": "Handle training a new coworker in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Completed actions and reports",
+        "speaking": "You are an OR cleaning crew member. Discuss training a new coworker with your partner in Spanish. Use the lesson vocabulary and completed actions and reports. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "guantes",
+            "en": "gloves",
+            "kind": "term"
+          },
+          {
+            "es": "equipo de protección personal",
+            "en": "PPE",
+            "kind": "term"
+          },
+          {
+            "es": "baño",
+            "en": "bathroom",
+            "kind": "term"
+          },
+          {
+            "es": "superficies",
+            "en": "surfaces",
+            "kind": "term"
+          },
+          {
+            "es": "desinfectante",
+            "en": "disinfectant",
+            "kind": "term"
+          },
+          {
+            "es": "tiempo de contacto",
+            "en": "dwell time",
+            "kind": "term"
+          },
+          {
+            "es": "riesgo biológico",
+            "en": "biohazard",
+            "kind": "term"
+          },
+          {
+            "es": "contenedor de objetos punzocortantes",
+            "en": "sharps container",
+            "kind": "term"
+          },
+          {
+            "es": "barandilla de la cama",
+            "en": "bed rail",
+            "kind": "term"
+          },
+          {
+            "es": "trapeador",
+            "en": "mop",
+            "kind": "term"
+          },
+          {
+            "es": "lista de verificación",
+            "en": "checklist",
+            "kind": "term"
+          },
+          {
+            "es": "Primero, ponte los guantes.",
+            "en": "First, put on gloves.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Deja que te muestre cómo limpiamos esta habitación.",
+            "en": "Let me show you how we clean this room.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Tienes alguna pregunta?",
+            "en": "Do you have any questions?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Revisa la etiqueta para ver el tiempo de contacto.",
+            "en": "Check the label for the dwell time.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Pregúntame si no estás seguro.",
+            "en": "Ask me if you are not sure.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Sigue los mismos pasos cada vez.",
+            "en": "Follow the same steps every time.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-27",
+        "grammar": {
+          "focus": "Completed actions and reports: Present perfect uses he/ha/hemos/han + an unchanged participle; abierto, hecho and visto are irregular.",
+          "examples": [
+            {
+              "es": "He revisado la sala y he informado a la enfermera.",
+              "en": "I have checked the room and informed the nurse."
+            },
+            {
+              "es": "Hemos terminado la limpieza.",
+              "en": "We have finished cleaning."
+            }
+          ]
+        }
+      },
+      {
+        "n": 28,
+        "title": "Workplace Culture & Respect",
+        "objective": "Handle workplace culture & respect in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Completed actions and reports",
+        "speaking": "You are an OR cleaning crew member. Discuss workplace culture & respect with your partner in Spanish. Use the lesson vocabulary and completed actions and reports. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "compañero de trabajo",
+            "en": "coworker",
+            "kind": "term"
+          },
+          {
+            "es": "supervisor",
+            "en": "supervisor",
+            "kind": "term"
+          },
+          {
+            "es": "respeto",
+            "en": "respect",
+            "kind": "term"
+          },
+          {
+            "es": "conducta profesional",
+            "en": "professional conduct",
+            "kind": "term"
+          },
+          {
+            "es": "expectativas",
+            "en": "expectations",
+            "kind": "term"
+          },
+          {
+            "es": "tono de voz",
+            "en": "tone of voice",
+            "kind": "term"
+          },
+          {
+            "es": "comentarios, retroalimentación",
+            "en": "feedback",
+            "kind": "term"
+          },
+          {
+            "es": "trabajo en equipo",
+            "en": "teamwork",
+            "kind": "term"
+          },
+          {
+            "es": "cambio de sala",
+            "en": "turnover",
+            "kind": "term"
+          },
+          {
+            "es": "malentendido",
+            "en": "misunderstanding",
+            "kind": "term"
+          },
+          {
+            "es": "sala lista",
+            "en": "room ready",
+            "kind": "term"
+          },
+          {
+            "es": "Disculpa, quisiera hablar contigo.",
+            "en": "Excuse me, I would like to talk to you.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Me sentí incómodo cuando me gritaste.",
+            "en": "I felt uncomfortable when you yelled at me.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Le agradecería que usara un tono de voz más tranquilo.",
+            "en": "I would appreciate it if you used a calmer tone of voice.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Podemos hablar después del cambio de sala?",
+            "en": "Can we talk after the turnover?",
+            "kind": "phrase"
+          },
+          {
+            "es": "Quiero que trabajemos bien juntos.",
+            "en": "I want us to work well together.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Quisiera hablar con mi supervisor.",
+            "en": "I would like to speak with my supervisor.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-28",
+        "grammar": {
+          "focus": "Completed actions and reports: Present perfect uses he/ha/hemos/han + an unchanged participle; abierto, hecho and visto are irregular.",
+          "examples": [
+            {
+              "es": "He revisado la sala y he informado a la enfermera.",
+              "en": "I have checked the room and informed the nurse."
+            },
+            {
+              "es": "Hemos terminado la limpieza.",
+              "en": "We have finished cleaning."
+            }
+          ]
+        }
+      },
+      {
+        "n": 29,
+        "title": "Emergency Communication Practice",
+        "objective": "Handle emergency communication practice in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Completed actions and reports",
+        "speaking": "You are an OR cleaning crew member. Discuss emergency communication practice with your partner in Spanish. Use the lesson vocabulary and completed actions and reports. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "paciente",
+            "en": "patient",
+            "kind": "term"
+          },
+          {
+            "es": "enfermera / enfermero",
+            "en": "nurse",
+            "kind": "term"
+          },
+          {
+            "es": "pasillo",
+            "en": "hallway",
+            "kind": "term"
+          },
+          {
+            "es": "derrame",
+            "en": "spill",
+            "kind": "term"
+          },
+          {
+            "es": "letrero de piso mojado",
+            "en": "wet floor sign",
+            "kind": "term"
+          },
+          {
+            "es": "camilla",
+            "en": "stretcher",
+            "kind": "term"
+          },
+          {
+            "es": "lesión",
+            "en": "injury",
+            "kind": "term"
+          },
+          {
+            "es": "supervisor / supervisora",
+            "en": "supervisor",
+            "kind": "term"
+          },
+          {
+            "es": "reporte del incidente",
+            "en": "incident report",
+            "kind": "term"
+          },
+          {
+            "es": "alarma de incendio",
+            "en": "fire alarm",
+            "kind": "term"
+          },
+          {
+            "es": "salida de emergencia",
+            "en": "emergency exit",
+            "kind": "term"
+          },
+          {
+            "es": "botiquín de primeros auxilios",
+            "en": "first aid kit",
+            "kind": "term"
+          },
+          {
+            "es": "¡Necesito una enfermera ahora mismo!",
+            "en": "I need a nurse right now!",
+            "kind": "phrase"
+          },
+          {
+            "es": "¡Un paciente se cayó en la habitación 212!",
+            "en": "A patient fell in room 212!",
+            "kind": "phrase"
+          },
+          {
+            "es": "Por favor, no muevan al paciente.",
+            "en": "Please do not move the patient.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Mantengan la calma y síganme.",
+            "en": "Stay calm and follow me.",
+            "kind": "phrase"
+          },
+          {
+            "es": "¿Dónde está la salida de emergencia más cercana?",
+            "en": "Where is the nearest emergency exit?",
+            "kind": "phrase"
+          },
+          {
+            "es": "¡Mi compañero de trabajo está herido en el pasillo!",
+            "en": "My coworker is hurt in the hallway!",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-29",
+        "grammar": {
+          "focus": "Completed actions and reports: Present perfect uses he/ha/hemos/han + an unchanged participle; abierto, hecho and visto are irregular.",
+          "examples": [
+            {
+              "es": "He revisado la sala y he informado a la enfermera.",
+              "en": "I have checked the room and informed the nurse."
+            },
+            {
+              "es": "Hemos terminado la limpieza.",
+              "en": "We have finished cleaning."
+            }
+          ]
+        }
+      },
+      {
+        "n": 30,
+        "title": "THRESHOLD — Full Shift Without English",
+        "objective": "Handle threshold — full shift without english in Spanish: exchange the relevant details, clarify an instruction and confirm the next step.",
+        "focus": "Completed actions and reports",
+        "speaking": "You are an OR cleaning crew member. Discuss threshold — full shift without english with your partner in Spanish. Use the lesson vocabulary and completed actions and reports. Ask for clarification, then confirm the plan.",
+        "words": [
+          {
+            "es": "cambio de sala (limpieza entre cirugías)",
+            "en": "turnover",
+            "kind": "term"
+          },
+          {
+            "es": "limpieza terminal",
+            "en": "terminal clean",
+            "kind": "term"
+          },
+          {
+            "es": "bolsa de riesgo biológico",
+            "en": "biohazard bag",
+            "kind": "term"
+          },
+          {
+            "es": "contenedor de objetos punzantes",
+            "en": "sharps container",
+            "kind": "term"
+          },
+          {
+            "es": "campo estéril",
+            "en": "sterile field",
+            "kind": "term"
+          },
+          {
+            "es": "soporte mayo (mesa de instrumentos)",
+            "en": "mayo stand",
+            "kind": "term"
+          },
+          {
+            "es": "mesa quirúrgica",
+            "en": "OR table",
+            "kind": "term"
+          },
+          {
+            "es": "EPP (equipo de protección personal)",
+            "en": "PPE",
+            "kind": "term"
+          },
+          {
+            "es": "tiempo de contacto del desinfectante",
+            "en": "dwell time",
+            "kind": "term"
+          },
+          {
+            "es": "sala lista",
+            "en": "room ready",
+            "kind": "term"
+          },
+          {
+            "es": "recipiente de succión",
+            "en": "suction canister",
+            "kind": "term"
+          },
+          {
+            "es": "resumen del turno",
+            "en": "shift summary",
+            "kind": "term"
+          },
+          {
+            "es": "Buenos días, ¿qué sala limpio primero?",
+            "en": "Good morning, which room do I clean first?",
+            "kind": "phrase"
+          },
+          {
+            "es": "El contenedor de objetos punzantes está casi lleno.",
+            "en": "The sharps container is almost full.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Necesito revisar el tiempo de contacto en la etiqueta.",
+            "en": "I need to check the dwell time on the label.",
+            "kind": "phrase"
+          },
+          {
+            "es": "La Sala 4 está lista para el próximo caso.",
+            "en": "Room 4 is ready for the next case.",
+            "kind": "phrase"
+          },
+          {
+            "es": "Tengo una pregunta sobre el recipiente de succión.",
+            "en": "I have a question about the suction canister.",
+            "kind": "phrase"
+          }
+        ],
+        "readingTemplate": "seed-es-or-cleaning-lesson-30",
+        "grammar": {
+          "focus": "Completed actions and reports: Present perfect uses he/ha/hemos/han + an unchanged participle; abierto, hecho and visto are irregular.",
+          "examples": [
+            {
+              "es": "He revisado la sala y he informado a la enfermera.",
+              "en": "I have checked the room and informed the nurse."
+            },
+            {
+              "es": "Hemos terminado la limpieza.",
+              "en": "We have finished cleaning."
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -5,17 +5,16 @@
   "stage": "foundation",
   "language": "English",
   "nativeLanguage": "Spanish",
-  "headline": "The OR Environmental Services Foundation",
-  "threshold": "By Lesson 10, you can greet the OR team, say numbers and times, describe a room, ask simple questions, make polite requests and ask for help in English, and start OR Environmental Services Lesson 1.",
+  "headline": "OR Cleaning Crew · Foundation",
+  "threshold": "Communicate during OR cleaning shifts in English, ask for clarification and confirm room readiness.",
   "reviewed": false,
-  "model": "claude-opus-5-5",
-  "generatedAt": "2026-10-21T13:26:09.032Z",
   "lessons": [
     {
       "n": 1,
       "title": "Sounds and Greetings",
       "objective": "Greet the OR team, say your name, and say basic cleaning words clearly.",
       "focus": "English vowels, th, r, v and b, stress on the first syllable, and greetings",
+      "speaking": "Greet a nurse on the OR team, say your name and that you are from EVS, and say the words floor, gloves and room clearly.",
       "words": [
         {
           "en": "la sala",
@@ -102,13 +101,14 @@
           "kind": "phrase"
         }
       ],
-      "speaking": "Greet a nurse on the OR team, say your name and that you are from EVS, and say the words floor, gloves and room clearly."
+      "readingTemplate": "seed-en-foundation-or-evs-lesson-1"
     },
     {
       "n": 2,
       "title": "Numbers, Time and Measurements",
       "objective": "Say numbers, times and supply amounts like boxes, rolls and gallons.",
       "focus": "Numbers 0 to 1,000, clock time, and boxes, pairs, rolls and gallons of supplies",
+      "speaking": "Tell the charge nurse what time your shift starts, which room you are in, and how many boxes of gloves you need.",
       "words": [
         {
           "en": "el minuto",
@@ -194,13 +194,14 @@
           "kind": "phrase"
         }
       ],
-      "speaking": "Tell the charge nurse what time your shift starts, which room you are in, and how many boxes of gloves you need."
+      "readingTemplate": "seed-en-foundation-or-evs-lesson-2"
     },
     {
       "n": 3,
       "title": "To Be",
       "objective": "Use am, is and are to say who you are, where you are, and how a room looks.",
       "focus": "am, is, are for who you are, a condition (wet, clean) and a location (in the hallway)",
+      "speaking": "Tell a nurse who you are, where you are, and whether the floor is clean, wet or dirty.",
       "words": [
         {
           "en": "limpio",
@@ -284,13 +285,14 @@
           "kind": "phrase"
         }
       ],
-      "speaking": "Tell a nurse who you are, where you are, and whether the floor is clean, wet or dirty."
+      "readingTemplate": "seed-en-foundation-or-evs-lesson-3"
     },
     {
       "n": 4,
       "title": "Have, There Is, Need and Want",
       "objective": "Say what you have, what there is in the room, and what you need or have to do.",
       "focus": "have, there is / there are, need, want and have to + verb",
+      "speaking": "Tell a nurse what you have on your cart, what you need, and what you have to do before you go in the room.",
       "words": [
         {
           "en": "el carrito",
@@ -377,13 +379,14 @@
           "note": "have to + verbo = tener que + verbo."
         }
       ],
-      "speaking": "Tell a nurse what you have on your cart, what you need, and what you have to do before you go in the room."
+      "readingTemplate": "seed-en-foundation-or-evs-lesson-4"
     },
     {
       "n": 5,
       "title": "Go, Do and Can",
       "objective": "Say where you are going, what you are going to clean, and what you can do.",
       "focus": "go, going to + verb for plans, do, and can / can't",
+      "speaking": "Tell your supervisor where you are going, what you are going to clean next, and what you can and can't do alone.",
       "words": [
         {
           "en": "el elevador",
@@ -469,13 +472,14 @@
           "kind": "phrase"
         }
       ],
-      "speaking": "Tell your supervisor where you are going, what you are going to clean next, and what you can and can't do alone."
+      "readingTemplate": "seed-en-foundation-or-evs-lesson-5"
     },
     {
       "n": 6,
       "title": "Present Tense",
       "objective": "Talk about daily OR cleaning tasks with I, you, he, she, we and they.",
       "focus": "Simple present for daily tasks; add -s with he and she (she cleans)",
+      "speaking": "Tell a new coworker what you clean every day and what the charge nurse and the surgeon do.",
       "words": [
         {
           "en": "el cirujano, la cirujana",
@@ -560,13 +564,14 @@
           "kind": "phrase"
         }
       ],
-      "speaking": "Tell a new coworker what you clean every day and what the charge nurse and the surgeon do."
+      "readingTemplate": "seed-en-foundation-or-evs-lesson-6"
     },
     {
       "n": 7,
       "title": "Questions",
       "objective": "Ask the OR team simple questions about rooms, times, people and supplies.",
       "focus": "what, who, where, when, how much, how many, how, why, which; do / does questions",
+      "speaking": "Ask the charge nurse who is in charge today, which room you clean next, and when the next case starts.",
       "words": [
         {
           "en": "qué",
@@ -653,13 +658,14 @@
           "kind": "phrase"
         }
       ],
-      "speaking": "Ask the charge nurse who is in charge today, which room you clean next, and when the next case starts."
+      "readingTemplate": "seed-en-foundation-or-evs-lesson-7"
     },
     {
       "n": 8,
       "title": "No, Never and How Much",
       "objective": "Say what you don't have, what is not done yet, and ask for more or another.",
       "focus": "don't, doesn't, never, nobody, nothing, not yet, more, less, another",
+      "speaking": "Tell the nurse what you don't have, ask for another box of wipes, and say the floor is not dry yet.",
       "words": [
         {
           "en": "nada",
@@ -744,13 +750,14 @@
           "kind": "phrase"
         }
       ],
-      "speaking": "Tell the nurse what you don't have, ask for another box of wipes, and say the floor is not dry yet."
+      "readingTemplate": "seed-en-foundation-or-evs-lesson-8"
     },
     {
       "n": 9,
       "title": "Polite Requests and Commands",
       "objective": "Make polite requests and give short, safe commands to the OR team.",
       "focus": "Can you…? Could you…? please, and short commands (Wait. Watch out!)",
+      "speaking": "Ask a nurse politely to hold the door, then tell a coworker to put the wet floor sign in the corner.",
       "words": [
         {
           "en": "por favor",
@@ -834,13 +841,14 @@
           "kind": "phrase"
         }
       ],
-      "speaking": "Ask a nurse politely to hold the door, then tell a coworker to put the wet floor sign in the corner."
+      "readingTemplate": "seed-en-foundation-or-evs-lesson-9"
     },
     {
       "n": 10,
       "title": "Words You Already Know and Getting Help",
       "objective": "Use English words you already know and ask for help when you don't understand.",
       "focus": "Cognates ending in -tion, -ty, -ent and survival phrases for getting help",
+      "speaking": "Tell a nurse you don't understand, ask her to repeat the instructions slowly, and ask how to say a word in English.",
       "words": [
         {
           "en": "el mostrador de información",
@@ -926,7 +934,7 @@
           "kind": "phrase"
         }
       ],
-      "speaking": "Tell a nurse you don't understand, ask her to repeat the instructions slowly, and ask how to say a word in English."
+      "readingTemplate": "seed-en-foundation-or-evs-lesson-10"
     }
   ]
 }

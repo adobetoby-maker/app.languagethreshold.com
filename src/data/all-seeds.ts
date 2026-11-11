@@ -1,3 +1,4 @@
+import { OR_CLEANING_READERS } from "./or-cleaning-readers";
 import { PLACE_READER_SEEDS } from "./place-directions-readers";
 import { SOUND_READER_SEEDS } from "./sound-like-a-native-readers";
 import { SPANISH_BASICS_READERS, SPANISH_NEXT_READERS } from "./spanish-basics-readers";
@@ -1360,6 +1361,7 @@ const BASE_SEEDS: LibraryEntry[] = [
   ...(TRADES_SEEDS as LibraryEntry[]).map(tag("Trades")),
   ...(ROOFING_READER_SEEDS as LibraryEntry[]).map(tag("Trades")),
   ...(MILITARY_READER_SEEDS as LibraryEntry[]),
+  ...(OR_CLEANING_READERS as LibraryEntry[]),
   ...(SOUND_READER_SEEDS as LibraryEntry[]),
   ...(PLACE_READER_SEEDS as LibraryEntry[]),
   ...(SPANISH_BASICS_READERS as LibraryEntry[]),

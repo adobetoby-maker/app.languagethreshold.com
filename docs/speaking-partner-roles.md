@@ -1,0 +1,9 @@
+# Speaking partner roles
+
+The web Free conversation setup and its existing Topics & challenges menu offer text-only partner roles. Six suggestions follow the module; Browse all includes everyday, workplace, healthcare, OR cleaning, professional services, education, travel, sports, agriculture and ministry relationships. Role IDs in `src/data/speaking-partners.ts` are the shared web/native contract and have no portrait data. `node scripts/build-speaking-partners.mjs` derives `/speaking-partners.v1.json` for native clients; it includes role relationships and OR cleaning suggestions.
+
+The learner chooses a role and presses Let partner start. The first question is generated through the existing authenticated/consented speaking API, at the selected language/level and with server-resolved module context. No synthetic learner message is shown or credited as a completed exchange. Subsequent replies retain the relationship. Slow-down, repetition and explanation requests remain supported. Missions retain their scenario-assigned roles and objectives.
+
+The last role is stored on this device per learner, language pair and course. Switching role clears the old conversation and cancels owned playback/requests; changing it starts a new conversation. Existing histories are preserved on reload. Unknown role IDs fall back to Open conversation; arbitrary client persona text is not interpolated as an instruction. Native clients can submit `partnerRoleId`, `moduleId` and `startConversation` to the same chat API. Native UI implementation and TestFlight distribution are separate.
+
+OR cleaning courses: `or-evs` is English for Spanish speakers; `or-cleaning` is Spanish for English speakers. Each has its own 10/30/20 path and exact-pair content. See `content/or-cleaning/review.json` for provenance, human-review, audio, download and native boundaries.

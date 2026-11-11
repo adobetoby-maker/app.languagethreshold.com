@@ -124,6 +124,11 @@
           "fr": "Je voudrais la viande à point, s’il vous plaît.",
           "en": "I would like the meat medium, please.",
           "kind": "phrase"
+        },
+        {
+          "fr": "la cuisson de la viande",
+          "en": "doneness of the meat",
+          "kind": "term"
         }
       ],
       "reader": [
@@ -163,14 +168,9 @@
           "en": "I will have the salad. How much does a kilo cost, more or less?"
         },
         {
-          "speaker": "Friend",
-          "fr": "Et pour moi, je voudrais la viande à point, s’il vous plaît.",
-          "en": "And for me, I would like the meat medium, please."
-        },
-        {
           "speaker": "Élise",
-          "fr": "Il est à trente euros le kilo. Celui-ci pèse environ un kilo.",
-          "en": "It is thirty euros per kilogram. This one weighs about one kilogram."
+          "fr": "Le prix du kilo est indiqué ici. Celui-ci pèse environ un kilo.",
+          "en": "The price per kilogram is shown here. This one weighs about one kilogram."
         },
         {
           "speaker": "Maya",
@@ -179,8 +179,8 @@
         },
         {
           "speaker": "Élise",
-          "fr": "Le prix total estimé est de trente euros.",
-          "en": "The estimated total price is thirty euros."
+          "fr": "D’après ce poids, voici le prix total estimé.",
+          "en": "Based on that weight, here is the estimated total price."
         },
         {
           "speaker": "Maya",
@@ -249,7 +249,7 @@
       "sourceObjectiveEnglish": "state a restriction, ask about cross-contact realistically, and choose an alternative",
       "sourceSpeakingEnglish": "Work with the server to find a safer option without treating the AI as medical advice.",
       "title": "State a Peanut Allergy and Ask About Cross-Contact",
-      "objective": "State a peanut allergy, ask about ingredients and a shared fryer, and choose grilled chicken without sauce after the server checks with the kitchen.",
+      "objective": "State a peanut allergy, ask about ingredients, cross-contact, and a shared fryer, and choose grilled chicken without sauce after the server checks with the kitchen.",
       "focus": "J’ai une allergie aux arachides states a peanut allergy. Ce plat contient-il des arachides ? asks about an ingredient; Y a-t-il un risque de contamination croisée avec des arachides ? asks about cross-contact. Utilisez-vous la même friteuse pour d’autres plats ? asks whether foods share a fryer. Je prendrai le poulet grillé, sans sauce names the chosen alternative.",
       "scene": "Maya tells Élise about a peanut allergy, asks about sauce ingredients and the shared fryer, then orders grilled chicken without sauce after the kitchen replies.",
       "cards": [
@@ -387,13 +387,18 @@
         },
         {
           "speaker": "Maya",
-          "fr": "Quelle option sans arachides me conseillez-vous ?",
-          "en": "What option without peanuts do you recommend?"
+          "fr": "Alors je ne prendrai pas le poulet frit. Quelle option sans arachides me conseillez-vous ?",
+          "en": "So I will not order the fried chicken. What option without peanuts do you recommend?"
+        },
+        {
+          "speaker": "Élise",
+          "fr": "Le poulet grillé, sans sauce, est une autre option.",
+          "en": "Grilled chicken without sauce is another option."
         },
         {
           "speaker": "Maya",
-          "fr": "Le poulet grillé, sans sauce, est une autre option.",
-          "en": "Grilled chicken without sauce is another option."
+          "fr": "Je prendrai le poulet grillé, sans sauce.",
+          "en": "I will have the grilled chicken, without sauce."
         },
         {
           "speaker": "Élise",

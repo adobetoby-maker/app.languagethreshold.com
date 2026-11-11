@@ -67,4 +67,17 @@ test('private form connection fails closed when text, lesson identity, or review
   const reviewed = structuredClone(preview);
   reviewed.registered = true;
   assert.throws(() => inspectPrivateJapanese101Forms(reviewed), /private review gate/);
+  const changedSource = structuredClone(preview);
+  changedSource.sourceHashes[0].sha256 = 'a'.repeat(64);
+  assert.throws(() => inspectPrivateJapanese101Forms(changedSource), /form source identity changed/);
+  const missingSource = structuredClone(preview);
+  missingSource.sourceHashes.pop();
+  assert.throws(() => inspectPrivateJapanese101Forms(missingSource), /form source identity changed/);
+  const wrongPromptId = structuredClone(preview);
+  const firstPair = wrongPromptId.lessons[0].activities;
+  firstPair[0].sourcePromptId = 'form-ja-en-incorrect';
+  firstPair[0].id = 'form-ja-en-incorrect:recognize';
+  firstPair[1].sourcePromptId = 'form-ja-en-incorrect';
+  firstPair[1].id = 'form-ja-en-incorrect:produce';
+  assert.throws(() => inspectPrivateJapanese101Forms(wrongPromptId), /Reader turn/);
 });

@@ -38,6 +38,8 @@ test("private French Lunch adapter joins 60 exact-pair lessons without release",
     }
     assert.equal(runtime.getLesson(moduleId, 0, "French", "English"), null);
     assert.equal(runtime.getLesson(moduleId, count + 1, "French", "English"), null);
+    assert.equal(runtime.getLesson(`${moduleId}-alias`, 1, "French", "English"), null);
+    assert.equal(runtime.cacheNamespace(`${moduleId}-alias`, 1, "French", "English"), null);
   }
   assert.deepEqual([cards, turns, passages], [948, 556, 587]);
 });

@@ -35,6 +35,12 @@ export type PrivateFrenchTravelLunchCandidate = {
 
 const nonempty = (value: unknown): value is string => typeof value === "string" && Boolean(value.trim());
 const hash = (value: string) => /^[0-9a-f]{64}$/.test(value);
+function privateLessonId(moduleId: string, n: number): string | null {
+  const stage = STAGES.find(([id]) => id === moduleId);
+  if (!stage || !Number.isInteger(n) || n < 1 || n > stage[1]) return null;
+  const prefix = moduleId === "travel-lunch" ? "core" : moduleId.split("-")[0];
+  return `${prefix}-travel-lunch:${n}:fr-en`;
+}
 
 export function inspectPrivateFrenchTravelLunch(candidate: PrivateFrenchTravelLunchCandidate) {
   if (candidate.schema !== 1 || candidate.pairKey !== "French:English" ||
@@ -129,14 +135,16 @@ export function inspectPrivateFrenchTravelLunch(candidate: PrivateFrenchTravelLu
   return {
     releaseEnabled: FRENCH_TRAVEL_LUNCH_RELEASED,
     lessonCount: lessons.size,
-    getLesson: (moduleId: string, n: number, target: string, native: string) =>
-      target === "French" && native === "English" && Number.isInteger(n)
-        ? lessons.get(`${moduleId === "travel-lunch" ? "core" : moduleId.split("-")[0]}-travel-lunch:${n}:fr-en`) ?? null
-        : null,
-    cacheNamespace: (moduleId: string, n: number, target: string, native: string) =>
-      target === "French" && native === "English" && Number.isInteger(n) &&
-      lessons.has(`${moduleId === "travel-lunch" ? "core" : moduleId.split("-")[0]}-travel-lunch:${n}:fr-en`)
-        ? `private:French:English:travel-lunch:${moduleId}:${n}` : null,
+    getLesson: (moduleId: string, n: number, target: string, native: string) => {
+      const id = privateLessonId(moduleId, n);
+      return target === "French" && native === "English" && id
+        ? lessons.get(id) ?? null : null;
+    },
+    cacheNamespace: (moduleId: string, n: number, target: string, native: string) => {
+      const id = privateLessonId(moduleId, n);
+      return target === "French" && native === "English" && id && lessons.has(id)
+        ? `private:French:English:travel-lunch:${moduleId}:${n}` : null;
+    },
   };
 }
 

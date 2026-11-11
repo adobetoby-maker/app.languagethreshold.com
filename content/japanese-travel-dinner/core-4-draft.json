@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "contentPath": "public/lesson-content/es/travel-dinner.json",
+    "contentSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 4,
+      "stableId": "travel-dinner:4:ja-en",
+      "sourceTitleEnglish": "Understand courses",
+      "sourceObjectiveEnglish": "ask about course order, portion size, sharing, and pacing",
+      "sourceSpeakingEnglish": "Plan a multi-course dinner without ordering far too much food.",
+      "title": "Plan the Order and Size of Dinner",
+      "objective": "Ask which dish comes first, check the size of a main course, arrange to share a dish, and request unhurried service.",
+      "focus": "最初に marks what comes first; その後に introduces the next course. 前菜, 主菜, and デザート name a starter, main course, and dessert. この料理は何人前ですか asks how many servings a dish makes. 取り分けてもいいですか asks whether guests may divide and share it. ゆっくり出していただけますか asks the server to bring dishes at an unhurried pace. Japanese does not require a fixed three-course order; ask how this restaurant serves its menu.",
+      "scene": "At a restaurant in Kanazawa, Emi and Kai want a starter and a main course. They ask about the serving size before ordering, decide to share the main course, and ask the server to bring the dishes slowly.",
+      "forms": [
+        {"base": "出す", "polite": "出します", "request": "出していただけますか", "meaning": "bring out / bring out politely / could you bring it out?"},
+        {"base": "取り分ける", "polite": "取り分けます", "permission": "取り分けてもいいですか", "meaning": "divide into servings / divide politely / may we share it?"}
+      ],
+      "cards": [
+        {"ja": "前菜", "en": "starter / appetizer", "kind": "term", "readingKana": "ぜんさい"},
+        {"ja": "主菜", "en": "main course", "kind": "term", "readingKana": "しゅさい"},
+        {"ja": "デザート", "en": "dessert", "kind": "term"},
+        {"ja": "コース料理", "en": "multi-course meal", "kind": "term", "readingKana": "コースりょうり"},
+        {"ja": "一人前", "en": "one serving", "kind": "term", "readingKana": "いちにんまえ"},
+        {"ja": "二人前", "en": "two servings", "kind": "term", "readingKana": "ににんまえ"},
+        {"ja": "量", "en": "amount / portion size", "kind": "term", "readingKana": "りょう"},
+        {"ja": "取り皿", "en": "small plate for sharing", "kind": "term", "readingKana": "とりざら"},
+        {"ja": "最初に", "en": "first", "kind": "term", "readingKana": "さいしょに"},
+        {"ja": "その後に", "en": "after that", "kind": "term", "readingKana": "そのあとに"},
+        {"ja": "料理はどの順番で出ますか。", "en": "In what order will the dishes come?", "kind": "phrase", "readingKana": "りょうりはどのじゅんばんででますか。"},
+        {"ja": "この料理は何人前ですか。", "en": "How many servings is this dish?", "kind": "phrase", "readingKana": "このりょうりはなんにんまえですか。"},
+        {"ja": "量は多いですか。", "en": "Is the portion large?", "kind": "phrase", "readingKana": "りょうはおおいですか。"},
+        {"ja": "二人で取り分けてもいいですか。", "en": "May the two of us share it?", "kind": "phrase", "readingKana": "ふたりでとりわけてもいいですか。"},
+        {"ja": "取り皿を二枚お願いします。", "en": "Two small plates for sharing, please.", "kind": "phrase", "readingKana": "とりざらをにまいおねがいします。"},
+        {"ja": "料理をゆっくり出していただけますか。", "en": "Could you bring the dishes out slowly?", "kind": "phrase", "readingKana": "りょうりをゆっくりだしていただけますか。"},
+        {"ja": "前菜を先にお願いします。", "en": "The starter first, please.", "kind": "phrase", "readingKana": "ぜんさいをさきにおねがいします。"},
+        {"ja": "主菜はその後にお願いします。", "en": "The main course after that, please.", "kind": "phrase", "readingKana": "しゅさいはそのあとにおねがいします。"}
+      ],
+      "reader": [
+        {"speaker": "Emi", "ja": "今夜は前菜と主菜を頼みたいです。", "en": "Tonight I would like to order a starter and a main course."},
+        {"speaker": "Kai", "ja": "量を聞いてから決めましょう。", "en": "Let's ask about the portions before deciding."},
+        {"speaker": "Emi", "ja": "料理はどの順番で出ますか。", "en": "In what order will the dishes come?"},
+        {"speaker": "Server", "ja": "前菜を最初に、主菜をその後にお出しします。", "en": "We will serve the starter first and the main course after that."},
+        {"speaker": "Kai", "ja": "この主菜は何人前ですか。", "en": "How many servings is this main course?"},
+        {"speaker": "Server", "ja": "一人前ですが、量は多めです。", "en": "It is one serving, but the portion is on the large side."},
+        {"speaker": "Kai", "ja": "二人で取り分けてもいいですか。", "en": "May the two of us share it?"},
+        {"speaker": "Server", "ja": "はい。取り皿を二枚お持ちします。", "en": "Yes. I will bring two small plates for sharing."},
+        {"speaker": "Emi", "ja": "前菜を先にお願いします。料理をゆっくり出していただけますか。", "en": "The starter first, please. Could you bring the dishes out slowly?"},
+        {"speaker": "Server", "ja": "かしこまりました。主菜はその後にお出しします。", "en": "Certainly. We will bring the main course after that."}
+      ],
+      "speaking": {
+        "role": "Guest planning a multi-course dinner for two",
+        "partnerRole": "Restaurant server",
+        "opening": "ご注文はいかがなさいますか。",
+        "goal": "Ask about course order and serving size, decide whether to share the main course, request two small plates, and ask for unhurried service.",
+        "closure": "前菜を先に、主菜をその後にお持ちします。",
+        "wordBank": ["前菜", "主菜", "量", "取り皿", "最初に", "その後に", "料理はどの順番で出ますか。", "この料理は何人前ですか。", "二人で取り分けてもいいですか。", "料理をゆっくり出していただけますか。"]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the Japanese term for the main course.", "sourceCard": 2, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, name the small plate used when sharing food.", "sourceCard": 8, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the question about how many servings a dish makes.", "sourceCard": 12, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the question asking whether the portion is large.", "sourceCard": 13, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Ask whether two people may share the dish.", "sourceCard": 14, "responseKind": "open"},
+        "write": {"cueEnglish": "Write a polite request for the dishes to come slowly.", "sourceCard": 16, "responseKind": "open"}
+      },
+      "reviewed": false
+    }
+  ]
+}

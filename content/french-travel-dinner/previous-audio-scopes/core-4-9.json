@@ -1,0 +1,1782 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "scope": "Core 4–9 cards, Reader turns, and fixed speaking lines",
+  "voices": [
+    "fr-FR-Chirp3-HD-Aoede",
+    "fr-FR-Chirp3-HD-Charon"
+  ],
+  "sourceSHA256": {
+    "core-4-6-draft.json": "a93bbf512d2fa33a82b230a4947c706c5d4898ad812c23e053f0b4748c9dca62",
+    "core-7-9-draft.json": "3837e8cd51fb13169b94ec6f629b26db5999bc5c75d8b2748d47cce871d0cbb3"
+  },
+  "lessonIds": [
+    "travel-dinner:4:fr-en",
+    "travel-dinner:5:fr-en",
+    "travel-dinner:6:fr-en",
+    "travel-dinner:7:fr-en",
+    "travel-dinner:8:fr-en",
+    "travel-dinner:9:fr-en"
+  ],
+  "placements": 171,
+  "uniqueTexts": 151,
+  "proposedClips": 302,
+  "submittedCharacters": 10024,
+  "texts": [
+    {
+      "spokenText": "Alors, nous partagerons l’entrée. Apportez les plats à notre rythme, s’il vous plaît.",
+      "textSHA256": "4fe3ae9bc1c27dff18cdd34a786485877ae7e524fd7f956a0b0109fee6ef3c30",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "Apportez les plats à notre rythme, s’il vous plaît.",
+      "textSHA256": "2afe0e68d17059026029bc3e614e0be2f5b03baa4a2f0904da3b21ae9aee2eb6",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "card",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "spokenText": "Attendez avant de servir le plat principal, s’il vous plaît.",
+      "textSHA256": "bbe6af16c2ab6cfc8ed433e6d50e2c2f444e7575e00faa227b127961270cb53a",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "card",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "spokenText": "Avez-vous une préférence pour le vin ?",
+      "textSHA256": "938f89e501c60865a52a4c974e5aaabf272afe15342c4a4a31d1601439f4868b",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "spokenText": "Bien sûr. Je peux apporter deux assiettes.",
+      "textSHA256": "75b2d19f21e2ce1fec6678e038844fbbe29e409120d35fad5bff85b671bde548",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "Bien sûr. Je vais attendre avant de servir le plat principal.",
+      "textSHA256": "7fc9c5cc41dbeb309d6d746ef55edf24b0218e92835e624002476141282ecbe6",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "Bien sûr. Qu’allez-vous manger ?",
+      "textSHA256": "c441a4958e5c93cf7cfafdff24c2a7ffd4e2c1d00631da1ec19636291e7fb097",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "Bonsoir. Avez-vous choisi vos plats ?",
+      "textSHA256": "f0a121c1302121e94388c6ad89cd0d9aac790f7db53f15323e2d6f8a46f774f4",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "spokenText": "Bonsoir. Avez-vous choisi votre plat ?",
+      "textSHA256": "97fff801c3073d156da6fb7ba97d7c1fe7346543c27486e3530192b3a4eac08d",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "spokenText": "Bonsoir. Comment préparez-vous le poisson entier ?",
+      "textSHA256": "5c520432311c3bd304010f296117d0a7dcf2663fc6181e8ede69b023838d5735",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "Bonsoir. Dans quel ordre servez-vous les plats ?",
+      "textSHA256": "57d18838f7319366a448689ba7445ee3c735c7f90f82e7716e2b55f68531779a",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "Bonsoir. Quelle est la spécialité de la maison ?",
+      "textSHA256": "ad34021dca1d325106c014d19e38dc458ade7cfa24bac3b0f3d18c2dd72fc4a7",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "Bonsoir. Voulez-vous entendre nos suggestions du jour ?",
+      "textSHA256": "7da2a591524f93a83c9ae13867d4ac8b687d2b606166f1370a264d23f984f9fe",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "spokenText": "Ce plat contient-il des arachides ?",
+      "textSHA256": "e32355e9392d6dd1f88727bf26563825d1c9e7fabd391df571aab516ebe92710",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "spokenText": "Ce soir, c’est la daube provençale.",
+      "textSHA256": "f078172eef47cdc4143ef7b07420743a6e09bfbd03085905dfd30a9743f2ffc9",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "Ce vin rouge de la région est léger et fruité.",
+      "textSHA256": "25cb8d206b26bf565379d5e10535af8dde8701b60078973d2b7b901e9b8e9897",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "Cette bouteille coûte trente-six euros.",
+      "textSHA256": "713773948c4047c6c509424bbfbdf812cd8506d9cf7406cda947faf54bc222a2",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "Combien de plats conseillez-vous pour deux personnes ?",
+      "textSHA256": "fcd3d7a55b55d3952607b12b26c228d0ec98224f61556ab9e16c038abd1e6c96",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "card",
+          "index": 12
+        },
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "Comment préparez-vous le poisson ?",
+      "textSHA256": "5a5068fb941d8170a03c6e9739dfb31f2649a2e9ca7c46a984a7555193f41716",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "card",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "spokenText": "C’est un plat de bœuf mijoté au vin, servi avec des légumes.",
+      "textSHA256": "d6bac6eb569394016ed080f975f139c34d4920fae2568a2e6eaa408d18461610",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "Dans ce cas, je ne prendrai pas le poulet frit. Je prendrai le poulet grillé, sans sauce.",
+      "textSHA256": "d1f2eaadee38cc32ef13a4568d1895f1cfc1b3086a33a770f15ad130c747e169",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "Dans quel ordre servez-vous les plats ?",
+      "textSHA256": "d65b313766a90ab0118258c710a248d6b5ece15cf0c7d8fd2617c908735ebf34",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "card",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "Donc, à combien reviendrait ce poisson ?",
+      "textSHA256": "f2a3535a45c72aaa9694fcb7ed0e4e8ef62933c432212bb81144924e33e2c1a2",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "Du poulet rôti. Quel vin local conseillez-vous avec le poulet ?",
+      "textSHA256": "ab355168f4ac7dfa7e2de2ef6d19db753307e5c141e781b8e8113d903d44ca46",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "D’accord. Je reprendrai le service quand vous serez prêts.",
+      "textSHA256": "b1b4fedc20d7dce493c453bd19295d0a5387d83041fbe5573eb15a422c65db13",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "spokenText": "Est-ce que le poisson du jour est épuisé ?",
+      "textSHA256": "1349392630f72de8fb8ebfd1c10bb478752301fc20ce2aea9a8a2f56bb714bf4",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "card",
+          "index": 13
+        },
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "Il est sec et accompagne bien le poulet.",
+      "textSHA256": "c3e8c0523367de4d51f55047b06eed070325b6e5dc3aa753def5516d65569e0b",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "Il est à trente euros le kilo. Celui-ci pèse environ un kilo.",
+      "textSHA256": "db80e9871bf6bcba59111088a5cdbd5352fa295671aa055be7eec2f522714dd7",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "Il nous faut plus de temps entre les plats.",
+      "textSHA256": "4807f6fbf8637d5b237b9905615d9fe422534b2a69dad8c43f7571c39749af9d",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "card",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "spokenText": "Je cherche un vin rouge léger.",
+      "textSHA256": "8bed6f927a73853a18530c4f2f0e0f8b4c9af8a02559d93c17ea209f48c49e87",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "card",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "spokenText": "Je demanderai aussi pour le dessert.",
+      "textSHA256": "82b30cdeec35b043748f4f1e58d8bce7b8aeab46445f00a7f00e612396912bbd",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "spokenText": "Je note le poulet grillé, sans sauce.",
+      "textSHA256": "ccfb65eff5b80f1085876deca5bb10477e5fb64c27092478096ce1d5bba2b5a0",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 9
+        },
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "spokenText": "Je n’ai pas compris. Pourriez-vous répéter ?",
+      "textSHA256": "7418bec2c884cfe044ba2a51234021c15e6ac48610ec7cb10a9dbebd2f1ff88e",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "card",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "spokenText": "Je prendrai la salade en accompagnement.",
+      "textSHA256": "669077f93678de6ddd5a5c7f5588be7a5d4b80fea85bd51c3a1d51ac798c2561",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "card",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "spokenText": "Je prendrai la salade. Quel est le prix au kilo ?",
+      "textSHA256": "21097d3172a79561551e9c7126b54be148c7f2d058faf22288c23fb3856ef245",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "Je prendrai le poulet grillé, sans sauce.",
+      "textSHA256": "52e6fc5b2cbe19a90ae73cf10229ebb38da547f1c99ad053b669a5cfd669c924",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "spokenText": "Je préfère un vin sec, pas trop sucré.",
+      "textSHA256": "7e5e3f79caff141d9b2fda3c53f9240edeba8a03e2b33be00eb897198d028d72",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "card",
+          "index": 14
+        },
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "Je vais demander au cuisinier et je reviens.",
+      "textSHA256": "eeffff154aa0fd3b0edabd8199e52f2ed3064dc73201e74cd88f470a10368e12",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "Je vais vérifier les ingrédients de la sauce.",
+      "textSHA256": "2d9d500c3328fb7b506bf4b80f9b50810aaea1138bd67c1b1e4074e180bedcf6",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "Je voudrais un plat typique de la région.",
+      "textSHA256": "accbb5155a062c01cc52cd976a575606d4038e796749fd1c57eb137627ac6d7c",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "card",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "spokenText": "Je voudrais un plat typique de la région. Je prendrai la daube, s’il vous plaît.",
+      "textSHA256": "4c6ecb4a0abba3358c420c44c0c9ce872ef4bd98af441f23591d97d81105e764",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "Je vous apporte la bouteille.",
+      "textSHA256": "cd022fd8a52a2e896a5d05579b8aa7508c8f316fcb8c6b6431f886b1bf128d06",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "spokenText": "J’ai une allergie aux arachides.",
+      "textSHA256": "e370d9f983f5fe0c260c6edda84bf740cbcc97bee63a521e2b6a9ce35a358f01",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "spokenText": "J’ai une allergie aux arachides. Ce plat contient-il des arachides ?",
+      "textSHA256": "6392d8758052c3aaf0fed4ba852087a67ac5707bcc6b41d8493a6054562bb92f",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "La portion de ce plat est-elle grande ?",
+      "textSHA256": "1e50fc12f2d4a8b9374e99081a0ae09be1c870dc26cfe9bcc9682abf7fd05e42",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "La portion est-elle grande ?",
+      "textSHA256": "c17cc75ff11f891538f14347ccf242748f0c790f82c5439b79e14889b18b3b9d",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "card",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "La sauce ne contient pas d’arachides.",
+      "textSHA256": "81959dedef934b19892fb8e320c7717db58c4d55455409d0d58b1d3a106dfef4",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "Le cuisinier utilise la même friteuse pour plusieurs plats.",
+      "textSHA256": "155724d531738bde05d7faa96f107fb6a93d6e31944faee5f6b59ef46ea939fc",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "Le plat principal arrive déjà.",
+      "textSHA256": "52df14d529e16ae10f30bf19dfe433c51afffd30635ab4642e2b1e7898b36d12",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "Le prix total estimé est de trente euros.",
+      "textSHA256": "a21eb20830b2db96c62a85f98173ca483ca462e8ee3419d6a4d260761347e2f8",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "reader",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "Les courges et les champignons sont de saison.",
+      "textSHA256": "09b35308fe778ebea3d6b4353e89f99cb5ffebc3ce660a5ac7b5e756d6331b99",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "Merci. Nous commençons à peine l’entrée.",
+      "textSHA256": "672259f2898d7fa47821769a61fa7c4d715b53f462c2db0dc7dce923195b1cc2",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "Merci. Nous prendrons cette bouteille.",
+      "textSHA256": "dfd34467a19f8498b290673c53f2e1693a2633598bf177fa18f2c2bcee82a3be",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "Mon budget est de quarante euros pour la bouteille.",
+      "textSHA256": "3a08eb1ab06e08daa72722bd5afa19e0cf49861ee2db3f7e357c6ac60d01dd0b",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "card",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "spokenText": "Mon budget est de quarante euros pour la bouteille. À combien est celle-ci ?",
+      "textSHA256": "af60add3977b70d907dc6009ad372eb98f5e8a36e7fd44ac98338d368985a79a",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "Nous avons un poisson entier grillé, vendu au kilo.",
+      "textSHA256": "9dd8aac9a3f66e94edff5e4df24ace1eac57809a6a38e874e834d35df22a603a",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "spokenText": "Nous le faisons griller. Il est vendu au kilo.",
+      "textSHA256": "59fb2f63b016c2e65d224c05d28f0541dc893563dce25b5d67f0b63c8802a467",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "Nous servons d’abord l’entrée, puis le plat principal et enfin le dessert.",
+      "textSHA256": "9a2cbf343953c78c3db3a859c4463b34cfa05ba0b5b3b2fb9a4411097efd2759",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "Nous sommes prêts pour le dessert maintenant.",
+      "textSHA256": "f143e7ccd0dd7088dfcb240b074b093363ec9f9a77c360beae99dae3c76ae374",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "card",
+          "index": 15
+        },
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "Oh, nous mangeons encore l’entrée. Plus doucement, s’il vous plaît.",
+      "textSHA256": "d0b0c39f04f37a2cb7d91bfb655813ac509ba33950cf5976be80553121c8031f",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "Oui, c’est un poisson entier avec des arêtes.",
+      "textSHA256": "a77e965e0742c885ae4a31ac71e9d54ee56897024198c2bbdba731bcb20a8df6",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "Oui, elle est assez grande.",
+      "textSHA256": "fdceea171707d36a7e2033e8c11b5f0b410ae1d31180a8a748af7bd7c18e7cef",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "Oui, il est épuisé. Nous avons encore la daube.",
+      "textSHA256": "fccda11f7475406bb1de946a7a5dd07e7d928a8d9caae7bd21fb50ee6dcbe33b",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "Oui. Dites-moi quand vous serez prêts pour la suite.",
+      "textSHA256": "15278d780efa3b4c20651151ca3bfdfb598a09f0c31f7206b47b603058dd7733",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "Plus doucement, s’il vous plaît.",
+      "textSHA256": "6e074941a4bc7942cb20d35e5b1f16ba5b1308ce97b559abdc606eab3a95b721",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "card",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "spokenText": "Pour commencer, nous prendrons une entrée.",
+      "textSHA256": "83d46ffbfc66c5b759bf6808a6bc3c5bfe30d1504083a7942a42d3e0e7a73227",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "card",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "spokenText": "Pour le dessert, je demanderai aussi quels sont les ingrédients.",
+      "textSHA256": "c530750510040973c76935498a005076176a4cd183c64186e48d4e0c42c1fba9",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "Pourriez-vous accélérer un peu le service ?",
+      "textSHA256": "89b3d79df72f157acc97cab6a60ce87c4b823f40f517404d72262d5a90339098",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "card",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "spokenText": "Pourriez-vous apporter la suite plus tard ?",
+      "textSHA256": "bc575c440d3e1a40c09e1661e50d2a76208b358417870eb455715a100a4d4a6c",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "card",
+          "index": 12
+        },
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "Pourriez-vous me décrire cette spécialité ?",
+      "textSHA256": "589e0e242b89646815a645ccb5b40990ce39a01128cb139605df39ad5c661064",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "card",
+          "index": 15
+        },
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "Pourriez-vous nous apporter la carte des vins ?",
+      "textSHA256": "ed4190cb285d898c779b87cd640df728039aa033bcbe58da15e7f7117cec367e",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "Pourrions-nous commander un verre pour goûter ce vin ?",
+      "textSHA256": "599179e2695b691152fad32d65bdfe2144615bd337d4a6a41e0c9993ff9659dc",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "card",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "spokenText": "Pouvez-vous demander au cuisinier ?",
+      "textSHA256": "e94308984e829103b876c090720de596216f71dda8c83479d6c655119b30b531",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "spokenText": "Pouvons-nous faire une courte pause ?",
+      "textSHA256": "f636c377f74d07ebe4e982ba2173e0338fb49dee6f60d9f99a4c3bfaf77cfd01",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "card",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "spokenText": "Pouvons-nous faire une courte pause après le plat ?",
+      "textSHA256": "3c862ab35511cf814d7619b7d6e023d878ea9f4837c83562f2fd3fe57d87f6fd",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "Pouvons-nous partager ce plat ?",
+      "textSHA256": "af5306045c5aa1bb6aed321a3d4912dcebd599de3755cdd7cdead4b9582ba9c2",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "card",
+          "index": 11
+        },
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "Que recommande la cuisine ce soir ?",
+      "textSHA256": "ec415db2fbd8d236d47cda0f32dcfad79b1b8e5985681d4d824be794e5106f35",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "card",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "spokenText": "Quel est le prix au kilo ?",
+      "textSHA256": "cd070c38f006021defa6e5c85efcd363513438243e5c164e5445b68345f8162c",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "card",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "spokenText": "Quel vin conseillez-vous avec le poulet ?",
+      "textSHA256": "3abb95617c0c1d4af7a6f544af34128d90adf0bf98b4e2599413aa2dd63d3c07",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "card",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "spokenText": "Quelle est la spécialité de la maison ?",
+      "textSHA256": "91e0bafef89fe868ae77fb252feaf1a29b8635d071477514ee40700360b808b3",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "card",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "spokenText": "Quels accompagnements sont compris ?",
+      "textSHA256": "803ce801f2a66736d382efdc67ba0fded86940d7b292b3e71690c5b779bfac84",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "card",
+          "index": 15
+        },
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "Qu’est-ce qui est de saison en ce moment ?",
+      "textSHA256": "cd53609d9de6e652a9cee88112ad92679e788bdf50daa783efe8a7c1e395d2e5",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "card",
+          "index": 12
+        },
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "Très bien, je le prends avec la salade.",
+      "textSHA256": "e8cb5ea02520a262938d249fcaf840d97f752fd8e1cb2ef05bbf204c43d17ec0",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "reader",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "spokenText": "Très bien. Je note la daube provençale.",
+      "textSHA256": "bc01bfbe406ebc242cf18318ba84344155dcc40d5ee0ef4e0d6062eddff6df1c",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "spokenText": "Très bien. Je vous apporte la carte des desserts.",
+      "textSHA256": "62f2e5dac109c187e290f6063d421af17dcee9972e352237056e16d32f55c4d8",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "reader",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "Très bien. Je vous apporterai d’abord l’entrée.",
+      "textSHA256": "fd714484276fdb7ccfd050e91deafd554998badbc17e7f9d3fb58a8b45d54e04",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "spokenText": "Très bien. Un poisson grillé avec une salade.",
+      "textSHA256": "02935595814b30f665d69d74ee44200bf022b7659e36e592d03765963c2f9a0a",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "spokenText": "Une entrée à partager et un plat principal chacun suffisent souvent.",
+      "textSHA256": "db437cd36f7d11f9715a98baced34c080e9fe2b3d640ce4c337f270998d3af8a",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "Utilisez-vous la même friteuse pour d’autres plats ?",
+      "textSHA256": "e0579996e8345d55dff260c8258b2bdd8c0e4109fb02e7352214fa1b5e0abee1",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 15
+        },
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "Voici le plat principal.",
+      "textSHA256": "fcabde62e9f0e5dbab100abbcc1dae02f9bd02f57add796e01ed1ef05654cbce",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "spokenText": "Voici l’entrée et votre vin.",
+      "textSHA256": "aaebbc53c6291986433bb79193aed222bfa120043125fdb8aeb6782d2770d51c",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "Vous pouvez choisir du riz ou une salade.",
+      "textSHA256": "4ccb92b52e3d17685da7ced5a52c6098ed664df3b8550d1fc91206c83d90dc22",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "Y a-t-il des arêtes ?",
+      "textSHA256": "e356cd2a7d4fc1e2767b3f1a8f621f281f8dd2fead363371afaf740b5bad0085",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "card",
+          "index": 14
+        },
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "Y a-t-il un risque de contamination croisée avec des arachides ?",
+      "textSHA256": "ae9800e7f92332e7d3da83994d7d346180bc1d2f51a14d97e9ed9dcf135b5bd2",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 14
+        },
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "au kilo",
+      "textSHA256": "9ef67eaa88149078e73bc99374b64e2334a7b1bce5b5119d72e86c11a87cf813",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "card",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "du riz",
+      "textSHA256": "446b0909c1c794c4c254e7ca23225919fa202623f6ab0535938544448a8dd0f7",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "card",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "fruité",
+      "textSHA256": "7af421506527f0ab9eea5667ff69a5251badbf2a94aad7b122ef12787131d3e9",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "card",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "grillé",
+      "textSHA256": "7599cfa7cecd9d40a78dbe4acf415be921936fa484b5cfd3538fa08718bd9ca0",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "card",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "la carte",
+      "textSHA256": "12b16293a4cccbc97eb633cfe592b7c15c9740dba2853bf126eeb423683afcd4",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "card",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "la carte des vins",
+      "textSHA256": "ee6d641fee47c11d2e269bde92fb328dae56d4f0a5d7fd768399651f79166f69",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "card",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "la contamination croisée",
+      "textSHA256": "86fc16e78f02d51e4e474ef09c06c79f5b884f05a2dd3fb748cb3a9b572694e3",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "la cuisine",
+      "textSHA256": "891cbcdf799ccc421852a15c195eafe45f48f661f4a3d3628c14c892cd194265",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "card",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "la friteuse",
+      "textSHA256": "b28117d3e10c9b319e7349100f62e3093b78f47d52aef626f95025244b2a7850",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "la sauce",
+      "textSHA256": "54c9bcaebb29b8dfee2e867082480f60c039e032857f5b94eed3f842387cde1c",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "la spécialité de la maison",
+      "textSHA256": "1d6ada0ca73410d8c53120105f865a789ecb399969171d84031f5e4b32bd5537",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "card",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "la suite",
+      "textSHA256": "8df49779a72bf836d55e4e2e6b7f74a21d76c2cb605a68f41bd3f0d8f0654677",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "card",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "le budget",
+      "textSHA256": "d4703df993d1f62ca0ee2620f35ed60f87c755986118cc17bbf30ef85a5564db",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "card",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "le dessert",
+      "textSHA256": "0a83eed63d69888f929d360b4b9aafd361e801d67bf270ea0eb13747b487b437",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "card",
+          "index": 3
+        },
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "card",
+          "index": 5
+        },
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 11
+        },
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "card",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "le menu",
+      "textSHA256": "0e0cf541c9ea24274b3331c895031fb1e35c3ed6a9087f36acd2e18a2540241c",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "card",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "le plat principal",
+      "textSHA256": "b3be882cecc29de7dba9421bc9b4d8d82ff39a0276ad0f7d0d12d9d6300a33f1",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "card",
+          "index": 2
+        },
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "card",
+          "index": 3
+        },
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "card",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "le poids approximatif",
+      "textSHA256": "52f2c7e4c0b7ccadbc18f52340d2fb10c8a65ae9d993919008b49508e912d540",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "card",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "le poisson du jour",
+      "textSHA256": "f44c3856817c190585e8697d8a5eebc30d2a5b30dda1bd037a3fdd047de42983",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "card",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "le poisson entier",
+      "textSHA256": "b70c409701fb12a6db02cc0ba5fd4930d6eb4b0569e8246bc4251e466ee2c612",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "card",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "le poulet grillé",
+      "textSHA256": "d0c7972c8ec381d779071f2298702e69cdb043f688fdacf9c8803f26e5a4f43c",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "le prix total estimé",
+      "textSHA256": "eba2748bf9504c1bdb6af2d45dde62c72e5995e61fc674b72f2cf2c05f07ec94",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "card",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "le rythme",
+      "textSHA256": "85a882b2d2ba185f87679d005deb88a06c314fe9c92586acafc05a81b69c1f1e",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "card",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "le serveur",
+      "textSHA256": "86b6dad47399f1f0b1d0f54aa65c53464ca0e58dbe45326c4eada015dcdb57ff",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "card",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "le service",
+      "textSHA256": "278e6ba435ebff38a1e24feeca9223328d99bbcb000b22058429c98fa898a580",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "card",
+          "index": 8
+        },
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "card",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "le vin",
+      "textSHA256": "0df1115a30440de4873a62c66e297ae3c1324abfad5eee81913523b55c190bb9",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "card",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "les arachides",
+      "textSHA256": "97b875bcf875860ad775f291022e934759deb30ee2c327257394dd0482c7501b",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "les arêtes",
+      "textSHA256": "1fabe7ce40c76bd988bac844a31ca88383cfe27616472088263afdcf66aa6836",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "card",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "les fruits de mer",
+      "textSHA256": "0bda7e942a5cac002edac83d57d650e20ff14dd039b0fe8e966a5cb6c96af6c4",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "les ingrédients",
+      "textSHA256": "959f63cafbcaba95821309dd1a62f678364876a727c2a76cc5b44c973a52a065",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "les produits de la mer",
+      "textSHA256": "ab3aec4478f983b2958c2db592c57da465de53477fcb32b3edeeab53173a1881",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "card",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "les produits de saison",
+      "textSHA256": "248bfed2525ad4850b40569b9b33d2ac5da1177dd22318d1dbebe57f7f35be98",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "card",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "l’accompagnement",
+      "textSHA256": "03ed78b85c663cd19d2be9df2ec2646fb6bcd962a8c8893b3c55f0c1b8be36f6",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "card",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "l’addition",
+      "textSHA256": "15810e34e09cd72debaa761be846d55dd183b98d1ce7402b88f70533390f2797",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "card",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "l’entrée",
+      "textSHA256": "55f948043ff9b36ed645497fedef808a398518d86682bdc285d3cdd8befb0a59",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "card",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "partager",
+      "textSHA256": "b861f7f2aa1b72c54bad927f8607fd4f53a5fe229cbbb5e0190de4d825b4ab3a",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "card",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "sec",
+      "textSHA256": "add93534eeb463800fe0ed0946048d33636dd2a014fab92e8a37f77ce98c740b",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "card",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "souple",
+      "textSHA256": "7ab9e90b5c8a8b300bf2a7ab814c7da1390f57d3c04e4a84911bb5d0e8f1eeeb",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "card",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "sucré",
+      "textSHA256": "7bd3d3846ca69e60c6be35b15c281b329545cf7da58563957ff823328ae853dc",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "card",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "spokenText": "un autre plat",
+      "textSHA256": "e4312b1f3eba302fa60e3c087048db1ac324192670d6002f650016dded08b983",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "un filet",
+      "textSHA256": "60e40e25b7e72120ee9603edda1320296dc6da1c1a1e402078e8be4c93424d71",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "card",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "spokenText": "un plat",
+      "textSHA256": "a7c5f5f3f3b4b34f90c8b09e811b56754a75d1e49cd8835a586b7b065e6e557d",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "card",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "un plat régional",
+      "textSHA256": "123f3f2f2442c82415b53caa410924813d8450f778de0e17d993b8c7267635fe",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "card",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "un verre de vin",
+      "textSHA256": "9190167fa6b0c8dcb4010d5b855d7f4ea81a8320fca468b62905918d13a0ca0c",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "card",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "un vin blanc",
+      "textSHA256": "9e156d7dfcc1f4c795f55dbc20a459b425248de0a781354d74433fda5f80a43a",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "card",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "un vin local",
+      "textSHA256": "536cff3aa596fa5857e1e01843550180903d434003ed85d3453e66a2f3d0179f",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "card",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "un vin rouge",
+      "textSHA256": "c35a903afad4023f4b86e77b678aa76e018d3d2e08c65f55d947e69eacace6ca",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "card",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "une allergie aux arachides",
+      "textSHA256": "5fa6688033d2bb6c241b03904b3b7689ac41c0c0dde8d5d1960e40561ffbb41b",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "une autre option",
+      "textSHA256": "58fd8b5768c2bb45367d8be10cce212037414ed99300592baf005437be52f50b",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "une bouteille",
+      "textSHA256": "98960cf10cdbbbb8be8964476799771ba2ea6fa0017dfb7a7d526e242bdfc0fb",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "card",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "une entrée",
+      "textSHA256": "7709ff44dbd7dcef62953f989922178da3c5ff1903095dbd129fc58d3707ec28",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "card",
+          "index": 1
+        },
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "card",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "une pause",
+      "textSHA256": "068a7063beec20acb7b00fd074a0fcee109c05e80522f2abd2234ca9eb3ea73f",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:9:fr-en",
+          "surface": "card",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "une portion",
+      "textSHA256": "c520770ed4c53d52db9299cafb702fc6bafcadb2e267ec45152cc5a6ce4d4019",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:4:fr-en",
+          "surface": "card",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "une salade",
+      "textSHA256": "45fe541b51d19aabd8534d06a0b8a1939b3e837f157d6e205fe8c995d0d885ba",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "card",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "une viande à point",
+      "textSHA256": "73f3b0bfa3ec8c1c1e7fbb1cd544168f7675872001fc1ba91a17f80705d9128b",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "card",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "spokenText": "À combien est la bouteille ?",
+      "textSHA256": "f72170e2ac7726a4e0826165bfa5eb7b9485a0b1b39bef6589b30945bf938190",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:5:fr-en",
+          "surface": "card",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "spokenText": "À combien reviendrait ce poisson ?",
+      "textSHA256": "ee7adc658d0efe2bd1ddb6de7d66f1391293676bc48c841eb55e386ce19c7890",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:7:fr-en",
+          "surface": "card",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "spokenText": "épuisé",
+      "textSHA256": "cf61f7c9e6a73da4336b3a40e0fa30dd0ddda88ecead080af51be572729c9e01",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:6:fr-en",
+          "surface": "card",
+          "index": 9
+        }
+      ]
+    }
+  ],
+  "recordingsBundled": false,
+  "listeningReviewed": false,
+  "registered": false
+}

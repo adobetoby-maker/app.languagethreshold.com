@@ -4,13 +4,13 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { MASTER_CONTENT_LIMITS, validateLessonContent } from "../src/lib/lesson-content-core.ts";
 
-const sourcePaths = ["master-1-5-draft.json", "master-6-10-draft.json", "master-11-15-draft.json"];
+const sourcePaths = ["master-1-5-draft.json", "master-6-10-draft.json", "master-11-15-draft.json", "master-16-20-draft.json"];
 const sourceFiles = Object.fromEntries(sourcePaths.map((name) => [name, readFileSync(`content/french-travel-lunch/${name}`)]));
 const sources = Object.fromEntries(sourcePaths.flatMap((name) => JSON.parse(sourceFiles[name]).lessons.map((lesson) => [String(lesson.n), lesson])));
 const candidate = JSON.parse(readFileSync("content/french-travel-lunch/master-lesson-content-candidate.json"));
 
-test("private French Lunch Master 1–15 pin their sources and keep review gates closed", () => {
-  assert.deepEqual(Object.keys(candidate.lessons), Array.from({ length: 15 }, (_, index) => String(index + 1)));
+test("private French Lunch Master 1–20 pin their sources and keep review gates closed", () => {
+  assert.deepEqual(Object.keys(candidate.lessons), Array.from({ length: 20 }, (_, index) => String(index + 1)));
   for (const name of sourcePaths) {
     assert.equal(candidate.sourceDraftSha256[name], createHash("sha256").update(sourceFiles[name]).digest("hex"));
   }
@@ -26,12 +26,24 @@ for (const [number, item] of Object.entries(candidate.lessons)) {
     assert.equal(new Set(item.sourceCardIndices).size, item.sourceCardIndices.length);
     assert.ok(item.sourceCardIndices.every((index) => Number.isInteger(index) && index >= 1 && index <= source.cards.length));
     assert.ok(Object.values(source.modes).every((mode) => item.sourceCardIndices.includes(mode.sourceCard)));
+    for (const [index, kind] of Object.entries(item.sourceCardKindOverrides ?? {})) {
+      assert.equal(source.cards[Number(index) - 1].kind, "term");
+      assert.equal(kind, "phrase");
+    }
+    for (const index of Object.keys(item.sourceCardTextOverrides ?? {})) {
+      assert.equal(source.cards[Number(index) - 1].kind, "phrase");
+      assert.ok(source.reader.some((turn) => turn.fr.includes(source.cards[Number(index) - 1].fr)));
+    }
     const words = [
-      ...item.sourceCardIndices.map((index) => source.cards[index - 1]).map(({ fr, en, kind }) => ({ es: fr, en, kind })),
+      ...item.sourceCardIndices.map((index) => ({
+        es: item.sourceCardTextOverrides?.[index]?.es ?? source.cards[index - 1].fr,
+        en: item.sourceCardTextOverrides?.[index]?.en ?? source.cards[index - 1].en,
+        kind: item.sourceCardKindOverrides?.[index] ?? source.cards[index - 1].kind,
+      })),
       ...(item.supplementalWords ?? []),
     ];
     for (const word of item.supplementalWords ?? []) {
-      assert.equal(word.kind, "term");
+      assert.ok(["term", "phrase"].includes(word.kind));
       if (word.sourceReaderIndex) {
         assert.ok(Number.isInteger(word.sourceReaderIndex));
         assert.ok(source.reader[word.sourceReaderIndex - 1]?.fr.includes(word.sourceReaderText ?? word.es));
@@ -93,4 +105,16 @@ test("Master 13–15 retain direct burn, peanut-allergy, epinephrine, and gas te
   assert.match(gas, /odeur de gaz/);
   assert.match(gas, /fuite de gaz/);
   assert.match(gas, /les secours/);
+});
+
+test("Master 16 and 20 retain explicit symptoms, consent, and shellfish allergy language", () => {
+  const inspector = candidate.lessons["16"].passage.target.join(" ");
+  assert.match(inspector, /nausées/);
+  assert.match(inspector, /vomissements/);
+  assert.match(inspector, /légère fièvre/);
+  assert.match(inspector, /consentement/);
+  const lunch = candidate.lessons["20"].passage.target.join(" ");
+  assert.match(lunch, /allergie aux crustacés et aux mollusques/);
+  assert.match(lunch, /crevettes/);
+  assert.match(lunch, /vérifiiez avec la cuisine/);
 });

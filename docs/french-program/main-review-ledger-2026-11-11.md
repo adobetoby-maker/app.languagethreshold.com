@@ -28,4 +28,4 @@ This ledger separates source drafts, owner inspection, qualified French/domain r
 
 ## Current validation
 
-The copied source and corrected drafts pass Foundation/Core/Master source validators: 10/30/20 lessons, 960 cards, 561 Reader turns, 360 activity prompts, all review/release gates closed. Focused owner API tests pass 6/6, and a desktop/iPhone-sized mocked owner browser test passed before the latest corrections. TypeScript and a development Vite build passed before the latest corrections; rerun final tests/build/smoke before a main merge. The route has not yet been pushed or deployed.
+The copied source and corrected drafts pass Foundation/Core/Master source validators: 10/30/20 lessons, 960 cards, 561 Reader turns, 360 activity prompts, all review/release gates closed. Final validation on the owner-review branch: 2,956 unit tests pass; TypeScript passes; production build passes; owner API tests pass 6/6; full smoke:e2e passes 101/101 with 22 expected skips, including desktop/iPhone-sized owner review. The route is a draft PR pending CI and main deployment.

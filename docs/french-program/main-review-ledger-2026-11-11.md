@@ -29,3 +29,7 @@ This ledger separates source drafts, owner inspection, qualified French/domain r
 ## Current validation
 
 The copied source and corrected drafts pass Foundation/Core/Master source validators: 10/30/20 lessons, 960 cards, 561 Reader turns, 360 activity prompts, all review/release gates closed. Final validation on the owner-review branch: 2,956 unit tests pass; TypeScript passes; production build passes; owner API tests pass 6/6; full smoke:e2e passes 101/101 with 22 expected skips, including desktop/iPhone-sized owner review. [#494](https://github.com/adobetoby-maker/app.languagethreshold.com/pull/494) merged at `8921fb419fa858fbcee2d030575e15066359192f`; the exact GitHub Production deployment `7716141856` succeeded and unauthenticated owner API access returned 403. This private audio delta changes no learner runtime, registration or progress.
+
+## November 11 French Dinner owner-review slice
+
+The [Dinner checkpoint](french-dinner-owner-review-2026-11-11.md) copies 22 source-pinned private lessons from #489 to an owner-only review route: Foundation 10/Core 12/Master 0, 363 cards, 201 Reader turns, 132 prompt records. Opus and Haiku 5.5 read-only findings in Core 7/8/11 were self-corrected against the pinned English source, creating an exact-text French audio delta that needs fresh private synthesis and listening review. Final Opus found a further six issues, all addressed in the same private draft; AI review is not qualified French approval. No qualified French/domain approval, learner registration, audio playback, or progress change is implied.

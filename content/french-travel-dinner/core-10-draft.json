@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/travel-zone.ts",
+    "curriculumSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "passagePath": "public/lesson-content/es/travel-dinner.json",
+    "passageSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 10,
+      "stableId": "travel-dinner:10:fr-en",
+      "sourceTitleEnglish": "Celebrate an occasion",
+      "sourceObjectiveEnglish": "explain a birthday, anniversary, reunion, or personal milestone",
+      "sourceSpeakingEnglish": "Arrange a small surprise and confirm what the restaurant can provide.",
+      "title": "Arrange an Anniversary Surprise",
+      "objective": "Explain the occasion, ask discreetly whether the restaurant can bring a dessert with a candle, confirm what it can provide, and arrange the timing.",
+      "focus": "Nous fêtons notre anniversaire de mariage states the occasion. C'est une surprise ; merci de ne rien dire asks the server to keep it discreet. Pourriez-vous apporter un dessert avec une bougie ? makes a polite request. Qu'est-ce que vous pouvez préparer ? asks what the restaurant can provide. Après le dessert and au moment du dessert distinguish after dessert from when dessert is served.",
+      "scene": "Camille contacts a restaurant before dinner. Her spouse is arriving with family for a small anniversary reunion. She asks whether the server can bring a dessert with a candle as a surprise, checks what is available, and chooses when it should come.",
+      "forms": [
+        {"infinitive": "fêter", "presentNous": "nous fêtons", "meaning": "to celebrate / we celebrate"},
+        {"infinitive": "apporter", "presentVous": "vous apportez", "politeRequest": "pourriez-vous apporter", "meaning": "to bring / you bring / could you bring"},
+        {"infinitive": "préparer", "presentVous": "vous préparez", "meaning": "to prepare / you prepare"}
+      ],
+      "cards": [
+        {"fr": "un anniversaire", "en": "an anniversary or birthday", "kind": "term"},
+        {"fr": "un anniversaire de mariage", "en": "a wedding anniversary", "kind": "term"},
+        {"fr": "un anniversaire de naissance", "en": "a birthday", "kind": "term"},
+        {"fr": "une réunion de famille", "en": "a family reunion", "kind": "term"},
+        {"fr": "une réussite personnelle", "en": "a personal milestone or achievement", "kind": "term"},
+        {"fr": "une surprise", "en": "a surprise", "kind": "term"},
+        {"fr": "un petit gâteau", "en": "a small cake", "kind": "term"},
+        {"fr": "une bougie", "en": "a candle", "kind": "term"},
+        {"fr": "un dessert", "en": "a dessert", "kind": "term"},
+        {"fr": "un toast", "en": "a toast", "kind": "term"},
+        {"fr": "une réservation", "en": "a reservation", "kind": "term"},
+        {"fr": "la table", "en": "the table", "kind": "term"},
+        {"fr": "Nous fêtons notre anniversaire de mariage.", "en": "We are celebrating our wedding anniversary.", "kind": "phrase"},
+        {"fr": "C'est l'anniversaire de ma femme.", "en": "It's my wife's birthday.", "kind": "phrase"},
+        {"fr": "C'est une surprise ; merci de ne rien dire.", "en": "It's a surprise; please don't say anything.", "kind": "phrase"},
+        {"fr": "Pourriez-vous apporter un dessert avec une bougie ?", "en": "Could you bring a dessert with a candle?", "kind": "phrase"},
+        {"fr": "Qu'est-ce que vous pouvez préparer pour l'occasion ?", "en": "What can you prepare for the occasion?", "kind": "phrase"},
+        {"fr": "Apportez-le au moment du dessert, s'il vous plaît.", "en": "Please bring it when dessert is served.", "kind": "phrase"}
+      ],
+      "reader": [
+        {"speaker": "Camille", "fr": "Bonsoir, j'ai une réservation pour ce soir au nom de Martin.", "en": "Good evening, I have a reservation for tonight under the name Martin."},
+        {"speaker": "Server", "fr": "Oui, madame Martin. Que puis-je faire pour vous ?", "en": "Yes, Ms. Martin. What can I do for you?"},
+        {"speaker": "Camille", "fr": "Nous fêtons notre anniversaire de mariage avec notre famille.", "en": "We are celebrating our wedding anniversary with our family."},
+        {"speaker": "Camille", "fr": "C'est une surprise pour mon mari ; merci de ne rien dire.", "en": "It's a surprise for my husband; please don't say anything."},
+        {"speaker": "Server", "fr": "Bien sûr. Votre famille arrive-t-elle en même temps ?", "en": "Of course. Will your family arrive at the same time?"},
+        {"speaker": "Camille", "fr": "Ils arriveront un peu plus tard. Pourriez-vous apporter un dessert avec une bougie ?", "en": "They will arrive a little later. Could you bring a dessert with a candle?"},
+        {"speaker": "Server", "fr": "Nous pouvons préparer un petit gâteau. Je vais confirmer la disponibilité avec la cuisine.", "en": "We can prepare a small cake. I will confirm availability with the kitchen."},
+        {"speaker": "Camille", "fr": "Merci. Apportez-le au moment du dessert, s'il vous plaît. Nous porterons un toast après.", "en": "Thank you. Please bring it when dessert is served. We will make a toast afterward."},
+        {"speaker": "Server", "fr": "C'est noté. Je vous confirmerai le gâteau avant votre arrivée.", "en": "Noted. I will confirm the cake before you arrive."}
+      ],
+      "speaking": {
+        "role": "Guest arranging a family anniversary surprise",
+        "partnerRole": "Restaurant server",
+        "opening": "Bonsoir, je peux vous aider avec votre réservation ?",
+        "goal": "Give the reservation name, explain the anniversary and small family reunion, ask discreetly for a dessert with a candle, confirm what can be prepared, and agree on when to bring it.",
+        "closure": "Je vais confirmer le gâteau avec la cuisine et vous rappeler.",
+        "wordBank": ["un anniversaire de mariage", "une réunion de famille", "une surprise", "un petit gâteau", "une bougie", "une réservation", "Nous fêtons notre anniversaire de mariage.", "C'est une surprise ; merci de ne rien dire.", "Pourriez-vous apporter un dessert avec une bougie ?", "Qu'est-ce que vous pouvez préparer pour l'occasion ?"]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the phrase for a wedding anniversary.", "sourceCard": 2, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, say that this is a surprise and ask the server not to say anything.", "sourceCard": 15, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the request for dessert with a candle.", "sourceCard": 16, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the question asking what can be prepared for the occasion.", "sourceCard": 17, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Tell the server you are celebrating your wedding anniversary.", "sourceCard": 13, "responseKind": "open"},
+        "write": {"cueEnglish": "Write a request to bring the surprise when dessert is served.", "sourceCard": 18, "responseKind": "open"}
+      },
+      "reviewed": false
+    }
+  ]
+}

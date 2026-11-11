@@ -25,6 +25,7 @@ import { Route as FeedbackRouteImport } from './routes/feedback'
 import { Route as FounderRouteImport } from './routes/founder'
 import { Route as ModuleRequestRouteImport } from './routes/module-request'
 import { Route as OwnerRouteImport } from './routes/owner'
+import { Route as OwnerFrenchDinnerReviewRouteImport } from './routes/owner-french-dinner-review'
 import { Route as OwnerFrenchReviewRouteImport } from './routes/owner-french-review'
 import { Route as OwnerJapaneseReviewRouteImport } from './routes/owner-japanese-review'
 import { Route as PlaceDirectionsRouteImport } from './routes/place-directions'
@@ -66,6 +67,7 @@ import { Route as ApiOwnerCrmRouteImport } from './routes/api.owner-crm'
 import { Route as ApiOwnerCustomersRouteImport } from './routes/api.owner-customers'
 import { Route as ApiOwnerDiscountsRouteImport } from './routes/api.owner-discounts'
 import { Route as ApiOwnerDownloadLeadsRouteImport } from './routes/api.owner-download-leads'
+import { Route as ApiOwnerFrenchDinnerDraftsRouteImport } from './routes/api.owner-french-dinner-drafts'
 import { Route as ApiOwnerFrenchDraftsRouteImport } from './routes/api.owner-french-drafts'
 import { Route as ApiOwnerJapaneseDraftsRouteImport } from './routes/api.owner-japanese-drafts'
 import { Route as ApiOwnerRedditRouteImport } from './routes/api.owner-reddit'
@@ -177,6 +179,11 @@ const ModuleRequestRoute = ModuleRequestRouteImport.update({
 const OwnerRoute = OwnerRouteImport.update({
   id: '/owner',
   path: '/owner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OwnerFrenchDinnerReviewRoute = OwnerFrenchDinnerReviewRouteImport.update({
+  id: '/owner-french-dinner-review',
+  path: '/owner-french-dinner-review',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OwnerFrenchReviewRoute = OwnerFrenchReviewRouteImport.update({
@@ -384,6 +391,12 @@ const ApiOwnerDownloadLeadsRoute = ApiOwnerDownloadLeadsRouteImport.update({
   path: '/api/owner-download-leads',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiOwnerFrenchDinnerDraftsRoute =
+  ApiOwnerFrenchDinnerDraftsRouteImport.update({
+    id: '/api/owner-french-dinner-drafts',
+    path: '/api/owner-french-dinner-drafts',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiOwnerFrenchDraftsRoute = ApiOwnerFrenchDraftsRouteImport.update({
   id: '/api/owner-french-drafts',
   path: '/api/owner-french-drafts',
@@ -562,6 +575,7 @@ export interface FileRoutesByFullPath {
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
+  '/owner-french-dinner-review': typeof OwnerFrenchDinnerReviewRoute
   '/owner-french-review': typeof OwnerFrenchReviewRoute
   '/owner-japanese-review': typeof OwnerJapaneseReviewRoute
   '/place-directions': typeof PlaceDirectionsRoute
@@ -603,6 +617,7 @@ export interface FileRoutesByFullPath {
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
   '/api/owner-download-leads': typeof ApiOwnerDownloadLeadsRoute
+  '/api/owner-french-dinner-drafts': typeof ApiOwnerFrenchDinnerDraftsRoute
   '/api/owner-french-drafts': typeof ApiOwnerFrenchDraftsRoute
   '/api/owner-japanese-drafts': typeof ApiOwnerJapaneseDraftsRoute
   '/api/owner-reddit': typeof ApiOwnerRedditRoute
@@ -653,6 +668,7 @@ export interface FileRoutesByTo {
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
+  '/owner-french-dinner-review': typeof OwnerFrenchDinnerReviewRoute
   '/owner-french-review': typeof OwnerFrenchReviewRoute
   '/owner-japanese-review': typeof OwnerJapaneseReviewRoute
   '/place-directions': typeof PlaceDirectionsRoute
@@ -694,6 +710,7 @@ export interface FileRoutesByTo {
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
   '/api/owner-download-leads': typeof ApiOwnerDownloadLeadsRoute
+  '/api/owner-french-dinner-drafts': typeof ApiOwnerFrenchDinnerDraftsRoute
   '/api/owner-french-drafts': typeof ApiOwnerFrenchDraftsRoute
   '/api/owner-japanese-drafts': typeof ApiOwnerJapaneseDraftsRoute
   '/api/owner-reddit': typeof ApiOwnerRedditRoute
@@ -745,6 +762,7 @@ export interface FileRoutesById {
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
+  '/owner-french-dinner-review': typeof OwnerFrenchDinnerReviewRoute
   '/owner-french-review': typeof OwnerFrenchReviewRoute
   '/owner-japanese-review': typeof OwnerJapaneseReviewRoute
   '/place-directions': typeof PlaceDirectionsRoute
@@ -786,6 +804,7 @@ export interface FileRoutesById {
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
   '/api/owner-download-leads': typeof ApiOwnerDownloadLeadsRoute
+  '/api/owner-french-dinner-drafts': typeof ApiOwnerFrenchDinnerDraftsRoute
   '/api/owner-french-drafts': typeof ApiOwnerFrenchDraftsRoute
   '/api/owner-japanese-drafts': typeof ApiOwnerJapaneseDraftsRoute
   '/api/owner-reddit': typeof ApiOwnerRedditRoute
@@ -838,6 +857,7 @@ export interface FileRouteTypes {
     | '/index'
     | '/module-request'
     | '/owner'
+    | '/owner-french-dinner-review'
     | '/owner-french-review'
     | '/owner-japanese-review'
     | '/place-directions'
@@ -879,6 +899,7 @@ export interface FileRouteTypes {
     | '/api/owner-customers'
     | '/api/owner-discounts'
     | '/api/owner-download-leads'
+    | '/api/owner-french-dinner-drafts'
     | '/api/owner-french-drafts'
     | '/api/owner-japanese-drafts'
     | '/api/owner-reddit'
@@ -929,6 +950,7 @@ export interface FileRouteTypes {
     | '/index'
     | '/module-request'
     | '/owner'
+    | '/owner-french-dinner-review'
     | '/owner-french-review'
     | '/owner-japanese-review'
     | '/place-directions'
@@ -970,6 +992,7 @@ export interface FileRouteTypes {
     | '/api/owner-customers'
     | '/api/owner-discounts'
     | '/api/owner-download-leads'
+    | '/api/owner-french-dinner-drafts'
     | '/api/owner-french-drafts'
     | '/api/owner-japanese-drafts'
     | '/api/owner-reddit'
@@ -1020,6 +1043,7 @@ export interface FileRouteTypes {
     | '/index'
     | '/module-request'
     | '/owner'
+    | '/owner-french-dinner-review'
     | '/owner-french-review'
     | '/owner-japanese-review'
     | '/place-directions'
@@ -1061,6 +1085,7 @@ export interface FileRouteTypes {
     | '/api/owner-customers'
     | '/api/owner-discounts'
     | '/api/owner-download-leads'
+    | '/api/owner-french-dinner-drafts'
     | '/api/owner-french-drafts'
     | '/api/owner-japanese-drafts'
     | '/api/owner-reddit'
@@ -1112,6 +1137,7 @@ export interface RootRouteChildren {
   Char91indexChar93Route: typeof Char91indexChar93Route
   ModuleRequestRoute: typeof ModuleRequestRoute
   OwnerRoute: typeof OwnerRoute
+  OwnerFrenchDinnerReviewRoute: typeof OwnerFrenchDinnerReviewRoute
   OwnerFrenchReviewRoute: typeof OwnerFrenchReviewRoute
   OwnerJapaneseReviewRoute: typeof OwnerJapaneseReviewRoute
   PlaceDirectionsRoute: typeof PlaceDirectionsRoute
@@ -1153,6 +1179,7 @@ export interface RootRouteChildren {
   ApiOwnerCustomersRoute: typeof ApiOwnerCustomersRoute
   ApiOwnerDiscountsRoute: typeof ApiOwnerDiscountsRoute
   ApiOwnerDownloadLeadsRoute: typeof ApiOwnerDownloadLeadsRoute
+  ApiOwnerFrenchDinnerDraftsRoute: typeof ApiOwnerFrenchDinnerDraftsRoute
   ApiOwnerFrenchDraftsRoute: typeof ApiOwnerFrenchDraftsRoute
   ApiOwnerJapaneseDraftsRoute: typeof ApiOwnerJapaneseDraftsRoute
   ApiOwnerRedditRoute: typeof ApiOwnerRedditRoute
@@ -1299,6 +1326,13 @@ declare module '@tanstack/react-router' {
       path: '/owner'
       fullPath: '/owner'
       preLoaderRoute: typeof OwnerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/owner-french-dinner-review': {
+      id: '/owner-french-dinner-review'
+      path: '/owner-french-dinner-review'
+      fullPath: '/owner-french-dinner-review'
+      preLoaderRoute: typeof OwnerFrenchDinnerReviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/owner-french-review': {
@@ -1588,6 +1622,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiOwnerDownloadLeadsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/owner-french-dinner-drafts': {
+      id: '/api/owner-french-dinner-drafts'
+      path: '/api/owner-french-dinner-drafts'
+      fullPath: '/api/owner-french-dinner-drafts'
+      preLoaderRoute: typeof ApiOwnerFrenchDinnerDraftsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/owner-french-drafts': {
       id: '/api/owner-french-drafts'
       path: '/api/owner-french-drafts'
@@ -1832,6 +1873,7 @@ const rootRouteChildren: RootRouteChildren = {
   Char91indexChar93Route: Char91indexChar93Route,
   ModuleRequestRoute: ModuleRequestRoute,
   OwnerRoute: OwnerRoute,
+  OwnerFrenchDinnerReviewRoute: OwnerFrenchDinnerReviewRoute,
   OwnerFrenchReviewRoute: OwnerFrenchReviewRoute,
   OwnerJapaneseReviewRoute: OwnerJapaneseReviewRoute,
   PlaceDirectionsRoute: PlaceDirectionsRoute,
@@ -1873,6 +1915,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiOwnerCustomersRoute: ApiOwnerCustomersRoute,
   ApiOwnerDiscountsRoute: ApiOwnerDiscountsRoute,
   ApiOwnerDownloadLeadsRoute: ApiOwnerDownloadLeadsRoute,
+  ApiOwnerFrenchDinnerDraftsRoute: ApiOwnerFrenchDinnerDraftsRoute,
   ApiOwnerFrenchDraftsRoute: ApiOwnerFrenchDraftsRoute,
   ApiOwnerJapaneseDraftsRoute: ApiOwnerJapaneseDraftsRoute,
   ApiOwnerRedditRoute: ApiOwnerRedditRoute,

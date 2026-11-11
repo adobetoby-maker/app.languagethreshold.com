@@ -34,6 +34,8 @@ type DraftBatch = {
   courseId: string;
   stageId: string;
   pairKey: string;
+  locale: string;
+  source: Record<string, string>;
   reviewed: false;
   registered: false;
   readyForLearner: false;
@@ -50,23 +52,52 @@ async function dinnerDrafts() {
     import("../../content/japanese-travel-dinner/core-4-draft.json"),
     import("../../content/japanese-travel-dinner/core-5-6-draft.json"),
     import("../../content/japanese-travel-dinner/core-7-9-draft.json"),
+    import("../../content/japanese-travel-dinner/core-10-12-draft.json"),
   ]);
   const batches = modules.map((module) => module.default as unknown as DraftBatch);
   const lessons = batches.flatMap((batch) => {
     if (
       batch.courseId !== "travel-dinner" ||
       batch.pairKey !== "Japanese:English" ||
+      batch.locale !== "ja-JP" ||
       batch.reviewed !== false ||
       batch.registered !== false ||
-      batch.readyForLearner !== false
+      batch.readyForLearner !== false ||
+      batch.source.revision !== "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
     ) throw new Error("Japanese Dinner draft identity or review gate changed");
     const stage = batch.stageId === "foundation-travel-dinner" ? "foundation" :
       batch.stageId === "travel-dinner" ? "core" : null;
     if (!stage) throw new Error("Unexpected Japanese Dinner stage");
-    return batch.lessons.map((lesson) => ({ ...lesson, stage }));
+    if (stage === "foundation" && (
+      batch.source.path !== "src/data/core60/es/foundation-travel-dinner.json" ||
+      batch.source.sha256 !== "1d51f84acdf62115f88e5f1bbadf7af8988725e0647ef4958962ce7abd8ea014"
+    )) throw new Error("Japanese Dinner foundation source pin changed");
+    if (stage === "core" && (
+      batch.source.planPath !== "src/data/travel-zone.ts" ||
+      batch.source.planSHA256 !== "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8" ||
+      batch.source.contentPath !== "public/lesson-content/es/travel-dinner.json" ||
+      batch.source.contentSHA256 !== "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895"
+    )) throw new Error("Japanese Dinner source pin changed");
+    return batch.lessons.map((lesson) => {
+      if (lesson.reviewed !== false || !Number.isInteger(lesson.n) ||
+          lesson.stableId !== `${batch.stageId}:${lesson.n}:ja-en` ||
+          !lesson.cards?.length || !lesson.reader?.length ||
+          ["see", "recall", "hear", "type", "say", "write"].some((name) =>
+            !lesson.modes?.[name] || lesson.modes[name].sourceCard < 1 ||
+            lesson.modes[name].sourceCard > lesson.cards.length))
+        throw new Error("Japanese Dinner lesson inventory changed");
+      return {
+        stage, n: lesson.n, stableId: lesson.stableId, title: lesson.title,
+        objective: lesson.objective, focus: lesson.focus, scene: lesson.scene,
+        reviewed: false as const, cards: lesson.cards, reader: lesson.reader,
+        forms: lesson.forms, modes: lesson.modes, speaking: lesson.speaking,
+      };
+    });
   });
   const ids = new Set(lessons.map((lesson) => lesson.stableId));
-  if (ids.size !== lessons.length || lessons.length !== 19 || lessons.some((lesson) => lesson.reviewed !== false))
+  if (ids.size !== lessons.length || lessons.length !== 22 || lessons.some((lesson) => lesson.reviewed !== false) ||
+      lessons.filter((lesson) => lesson.stage === "foundation").length !== 10 ||
+      lessons.filter((lesson) => lesson.stage === "core").length !== 12)
     throw new Error("Japanese Dinner draft lesson inventory changed");
   return lessons;
 }

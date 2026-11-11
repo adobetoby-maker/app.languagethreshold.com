@@ -1,0 +1,656 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "foundation-travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "path": "src/data/core60/es/foundation-travel-dinner.json",
+    "sha256": "1d51f84acdf62115f88e5f1bbadf7af8988725e0647ef4958962ce7abd8ea014",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 1,
+      "stableId": "foundation-travel-dinner:1:ja-en",
+      "sourceTitleEnglish": "Sounds and Greetings",
+      "sourceObjectiveEnglish": "Say the Spanish sounds of table words clearly and greet a host or server politely.",
+      "sourceSpeakingEnglish": "Greet the host with buenas noches, say your name, ask how they are, and say three table words clearly.",
+      "title": "Evening Greetings and Dinner Sounds",
+      "objective": "Greet a restaurant host politely, give your name, and recognize common dinner words in Japanese script.",
+      "focus": "こんばんは is an evening greeting; は is pronounced wa in わたしは. です makes a polite identification. Hiragana names ordinary words such as みず; katakana marks loanwords such as テーブル and メニュー. Read the kana and listen to their sound units. あ・い・う・え・お are the five vowel sounds; ん has its own beat, and ー lengthens a katakana vowel.",
+      "scene": "Sam enters a small restaurant in Kyoto and greets the host.",
+      "cards": [
+        {
+          "ja": "こんばんは",
+          "en": "Good evening",
+          "kind": "phrase"
+        },
+        {
+          "ja": "いらっしゃいませ",
+          "en": "Welcome (said by staff)",
+          "kind": "phrase"
+        },
+        {
+          "ja": "テーブル",
+          "en": "table",
+          "kind": "term"
+        },
+        {
+          "ja": "ゆうしょく",
+          "en": "dinner / evening meal",
+          "kind": "term"
+        },
+        {
+          "ja": "スプーン",
+          "en": "spoon",
+          "kind": "term"
+        },
+        {
+          "ja": "にんにく",
+          "en": "garlic",
+          "kind": "term"
+        },
+        {
+          "ja": "ナプキン",
+          "en": "napkin",
+          "kind": "term"
+        },
+        {
+          "ja": "ごはん",
+          "en": "cooked rice / meal",
+          "kind": "term"
+        },
+        {
+          "ja": "メニュー",
+          "en": "menu",
+          "kind": "term"
+        },
+        {
+          "ja": "みず",
+          "en": "water",
+          "kind": "term"
+        },
+        {
+          "ja": "フォーク",
+          "en": "fork",
+          "kind": "term"
+        },
+        {
+          "ja": "わたしはサムです。",
+          "en": "I am Sam.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "おなまえはなんですか。",
+          "en": "What is your name?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ありがとうございます。",
+          "en": "Thank you very much.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "またあとで。",
+          "en": "See you later.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "あ・い・う・え・お",
+          "en": "the five Japanese vowel sounds",
+          "kind": "term"
+        },
+        {
+          "ja": "ん",
+          "en": "syllabic n",
+          "kind": "term"
+        },
+        {
+          "ja": "ー",
+          "en": "long-vowel mark in katakana",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Host",
+          "ja": "いらっしゃいませ。こんばんは。",
+          "en": "Welcome. Good evening."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "こんばんは。",
+          "en": "Good evening."
+        },
+        {
+          "speaker": "Host",
+          "ja": "おなまえはなんですか。",
+          "en": "What is your name?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "わたしはサムです。",
+          "en": "I am Sam."
+        },
+        {
+          "speaker": "Host",
+          "ja": "サムさん、こちらのテーブルへどうぞ。",
+          "en": "Sam, please come to this table."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。メニューをおねがいします。",
+          "en": "Thank you very much. The menu, please."
+        },
+        {
+          "speaker": "Host",
+          "ja": "はい。みずもおもちします。",
+          "en": "Yes. I will bring water too."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。",
+          "en": "Thank you very much."
+        }
+      ],
+      "speaking": {
+        "role": "Dinner guest greeting the host",
+        "partnerRole": "Restaurant host",
+        "opening": "いらっしゃいませ。こんばんは。",
+        "goal": "Greet the host, give your name, and say table, menu, and water clearly.",
+        "closure": "こちらへどうぞ。",
+        "wordBank": [
+          "こんばんは",
+          "テーブル",
+          "メニュー",
+          "みず",
+          "わたしはサムです。",
+          "ありがとうございます。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the Japanese word for a menu.",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, say good evening.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the host’s welcome.",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the Japanese word for water.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Tell the host your name is Sam.",
+          "sourceCard": 12,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a polite thanks to the host.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false
+    },
+    {
+      "n": 2,
+      "stableId": "foundation-travel-dinner:2:ja-en",
+      "sourceTitleEnglish": "Numbers, Time and Measurements",
+      "sourceObjectiveEnglish": "Give the size of your group, a dinner time and simple quantities of wine, food and pesos.",
+      "sourceSpeakingEnglish": "Tell the host how many people are in your group, what time your reservation is, and order 2 glasses of wine.",
+      "title": "Numbers, Time, and Dinner Quantities",
+      "objective": "Give a party size, reservation time, and simple food and drink quantities with Japanese counters and yen.",
+      "focus": "Use 人 for people and 杯 for glasses. A reservation at 8:30 is 八時半; 一杯 and 二杯 count drinks. Prices are in 円. For food sold by weight, 百グラム names a 100-gram amount. Count from ゼロ through 十, 百, and 千 before applying the people and drink counters.",
+      "scene": "Sam confirms a reservation for four at 8:30 and orders two glasses of red wine.",
+      "cards": [
+        {
+          "ja": "よやく",
+          "en": "reservation",
+          "kind": "term"
+        },
+        {
+          "ja": "じかん",
+          "en": "time",
+          "kind": "term"
+        },
+        {
+          "ja": "ワイングラス",
+          "en": "wine glass",
+          "kind": "term"
+        },
+        {
+          "ja": "ボトル",
+          "en": "bottle",
+          "kind": "term"
+        },
+        {
+          "ja": "さら",
+          "en": "plate",
+          "kind": "term"
+        },
+        {
+          "ja": "ひとさら",
+          "en": "one serving / one dish",
+          "kind": "term"
+        },
+        {
+          "ja": "百グラム",
+          "en": "100 grams",
+          "kind": "term",
+          "readingKana": "ひゃくグラム"
+        },
+        {
+          "ja": "円",
+          "en": "yen",
+          "kind": "term",
+          "readingKana": "えん"
+        },
+        {
+          "ja": "八時半",
+          "en": "8:30",
+          "kind": "term",
+          "readingKana": "はちじはん"
+        },
+        {
+          "ja": "ねだん",
+          "en": "price",
+          "kind": "term"
+        },
+        {
+          "ja": "四人です。",
+          "en": "There are four of us.",
+          "kind": "phrase",
+          "readingKana": "よにんです。"
+        },
+        {
+          "ja": "八時半に予約しています。",
+          "en": "I have a reservation at 8:30.",
+          "kind": "phrase",
+          "readingKana": "はちじはんによやくしています。"
+        },
+        {
+          "ja": "赤ワインを二杯お願いします。",
+          "en": "Two glasses of red wine, please.",
+          "kind": "phrase",
+          "readingKana": "あかワインをにはいおねがいします。"
+        },
+        {
+          "ja": "このボトルはいくらですか。",
+          "en": "How much is this bottle?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "百グラムお願いします。",
+          "en": "One hundred grams, please.",
+          "kind": "phrase",
+          "readingKana": "ひゃくグラムおねがいします。"
+        },
+        {
+          "ja": "テーブルを四人でお願いします。",
+          "en": "A table for four, please.",
+          "kind": "phrase",
+          "readingKana": "テーブルをよにんでおねがいします。"
+        },
+        {
+          "ja": "ゼロ",
+          "en": "zero",
+          "kind": "term"
+        },
+        {
+          "ja": "十",
+          "en": "ten",
+          "kind": "term",
+          "readingKana": "じゅう"
+        },
+        {
+          "ja": "百",
+          "en": "one hundred",
+          "kind": "term",
+          "readingKana": "ひゃく"
+        },
+        {
+          "ja": "千",
+          "en": "one thousand",
+          "kind": "term",
+          "readingKana": "せん"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Host",
+          "ja": "こんばんは。ごよやくはありますか。",
+          "en": "Good evening. Do you have a reservation?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "はい。八時半に予約しています。",
+          "en": "Yes. I have a reservation at 8:30."
+        },
+        {
+          "speaker": "Host",
+          "ja": "何人ですか。",
+          "en": "How many people?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "四人です。",
+          "en": "There are four of us."
+        },
+        {
+          "speaker": "Host",
+          "ja": "ありがとうございます。こちらのテーブルへどうぞ。",
+          "en": "Thank you. Please come to this table."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "赤ワインを二杯お願いします。",
+          "en": "Two glasses of red wine, please."
+        },
+        {
+          "speaker": "Host",
+          "ja": "はい。ボトルもあります。",
+          "en": "Yes. We also have a bottle."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "このボトルはいくらですか。",
+          "en": "How much is this bottle?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "三千円です。",
+          "en": "It is 3,000 yen."
+        }
+      ],
+      "speaking": {
+        "role": "Dinner guest confirming a reservation",
+        "partnerRole": "Restaurant host",
+        "opening": "こんばんは。ごよやくはありますか。",
+        "goal": "Give a four-person party size and an 8:30 reservation, then order two glasses of wine and ask the bottle price.",
+        "closure": "赤ワインを二杯、おもちします。",
+        "wordBank": [
+          "よやく",
+          "八時半",
+          "円",
+          "四人です。",
+          "八時半に予約しています。",
+          "赤ワインを二杯お願いします。",
+          "このボトルはいくらですか。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the Japanese term for a reservation.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, say you have a reservation at 8:30.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for an order of two glasses of red wine.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the Japanese term for yen.",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Say there are four people.",
+          "sourceCard": 11,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Ask the price of this bottle.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false
+    },
+    {
+      "n": 3,
+      "stableId": "foundation-travel-dinner:3:ja-en",
+      "sourceTitleEnglish": "Ser and Estar",
+      "sourceObjectiveEnglish": "Describe dishes, tables and yourself with ser and estar at dinner.",
+      "sourceSpeakingEnglish": "Tell the server where you are from, then say whether your dish is hot, cold, salty or delicious.",
+      "title": "Identity, Location, and Food Condition",
+      "objective": "Say where you are from, ask whether a terrace table is available, and describe a dish’s temperature, saltiness, spiciness, or taste.",
+      "focus": "Japanese does not divide “to be” into Spanish ser and estar forms. カナダから来ました gives origin; テラスの席は空いていますか asks whether a seat is free. スープは冷たいです and 魚はおいしいです describe current food qualities. 休暇中です expresses being on vacation.",
+      "scene": "Sam asks about a terrace seat and describes the soup and fish to a server.",
+      "cards": [
+        {
+          "ja": "おいしい",
+          "en": "delicious",
+          "kind": "term"
+        },
+        {
+          "ja": "熱い",
+          "en": "hot (temperature)",
+          "kind": "term",
+          "readingKana": "あつい"
+        },
+        {
+          "ja": "冷たい",
+          "en": "cold",
+          "kind": "term",
+          "readingKana": "つめたい"
+        },
+        {
+          "ja": "塩辛い",
+          "en": "salty",
+          "kind": "term",
+          "readingKana": "しおからい"
+        },
+        {
+          "ja": "辛い",
+          "en": "spicy",
+          "kind": "term",
+          "readingKana": "からい"
+        },
+        {
+          "ja": "甘い",
+          "en": "sweet",
+          "kind": "term",
+          "readingKana": "あまい"
+        },
+        {
+          "ja": "新鮮",
+          "en": "fresh",
+          "kind": "term",
+          "readingKana": "しんせん"
+        },
+        {
+          "ja": "使用中",
+          "en": "occupied / in use",
+          "kind": "term",
+          "readingKana": "しようちゅう"
+        },
+        {
+          "ja": "空いている",
+          "en": "available / unoccupied",
+          "kind": "term",
+          "readingKana": "あいている"
+        },
+        {
+          "ja": "店員",
+          "en": "server / staff member",
+          "kind": "term",
+          "readingKana": "てんいん"
+        },
+        {
+          "ja": "テラス",
+          "en": "terrace",
+          "kind": "term"
+        },
+        {
+          "ja": "スープは冷たいです。",
+          "en": "The soup is cold.",
+          "kind": "phrase",
+          "readingKana": "スープはつめたいです。"
+        },
+        {
+          "ja": "テラスの席は空いていますか。",
+          "en": "Is a terrace seat available?",
+          "kind": "phrase",
+          "readingKana": "テラスのせきはあいていますか。"
+        },
+        {
+          "ja": "今日はわたしの誕生日です。",
+          "en": "Today is my birthday.",
+          "kind": "phrase",
+          "readingKana": "きょうはわたしのたんじょうびです。"
+        },
+        {
+          "ja": "魚はおいしいです。",
+          "en": "The fish is delicious.",
+          "kind": "phrase",
+          "readingKana": "さかなはおいしいです。"
+        },
+        {
+          "ja": "この料理は辛いですか。",
+          "en": "Is this dish spicy?",
+          "kind": "phrase",
+          "readingKana": "このりょうりはからいですか。"
+        },
+        {
+          "ja": "カナダから来ました。",
+          "en": "I am from Canada.",
+          "kind": "phrase",
+          "readingKana": "カナダからきました。"
+        },
+        {
+          "ja": "カナダから来ました。休暇中です。",
+          "en": "I am from Canada and I am on vacation.",
+          "kind": "phrase",
+          "readingKana": "カナダからきました。きゅうかちゅうです。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Server",
+          "ja": "こんばんは。テラスの席をご希望ですか。",
+          "en": "Good evening. Would you like a terrace seat?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "はい。テラスの席は空いていますか。",
+          "en": "Yes. Is a terrace seat available?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "はい、一つ空いています。",
+          "en": "Yes, one is available."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "カナダから来ました。休暇中です。今日はわたしの誕生日です。",
+          "en": "I am from Canada and I am on vacation. Today is my birthday."
+        },
+        {
+          "speaker": "Server",
+          "ja": "おめでとうございます。お料理はいかがですか。",
+          "en": "Congratulations. How is the food?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "魚はおいしいです。でも、スープは冷たいです。",
+          "en": "The fish is delicious. But the soup is cold."
+        },
+        {
+          "speaker": "Server",
+          "ja": "すみません。温かいスープをお持ちします。",
+          "en": "I am sorry. I will bring warm soup."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。この料理は辛いですか。",
+          "en": "Thank you. Is this dish spicy?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "少し辛いです。",
+          "en": "It is a little spicy."
+        }
+      ],
+      "speaking": {
+        "role": "Dinner guest describing food",
+        "partnerRole": "Restaurant server",
+        "opening": "こんばんは。お料理はいかがですか。",
+        "goal": "Say where you are from, ask about the terrace seat, and describe the soup, fish, and spicy dish.",
+        "closure": "温かいスープをお持ちします。",
+        "wordBank": [
+          "冷たい",
+          "辛い",
+          "テラス",
+          "スープは冷たいです。",
+          "テラスの席は空いていますか。",
+          "魚はおいしいです。",
+          "この料理は辛いですか。",
+          "カナダから来ました。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the Japanese adjective for cold food.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, ask if a terrace seat is available.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the sentence that the fish is delicious.",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the Japanese word for terrace.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Say that you are from Canada.",
+          "sourceCard": 17,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write that the soup is cold.",
+          "sourceCard": 12,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false
+    }
+  ],
+  "internalReviewNotes": [
+    "Qualified Japanese review is required for naturalness, kana/kanji progression, pronunciation, counter forms, register, and variant answers.",
+    "The yen and 100-gram examples retain the Spanish lesson’s quantity purpose with Japan-specific units and currency.",
+    "No live runtime, offline pack, audio, or learner progress is changed.",
+    "Foundation 2–3 card-level readingKana supports early script decoding; qualified review should check every reading and add full Reader furigana before release."
+  ]
+}

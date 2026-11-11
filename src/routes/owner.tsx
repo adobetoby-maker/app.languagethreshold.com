@@ -358,6 +358,9 @@ function OwnedOwnerDashboard() {
             <a href="/exam-reviewers" className={secondary}>
               Reviewer access
             </a>
+            <a href="/owner-japanese-review" className={secondary}>
+              Japanese draft review
+            </a>
             <a href="/exam-content" className={secondary}>
               Private exam content
             </a>

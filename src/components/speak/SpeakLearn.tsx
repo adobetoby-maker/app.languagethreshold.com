@@ -825,7 +825,6 @@ export function SpeakLearn() {
     ),
     [
       turns,
-      partnerId,
       interim,
       isEmpty,
       language,

@@ -30,7 +30,7 @@ for (const theme of ["light", "dark"])
     );
     const reply = frame.getByRole("textbox", { name: "Type an answer in Spanish" });
     await reply.fill("Necesito ayuda con el trabajo de hoy.");
-    await frame.getByRole("button", { name: "Send", exact: true }).click();
+    await frame.getByRole("button", { name: "Send answer", exact: true }).click();
     await expect(frame.getByRole("region", { name: "Conversation replies" })).toContainText(
       "Respuesta 2",
     );

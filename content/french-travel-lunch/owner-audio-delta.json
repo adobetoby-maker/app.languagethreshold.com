@@ -1,0 +1,1593 @@
+{
+  "schema": 1,
+  "courseId": "travel-lunch",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "voices": {
+    "female": "fr-FR-Chirp3-HD-Aoede",
+    "male": "fr-FR-Chirp3-HD-Charon"
+  },
+  "sourceSHA256": {
+    "foundation-1-3-draft.json": "c685153c7d1581fa58624f2d774a8a80c78ab4b941f273f2a7a8fc0c6d647385",
+    "foundation-4-10-draft.json": "3417074d7398c07f02dde920661ce98f7ca7969d558436fbc14a1b390f62ea76",
+    "core-1-5-draft.json": "43a28d63102f706bcff7bc17dc256cca6e059a391f47ecdf1b8a3ee1a89ae2d6",
+    "core-6-10-draft.json": "941c8b1d233be56a1ecdec8e30053354f4fec9893e776ca6083362655fb95041",
+    "core-11-15-draft.json": "7945df1a78ca61e192c7603d57f9feb8c8c91491ae2d1ca974b7d5c980b71d78",
+    "core-16-20-draft.json": "9e17e43d1863e254ac2c1fb3fd3b16dd8b43d05ab0d13f856dd11d443204f67e",
+    "core-21-25-draft.json": "c06f41e04f622e26ab3d45627b2a98262976dc9547d411161c044245ee7a8bdf",
+    "core-26-30-draft.json": "339fdaf814ed018048e920324d4e34c73cfe6b4f235866e419a2b72949cf4077",
+    "master-1-5-draft.json": "802c8178beb929663fe9c9ecd85930eb91f72d2e7755120d69a1fad304ab81d0",
+    "master-6-10-draft.json": "1715128d15925a41cb0fe601e237d5e4b5e191236f26d76fc815ff1d5154b8fb",
+    "master-11-15-draft.json": "9c02140f2f3dcad80a4d49e439c9e21c2d694bf9c8a65371a914d2adfbf78b4d",
+    "master-16-20-draft.json": "fc2826b2f8f60ccf13c071ad4cc6bf308395e6f3846035210e7a23c17393ab86"
+  },
+  "lessonIds": [
+    "foundation-travel-lunch:1:fr-en",
+    "foundation-travel-lunch:2:fr-en",
+    "foundation-travel-lunch:3:fr-en",
+    "foundation-travel-lunch:4:fr-en",
+    "foundation-travel-lunch:5:fr-en",
+    "foundation-travel-lunch:6:fr-en",
+    "foundation-travel-lunch:7:fr-en",
+    "foundation-travel-lunch:8:fr-en",
+    "foundation-travel-lunch:9:fr-en",
+    "foundation-travel-lunch:10:fr-en",
+    "core-travel-lunch:1:fr-en",
+    "core-travel-lunch:2:fr-en",
+    "core-travel-lunch:3:fr-en",
+    "core-travel-lunch:4:fr-en",
+    "core-travel-lunch:5:fr-en",
+    "core-travel-lunch:6:fr-en",
+    "core-travel-lunch:7:fr-en",
+    "core-travel-lunch:8:fr-en",
+    "core-travel-lunch:9:fr-en",
+    "core-travel-lunch:10:fr-en",
+    "core-travel-lunch:11:fr-en",
+    "core-travel-lunch:12:fr-en",
+    "core-travel-lunch:13:fr-en",
+    "core-travel-lunch:14:fr-en",
+    "core-travel-lunch:15:fr-en",
+    "core-travel-lunch:16:fr-en",
+    "core-travel-lunch:17:fr-en",
+    "core-travel-lunch:18:fr-en",
+    "core-travel-lunch:19:fr-en",
+    "core-travel-lunch:20:fr-en",
+    "core-travel-lunch:21:fr-en",
+    "core-travel-lunch:22:fr-en",
+    "core-travel-lunch:23:fr-en",
+    "core-travel-lunch:24:fr-en",
+    "core-travel-lunch:25:fr-en",
+    "core-travel-lunch:26:fr-en",
+    "core-travel-lunch:27:fr-en",
+    "core-travel-lunch:28:fr-en",
+    "core-travel-lunch:29:fr-en",
+    "core-travel-lunch:30:fr-en",
+    "master-travel-lunch:1:fr-en",
+    "master-travel-lunch:2:fr-en",
+    "master-travel-lunch:3:fr-en",
+    "master-travel-lunch:4:fr-en",
+    "master-travel-lunch:5:fr-en",
+    "master-travel-lunch:6:fr-en",
+    "master-travel-lunch:7:fr-en",
+    "master-travel-lunch:8:fr-en",
+    "master-travel-lunch:9:fr-en",
+    "master-travel-lunch:10:fr-en",
+    "master-travel-lunch:11:fr-en",
+    "master-travel-lunch:12:fr-en",
+    "master-travel-lunch:13:fr-en",
+    "master-travel-lunch:14:fr-en",
+    "master-travel-lunch:15:fr-en",
+    "master-travel-lunch:16:fr-en",
+    "master-travel-lunch:17:fr-en",
+    "master-travel-lunch:18:fr-en",
+    "master-travel-lunch:19:fr-en",
+    "master-travel-lunch:20:fr-en"
+  ],
+  "oldManifestSHA256": {
+    "content-passages/manifest.json": "7b3a5a2c810ed985b164928fc893fa2d8d416e818c2178640f5265631b7070c4",
+    "content-speaking/manifest.json": "a37b653f61beb54a5eef8dc2720611ff1f48be2bc8e286d9db9ac1559a3ddced",
+    "content-supplement/manifest.json": "818b64112c0250e2ae92424be6bee31ba01d5cff1a03c00cc7fa8c9a8f3212de",
+    "core-1/manifest.json": "2d2afb54bda493d54c130a581d2b22e052dbd56dab03beeb6a484398bd93d1ee",
+    "core-10/manifest.json": "75319e1b4ff8f661a9424e8241b8526f694cdb1a4e57d42f8fe63c1a82824880",
+    "core-11/manifest.json": "40a3e6218ac40a45301a07bba9f0ef3904424e62330449522e59071fd6c36bf2",
+    "core-12/manifest.json": "c1838c24078eaea026023138dbb6572493456c1a0c693e04bacc2e0aa1f86ead",
+    "core-13/manifest.json": "a4ab61cb2428e23704e0565572b554832ad5b033a683242dfe9ac735f23a393f",
+    "core-14/manifest.json": "02e7ad440eac9a83f12443d17a739442df025f0ee63dbb75d4c6e435d659aa35",
+    "core-15/manifest.json": "e2f9f6e10a140a1f6b72cde9400679106b22cda9c110bcb43d883c0e59405860",
+    "core-16/manifest.json": "c36ad262b448199af2e59aa3c04f7b06031c0118101b977cb94049aa881b6c73",
+    "core-17/manifest.json": "0903a2ba4e9de8479d3e8f2e1fbf6c6578f3db53de7636f1b5e2bd7e01603782",
+    "core-18/manifest.json": "71c74c9a90005bc75294ad7161db8b0ddeecaffc614ff432d805e01d3a0cbf02",
+    "core-19/manifest.json": "bfc8d1c215815747cc060f0d61e892c3936e7dbba9c75e14b29047d63a354fde",
+    "core-2/manifest.json": "e7f56df15a280cd55d4517f3a403e123acd57f0ac0e3c1dc39bd0fca64f637fc",
+    "core-20/manifest.json": "c35f8573bf817c145b73c7ce30339ddf77933e56aa6c585e860606e4780534ce",
+    "core-21/manifest.json": "6403be2ee422781a9d259046ec78a68cadf31dc18f5c59c4f87cf9a2db96fa95",
+    "core-22/manifest.json": "eaa77629c41c793a1b3e9cb233d6a491c7dced08b99249aacd1f7e13ef15bcca",
+    "core-23/manifest.json": "599cd55e28be18fe12b8f6c577794a61045cb2972501ee3be7c7ff0a61195e3c",
+    "core-24/manifest.json": "fc7822a373b13f893e0021b19d89b898c36a47529c735f7d132f49c71011b061",
+    "core-25/manifest.json": "0eaaf14742153287ee5888e54b289692054176e71533d911d6b8a6c5ec476a6e",
+    "core-26/manifest.json": "ab2edce7baa62f03ed94c33e442ee4d17553c20032c2919e78b607fb4c454151",
+    "core-27/manifest.json": "c3d9ba17b43fdda9c1eb02bc3d4ec21787d442e2615cffee311bda7b5fd8f86c",
+    "core-28/manifest.json": "2baae2529f659ddf36c4b059d9a260d5a8ddaad2ef48360acc3209e23e1e5c69",
+    "core-29/manifest.json": "f5459ca3db146d7473e8ba7a782410edf6a51301a85a99092fd31536c5ce86d6",
+    "core-3/manifest.json": "796ff5f481f5972c2a5c40be40856d99e408870369528bdf842d632a5248ee0a",
+    "core-30/manifest.json": "ddbdd73716a304575c6fd5c5358ed62bc013a58ab3d9b4b6b19aba965ece9175",
+    "core-4/manifest.json": "be63ba839280a75ef84c60a105145c28d97c4b537c9ab2791ac5a2a4d719b0fc",
+    "core-5/manifest.json": "26079f5b7dc540637a5e42ecc61ddf8eafd5efac9c5c0ad47768e9b2e2ef8dbe",
+    "core-6/manifest.json": "47bc36941887186d7d12784e1f56c880063523d378e5c121d2b91ad6c0a21746",
+    "core-7/manifest.json": "389cbfe0b31960215cb5790cc3f9b18542811ace78634c7fc73188a0046f2133",
+    "core-8/manifest.json": "39a30778478e9b7457a4bc125a621a336957b72a2c243a64a04770ec0ab16af6",
+    "core-9/manifest.json": "dbf981657340d87b40e6824ebc104f95f9d21168d20da339836fc476c3aebbd3",
+    "foundation-1/manifest.json": "e62a597a1a5c4d52d1fe18d17e881c0898302986ff09878ee8f81274408ddb22",
+    "foundation-10/manifest.json": "bfb2fd1c27c552e727fdbf9021b4e956f5596a32729c955d2e0af342301da995",
+    "foundation-2/manifest.json": "0bad1990484af3533afc60c61dd4fc52bfacb73332c494d9104fa873e374dbb0",
+    "foundation-3/manifest.json": "82e9b97cae40bee8ac930fc0fcc6ad6239b3a1ddd4a544fc8e527ef7ce80c02f",
+    "foundation-4/manifest.json": "1d0f3cba67fc5c72b35139cab7f3c31218de827ade5fd7e0e306b60de3c18912",
+    "foundation-5/manifest.json": "f4e72e148ecf532b74a1a52bd6ea534e2d277d98e0cb8912d0e449f8997c8e40",
+    "foundation-6/manifest.json": "97a43a718880e94c08d76e84918318b08a77976000302f4e0f4511aa6af7d5e9",
+    "foundation-7/manifest.json": "6e9fabe3f59c34bd1ca361d0f57dc0475f7617215e0e90514e6493a14d455fe8",
+    "foundation-8/manifest.json": "6b21ae2f549bc765cf996bc42bb1454781d9d15ff4f4964dab557ddad5b4a093",
+    "foundation-9/manifest.json": "0f56fa04b061eb78140322a7d6f427737619331f54c89ec926fd68d79718e6ed",
+    "master-1/manifest.json": "48f40d627ada0a89e8b48a205bc93181f2aaa64e5abbc60c6d4701ce09e870fe",
+    "master-10/manifest.json": "7d4bfdf3da76180682ffd2385044c4a27d6623de73aed45be8a8ab9d6a7a049d",
+    "master-11/manifest.json": "7370515f9fcc343edc33c076edbfeb35efc46f3f3fc4da7d256b062852285291",
+    "master-12/manifest.json": "c51924513873823c5532e08cb143dc904efee295a82a98c1d4136699a74860ef",
+    "master-13/manifest.json": "34831144587e530f8dd0b699f8cdabdc2ebfab6b6891364f84a53806e671e8af",
+    "master-14/manifest.json": "06cb522a7c1e59e264f0fc760d496e4397b3c1aa2f573b8e2a934eec965e7a2b",
+    "master-15/manifest.json": "4e24f3a05b17b9791c4680b42ca1571898f95215a92adb7614e54ac8959a22a4",
+    "master-16/manifest.json": "9fcf32180b590cf373f3686ecab250a1d8e95f085caf06f0c7a0d96d1336b394",
+    "master-17/manifest.json": "ff3dbbdcd81bee403339fd55803c9face19b772ffeb017567762d722ba89aa99",
+    "master-18/manifest.json": "9371b3aa615ddd501eaf638dd69cb1ebce7f8e220c537fed3a096f6c2f2fc56a",
+    "master-19/manifest.json": "e8ed8fc3c298a4ad417f570f0a0644874527ec911c346093f8621e80d86eb4e6",
+    "master-2/manifest.json": "dffad52de8527aef602549e59879f5659ff7f232d7a1c886898f66656cacd968",
+    "master-20/manifest.json": "4cc641c65f90484699f50a54fc5c69277b34914db329bcbe5d6da36d2fa5a7e4",
+    "master-3/manifest.json": "697018346ce27b541cee79893f5d382ad5ccba289229cda9b344b4c5bfa0ae41",
+    "master-4/manifest.json": "374768c15ccfd7681103c46d7288d7546b4cd1dad72a10b0df9f5c9de95f10a3",
+    "master-5/manifest.json": "f0cca7ab422643cbdd1923d95e471c878b2233dfca0353d9c22751f2adcc88d6",
+    "master-6/manifest.json": "f87729b2582a9d916842b46b8aad17875954da43be6488ffd43c81f42a97587b",
+    "master-7/manifest.json": "874ffc058af36dca50b66170d0fca6a06b69d84de5ddb145729652ede0201e32",
+    "master-8/manifest.json": "7e712a06e78a4e676938b5b66a82630066ef20250dfcabcb13f2561d3dfcbf59",
+    "master-9/manifest.json": "4b913cfc184a77a779c06455afb649a5dc57917d07b2dd34f94bf50fd5a14901"
+  },
+  "currentUniqueTexts": 1405,
+  "oldUniqueTexts": 1327,
+  "newUniqueTexts": 121,
+  "proposedClips": 242,
+  "submittedCharacters": 10290,
+  "texts": [
+    {
+      "displayText": "Aidez-nous, s’il vous plaît ! Mon amie fait une réaction allergique.",
+      "spokenText": "Aidez-nous, s’il vous plaît ! Mon amie fait une réaction allergique.",
+      "textSHA256": "49d1aabb6bfb703e008d89d10671a32753f8f12a90b82a699d60f87b05b48000",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "displayText": "Aidez-nous. Mon amie fait une réaction allergique.",
+      "spokenText": "Aidez-nous. Mon amie fait une réaction allergique.",
+      "textSHA256": "d58471fa841175f9c8e32b570e555612b2194b7cd4a464635f1d3c9387e92859",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "Appelez le 112, s’il vous plaît.",
+      "spokenText": "Appelez le 112, s’il vous plaît.",
+      "textSHA256": "2962015eb7b8b93a2ef4d9c477c12ba95a19f150127c9127d279a34813cfadfc",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "cards",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "displayText": "Attendez, s’il vous plaît. Sam est allergique et ne peut pas manger ce plat.",
+      "spokenText": "Attendez, s’il vous plaît. Sam est allergique et ne peut pas manger ce plat.",
+      "textSHA256": "7f22132231d04632330a15f65984cf08b365a9ed9bd7fd59d43e3f91c8d3e33d",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:20:fr-en",
+          "surface": "cards",
+          "index": 19
+        }
+      ]
+    },
+    {
+      "displayText": "Attendez, s’il vous plaît. Sam est allergique et ne peut pas manger ce plat. Pouvez-vous vérifier avec la cuisine avant qu’il n’y goûte et noter son allergie sur la commande ?",
+      "spokenText": "Attendez, s’il vous plaît. Sam est allergique et ne peut pas manger ce plat. Pouvez-vous vérifier avec la cuisine avant qu’il n’y goûte et noter son allergie sur la commande ?",
+      "textSHA256": "3a634e1b01462a5cd76aa06396f99f9412dc2e772cf81f25807acc15cf31280a",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:20:fr-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "displayText": "Avez-vous une chaise pour enfant ?",
+      "spokenText": "Avez-vous une chaise pour enfant ?",
+      "textSHA256": "519a098d2fac2080ec83d489cc307a3bddb6ed8a830b8f65329151dd3dd9e4a3",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "cards",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "displayText": "Bonjour. La salade au poulet a été servie à treize heures quarante-cinq.",
+      "spokenText": "Bonjour. La salade au poulet a été servie à treize heures quarante-cinq.",
+      "textSHA256": "377654e293766dfe4359915fbcb87311d7cbda1a64960e11a190c9a51fb59d35",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:16:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "Bonjour. Nous sommes cinq, avec un enfant.",
+      "spokenText": "Bonjour. Nous sommes cinq, avec un enfant.",
+      "textSHA256": "459e1acd6cf588a8f768349e78bbf534b9d38f0588b19f236085bbe06aa3360f",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "Bonjour. Nous sommes cinq, avec un enfant. Avez-vous une chaise pour enfant ?",
+      "spokenText": "Bonjour. Nous sommes cinq, avec un enfant. Avez-vous une chaise pour enfant ?",
+      "textSHA256": "d37950e507cd141aa4fa9d0acb0b574835f6271e6c58c7c368ae890c4cb971a8",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "displayText": "Bonjour. Oui, la voici. Cette table vous convient ?",
+      "spokenText": "Bonjour. Oui, la voici. Cette table vous convient ?",
+      "textSHA256": "88f578c4abb007ecb3153b57d5d044d7ec5702b3eddefb047739f22e7f9c90f5",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "displayText": "Bonjour. Vous avez une question sur la carte ?",
+      "spokenText": "Bonjour. Vous avez une question sur la carte ?",
+      "textSHA256": "9c1ab17271c19a37bf21d19270ad69d2d7351551e91cd80d538fbedcf8761e1a",
+      "placements": [
+        {
+          "lessonId": "foundation-travel-lunch:7:fr-en",
+          "surface": "speaking-opening"
+        },
+        {
+          "lessonId": "foundation-travel-lunch:10:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "Bonjour. Vous cherchez une table ?",
+      "spokenText": "Bonjour. Vous cherchez une table ?",
+      "textSHA256": "1d4eacd42b652905955e6bcc84d264a7320b79983549932d1f157ba4ad1a7721",
+      "placements": [
+        {
+          "lessonId": "foundation-travel-lunch:3:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "Bonjour. Vous êtes combien ?",
+      "spokenText": "Bonjour. Vous êtes combien ?",
+      "textSHA256": "3bd4edde7a03089667fda6ac156f201902501d5f4eac00f9964c7bfca49a3e2c",
+      "placements": [
+        {
+          "lessonId": "foundation-travel-lunch:2:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "Ce plat contient-il des cacahuètes, ou est-il préparé près de cacahuètes ?",
+      "spokenText": "Ce plat contient-il des cacahuètes, ou est-il préparé près de cacahuètes ?",
+      "textSHA256": "48cf455be65ae28260baa46fb2e56ec6ea16065c17db521490346f932cfd0c64",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "cards",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "displayText": "Choisis la galette au fromage et aux champignons.",
+      "spokenText": "Choisis la galette au fromage et aux champignons.",
+      "textSHA256": "84ab5cb15175605cfcc469b79bfd572ca8f36a86ee0d6cf2eb374a174fcb5b4d",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:3:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "Dites aux secours ce qu’elle a mangé et quel médicament elle a utilisé.",
+      "spokenText": "Dites aux secours ce qu’elle a mangé et quel médicament elle a utilisé.",
+      "textSHA256": "e2095f10e2e5d192511cc22e373b5d9ca7d0cae4ac715d855a48b3ad474611f9",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Dites aux secours ce qu’elle a mangé.",
+      "spokenText": "Dites aux secours ce qu’elle a mangé.",
+      "textSHA256": "20cf571bc8a2437639edac6df25901c8882efc13d072950b5809c82e8d91dd69",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "cards",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "displayText": "Dites-leur qu’elle a mangé ce taco il y a cinq minutes.",
+      "spokenText": "Dites-leur qu’elle a mangé ce taco il y a cinq minutes.",
+      "textSHA256": "43bab957b84e767d7cbd9275d9288b7cd84d691f697fd6bb28e1299237f9f343",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "reader",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "displayText": "D’accord. Je règle le total corrigé.",
+      "spokenText": "D’accord. Je règle le total corrigé.",
+      "textSHA256": "65cffb40f0b1771e33cf407f57ea36d59f53f5b8068c2d4bab7f011d7f361384",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:20:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "D’accord. À tout à l’heure.",
+      "spokenText": "D’accord. À tout à l’heure.",
+      "textSHA256": "22e2d4c07bcfb1d1c09d25b63179de3d0241b6bb9ece953e8f47de6b206a88a4",
+      "placements": [
+        {
+          "lessonId": "foundation-travel-lunch:5:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Elena a une allergie aux cacahuètes.",
+      "spokenText": "Elena a une allergie aux cacahuètes.",
+      "textSHA256": "51ea4e30e907a0ed8124d0c62ba1dd43ac2e6050f7f9c43bda66426c25a6b265",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "cards",
+          "index": 19
+        }
+      ]
+    },
+    {
+      "displayText": "Elena a une allergie aux cacahuètes. Elle a mangé une bouchée de ce taco. Elle a la gorge serrée.",
+      "spokenText": "Elena a une allergie aux cacahuètes. Elle a mangé une bouchée de ce taco. Elle a la gorge serrée.",
+      "textSHA256": "2be668622f97baca39b5d554732e91d9fdc931ddc7d12702bada03d48b599e64",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "displayText": "Elle a la gorge serrée.",
+      "spokenText": "Elle a la gorge serrée.",
+      "textSHA256": "dff0be23f37b69a78563f3ff9ad198c601f546c2162d90b6e879e73f6b4e9ebc",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "cards",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "displayText": "Elle a mangé ce taco il y a cinq minutes.",
+      "spokenText": "Elle a mangé ce taco il y a cinq minutes.",
+      "textSHA256": "9166883487026330738cd7ab7fd23438f8b2e08a9650e2ce86959b6a0d19295c",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "cards",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "displayText": "Elle a mangé une bouchée de ce taco.",
+      "spokenText": "Elle a mangé une bouchée de ce taco.",
+      "textSHA256": "3164e68e1274e5f11164b154e6612cdb8fd0137eb25a1c51602f18a81fb8b733",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "cards",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "displayText": "Elle a utilisé le médicament qu’elle portait dans son sac. Elle a mangé ce taco il y a cinq minutes.",
+      "spokenText": "Elle a utilisé le médicament qu’elle portait dans son sac. Elle a mangé ce taco il y a cinq minutes.",
+      "textSHA256": "16ac3b3b277fa6096f7ea023ce6b3b3d561f1eb37955ea6888f927bf868b3f87",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "reader",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "displayText": "Excusez-moi. On peut payer séparément ?",
+      "spokenText": "Excusez-moi. On peut payer séparément ?",
+      "textSHA256": "270243789502326fde61f104ffc802d48f37d9f16c4602d274bf443454e73458",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:12:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "Il y a une forte odeur de gaz près de votre bouteille.",
+      "spokenText": "Il y a une forte odeur de gaz près de votre bouteille.",
+      "textSHA256": "75bd25acfa651db463af3d06382b0b6cf9d637734679131c9ba8bfe3bbf6f983",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:15:fr-en",
+          "surface": "cards",
+          "index": 13
+        },
+        {
+          "lessonId": "master-travel-lunch:15:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "Je vais vous lire mon avis en ligne.",
+      "spokenText": "Je vais vous lire mon avis en ligne.",
+      "textSHA256": "a6263812506a10765cc9830ba30f199c2905774c5b447ae131bcafe9a571e14a",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:17:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "Je vous appelle au sujet de notre réservation pour huit personnes.",
+      "spokenText": "Je vous appelle au sujet de notre réservation pour huit personnes.",
+      "textSHA256": "95090bfee15079f8b82cc83c9043db1c246e9a25608c223eccedca756c0b36a7",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:18:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "Je vérifie avec la cuisine.",
+      "spokenText": "Je vérifie avec la cuisine.",
+      "textSHA256": "f073ae5562394d550a106091acd54943fb2bbf2fe08f03f9b866d800fe60e4f6",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "displayText": "J’ai déjà utilisé mon médicament. Il était dans mon sac.",
+      "spokenText": "J’ai déjà utilisé mon médicament. Il était dans mon sac.",
+      "textSHA256": "626893f06765a8cddb9a74b3d152db67e5f154eca1871f6ce3eca5e94b708562",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "displayText": "J’appelle le 112 maintenant.",
+      "spokenText": "J’appelle le 112 maintenant.",
+      "textSHA256": "cd9cd07bb8360e4bd785ebd630651f33ed7704ef2e8ef4a10352d5e5c00543ff",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "displayText": "J’appelle le 112.",
+      "spokenText": "J’appelle le 112.",
+      "textSHA256": "93e40529e05eb3b883381b8b8088b627f4b3cc4d2f691ca91dc693f2f8a4bdce",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:15:fr-en",
+          "surface": "cards",
+          "index": 16
+        },
+        {
+          "lessonId": "master-travel-lunch:15:fr-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "displayText": "J’envoie les pompiers. Je note votre emplacement et les faits.",
+      "spokenText": "J’envoie les pompiers. Je note votre emplacement et les faits.",
+      "textSHA256": "3247a83bf65c6d9fe0a36cc1f8e771ba3ac8d7d348a9ad45e1dfa24726476148",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:15:fr-en",
+          "surface": "reader",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "displayText": "La cuisine confirme que le menu du jour ne contient pas de cacahuètes.",
+      "spokenText": "La cuisine confirme que le menu du jour ne contient pas de cacahuètes.",
+      "textSHA256": "533ab9c4f1404dfdb90201b6bf1c8906a441e8a6f32b9a85d2cb5258dcdb231e",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "displayText": "La formule du midi comprend une entrée et un plat.",
+      "spokenText": "La formule du midi comprend une entrée et un plat.",
+      "textSHA256": "8b6be6aff11b61350ec37d625cce6c01eb52b459cb4856cb8a36b87e9a548d82",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:20:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "La sauce contient aussi des crevettes séchées.",
+      "spokenText": "La sauce contient aussi des crevettes séchées.",
+      "textSHA256": "d3d8681845ed4fba36833090110c51c458f3ad19e7221cf371dc16739b7f5b0e",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:19:fr-en",
+          "surface": "cards",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "displayText": "Le bouillon contient des crevettes, et la sauce contient aussi des crevettes séchées.",
+      "spokenText": "Le bouillon contient des crevettes, et la sauce contient aussi des crevettes séchées.",
+      "textSHA256": "fae050acdc4c883f5ad8c3f28cb28f5d2cac291d7a019e94ad12c6fd0cc3c375",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:19:fr-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "displayText": "Merci beaucoup. À bientôt.",
+      "spokenText": "Merci beaucoup. À bientôt.",
+      "textSHA256": "52afeeaf6e548e4258ed628a287b741d5ac0c4999b5d01ecab675fc6cd7de13d",
+      "placements": [
+        {
+          "lessonId": "foundation-travel-lunch:1:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci de confirmer cinq personnes à quatorze heures.",
+      "spokenText": "Merci de confirmer cinq personnes à quatorze heures.",
+      "textSHA256": "ff4fec215a77a06c6290d62c64f8cc191ef4fa52c772a4e5a7dbe3a501756b1b",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:18:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci de m’avoir expliqué la préparation et l’utilisation de la même huile. Nous allons manger ailleurs.",
+      "spokenText": "Merci de m’avoir expliqué la préparation et l’utilisation de la même huile. Nous allons manger ailleurs.",
+      "textSHA256": "a837d5de9be10f9c4ba50d8e83730c39ffe38645e86c3173f0d0f73845ebc8f1",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:19:fr-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "displayText": "Merci de noter les faits et de m’indiquer le centre médical.",
+      "spokenText": "Merci de noter les faits et de m’indiquer le centre médical.",
+      "textSHA256": "a155ab11d6a3c59337c63f8480957edbce011a5e640374682dcdd57ca2ee6a99",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:13:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci de transmettre mes compliments à la cheffe.",
+      "spokenText": "Merci de transmettre mes compliments à la cheffe.",
+      "textSHA256": "8a5737727cda1c7fea3b9de499e6896ac5c54c79fe9518a905dcb1cac71a5e5e",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:13:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci d’avoir corrigé l’addition.",
+      "spokenText": "Merci d’avoir corrigé l’addition.",
+      "textSHA256": "8b262bcfda4b14150907ba95110e0c82e41d91aabf8affd44efbe2f9092b913d",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:11:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci pour cette conversation. À bientôt.",
+      "spokenText": "Merci pour cette conversation. À bientôt.",
+      "textSHA256": "b6c26e7f94d0342325cb9cf98485c885937a7240a45236e1b5cca5f0895bf3ea",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:26:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci pour le conseil. Bonne journée !",
+      "spokenText": "Merci pour le conseil. Bonne journée !",
+      "textSHA256": "ff33322decb8899e387c3fcc746ce8b83cddbe98decd3ad36e202993e23cf265",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:1:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci pour vos réponses. Nous allons manger ailleurs.",
+      "spokenText": "Merci pour vos réponses. Nous allons manger ailleurs.",
+      "textSHA256": "5a62156da012ba0875e697dfcc87649e94ba8f72efd265783981f7527d5924b0",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:19:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci pour votre aide.",
+      "spokenText": "Merci pour votre aide.",
+      "textSHA256": "05a1be9d4d5b0d78904b84d9fb53bbaa08c08df24c41ca41222e9445c81c452d",
+      "placements": [
+        {
+          "lessonId": "foundation-travel-lunch:7:fr-en",
+          "surface": "speaking-closure"
+        },
+        {
+          "lessonId": "foundation-travel-lunch:10:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci à tous pour ce déjeuner.",
+      "spokenText": "Merci à tous pour ce déjeuner.",
+      "textSHA256": "a9247f02514a22cd9d711abe51ffea4e674fe19ac0bdcda53242efd626197250",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:12:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci, ce sera tout pour le moment.",
+      "spokenText": "Merci, ce sera tout pour le moment.",
+      "textSHA256": "afa0af2112b9ac921bddc988ee7cbd7829bc3c09bf4c1e31115b7225a5f90fde",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:2:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci, c’est parfait pour nous.",
+      "spokenText": "Merci, c’est parfait pour nous.",
+      "textSHA256": "5cb43826add931d63bbe74dd73a715e70c22db8970b03d6affc89d1d1b05a594",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:7:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci, je prendrai les ravioles.",
+      "spokenText": "Merci, je prendrai les ravioles.",
+      "textSHA256": "430bb72054f7005cbd86846deafeb367f9e7c1c7639cd201ee33ef73dd5a2d64",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:6:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci, je vais prendre celui-là.",
+      "spokenText": "Merci, je vais prendre celui-là.",
+      "textSHA256": "12c0a5e3f94b2623d7fee0da0e1e38301ff34849681590da5231191cbbddaaf4",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:5:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci, les trois paiements font bien soixante euros.",
+      "spokenText": "Merci, les trois paiements font bien soixante euros.",
+      "textSHA256": "c199f68009d26e1c100b4be6bafd6282eae80775465de8eb93de72ab939456ea",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:12:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci, nous prendrons ces deux plats.",
+      "spokenText": "Merci, nous prendrons ces deux plats.",
+      "textSHA256": "45a8dcfeb7201eda0d2201956d093a4ec49dc68f85de507a3ce750386ad421d1",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:8:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci, on partage la salade.",
+      "spokenText": "Merci, on partage la salade.",
+      "textSHA256": "2f36885d673d8674d336d1d033e78c259869a5194f4f24182b31ac82ca66d27b",
+      "placements": [
+        {
+          "lessonId": "foundation-travel-lunch:6:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci, à midi et demi.",
+      "spokenText": "Merci, à midi et demi.",
+      "textSHA256": "d31d42b6d5bb3e289e27d9f7857364c64a72da1c2e40b6757c83f8ab8c21fe35",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:27:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci, à tout à l’heure.",
+      "spokenText": "Merci, à tout à l’heure.",
+      "textSHA256": "d94ed4596328499d93cf62e26e3a476142c057ced49f163fe4b31bce90796961",
+      "placements": [
+        {
+          "lessonId": "foundation-travel-lunch:4:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci. Bon après-midi.",
+      "spokenText": "Merci. Bon après-midi.",
+      "textSHA256": "dd41cbb787c85528bae1d53c09c0a381416a6be857760d830078d045012166b6",
+      "placements": [
+        {
+          "lessonId": "foundation-travel-lunch:3:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci. Bonne journée !",
+      "spokenText": "Merci. Bonne journée !",
+      "textSHA256": "d92c677fb56218d67e405c9201c486697b8090944a425b323baa62ff34ad9ddc",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:3:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci. Bonne journée.",
+      "spokenText": "Merci. Bonne journée.",
+      "textSHA256": "9bb355e5518d34ccb35fdb141f34cfb1059f56cab2bd8456a7e56a1a9cf52d36",
+      "placements": [
+        {
+          "lessonId": "foundation-travel-lunch:9:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci. Je garde le plat du jour.",
+      "spokenText": "Merci. Je garde le plat du jour.",
+      "textSHA256": "ba9b8383d63fcca94d0116bfce1160d9037bc83f710e788cff8b9436529f7fe9",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:21:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci. Je passe à la caisse, puis je m’assieds.",
+      "spokenText": "Merci. Je passe à la caisse, puis je m’assieds.",
+      "textSHA256": "75b6b27a8a24fc74baba87c733b25e25173ac5ce73648793caf5291d6ec9087a",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:16:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci. Je passerai à quinze heures.",
+      "spokenText": "Merci. Je passerai à quinze heures.",
+      "textSHA256": "8f7df6b1be45e4dec3e07b5061c605d30e2a41d1f4c6f2f9b5a9e8055d07246a",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:25:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci. Je prends la petite portion pour lui.",
+      "spokenText": "Merci. Je prends la petite portion pour lui.",
+      "textSHA256": "8b722dd88a41aebafe3886ca5b606b9b9b503b1cb8bd6672946b47c44e8d32ee",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:17:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci. Je vérifierai les horaires du restaurant.",
+      "spokenText": "Merci. Je vérifierai les horaires du restaurant.",
+      "textSHA256": "28e9bf41f7b1e992fa085e618c68d3eaee8cfc86ffe1a045d6ac5f82b819c065",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:22:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci. La carafe et le pain me suffisent.",
+      "spokenText": "Merci. La carafe et le pain me suffisent.",
+      "textSHA256": "2873258c3d76a77485a63940bca4b65d714a94e24d97a419fd1f9b3bbc2b9210",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:9:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci. Nous attendons votre confirmation des deux plats.",
+      "spokenText": "Merci. Nous attendons votre confirmation des deux plats.",
+      "textSHA256": "1c83225e57f7b84f503b3697a1907c6bee1119531f53596366f173665b990eb9",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:19:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci. Nous lirons le panneau du parc.",
+      "spokenText": "Merci. Nous lirons le panneau du parc.",
+      "textSHA256": "b66a17e295bc207b01d789f0189fff7a2b9ac063ba03792dae344dac77167f63",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:23:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci. Nous payons au comptoir maintenant.",
+      "spokenText": "Merci. Nous payons au comptoir maintenant.",
+      "textSHA256": "4eb6dd421e0ed86031e9548a0fe363de23a15e2a887dfd8f65e6f803ec7ad245",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:10:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci. Nous prenons le menu du jour pour tous.",
+      "spokenText": "Merci. Nous prenons le menu du jour pour tous.",
+      "textSHA256": "8bed294e1b82b714291f4774bcc0b47bfc260c8bb8b044adf19d2362579779b4",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "displayText": "Merci. Nous réglerons séparément.",
+      "spokenText": "Merci. Nous réglerons séparément.",
+      "textSHA256": "0dce8c2ec2f25b659a3fb1e0c55a6080e702b0f1b58eb93645a2b96a265bf436",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:15:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci. Nous viendrons à midi.",
+      "spokenText": "Merci. Nous viendrons à midi.",
+      "textSHA256": "cd2f52a1eb57fb682abb0941877692d07211199c075d403c7bf64f1168faf033",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:18:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Merci. À tout à l'heure.",
+      "spokenText": "Merci. À tout à l'heure.",
+      "textSHA256": "e0161e708094fe6ee758ebce85d137b51d761f9b44b3b759324c50adf2753784",
+      "placements": [
+        {
+          "lessonId": "foundation-travel-lunch:2:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Mon amie a une allergie grave aux cacahuètes.",
+      "spokenText": "Mon amie a une allergie grave aux cacahuètes.",
+      "textSHA256": "300a649a53e4071dfd94f9f21ebcd3ef8226b15fe14b970368e0fe94602b327b",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "cards",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "displayText": "Mon amie fait une réaction allergique.",
+      "spokenText": "Mon amie fait une réaction allergique.",
+      "textSHA256": "e31bde096643e60d40257062c06a89fbd360e5bb825ffef820079fb6cda1dd53",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "cards",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "displayText": "Monsieur, il y a une forte odeur de gaz près de votre bouteille.",
+      "spokenText": "Monsieur, il y a une forte odeur de gaz près de votre bouteille.",
+      "textSHA256": "1703997dfb8235a68b27644f2f6914b0c276b338d8cbe00595436d22b9bd9ec1",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:15:fr-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "displayText": "Non merci, seulement le menu du jour.",
+      "spokenText": "Non merci, seulement le menu du jour.",
+      "textSHA256": "880ab744d9d46ff1fd4118431f6a921353f677744bd2486864f4a9b26f0027ef",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "cards",
+          "index": 13
+        },
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "displayText": "Nous allons déjeuner où ?",
+      "spokenText": "Nous allons déjeuner où ?",
+      "textSHA256": "ad756f5f155d011941b58ff461396770f690edbebf5c0e848aa67e506a3ea0f8",
+      "placements": [
+        {
+          "lessonId": "foundation-travel-lunch:5:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "Nous avons commandé quatre menus et trois boissons.",
+      "spokenText": "Nous avons commandé quatre menus et trois boissons.",
+      "textSHA256": "43173d2ee5a140d77f73c7751eb04283d7dc776cb98d6232d56a9564d50a8879",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:7:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "Nous avons commandé une soupe végétarienne pour mon ami.",
+      "spokenText": "Nous avons commandé une soupe végétarienne pour mon ami.",
+      "textSHA256": "dab028e8f5454166c2977682099c015641eee338d66137563aafb7dabf670ffe",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:5:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "Nous sommes cinq, avec un enfant.",
+      "spokenText": "Nous sommes cinq, avec un enfant.",
+      "textSHA256": "21b5a3528437db8cc9b27c0418785dc3fe88876ce837a180958b21a4bee5a470",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "cards",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "displayText": "Nous sommes six. Qu’est-ce qui est encore disponible ?",
+      "spokenText": "Nous sommes six. Qu’est-ce qui est encore disponible ?",
+      "textSHA256": "4ab732d9153eedecf5eb5a710c4edd85c701e0a5f6afe013d309ca66e24c1972",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:6:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "On peut prendre un café sur la terrasse maintenant.",
+      "spokenText": "On peut prendre un café sur la terrasse maintenant.",
+      "textSHA256": "c25f4a45e2245b216be1264edfd8d93c089cf3f310840eef06747b6e3583ffdd",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:2:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "On reste à table pour discuter après le repas ?",
+      "spokenText": "On reste à table pour discuter après le repas ?",
+      "textSHA256": "31fee70554ca69d659fc30fc0289bf2a7046ecb280b3f23de3026a8dde8587f8",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "displayText": "Oui, c’est ça. Commandons.",
+      "spokenText": "Oui, c’est ça. Commandons.",
+      "textSHA256": "8082e6d757767980e4f471b9b5035cf4778a8a8428488794558a1e5a509e8839",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:1:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Oui, merci. Mon amie a une allergie grave aux cacahuètes. Pouvez-vous vérifier les ingrédients avec la cuisine ?",
+      "spokenText": "Oui, merci. Mon amie a une allergie grave aux cacahuètes. Pouvez-vous vérifier les ingrédients avec la cuisine ?",
+      "textSHA256": "1706252d34559d9a48a4901d29de8b5b43869fd1c8408eb240c8368a5dbcd227",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "displayText": "Oui. La sauce macha contient des cacahuètes.",
+      "spokenText": "Oui. La sauce macha contient des cacahuètes.",
+      "textSHA256": "2c74c6df1a3e0e884c1c4cf3a3a76b8aa3910ae9763abf98587251d4dee37690",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "displayText": "Oui. Nous pouvons parler du voyage, de la famille et de demain.",
+      "spokenText": "Oui. Nous pouvons parler du voyage, de la famille et de demain.",
+      "textSHA256": "f6ac0a244a5a2a88dce570245f41a07a3893a1171a39b1fdfb140b322ca031a5",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "reader",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "displayText": "Parfait, merci beaucoup.",
+      "spokenText": "Parfait, merci beaucoup.",
+      "textSHA256": "b468b452e929331174481f60ee209759f8e886600805c53fd7980e1668169d96",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:4:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Parfait, à vendredi devant le bistrot.",
+      "spokenText": "Parfait, à vendredi devant le bistrot.",
+      "textSHA256": "6843ea499eb381af63e7c4baa96455eb606b3a9daa601f9921dd2d9e0f974f26",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:14:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Pour prolonger la conversation, dans mon cas.",
+      "spokenText": "Pour prolonger la conversation, dans mon cas.",
+      "textSHA256": "79cb183c9349584fce93c89a777b01bb3f5d234656f89347fb3bd1da5a7cddce",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "reader",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "displayText": "Pourquoi restez-vous à table après le repas ?",
+      "spokenText": "Pourquoi restez-vous à table après le repas ?",
+      "textSHA256": "ba13b51207a5fb4d422f4820fee7b5f63a7adcba7f286cf7e6e6565a3bc891d1",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "cards",
+          "index": 14
+        },
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "reader",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "displayText": "Pouvez-vous appeler le 112, s’il vous plaît ?",
+      "spokenText": "Pouvez-vous appeler le 112, s’il vous plaît ?",
+      "textSHA256": "9300dadc3371672e806926ff2f950b8e51893f498bb0510b893fda3d2f793ffe",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "displayText": "Pouvez-vous vérifier les ingrédients avec la cuisine ?",
+      "spokenText": "Pouvez-vous vérifier les ingrédients avec la cuisine ?",
+      "textSHA256": "d52d83f9bacb77a09d947963fc02fb582477e0fc421371bbfd61af8ded2019e6",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "cards",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "displayText": "Quel médicament a-t-elle utilisé, et à quelle heure ?",
+      "spokenText": "Quel médicament a-t-elle utilisé, et à quelle heure ?",
+      "textSHA256": "ff401efdc7de5ab0a62c00ab2fbbc2fa86c2baddf4a69cd0f14d6a59a2d02408",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "reader",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "displayText": "Si c’est sans danger, fermez le robinet et éteignez la flamme ; ne touchez à aucun interrupteur.",
+      "spokenText": "Si c’est sans danger, fermez le robinet et éteignez la flamme ; ne touchez à aucun interrupteur.",
+      "textSHA256": "870a3dd6440568068fe34303ea6fd4ed5d28c6465a8a8e0b5d8236c9f97ebd30",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:15:fr-en",
+          "surface": "cards",
+          "index": 23
+        },
+        {
+          "lessonId": "master-travel-lunch:15:fr-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "displayText": "Souhaitez-vous ajouter un vin plus cher ?",
+      "spokenText": "Souhaitez-vous ajouter un vin plus cher ?",
+      "textSHA256": "7186da77066bd47b409a124741cde7186cc7547282598bb278a0f5577acc03e9",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "displayText": "Tout le monde est d’accord ? Allons-y.",
+      "spokenText": "Tout le monde est d’accord ? Allons-y.",
+      "textSHA256": "f4dfd922b36465df02510551328ab80155da040dbe4bd636eec7d4ba7f552254",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:10:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Tu as besoin de ton médicament ?",
+      "spokenText": "Tu as besoin de ton médicament ?",
+      "textSHA256": "17b4cdb4afb132cf88215552f59cedd7197f3bca6e2658dc629c793743a967b8",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "cards",
+          "index": 15
+        },
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "displayText": "Tu l’as commandée toi-même.",
+      "spokenText": "Tu l’as commandée toi-même.",
+      "textSHA256": "222e7bd2158705c26bbe37e8b89778616543368e5b61ee687a6dfd8fceed93ee",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:3:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Tu manges quoi aujourd’hui ?",
+      "spokenText": "Tu manges quoi aujourd’hui ?",
+      "textSHA256": "d3724747b403ea2df599c91ed102b17480a2f6322ce6d951ade98ac8b570bc33",
+      "placements": [
+        {
+          "lessonId": "foundation-travel-lunch:6:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "Voilà les faits que je peux confirmer.",
+      "spokenText": "Voilà les faits que je peux confirmer.",
+      "textSHA256": "01fd48afe3184d043790b56a2c1af4c59e6f8c0e65a476e44cfe903e56c7be2d",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:16:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "Vous désirez autre chose ?",
+      "spokenText": "Vous désirez autre chose ?",
+      "textSHA256": "bba8a91f45badb39412c2c12a26c0f42d955acae31e5e1ddce0f55467f831e0d",
+      "placements": [
+        {
+          "lessonId": "foundation-travel-lunch:9:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "Vous voulez du porc avec le plat ?",
+      "spokenText": "Vous voulez du porc avec le plat ?",
+      "textSHA256": "42688e80f72f931ab4a5da3313cc41a5ebfa4c8aeb579ad51519651131d4e3aa",
+      "placements": [
+        {
+          "lessonId": "foundation-travel-lunch:8:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "des cacahuètes",
+      "spokenText": "des cacahuètes",
+      "textSHA256": "ab5946992ba8220481865a4eb4f7bd966cde6aa281729c9b6e83fd1838947fb8",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "cards",
+          "index": 4
+        },
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "cards",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "displayText": "la gorge",
+      "spokenText": "la gorge",
+      "textSHA256": "a6804d59c936a774c7dfe54b5262e67e436373e57baf2c639ddea36938ad3fe4",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "cards",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "displayText": "la sauce macha",
+      "spokenText": "la sauce macha",
+      "textSHA256": "a5dc17a0033824f74398ee83c8076af70b06f6cd9ae06cb16c83653abde0056e",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "cards",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "displayText": "le 112",
+      "spokenText": "le 112",
+      "textSHA256": "d41bf339f26bb72b141972f9b2671f4c6987765a1f89fc529aa3a8d626c8c924",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:15:fr-en",
+          "surface": "cards",
+          "index": 22
+        }
+      ]
+    },
+    {
+      "displayText": "le menu du jour",
+      "spokenText": "le menu du jour",
+      "textSHA256": "043f0668452e7aeec2164e56e9d813218c1934635d8df21f2ea12c84b343df09",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "cards",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "displayText": "le robinet de la bouteille de gaz",
+      "spokenText": "le robinet de la bouteille de gaz",
+      "textSHA256": "4cc196b61a241249eef677eeb45c9523ac9b1d3bd5e0663b26e6ff2b24d48e47",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:15:fr-en",
+          "surface": "cards",
+          "index": 19
+        }
+      ]
+    },
+    {
+      "displayText": "les pompiers",
+      "spokenText": "les pompiers",
+      "textSHA256": "02c63820f78ecaee936b2e7166493f7cb8fc6358ba850b93493e6feacee56c51",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:15:fr-en",
+          "surface": "cards",
+          "index": 21
+        }
+      ]
+    },
+    {
+      "displayText": "un ambulancier",
+      "spokenText": "un ambulancier",
+      "textSHA256": "71d78fd535194b6e036bdebda77d99afc01f3d9a731a84e6d6804b343c5d6d9c",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "cards",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "displayText": "un interrupteur",
+      "spokenText": "un interrupteur",
+      "textSHA256": "de4ae8a46270a1c42c03a5505024ce099fbf8a3d3608b7474e72412e4848fec5",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:15:fr-en",
+          "surface": "cards",
+          "index": 20
+        }
+      ]
+    },
+    {
+      "displayText": "un médicament",
+      "spokenText": "un médicament",
+      "textSHA256": "828adb6ea6be1658e6f4e25f101e631dc5eac6e6b416ae93980c58a6e665dc3e",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "cards",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "displayText": "une allergie grave aux cacahuètes",
+      "spokenText": "une allergie grave aux cacahuètes",
+      "textSHA256": "65dd4013d562cbd151c4670a4b59403bee7f3aa27798a0b4e2dbc001588380be",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "cards",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "displayText": "une ambulance",
+      "spokenText": "une ambulance",
+      "textSHA256": "7adb7c8a6eec7dec3b0f1e5de1cf9dde1803f9c87c717a5e5cadae1196b68ffe",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "surface": "cards",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "displayText": "une bouteille de gaz",
+      "spokenText": "une bouteille de gaz",
+      "textSHA256": "bf2096231705430644c54487171e2f6666f9ac59803982dbe2e97e3a941db9de",
+      "placements": [
+        {
+          "lessonId": "master-travel-lunch:15:fr-en",
+          "surface": "cards",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "displayText": "une chaise pour enfant",
+      "spokenText": "une chaise pour enfant",
+      "textSHA256": "0d5f253bd90aa2dd13f61c6e0c40b93405079d7644f1c93d89f54911b1c1f6bb",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "cards",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "displayText": "une table pour cinq",
+      "spokenText": "une table pour cinq",
+      "textSHA256": "4a270efbcb64e1741439ff0b78355291ad78a3100e19c66f73f053b4e9f569c7",
+      "placements": [
+        {
+          "lessonId": "core-travel-lunch:30:fr-en",
+          "surface": "cards",
+          "index": 1
+        }
+      ]
+    }
+  ],
+  "recordingsBundled": false,
+  "listeningReviewed": false,
+  "registered": false
+}

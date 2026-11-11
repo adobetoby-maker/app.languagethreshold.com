@@ -28,6 +28,23 @@ for (const theme of ["light", "dark"])
     await expect(frame.getByRole("region", { name: "Conversation replies" })).not.toContainText(
       "Begin the conversation.",
     );
+    const reply = frame.getByRole("textbox", { name: "Type an answer in Spanish" });
+    await reply.fill("Necesito ayuda con el trabajo de hoy.");
+    await frame.getByRole("button", { name: "Send", exact: true }).click();
+    await expect(frame.getByRole("region", { name: "Conversation replies" })).toContainText(
+      "Respuesta 2",
+    );
+    await expect.poll(() => requests.length).toBe(2);
+    expect(requests[1]).toMatchObject({
+      partnerRoleId: "employee",
+      moduleId: "roofing",
+      startConversation: false,
+    });
+    expect(requests[1].messages?.[0].role).toBe("assistant");
+    expect(requests[1].messages?.at(-1)).toEqual({
+      role: "user",
+      content: "Necesito ayuda con el trabajo de hoy.",
+    });
     await page.screenshot({ path: `/tmp/roles-${theme}-${info.project.name}.png`, fullPage: true });
     await page.reload();
     await page.getByRole("tab", { name: "Free conversation", exact: true }).click();

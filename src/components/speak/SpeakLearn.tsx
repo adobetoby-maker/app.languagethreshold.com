@@ -745,11 +745,8 @@ export function SpeakLearn() {
       >
         {isEmpty && !interim ? (
           <div className="flex h-full flex-col items-center justify-center text-center">
-            <p className="font-serif text-2xl text-foreground/70">
-              {speakingPartner(partnerId)[1]}
-            </p>
-            <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-              Practice {language} at your selected level. Let your partner ask the first question.
+            <p className="px-2 py-2 text-sm text-muted-foreground">
+              Your partner’s reply will appear here.
             </p>
           </div>
         ) : (

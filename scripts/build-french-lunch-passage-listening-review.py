@@ -19,7 +19,11 @@ def load(path, name):
 
 BUILD = load(CONTENT / 'build-private-content-audio-delta.py', 'french_lunch_passage_delta_review')
 SUPPLEMENT = load(CONTENT / 'build-private-lesson-content-audio-delta.py', 'french_lunch_supplement_delta_review')
+SPEAKING = load(CONTENT / 'build-private-speaking-audio-delta.py', 'french_lunch_speaking_delta_review')
 AUDIO = load(ROOT / 'scripts/generate-french-lunch-hd-audio.py', 'french_lunch_audio_review')
+SCOPES = {'passages': (BUILD, 'content-passages'),
+          'supplement': (SUPPLEMENT, 'content-supplement'),
+          'speaking': (SPEAKING, 'content-speaking')}
 TRIM_SHA256 = {
     'fr-lunch-passage-6f2f47822453952f5577-male-edge-trim-candidate.mp3':
         'fa8a3de581072af45f4175505a5e1d2ed3ab9076a6309a8a2a9d1a1a26760d8f',
@@ -33,10 +37,10 @@ def require(value, message):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--scope', choices=('passages', 'supplement'), default='passages')
+    parser.add_argument('--scope', choices=SCOPES, default='passages')
     args = parser.parse_args()
-    build = BUILD if args.scope == 'passages' else SUPPLEMENT
-    private = PRIVATE_ROOT / ('content-passages' if args.scope == 'passages' else 'content-supplement')
+    build, folder = SCOPES[args.scope]
+    private = PRIVATE_ROOT / folder
     delta = build.build()
     require(json.loads(build.OUTPUT.read_text()) == delta, 'Pinned content/audio delta changed')
     manifest = json.loads((private / 'manifest.json').read_text())
@@ -47,14 +51,16 @@ def main():
     require(set(manifest['clips']) == {row['textSha256'] for row in delta['texts']},
             'Audio set is incomplete or has extra text')
     retakes = {}
+    trims = {}
     signal_flags = []
-    if args.scope == 'supplement':
+    if args.scope in ('supplement', 'speaking'):
         signal = json.loads((private / 'signal-screen.json').read_text())
         require(signal['manifestSha256'] == hashlib.sha256((private / 'manifest.json').read_bytes()).hexdigest()
                 and signal['listeningReviewed'] is False,
                 'Signal screen identity or review gate changed')
         signal_flags = signal['flags']
-        for report_name in ('retakes.json', 'retakes-plus3db.json', 'retakes-plus8db.json'):
+        report_names = ('retakes.json', 'retakes-plus3db.json', 'retakes-plus8db.json') if args.scope == 'supplement' else ()
+        for report_name in report_names:
             report_path = private / 'retake-candidates' / report_name
             if not report_path.exists():
                 continue
@@ -68,6 +74,17 @@ def main():
                         and candidate['listeningReviewed'] is False and candidate['installed'] is False,
                         'Retake candidate changed')
                 retakes.setdefault(candidate['sourceName'], []).append(candidate)
+        if args.scope == 'speaking':
+            trim_report = json.loads((private / 'trim-candidates.json').read_text())
+            require(trim_report['manifestSha256'] == hashlib.sha256((private / 'manifest.json').read_bytes()).hexdigest()
+                    and trim_report['listeningReviewed'] is False and trim_report['installed'] is False,
+                    'Trim report identity or review gate changed')
+            for candidate in trim_report['candidates']:
+                path = private / candidate['candidateName']
+                require(hashlib.sha256(path.read_bytes()).hexdigest() == candidate['candidateSHA256']
+                        and candidate['listeningReviewed'] is False and candidate['installed'] is False,
+                        'Trim candidate changed')
+                trims[candidate['sourceName']] = candidate
     rows = []
     for index, row in enumerate(delta['texts'], 1):
         record = manifest['clips'][row['textSha256']]
@@ -90,6 +107,11 @@ def main():
                         'Retake source text or voice differs')
                 label = 'slower retake, numeric signal clear' if candidate['signalImproved'] else 'slower retake, signal flag remains'
                 players.append(f'<label>{html.escape(gender.title())} · {label}<audio controls preload="none" src="retake-candidates/{html.escape(candidate["candidateName"])}"></audio></label>')
+            trim = trims.get(clip['name'])
+            if trim:
+                require(trim['sourceSHA256'] == clip['sha256'] and trim['text'] == row['text']
+                        and trim['voice'] == voice, 'Trim source text or voice differs')
+                players.append(f'<label>{html.escape(gender.title())} · private edge-trim candidate, numeric signal clear: {trim["signalClear"]}<audio controls preload="none" src="{html.escape(trim["candidateName"])}"></audio></label>')
             trim_name = Path(clip['name']).stem + '-edge-trim-candidate.mp3'
             if args.scope == 'passages' and trim_name in TRIM_SHA256:
                 trim = private / trim_name
@@ -99,7 +121,9 @@ def main():
         rows.append(f'<section id="text-{row["textSha256"][:16]}"><h2>{index}. {html.escape(", ".join(row["lessonIds"]))}</h2>'
                     f'<p lang="fr">{html.escape(row["text"])}</p>'
                     + ''.join(players) + '</section>')
-    title = 'French Lunch passage listening review' if args.scope == 'passages' else 'French Lunch words and verbs listening review'
+    title = {'passages': 'French Lunch passage listening review',
+             'supplement': 'French Lunch words and verbs listening review',
+             'speaking': 'French Lunch speaking-scene listening review'}[args.scope]
     flag_index = ''
     if signal_flags:
         links = []
@@ -108,7 +132,7 @@ def main():
             require(key in manifest['clips'] and any(clip['name'] == flag['name'] and
                     clip['voice'] == flag['voice'] for clip in manifest['clips'][key]['voices'].values()),
                     'Signal flag no longer matches a clip')
-            clean = any(item['signalImproved'] for item in retakes.get(flag['name'], []))
+            clean = any(item['signalImproved'] for item in retakes.get(flag['name'], [])) or bool(trims.get(flag['name'], {}).get('signalClear'))
             status = 'clean numeric candidate' if clean else 'direct listening priority'
             links.append(f'<li><a href="#text-{key[:16]}">{html.escape(flag["text"])} · {html.escape(flag["voice"].rsplit("-", 1)[-1])}</a> — {status}</li>')
         flag_index = f'<h2>Signal-review priorities ({len(links)})</h2><ol>' + ''.join(links) + '</ol>'

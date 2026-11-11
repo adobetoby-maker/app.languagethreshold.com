@@ -20,13 +20,15 @@ def load(path, name):
 
 
 SIGNAL = load(ROOT / 'scripts/audit-japanese101-audio-signal.py', 'french_lunch_content_signal')
+FOLDERS = {'passages': 'content-passages', 'supplement': 'content-supplement',
+           'speaking': 'content-speaking'}
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--scope', choices=('passages', 'supplement'), required=True)
+    parser.add_argument('--scope', choices=FOLDERS, required=True)
     args = parser.parse_args()
-    private = PRIVATE_ROOT / ('content-passages' if args.scope == 'passages' else 'content-supplement')
+    private = PRIVATE_ROOT / FOLDERS[args.scope]
     check = subprocess.run([sys.executable, str(ROOT / 'scripts/generate-french-lunch-passage-audio.py'),
                             '--scope', args.scope], capture_output=True, text=True, check=True)
     if json.loads(check.stdout)['remainingClips'] != 0:

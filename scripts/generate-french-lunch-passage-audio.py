@@ -24,8 +24,12 @@ def load(path, name):
 
 BUILD = load(CONTENT / 'build-private-content-audio-delta.py', 'french_lunch_passage_delta')
 SUPPLEMENT = load(CONTENT / 'build-private-lesson-content-audio-delta.py', 'french_lunch_supplement_delta')
+SPEAKING = load(CONTENT / 'build-private-speaking-audio-delta.py', 'french_lunch_speaking_delta')
 AUDIO = load(ROOT / 'scripts/generate-french-lunch-hd-audio.py', 'french_lunch_audio_generator')
 PROJECT = 'project-91661021-fb2d-4524-b9f'
+SCOPES = {'passages': (BUILD, 'content-passages'),
+          'supplement': (SUPPLEMENT, 'content-supplement'),
+          'speaking': (SPEAKING, 'content-speaking')}
 
 
 def require(value, message):
@@ -35,14 +39,14 @@ def require(value, message):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--scope', choices=('passages', 'supplement'), default='passages')
+    parser.add_argument('--scope', choices=SCOPES, default='passages')
     parser.add_argument('--generate', action='store_true')
     parser.add_argument('--limit', type=int, default=20)
     args = parser.parse_args()
     require(1 <= args.limit <= 120, 'Limit must be between 1 and 120')
     os.umask(0o077)
-    build = BUILD if args.scope == 'passages' else SUPPLEMENT
-    private = PRIVATE_ROOT / ('content-passages' if args.scope == 'passages' else 'content-supplement')
+    build, folder = SCOPES[args.scope]
+    private = PRIVATE_ROOT / folder
     delta = build.build()
     require(json.loads(build.OUTPUT.read_text()) == delta, 'Pinned content audio delta changed')
     require((delta['recordingsBundled'], delta['textReviewed'], delta['listeningReviewed'], delta['registered']) ==
@@ -75,7 +79,7 @@ def main():
         current = manifest['clips'].get(key)
         require(current is None or current['text'] == text, 'Manifest text differs')
         for gender, voice in voices.items():
-            name = f'fr-lunch-{args.scope}-{key[:20]}-{gender}.mp3' if args.scope == 'supplement' else f'fr-lunch-passage-{key[:20]}-{gender}.mp3'
+            name = f'fr-lunch-{args.scope}-{key[:20]}-{gender}.mp3' if args.scope != 'passages' else f'fr-lunch-passage-{key[:20]}-{gender}.mp3'
             clip = current.get('voices', {}).get(gender) if current else None
             target = private / name
             if clip:

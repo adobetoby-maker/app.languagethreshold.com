@@ -108,7 +108,7 @@ function JapaneseReview() {
         <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
       </section> : error ? <p role="alert" className={panel}>{error}</p> : !packet ? <p role="status">Loading owner review…</p> : <>
         <section className={panel}>
-          <p className="font-semibold">Foundation 10/10 · Core 12/30 · Master 0/20</p>
+          <p className="font-semibold">Foundation 10/10 · Core 15/30 · Master 0/20</p>
           <p className="mt-1 text-sm text-muted-foreground">Owner-review draft · reviewed: false · learner registration: false · recorded audio: not yet registered</p>
           <label className="mt-4 block font-semibold" htmlFor="japanese-draft-lesson">Choose a lesson</label>
           <select id="japanese-draft-lesson" className="mt-2 w-full rounded-lg border border-border bg-background p-3" value={selected} onChange={(event) => { setSelected(event.target.value); setRevealed(false); setNote(""); }}>

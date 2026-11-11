@@ -1,0 +1,172 @@
+{
+  "schema": 1,
+  "courseId": "travel-lunch",
+  "stageId": "foundation-travel-lunch",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "path": "src/data/core60/es/foundation-travel-lunch.json",
+    "sha256": "980cd2974e3c4e023a1da2258ed9e32dc1e8e39e8ef87c6913bc0ed094a37dbc",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 1,
+      "stableId": "foundation-travel-lunch:1:fr-en",
+      "sourceTitleEnglish": "Sounds and Greetings",
+      "sourceObjectiveEnglish": "Pronounce common lunch words and greet a server or a local diner politely.",
+      "sourceSpeakingEnglish": "Greet a server, say your name, and say three lunch words like chile, tortilla and arroz clearly.",
+      "title": "Lunch Greetings and French Sounds",
+      "objective": "Greet lunch staff politely, introduce yourself, and say common lunch words clearly in French.",
+      "focus": "Use bonjour and vous with an unfamiliar server. Hear é in café, French u in jus, the nasal vowel in pain, and the silent final t in poulet.",
+      "scene": "Sam enters a small lunch counter in Lyon and asks Camille for the menu.",
+      "cards": [
+        {"fr": "bonjour", "en": "hello / good afternoon", "kind": "phrase"},
+        {"fr": "excusez-moi", "en": "excuse me", "kind": "phrase"},
+        {"fr": "la carte", "en": "the menu", "kind": "term", "note": "In a restaurant, la carte lists dishes; un menu can mean a set meal."},
+        {"fr": "la table", "en": "the table", "kind": "term"},
+        {"fr": "le café", "en": "the coffee", "kind": "term"},
+        {"fr": "le jus", "en": "the juice", "kind": "term"},
+        {"fr": "le riz", "en": "the rice", "kind": "term"},
+        {"fr": "le poulet", "en": "the chicken", "kind": "term"},
+        {"fr": "le pain", "en": "the bread", "kind": "term"},
+        {"fr": "l'eau", "en": "the water", "kind": "term"},
+        {"fr": "Je m'appelle Sam.", "en": "My name is Sam.", "kind": "phrase"},
+        {"fr": "La carte, s'il vous plaît.", "en": "The menu, please.", "kind": "phrase"},
+        {"fr": "Merci beaucoup.", "en": "Thank you very much.", "kind": "phrase"},
+        {"fr": "Bon appétit !", "en": "Enjoy your meal!", "kind": "phrase"}
+      ],
+      "reader": [
+        {"speaker": "Sam", "fr": "Bonjour. Excusez-moi.", "en": "Hello. Excuse me."},
+        {"speaker": "Camille", "fr": "Bonjour ! Bienvenue.", "en": "Hello! Welcome."},
+        {"speaker": "Sam", "fr": "Je m'appelle Sam. La carte, s'il vous plaît.", "en": "My name is Sam. The menu, please."},
+        {"speaker": "Camille", "fr": "Oui, voici la carte.", "en": "Yes, here is the menu."},
+        {"speaker": "Sam", "fr": "Je vois du riz, du poulet et du pain.", "en": "I see rice, chicken, and bread."},
+        {"speaker": "Camille", "fr": "Il y a aussi de l'eau, du jus et du café.", "en": "There is also water, juice, and coffee."},
+        {"speaker": "Sam", "fr": "Merci beaucoup. Le jus, s'il vous plaît.", "en": "Thank you very much. The juice, please."},
+        {"speaker": "Camille", "fr": "Bien sûr. Bon appétit !", "en": "Of course. Enjoy your meal!"}
+      ],
+      "speaking": {"role": "Lunch guest", "partnerRole": "Counter server", "opening": "Bonjour ! Bienvenue.", "goal": "Greet the server with vous, say your name, ask for the menu, and pronounce café, jus, pain, and poulet.", "closure": "Merci beaucoup. À bientôt.", "wordBank": ["bonjour", "excusez-moi", "la carte", "le café", "le jus", "le pain", "le poulet", "Je m'appelle Sam.", "La carte, s'il vous plaît."]},
+      "modes": {
+        "see": {"cueEnglish": "Find the polite French greeting.", "sourceCard": 1, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, get the server's attention.", "sourceCard": 2, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the French word for bread.", "sourceCard": 9, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the French word for juice.", "sourceCard": 6, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Introduce yourself to the server in French.", "sourceCard": 11, "responseKind": "open"},
+        "write": {"cueEnglish": "Write a polite request for the menu.", "sourceCard": 12, "responseKind": "open"}
+      },
+      "reviewed": false
+    },
+    {
+      "n": 2,
+      "stableId": "foundation-travel-lunch:2:fr-en",
+      "sourceTitleEnglish": "Numbers, Time and Measurements",
+      "sourceObjectiveEnglish": "Say numbers, prices in pesos, times and simple food quantities when ordering lunch.",
+      "sourceSpeakingEnglish": "Tell a counter worker how many of you there are, order 5 tacos, and check the price in pesos.",
+      "title": "People, Portions, Euros and Time",
+      "objective": "Give a group size, order counted lunch items, confirm a price in euros, and state an arrival time.",
+      "focus": "Count from zéro through dix, cent and mille. Use nous sommes for group size, deux menus for counted items, un verre d'eau for quantity, and à midi et demi for 12:30. Euro amounts use euros after the number.",
+      "scene": "Sam phones a lunch counter to order ahead for four friends and confirm their arrival time and total.",
+      "cards": [
+        {"fr": "un euro", "en": "one euro", "kind": "term"},
+        {"fr": "vingt-cinq euros", "en": "twenty-five euros", "kind": "phrase"},
+        {"fr": "midi", "en": "noon", "kind": "term"},
+        {"fr": "midi et demi", "en": "half past noon", "kind": "phrase"},
+        {"fr": "un verre d'eau", "en": "a glass of water", "kind": "phrase"},
+        {"fr": "une bouteille d'eau", "en": "a bottle of water", "kind": "phrase"},
+        {"fr": "une portion", "en": "a serving / portion", "kind": "term"},
+        {"fr": "un demi-kilo", "en": "half a kilogram", "kind": "term"},
+        {"fr": "deux menus", "en": "two set meals", "kind": "phrase"},
+        {"fr": "trois sandwichs", "en": "three sandwiches", "kind": "phrase"},
+        {"fr": "Nous sommes quatre.", "en": "There are four of us.", "kind": "phrase"},
+        {"fr": "Ça fait vingt-cinq euros ?", "en": "Does that come to twenty-five euros?", "kind": "phrase"},
+        {"fr": "Nous arrivons à midi et demi.", "en": "We arrive at half past noon.", "kind": "phrase"},
+        {"fr": "Vous avez la monnaie ?", "en": "Do you have change?", "kind": "phrase"},
+        {"fr": "zéro", "en": "zero", "kind": "term"},
+        {"fr": "dix", "en": "ten", "kind": "term"},
+        {"fr": "cent", "en": "one hundred", "kind": "term"},
+        {"fr": "mille", "en": "one thousand", "kind": "term"}
+      ],
+      "reader": [
+        {"speaker": "Sam", "fr": "Bonjour. Nous sommes quatre.", "en": "Hello. There are four of us."},
+        {"speaker": "Server", "fr": "Bonjour. Vous arrivez à quelle heure ?", "en": "Hello. What time are you arriving?"},
+        {"speaker": "Sam", "fr": "Nous arrivons à midi et demi.", "en": "We arrive at half past noon."},
+        {"speaker": "Server", "fr": "Très bien. Vous prenez quoi ?", "en": "Very good. What will you have?"},
+        {"speaker": "Sam", "fr": "Deux menus et trois sandwichs, s'il vous plaît.", "en": "Two set meals and three sandwiches, please."},
+        {"speaker": "Server", "fr": "Et pour boire ?", "en": "And to drink?"},
+        {"speaker": "Sam", "fr": "Une bouteille d'eau et un verre d'eau.", "en": "A bottle of water and a glass of water."},
+        {"speaker": "Server", "fr": "Ça fait vingt-cinq euros.", "en": "That comes to twenty-five euros."},
+        {"speaker": "Sam", "fr": "Ça fait vingt-cinq euros ? Vous avez la monnaie ?", "en": "Does that come to twenty-five euros? Do you have change?"}
+      ],
+      "speaking": {"role": "Group representative", "partnerRole": "Counter server", "opening": "Bonjour. Vous êtes combien ?", "goal": "Say there are four of you, order two set meals and three sandwiches, give the 12:30 arrival time, and confirm the euro total.", "closure": "Merci. À tout à l'heure.", "wordBank": ["Nous sommes quatre.", "deux menus", "trois sandwichs", "une bouteille d'eau", "un verre d'eau", "midi et demi", "vingt-cinq euros", "Ça fait vingt-cinq euros ?"]},
+      "modes": {
+        "see": {"cueEnglish": "Find the phrase for four people in your group.", "sourceCard": 11, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "Recall how to say half past noon.", "sourceCard": 4, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the quantity a bottle of water.", "sourceCard": 6, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type two set meals in French.", "sourceCard": 9, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Tell the server that there are four of you.", "sourceCard": 11, "responseKind": "open"},
+        "write": {"cueEnglish": "Write a question confirming the twenty-five-euro total.", "sourceCard": 12, "responseKind": "open"}
+      },
+      "reviewed": false
+    },
+    {
+      "n": 3,
+      "stableId": "foundation-travel-lunch:3:fr-en",
+      "sourceTitleEnglish": "Ser and Estar",
+      "sourceObjectiveEnglish": "Say what food and places are like and where they are, using ser and estar.",
+      "sourceSpeakingEnglish": "Ask a server if a table is free and if the salsa is spicy, then say the food is delicious.",
+      "title": "Describe Food and Find a Table",
+      "objective": "Ask whether a table is free, describe a dish's taste and temperature, and locate a nearby place.",
+      "focus": "French uses être for both description and current condition: la soupe est chaude, la sauce est épicée. Use il y a for availability and se trouve or est for location; Spanish ser/estar is source context, not a French verb contrast.",
+      "scene": "Sam checks a table and a lunch dish before meeting a friend near the market.",
+      "cards": [
+        {"fr": "libre", "en": "free / available", "kind": "term"},
+        {"fr": "occupée", "en": "occupied / taken", "kind": "term", "note": "Feminine form with la table."},
+        {"fr": "chaude", "en": "hot (temperature)", "kind": "term", "note": "Feminine form with la soupe."},
+        {"fr": "froide", "en": "cold", "kind": "term", "note": "Feminine form with la boisson."},
+        {"fr": "délicieux", "en": "delicious", "kind": "term"},
+        {"fr": "épicée", "en": "spicy", "kind": "term", "note": "Feminine form with la sauce."},
+        {"fr": "ouvert", "en": "open", "kind": "term"},
+        {"fr": "fermé", "en": "closed", "kind": "term"},
+        {"fr": "tout près", "en": "very close by", "kind": "phrase"},
+        {"fr": "Cette table est libre ?", "en": "Is this table free?", "kind": "phrase"},
+        {"fr": "La sauce est épicée ?", "en": "Is the sauce spicy?", "kind": "phrase"},
+        {"fr": "La soupe est chaude.", "en": "The soup is hot.", "kind": "phrase"},
+        {"fr": "C'est délicieux !", "en": "It's delicious!", "kind": "phrase"},
+        {"fr": "Le marché est tout près.", "en": "The market is very close by.", "kind": "phrase"}
+      ],
+      "reader": [
+        {"speaker": "Sam", "fr": "Bonjour. Cette table est libre ?", "en": "Hello. Is this table free?"},
+        {"speaker": "Server", "fr": "Oui, elle est libre. L'autre table est occupée.", "en": "Yes, it is free. The other table is taken."},
+        {"speaker": "Sam", "fr": "La sauce est épicée ?", "en": "Is the sauce spicy?"},
+        {"speaker": "Server", "fr": "Oui, elle est épicée. La soupe est chaude aussi.", "en": "Yes, it is spicy. The soup is hot too."},
+        {"speaker": "Sam", "fr": "Je prends la soupe. C'est délicieux !", "en": "I'll have the soup. It's delicious!"},
+        {"speaker": "Server", "fr": "Vous cherchez autre chose ?", "en": "Are you looking for anything else?"},
+        {"speaker": "Sam", "fr": "Oui. Le marché est loin ?", "en": "Yes. Is the market far?"},
+        {"speaker": "Server", "fr": "Non, le marché est tout près. Il est ouvert.", "en": "No, the market is very close by. It is open."}
+      ],
+      "speaking": {"role": "Lunch guest", "partnerRole": "Server", "opening": "Bonjour. Vous cherchez une table ?", "goal": "Ask whether a table is free and whether the sauce is spicy; describe the soup's temperature and taste; ask where the market is.", "closure": "Merci. Bon après-midi.", "wordBank": ["Cette table est libre ?", "La sauce est épicée ?", "La soupe est chaude.", "C'est délicieux !", "Le marché est tout près.", "libre", "occupée", "épicée"]},
+      "modes": {
+        "see": {"cueEnglish": "Find the question asking whether this table is free.", "sourceCard": 10, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "Recall the French adjective for spicy sauce.", "sourceCard": 6, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the statement that the soup is hot.", "sourceCard": 12, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the French question asking if the sauce is spicy.", "sourceCard": 11, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Ask the server whether this table is free.", "sourceCard": 10, "responseKind": "open"},
+        "write": {"cueEnglish": "Write that the market is very close by.", "sourceCard": 14, "responseKind": "open"}
+      },
+      "reviewed": false
+    }
+  ],
+  "internalReviewNotes": [
+    "The Spain/Mexico-specific peso and taco examples in source lesson 2 are localized to euros and ordinary lunch-counter items; verify regional register and menu realism with a qualified French reviewer.",
+    "Source lesson 3 teaches Spanish ser/estar. French lesson 3 instead teaches être for description/condition and French availability/location expressions; verify this progression and naturalness with a qualified French reviewer.",
+    "Check all French text, translations, pronunciation examples, and exact card/Reader correspondences before setting reviewed true."
+  ]
+}

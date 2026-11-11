@@ -25,6 +25,7 @@ import { Route as FeedbackRouteImport } from './routes/feedback'
 import { Route as FounderRouteImport } from './routes/founder'
 import { Route as ModuleRequestRouteImport } from './routes/module-request'
 import { Route as OwnerRouteImport } from './routes/owner'
+import { Route as OwnerFrenchReviewRouteImport } from './routes/owner-french-review'
 import { Route as OwnerJapaneseReviewRouteImport } from './routes/owner-japanese-review'
 import { Route as PlaceDirectionsRouteImport } from './routes/place-directions'
 import { Route as PricingRouteImport } from './routes/pricing'
@@ -65,6 +66,7 @@ import { Route as ApiOwnerCrmRouteImport } from './routes/api.owner-crm'
 import { Route as ApiOwnerCustomersRouteImport } from './routes/api.owner-customers'
 import { Route as ApiOwnerDiscountsRouteImport } from './routes/api.owner-discounts'
 import { Route as ApiOwnerDownloadLeadsRouteImport } from './routes/api.owner-download-leads'
+import { Route as ApiOwnerFrenchDraftsRouteImport } from './routes/api.owner-french-drafts'
 import { Route as ApiOwnerJapaneseDraftsRouteImport } from './routes/api.owner-japanese-drafts'
 import { Route as ApiOwnerRedditRouteImport } from './routes/api.owner-reddit'
 import { Route as ApiOwnerStaffCouponRouteImport } from './routes/api.owner-staff-coupon'
@@ -175,6 +177,11 @@ const ModuleRequestRoute = ModuleRequestRouteImport.update({
 const OwnerRoute = OwnerRouteImport.update({
   id: '/owner',
   path: '/owner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OwnerFrenchReviewRoute = OwnerFrenchReviewRouteImport.update({
+  id: '/owner-french-review',
+  path: '/owner-french-review',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OwnerJapaneseReviewRoute = OwnerJapaneseReviewRouteImport.update({
@@ -377,6 +384,11 @@ const ApiOwnerDownloadLeadsRoute = ApiOwnerDownloadLeadsRouteImport.update({
   path: '/api/owner-download-leads',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiOwnerFrenchDraftsRoute = ApiOwnerFrenchDraftsRouteImport.update({
+  id: '/api/owner-french-drafts',
+  path: '/api/owner-french-drafts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiOwnerJapaneseDraftsRoute = ApiOwnerJapaneseDraftsRouteImport.update({
   id: '/api/owner-japanese-drafts',
   path: '/api/owner-japanese-drafts',
@@ -550,6 +562,7 @@ export interface FileRoutesByFullPath {
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
+  '/owner-french-review': typeof OwnerFrenchReviewRoute
   '/owner-japanese-review': typeof OwnerJapaneseReviewRoute
   '/place-directions': typeof PlaceDirectionsRoute
   '/pricing': typeof PricingRoute
@@ -590,6 +603,7 @@ export interface FileRoutesByFullPath {
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
   '/api/owner-download-leads': typeof ApiOwnerDownloadLeadsRoute
+  '/api/owner-french-drafts': typeof ApiOwnerFrenchDraftsRoute
   '/api/owner-japanese-drafts': typeof ApiOwnerJapaneseDraftsRoute
   '/api/owner-reddit': typeof ApiOwnerRedditRoute
   '/api/owner-staff-coupon': typeof ApiOwnerStaffCouponRoute
@@ -639,6 +653,7 @@ export interface FileRoutesByTo {
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
+  '/owner-french-review': typeof OwnerFrenchReviewRoute
   '/owner-japanese-review': typeof OwnerJapaneseReviewRoute
   '/place-directions': typeof PlaceDirectionsRoute
   '/pricing': typeof PricingRoute
@@ -679,6 +694,7 @@ export interface FileRoutesByTo {
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
   '/api/owner-download-leads': typeof ApiOwnerDownloadLeadsRoute
+  '/api/owner-french-drafts': typeof ApiOwnerFrenchDraftsRoute
   '/api/owner-japanese-drafts': typeof ApiOwnerJapaneseDraftsRoute
   '/api/owner-reddit': typeof ApiOwnerRedditRoute
   '/api/owner-staff-coupon': typeof ApiOwnerStaffCouponRoute
@@ -729,6 +745,7 @@ export interface FileRoutesById {
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
+  '/owner-french-review': typeof OwnerFrenchReviewRoute
   '/owner-japanese-review': typeof OwnerJapaneseReviewRoute
   '/place-directions': typeof PlaceDirectionsRoute
   '/pricing': typeof PricingRoute
@@ -769,6 +786,7 @@ export interface FileRoutesById {
   '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
   '/api/owner-download-leads': typeof ApiOwnerDownloadLeadsRoute
+  '/api/owner-french-drafts': typeof ApiOwnerFrenchDraftsRoute
   '/api/owner-japanese-drafts': typeof ApiOwnerJapaneseDraftsRoute
   '/api/owner-reddit': typeof ApiOwnerRedditRoute
   '/api/owner-staff-coupon': typeof ApiOwnerStaffCouponRoute
@@ -820,6 +838,7 @@ export interface FileRouteTypes {
     | '/index'
     | '/module-request'
     | '/owner'
+    | '/owner-french-review'
     | '/owner-japanese-review'
     | '/place-directions'
     | '/pricing'
@@ -860,6 +879,7 @@ export interface FileRouteTypes {
     | '/api/owner-customers'
     | '/api/owner-discounts'
     | '/api/owner-download-leads'
+    | '/api/owner-french-drafts'
     | '/api/owner-japanese-drafts'
     | '/api/owner-reddit'
     | '/api/owner-staff-coupon'
@@ -909,6 +929,7 @@ export interface FileRouteTypes {
     | '/index'
     | '/module-request'
     | '/owner'
+    | '/owner-french-review'
     | '/owner-japanese-review'
     | '/place-directions'
     | '/pricing'
@@ -949,6 +970,7 @@ export interface FileRouteTypes {
     | '/api/owner-customers'
     | '/api/owner-discounts'
     | '/api/owner-download-leads'
+    | '/api/owner-french-drafts'
     | '/api/owner-japanese-drafts'
     | '/api/owner-reddit'
     | '/api/owner-staff-coupon'
@@ -998,6 +1020,7 @@ export interface FileRouteTypes {
     | '/index'
     | '/module-request'
     | '/owner'
+    | '/owner-french-review'
     | '/owner-japanese-review'
     | '/place-directions'
     | '/pricing'
@@ -1038,6 +1061,7 @@ export interface FileRouteTypes {
     | '/api/owner-customers'
     | '/api/owner-discounts'
     | '/api/owner-download-leads'
+    | '/api/owner-french-drafts'
     | '/api/owner-japanese-drafts'
     | '/api/owner-reddit'
     | '/api/owner-staff-coupon'
@@ -1088,6 +1112,7 @@ export interface RootRouteChildren {
   Char91indexChar93Route: typeof Char91indexChar93Route
   ModuleRequestRoute: typeof ModuleRequestRoute
   OwnerRoute: typeof OwnerRoute
+  OwnerFrenchReviewRoute: typeof OwnerFrenchReviewRoute
   OwnerJapaneseReviewRoute: typeof OwnerJapaneseReviewRoute
   PlaceDirectionsRoute: typeof PlaceDirectionsRoute
   PricingRoute: typeof PricingRoute
@@ -1128,6 +1153,7 @@ export interface RootRouteChildren {
   ApiOwnerCustomersRoute: typeof ApiOwnerCustomersRoute
   ApiOwnerDiscountsRoute: typeof ApiOwnerDiscountsRoute
   ApiOwnerDownloadLeadsRoute: typeof ApiOwnerDownloadLeadsRoute
+  ApiOwnerFrenchDraftsRoute: typeof ApiOwnerFrenchDraftsRoute
   ApiOwnerJapaneseDraftsRoute: typeof ApiOwnerJapaneseDraftsRoute
   ApiOwnerRedditRoute: typeof ApiOwnerRedditRoute
   ApiOwnerStaffCouponRoute: typeof ApiOwnerStaffCouponRoute
@@ -1273,6 +1299,13 @@ declare module '@tanstack/react-router' {
       path: '/owner'
       fullPath: '/owner'
       preLoaderRoute: typeof OwnerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/owner-french-review': {
+      id: '/owner-french-review'
+      path: '/owner-french-review'
+      fullPath: '/owner-french-review'
+      preLoaderRoute: typeof OwnerFrenchReviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/owner-japanese-review': {
@@ -1555,6 +1588,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiOwnerDownloadLeadsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/owner-french-drafts': {
+      id: '/api/owner-french-drafts'
+      path: '/api/owner-french-drafts'
+      fullPath: '/api/owner-french-drafts'
+      preLoaderRoute: typeof ApiOwnerFrenchDraftsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/owner-japanese-drafts': {
       id: '/api/owner-japanese-drafts'
       path: '/api/owner-japanese-drafts'
@@ -1792,6 +1832,7 @@ const rootRouteChildren: RootRouteChildren = {
   Char91indexChar93Route: Char91indexChar93Route,
   ModuleRequestRoute: ModuleRequestRoute,
   OwnerRoute: OwnerRoute,
+  OwnerFrenchReviewRoute: OwnerFrenchReviewRoute,
   OwnerJapaneseReviewRoute: OwnerJapaneseReviewRoute,
   PlaceDirectionsRoute: PlaceDirectionsRoute,
   PricingRoute: PricingRoute,
@@ -1832,6 +1873,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiOwnerCustomersRoute: ApiOwnerCustomersRoute,
   ApiOwnerDiscountsRoute: ApiOwnerDiscountsRoute,
   ApiOwnerDownloadLeadsRoute: ApiOwnerDownloadLeadsRoute,
+  ApiOwnerFrenchDraftsRoute: ApiOwnerFrenchDraftsRoute,
   ApiOwnerJapaneseDraftsRoute: ApiOwnerJapaneseDraftsRoute,
   ApiOwnerRedditRoute: ApiOwnerRedditRoute,
   ApiOwnerStaffCouponRoute: ApiOwnerStaffCouponRoute,

@@ -1,0 +1,31 @@
+# French→English owner-review ledger
+
+This ledger separates source drafts, owner inspection, qualified French/domain review, recorded-audio listening, and learner release. The owner authorized draft inspection on main. All French Lunch lessons here remain `reviewed:false`, `registered:false`, and `readyForLearner:false`; this page does not install runtime/offline packs, audio, or progress keys. Track the wider 68 applicable courses in [#172](https://github.com/adobetoby-maker/app.languagethreshold.com/issues/172) and the owner-review route in [#493](https://github.com/adobetoby-maker/app.languagethreshold.com/issues/493).
+
+## French Lunch owner-review slice
+
+- Pair: `French:English`, locale `fr-FR`, course `travel-lunch`.
+- Source branch: [draft #486](https://github.com/adobetoby-maker/app.languagethreshold.com/pull/486) at `a5f9a6093c8ce3f92ba4e3714b346f3c88f4bbc0`. Twelve lesson batches were copied byte-for-byte before the bounded source-fidelity corrections below. Spanish source revision in the batches: `70cd3dd900b84e5052abe7a8f9e3a397f3000e8e`.
+- Current owner inspection inventory: Foundation 10, Core 30, Master 20; 960 contextual cards, 561 aligned Reader turns, 60 speaking scenes, 360 six-mode prompt records. Stage-local IDs retain the `:fr-en` suffix. Source validators check counts, pairs, modes, Reader and closed gates.
+- The server-only `/api/owner-french-drafts` requires a signed-in platform owner before loading the drafts, projects out `internalReviewNote`, pins stage source path/hash and the Core passage source hash, checks all 60 IDs, and responds with private no-store headers. `/owner-french-review` previews each authored activity prompt and exact card answer; it is **not** the learner's six-mode runtime. The owner can download a lesson note, which does not mark review complete.
+- The [Japanese Dinner owner route #490](https://github.com/adobetoby-maker/app.languagethreshold.com/pull/490) is the access-control and UI precedent. This French slice has no learner catalog, offline, audio, or progress registration.
+
+## AI review and self-check
+
+- A Claude CLI read-only planning pass suggested the three-stage schema and owner access checks. Its session metadata reported Sonnet 5.5 despite a Haiku model request, so it is **not** counted as a verified Haiku pass.
+- A direct Claude CLI **Opus 5.5** read-only review found source-fidelity losses in Core 24 (peanut allergy, throat, medicine question, emergency number), Core 30 (severe peanut allergy, kitchen check, five-person group and child's chair), and Master 15 (gas-cylinder valve, switch, firefighters, emergency number). It also flagged broad shellfish glosses. Opus did not approve the lessons.
+- A direct Claude CLI **Haiku 5.5** read-only pass proposed bounded French replacements. The author checked them against the Spanish source and corrected Core 24, Core 30, Master 15, plus exact English support glosses in Core 19 and Master 20. The deterministic correction script is `content/french-travel-lunch/apply-source-fidelity-corrections.py`; it preserves stable IDs, six mode slots and closed gates. Qualified French and relevant domain review remains required.
+- A second direct **Opus 5.5** read-only adversarial pass found more source mismatches. Self-check against the pinned Spanish source corrected Core 19’s dried-shrimp sauce, Core 24’s five-minute taco timestamp and explicit peanut-allergy line, Core 30’s English objective, and Master 20’s near-miss language. Remaining suggestions are recorded in `/tmp/fr-owner-opus-recheck-2026-11-11.txt` for qualified review. AI review is not French/domain approval.
+- The French scene uses **112** in place of the Spanish 911 because it is localized to France. The French Interior Ministry lists 112 as the European emergency number, 15 for SAMU and 18 for firefighters: https://www.masecurite.interieur.gouv.fr/fr/fiches-pratiques/famille-et-aides-aux-victimes/numeros-utiles-nationaux . This localization is recorded here for review, not as added learner-facing advice.
+- The Core passage source is now separately pinned in all six Core batches: `public/lesson-content/es/travel-lunch.json` SHA-256 `9c6104911c7c3fc2d8f0e1914edb5bd8e490f0d3961babfcece22238f995580d`.
+
+## Audio and remaining gates
+
+- [#486's private audio evidence](https://github.com/adobetoby-maker/app.languagethreshold.com/pull/486) covered 1,987 unique earlier French texts and 3,974 fr-FR Aoede/Charon clips. Earlier pilot approvals do **not** cover this full-course batch. Its 25 numeric short-form flags have 20 cleaner retake comparisons and five unresolved direct-listening cases. Nothing from it is bundled or registered here.
+- Source-fidelity corrections changed or added **62 unique** card/Reader/speaking texts across the full 60-lesson set (at most 124 two-voice replacement clips), so the older clip manifest cannot be attached to those strings. Rebuild a bounded exact-text audio delta after the corrected lesson source is stable; verify locale, voice, hash, bytes, duration and decoded signal, then obtain per-clip listening decisions. Retain `listeningReviewed:false` until that happens.
+- The exact-pair dictionary candidate has 868 entries with 25 multi-gloss headwords and one kind conflict in [#486](https://github.com/adobetoby-maker/app.languagethreshold.com/pull/486). Qualified French review and context resolution remain open. The private offline and runtime candidates are disabled and uninstalled.
+- Before any learner release, verify source objectives/pairs and all 60 lessons with qualified French and relevant food/emergency review, actual six-mode runtime, Reader/card/dictionary/speaking links, account-scoped progress preservation, offline packs, audio listening, browser and narrow-phone behavior, and independent V4 iPhone/Watch build and owner TestFlight inspection.
+
+## Current validation
+
+The copied source and corrected drafts pass Foundation/Core/Master source validators: 10/30/20 lessons, 960 cards, 561 Reader turns, 360 activity prompts, all review/release gates closed. Focused owner API tests pass 6/6, and a desktop/iPhone-sized mocked owner browser test passed before the latest corrections. TypeScript and a development Vite build passed before the latest corrections; rerun final tests/build/smoke before a main merge. The route has not yet been pushed or deployed.

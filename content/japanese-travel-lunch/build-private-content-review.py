@@ -64,7 +64,8 @@ def render(runtime, dictionary):
             cards = []
             for card in lesson["cards"]:
                 entry = entries[card["id"]]
-                if entry["word"] != card["ja"] or entry["english"] != card["en"]:
+                if (entry["word"] != card["ja"] or entry["english"] != card["en"] or
+                    entry["id"] != card["dictionaryId"]):
                     raise ValueError(f"Dictionary pair changed: {card['id']}")
                 flags = []
                 if card["ja"] in ambiguous:
@@ -74,7 +75,8 @@ def render(runtime, dictionary):
                 if not entry["readerEvidence"]:
                     flags.append("no literal Reader occurrence")
                 cards.append(f"<tr><td lang='ja'>{esc(card['ja'])}</td><td>{esc(card['en'])}</td>"
-                             f"<td>{esc(card['kind'])}</td><td>{esc(', '.join(flags))}</td></tr>")
+                             f"<td>{esc(card['kind'])}</td><td><code>{esc(card['dictionaryId'])}</code></td>"
+                             f"<td>{esc(', '.join(flags))}</td></tr>")
             reader = [f"<tr><td>{esc(turn['speaker'])}</td><td lang='ja'>{esc(turn['ja'])}</td>"
                       f"<td>{esc(turn['en'])}</td></tr>" for turn in lesson["reader"]]
             modes = [f"<tr><th>{esc(mode.title())}</th><td>{esc(lesson['modes'][mode]['cueEnglish'])}</td>"
@@ -85,7 +87,7 @@ def render(runtime, dictionary):
                             f"<p><b>Spanish-course purpose:</b> {esc(purpose)} {esc(scenario)}</p>"
                             f"<p><b>Japanese objective:</b> {esc(lesson['objective'])}</p>"
                             f"<p><b>Focus:</b> {esc(lesson['focus'])}</p><p><b>Scene:</b> {esc(lesson['scene'])}</p>"
-                            f"<h3>Cards</h3><table><thead><tr><th>Japanese</th><th>English</th><th>Kind</th><th>Review lead</th></tr></thead>"
+                            f"<h3>Cards</h3><table><thead><tr><th>Japanese</th><th>English</th><th>Kind</th><th>Sense ID</th><th>Review lead</th></tr></thead>"
                             f"<tbody>{''.join(cards)}</tbody></table>"
                             f"<h3>Reader</h3><table><thead><tr><th>Speaker</th><th>Japanese</th><th>English</th></tr></thead>"
                             f"<tbody>{''.join(reader)}</tbody></table>"

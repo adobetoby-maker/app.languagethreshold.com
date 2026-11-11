@@ -10,6 +10,7 @@ import { inspectPrivateJapaneseTravelLunch } from "../src/lib/private-japanese-t
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const COURSE = path.join(ROOT, "content/japanese-travel-lunch");
 const SOURCE = path.join(COURSE, "private-runtime-candidate.json");
+const DICTIONARY = path.join(COURSE, "private-dictionary-candidates.json");
 const OUTPUT = path.join(COURSE, "private-offline");
 const STAGES = [
   { id: "foundation-travel-lunch-ja-en", moduleId: "foundation-travel-lunch", count: 10 },
@@ -36,19 +37,33 @@ function sourceLessons(source, stage) {
   return { lessons, cards };
 }
 
-export function verifyPrivateJapaneseTravelLunchOfflineCandidate(manifest, contentBytes, sourceBytes, expectedId) {
+export function verifyPrivateJapaneseTravelLunchOfflineCandidate(manifest, contentBytes, sourceBytes, dictionaryBytes, expectedId) {
   const stage = byId.get(expectedId);
   if (!stage) throw new Error("Unknown Japanese Lunch pack ID");
   const bytes = Buffer.from(contentBytes);
   const sourceRaw = Buffer.from(sourceBytes);
-  let pack, source;
-  try { pack = JSON.parse(bytes.toString("utf8")); source = JSON.parse(sourceRaw.toString("utf8")); }
+  const dictionaryRaw = Buffer.from(dictionaryBytes);
+  let pack, source, dictionary;
+  try {
+    pack = JSON.parse(bytes.toString("utf8"));
+    source = JSON.parse(sourceRaw.toString("utf8"));
+    dictionary = JSON.parse(dictionaryRaw.toString("utf8"));
+  }
   catch { throw new Error("Invalid private Japanese Lunch JSON"); }
   const digest = sha(bytes);
   const sourceDigest = sha(sourceRaw);
   const progress = `private:Japanese:English:${stage.moduleId}:ja-en`;
   const cache = `private:Japanese:English:${expectedId}:${digest}`;
   const expected = sourceLessons(source, stage);
+  const dictionaryDigest = sha(dictionaryRaw);
+  const dictionaryIds = new Set(expected.cards.map(card => card.dictionaryId));
+  const expectedEntries = dictionary.entries?.filter(entry => dictionaryIds.has(entry.id));
+  if (source.dictionarySha256 !== dictionaryDigest ||
+      dictionary.pairKey !== "Japanese:English" || dictionary.reviewed !== false ||
+      dictionary.runtimeRegistered !== false || !Array.isArray(expectedEntries) ||
+      expectedEntries.length !== dictionaryIds.size ||
+      expectedEntries.some(entry => entry.reviewed !== false || entry.runtimeRegistered !== false))
+    throw new Error("Private Japanese Lunch dictionary source or review gate mismatch");
   if (!manifest || manifest.schema !== 1 || manifest.state !== "private-unreleased-candidate" ||
       manifest.releaseEnabled !== false || manifest.workerAllowlistEnabled !== false ||
       manifest.appAssetInventory !== null || manifest.installationStatus !== "not-installed" ||
@@ -56,6 +71,8 @@ export function verifyPrivateJapaneseTravelLunchOfflineCandidate(manifest, conte
       manifest.pairKey !== "Japanese:English" || manifest.target !== "Japanese" ||
       manifest.native !== "English" || manifest.lessonCount !== stage.count ||
       manifest.cardCount !== expected.cards.length || manifest.sourceSha256 !== sourceDigest ||
+      manifest.dictionarySourceSha256 !== dictionaryDigest ||
+      manifest.dictionaryEntryCount !== expectedEntries.length ||
       manifest.content?.file !== `${expectedId}-${digest}.json` ||
       manifest.content.sha256 !== digest || manifest.content.bytes !== bytes.length ||
       manifest.content.routeCandidate !== null || manifest.cacheNamespaceCandidate !== cache ||
@@ -67,14 +84,22 @@ export function verifyPrivateJapaneseTravelLunchOfflineCandidate(manifest, conte
       pack.moduleId !== stage.moduleId || pack.pairKey !== "Japanese:English" ||
       pack.target !== "Japanese" || pack.native !== "English" || pack.locale !== "ja-JP" ||
       pack.sourceSha256 !== sourceDigest || pack.progressScopeCandidate !== progress ||
-      !same(pack.lessons, expected.lessons) || !same(pack.cards, expected.cards))
+      pack.dictionarySourceSha256 !== dictionaryDigest ||
+      !same(pack.lessons, expected.lessons) || !same(pack.cards, expected.cards) ||
+      !same(pack.dictionaryEntries, expectedEntries))
     throw new Error("Private Japanese Lunch source, pair, hash, or content mismatch");
   return pack;
 }
 
-function build(stage, sourceBytes) {
+function build(stage, sourceBytes, dictionaryBytes) {
   const source = JSON.parse(sourceBytes.toString("utf8"));
   const { lessons, cards } = sourceLessons(source, stage);
+  const dictionary = JSON.parse(dictionaryBytes.toString("utf8"));
+  const dictionaryIds = new Set(cards.map(card => card.dictionaryId));
+  const dictionaryEntries = dictionary.entries.filter(entry => dictionaryIds.has(entry.id));
+  if (source.dictionarySha256 !== sha(dictionaryBytes) ||
+      dictionaryEntries.length !== dictionaryIds.size)
+    throw new Error("Private Japanese Lunch dictionary coverage changed");
   const sourceDigest = sha(sourceBytes);
   const progress = `private:Japanese:English:${stage.moduleId}:ja-en`;
   const pack = {
@@ -83,7 +108,8 @@ function build(stage, sourceBytes) {
     deviceVoiceIncluded: false, aiConversationOffline: false,
     packId: stage.id, moduleId: stage.moduleId, pairKey: "Japanese:English",
     target: "Japanese", native: "English", locale: "ja-JP",
-    sourceSha256: sourceDigest, progressScopeCandidate: progress, lessons, cards,
+    sourceSha256: sourceDigest, dictionarySourceSha256: sha(dictionaryBytes),
+    progressScopeCandidate: progress, lessons, cards, dictionaryEntries,
   };
   const bytes = Buffer.from(JSON.stringify(pack));
   const digest = sha(bytes);
@@ -94,11 +120,13 @@ function build(stage, sourceBytes) {
     packId: stage.id, moduleId: stage.moduleId, pairKey: "Japanese:English",
     target: "Japanese", native: "English", lessonCount: lessons.length,
     cardCount: cards.length, sourceSha256: sourceDigest,
+    dictionaryEntryCount: dictionaryEntries.length,
+    dictionarySourceSha256: sha(dictionaryBytes),
     content: { file: filename, sha256: digest, bytes: bytes.length, routeCandidate: null },
     cacheNamespaceCandidate: `private:Japanese:English:${stage.id}:${digest}`,
     progressScopeCandidate: progress,
   };
-  verifyPrivateJapaneseTravelLunchOfflineCandidate(manifest, bytes, sourceBytes, stage.id);
+  verifyPrivateJapaneseTravelLunchOfflineCandidate(manifest, bytes, sourceBytes, dictionaryBytes, stage.id);
   return [
     { name: filename, bytes },
     { name: `${stage.id}.manifest.json`, bytes: Buffer.from(JSON.stringify(manifest) + "\n") },
@@ -112,10 +140,11 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   execFileSync("python3", [path.join(COURSE, "build-private-runtime-candidate.py"), "--check"],
     { cwd: ROOT, stdio: "pipe" });
   const sourceBytes = readFileSync(SOURCE);
+  const dictionaryBytes = readFileSync(DICTIONARY);
   if (!check) mkdirSync(OUTPUT, { recursive: true });
   const expectedNames = new Set();
   for (const stage of STAGES) {
-    for (const artifact of build(stage, sourceBytes)) {
+    for (const artifact of build(stage, sourceBytes, dictionaryBytes)) {
       expectedNames.add(artifact.name);
       const destination = path.join(OUTPUT, artifact.name);
       if (check) {

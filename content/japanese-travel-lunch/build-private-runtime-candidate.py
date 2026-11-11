@@ -27,8 +27,27 @@ def sha(path):
 def build():
     subprocess.run([sys.executable, str(COURSE / "verify-private-course.py")],
                    cwd=ROOT, check=True, capture_output=True)
+    dictionary_path = COURSE / "private-dictionary-candidates.json"
+    dictionary = json.loads(dictionary_path.read_text(encoding="utf-8"))
+    if (dictionary["schema"], dictionary["moduleId"], dictionary["pairKey"],
+        dictionary["reviewed"], dictionary["runtimeRegistered"],
+        dictionary["lessons"], dictionary["cardPlacements"], dictionary["candidatePairs"]) != (
+        1, "travel-lunch", "Japanese:English", False, False, 60, 1099, 955):
+        raise ValueError("Private dictionary pair, review gate, or coverage changed")
+    dictionary_by_card = {}
+    for entry in dictionary["entries"]:
+        if (not re.fullmatch(r"ja-en-lunch-[0-9a-f]{16}", entry["id"]) or
+            entry["reviewed"] is not False or entry["runtimeRegistered"] is not False):
+            raise ValueError("Private dictionary entry identity or review gate changed")
+        for card_ref in entry["cardRefs"]:
+            if card_ref in dictionary_by_card:
+                raise ValueError(f"Duplicate dictionary card reference: {card_ref}")
+            dictionary_by_card[card_ref] = entry
+    if len(dictionary["entries"]) != 955 or len(dictionary_by_card) != 1099:
+        raise ValueError("Private dictionary card coverage changed")
     records = {stage: {} for stage in STAGES}
     sources = []
+    draft_hashes = {}
     for path in sorted(COURSE.glob("*-draft.json")):
         match = re.fullmatch(r"(foundation|core|master)-(\d+)-(\d+)-draft\.json", path.name)
         if not match:
@@ -51,6 +70,7 @@ def build():
             if source_path and sha(ROOT / source_path) != source_sha:
                 raise ValueError(f"English source changed: {source_path}")
         source_ref = str(path.relative_to(ROOT))
+        draft_hashes[source_ref] = sha(path)
         side_ref = str(side_path.relative_to(ROOT))
         sources.extend(({"path": source_ref, "sha256": sha(path), "englishSource": draft["source"]},
                         {"path": side_ref, "sha256": sha(side_path)}))
@@ -65,8 +85,14 @@ def build():
             modes = activities.get(identity)
             if not modes or set(modes) != set(MODES):
                 raise ValueError(f"Missing authored modes: {identity}")
-            cards = [{**card, "id": f"{identity}:card:{i}"}
-                     for i, card in enumerate(lesson["cards"], 1)]
+            cards = []
+            for i, card in enumerate(lesson["cards"], 1):
+                card_id = f"{identity}:card:{i}"
+                entry = dictionary_by_card.get(card_id)
+                if not entry or (entry["word"], entry["english"]) != (card["ja"], card["en"]) or \
+                   card["kind"] not in entry["kinds"]:
+                    raise ValueError(f"Missing exact dictionary sense: {card_id}")
+                cards.append({**card, "id": card_id, "dictionaryId": entry["id"]})
             for mode, activity in modes.items():
                 if activity["sourceRef"] not in {card["id"] for card in cards}:
                     raise ValueError(f"Mode source card changed: {identity}:{mode}")
@@ -85,12 +111,15 @@ def build():
     if (len(ordered), sum(len(x["cards"]) for x in ordered),
         sum(len(x["reader"]) for x in ordered)) != (60, 1099, 760):
         raise ValueError("Course counts changed")
+    if dictionary["sourceLessonFiles"] != draft_hashes or len(dictionary_by_card) != 1099:
+        raise ValueError("Private dictionary source identities changed")
     return {
         "schema": 1, "pairKey": "Japanese:English", "moduleId": "travel-lunch",
         "registration": "disabled", "reviewed": False,
         "audioListeningReviewed": False, "lessonCount": 60,
         "cardCount": 1099, "readerTurnCount": 760, "activityCount": 360,
-        "sourceFiles": sources, "lessons": ordered,
+        "sourceFiles": sources, "dictionarySha256": sha(dictionary_path),
+        "dictionaryEntryCount": 955, "lessons": ordered,
     }
 
 

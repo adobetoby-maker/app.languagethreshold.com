@@ -8,7 +8,7 @@ const STAGES = [
 ] as const;
 const MODES = ["see", "recall", "hear", "type", "say", "write"] as const;
 type Mode = typeof MODES[number];
-type Card = { id: string; ja: string; en: string; kind: string; note?: string };
+type Card = { id: string; ja: string; en: string; kind: string; dictionaryId: string; note?: string };
 type ReaderLine = { speaker?: string; ja: string; en: string };
 type Activity = {
   id: string; lessonId: string; mode: Mode; cueEnglish: string;
@@ -27,6 +27,7 @@ export type PrivateJapaneseTravelLunchCandidate = {
   schema: number; pairKey: string; moduleId: string; registration: string;
   reviewed: boolean; audioListeningReviewed: boolean;
   lessonCount: number; cardCount: number; readerTurnCount: number; activityCount: number;
+  dictionarySha256: string; dictionaryEntryCount: number;
   sourceFiles: { path: string; sha256: string }[]; lessons: Lesson[];
 };
 
@@ -39,6 +40,8 @@ export function inspectPrivateJapaneseTravelLunch(candidate: PrivateJapaneseTrav
       candidate.reviewed !== false || candidate.audioListeningReviewed !== false ||
       candidate.lessonCount !== 60 || candidate.cardCount !== 1099 ||
       candidate.readerTurnCount !== 760 || candidate.activityCount !== 360 ||
+      candidate.dictionaryEntryCount !== 955 ||
+      candidate.dictionarySha256 !== "e4bddd31a0965548fe1f76b1791ca7150fbf0689e4c3bb88fc663591c930c6e1" ||
       candidate.lessons.length !== 60 || candidate.sourceFiles.length !== 40)
     throw new Error("Wrong Japanese Lunch pair, course count, or private release gate");
   const sources = new Map(candidate.sourceFiles.map(item => [item.path, item.sha256]));
@@ -48,6 +51,7 @@ export function inspectPrivateJapaneseTravelLunch(candidate: PrivateJapaneseTrav
   let lessonIndex = 0;
   let cardCount = 0;
   let readerCount = 0;
+  const dictionaryIds = new Set<string>();
   const lessons = new Map<string, Lesson>();
   for (const [moduleId, count] of STAGES) {
     for (let n = 1; n <= count; n++) {
@@ -60,7 +64,8 @@ export function inspectPrivateJapaneseTravelLunch(candidate: PrivateJapaneseTrav
         throw new Error(`${id}: changed lesson identity or source`);
       if (!Array.isArray(lesson.cards) || !lesson.cards.length ||
           lesson.cards.some((card, i) => card.id !== `${id}:card:${i + 1}` ||
-            !nonempty(card.ja) || !japaneseScript.test(card.ja) || !nonempty(card.en)) ||
+            !nonempty(card.ja) || !japaneseScript.test(card.ja) || !nonempty(card.en) ||
+            !/^ja-en-lunch-[0-9a-f]{16}$/.test(card.dictionaryId)) ||
           !Array.isArray(lesson.reader) || lesson.reader.length < 8 ||
           lesson.reader.some(line => !nonempty(line.ja) || !japaneseScript.test(line.ja) || !nonempty(line.en)))
         throw new Error(`${id}: missing exact-pair cards or Reader`);
@@ -86,11 +91,13 @@ export function inspectPrivateJapaneseTravelLunch(candidate: PrivateJapaneseTrav
       }
       if (lessons.has(id)) throw new Error(`${id}: duplicate lesson`);
       lessons.set(id, lesson);
+      lesson.cards.forEach(card => dictionaryIds.add(card.dictionaryId));
       cardCount += lesson.cards.length;
       readerCount += lesson.reader.length;
     }
   }
-  if (cardCount !== candidate.cardCount || readerCount !== candidate.readerTurnCount)
+  if (cardCount !== candidate.cardCount || readerCount !== candidate.readerTurnCount ||
+      dictionaryIds.size !== candidate.dictionaryEntryCount)
     throw new Error("Japanese Lunch card or Reader totals changed");
   return {
     releaseEnabled: JAPANESE_TRAVEL_LUNCH_RELEASED,

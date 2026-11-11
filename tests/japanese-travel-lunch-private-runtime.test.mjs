@@ -26,6 +26,7 @@ test('private Japanese Lunch joins all 60 authored lessons and keeps release dis
       const lesson = runtime.getLesson(moduleId, n, 'Japanese', 'English');
       assert.equal(lesson?.stableId, `${moduleId}:${n}:ja-en`);
       assert.equal(lesson.reviewed, false);
+      assert.ok(lesson.cards.every(card => /^ja-en-lunch-[0-9a-f]{16}$/.test(card.dictionaryId)));
       assert.ok(runtime.cacheNamespace(moduleId, n, 'Japanese', 'English').includes(':Japanese:English:'));
       assert.equal(runtime.cacheNamespace(moduleId, n, 'Spanish', 'English'), null);
       assert.equal(runtime.getLesson(moduleId, n, 'Japanese', 'Spanish'), null);
@@ -56,4 +57,7 @@ test('private Japanese Lunch fails closed on changed pair, review gate, activity
   const wrongId = structuredClone(candidate);
   wrongId.lessons[0].stableId = 'foundation-travel-lunch:1:es-en';
   assert.throws(() => inspectPrivateJapaneseTravelLunch(wrongId), /changed lesson identity/);
+  const wrongDictionary = structuredClone(candidate);
+  wrongDictionary.lessons[0].cards[0].dictionaryId = 'Spanish:other';
+  assert.throws(() => inspectPrivateJapaneseTravelLunch(wrongDictionary), /cards or Reader/);
 });

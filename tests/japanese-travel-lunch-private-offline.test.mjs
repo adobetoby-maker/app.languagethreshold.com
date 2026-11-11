@@ -16,6 +16,7 @@ import { verifyPrivateJapaneseTravelLunchOfflineCandidate } from
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const output = path.join(root, "content/japanese-travel-lunch/private-offline");
 const source = readFileSync(path.join(root, "content/japanese-travel-lunch/private-runtime-candidate.json"));
+const dictionary = readFileSync(path.join(root, "content/japanese-travel-lunch/private-dictionary-candidates.json"));
 const sha = bytes => createHash("sha256").update(bytes).digest("hex");
 const stages = [
   ["foundation-travel-lunch-ja-en", "foundation-travel-lunch", 10],
@@ -36,13 +37,16 @@ test("all three private Lunch text packs keep exact pair, stage, cards and Reade
   let lessons = 0, cards = 0, readerTurns = 0;
   for (const [id, moduleId, count] of stages) {
     const { manifest, bytes } = readCandidate(id);
-    const pack = verifyPrivateJapaneseTravelLunchOfflineCandidate(manifest, bytes, source, id);
+    const pack = verifyPrivateJapaneseTravelLunchOfflineCandidate(manifest, bytes, source, dictionary, id);
     assert.equal(manifest.content.sha256, sha(bytes));
     assert.equal(manifest.sourceSha256, sha(source));
     assert.equal(pack.lessons.length, count);
     assert.equal(pack.lessons[0].stableId, `${moduleId}:1:ja-en`);
     assert.equal(pack.lessons.at(-1).stableId, `${moduleId}:${count}:ja-en`);
     assert.equal(pack.cards.length, manifest.cardCount);
+    assert.equal(pack.dictionaryEntries.length, manifest.dictionaryEntryCount);
+    assert.equal(pack.dictionarySourceSha256, sha(dictionary));
+    assert.ok(pack.cards.every(card => pack.dictionaryEntries.some(entry => entry.id === card.dictionaryId)));
     assert.equal(pack.audioFilesIncluded, false);
     assert.equal(manifest.workerAllowlistEnabled, false);
     assert.equal(manifest.installationStatus, "not-installed");
@@ -61,9 +65,11 @@ test("tampered payload and source content fail even if the new hash is reflected
   const id = "travel-lunch-ja-en";
   const { manifest, bytes } = readCandidate(id);
   assert.throws(() => verifyPrivateJapaneseTravelLunchOfflineCandidate(
-    manifest, Buffer.concat([bytes, Buffer.from(" ")]), source, id), /mismatch/);
+    manifest, Buffer.concat([bytes, Buffer.from(" ")]), source, dictionary, id), /mismatch/);
   assert.throws(() => verifyPrivateJapaneseTravelLunchOfflineCandidate(
-    manifest, bytes, Buffer.concat([source, Buffer.from(" ")]), id), /mismatch/);
+    manifest, bytes, Buffer.concat([source, Buffer.from(" ")]), dictionary, id), /mismatch/);
+  assert.throws(() => verifyPrivateJapaneseTravelLunchOfflineCandidate(
+    manifest, bytes, source, Buffer.concat([dictionary, Buffer.from(" ")]), id), /mismatch/);
   for (const mutate of [
     pack => { pack.pairKey = "Spanish:English"; },
     pack => { pack.lessons[0].reader[0].en = "wrong meaning"; },
@@ -78,10 +84,10 @@ test("tampered payload and source content fail even if the new hash is reflected
       content: { ...manifest.content, file: `${id}-${digest}.json`, sha256: digest, bytes: changed.length },
       cacheNamespaceCandidate: `private:Japanese:English:${id}:${digest}`,
     };
-    assert.throws(() => verifyPrivateJapaneseTravelLunchOfflineCandidate(updated, changed, source, id), /mismatch/);
+    assert.throws(() => verifyPrivateJapaneseTravelLunchOfflineCandidate(updated, changed, source, dictionary, id), /mismatch/);
   }
   assert.throws(() => verifyPrivateJapaneseTravelLunchOfflineCandidate(
-    { ...manifest, workerAllowlistEnabled: true }, bytes, source, id), /mismatch/);
+    { ...manifest, workerAllowlistEnabled: true }, bytes, source, dictionary, id), /mismatch/);
 });
 
 test("private pack IDs are absent from public download and worker registration", () => {

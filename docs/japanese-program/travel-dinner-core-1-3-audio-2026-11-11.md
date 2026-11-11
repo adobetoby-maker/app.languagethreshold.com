@@ -1,0 +1,9 @@
+# Japanese Dinner Core 1–3 audio candidate
+
+The private Core 1–3 Japanese→English draft has a source-pinned audio scope. `build-private-core-1-3-audio-scope.py` extracts exact Japanese cards, Reader turns, speaking openings and closures, and Hear models from the closed-gate lessons. It records display and submitted speech text, source hashes, stable lesson IDs, and placements. The scope has 84 unique speech strings, 168 `ja-JP` Aoede/Charon clips, and 2,038 submitted characters. Its SHA-256 is `ad72a64b46d08401ee572f63af5d88baafca0388afbd55161acd948dc8062e3d`.
+
+`generate-private-core-1-3-audio.py` synthesizes at most 20 new clips per invocation with quota project `project-91661021-fb2d-4524-b9f`. It resumes only after verifying existing text, voice, placements, file hash, byte count, and duration. `verify-private-core-1-3-audio.py` independently compares the scope, manifest, and MP3 files and screens signal metrics. The recordings and listening sheet are private at `/Users/drive/lt-audio/japanese-travel-dinner/core-1-3/`.
+
+On 2026-11-11, synthesis completed all 168 clips. The independent check verified both voices for all 84 text keys, 1,650,144 MP3 bytes, and 412.536 total seconds, with zero signal flags. The listening sheet contains 168 audio controls at `/Users/drive/lt-audio/japanese-travel-dinner/core-1-3/listening-review.html`. The manifest SHA-256 is `a169f72e5ac53df39b56dad1ecf82340e8074f6e632aafcc0712ba0ab3a038c8`; the technical report SHA-256 is `4aed974690515672a2c5e1ca4aa35055e22040ad2362c6133906ee6ad19e2528`.
+
+These new Dinner recordings remain `listeningReviewed:false`, `registered:false`, and unbundled. Human pronunciation listening and course review remain open. The owner's approval of earlier French and Japanese pilots does not cover this Dinner batch. No learner route, progress, or native build changes here.

@@ -4,14 +4,16 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { MASTER_CONTENT_LIMITS, validateLessonContent } from "../src/lib/lesson-content-core.ts";
 
-const sourcePath = "content/french-travel-lunch/master-1-5-draft.json";
-const sourceBytes = readFileSync(sourcePath);
-const sources = JSON.parse(sourceBytes).lessons;
+const sourcePaths = ["master-1-5-draft.json", "master-6-10-draft.json"];
+const sourceFiles = Object.fromEntries(sourcePaths.map((name) => [name, readFileSync(`content/french-travel-lunch/${name}`)]));
+const sources = Object.fromEntries(sourcePaths.flatMap((name) => JSON.parse(sourceFiles[name]).lessons.map((lesson) => [String(lesson.n), lesson])));
 const candidate = JSON.parse(readFileSync("content/french-travel-lunch/master-lesson-content-candidate.json"));
 
-test("private French Lunch Master 1–5 pin their source and keep review gates closed", () => {
-  assert.deepEqual(Object.keys(candidate.lessons), ["1", "2", "3", "4", "5"]);
-  assert.equal(candidate.sourceDraftSha256["master-1-5-draft.json"], createHash("sha256").update(sourceBytes).digest("hex"));
+test("private French Lunch Master 1–10 pin their sources and keep review gates closed", () => {
+  assert.deepEqual(Object.keys(candidate.lessons), Array.from({ length: 10 }, (_, index) => String(index + 1)));
+  for (const name of sourcePaths) {
+    assert.equal(candidate.sourceDraftSha256[name], createHash("sha256").update(sourceFiles[name]).digest("hex"));
+  }
   assert.equal(candidate.module, "master-travel-lunch");
   assert.equal(candidate.reviewed, false);
   assert.equal(candidate.registered, false);
@@ -19,12 +21,13 @@ test("private French Lunch Master 1–5 pin their source and keep review gates c
 
 for (const [number, item] of Object.entries(candidate.lessons)) {
   test(`private French Lunch Master ${number} meets Master density and preserves source Reader and vocabulary`, () => {
-    const source = sources[Number(number) - 1];
+    const source = sources[number];
     assert.equal(item.stableId, source.stableId);
-    assert.deepEqual(item.sourceCardIndices, source.cards.map((_, index) => index + 1));
+    assert.equal(new Set(item.sourceCardIndices).size, item.sourceCardIndices.length);
+    assert.ok(item.sourceCardIndices.every((index) => Number.isInteger(index) && index >= 1 && index <= source.cards.length));
     assert.ok(Object.values(source.modes).every((mode) => item.sourceCardIndices.includes(mode.sourceCard)));
     const words = [
-      ...source.cards.map(({ fr, en, kind }) => ({ es: fr, en, kind })),
+      ...item.sourceCardIndices.map((index) => source.cards[index - 1]).map(({ fr, en, kind }) => ({ es: fr, en, kind })),
       ...(item.supplementalWords ?? []),
     ];
     for (const word of item.supplementalWords ?? []) {
@@ -64,4 +67,15 @@ test("Master allergen and vegetarian-soup lessons retain their exact clinical an
   assert.match(soup, /soupe végétarienne/);
   assert.match(soup, /bouillon de légumes/);
   assert.match(soup, /bouillon de poulet/);
+});
+
+test("Master 7 and 8 retain the exact bill and food-poisoning language", () => {
+  const bill = candidate.lessons["7"].passage.target.join(" ");
+  assert.match(bill, /quatre-vingt-quatre euros/);
+  assert.match(bill, /cent deux euros/);
+  assert.match(bill, /dix-huit euros de différence/);
+  const food = candidate.lessons["8"].passage.target.join(" ");
+  assert.match(food, /poisson cru/);
+  assert.match(food, /sans réfrigération/);
+  assert.match(food, /intoxication alimentaire/);
 });

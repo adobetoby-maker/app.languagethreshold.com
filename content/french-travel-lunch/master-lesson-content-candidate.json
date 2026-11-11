@@ -6,7 +6,8 @@
   "reviewed": false,
   "registered": false,
   "sourceDraftSha256": {
-    "master-1-5-draft.json": "802c8178beb929663fe9c9ecd85930eb91f72d2e7755120d69a1fad304ab81d0"
+    "master-1-5-draft.json": "802c8178beb929663fe9c9ecd85930eb91f72d2e7755120d69a1fad304ab81d0",
+    "master-6-10-draft.json": "1715128d15925a41cb0fe601e237d5e4b5e191236f26d76fc815ff1d5154b8fb"
   },
   "lessons": {
     "1": {
@@ -767,6 +768,829 @@
           "example": {
             "target": "Merci. La salade me convient.",
             "native": "Thank you. The salad works for me."
+          }
+        }
+      ]
+    },
+    "6": {
+      "stableId": "master-travel-lunch:6:fr-en",
+      "sourceCardIndices": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "supplementalWords": [
+        {
+          "es": "le gratin",
+          "en": "the gratin",
+          "kind": "term",
+          "sourceReaderIndex": 2,
+          "sourceReaderText": "gratin"
+        },
+        {
+          "es": "le plat du jour",
+          "en": "the daily special",
+          "kind": "term",
+          "sourceReaderIndex": 1,
+          "sourceReaderText": "plat du jour"
+        },
+        {
+          "es": "la faim",
+          "en": "hunger",
+          "kind": "term",
+          "sourceReaderIndex": 3,
+          "sourceReaderText": "faim"
+        },
+        {
+          "es": "vingt minutes",
+          "en": "twenty minutes",
+          "kind": "term",
+          "sourceReaderIndex": 5
+        },
+        {
+          "es": "dix minutes",
+          "en": "ten minutes",
+          "kind": "term",
+          "sourceReaderIndex": 5
+        },
+        {
+          "es": "six personnes",
+          "en": "six people",
+          "kind": "term",
+          "sourceCardIndex": 9
+        },
+        {
+          "es": "deux tartes",
+          "en": "two tarts",
+          "kind": "term",
+          "sourceReaderIndex": 7,
+          "sourceReaderText": "tartes"
+        }
+      ],
+      "passage": {
+        "title": "Choose a Substitute Lunch for Six",
+        "target": [
+          "Nous sommes six. Le plat du jour est-il encore disponible ?",
+          "Non, il est épuisé. Nous avons encore le gratin et la tarte aux légumes.",
+          "J’ai faim. Quel plat arrivera le plus vite ?",
+          "Combien de temps prendra chaque plat ?",
+          "Le gratin prendra vingt minutes. La tarte sera prête dans dix minutes.",
+          "La tarte sera plus légère que le gratin. Cela suffira-t-il pour six ?",
+          "Deux tartes feront six portions.",
+          "Le gratin sera plus copieux, mais il prendra plus de temps. Que préférez-vous ?",
+          "Deux tartes, s’il vous plaît.",
+          "D’accord. Nous allons prendre deux tartes à partager.",
+          "Le gratin de pommes de terre est un plat à partager pour six personnes.",
+          "Le temps d’attente est de vingt minutes pour le gratin et de dix minutes pour la tarte."
+        ],
+        "native": [
+          "There are six of us. Is the daily special still available?",
+          "No, it is sold out. We still have the gratin and vegetable tart.",
+          "I am hungry. Which dish will arrive fastest?",
+          "How long will each dish take?",
+          "The gratin will take twenty minutes. The tart will be ready in ten minutes.",
+          "The tart will be lighter than the gratin. Will that be enough for six?",
+          "Two tarts will make six portions.",
+          "The gratin will be heartier, but it will take longer. What do you prefer?",
+          "Two tarts, please.",
+          "All right. We are going to have two tarts to share.",
+          "The potato gratin is a dish to share for six people.",
+          "The waiting time is twenty minutes for the gratin and ten minutes for the tart."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitive": "être",
+          "native": "to be",
+          "forms": {
+            "je": "suis",
+            "tu": "es",
+            "il_elle_on": "est",
+            "nous": "sommes",
+            "vous": "êtes",
+            "ils_elles": "sont"
+          },
+          "example": {
+            "target": "Nous sommes six. Le plat du jour est-il encore disponible ?",
+            "native": "There are six of us. Is the daily special still available?"
+          }
+        },
+        {
+          "infinitive": "avoir",
+          "native": "to have",
+          "forms": {
+            "je": "ai",
+            "tu": "as",
+            "il_elle_on": "a",
+            "nous": "avons",
+            "vous": "avez",
+            "ils_elles": "ont"
+          },
+          "example": {
+            "target": "Non, il est épuisé. Nous avons encore le gratin et la tarte aux légumes.",
+            "native": "No, it is sold out. We still have the gratin and vegetable tart."
+          }
+        },
+        {
+          "infinitive": "prendre",
+          "native": "to take / order",
+          "forms": {
+            "je": "prends",
+            "tu": "prends",
+            "il_elle_on": "prend",
+            "nous": "prenons",
+            "vous": "prenez",
+            "ils_elles": "prennent"
+          },
+          "example": {
+            "target": "Le gratin prendra vingt minutes. La tarte sera prête dans dix minutes.",
+            "native": "The gratin will take twenty minutes. The tart will be ready in ten minutes."
+          }
+        },
+        {
+          "infinitive": "suffire",
+          "native": "to be enough",
+          "forms": {
+            "je": "suffis",
+            "tu": "suffis",
+            "il_elle_on": "suffit",
+            "nous": "suffisons",
+            "vous": "suffisez",
+            "ils_elles": "suffisent"
+          },
+          "example": {
+            "target": "La tarte sera plus légère que le gratin. Cela suffira-t-il pour six ?",
+            "native": "The tart will be lighter than the gratin. Will that be enough for six?"
+          }
+        },
+        {
+          "infinitive": "préférer",
+          "native": "to prefer",
+          "forms": {
+            "je": "préfère",
+            "tu": "préfères",
+            "il_elle_on": "préfère",
+            "nous": "préférons",
+            "vous": "préférez",
+            "ils_elles": "préfèrent"
+          },
+          "example": {
+            "target": "Le gratin sera plus copieux, mais il prendra plus de temps. Que préférez-vous ?",
+            "native": "The gratin will be heartier, but it will take longer. What do you prefer?"
+          }
+        }
+      ]
+    },
+    "7": {
+      "stableId": "master-travel-lunch:7:fr-en",
+      "sourceCardIndices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "supplementalWords": [
+        {
+          "es": "dix-huit euros",
+          "en": "eighteen euros",
+          "kind": "term",
+          "sourceCardIndex": 10
+        },
+        {
+          "es": "quatre euros",
+          "en": "four euros",
+          "kind": "term",
+          "sourceCardIndex": 11
+        },
+        {
+          "es": "quatre-vingt-quatre euros",
+          "en": "eighty-four euros",
+          "kind": "term",
+          "sourceCardIndex": 15
+        }
+      ],
+      "passage": {
+        "title": "Resolve Two Lunch Prices with Exact Numbers",
+        "target": [
+          "L’affiche à l’entrée indique dix-huit euros par menu.",
+          "Oui. Quel est le problème avec le reçu ?",
+          "Nous avons commandé quatre menus et trois boissons à quatre euros.",
+          "Quatre menus font soixante-douze euros. Trois boissons font douze euros.",
+          "Le total attendu est de quatre-vingt-quatre euros. Le reçu indique cent deux euros.",
+          "Je vais vérifier.",
+          "Pouvez-vous nous donner une addition détaillée ? Il y a dix-huit euros de différence.",
+          "Vous avez raison : on vous a facturé cinq menus au lieu de quatre.",
+          "Nous réglerons donc quatre-vingt-quatre euros.",
+          "Merci d’avoir corrigé le reçu.",
+          "Le propriétaire et le guide comparent l’affiche et le reçu.",
+          "Une addition détaillée montre la différence entre les quatre menus commandés et les cinq menus facturés."
+        ],
+        "native": [
+          "The sign at the entrance says eighteen euros per set lunch.",
+          "Yes. What is the problem with the receipt?",
+          "We ordered four set lunches and three drinks at four euros each.",
+          "Four lunches make seventy-two euros. Three drinks make twelve euros.",
+          "The expected total is eighty-four euros. The receipt says one hundred and two euros.",
+          "I will check.",
+          "Can you give us an itemized bill? There is an eighteen-euro difference.",
+          "You are right: you were charged for five set lunches instead of four.",
+          "So we will pay eighty-four euros.",
+          "Thank you for correcting the receipt.",
+          "The owner and the guide compare the sign and the receipt.",
+          "An itemized bill shows the difference between the four set lunches ordered and the five charged."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitive": "indiquer",
+          "native": "to indicate",
+          "forms": {
+            "je": "indique",
+            "tu": "indiques",
+            "il_elle_on": "indique",
+            "nous": "indiquons",
+            "vous": "indiquez",
+            "ils_elles": "indiquent"
+          },
+          "example": {
+            "target": "L’affiche à l’entrée indique dix-huit euros par menu.",
+            "native": "The sign at the entrance says eighteen euros per set lunch."
+          }
+        },
+        {
+          "infinitive": "avoir",
+          "native": "to have",
+          "forms": {
+            "je": "ai",
+            "tu": "as",
+            "il_elle_on": "a",
+            "nous": "avons",
+            "vous": "avez",
+            "ils_elles": "ont"
+          },
+          "example": {
+            "target": "Nous avons commandé quatre menus et trois boissons à quatre euros.",
+            "native": "We ordered four set lunches and three drinks at four euros each."
+          }
+        },
+        {
+          "infinitive": "faire",
+          "native": "to make / total",
+          "forms": {
+            "je": "fais",
+            "tu": "fais",
+            "il_elle_on": "fait",
+            "nous": "faisons",
+            "vous": "faites",
+            "ils_elles": "font"
+          },
+          "example": {
+            "target": "Quatre menus font soixante-douze euros. Trois boissons font douze euros.",
+            "native": "Four lunches make seventy-two euros. Three drinks make twelve euros."
+          }
+        },
+        {
+          "infinitive": "donner",
+          "native": "to give",
+          "forms": {
+            "je": "donne",
+            "tu": "donnes",
+            "il_elle_on": "donne",
+            "nous": "donnons",
+            "vous": "donnez",
+            "ils_elles": "donnent"
+          },
+          "example": {
+            "target": "Pouvez-vous nous donner une addition détaillée ? Il y a dix-huit euros de différence.",
+            "native": "Can you give us an itemized bill? There is an eighteen-euro difference."
+          }
+        },
+        {
+          "infinitive": "comparer",
+          "native": "to compare",
+          "forms": {
+            "je": "compare",
+            "tu": "compares",
+            "il_elle_on": "compare",
+            "nous": "comparons",
+            "vous": "comparez",
+            "ils_elles": "comparent"
+          },
+          "example": {
+            "target": "Le propriétaire et le guide comparent l’affiche et le reçu.",
+            "native": "The owner and the guide compare the sign and the receipt."
+          }
+        }
+      ]
+    },
+    "8": {
+      "stableId": "master-travel-lunch:8:fr-en",
+      "sourceCardIndices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "supplementalWords": [
+        {
+          "es": "le poulet",
+          "en": "the chicken",
+          "kind": "term",
+          "sourceReaderIndex": 8,
+          "sourceReaderText": "poulet"
+        },
+        {
+          "es": "une seconde",
+          "en": "a second",
+          "kind": "term",
+          "sourceReaderIndex": 2
+        },
+        {
+          "es": "l’achat",
+          "en": "the purchase",
+          "kind": "term",
+          "sourceReaderIndex": 2,
+          "sourceReaderText": "achète"
+        },
+        {
+          "es": "l’envie",
+          "en": "the desire",
+          "kind": "term",
+          "sourceReaderIndex": 5,
+          "sourceReaderText": "envie"
+        }
+      ],
+      "passage": {
+        "title": "Suggest a Different Lunch to a Friend",
+        "target": [
+          "Je vais prendre le poisson cru à ce chariot.",
+          "Attends une seconde. Ne l’achète pas maintenant.",
+          "Pourquoi ?",
+          "Il est resté au soleil sans réfrigération. Je crains une intoxication alimentaire.",
+          "J’avais envie de poisson.",
+          "Je comprends. Je ne te recommande pas de manger ce poisson cru.",
+          "Tu proposes quoi ?",
+          "Allons au café d’à côté. On peut prendre un plat chaud ou du poulet bien cuit.",
+          "D’accord. Allons-y.",
+          "Ce chariot de nourriture propose du poisson cru.",
+          "Le risque concerne ce poisson cru resté sans réfrigération.",
+          "Le poulet bien cuit est un plat chaud.",
+          "L’achat de ce poisson cru peut attendre."
+        ],
+        "native": [
+          "I am going to have the raw fish at that cart.",
+          "Wait a second. Do not buy it now.",
+          "Why?",
+          "It has been in the sun without refrigeration. I am worried about food poisoning.",
+          "I wanted fish.",
+          "I understand. I do not recommend eating this raw fish.",
+          "What do you suggest?",
+          "Let us go to the café next door. We can have a hot dish or well-cooked chicken.",
+          "All right. Let us go.",
+          "This food cart offers raw fish.",
+          "The risk concerns this raw fish left without refrigeration.",
+          "The well-cooked chicken is a hot dish.",
+          "Buying this raw fish can wait."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitive": "acheter",
+          "native": "to buy",
+          "forms": {
+            "je": "achète",
+            "tu": "achètes",
+            "il_elle_on": "achète",
+            "nous": "achetons",
+            "vous": "achetez",
+            "ils_elles": "achètent"
+          },
+          "example": {
+            "target": "Attends une seconde. Ne l’achète pas maintenant.",
+            "native": "Wait a second. Do not buy it now."
+          }
+        },
+        {
+          "infinitive": "craindre",
+          "native": "to fear",
+          "forms": {
+            "je": "crains",
+            "tu": "crains",
+            "il_elle_on": "craint",
+            "nous": "craignons",
+            "vous": "craignez",
+            "ils_elles": "craignent"
+          },
+          "example": {
+            "target": "Il est resté au soleil sans réfrigération. Je crains une intoxication alimentaire.",
+            "native": "It has been in the sun without refrigeration. I am worried about food poisoning."
+          }
+        },
+        {
+          "infinitive": "recommander",
+          "native": "to recommend",
+          "forms": {
+            "je": "recommande",
+            "tu": "recommandes",
+            "il_elle_on": "recommande",
+            "nous": "recommandons",
+            "vous": "recommandez",
+            "ils_elles": "recommandent"
+          },
+          "example": {
+            "target": "Je comprends. Je ne te recommande pas de manger ce poisson cru.",
+            "native": "I understand. I do not recommend eating this raw fish."
+          }
+        },
+        {
+          "infinitive": "proposer",
+          "native": "to suggest",
+          "forms": {
+            "je": "propose",
+            "tu": "proposes",
+            "il_elle_on": "propose",
+            "nous": "proposons",
+            "vous": "proposez",
+            "ils_elles": "proposent"
+          },
+          "example": {
+            "target": "Tu proposes quoi ?",
+            "native": "What do you suggest?"
+          }
+        },
+        {
+          "infinitive": "pouvoir",
+          "native": "to be able to",
+          "forms": {
+            "je": "peux",
+            "tu": "peux",
+            "il_elle_on": "peut",
+            "nous": "pouvons",
+            "vous": "pouvez",
+            "ils_elles": "peuvent"
+          },
+          "example": {
+            "target": "Allons au café d’à côté. On peut prendre un plat chaud ou du poulet bien cuit.",
+            "native": "Let us go to the café next door. We can have a hot dish or well-cooked chicken."
+          }
+        }
+      ]
+    },
+    "9": {
+      "stableId": "master-travel-lunch:9:fr-en",
+      "sourceCardIndices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "supplementalWords": [
+        {
+          "es": "le pain",
+          "en": "the bread",
+          "kind": "term",
+          "sourceReaderIndex": 2
+        },
+        {
+          "es": "la carte",
+          "en": "the menu",
+          "kind": "term",
+          "sourceReaderIndex": 8
+        },
+        {
+          "es": "le goût",
+          "en": "the taste",
+          "kind": "term",
+          "sourceReaderIndex": 1,
+          "sourceReaderText": "goûté"
+        }
+      ],
+      "passage": {
+        "title": "Give Honest Feedback on a New Dish",
+        "target": [
+          "Vous avez goûté notre nouveau sandwich végétarien. Qu’en pensez-vous ?",
+          "J’aime les légumes grillés et le pain est croustillant.",
+          "Et la texture ?",
+          "Les aubergines sont moelleuses. La présentation est soignée.",
+          "Vous changeriez quelque chose ?",
+          "J’aimerais que vous mettiez un peu moins de sel.",
+          "Merci, c’est précis.",
+          "J’espère que vous le garderez à la carte.",
+          "Les poivrons grillés apportent de la couleur au sandwich.",
+          "Le fromage rend la texture plus moelleuse.",
+          "L’assaisonnement contient un peu trop de sel à mon goût.",
+          "Une petite modification de l’assaisonnement suffirait."
+        ],
+        "native": [
+          "You tried our new vegetarian sandwich. What do you think?",
+          "I like the grilled vegetables and the bread is crisp.",
+          "And the texture?",
+          "The eggplants are soft. The presentation is thoughtful.",
+          "Would you change anything?",
+          "I would like you to use a little less salt.",
+          "Thank you, that is specific.",
+          "I hope you will keep it on the menu.",
+          "The grilled bell peppers add color to the sandwich.",
+          "The cheese makes the texture softer.",
+          "The seasoning contains a little too much salt for my taste.",
+          "A small adjustment to the seasoning would be enough."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitive": "penser",
+          "native": "to think",
+          "forms": {
+            "je": "pense",
+            "tu": "penses",
+            "il_elle_on": "pense",
+            "nous": "pensons",
+            "vous": "pensez",
+            "ils_elles": "pensent"
+          },
+          "example": {
+            "target": "Vous avez goûté notre nouveau sandwich végétarien. Qu’en pensez-vous ?",
+            "native": "You tried our new vegetarian sandwich. What do you think?"
+          }
+        },
+        {
+          "infinitive": "aimer",
+          "native": "to like",
+          "forms": {
+            "je": "aime",
+            "tu": "aimes",
+            "il_elle_on": "aime",
+            "nous": "aimons",
+            "vous": "aimez",
+            "ils_elles": "aiment"
+          },
+          "example": {
+            "target": "J’aime les légumes grillés et le pain est croustillant.",
+            "native": "I like the grilled vegetables and the bread is crisp."
+          }
+        },
+        {
+          "infinitive": "changer",
+          "native": "to change",
+          "forms": {
+            "je": "change",
+            "tu": "changes",
+            "il_elle_on": "change",
+            "nous": "changeons",
+            "vous": "changez",
+            "ils_elles": "changent"
+          },
+          "example": {
+            "target": "Vous changeriez quelque chose ?",
+            "native": "Would you change anything?"
+          }
+        },
+        {
+          "infinitive": "mettre",
+          "native": "to put / use",
+          "forms": {
+            "je": "mets",
+            "tu": "mets",
+            "il_elle_on": "met",
+            "nous": "mettons",
+            "vous": "mettez",
+            "ils_elles": "mettent"
+          },
+          "example": {
+            "target": "J’aimerais que vous mettiez un peu moins de sel.",
+            "native": "I would like you to use a little less salt."
+          }
+        },
+        {
+          "infinitive": "espérer",
+          "native": "to hope",
+          "forms": {
+            "je": "espère",
+            "tu": "espères",
+            "il_elle_on": "espère",
+            "nous": "espérons",
+            "vous": "espérez",
+            "ils_elles": "espèrent"
+          },
+          "example": {
+            "target": "J’espère que vous le garderez à la carte.",
+            "native": "I hope you will keep it on the menu."
+          }
+        }
+      ]
+    },
+    "10": {
+      "stableId": "master-travel-lunch:10:fr-en",
+      "sourceCardIndices": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        5,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16
+      ],
+      "supplementalWords": [
+        {
+          "es": "le restaurant",
+          "en": "the restaurant",
+          "kind": "term",
+          "sourceCardIndex": 15,
+          "sourceCardText": "restaurant"
+        },
+        {
+          "es": "cinq minutes",
+          "en": "five minutes",
+          "kind": "term",
+          "sourceReaderIndex": 5
+        },
+        {
+          "es": "demain",
+          "en": "tomorrow",
+          "kind": "term",
+          "sourceReaderIndex": 7
+        },
+        {
+          "es": "aujourd’hui",
+          "en": "today",
+          "kind": "term",
+          "sourceReaderIndex": 5
+        },
+        {
+          "es": "tout le monde",
+          "en": "everyone",
+          "kind": "term",
+          "sourceReaderIndex": 8,
+          "sourceReaderText": "Tout le monde"
+        }
+      ],
+      "passage": {
+        "title": "Help a Group Agree on Lunch",
+        "target": [
+          "Camille, tu voulais déjeuner où ?",
+          "Près d’ici et sans trop dépenser.",
+          "Je préférais le bistrot de l’autre côté du quartier.",
+          "Camille a dit qu’elle voulait manger près d’ici. Marc a dit qu’il préférait le bistrot.",
+          "Le bistrot est complet aujourd’hui. La formule économique est à cinq minutes à pied.",
+          "L’hôte a expliqué que le bistrot était complet. Je propose la formule économique pour aujourd’hui.",
+          "D’accord pour aujourd’hui. On essaiera le bistrot demain.",
+          "Tout le monde est d’accord ?",
+          "Oui. Allons-y.",
+          "Le trajet jusqu’au restaurant est court : cinq minutes à pied.",
+          "Nous avons lu un avis sur le bistrot, mais il est complet aujourd’hui.",
+          "Le compromis est la formule économique près d’ici ; nous reviendrons au bistrot demain.",
+          "Camille veut la formule économique et Marc préfère le bistrot."
+        ],
+        "native": [
+          "Camille, where did you want to have lunch?",
+          "Nearby and without spending too much.",
+          "I preferred the bistro across the neighborhood.",
+          "Camille said she wanted to eat nearby. Marc said he preferred the bistro.",
+          "The bistro is full today. The inexpensive set lunch is five minutes away on foot.",
+          "The host explained that the bistro was full. I suggest the inexpensive set lunch for today.",
+          "All right for today. We will try the bistro tomorrow.",
+          "Does everyone agree?",
+          "Yes. Let us go.",
+          "The journey to the restaurant is short: five minutes on foot.",
+          "We read a review of the bistro, but it is full today.",
+          "The compromise is the inexpensive set lunch nearby; we will return to the bistro tomorrow.",
+          "Camille wants the inexpensive set lunch and Marc prefers the bistro."
+        ]
+      },
+      "verbs": [
+        {
+          "infinitive": "vouloir",
+          "native": "to want",
+          "forms": {
+            "je": "veux",
+            "tu": "veux",
+            "il_elle_on": "veut",
+            "nous": "voulons",
+            "vous": "voulez",
+            "ils_elles": "veulent"
+          },
+          "example": {
+            "target": "Camille veut la formule économique et Marc préfère le bistrot.",
+            "native": "Camille wants the inexpensive set lunch and Marc prefers the bistro."
+          }
+        },
+        {
+          "infinitive": "être",
+          "native": "to be",
+          "forms": {
+            "je": "suis",
+            "tu": "es",
+            "il_elle_on": "est",
+            "nous": "sommes",
+            "vous": "êtes",
+            "ils_elles": "sont"
+          },
+          "example": {
+            "target": "Le bistrot est complet aujourd’hui. La formule économique est à cinq minutes à pied.",
+            "native": "The bistro is full today. The inexpensive set lunch is five minutes away on foot."
+          }
+        },
+        {
+          "infinitive": "proposer",
+          "native": "to suggest",
+          "forms": {
+            "je": "propose",
+            "tu": "proposes",
+            "il_elle_on": "propose",
+            "nous": "proposons",
+            "vous": "proposez",
+            "ils_elles": "proposent"
+          },
+          "example": {
+            "target": "L’hôte a expliqué que le bistrot était complet. Je propose la formule économique pour aujourd’hui.",
+            "native": "The host explained that the bistro was full. I suggest the inexpensive set lunch for today."
+          }
+        },
+        {
+          "infinitive": "avoir",
+          "native": "to have",
+          "forms": {
+            "je": "ai",
+            "tu": "as",
+            "il_elle_on": "a",
+            "nous": "avons",
+            "vous": "avez",
+            "ils_elles": "ont"
+          },
+          "example": {
+            "target": "Nous avons lu un avis sur le bistrot, mais il est complet aujourd’hui.",
+            "native": "We read a review of the bistro, but it is full today."
+          }
+        },
+        {
+          "infinitive": "aller",
+          "native": "to go",
+          "forms": {
+            "je": "vais",
+            "tu": "vas",
+            "il_elle_on": "va",
+            "nous": "allons",
+            "vous": "allez",
+            "ils_elles": "vont"
+          },
+          "example": {
+            "target": "Oui. Allons-y.",
+            "native": "Yes. Let us go."
           }
         }
       ]

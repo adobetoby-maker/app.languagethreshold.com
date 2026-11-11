@@ -14,6 +14,8 @@ The revised private batch has fingerprint `fef1bf781dd2c59d12709da1698207cde50e7
 
 The older per-lesson manifests keep their original whole-course fingerprints as provenance. The verifier now checks each lesson against its exact current Japanese text and validates both files per text, so an unrelated lesson edit does not invalidate unchanged recordings. A private 60-folder overlay uses the original 59 lesson folders and the revised Master 14 folder without altering them. Full-course verification passed: 60 lessons, 846 distinct texts, 1,692 distinct text/voice pairs, and 2,252 per-lesson clip placements. All remain `listeningReviewed:false` in this technical coverage report.
 
+The 32 newly synthesized Master 14 clips were decoded and screened for very low signal, little active signal, possible clipping, and long edge silence. The private report at `/Users/drive/lt-audio/japanese-101/master-14-routine-2026-11-10/new-clips-signal-screen-2026-11-10.json` pins manifest SHA-256 `701e8566fe725a1d9737a903b6aa8bb4dd85eed785e3d0d4e497923f402cfab3` and flags **0 of 32** clips. This is a signal screen, not a listening or pronunciation approval.
+
 The 16 new strings are: `ふだんは あさ しちじに おきます。`, `あさは まず なにを しますか。`, `まず、かおを あらって、あさごはんを たべます。`, `それから、しごとに いきます。`, `しごとの あとは どう しますか。`, `ふだんは うちに かえります。`, `でも、きょうは えきで ともだちに あう よていです。`, `「おそく なって すみません」と いいました。`, `ともだちは 「だいじょうぶです」と いいました。`, `さいごに ともだちと はなして、うちに かえりました。`, `ふだんは あさ`, `それから`, `おきます`, `あさごはん`, `たべます`, `かえります`.
 
 ## Remaining gates

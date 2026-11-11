@@ -9,8 +9,8 @@ const sourceBytes = readFileSync(sourcePath);
 const sources = JSON.parse(sourceBytes).lessons;
 const candidate = JSON.parse(readFileSync("content/french-travel-lunch/master-lesson-content-candidate.json"));
 
-test("private French Lunch Master 1–3 pin their source and keep review gates closed", () => {
-  assert.deepEqual(Object.keys(candidate.lessons), ["1", "2", "3"]);
+test("private French Lunch Master 1–5 pin their source and keep review gates closed", () => {
+  assert.deepEqual(Object.keys(candidate.lessons), ["1", "2", "3", "4", "5"]);
   assert.equal(candidate.sourceDraftSha256["master-1-5-draft.json"], createHash("sha256").update(sourceBytes).digest("hex"));
   assert.equal(candidate.module, "master-travel-lunch");
   assert.equal(candidate.reviewed, false);
@@ -53,3 +53,15 @@ for (const [number, item] of Object.entries(candidate.lessons)) {
     }
   });
 }
+
+test("Master allergen and vegetarian-soup lessons retain their exact clinical and dietary terms", () => {
+  const allergen = candidate.lessons["4"].passage.target.join(" ");
+  assert.match(allergen, /fruits à coque/);
+  assert.match(allergen, /traces de noisettes/);
+  assert.match(allergen, /amandes/);
+  assert.match(allergen, /pistaches/);
+  const soup = candidate.lessons["5"].passage.target.join(" ");
+  assert.match(soup, /soupe végétarienne/);
+  assert.match(soup, /bouillon de légumes/);
+  assert.match(soup, /bouillon de poulet/);
+});

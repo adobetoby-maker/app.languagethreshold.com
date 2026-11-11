@@ -104,17 +104,18 @@ def main():
         "交差接触": "allergen cross-contact", "フライヤー": "fryer"}.items()),
         "Core 8 clinical or preparation vocabulary changed")
     require(all(term in " ".join(row["ja"] for row in eight["reader"]) for term in
-                ("ピーナッツアレルギー", "落花生", "交差接触", "同じフライヤー",
-                 "揚げた鶏肉は頼みません", "ソースなしの鶏肉のグリル")),
+                ("ピーナッツアレルギー", "落花生", "交差接触", "ピーナッツが混入する可能性",
+                 "同じフライヤー", "鶏の唐揚げは頼みません", "ソースなしの鶏肉のグリル")),
             "Core 8 Reader lost allergy, cross-contact, fryer, or alternative")
     require(all(term in eight["speaking"]["goal"] for term in
                 ("peanut allergy", "cross-contact", "shared fryer")),
             "Core 8 speaking lost direct allergy or cross-contact purpose")
     require(all(term in " ".join(row["ja"] for row in nine["reader"]) for term in
-                ("前菜", "次の料理は後で", "休憩", "料理の間", "少し早めに", "デザート")),
+                ("前菜", "もう少しゆっくり出して", "次の料理は後で",
+                 "次の料理まで少し時間", "料理の間", "少し早めに", "デザート")),
             "Core 9 Reader lost pace, pause, or resume task")
     print("Japanese Dinner Core 1–9: source-pinned private drafts valid; "
-          "Core 7–9 have 54 cards, 33 Reader turns, six form contrasts, "
+          "Core 7–9 have 54 cards, 34 Reader turns, six form contrasts, "
           "six modes each; reviewed:false, registered:false")
 
 

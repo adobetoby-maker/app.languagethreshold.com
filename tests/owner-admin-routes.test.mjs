@@ -25,7 +25,7 @@ async function fixture(run) {
   try {
     await build({
       stdin: {
-        contents: `export {Route as support} from '@/routes/api.owner-support';export {Route as analytics} from '@/routes/api.owner-analytics';export {Route as teams} from '@/routes/api.owner-teams';export {Route as activity} from '@/routes/api.owner-activity';export {Route as users} from '@/routes/api.owner-users';export {Route as platform} from '@/routes/api.platform';`,
+        contents: `export {Route as support} from '@/routes/api.owner-support';export {Route as analytics} from '@/routes/api.owner-analytics';export {Route as teams} from '@/routes/api.owner-teams';export {Route as activity} from '@/routes/api.owner-activity';export {Route as users} from '@/routes/api.owner-users';export {Route as platform} from '@/routes/api.platform';export {Route as japaneseDrafts} from '@/routes/api.owner-japanese-drafts';`,
         resolveDir: process.cwd(),
       },
       outfile: join(dir, "api.mjs"),
@@ -100,6 +100,7 @@ const reads = [
   ["analytics", "/api/owner-analytics?part=ga&range=7"],
   ["teams", `/api/owner-teams?org=${ORG}`],
   ["activity", "/api/owner-activity?page=0"],
+  ["japaneseDrafts", "/api/owner-japanese-drafts"],
 ];
 const writes = [
   [
@@ -158,6 +159,26 @@ test("guests, learners and support staff get 403 before any private read or writ
         false,
       );
     }
+  }));
+
+test("platform owner can inspect only the unregistered Japanese Dinner draft", () =>
+  fixture(async (api, c, req) => {
+    c.role = "owner";
+    const response = await api.japaneseDrafts.server.handlers.GET({
+      request: req("/api/owner-japanese-drafts"),
+    });
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get("cache-control"), "private, no-store");
+    const data = await response.json();
+    assert.equal(data.pairKey, "Japanese:English");
+    assert.equal(data.courseId, "travel-dinner");
+    assert.equal(data.reviewed, false);
+    assert.equal(data.registered, false);
+    assert.equal(data.audioRegistered, false);
+    assert.equal(data.lessons.length, 19);
+    assert.equal(data.lessons[0].stableId, "foundation-travel-dinner:1:ja-en");
+    assert.equal(data.lessons.at(-1).stableId, "travel-dinner:9:ja-en");
+    assert.ok(data.lessons.every((lesson) => lesson.reviewed === false));
   }));
 
 test("malformed or cross-origin writes are rejected before authentication", () =>

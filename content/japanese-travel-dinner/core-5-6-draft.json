@@ -1,0 +1,152 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "contentPath": "public/lesson-content/es/travel-dinner.json",
+    "contentSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 5,
+      "stableId": "travel-dinner:5:ja-en",
+      "sourceTitleEnglish": "Ask for a wine recommendation",
+      "sourceObjectiveEnglish": "describe taste and budget and pair wine with the meal",
+      "sourceSpeakingEnglish": "Ask for a local bottle within a clear price range and understand the recommendation.",
+      "title": "Choose a Local Wine for Dinner",
+      "objective": "Ask for a Japanese wine that goes with the meal, describe a preference for smooth or dry wine, state a bottle budget, and confirm the recommendation.",
+      "focus": "お肉に合うワイン means wine that pairs with meat; ～に合う links a drink to a dish. 辛口 describes a dry wine, 甘口 a sweet one, and まろやか describes a rounded or smooth taste. 予算は六千円くらいです gives an approximate budget; 一本 asks for one bottle. 山梨県産 identifies wine produced in Yamanashi Prefecture rather than claiming every local wine has the same taste.",
+      "scene": "At dinner in Yamanashi, Hana asks the server for a locally produced red wine to go with grilled beef. She names a budget and a taste preference, asks whether the suggestion is dry or fruity, and confirms the bottle before ordering.",
+      "forms": [
+        {"base": "合う", "polite": "合います", "question": "合いますか", "meaning": "go well with / goes well with / does it pair well?"},
+        {"base": "勧める", "polite": "勧めます", "request": "おすすめはありますか", "meaning": "recommend / recommend politely / do you have a recommendation?"}
+      ],
+      "cards": [
+        {"ja": "ワインリスト", "en": "wine list", "kind": "term"},
+        {"ja": "赤ワイン", "en": "red wine", "kind": "term", "readingKana": "あかワイン"},
+        {"ja": "白ワイン", "en": "white wine", "kind": "term", "readingKana": "しろワイン"},
+        {"ja": "予算", "en": "budget", "kind": "term", "readingKana": "よさん"},
+        {"ja": "一本", "en": "one bottle", "kind": "term", "readingKana": "いっぽん"},
+        {"ja": "一杯", "en": "one glass / cup", "kind": "term", "readingKana": "いっぱい"},
+        {"ja": "辛口", "en": "dry (wine)", "kind": "term", "readingKana": "からくち"},
+        {"ja": "甘口", "en": "sweet (wine)", "kind": "term", "readingKana": "あまくち"},
+        {"ja": "まろやか", "en": "smooth / mellow (taste)", "kind": "term"},
+        {"ja": "果実味", "en": "fruitiness", "kind": "term", "readingKana": "かじつみ"},
+        {"ja": "山梨県産のワイン", "en": "wine produced in Yamanashi Prefecture", "kind": "term", "readingKana": "やまなしけんさんのワイン"},
+        {"ja": "肉料理", "en": "meat dish", "kind": "term", "readingKana": "にくりょうり"},
+        {"ja": "お肉に合うワインはありますか。", "en": "Do you have a wine that pairs with the meat?", "kind": "phrase", "readingKana": "おにくにあうワインはありますか。"},
+        {"ja": "予算は六千円くらいです。", "en": "My budget is about 6,000 yen.", "kind": "phrase", "readingKana": "よさんはろくせんえんくらいです。"},
+        {"ja": "まろやかな赤ワインが好きです。", "en": "I like smooth red wine.", "kind": "phrase", "readingKana": "まろやかなあかワインがすきです。"},
+        {"ja": "辛口ですか、甘口ですか。", "en": "Is it dry or sweet?", "kind": "phrase", "readingKana": "からくちですか、あまくちですか。"},
+        {"ja": "もう一度言っていただけますか。", "en": "Could you say that again, please?", "kind": "phrase", "readingKana": "もういちどいっていただけますか。"},
+        {"ja": "まず一杯試せますか。", "en": "Could I first try a glass?", "kind": "phrase", "readingKana": "まずいっぱいためせますか。"}
+      ],
+      "reader": [
+        {"speaker": "Hana", "ja": "ワインリストを見せていただけますか。", "en": "Could you show me the wine list?"},
+        {"speaker": "Server", "ja": "はい。今夜は山梨県産のワインもございます。", "en": "Yes. Tonight we also have wine produced in Yamanashi Prefecture."},
+        {"speaker": "Hana", "ja": "焼いた牛肉に合う赤ワインはありますか。", "en": "Do you have a red wine that pairs with the grilled beef?"},
+        {"speaker": "Server", "ja": "こちらの赤ワインがおすすめです。", "en": "I recommend this red wine."},
+        {"speaker": "Hana", "ja": "まろやかな味が好きです。辛口ですか、甘口ですか。", "en": "I like a smooth taste. Is it dry or sweet?"},
+        {"speaker": "Server", "ja": "辛口ですが、果実味もあります。牛肉によく合います。", "en": "It is dry, but it also has fruitiness. It pairs well with beef."},
+        {"speaker": "Hana", "ja": "予算は六千円くらいです。一本いくらですか。", "en": "My budget is about 6,000 yen. How much is one bottle?"},
+        {"speaker": "Server", "ja": "一本五千八百円です。", "en": "One bottle is 5,800 yen."},
+        {"speaker": "Hana", "ja": "もう一度名前を言っていただけますか。", "en": "Could you say the name again?"},
+        {"speaker": "Server", "ja": "はい、こちらの山梨県産の赤ワインです。", "en": "Yes, this red wine produced in Yamanashi Prefecture."},
+        {"speaker": "Hana", "ja": "では、そのワインを一本お願いします。", "en": "Then one bottle of that wine, please."}
+      ],
+      "speaking": {
+        "role": "Guest choosing a local bottle for dinner",
+        "partnerRole": "Restaurant server",
+        "opening": "お料理に合うワインをお探しですか。",
+        "goal": "Ask for a locally produced bottle that pairs with meat, state a budget, distinguish dry from sweet and fruity, confirm the bottle price, and order it.",
+        "closure": "山梨県産の赤ワインを一本お持ちします。",
+        "wordBank": ["ワインリスト", "赤ワイン", "予算", "一本", "辛口", "甘口", "果実味", "山梨県産のワイン", "お肉に合うワインはありますか。", "予算は六千円くらいです。", "辛口ですか、甘口ですか。"]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the Japanese term for dry wine.", "sourceCard": 7, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, say your budget is about 6,000 yen.", "sourceCard": 14, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the question about a wine that pairs with meat.", "sourceCard": 13, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the dry-or-sweet question.", "sourceCard": 16, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Tell the server you like smooth red wine.", "sourceCard": 15, "responseKind": "open"},
+        "write": {"cueEnglish": "Write a polite request for the server to repeat the name.", "sourceCard": 17, "responseKind": "open"}
+      },
+      "reviewed": false
+    },
+    {
+      "n": 6,
+      "stableId": "travel-dinner:6:ja-en",
+      "sourceTitleEnglish": "Choose the chef's specialties",
+      "sourceObjectiveEnglish": "ask what the kitchen does best, what is seasonal, and what sold out",
+      "sourceSpeakingEnglish": "Tell the server you want the dish that best represents the region tonight.",
+      "title": "Ask for Today's Regional Specialty",
+      "objective": "Ask which dish the kitchen recommends, which ingredients are in season, what has sold out, and choose a dish that represents the region tonight.",
+      "focus": "本日のおすすめ asks for today's recommendation, while 店の看板料理 asks for the restaurant's signature dish. 季節の食材 means seasonal ingredients, and 売り切れです reports that an item has sold out. この地域らしい料理 asks for a dish characteristic of the region; どんな料理ですか requests an explanation before ordering. 今日 and 本日 both mean today, with 本日 common in service language.",
+      "scene": "At a regional restaurant, Ken asks what the kitchen does best tonight. The server recommends a local grilled-fish dish with seasonal mushrooms, explains that another dish has sold out, and Ken chooses the regional specialty as his main course.",
+      "forms": [
+        {"base": "勧める", "polite": "勧めます", "question": "何がおすすめですか", "meaning": "recommend / recommend politely / what is recommended?"},
+        {"base": "売り切れる", "polite": "売り切れます", "result": "売り切れています", "meaning": "sell out / sells out / is sold out"}
+      ],
+      "cards": [
+        {"ja": "店の看板料理", "en": "house specialty / signature dish", "kind": "term", "readingKana": "みせのかんばんりょうり"},
+        {"ja": "本日のおすすめ", "en": "today's recommendation", "kind": "term", "readingKana": "ほんじつのおすすめ"},
+        {"ja": "季節の食材", "en": "seasonal ingredients", "kind": "term", "readingKana": "きせつのしょくざい"},
+        {"ja": "主菜", "en": "main course", "kind": "term", "readingKana": "しゅさい"},
+        {"ja": "前菜", "en": "starter / appetizer", "kind": "term", "readingKana": "ぜんさい"},
+        {"ja": "デザート", "en": "dessert", "kind": "term"},
+        {"ja": "厨房", "en": "kitchen", "kind": "term", "readingKana": "ちゅうぼう"},
+        {"ja": "店員", "en": "restaurant staff member", "kind": "term", "readingKana": "てんいん"},
+        {"ja": "地元の料理", "en": "local / regional dish", "kind": "term", "readingKana": "じもとのりょうり"},
+        {"ja": "売り切れ", "en": "sold out", "kind": "term", "readingKana": "うりきれ"},
+        {"ja": "きのこ", "en": "mushrooms", "kind": "term"},
+        {"ja": "魚の塩焼き", "en": "salt-grilled fish", "kind": "term", "readingKana": "さかなのしおやき"},
+        {"ja": "今夜のおすすめは何ですか。", "en": "What do you recommend tonight?", "kind": "phrase", "readingKana": "こんやのおすすめはなんですか。"},
+        {"ja": "今、旬の食材は何ですか。", "en": "What ingredients are in season now?", "kind": "phrase", "readingKana": "いま、しゅんのしょくざいはなんですか。"},
+        {"ja": "売り切れの料理はありますか。", "en": "Are any dishes sold out?", "kind": "phrase", "readingKana": "うりきれのりょうりはありますか。"},
+        {"ja": "この地域らしい料理を食べたいです。", "en": "I want to eat a dish characteristic of this region.", "kind": "phrase", "readingKana": "このちいきらしいりょうりをたべたいです。"},
+        {"ja": "この料理はどんな料理ですか。", "en": "What is this dish like?", "kind": "phrase", "readingKana": "このりょうりはどんなりょうりですか。"},
+        {"ja": "店の看板料理は何ですか。", "en": "What is the restaurant's signature dish?", "kind": "phrase", "readingKana": "みせのかんばんりょうりはなんですか。"}
+      ],
+      "reader": [
+        {"speaker": "Ken", "ja": "今夜のおすすめは何ですか。", "en": "What do you recommend tonight?"},
+        {"speaker": "Server", "ja": "店の看板料理は、地元の魚の塩焼きです。", "en": "Our signature dish is salt-grilled local fish."},
+        {"speaker": "Ken", "ja": "この料理はどんな料理ですか。", "en": "What is this dish like?"},
+        {"speaker": "Server", "ja": "魚を塩で焼いて、きのこと一緒に出します。", "en": "We grill the fish with salt and serve it with mushrooms."},
+        {"speaker": "Ken", "ja": "今、旬の食材は何ですか。", "en": "What ingredients are in season now?"},
+        {"speaker": "Server", "ja": "この地域では、今はきのこが旬です。", "en": "In this region, mushrooms are in season now."},
+        {"speaker": "Ken", "ja": "売り切れの料理はありますか。", "en": "Are any dishes sold out?"},
+        {"speaker": "Server", "ja": "豆腐の前菜は売り切れです。", "en": "The tofu starter is sold out."},
+        {"speaker": "Ken", "ja": "この地域らしい料理を食べたいです。魚の塩焼きを主菜にします。", "en": "I want a dish characteristic of this region. I will have the salt-grilled fish as my main course."},
+        {"speaker": "Server", "ja": "かしこまりました。デザートは食後にご案内します。", "en": "Certainly. I will show you the desserts after the meal."}
+      ],
+      "speaking": {
+        "role": "Guest choosing a regional specialty",
+        "partnerRole": "Restaurant server",
+        "opening": "本日のおすすめをご案内しましょうか。",
+        "goal": "Ask what the kitchen recommends tonight, what is seasonal, and what has sold out; say you want the dish that best represents the region and choose a main course.",
+        "closure": "魚の塩焼きを主菜としてお出しします。",
+        "wordBank": ["店の看板料理", "本日のおすすめ", "季節の食材", "主菜", "地元の料理", "売り切れ", "魚の塩焼き", "今夜のおすすめは何ですか。", "今、旬の食材は何ですか。", "売り切れの料理はありますか。", "この地域らしい料理を食べたいです。"]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the Japanese term for a house specialty.", "sourceCard": 1, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, ask what is recommended tonight.", "sourceCard": 13, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the question about seasonal ingredients.", "sourceCard": 14, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the question asking whether any dish sold out.", "sourceCard": 15, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Say you want a dish characteristic of the region.", "sourceCard": 16, "responseKind": "open"},
+        "write": {"cueEnglish": "Write a question asking what the restaurant's signature dish is.", "sourceCard": 18, "responseKind": "open"}
+      },
+      "reviewed": false
+    }
+  ]
+}

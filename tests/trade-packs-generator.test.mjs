@@ -1,3 +1,4 @@
+import { fileURLToPath } from "node:url";
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import { chmodSync, existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
@@ -14,7 +15,7 @@ import {
 // (tests/fixtures/stub-claude-trade-packs.mjs), writing under a temp --out-root. No network,
 // no model, no repository file is touched.
 
-const STUB = new URL("./fixtures/stub-claude-trade-packs.mjs", import.meta.url).pathname;
+const STUB = fileURLToPath(new URL("./fixtures/stub-claude-trade-packs.mjs", import.meta.url));
 chmodSync(STUB, 0o755);
 
 function run(root, args, env = {}) {
@@ -22,7 +23,7 @@ function run(root, args, env = {}) {
     process.execPath,
     ["scripts/build-trade-packs.mts", "--out-root", root, "--claude-bin", STUB, ...args],
     {
-      cwd: new URL("..", import.meta.url).pathname,
+      cwd: fileURLToPath(new URL("..", import.meta.url)),
       encoding: "utf8",
       env: { ...process.env, ...env },
       timeout: 120_000,

@@ -1,0 +1,1079 @@
+{
+  "schema": 1,
+  "courseId": "travel-lunch",
+  "stageId": "master-travel-lunch",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "path": "src/data/core60/es/master-travel-lunch.json",
+    "sha256": "bce5c0799e9d8d038450599ab839a7d48d6f69533968c94f1d3f2ae3808f4bfa",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 1,
+      "stableId": "master-travel-lunch:1:fr-en",
+      "sourceTitleEnglish": "Explain the Menú del Día to a Newly Arrived Friend",
+      "sourceObjectiveEnglish": "Explain step by step how a fixed-price lunch works and why, then have your friend explain it back.",
+      "sourceSpeakingEnglish": "You are explaining the menú del día to the AI, your Brazilian friend Lucas, at a casa de comidas in Zaragoza: walk him through each course and why it is cheap, using primero, luego, porque and por eso, then have him explain it back.",
+      "title": "Explain a Fixed-Price Lunch to a Friend",
+      "objective": "Explain the parts and price of a French fixed-price lunch, then ask your friend to explain the order back.",
+      "focus": "Use d’abord, ensuite, parce que and donc for sequence and cause; ask your friend to reformulate.",
+      "scene": "Maya explains a posted lunch formula at a neighborhood café to her newly arrived friend Lucas.",
+      "cards": [
+        {
+          "fr": "la formule du midi",
+          "en": "the fixed-price lunch",
+          "kind": "term"
+        },
+        {
+          "fr": "l’entrée",
+          "en": "the starter",
+          "kind": "term"
+        },
+        {
+          "fr": "le plat principal",
+          "en": "the main course",
+          "kind": "term"
+        },
+        {
+          "fr": "le dessert",
+          "en": "the dessert",
+          "kind": "term"
+        },
+        {
+          "fr": "la boisson",
+          "en": "the drink",
+          "kind": "term"
+        },
+        {
+          "fr": "le supplément",
+          "en": "the surcharge",
+          "kind": "term"
+        },
+        {
+          "fr": "la carte",
+          "en": "the menu",
+          "kind": "term"
+        },
+        {
+          "fr": "le prix fixe",
+          "en": "the fixed price",
+          "kind": "term"
+        },
+        {
+          "fr": "compris",
+          "en": "included",
+          "kind": "term"
+        },
+        {
+          "fr": "d’abord",
+          "en": "first",
+          "kind": "term"
+        },
+        {
+          "fr": "ensuite",
+          "en": "then",
+          "kind": "term"
+        },
+        {
+          "fr": "parce que",
+          "en": "because",
+          "kind": "term"
+        },
+        {
+          "fr": "La formule comprend une entrée et un plat.",
+          "en": "The fixed-price lunch includes a starter and a main course.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le dessert coûte trois euros de plus.",
+          "en": "Dessert costs three euros extra.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "D’abord, tu choisis l’entrée ; ensuite, le plat.",
+          "en": "First, you choose the starter; then the main course.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Cette formule coûte moins cher parce que le choix est limité.",
+          "en": "This fixed-price lunch costs less because the choice is limited.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Tu peux me redire ce qui est compris ?",
+          "en": "Can you tell me again what is included?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Donc le dessert est en supplément.",
+          "en": "So dessert has a surcharge.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Regarde la formule du midi sur la carte.",
+          "en": "Look at the fixed-price lunch on the menu."
+        },
+        {
+          "speaker": "Lucas",
+          "fr": "Qu’est-ce qui est compris ?",
+          "en": "What is included?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "D’abord, tu choisis une entrée ; ensuite, un plat principal.",
+          "en": "First, you choose a starter; then a main course."
+        },
+        {
+          "speaker": "Lucas",
+          "fr": "Et le dessert ?",
+          "en": "And dessert?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Le dessert coûte trois euros de plus. Il est en supplément.",
+          "en": "Dessert costs three euros extra. It has a surcharge."
+        },
+        {
+          "speaker": "Lucas",
+          "fr": "Pourquoi la formule coûte moins cher ?",
+          "en": "Why does the fixed-price lunch cost less?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Parce que le choix est limité ici. Tu peux me redire ce qui est compris ?",
+          "en": "Because the choices are limited here. Can you tell me again what is included?"
+        },
+        {
+          "speaker": "Lucas",
+          "fr": "Une entrée et un plat sont compris. Le dessert coûte trois euros de plus.",
+          "en": "A starter and a main course are included. Dessert costs three euros extra."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Exactement. Maintenant, nous pouvons commander.",
+          "en": "Exactly. Now we can order."
+        }
+      ],
+      "speaking": {
+        "role": "Friend explaining the lunch formula",
+        "partnerRole": "Newly arrived friend",
+        "opening": "Regarde la formule du midi sur la carte.",
+        "goal": "Explain the included courses, three-euro dessert supplement and reason for the price, then ask the friend to teach it back.",
+        "closure": "Oui, c’est ça. Commandons.",
+        "wordBank": [
+          "la formule du midi",
+          "l’entrée",
+          "le plat principal",
+          "le dessert",
+          "la boisson",
+          "le supplément",
+          "la carte",
+          "le prix fixe",
+          "compris",
+          "d’abord",
+          "ensuite",
+          "parce que",
+          "La formule comprend une entrée et un plat.",
+          "Le dessert coûte trois euros de plus.",
+          "D’abord, tu choisis l’entrée ; ensuite, le plat.",
+          "Cette formule coûte moins cher parce que le choix est limité.",
+          "Tu peux me redire ce qui est compris ?",
+          "Donc le dessert est en supplément."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for a fixed-price lunch.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall what the formula includes.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the dessert surcharge.",
+          "sourceCard": 14,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the sequence connector for then.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Explain why this formula costs less here.",
+          "sourceCard": 16,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Ask the friend to repeat what is included.",
+          "sourceCard": 17,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "The menu composition, price and reason for the price are specific to this fictional café; do not present them as universal French practice. Qualified French review required."
+    },
+    {
+      "n": 2,
+      "stableId": "master-travel-lunch:2:fr-en",
+      "sourceTitleEnglish": "Why the Kitchen Closes at Four: Explaining Local Rhythm",
+      "sourceObjectiveEnglish": "Explain to a fellow traveler how lunch hours, sobremesa and closures work here, and check your facts with staff.",
+      "sourceSpeakingEnglish": "You are the traveler who knows the local rhythm, and the AI is Femke, an annoyed backpacker in a Seville tapas bar: explain lunch hours, sobremesa and closures using impersonal se and si + present, then check your facts with the bartender.",
+      "title": "Explain a Café’s Lunch Rhythm",
+      "objective": "Explain this café’s lunch hours, time spent talking after the meal, and afternoon closure to a traveler, then check the details with staff.",
+      "focus": "Use on, si + present, and est-ce que for a local pattern, conditional case and confirmation with the café.",
+      "scene": "At a neighborhood café, Femke asks Maya why the kitchen stops lunch orders at four.",
+      "cards": [
+        {
+          "fr": "le service du midi",
+          "en": "lunch service",
+          "kind": "term"
+        },
+        {
+          "fr": "le service du soir",
+          "en": "evening service",
+          "kind": "term"
+        },
+        {
+          "fr": "la cuisine",
+          "en": "the kitchen",
+          "kind": "term"
+        },
+        {
+          "fr": "la dernière commande",
+          "en": "the last order",
+          "kind": "term"
+        },
+        {
+          "fr": "rouvrir",
+          "en": "to reopen",
+          "kind": "term"
+        },
+        {
+          "fr": "l’après-midi",
+          "en": "the afternoon",
+          "kind": "term"
+        },
+        {
+          "fr": "la terrasse",
+          "en": "the terrace",
+          "kind": "term"
+        },
+        {
+          "fr": "un café",
+          "en": "a coffee",
+          "kind": "term"
+        },
+        {
+          "fr": "les horaires",
+          "en": "the hours",
+          "kind": "term"
+        },
+        {
+          "fr": "fermer à seize heures",
+          "en": "to close at four p.m.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Ici, on déjeune jusqu’à quinze heures.",
+          "en": "Here, people have lunch until three p.m.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Si la cuisine ferme, on peut encore prendre un café.",
+          "en": "If the kitchen closes, you can still have a coffee.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La cuisine rouvre-t-elle ce soir ?",
+          "en": "Does the kitchen reopen this evening?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "À quelle heure prenez-vous la dernière commande ?",
+          "en": "At what time do you take the last order?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je vais vérifier les horaires avec le serveur.",
+          "en": "I will check the hours with the server.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le service du soir commence à dix-neuf heures.",
+          "en": "Evening service starts at seven p.m.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Après le repas, on peut rester à table pour discuter.",
+          "en": "After the meal, we can stay at the table to talk.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Femke",
+          "fr": "Pourquoi la cuisine ferme-t-elle à seize heures ?",
+          "en": "Why does the kitchen close at four p.m.?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Dans ce café, le service du midi se termine à seize heures.",
+          "en": "At this café, lunch service ends at four p.m."
+        },
+        {
+          "speaker": "Femke",
+          "fr": "Est-ce qu’on reste à table après le repas ?",
+          "en": "Do people stay at the table after the meal?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Ici, oui : on peut rester à table pour discuter.",
+          "en": "Here, yes: we can stay at the table to talk."
+        },
+        {
+          "speaker": "Femke",
+          "fr": "Alors, si nous arrivons après, pouvons-nous encore prendre un café ?",
+          "en": "So if we arrive later, can we still have a coffee?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Je pense que oui. Je vais vérifier les horaires avec le serveur.",
+          "en": "I think so. I will check the hours with the server."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Excusez-moi. À quelle heure prenez-vous la dernière commande ?",
+          "en": "Excuse me. At what time do you take the last order?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "À quinze heures trente. La cuisine ferme à seize heures.",
+          "en": "At three thirty. The kitchen closes at four."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "La cuisine rouvre-t-elle ce soir ?",
+          "en": "Does the kitchen reopen this evening?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, le service du soir commence à dix-neuf heures. La terrasse reste ouverte pour les cafés cet après-midi.",
+          "en": "Yes, evening service starts at seven. The terrace stays open for coffee this afternoon."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Femke, nous pouvons prendre un café sur la terrasse, puis revenir ce soir.",
+          "en": "Femke, we can have coffee on the terrace, then come back this evening."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler explaining local hours",
+        "partnerRole": "Fellow traveler and café server",
+        "opening": "Dans ce café, le service du midi se termine à seize heures.",
+        "goal": "Explain this café’s lunch closure and after-meal conversation, check the last order and evening reopening with staff, then tell the traveler what remains available.",
+        "closure": "On peut prendre un café sur la terrasse maintenant.",
+        "wordBank": [
+          "le service du midi",
+          "le service du soir",
+          "la cuisine",
+          "la dernière commande",
+          "rouvrir",
+          "l’après-midi",
+          "la terrasse",
+          "un café",
+          "les horaires",
+          "fermer à seize heures",
+          "Ici, on déjeune jusqu’à quinze heures.",
+          "Si la cuisine ferme, on peut encore prendre un café.",
+          "La cuisine rouvre-t-elle ce soir ?",
+          "À quelle heure prenez-vous la dernière commande ?",
+          "Je vais vérifier les horaires avec le serveur.",
+          "Le service du soir commence à dix-neuf heures."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for the last order.",
+          "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the conditional sentence about coffee after kitchen closure.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the evening reopening question.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French verb to reopen.",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask staff when the last order is taken.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write the café-specific evening service time.",
+          "sourceCard": 16,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "The café hours and service practices are fictional and local to the scene; qualified cultural and French review required."
+    },
+    {
+      "n": 3,
+      "stableId": "master-travel-lunch:3:fr-en",
+      "sourceTitleEnglish": "Coach a Friend Through Ordering at a Busy Taco Stand",
+      "sourceObjectiveEnglish": "Coach a friend with short commands on how to order, add salsas and pay at a crowded stand, then let them do it.",
+      "sourceSpeakingEnglish": "You are coaching the AI, your Japanese friend Aiko, at a busy taco stand in Mexico City: tell her how to order, add salsas and pay with short commands like pídelo con todo, pruébala primero and no la toques, then let her order on her own.",
+      "title": "Coach a Friend at a Busy Crêpe Stand",
+      "objective": "Coach a friend to order a savory crêpe, choose a sauce and pay at a crowded counter, then let her order herself.",
+      "focus": "Use short imperative forms with object pronouns: commande-la, ajoute-en, goûte-la and garde-les.",
+      "scene": "At a busy market crêpe stand, Maya helps Aiko order and then steps back.",
+      "cards": [
+        {
+          "fr": "une crêpe salée",
+          "en": "a savory crêpe",
+          "kind": "term"
+        },
+        {
+          "fr": "une galette",
+          "en": "a buckwheat crêpe",
+          "kind": "term"
+        },
+        {
+          "fr": "la garniture",
+          "en": "the filling",
+          "kind": "term"
+        },
+        {
+          "fr": "du fromage",
+          "en": "cheese",
+          "kind": "term"
+        },
+        {
+          "fr": "des champignons",
+          "en": "mushrooms",
+          "kind": "term"
+        },
+        {
+          "fr": "une sauce",
+          "en": "a sauce",
+          "kind": "term"
+        },
+        {
+          "fr": "le comptoir",
+          "en": "the counter",
+          "kind": "term"
+        },
+        {
+          "fr": "la file",
+          "en": "the line",
+          "kind": "term"
+        },
+        {
+          "fr": "la monnaie",
+          "en": "the change",
+          "kind": "term"
+        },
+        {
+          "fr": "Commande-la au comptoir.",
+          "en": "Order it at the counter.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Ajoute une sauce si tu veux.",
+          "en": "Add a sauce if you want.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Goûte-la d’abord.",
+          "en": "Taste it first.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Garde les pièces prêtes.",
+          "en": "Keep the coins ready.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Demande le prix avant de payer.",
+          "en": "Ask the price before paying.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je voudrais une galette au fromage et aux champignons.",
+          "en": "I would like a buckwheat crêpe with cheese and mushrooms.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Ça fait huit euros.",
+          "en": "That comes to eight euros.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je vais commander toute seule.",
+          "en": "I will order by myself.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Aiko",
+          "fr": "La file avance vite. Qu’est-ce que je dis ?",
+          "en": "The line is moving fast. What do I say?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Choisis la galette au fromage et aux champignons. Commande-la au comptoir.",
+          "en": "Choose the buckwheat crêpe with cheese and mushrooms. Order it at the counter."
+        },
+        {
+          "speaker": "Aiko",
+          "fr": "Et la sauce ?",
+          "en": "And the sauce?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Ajoute une sauce si tu veux. Demande le prix avant de payer.",
+          "en": "Add a sauce if you want. Ask the price before paying."
+        },
+        {
+          "speaker": "Aiko",
+          "fr": "D’accord. Je vais commander toute seule.",
+          "en": "All right. I will order by myself."
+        },
+        {
+          "speaker": "Aiko",
+          "fr": "Bonjour. Je voudrais une galette au fromage et aux champignons.",
+          "en": "Hello. I would like a buckwheat crêpe with cheese and mushrooms."
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "Bien sûr. Voulez-vous une sauce ? Ça fait huit euros sans sauce.",
+          "en": "Of course. Would you like a sauce? It comes to eight euros without sauce."
+        },
+        {
+          "speaker": "Aiko",
+          "fr": "Non merci. Voici huit euros.",
+          "en": "No thank you. Here are eight euros."
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "Merci. Voici votre galette et votre monnaie.",
+          "en": "Thank you. Here is your buckwheat crêpe and your change."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Bravo. Tu l’as commandée toi-même.",
+          "en": "Well done. You ordered it yourself."
+        }
+      ],
+      "speaking": {
+        "role": "Friend coaching an order",
+        "partnerRole": "Friend and crêpe vendor",
+        "opening": "Choisis la galette au fromage et aux champignons.",
+        "goal": "Give brief ordering, sauce and payment instructions, then let the friend make the final order and payment.",
+        "closure": "Tu l’as commandée toi-même.",
+        "wordBank": [
+          "une crêpe salée",
+          "une galette",
+          "la garniture",
+          "du fromage",
+          "des champignons",
+          "une sauce",
+          "le comptoir",
+          "la file",
+          "la monnaie",
+          "Commande-la au comptoir.",
+          "Ajoute une sauce si tu veux.",
+          "Goûte-la d’abord.",
+          "Garde les pièces prêtes.",
+          "Demande le prix avant de payer.",
+          "Je voudrais une galette au fromage et aux champignons.",
+          "Ça fait huit euros.",
+          "Je vais commander toute seule."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for a buckwheat crêpe.",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the command to order it at the counter.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the instruction to taste it first.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for filling.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Coach your friend to ask the price before paying.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write the friend’s independent order.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "The stand, filling, price and pace are fictional. Review imperative pronouns and spoken register; French scene replaces Mexican taco specifics while preserving the coaching purpose."
+    },
+    {
+      "n": 4,
+      "stableId": "master-travel-lunch:4:fr-en",
+      "sourceTitleEnglish": "Read the Allergen Chart Before Ordering for the Group",
+      "sourceObjectiveEnglish": "Read a restaurant's allergen chart with the server and explain to the group what to ask before ordering.",
+      "sourceSpeakingEnglish": "You are reading the allergen chart in a Barcelona bistro, and the AI is server Jordi and your friend Priya, who avoids tree nuts: ask what the symbols and warnings mean, then tell Priya what to check before ordering, using antes de + infinitive and hay que.",
+      "title": "Read the Allergen Chart for the Group",
+      "objective": "Read an allergen chart with a server, ask about tree nuts and traces, and explain the chart’s wording to the group before ordering.",
+      "focus": "Use avant de + infinitive and il faut to sequence chart reading, direct ingredient questions and reporting what staff say.",
+      "scene": "At a bistro, Maya reads the allergen chart with the server for her friend Priya, who avoids tree nuts.",
+      "cards": [
+        {
+          "fr": "la carte des allergènes",
+          "en": "the allergen chart",
+          "kind": "term"
+        },
+        {
+          "fr": "un allergène",
+          "en": "an allergen",
+          "kind": "term"
+        },
+        {
+          "fr": "les fruits à coque",
+          "en": "tree nuts",
+          "kind": "term"
+        },
+        {
+          "fr": "des traces",
+          "en": "traces",
+          "kind": "term"
+        },
+        {
+          "fr": "les amandes",
+          "en": "almonds",
+          "kind": "term"
+        },
+        {
+          "fr": "les noisettes",
+          "en": "hazelnuts",
+          "kind": "term"
+        },
+        {
+          "fr": "les pistaches",
+          "en": "pistachios",
+          "kind": "term"
+        },
+        {
+          "fr": "les ingrédients",
+          "en": "the ingredients",
+          "kind": "term"
+        },
+        {
+          "fr": "la préparation",
+          "en": "the preparation",
+          "kind": "term"
+        },
+        {
+          "fr": "un symbole",
+          "en": "a symbol",
+          "kind": "term"
+        },
+        {
+          "fr": "Avant de commander, il faut lire la carte des allergènes.",
+          "en": "Before ordering, we need to read the allergen chart.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Que signifie ce symbole ?",
+          "en": "What does this symbol mean?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Ce plat contient-il des fruits à coque ?",
+          "en": "Does this dish contain tree nuts?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La carte indique des traces de noisettes.",
+          "en": "The chart indicates traces of hazelnuts.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pouvez-vous demander en cuisine ?",
+          "en": "Can you ask in the kitchen?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je vais expliquer à Priya ce que la carte indique.",
+          "en": "I will explain to Priya what the chart says.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le serveur confirme la préparation.",
+          "en": "The server confirms the preparation.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Avant de commander, il faut lire la carte des allergènes.",
+          "en": "Before ordering, we need to read the allergen chart."
+        },
+        {
+          "speaker": "Priya",
+          "fr": "Que signifie ce symbole à côté du dessert ?",
+          "en": "What does that symbol beside the dessert mean?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Je vais demander au serveur. Excusez-moi, que signifie ce symbole ?",
+          "en": "I will ask the server. Excuse me, what does that symbol mean?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Il indique des fruits à coque. La carte mentionne aussi des traces de noisettes.",
+          "en": "It indicates tree nuts. The chart also mentions traces of hazelnuts."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Ce plat contient-il des amandes ou des pistaches ?",
+          "en": "Does this dish contain almonds or pistachios?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "La carte ne liste ni amandes ni pistaches pour ce plat. Je vais demander en cuisine pour la préparation.",
+          "en": "The chart lists neither almonds nor pistachios for this dish. I will ask in the kitchen about preparation."
+        },
+        {
+          "speaker": "Priya",
+          "fr": "Qu’avons-nous appris jusqu’ici ?",
+          "en": "What have we learned so far?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Le symbole indique des fruits à coque et la carte mentionne des traces de noisettes. Le serveur vérifie la préparation.",
+          "en": "The symbol indicates tree nuts and the chart mentions traces of hazelnuts. The server is checking the preparation."
+        },
+        {
+          "speaker": "Server",
+          "fr": "La cuisine confirme que ce dessert contient des noisettes.",
+          "en": "The kitchen confirms that this dessert contains hazelnuts."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Priya, ce dessert contient des noisettes.",
+          "en": "Priya, this dessert contains hazelnuts."
+        }
+      ],
+      "speaking": {
+        "role": "Group member reading an allergen chart",
+        "partnerRole": "Server and friend Priya",
+        "opening": "Avant de commander, il faut lire la carte des allergènes.",
+        "goal": "Read the symbols, ask directly about tree nuts and traces, ask staff about preparation, and tell Priya exactly what the chart and server say.",
+        "closure": "Priya, ce dessert contient des noisettes.",
+        "wordBank": [
+          "la carte des allergènes",
+          "un allergène",
+          "les fruits à coque",
+          "des traces",
+          "les amandes",
+          "les noisettes",
+          "les pistaches",
+          "les ingrédients",
+          "la préparation",
+          "un symbole",
+          "Avant de commander, il faut lire la carte des allergènes.",
+          "Que signifie ce symbole ?",
+          "Ce plat contient-il des fruits à coque ?",
+          "La carte indique des traces de noisettes.",
+          "Pouvez-vous demander en cuisine ?",
+          "Je vais expliquer à Priya ce que la carte indique.",
+          "Le serveur confirme la préparation."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for tree nuts.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the question about an allergen symbol.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the chart’s hazelnut-traces wording.",
+          "sourceCard": 14,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for pistachios.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask the server whether the dish contains tree nuts.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write how to explain the chart’s statement to Priya.",
+          "sourceCard": 16,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Qualified French and food-allergen/domain review required. Check distinctions among chart indication, trace warning and staff confirmation. Keep clinical vocabulary direct; notes remain internal."
+    },
+    {
+      "n": 5,
+      "stableId": "master-travel-lunch:5:fr-en",
+      "sourceTitleEnglish": "Hidden Chicken Stock in the Vegetarian Soup",
+      "sourceObjectiveEnglish": "Tell the cook what you ordered and what you were told, and propose a fair fix for your vegetarian friend.",
+      "sourceSpeakingEnglish": "You are eating with your vegetarian friend Tomás, and the AI is Doña Felisa, the cook: calmly explain what you ordered and what you were told with pedimos and nos dijeron que era, then propose a fair fix with ¿podría…?",
+      "title": "Resolve Chicken Stock in Vegetarian Soup",
+      "objective": "Explain that the soup was ordered as vegetarian but contains chicken stock, recount what the table was told, and propose a fair replacement.",
+      "focus": "Use passé composé for the order and imparfait for what was described; use pourriez-vous for the proposed fix.",
+      "scene": "Maya speaks with the cook after her vegetarian friend Tom discovers chicken stock in a vegetable soup.",
+      "cards": [
+        {
+          "fr": "un bouillon de poulet",
+          "en": "chicken stock",
+          "kind": "term"
+        },
+        {
+          "fr": "un bouillon de légumes",
+          "en": "vegetable stock",
+          "kind": "term"
+        },
+        {
+          "fr": "une soupe végétarienne",
+          "en": "a vegetarian soup",
+          "kind": "term"
+        },
+        {
+          "fr": "une soupe aux légumes",
+          "en": "a vegetable soup",
+          "kind": "term"
+        },
+        {
+          "fr": "un malentendu",
+          "en": "a misunderstanding",
+          "kind": "term"
+        },
+        {
+          "fr": "la cuisinière",
+          "en": "the cook",
+          "kind": "term"
+        },
+        {
+          "fr": "une excuse",
+          "en": "an apology",
+          "kind": "term"
+        },
+        {
+          "fr": "un autre plat",
+          "en": "another dish",
+          "kind": "term"
+        },
+        {
+          "fr": "sans viande",
+          "en": "without meat",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Nous avons commandé une soupe végétarienne.",
+          "en": "We ordered a vegetarian soup.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "On nous a dit qu’elle était préparée avec un bouillon de légumes.",
+          "en": "We were told it was made with vegetable stock.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Cette soupe contient du bouillon de poulet.",
+          "en": "This soup contains chicken stock.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Mon ami est végétarien.",
+          "en": "My friend is vegetarian.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pourriez-vous lui préparer un autre plat sans viande ?",
+          "en": "Could you prepare another dish without meat for him?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Nous voudrions comprendre ce qui s’est passé.",
+          "en": "We would like to understand what happened.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Merci de remplacer la soupe.",
+          "en": "Thank you for replacing the soup.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Nous avons commandé une soupe végétarienne pour mon ami Tom.",
+          "en": "Hello. We ordered a vegetarian soup for my friend Tom."
+        },
+        {
+          "speaker": "Cook",
+          "fr": "Oui. Quel est le problème ?",
+          "en": "Yes. What is the problem?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "On nous a dit qu’elle était préparée avec un bouillon de légumes.",
+          "en": "We were told it was made with vegetable stock."
+        },
+        {
+          "speaker": "Tom",
+          "fr": "Mais cette soupe contient du bouillon de poulet, n’est-ce pas ?",
+          "en": "But this soup contains chicken stock, does it not?"
+        },
+        {
+          "speaker": "Cook",
+          "fr": "Oui. Je suis désolée, il y a eu un malentendu.",
+          "en": "Yes. I am sorry, there was a misunderstanding."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Tom est végétarien. Nous voudrions comprendre ce qui s’est passé.",
+          "en": "Tom is vegetarian. We would like to understand what happened."
+        },
+        {
+          "speaker": "Cook",
+          "fr": "Le bouillon de poulet a été utilisé pour cette soupe aujourd’hui.",
+          "en": "Chicken stock was used for this soup today."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Pourriez-vous lui préparer un autre plat sans viande ?",
+          "en": "Could you prepare another dish without meat for him?"
+        },
+        {
+          "speaker": "Cook",
+          "fr": "Oui. Je peux lui préparer une salade avec une vinaigrette sans viande.",
+          "en": "Yes. I can prepare him a salad with a dressing without meat."
+        },
+        {
+          "speaker": "Tom",
+          "fr": "Merci. La salade me convient.",
+          "en": "Thank you. The salad works for me."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci de remplacer la soupe.",
+          "en": "Thank you for replacing the soup."
+        }
+      ],
+      "speaking": {
+        "role": "Companion speaking to the cook",
+        "partnerRole": "Cook and vegetarian friend",
+        "opening": "Nous avons commandé une soupe végétarienne pour mon ami.",
+        "goal": "State the order and earlier description, identify the chicken stock, ask what happened and propose a meat-free replacement acceptable to the friend.",
+        "closure": "Merci de remplacer la soupe.",
+        "wordBank": [
+          "un bouillon de poulet",
+          "un bouillon de légumes",
+          "une soupe végétarienne",
+          "une soupe aux légumes",
+          "un malentendu",
+          "la cuisinière",
+          "une excuse",
+          "un autre plat",
+          "sans viande",
+          "Nous avons commandé une soupe végétarienne.",
+          "On nous a dit qu’elle était préparée avec un bouillon de légumes.",
+          "Cette soupe contient du bouillon de poulet.",
+          "Mon ami est végétarien.",
+          "Pourriez-vous lui préparer un autre plat sans viande ?",
+          "Nous voudrions comprendre ce qui s’est passé.",
+          "Merci de remplacer la soupe."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for chicken stock.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to state the original vegetarian-soup order.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the sentence about vegetable stock.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for misunderstanding.",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Explain directly that the soup contains chicken stock.",
+          "sourceCard": 12,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a conditional request for another meat-free dish.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Qualified French and restaurant-domain review required for the soup description and proposed replacement. The incident and resolution are fictional; no learner-facing caution is added."
+    }
+  ],
+  "internalReviewNotes": [
+    "Master 1–5 preserve exact Spanish Master learning purposes with original French scenes and language-specific grammar. The Mexican taco setting in source Master 3 becomes a French crêpe stand while retaining coaching, sauce and payment.",
+    "Qualified French and relevant food-allergen, cultural and domain review remain required; all lessons are private and unregistered."
+  ]
+}

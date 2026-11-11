@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate private exact-text French Lunch passage clips missing from source audio."""
+"""Generate private exact-text French Lunch content clips missing from source audio."""
 import argparse
 import base64
 import hashlib
@@ -14,7 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / 'content/french-travel-lunch'
-PRIVATE = Path('/Users/drive/lt-audio/french-travel-lunch/content-passages')
+PRIVATE_ROOT = Path('/Users/drive/lt-audio/french-travel-lunch')
 def load(path, name):
     spec = importlib.util.spec_from_file_location(name, path)
     module = importlib.util.module_from_spec(spec)
@@ -23,6 +23,7 @@ def load(path, name):
 
 
 BUILD = load(CONTENT / 'build-private-content-audio-delta.py', 'french_lunch_passage_delta')
+SUPPLEMENT = load(CONTENT / 'build-private-lesson-content-audio-delta.py', 'french_lunch_supplement_delta')
 AUDIO = load(ROOT / 'scripts/generate-french-lunch-hd-audio.py', 'french_lunch_audio_generator')
 PROJECT = 'project-91661021-fb2d-4524-b9f'
 
@@ -34,28 +35,33 @@ def require(value, message):
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument('--scope', choices=('passages', 'supplement'), default='passages')
     parser.add_argument('--generate', action='store_true')
     parser.add_argument('--limit', type=int, default=20)
     args = parser.parse_args()
-    require(1 <= args.limit <= 20, 'Limit must be between 1 and 20')
+    require(1 <= args.limit <= 120, 'Limit must be between 1 and 120')
     os.umask(0o077)
-    delta = BUILD.build()
-    require(json.loads(BUILD.OUTPUT.read_text()) == delta, 'Pinned passage delta changed')
+    build = BUILD if args.scope == 'passages' else SUPPLEMENT
+    private = PRIVATE_ROOT / ('content-passages' if args.scope == 'passages' else 'content-supplement')
+    delta = build.build()
+    require(json.loads(build.OUTPUT.read_text()) == delta, 'Pinned content audio delta changed')
     require((delta['recordingsBundled'], delta['textReviewed'], delta['listeningReviewed'], delta['registered']) ==
             (False, False, False, False), 'Release gate changed')
     voices = {'female': delta['voices'][0], 'male': delta['voices'][1]}
-    path = PRIVATE / 'manifest.json'
+    path = private / 'manifest.json'
     manifest = json.loads(path.read_text()) if path.exists() else {
         'schema': 1, 'courseId': 'travel-lunch', 'pairKey': 'French:English', 'locale': 'fr-FR',
-        'quotaProject': PROJECT, 'deltaSha256': hashlib.sha256(BUILD.OUTPUT.read_bytes()).hexdigest(),
+        'scope': args.scope, 'quotaProject': PROJECT,
+        'deltaSha256': hashlib.sha256(build.OUTPUT.read_bytes()).hexdigest(),
         'voices': voices, 'textReviewed': False, 'listeningReviewed': False,
         'registered': False, 'clips': {},
     }
     require((manifest.get('courseId'), manifest.get('pairKey'), manifest.get('locale'),
+             manifest.get('scope', 'passages'),
              manifest.get('quotaProject'), manifest.get('deltaSha256'), manifest.get('voices'),
              manifest.get('textReviewed'), manifest.get('listeningReviewed'), manifest.get('registered')) ==
-            ('travel-lunch', 'French:English', 'fr-FR', PROJECT,
-             hashlib.sha256(BUILD.OUTPUT.read_bytes()).hexdigest(), voices, False, False, False),
+            ('travel-lunch', 'French:English', 'fr-FR', args.scope, PROJECT,
+             hashlib.sha256(build.OUTPUT.read_bytes()).hexdigest(), voices, False, False, False),
             'Existing manifest identity or release gate changed')
     allowed = {row['textSha256'] for row in delta['texts']}
     require(not set(manifest['clips']) - allowed, 'Manifest has out-of-scope clips')
@@ -69,9 +75,9 @@ def main():
         current = manifest['clips'].get(key)
         require(current is None or current['text'] == text, 'Manifest text differs')
         for gender, voice in voices.items():
-            name = f'fr-lunch-passage-{key[:20]}-{gender}.mp3'
+            name = f'fr-lunch-{args.scope}-{key[:20]}-{gender}.mp3' if args.scope == 'supplement' else f'fr-lunch-passage-{key[:20]}-{gender}.mp3'
             clip = current.get('voices', {}).get(gender) if current else None
-            target = PRIVATE / name
+            target = private / name
             if clip:
                 require((clip.get('name'), clip.get('voice'), clip.get('locale'), clip.get('text'),
                          clip.get('listeningReviewed')) == (name, voice, 'fr-FR', text, False),
@@ -91,7 +97,7 @@ def main():
                       'paidSynthesis': args.generate}), flush=True)
     if not args.generate or not planned:
         return
-    PRIVATE.mkdir(parents=True, exist_ok=True)
+    private.mkdir(parents=True, exist_ok=True)
     token = subprocess.run(['gcloud', 'auth', 'application-default', 'print-access-token'],
                            capture_output=True, text=True, check=True).stdout.strip()
     for key, text, gender, voice, name in planned:
@@ -107,7 +113,7 @@ def main():
                 response = json.load(urllib.request.urlopen(request, timeout=75))
                 data = base64.b64decode(response['audioContent'])
                 require(len(data) > 500, 'Empty MP3')
-                target = PRIVATE / name
+                target = private / name
                 temp = target.with_suffix('.part')
                 temp.write_bytes(data)
                 length = AUDIO.duration(temp)

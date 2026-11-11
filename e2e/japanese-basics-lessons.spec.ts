@@ -149,3 +149,20 @@ test("Japanese Foundation checks retrieval before awarding mastery", async ({ pa
   await expect(check).toContainText("3 of 3 correct");
   await expect(mastery).toBeEnabled();
 });
+
+test("Japanese Master 14 opens its ordered routine and changed plan", async ({ page }) => {
+  test.setTimeout(90_000);
+  await openCourse(page, "master-japanese-basics", "Step 3 of 3");
+  await page.goto("/?module=master-japanese-basics&target=Japanese&native=English&tab=core30&lesson=14");
+  await expect(page.getByRole("heading", { name: "Tell a daily routine and a changed plan", exact: true })).toBeVisible();
+  const see = page.getByTestId("lesson-section-see");
+  await expect(see).toContainText("ふだんは あさ しちじに おきます。");
+  await expect(see).toContainText("さいごに ともだちと はなして、うちに かえりました。");
+  await expect(page.getByTestId("lesson-section-nav").getByRole("button")).toHaveCount(6);
+  await page.getByTestId("lesson-nav-say").click();
+  await expect(page.getByTestId("lesson-speaking-practice")).toContainText("ふだんは あさ しちじに おきます。");
+  await page.getByTestId("lesson-nav-see").click();
+  await see.getByRole("button", { name: /full reader/i }).click();
+  await expect(page.getByTestId("reader-options")).toBeVisible();
+  await expect(page.locator("body")).toContainText("さいごに ともだちと はなして、うちに かえりました。");
+});

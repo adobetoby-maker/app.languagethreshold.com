@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify source ownership and draft gates for French Dinner Foundation 1–3."""
+"""Verify source ownership and draft gates for French Dinner Foundation 1–6."""
 
 import hashlib
 import json
@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-DRAFT = Path(__file__).with_name("foundation-1-3-draft.json")
+FILES = ("foundation-1-3-draft.json", "foundation-4-6-draft.json")
 MODES = {"see", "recall", "hear", "type", "say", "write"}
 
 
@@ -17,19 +17,24 @@ def require(condition, message):
 
 
 def main():
-    draft = json.loads(DRAFT.read_text())
-    source_path = ROOT / draft["source"]["path"]
+    drafts = [json.loads(Path(__file__).with_name(name).read_text()) for name in FILES]
+    source_path = ROOT / drafts[0]["source"]["path"]
     source_bytes = source_path.read_bytes()
     source = json.loads(source_bytes)
-    require(hashlib.sha256(source_bytes).hexdigest() == draft["source"]["sha256"], "Spanish source changed")
     require(source["module"] == "foundation-travel-dinner" and source["reviewed"] is False,
             "Wrong Spanish source")
-    require((draft["pairKey"], draft["locale"], draft["stageId"]) ==
-            ("French:English", "fr-FR", "foundation-travel-dinner"), "Wrong French pair or stage")
-    require(draft["reviewed"] is False and draft["registered"] is False and
-            draft["readyForLearner"] is False and draft["audio"] == "none", "Draft release gate changed")
-    require(len(draft["lessons"]) == 3, "Expected only the first three Foundation lessons")
-    for n, (lesson, original) in enumerate(zip(draft["lessons"], source["lessons"]), 1):
+    for draft in drafts:
+        require(draft["source"] == drafts[0]["source"] and
+                hashlib.sha256(source_bytes).hexdigest() == draft["source"]["sha256"],
+                "Spanish source or provenance changed")
+        require((draft["pairKey"], draft["locale"], draft["stageId"]) ==
+                ("French:English", "fr-FR", "foundation-travel-dinner"), "Wrong French pair or stage")
+        require(draft["reviewed"] is False and draft["registered"] is False and
+                draft["readyForLearner"] is False and draft["audio"] == "none", "Draft release gate changed")
+        require(len(draft["lessons"]) == 3, "Expected three lessons per batch")
+    lessons = [lesson for draft in drafts for lesson in draft["lessons"]]
+    require(len(lessons) == 6, "Expected Foundation lessons 1–6")
+    for n, (lesson, original) in enumerate(zip(lessons, source["lessons"]), 1):
         require(lesson["n"] == original["n"] == n and
                 lesson["stableId"] == f"foundation-travel-dinner:{n}:fr-en", f"Lesson {n} identity changed")
         for field, source_field in (("sourceTitleEnglish", "title"),
@@ -60,7 +65,7 @@ def main():
                     1 <= prompt["sourceCard"] <= len(cards) and
                     prompt["responseKind"] == ("open" if mode in ("say", "write") else "fixed"),
                     f"Lesson {n} {mode} not anchored to a card")
-    print("French Dinner Foundation 1–3: source-pinned private draft valid; reviewed:false, registered:false")
+    print("French Dinner Foundation 1–6: source-pinned private draft valid; reviewed:false, registered:false")
 
 
 if __name__ == "__main__":

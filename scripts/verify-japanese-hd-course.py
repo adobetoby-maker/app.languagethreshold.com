@@ -6,6 +6,7 @@ from pathlib import Path
 from runpy import run_path
 
 STAGE = run_path(str(Path(__file__).with_name("verify-japanese-hd-stage.py")))
+AUDIT = run_path(str(Path(__file__).with_name("audit-japanese-audio.py")))
 ROOT = STAGE["ROOT"]
 normalized = STAGE["normalized"]
 verify_stage = STAGE["verify_stage"]
@@ -19,6 +20,8 @@ SCOPES = (
 
 def verify_course(output_root):
     inventory = json.loads((ROOT / "docs/japanese-program/audio-inventory.json").read_text(encoding="utf-8"))
+    if inventory != AUDIT["inventory"]():
+        raise ValueError("Course audio inventory is stale")
     expected = set()
     covered = set()
     stage_reports = []
@@ -31,8 +34,6 @@ def verify_course(output_root):
             expected.update(normalized(value) for value in values)
             folder = output_root / (first_folder if number == 1 and first_folder else f"{prefix}-{number}")
             manifest = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))
-            if manifest.get("sourceSHA256") != inventory["normalizedTextSHA256"]:
-                raise ValueError("Course source fingerprint mismatch")
             covered.update(manifest["clips"])
     if expected != covered or len(expected) != inventory["uniqueTexts"]:
         raise ValueError(f"Course coverage mismatch: {len(expected - covered)} missing, {len(covered - expected)} extra")

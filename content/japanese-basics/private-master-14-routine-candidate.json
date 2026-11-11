@@ -1,0 +1,110 @@
+{
+  "schema": "japanese101-master14-purpose-candidate-v1",
+  "pairKey": "Japanese:English",
+  "status": "private-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "source": {
+    "masterPath": "content/japanese-basics/master.json",
+    "masterSha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a",
+    "extensionsPath": "content/japanese-basics/master-extensions.json",
+    "extensionsSha256": "366e7538830e6cc9f0c08021ae1d9a461005a3ce2e94024bc5d1019d6b0277e7",
+    "corePath": "content/japanese-basics/core.json",
+    "coreSha256": "c44067dc6241077f67616dfdd781b63e617fa219355683d281a8205bdca74da5",
+    "spanishMasterLesson": 14,
+    "japaneseMasterLesson": 14,
+    "japaneseCoreRoutineLesson": 16
+  },
+  "replacement": {
+    "stableLessonKey": "master-japanese-basics:14",
+    "title": "Tell a daily routine and a changed plan",
+    "objective": "Narrate a usual daily routine in order, explain how today's delayed train changes a meeting plan, and recap what happened.",
+    "focus": "ふだん marks the usual pattern and きょう marks today's change. Order actions with まず, それから, and さいごに. Use polite ～ます for the usual routine, ～ています for the ongoing train delay, and ～ました/～ていました for the completed arrival and waiting.",
+    "scene": "A usual weekday and a delayed train before meeting a friend",
+    "inheritCoreLessons": [16, 19, 30],
+    "terms": [
+      "ふだん|usually",
+      "まず|first",
+      "それから|then",
+      "さいごに|finally",
+      "あさごはん|breakfast",
+      "かおを あらいます|wash my face",
+      "よていです|planned; scheduled",
+      "おくれています|is delayed",
+      "おそく なります|will be late",
+      "まっていました|was waiting"
+    ],
+    "dialogue": [
+      "ふだんは あさ しちじに おきます。|I usually get up at seven in the morning.",
+      "あさは まず なにを しますか。|What do you do first in the morning?",
+      "まず、かおを あらって、あさごはんを たべます。|First, I wash my face and eat breakfast.",
+      "それから、しごとに いきます。|Then I go to work.",
+      "しごとの あとは どう しますか。|What do you do after work?",
+      "ふだんは うちに かえります。|I usually go home.",
+      "でも、きょうは えきで ともだちに あう よていです。|But today I plan to meet a friend at the station.",
+      "いつ あう よていですか。|When do you plan to meet?",
+      "ごご さんじの よていです。|It is planned for three in the afternoon.",
+      "でも、でんしゃが おくれています。|But the train is delayed.",
+      "ともだちに メッセージを かきますか。|Will you write a message to your friend?",
+      "はい、「すこし おそく なります」と かきます。|Yes, I will write, “I will be a little late.”",
+      "そのあと えきに つきました。ともだちは まっていました。|After that, I arrived at the station. My friend was waiting.",
+      "さいごに ともだちと はなして、うちに かえりました。|Finally, I talked with my friend and went home."
+    ],
+    "speaking": {
+      "role": "A friend asks about your usual weekday and today's changed meeting plan.",
+      "openingJapanese": "ふだんは あさ なにを しますか。",
+      "openingEnglish": "What do you usually do in the morning?",
+      "objectives": [
+        "Give at least three ordinary actions in chronological order.",
+        "Mark the contrast between the usual routine and today's meeting.",
+        "Explain the train delay and close with what happened after arrival."
+      ],
+      "closureJapanese": "さいごに どう なりましたか。",
+      "closureEnglish": "What happened in the end?"
+    },
+    "practiceModes": {
+      "see": {
+        "prompt": "In the dialogue, which word marks the usual routine rather than today's change?",
+        "answerJapanese": "ふだん",
+        "meaningEnglish": "usually"
+      },
+      "recall": {
+        "cueEnglish": "First, I wash my face and eat breakfast.",
+        "answerJapanese": "まず、かおを あらって、あさごはんを たべます。"
+      },
+      "hear": {
+        "spokenJapanese": "でも、でんしゃが おくれています。",
+        "prompt": "What changed in today's plan?",
+        "answerEnglish": "The train is delayed.",
+        "recordingReady": false
+      },
+      "type": {
+        "cueEnglish": "Then I go to work.",
+        "answerJapanese": "それから、しごとに いきます。"
+      },
+      "say": {
+        "cueEnglish": "Tell your partner what you usually do after work.",
+        "answerJapanese": "ふだんは うちに かえります。"
+      },
+      "write": {
+        "prompt": "Write an ordered account of your usual morning, then explain what changed today.",
+        "modelJapanese": "ふだんは あさ しちじに おきます。まず、かおを あらって、あさごはんを たべます。それから、しごとに いきます。でも、きょうは でんしゃが おくれています。",
+        "modelEnglish": "I usually get up at seven in the morning. First, I wash my face and eat breakfast. Then I go to work. But today the train is delayed."
+      }
+    }
+  },
+  "languageSpecificExtension": {
+    "candidateId": "japanese-basics-extension:delayed-meeting",
+    "title": "Handle a delayed meeting",
+    "sourceLesson": "master-japanese-basics:14",
+    "sourceDialogueAndTermsPreserved": true,
+    "description": "Preserve the existing delayed-meeting lesson and its four extra turns as a separately reviewable Japanese conversation extension. No runtime or progress ID is assigned yet."
+  },
+  "gates": {
+    "qualifiedJapaneseReview": false,
+    "recordedAudioValidated": false,
+    "runtimeIntegrated": false,
+    "offlineVerified": false,
+    "nativeVerified": false
+  }
+}

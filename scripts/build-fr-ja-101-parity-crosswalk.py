@@ -18,8 +18,12 @@ STAGES = {
 }
 
 
-def revision(root):
-    return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()
+def revision(root, reference="HEAD"):
+    return subprocess.check_output(["git", "rev-parse", reference], cwd=root, text=True).strip()
+
+
+def spanish_base_revision(root):
+    return subprocess.check_output(["git", "merge-base", "HEAD", "origin/main"], cwd=root, text=True).strip()
 
 
 def load(root, relative, sources, repository):
@@ -69,7 +73,7 @@ def build(spanish_root, japanese_root, french_root):
         "schema": "fr-ja-101-spanish-purpose-crosswalk-v1",
         "scope": "Source-level lesson mapping only; no linguistic, audio, runtime, native, or release approval",
         "revisions": {
-            "spanish": revision(spanish_root),
+            "spanish": spanish_base_revision(spanish_root),
             "japanese": revision(japanese_root),
             "french": revision(french_root),
         },

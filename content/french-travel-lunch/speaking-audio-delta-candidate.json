@@ -1,0 +1,827 @@
+{
+  "schema": 1,
+  "courseId": "travel-lunch",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "scope": "speaking-openings-and-closures-absent-from-prior-audio",
+  "sourceAudioScopeSha256": "32944851281c901c933f5b42bc9a9f04a33dd47eae488d01b39aa7b5390b8a71",
+  "passageDeltaSha256": "2a25329b33720c410585a4c1e40a74bff143fb8766c25a05f413cbe117e3e38f",
+  "supplementDeltaSha256": "2ac860dbb68c553fbc83de5069d38d6c5d47032793fe5513db0a941cfdf2f289",
+  "voices": [
+    "fr-FR-Chirp3-HD-Aoede",
+    "fr-FR-Chirp3-HD-Charon"
+  ],
+  "lessonCount": 60,
+  "surfacePlacements": {
+    "opening": 60,
+    "closure": 60,
+    "wordBank": 862,
+    "mode": 360
+  },
+  "missingPlacements": {
+    "opening": 17,
+    "closure": 45,
+    "wordBank": 0,
+    "mode": 0
+  },
+  "newUniqueTexts": 60,
+  "newUniqueCharacters": 2290,
+  "proposedTwoVoiceClips": 120,
+  "proposedTwoVoiceCharacters": 4580,
+  "texts": [
+    {
+      "text": "Bonjour. La salade au poulet a été servie à treize heures quarante-cinq.",
+      "textSha256": "377654e293766dfe4359915fbcb87311d7cbda1a64960e11a190c9a51fb59d35",
+      "lessonIds": [
+        "master-travel-lunch:16:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "master-travel-lunch:16:fr-en",
+          "field": "opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour. Vous avez une question sur la carte ?",
+      "textSha256": "9c1ab17271c19a37bf21d19270ad69d2d7351551e91cd80d538fbedcf8761e1a",
+      "lessonIds": [
+        "foundation-travel-lunch:10:fr-en",
+        "foundation-travel-lunch:7:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "foundation-travel-lunch:7:fr-en",
+          "field": "opening"
+        },
+        {
+          "lessonId": "foundation-travel-lunch:10:fr-en",
+          "field": "opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour. Vous cherchez une table ?",
+      "textSha256": "1d4eacd42b652905955e6bcc84d264a7320b79983549932d1f157ba4ad1a7721",
+      "lessonIds": [
+        "foundation-travel-lunch:3:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "foundation-travel-lunch:3:fr-en",
+          "field": "opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour. Vous êtes combien ?",
+      "textSha256": "3bd4edde7a03089667fda6ac156f201902501d5f4eac00f9964c7bfca49a3e2c",
+      "lessonIds": [
+        "foundation-travel-lunch:2:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "foundation-travel-lunch:2:fr-en",
+          "field": "opening"
+        }
+      ]
+    },
+    {
+      "text": "Choisis la galette au fromage et aux champignons.",
+      "textSha256": "84ab5cb15175605cfcc469b79bfd572ca8f36a86ee0d6cf2eb374a174fcb5b4d",
+      "lessonIds": [
+        "master-travel-lunch:3:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "master-travel-lunch:3:fr-en",
+          "field": "opening"
+        }
+      ]
+    },
+    {
+      "text": "D’accord. Je règle le total corrigé.",
+      "textSha256": "65cffb40f0b1771e33cf407f57ea36d59f53f5b8068c2d4bab7f011d7f361384",
+      "lessonIds": [
+        "core-travel-lunch:20:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:20:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "D’accord. À tout à l’heure.",
+      "textSha256": "22e2d4c07bcfb1d1c09d25b63179de3d0241b6bb9ece953e8f47de6b206a88a4",
+      "lessonIds": [
+        "foundation-travel-lunch:5:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "foundation-travel-lunch:5:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Excusez-moi. On peut payer séparément ?",
+      "textSha256": "270243789502326fde61f104ffc802d48f37d9f16c4602d274bf443454e73458",
+      "lessonIds": [
+        "core-travel-lunch:12:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:12:fr-en",
+          "field": "opening"
+        }
+      ]
+    },
+    {
+      "text": "Je vais vous lire mon avis en ligne.",
+      "textSha256": "a6263812506a10765cc9830ba30f199c2905774c5b447ae131bcafe9a571e14a",
+      "lessonIds": [
+        "master-travel-lunch:17:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "master-travel-lunch:17:fr-en",
+          "field": "opening"
+        }
+      ]
+    },
+    {
+      "text": "Je vous appelle au sujet de notre réservation pour huit personnes.",
+      "textSha256": "95090bfee15079f8b82cc83c9043db1c246e9a25608c223eccedca756c0b36a7",
+      "lessonIds": [
+        "master-travel-lunch:18:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "master-travel-lunch:18:fr-en",
+          "field": "opening"
+        }
+      ]
+    },
+    {
+      "text": "La formule du midi comprend une entrée et un plat.",
+      "textSha256": "8b6be6aff11b61350ec37d625cce6c01eb52b459cb4856cb8a36b87e9a548d82",
+      "lessonIds": [
+        "master-travel-lunch:20:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "master-travel-lunch:20:fr-en",
+          "field": "opening"
+        }
+      ]
+    },
+    {
+      "text": "Merci beaucoup. À bientôt.",
+      "textSha256": "52afeeaf6e548e4258ed628a287b741d5ac0c4999b5d01ecab675fc6cd7de13d",
+      "lessonIds": [
+        "foundation-travel-lunch:1:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "foundation-travel-lunch:1:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci de confirmer cinq personnes à quatorze heures.",
+      "textSha256": "ff4fec215a77a06c6290d62c64f8cc191ef4fa52c772a4e5a7dbe3a501756b1b",
+      "lessonIds": [
+        "master-travel-lunch:18:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "master-travel-lunch:18:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci de noter les faits et de m’indiquer le centre médical.",
+      "textSha256": "a155ab11d6a3c59337c63f8480957edbce011a5e640374682dcdd57ca2ee6a99",
+      "lessonIds": [
+        "master-travel-lunch:13:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "master-travel-lunch:13:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci de transmettre mes compliments à la cheffe.",
+      "textSha256": "8a5737727cda1c7fea3b9de499e6896ac5c54c79fe9518a905dcb1cac71a5e5e",
+      "lessonIds": [
+        "core-travel-lunch:13:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:13:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci d’avoir appelé les secours. Dites-leur où nous sommes.",
+      "textSha256": "151a87d5bd5d5a8edbb2417d19522486949c207862ec9b52fe189c97534798c5",
+      "lessonIds": [
+        "core-travel-lunch:24:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:24:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci d’avoir corrigé l’addition.",
+      "textSha256": "8b262bcfda4b14150907ba95110e0c82e41d91aabf8affd44efbe2f9092b913d",
+      "lessonIds": [
+        "core-travel-lunch:11:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:11:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci pour cette conversation. À bientôt.",
+      "textSha256": "b6c26e7f94d0342325cb9cf98485c885937a7240a45236e1b5cca5f0895bf3ea",
+      "lessonIds": [
+        "core-travel-lunch:26:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:26:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci pour le conseil. Bonne journée !",
+      "textSha256": "ff33322decb8899e387c3fcc746ce8b83cddbe98decd3ad36e202993e23cf265",
+      "lessonIds": [
+        "core-travel-lunch:1:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:1:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci pour vos réponses. Nous allons manger ailleurs.",
+      "textSha256": "5a62156da012ba0875e697dfcc87649e94ba8f72efd265783981f7527d5924b0",
+      "lessonIds": [
+        "core-travel-lunch:19:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:19:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci pour votre aide.",
+      "textSha256": "05a1be9d4d5b0d78904b84d9fb53bbaa08c08df24c41ca41222e9445c81c452d",
+      "lessonIds": [
+        "foundation-travel-lunch:10:fr-en",
+        "foundation-travel-lunch:7:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "foundation-travel-lunch:7:fr-en",
+          "field": "closure"
+        },
+        {
+          "lessonId": "foundation-travel-lunch:10:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci à tous pour ce déjeuner.",
+      "textSha256": "a9247f02514a22cd9d711abe51ffea4e674fe19ac0bdcda53242efd626197250",
+      "lessonIds": [
+        "master-travel-lunch:12:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "master-travel-lunch:12:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, ce sera tout pour le moment.",
+      "textSha256": "afa0af2112b9ac921bddc988ee7cbd7829bc3c09bf4c1e31115b7225a5f90fde",
+      "lessonIds": [
+        "core-travel-lunch:2:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:2:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, c’est parfait pour nous.",
+      "textSha256": "5cb43826add931d63bbe74dd73a715e70c22db8970b03d6affc89d1d1b05a594",
+      "lessonIds": [
+        "core-travel-lunch:7:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:7:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, je prendrai les ravioles.",
+      "textSha256": "430bb72054f7005cbd86846deafeb367f9e7c1c7639cd201ee33ef73dd5a2d64",
+      "lessonIds": [
+        "core-travel-lunch:6:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:6:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, je vais prendre celui-là.",
+      "textSha256": "12c0a5e3f94b2623d7fee0da0e1e38301ff34849681590da5231191cbbddaaf4",
+      "lessonIds": [
+        "core-travel-lunch:5:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:5:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, les trois paiements font bien soixante euros.",
+      "textSha256": "c199f68009d26e1c100b4be6bafd6282eae80775465de8eb93de72ab939456ea",
+      "lessonIds": [
+        "core-travel-lunch:12:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:12:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, nous prendrons ces deux plats.",
+      "textSha256": "45a8dcfeb7201eda0d2201956d093a4ec49dc68f85de507a3ce750386ad421d1",
+      "lessonIds": [
+        "core-travel-lunch:8:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:8:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, on partage la salade.",
+      "textSha256": "2f36885d673d8674d336d1d033e78c259869a5194f4f24182b31ac82ca66d27b",
+      "lessonIds": [
+        "foundation-travel-lunch:6:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "foundation-travel-lunch:6:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, à midi et demi.",
+      "textSha256": "d31d42b6d5bb3e289e27d9f7857364c64a72da1c2e40b6757c83f8ab8c21fe35",
+      "lessonIds": [
+        "core-travel-lunch:27:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:27:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, à tout à l’heure.",
+      "textSha256": "d94ed4596328499d93cf62e26e3a476142c057ced49f163fe4b31bce90796961",
+      "lessonIds": [
+        "foundation-travel-lunch:4:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "foundation-travel-lunch:4:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci. Bon après-midi.",
+      "textSha256": "dd41cbb787c85528bae1d53c09c0a381416a6be857760d830078d045012166b6",
+      "lessonIds": [
+        "foundation-travel-lunch:3:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "foundation-travel-lunch:3:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci. Bonne journée !",
+      "textSha256": "d92c677fb56218d67e405c9201c486697b8090944a425b323baa62ff34ad9ddc",
+      "lessonIds": [
+        "core-travel-lunch:3:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:3:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci. Bonne journée.",
+      "textSha256": "9bb355e5518d34ccb35fdb141f34cfb1059f56cab2bd8456a7e56a1a9cf52d36",
+      "lessonIds": [
+        "foundation-travel-lunch:9:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "foundation-travel-lunch:9:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci. Je garde le plat du jour.",
+      "textSha256": "ba9b8383d63fcca94d0116bfce1160d9037bc83f710e788cff8b9436529f7fe9",
+      "lessonIds": [
+        "core-travel-lunch:21:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:21:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci. Je passe à la caisse, puis je m’assieds.",
+      "textSha256": "75b6b27a8a24fc74baba87c733b25e25173ac5ce73648793caf5291d6ec9087a",
+      "lessonIds": [
+        "core-travel-lunch:16:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:16:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci. Je passerai à quinze heures.",
+      "textSha256": "8f7df6b1be45e4dec3e07b5061c605d30e2a41d1f4c6f2f9b5a9e8055d07246a",
+      "lessonIds": [
+        "core-travel-lunch:25:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:25:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci. Je prends la petite portion pour lui.",
+      "textSha256": "8b722dd88a41aebafe3886ca5b606b9b9b503b1cb8bd6672946b47c44e8d32ee",
+      "lessonIds": [
+        "core-travel-lunch:17:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:17:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci. Je vérifierai les horaires du restaurant.",
+      "textSha256": "28e9bf41f7b1e992fa085e618c68d3eaee8cfc86ffe1a045d6ac5f82b819c065",
+      "lessonIds": [
+        "core-travel-lunch:22:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:22:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci. La carafe et le pain me suffisent.",
+      "textSha256": "2873258c3d76a77485a63940bca4b65d714a94e24d97a419fd1f9b3bbc2b9210",
+      "lessonIds": [
+        "core-travel-lunch:9:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:9:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci. Nous attendons votre confirmation des deux plats.",
+      "textSha256": "1c83225e57f7b84f503b3697a1907c6bee1119531f53596366f173665b990eb9",
+      "lessonIds": [
+        "master-travel-lunch:19:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "master-travel-lunch:19:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci. Nous lirons le panneau du parc.",
+      "textSha256": "b66a17e295bc207b01d789f0189fff7a2b9ac063ba03792dae344dac77167f63",
+      "lessonIds": [
+        "core-travel-lunch:23:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:23:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci. Nous payons au comptoir maintenant.",
+      "textSha256": "4eb6dd421e0ed86031e9548a0fe363de23a15e2a887dfd8f65e6f803ec7ad245",
+      "lessonIds": [
+        "core-travel-lunch:10:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:10:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci. Nous réglerons séparément.",
+      "textSha256": "0dce8c2ec2f25b659a3fb1e0c55a6080e702b0f1b58eb93645a2b96a265bf436",
+      "lessonIds": [
+        "core-travel-lunch:15:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:15:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci. Nous viendrons à midi.",
+      "textSha256": "cd2f52a1eb57fb682abb0941877692d07211199c075d403c7bf64f1168faf033",
+      "lessonIds": [
+        "core-travel-lunch:18:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:18:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci. À tout à l'heure.",
+      "textSha256": "e0161e708094fe6ee758ebce85d137b51d761f9b44b3b759324c50adf2753784",
+      "lessonIds": [
+        "foundation-travel-lunch:2:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "foundation-travel-lunch:2:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Nous allons déjeuner où ?",
+      "textSha256": "ad756f5f155d011941b58ff461396770f690edbebf5c0e848aa67e506a3ea0f8",
+      "lessonIds": [
+        "foundation-travel-lunch:5:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "foundation-travel-lunch:5:fr-en",
+          "field": "opening"
+        }
+      ]
+    },
+    {
+      "text": "Nous avons commandé quatre menus et trois boissons.",
+      "textSha256": "43173d2ee5a140d77f73c7751eb04283d7dc776cb98d6232d56a9564d50a8879",
+      "lessonIds": [
+        "master-travel-lunch:7:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "master-travel-lunch:7:fr-en",
+          "field": "opening"
+        }
+      ]
+    },
+    {
+      "text": "Nous avons commandé une soupe végétarienne pour mon ami.",
+      "textSha256": "dab028e8f5454166c2977682099c015641eee338d66137563aafb7dabf670ffe",
+      "lessonIds": [
+        "master-travel-lunch:5:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "master-travel-lunch:5:fr-en",
+          "field": "opening"
+        }
+      ]
+    },
+    {
+      "text": "Nous sommes six. Qu’est-ce qui est encore disponible ?",
+      "textSha256": "4ab732d9153eedecf5eb5a710c4edd85c701e0a5f6afe013d309ca66e24c1972",
+      "lessonIds": [
+        "master-travel-lunch:6:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "master-travel-lunch:6:fr-en",
+          "field": "opening"
+        }
+      ]
+    },
+    {
+      "text": "On peut prendre un café sur la terrasse maintenant.",
+      "textSha256": "c25f4a45e2245b216be1264edfd8d93c089cf3f310840eef06747b6e3583ffdd",
+      "lessonIds": [
+        "master-travel-lunch:2:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "master-travel-lunch:2:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Oui, c’est ça. Commandons.",
+      "textSha256": "8082e6d757767980e4f471b9b5035cf4778a8a8428488794558a1e5a509e8839",
+      "lessonIds": [
+        "master-travel-lunch:1:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "master-travel-lunch:1:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Parfait, merci beaucoup.",
+      "textSha256": "b468b452e929331174481f60ee209759f8e886600805c53fd7980e1668169d96",
+      "lessonIds": [
+        "core-travel-lunch:4:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:4:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Parfait, à vendredi devant le bistrot.",
+      "textSha256": "6843ea499eb381af63e7c4baa96455eb606b3a9daa601f9921dd2d9e0f974f26",
+      "lessonIds": [
+        "core-travel-lunch:14:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "core-travel-lunch:14:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Tout le monde est d’accord ? Allons-y.",
+      "textSha256": "f4dfd922b36465df02510551328ab80155da040dbe4bd636eec7d4ba7f552254",
+      "lessonIds": [
+        "master-travel-lunch:10:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "master-travel-lunch:10:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Tu l’as commandée toi-même.",
+      "textSha256": "222e7bd2158705c26bbe37e8b89778616543368e5b61ee687a6dfd8fceed93ee",
+      "lessonIds": [
+        "master-travel-lunch:3:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "master-travel-lunch:3:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Tu manges quoi aujourd’hui ?",
+      "textSha256": "d3724747b403ea2df599c91ed102b17480a2f6322ce6d951ade98ac8b570bc33",
+      "lessonIds": [
+        "foundation-travel-lunch:6:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "foundation-travel-lunch:6:fr-en",
+          "field": "opening"
+        }
+      ]
+    },
+    {
+      "text": "Voilà les faits que je peux confirmer.",
+      "textSha256": "01fd48afe3184d043790b56a2c1af4c59e6f8c0e65a476e44cfe903e56c7be2d",
+      "lessonIds": [
+        "master-travel-lunch:16:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "master-travel-lunch:16:fr-en",
+          "field": "closure"
+        }
+      ]
+    },
+    {
+      "text": "Vous désirez autre chose ?",
+      "textSha256": "bba8a91f45badb39412c2c12a26c0f42d955acae31e5e1ddce0f55467f831e0d",
+      "lessonIds": [
+        "foundation-travel-lunch:9:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "foundation-travel-lunch:9:fr-en",
+          "field": "opening"
+        }
+      ]
+    },
+    {
+      "text": "Vous voulez du porc avec le plat ?",
+      "textSha256": "42688e80f72f931ab4a5da3313cc41a5ebfa4c8aeb579ad51519651131d4e3aa",
+      "lessonIds": [
+        "foundation-travel-lunch:8:fr-en"
+      ],
+      "occurrences": [
+        {
+          "lessonId": "foundation-travel-lunch:8:fr-en",
+          "field": "opening"
+        }
+      ]
+    }
+  ],
+  "recordingsBundled": false,
+  "textReviewed": false,
+  "listeningReviewed": false,
+  "registered": false
+}

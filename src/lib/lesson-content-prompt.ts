@@ -115,7 +115,9 @@ export function lessonContentSystemPrompt(
   const spanishTarget = targetLanguage === "Spanish";
   const registerNote = spanishTarget
     ? "Spanish register: a crew lead or foreman speaking to a crew uses the plural ustedes imperative (corten, revisen, traigan); speaking to ONE person (a customer, a patient, one worker) uses usted. Use Mexican / US Spanish as working tradespeople and staff in the United States actually say it, including a common loanword when that is what people say on the job (troca, yarda, mopear) but only when it is standard job-site usage. Write ¿ and ¡ properly."
-    : "English register: plain, current American English as used in a US hospital or workplace (short, direct, polite); the learner's native language is Spanish (neutral Latin American Spanish).";
+    : targetLanguage === "French"
+      ? "French register: use natural contemporary French. Keep tu and vous distinct; use vous for polite service encounters or more than one person, and tu only when the scene calls for familiarity. The learner's native language is English."
+      : "English register: plain, current American English as used in a US hospital or workplace (short, direct, polite); the learner's native language is Spanish (neutral Latin American Spanish).";
 
   const sections: string[] = [];
   if (parts.passage) {
@@ -129,17 +131,21 @@ export function lessonContentSystemPrompt(
     );
   }
   if (parts.verbs) {
-    const keys = MODEL_FORM_KEYS[targetLanguage === "English" ? "English" : "Spanish"].join(", ");
+    const keys = MODEL_FORM_KEYS[targetLanguage === "French" ? "French" : targetLanguage === "English" ? "English" : "Spanish"].join(", ");
     sections.push(
       `VERBS: ${CONTENT_LIMITS.minVerbs} to ${CONTENT_LIMITS.maxVerbs} verbs this lesson's job actually needs (for a crew lead: command and task verbs; for a clinician: the verbs of the encounter). Choose verbs that appear in, or fit naturally with, the passage and the word list. For each: "infinitive" (${
         targetLanguage === "Spanish"
           ? "the Spanish infinitive, e.g. cortar, or reflexive lavarse"
+          : targetLanguage === "French"
+            ? 'the French infinitive, e.g. "manger" or "finir"'
           : 'the bare English verb, e.g. "clean", with no "to"'
       }), "native" (the meaning in ${nativeLanguage}${
-        targetLanguage === "Spanish" ? ', written like "to cut"' : ', e.g. "limpiar"'
+        targetLanguage === "Spanish" || targetLanguage === "French" ? ', written like "to cut"' : ', e.g. "limpiar"'
       }), "forms" (PRESENT TENSE ONLY, one string per key: ${keys}; give the bare verb form with no pronoun in front${
         targetLanguage === "Spanish"
           ? ', except the reflexive pronoun for reflexive verbs ("me lavo", "nos lavamos"). All five forms must be different and must be correct: nosotros ends in -mos, ellos/ustedes ends in -n, tú ends in -s. Mark stem changes in "note" (o to ue)'
+          : targetLanguage === "French"
+            ? '; use the six French subject forms for je, tu, il/elle/on, nous, vous, ils/elles. Keep the verb form itself without a subject pronoun; identical written forms are allowed when French grammar requires them'
           : '; the he/she form takes the -s ("cleans"). "i", "you", "we", "they" are the base verb'
       }), "example" (one short natural sentence from this lesson's scene that uses one form of the verb, with its ${nativeLanguage} translation), and an optional short "note" (written in ${nativeLanguage}, the learner's own language, never in ${targetLanguage}) for an irregularity or register tip. The example must use the PRESENT tense (or a command) so it matches the forms the learner is practicing, never the past tense.`,
     );
@@ -154,8 +160,8 @@ ${sections.join("\n\n")}
 Rules for everything you write:
 - Translate, never convert: numbers, units, times, names and quantities must be identical on both sides (90 centímetros is 90 centimeters, not 36 inches).
 - Never invent procedures, doses, product amounts, measurements, regulations or specifications and state them as universal facts. When a figure or step matters, attribute it: the manufacturer's label, the job spec, the plan, local code, the supervisor, the clinician or the policy. This holds even when the lesson's step instructions state a figure or specification as a flat fact: keep the figure if it helps, but have a speaker attribute it ("según el plano", "la etiqueta dice", "as the job spec says"). A worker repeating "la etiqueta dice..." is correct; a flat claim is not.
-- Medical, legal and safety topics teach communication and verification, never an unsupported dose, diagnosis or legal conclusion.
-- Use the word people in this trade actually say in ${targetLanguage}; never coin a literal word-for-word phrase. If you are unsure of the right ${targetLanguage} term, choose a different, safer term instead of guessing.
+- Preserve the source's medical and clinical terms precisely. Teach their vocabulary and grammar directly; keep any uncertainty about factual or domain claims in an internal review note, separate from learner-facing text.
+- Use the word people in this trade actually say in ${targetLanguage}; never coin a literal word-for-word phrase. If a translation is uncertain, flag it for review without replacing or softening the source term.
 - Level for this lesson is given in the request. Keep the language inside it. Avoid stereotypes, slang the learner could misuse, and anything unsafe.
 - Stay consistent: the passage, words and verbs of this lesson must belong together.${
     parts.words || parts.verbs ? `\n- ${NOTE_FINAL_RULE}` : ""
@@ -226,7 +232,7 @@ const PAIR_SCHEMA = {
 };
 
 function verbSchema(targetLanguage: string) {
-  const keys = MODEL_FORM_KEYS[targetLanguage === "English" ? "English" : "Spanish"];
+  const keys = MODEL_FORM_KEYS[targetLanguage === "French" ? "French" : targetLanguage === "English" ? "English" : "Spanish"];
   return {
     type: "object",
     properties: {

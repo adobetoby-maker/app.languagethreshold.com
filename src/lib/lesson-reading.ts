@@ -2,6 +2,7 @@ import { placeLesson } from "../data/place-directions.ts";
 import { soundLesson } from "../data/sound-like-a-native.ts";
 import { spanishBasicsLesson } from "../data/spanish-basics.ts";
 import { japaneseBasicsLesson } from "../data/japanese-basics.ts";
+import { frenchLunchCoreLesson, frenchLunchFoundationLesson } from "../data/french-travel-lunch.ts";
 import { ROOFING_LESSON_PASSAGES } from "../data/roofing-lesson-passages.ts";
 import { LANDSCAPER_LESSON_CONTENT } from "../data/landscaper-lesson-content.ts";
 import { FOREMAN_LESSON_CONTENT } from "../data/construction-foreman-lesson-content.ts";
@@ -14,6 +15,28 @@ export function authoredLessonReading(
   targetLanguage: string,
   instructionLanguage: string,
 ) {
+  if (moduleId === "foundation-travel-lunch-fr" && targetLanguage === "French" &&
+      instructionLanguage === "English" && lessonNumber) {
+    const draft = frenchLunchFoundationLesson(lessonNumber, targetLanguage, instructionLanguage);
+    return draft
+      ? {
+          id: `${moduleId}-lesson-${lessonNumber}`,
+          title: draft.title,
+          sentences: draft.reader.map((line) => ({ target: line.fr, en: line.en })),
+        }
+      : null;
+  }
+  if (moduleId === "travel-lunch" && targetLanguage === "French" &&
+      instructionLanguage === "English" && lessonNumber) {
+    const draft = frenchLunchCoreLesson(lessonNumber, targetLanguage, instructionLanguage);
+    return draft
+      ? {
+          id: `${moduleId}-lesson-${lessonNumber}`,
+          title: draft.title,
+          sentences: draft.reader.map((line) => ({ target: line.fr, en: line.en })),
+        }
+      : null;
+  }
   if (targetLanguage === "English" && instructionLanguage === "Spanish" && lessonNumber) {
     const draft = militaryLessonPractice(moduleId, lessonNumber);
     return draft

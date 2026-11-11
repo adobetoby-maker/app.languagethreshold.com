@@ -1,0 +1,1116 @@
+{
+  "schema": 1,
+  "courseId": "travel-lunch",
+  "stageId": "master-travel-lunch",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "path": "src/data/core60/es/master-travel-lunch.json",
+    "sha256": "bce5c0799e9d8d038450599ab839a7d48d6f69533968c94f1d3f2ae3808f4bfa",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 16,
+      "stableId": "master-travel-lunch:16:fr-en",
+      "sourceTitleEnglish": "Answering a Health Inspector About a Bad Lunch",
+      "sourceObjectiveEnglish": "Give a health inspector a formal, precise account of what was served, when, and what symptoms followed.",
+      "sourceSpeakingEnglish": "You are the person who filed the complaint, and the AI is Sra. Herrero, the health inspector: give a formal, precise account of what was served and when, using usted and passive se (se sirvió, se recalentó), and share only what Owen agreed to disclose.",
+      "title": "Give a Precise Account to a Health Inspector",
+      "objective": "Give a health inspector a formal account of what was served, when it was served and which symptoms followed, sharing only what the affected guest agreed to disclose.",
+      "focus": "Use formal vous, exact times and passive forms such as a été servi and a été réchauffée to distinguish observations, records and reported symptoms.",
+      "scene": "Maya speaks with an inspector about a lunch complaint after her friend Owen agrees to share specified symptoms.",
+      "cards": [
+        {
+          "fr": "une inspectrice sanitaire",
+          "en": "a health inspector (woman)",
+          "kind": "term"
+        },
+        {
+          "fr": "un formulaire de réclamation",
+          "en": "a complaint form",
+          "kind": "term"
+        },
+        {
+          "fr": "une salade au poulet",
+          "en": "a chicken salad",
+          "kind": "term"
+        },
+        {
+          "fr": "la chaîne du froid",
+          "en": "the cold chain",
+          "kind": "term"
+        },
+        {
+          "fr": "tiède",
+          "en": "lukewarm",
+          "kind": "term"
+        },
+        {
+          "fr": "des symptômes",
+          "en": "symptoms",
+          "kind": "term"
+        },
+        {
+          "fr": "des nausées",
+          "en": "nausea",
+          "kind": "term"
+        },
+        {
+          "fr": "des vomissements",
+          "en": "vomiting",
+          "kind": "term"
+        },
+        {
+          "fr": "une légère fièvre",
+          "en": "a slight fever",
+          "kind": "term"
+        },
+        {
+          "fr": "une preuve de paiement",
+          "en": "proof of payment",
+          "kind": "term"
+        },
+        {
+          "fr": "un compte rendu médical",
+          "en": "a medical report",
+          "kind": "term"
+        },
+        {
+          "fr": "le consentement",
+          "en": "consent",
+          "kind": "term"
+        },
+        {
+          "fr": "des données personnelles",
+          "en": "personal data",
+          "kind": "term"
+        },
+        {
+          "fr": "La salade a été servie à treize heures quarante-cinq.",
+          "en": "The salad was served at one forty-five p.m.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le poulet était tiède.",
+          "en": "The chicken was lukewarm.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La sauce a été réchauffée devant nous.",
+          "en": "The sauce was reheated in front of us.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Owen m’a autorisée à décrire ses symptômes.",
+          "en": "Owen authorized me to describe his symptoms.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il a eu des nausées, des vomissements et une légère fièvre.",
+          "en": "He had nausea, vomiting and a slight fever.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Voici le reçu et le formulaire de réclamation.",
+          "en": "Here are the receipt and complaint form.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Inspector",
+          "fr": "Bonjour. Pouvez-vous me dire exactement ce qui a été servi et quand ?",
+          "en": "Hello. Can you tell me exactly what was served and when?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "La salade au poulet a été servie à treize heures quarante-cinq, selon le reçu.",
+          "en": "The chicken salad was served at one forty-five p.m., according to the receipt."
+        },
+        {
+          "speaker": "Inspector",
+          "fr": "Que pouvez-vous dire de la température ?",
+          "en": "What can you tell me about the temperature?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Le poulet était tiède. La sauce a été réchauffée devant nous.",
+          "en": "The chicken was lukewarm. The sauce was reheated in front of us."
+        },
+        {
+          "speaker": "Inspector",
+          "fr": "Avez-vous déposé un formulaire ?",
+          "en": "Did you file a form?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Oui. Voici le reçu et le formulaire de réclamation déposé au café.",
+          "en": "Yes. Here are the receipt and complaint form filed at the café."
+        },
+        {
+          "speaker": "Inspector",
+          "fr": "Puis-je noter ce que votre ami a ressenti ?",
+          "en": "May I record what your friend experienced?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Owen m’a autorisée à décrire ses symptômes, mais pas à partager son compte rendu médical.",
+          "en": "Owen authorized me to describe his symptoms, but not to share his medical report."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Le soir, il a eu des nausées, des vomissements et une légère fièvre.",
+          "en": "That evening, he had nausea, vomiting and a slight fever."
+        },
+        {
+          "speaker": "Inspector",
+          "fr": "Je noterai ces faits et le consentement que vous indiquez.",
+          "en": "I will record these facts and the consent you describe."
+        }
+      ],
+      "speaking": {
+        "role": "Person who filed a complaint",
+        "partnerRole": "Health inspector",
+        "opening": "Bonjour. La salade au poulet a été servie à treize heures quarante-cinq.",
+        "goal": "State the service time, observed food temperature and reheating, provide the receipt and form, then report only Owen’s agreed symptoms and withhold his medical report.",
+        "closure": "Voilà les faits que je peux confirmer.",
+        "wordBank": [
+          "une inspectrice sanitaire",
+          "un formulaire de réclamation",
+          "une salade au poulet",
+          "la chaîne du froid",
+          "tiède",
+          "des symptômes",
+          "des nausées",
+          "des vomissements",
+          "une légère fièvre",
+          "une preuve de paiement",
+          "un compte rendu médical",
+          "le consentement",
+          "des données personnelles",
+          "La salade a été servie à treize heures quarante-cinq.",
+          "Le poulet était tiède.",
+          "La sauce a été réchauffée devant nous.",
+          "Owen m’a autorisée à décrire ses symptômes.",
+          "Il a eu des nausées, des vomissements et une légère fièvre.",
+          "Voici le reçu et le formulaire de réclamation."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for nausea.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the exact service-time statement.",
+          "sourceCard": 14,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the direct symptom list.",
+          "sourceCard": 18,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for consent.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Explain that Owen authorized symptom disclosure.",
+          "sourceCard": 17,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a formal sentence offering the receipt and complaint form.",
+          "sourceCard": 19,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Qualified French, medical and legal/domain review required for symptom, consent and inspector language. The reported incident is fictional; do not infer a cause of illness or add learner-facing AI medical judgment."
+    },
+    {
+      "n": 17,
+      "stableId": "master-travel-lunch:17:fr-en",
+      "sourceTitleEnglish": "Write a Fair Review After a Mixed Lunch",
+      "sourceObjectiveEnglish": "Write a balanced online review that describes the food, the service problem and how staff fixed it.",
+      "sourceSpeakingEnglish": "You are the diner writing a review, and the AI is Kelly, the owner, reading your draft: read out a balanced review of the fish, the long wait and how the staff fixed it, using en primer lugar, sin embargo, además and en resumen, without naming the waiter.",
+      "title": "Write a Balanced Review After Lunch",
+      "objective": "Write a fair online review describing good food, a long service wait and how staff addressed it, without naming the server.",
+      "focus": "Use d’abord, cependant, de plus and en résumé to organize specific praise, a problem and its resolution.",
+      "scene": "Maya reads her draft review to café owner Kelly after a mixed lunch.",
+      "cards": [
+        {
+          "fr": "un avis en ligne",
+          "en": "an online review",
+          "kind": "term"
+        },
+        {
+          "fr": "une note",
+          "en": "a rating",
+          "kind": "term"
+        },
+        {
+          "fr": "des étoiles",
+          "en": "stars",
+          "kind": "term"
+        },
+        {
+          "fr": "un poisson grillé",
+          "en": "grilled fish",
+          "kind": "term"
+        },
+        {
+          "fr": "un accompagnement",
+          "en": "a side dish",
+          "kind": "term"
+        },
+        {
+          "fr": "le service",
+          "en": "the service",
+          "kind": "term"
+        },
+        {
+          "fr": "l’attente",
+          "en": "the wait",
+          "kind": "term"
+        },
+        {
+          "fr": "le personnel",
+          "en": "the staff",
+          "kind": "term"
+        },
+        {
+          "fr": "la fraîcheur",
+          "en": "the freshness",
+          "kind": "term"
+        },
+        {
+          "fr": "l’ambiance",
+          "en": "the atmosphere",
+          "kind": "term"
+        },
+        {
+          "fr": "le rapport qualité-prix",
+          "en": "value for money",
+          "kind": "term"
+        },
+        {
+          "fr": "un geste commercial",
+          "en": "a goodwill gesture",
+          "kind": "term"
+        },
+        {
+          "fr": "D’abord, le poisson était frais et bien assaisonné.",
+          "en": "First, the fish was fresh and well seasoned.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Cependant, nous avons attendu presque une heure.",
+          "en": "However, we waited almost an hour.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "De plus, le personnel s’est excusé et a offert les boissons.",
+          "en": "Also, the staff apologized and offered the drinks.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "En résumé, le repas valait le détour malgré l’attente.",
+          "en": "In summary, the meal was worth the visit despite the wait.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Kelly",
+          "fr": "Vous avez rédigé un avis ?",
+          "en": "Have you written a review?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Oui. Je vais vous lire mon brouillon.",
+          "en": "Yes. I will read you my draft."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "D’abord, le poisson grillé était frais et bien assaisonné.",
+          "en": "First, the grilled fish was fresh and well seasoned."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "L’accompagnement et l’ambiance m’ont plu.",
+          "en": "I liked the side dish and the atmosphere."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Cependant, nous avons attendu presque une heure pour le plat principal.",
+          "en": "However, we waited almost an hour for the main course."
+        },
+        {
+          "speaker": "Kelly",
+          "fr": "Et comment avez-vous trouvé la réponse de l’équipe ?",
+          "en": "And how did you find the team’s response?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "De plus, le personnel s’est excusé et a offert les boissons.",
+          "en": "Also, the staff apologized and offered the drinks."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "En résumé, le repas valait le détour malgré l’attente. Je ne nomme personne dans l’avis.",
+          "en": "In summary, the meal was worth the visit despite the wait. I do not name anyone in the review."
+        },
+        {
+          "speaker": "Kelly",
+          "fr": "Merci pour cet avis précis.",
+          "en": "Thank you for this precise review."
+        }
+      ],
+      "speaking": {
+        "role": "Diner drafting a review",
+        "partnerRole": "Restaurant owner",
+        "opening": "Je vais vous lire mon avis en ligne.",
+        "goal": "Read a balanced review with food praise, the nearly one-hour wait and the staff’s remedy; leave the individual server unnamed.",
+        "closure": "En résumé, le repas valait le détour malgré l’attente.",
+        "wordBank": [
+          "un avis en ligne",
+          "une note",
+          "des étoiles",
+          "un poisson grillé",
+          "un accompagnement",
+          "le service",
+          "l’attente",
+          "le personnel",
+          "la fraîcheur",
+          "l’ambiance",
+          "le rapport qualité-prix",
+          "un geste commercial",
+          "D’abord, le poisson était frais et bien assaisonné.",
+          "Cependant, nous avons attendu presque une heure.",
+          "De plus, le personnel s’est excusé et a offert les boissons.",
+          "En résumé, le repas valait le détour malgré l’attente."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for an online review.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the sentence about the long wait.",
+          "sourceCard": 14,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the staff’s apology and offered drinks.",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for value for money.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Praise the fish specifically.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write the review’s balanced summary.",
+          "sourceCard": 16,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "The meal, wait and staff remedy are fictional. Qualified French review should check written register and connectors."
+    },
+    {
+      "n": 18,
+      "stableId": "master-travel-lunch:18:fr-en",
+      "sourceTitleEnglish": "Rebooking a Group Lunch by Phone and WhatsApp",
+      "sourceObjectiveEnglish": "Change a group booking by phone and confirm it by text, with polite requests and clear numbers.",
+      "sourceSpeakingEnglish": "You are the group organizer on a delayed bus, and the AI is Rosa María by phone, then her nephew Edwin on WhatsApp: change the booking from 8 to 5 people and one hour later with ¿sería posible...?, then confirm in writing with le escribo para confirmar and quedo atento.",
+      "title": "Rebook a Group Lunch by Phone and Text",
+      "objective": "Change a group lunch reservation from eight to five people and from one to two p.m. by phone, then confirm those numbers in a WhatsApp message.",
+      "focus": "Use serait-il possible de, je vous écris pour confirmer and clear number repetition across phone and written registers.",
+      "scene": "Maya phones a restaurant while her group’s bus is delayed, then sends a WhatsApp confirmation.",
+      "cards": [
+        {
+          "fr": "une réservation",
+          "en": "a reservation",
+          "kind": "term"
+        },
+        {
+          "fr": "huit personnes",
+          "en": "eight people",
+          "kind": "term"
+        },
+        {
+          "fr": "cinq personnes",
+          "en": "five people",
+          "kind": "term"
+        },
+        {
+          "fr": "treize heures",
+          "en": "one p.m.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "quatorze heures",
+          "en": "two p.m.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "un retard",
+          "en": "a delay",
+          "kind": "term"
+        },
+        {
+          "fr": "un appel",
+          "en": "a call",
+          "kind": "term"
+        },
+        {
+          "fr": "un message WhatsApp",
+          "en": "a WhatsApp message",
+          "kind": "term"
+        },
+        {
+          "fr": "un acompte",
+          "en": "a deposit",
+          "kind": "term"
+        },
+        {
+          "fr": "le signal",
+          "en": "the signal",
+          "kind": "term"
+        },
+        {
+          "fr": "le numéro de téléphone",
+          "en": "the phone number",
+          "kind": "term"
+        },
+        {
+          "fr": "Je vous appelle au sujet de notre réservation.",
+          "en": "I am calling about our reservation.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Serait-il possible de passer de huit à cinq personnes ?",
+          "en": "Would it be possible to change from eight to five people?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pourrions-nous arriver à quatorze heures au lieu de treize heures ?",
+          "en": "Could we arrive at two p.m. instead of one p.m.?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le signal coupe ; m’entendez-vous ?",
+          "en": "The signal is breaking up; can you hear me?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je vous écris pour confirmer cinq personnes à quatorze heures.",
+          "en": "I am writing to confirm five people at two p.m.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Merci de me confirmer le nouvel horaire.",
+          "en": "Please confirm the new time for me.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Je vous appelle au sujet de notre réservation pour huit personnes à treize heures.",
+          "en": "Hello. I am calling about our reservation for eight people at one p.m."
+        },
+        {
+          "speaker": "Host",
+          "fr": "Bonjour. Que souhaitez-vous changer ?",
+          "en": "Hello. What would you like to change?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Notre bus a du retard. Serait-il possible de passer de huit à cinq personnes ?",
+          "en": "Our bus is delayed. Would it be possible to change from eight to five people?"
+        },
+        {
+          "speaker": "Host",
+          "fr": "Oui, cinq personnes. Et l’heure ?",
+          "en": "Yes, five people. And the time?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Pourrions-nous arriver à quatorze heures au lieu de treize heures ?",
+          "en": "Could we arrive at two p.m. instead of one p.m.?"
+        },
+        {
+          "speaker": "Host",
+          "fr": "Oui. Le signal coupe ; pouvez-vous confirmer par WhatsApp ?",
+          "en": "Yes. The signal is breaking up; can you confirm by WhatsApp?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Bien sûr. Quel numéro dois-je utiliser ?",
+          "en": "Of course. What number should I use?"
+        },
+        {
+          "speaker": "Host",
+          "fr": "Utilisez le numéro de la réservation.",
+          "en": "Use the reservation number."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Je vous écris : cinq personnes à quatorze heures, vendredi. Merci de me confirmer le nouvel horaire.",
+          "en": "I am writing: five people at two p.m., Friday. Please confirm the new time for me."
+        },
+        {
+          "speaker": "Host",
+          "fr": "Message reçu. Je confirme cinq personnes à quatorze heures.",
+          "en": "Message received. I confirm five people at two p.m."
+        }
+      ],
+      "speaking": {
+        "role": "Group organizer calling and texting",
+        "partnerRole": "Restaurant host",
+        "opening": "Je vous appelle au sujet de notre réservation pour huit personnes.",
+        "goal": "Request the eight-to-five and one-to-two changes by phone, repeat the exact figures in writing and obtain a confirmation.",
+        "closure": "Merci de confirmer cinq personnes à quatorze heures.",
+        "wordBank": [
+          "une réservation",
+          "huit personnes",
+          "cinq personnes",
+          "treize heures",
+          "quatorze heures",
+          "un retard",
+          "un appel",
+          "un message WhatsApp",
+          "un acompte",
+          "le signal",
+          "le numéro de téléphone",
+          "Je vous appelle au sujet de notre réservation.",
+          "Serait-il possible de passer de huit à cinq personnes ?",
+          "Pourrions-nous arriver à quatorze heures au lieu de treize heures ?",
+          "Le signal coupe ; m’entendez-vous ?",
+          "Je vous écris pour confirmer cinq personnes à quatorze heures.",
+          "Merci de me confirmer le nouvel horaire."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for reservation.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the eight-to-five change request.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the new two-p.m. arrival question.",
+          "sourceCard": 14,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for deposit.",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether the host can hear during a broken signal.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write the five-person two-p.m. confirmation.",
+          "sourceCard": 16,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "The reservation, phone number and new time are fictional. Review telephone and text register; no message is actually sent."
+    },
+    {
+      "n": 19,
+      "stableId": "master-travel-lunch:19:fr-en",
+      "sourceTitleEnglish": "Farewell Lunch Plans with the Comedor Owner",
+      "sourceObjectiveEnglish": "Thank the owner after a week of lunches and set up a farewell meal with clear conditions on menu and timing.",
+      "sourceSpeakingEnglish": "You are a student in a Spanish class, and the AI is Doña Marta, the comedor owner: thank her for a week of lunches and arrange a Friday farewell lunch for 12, using nos encantaría and siempre que or con tal de que with the subjunctive to set the menu and timing.",
+      "title": "Plan a Farewell Lunch with the Owner",
+      "objective": "Thank an owner for a week of lunches and arrange a Friday farewell lunch for twelve with clear menu and timing conditions.",
+      "focus": "Use nous aimerions, à condition que + subjunctive and conditional requests to state the group size, meat-free meals and timing.",
+      "scene": "Maya thanks café owner Marta and asks for a Friday farewell lunch with classmates.",
+      "cards": [
+        {
+          "fr": "un déjeuner d’adieu",
+          "en": "a farewell lunch",
+          "kind": "term"
+        },
+        {
+          "fr": "une semaine",
+          "en": "a week",
+          "kind": "term"
+        },
+        {
+          "fr": "les camarades de classe",
+          "en": "classmates",
+          "kind": "term"
+        },
+        {
+          "fr": "la propriétaire",
+          "en": "the owner (woman)",
+          "kind": "term"
+        },
+        {
+          "fr": "une grande table",
+          "en": "a long table",
+          "kind": "term"
+        },
+        {
+          "fr": "douze personnes",
+          "en": "twelve people",
+          "kind": "term"
+        },
+        {
+          "fr": "deux repas sans viande",
+          "en": "two meat-free meals",
+          "kind": "term"
+        },
+        {
+          "fr": "du bouillon de poulet",
+          "en": "chicken stock",
+          "kind": "term"
+        },
+        {
+          "fr": "treize heures",
+          "en": "one p.m.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "un acompte",
+          "en": "a deposit",
+          "kind": "term"
+        },
+        {
+          "fr": "Merci pour cette semaine de déjeuners.",
+          "en": "Thank you for this week of lunches.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Nous aimerions revenir vendredi avec toute la classe.",
+          "en": "We would like to come back Friday with the whole class.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Nous serions douze, à condition qu’il y ait de la place.",
+          "en": "There would be twelve of us, provided there is room.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pourriez-vous préparer deux plats sans viande ?",
+          "en": "Could you prepare two meat-free dishes?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Nous les commanderons à condition que la sauce ne contienne pas de bouillon de poulet.",
+          "en": "We will order them provided the sauce does not contain chicken stock.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Si le repas est prêt à treize heures, nous arriverons à l’heure.",
+          "en": "If the meal is ready at one p.m., we will arrive on time.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Madame Marta, merci pour cette semaine de déjeuners.",
+          "en": "Ms. Marta, thank you for this week of lunches."
+        },
+        {
+          "speaker": "Owner",
+          "fr": "C’était un plaisir de vous accueillir.",
+          "en": "It was a pleasure to welcome you."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Nous aimerions revenir vendredi avec toute la classe pour un déjeuner d’adieu.",
+          "en": "We would like to come back Friday with the whole class for a farewell lunch."
+        },
+        {
+          "speaker": "Owner",
+          "fr": "Combien de personnes seriez-vous ?",
+          "en": "How many people would there be?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Nous serions douze, à condition qu’il y ait de la place.",
+          "en": "There would be twelve of us, provided there is room."
+        },
+        {
+          "speaker": "Owner",
+          "fr": "Oui, j’ai une grande table pour douze.",
+          "en": "Yes, I have a long table for twelve."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Pourriez-vous préparer deux plats sans viande ?",
+          "en": "Could you prepare two meat-free dishes?"
+        },
+        {
+          "speaker": "Owner",
+          "fr": "Oui. Je peux proposer deux plats aux légumes.",
+          "en": "Yes. I can offer two vegetable dishes."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Nous les commanderons à condition que la sauce ne contienne pas de bouillon de poulet.",
+          "en": "We will order them provided the sauce does not contain chicken stock."
+        },
+        {
+          "speaker": "Owner",
+          "fr": "Je vais confirmer les ingrédients avec la cuisine. À quelle heure viendrez-vous ?",
+          "en": "I will confirm the ingredients with the kitchen. At what time will you come?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Si le repas est prêt à treize heures, nous arriverons à l’heure.",
+          "en": "If the meal is ready at one p.m., we will arrive on time."
+        },
+        {
+          "speaker": "Owner",
+          "fr": "Je note douze personnes vendredi à treize heures, sous réserve de confirmer les deux plats.",
+          "en": "I am noting twelve people Friday at one p.m., subject to confirming the two dishes."
+        }
+      ],
+      "speaking": {
+        "role": "Student organizing a farewell lunch",
+        "partnerRole": "Café owner Marta",
+        "opening": "Merci pour cette semaine de déjeuners.",
+        "goal": "Thank the owner, request Friday for twelve at one p.m. and two meat-free dishes without chicken stock, and confirm the outstanding ingredient check.",
+        "closure": "Merci. Nous attendons votre confirmation des deux plats.",
+        "wordBank": [
+          "un déjeuner d’adieu",
+          "une semaine",
+          "les camarades de classe",
+          "la propriétaire",
+          "une grande table",
+          "douze personnes",
+          "deux repas sans viande",
+          "du bouillon de poulet",
+          "treize heures",
+          "un acompte",
+          "Merci pour cette semaine de déjeuners.",
+          "Nous aimerions revenir vendredi avec toute la classe.",
+          "Nous serions douze, à condition qu’il y ait de la place.",
+          "Pourriez-vous préparer deux plats sans viande ?",
+          "Nous les commanderons à condition que la sauce ne contienne pas de bouillon de poulet.",
+          "Si le repas est prêt à treize heures, nous arriverons à l’heure."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French phrase for a farewell lunch.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the twelve-person space condition.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the direct meat-free dish request.",
+          "sourceCard": 14,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for chicken stock.",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "State the sauce condition without chicken stock.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write the Friday invitation request.",
+          "sourceCard": 12,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "The café and menu arrangements are fictional. Qualified French and food/domain review required for ingredient conditions and subjunctive forms."
+    },
+    {
+      "n": 20,
+      "stableId": "master-travel-lunch:20:fr-en",
+      "sourceTitleEnglish": "Capstone: Hosting a Long Lunch Day in Valparaíso",
+      "sourceObjectiveEnglish": "Lead a group lunch day from menu to bill: teach, fix a problem, handle a near miss, report and review in Spanish.",
+      "sourceSpeakingEnglish": "You are the host, and the AI plays guide Patricio, server Ignacio and your friends: lead the lunch from menu to bill and a short review, using si clauses, the subjunctive (antes de que, quiero que), usted with staff and connectors like sin embargo and en resumen.",
+      "title": "Lead a Long Lunch from Menu to Review",
+      "objective": "Lead a group through a full lunch: explain the menu, choose a substitute, ask about a shellfish allergy, resolve an order note, verify the bill and write a brief review in French.",
+      "focus": "Integrate vous with staff, si + present, avant que + subjunctive, clear allergen wording, and cependant/en résumé for the written review.",
+      "scene": "Maya hosts three friends at a lunch café; a dish sells out and one guest has a shellfish allergy.",
+      "cards": [
+        {
+          "fr": "la formule du midi",
+          "en": "the fixed-price lunch",
+          "kind": "term"
+        },
+        {
+          "fr": "épuisé",
+          "en": "sold out",
+          "kind": "term"
+        },
+        {
+          "fr": "une option sans crustacés ni mollusques",
+          "en": "a shellfish-free option",
+          "kind": "term"
+        },
+        {
+          "fr": "une allergie aux crustacés et aux mollusques",
+          "en": "a shellfish allergy",
+          "kind": "term"
+        },
+        {
+          "fr": "des crevettes",
+          "en": "shrimp",
+          "kind": "term"
+        },
+        {
+          "fr": "une note sur la commande",
+          "en": "a note on the order",
+          "kind": "term"
+        },
+        {
+          "fr": "une addition détaillée",
+          "en": "an itemized bill",
+          "kind": "term"
+        },
+        {
+          "fr": "un supplément",
+          "en": "an extra charge",
+          "kind": "term"
+        },
+        {
+          "fr": "une réclamation",
+          "en": "a complaint",
+          "kind": "term"
+        },
+        {
+          "fr": "un avis",
+          "en": "a review",
+          "kind": "term"
+        },
+        {
+          "fr": "Si le poisson est épuisé, nous prendrons la tarte.",
+          "en": "If the fish is sold out, we will have the tart.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Ce plat contient-il des crevettes, d’autres crustacés ou des mollusques ?",
+          "en": "Does this dish contain shrimp, other crustaceans or mollusks?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Sam a une allergie aux crustacés et aux mollusques.",
+          "en": "Sam has a shellfish allergy.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je veux que vous vérifiiez avec la cuisine avant que Sam ne goûte le plat.",
+          "en": "I want you to check with the kitchen before Sam tastes the dish.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La note sur la commande mentionne-t-elle l’allergie ?",
+          "en": "Does the order note mention the allergy?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pouvez-vous nous donner une addition détaillée ?",
+          "en": "Can you give us an itemized bill?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Cependant, le personnel a corrigé le supplément.",
+          "en": "However, the staff corrected the extra charge.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "En résumé, le repas était bon malgré ce problème.",
+          "en": "In summary, the meal was good despite this problem.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "La formule du midi comprend une entrée et un plat. Tout le monde a compris ?",
+          "en": "The fixed-price lunch includes a starter and a main course. Does everyone understand?"
+        },
+        {
+          "speaker": "Friend",
+          "fr": "Oui. Je voudrais le poisson.",
+          "en": "Yes. I would like the fish."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Le poisson est épuisé.",
+          "en": "The fish is sold out."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Si le poisson est épuisé, nous prendrons la tarte. Sam a une allergie aux crustacés et aux mollusques.",
+          "en": "If the fish is sold out, we will have the tart. Sam has a shellfish allergy."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Ce plat contient-il des crevettes, d’autres crustacés ou des mollusques ?",
+          "en": "Does this dish contain shrimp, other crustaceans or mollusks?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Je vais demander à la cuisine.",
+          "en": "I will ask the kitchen."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Je veux que vous vérifiiez avec la cuisine avant que Sam ne goûte le plat. La note sur la commande mentionne-t-elle l’allergie ?",
+          "en": "I want you to check with the kitchen before Sam tastes the dish. Does the order note mention the allergy?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "La note manquait. Je l’ajoute et je vérifie les ingrédients.",
+          "en": "The note was missing. I am adding it and checking the ingredients."
+        },
+        {
+          "speaker": "Server",
+          "fr": "La cuisine confirme que cette tarte ne contient ni crustacés ni mollusques.",
+          "en": "The kitchen confirms that this tart contains neither crustaceans nor mollusks."
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Merci. Nous pouvons commander la tarte.",
+          "en": "Thank you. We can order the tart."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Je voudrais signaler au responsable que la note sur l’allergie manquait.",
+          "en": "I would like to report to the manager that the allergy note was missing."
+        },
+        {
+          "speaker": "Manager",
+          "fr": "Je vais consigner ce signalement.",
+          "en": "I will record this report."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "L’addition contient un supplément que nous n’avons pas demandé. Pouvez-vous nous donner une addition détaillée ?",
+          "en": "The bill includes an extra charge we did not request. Can you give us an itemized bill?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Vous avez raison. Je retire le supplément.",
+          "en": "You are right. I will remove the extra charge."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Je vais noter les faits dans mon avis : le repas était bon ; cependant, il y a eu un problème de note et de supplément.",
+          "en": "I will record the facts in my review: the food was good; however, there was a note and extra-charge problem."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "En résumé, le personnel a vérifié les ingrédients et corrigé l’addition.",
+          "en": "In summary, the staff checked the ingredients and corrected the bill."
+        }
+      ],
+      "speaking": {
+        "role": "Host guiding an extended lunch",
+        "partnerRole": "Server and friends",
+        "opening": "La formule du midi comprend une entrée et un plat.",
+        "goal": "Teach the menu, choose a substitute, state Sam’s shellfish allergy, ask the kitchen and order-note questions, report the missing note to a manager, challenge an extra charge, then give a short balanced review.",
+        "closure": "En résumé, le personnel a vérifié les ingrédients et corrigé l’addition.",
+        "wordBank": [
+          "la formule du midi",
+          "épuisé",
+          "une option sans crustacés ni mollusques",
+          "une allergie aux crustacés et aux mollusques",
+          "des crevettes",
+          "une note sur la commande",
+          "une addition détaillée",
+          "un supplément",
+          "une réclamation",
+          "un avis",
+          "Si le poisson est épuisé, nous prendrons la tarte.",
+          "Ce plat contient-il des crevettes, d’autres crustacés ou des mollusques ?",
+          "Sam a une allergie aux crustacés et aux mollusques.",
+          "Je veux que vous vérifiiez avec la cuisine avant que Sam ne goûte le plat.",
+          "La note sur la commande mentionne-t-elle l’allergie ?",
+          "Pouvez-vous nous donner une addition détaillée ?",
+          "Cependant, le personnel a corrigé le supplément.",
+          "En résumé, le repas était bon malgré ce problème."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French phrase for a shellfish allergy.",
+          "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the question about shrimp or other shellfish.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the order-note allergy question.",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for itemized bill.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask staff to check before Sam tastes the dish.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write the brief review summary.",
+          "sourceCard": 18,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Qualified French, shellfish-allergy and restaurant/domain review required. The café’s ingredient statement and bill correction are fictional scene facts. Clinical terms remain direct; review notes stay internal."
+    }
+  ],
+  "internalReviewNotes": [
+    "Master 16–20 preserve the Spanish Master learning purposes with French formal reporting, review, booking, conditional planning and integrated capstone scenes. Direct symptom, chicken-stock and shellfish-allergy terms remain in teaching content.",
+    "Qualified French and relevant medical, allergen, privacy and restaurant/domain review remain required; all lessons are private and unregistered."
+  ]
+}

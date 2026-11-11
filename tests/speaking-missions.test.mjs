@@ -570,15 +570,16 @@ test("Foundation and Master missions are catalogued under their base module, lab
   for (const entry of CORE60_MANIFEST) {
     for (const stage of ["foundation", "master"]) {
       if (!entry[stage]) continue;
+      const stageModuleId = entry[stage].moduleId ?? `${stage}-${entry.base}`;
       const underBase = missions.filter(
         (m) =>
           speakingCatalogModuleId(m.moduleId) === entry.base &&
-          m.moduleId === `${stage}-${entry.base}`,
+          m.moduleId === stageModuleId,
       );
       const inLanguage = entry.language === "Spanish";
-      assert.equal(underBase.length > 0, inLanguage, `${stage}-${entry.base} Spanish missions`);
+      assert.equal(underBase.length > 0, inLanguage, `${stageModuleId} Spanish missions`);
       assert.equal(
-        getSpeakingMissions("Italian").filter((m) => m.moduleId === `${stage}-${entry.base}`)
+        getSpeakingMissions("Italian").filter((m) => m.moduleId === stageModuleId)
           .length,
         0,
       );

@@ -3,6 +3,7 @@ import { SOUND_CURRICULUM } from "./sound-like-a-native.ts";
 import { SPANISH_NEXT_CURRICULA } from "./spanish-next.ts";
 import { SPANISH_BASICS_CURRICULUM } from "./spanish-basics.ts";
 import { JAPANESE_BASICS_CURRICULUM } from "./japanese-basics.ts";
+import { FRENCH_LUNCH_CORE_CURRICULUM } from "./french-travel-lunch.ts";
 import type { Language } from "@/state/app-state";
 import type { LibraryEntry } from "@/state/library-state";
 import {
@@ -4266,6 +4267,8 @@ export function getCurriculum(
   targetLanguage?: string,
   nativeLanguage?: string,
 ): ModuleCurriculum | null {
+  if (moduleId === "travel-lunch" && targetLanguage === "French")
+    return nativeLanguage === "English" ? FRENCH_LUNCH_CORE_CURRICULUM : null;
   return CURRICULA[moduleId] ?? stageCurriculum(moduleId, targetLanguage, nativeLanguage);
 }
 

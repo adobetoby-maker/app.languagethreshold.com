@@ -286,7 +286,9 @@ test("French stages on a shared base keep French progress ids and French/English
 
 test("the shipped manifest is valid and leaves every current module exactly as written", () => {
   assert.deepEqual(validateManifest(CORE60_MANIFEST, HANDWRITTEN_MODULES, (id) => Boolean(CURRICULA[id])), []);
-  const listed = new Set(CORE60_MANIFEST.flatMap((e) => [`foundation-${e.base}`, `master-${e.base}`]));
+  const listed = new Set(CORE60_MANIFEST.flatMap((e) => ["foundation", "master"]
+    .filter((stage) => e[stage])
+    .map((stage) => manifestStageModuleId(e, stage))));
   assert.deepEqual(
     MODULES.filter((m) => !listed.has(m.id)),
     [...HANDWRITTEN_MODULES],

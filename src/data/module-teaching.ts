@@ -2,6 +2,12 @@ import { placeTeaching, PLACE_VERSION } from "./place-directions.ts";
 import { soundTeaching, SOUND_PRACTICE_VERSION } from "./sound-like-a-native.ts";
 import { spanishBasicsTeaching, SPANISH_BASICS_VERSION } from "./spanish-basics.ts";
 import { japaneseBasicsTeaching, JAPANESE_BASICS_VERSION } from "./japanese-basics.ts";
+import {
+  frenchLunchCoreLesson,
+  frenchLunchFoundationLesson,
+  FRENCH_LUNCH_CORE_VERSION,
+  FRENCH_LUNCH_FOUNDATION_VERSION,
+} from "./french-travel-lunch.ts";
 import { roofingTeachingSettings } from "./roofing-teaching.ts";
 import { LANDSCAPER_LESSON_CONTENT } from "./landscaper-lesson-content.ts";
 import { FOREMAN_LESSON_CONTENT } from "./construction-foreman-lesson-content.ts";
@@ -15,6 +21,16 @@ export function moduleTeachingSettings(
   target: string,
   native: string,
 ) {
+  if (target === "French" && native === "English") {
+    const core = moduleId === "travel-lunch" ? frenchLunchCoreLesson(n, target, native) : null;
+    const foundation = moduleId === "foundation-travel-lunch-fr"
+      ? frenchLunchFoundationLesson(n, target, native) : null;
+    const draft = core ?? foundation;
+    if (draft) {
+      const settings = lessonTeachingSettings(core ? n : 1, core?.speaking.goal ?? foundation!.speakingScene.goal);
+      return { ...settings, writing: { copyFirst: true as const, prompt: draft.modes.write.cueEnglish } };
+    }
+  }
   if (target === "English" && native === "Spanish") return militaryTeachingSettings(moduleId, n);
   if (target === "Japanese" && native === "English")
     return japaneseBasicsTeaching(moduleId, n, target, native);
@@ -37,6 +53,10 @@ export function moduleTeachingSettings(
 
 export const ROOFING_PRACTICE_VERSION = "roofing-es-en-2026-10-16-draft";
 export function modulePracticeVersion(moduleId: string, target: string, native: string) {
+  if (target === "French" && native === "English") {
+    if (moduleId === "foundation-travel-lunch-fr") return FRENCH_LUNCH_FOUNDATION_VERSION;
+    if (moduleId === "travel-lunch") return FRENCH_LUNCH_CORE_VERSION;
+  }
   if (
     target === "Japanese" &&
     native === "English" &&

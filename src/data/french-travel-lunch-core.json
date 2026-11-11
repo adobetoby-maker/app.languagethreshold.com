@@ -1,0 +1,5647 @@
+{
+  "version": 1,
+  "module": "travel-lunch",
+  "language": "French",
+  "nativeLanguage": "English",
+  "reviewed": false,
+  "registered": false,
+  "sourceHashes": {
+    "content/french-travel-lunch/core-1-5-draft.json": "8a9efdbaaa6a0f58a88e2d44c3065437aca47eeb8d114a15bd0d04c52c3a9a5d",
+    "content/french-travel-lunch/core-6-10-draft.json": "3e6830181e6e1b7590f29c9e6c4086569ec999500f5e9c6f5cfc59c1fc8ef57e",
+    "content/french-travel-lunch/core-11-15-draft.json": "ce9f0a21540dc21c3e9e70047f1a0469057a97a0005f55197eafa1d80429c92d",
+    "content/french-travel-lunch/core-16-20-draft.json": "6c045464d1af55d44fcd853a3f3e5bd3b366ad9b29f7388ac56d52b2dba65d9d",
+    "content/french-travel-lunch/core-21-25-draft.json": "58409024a57e5de54f7284e1c5f4b7d9bc5a664d98bf0f8cd209bad982f83f13",
+    "content/french-travel-lunch/core-26-30-draft.json": "43065579efd649001cc2450c21d32ca1243e4e2c5bac398219585affc5965423"
+  },
+  "headline": "French Lunch Core 30",
+  "threshold": "Order, discuss and resolve a full lunch in French with English support.",
+  "lessons": [
+    {
+      "n": 1,
+      "stableId": "core-travel-lunch:1:fr-en",
+      "title": "Choose a Neighborhood Lunch Place",
+      "objective": "Ask a local where they eat, compare wait times and seating, and decide whether a nearby place feels aimed at visitors.",
+      "focus": "Use où vous déjeunez, il faut attendre, il reste des places, and c’est surtout pour les touristes in a short recommendation exchange.",
+      "scene": "At a market square, Maya asks a local which nearby place they genuinely choose.",
+      "words": [
+        {
+          "es": "le quartier",
+          "en": "the neighborhood",
+          "kind": "term"
+        },
+        {
+          "es": "une terrasse",
+          "en": "a terrace / outdoor seating",
+          "kind": "term"
+        },
+        {
+          "es": "une table à l’intérieur",
+          "en": "an indoor table",
+          "kind": "term"
+        },
+        {
+          "es": "l’attente",
+          "en": "the wait",
+          "kind": "term"
+        },
+        {
+          "es": "les habitués",
+          "en": "the regular customers",
+          "kind": "term"
+        },
+        {
+          "es": "un restaurant touristique",
+          "en": "a tourist-oriented restaurant",
+          "kind": "term"
+        },
+        {
+          "es": "un bistrot de quartier",
+          "en": "a neighborhood bistro",
+          "kind": "term"
+        },
+        {
+          "es": "la cuisine du coin",
+          "en": "local food",
+          "kind": "term"
+        },
+        {
+          "es": "Vous déjeunez où, vous ?",
+          "en": "Where do you eat lunch?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Il faut attendre longtemps ?",
+          "en": "Is there a long wait?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Il reste des places à l’intérieur ?",
+          "en": "Are there indoor seats left?",
+          "kind": "phrase"
+        },
+        {
+          "es": "C’est surtout pour les touristes ?",
+          "en": "Is it mainly for tourists?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je vais souvent au bistrot de la rue Victor.",
+          "en": "I often go to the bistro on Victor Street.",
+          "kind": "phrase"
+        },
+        {
+          "es": "À midi, comptez dix minutes d’attente.",
+          "en": "At noon, allow ten minutes of waiting.",
+          "kind": "phrase"
+        },
+        {
+          "es": "La terrasse est pleine, mais il reste une table dedans.",
+          "en": "The terrace is full, but one table is left inside.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Lunch visitor",
+        "partnerRole": "Local resident",
+        "opening": "Excusez-moi. Vous déjeunez où, vous, dans ce quartier ?",
+        "goal": "Ask for an actual local lunch choice, check whether it is tourist-oriented, then confirm wait time and seating.",
+        "closure": "Merci pour le conseil. Bonne journée !",
+        "wordBank": [
+          "le quartier",
+          "une terrasse",
+          "l’attente",
+          "les habitués",
+          "un restaurant touristique",
+          "un bistrot de quartier",
+          "la cuisine du coin",
+          "Vous déjeunez où, vous ?",
+          "Il faut attendre longtemps ?",
+          "Il reste des places à l’intérieur ?",
+          "C’est surtout pour les touristes ?"
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Excusez-moi. Vous déjeunez où, vous, dans ce quartier ?",
+          "en": "Excuse me. Where do you eat lunch in this neighborhood?"
+        },
+        {
+          "speaker": "Local",
+          "fr": "Je vais souvent au bistrot de la rue Victor.",
+          "en": "I often go to the bistro on Victor Street."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "C’est surtout pour les touristes ?",
+          "en": "Is it mainly for tourists?"
+        },
+        {
+          "speaker": "Local",
+          "fr": "Non, il y a beaucoup d’habitués et la cuisine du coin est bonne.",
+          "en": "No, there are many regulars, and the local food is good."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Il faut attendre longtemps à midi ?",
+          "en": "Is there a long wait at noon?"
+        },
+        {
+          "speaker": "Local",
+          "fr": "Comptez dix minutes. La terrasse est souvent pleine.",
+          "en": "Allow ten minutes. The terrace is often full."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Il reste des places à l’intérieur ?",
+          "en": "Are there indoor seats left?"
+        },
+        {
+          "speaker": "Local",
+          "fr": "Oui, il reste généralement une table dedans.",
+          "en": "Yes, there is usually an indoor table left."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the phrase for a neighborhood bistro.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to ask whether there is a long wait.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question about tourists.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the word for regular customers.",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask a local where they really eat lunch.",
+          "sourceCard": 9,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a question about indoor seating.",
+          "sourceCard": 11,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 2,
+      "stableId": "core-travel-lunch:2:fr-en",
+      "title": "Read the Midday Menu",
+      "objective": "Ask what a fixed-price lunch includes, identify course choices and portion sizes, and order from today’s options.",
+      "focus": "Distinguish entrée (starter), plat (main course), dessert, formule, and à la carte; ask qu’est-ce qui est compris and quelle taille fait la portion.",
+      "scene": "At a small restaurant, Maya asks the server to explain the midday formula before ordering.",
+      "words": [
+        {
+          "es": "la formule du midi",
+          "en": "the fixed-price lunch",
+          "kind": "term"
+        },
+        {
+          "es": "une entrée",
+          "en": "a starter",
+          "kind": "term"
+        },
+        {
+          "es": "un plat",
+          "en": "a main course",
+          "kind": "term"
+        },
+        {
+          "es": "un dessert",
+          "en": "a dessert",
+          "kind": "term"
+        },
+        {
+          "es": "à la carte",
+          "en": "from the regular menu",
+          "kind": "term"
+        },
+        {
+          "es": "la portion",
+          "en": "the serving / portion",
+          "kind": "term"
+        },
+        {
+          "es": "compris",
+          "en": "included",
+          "kind": "term"
+        },
+        {
+          "es": "au choix",
+          "en": "to choose from",
+          "kind": "term"
+        },
+        {
+          "es": "Qu’est-ce qui est compris dans la formule ?",
+          "en": "What is included in the set lunch?",
+          "kind": "phrase"
+        },
+        {
+          "es": "On choisit une entrée ou un dessert ?",
+          "en": "Do we choose a starter or a dessert?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quels plats sont disponibles aujourd’hui ?",
+          "en": "Which main courses are available today?",
+          "kind": "phrase"
+        },
+        {
+          "es": "La portion est grande ?",
+          "en": "Is the portion large?",
+          "kind": "phrase"
+        },
+        {
+          "es": "La formule comprend une entrée et un plat.",
+          "en": "The set lunch includes a starter and a main course.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Le poisson est épuisé.",
+          "en": "The fish is sold out.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je prendrai la soupe et le poulet.",
+          "en": "I will have the soup and the chicken.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Lunch guest",
+        "partnerRole": "Restaurant server",
+        "opening": "Bonjour. Qu’est-ce qui est compris dans la formule du midi ?",
+        "goal": "Find out the set-lunch courses and choices, check a portion, then place an order using today’s availability.",
+        "closure": "Merci, ce sera tout pour le moment.",
+        "wordBank": [
+          "la formule du midi",
+          "une entrée",
+          "un plat",
+          "à la carte",
+          "la portion",
+          "compris",
+          "au choix",
+          "Qu’est-ce qui est compris dans la formule ?",
+          "Quels plats sont disponibles aujourd’hui ?",
+          "La portion est grande ?",
+          "Le poisson est épuisé.",
+          "Je prendrai la soupe et le poulet."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Qu’est-ce qui est compris dans la formule du midi ?",
+          "en": "Hello. What is included in the fixed-price lunch?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Une entrée et un plat, ou un plat et un dessert.",
+          "en": "A starter and a main course, or a main course and a dessert."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Quels plats sont disponibles aujourd’hui ?",
+          "en": "Which main courses are available today?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Le poulet et les légumes. Le poisson est épuisé.",
+          "en": "Chicken and vegetables. The fish is sold out."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "La portion de poulet est grande ?",
+          "en": "Is the chicken portion large?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, c’est une portion généreuse.",
+          "en": "Yes, it is a generous serving."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Alors, je prendrai la soupe en entrée et le poulet en plat.",
+          "en": "Then I will have the soup as a starter and the chicken as my main course."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Très bien. Le dessert est aussi disponible à la carte.",
+          "en": "Very good. Dessert is also available from the regular menu."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the word for a starter.",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the expression for included.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for what the formula includes.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the word for a serving.",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask which main courses are available today.",
+          "sourceCard": 11,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write an order for soup and chicken.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 3,
+      "stableId": "core-travel-lunch:3:fr-en",
+      "title": "Order a Breton Galette at a Stall",
+      "objective": "Ask about a regional street-food filling, sauce, spice and serving size, then choose whether to eat there or take it away.",
+      "focus": "Use garniture for filling, avec/sans for ingredients, relevé for noticeable spice, and sur place/à emporter for where the food will be eaten.",
+      "scene": "At a Breton market stall, Maya asks how the galette is prepared and orders one to take away.",
+      "words": [
+        {
+          "es": "une galette bretonne",
+          "en": "a Breton buckwheat crêpe",
+          "kind": "term"
+        },
+        {
+          "es": "la garniture",
+          "en": "the filling",
+          "kind": "term"
+        },
+        {
+          "es": "le sarrasin",
+          "en": "buckwheat",
+          "kind": "term"
+        },
+        {
+          "es": "le jambon",
+          "en": "ham",
+          "kind": "term"
+        },
+        {
+          "es": "le fromage",
+          "en": "cheese",
+          "kind": "term"
+        },
+        {
+          "es": "un œuf",
+          "en": "an egg",
+          "kind": "term"
+        },
+        {
+          "es": "la sauce",
+          "en": "the sauce",
+          "kind": "term"
+        },
+        {
+          "es": "relevé",
+          "en": "spicy / well-seasoned",
+          "kind": "term"
+        },
+        {
+          "es": "sur place",
+          "en": "to eat here",
+          "kind": "term"
+        },
+        {
+          "es": "à emporter",
+          "en": "to take away",
+          "kind": "term"
+        },
+        {
+          "es": "Qu’est-ce qu’il y a dans la galette ?",
+          "en": "What is in the galette?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Vous avez une sauce relevée ?",
+          "en": "Do you have a spicy sauce?",
+          "kind": "phrase"
+        },
+        {
+          "es": "La portion est assez grande pour déjeuner ?",
+          "en": "Is the serving large enough for lunch?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je la prends avec un œuf et du fromage, sans jambon.",
+          "en": "I will have it with egg and cheese, without ham.",
+          "kind": "phrase"
+        },
+        {
+          "es": "À emporter, s’il vous plaît.",
+          "en": "To take away, please.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Market customer",
+        "partnerRole": "Galette stall vendor",
+        "opening": "Bonjour. Qu’est-ce qu’il y a dans la galette bretonne ?",
+        "goal": "Ask about the galette filling and sauce, change an ingredient, confirm the portion and order it to take away.",
+        "closure": "Merci. Bonne journée !",
+        "wordBank": [
+          "une galette bretonne",
+          "la garniture",
+          "le sarrasin",
+          "le jambon",
+          "le fromage",
+          "un œuf",
+          "la sauce",
+          "relevé",
+          "sur place",
+          "à emporter",
+          "Qu’est-ce qu’il y a dans la galette ?",
+          "La portion est assez grande pour déjeuner ?",
+          "Je la prends avec un œuf et du fromage, sans jambon.",
+          "À emporter, s’il vous plaît."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Qu’est-ce qu’il y a dans la galette bretonne ?",
+          "en": "Hello. What is in the Breton galette?"
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "La pâte est au sarrasin. Vous choisissez la garniture.",
+          "en": "The batter is made with buckwheat. You choose the filling."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Vous avez du jambon, du fromage et un œuf ?",
+          "en": "Do you have ham, cheese and an egg?"
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "Oui, et une sauce relevée si vous voulez.",
+          "en": "Yes, and a spicy sauce if you want."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Je la prends avec un œuf et du fromage, sans jambon.",
+          "en": "I will have it with egg and cheese, without ham."
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "Bien sûr. C’est pour manger sur place ?",
+          "en": "Of course. Is it to eat here?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Non, à emporter. La portion est assez grande pour déjeuner ?",
+          "en": "No, to take away. Is the serving large enough for lunch?"
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "Oui, elle est copieuse. Je vous la prépare.",
+          "en": "Yes, it is filling. I will prepare it for you."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the word for the galette filling.",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to say to take away.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question about what is inside.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the word for buckwheat.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether a spicy sauce is available.",
+          "sourceCard": 12,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write an order with egg and cheese but without ham.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 4,
+      "stableId": "core-travel-lunch:4:fr-en",
+      "title": "Customize a Sandwich",
+      "objective": "Choose bread, filling, cheese, vegetables and condiments, then ask for one change in preparation.",
+      "focus": "Use je voudrais, avec/sans, à la place de and pouvez-vous to specify a sandwich without losing the original order.",
+      "scene": "At a sandwich counter, Maya orders a made-to-order baguette and replaces one condiment.",
+      "words": [
+        {
+          "es": "une baguette",
+          "en": "a baguette",
+          "kind": "term"
+        },
+        {
+          "es": "du pain complet",
+          "en": "whole-wheat bread",
+          "kind": "term"
+        },
+        {
+          "es": "la garniture",
+          "en": "the filling",
+          "kind": "term"
+        },
+        {
+          "es": "du poulet",
+          "en": "chicken",
+          "kind": "term"
+        },
+        {
+          "es": "du fromage",
+          "en": "cheese",
+          "kind": "term"
+        },
+        {
+          "es": "de la laitue",
+          "en": "lettuce",
+          "kind": "term"
+        },
+        {
+          "es": "des tomates",
+          "en": "tomatoes",
+          "kind": "term"
+        },
+        {
+          "es": "de la moutarde",
+          "en": "mustard",
+          "kind": "term"
+        },
+        {
+          "es": "de la mayonnaise",
+          "en": "mayonnaise",
+          "kind": "term"
+        },
+        {
+          "es": "chaud",
+          "en": "warm / hot",
+          "kind": "term"
+        },
+        {
+          "es": "Je voudrais un sandwich au poulet.",
+          "en": "I would like a chicken sandwich.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Vous avez du pain complet ?",
+          "en": "Do you have whole-wheat bread?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Avec de la laitue et des tomates, s’il vous plaît.",
+          "en": "With lettuce and tomatoes, please.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Sans mayonnaise ; de la moutarde à la place.",
+          "en": "Without mayonnaise; mustard instead.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Pouvez-vous le faire chauffer ?",
+          "en": "Can you warm it up?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Sandwich customer",
+        "partnerRole": "Counter worker",
+        "opening": "Bonjour. Je voudrais un sandwich au poulet.",
+        "goal": "Choose bread and vegetables, replace mayonnaise with mustard, ask for the sandwich warm, and confirm the order.",
+        "closure": "Parfait, merci beaucoup.",
+        "wordBank": [
+          "une baguette",
+          "du pain complet",
+          "la garniture",
+          "du poulet",
+          "du fromage",
+          "de la laitue",
+          "des tomates",
+          "de la moutarde",
+          "de la mayonnaise",
+          "chaud",
+          "Je voudrais un sandwich au poulet.",
+          "Vous avez du pain complet ?",
+          "Avec de la laitue et des tomates, s’il vous plaît.",
+          "Sans mayonnaise ; de la moutarde à la place.",
+          "Pouvez-vous le faire chauffer ?"
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Je voudrais un sandwich au poulet.",
+          "en": "Hello. I would like a chicken sandwich."
+        },
+        {
+          "speaker": "Worker",
+          "fr": "Dans une baguette ou avec du pain complet ?",
+          "en": "On a baguette or on whole-wheat bread?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Avec du pain complet, s’il vous plaît.",
+          "en": "On whole-wheat bread, please."
+        },
+        {
+          "speaker": "Worker",
+          "fr": "Avec du fromage et des légumes ?",
+          "en": "With cheese and vegetables?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Oui, avec de la laitue et des tomates.",
+          "en": "Yes, with lettuce and tomatoes."
+        },
+        {
+          "speaker": "Worker",
+          "fr": "Et de la mayonnaise ?",
+          "en": "And mayonnaise?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Non, sans mayonnaise ; de la moutarde à la place. Pouvez-vous le faire chauffer ?",
+          "en": "No, without mayonnaise; mustard instead. Can you warm it up?"
+        },
+        {
+          "speaker": "Worker",
+          "fr": "Bien sûr. Un sandwich au poulet avec du pain complet et de la moutarde, bien chaud.",
+          "en": "Of course. A warm chicken sandwich on whole-wheat bread, with mustard."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the expression for whole-wheat bread.",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the word for mustard.",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the request to replace mayonnaise.",
+          "sourceCard": 14,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the word for lettuce.",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether the worker can warm the sandwich.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a chicken sandwich order with lettuce and tomatoes.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 5,
+      "stableId": "core-travel-lunch:5:fr-en",
+      "title": "Ask About Today’s Special",
+      "objective": "Ask what today’s cooked dish contains, how it is made, whether it is still available and what it costs.",
+      "focus": "Use le plat du jour, il est préparé avec, est encore disponible / il en reste, and combien ça coûte to ask before choosing.",
+      "scene": "At a neighborhood restaurant, Maya compares the daily special with a quicker lunch.",
+      "words": [
+        {
+          "es": "le plat du jour",
+          "en": "the daily special / dish of the day",
+          "kind": "term"
+        },
+        {
+          "es": "la préparation",
+          "en": "the preparation / way of cooking",
+          "kind": "term"
+        },
+        {
+          "es": "les ingrédients",
+          "en": "the ingredients",
+          "kind": "term"
+        },
+        {
+          "es": "des légumes rôtis",
+          "en": "roasted vegetables",
+          "kind": "term"
+        },
+        {
+          "es": "du poulet grillé",
+          "en": "grilled chicken",
+          "kind": "term"
+        },
+        {
+          "es": "la sauce au citron",
+          "en": "the lemon sauce",
+          "kind": "term"
+        },
+        {
+          "es": "le prix",
+          "en": "the price",
+          "kind": "term"
+        },
+        {
+          "es": "disponible",
+          "en": "available",
+          "kind": "term"
+        },
+        {
+          "es": "Le plat du jour est encore disponible ?",
+          "en": "Is the daily special still available?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quels sont les ingrédients ?",
+          "en": "What are the ingredients?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Comment le poulet est-il préparé ?",
+          "en": "How is the chicken prepared?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Il est servi avec du riz ?",
+          "en": "Is it served with rice?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Combien coûte le plat du jour ?",
+          "en": "How much does the daily special cost?",
+          "kind": "phrase"
+        },
+        {
+          "es": "C’est un bon choix pour un déjeuner rapide ?",
+          "en": "Is it a good choice for a quick lunch?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je vais prendre le plat du jour.",
+          "en": "I will have the daily special.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Lunch guest",
+        "partnerRole": "Restaurant server",
+        "opening": "Bonjour. Le plat du jour est encore disponible ?",
+        "goal": "Ask about ingredients, preparation, availability, price and timing, then decide whether to order today’s special.",
+        "closure": "Merci, je vais prendre celui-là.",
+        "wordBank": [
+          "le plat du jour",
+          "la préparation",
+          "les ingrédients",
+          "des légumes rôtis",
+          "du poulet grillé",
+          "la sauce au citron",
+          "le prix",
+          "disponible",
+          "Le plat du jour est encore disponible ?",
+          "Quels sont les ingrédients ?",
+          "Comment le poulet est-il préparé ?",
+          "Il est servi avec du riz ?",
+          "Combien coûte le plat du jour ?",
+          "C’est un bon choix pour un déjeuner rapide ?",
+          "Je vais prendre le plat du jour."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Le plat du jour est encore disponible ?",
+          "en": "Hello. Is the daily special still available?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, il en reste trois portions.",
+          "en": "Yes, there are three servings left."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Quels sont les ingrédients ?",
+          "en": "What are the ingredients?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Du poulet grillé, des légumes rôtis et une sauce au citron.",
+          "en": "Grilled chicken, roasted vegetables and a lemon sauce."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Le poulet est servi avec du riz ?",
+          "en": "Is the chicken served with rice?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui. Il est grillé et servi avec du riz.",
+          "en": "Yes. It is grilled and served with rice."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Combien coûte le plat du jour ? C’est un bon choix pour un déjeuner rapide ?",
+          "en": "How much does the daily special cost? Is it a good choice for a quick lunch?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Quatorze euros. Il peut être prêt dans quelques minutes.",
+          "en": "Fourteen euros. It can be ready in a few minutes."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Très bien. Je vais prendre le plat du jour.",
+          "en": "Very good. I will have the daily special."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the expression for the dish of the day.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to ask whether any remains.",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the ingredients question.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the word for ingredients.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask how the chicken is prepared.",
+          "sourceCard": 11,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a question about the special’s price.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 6,
+      "stableId": "core-travel-lunch:6:fr-en",
+      "title": "Compare the Soup, Ravioles and Rice",
+      "objective": "Ask about two regional lunch dishes, compare portion and sauce, and choose a dish that fits your appetite.",
+      "focus": "Use plutôt, plus copieux, servi avec and spécialité de la région to compare options without assuming all dishes are prepared the same way.",
+      "scene": "In a small restaurant near Grenoble, Maya compares ravioles with soup and asks about the rice option.",
+      "words": [
+        {
+          "es": "les ravioles du Dauphiné",
+          "en": "Dauphiné ravioles (small filled pasta)",
+          "kind": "term"
+        },
+        {
+          "es": "la soupe au pistou",
+          "en": "pistou soup",
+          "kind": "term"
+        },
+        {
+          "es": "le riz",
+          "en": "rice",
+          "kind": "term"
+        },
+        {
+          "es": "une spécialité régionale",
+          "en": "a regional specialty",
+          "kind": "term"
+        },
+        {
+          "es": "la portion",
+          "en": "the serving / portion",
+          "kind": "term"
+        },
+        {
+          "es": "la sauce",
+          "en": "the sauce",
+          "kind": "term"
+        },
+        {
+          "es": "le bouillon",
+          "en": "the broth",
+          "kind": "term"
+        },
+        {
+          "es": "copieux",
+          "en": "filling / substantial",
+          "kind": "term"
+        },
+        {
+          "es": "plutôt",
+          "en": "rather / instead",
+          "kind": "term"
+        },
+        {
+          "es": "Les ravioles sont servies avec quelle sauce ?",
+          "en": "What sauce are the ravioles served with?",
+          "kind": "phrase"
+        },
+        {
+          "es": "La soupe est plus légère que les ravioles ?",
+          "en": "Is the soup lighter than the ravioles?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Vous avez aussi un plat de riz ?",
+          "en": "Do you also have a rice dish?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Lequel est le plus copieux ?",
+          "en": "Which one is the most filling?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je vais prendre les ravioles.",
+          "en": "I will have the ravioles.",
+          "kind": "phrase"
+        },
+        {
+          "es": "C’est une spécialité de cette région ?",
+          "en": "Is it a specialty of this region?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Lunch guest",
+        "partnerRole": "Restaurant server",
+        "opening": "Bonjour. Vous avez les ravioles du Dauphiné aujourd’hui ?",
+        "goal": "Compare ravioles and soup, ask about the rice dish, sauce and portion, then choose one.",
+        "closure": "Merci, je prendrai les ravioles.",
+        "wordBank": [
+          "les ravioles du Dauphiné",
+          "la soupe au pistou",
+          "le riz",
+          "une spécialité régionale",
+          "la portion",
+          "la sauce",
+          "le bouillon",
+          "copieux",
+          "plutôt",
+          "Les ravioles sont servies avec quelle sauce ?",
+          "La soupe est plus légère que les ravioles ?",
+          "Vous avez aussi un plat de riz ?",
+          "Lequel est le plus copieux ?",
+          "Je vais prendre les ravioles.",
+          "C’est une spécialité de cette région ?"
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Vous avez les ravioles du Dauphiné aujourd’hui ?",
+          "en": "Hello. Do you have Dauphiné ravioles today?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, avec une sauce légère aux herbes.",
+          "en": "Yes, with a light herb sauce."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "C’est une spécialité de cette région ?",
+          "en": "Is it a specialty of this region?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui. Nous avons aussi une soupe au pistou et un plat de riz.",
+          "en": "Yes. We also have pistou soup and a rice dish."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "La soupe est plus légère que les ravioles ?",
+          "en": "Is the soup lighter than the ravioles?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, et les ravioles sont plus copieuses.",
+          "en": "Yes, and the ravioles are more filling."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Les ravioles sont servies avec quelle sauce ?",
+          "en": "What sauce are the ravioles served with?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Avec la sauce aux herbes. La portion est généreuse.",
+          "en": "With the herb sauce. The serving is generous."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Je vais prendre les ravioles, alors.",
+          "en": "I will have the ravioles, then."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the term for Dauphiné ravioles.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the French word for broth.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the comparison with soup.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French word for a serving.",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask what sauce comes with the ravioles.",
+          "sourceCard": 10,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a question about which dish is most filling.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 7,
+      "stableId": "core-travel-lunch:7:fr-en",
+      "title": "Share Several Dishes",
+      "objective": "Ask whether sharing is possible, request extra plates and divide a mixed order among companions.",
+      "focus": "Use partager, pour la table, une assiette en plus and chacun/chacune to explain who will have what.",
+      "scene": "At a casual lunch, Maya orders several plates for a group and checks how to share them.",
+      "words": [
+        {
+          "es": "partager",
+          "en": "to share",
+          "kind": "term"
+        },
+        {
+          "es": "pour la table",
+          "en": "for the table",
+          "kind": "term"
+        },
+        {
+          "es": "une assiette en plus",
+          "en": "an extra plate",
+          "kind": "term"
+        },
+        {
+          "es": "les couverts",
+          "en": "the cutlery",
+          "kind": "term"
+        },
+        {
+          "es": "une portion",
+          "en": "a serving",
+          "kind": "term"
+        },
+        {
+          "es": "chacun",
+          "en": "each person",
+          "kind": "term"
+        },
+        {
+          "es": "la moitié",
+          "en": "half",
+          "kind": "term"
+        },
+        {
+          "es": "un plat",
+          "en": "a dish / main course",
+          "kind": "term"
+        },
+        {
+          "es": "On peut partager les plats ?",
+          "en": "Can we share the dishes?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Trois assiettes en plus, s’il vous plaît.",
+          "en": "Three extra plates, please.",
+          "kind": "phrase"
+        },
+        {
+          "es": "On prend deux plats pour la table.",
+          "en": "We will take two dishes for the table.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je coupe la galette en quatre.",
+          "en": "I will cut the galette into four pieces.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Chacun prendra une part.",
+          "en": "Each person will take a piece.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Vous avez des couverts supplémentaires ?",
+          "en": "Do you have extra cutlery?",
+          "kind": "phrase"
+        },
+        {
+          "es": "La soupe est une portion individuelle.",
+          "en": "The soup is an individual serving.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Guest ordering for a group",
+        "partnerRole": "Restaurant server",
+        "opening": "Bonjour. On peut partager les plats ici ?",
+        "goal": "Check whether sharing is possible, order two dishes for the table, request plates and cutlery, and explain how the group will divide the food.",
+        "closure": "Merci, c’est parfait pour nous.",
+        "wordBank": [
+          "partager",
+          "pour la table",
+          "une assiette en plus",
+          "les couverts",
+          "une portion",
+          "chacun",
+          "la moitié",
+          "un plat",
+          "On peut partager les plats ?",
+          "Trois assiettes en plus, s’il vous plaît.",
+          "On prend deux plats pour la table.",
+          "Chacun prendra une part.",
+          "Vous avez des couverts supplémentaires ?",
+          "La soupe est une portion individuelle."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. On peut partager les plats ici ?",
+          "en": "Hello. Can we share dishes here?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, bien sûr. Vous voulez commander pour la table ?",
+          "en": "Yes, of course. Would you like to order for the table?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Oui. On prend deux plats et une soupe.",
+          "en": "Yes. We will take two dishes and a soup."
+        },
+        {
+          "speaker": "Server",
+          "fr": "La soupe est une portion individuelle.",
+          "en": "The soup is an individual serving."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "D’accord. Chacun prendra une part des deux plats.",
+          "en": "All right. Each person will take a piece of both dishes."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Je vous apporte des assiettes en plus.",
+          "en": "I will bring you extra plates."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci. Il nous faut aussi des couverts supplémentaires.",
+          "en": "Thanks. We also need extra cutlery."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Bien sûr. Je vous apporte trois assiettes et trois jeux de couverts.",
+          "en": "Of course. I will bring three plates and three sets of cutlery."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the expression for an extra plate.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to ask whether dishes can be shared.",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the order for the table.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French word for cutlery.",
+          "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask for three extra plates.",
+          "sourceCard": 10,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write that each person will take a piece.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 8,
+      "stableId": "core-travel-lunch:8:fr-en",
+      "title": "Choose Lunch Around Ingredients",
+      "objective": "State a vegetarian preference and an ingredient you avoid, ask what a dish contains, and request a simple change.",
+      "focus": "Use je suis végétarienne, je ne mange pas de, est-ce qu’il y a and sans to ask directly about ingredients and modifications.",
+      "scene": "Maya and Léa compare two lunch dishes; one is vegetarian and the other avoids peanuts.",
+      "words": [
+        {
+          "es": "végétarienne",
+          "en": "vegetarian (woman)",
+          "kind": "term"
+        },
+        {
+          "es": "végétarien",
+          "en": "vegetarian (man / adjective)",
+          "kind": "term"
+        },
+        {
+          "es": "les cacahuètes",
+          "en": "peanuts",
+          "kind": "term"
+        },
+        {
+          "es": "le bouillon",
+          "en": "broth",
+          "kind": "term"
+        },
+        {
+          "es": "la viande",
+          "en": "meat",
+          "kind": "term"
+        },
+        {
+          "es": "la sauce",
+          "en": "sauce",
+          "kind": "term"
+        },
+        {
+          "es": "les légumes",
+          "en": "vegetables",
+          "kind": "term"
+        },
+        {
+          "es": "un ingrédient",
+          "en": "an ingredient",
+          "kind": "term"
+        },
+        {
+          "es": "Je suis végétarienne.",
+          "en": "I am vegetarian.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je ne mange pas de cacahuètes.",
+          "en": "I do not eat peanuts.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Le bouillon contient de la viande ?",
+          "en": "Does the broth contain meat?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Il y a des cacahuètes dans la sauce ?",
+          "en": "Are there peanuts in the sauce?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Vous pouvez servir le plat sans cette sauce ?",
+          "en": "Can you serve the dish without that sauce?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Le riz aux légumes est végétarien ?",
+          "en": "Is the vegetable rice vegetarian?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je vais prendre le riz sans la sauce.",
+          "en": "I will have the rice without the sauce.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Lunch guest with companion",
+        "partnerRole": "Restaurant server",
+        "opening": "Bonjour. Je suis végétarienne. Le riz aux légumes est végétarien ?",
+        "goal": "Ask whether the broth contains meat, ask whether the sauce contains peanuts, and request the dish without that sauce.",
+        "closure": "Merci, nous prendrons ces deux plats.",
+        "wordBank": [
+          "végétarienne",
+          "végétarien",
+          "les cacahuètes",
+          "le bouillon",
+          "la viande",
+          "la sauce",
+          "les légumes",
+          "un ingrédient",
+          "Je suis végétarienne.",
+          "Je ne mange pas de cacahuètes.",
+          "Le bouillon contient de la viande ?",
+          "Il y a des cacahuètes dans la sauce ?",
+          "Vous pouvez servir le plat sans cette sauce ?",
+          "Le riz aux légumes est végétarien ?",
+          "Je vais prendre le riz sans la sauce."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Je suis végétarienne. Le riz aux légumes est végétarien ?",
+          "en": "Hello. I am vegetarian. Is the vegetable rice vegetarian?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Il est préparé avec des légumes et du bouillon.",
+          "en": "It is made with vegetables and broth."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Le bouillon contient de la viande ?",
+          "en": "Does the broth contain meat?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Non, c’est un bouillon de légumes.",
+          "en": "No, it is vegetable broth."
+        },
+        {
+          "speaker": "Léa",
+          "fr": "Moi, je ne mange pas de cacahuètes. Il y en a dans la sauce ?",
+          "en": "I do not eat peanuts. Are there any in the sauce?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, la sauce contient des cacahuètes.",
+          "en": "Yes, the sauce contains peanuts."
+        },
+        {
+          "speaker": "Léa",
+          "fr": "Vous pouvez servir le plat sans cette sauce ?",
+          "en": "Can you serve the dish without that sauce?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui. Je peux le servir sans sauce.",
+          "en": "Yes. I can serve it without sauce."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Alors, je prends le riz aux légumes, et Léa prend le plat sans sauce.",
+          "en": "Then I will have the vegetable rice, and Léa will have the dish without sauce."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French word for peanuts.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to say I am vegetarian.",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question about meat in the broth.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the word for broth.",
+          "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether the sauce contains peanuts.",
+          "sourceCard": 12,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a request for the dish without that sauce.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 9,
+      "stableId": "core-travel-lunch:9:fr-en",
+      "title": "Ask About Water, Bread and Extras",
+      "objective": "Request water, bread and condiments, and clarify which items carry a charge before accepting them.",
+      "focus": "Distinguish une carafe d’eau from bottled water; use c’est compris, c’est facturé and en supplément to ask about a charge.",
+      "scene": "At a café table, Maya clarifies the water and bread options before ordering extras.",
+      "words": [
+        {
+          "es": "une carafe d’eau",
+          "en": "a jug of water",
+          "kind": "term"
+        },
+        {
+          "es": "de l’eau en bouteille",
+          "en": "bottled water",
+          "kind": "term"
+        },
+        {
+          "es": "du pain",
+          "en": "bread",
+          "kind": "term"
+        },
+        {
+          "es": "du beurre",
+          "en": "butter",
+          "kind": "term"
+        },
+        {
+          "es": "de la moutarde",
+          "en": "mustard",
+          "kind": "term"
+        },
+        {
+          "es": "des serviettes",
+          "en": "napkins",
+          "kind": "term"
+        },
+        {
+          "es": "un supplément",
+          "en": "an extra charge",
+          "kind": "term"
+        },
+        {
+          "es": "compris",
+          "en": "included",
+          "kind": "term"
+        },
+        {
+          "es": "facturé",
+          "en": "charged / billed",
+          "kind": "term"
+        },
+        {
+          "es": "Une carafe d’eau, s’il vous plaît.",
+          "en": "A jug of water, please.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Le pain est compris ?",
+          "en": "Is the bread included?",
+          "kind": "phrase"
+        },
+        {
+          "es": "L’eau en bouteille est facturée ?",
+          "en": "Is bottled water charged for?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Il y a un supplément pour le beurre ?",
+          "en": "Is there an extra charge for butter?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Vous pouvez apporter de la moutarde ?",
+          "en": "Can you bring some mustard?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Alors, je prendrai une carafe d’eau.",
+          "en": "Then I will have a jug of water.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Lunch guest",
+        "partnerRole": "Café server",
+        "opening": "Bonjour. Une carafe d’eau, s’il vous plaît.",
+        "goal": "Ask for water and bread, check each charge and request mustard and napkins once the price is clear.",
+        "closure": "Merci. La carafe et le pain me suffisent.",
+        "wordBank": [
+          "une carafe d’eau",
+          "de l’eau en bouteille",
+          "du pain",
+          "du beurre",
+          "de la moutarde",
+          "des serviettes",
+          "un supplément",
+          "compris",
+          "facturé",
+          "Une carafe d’eau, s’il vous plaît.",
+          "Le pain est compris ?",
+          "L’eau en bouteille est facturée ?",
+          "Il y a un supplément pour le beurre ?",
+          "Vous pouvez apporter de la moutarde ?",
+          "Alors, je prendrai une carafe d’eau."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Une carafe d’eau, s’il vous plaît.",
+          "en": "Hello. A jug of water, please."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Bien sûr. Vous voulez aussi de l’eau en bouteille ?",
+          "en": "Of course. Would you also like bottled water?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "L’eau en bouteille est facturée ?",
+          "en": "Is bottled water charged for?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, la bouteille coûte quatre euros ici.",
+          "en": "Yes, the bottle costs four euros here."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Alors, je prendrai la carafe. Le pain est compris ?",
+          "en": "Then I will have the jug. Is bread included?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, le pain est compris avec votre plat.",
+          "en": "Yes, bread is included with your dish."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Il y a un supplément pour le beurre ?",
+          "en": "Is there an extra charge for butter?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, mais la moutarde est sans supplément.",
+          "en": "Yes, but mustard has no extra charge."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Dans ce cas, vous pouvez apporter de la moutarde et des serviettes ?",
+          "en": "In that case, can you bring mustard and napkins?"
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the expression for bottled water.",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to ask if bread is included.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question about bottled-water charges.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the word for an extra charge.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether butter carries an extra charge.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a polite request for mustard.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 10,
+      "stableId": "core-travel-lunch:10:fr-en",
+      "title": "Choose Lunch with Twenty Minutes",
+      "objective": "State a twenty-minute limit, ask what can be prepared quickly, and choose a lunch that fits the schedule.",
+      "focus": "Use il nous reste, dans combien de temps, prêt en and avant to make timing explicit and confirm the order.",
+      "scene": "Maya and Léa have twenty minutes before a museum entry slot and need lunch at a nearby counter.",
+      "words": [
+        {
+          "es": "vingt minutes",
+          "en": "twenty minutes",
+          "kind": "term"
+        },
+        {
+          "es": "l’entrée du musée",
+          "en": "the museum entry",
+          "kind": "term"
+        },
+        {
+          "es": "un service rapide",
+          "en": "quick service",
+          "kind": "term"
+        },
+        {
+          "es": "un sandwich",
+          "en": "a sandwich",
+          "kind": "term"
+        },
+        {
+          "es": "une soupe",
+          "en": "a soup",
+          "kind": "term"
+        },
+        {
+          "es": "prêt",
+          "en": "ready",
+          "kind": "term"
+        },
+        {
+          "es": "le comptoir",
+          "en": "the counter",
+          "kind": "term"
+        },
+        {
+          "es": "à emporter",
+          "en": "to take away",
+          "kind": "term"
+        },
+        {
+          "es": "Il nous reste vingt minutes.",
+          "en": "We have twenty minutes left.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Dans combien de temps sera-t-il prêt ?",
+          "en": "How soon will it be ready?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Vous avez quelque chose de rapide ?",
+          "en": "Do you have something quick?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Le sandwich est prêt en cinq minutes.",
+          "en": "The sandwich will be ready in five minutes.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Il faut partir avant midi et demi.",
+          "en": "We have to leave before half past noon.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Deux sandwichs à emporter, s’il vous plaît.",
+          "en": "Two sandwiches to take away, please.",
+          "kind": "phrase"
+        },
+        {
+          "es": "On peut payer au comptoir ?",
+          "en": "Can we pay at the counter?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Guest on a short schedule",
+        "partnerRole": "Counter worker",
+        "opening": "Bonjour. Il nous reste vingt minutes avant l’entrée du musée.",
+        "goal": "State the museum deadline, ask what is ready quickly, confirm preparation time and order a feasible takeaway lunch.",
+        "closure": "Merci. Nous payons au comptoir maintenant.",
+        "wordBank": [
+          "vingt minutes",
+          "l’entrée du musée",
+          "un service rapide",
+          "un sandwich",
+          "une soupe",
+          "prêt",
+          "le comptoir",
+          "à emporter",
+          "Il nous reste vingt minutes.",
+          "Dans combien de temps sera-t-il prêt ?",
+          "Vous avez quelque chose de rapide ?",
+          "Le sandwich est prêt en cinq minutes.",
+          "Il faut partir avant midi et demi.",
+          "Deux sandwichs à emporter, s’il vous plaît.",
+          "On peut payer au comptoir ?"
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Il nous reste vingt minutes avant l’entrée du musée.",
+          "en": "Hello. We have twenty minutes before our museum entry."
+        },
+        {
+          "speaker": "Worker",
+          "fr": "Vous voulez manger ici ou prendre à emporter ?",
+          "en": "Would you like to eat here or take it away?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Vous avez quelque chose de rapide ?",
+          "en": "Do you have something quick?"
+        },
+        {
+          "speaker": "Worker",
+          "fr": "La soupe est prête. Les sandwichs sont prêts en cinq minutes.",
+          "en": "The soup is ready. The sandwiches will be ready in five minutes."
+        },
+        {
+          "speaker": "Léa",
+          "fr": "Il faut partir avant midi et demi.",
+          "en": "We have to leave before half past noon."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Dans combien de temps les sandwichs seront-ils prêts exactement ?",
+          "en": "Exactly how soon will the sandwiches be ready?"
+        },
+        {
+          "speaker": "Worker",
+          "fr": "Dans cinq minutes. Vous pouvez payer au comptoir maintenant.",
+          "en": "In five minutes. You can pay at the counter now."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Parfait. Deux sandwichs à emporter, s’il vous plaît.",
+          "en": "Perfect. Two sandwiches to take away, please."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French phrase for twenty minutes.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to say we have twenty minutes left.",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question about something quick.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the word for the counter.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask exactly when the sandwiches will be ready.",
+          "sourceCard": 10,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write an order for two takeaway sandwiches.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 11,
+      "stableId": "core-travel-lunch:11:fr-en",
+      "title": "Resolve a Missing Lunch Order",
+      "objective": "Report a missing main course or cold dish, explain the delay, and ask respectfully for a workable resolution.",
+      "focus": "Use il manque, n’est pas arrivé, il est froid, cela fait longtemps and retirer de l’addition to describe the problem and negotiate the bill.",
+      "scene": "At a bistro, everyone else has finished while Maya is still waiting for her main course.",
+      "words": [
+        {
+          "es": "une commande",
+          "en": "an order",
+          "kind": "term"
+        },
+        {
+          "es": "un plat principal",
+          "en": "a main course",
+          "kind": "term"
+        },
+        {
+          "es": "l’attente",
+          "en": "the wait",
+          "kind": "term"
+        },
+        {
+          "es": "froid",
+          "en": "cold",
+          "kind": "term"
+        },
+        {
+          "es": "manquant",
+          "en": "missing",
+          "kind": "term"
+        },
+        {
+          "es": "une solution",
+          "en": "a solution",
+          "kind": "term"
+        },
+        {
+          "es": "l’addition",
+          "en": "the bill / check",
+          "kind": "term"
+        },
+        {
+          "es": "retirer",
+          "en": "to remove",
+          "kind": "term"
+        },
+        {
+          "es": "Mon plat n’est pas arrivé.",
+          "en": "My dish has not arrived.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Les autres ont déjà terminé.",
+          "en": "The others have already finished.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Cela fait longtemps que j’attends.",
+          "en": "I have been waiting a long time.",
+          "kind": "phrase"
+        },
+        {
+          "es": "La soupe est froide.",
+          "en": "The soup is cold.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Pouvez-vous vérifier ma commande ?",
+          "en": "Can you check my order?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Pouvez-vous retirer ce plat de l’addition ?",
+          "en": "Can you remove this dish from the bill?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je préférerais annuler ce plat.",
+          "en": "I would prefer to cancel this dish.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Guest waiting for food",
+        "partnerRole": "Restaurant server",
+        "opening": "Excusez-moi. Mon plat principal n’est pas arrivé.",
+        "goal": "Explain that the meal never came and others have finished, ask the server to check, then request cancellation and a corrected bill.",
+        "closure": "Merci d’avoir corrigé l’addition.",
+        "wordBank": [
+          "une commande",
+          "un plat principal",
+          "l’attente",
+          "froid",
+          "manquant",
+          "une solution",
+          "l’addition",
+          "retirer",
+          "Mon plat n’est pas arrivé.",
+          "Les autres ont déjà terminé.",
+          "Cela fait longtemps que j’attends.",
+          "La soupe est froide.",
+          "Pouvez-vous vérifier ma commande ?",
+          "Pouvez-vous retirer ce plat de l’addition ?",
+          "Je préférerais annuler ce plat."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Excusez-moi. Mon plat principal n’est pas arrivé.",
+          "en": "Excuse me. My main course has not arrived."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Je suis désolé. Je vais vérifier votre commande.",
+          "en": "I am sorry. I will check your order."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Les autres ont déjà terminé, et cela fait longtemps que j’attends.",
+          "en": "The others have already finished, and I have been waiting a long time."
+        },
+        {
+          "speaker": "Server",
+          "fr": "La cuisine l’a oublié. Le plat peut arriver dans quinze minutes.",
+          "en": "The kitchen forgot it. The dish can arrive in fifteen minutes."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci, mais je dois partir bientôt. Je préférerais annuler ce plat.",
+          "en": "Thank you, but I have to leave soon. I would prefer to cancel this dish."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Bien sûr. Je le retire de l’addition.",
+          "en": "Of course. I will remove it from the bill."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Pouvez-vous m’apporter l’addition corrigée ?",
+          "en": "Can you bring me the corrected bill?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui. Voici l’addition sans le plat manquant.",
+          "en": "Yes. Here is the bill without the missing dish."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the phrase for a missing dish.",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to say the others have finished.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the request to check the order.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French word for the bill.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Tell the server your main course has not arrived.",
+          "sourceCard": 9,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a polite request to remove the dish from the bill.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 12,
+      "stableId": "core-travel-lunch:12:fr-en",
+      "title": "Make Three Payments for Four Travelers",
+      "objective": "Ask to divide a four-person bill by person or item, then make two card payments and one cash payment.",
+      "focus": "Use partager l’addition, payer séparément, par personne/par plat, par carte and en espèces to state exactly who pays what.",
+      "scene": "Four travelers have a sixty-euro lunch bill and need two individual card payments plus one shared cash payment.",
+      "words": [
+        {
+          "es": "partager l’addition",
+          "en": "to split the bill",
+          "kind": "term"
+        },
+        {
+          "es": "payer séparément",
+          "en": "to pay separately",
+          "kind": "term"
+        },
+        {
+          "es": "par personne",
+          "en": "per person",
+          "kind": "term"
+        },
+        {
+          "es": "par plat",
+          "en": "by dish / item",
+          "kind": "term"
+        },
+        {
+          "es": "par carte",
+          "en": "by card",
+          "kind": "term"
+        },
+        {
+          "es": "en espèces",
+          "en": "in cash",
+          "kind": "term"
+        },
+        {
+          "es": "un paiement",
+          "en": "a payment",
+          "kind": "term"
+        },
+        {
+          "es": "le total",
+          "en": "the total",
+          "kind": "term"
+        },
+        {
+          "es": "On peut payer séparément ?",
+          "en": "Can we pay separately?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Deux paiements par carte et un en espèces.",
+          "en": "Two card payments and one cash payment.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Maya règle quinze euros par carte.",
+          "en": "Maya pays fifteen euros by card.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Léa règle quinze euros par carte.",
+          "en": "Léa pays fifteen euros by card.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Sam et Noor règlent trente euros en espèces.",
+          "en": "Sam and Noor pay thirty euros in cash.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Le total est de soixante euros.",
+          "en": "The total is sixty euros.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Vous pouvez répartir l’addition par personne ?",
+          "en": "Can you divide the bill per person?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Traveler coordinating payment",
+        "partnerRole": "Restaurant server",
+        "opening": "Excusez-moi. On peut payer séparément ?",
+        "goal": "Confirm the sixty-euro total, split it equally among four travelers, make two fifteen-euro card payments and one thirty-euro cash payment for the other two travelers.",
+        "closure": "Merci, les trois paiements font bien soixante euros.",
+        "wordBank": [
+          "partager l’addition",
+          "payer séparément",
+          "par personne",
+          "par plat",
+          "par carte",
+          "en espèces",
+          "un paiement",
+          "le total",
+          "On peut payer séparément ?",
+          "Deux paiements par carte et un en espèces.",
+          "Maya règle quinze euros par carte.",
+          "Léa règle quinze euros par carte.",
+          "Sam et Noor règlent trente euros en espèces.",
+          "Le total est de soixante euros.",
+          "Vous pouvez répartir l’addition par personne ?"
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Excusez-moi. Le total est de soixante euros, c’est bien ça ?",
+          "en": "Excuse me. The total is sixty euros, is that right?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, pour quatre personnes. Vous payez ensemble ?",
+          "en": "Yes, for four people. Are you paying together?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "On peut payer séparément ?",
+          "en": "Can we pay separately?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui. Vous voulez répartir par personne ou par plat ?",
+          "en": "Yes. Do you want to divide it per person or by dish?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Par personne. Nous ferons deux paiements par carte et un en espèces.",
+          "en": "Per person. We will make two card payments and one cash payment."
+        },
+        {
+          "speaker": "Léa",
+          "fr": "Maya et moi réglons chacune quinze euros par carte.",
+          "en": "Maya and I each pay fifteen euros by card."
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Noor et moi réglons ensemble trente euros en espèces.",
+          "en": "Noor and I together pay thirty euros in cash."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Parfait : quinze, quinze et trente. Cela fait soixante euros.",
+          "en": "Perfect: fifteen, fifteen and thirty. That makes sixty euros."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci. Voici ma carte pour le premier paiement.",
+          "en": "Thank you. Here is my card for the first payment."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the phrase for paying separately.",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the term for paying in cash.",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the proposed mix of payments.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the expression for the total.",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask the server to divide the bill per person.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write that Sam and Noor pay thirty euros in cash.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 13,
+      "stableId": "core-travel-lunch:13:fr-en",
+      "title": "Praise the Cook with a Specific Detail",
+      "objective": "Explain what made a lunch dish memorable and ask the server to pass your thanks to the cook.",
+      "focus": "Use la cuisson, les herbes, le goût, cela me rappelle and transmettre mes compliments to give precise praise.",
+      "scene": "After a memorable vegetable dish, Maya gives specific thanks to the server and asks that the cook hear them.",
+      "words": [
+        {
+          "es": "la cheffe",
+          "en": "the chef (woman)",
+          "kind": "term"
+        },
+        {
+          "es": "la cuisson",
+          "en": "the cooking / doneness",
+          "kind": "term"
+        },
+        {
+          "es": "les herbes",
+          "en": "the herbs",
+          "kind": "term"
+        },
+        {
+          "es": "le basilic",
+          "en": "basil",
+          "kind": "term"
+        },
+        {
+          "es": "le goût",
+          "en": "the taste / flavor",
+          "kind": "term"
+        },
+        {
+          "es": "un souvenir",
+          "en": "a memory",
+          "kind": "term"
+        },
+        {
+          "es": "extraordinaire",
+          "en": "extraordinary",
+          "kind": "term"
+        },
+        {
+          "es": "mes compliments",
+          "en": "my compliments",
+          "kind": "term"
+        },
+        {
+          "es": "Ce plat était extraordinaire.",
+          "en": "This dish was extraordinary.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Les légumes étaient parfaitement cuits.",
+          "en": "The vegetables were perfectly cooked.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Le basilic donnait beaucoup de goût.",
+          "en": "The basil added a lot of flavor.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Cela me rappelle les déjeuners chez ma grand-mère.",
+          "en": "It reminds me of lunches at my grandmother’s home.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Pouvez-vous transmettre mes compliments à la cheffe ?",
+          "en": "Can you pass my compliments to the chef?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je la remercie pour ce repas.",
+          "en": "I thank her for this meal.",
+          "kind": "phrase"
+        },
+        {
+          "es": "C’est le plat dont je me souviendrai.",
+          "en": "This is the dish I will remember.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Guest who enjoyed lunch",
+        "partnerRole": "Restaurant server",
+        "opening": "Excusez-moi. Ce plat était extraordinaire.",
+        "goal": "Praise the cooking and basil, explain the memory the dish evoked, and ask the server to pass your thanks to the chef.",
+        "closure": "Merci de transmettre mes compliments à la cheffe.",
+        "wordBank": [
+          "la cheffe",
+          "la cuisson",
+          "les herbes",
+          "le basilic",
+          "le goût",
+          "un souvenir",
+          "extraordinaire",
+          "mes compliments",
+          "Ce plat était extraordinaire.",
+          "Les légumes étaient parfaitement cuits.",
+          "Le basilic donnait beaucoup de goût.",
+          "Cela me rappelle les déjeuners chez ma grand-mère.",
+          "Pouvez-vous transmettre mes compliments à la cheffe ?",
+          "Je la remercie pour ce repas.",
+          "C’est le plat dont je me souviendrai."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Excusez-moi. Ce plat était extraordinaire.",
+          "en": "Excuse me. This dish was extraordinary."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Je suis ravi que vous l’ayez aimé. Qu’est-ce qui vous a plu ?",
+          "en": "I am glad you liked it. What did you enjoy?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Les légumes étaient parfaitement cuits, et le basilic donnait beaucoup de goût.",
+          "en": "The vegetables were perfectly cooked, and the basil added a lot of flavor."
+        },
+        {
+          "speaker": "Server",
+          "fr": "La cheffe choisit ses herbes chaque matin.",
+          "en": "The chef chooses her herbs each morning."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Ce goût me rappelle les déjeuners chez ma grand-mère.",
+          "en": "That flavor reminds me of lunches at my grandmother’s home."
+        },
+        {
+          "speaker": "Server",
+          "fr": "C’est un beau souvenir.",
+          "en": "That is a lovely memory."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Pouvez-vous transmettre mes compliments à la cheffe ?",
+          "en": "Can you pass my compliments to the chef?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Bien sûr. Je lui dirai ce que vous avez aimé.",
+          "en": "Of course. I will tell her what you liked."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci. C’est le plat dont je me souviendrai.",
+          "en": "Thank you. This is the dish I will remember."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French word for basil.",
+          "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the phrase for a memorable dish.",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the request to pass compliments to the chef.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French word for flavor.",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Say what made the dish extraordinary.",
+          "sourceCard": 10,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a request to pass compliments to the chef.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 14,
+      "stableId": "core-travel-lunch:14:fr-en",
+      "title": "Invite a Local Acquaintance to Lunch",
+      "objective": "Invite someone without pressure, accept an initial decline and agree on a different day, place and time.",
+      "focus": "Use ça vous dirait de, si cela vous convient, aucun souci and une autre fois to offer and reschedule politely.",
+      "scene": "Maya invites local acquaintance Camille to lunch; Camille cannot come tomorrow but can meet on Friday.",
+      "words": [
+        {
+          "es": "une invitation",
+          "en": "an invitation",
+          "kind": "term"
+        },
+        {
+          "es": "un déjeuner",
+          "en": "a lunch",
+          "kind": "term"
+        },
+        {
+          "es": "demain",
+          "en": "tomorrow",
+          "kind": "term"
+        },
+        {
+          "es": "vendredi",
+          "en": "Friday",
+          "kind": "term"
+        },
+        {
+          "es": "à midi",
+          "en": "at noon",
+          "kind": "term"
+        },
+        {
+          "es": "un bistrot",
+          "en": "a bistro",
+          "kind": "term"
+        },
+        {
+          "es": "une autre fois",
+          "en": "another time",
+          "kind": "term"
+        },
+        {
+          "es": "aucun souci",
+          "en": "no problem",
+          "kind": "term"
+        },
+        {
+          "es": "Ça vous dirait de déjeuner ensemble ?",
+          "en": "Would you like to have lunch together?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Si ça ne vous arrange pas, aucun souci.",
+          "en": "If that does not work for you, no problem.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Demain, je ne peux pas.",
+          "en": "I cannot tomorrow.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Vendredi, ça vous conviendrait ?",
+          "en": "Would Friday suit you?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Retrouvons-nous à midi devant le bistrot.",
+          "en": "Let’s meet at noon outside the bistro.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je connais un petit bistrot près du marché.",
+          "en": "I know a small bistro near the market.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Parfait, à vendredi !",
+          "en": "Great, see you Friday!",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Person inviting an acquaintance",
+        "partnerRole": "Local acquaintance",
+        "opening": "Camille, ça vous dirait de déjeuner ensemble demain ?",
+        "goal": "Invite Camille, accept a declined first date without pressure, agree on Friday noon and confirm the bistro meeting point.",
+        "closure": "Parfait, à vendredi devant le bistrot.",
+        "wordBank": [
+          "une invitation",
+          "un déjeuner",
+          "demain",
+          "vendredi",
+          "à midi",
+          "un bistrot",
+          "une autre fois",
+          "aucun souci",
+          "Ça vous dirait de déjeuner ensemble ?",
+          "Si ça ne vous arrange pas, aucun souci.",
+          "Demain, je ne peux pas.",
+          "Vendredi, ça vous conviendrait ?",
+          "Retrouvons-nous à midi devant le bistrot.",
+          "Je connais un petit bistrot près du marché.",
+          "Parfait, à vendredi !"
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Camille, ça vous dirait de déjeuner ensemble demain ?",
+          "en": "Camille, would you like to have lunch together tomorrow?"
+        },
+        {
+          "speaker": "Camille",
+          "fr": "Merci pour l’invitation, mais demain je ne peux pas.",
+          "en": "Thank you for the invitation, but I cannot tomorrow."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Aucun souci. Une autre fois, si ça vous convient.",
+          "en": "No problem. Another time, if that works for you."
+        },
+        {
+          "speaker": "Camille",
+          "fr": "Vendredi, je serais libre à midi.",
+          "en": "On Friday, I would be free at noon."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Vendredi, ça me va. Je connais un petit bistrot près du marché.",
+          "en": "Friday works for me. I know a small bistro near the market."
+        },
+        {
+          "speaker": "Camille",
+          "fr": "Bonne idée. Il est facile à trouver ?",
+          "en": "Good idea. Is it easy to find?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Oui. Retrouvons-nous à midi devant le bistrot.",
+          "en": "Yes. Let’s meet at noon outside the bistro."
+        },
+        {
+          "speaker": "Camille",
+          "fr": "Parfait, à vendredi !",
+          "en": "Great, see you Friday!"
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French phrase for another time.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the low-pressure invitation.",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the reply declining tomorrow.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French word for Friday.",
+          "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Suggest Friday as an alternative.",
+          "sourceCard": 12,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write the agreed meeting time and place.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 15,
+      "stableId": "core-travel-lunch:15:fr-en",
+      "title": "Run a Weekday Lunch from Start to Finish",
+      "objective": "Choose a place, check an ingredient, place lunch orders, correct a missing item and split the final bill.",
+      "focus": "Recycle place choice, order confirmation, ingredient questions, il manque, and payer séparément in one connected conversation.",
+      "scene": "Maya and Léa choose a nearby bistro, order lunch, fix a missing soup and pay separately.",
+      "words": [
+        {
+          "es": "un bistrot de quartier",
+          "en": "a neighborhood bistro",
+          "kind": "term"
+        },
+        {
+          "es": "une table pour deux",
+          "en": "a table for two",
+          "kind": "term"
+        },
+        {
+          "es": "le plat du jour",
+          "en": "the daily special",
+          "kind": "term"
+        },
+        {
+          "es": "les cacahuètes",
+          "en": "peanuts",
+          "kind": "term"
+        },
+        {
+          "es": "la sauce",
+          "en": "the sauce",
+          "kind": "term"
+        },
+        {
+          "es": "une soupe",
+          "en": "a soup",
+          "kind": "term"
+        },
+        {
+          "es": "un plat manquant",
+          "en": "a missing dish",
+          "kind": "term"
+        },
+        {
+          "es": "l’addition",
+          "en": "the bill / check",
+          "kind": "term"
+        },
+        {
+          "es": "Il faut attendre longtemps ?",
+          "en": "Is there a long wait?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Vous avez une table pour deux ?",
+          "en": "Do you have a table for two?",
+          "kind": "phrase"
+        },
+        {
+          "es": "La sauce contient des cacahuètes ?",
+          "en": "Does the sauce contain peanuts?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je prends le plat du jour sans cette sauce.",
+          "en": "I will have the daily special without that sauce.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Il manque ma soupe.",
+          "en": "My soup is missing.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Pouvez-vous vérifier notre commande ?",
+          "en": "Can you check our order?",
+          "kind": "phrase"
+        },
+        {
+          "es": "On peut payer séparément ?",
+          "en": "Can we pay separately?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Guest managing a lunch with a friend",
+        "partnerRole": "Restaurant server",
+        "opening": "Bonjour. Vous avez une table pour deux ?",
+        "goal": "Choose the bistro and table, ask about peanuts in the sauce, place both orders, correct the missing soup and split the bill.",
+        "closure": "Merci. Nous réglerons séparément.",
+        "wordBank": [
+          "un bistrot de quartier",
+          "une table pour deux",
+          "le plat du jour",
+          "les cacahuètes",
+          "la sauce",
+          "une soupe",
+          "un plat manquant",
+          "l’addition",
+          "Il faut attendre longtemps ?",
+          "Vous avez une table pour deux ?",
+          "La sauce contient des cacahuètes ?",
+          "Je prends le plat du jour sans cette sauce.",
+          "Il manque ma soupe.",
+          "Pouvez-vous vérifier notre commande ?",
+          "On peut payer séparément ?"
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Le bistrot de quartier a l’air bien. Il faut attendre longtemps ?",
+          "en": "The neighborhood bistro looks good. Is there a long wait?"
+        },
+        {
+          "speaker": "Léa",
+          "fr": "Il n’y a presque personne. Entrons.",
+          "en": "There is hardly anyone. Let’s go in."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Vous avez une table pour deux ?",
+          "en": "Hello. Do you have a table for two?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, juste ici. Vous voulez le plat du jour ?",
+          "en": "Yes, right here. Would you like the daily special?"
+        },
+        {
+          "speaker": "Léa",
+          "fr": "La sauce contient des cacahuètes ?",
+          "en": "Does the sauce contain peanuts?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, la sauce en contient.",
+          "en": "Yes, the sauce contains them."
+        },
+        {
+          "speaker": "Léa",
+          "fr": "Alors, je prends le plat du jour sans cette sauce.",
+          "en": "Then I will have the daily special without that sauce."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Et moi, je prends une soupe et le plat du jour.",
+          "en": "And I will have a soup and the daily special."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Très bien. Je vous apporte les deux plats et la soupe.",
+          "en": "Very good. I will bring you the two main courses and the soup."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Excusez-moi, il manque ma soupe. Pouvez-vous vérifier notre commande ?",
+          "en": "Excuse me, my soup is missing. Can you check our order?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, je l’apporte tout de suite.",
+          "en": "Yes, I will bring it right away."
+        },
+        {
+          "speaker": "Léa",
+          "fr": "Merci. À la fin, on pourra payer séparément ?",
+          "en": "Thank you. At the end, can we pay separately?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, je peux faire deux paiements.",
+          "en": "Yes, I can take two payments."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Parfait. Apportez-nous l’addition après la soupe, s’il vous plaît.",
+          "en": "Perfect. Bring us the bill after the soup, please."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French phrase for a missing dish.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to ask about the wait.",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the ingredient question about peanuts.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French word for the bill.",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Correct the missing soup politely.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a request to pay separately.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 16,
+      "stableId": "core-travel-lunch:16:fr-en",
+      "title": "Follow the Canteen Line",
+      "objective": "Follow the tray line, choose an entrée and main course, pay at the register, and find a free seat.",
+      "focus": "Use prenez un plateau, une entrée, un plat, la caisse and une place libre to follow the sequence in a workers’ canteen.",
+      "scene": "Maya joins a workers’ canteen line for a quick lunch before returning to work.",
+      "words": [
+        {
+          "es": "la cantine",
+          "en": "the canteen",
+          "kind": "term"
+        },
+        {
+          "es": "la file",
+          "en": "the line / queue",
+          "kind": "term"
+        },
+        {
+          "es": "un plateau",
+          "en": "a tray",
+          "kind": "term"
+        },
+        {
+          "es": "une entrée",
+          "en": "a starter / first course",
+          "kind": "term"
+        },
+        {
+          "es": "un plat",
+          "en": "a main course / second course",
+          "kind": "term"
+        },
+        {
+          "es": "la caisse",
+          "en": "the register",
+          "kind": "term"
+        },
+        {
+          "es": "une place libre",
+          "en": "a free seat",
+          "kind": "term"
+        },
+        {
+          "es": "les couverts",
+          "en": "the cutlery",
+          "kind": "term"
+        },
+        {
+          "es": "On prend un plateau ici ?",
+          "en": "Do we take a tray here?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quelle entrée est disponible ?",
+          "en": "Which starter is available?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je prends la salade et le poulet.",
+          "en": "I will have the salad and the chicken.",
+          "kind": "phrase"
+        },
+        {
+          "es": "On paie avant de s’asseoir ?",
+          "en": "Do we pay before sitting down?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Où est la caisse ?",
+          "en": "Where is the register?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Il reste une place libre près de la fenêtre.",
+          "en": "There is a free seat left near the window.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je prends mes couverts avec le plateau.",
+          "en": "I take my cutlery with the tray.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Canteen guest",
+        "partnerRole": "Canteen worker",
+        "opening": "Bonjour. On prend un plateau ici ?",
+        "goal": "Follow the tray line, select the salad and chicken, confirm that payment comes before seating and find a free table.",
+        "closure": "Merci. Je passe à la caisse, puis je m’assieds.",
+        "wordBank": [
+          "la cantine",
+          "la file",
+          "un plateau",
+          "une entrée",
+          "un plat",
+          "la caisse",
+          "une place libre",
+          "les couverts",
+          "On prend un plateau ici ?",
+          "Quelle entrée est disponible ?",
+          "Je prends la salade et le poulet.",
+          "On paie avant de s’asseoir ?",
+          "Où est la caisse ?",
+          "Il reste une place libre près de la fenêtre.",
+          "Je prends mes couverts avec le plateau."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. On prend un plateau ici ?",
+          "en": "Hello. Do we take a tray here?"
+        },
+        {
+          "speaker": "Worker",
+          "fr": "Oui. Prenez un plateau et vos couverts, puis suivez la file.",
+          "en": "Yes. Take a tray and your cutlery, then follow the line."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Quelle entrée est disponible aujourd’hui ?",
+          "en": "Which starter is available today?"
+        },
+        {
+          "speaker": "Worker",
+          "fr": "Une salade. Pour le plat, il y a du poulet ou des légumes.",
+          "en": "A salad. For the main course, there is chicken or vegetables."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Je prends la salade et le poulet.",
+          "en": "I will have the salad and the chicken."
+        },
+        {
+          "speaker": "Worker",
+          "fr": "Très bien. Passez à la caisse avant de vous asseoir.",
+          "en": "Very good. Go to the register before sitting down."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "La caisse est au bout de la file ?",
+          "en": "Is the register at the end of the line?"
+        },
+        {
+          "speaker": "Worker",
+          "fr": "Oui. Ensuite, il reste une place libre près de la fenêtre.",
+          "en": "Yes. Then there is a free seat left near the window."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci. Je paie d’abord, puis je cherche cette table.",
+          "en": "Thanks. I will pay first, then look for that table."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French word for a tray.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the word for a free seat.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question about paying before sitting.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French word for the register.",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask which starter is available.",
+          "sourceCard": 10,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write an order for salad and chicken.",
+          "sourceCard": 11,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 17,
+      "stableId": "core-travel-lunch:17:fr-en",
+      "title": "Ask for a Plain Child’s Lunch",
+      "objective": "Ask for a small portion of plain pasta, a high chair or shared adult plate, and the price of the child’s serving.",
+      "focus": "Use une portion pour enfant, des pâtes nature, sans sauce, une chaise haute and partager mon plat to describe the child’s lunch directly.",
+      "scene": "Maya arrives with a six-year-old who wants plain pasta and a younger child who needs a high chair.",
+      "words": [
+        {
+          "es": "un enfant de six ans",
+          "en": "a six-year-old child",
+          "kind": "term"
+        },
+        {
+          "es": "une portion pour enfant",
+          "en": "a child’s portion",
+          "kind": "term"
+        },
+        {
+          "es": "des pâtes nature",
+          "en": "plain pasta",
+          "kind": "term"
+        },
+        {
+          "es": "sans sauce",
+          "en": "without sauce",
+          "kind": "term"
+        },
+        {
+          "es": "une chaise haute",
+          "en": "a high chair",
+          "kind": "term"
+        },
+        {
+          "es": "une petite assiette",
+          "en": "a small plate",
+          "kind": "term"
+        },
+        {
+          "es": "partager mon plat",
+          "en": "to share my dish",
+          "kind": "term"
+        },
+        {
+          "es": "le prix",
+          "en": "the price",
+          "kind": "term"
+        },
+        {
+          "es": "Mon enfant ne veut que des pâtes nature.",
+          "en": "My child only wants plain pasta.",
+          "kind": "phrase"
+        },
+        {
+          "es": "La cuisine peut préparer une petite portion ?",
+          "en": "Can the kitchen prepare a small serving?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Vous avez une chaise haute ?",
+          "en": "Do you have a high chair?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Combien coûte la portion pour enfant ?",
+          "en": "How much is the child’s portion?",
+          "kind": "phrase"
+        },
+        {
+          "es": "On peut partager mon plat ?",
+          "en": "Can we share my dish?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Sans sauce ni fromage, s’il vous plaît.",
+          "en": "Without sauce or cheese, please.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je prendrai la petite portion de pâtes.",
+          "en": "I will take the small pasta serving.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Parent ordering lunch",
+        "partnerRole": "Restaurant server",
+        "opening": "Bonjour. Vous avez une chaise haute pour mon plus jeune enfant ?",
+        "goal": "Ask for a high chair for the younger child and plain pasta without sauce or cheese for the six-year-old, check the child’s price and compare sharing your own dish.",
+        "closure": "Merci. Je prends la petite portion pour lui.",
+        "wordBank": [
+          "un enfant de six ans",
+          "une portion pour enfant",
+          "des pâtes nature",
+          "sans sauce",
+          "une chaise haute",
+          "une petite assiette",
+          "partager mon plat",
+          "le prix",
+          "Mon enfant ne veut que des pâtes nature.",
+          "La cuisine peut préparer une petite portion ?",
+          "Vous avez une chaise haute ?",
+          "Combien coûte la portion pour enfant ?",
+          "On peut partager mon plat ?",
+          "Sans sauce ni fromage, s’il vous plaît.",
+          "Je prendrai la petite portion de pâtes."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Vous avez une chaise haute pour mon plus jeune enfant ?",
+          "en": "Hello. Do you have a high chair for my younger child?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, je vous en apporte une. Qu’est-ce que votre enfant de six ans voudrait manger ?",
+          "en": "Yes, I will bring you one. What would your six-year-old like to eat?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Il ne veut que des pâtes nature, sans sauce ni fromage.",
+          "en": "He only wants plain pasta, without sauce or cheese."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Je peux demander à la cuisine une petite portion.",
+          "en": "I can ask the kitchen for a small serving."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci. Combien coûte la portion pour enfant ?",
+          "en": "Thank you. How much is the child’s portion?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Sept euros ici. Sinon, il peut partager votre plat.",
+          "en": "Seven euros here. Otherwise, he can share your dish."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Je prendrai la petite portion de pâtes pour lui.",
+          "en": "I will take the small pasta serving for him."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Très bien. Je vous apporte aussi une petite assiette.",
+          "en": "Very good. I will bring you a small plate."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the phrase for plain pasta.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to ask for a high chair.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the child’s portion price question.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French word for a small plate.",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether the kitchen can make a small serving.",
+          "sourceCard": 10,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a request for pasta without sauce or cheese.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 18,
+      "stableId": "core-travel-lunch:18:fr-en",
+      "title": "Call Ahead About Access",
+      "objective": "Call a lunch spot to ask about step-free entry, wheelchair space, accessible restrooms and a quiet table.",
+      "focus": "Use sans marche, fauteuil roulant, assez de place, toilettes accessibles and une table au calme to ask precise access questions.",
+      "scene": "Maya phones a restaurant before lunch for a companion who uses a wheelchair.",
+      "words": [
+        {
+          "es": "une entrée sans marche",
+          "en": "a step-free entrance",
+          "kind": "term"
+        },
+        {
+          "es": "un fauteuil roulant",
+          "en": "a wheelchair",
+          "kind": "term"
+        },
+        {
+          "es": "une rampe",
+          "en": "a ramp",
+          "kind": "term"
+        },
+        {
+          "es": "les toilettes accessibles",
+          "en": "the accessible restroom",
+          "kind": "term"
+        },
+        {
+          "es": "une table au calme",
+          "en": "a quiet table",
+          "kind": "term"
+        },
+        {
+          "es": "assez de place",
+          "en": "enough space",
+          "kind": "term"
+        },
+        {
+          "es": "le passage",
+          "en": "the passage / aisle",
+          "kind": "term"
+        },
+        {
+          "es": "réserver",
+          "en": "to reserve",
+          "kind": "term"
+        },
+        {
+          "es": "L’entrée est sans marche ?",
+          "en": "Is the entrance step-free?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Il y a assez de place pour un fauteuil roulant ?",
+          "en": "Is there enough space for a wheelchair?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Les toilettes sont accessibles en fauteuil roulant ?",
+          "en": "Is the restroom wheelchair-accessible?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Vous avez une table au calme pour deux ?",
+          "en": "Do you have a quiet table for two?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Le passage jusqu’à la table est assez large ?",
+          "en": "Is the route to the table wide enough?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je voudrais réserver cette table pour midi.",
+          "en": "I would like to reserve that table for noon.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Merci de confirmer l’entrée et les toilettes.",
+          "en": "Thank you for confirming the entrance and restroom.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Caller planning lunch",
+        "partnerRole": "Restaurant host on phone",
+        "opening": "Bonjour. Je voudrais venir déjeuner avec une personne en fauteuil roulant.",
+        "goal": "Confirm step-free entry, sufficient space through the room and at the table, restroom access and a quiet reservation at noon.",
+        "closure": "Merci. Nous viendrons à midi.",
+        "wordBank": [
+          "une entrée sans marche",
+          "un fauteuil roulant",
+          "une rampe",
+          "les toilettes accessibles",
+          "une table au calme",
+          "assez de place",
+          "le passage",
+          "réserver",
+          "L’entrée est sans marche ?",
+          "Il y a assez de place pour un fauteuil roulant ?",
+          "Les toilettes sont accessibles en fauteuil roulant ?",
+          "Vous avez une table au calme pour deux ?",
+          "Le passage jusqu’à la table est assez large ?",
+          "Je voudrais réserver cette table pour midi.",
+          "Merci de confirmer l’entrée et les toilettes."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Je voudrais venir déjeuner avec une personne en fauteuil roulant.",
+          "en": "Hello. I would like to come for lunch with someone who uses a wheelchair."
+        },
+        {
+          "speaker": "Host",
+          "fr": "Bonjour. Que voulez-vous savoir ?",
+          "en": "Hello. What would you like to know?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "L’entrée est sans marche ?",
+          "en": "Is the entrance step-free?"
+        },
+        {
+          "speaker": "Host",
+          "fr": "Oui, il y a une rampe à l’entrée.",
+          "en": "Yes, there is a ramp at the entrance."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Le passage jusqu’à la table est assez large pour un fauteuil roulant ?",
+          "en": "Is the route to the table wide enough for a wheelchair?"
+        },
+        {
+          "speaker": "Host",
+          "fr": "Oui. Je peux vous réserver une table avec de la place autour.",
+          "en": "Yes. I can reserve a table with space around it."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Les toilettes sont accessibles en fauteuil roulant ?",
+          "en": "Is the restroom wheelchair-accessible?"
+        },
+        {
+          "speaker": "Host",
+          "fr": "Oui, les toilettes sont accessibles en fauteuil roulant et se trouvent au même niveau. Nous avons aussi une table au calme.",
+          "en": "Yes, the restroom is wheelchair-accessible and on the same level. We also have a quiet table."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci. Je voudrais réserver cette table pour midi.",
+          "en": "Thank you. I would like to reserve that table for noon."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the phrase for a step-free entrance.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to ask about wheelchair space.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the restroom access question.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French word for a ramp.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether the route to the table is wide enough.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a reservation request for the quiet table at noon.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 19,
+      "stableId": "core-travel-lunch:19:fr-en",
+      "title": "Ask Directly About a Severe Shellfish Allergy",
+      "objective": "State a severe shellfish allergy, ask about the fryer, broth and sauce, then decide whether to eat elsewhere.",
+      "focus": "Use allergie grave, coquillages et crustacés, la même friteuse, le bouillon and contient to name the ingredient and preparation questions directly.",
+      "scene": "At a market lunch stall, Maya asks about shellfish for a companion who reacts severely and chooses another place after the vendor answers.",
+      "words": [
+        {
+          "es": "une allergie grave",
+          "en": "a severe allergy",
+          "kind": "term"
+        },
+        {
+          "es": "les coquillages",
+          "en": "shellfish / mollusks",
+          "kind": "term"
+        },
+        {
+          "es": "les crustacés",
+          "en": "crustaceans",
+          "kind": "term"
+        },
+        {
+          "es": "les crevettes",
+          "en": "shrimp / prawns",
+          "kind": "term"
+        },
+        {
+          "es": "une friteuse",
+          "en": "a fryer",
+          "kind": "term"
+        },
+        {
+          "es": "la même huile",
+          "en": "the same oil",
+          "kind": "term"
+        },
+        {
+          "es": "le bouillon",
+          "en": "the stock / broth",
+          "kind": "term"
+        },
+        {
+          "es": "la sauce",
+          "en": "the sauce",
+          "kind": "term"
+        },
+        {
+          "es": "Mon partenaire est gravement allergique aux coquillages et aux crustacés.",
+          "en": "My partner is severely allergic to shellfish.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Vous utilisez la même friteuse pour les crevettes ?",
+          "en": "Do you use the same fryer for shrimp?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Le bouillon contient des crustacés ?",
+          "en": "Does the stock contain crustaceans?",
+          "kind": "phrase"
+        },
+        {
+          "es": "La sauce contient des coquillages ?",
+          "en": "Does the sauce contain shellfish?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Nous allons manger ailleurs, merci.",
+          "en": "We will eat elsewhere, thank you.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Merci de m’avoir expliqué la préparation.",
+          "en": "Thank you for explaining the preparation.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Il réagit gravement aux coquillages et aux crustacés.",
+          "en": "He has a severe reaction to shellfish.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Lunch guest speaking for a companion",
+        "partnerRole": "Street-food vendor",
+        "opening": "Bonjour. Mon partenaire est gravement allergique aux coquillages et aux crustacés.",
+        "goal": "Name the severe shellfish allergy, ask whether shrimp shares the fryer and whether the broth or sauce contains shellfish, then politely decide to eat elsewhere.",
+        "closure": "Merci pour vos réponses. Nous allons manger ailleurs.",
+        "wordBank": [
+          "une allergie grave",
+          "les coquillages",
+          "les crustacés",
+          "les crevettes",
+          "une friteuse",
+          "la même huile",
+          "le bouillon",
+          "la sauce",
+          "Mon partenaire est gravement allergique aux coquillages et aux crustacés.",
+          "Vous utilisez la même friteuse pour les crevettes ?",
+          "Le bouillon contient des crustacés ?",
+          "La sauce contient des coquillages ?",
+          "Nous allons manger ailleurs, merci.",
+          "Merci de m’avoir expliqué la préparation.",
+          "Il réagit gravement aux coquillages et aux crustacés."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Mon partenaire est gravement allergique aux coquillages et aux crustacés.",
+          "en": "Hello. My partner is severely allergic to shellfish."
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "D’accord. Qu’aimeriez-vous savoir ?",
+          "en": "All right. What would you like to know?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Vous utilisez la même friteuse pour les crevettes et les frites ?",
+          "en": "Do you use the same fryer for shrimp and fries?"
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "Oui, nous utilisons la même huile.",
+          "en": "Yes, we use the same oil."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Le bouillon ou la sauce contiennent des crustacés ?",
+          "en": "Does the stock or sauce contain crustaceans?"
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "Le bouillon contient des crevettes, mais la sauce n’en contient pas.",
+          "en": "The stock contains shrimp, but the sauce does not."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci de m’avoir expliqué la préparation. Nous allons manger ailleurs.",
+          "en": "Thank you for explaining the preparation. We will eat elsewhere."
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "Je comprends. Bonne journée à vous deux.",
+          "en": "I understand. Have a good day, both of you."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the term for a severe allergy.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the French word for a fryer.",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question about shrimp in the fryer.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for crustaceans.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether the stock contains crustaceans.",
+          "sourceCard": 11,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a polite decision to eat elsewhere.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 20,
+      "stableId": "core-travel-lunch:20:fr-en",
+      "title": "Question an Unexpected Bill Charge",
+      "objective": "Identify bread and service charges on a bill, explain that the bread was declined, ask where the service charge was listed, and settle a corrected total.",
+      "focus": "Use des frais de couvert, des frais de service, je n’ai pas pris, c’était indiqué and corriger l’addition to question each charge precisely.",
+      "scene": "At the end of lunch, Maya notices bread and service charges she did not expect and asks the server to explain them.",
+      "words": [
+        {
+          "es": "des frais de couvert",
+          "en": "a cover charge",
+          "kind": "term"
+        },
+        {
+          "es": "des frais de service",
+          "en": "a service charge",
+          "kind": "term"
+        },
+        {
+          "es": "le pain",
+          "en": "the bread",
+          "kind": "term"
+        },
+        {
+          "es": "la carte",
+          "en": "the menu",
+          "kind": "term"
+        },
+        {
+          "es": "l’addition",
+          "en": "the bill / check",
+          "kind": "term"
+        },
+        {
+          "es": "une ligne",
+          "en": "a line item",
+          "kind": "term"
+        },
+        {
+          "es": "le total corrigé",
+          "en": "the corrected total",
+          "kind": "term"
+        },
+        {
+          "es": "retirer",
+          "en": "to remove",
+          "kind": "term"
+        },
+        {
+          "es": "Je n’ai pas pris de pain.",
+          "en": "I did not take any bread.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Pourquoi le pain figure-t-il sur l’addition ?",
+          "en": "Why is bread listed on the bill?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Les frais de service étaient indiqués sur la carte ?",
+          "en": "Was the service charge listed on the menu?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Pouvez-vous m’expliquer cette ligne ?",
+          "en": "Can you explain this line item?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Pouvez-vous retirer le pain et corriger l’addition ?",
+          "en": "Can you remove the bread and correct the bill?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quel est le total corrigé ?",
+          "en": "What is the corrected total?",
+          "kind": "phrase"
+        },
+        {
+          "es": "D’accord, je règle ce total.",
+          "en": "All right, I will pay this total.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Guest checking a bill",
+        "partnerRole": "Restaurant server",
+        "opening": "Excusez-moi. Pouvez-vous m’expliquer ces deux lignes sur l’addition ?",
+        "goal": "Question both charges, state that bread was declined, ask where service was listed, confirm the corrected total and pay it.",
+        "closure": "D’accord. Je règle le total corrigé.",
+        "wordBank": [
+          "des frais de couvert",
+          "des frais de service",
+          "le pain",
+          "la carte",
+          "l’addition",
+          "une ligne",
+          "le total corrigé",
+          "retirer",
+          "Je n’ai pas pris de pain.",
+          "Pourquoi le pain figure-t-il sur l’addition ?",
+          "Les frais de service étaient indiqués sur la carte ?",
+          "Pouvez-vous m’expliquer cette ligne ?",
+          "Pouvez-vous retirer le pain et corriger l’addition ?",
+          "Quel est le total corrigé ?",
+          "D’accord, je règle ce total."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Excusez-moi. Pouvez-vous m’expliquer ces deux lignes sur l’addition ?",
+          "en": "Excuse me. Can you explain these two line items on the bill?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Ce sont des frais de couvert pour le pain et des frais de service.",
+          "en": "They are a cover charge for bread and a service charge."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Je n’ai pas pris de pain ; je l’ai refusé au début du repas.",
+          "en": "I did not take any bread; I declined it at the start of the meal."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Je vais vérifier et retirer cette ligne.",
+          "en": "I will check and remove that line item."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci. Les frais de service étaient indiqués sur la carte ?",
+          "en": "Thank you. Was the service charge listed on the menu?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Non, elle ne les indique pas. Je vais aussi retirer ces frais.",
+          "en": "No, it does not list them. I will remove those charges too."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Quel est le total corrigé ?",
+          "en": "What is the corrected total?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Vingt-quatre euros, sans le pain ni les frais de service.",
+          "en": "Twenty-four euros, without the bread or the service charge."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "D’accord, je règle ce total. Merci pour la correction.",
+          "en": "All right, I will pay this total. Thank you for the correction."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the term for a service charge.",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to say the bread was not taken.",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question about the menu listing.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the expression for the corrected total.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask the server to explain one bill line.",
+          "sourceCard": 12,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a request to remove the bread and correct the bill.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 21,
+      "stableId": "core-travel-lunch:21:fr-en",
+      "title": "Keep Your Lunch Choice Within Budget",
+      "objective": "Decline a repeated suggestion for expensive fish, explain a lunch budget and keep the original choice politely.",
+      "focus": "Use je préfère, mon budget est de, c’est au-dessus de mon budget and je vais garder mon choix to hold a clear decision.",
+      "scene": "At a lunch restaurant, Maya has chosen the fixed-price lunch, while the server suggests a pricier fish twice.",
+      "words": [
+        {
+          "es": "le plat du jour",
+          "en": "the daily special",
+          "kind": "term"
+        },
+        {
+          "es": "le poisson",
+          "en": "the fish",
+          "kind": "term"
+        },
+        {
+          "es": "le plus cher",
+          "en": "the most expensive",
+          "kind": "term"
+        },
+        {
+          "es": "mon budget",
+          "en": "my budget",
+          "kind": "term"
+        },
+        {
+          "es": "la formule du midi",
+          "en": "the fixed-price lunch",
+          "kind": "term"
+        },
+        {
+          "es": "une suggestion",
+          "en": "a suggestion",
+          "kind": "term"
+        },
+        {
+          "es": "garder mon choix",
+          "en": "to keep my choice",
+          "kind": "term"
+        },
+        {
+          "es": "le prix",
+          "en": "the price",
+          "kind": "term"
+        },
+        {
+          "es": "Je préfère le plat du jour.",
+          "en": "I prefer the daily special.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Mon budget est de vingt euros.",
+          "en": "My budget is twenty euros.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Le poisson est au-dessus de mon budget.",
+          "en": "The fish is over my budget.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Non merci, je vais garder mon choix.",
+          "en": "No thank you, I will keep my choice.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quel est le prix du plat du jour ?",
+          "en": "What is the price of the daily special?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je prends le plat du jour, s’il vous plaît.",
+          "en": "I will have the daily special, please.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Merci pour la suggestion.",
+          "en": "Thank you for the suggestion.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Lunch guest on a budget",
+        "partnerRole": "Restaurant server",
+        "opening": "Bonjour. Quel est le prix du plat du jour ?",
+        "goal": "Ask the daily-special price, decline the expensive fish twice, explain the twenty-euro budget and confirm the original order.",
+        "closure": "Merci. Je garde le plat du jour.",
+        "wordBank": [
+          "le plat du jour",
+          "le poisson",
+          "le plus cher",
+          "mon budget",
+          "la formule du midi",
+          "une suggestion",
+          "garder mon choix",
+          "le prix",
+          "Je préfère le plat du jour.",
+          "Mon budget est de vingt euros.",
+          "Le poisson est au-dessus de mon budget.",
+          "Non merci, je vais garder mon choix.",
+          "Quel est le prix du plat du jour ?",
+          "Je prends le plat du jour, s’il vous plaît.",
+          "Merci pour la suggestion."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Quel est le prix du plat du jour ?",
+          "en": "Hello. What is the price of the daily special?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Dix-huit euros. Je vous conseille aussi notre poisson à trente-deux euros.",
+          "en": "Eighteen euros. I also recommend our fish at thirty-two euros."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci, mais mon budget est de vingt euros. Je préfère le plat du jour.",
+          "en": "Thank you, but my budget is twenty euros. I prefer the daily special."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Le poisson est vraiment notre meilleur plat.",
+          "en": "The fish really is our best dish."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Je comprends. Il est au-dessus de mon budget, alors je vais garder mon choix.",
+          "en": "I understand. It is over my budget, so I will keep my choice."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Très bien. Vous prenez le plat du jour ?",
+          "en": "Very good. Will you have the daily special?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Oui, le plat du jour, s’il vous plaît.",
+          "en": "Yes, the daily special, please."
+        },
+        {
+          "speaker": "Server",
+          "fr": "D’accord. Je vous apporte le plat du jour.",
+          "en": "All right. I will bring you the daily special."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the phrase for the fixed-price lunch.",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to state a twenty-euro budget.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the polite refusal that keeps the choice.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French word for budget.",
+          "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Explain that the fish exceeds the budget.",
+          "sourceCard": 11,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write an order for the daily special.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 22,
+      "stableId": "core-travel-lunch:22:fr-en",
+      "title": "Ask a Local About Weekday Lunch",
+      "objective": "Ask a local when people nearby eat lunch, how long lunch lasts, whether coffee follows and why some restaurants close mid-afternoon.",
+      "focus": "Use vers quelle heure, combien de temps, après le repas and rouvrir le soir to ask about a local routine without asserting a universal rule.",
+      "scene": "Maya asks a local colleague about a typical weekday lunch in this neighborhood.",
+      "words": [
+        {
+          "es": "le déjeuner",
+          "en": "lunch",
+          "kind": "term"
+        },
+        {
+          "es": "un jour de semaine",
+          "en": "a weekday",
+          "kind": "term"
+        },
+        {
+          "es": "l’après-midi",
+          "en": "the afternoon",
+          "kind": "term"
+        },
+        {
+          "es": "un café après le repas",
+          "en": "a coffee after the meal",
+          "kind": "term"
+        },
+        {
+          "es": "fermer",
+          "en": "to close",
+          "kind": "term"
+        },
+        {
+          "es": "rouvrir",
+          "en": "to reopen",
+          "kind": "term"
+        },
+        {
+          "es": "la cuisine",
+          "en": "the kitchen",
+          "kind": "term"
+        },
+        {
+          "es": "dans ce quartier",
+          "en": "in this neighborhood",
+          "kind": "term"
+        },
+        {
+          "es": "Vous déjeunez vers quelle heure ici ?",
+          "en": "About what time do you eat lunch here?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Combien de temps dure le déjeuner ?",
+          "en": "How long does lunch last?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Vous prenez un café après le repas ?",
+          "en": "Do you have coffee after the meal?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Pourquoi ces restaurants ferment à quinze heures ?",
+          "en": "Why do these restaurants close at three p.m.?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Ils rouvrent le soir ?",
+          "en": "Do they reopen in the evening?",
+          "kind": "phrase"
+        },
+        {
+          "es": "La cuisine ferme après le service de midi.",
+          "en": "The kitchen closes after lunch service.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Le samedi, les horaires sont différents.",
+          "en": "On Saturday, the hours are different.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Visitor asking about lunch customs",
+        "partnerRole": "Local colleague",
+        "opening": "Vous déjeunez vers quelle heure ici, un jour de semaine ?",
+        "goal": "Ask when and how long the local colleague lunches, whether coffee follows, and why nearby restaurants close at three p.m.",
+        "closure": "Merci. Je vérifierai les horaires du restaurant.",
+        "wordBank": [
+          "le déjeuner",
+          "un jour de semaine",
+          "l’après-midi",
+          "un café après le repas",
+          "fermer",
+          "rouvrir",
+          "la cuisine",
+          "dans ce quartier",
+          "Vous déjeunez vers quelle heure ici ?",
+          "Combien de temps dure le déjeuner ?",
+          "Vous prenez un café après le repas ?",
+          "Pourquoi ces restaurants ferment à quinze heures ?",
+          "Ils rouvrent le soir ?",
+          "La cuisine ferme après le service de midi.",
+          "Le samedi, les horaires sont différents."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Vous déjeunez vers quelle heure ici, un jour de semaine ?",
+          "en": "About what time do you eat lunch here on a weekday?"
+        },
+        {
+          "speaker": "Local",
+          "fr": "Dans ce quartier, nous commençons souvent vers midi et demi.",
+          "en": "In this neighborhood, we often start around half past noon."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Combien de temps dure le déjeuner ?",
+          "en": "How long does lunch last?"
+        },
+        {
+          "speaker": "Local",
+          "fr": "Pour moi, environ quarante-cinq minutes. Et je prends parfois un café après le repas.",
+          "en": "For me, about forty-five minutes. And I sometimes have coffee after the meal."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Pourquoi ces restaurants ferment à quinze heures ?",
+          "en": "Why do these restaurants close at three p.m.?"
+        },
+        {
+          "speaker": "Local",
+          "fr": "Leur cuisine ferme après le service de midi. Certains rouvrent le soir.",
+          "en": "Their kitchen closes after lunch service. Some reopen in the evening."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Le samedi, c’est pareil ?",
+          "en": "Is it the same on Saturday?"
+        },
+        {
+          "speaker": "Local",
+          "fr": "Pas toujours. Les horaires changent selon le restaurant.",
+          "en": "Not always. Hours vary by restaurant."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the phrase for a weekday.",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to ask how long lunch lasts.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question about closing at three.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the word for to reopen.",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether coffee follows the meal.",
+          "sourceCard": 11,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a question about evening reopening.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 23,
+      "stableId": "core-travel-lunch:23:fr-en",
+      "title": "Build a Picnic for Four at a Deli",
+      "objective": "Order sliced food and bread by quantity for four people, request packing and utensils, and ask where a park picnic is allowed.",
+      "focus": "Use grammes, tranches, emballer, des couverts and où peut-on pique-niquer to assemble and carry a specific order.",
+      "scene": "At a deli counter, Maya puts together a picnic for four before walking to a nearby park.",
+      "words": [
+        {
+          "es": "deux cents grammes",
+          "en": "two hundred grams",
+          "kind": "term"
+        },
+        {
+          "es": "deux cent cinquante grammes",
+          "en": "two hundred fifty grams",
+          "kind": "term"
+        },
+        {
+          "es": "des tranches",
+          "en": "slices",
+          "kind": "term"
+        },
+        {
+          "es": "du jambon",
+          "en": "ham",
+          "kind": "term"
+        },
+        {
+          "es": "du fromage",
+          "en": "cheese",
+          "kind": "term"
+        },
+        {
+          "es": "quatre petits pains",
+          "en": "four small breads / rolls",
+          "kind": "term"
+        },
+        {
+          "es": "emballer",
+          "en": "to wrap / pack",
+          "kind": "term"
+        },
+        {
+          "es": "des couverts",
+          "en": "cutlery",
+          "kind": "term"
+        },
+        {
+          "es": "des serviettes",
+          "en": "napkins",
+          "kind": "term"
+        },
+        {
+          "es": "Je voudrais deux cents grammes de jambon en tranches.",
+          "en": "I would like two hundred grams of sliced ham.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Et deux cent cinquante grammes de fromage.",
+          "en": "And two hundred fifty grams of cheese.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Vous pouvez tout emballer pour un pique-nique ?",
+          "en": "Can you pack everything for a picnic?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Il nous faut des couverts et des serviettes.",
+          "en": "We need cutlery and napkins.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Où peut-on pique-niquer dans le parc ?",
+          "en": "Where may we picnic in the park?",
+          "kind": "phrase"
+        },
+        {
+          "es": "C’est pour quatre personnes.",
+          "en": "It is for four people.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Deli customer planning a picnic",
+        "partnerRole": "Deli counter worker",
+        "opening": "Bonjour. C’est pour un pique-nique de quatre personnes.",
+        "goal": "Order measured sliced foods and four rolls, request packing and cutlery, then ask where the nearby park permits picnics.",
+        "closure": "Merci. Nous lirons le panneau du parc.",
+        "wordBank": [
+          "deux cents grammes",
+          "deux cent cinquante grammes",
+          "des tranches",
+          "du jambon",
+          "du fromage",
+          "quatre petits pains",
+          "emballer",
+          "des couverts",
+          "des serviettes",
+          "Je voudrais deux cents grammes de jambon en tranches.",
+          "Et deux cent cinquante grammes de fromage.",
+          "Vous pouvez tout emballer pour un pique-nique ?",
+          "Il nous faut des couverts et des serviettes.",
+          "Où peut-on pique-niquer dans le parc ?",
+          "C’est pour quatre personnes."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. C’est pour un pique-nique de quatre personnes.",
+          "en": "Hello. It is for a picnic for four people."
+        },
+        {
+          "speaker": "Deli worker",
+          "fr": "Qu’est-ce qu’il vous faut ?",
+          "en": "What do you need?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Deux cents grammes de jambon en tranches et deux cent cinquante grammes de fromage.",
+          "en": "Two hundred grams of sliced ham and two hundred fifty grams of cheese."
+        },
+        {
+          "speaker": "Deli worker",
+          "fr": "Très bien. Vous voulez du pain avec ?",
+          "en": "Very good. Would you like bread with that?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Oui, quatre petits pains. Vous pouvez tout emballer ?",
+          "en": "Yes, four small rolls. Can you pack everything?"
+        },
+        {
+          "speaker": "Deli worker",
+          "fr": "Bien sûr. Je mets aussi des serviettes et des couverts dans le sac.",
+          "en": "Of course. I will also put napkins and cutlery in the bag."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci. Où peut-on pique-niquer dans le parc voisin ?",
+          "en": "Thank you. Where may we picnic in the nearby park?"
+        },
+        {
+          "speaker": "Deli worker",
+          "fr": "Sur les pelouses indiquées près de l’entrée, d’après le panneau du parc.",
+          "en": "On the marked lawns near the entrance, according to the park sign."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Parfait. Nous lirons le panneau en arrivant.",
+          "en": "Perfect. We will read the sign when we arrive."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French phrase for two hundred grams.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the word for slices.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the packing request.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French word for cutlery.",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Order the sliced ham by weight.",
+          "sourceCard": 10,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a question about picnic locations in the park.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 24,
+      "stableId": "core-travel-lunch:24:fr-en",
+      "title": "Ask for Emergency Help During an Allergic Reaction",
+      "objective": "Alert a street-food vendor that a friend is having an allergic reaction, ask someone to call emergency services and report what the friend ate.",
+      "focus": "Use une réaction allergique, appelez les secours, il a mangé and une bouchée to give direct, specific information in French.",
+      "scene": "After one bite of a shrimp-filled street-food item, Maya’s friend begins an allergic reaction at a market stall.",
+      "words": [
+        {
+          "es": "une réaction allergique",
+          "en": "an allergic reaction",
+          "kind": "term"
+        },
+        {
+          "es": "les secours",
+          "en": "emergency services / help",
+          "kind": "term"
+        },
+        {
+          "es": "une bouchée",
+          "en": "a bite of food",
+          "kind": "term"
+        },
+        {
+          "es": "des crevettes",
+          "en": "shrimp / prawns",
+          "kind": "term"
+        },
+        {
+          "es": "la garniture",
+          "en": "the filling",
+          "kind": "term"
+        },
+        {
+          "es": "la sauce",
+          "en": "the sauce",
+          "kind": "term"
+        },
+        {
+          "es": "un vendeur",
+          "en": "a vendor",
+          "kind": "term"
+        },
+        {
+          "es": "immédiatement",
+          "en": "immediately",
+          "kind": "term"
+        },
+        {
+          "es": "Mon ami fait une réaction allergique.",
+          "en": "My friend is having an allergic reaction.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Appelez les secours, s’il vous plaît.",
+          "en": "Call emergency services, please.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Il a mangé une bouchée de cette galette.",
+          "en": "He ate one bite of this galette.",
+          "kind": "phrase"
+        },
+        {
+          "es": "La garniture contient des crevettes ?",
+          "en": "Does the filling contain shrimp?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Il a du mal à respirer.",
+          "en": "He is having trouble breathing.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Dites aux secours ce qu’il a mangé.",
+          "en": "Tell emergency services what he ate.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Le vendeur appelle les secours maintenant.",
+          "en": "The vendor is calling emergency services now.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Friend alerting a vendor",
+        "partnerRole": "Street-food vendor",
+        "opening": "Aidez-nous. Mon ami fait une réaction allergique.",
+        "goal": "Alert the vendor, ask directly for an emergency call, describe the bite and breathing difficulty, and tell responders what was eaten.",
+        "closure": "Merci d’avoir appelé les secours. Dites-leur où nous sommes.",
+        "wordBank": [
+          "une réaction allergique",
+          "les secours",
+          "une bouchée",
+          "des crevettes",
+          "la garniture",
+          "la sauce",
+          "un vendeur",
+          "immédiatement",
+          "Mon ami fait une réaction allergique.",
+          "Appelez les secours, s’il vous plaît.",
+          "Il a mangé une bouchée de cette galette.",
+          "La garniture contient des crevettes ?",
+          "Il a du mal à respirer.",
+          "Dites aux secours ce qu’il a mangé.",
+          "Le vendeur appelle les secours maintenant."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Aidez-nous. Mon ami fait une réaction allergique.",
+          "en": "Help us. My friend is having an allergic reaction."
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "Que s’est-il passé ?",
+          "en": "What happened?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Il a mangé une bouchée de cette galette. Il a du mal à respirer.",
+          "en": "He ate one bite of this galette. He is having trouble breathing."
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "La garniture contient des crevettes.",
+          "en": "The filling contains shrimp."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Appelez les secours, s’il vous plaît, immédiatement.",
+          "en": "Call emergency services immediately, please."
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "Je les appelle maintenant.",
+          "en": "I am calling them now."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Dites-leur qu’il a mangé une galette aux crevettes.",
+          "en": "Tell them he ate a galette with shrimp."
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "Oui. Je leur indique aussi notre emplacement au marché.",
+          "en": "Yes. I will also tell them our location at the market."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for an allergic reaction.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the direct request to call emergency services.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for what the friend ate.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French word for a bite of food.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Tell the vendor the friend is having an allergic reaction.",
+          "sourceCard": 9,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write what the responders should be told about the food.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 25,
+      "stableId": "core-travel-lunch:25:fr-en",
+      "title": "Call About a Forgotten Shopping Bag",
+      "objective": "Phone the restaurant, describe a forgotten shopping bag and table, and arrange when and where to collect it.",
+      "focus": "Use j’ai oublié, sous la table, près de la fenêtre, vous l’avez trouvé and venir le récupérer to identify the item and pickup plan.",
+      "scene": "Maya calls the bistro after leaving a blue canvas shopping bag under her lunch table.",
+      "words": [
+        {
+          "es": "un sac de courses",
+          "en": "a shopping bag",
+          "kind": "term"
+        },
+        {
+          "es": "en toile bleue",
+          "en": "made of blue canvas",
+          "kind": "term"
+        },
+        {
+          "es": "sous la table",
+          "en": "under the table",
+          "kind": "term"
+        },
+        {
+          "es": "près de la fenêtre",
+          "en": "near the window",
+          "kind": "term"
+        },
+        {
+          "es": "le comptoir",
+          "en": "the counter",
+          "kind": "term"
+        },
+        {
+          "es": "récupérer",
+          "en": "to collect / retrieve",
+          "kind": "term"
+        },
+        {
+          "es": "vers treize heures",
+          "en": "around one p.m.",
+          "kind": "term"
+        },
+        {
+          "es": "mon nom",
+          "en": "my name",
+          "kind": "term"
+        },
+        {
+          "es": "J’ai oublié mon sac de courses.",
+          "en": "I forgot my shopping bag.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Il était sous la table près de la fenêtre.",
+          "en": "It was under the table near the window.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Vous l’avez trouvé ?",
+          "en": "Did you find it?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je peux venir le récupérer à quinze heures ?",
+          "en": "Can I come pick it up at three p.m.?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Pouvez-vous le garder au comptoir ?",
+          "en": "Can you keep it at the counter?",
+          "kind": "phrase"
+        },
+        {
+          "es": "C’est un sac en toile bleue.",
+          "en": "It is a blue canvas bag.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je m’appelle Maya Martin.",
+          "en": "My name is Maya Martin.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Caller retrieving a bag",
+        "partnerRole": "Restaurant host on phone",
+        "opening": "Bonjour. J’ai oublié mon sac de courses après le déjeuner.",
+        "goal": "Describe the blue canvas bag, identify the window table and lunch time, confirm it was found and arrange pickup at the counter.",
+        "closure": "Merci. Je passerai à quinze heures.",
+        "wordBank": [
+          "un sac de courses",
+          "en toile bleue",
+          "sous la table",
+          "près de la fenêtre",
+          "le comptoir",
+          "récupérer",
+          "vers treize heures",
+          "mon nom",
+          "J’ai oublié mon sac de courses.",
+          "Il était sous la table près de la fenêtre.",
+          "Vous l’avez trouvé ?",
+          "Je peux venir le récupérer à quinze heures ?",
+          "Pouvez-vous le garder au comptoir ?",
+          "C’est un sac en toile bleue.",
+          "Je m’appelle Maya Martin."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Host",
+          "fr": "Bonjour, le Bistrot Victor.",
+          "en": "Hello, Bistrot Victor."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. J’ai oublié mon sac de courses après le déjeuner.",
+          "en": "Hello. I forgot my shopping bag after lunch."
+        },
+        {
+          "speaker": "Host",
+          "fr": "Pouvez-vous le décrire et me dire où vous étiez assise ?",
+          "en": "Can you describe it and tell me where you were seated?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "C’est un sac en toile bleue. Il était sous la table près de la fenêtre.",
+          "en": "It is a blue canvas bag. It was under the table near the window."
+        },
+        {
+          "speaker": "Host",
+          "fr": "Vous étiez ici vers treize heures ?",
+          "en": "Were you here around one p.m.?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Oui. Vous l’avez trouvé ?",
+          "en": "Yes. Did you find it?"
+        },
+        {
+          "speaker": "Host",
+          "fr": "Oui, nous l’avons. Je le garde au comptoir.",
+          "en": "Yes, we have it. I will keep it at the counter."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci. Je peux venir le récupérer à quinze heures ?",
+          "en": "Thank you. Can I come pick it up at three p.m.?"
+        },
+        {
+          "speaker": "Host",
+          "fr": "Oui. Quel est votre nom ?",
+          "en": "Yes. What is your name?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Maya Martin. À tout à l’heure.",
+          "en": "Maya Martin. See you later."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French word for a shopping bag.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to say under the table.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question asking whether it was found.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French verb for to retrieve.",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Describe the blue canvas bag.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a request to pick it up at three p.m.",
+          "sourceCard": 12,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 26,
+      "stableId": "core-travel-lunch:26:fr-en",
+      "title": "Host a Supplier at Lunch",
+      "objective": "Help a visiting supplier order, discuss the work over lunch, and pay discreetly.",
+      "focus": "Use je vous invite, qu’est-ce qui vous ferait plaisir and je vais régler l’addition to guide a professional meal.",
+      "scene": "Maya hosts a visiting supplier at a neighborhood restaurant.",
+      "words": [
+        {
+          "es": "un fournisseur",
+          "en": "a supplier",
+          "kind": "term"
+        },
+        {
+          "es": "un rendez-vous",
+          "en": "a meeting",
+          "kind": "term"
+        },
+        {
+          "es": "la carte",
+          "en": "the menu",
+          "kind": "term"
+        },
+        {
+          "es": "le plat du jour",
+          "en": "the daily special",
+          "kind": "term"
+        },
+        {
+          "es": "une option végétarienne",
+          "en": "a vegetarian option",
+          "kind": "term"
+        },
+        {
+          "es": "notre projet",
+          "en": "our project",
+          "kind": "term"
+        },
+        {
+          "es": "le délai",
+          "en": "the timeline",
+          "kind": "term"
+        },
+        {
+          "es": "l’addition",
+          "en": "the bill",
+          "kind": "term"
+        },
+        {
+          "es": "Je vous invite à déjeuner.",
+          "en": "I am inviting you to lunch.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Qu’est-ce qui vous ferait plaisir ?",
+          "en": "What would you like?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je vous conseille le plat du jour.",
+          "en": "I recommend the daily special.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Parlons de notre projet.",
+          "en": "Let us talk about our project.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quel délai vous conviendrait ?",
+          "en": "What timeline would suit you?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je vais régler l’addition au comptoir.",
+          "en": "I will settle the bill at the counter.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Merci pour cette conversation.",
+          "en": "Thank you for this conversation.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Lunch host",
+        "partnerRole": "Visiting supplier",
+        "opening": "Bienvenue. Je vous invite à déjeuner.",
+        "goal": "Welcome the supplier, help them choose, discuss the project timeline and settle the bill at the counter.",
+        "closure": "Merci pour cette conversation. À bientôt.",
+        "wordBank": [
+          "un fournisseur",
+          "un rendez-vous",
+          "la carte",
+          "le plat du jour",
+          "une option végétarienne",
+          "notre projet",
+          "le délai",
+          "l’addition",
+          "Je vous invite à déjeuner.",
+          "Qu’est-ce qui vous ferait plaisir ?",
+          "Je vous conseille le plat du jour.",
+          "Parlons de notre projet.",
+          "Quel délai vous conviendrait ?",
+          "Je vais régler l’addition au comptoir.",
+          "Merci pour cette conversation."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bienvenue. Je vous invite à déjeuner.",
+          "en": "Welcome. I am inviting you to lunch."
+        },
+        {
+          "speaker": "Supplier",
+          "fr": "Merci. Qu’est-ce que vous recommandez ?",
+          "en": "Thank you. What do you recommend?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Le plat du jour est excellent. Qu’est-ce qui vous ferait plaisir ?",
+          "en": "The daily special is excellent. What would you like?"
+        },
+        {
+          "speaker": "Supplier",
+          "fr": "Je prendrai le plat du jour, merci.",
+          "en": "I will have the daily special, thank you."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Parlons de notre projet. Quel délai vous conviendrait ?",
+          "en": "Let us talk about our project. What timeline would suit you?"
+        },
+        {
+          "speaker": "Supplier",
+          "fr": "La semaine prochaine me conviendrait.",
+          "en": "Next week would suit me."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Très bien. Je vais régler l’addition au comptoir.",
+          "en": "Very good. I will settle the bill at the counter."
+        },
+        {
+          "speaker": "Supplier",
+          "fr": "Merci pour ce déjeuner et cette conversation.",
+          "en": "Thank you for this lunch and this conversation."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for supplier.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the invitation to lunch.",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the recommendation of the daily special.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for bill.",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask what timeline would suit the guest.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write how you will settle the bill at the counter.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 27,
+      "stableId": "core-travel-lunch:27:fr-en",
+      "title": "Phone in a Lunch Order for Four",
+      "objective": "Order four takeaway lunches, spell the pickup name and confirm time and total.",
+      "focus": "Use à emporter, épeler, à quelle heure and le total to confirm a telephone order.",
+      "scene": "Maya phones a takeaway shop for four lunches to collect at twelve thirty.",
+      "words": [
+        {
+          "es": "à emporter",
+          "en": "to take away",
+          "kind": "term"
+        },
+        {
+          "es": "quatre déjeuners",
+          "en": "four lunches",
+          "kind": "term"
+        },
+        {
+          "es": "deux sandwichs au fromage",
+          "en": "two cheese sandwiches",
+          "kind": "term"
+        },
+        {
+          "es": "deux salades",
+          "en": "two salads",
+          "kind": "term"
+        },
+        {
+          "es": "un nom",
+          "en": "a name",
+          "kind": "term"
+        },
+        {
+          "es": "épeler",
+          "en": "to spell",
+          "kind": "term"
+        },
+        {
+          "es": "le retrait",
+          "en": "the pickup",
+          "kind": "term"
+        },
+        {
+          "es": "le total",
+          "en": "the total",
+          "kind": "term"
+        },
+        {
+          "es": "Je voudrais commander pour quatre personnes.",
+          "en": "I would like to order for four people.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Deux sandwichs et deux salades, s’il vous plaît.",
+          "en": "Two sandwiches and two salads, please.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Mon nom est Martin : M-A-R-T-I-N.",
+          "en": "My name is Martin: M-A-R-T-I-N.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je peux passer à midi et demi ?",
+          "en": "Can I come by at twelve thirty?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quel est le total ?",
+          "en": "What is the total?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Le total est de trente-deux euros.",
+          "en": "The total is thirty-two euros.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je confirme la commande.",
+          "en": "I confirm the order.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Caller ordering pickup",
+        "partnerRole": "Takeaway shop worker",
+        "opening": "Bonjour. Je voudrais commander pour quatre personnes.",
+        "goal": "Order two cheese sandwiches and two salads, spell Martin and repeat the twelve-thirty pickup and thirty-two-euro total.",
+        "closure": "Merci, à midi et demi.",
+        "wordBank": [
+          "à emporter",
+          "quatre déjeuners",
+          "deux sandwichs au fromage",
+          "deux salades",
+          "un nom",
+          "épeler",
+          "le retrait",
+          "le total",
+          "Je voudrais commander pour quatre personnes.",
+          "Deux sandwichs et deux salades, s’il vous plaît.",
+          "Mon nom est Martin : M-A-R-T-I-N.",
+          "Je peux passer à midi et demi ?",
+          "Quel est le total ?",
+          "Le total est de trente-deux euros.",
+          "Je confirme la commande."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Shop",
+          "fr": "Bonjour, service à emporter.",
+          "en": "Hello, takeaway service."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Je voudrais commander pour quatre personnes.",
+          "en": "Hello. I would like to order for four people."
+        },
+        {
+          "speaker": "Shop",
+          "fr": "Bien sûr. Que voulez-vous ?",
+          "en": "Of course. What would you like?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Deux sandwichs au fromage et deux salades, s’il vous plaît.",
+          "en": "Two cheese sandwiches and two salads, please."
+        },
+        {
+          "speaker": "Shop",
+          "fr": "À quel nom ? Pouvez-vous l’épeler ?",
+          "en": "Under what name? Can you spell it?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Martin : M-A-R-T-I-N. Je peux passer à midi et demi ?",
+          "en": "Martin: M-A-R-T-I-N. Can I come by at twelve thirty?"
+        },
+        {
+          "speaker": "Shop",
+          "fr": "Oui. Le total est de trente-deux euros.",
+          "en": "Yes. The total is thirty-two euros."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Trente-deux euros, à midi et demi. Je confirme la commande.",
+          "en": "Thirty-two euros, at twelve thirty. I confirm the order."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the phrase for takeaway.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the order for four people.",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the spelled pickup name.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for total.",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether you can come at twelve thirty.",
+          "sourceCard": 12,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write the final order confirmation.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 28,
+      "stableId": "core-travel-lunch:28:fr-en",
+      "title": "Join a Communal Lunch Table",
+      "objective": "Ask strangers for a seat, ask about their lunch and keep the shared space comfortable.",
+      "focus": "Use cette place est libre, ça vous dérange si and qu’est-ce que vous avez pris to join a table politely.",
+      "scene": "A crowded market hall has one open seat at a communal table.",
+      "words": [
+        {
+          "es": "une table commune",
+          "en": "a communal table",
+          "kind": "term"
+        },
+        {
+          "es": "une place libre",
+          "en": "an open seat",
+          "kind": "term"
+        },
+        {
+          "es": "un plateau",
+          "en": "a tray",
+          "kind": "term"
+        },
+        {
+          "es": "votre espace",
+          "en": "your space",
+          "kind": "term"
+        },
+        {
+          "es": "la soupe",
+          "en": "the soup",
+          "kind": "term"
+        },
+        {
+          "es": "le marché",
+          "en": "the market",
+          "kind": "term"
+        },
+        {
+          "es": "la spécialité",
+          "en": "the specialty",
+          "kind": "term"
+        },
+        {
+          "es": "le déjeuner",
+          "en": "lunch",
+          "kind": "term"
+        },
+        {
+          "es": "Cette place est libre ?",
+          "en": "Is this seat free?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Ça vous dérange si je m’assieds ici ?",
+          "en": "Do you mind if I sit here?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je peux poser mon plateau ici ?",
+          "en": "May I put my tray here?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Qu’est-ce que vous avez pris ?",
+          "en": "What did you order?",
+          "kind": "phrase"
+        },
+        {
+          "es": "La soupe vous plaît ?",
+          "en": "Do you like the soup?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je vais vous laisser de la place.",
+          "en": "I will leave you some space.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Merci de partager la table.",
+          "en": "Thank you for sharing the table.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Market visitor seeking a seat",
+        "partnerRole": "Guest at communal table",
+        "opening": "Bonjour. Cette place est libre ?",
+        "goal": "Ask for the seat and tray space, chat about the soup, then make room and thank the other guest.",
+        "closure": "Merci de partager la table.",
+        "wordBank": [
+          "une table commune",
+          "une place libre",
+          "un plateau",
+          "votre espace",
+          "la soupe",
+          "le marché",
+          "la spécialité",
+          "le déjeuner",
+          "Cette place est libre ?",
+          "Ça vous dérange si je m’assieds ici ?",
+          "Je peux poser mon plateau ici ?",
+          "Qu’est-ce que vous avez pris ?",
+          "La soupe vous plaît ?",
+          "Je vais vous laisser de la place.",
+          "Merci de partager la table."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Cette place est libre ?",
+          "en": "Hello. Is this seat free?"
+        },
+        {
+          "speaker": "Guest",
+          "fr": "Oui, elle est libre.",
+          "en": "Yes, it is free."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Ça vous dérange si je m’assieds ici ?",
+          "en": "Do you mind if I sit here?"
+        },
+        {
+          "speaker": "Guest",
+          "fr": "Pas du tout, installez-vous.",
+          "en": "Not at all, have a seat."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci. Je peux poser mon plateau ici ?",
+          "en": "Thank you. May I put my tray here?"
+        },
+        {
+          "speaker": "Guest",
+          "fr": "Bien sûr.",
+          "en": "Of course."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Qu’est-ce que vous avez pris ? Cette soupe a l’air bonne.",
+          "en": "What did you order? That soup looks good."
+        },
+        {
+          "speaker": "Guest",
+          "fr": "C’est la spécialité du marché. Elle me plaît beaucoup.",
+          "en": "It is the market specialty. I like it a lot."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Je vais vous laisser de la place. Merci de partager la table.",
+          "en": "I will leave you some space. Thank you for sharing the table."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French phrase for an open seat.",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the question asking to sit down.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question about the other guest’s order.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French word for tray.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether the guest likes the soup.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a polite promise to leave some space.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 29,
+      "stableId": "core-travel-lunch:29:fr-en",
+      "title": "Leave Lunch After a Forty-Minute Wait",
+      "objective": "Explain that the main course has not arrived after forty minutes, pay for drinks and leave courteously.",
+      "focus": "Use j’attends depuis, je dois partir and je vais régler mes boissons to give a clear timeline and close the bill.",
+      "scene": "Maya must leave the café after a forty-minute wait for her main course.",
+      "words": [
+        {
+          "es": "quarante minutes",
+          "en": "forty minutes",
+          "kind": "term"
+        },
+        {
+          "es": "le plat principal",
+          "en": "the main course",
+          "kind": "term"
+        },
+        {
+          "es": "les boissons",
+          "en": "the drinks",
+          "kind": "term"
+        },
+        {
+          "es": "l’attente",
+          "en": "the wait",
+          "kind": "term"
+        },
+        {
+          "es": "partir",
+          "en": "to leave",
+          "kind": "term"
+        },
+        {
+          "es": "régler",
+          "en": "to pay / settle",
+          "kind": "term"
+        },
+        {
+          "es": "une réunion",
+          "en": "a meeting",
+          "kind": "term"
+        },
+        {
+          "es": "l’addition",
+          "en": "the bill",
+          "kind": "term"
+        },
+        {
+          "es": "J’attends depuis quarante minutes.",
+          "en": "I have been waiting for forty minutes.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Mon plat principal n’est pas arrivé.",
+          "en": "My main course has not arrived.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je dois partir pour une réunion.",
+          "en": "I have to leave for a meeting.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Je vais régler mes boissons.",
+          "en": "I will pay for my drinks.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Pouvez-vous annuler le plat ?",
+          "en": "Can you cancel the main course?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Combien dois-je pour les boissons ?",
+          "en": "How much do I owe for the drinks?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Merci de votre aide. Au revoir.",
+          "en": "Thank you for your help. Goodbye.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Guest leaving after delay",
+        "partnerRole": "Restaurant server",
+        "opening": "Excusez-moi. J’attends depuis quarante minutes.",
+        "goal": "Explain the forty-minute wait and meeting, ask to cancel the unserved main course, pay six euros for drinks and leave courteously.",
+        "closure": "Merci de votre aide. Au revoir.",
+        "wordBank": [
+          "quarante minutes",
+          "le plat principal",
+          "les boissons",
+          "l’attente",
+          "partir",
+          "régler",
+          "une réunion",
+          "l’addition",
+          "J’attends depuis quarante minutes.",
+          "Mon plat principal n’est pas arrivé.",
+          "Je dois partir pour une réunion.",
+          "Je vais régler mes boissons.",
+          "Pouvez-vous annuler le plat ?",
+          "Combien dois-je pour les boissons ?",
+          "Merci de votre aide. Au revoir."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Excusez-moi. J’attends depuis quarante minutes.",
+          "en": "Excuse me. I have been waiting for forty minutes."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Je suis désolé. Votre plat principal arrive bientôt.",
+          "en": "I am sorry. Your main course will arrive soon."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci, mais je dois partir pour une réunion. Mon plat n’est pas arrivé.",
+          "en": "Thank you, but I have to leave for a meeting. My food has not arrived."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Je comprends. Voulez-vous que j’annule le plat ?",
+          "en": "I understand. Would you like me to cancel the main course?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Oui, s’il vous plaît. Je vais régler mes boissons.",
+          "en": "Yes, please. I will pay for my drinks."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Bien sûr. Les boissons coûtent six euros.",
+          "en": "Of course. The drinks cost six euros."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Voici six euros. Merci de votre aide.",
+          "en": "Here are six euros. Thank you for your help."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Merci. Au revoir.",
+          "en": "Thank you. Goodbye."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for main course.",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to state the forty-minute wait.",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the request to cancel the main course.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French verb for to leave.",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Say that you have to leave for a meeting.",
+          "sourceCard": 11,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a question asking what you owe for drinks.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      }
+    },
+    {
+      "n": 30,
+      "stableId": "core-travel-lunch:30:fr-en",
+      "title": "Complete an Extended Group Lunch",
+      "objective": "Host a full lunch for a child and a guest with a severe shellfish allergy, decline an upsell, discuss a local custom, dispute a charge and say farewell in French.",
+      "focus": "Reuse table, ingredient, price, bill and conversation questions across a longer uninterrupted exchange.",
+      "scene": "Maya hosts a child and two guests at a neighborhood lunch café; one guest has a severe shellfish allergy.",
+      "words": [
+        {
+          "es": "une table pour quatre",
+          "en": "a table for four",
+          "kind": "term"
+        },
+        {
+          "es": "un enfant",
+          "en": "a child",
+          "kind": "term"
+        },
+        {
+          "es": "une allergie grave aux crustacés",
+          "en": "a severe shellfish allergy",
+          "kind": "term"
+        },
+        {
+          "es": "des crevettes",
+          "en": "shrimp",
+          "kind": "term"
+        },
+        {
+          "es": "les ingrédients",
+          "en": "the ingredients",
+          "kind": "term"
+        },
+        {
+          "es": "un menu enfant",
+          "en": "a children’s menu",
+          "kind": "term"
+        },
+        {
+          "es": "un supplément",
+          "en": "an extra charge",
+          "kind": "term"
+        },
+        {
+          "es": "une erreur sur l’addition",
+          "en": "an error on the bill",
+          "kind": "term"
+        },
+        {
+          "es": "Nous sommes quatre, avec un enfant.",
+          "en": "There are four of us, with one child.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Une personne a une allergie grave aux crustacés.",
+          "en": "One person has a severe shellfish allergy.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Ce plat contient-il des crevettes ?",
+          "en": "Does this dish contain shrimp?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Avez-vous un menu enfant ?",
+          "en": "Do you have a children’s menu?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Non merci, sans supplément.",
+          "en": "No thank you, without the extra charge.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Pourquoi prenez-vous un café après le repas ?",
+          "en": "Why do you have a coffee after the meal?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Ce supplément figure sur l’addition par erreur.",
+          "en": "This extra charge is on the bill by mistake.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Merci pour ce déjeuner. À bientôt.",
+          "en": "Thank you for this lunch. See you soon.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": {
+        "role": "Host of a mixed lunch group",
+        "partnerRole": "Server and local guest",
+        "opening": "Bonjour. Nous sommes quatre, avec un enfant.",
+        "goal": "Find a table, ask directly about the severe shellfish allergy and ingredients, order for the child, decline the extra charge, ask about a local coffee habit, discuss the café, correct the bill and close warmly.",
+        "closure": "Merci pour ce déjeuner. À bientôt.",
+        "wordBank": [
+          "une table pour quatre",
+          "un enfant",
+          "une allergie grave aux crustacés",
+          "des crevettes",
+          "les ingrédients",
+          "un menu enfant",
+          "un supplément",
+          "une erreur sur l’addition",
+          "Nous sommes quatre, avec un enfant.",
+          "Une personne a une allergie grave aux crustacés.",
+          "Ce plat contient-il des crevettes ?",
+          "Avez-vous un menu enfant ?",
+          "Non merci, sans supplément.",
+          "Pourquoi prenez-vous un café après le repas ?",
+          "Ce supplément figure sur l’addition par erreur.",
+          "Merci pour ce déjeuner. À bientôt."
+        ]
+      },
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Nous sommes quatre, avec un enfant.",
+          "en": "Hello. There are four of us, with one child."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Bonjour. Cette table vous convient ?",
+          "en": "Hello. Does this table suit you?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Oui, merci. Avez-vous un menu enfant ?",
+          "en": "Yes, thank you. Do you have a children’s menu?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, le voici. Que souhaitez-vous commander ?",
+          "en": "Yes, here it is. What would you like to order?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Une personne a une allergie grave aux crustacés. Ce plat contient-il des crevettes ?",
+          "en": "One person has a severe shellfish allergy. Does this dish contain shrimp?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, ce plat contient des crevettes. L’autre salade n’en contient pas.",
+          "en": "Yes, this dish contains shrimp. The other salad does not contain any."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci. Nous prenons l’autre salade et le menu enfant.",
+          "en": "Thank you. We will have the other salad and the children’s menu."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Voulez-vous ajouter un dessert avec supplément ?",
+          "en": "Would you like to add a dessert for an extra charge?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Non merci, sans supplément.",
+          "en": "No thank you, without the extra charge."
+        },
+        {
+          "speaker": "Guest",
+          "fr": "Ici, on prend souvent un café après le repas.",
+          "en": "Here, we often have coffee after the meal."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Pourquoi prenez-vous un café après le repas ?",
+          "en": "Why do you have a coffee after the meal?"
+        },
+        {
+          "speaker": "Guest",
+          "fr": "Pour continuer la conversation, dans mon cas.",
+          "en": "To continue the conversation, in my case."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "J’aime cette idée. Et comment avez-vous découvert ce café ?",
+          "en": "I like that idea. And how did you discover this café?"
+        },
+        {
+          "speaker": "Guest",
+          "fr": "Un ami me l’a recommandé l’an dernier.",
+          "en": "A friend recommended it to me last year."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Voici l’addition. Ce supplément y figure par erreur.",
+          "en": "Here is the bill. This extra charge is on it by mistake."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Vous avez raison. Je le retire.",
+          "en": "You are right. I will remove it."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci pour ce déjeuner. À bientôt.",
+          "en": "Thank you for this lunch. See you soon."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the exact French term for a severe shellfish allergy.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the question about shrimp in the dish.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the polite refusal of the extra charge.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for an error on the bill.",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask why coffee follows the meal.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a sentence disputing the mistaken charge.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        }
+      }
+    }
+  ]
+}

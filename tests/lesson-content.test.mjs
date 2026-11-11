@@ -425,8 +425,9 @@ test("verb form keys and labels per language", () => {
     "ellos_ustedes",
   ]);
   assert.deepEqual(verbFormKeys("English"), ["i", "you", "he_she", "we", "they"]);
-  assert.equal(verbFormKeys("French"), null);
+  assert.deepEqual(verbFormKeys("French"), ["je", "tu", "il_elle_on", "nous", "vous", "ils_elles"]);
   assert.equal(verbFormLabel("él_ella_usted"), "él / ella / usted");
+  assert.equal(verbFormLabel("il_elle_on"), "il / elle / on");
   assert.equal(verbFormLabel("he_she"), "he / she");
 });
 
@@ -451,6 +452,28 @@ test("verbsFromModelOutput maps the ASCII tool keys (tu) onto the file keys (tú
   assert.equal(verbs.length, 1);
   assert.equal(verbs[0].forms["tú"], "cortas");
   assert.equal(verbs[0].note, "regular");
+});
+
+test("French model forms preserve tu and provide six distinct subject slots", () => {
+  const raw = [{
+    infinitive: "manger", native: "to eat",
+    forms: { je: "mange", tu: "manges", il_elle_on: "mange", nous: "mangeons", vous: "mangez", ils_elles: "mangent" },
+    example: { target: "Je mange ici.", native: "I eat here." },
+  }];
+  const verbs = verbsFromModelOutput(raw, "French");
+  assert.equal(verbs.length, 1);
+  assert.equal(verbs[0].forms.tu, "manges");
+  assert.equal(verbs[0].forms["tú"], undefined);
+  assert.equal(conjugationItems(verbs, "French").length, 6);
+  const ctx = {
+    language: "French", nativeLanguage: "English",
+    parts: { passage: false, words: false, verbs: true },
+    limits: { ...CONTENT_LIMITS, minVerbs: 1, maxVerbs: 1 },
+  };
+  assert.deepEqual(errorsOf({ verbs }, ctx), []);
+  const withPronoun = clone(verbs);
+  withPronoun[0].forms.je = "Je mange";
+  assert.match(errorsOf({ verbs: withPronoun }, ctx).join("\n"), /without the pronoun/);
 });
 
 test("cleanLessonVerbs drops entries with a missing form, example or meaning", () => {
@@ -624,6 +647,10 @@ test("request: tool property names are ASCII (the API rejects tú) and verbs-onl
   });
   const englishForms = english.tools[0].input_schema.properties.verbs.items.properties.forms;
   assert.deepEqual(Object.keys(englishForms.properties), ["i", "you", "he_she", "we", "they"]);
+  const french = buildLessonContentRequest({ ...ARGS, targetLanguage: "French", nativeLanguage: "English" });
+  const frenchForms = french.tools[0].input_schema.properties.verbs.items.properties.forms;
+  assert.deepEqual(Object.keys(frenchForms.properties), ["je", "tu", "il_elle_on", "nous", "vous", "ils_elles"]);
+  assert.match(french.system, /Keep tu and vous distinct/);
 });
 
 test("request: the user message carries the lesson context, previous title and level", () => {

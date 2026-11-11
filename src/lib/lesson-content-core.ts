@@ -143,11 +143,13 @@ export function contentLimitsFor(moduleId: string | null | undefined): ContentLi
 // ─── Verb forms ──────────────────────────────────────────────────────────────
 
 const SPANISH_FORM_KEYS = ["yo", "tú", "él_ella_usted", "nosotros", "ellos_ustedes"] as const;
+const FRENCH_FORM_KEYS = ["je", "tu", "il_elle_on", "nous", "vous", "ils_elles"] as const;
 const ENGLISH_FORM_KEYS = ["i", "you", "he_she", "we", "they"] as const;
 
 /** Keys of `LessonVerb.forms` for a target language, in learning order. Null = no verb support. */
 export function verbFormKeys(language: string): readonly string[] | null {
   if (language === "Spanish") return SPANISH_FORM_KEYS;
+  if (language === "French") return FRENCH_FORM_KEYS;
   if (language === "English") return ENGLISH_FORM_KEYS;
   return null;
 }
@@ -158,6 +160,12 @@ const FORM_LABELS: Record<string, string> = {
   él_ella_usted: "él / ella / usted",
   nosotros: "nosotros",
   ellos_ustedes: "ellos / ustedes",
+  je: "je / j’",
+  tu: "tu",
+  il_elle_on: "il / elle / on",
+  nous: "nous",
+  vous: "vous",
+  ils_elles: "ils / elles",
   i: "I",
   you: "you",
   he_she: "he / she",
@@ -186,6 +194,7 @@ const MODEL_KEY_TO_FORM_KEY: Record<string, string> = {
 
 export const MODEL_FORM_KEYS = {
   Spanish: ["yo", "tu", "el_ella_usted", "nosotros", "ellos_ustedes"],
+  French: ["je", "tu", "il_elle_on", "nous", "vous", "ils_elles"],
   English: ["i", "you", "he_she", "we", "they"],
 } as const;
 
@@ -354,7 +363,7 @@ export function verbsFromModelOutput(raw: unknown, language: string): LessonVerb
     const forms: Record<string, unknown> = {};
     if (record.forms && typeof record.forms === "object") {
       for (const [key, value] of Object.entries(record.forms as Record<string, unknown>)) {
-        forms[MODEL_KEY_TO_FORM_KEY[key] ?? key] = value;
+        forms[language === "Spanish" ? MODEL_KEY_TO_FORM_KEY[key] ?? key : key] = value;
       }
     }
     return { ...record, forms };
@@ -436,6 +445,7 @@ export function selfTalkIssue(note: string): string | null {
 
 const ENDS_LIKE_SENTENCE = /[.?!…。？！]["'”’»）)\]』」]*$/;
 const SPANISH_PRONOUN_FIRST = /^(yo|tú|tu|él|el|ella|usted|nosotros|nosotras|ustedes|ellos|ellas)\s/i;
+const FRENCH_PRONOUN_FIRST = /^(?:je\s|j['’]|tu\s|il\s|elle\s|on\s|nous\s|vous\s|ils\s|elles\s)/i;
 const ENGLISH_PRONOUN_FIRST = /^(i|you|he|she|it|we|they)\s/i;
 
 function validatePassage(
@@ -591,6 +601,7 @@ function validateVerbs(verbs: readonly LessonVerb[] | undefined, ctx: ValidateCo
   }
   const seen = new Set<string>();
   const spanish = ctx.language === "Spanish";
+  const french = ctx.language === "French";
   for (const verb of verbs) {
     const name = verb.infinitive;
     const infKey = foldText(name);
@@ -600,6 +611,9 @@ function validateVerbs(verbs: readonly LessonVerb[] | undefined, ctx: ValidateCo
       if (!/^\p{L}*(ar|er|ir|ír)(se)?$/u.test(name.trim())) {
         errors.push(`"${name}" is not a Spanish infinitive (one word ending in -ar, -er, -ir or -se)`);
       }
+    } else if (french) {
+      if (!/^[\p{L}]+(?:er|ir|re|oir)$/u.test(name.trim()))
+        errors.push(`"${name}" is not a French infinitive (one word ending in -er, -ir, -re or -oir)`);
     } else if (!/^[a-z]+( [a-z]+)?$/.test(name.trim()) || /^to\s/.test(name.trim())) {
       errors.push(`"${name}" is not a plain English verb (one or two lowercase words, no "to")`);
     }
@@ -630,7 +644,7 @@ function validateVerbs(verbs: readonly LessonVerb[] | undefined, ctx: ValidateCo
         continue;
       }
       if (wordsOf(form).length > 3) errors.push(`${name}: "${form}" is not a single verb form`);
-      const first = spanish ? SPANISH_PRONOUN_FIRST : ENGLISH_PRONOUN_FIRST;
+      const first = spanish ? SPANISH_PRONOUN_FIRST : french ? FRENCH_PRONOUN_FIRST : ENGLISH_PRONOUN_FIRST;
       if (first.test(form)) errors.push(`${name}: give the verb form only, without the pronoun: "${form}"`);
     }
     if (forms.some((f) => !f)) continue;
@@ -642,7 +656,7 @@ function validateVerbs(verbs: readonly LessonVerb[] | undefined, ctx: ValidateCo
       if (!/s$/i.test(tu)) errors.push(`${name}: tú form "${tu}" should end in -s`);
       if (!/mos$/i.test(nosotros)) errors.push(`${name}: nosotros form "${nosotros}" should end in -mos`);
       if (!/n$/i.test(ellos)) errors.push(`${name}: ellos/ustedes form "${ellos}" should end in -n`);
-    } else if (foldText(forms[2]) === foldText(forms[0])) {
+    } else if (!french && foldText(forms[2]) === foldText(forms[0])) {
       errors.push(`${name}: the he/she form "${forms[2]}" must differ from the I form (add the -s)`);
     }
     // The example is a short sentence from the lesson that really uses the verb.

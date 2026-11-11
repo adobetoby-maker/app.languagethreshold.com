@@ -1,0 +1,1037 @@
+{
+  "schema": 1,
+  "courseId": "travel-lunch",
+  "stageId": "master-travel-lunch",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "path": "src/data/core60/es/master-travel-lunch.json",
+    "sha256": "bce5c0799e9d8d038450599ab839a7d48d6f69533968c94f1d3f2ae3808f4bfa",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 6,
+      "stableId": "master-travel-lunch:6:fr-en",
+      "sourceTitleEnglish": "Paella Sold Out: Choosing a Substitute for Six",
+      "sourceObjectiveEnglish": "Compare the dishes still available and agree with the waiter and your group on what will replace the paella.",
+      "sourceSpeakingEnglish": "You are lunching with a group of six in Alicante, and the AI is Begoña, the waitress, with your impatient friend Raúl: ask about the dishes still available, compare them with más que and menos que, and use the future and ir a to agree on what replaces the paella.",
+      "title": "Choose a Substitute Lunch for Six",
+      "objective": "Compare the dishes still available and agree with the server and six-person group on a replacement for a sold-out dish.",
+      "focus": "Use plus ... que, moins ... que, va prendre and sera to compare quantity, waiting time and the final plan.",
+      "scene": "At a bistro, the group’s preferred shared dish has sold out; Maya asks what can serve six.",
+      "cards": [
+        {
+          "fr": "épuisé",
+          "en": "sold out",
+          "kind": "term"
+        },
+        {
+          "fr": "un plat à partager",
+          "en": "a dish to share",
+          "kind": "term"
+        },
+        {
+          "fr": "un gratin de pommes de terre",
+          "en": "a potato gratin",
+          "kind": "term"
+        },
+        {
+          "fr": "une tarte aux légumes",
+          "en": "a vegetable tart",
+          "kind": "term"
+        },
+        {
+          "fr": "une portion",
+          "en": "a portion",
+          "kind": "term"
+        },
+        {
+          "fr": "le temps d’attente",
+          "en": "the waiting time",
+          "kind": "term"
+        },
+        {
+          "fr": "plus léger que",
+          "en": "lighter than",
+          "kind": "phrase"
+        },
+        {
+          "fr": "plus copieux que",
+          "en": "heartier than",
+          "kind": "phrase"
+        },
+        {
+          "fr": "pour six personnes",
+          "en": "for six people",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le plat du jour est épuisé.",
+          "en": "The daily special is sold out.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Qu’est-ce qui est encore disponible ?",
+          "en": "What is still available?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le gratin prendra vingt minutes.",
+          "en": "The gratin will take twenty minutes.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La tarte sera prête dans dix minutes.",
+          "en": "The tart will be ready in ten minutes.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La tarte sera plus légère que le gratin.",
+          "en": "The tart will be lighter than the gratin.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Nous allons prendre deux tartes à partager.",
+          "en": "We are going to take two tarts to share.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Cela suffira-t-il pour six ?",
+          "en": "Will that be enough for six?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Nous sommes six. Le plat du jour est-il encore disponible ?",
+          "en": "There are six of us. Is the daily special still available?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Non, il est épuisé. Nous avons encore le gratin et la tarte aux légumes.",
+          "en": "No, it is sold out. We still have the gratin and vegetable tart."
+        },
+        {
+          "speaker": "Friend",
+          "fr": "J’ai faim. Quel plat arrivera le plus vite ?",
+          "en": "I am hungry. Which dish will arrive fastest?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Combien de temps prendra chaque plat ?",
+          "en": "How long will each dish take?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Le gratin prendra vingt minutes. La tarte sera prête dans dix minutes.",
+          "en": "The gratin will take twenty minutes. The tart will be ready in ten minutes."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "La tarte sera plus légère que le gratin. Cela suffira-t-il pour six ?",
+          "en": "The tart will be lighter than the gratin. Will that be enough for six?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Deux tartes feront six portions.",
+          "en": "Two tarts will make six portions."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Le gratin sera plus copieux, mais il prendra plus de temps. Que préférez-vous ?",
+          "en": "The gratin will be heartier, but it will take longer. What do you prefer?"
+        },
+        {
+          "speaker": "Friend",
+          "fr": "Deux tartes, s’il vous plaît.",
+          "en": "Two tarts, please."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "D’accord. Nous allons prendre deux tartes à partager.",
+          "en": "All right. We are going to have two tarts to share."
+        }
+      ],
+      "speaking": {
+        "role": "Group organizer",
+        "partnerRole": "Server and impatient friend",
+        "opening": "Nous sommes six. Qu’est-ce qui est encore disponible ?",
+        "goal": "Ask what is available, compare the ten- and twenty-minute waits and portion sizes, get group agreement and order two tarts.",
+        "closure": "Nous allons prendre deux tartes à partager.",
+        "wordBank": [
+          "épuisé",
+          "un plat à partager",
+          "un gratin de pommes de terre",
+          "une tarte aux légumes",
+          "une portion",
+          "le temps d’attente",
+          "plus léger que",
+          "plus copieux que",
+          "pour six personnes",
+          "Le plat du jour est épuisé.",
+          "Qu’est-ce qui est encore disponible ?",
+          "Le gratin prendra vingt minutes.",
+          "La tarte sera prête dans dix minutes.",
+          "La tarte sera plus légère que le gratin.",
+          "Nous allons prendre deux tartes à partager.",
+          "Cela suffira-t-il pour six ?"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French word for sold out.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to ask what remains available.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the twenty-minute wait.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for a portion.",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Compare the tart and gratin.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write the group’s final order.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "The quantities and wait times are fictional. Review natural comparative and future forms with a qualified French reviewer."
+    },
+    {
+      "n": 7,
+      "stableId": "master-travel-lunch:7:fr-en",
+      "sourceTitleEnglish": "Two Menus, Two Prices: Sorting It Out with the Guide",
+      "sourceObjectiveEnglish": "Narrate what you ordered and what each menu said, with exact numbers, to resolve a price gap with owner and guide.",
+      "sourceSpeakingEnglish": "You are a traveler in Wilmer's tour group, and the AI is Señora Quispe, the owner, with guide Wilmer present: calmly recount what you ordered and what the menu at the door said, using the preterite (pedimos, nos cobraron) and exact numbers, and ask for the itemized bill.",
+      "title": "Resolve Two Lunch Prices with Exact Numbers",
+      "objective": "Recount what the group ordered and what the sign said, then request an itemized bill to resolve a price difference with owner and guide.",
+      "focus": "Use nous avons commandé, on nous a facturé and exact euro amounts to narrate the discrepancy.",
+      "scene": "Maya and guide Luc compare the door sign with a printed bill for four fixed-price lunches and three drinks.",
+      "cards": [
+        {
+          "fr": "une affiche",
+          "en": "a sign",
+          "kind": "term"
+        },
+        {
+          "fr": "le menu à prix fixe",
+          "en": "the fixed-price menu",
+          "kind": "term"
+        },
+        {
+          "fr": "un reçu",
+          "en": "a receipt",
+          "kind": "term"
+        },
+        {
+          "fr": "une addition détaillée",
+          "en": "an itemized bill",
+          "kind": "term"
+        },
+        {
+          "fr": "la différence",
+          "en": "the difference",
+          "kind": "term"
+        },
+        {
+          "fr": "le propriétaire",
+          "en": "the owner",
+          "kind": "term"
+        },
+        {
+          "fr": "le guide",
+          "en": "the guide",
+          "kind": "term"
+        },
+        {
+          "fr": "quatre menus",
+          "en": "four set lunches",
+          "kind": "term"
+        },
+        {
+          "fr": "trois boissons",
+          "en": "three drinks",
+          "kind": "term"
+        },
+        {
+          "fr": "dix-huit euros par menu",
+          "en": "eighteen euros per menu",
+          "kind": "phrase"
+        },
+        {
+          "fr": "quatre euros par boisson",
+          "en": "four euros per drink",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Nous avons commandé quatre menus.",
+          "en": "We ordered four set lunches.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "On nous a facturé cinq menus.",
+          "en": "We were charged for five set lunches.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "L’affiche indique dix-huit euros par menu.",
+          "en": "The sign says eighteen euros per set lunch.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le total attendu est de quatre-vingt-quatre euros.",
+          "en": "The expected total is eighty-four euros.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le reçu indique cent deux euros.",
+          "en": "The receipt says one hundred and two euros.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pouvez-vous nous donner une addition détaillée ?",
+          "en": "Can you give us an itemized bill?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il y a dix-huit euros de différence.",
+          "en": "There is an eighteen-euro difference.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "L’affiche à l’entrée indique dix-huit euros par menu.",
+          "en": "The sign at the entrance says eighteen euros per set lunch."
+        },
+        {
+          "speaker": "Owner",
+          "fr": "Oui. Quel est le problème avec le reçu ?",
+          "en": "Yes. What is the problem with the receipt?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Nous avons commandé quatre menus et trois boissons à quatre euros.",
+          "en": "We ordered four set lunches and three drinks at four euros each."
+        },
+        {
+          "speaker": "Guide",
+          "fr": "Quatre menus font soixante-douze euros. Trois boissons font douze euros.",
+          "en": "Four lunches make seventy-two euros. Three drinks make twelve euros."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Le total attendu est de quatre-vingt-quatre euros. Le reçu indique cent deux euros.",
+          "en": "The expected total is eighty-four euros. The receipt says one hundred and two euros."
+        },
+        {
+          "speaker": "Owner",
+          "fr": "Je vais vérifier.",
+          "en": "I will check."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Pouvez-vous nous donner une addition détaillée ? Il y a dix-huit euros de différence.",
+          "en": "Can you give us an itemized bill? There is an eighteen-euro difference."
+        },
+        {
+          "speaker": "Owner",
+          "fr": "Vous avez raison : on vous a facturé cinq menus au lieu de quatre.",
+          "en": "You are right: you were charged for five set lunches instead of four."
+        },
+        {
+          "speaker": "Guide",
+          "fr": "Nous réglerons donc quatre-vingt-quatre euros.",
+          "en": "So we will pay eighty-four euros."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci d’avoir corrigé le reçu.",
+          "en": "Thank you for correcting the receipt."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler explaining a bill discrepancy",
+        "partnerRole": "Restaurant owner and guide",
+        "opening": "Nous avons commandé quatre menus et trois boissons.",
+        "goal": "Narrate the order, compare the eighteen-euro sign price to a five-menu receipt, ask for an itemized bill and settle the corrected eighty-four-euro total.",
+        "closure": "Merci d’avoir corrigé le reçu.",
+        "wordBank": [
+          "une affiche",
+          "le menu à prix fixe",
+          "un reçu",
+          "une addition détaillée",
+          "la différence",
+          "le propriétaire",
+          "le guide",
+          "quatre menus",
+          "trois boissons",
+          "dix-huit euros par menu",
+          "quatre euros par boisson",
+          "Nous avons commandé quatre menus.",
+          "On nous a facturé cinq menus.",
+          "L’affiche indique dix-huit euros par menu.",
+          "Le total attendu est de quatre-vingt-quatre euros.",
+          "Le reçu indique cent deux euros.",
+          "Pouvez-vous nous donner une addition détaillée ?",
+          "Il y a dix-huit euros de différence."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for an itemized bill.",
+          "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how many lunches were ordered.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the incorrect five-menu charge.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for difference.",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "State the expected eighty-four-euro total.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write the request for an itemized bill.",
+          "sourceCard": 17,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "The prices and resolution are fictional. Arithmetic: four times eighteen plus three times four equals eighty-four; five times eighteen plus twelve equals one hundred two; difference eighteen. Review French number pronunciation."
+    },
+    {
+      "n": 8,
+      "stableId": "master-travel-lunch:8:fr-en",
+      "sourceTitleEnglish": "Talking a Friend Out of Afternoon Ceviche from a Hot Cart",
+      "sourceObjectiveEnglish": "Say no to an unsafe food choice, explain why, and suggest a better option without embarrassing your friend.",
+      "sourceSpeakingEnglish": "You are a traveler in Lima, and the AI is your friend Diego, with shopkeeper Maribel nearby: say no to the cart ceviche using negative commands (no lo compres) and no recomiendo que + subjunctive, explain why, and kindly suggest a better option.",
+      "title": "Suggest a Different Lunch to a Friend",
+      "objective": "Decline a friend’s plan to buy raw fish from an unrefrigerated cart, explain the concern and suggest another option without embarrassing them.",
+      "focus": "Use negative commands and je ne te recommande pas de to express disagreement, reason and a concrete alternative.",
+      "scene": "At an afternoon market, Diego points to raw fish at a cart standing in the sun; Maya suggests a nearby café dish instead.",
+      "cards": [
+        {
+          "fr": "un chariot de nourriture",
+          "en": "a food cart",
+          "kind": "term"
+        },
+        {
+          "fr": "du poisson cru",
+          "en": "raw fish",
+          "kind": "term"
+        },
+        {
+          "fr": "la réfrigération",
+          "en": "refrigeration",
+          "kind": "term"
+        },
+        {
+          "fr": "le soleil",
+          "en": "the sun",
+          "kind": "term"
+        },
+        {
+          "fr": "une intoxication alimentaire",
+          "en": "food poisoning",
+          "kind": "term"
+        },
+        {
+          "fr": "un risque",
+          "en": "a risk",
+          "kind": "term"
+        },
+        {
+          "fr": "un café",
+          "en": "a café",
+          "kind": "term"
+        },
+        {
+          "fr": "un plat chaud",
+          "en": "a hot dish",
+          "kind": "term"
+        },
+        {
+          "fr": "bien cuit",
+          "en": "well cooked",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Ne l’achète pas maintenant.",
+          "en": "Do not buy it now.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je ne te recommande pas de manger ce poisson cru.",
+          "en": "I do not recommend eating this raw fish.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il est resté au soleil sans réfrigération.",
+          "en": "It has been in the sun without refrigeration.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je crains une intoxication alimentaire.",
+          "en": "I am worried about food poisoning.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Allons au café d’à côté.",
+          "en": "Let us go to the café next door.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "On peut prendre un plat chaud.",
+          "en": "We can have a hot dish.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je te propose le poulet bien cuit.",
+          "en": "I suggest the well-cooked chicken.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Diego",
+          "fr": "Je vais prendre le poisson cru à ce chariot.",
+          "en": "I am going to have the raw fish at that cart."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Attends une seconde. Ne l’achète pas maintenant.",
+          "en": "Wait a second. Do not buy it now."
+        },
+        {
+          "speaker": "Diego",
+          "fr": "Pourquoi ?",
+          "en": "Why?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Il est resté au soleil sans réfrigération. Je crains une intoxication alimentaire.",
+          "en": "It has been in the sun without refrigeration. I am worried about food poisoning."
+        },
+        {
+          "speaker": "Diego",
+          "fr": "J’avais envie de poisson.",
+          "en": "I wanted fish."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Je comprends. Je ne te recommande pas de manger ce poisson cru.",
+          "en": "I understand. I do not recommend eating this raw fish."
+        },
+        {
+          "speaker": "Diego",
+          "fr": "Tu proposes quoi ?",
+          "en": "What do you suggest?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Allons au café d’à côté. On peut prendre un plat chaud ou du poulet bien cuit.",
+          "en": "Let us go to the café next door. We can have a hot dish or well-cooked chicken."
+        },
+        {
+          "speaker": "Diego",
+          "fr": "D’accord. Allons-y.",
+          "en": "All right. Let us go."
+        }
+      ],
+      "speaking": {
+        "role": "Friend suggesting an alternative",
+        "partnerRole": "Friend Diego",
+        "opening": "Attends une seconde. Ne l’achète pas maintenant.",
+        "goal": "Decline the raw-fish cart choice, state the unrefrigerated-sun premise and food-poisoning concern directly, then offer a nearby hot dish.",
+        "closure": "Allons au café d’à côté.",
+        "wordBank": [
+          "un chariot de nourriture",
+          "du poisson cru",
+          "la réfrigération",
+          "le soleil",
+          "une intoxication alimentaire",
+          "un risque",
+          "un café",
+          "un plat chaud",
+          "bien cuit",
+          "Ne l’achète pas maintenant.",
+          "Je ne te recommande pas de manger ce poisson cru.",
+          "Il est resté au soleil sans réfrigération.",
+          "Je crains une intoxication alimentaire.",
+          "Allons au café d’à côté.",
+          "On peut prendre un plat chaud.",
+          "Je te propose le poulet bien cuit."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for food poisoning.",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the negative command not to buy it now.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the unrefrigerated-sun explanation.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French word for refrigeration.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "State directly why you do not recommend the raw fish.",
+          "sourceCard": 11,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a suggestion to go to the café next door.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Qualified French and food-safety/domain review required. The unrefrigerated cart is an explicit fictional scene premise drawn from the source purpose; clinical term intoxication alimentaire remains learner-facing and direct."
+    },
+    {
+      "n": 9,
+      "stableId": "master-travel-lunch:9:fr-en",
+      "sourceTitleEnglish": "Honest Feedback When the Owner Asks About a New Dish",
+      "sourceObjectiveEnglish": "Give the owner sincere, specific feedback on a new dish, mixing praise with one tactful recommendation.",
+      "sourceSpeakingEnglish": "You are a guest at a Montevideo parrilla, and the AI is Graciela, the owner: give your honest opinion of her new vegetarian chivito, praise specific details, and make one tactful recommendation using le recomiendo que and ojalá que with the subjunctive.",
+      "title": "Give Honest Feedback on a New Dish",
+      "objective": "Praise specific features of a new vegetarian lunch dish and make one tactful suggestion when the owner asks.",
+      "focus": "Use j’aime, je trouve que and j’aimerais que + subjunctive to combine concrete praise with a recommendation.",
+      "scene": "The owner asks Maya for feedback on a new vegetarian sandwich with grilled vegetables.",
+      "cards": [
+        {
+          "fr": "un sandwich végétarien",
+          "en": "a vegetarian sandwich",
+          "kind": "term"
+        },
+        {
+          "fr": "des légumes grillés",
+          "en": "grilled vegetables",
+          "kind": "term"
+        },
+        {
+          "fr": "du fromage",
+          "en": "cheese",
+          "kind": "term"
+        },
+        {
+          "fr": "des poivrons",
+          "en": "bell peppers",
+          "kind": "term"
+        },
+        {
+          "fr": "des aubergines",
+          "en": "eggplants",
+          "kind": "term"
+        },
+        {
+          "fr": "l’assaisonnement",
+          "en": "the seasoning",
+          "kind": "term"
+        },
+        {
+          "fr": "la texture",
+          "en": "the texture",
+          "kind": "term"
+        },
+        {
+          "fr": "la présentation",
+          "en": "the presentation",
+          "kind": "term"
+        },
+        {
+          "fr": "le sel",
+          "en": "salt",
+          "kind": "term"
+        },
+        {
+          "fr": "croustillant",
+          "en": "crisp",
+          "kind": "phrase"
+        },
+        {
+          "fr": "moelleux",
+          "en": "soft",
+          "kind": "phrase"
+        },
+        {
+          "fr": "J’aime les légumes grillés.",
+          "en": "I like the grilled vegetables.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le pain est croustillant.",
+          "en": "The bread is crisp.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La présentation est soignée.",
+          "en": "The presentation is thoughtful.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "J’aimerais que vous mettiez un peu moins de sel.",
+          "en": "I would like you to use a little less salt.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "J’espère que vous le garderez à la carte.",
+          "en": "I hope you will keep it on the menu.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Owner",
+          "fr": "Vous avez goûté notre nouveau sandwich végétarien. Qu’en pensez-vous ?",
+          "en": "You tried our new vegetarian sandwich. What do you think?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "J’aime les légumes grillés et le pain est croustillant.",
+          "en": "I like the grilled vegetables and the bread is crisp."
+        },
+        {
+          "speaker": "Owner",
+          "fr": "Et la texture ?",
+          "en": "And the texture?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Les aubergines sont moelleuses. La présentation est soignée.",
+          "en": "The eggplants are soft. The presentation is thoughtful."
+        },
+        {
+          "speaker": "Owner",
+          "fr": "Vous changeriez quelque chose ?",
+          "en": "Would you change anything?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "J’aimerais que vous mettiez un peu moins de sel.",
+          "en": "I would like you to use a little less salt."
+        },
+        {
+          "speaker": "Owner",
+          "fr": "Merci, c’est précis.",
+          "en": "Thank you, that is specific."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "J’espère que vous le garderez à la carte.",
+          "en": "I hope you will keep it on the menu."
+        }
+      ],
+      "speaking": {
+        "role": "Lunch guest giving feedback",
+        "partnerRole": "Restaurant owner",
+        "opening": "J’aime les légumes grillés et le pain est croustillant.",
+        "goal": "Praise the grilled vegetables, bread and presentation, then recommend less salt tactfully and express hope it stays on the menu.",
+        "closure": "J’espère que vous le garderez à la carte.",
+        "wordBank": [
+          "un sandwich végétarien",
+          "des légumes grillés",
+          "du fromage",
+          "des poivrons",
+          "des aubergines",
+          "l’assaisonnement",
+          "la texture",
+          "la présentation",
+          "le sel",
+          "croustillant",
+          "moelleux",
+          "J’aime les légumes grillés.",
+          "Le pain est croustillant.",
+          "La présentation est soignée.",
+          "J’aimerais que vous mettiez un peu moins de sel.",
+          "J’espère que vous le garderez à la carte."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French word for texture.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the praise for grilled vegetables.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the tactful less-salt suggestion.",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for seasoning.",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Praise the bread’s crispness.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a specific recommendation using j’aimerais que.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "The dish and owner response are fictional. Qualified French review should check the subjunctive and register."
+    },
+    {
+      "n": 10,
+      "stableId": "master-travel-lunch:10:fr-en",
+      "sourceTitleEnglish": "Settling a Group Argument over Where to Eat",
+      "sourceObjectiveEnglish": "Report what each person and the hostel staff said, and help the group agree on one lunch plan.",
+      "sourceSpeakingEnglish": "You are traveling with a group in Medellín, and the AI is Camila, a fellow traveler: report what Joaquín and receptionist Yesenia said using dijo que and comentó que with the imperfect, and help everyone agree on one lunch plan.",
+      "title": "Help a Group Agree on Lunch",
+      "objective": "Report what each traveler and the host said about lunch choices, then help the group settle on one plan.",
+      "focus": "Use a dit que, a expliqué que and imperfect background forms to report preferences before proposing a compromise.",
+      "scene": "At a guesthouse, Maya helps three friends choose between a nearby cheap set lunch and a farther bistro.",
+      "cards": [
+        {
+          "fr": "la formule économique",
+          "en": "the inexpensive set lunch",
+          "kind": "term"
+        },
+        {
+          "fr": "un bistrot",
+          "en": "a bistro",
+          "kind": "term"
+        },
+        {
+          "fr": "l’hôte",
+          "en": "the host",
+          "kind": "term"
+        },
+        {
+          "fr": "le quartier",
+          "en": "the neighborhood",
+          "kind": "term"
+        },
+        {
+          "fr": "à pied",
+          "en": "on foot",
+          "kind": "phrase"
+        },
+        {
+          "fr": "le trajet",
+          "en": "the journey",
+          "kind": "term"
+        },
+        {
+          "fr": "un compromis",
+          "en": "a compromise",
+          "kind": "term"
+        },
+        {
+          "fr": "un avis",
+          "en": "a review",
+          "kind": "term"
+        },
+        {
+          "fr": "près d’ici",
+          "en": "near here",
+          "kind": "phrase"
+        },
+        {
+          "fr": "loin d’ici",
+          "en": "far from here",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Camille a dit qu’elle voulait manger près d’ici.",
+          "en": "Camille said she wanted to eat nearby.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Marc a dit qu’il préférait le bistrot.",
+          "en": "Marc said he preferred the bistro.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "L’hôte a expliqué que le bistrot était complet.",
+          "en": "The host explained that the bistro was full.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La formule économique est à cinq minutes à pied.",
+          "en": "The inexpensive set lunch is five minutes away on foot.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je propose ce restaurant pour aujourd’hui.",
+          "en": "I suggest this restaurant for today.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Tout le monde est d’accord ?",
+          "en": "Does everyone agree?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Camille, tu voulais déjeuner où ?",
+          "en": "Camille, where did you want to have lunch?"
+        },
+        {
+          "speaker": "Camille",
+          "fr": "Près d’ici et sans trop dépenser.",
+          "en": "Nearby and without spending too much."
+        },
+        {
+          "speaker": "Marc",
+          "fr": "Je préférais le bistrot de l’autre côté du quartier.",
+          "en": "I preferred the bistro across the neighborhood."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Camille a dit qu’elle voulait manger près d’ici. Marc a dit qu’il préférait le bistrot.",
+          "en": "Camille said she wanted to eat nearby. Marc said he preferred the bistro."
+        },
+        {
+          "speaker": "Host",
+          "fr": "Le bistrot est complet aujourd’hui. La formule économique est à cinq minutes à pied.",
+          "en": "The bistro is full today. The inexpensive set lunch is five minutes away on foot."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "L’hôte a expliqué que le bistrot était complet. Je propose la formule économique pour aujourd’hui.",
+          "en": "The host explained that the bistro was full. I suggest the inexpensive set lunch for today."
+        },
+        {
+          "speaker": "Marc",
+          "fr": "D’accord pour aujourd’hui. On essaiera le bistrot demain.",
+          "en": "All right for today. We will try the bistro tomorrow."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Tout le monde est d’accord ?",
+          "en": "Does everyone agree?"
+        },
+        {
+          "speaker": "Camille",
+          "fr": "Oui. Allons-y.",
+          "en": "Yes. Let us go."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler mediating a lunch choice",
+        "partnerRole": "Fellow travelers and guesthouse host",
+        "opening": "Camille a dit qu’elle voulait manger près d’ici.",
+        "goal": "Report each preference and the host’s full-bistro update, propose the nearby set lunch as a compromise and confirm group agreement.",
+        "closure": "Tout le monde est d’accord ? Allons-y.",
+        "wordBank": [
+          "la formule économique",
+          "un bistrot",
+          "l’hôte",
+          "le quartier",
+          "à pied",
+          "le trajet",
+          "un compromis",
+          "un avis",
+          "près d’ici",
+          "loin d’ici",
+          "Camille a dit qu’elle voulait manger près d’ici.",
+          "Marc a dit qu’il préférait le bistrot.",
+          "L’hôte a expliqué que le bistrot était complet.",
+          "La formule économique est à cinq minutes à pied.",
+          "Je propose ce restaurant pour aujourd’hui.",
+          "Tout le monde est d’accord ?"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for compromise.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall what Camille said she wanted.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the host’s full-bistro report.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for neighborhood.",
+          "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Propose the nearby economical set lunch.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a question confirming group agreement.",
+          "sourceCard": 16,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "The guesthouse, distances and restaurant status are fictional. Qualified French review should check reported-speech and imperfect forms."
+    }
+  ],
+  "internalReviewNotes": [
+    "Master 6–10 preserve exact Spanish Master learning purposes with original French scenes and language-specific grammar. Spanish food settings become French bistro/market scenes without changing the learning action.",
+    "Qualified French and relevant food-safety, cultural and domain review remain required; all lessons are private and unregistered."
+  ]
+}

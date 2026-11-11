@@ -47,7 +47,13 @@ def main():
     require(set(manifest['clips']) == {row['textSha256'] for row in delta['texts']},
             'Audio set is incomplete or has extra text')
     retakes = {}
+    signal_flags = []
     if args.scope == 'supplement':
+        signal = json.loads((private / 'signal-screen.json').read_text())
+        require(signal['manifestSha256'] == hashlib.sha256((private / 'manifest.json').read_bytes()).hexdigest()
+                and signal['listeningReviewed'] is False,
+                'Signal screen identity or review gate changed')
+        signal_flags = signal['flags']
         for report_name in ('retakes.json', 'retakes-plus3db.json', 'retakes-plus8db.json'):
             report_path = private / 'retake-candidates' / report_name
             if not report_path.exists():
@@ -90,10 +96,22 @@ def main():
                 require(hashlib.sha256(trim.read_bytes()).hexdigest() == TRIM_SHA256[trim_name],
                         'Edge-trim candidate changed')
                 players.append(f'<label>{html.escape(gender.title())} · private edge-trim candidate<audio controls preload="none" src="{html.escape(trim_name)}"></audio></label>')
-        rows.append(f'<section><h2>{index}. {html.escape(", ".join(row["lessonIds"]))}</h2>'
+        rows.append(f'<section id="text-{row["textSha256"][:16]}"><h2>{index}. {html.escape(", ".join(row["lessonIds"]))}</h2>'
                     f'<p lang="fr">{html.escape(row["text"])}</p>'
                     + ''.join(players) + '</section>')
     title = 'French Lunch passage listening review' if args.scope == 'passages' else 'French Lunch words and verbs listening review'
+    flag_index = ''
+    if signal_flags:
+        links = []
+        for flag in signal_flags:
+            key = hashlib.sha256(flag['text'].encode()).hexdigest()
+            require(key in manifest['clips'] and any(clip['name'] == flag['name'] and
+                    clip['voice'] == flag['voice'] for clip in manifest['clips'][key]['voices'].values()),
+                    'Signal flag no longer matches a clip')
+            clean = any(item['signalImproved'] for item in retakes.get(flag['name'], []))
+            status = 'clean numeric candidate' if clean else 'direct listening priority'
+            links.append(f'<li><a href="#text-{key[:16]}">{html.escape(flag["text"])} · {html.escape(flag["voice"].rsplit("-", 1)[-1])}</a> — {status}</li>')
+        flag_index = f'<h2>Signal-review priorities ({len(links)})</h2><ol>' + ''.join(links) + '</ol>'
     page = ('<!doctype html><html lang="en"><meta charset="utf-8"><title>' + title + '</title>'
             '<style>body{font:17px system-ui;max-width:780px;margin:2rem auto;padding:0 1rem;line-height:1.5}'
             'section{border-top:1px solid #aaa;padding:1rem 0}audio{display:block;width:100%;margin:.4rem 0 1rem}'
@@ -101,7 +119,7 @@ def main():
             '<h1>' + title + '</h1>'
             f'<p>{len(rows)} exact new strings, two voices each. Private candidate; no listening approval recorded. '
             'Compare pronunciation, wording, silence and clipping. This sheet does not change any release gate.</p>'
-            f'<p>Delta SHA-256: {manifest["deltaSha256"]}</p>' + ''.join(rows) + '</html>')
+            f'<p>Delta SHA-256: {manifest["deltaSha256"]}</p>' + flag_index + ''.join(rows) + '</html>')
     output = private / 'listening-review.html'
     output.write_text(page)
     print(json.dumps({'texts': len(rows), 'clips': len(rows) * 2, 'worksheet': str(output)}))

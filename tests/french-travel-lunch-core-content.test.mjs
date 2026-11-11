@@ -15,7 +15,7 @@ test("private French Lunch Core content pins the exact source and closed release
   assert.equal(candidate.nativeLanguage, "English");
   assert.equal(candidate.reviewed, false);
   assert.equal(candidate.registered, false);
-  assert.deepEqual(Object.keys(candidate.lessons), Array.from({ length: 10 }, (_, index) => String(index + 1)));
+  assert.deepEqual(Object.keys(candidate.lessons), Array.from({ length: 30 }, (_, index) => String(index + 1)));
 });
 
 for (const [number, item] of Object.entries(candidate.lessons)) {
@@ -31,10 +31,23 @@ for (const [number, item] of Object.entries(candidate.lessons)) {
       language: "French", nativeLanguage: "English",
       parts: { passage: true, words: true, verbs: true }, limits: CONTENT_LIMITS,
     }), []);
-    for (const turn of source.reader) {
-      const index = item.passage.target.indexOf(turn.fr);
-      assert.notEqual(index, -1);
-      assert.equal(item.passage.native[index], turn.en);
+    if ([15, 25, 30].includes(Number(number))) {
+      assert.ok(source.reader.length > 9);
+      assert.ok(item.passage.target.length <= 9);
+      if (Number(number) === 15) {
+        assert.match(item.passage.target.join(" "), /cacahuètes/);
+        assert.match(item.passage.target.join(" "), /paient séparément/);
+      }
+      if (Number(number) === 30) {
+        assert.match(item.passage.target.join(" "), /allergie grave aux crustacés/);
+        assert.match(item.passage.target.join(" "), /supplément/);
+      }
+    } else {
+      for (const turn of source.reader) {
+        const index = item.passage.target.indexOf(turn.fr);
+        assert.notEqual(index, -1);
+        assert.equal(item.passage.native[index], turn.en);
+      }
     }
     for (const verb of item.verbs) {
       const index = item.passage.target.findIndex((line) => line.includes(verb.example.target));

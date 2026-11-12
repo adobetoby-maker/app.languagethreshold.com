@@ -1,0 +1,344 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "contentPath": "public/lesson-content/es/travel-dinner.json",
+    "contentSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "title": "Help a guest who feels unwell",
+      "objective": "Ask staff for water, a quiet place, and emergency help if needed.",
+      "focus": "めまいがします names dizziness; 顔が青ざめる means to turn pale. 友人の具合が悪いんです says a companion feels unwell. 店長 is the restaurant manager, 医師 is a doctor, 救急車 is an ambulance, and 緊急通報の電話番号 is an emergency number. ～ていただけますか makes a polite request; 良くならなければ introduces if she does not get better.",
+      "scene": "During dinner at a restaurant, Paula feels dizzy and turns pale. The narrator calls a waiter, who brings water and calls the manager. The manager leads them to a quieter chair near the window with fresh air. The narrator asks about an ambulance if Paula does not improve. The manager says he knows the emergency number and that a doctor is at another table. Paula drinks water slowly, breathes better, and says she already feels a little better.",
+      "forms": [
+        {
+          "base": "具合が悪い",
+          "polite": "具合が悪いです",
+          "question": "具合が悪いですか",
+          "meaning": "to feel unwell",
+          "example": "友人の具合が悪いんです。"
+        },
+        {
+          "base": "持ってくる",
+          "polite": "持ってきます",
+          "question": "持ってきますか",
+          "meaning": "to bring",
+          "example": "店員はすぐに水を持ってきます。"
+        },
+        {
+          "base": "呼ぶ",
+          "polite": "呼びます",
+          "question": "呼びますか",
+          "meaning": "to call",
+          "example": "救急車を呼びます。"
+        },
+        {
+          "base": "必要だ",
+          "polite": "必要です",
+          "question": "必要ですか",
+          "meaning": "to need, to be necessary",
+          "example": "静かな場所が必要です。"
+        },
+        {
+          "base": "良くなる",
+          "polite": "良くなります",
+          "question": "良くなりますか",
+          "meaning": "to get better",
+          "example": "少し良くなりました。"
+        },
+        {
+          "base": "座る",
+          "polite": "座ります",
+          "question": "座りますか",
+          "meaning": "to sit",
+          "example": "友人が椅子に座ります。"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "店員",
+          "en": "waiter",
+          "kind": "term",
+          "readingKana": "てんいん"
+        },
+        {
+          "ja": "店長",
+          "en": "manager",
+          "kind": "term",
+          "readingKana": "てんちょう"
+        },
+        {
+          "ja": "めまいがします。",
+          "en": "I feel dizzy.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "顔が青ざめる",
+          "en": "turns pale",
+          "kind": "phrase",
+          "readingKana": "かおがあおざめる"
+        },
+        {
+          "ja": "救急車",
+          "en": "ambulance",
+          "kind": "term",
+          "readingKana": "きゅうきゅうしゃ"
+        },
+        {
+          "ja": "緊急通報の電話番号",
+          "en": "emergency number",
+          "kind": "term",
+          "readingKana": "きんきゅうつうほうのでんわばんごう"
+        },
+        {
+          "ja": "医師",
+          "en": "doctor",
+          "kind": "term",
+          "readingKana": "いし"
+        },
+        {
+          "ja": "静かな場所",
+          "en": "quiet place",
+          "kind": "term",
+          "readingKana": "しずかなばしょ"
+        },
+        {
+          "ja": "椅子",
+          "en": "chair",
+          "kind": "term",
+          "readingKana": "いす"
+        },
+        {
+          "ja": "窓の近く",
+          "en": "near the window",
+          "kind": "term",
+          "readingKana": "まどのちかく"
+        },
+        {
+          "ja": "新鮮な空気",
+          "en": "fresh air",
+          "kind": "term",
+          "readingKana": "しんせんなくうき"
+        },
+        {
+          "ja": "周りより静か",
+          "en": "quieter",
+          "kind": "phrase",
+          "readingKana": "まわりよりしずか"
+        },
+        {
+          "ja": "コップ一杯の水",
+          "en": "glass of water",
+          "kind": "term",
+          "readingKana": "コップいっぱいのみず"
+        },
+        {
+          "ja": "友人の具合が悪いんです。",
+          "en": "My friend feels unwell.",
+          "kind": "phrase",
+          "readingKana": "ゆうじんのぐあいがわるいんです。"
+        },
+        {
+          "ja": "呼吸が楽になる",
+          "en": "breathes better",
+          "kind": "phrase",
+          "readingKana": "こきゅうがらくになる"
+        },
+        {
+          "ja": "少し良くなる",
+          "en": "feel a little better",
+          "kind": "phrase",
+          "readingKana": "すこしよくなる"
+        },
+        {
+          "ja": "ゆっくり",
+          "en": "slowly",
+          "kind": "term"
+        },
+        {
+          "ja": "コップ一杯の水を持ってきていただけますか。",
+          "en": "Could you bring us a glass of water, please?",
+          "kind": "phrase",
+          "readingKana": "コップいっぱいのみずをもってきていただけますか。"
+        },
+        {
+          "ja": "友人が座って休める静かな場所はありますか。",
+          "en": "Is there a quiet place where she can sit?",
+          "kind": "phrase",
+          "readingKana": "ゆうじんがすわってやすめるしずかなばしょはありますか。"
+        },
+        {
+          "ja": "もし良くならなければ、救急車を呼んでいただけますか。",
+          "en": "If she does not get better, can you call an ambulance?",
+          "kind": "phrase",
+          "readingKana": "もしよくならなければ、きゅうきゅうしゃをよんでいただけますか。"
+        },
+        {
+          "ja": "こちらの緊急通報の電話番号は何番ですか。",
+          "en": "What is the emergency number here?",
+          "kind": "phrase",
+          "readingKana": "こちらのきんきゅうつうほうのでんわばんごうはなんばんですか。"
+        },
+        {
+          "ja": "店員を呼びます。",
+          "en": "I call the waiter.",
+          "kind": "phrase",
+          "readingKana": "てんいんをよびます。"
+        },
+        {
+          "ja": "店員はすぐに水を持ってきます。",
+          "en": "The waiter brings the water quickly.",
+          "kind": "phrase",
+          "readingKana": "てんいんはすぐにみずをもってきます。"
+        },
+        {
+          "ja": "別のテーブルに医師がいます。",
+          "en": "There is a doctor at another table.",
+          "kind": "phrase",
+          "readingKana": "べつのテーブルにいしがいます。"
+        },
+        {
+          "ja": "彼女の顔が真っ青になっています。",
+          "en": "She has turned very pale.",
+          "kind": "phrase",
+          "readingKana": "かのじょのかおがまっさおになっています。"
+        },
+        {
+          "ja": "窓の近くの椅子に案内してくれます。",
+          "en": "He takes us to a chair near the window.",
+          "kind": "phrase",
+          "readingKana": "まどのちかくのいすにあんないしてくれます。"
+        },
+        {
+          "ja": "めまい",
+          "en": "dizziness",
+          "kind": "term"
+        },
+        {
+          "ja": "気が遠くなりそうです。",
+          "en": "I feel faint.",
+          "kind": "phrase",
+          "readingKana": "きがとおくなりそうです。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "夕食の途中、友人のパウラがめまいがすると言い、顔がすっかり青ざめます。",
+          "en": "During dinner, my friend Paula says she feels dizzy and turns very pale."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店員を呼び、「友人の具合が悪いんです。コップ一杯の水を持ってきていただけますか。」と頼みます。",
+          "en": "I call the waiter and tell him: My friend feels unwell, could you bring us a glass of water, please?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店員はすぐに水を持ってきて、店長も呼びます。",
+          "en": "The waiter brings the water quickly and also calls the manager."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店長に、「友人が座って休める静かな場所はありますか。」と尋ねます。",
+          "en": "I ask the manager: Is there a quiet place where she can sit?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店長は窓の近くの椅子に案内してくれます。そこは外の空気が入って、周りより静かだからです。",
+          "en": "He takes us to a chair near the window, because there is fresh air and less noise there."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "「もし良くならなければ、救急車を呼んでいただけますか。」と頼みます。",
+          "en": "I explain to him: If she does not get better, can you call an ambulance?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店長は「緊急通報の電話番号は知っていますし、別のテーブルに医師がいます」と答えます。",
+          "en": "The manager answers that he knows the emergency number and that there is a doctor at another table."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "パウラはゆっくり水を飲み、呼吸が楽になって、「もう少し具合が良くなった」と言います。",
+          "en": "Paula drinks water slowly, breathes better, and says she already feels a little better."
+        }
+      ],
+      "speaking": {
+        "role": "Guest asking restaurant staff for water, a quiet place, and emergency help when a companion feels unwell",
+        "partnerRole": "Staff member who brings water and arranges help",
+        "opening": "友人の具合が悪いんです。",
+        "goal": "Your dinner companion suddenly feels faint; ask staff for water, a quiet spot, and emergency help if needed.",
+        "closure": "ありがとうございます。助かります。",
+        "wordBank": [
+          "店員",
+          "救急車",
+          "緊急通報の電話番号",
+          "医師",
+          "静かな場所",
+          "コップ一杯の水",
+          "友人の具合が悪いんです。",
+          "コップ一杯の水を持ってきていただけますか。",
+          "友人が座って休める静かな場所はありますか。",
+          "もし良くならなければ、救急車を呼んでいただけますか。",
+          "こちらの緊急通報の電話番号は何番ですか。",
+          "少し良くなる",
+          "めまい",
+          "気が遠くなりそうです。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "waiter",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "emergency number",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Is there a quiet place where she can sit?",
+          "sourceCard": 19,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "doctor",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "If she does not get better, can you call an ambulance?",
+          "sourceCard": 20,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Could you bring us a glass of water, please?",
+          "sourceCard": 18,
+          "responseKind": "open"
+        }
+      },
+      "n": 24,
+      "stableId": "travel-dinner:24:ja-en",
+      "sourceTitleEnglish": "Help a guest who feels unwell",
+      "sourceObjectiveEnglish": "ask staff for water, a quiet place, and emergency help if needed",
+      "sourceSpeakingEnglish": "Your dinner companion suddenly feels faint; ask staff for water, a quiet spot, and emergency help if needed.",
+      "reviewed": false,
+      "internalReviewNote": "Haiku 5.5 source-grounded candidate; Opus 5.5 read-only critique and self-check. Corrected restaurant manager, emergency phone-number expression, Reader cause/quote scope, already-improving line, request verb, source forms, role, kana and card alignment. Qualified Japanese/clinical review remains open; AI is not human approval."
+    }
+  ]
+}

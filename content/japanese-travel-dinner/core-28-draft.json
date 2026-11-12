@@ -1,0 +1,330 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "contentPath": "public/lesson-content/es/travel-dinner.json",
+    "contentSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 28,
+      "stableId": "travel-dinner:28:ja-en",
+      "sourceTitleEnglish": "Settle a large group bill",
+      "sourceObjectiveEnglish": "split unevenly, separate drinks, add a shared tip, and combine cash and cards",
+      "sourceSpeakingEnglish": "Divide the bill for eight people who ordered very differently, without anyone feeling cheated.",
+      "title": "Settle a large group bill",
+      "objective": "Split unevenly, separate drinks, add a shared tip, and combine cash and cards.",
+      "focus": "均等に割りたくありません says you do not want an equal split: 割る means to divide. ～てもらえますか politely asks someone to do something for you: 飲み物代と料理代を分けてもらえますか。～たいです says what you want: グループ全員でチップを置きたいです。～ことにします states a decision. 一部を現金で、残りをカードで shows two payment methods side by side. 持ってくる means to bring something here, as when the waiter brings the terminal.",
+      "scene": "Eight friends have finished dinner. Everyone ordered something different, so they do not want to split the bill equally. One diner asks the server for the bill and whether the tip is included. The server says no, so they decide to leave a shared tip. Three people did not drink wine, so the diner asks to separate drinks from food. They pay part in cash and part by card; the server takes the cash first and charges each card, then brings change and a receipt. The group checks the total and nobody feels cheated.",
+      "forms": [
+        {
+          "base": "払う",
+          "polite": "払います",
+          "question": "払いますか",
+          "meaning": "to pay",
+          "example": "一部は現金で払います。"
+        },
+        {
+          "base": "割る",
+          "polite": "割ります",
+          "question": "割りますか",
+          "meaning": "to split or divide",
+          "example": "お会計を均等には割りません。"
+        },
+        {
+          "base": "頼む",
+          "polite": "頼みます",
+          "question": "頼みますか",
+          "meaning": "to ask for or order",
+          "example": "店員に飲み物と料理を分けてほしいと頼みます。"
+        },
+        {
+          "base": "持ってくる",
+          "polite": "持ってきます",
+          "question": "持ってきますか",
+          "meaning": "to bring here",
+          "example": "店員がカード端末を持ってきます。"
+        },
+        {
+          "base": "置く",
+          "polite": "置きます",
+          "question": "置きますか",
+          "meaning": "to leave or put down",
+          "example": "グループ全員でチップを置きます。"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "お会計",
+          "en": "bill",
+          "kind": "term",
+          "readingKana": "おかいけい"
+        },
+        {
+          "ja": "チップ",
+          "en": "tip",
+          "kind": "term"
+        },
+        {
+          "ja": "飲み物",
+          "en": "drinks",
+          "kind": "term",
+          "readingKana": "のみもの"
+        },
+        {
+          "ja": "料理",
+          "en": "food",
+          "kind": "term",
+          "readingKana": "りょうり"
+        },
+        {
+          "ja": "現金",
+          "en": "cash",
+          "kind": "term",
+          "readingKana": "げんきん"
+        },
+        {
+          "ja": "カード",
+          "en": "card",
+          "kind": "term"
+        },
+        {
+          "ja": "店員",
+          "en": "waiter",
+          "kind": "term",
+          "readingKana": "てんいん"
+        },
+        {
+          "ja": "カード端末",
+          "en": "card terminal",
+          "kind": "term",
+          "readingKana": "カードたんまつ"
+        },
+        {
+          "ja": "合計",
+          "en": "total",
+          "kind": "term",
+          "readingKana": "ごうけい"
+        },
+        {
+          "ja": "おつり",
+          "en": "change",
+          "kind": "term"
+        },
+        {
+          "ja": "レシート",
+          "en": "receipt",
+          "kind": "term"
+        },
+        {
+          "ja": "ワイン",
+          "en": "wine",
+          "kind": "term"
+        },
+        {
+          "ja": "均等",
+          "en": "equal",
+          "kind": "term",
+          "readingKana": "きんとう"
+        },
+        {
+          "ja": "8人",
+          "en": "eight people",
+          "kind": "term",
+          "readingKana": "はちにん"
+        },
+        {
+          "ja": "3人",
+          "en": "three people",
+          "kind": "term",
+          "readingKana": "さんにん"
+        },
+        {
+          "ja": "お会計をお願いできますか。",
+          "en": "Could you bring us the bill, please?",
+          "kind": "phrase",
+          "readingKana": "おかいけいをおねがいできますか。"
+        },
+        {
+          "ja": "チップはもうお会計に含まれていますか。",
+          "en": "Is the tip already included in the bill?",
+          "kind": "phrase",
+          "readingKana": "チップはもうおかいけいにふくまれていますか。"
+        },
+        {
+          "ja": "飲み物代と料理代を分けてもらえますか。",
+          "en": "Can you separate the drinks from the food?",
+          "kind": "phrase",
+          "readingKana": "のみものだいとりょうりだいをわけてもらえますか。"
+        },
+        {
+          "ja": "一部を現金で、残りをカードで払えますか。",
+          "en": "Can we pay part in cash and part by card?",
+          "kind": "phrase",
+          "readingKana": "いちぶをげんきんで、のこりをカードではらえますか。"
+        },
+        {
+          "ja": "グループ全員でチップを置きたいです。",
+          "en": "We want to leave a tip for the whole group.",
+          "kind": "phrase",
+          "readingKana": "グループぜんいんでチップをおきたいです。"
+        },
+        {
+          "ja": "均等に割りたくありません。",
+          "en": "We do not want to split the bill into equal parts.",
+          "kind": "phrase",
+          "readingKana": "きんとうにわりたくありません。"
+        },
+        {
+          "ja": "みんな違うものを注文しました。",
+          "en": "Everyone ordered something different.",
+          "kind": "phrase",
+          "readingKana": "みんなちがうものをちゅうもんしました。"
+        },
+        {
+          "ja": "まず現金をお預かりし、そのあとカードを一枚ずつ決済いたします。",
+          "en": "First I take the cash, then I charge each card.",
+          "kind": "phrase",
+          "readingKana": "まずげんきんをおあずかりし、そのあとカードをいちまいずつけっさいいたします。"
+        },
+        {
+          "ja": "合計を確認します。",
+          "en": "We check the total.",
+          "kind": "phrase",
+          "readingKana": "ごうけいをかくにんします。"
+        },
+        {
+          "ja": "割り勘",
+          "en": "even split",
+          "kind": "term",
+          "readingKana": "わりかん"
+        },
+        {
+          "ja": "サービス料",
+          "en": "service charge",
+          "kind": "term",
+          "readingKana": "サービスりょう"
+        },
+        {
+          "ja": "伝票",
+          "en": "bill slip",
+          "kind": "term",
+          "readingKana": "でんぴょう"
+        },
+        {
+          "ja": "別会計",
+          "en": "separate checks",
+          "kind": "term",
+          "readingKana": "べつかいけい"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "私たちは8人で、それぞれまったく違うものを注文したので、お会計を均等には割りたくありません。",
+          "en": "There are 8 of us at the table and everyone ordered something very different, so we do not want to split the bill into equal parts."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店員に「お会計をお願いできますか」と言います。",
+          "en": "I say to the waiter: Could you bring us the bill, please?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "伝票が来たら、「チップはもうお会計に含まれていますか」と聞きます。",
+          "en": "When it arrives, I ask him: Is the tip already included in the bill?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店員が「いいえ」と答えるので、グループ全員でチップを置くことにします。",
+          "en": "The waiter says no, so we decide to leave a tip for the whole group."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "それから、ワインを飲まなかった人が3人いるので、店員に「飲み物代と料理代を分けてもらえますか」と頼みます。",
+          "en": "Then I ask him to separate the drinks from the food, because 3 people did not drink wine."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "そのあと、「一部を現金で、残りをカードで払えますか」と聞きます。",
+          "en": "Afterwards I ask: Can we pay part in cash and part by card?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店員はカード端末を持ってきて、「もちろんです。まず現金をお預かりし、そのあとカードを一枚ずつ決済いたします」と言います。",
+          "en": "The waiter brings the card terminal and says: Of course, first I charge the cash and then each card."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "最後に店員がおつりとレシートを持ってきてくれて、私たちは合計を確認します。損をしたと感じる人はいません。",
+          "en": "In the end he brings us the change and the receipt, we check the total, and nobody feels cheated."
+        }
+      ],
+      "speaking": {
+        "role": "Diner at a table of eight settling the bill.",
+        "partnerRole": "Server at the restaurant.",
+        "opening": "すみません、お会計をお願いできますか。",
+        "goal": "Divide the bill for eight people who ordered very differently, without anyone feeling cheated.",
+        "closure": "ごちそうさまでした。",
+        "wordBank": [
+          "お会計",
+          "お会計をお願いできますか。",
+          "チップはもうお会計に含まれていますか。",
+          "飲み物代と料理代を分けてもらえますか。",
+          "一部を現金で、残りをカードで払えますか。",
+          "グループ全員でチップを置きたいです。",
+          "均等に割りたくありません。",
+          "みんな違うものを注文しました。",
+          "合計を確認します。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "bill",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "total",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Could you bring us the bill, please?",
+          "sourceCard": 16,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "receipt",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Can we pay part in cash and part by card?",
+          "sourceCard": 19,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Can you separate the drinks from the food?",
+          "sourceCard": 18,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Owner-only source-pinned draft. Haiku 5.5 was requested but Claude CLI metadata reported Sonnet 5.5. Opus 5.5 read-only critique found a Reader subject error, bill-item ambiguity, register and wording issues; these were corrected and self-checked. Source note about large-group service charges and Japan-specific practice remains internal for qualified review. Qualified Japanese and restaurant-domain review remains open."
+    }
+  ]
+}

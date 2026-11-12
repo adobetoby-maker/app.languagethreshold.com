@@ -1,0 +1,387 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "masterPath": "src/data/core60/es/master-travel-dinner.json",
+    "masterSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "contentPath": "public/lesson-content/es/master-travel-dinner.json",
+    "contentSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 8,
+      "stableId": "master-travel-dinner:8:ja-en",
+      "sourceTitleEnglish": "Saying No to Driving Back from the Winery Lunch",
+      "sourceObjectiveEnglish": "Refuse a friend's plan to drive after a wine lunch, decline one more glass, and agree on another way back.",
+      "sourceSpeakingEnglish": "You are at a winery lunch, and the AI plays your friend Ben and the owner Fernando: refuse Ben's plan to drive with negative commands (no cojas las llaves) and no recomiendo que + subjunctive, decline one more glass politely, and agree on another way back.",
+      "title": "Saying No to Driving Back from the Winery Lunch",
+      "objective": "Refuse a friend's plan to drive after a wine lunch, decline one more glass, and agree on another way back.",
+      "focus": "相手に運転をやめてほしいときは「鍵を取らないで」「今日はあなたが運転しないで」と言います。勧めない理由は「このカーブの多い道を君が運転するのは勧めないよ」のように述べます。さらに注がれそうなら「もうこれ以上は注がないでください」「もう十分いただきました」と断ります。代わりの帰り方は「タクシーを呼んでいただけますか」と頼み、翌日の車の回収は「明日、ゆっくり車を取りに来ます」と伝えます。",
+      "scene": "You are Laura at Fernando’s winery lunch near Haro. Ben reaches for the rental-car keys after wine. Refuse his plan to drive, decline another glass, ask Fernando about a taxi, and agree to leave the car in his parking lot until tomorrow. Fernando offers to call his cousin Julián, who works as a private driver.",
+      "forms": [
+        {
+          "base": "取る",
+          "polite": "取ります",
+          "meaning": "to take",
+          "example": "ベン、鍵を取らないで。",
+          "question": "何を取らないでと言いますか",
+          "negativeRequest": "取らないで"
+        },
+        {
+          "base": "運転する",
+          "polite": "運転します",
+          "meaning": "to drive",
+          "example": "今日は運転しないで。",
+          "question": "ベンに運転しないでほしいとき、何と言いますか",
+          "negativeRequest": "運転しないで"
+        },
+        {
+          "base": "勧める",
+          "polite": "勧めます",
+          "meaning": "to recommend",
+          "example": "この道を運転することは勧めないよ。",
+          "question": "何を勧めませんか",
+          "negativeRequest": "勧めない"
+        },
+        {
+          "base": "怒る",
+          "polite": "怒ります",
+          "meaning": "to get upset",
+          "example": "ベン、怒らないで。",
+          "question": "ベンに何と言いますか",
+          "negativeRequest": "怒らないで"
+        },
+        {
+          "base": "注ぐ",
+          "polite": "注ぎます",
+          "meaning": "to pour",
+          "example": "もうこれ以上は注がないでください。",
+          "question": "何を注がないでくださいと言いますか",
+          "negativeRequest": "注がないでください"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "車の鍵",
+          "en": "the car keys",
+          "kind": "term",
+          "readingKana": "くるまのかぎ"
+        },
+        {
+          "ja": "レンタカー",
+          "en": "the rental car",
+          "kind": "term",
+          "readingKana": "レンタカー"
+        },
+        {
+          "ja": "小さなグラス",
+          "en": "the little glass",
+          "kind": "term",
+          "readingKana": "ちいさなグラス"
+        },
+        {
+          "ja": "ワイナリー",
+          "en": "the winery",
+          "kind": "term",
+          "readingKana": "ワイナリー"
+        },
+        {
+          "ja": "飲酒検問",
+          "en": "the breath-test checkpoint",
+          "kind": "term",
+          "readingKana": "いんしゅけんもん"
+        },
+        {
+          "ja": "血中アルコール濃度",
+          "en": "the blood alcohol level",
+          "kind": "term",
+          "readingKana": "けっちゅうアルコールのうど"
+        },
+        {
+          "ja": "路線バス",
+          "en": "the regular bus service",
+          "kind": "term",
+          "readingKana": "ろせんバス"
+        },
+        {
+          "ja": "しらふ",
+          "en": "sober",
+          "kind": "term",
+          "readingKana": "しらふ"
+        },
+        {
+          "ja": "道路",
+          "en": "the road",
+          "kind": "term",
+          "readingKana": "どうろ"
+        },
+        {
+          "ja": "カーブ",
+          "en": "the bends",
+          "kind": "term",
+          "readingKana": "カーブ"
+        },
+        {
+          "ja": "運転手",
+          "en": "the private driver",
+          "kind": "term",
+          "readingKana": "うんてんしゅ"
+        },
+        {
+          "ja": "駐車場",
+          "en": "the parking lot",
+          "kind": "term",
+          "readingKana": "ちゅうしゃじょう"
+        },
+        {
+          "ja": "帰り道",
+          "en": "the way back",
+          "kind": "term",
+          "readingKana": "かえりみち"
+        },
+        {
+          "ja": "リスク",
+          "en": "the risk",
+          "kind": "term",
+          "readingKana": "リスク"
+        },
+        {
+          "ja": "罰金",
+          "en": "the fine",
+          "kind": "term",
+          "readingKana": "ばっきん"
+        },
+        {
+          "ja": "車の保険",
+          "en": "the car insurance",
+          "kind": "term",
+          "readingKana": "くるまのほけん"
+        },
+        {
+          "ja": "ベン、鍵を取らないで。今日はあなたが運転しないで。",
+          "en": "Ben, don't take the keys; you're not driving today.",
+          "kind": "phrase",
+          "readingKana": "ベン、かぎをとらないで。きょうはあなたがうんてんしないで。"
+        },
+        {
+          "ja": "このカーブの多い道を君が運転するのは勧めないよ。",
+          "en": "I don't recommend you drive on these bends.",
+          "kind": "phrase",
+          "readingKana": "このカーブのおおいみちをきみがうんてんするのはすすめないよ。"
+        },
+        {
+          "ja": "怒らないで、ベン。大事に思っているから言ってるの。",
+          "en": "Don't get upset, Ben; I'm saying it because I care about you.",
+          "kind": "phrase",
+          "readingKana": "おこらないで、ベン。だいじにおもっているからいってるの。"
+        },
+        {
+          "ja": "フェルナンドさん、どうもありがとうございます。でも、もうこれ以上は注がないでください。",
+          "en": "Thank you so much, Fernando, but please don't pour me any more.",
+          "kind": "phrase",
+          "readingKana": "フェルナンドさん、どうもありがとうございます。でも、もうこれいじょうはつがないでください。"
+        },
+        {
+          "ja": "とてもおいしいですが、もう十分いただきました。",
+          "en": "It's delicious, but I've already had enough.",
+          "kind": "phrase",
+          "readingKana": "とてもおいしいですが、もうじゅうぶんいただきました。"
+        },
+        {
+          "ja": "アロまでタクシーを呼んでいただけますか。",
+          "en": "Could you call us a taxi to Haro, please?",
+          "kind": "phrase",
+          "readingKana": "アロまでタクシーをよんでいただけますか。"
+        },
+        {
+          "ja": "明日まで、こちらの駐車場に車を置かせてもらえますか。",
+          "en": "Can we leave the car in your parking lot until tomorrow?",
+          "kind": "phrase",
+          "readingKana": "あしたまで、こちらのちゅうしゃじょうにくるまをおかせてもらえますか。"
+        },
+        {
+          "ja": "明日、ゆっくり車を取りに来ます。",
+          "en": "Tomorrow, with no rush, we'll come back for the car.",
+          "kind": "phrase",
+          "readingKana": "あした、ゆっくりくるまをとりにきます。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "アロ近郊にあるフェルナンドのワイナリーで長いランチをとったあと、ラウラとベンはテラスでコーヒーを飲んでいます。",
+          "en": "After a long lunch at Fernando's winery, near Haro, Laura and Ben have coffee on the terrace."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ベンは車の鍵に手を伸ばし、ホテルへの帰り道はレンタカーを自分が運転すると言います。",
+          "en": "Ben reaches for the car keys and says that he'll drive the rental car on the way back to the hotel."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "「ベン、鍵を取らないで。今日はあなたが運転しないで。」",
+          "en": "Laura: Ben, don't take the keys; you're not driving today."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ベンは自分はしらふだと言うが、ラウラは、検査をしなければ誰も自分の血中アルコール濃度は分からないと念を押します。",
+          "en": "Ben says that he's sober, but Laura reminds him that nobody knows their blood alcohol level without a test."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "「このカーブの多い道を君が運転するのは勧めないよ。」",
+          "en": "Laura: I don't recommend you drive on these bends."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ラウラは、アロまでの道路にはカーブがたくさんあり、あれだけワインを飲んだあとではリスクが高すぎると説明します。",
+          "en": "Laura explains to him that the road to Haro has a lot of bends and that the risk is too high after so much wine."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "フェルナンドは、グアルディア・シビル（スペインの治安警察）がこの近くで飲酒検問をすることがときどきあり、罰金もかなり高くなりうると話します。",
+          "en": "Fernando mentions that the Guardia Civil sometimes sets up a breath-test checkpoint near here, and that the fine can be very high."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ラウラは、レンタル契約によると、運転者が飲酒していた場合、車の保険は損害を補償しないと付け加えます。",
+          "en": "Laura adds that, according to the rental contract, the car insurance doesn't cover damage if the driver has been drinking."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "「怒らないで、ベン。大事に思っているから言ってるの。」",
+          "en": "Laura: Don't get upset, Ben; I'm saying it because I care about you."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "そのとき、フェルナンドは別のボトルを開け、帰る前に小さなグラスでもう一杯どうぞと二人に勧めます。",
+          "en": "At that moment, Fernando opens another bottle and offers them a little glass for the road."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "「フェルナンドさん、どうもありがとうございます。でも、もうこれ以上は注がないでください。」",
+          "en": "Laura: Thank you so much, Fernando, but please don't pour me any more."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "「とてもおいしいですが、もう十分いただきました。」",
+          "en": "Laura: It's delicious, but I've already had enough."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "「アロまでタクシーを呼んでいただけますか。」",
+          "en": "Laura: Could you call us a taxi to Haro, please?"
+        },
+        {
+          "speaker": "Fernando",
+          "ja": "「路線バスは待たないでください。日曜日は夜まで来ませんから。」",
+          "en": "Fernando: Don't wait for the regular bus service, because on Sundays it doesn't come until the evening."
+        },
+        {
+          "speaker": "Fernando",
+          "ja": "「ここはタクシーが来るまで時間がかかるので、運転手として働くいとこのフリアンに電話しますよ。」",
+          "en": "Fernando: Taxis take a long time out here, so I'll call my cousin Julián, who works as a private driver."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "「明日まで、こちらの駐車場に車を置かせてもらえますか。」",
+          "en": "Laura: Can we leave the car in your parking lot until tomorrow?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "フェルナンドはいいと言い、ベンは車の鍵をラウラに渡してから、フリアンの車に乗り込みます。",
+          "en": "Fernando says yes, and Ben gives the car keys to Laura before getting into Julián's car."
+        },
+        {
+          "speaker": "Ben",
+          "ja": "「明日、ゆっくり車を取りに来ます。」",
+          "en": "Ben: Tomorrow, with no rush, we'll come back for the car."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "the car keys",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "the blood alcohol level",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Ben, don't take the keys; you're not driving today.",
+          "sourceCard": 17,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "the regular bus service",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Could you call us a taxi to Haro, please?",
+          "sourceCard": 22,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Tomorrow, with no rush, we'll come back for the car.",
+          "sourceCard": 24,
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "You, Laura at Fernando’s winery lunch near Haro.",
+        "partnerRole": "Ben and Fernando, played by the AI.",
+        "opening": "ベン、鍵を取らないで。今日はあなたが運転しないで。",
+        "objectives": [
+          "Refuse Ben’s plan to drive with 「鍵を取らないで」 and 「今日は運転しないで」.",
+          "Say you do not recommend driving on the bends and tell Ben why.",
+          "Politely decline Fernando’s offer to pour one more glass.",
+          "Ask for a taxi to Haro and agree to Fernando’s alternative of his cousin Julián, a private driver.",
+          "Ask to leave the rental car in Fernando’s parking lot until tomorrow and say you will return for it without rushing."
+        ],
+        "closure": "明日、ゆっくり車を取りに来ます。",
+        "wordBank": [
+          "車の鍵",
+          "レンタカー",
+          "小さなグラス",
+          "ワイナリー",
+          "飲酒検問",
+          "血中アルコール濃度",
+          "路線バス",
+          "しらふ",
+          "道路",
+          "カーブ",
+          "運転手",
+          "駐車場",
+          "帰り道",
+          "リスク",
+          "罰金",
+          "車の保険",
+          "ベン、鍵を取らないで。今日はあなたが運転しないで。",
+          "このカーブの多い道を君が運転するのは勧めないよ。",
+          "怒らないで、ベン。大事に思っているから言ってるの。",
+          "フェルナンドさん、どうもありがとうございます。でも、もうこれ以上は注がないでください。",
+          "とてもおいしいですが、もう十分いただきました。",
+          "アロまでタクシーを呼んでいただけますか。",
+          "明日まで、こちらの駐車場に車を置かせてもらえますか。",
+          "明日、ゆっくり車を取りに来ます。"
+        ],
+        "goal": "Refuse a friend's plan to drive after a wine lunch, decline one more glass, and agree on another way back."
+      },
+      "reviewed": false
+    }
+  ]
+}

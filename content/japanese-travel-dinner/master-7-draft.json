@@ -1,0 +1,383 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "masterPath": "src/data/core60/es/master-travel-dinner.json",
+    "masterSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "contentPath": "public/lesson-content/es/master-travel-dinner.json",
+    "contentSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 7,
+      "stableId": "master-travel-dinner:7:ja-en",
+      "sourceTitleEnglish": "Phone Snatched from the Terrace: Statement to Police",
+      "sourceObjectiveEnglish": "Tell an officer what happened step by step and give times, numbers, and descriptions accurately under pressure.",
+      "sourceSpeakingEnglish": "You are the traveler whose phone was snatched, and the AI is Agent Puig: tell what happened step by step in the preterite (dejé, lo cogió, se fue), and give the time, your phone number, the IMEI and the last card digits clearly and accurately.",
+      "title": "Phone Snatched from the Terrace: Statement to Police",
+      "objective": "Tell an officer what happened step by step and give times, numbers, and descriptions accurately under pressure.",
+      "focus": "起きたことは「〜ました」で順番に話します。「テラス席にいて、携帯をテーブルに置いたままにしました」のように「〜て」でつなぐと、流れが伝わります。犯人の服装は「〜ていました」で描写します（グレーのパーカーを着て、黒いキャップをかぶっていました）。しなかったことは「追いかけませんでした」のように「〜ませんでした」で言います。時刻は「22時15分」と言い、電話番号やIMEI番号は一つずつ区切って読みます（612は「ろくいちに」、3907は「さんきゅうぜろなな」）。時間の差は「5分後」で表し、カードの支払いのレシート（22時10分）を根拠に「ひったくりはその5分後でした」と正せます。「下4桁は4821です」で、カードの末尾の数字を伝えます。被害届の控えは「いただけますか」と丁寧に頼みます。",
+      "scene": "You are Emma, sitting on a restaurant terrace in Barcelona, when a young man on a scooter grabs your phone from the table at 22:15. Officer Puig of the Mossos d'Esquadra arrives to take your police report, and you tell him step by step what happened. The scooter went off toward the beach. The thief wore a gray hoodie and a black cap, and he was about 1.80 meters tall. Marc, the waiter, saw the hoodie but remembers the robbery at 22:30; your card terminal receipt says 22:10, and Marc agrees the snatch happened 5 minutes later. You give your mobile number, 612 345 678, the IMEI number ending in 3907, and the last digits of the card in the blue phone case, 4821. Officer Puig will give you a copy of the report tomorrow at the police station, and now you call your phone carrier and your bank.",
+      "forms": [
+        {
+          "base": "置く",
+          "polite": "置きます",
+          "meaning": "to leave (something somewhere)",
+          "example": "テーブルの上に携帯を置いたままにします。",
+          "question": "どこに置きますか"
+        },
+        {
+          "base": "ひったくる",
+          "polite": "ひったくります",
+          "meaning": "to grab, to snatch",
+          "example": "キックボードの若い男が、テーブルの携帯をひったくります。",
+          "question": "誰がひったくりますか"
+        },
+        {
+          "base": "立ち去る",
+          "polite": "立ち去ります",
+          "meaning": "to leave, to go away",
+          "example": "若い男はビーチのほうへ立ち去ります。",
+          "question": "どちらへ立ち去りますか"
+        },
+        {
+          "base": "追いかける",
+          "polite": "追いかけます",
+          "meaning": "to follow, to chase",
+          "example": "私は若い男を追いかけません。テーブルのところにいます。",
+          "question": "追いかけますか"
+        },
+        {
+          "base": "電話する",
+          "polite": "電話します",
+          "meaning": "to call",
+          "example": "今、携帯会社と銀行に電話します。",
+          "question": "どこに電話しますか"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "被害届",
+          "en": "the police report",
+          "kind": "term",
+          "readingKana": "ひがいとどけ"
+        },
+        {
+          "ja": "ひったくり",
+          "en": "the snatch",
+          "kind": "term",
+          "readingKana": "ひったくり"
+        },
+        {
+          "ja": "キックボード",
+          "en": "the scooter",
+          "kind": "term",
+          "readingKana": "キックボード"
+        },
+        {
+          "ja": "IMEI番号",
+          "en": "the IMEI number",
+          "kind": "term",
+          "readingKana": "アイエムイーアイばんごう"
+        },
+        {
+          "ja": "スマホケース",
+          "en": "the phone case",
+          "kind": "term",
+          "readingKana": "スマホケース"
+        },
+        {
+          "ja": "末尾の数字",
+          "en": "the last digits",
+          "kind": "term",
+          "readingKana": "まつびのすうじ"
+        },
+        {
+          "ja": "フード付きパーカー",
+          "en": "the hoodie",
+          "kind": "term",
+          "readingKana": "フードつきパーカー"
+        },
+        {
+          "ja": "キャップ",
+          "en": "the cap",
+          "kind": "term",
+          "readingKana": "キャップ"
+        },
+        {
+          "ja": "身長",
+          "en": "the height",
+          "kind": "term",
+          "readingKana": "しんちょう"
+        },
+        {
+          "ja": "男性の目撃者",
+          "en": "the witness (man)",
+          "kind": "term",
+          "readingKana": "だんせいのもくげきしゃ"
+        },
+        {
+          "ja": "正確な時刻",
+          "en": "the exact time",
+          "kind": "term",
+          "readingKana": "せいかくなじこく"
+        },
+        {
+          "ja": "警察署",
+          "en": "the police station",
+          "kind": "term",
+          "readingKana": "けいさつしょ"
+        },
+        {
+          "ja": "携帯電話",
+          "en": "the mobile phone",
+          "kind": "term",
+          "readingKana": "けいたいでんわ"
+        },
+        {
+          "ja": "携帯会社",
+          "en": "the phone carrier",
+          "kind": "term",
+          "readingKana": "けいたいがいしゃ"
+        },
+        {
+          "ja": "モッソス・デスクアドラ",
+          "en": "the Catalan police",
+          "kind": "term",
+          "readingKana": "モッソス・デスクアドラ",
+          "note": "カタルーニャ州警察の正式名称。"
+        },
+        {
+          "ja": "どちらの方向へ？",
+          "en": "which way?",
+          "kind": "term",
+          "readingKana": "どちらのほうこうへ？"
+        },
+        {
+          "ja": "テラス席にいて、携帯をテーブルの上に置いたままにしました。",
+          "en": "I was on the terrace and I left my phone on the table.",
+          "kind": "phrase",
+          "readingKana": "テラスせきにいて、けいたいをテーブルのうえにおいたままにしました。"
+        },
+        {
+          "ja": "22時15分に、キックボードに乗った若い男がそれをひったくりました。",
+          "en": "At 22:15, a young man on a scooter grabbed it.",
+          "kind": "phrase",
+          "readingKana": "にじゅうにじじゅうごふんに、キックボードにのったわかいおとこがそれをひったくりました。"
+        },
+        {
+          "ja": "グレーのパーカーを着て、黒いキャップをかぶっていました。",
+          "en": "He was wearing a gray hoodie and a black cap.",
+          "kind": "phrase",
+          "readingKana": "グレーのパーカーをきて、くろいキャップをかぶっていました。"
+        },
+        {
+          "ja": "追いかけませんでした。テーブルのところにいました。",
+          "en": "I didn't follow him; I stayed at the table.",
+          "kind": "phrase",
+          "readingKana": "おいかけませんでした。テーブルのところにいました。"
+        },
+        {
+          "ja": "私の携帯の番号は612 345 678です。",
+          "en": "My mobile number is 612 345 678.",
+          "kind": "phrase",
+          "readingKana": "わたしのけいたいのばんごうはろくいちに、さんよんご、ろくななはちです。"
+        },
+        {
+          "ja": "カードの下4桁は4821です。",
+          "en": "The last 4 digits of the card are 4821.",
+          "kind": "phrase",
+          "readingKana": "カードのしたよんけたはよんはちにいちです。"
+        },
+        {
+          "ja": "カードの支払いで正確な時刻を確認できます。",
+          "en": "I can check the exact time with the card payment.",
+          "kind": "phrase",
+          "readingKana": "カードのしはらいでせいかくなじこくをかくにんできます。"
+        },
+        {
+          "ja": "警察官の方、被害届の控えをいただけますか。",
+          "en": "Officer, can you give me a copy of the report, please?",
+          "kind": "phrase",
+          "readingKana": "けいさつかんのかた、ひがいとどけのひかえをいただけますか。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "モッソス・デスクアドラの警察官のプッチさんが、エマの被害届を受けるため、バルセロナのテラス席に到着します。",
+          "en": "Officer Puig, of the Mossos d'Esquadra, arrives at a terrace in Barcelona to take Emma's police report."
+        },
+        {
+          "speaker": "Officer Puig",
+          "ja": "「何があったのか、順番に話してください。」",
+          "en": "Officer Puig: Tell me what happened, step by step, please."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "「テラス席にいて、携帯をテーブルの上に置いたままにしました。」",
+          "en": "Emma: I was on the terrace and I left my phone on the table."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "「22時15分に、キックボードに乗った若い男がそれをひったくりました。」",
+          "en": "Emma: At 22:15, a young man on a scooter grabbed it."
+        },
+        {
+          "speaker": "Officer Puig",
+          "ja": "「どちらの方向へ行きましたか。」",
+          "en": "Officer Puig: Which way did he go?"
+        },
+        {
+          "speaker": "Emma",
+          "ja": "「あっという間のひったくりでした。若い男はビーチのほうへ立ち去りました。」",
+          "en": "Emma: It was a very fast snatch and the young man went off toward the beach."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "「追いかけませんでした。テーブルのところにいました。」",
+          "en": "Emma: I didn't follow him; I stayed at the table."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "「グレーのパーカーを着て、黒いキャップをかぶっていました。」",
+          "en": "Emma: He was wearing a gray hoodie and a black cap."
+        },
+        {
+          "speaker": "Officer Puig",
+          "ja": "「身長はだいたいどのくらいでしたか。」",
+          "en": "Officer Puig: And how tall was he, more or less?"
+        },
+        {
+          "speaker": "Emma",
+          "ja": "「身長はだいたい1メートル80センチで、キャップで顔が隠れていました。」",
+          "en": "Emma: He was about 1.80 meters tall and the cap covered his face."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ウェイターのマルクが目撃者です。パーカーは見ましたが、盗まれたのは22時30分だったと覚えています。",
+          "en": "Marc, the waiter, is the witness: he saw the hoodie, but he remembers the robbery at 22:30."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "「カードの支払いで正確な時刻を確認できます。」",
+          "en": "Emma: I can check the exact time with the card payment."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "カード端末のレシートには22時10分と出ていて、マルクはひったくりがその5分後だったと認めます。",
+          "en": "The card terminal receipt says 22:10, and Marc admits that the snatch happened 5 minutes later."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "「私の携帯の番号は612 345 678です。」",
+          "en": "Emma: My mobile number is 612 345 678."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "「IMEI番号の末尾は3907です。旅行の前に、箱から書き写しました。」",
+          "en": "Emma: The IMEI number ends in 3907; I copied it from the box before the trip."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "「青いスマホケースにクレジットカードを入れていました。末尾の数字は4821です。」",
+          "en": "Emma: In the blue phone case I had a credit card, and the last digits are 4821."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "「警察官の方、被害届の控えをいただけますか。」",
+          "en": "Emma: Officer, can you give me a copy of the report, please?"
+        },
+        {
+          "speaker": "Officer Puig",
+          "ja": "「はい、明日、警察署で控えをお渡しします。今は携帯会社と銀行に電話してください。」",
+          "en": "Officer Puig: Yes, tomorrow at the police station I'll give you a copy; now call your phone carrier and your bank."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "the police report",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "the IMEI number",
+          "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "At 22:15, a young man on a scooter grabbed it.",
+          "sourceCard": 18,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "My mobile number is 612 345 678.",
+          "sourceCard": 21,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "I can check the exact time with the card payment.",
+          "sourceCard": 23,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Officer, can you give me a copy of the report, please?",
+          "sourceCard": 24,
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "You, the traveler whose phone was snatched on a terrace in Barcelona.",
+        "partnerRole": "Officer Puig of the Mossos d'Esquadra, played by the AI.",
+        "opening": "テラス席にいて、携帯をテーブルの上に置いたままにしました。",
+        "objectives": [
+          "Tell Officer Puig step by step what happened, using the past polite form (置いたままにしました, ひったくりました, 立ち去りました, 追いかけませんでした).",
+          "Give the time, 22:15, and the direction the scooter went, toward the beach, and use the card receipt (22:10) to show the snatch happened 5 minutes later, not at 22:30 as Marc remembers.",
+          "Describe the thief: a gray hoodie, a black cap, and about 1.80 meters tall.",
+          "Give your mobile number 612 345 678, the IMEI number ending in 3907, and the last 4 digits of the card in the blue phone case, 4821, clearly and digit by digit.",
+          "Ask Officer Puig for a copy of the report, and confirm you will call your phone carrier and your bank."
+        ],
+        "closure": "警察官の方、被害届の控えをいただけますか。",
+        "wordBank": [
+          "被害届",
+          "ひったくり",
+          "キックボード",
+          "IMEI番号",
+          "スマホケース",
+          "末尾の数字",
+          "フード付きパーカー",
+          "キャップ",
+          "身長",
+          "男性の目撃者",
+          "正確な時刻",
+          "警察署",
+          "携帯電話",
+          "携帯会社",
+          "モッソス・デスクアドラ",
+          "どちらの方向へ？",
+          "テラス席にいて、携帯をテーブルの上に置いたままにしました。",
+          "22時15分に、キックボードに乗った若い男がそれをひったくりました。",
+          "グレーのパーカーを着て、黒いキャップをかぶっていました。",
+          "追いかけませんでした。テーブルのところにいました。",
+          "私の携帯の番号は612 345 678です。",
+          "カードの下4桁は4821です。",
+          "カードの支払いで正確な時刻を確認できます。",
+          "警察官の方、被害届の控えをいただけますか。"
+        ],
+        "goal": "Tell an officer what happened step by step and give times, numbers, and descriptions accurately under pressure."
+      },
+      "reviewed": false
+    }
+  ]
+}

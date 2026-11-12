@@ -1,0 +1,310 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "contentPath": "public/lesson-content/es/travel-dinner.json",
+    "contentSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 22,
+      "stableId": "travel-dinner:22:ja-en",
+      "sourceTitleEnglish": "Challenge an inflated bill",
+      "sourceObjectiveEnglish": "identify an item you never ordered or an unannounced fee and dispute it calmly",
+      "sourceSpeakingEnglish": "Your bill lists a second bottle you never ordered and an unannounced service fee; dispute both calmly.",
+      "title": "Challenge an inflated bill",
+      "objective": "Check the dinner bill, explain that you ordered only one wine bottle, ask about an unexplained 15 percent service charge, and request a corrected total calmly.",
+      "focus": "伝票にワインのボトルが二本載っていますが、注文したのは一本だけです contrasts what the bill lists with what was ordered. 二本目のボトルは注文していません uses 〜ていません to deny the extra order. この料金は何ですか asks what a charge is. お会計を直していただけますか uses 〜ていただけますか for a polite correction request.",
+      "scene": "At the end of dinner, the waiter brings the bill. It lists two wine bottles although your party ordered one, plus an unexplained 15 percent service charge. Show the receipt, ask about the charge, and calmly explain both discrepancies. The waiter checks that the menu does not mention the charge, consults the manager, and brings a corrected bill. You thank him and leave a tip because the service was good.",
+      "forms": [
+        {
+          "base": "注文する",
+          "polite": "注文します",
+          "question": "注文しますか",
+          "meaning": "to order"
+        },
+        {
+          "base": "確認する",
+          "polite": "確認します",
+          "question": "確認しますか",
+          "meaning": "to check, confirm"
+        },
+        {
+          "base": "直す",
+          "polite": "直します",
+          "question": "直しますか",
+          "meaning": "to correct"
+        },
+        {
+          "base": "尋ねる",
+          "polite": "尋ねます",
+          "question": "尋ねますか",
+          "meaning": "to ask"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "お会計",
+          "en": "bill (at a restaurant)",
+          "kind": "term",
+          "readingKana": "おかいけい"
+        },
+        {
+          "ja": "伝票",
+          "en": "bill slip",
+          "kind": "term",
+          "readingKana": "でんぴょう"
+        },
+        {
+          "ja": "ワインのボトル",
+          "en": "bottle of wine",
+          "kind": "term"
+        },
+        {
+          "ja": "二本のボトル",
+          "en": "two bottles",
+          "kind": "term",
+          "readingKana": "にほんのボトル"
+        },
+        {
+          "ja": "一本だけ",
+          "en": "only one bottle",
+          "kind": "term",
+          "readingKana": "いっぽんだけ"
+        },
+        {
+          "ja": "サービス料",
+          "en": "service charge",
+          "kind": "term",
+          "readingKana": "サービスりょう"
+        },
+        {
+          "ja": "15パーセント",
+          "en": "15 percent",
+          "kind": "term",
+          "readingKana": "じゅうごパーセント"
+        },
+        {
+          "ja": "料金",
+          "en": "charge",
+          "kind": "term",
+          "readingKana": "りょうきん"
+        },
+        {
+          "ja": "店員",
+          "en": "waiter",
+          "kind": "term",
+          "readingKana": "てんいん"
+        },
+        {
+          "ja": "レシート",
+          "en": "receipt",
+          "kind": "term"
+        },
+        {
+          "ja": "メニュー",
+          "en": "menu",
+          "kind": "term"
+        },
+        {
+          "ja": "店長",
+          "en": "manager",
+          "kind": "term",
+          "readingKana": "てんちょう"
+        },
+        {
+          "ja": "合計",
+          "en": "total amount",
+          "kind": "term",
+          "readingKana": "ごうけい"
+        },
+        {
+          "ja": "チップ",
+          "en": "tip",
+          "kind": "term"
+        },
+        {
+          "ja": "間違い",
+          "en": "mistake",
+          "kind": "term",
+          "readingKana": "まちがい"
+        },
+        {
+          "ja": "すみません、お会計に間違いがあると思います。",
+          "en": "Excuse me, I think there is a mistake on the bill.",
+          "kind": "phrase",
+          "readingKana": "すみません、おかいけいにまちがいがあるとおもいます。"
+        },
+        {
+          "ja": "二本目のボトルは注文していません。",
+          "en": "We did not order a second bottle.",
+          "kind": "phrase",
+          "readingKana": "にほんめのボトルはちゅうもんしていません。"
+        },
+        {
+          "ja": "この料金は何ですか。",
+          "en": "What is this charge?",
+          "kind": "phrase",
+          "readingKana": "このりょうきんはなんですか。"
+        },
+        {
+          "ja": "サービス料について説明を受けていません。",
+          "en": "We weren't told about the service charge.",
+          "kind": "phrase",
+          "readingKana": "サービスりょうについてせつめいをうけていません。"
+        },
+        {
+          "ja": "お会計を直していただけますか。",
+          "en": "Could you correct the bill, please?",
+          "kind": "phrase",
+          "readingKana": "おかいけいをなおしていただけますか。"
+        },
+        {
+          "ja": "メニューにその料金の記載がありません。",
+          "en": "The menu does not mention that charge.",
+          "kind": "phrase",
+          "readingKana": "メニューにそのりょうきんのきさいがありません。"
+        },
+        {
+          "ja": "正しい合計の伝票をお願いします。",
+          "en": "Please bring a bill with the correct total.",
+          "kind": "phrase",
+          "readingKana": "ただしいごうけいのでんぴょうをおねがいします。"
+        },
+        {
+          "ja": "対応がよかったので、チップを置いていきます。",
+          "en": "I leave a tip because the service was good.",
+          "kind": "phrase",
+          "readingKana": "たいおうがよかったので、チップをおいていきます。"
+        },
+        {
+          "ja": "注文したのは一本だけです。",
+          "en": "We only ordered one bottle.",
+          "kind": "phrase",
+          "readingKana": "ちゅうもんしたのはいっぽんだけです。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "夕食の終わりに、店員がお会計の伝票を持ってきたので、私は落ち着いて確認します。",
+          "en": "At the end of dinner, the waiter brings me the bill and I check it calmly."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ワインのボトルが二本載っていますが、注文したのは一本だけです。",
+          "en": "I see two bottles of wine, but we only ordered one."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "説明を受けていない15パーセントのサービス料も付いています。",
+          "en": "There is also a 15 percent service charge that nobody explained to us."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店員に「すみません、お会計に間違いがあると思います」と伝えます。",
+          "en": "I tell the waiter: Excuse me, I think there is a mistake on the bill."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "レシートを見せて、「二本目のボトルは注文していません」と説明します。",
+          "en": "I show him the receipt and explain: We did not order a second bottle."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "それから丁寧に「この料金は何ですか」と尋ねます。",
+          "en": "Then I ask him kindly: What is this charge?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店員はメニューにその料金の記載がないことを確認し、店長に相談しに行きます。",
+          "en": "The waiter sees that the menu does not mention that charge and goes to talk to the manager."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "数分後、店員は正しい合計に直した伝票を持ってきます。",
+          "en": "A few minutes later, he brings me a corrected bill with the right total."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "対応がよかったので、私はお礼を言い、チップを置いていきます。",
+          "en": "I thank him and leave a tip because the service was good."
+        }
+      ],
+      "speaking": {
+        "role": "Guest checking the bill at the end of dinner",
+        "partnerRole": "Waiter who brought a bill listing two wine bottles and an unexplained service charge",
+        "opening": "こちらがお会計の伝票です。",
+        "goal": "Your bill lists a second bottle you never ordered and an unannounced service fee; dispute both calmly.",
+        "closure": "確認して、直した伝票をお持ちします。",
+        "wordBank": [
+          "お会計",
+          "ワインのボトル",
+          "一本だけ",
+          "サービス料",
+          "料金",
+          "レシート",
+          "メニュー",
+          "店長",
+          "合計",
+          "すみません、お会計に間違いがあると思います。",
+          "二本目のボトルは注文していません。",
+          "この料金は何ですか。",
+          "サービス料について説明を受けていません。",
+          "お会計を直していただけますか。",
+          "メニューにその料金の記載がありません。",
+          "正しい合計の伝票をお願いします。",
+          "対応がよかったので、チップを置いていきます。",
+          "注文したのは一本だけです。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "bill (at a restaurant)",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "only one bottle",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "We did not order a second bottle.",
+          "sourceCard": 17,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "service charge",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "What is this charge?",
+          "sourceCard": 18,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Could you correct the bill, please?",
+          "sourceCard": 20,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Owner-only source-aligned draft. Opus 5.5 read-only critique led to more natural bill, total, and tip wording, Arabic numerals for 15%, and removal of an invented guest-to-manager request; source receipt timing is preserved explicitly. Japanese service-charge and tipping norms, bill/receipt timing and restaurant register require qualified review. An Opus suggestion to add a learner-facing tipping caution was rejected under the owner’s curriculum rule; domain review stays here. Haiku 5.5 CLI attempts failed to produce a draft despite source/schema prompts; the assistant authored the draft and self-checked the source. AI critique is not human approval."
+    }
+  ]
+}

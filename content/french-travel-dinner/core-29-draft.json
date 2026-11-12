@@ -1,0 +1,258 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/travel-zone.ts",
+    "curriculumSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "passagePath": "public/lesson-content/es/travel-dinner.json",
+    "passageSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "title": "Get a safe ride home",
+      "objective": "ask staff to call a licensed taxi, where to wait, and the expected price",
+      "focus": "Pourriez-vous m'appeler un taxi autorisé, s'il vous plaît ? asks for a licensed taxi. Here m' means for me, and un taxi autorisé is the French term for an approved taxi in this scene. La centrale de taxis is the taxi company whose dispatch sends a taxi when the restaurant calls; la station de taxis is the taxi stand. Attendre takes no preposition: attendre le taxi means to wait for the taxi, as esperar el taxi does. Le tarif is the fare and le taximètre is the meter; in this scene the driver uses a meter. Demander can mean asking a question or asking for something; demander le numéro d'immatriculation means to ask for the license plate number. Vérifier means to check, and Laura asks for the plate number before leaving so she can check that it is the right taxi. Combien coûte le trajet ? asks what the journey costs; coûter is most often used with il and ils.",
+      "scene": "It is 11 PM and Laura is finishing dinner at a restaurant downtown. She asks the waiter to call a licensed taxi. The waiter says the restaurant always calls a trusted taxi company. Laura asks where to wait, and the waiter tells her to wait inside, next to the main entrance, because the taxi stand on the street is dark. She asks about the approximate cost to her hotel; the waiter says the usual fare is about 150 pesos, but the driver uses a meter. Before leaving, Laura asks for the license plate number so she can check that it is the right taxi.",
+      "forms": [
+        {
+          "infinitive": "appeler",
+          "presentJe": "j'appelle",
+          "example": "Pourriez-vous m'appeler un taxi autorisé, s'il vous plaît ?",
+          "meaning": "to call / I call (j'appelle; nous appelons)"
+        },
+        {
+          "infinitive": "attendre",
+          "presentJe": "j'attends",
+          "example": "J'attends le taxi à l'intérieur, à côté de l'entrée principale.",
+          "meaning": "to wait / I wait (j'attends; nous attendons). No preposition: attendre le taxi"
+        },
+        {
+          "infinitive": "coûter",
+          "presentJe": "je coûte",
+          "example": "Je ne sais pas combien coûte le trajet jusqu'à mon hôtel.",
+          "meaning": "to cost / I cost; mostly il coûte and ils coûtent in this scene"
+        },
+        {
+          "infinitive": "demander",
+          "presentJe": "je demande",
+          "example": "Je demande au serveur le numéro d'immatriculation du taxi.",
+          "meaning": "to ask for, to request / I ask for (je demande; nous demandons). Demander quelque chose means ask for something"
+        },
+        {
+          "infinitive": "vérifier",
+          "presentJe": "je vérifie",
+          "example": "Je vérifie que c'est le bon taxi avant de partir.",
+          "meaning": "to check, to verify / I check (je vérifie; nous vérifions)"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "le taxi autorisé",
+          "en": "licensed taxi",
+          "kind": "term"
+        },
+        {
+          "fr": "la centrale de taxis",
+          "en": "taxi company",
+          "kind": "term"
+        },
+        {
+          "fr": "la station de taxis",
+          "en": "taxi stand",
+          "kind": "term"
+        },
+        {
+          "fr": "l'entrée principale",
+          "en": "main entrance",
+          "kind": "term"
+        },
+        {
+          "fr": "le tarif",
+          "en": "fare",
+          "kind": "term"
+        },
+        {
+          "fr": "le taximètre",
+          "en": "meter",
+          "kind": "term"
+        },
+        {
+          "fr": "le chauffeur",
+          "en": "driver",
+          "kind": "term"
+        },
+        {
+          "fr": "le numéro d'immatriculation",
+          "en": "license plate number",
+          "kind": "term"
+        },
+        {
+          "fr": "le serveur",
+          "en": "waiter",
+          "kind": "term"
+        },
+        {
+          "fr": "l'hôtel",
+          "en": "hotel",
+          "kind": "term"
+        },
+        {
+          "fr": "Pourriez-vous m'appeler un taxi autorisé, s'il vous plaît ?",
+          "en": "Could you call a licensed taxi for me, please?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Où est-ce que j'attends le taxi ?",
+          "en": "Where do I wait for the taxi?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "À peu près combien coûte le trajet jusqu'à mon hôtel ?",
+          "en": "About how much does it cost to my hotel?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le taxi utilise-t-il un taximètre ou a-t-il un tarif fixe ?",
+          "en": "Does the taxi use a meter or have a fixed fare?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pouvez-vous me dire le numéro d'immatriculation du taxi ?",
+          "en": "Can you tell me the taxi's license plate number?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je préfère attendre à l'intérieur parce que je ne connais pas le quartier.",
+          "en": "I prefer to wait inside because I don't know the area.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Merci. Je vais vérifier que c'est le bon taxi.",
+          "en": "Thank you. I will check that it is the right taxi.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Attendez à l'intérieur, à côté de l'entrée principale.",
+          "en": "Wait inside, next to the main entrance.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "Il est 23 h et Laura termine son dîner dans un restaurant du centre-ville.",
+          "en": "It is 11 at night, and Laura is finishing her dinner at a restaurant downtown."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Elle dit au serveur : « Excusez-moi, pourriez-vous m'appeler un taxi autorisé, s'il vous plaît ? »",
+          "en": "She says to the waiter: Excuse me, could you call a licensed taxi for me, please?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le serveur répond que le restaurant appelle toujours une centrale de taxis de confiance.",
+          "en": "The waiter answers that the restaurant always calls a trusted taxi company."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Laura demande : « Où est-ce que j'attends le taxi ? »",
+          "en": "Laura asks: Where do I wait for the taxi?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le serveur explique : « Attendez à l'intérieur, à côté de l'entrée principale, parce que la station de taxis dans la rue est sombre. »",
+          "en": "The waiter explains: Wait inside, next to the main entrance, because the taxi stand on the street is dark."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Ensuite, elle demande : « À peu près combien coûte le trajet jusqu'à mon hôtel ? »",
+          "en": "Then she asks: About how much does it cost to my hotel?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Selon le serveur, le tarif habituel est d'environ 150 pesos, mais le chauffeur utilise un taximètre.",
+          "en": "According to the waiter, the usual fare is about 150 pesos, but the driver uses a meter."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Avant de partir, Laura lui demande le numéro d'immatriculation pour vérifier que c'est le bon taxi.",
+          "en": "Before leaving, Laura asks him for the license plate number so she can check that it is the right taxi."
+        }
+      ],
+      "speaking": {
+        "role": "Laura, finishing dinner at a downtown restaurant at 11 PM, asking the waiter to get her a licensed taxi to her hotel.",
+        "partnerRole": "Le serveur, the waiter who calls the taxi company, tells her where to wait, gives the approximate fare, and confirms the meter. The waiter also gives the taxi's license plate number.",
+        "opening": "Excusez-moi, pourriez-vous m'appeler un taxi agréé, s'il vous plaît ?",
+        "goal": "It's late and you don't know the area; ask the restaurant to call a reliable taxi and tell you where to wait.",
+        "closure": "Merci. Je vais vérifier que c'est le bon taxi.",
+        "wordBank": [
+          "Pourriez-vous m'appeler un taxi autorisé, s'il vous plaît ?",
+          "Où est-ce que j'attends le taxi ?",
+          "À peu près combien coûte le trajet jusqu'à mon hôtel ?",
+          "Le taxi utilise-t-il un taximètre ou a-t-il un tarif fixe ?",
+          "Pouvez-vous me dire le numéro d'immatriculation du taxi ?",
+          "Je préfère attendre à l'intérieur parce que je ne connais pas le quartier.",
+          "Merci. Je vais vérifier que c'est le bon taxi."
+        ],
+        "objectives": [
+          "Ask the waiter to call a licensed taxi for you, using vous.",
+          "Ask where to wait; the waiter says to wait inside, next to the main entrance, because the taxi stand on the street is dark.",
+          "Ask about the approximate fare to the hotel; in this scene the waiter says about 150 pesos and the driver uses a meter.",
+          "Ask for the license plate number so you can check that it is the right taxi.",
+          "Use the source phrase to say you prefer to wait inside because you do not know the area."
+        ]
+      },
+      "n": 29,
+      "stableId": "travel-dinner:29:fr-en",
+      "sourceTitleEnglish": "Get a safe ride home",
+      "sourceObjectiveEnglish": "ask staff to call a licensed taxi, where to wait, and the expected price",
+      "sourceSpeakingEnglish": "It's late and you don't know the area; ask the restaurant to call a reliable taxi and tell you where to wait.",
+      "reviewed": false,
+      "internalReviewNote": "Owner-only source-pinned draft; reviewed:false, registered:false, no audio. Haiku 5.5 authored the candidate; Opus 5.5 gave read-only critique; author corrected source fields, stable ID, role/plate timing, demander explanation, grammar and card cue. Source hashes rechecked against current tree. All 16 English card meanings and eight English Reader lines preserve source order. Qualified French review required for taxi autorisé, station de taxis, centrale de taxis, taximètre, license-plate idiom, and 150-peso scene localization. The taxi company, late-hour wait, fare and meter are scene facts, not general rules.",
+      "modes": {
+        "see": {
+          "cueEnglish": "taxi stand",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "meter",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Can you tell me the taxi's license plate number?",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "fare",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Where do I wait for the taxi?",
+          "sourceCard": 12,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "I prefer to wait inside because I don't know the area.",
+          "sourceCard": 16,
+          "responseKind": "open"
+        }
+      },
+      "model": "claude-haiku-5-5"
+    }
+  ]
+}

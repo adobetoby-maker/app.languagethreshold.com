@@ -1,0 +1,365 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "masterPath": "src/data/core60/es/master-travel-dinner.json",
+    "masterSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "contentPath": "public/lesson-content/es/master-travel-dinner.json",
+    "contentSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 3,
+      "stableId": "master-travel-dinner:3:ja-en",
+      "sourceTitleEnglish": "Teach a Friend to Eat Calçots at a Masia",
+      "sourceObjectiveEnglish": "Give step-by-step instructions for peeling, dipping, and eating calçots, then correct your friend as they try.",
+      "sourceSpeakingEnglish": "You are at a masia near Valls, and the AI is your friend Aisha, trying calçots for the first time: teach her step by step to hold, peel, dip and eat one, and correct her as she tries, with commands like cógelo, pélalo, mójalo and no lo muerdas.",
+      "title": "Teach a Friend to Eat Calçots at a Masia",
+      "objective": "Give step-by-step instructions for peeling, dipping, and eating calçots, then correct your friend as they try.",
+      "focus": "友だちに直接やり方を教えるときは、動詞のて形（～て）を使い、してほしくないことは「～ないで」と言う。例：上の、緑の茎のところを持って。一気にむいて。そこはかじらないで。一つずつ短く言うと、相手がまねしやすい。店の人にお願いするときは、「～ていただけませんか」と丁寧に言う。",
+      "scene": "You and your friend Aisha arrive at a masia (a Catalan country farmhouse restaurant) near Valls to celebrate your first calçotada, the calçot feast. Outside, the cook grills the calçots over vine shoots that give off a very strong flame. Jordi, the waiter, explains that the calçot is a young onion typical of this area. The calçots are wrapped in newspaper to keep them warm and served on a clay roof tile, with a bib for each person and a bowl of romesco sauce in the middle of the table. Jordi eats one in front of you, but he does it so fast that Aisha sees nothing, so you politely ask him to show you again. He does it slowly, and then it is your turn to teach Aisha step by step: put on the bib, hold the calçot at the top by the green stalk, pull the charred layer down with the other hand, and peel it in one go. Aisha pulls timidly and the charred layer breaks before it reaches the root end. On the next try the white part comes out clean, but she brings the black tip to her mouth, and you stop her: don't bite it there, that part is charred. Then you tell her to dip it well in the romesco sauce, and finally to lift it, lean back a little and eat it from the bottom. After the calçots come the grilled butifarra and the porrón, passed around for a toast.",
+      "forms": [
+        {
+          "base": "持つ",
+          "polite": "持ちます",
+          "meaning": "to hold, to take hold of",
+          "example": "上の、緑の茎のところを持って。",
+          "question": "持ちますか"
+        },
+        {
+          "base": "引っ張る",
+          "polite": "引っ張ります",
+          "meaning": "to pull",
+          "example": "もう片方の手で、焦げた皮を下に引っ張って。",
+          "question": "引っ張りますか"
+        },
+        {
+          "base": "むく",
+          "polite": "むきます",
+          "meaning": "to peel",
+          "example": "一気にむいて。怖がらないで。",
+          "question": "むきますか"
+        },
+        {
+          "base": "つける",
+          "polite": "つけます",
+          "meaning": "to dip (in a sauce); to put on (a bib)",
+          "example": "じゃあ、ロメスコソースにたっぷりつけて。",
+          "question": "つけますか"
+        },
+        {
+          "base": "かじる",
+          "polite": "かじります",
+          "meaning": "to bite",
+          "example": "そこはかじらないで。そこは焦げているから。",
+          "question": "かじりますか"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "カルソット（焼いて食べる細長い若い玉ねぎ）",
+          "en": "the calçot (grilled spring onion)",
+          "kind": "term",
+          "readingKana": "カルソット（やいてたべるほそながいわかいたまねぎ）"
+        },
+        {
+          "ja": "カルソタダ（カルソットを焼いて食べる宴会）",
+          "en": "the calçot feast",
+          "kind": "term",
+          "readingKana": "カルソタダ（カルソットをやいてたべるえんかい）"
+        },
+        {
+          "ja": "屋根瓦（料理をのせる素焼きの瓦）",
+          "en": "the clay roof tile (serving dish)",
+          "kind": "term",
+          "readingKana": "やねがわら（りょうりをのせるすやきのかわら）"
+        },
+        {
+          "ja": "食事用エプロン（前掛け）",
+          "en": "the bib",
+          "kind": "term",
+          "readingKana": "しょくじようエプロン（まえかけ）"
+        },
+        {
+          "ja": "ロメスコソース（カルソットにつけるソース）",
+          "en": "the romesco sauce",
+          "kind": "term",
+          "readingKana": "ロメスコソース（カルソットにつけるソース）"
+        },
+        {
+          "ja": "焦げた外側の皮",
+          "en": "the charred outer layer",
+          "kind": "term",
+          "readingKana": "こげたそとがわのかわ"
+        },
+        {
+          "ja": "白い部分",
+          "en": "the white part",
+          "kind": "term",
+          "readingKana": "しろいぶぶん"
+        },
+        {
+          "ja": "根元",
+          "en": "the root end",
+          "kind": "term",
+          "readingKana": "ねもと"
+        },
+        {
+          "ja": "緑の茎",
+          "en": "the green stalk",
+          "kind": "term",
+          "readingKana": "みどりのくき"
+        },
+        {
+          "ja": "ポロン（注ぎ口のついたガラスのワイン入れ）",
+          "en": "the glass wine pitcher with a spout",
+          "kind": "term",
+          "readingKana": "ポロン（そそぎぐちのついたガラスのワインいれ）"
+        },
+        {
+          "ja": "ブティファラ（カタルーニャの豚肉のソーセージ）",
+          "en": "the Catalan pork sausage",
+          "kind": "term",
+          "readingKana": "ブティファラ（カタルーニャのぶたにくのソーセージ）"
+        },
+        {
+          "ja": "ぶどうのつる枝（火にくべる）",
+          "en": "the vine shoots (for the fire)",
+          "kind": "term",
+          "readingKana": "ぶどうのつるえだ（ひにくべる）"
+        },
+        {
+          "ja": "若い玉ねぎ",
+          "en": "the young onion",
+          "kind": "term",
+          "readingKana": "わかいたまねぎ"
+        },
+        {
+          "ja": "新聞紙（包むための）",
+          "en": "the newspaper (for wrapping)",
+          "kind": "term",
+          "readingKana": "しんぶんし（つつむための）"
+        },
+        {
+          "ja": "上の、緑の茎のところを持って。",
+          "en": "Hold it at the top, by the green stalk.",
+          "kind": "phrase",
+          "readingKana": "うえの、みどりのくきのところをもって。"
+        },
+        {
+          "ja": "もう片方の手で、焦げた皮を下に引っ張って。",
+          "en": "With your other hand, pull the charred layer down.",
+          "kind": "phrase",
+          "readingKana": "もうかたほうのてで、こげたかわをしたにひっぱって。"
+        },
+        {
+          "ja": "一気にむいて。怖がらないで。",
+          "en": "Peel it in one go, don't be afraid.",
+          "kind": "phrase",
+          "readingKana": "いっきにむいて。こわがらないで。"
+        },
+        {
+          "ja": "じゃあ、ロメスコソースにたっぷりつけて。",
+          "en": "Now dip it well in the romesco sauce.",
+          "kind": "phrase",
+          "readingKana": "じゃあ、ロメスコソースにたっぷりつけて。"
+        },
+        {
+          "ja": "だめ、アイシャ、そこはかじらないで。そこは焦げているから。",
+          "en": "No, Aisha, don't bite it there; that part is charred.",
+          "kind": "phrase",
+          "readingKana": "だめ、アイシャ、そこはかじらないで。そこはこげているから。"
+        },
+        {
+          "ja": "持ち上げて、体を少し後ろに倒して、下のほうから食べて。",
+          "en": "Lift it, lean back a little and eat it from the bottom.",
+          "kind": "phrase",
+          "readingKana": "もちあげて、からだをすこしうしろにたおして、したのほうからたべて。"
+        },
+        {
+          "ja": "食事用エプロンをつけて。ソースが服にしみやすいから。",
+          "en": "Put on the bib, because the sauce stains a lot.",
+          "kind": "phrase",
+          "readingKana": "しょくじようエプロンをつけて。ソースがふくにしみやすいから。"
+        },
+        {
+          "ja": "ジョルディさん、もう一度見せていただけませんか。",
+          "en": "Jordi, could you show us again, please?",
+          "kind": "phrase",
+          "readingKana": "ジョルディさん、もういちどみせていただけませんか。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "アイシャと私は、初めてのカルソタダ（カルソットを焼いて食べる宴会）を楽しむために、バルスの近くのマシア（カタルーニャの田舎の農家レストラン）に着きます。",
+          "en": "Aisha and I arrive at a masia near Valls to celebrate our first calçot feast."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "外では、料理人がぶどうのつる枝を燃やした火でカルソットを焼きます。つる枝は、とても強い炎を上げます。",
+          "en": "Outside, the cook grills the calçots over the vine shoots, which give off a very strong flame."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ウェイターのジョルディは、カルソットはこの地域ならではの若い玉ねぎだと説明してくれます。",
+          "en": "Jordi, the waiter, explains to us that the calçot is a young onion typical of this area."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "それから、店の人たちはカルソットを温かいままにしておくために新聞紙で包み、ジョルディがそれを屋根瓦にのせて出します。",
+          "en": "Then they wrap the calçots in newspaper to keep them warm, and Jordi serves them on a clay roof tile."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ジョルディは、私たち一人ひとりの前に食事用エプロンを置き、テーブルの真ん中にロメスコソースのボウルも置いていきます。",
+          "en": "He also leaves a bib for each of us and a bowl of romesco sauce in the middle of the table."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ジョルディは私たちの目の前で一本食べてくれますが、あまりに速くて、アイシャには何も見えません。",
+          "en": "Jordi eats one in front of us, but he does it so fast that Aisha sees nothing."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "私は彼に頼みます。「ジョルディさん、もう一度見せていただけませんか。」",
+          "en": "I ask him: Jordi, could you show us again, please?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "今度は彼がゆっくりやってくれます。そのあと、私がアイシャに順を追って説明する番です。",
+          "en": "This time he does it slowly, and then it is my turn to explain it to Aisha step by step."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "まず、アイシャにこう言います。「食事用エプロンをつけて。ソースが服にしみやすいから。」",
+          "en": "First I tell her: Put on the bib, because the sauce stains a lot."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "次に、こう説明します。「上の、緑の茎のところを持って。」",
+          "en": "Then I explain: Hold it at the top, by the green stalk."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "それから、こう付け加えます。「もう片方の手で、焦げた皮を下に引っ張って。」",
+          "en": "Then I add: With your other hand, pull the charred layer down."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "アイシャはおそるおそる引っ張りますが、焦げた皮は根元に届く前にちぎれてしまいます。",
+          "en": "Aisha pulls timidly and the charred layer breaks before it reaches the root end."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "私はアイシャに言います。「一気にむいて。怖がらないで。」",
+          "en": "I tell her: Peel it in one go, don't be afraid."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "今度は白い部分がきれいに出てきますが、アイシャは黒い先のほうを口に持っていきます。",
+          "en": "This time the white part comes out clean, but Aisha brings the calçot to her mouth by the black tip."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "私は叫びます。「だめ、アイシャ、そこはかじらないで。そこは焦げているから。」",
+          "en": "I shout: No, Aisha, don't bite it there; that part is charred."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "それから、こう説明します。「じゃあ、ロメスコソースにたっぷりつけて。」",
+          "en": "Then I explain: Now dip it well in the romesco sauce."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "最後に、やり方を見せます。「持ち上げて、体を少し後ろに倒して、下のほうから食べて。」",
+          "en": "Finally I show her: Lift it, lean back a little and eat it from the bottom."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "カルソットのあとは、焼いたブティファラ（カタルーニャの豚肉のソーセージ）が出てきて、ジョルディが乾杯のためにポロン（注ぎ口のついたガラスのワイン入れ）を回してくれます。",
+          "en": "After the calçots comes the grilled Catalan pork sausage, and Jordi passes us the porrón to make a toast."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "the charred outer layer",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "the root end",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "With your other hand, pull the charred layer down.",
+          "sourceCard": 16,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Peel it in one go, don't be afraid.",
+          "sourceCard": 17,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "No, Aisha, don't bite it there; that part is charred.",
+          "sourceCard": 19,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Jordi, could you show us again, please?",
+          "sourceCard": 22,
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "You, at a masia near Valls, teaching your friend Aisha how to eat a calçot step by step.",
+        "partnerRole": "Aisha, your friend, who is trying calçots for the first time and makes a mistake along the way.",
+        "opening": "まず、食事用エプロンをつけて。ソースが服にしみやすいから。",
+        "objectives": [
+          "Tell Aisha to put on the bib because the sauce stains a lot.",
+          "Tell her to hold the calçot at the top, by the green stalk.",
+          "Tell her to pull the charred layer down with her other hand and peel it in one go.",
+          "When she brings the black tip to her mouth, stop her with a direct instruction: don't bite it there, that part is charred.",
+          "Tell her to dip it well in the romesco sauce, then lift it, lean back a little and eat it from the bottom."
+        ],
+        "closure": "持ち上げて、体を少し後ろに倒して、下のほうから食べて。",
+        "wordBank": [
+          "カルソット",
+          "カルソタダ",
+          "屋根瓦",
+          "食事用エプロン",
+          "ロメスコソース",
+          "焦げた外側の皮",
+          "白い部分",
+          "根元",
+          "緑の茎",
+          "ポロン",
+          "ブティファラ",
+          "ぶどうのつる枝",
+          "上の、緑の茎のところを持って。",
+          "もう片方の手で、焦げた皮を下に引っ張って。",
+          "一気にむいて。怖がらないで。",
+          "じゃあ、ロメスコソースにたっぷりつけて。",
+          "だめ、アイシャ、そこはかじらないで。そこは焦げているから。",
+          "持ち上げて、体を少し後ろに倒して、下のほうから食べて。",
+          "食事用エプロンをつけて。ソースが服にしみやすいから。"
+        ],
+        "goal": "Give step-by-step instructions for peeling, dipping, and eating calçots, then correct your friend as they try."
+      },
+      "reviewed": false
+    }
+  ]
+}

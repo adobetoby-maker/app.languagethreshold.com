@@ -1,0 +1,301 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/travel-zone.ts",
+    "curriculumSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "passagePath": "public/lesson-content/es/travel-dinner.json",
+    "passageSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 14,
+      "stableId": "travel-dinner:14:fr-en",
+      "sourceTitleEnglish": "Pay and understand service",
+      "sourceObjectiveEnglish": "request the bill, check charges, ask about tipping, and pay",
+      "sourceSpeakingEnglish": "Clarify cover and service charges, then leave an appropriate compliment and tip.",
+      "title": "Pay and Understand Service",
+      "objective": "Request the bill, check a line item and ask about cover and service charges, ask about tipping, pay by credit card, then compliment the service and leave a tip.",
+      "focus": "Pourriez-vous nous apporter l'addition, s'il vous plaît ? uses the conditional with vous for a polite bill request. Pourriez-vous vérifier cette ligne ? asks the server to check a line item. Y a-t-il des frais de couvert ? asks about a cover charge. Le service est-il déjà compris ? asks whether service is included. Je voudrais payer par carte de crédit expresses a polite payment choice. En général, on laisse combien de pourboire ? asks about tipping custom. Les frais de service names a separately listed service charge; la TVA names tax on a French bill.",
+      "scene": "After dinner in a Paris restaurant, the guest asks for the bill, checks a line item, and asks whether a cover charge or service charge applies. The server identifies the line as dessert, says there is no cover charge on this bill, and confirms service is included. The guest asks about a tip, pays by credit card, compliments the service, leaves a small cash tip, and keeps the receipt.",
+      "forms": [
+        {
+          "infinitive": "payer",
+          "presentJe": "je paie",
+          "presentNous": "nous payons",
+          "example": "Je paie par carte de crédit.",
+          "meaning": "to pay / I pay / we pay"
+        },
+        {
+          "infinitive": "demander",
+          "presentJe": "je demande",
+          "presentVous": "vous demandez",
+          "example": "Je demande l'addition.",
+          "meaning": "to ask for / I ask for / you ask for"
+        },
+        {
+          "infinitive": "laisser",
+          "presentJe": "je laisse",
+          "presentIl": "il laisse",
+          "example": "Je laisse un pourboire.",
+          "meaning": "to leave / I leave / he leaves"
+        },
+        {
+          "infinitive": "vérifier",
+          "presentJe": "je vérifie",
+          "presentVous": "vous vérifiez",
+          "example": "Je vérifie le total.",
+          "meaning": "to check / I check / you check"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "l'addition",
+          "en": "bill, check",
+          "kind": "term"
+        },
+        {
+          "fr": "le serveur",
+          "en": "waiter",
+          "kind": "term"
+        },
+        {
+          "fr": "le total",
+          "en": "total",
+          "kind": "term"
+        },
+        {
+          "fr": "le ticket",
+          "en": "receipt",
+          "kind": "term",
+          "note": "Common in France for the printed receipt."
+        },
+        {
+          "fr": "les frais de couvert",
+          "en": "cover charge",
+          "kind": "term",
+          "note": "Ask about any separately listed charge; this bill has none."
+        },
+        {
+          "fr": "service compris",
+          "en": "service included",
+          "kind": "term"
+        },
+        {
+          "fr": "le pourboire",
+          "en": "tip",
+          "kind": "term"
+        },
+        {
+          "fr": "en espèces",
+          "en": "cash",
+          "kind": "term"
+        },
+        {
+          "fr": "la carte de crédit",
+          "en": "credit card",
+          "kind": "term",
+          "note": "Carte bancaire is also common in France."
+        },
+        {
+          "fr": "le terminal de paiement",
+          "en": "card machine",
+          "kind": "term"
+        },
+        {
+          "fr": "la monnaie",
+          "en": "change (money back)",
+          "kind": "term"
+        },
+        {
+          "fr": "Pourriez-vous nous apporter l'addition, s'il vous plaît ?",
+          "en": "Could you bring us the bill, please?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le service est-il déjà compris ?",
+          "en": "Is the service already included?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pourriez-vous vérifier cette ligne, s'il vous plaît ?",
+          "en": "Could you check this line item, please?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "En général, on laisse combien de pourboire ?",
+          "en": "How much is it customary to leave as a tip?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je voudrais payer par carte de crédit.",
+          "en": "I'd like to pay by credit card.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Gardez la monnaie.",
+          "en": "Keep the change.",
+          "kind": "phrase",
+          "note": "Said when you hand over cash and want to tip the difference."
+        },
+        {
+          "fr": "Le service était excellent, merci beaucoup.",
+          "en": "The service was excellent, thank you very much.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je laisse un petit pourboire en espèces parce que le service était excellent.",
+          "en": "I leave a small cash tip because the service was excellent.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je garde le ticket après avoir payé.",
+          "en": "I keep the receipt after paying.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Merci pour ce dîner inoubliable.",
+          "en": "Thank you for this unforgettable dinner.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "les frais de service",
+          "en": "service charge",
+          "kind": "term"
+        },
+        {
+          "fr": "la TVA",
+          "en": "tax (VAT)",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "fr": "Pourriez-vous nous apporter l'addition, s'il vous plaît ?",
+          "en": "Could you bring us the bill, please?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Bien sûr, je vous apporte l'addition tout de suite.",
+          "en": "Of course, I will bring you the bill right away."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le client regarde le total sur l'addition.",
+          "en": "The guest looks at the total on the bill."
+        },
+        {
+          "speaker": "Guest",
+          "fr": "Pourriez-vous vérifier cette ligne, s'il vous plaît ? Y a-t-il des frais de couvert ?",
+          "en": "Could you check this line item, please? Is there a cover charge?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Cette ligne correspond au dessert. Il n'y a pas de frais de couvert sur cette addition.",
+          "en": "This line is for dessert. There is no cover charge on this bill."
+        },
+        {
+          "speaker": "Guest",
+          "fr": "Le service est-il déjà compris ?",
+          "en": "Is the service already included?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, le service est compris dans l'addition.",
+          "en": "Yes, service is included in the bill."
+        },
+        {
+          "speaker": "Guest",
+          "fr": "En général, on laisse combien de pourboire ?",
+          "en": "How much is it customary to leave as a tip?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Un petit pourboire est apprécié, mais il n'est pas obligatoire.",
+          "en": "A small tip is appreciated, but it is not required."
+        },
+        {
+          "speaker": "Guest",
+          "fr": "Je voudrais payer par carte de crédit.",
+          "en": "I'd like to pay by credit card."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Très bien. Je vous apporte le terminal de paiement.",
+          "en": "Very well. I will bring you the card machine."
+        },
+        {
+          "speaker": "Guest",
+          "fr": "Le service était excellent, merci beaucoup. Je laisse un petit pourboire en espèces et je garde le ticket. Merci pour ce dîner inoubliable.",
+          "en": "The service was excellent, thank you very much. I leave a small cash tip and keep the receipt. Thank you for this unforgettable dinner."
+        }
+      ],
+      "speaking": {
+        "role": "Guest who has finished dinner in Paris and wants to pay",
+        "partnerRole": "Server who brings the bill and the card machine",
+        "opening": "Bonsoir. Vous avez fini votre dîner ?",
+        "goal": "Request the bill, check a line item and ask about a cover charge and included service, ask about tipping, pay by credit card, compliment the service, and leave a small tip.",
+        "closure": "Bonne soirée. Merci à vous.",
+        "wordBank": [
+          "l'addition",
+          "les frais de couvert",
+          "le pourboire",
+          "la carte de crédit",
+          "la monnaie",
+          "Le service est-il déjà compris ?",
+          "Pourriez-vous vérifier cette ligne, s'il vous plaît ?",
+          "En général, on laisse combien de pourboire ?",
+          "Gardez la monnaie.",
+          "Le service était excellent, merci beaucoup.",
+          "Je laisse un petit pourboire en espèces parce que le service était excellent.",
+          "les frais de service"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French phrase: Could you check this line item, please?",
+          "sourceCard": 14,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, say: Is the service already included?",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the request for the bill.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French for: I'd like to pay by credit card.",
+          "sourceCard": 16,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Tell the server that the service was excellent, thank you very much.",
+          "sourceCard": 18,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a polite French instruction to keep the change.",
+          "sourceCard": 17,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false
+    }
+  ]
+}

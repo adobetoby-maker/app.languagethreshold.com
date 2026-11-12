@@ -1,0 +1,434 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "masterPath": "src/data/core60/es/master-travel-dinner.json",
+    "masterSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "contentPath": "public/lesson-content/es/master-travel-dinner.json",
+    "contentSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 2,
+      "stableId": "master-travel-dinner:2:ja-en",
+      "sourceTitleEnglish": "How This Pintxos Bar Works: Explain It to a Friend",
+      "sourceObjectiveEnglish": "Explain one bar's system for ordering, counting, and paying for pintxos, then check that your friend can repeat it.",
+      "sourceSpeakingEnglish": "You are at a pintxos bar in San Sebastián, and the AI is your friend Tom: explain how this bar handles ordering, counting and paying, using impersonal se (aquí se pide, se paga al final) and si + present, then have Tom repeat it back.",
+      "title": "How This Pintxos Bar Works: Explain It to a Friend",
+      "objective": "Explain one bar's system for ordering, counting, and paying for pintxos, then check that your friend can repeat it.",
+      "focus": "一般的なルールは、日本語では主語を省いて「～んだよ」で説明できる。条件は「～たら」で言う。例：ここはテーブルじゃなくて、カウンターで注文するんだよ。ギルダを食べたら、爪楊枝は小皿に置いておくんだよ。最後に店の人が小皿を数えて、全部まとめて払うんだよ。",
+      "scene": "On a Friday night, Laura and her friends Tom and Emma squeeze into a very crowded pintxos bar in San Sebastián. Iñaki, the bartender, sees that they are tourists and explains his bar: you order at the bar, not at the table. Laura orders the first round for the three of them, two zuritos and a txakoli, and Iñaki tells Tom that a zurito is a smaller glass than a caña. Each cold pintxo is taken from the bar and put on a small plate. Laura shows Tom a gilda and the rule that you leave the toothpick on the small plate. At the end they count the plates and you pay for everything together. Tom takes a piece of tortilla de patatas from the bar without asking. Laura then sees the chalkboard with other pintxos and asks Iñaki about it: the hot pintxos are ordered from the bartender, griddled in the kitchen, brought freshly made and written on the bill, and a full portion to share is ordered for the table. Laura orders a portion of calamari for the three of them, has Tom tell the system back to her, and tells him to ask Iñaki if he is ever unsure. Tom suggests leaving something in the tip jar when they finish this round.",
+      "forms": [
+        {
+          "base": "注文する",
+          "polite": "注文します",
+          "meaning": "to order, to ask for",
+          "example": "ここではカウンターで注文します。",
+          "question": "注文しますか"
+        },
+        {
+          "base": "取る",
+          "polite": "取ります",
+          "meaning": "to take, to grab",
+          "example": "冷たいピンチョスはカウンターから取ります。",
+          "question": "取りますか"
+        },
+        {
+          "base": "払う",
+          "polite": "払います",
+          "meaning": "to pay",
+          "example": "最後に全部まとめて払います。",
+          "question": "払いますか"
+        },
+        {
+          "base": "数える",
+          "polite": "数えます",
+          "meaning": "to count",
+          "example": "最後に店の人が小皿を数えます。",
+          "question": "数えますか"
+        },
+        {
+          "base": "置く",
+          "polite": "置きます",
+          "meaning": "to leave, to put (something somewhere)",
+          "example": "爪楊枝は小皿に置きます。",
+          "question": "置きますか"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "ピンチョス（バルの小さなおつまみ）",
+          "en": "the pintxo (small bar snack)",
+          "kind": "term",
+          "readingKana": "ピンチョス（バルのちいさなおつまみ）"
+        },
+        {
+          "ja": "ギルダ（オリーブ・アンチョビ・青唐辛子の酢漬けの串）",
+          "en": "the olive, anchovy and pepper skewer",
+          "kind": "term",
+          "readingKana": "ギルダ（オリーブ・アンチョビ・あおとうがらしのすづけのくし）"
+        },
+        {
+          "ja": "爪楊枝",
+          "en": "the toothpick",
+          "kind": "term",
+          "readingKana": "つまようじ"
+        },
+        {
+          "ja": "小皿",
+          "en": "the small plate",
+          "kind": "term",
+          "readingKana": "こざら"
+        },
+        {
+          "ja": "チャコリ（バスクの白ワイン）",
+          "en": "the Basque white wine",
+          "kind": "term",
+          "readingKana": "チャコリ（バスクのしろワイン）"
+        },
+        {
+          "ja": "ズリート（カーニャより小さいグラスのビール）",
+          "en": "the small glass of beer",
+          "kind": "term",
+          "readingKana": "ズリート（カーニャよりちいさいグラスのビール）"
+        },
+        {
+          "ja": "カーニャ（小さめの生ビール）",
+          "en": "the small draft beer",
+          "kind": "term",
+          "readingKana": "カーニャ（ちいさめのなまビール）"
+        },
+        {
+          "ja": "黒板メニュー",
+          "en": "the chalkboard menu",
+          "kind": "term",
+          "readingKana": "こくばんメニュー"
+        },
+        {
+          "ja": "温かいピンチョス",
+          "en": "the hot pintxos",
+          "kind": "term",
+          "readingKana": "あたたかいピンチョス"
+        },
+        {
+          "ja": "トルティージャ（スペイン風ポテトオムレツ）",
+          "en": "the Spanish potato omelet",
+          "kind": "term",
+          "readingKana": "トルティージャ（スペインふうポテトオムレツ）"
+        },
+        {
+          "ja": "ロンダ（みんなの分の飲み物を一回まとめて頼むこと）",
+          "en": "the round (of drinks)",
+          "kind": "term",
+          "readingKana": "ロンダ（みんなのぶんののみものをいっかいまとめてたのむこと）"
+        },
+        {
+          "ja": "ボテ（チップ入れ）",
+          "en": "the tip jar",
+          "kind": "term",
+          "readingKana": "ボテ（チップいれ）"
+        },
+        {
+          "ja": "ラシオン（シェア用の一皿分）",
+          "en": "the full portion (to share)",
+          "kind": "term",
+          "readingKana": "ラシオン（シェアようのひとさらぶん）"
+        },
+        {
+          "ja": "ア・ラ・プランチャ（鉄板で焼いた）",
+          "en": "griddled",
+          "kind": "term",
+          "readingKana": "ア・ラ・プランチャ（てっぱんでやいた）"
+        },
+        {
+          "ja": "できたて",
+          "en": "freshly made",
+          "kind": "term"
+        },
+        {
+          "ja": "ここはテーブルじゃなくて、カウンターで注文するんだよ。",
+          "en": "Here you don't order at the table, you order at the bar.",
+          "kind": "phrase",
+          "readingKana": "ここはテーブルじゃなくて、カウンターでちゅうもんするんだよ。"
+        },
+        {
+          "ja": "ギルダを食べたら、爪楊枝は小皿に置いておくんだよ。",
+          "en": "If you eat a gilda, you leave the toothpick on the small plate.",
+          "kind": "phrase",
+          "readingKana": "ギルダをたべたら、つまようじはこざらにおいておくんだよ。"
+        },
+        {
+          "ja": "最後に店の人が小皿を数えて、全部まとめて払うんだよ。",
+          "en": "At the end they count the plates and you pay for everything together.",
+          "kind": "phrase",
+          "readingKana": "さいごにみせのひとがこざらをかぞえて、ぜんぶまとめてはらうんだよ。"
+        },
+        {
+          "ja": "すみません、黒板に書いてあるのも、カウンターから取るんですか。",
+          "en": "Excuse me, are the ones on the chalkboard also taken from the bar?",
+          "kind": "phrase",
+          "readingKana": "すみません、こくばんにかいてあるのも、カウンターからとるんですか。"
+        },
+        {
+          "ja": "ズリート二杯と、チャコリ一杯お願いします。",
+          "en": "Give us two small beers and a txakoli, please.",
+          "kind": "phrase",
+          "readingKana": "ズリートにはいと、チャコリいっぱいおねがいします。"
+        },
+        {
+          "ja": "じゃあ、トム、今度は自分で説明してみて。ここはどうやって払うの？",
+          "en": "Come on, Tom, you tell me back: how do you pay here?",
+          "kind": "phrase",
+          "readingKana": "じゃあ、トム、こんどはじぶんでせつめいしてみて。ここはどうやってはらうの？"
+        },
+        {
+          "ja": "分からなかったら、イニャキに聞けばいいんだよ。それでOK。",
+          "en": "If you're not sure, you just ask Iñaki, that's all.",
+          "kind": "phrase",
+          "readingKana": "わからなかったら、イニャキにきけばいいんだよ。それでオーケー。"
+        },
+        {
+          "ja": "このロンダが終わったら、チップ入れに少し入れておこう。",
+          "en": "When we finish this round, we'll leave something in the tip jar.",
+          "kind": "phrase",
+          "readingKana": "このロンダがおわったら、チップいれにすこしいれておこう。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "金曜日の夜、ラウラは友だちのトムとエマと一緒に、サン・セバスティアンのとても混んだピンチョスのバルに入ります。",
+          "en": "It is Friday night and Laura walks into a very crowded pintxos bar in San Sebastián with her friends Tom and Emma."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "バーテンダーのイニャキは、三人が観光客だと気づいて、店の仕組みを説明します。「ここはテーブルじゃなくて、カウンターで注文するんだよ」",
+          "en": "The bartender, Iñaki, sees that they are tourists and explains how his bar works: Here you don't order at the table, you order at the bar."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ラウラは三人分の最初の飲み物を注文します。「ズリート二杯と、チャコリ一杯お願いします」",
+          "en": "Laura orders the first round for the three of them: Give us two small beers and a txakoli, please."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "トムは、ズリートはカーニャと同じかどうか聞きます。イニャキは、ズリートのほうが小さいグラスだと答えます。",
+          "en": "Tom asks if a zurito is the same as a caña, and Iñaki tells him that the zurito is a smaller glass."
+        },
+        {
+          "speaker": "Iñaki",
+          "ja": "イニャキ：冷たいピンチョスは、どれもカウンターから取って、小皿にのせるんだよ。",
+          "en": "Iñaki: Each cold pintxo is taken from the bar and put on a small plate."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ラウラはトムにギルダを見せて、決まりを説明します。「ギルダを食べたら、爪楊枝は小皿に置いておくんだよ」",
+          "en": "Laura shows Tom a gilda and explains the rule to him: If you eat a gilda, you leave the toothpick on the small plate."
+        },
+        {
+          "speaker": "Iñaki",
+          "ja": "最後に店の人が小皿を数えて、全部まとめて払うんだよ。",
+          "en": "Iñaki: At the end they count the plates and you pay for everything together."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "トムはカウンターからトルティージャを一切れ取って、何も聞かずに自分の小皿にのせます。",
+          "en": "Tom takes a piece of Spanish potato omelet from the bar and puts it on his small plate without asking anything."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "そのとき、ラウラは壁の黒板にほかのピンチョスが書いてあるのを見つけて、イニャキのところへ行きます。",
+          "en": "Then Laura sees a chalkboard on the wall with other pintxos and goes over to Iñaki."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "ラウラ：すみません、黒板に書いてあるのも、カウンターから取るんですか。",
+          "en": "Laura: Excuse me, are the ones on the chalkboard also taken from the bar?"
+        },
+        {
+          "speaker": "Iñaki",
+          "ja": "イニャキ：いや、温かいピンチョスはバーテンダーに注文して、厨房の鉄板で焼くんだよ。",
+          "en": "Iñaki: No, the hot pintxos are ordered from the bartender and are griddled in the kitchen."
+        },
+        {
+          "speaker": "Iñaki",
+          "ja": "イニャキ：温かいのを注文したら、できたてを持っていって、伝票につけておくよ。",
+          "en": "Iñaki: If you order a hot one, I bring it to you freshly made and I write it on the bill."
+        },
+        {
+          "speaker": "Iñaki",
+          "ja": "イニャキ：みんなで分けたい大きめのものがあれば、テーブル用にラシオンも注文できるよ。",
+          "en": "Iñaki: If you want to share something bigger, you can also order a full portion for the table."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ラウラは三人で分けるイカフライ（カラマレス）をラシオンで一皿注文して、トムのところへ戻って違いを説明します。",
+          "en": "Laura orders a full portion of calamari for the three of them and goes back to Tom to explain the difference to him."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "ラウラ：じゃあ、トム、今度は自分で説明してみて。ここはどうやって払うの？",
+          "en": "Laura: Come on, Tom, you tell me back: how do you pay here?"
+        },
+        {
+          "speaker": "Tom",
+          "ja": "トム：冷たいのはカウンターから取って、温かいのはイニャキに注文して、最後に全部まとめて払うんだよね。",
+          "en": "Tom: The cold ones are taken from the bar, the hot ones are ordered from Iñaki, and at the end you pay for everything together."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ラウラはにっこりして、トムに言います。「分からなかったら、イニャキに聞けばいいんだよ。それでOK。」",
+          "en": "Laura smiles and tells him: If you're not sure, you just ask Iñaki, that's all."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "トムはレジの横のチップ入れを見て、提案します。「このロンダが終わったら、チップ入れに少し入れておこう。」",
+          "en": "Tom looks at the tip jar next to the register and suggests: When we finish this round, we'll leave something in the tip jar."
+        }
+      ],
+      "modes": {
+    "see": {
+      "cueEnglish": "the small plate",
+      "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "the toothpick",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "At the end they count the plates and you pay for everything together.",
+          "sourceCard": 18,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Here you don't order at the table, you order at the bar.",
+          "sourceCard": 16,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Give us two small beers and a txakoli, please.",
+          "sourceCard": 20,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Excuse me, are the ones on the chalkboard also taken from the bar?",
+          "sourceCard": 19,
+          "responseKind": "open"
+        }
+      },
+      "practice": [
+        {
+          "type": "translate",
+          "mode": "write",
+          "sourceCard": 19,
+          "prompt": "Write this in Japanese, politely, as you would say it to Iñaki: Excuse me, are the ones on the chalkboard also taken from the bar?",
+          "answer": "すみません、黒板に書いてあるのも、カウンターから取るんですか。"
+        },
+        {
+          "type": "listening",
+          "mode": "hear",
+          "sourceCard": 18,
+          "prompt": "Listen to the line, then choose what happens at the end of the visit.",
+          "audioJa": "最後に店の人が小皿を数えて、全部まとめて払うんだよ。",
+          "options": [
+            "They count the small plates and everyone pays for everything together.",
+            "You pay for each plate as soon as you take it.",
+            "The bartender brings a separate bill to each person."
+          ],
+          "answer": "They count the small plates and everyone pays for everything together."
+        },
+        {
+          "type": "speaking",
+          "mode": "say",
+          "sourceCard": 20,
+          "prompt": "Say it aloud: you are Laura ordering the first round at the bar for three friends, two small beers and one txakoli.",
+          "modelAnswer": "ズリート二杯と、チャコリ一杯お願いします。"
+        },
+        {
+          "type": "matching",
+          "mode": "see",
+          "sourceCard": 4,
+          "prompt": "Match each Japanese term to its English meaning.",
+          "pairs": [
+            {
+              "ja": "小皿",
+              "en": "the small plate"
+            },
+            {
+              "ja": "チャコリ",
+              "en": "the Basque white wine"
+            },
+            {
+              "ja": "黒板メニュー",
+              "en": "the chalkboard menu"
+            },
+            {
+              "ja": "ボテ",
+              "en": "the tip jar"
+            }
+          ]
+        },
+        {
+          "type": "fill-blank",
+          "mode": "recall",
+          "sourceCard": 3,
+          "prompt": "Fill in the blank with the word for the toothpick.",
+          "ja": "ギルダを食べたら、＿＿＿は小皿に置いておくんだよ。",
+          "answer": "爪楊枝",
+          "acceptedAnswers": [
+            "爪楊枝",
+            "つまようじ"
+          ]
+        },
+        {
+          "type": "word-order",
+          "mode": "type",
+          "sourceCard": 16,
+          "prompt": "Put the pieces in order to say: Here you don't order at the table, you order at the bar.",
+          "tokens": [
+            "ここは",
+            "テーブルじゃなくて、",
+            "カウンターで",
+            "注文するんだよ。"
+          ],
+          "answer": "ここはテーブルじゃなくて、カウンターで注文するんだよ。"
+        }
+      ],
+      "speaking": {
+        "role": "Laura, at a pintxos bar in San Sebastián, explaining to a friend how the bar handles ordering, counting and paying.",
+        "partnerRole": "Tom, Laura's friend, who listens and then repeats the system back.",
+        "opening": "ここはテーブルじゃなくて、カウンターで注文するんだよ。",
+        "goal": "Explain how this bar works: you order at the bar, cold pintxos are taken from the bar and put on a small plate, hot pintxos are ordered from the bartender, the plates are counted at the end, and you pay for everything together. Then ask Tom to say it back to you. Use ～んだよ and ～たら.",
+        "closure": "分からなかったら、イニャキに聞けばいいんだよ。それでOK。",
+        "wordBank": [
+          "ピンチョス",
+          "ギルダ",
+          "爪楊枝",
+          "小皿",
+          "黒板メニュー",
+          "温かいピンチョス",
+          "ロンダ",
+          "ここはテーブルじゃなくて、カウンターで注文するんだよ。",
+          "ギルダを食べたら、爪楊枝は小皿に置いておくんだよ。",
+          "最後に店の人が小皿を数えて、全部まとめて払うんだよ。",
+          "じゃあ、トム、今度は自分で説明してみて。ここはどうやって払うの？",
+          "分からなかったら、イニャキに聞けばいいんだよ。それでOK。"
+        ]
+      },
+      "reviewed": false
+    }
+  ]
+}

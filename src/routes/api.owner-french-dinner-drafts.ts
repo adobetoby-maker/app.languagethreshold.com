@@ -71,6 +71,7 @@ async function dinnerDrafts() {
     import("../../content/french-travel-dinner/core-24-draft.json"),
     import("../../content/french-travel-dinner/core-25-draft.json"),
     import("../../content/french-travel-dinner/core-26-draft.json"),
+    import("../../content/french-travel-dinner/core-27-draft.json"),
   ]);
   const batches = modules.map((module) => module.default as unknown as DraftBatch);
   const lessons = batches.flatMap((batch) => {
@@ -124,11 +125,11 @@ async function dinnerDrafts() {
     });
   });
   const ids = new Set(lessons.map((lesson) => lesson.stableId));
-  if (lessons.length !== 36 || ids.size !== 36 ||
+  if (lessons.length !== 37 || ids.size !== 37 ||
       lessons.filter((lesson) => lesson.stage === "foundation").map((lesson) => lesson.n).join() !==
         Array.from({ length: 10 }, (_, index) => index + 1).join() ||
       lessons.filter((lesson) => lesson.stage === "core").map((lesson) => lesson.n).join() !==
-        Array.from({ length: 26 }, (_, index) => index + 1).join())
+        Array.from({ length: 27 }, (_, index) => index + 1).join())
     throw new Error("French Dinner stage counts or lesson order changed");
   return lessons;
 }

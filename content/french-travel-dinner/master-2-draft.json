@@ -1,0 +1,341 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-dinner.json",
+    "curriculumSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "passagePath": "public/lesson-content/es/master-travel-dinner.json",
+    "passageSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 2,
+      "stableId": "master-travel-dinner:2:fr-en",
+      "sourceTitleEnglish": "How This Pintxos Bar Works: Explain It to a Friend",
+      "sourceObjectiveEnglish": "Explain one bar's system for ordering, counting, and paying for pintxos, then check that your friend can repeat it.",
+      "sourceSpeakingEnglish": "You are at a pintxos bar in San Sebastián, and the AI is your friend Tom: explain how this bar handles ordering, counting and paying, using impersonal se (aquí se pide, se paga al final) and si + present, then have Tom repeat it back.",
+      "title": "How This Pintxos Bar Works: Explain It to a Friend",
+      "objective": "Explain one bar's system for ordering, counting, and paying for pintxos, then check that your friend can repeat it.",
+      "focus": "Pour expliquer une règle du bar, on emploie on + présent : ici, on commande au comptoir et on paie à la fin. Le passif pronominal décrit les pintxos : les froids se prennent au comptoir, les chauds se commandent au serveur. Si + présent donne une règle générale : si tu manges une gilda, tu laisses le cure-dent sur la petite assiette. Quand on aura fini cette tournée, on laissera un pourboire. On tutoie Tom ; la commande à Iñaki emploie le vouvoiement en français. Les noms locaux pintxo, gilda, txakoli, zurito, caña et ración restent reconnaissables en français.",
+      "scene": "Laura, Tom et Emma entrent dans le bar à pintxos bondé d'Iñaki, à San Sebastián, un vendredi soir. Laura commande deux zuritos et un txakoli. Iñaki explique qu'on prend les pintxos froids au comptoir et qu'on pose chacun sur une petite assiette; les pintxos chauds de l'ardoise se commandent au serveur et sont préparés à la plancha. Laura montre une gilda à Tom, commande une ración de calamars pour trois et lui fait redire la règle. À la fin, on compte les assiettes, on paie tout ensemble et Tom propose de laisser un pourboire dans le pot près de la caisse.",
+      "forms": [
+        {
+          "infinitive": "commander",
+          "presentOn": "on commande",
+          "example": "Ici, on commande au comptoir.",
+          "meaning": "to order / you order (impersonal on) (on commande)"
+        },
+        {
+          "infinitive": "prendre",
+          "presentOn": "on prend",
+          "example": "Les pintxos froids se prennent au comptoir.",
+          "meaning": "to take / you take (impersonal on) (on prend; ils se prennent)"
+        },
+        {
+          "infinitive": "payer",
+          "presentOn": "on paie",
+          "example": "À la fin, on paie le tout ensemble.",
+          "meaning": "to pay / you pay (impersonal on) (on paie)"
+        },
+        {
+          "infinitive": "compter",
+          "presentOn": "on compte",
+          "example": "À la fin, on compte les petites assiettes.",
+          "meaning": "to count / you count (impersonal on) (on compte)"
+        },
+        {
+          "infinitive": "laisser",
+          "presentTu": "tu laisses",
+          "example": "Si tu manges une gilda, tu laisses le cure-dent sur la petite assiette.",
+          "meaning": "to leave / you leave (tu laisses)"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "le pintxo (petite bouchée servie au bar)",
+          "en": "the pintxo (small bar snack)",
+          "kind": "term"
+        },
+        {
+          "fr": "la gilda (brochette d'olive, d'anchois et de piment)",
+          "en": "the olive, anchovy and pepper skewer",
+          "kind": "term"
+        },
+        {
+          "fr": "le cure-dent",
+          "en": "the toothpick",
+          "kind": "term"
+        },
+        {
+          "fr": "la petite assiette",
+          "en": "the small plate",
+          "kind": "term"
+        },
+        {
+          "fr": "le txakoli (vin blanc basque)",
+          "en": "the Basque white wine",
+          "kind": "term"
+        },
+        {
+          "fr": "le zurito (petit verre de bière)",
+          "en": "the small glass of beer",
+          "kind": "term"
+        },
+        {
+          "fr": "la caña (petite bière pression)",
+          "en": "the small draft beer",
+          "kind": "term"
+        },
+        {
+          "fr": "l'ardoise (la carte écrite à la craie)",
+          "en": "the chalkboard menu",
+          "kind": "term"
+        },
+        {
+          "fr": "les pintxos chauds",
+          "en": "the hot pintxos",
+          "kind": "term"
+        },
+        {
+          "fr": "la tortilla de pommes de terre (omelette espagnole)",
+          "en": "the Spanish potato omelet",
+          "kind": "term"
+        },
+        {
+          "fr": "la tournée",
+          "en": "the round (of drinks)",
+          "kind": "term"
+        },
+        {
+          "fr": "le pot à pourboires",
+          "en": "the tip jar",
+          "kind": "term"
+        },
+        {
+          "fr": "la ración (grande portion à partager)",
+          "en": "the full portion (to share)",
+          "kind": "term"
+        },
+        {
+          "fr": "à la plancha",
+          "en": "griddled",
+          "kind": "term"
+        },
+        {
+          "fr": "préparé à la minute",
+          "en": "freshly made",
+          "kind": "term"
+        },
+        {
+          "fr": "Ici, on ne commande pas à table, on commande au comptoir.",
+          "en": "Here you don't order at the table, you order at the bar.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Si tu manges une gilda, tu laisses le cure-dent sur la petite assiette.",
+          "en": "If you eat a gilda, you leave the toothpick on the small plate.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "À la fin, on compte les assiettes et on paie le tout ensemble.",
+          "en": "At the end they count the plates and you pay for everything together.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pardon, ceux de l'ardoise, on les prend aussi au comptoir ?",
+          "en": "Excuse me, are the ones on the chalkboard also taken from the bar?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Mettez-nous deux zuritos et un txakoli, s’il vous plaît.",
+          "en": "Give us two small beers and a txakoli, please.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Allez, Tom, à toi de me le redire : comment on paie ici ?",
+          "en": "Come on, Tom, you tell me back: how do you pay here?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Si tu as un doute, tu demandes à Iñaki, et voilà.",
+          "en": "If you're not sure, you just ask Iñaki, that's all.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Quand on aura fini cette tournée, on laissera quelque chose dans le pot à pourboires.",
+          "en": "When we finish this round, we'll leave something in the tip jar.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "C'est vendredi soir et Laura entre avec ses amis Tom et Emma dans un bar à pintxos bondé de San Sebastián.",
+          "en": "It is Friday night and Laura walks into a very crowded pintxos bar in San Sebastián with her friends Tom and Emma."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le serveur, Iñaki, voit que ce sont des touristes et leur explique comment fonctionne son bar : « Ici, on ne commande pas à table, on commande au comptoir. »",
+          "en": "The bartender, Iñaki, sees that they are tourists and explains how his bar works: Here you don't order at the table, you order at the bar."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Laura commande la première tournée pour les trois : « Mettez-nous deux zuritos et un txakoli, s’il vous plaît. »",
+          "en": "Laura orders the first round for the three of them: Give us two small beers and a txakoli, please."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Tom demande si un zurito, c'est la même chose qu'une caña, et Iñaki lui répond que le zurito est un verre plus petit.",
+          "en": "Tom asks if a zurito is the same as a caña, and Iñaki tells him that the zurito is a smaller glass."
+        },
+        {
+          "speaker": "Iñaki",
+          "fr": "Iñaki : « Chaque pintxo froid se prend au comptoir et se pose sur une petite assiette. »",
+          "en": "Iñaki: Each cold pintxo is taken from the bar and put on a small plate."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Laura montre une gilda à Tom et lui explique la règle : « Si tu manges une gilda, tu laisses le cure-dent sur la petite assiette. »",
+          "en": "Laura shows Tom a gilda and explains the rule to him: If you eat a gilda, you leave the toothpick on the small plate."
+        },
+        {
+          "speaker": "Iñaki",
+          "fr": "Iñaki : « À la fin, on compte les assiettes et on paie le tout ensemble. »",
+          "en": "Iñaki: At the end they count the plates and you pay for everything together."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Tom prend un morceau de tortilla de pommes de terre au comptoir et le pose sur sa petite assiette sans rien demander.",
+          "en": "Tom takes a piece of Spanish potato omelet from the bar and puts it on his small plate without asking anything."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Alors Laura aperçoit une ardoise au mur avec d'autres pintxos et s'approche d'Iñaki.",
+          "en": "Then Laura sees a chalkboard on the wall with other pintxos and goes over to Iñaki."
+        },
+        {
+          "speaker": "Laura",
+          "fr": "Laura : « Pardon, ceux de l'ardoise, on les prend aussi au comptoir ? »",
+          "en": "Laura: Excuse me, are the ones on the chalkboard also taken from the bar?"
+        },
+        {
+          "speaker": "Iñaki",
+          "fr": "Iñaki : « Non, les pintxos chauds se commandent au serveur et sont cuits à la plancha en cuisine. »",
+          "en": "Iñaki: No, the hot pintxos are ordered from the bartender and are griddled in the kitchen."
+        },
+        {
+          "speaker": "Iñaki",
+          "fr": "Iñaki : « Si vous en commandez un chaud, je vous l'apporte préparé à la minute et je le note sur l'addition. »",
+          "en": "Iñaki: If you order a hot one, I bring it to you freshly made and I write it on the bill."
+        },
+        {
+          "speaker": "Iñaki",
+          "fr": "Iñaki : « Si vous voulez partager quelque chose de plus grand, vous pouvez aussi commander une ración pour la table. »",
+          "en": "Iñaki: If you want to share something bigger, you can also order a full portion for the table."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Laura commande une ración de calamars pour les trois et retourne voir Tom pour lui expliquer la différence.",
+          "en": "Laura orders a full portion of calamari for the three of them and goes back to Tom to explain the difference to him."
+        },
+        {
+          "speaker": "Laura",
+          "fr": "Laura : « Allez, Tom, à toi de me le redire : comment on paie ici ? »",
+          "en": "Laura: Come on, Tom, you tell me back: how do you pay here?"
+        },
+        {
+          "speaker": "Tom",
+          "fr": "Tom : « Les froids, on les prend au comptoir, les chauds, on les commande à Iñaki, et à la fin on paie le tout ensemble. »",
+          "en": "Tom: The cold ones are taken from the bar, the hot ones are ordered from Iñaki, and at the end you pay for everything together."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Laura sourit et lui dit : « Si tu as un doute, tu demandes à Iñaki, et voilà. »",
+          "en": "Laura smiles and tells him: If you're not sure, you just ask Iñaki, that's all."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Tom regarde le pot à pourboires près de la caisse et propose : « Quand on aura fini cette tournée, on laissera quelque chose dans le pot à pourboires. »",
+          "en": "Tom looks at the tip jar next to the register and suggests: When we finish this round, we'll leave something in the tip jar."
+        }
+      ],
+      "speaking": {
+        "role": "You, explaining this San Sebastián bar's system to your friend Tom.",
+        "partnerRole": "Tom, Laura’s friend, who needs to repeat the ordering and payment rules.",
+        "opening": "Ici, on ne commande pas à table, on commande au comptoir.",
+        "goal": "Explain to Tom how this bar handles ordering, counting and paying: cold pintxos from the counter onto small plates, hot pintxos ordered from Iñaki, and everything paid together at the end. Use on + present and si + present, then ask Tom to repeat the rules.",
+        "closure": "Allez, Tom, à toi de me le redire : comment on paie ici ?",
+        "wordBank": [
+          "le pintxo (petite bouchée servie au bar)",
+          "la gilda (brochette d'olive, d'anchois et de piment)",
+          "le cure-dent",
+          "la petite assiette",
+          "le txakoli (vin blanc basque)",
+          "le zurito (petit verre de bière)",
+          "la caña (petite bière pression)",
+          "l'ardoise (la carte écrite à la craie)",
+          "les pintxos chauds",
+          "la tortilla de pommes de terre (omelette espagnole)",
+          "la tournée",
+          "le pot à pourboires",
+          "la ración (grande portion à partager)",
+          "à la plancha",
+          "préparé à la minute",
+          "Ici, on ne commande pas à table, on commande au comptoir.",
+          "Si tu manges une gilda, tu laisses le cure-dent sur la petite assiette.",
+          "À la fin, on compte les assiettes et on paie le tout ensemble.",
+          "Pardon, ceux de l'ardoise, on les prend aussi au comptoir ?",
+          "Mettez-nous deux zuritos et un txakoli, s’il vous plaît.",
+          "Allez, Tom, à toi de me le redire : comment on paie ici ?",
+          "Si tu as un doute, tu demandes à Iñaki, et voilà.",
+          "Quand on aura fini cette tournée, on laissera quelque chose dans le pot à pourboires."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "the pintxo (small bar snack)",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "the small glass of beer",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "At the end they count the plates and you pay for everything together.",
+          "sourceCard": 18,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "the tip jar",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Excuse me, are the ones on the chalkboard also taken from the bar?",
+          "sourceCard": 19,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "When we finish this round, we'll leave something in the tip jar.",
+          "sourceCard": 23,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "model": "claude-sonnet-5-5"
+    }
+  ]
+}

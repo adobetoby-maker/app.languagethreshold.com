@@ -1,0 +1,280 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/travel-zone.ts",
+    "curriculumSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "passagePath": "public/lesson-content/es/travel-dinner.json",
+    "passageSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "title": "Navigate a Holiday Set Menu",
+      "objective": "ask what a fixed holiday menu includes, its price, and whether a lighter option exists",
+      "focus": "Le restaurant ne sert qu'un menu fixe uses ne... que to mean only; it is not a negation of the menu. Que comprend le menu fixe ? uses comprendre to mean to include, a different meaning from understanding; the menu is the subject: le menu comprend. In France l'entrée is the starter, not the main course, so a French menu lists entrée, plat principal, dessert. Ça coûte combien par personne ? uses coûter in the third person, il coûte. Je n'ai pas très faim uses avoir faim, not être. Une demi-portion keeps demi- invariable and joined by a hyphen. Le café est en supplément names an extra charge. The stem é becomes è before a silent ending: je préfère and ils préfèrent, but nous préférons; je préférerais is the softer conditional for a polite request; Si c'est possible makes the request courteous. Je commande une demi-portion uses commander with the ordered item directly, without a preposition.",
+      "scene": "On a public holiday the restaurant serves only a fixed menu. You ask the waiter what the menu includes and learn it has a starter, a main course, a dessert and a drink. You ask the price per person: 45 euros, and coffee has an extra charge of 3 euros. Because you are not very hungry, you ask whether there is a lighter option; he says you can order a half portion of the main course, but the price does not change. You ask politely for just the starter and the dessert, and after checking with the chef the waiter agrees to a price of 25 euros.",
+      "forms": [
+        {
+          "infinitive": "servir",
+          "presentIl": "il sert",
+          "example": "Aujourd'hui, le restaurant ne sert qu'un menu fixe.",
+          "meaning": "to serve / it serves"
+        },
+        {
+          "infinitive": "comprendre",
+          "presentIl": "il comprend",
+          "example": "Le menu comprend une entrée, un plat principal, un dessert et une boisson.",
+          "meaning": "to include / it includes"
+        },
+        {
+          "infinitive": "coûter",
+          "presentIl": "il coûte",
+          "example": "Ça coûte combien par personne ?",
+          "meaning": "to cost / it costs"
+        },
+        {
+          "infinitive": "préférer",
+          "presentJe": "je préfère",
+          "example": "Je préfère l'entrée et le dessert.",
+          "meaning": "to prefer / I prefer (je préférerais = I'd prefer)"
+        },
+        {
+          "infinitive": "commander",
+          "presentJe": "je commande",
+          "example": "Je commande une demi-portion du plat principal.",
+          "meaning": "to order / I order"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "le menu fixe",
+          "en": "fixed menu",
+          "kind": "term"
+        },
+        {
+          "fr": "le jour férié",
+          "en": "public holiday",
+          "kind": "term"
+        },
+        {
+          "fr": "l'entrée",
+          "en": "starter",
+          "kind": "term"
+        },
+        {
+          "fr": "le plat principal",
+          "en": "main course",
+          "kind": "term"
+        },
+        {
+          "fr": "le dessert",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "fr": "la boisson",
+          "en": "drink",
+          "kind": "term"
+        },
+        {
+          "fr": "le prix par personne",
+          "en": "price per person",
+          "kind": "term"
+        },
+        {
+          "fr": "le supplément",
+          "en": "extra charge",
+          "kind": "term"
+        },
+        {
+          "fr": "la demi-portion",
+          "en": "half portion",
+          "kind": "term"
+        },
+        {
+          "fr": "une option plus légère",
+          "en": "lighter option",
+          "kind": "term"
+        },
+        {
+          "fr": "le serveur",
+          "en": "waiter",
+          "kind": "term"
+        },
+        {
+          "fr": "Que comprend le menu fixe ?",
+          "en": "What does the fixed menu include?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Ça coûte combien par personne ?",
+          "en": "How much is it per person?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Y a-t-il une option plus légère ?",
+          "en": "Is there a lighter option?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La boisson est-elle comprise dans le prix ?",
+          "en": "Is the drink included in the price?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Si c'est possible, je préférerais seulement l'entrée et le dessert.",
+          "en": "If possible, I'd prefer just the starter and the dessert.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je n'ai pas très faim.",
+          "en": "I am not very hungry.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Puis-je commander une demi-portion du plat principal ?",
+          "en": "Can I order a half portion of the main course?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il y a un supplément de 3 euros pour le café.",
+          "en": "Coffee has an extra charge of 3 euros.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le menu est à 45 euros par personne.",
+          "en": "The menu is 45 euros per person.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le prix ne change pas.",
+          "en": "The price does not change.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pourriez-vous demander au chef, s'il vous plaît ?",
+          "en": "Could you ask the chef, please?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Entrée et dessert pour 25 euros, d'accord.",
+          "en": "Starter and dessert for 25 euros, agreed.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "Aujourd'hui, c'est un jour férié et le restaurant ne sert qu'un menu fixe.",
+          "en": "Today is a public holiday and the restaurant only serves a fixed menu."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Je demande au serveur : « Que comprend le menu fixe ? »",
+          "en": "I ask the waiter: What does the fixed menu include?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Il explique que le menu comprend une entrée, un plat principal, un dessert et une boisson.",
+          "en": "He explains that it includes a starter, a main course, a dessert and a drink."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Ensuite, je demande : « Ça coûte combien par personne ? »",
+          "en": "Then I ask: How much is it per person?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le serveur dit que le prix par personne est de 45 euros et qu’il y a un supplément de 3 euros pour le café.",
+          "en": "The waiter says that the price per person is 45 euros and that coffee has an extra charge of 3 euros."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Comme je n'ai pas très faim, je lui demande : « Y a-t-il une option plus légère ? »",
+          "en": "Since I am not very hungry, I ask him: Is there a lighter option?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Il répond que je peux commander une demi-portion du plat principal, mais que le prix ne change pas.",
+          "en": "He answers that I can order a half portion of the main course, but the price does not change."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Alors je dis : « Si c'est possible, je préférerais seulement l'entrée et le dessert. »",
+          "en": "Then I say: If possible, I'd prefer just the starter and the dessert."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le serveur vérifie auprès du chef et accepte de nous le faire à 25 euros.",
+          "en": "The waiter checks with the chef and agrees to a price of 25 euros."
+        }
+      ],
+      "speaking": {
+        "role": "Dinner guest at a restaurant on a public holiday.",
+        "partnerRole": "Waiter.",
+        "opening": "Que comprend le menu fixe ?",
+        "goal": "On a public holiday the restaurant serves only a fixed menu; ask what it includes and negotiate a lighter option.",
+        "closure": "Entrée et dessert pour 25 euros, d'accord.",
+        "wordBank": [
+          "Que comprend le menu fixe ?",
+          "Ça coûte combien par personne ?",
+          "Y a-t-il une option plus légère ?",
+          "Je n'ai pas très faim.",
+          "Si c'est possible, je préférerais seulement l'entrée et le dessert.",
+          "Entrée et dessert pour 25 euros, d'accord."
+        ]
+      },
+      "n": 25,
+      "stableId": "travel-dinner:25:fr-en",
+      "sourceTitleEnglish": "Navigate a holiday set menu",
+      "sourceObjectiveEnglish": "ask what a fixed holiday menu includes, its price, and whether a lighter option exists",
+      "sourceSpeakingEnglish": "On a public holiday the restaurant serves only a fixed menu; ask what it includes and negotiate a lighter option.",
+      "reviewed": false,
+      "internalReviewNote": "Owner-only source-pinned draft built from the travel-zone.ts Core 25 plan and Spanish lesson 25 (Menú fijo en día festivo). Reader English lines copied from source passage.native in order. All 16 source word strings are cards, plus extra useful phrases. Prices kept exact (45 euros per person, 3 euros coffee extra charge, 25 euros agreement). Not validated with validate:core60 and not checked by a qualified fr-FR reviewer; menu fixe wording, entrée (starter) and se renseigner auprès du chef need native review.",
+      "modes": {
+        "see": {
+          "cueEnglish": "fixed menu",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "extra charge",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "How much is it per person?",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "half portion",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Is there a lighter option?",
+          "sourceCard": 14,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "If possible, I'd prefer just the starter and the dessert.",
+          "sourceCard": 16,
+          "responseKind": "open"
+        }
+      },
+      "model": "claude-sonnet-5-5"
+    }
+  ]
+}

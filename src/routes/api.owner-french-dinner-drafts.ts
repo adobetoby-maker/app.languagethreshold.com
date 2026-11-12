@@ -68,6 +68,7 @@ async function dinnerDrafts() {
     import("../../content/french-travel-dinner/core-21-draft.json"),
     import("../../content/french-travel-dinner/core-22-draft.json"),
     import("../../content/french-travel-dinner/core-23-draft.json"),
+    import("../../content/french-travel-dinner/core-24-draft.json"),
   ]);
   const batches = modules.map((module) => module.default as unknown as DraftBatch);
   const lessons = batches.flatMap((batch) => {
@@ -108,7 +109,7 @@ async function dinnerDrafts() {
         forms: lesson.forms?.map((form) => Object.fromEntries(
           Object.entries(form).filter(([key]) =>
             ["infinitive", "meaning", "pastJe", "politeRequest", "politeWish",
-             "presentIl", "presentJe", "presentNous", "presentOn", "presentVous",
+             "presentElle", "presentIl", "presentJe", "presentNous", "presentOn", "presentVous",
              "futureProcheJe", "example"].includes(key)),
         )),
         modes: Object.fromEntries(modes.map((mode) => [mode, lesson.modes[mode]])),
@@ -121,11 +122,11 @@ async function dinnerDrafts() {
     });
   });
   const ids = new Set(lessons.map((lesson) => lesson.stableId));
-  if (lessons.length !== 33 || ids.size !== 33 ||
+  if (lessons.length !== 34 || ids.size !== 34 ||
       lessons.filter((lesson) => lesson.stage === "foundation").map((lesson) => lesson.n).join() !==
         Array.from({ length: 10 }, (_, index) => index + 1).join() ||
       lessons.filter((lesson) => lesson.stage === "core").map((lesson) => lesson.n).join() !==
-        Array.from({ length: 23 }, (_, index) => index + 1).join())
+        Array.from({ length: 24 }, (_, index) => index + 1).join())
     throw new Error("French Dinner stage counts or lesson order changed");
   return lessons;
 }

@@ -1,0 +1,11 @@
+# Japanese Dinner Core 29 owner-review checkpoint
+
+Core 29 extends the owner-only Japanese→English Dinner preview to Foundation 10 + Core 29 = 39 source-pinned drafts. Stable ID `travel-dinner:29:ja-en` and earlier IDs remain unchanged. The exact English objective, speaking prompt, and eight Reader translations match the pinned Spanish source. The Japanese scene preserves 11 p.m., Laura at a downtown restaurant, a requested licensed taxi from a trusted taxi company, waiting inside by the main entrance because the street taxi stand is dark, an approximate 150-peso fare with a meter, and checking the license plate before leaving.
+
+The draft has 25 contextual cards, eight aligned Reader turns, five Japanese form records, six distinct card-anchored modes and a speaking mission. Haiku 5.5 was requested for the candidate, but Claude CLI metadata reported Sonnet 5.5. Opus 5.5 critiqued read-only and found Reader hearsay, inside-location fidelity, word-for-word taxi phrasing, ambiguous plate vocabulary, scene tense and type-mode issues. Self-check corrected these. Taxi terminology and source currency remain internal review points. AI critique is not qualified Japanese or transport-domain approval.
+
+`verify-private-core-1-29.py` checks source hashes, exact English plan and Reader alignment, stable IDs, cards/forms/speaking/modes, scene facts and closed release gates. The lesson remains `reviewed:false`, `registered:false`, `readyForLearner:false`, `audio:none`. The owner route omits internal notes. Learner catalog, playback and progress remain unchanged.
+
+The private exact-text audio delta subtracts earlier Dinner scopes and pins 32 new strings, 64 ja-JP Aoede/Charon clips, and 1,204 submitted characters. Recordings are private under `/Users/drive/lt-audio/japanese-travel-dinner/core-29/`; all 64 pass exact text, voice, SHA-256, bytes, duration and decoded-signal checks with zero signal flags. The [private listening worksheet](/Users/drive/lt-audio/japanese-travel-dinner/core-29/listening-review.html) still needs distinct per-clip decisions. Earlier pilot approvals do not apply. Recordings remain `listeningReviewed:false`, unbundled and unregistered.
+
+Core 30/Master 1–20, qualified review, exact-pair learner runtime/offline/dictionary integration, browser/phone and independent V4 acceptance remain open.

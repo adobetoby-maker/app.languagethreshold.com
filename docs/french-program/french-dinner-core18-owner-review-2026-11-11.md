@@ -1,0 +1,11 @@
+# French Dinner Core 18 owner-review checkpoint
+
+Core 18 extends the owner-only French→English Dinner preview to Foundation 10 + Core 18 = 28 drafts. Stable ID `travel-dinner:18:fr-en` and all preceding IDs are unchanged. The English plan and eight Reader turns match the pinned Spanish-track source; the source hashes and closed gates are checked by `verify-private-core-1-18.py`.
+
+The lesson covers a 7 p.m. table for two adults and two children, the first seating, a children's menu, small portions, sauce on the side, a high chair, and telling the chef that a daughter is allergic to nuts. It has 21 cards, eight Reader turns, six French form records, six distinct mode prompts, and a speaking scene. The broad source term “nuts” is rendered `fruits à coque`; `noix` alone commonly means walnuts. The clinical vocabulary is taught directly, without a learner-facing caution.
+
+Claude CLI Haiku 5.5 authored a source-grounded candidate. Opus 5.5 reviewed it read-only. Self-check corrected the inversion explanation, removed a Spanish-specific gender note on *enfants*, distinguished *petite fille* from *petite-fille*, replaced a literal restaurant phrase, repaired exact word-bank references, and restored source verbs. AI review is not qualified French or domain approval. Source ambiguity about the precise scope of “nuts” remains an internal review item.
+
+The exact-text private audio delta subtracts previous Dinner scopes and pins 25 new strings, 50 fr-FR Aoede/Charon MP3 clips, and 2,512 submitted characters. All 50 clips were synthesized privately using quota project `project-91661021-fb2d-4524-b9f` and pass text, voice, SHA-256, byte count, duration, and decoded-signal checks with zero flags. The [private listening sheet](/Users/drive/lt-audio/french-travel-dinner/core-18/listening-review.html) needs a separate listening decision. Clips remain unbundled and `listeningReviewed:false`.
+
+The owner route excludes internal notes. Lesson and audio remain `reviewed:false`, `registered:false`, `readyForLearner:false`, with learner playback and progress untouched. Core 19–30/Master 1–20, qualified review, exact-pair runtime/offline/dictionary integration, browser/phone and independent V4 acceptance remain open.

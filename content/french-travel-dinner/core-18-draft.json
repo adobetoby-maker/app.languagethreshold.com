@@ -1,0 +1,281 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/travel-zone.ts",
+    "curriculumSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "passagePath": "public/lesson-content/es/travel-dinner.json",
+    "passageSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "title": "Bring Children to Dinner",
+      "objective": "Ask about early seatings, a children's menu, and what the kitchen can adapt.",
+      "focus": "Avez-vous une table à 19 h ? uses subject–verb inversion: the subject vous follows avez. Pouvez-vous… ? asks whether someone can do something. Ma fille est allergique aux fruits à coque states a nut allergy directly; à + les becomes aux. Pouvez-vous prévenir le chef ? asks the restaurant to tell the chef. Le premier service means the first dinner seating.",
+      "scene": "You are booking dinner tonight for two adults and two young children. You call the restaurant and ask for the earliest seating because the children get tired. You ask whether there is a children's menu, whether the kitchen can make small portions, and whether they can serve the sauce on the side. You also ask for a high chair for your youngest and tell them your daughter is allergic to nuts, asking them to let the chef know.",
+      "forms": [
+        {
+          "infinitive": "avoir",
+          "presentJe": "j'ai",
+          "presentVous": "vous avez",
+          "example": "Avez-vous une table à 19 h pour 2 adultes et 2 enfants ?",
+          "meaning": "to have / I have / you have"
+        },
+        {
+          "infinitive": "pouvoir",
+          "presentJe": "je peux",
+          "presentVous": "vous pouvez",
+          "example": "Pouvez-vous servir la sauce à part ?",
+          "meaning": "to be able to, can / I can / you can"
+        },
+        {
+          "infinitive": "prévenir",
+          "presentJe": "je préviens",
+          "presentVous": "vous prévenez",
+          "example": "Pouvez-vous prévenir le chef ?",
+          "meaning": "to warn, to let know / I let know / you let know"
+        },
+        {
+          "infinitive": "préparer",
+          "presentJe": "je prépare",
+          "presentVous": "vous préparez",
+          "example": "La cuisine peut préparer de petites portions.",
+          "meaning": "to prepare / I prepare / you prepare"
+        },
+        {
+          "infinitive": "servir",
+          "presentJe": "je sers",
+          "presentVous": "vous servez",
+          "example": "Pouvez-vous servir la sauce à part ?",
+          "meaning": "to serve / I serve / you serve"
+        },
+        {
+          "infinitive": "apporter",
+          "presentJe": "j’apporte",
+          "presentVous": "vous apportez",
+          "example": "Nous allons vous apporter une chaise haute.",
+          "meaning": "to bring / I bring / you bring"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "la réservation",
+          "en": "reservation",
+          "kind": "term"
+        },
+        {
+          "fr": "la table",
+          "en": "table",
+          "kind": "term"
+        },
+        {
+          "fr": "les enfants",
+          "en": "children",
+          "kind": "term"
+        },
+        {
+          "fr": "le premier service",
+          "en": "first seating",
+          "kind": "term",
+          "note": "Service is the usual French restaurant word for a dinner sitting."
+        },
+        {
+          "fr": "le menu enfant",
+          "en": "children's menu",
+          "kind": "term"
+        },
+        {
+          "fr": "la cuisine",
+          "en": "kitchen",
+          "kind": "term"
+        },
+        {
+          "fr": "une petite portion",
+          "en": "small portion",
+          "kind": "term"
+        },
+        {
+          "fr": "la sauce à part",
+          "en": "sauce on the side",
+          "kind": "term"
+        },
+        {
+          "fr": "la chaise haute",
+          "en": "high chair",
+          "kind": "term"
+        },
+        {
+          "fr": "l'allergie",
+          "en": "allergy",
+          "kind": "term"
+        },
+        {
+          "fr": "les fruits à coque",
+          "en": "nuts",
+          "kind": "term",
+          "note": "The broad French term for tree nuts; noix alone often means walnuts."
+        },
+        {
+          "fr": "le chef",
+          "en": "chef",
+          "kind": "term"
+        },
+        {
+          "fr": "Avez-vous une table à 19 h pour 2 adultes et 2 enfants ?",
+          "en": "Do you have a table at 7 for 2 adults and 2 children?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Avez-vous un menu enfant ?",
+          "en": "Do you have a children's menu?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pouvez-vous servir la sauce à part ?",
+          "en": "Can you serve the sauce on the side?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Ma fille est allergique aux fruits à coque.",
+          "en": "My daughter is allergic to nuts.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pouvez-vous prévenir le chef ?",
+          "en": "Can you tell the chef?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Mes enfants vont être fatigués.",
+          "en": "My children are going to be tired.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pouvez-vous apporter une chaise haute ?",
+          "en": "Can you bring a high chair?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La cuisine peut-elle préparer une petite portion ?",
+          "en": "Can the kitchen make a small portion?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "la petite fille",
+          "en": "little girl",
+          "kind": "term",
+          "note": "Petite fille means little girl; petite-fille with a hyphen means granddaughter."
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "Ana appelle un restaurant du centre-ville pour réserver une table pour sa famille.",
+          "en": "Ana calls a downtown restaurant to make a reservation for her family."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "D'abord, elle demande : « Avez-vous une table à 19 h pour 2 adultes et 2 enfants ? »",
+          "en": "First she asks: Do you have a table at 7 for 2 adults and 2 children?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le serveur répond : « Oui, le premier service commence à 19 h, et c’est plus calme. »",
+          "en": "The waiter answers: Yes, the first seating starts at 7 and it is quieter."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Ensuite, Ana dit : « Mes enfants vont être fatigués, avez-vous un menu enfant ? »",
+          "en": "Then Ana says: My children are going to be tired, do you have a children's menu?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le serveur explique : « Nous n'avons pas de menu enfant, mais la cuisine peut préparer de petites portions. »",
+          "en": "The waiter explains: We don't have a children's menu, but the kitchen can make small portions."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Ana demande : « Pouvez-vous servir la sauce à part ? »",
+          "en": "Ana asks: Can you serve the sauce on the side?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le serveur dit : « Bien sûr, et nous allons vous apporter une chaise haute pour la petite fille. »",
+          "en": "The waiter says: Of course, and we are going to bring you a high chair for the little girl."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Enfin, Ana dit : « Ma fille est allergique aux fruits à coque, pouvez-vous prévenir le chef ? »",
+          "en": "At the end Ana says: My daughter is allergic to nuts, can you tell the chef?"
+        }
+      ],
+      "speaking": {
+        "role": "Parent calling the restaurant to book a dinner table with two young children.",
+        "partnerRole": "Host or waiter at the restaurant.",
+        "opening": "Bonjour, je voudrais réserver une table pour 2 adultes et 2 enfants. Avez-vous une table à 19 h pour 2 adultes et 2 enfants ?",
+        "goal": "Ask whether a 7 p.m. table works with two tired children, whether there is a children's menu, whether the kitchen can make small portions, and whether they can bring a high chair. Tell them your daughter is allergic to nuts and ask them to tell the chef.",
+        "closure": "Merci beaucoup, à ce soir.",
+        "wordBank": [
+          "Avez-vous une table à 19 h pour 2 adultes et 2 enfants ?",
+          "Avez-vous un menu enfant ?",
+          "La cuisine peut-elle préparer une petite portion ?",
+          "Pouvez-vous apporter une chaise haute ?",
+          "Ma fille est allergique aux fruits à coque.",
+          "Pouvez-vous prévenir le chef ?",
+          "Mes enfants vont être fatigués.",
+          "le premier service"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French for high chair.",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, say children's menu.",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question: Can you serve the sauce on the side?",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French for nuts.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether a 7 p.m. table works for two adults and two children.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a French sentence asking whether the kitchen can make a small portion.",
+          "sourceCard": 20,
+          "responseKind": "open"
+        }
+      },
+      "n": 18,
+      "stableId": "travel-dinner:18:fr-en",
+      "sourceTitleEnglish": "Bring children to dinner",
+      "sourceObjectiveEnglish": "ask about early seatings, a children's menu, and what the kitchen can adapt",
+      "sourceSpeakingEnglish": "Ask whether a 7 p.m. table works with two tired children and what the kitchen can make for them.",
+      "reviewed": false,
+      "internalReviewNote": "Haiku 5.5 source-grounded draft, Opus 5.5 read-only critique and self-check. Corrected inversion explanation, children gender note, broad nuts term fruits à coque, restaurant phrasing, wordBank exact matches, and missing source verbs. English Reader stays exact to Spanish source. Qualified French and domain review remains open; reviewed:false."
+    }
+  ]
+}

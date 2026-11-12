@@ -74,6 +74,7 @@ async function dinnerDrafts() {
     import("../../content/japanese-travel-dinner/master-5-draft.json"),
     import("../../content/japanese-travel-dinner/master-6-draft.json"),
     import("../../content/japanese-travel-dinner/master-7-draft.json"),
+    import("../../content/japanese-travel-dinner/master-8-draft.json"),
   ]);
   const batches = modules.map((module) => module.default as unknown as DraftBatch);
   const lessons = batches.flatMap((batch) => {
@@ -133,11 +134,12 @@ async function dinnerDrafts() {
     "master-travel-dinner:5:ja-en",
     "master-travel-dinner:6:ja-en",
     "master-travel-dinner:7:ja-en",
+    "master-travel-dinner:8:ja-en",
   ];
-  if (ids.size !== lessons.length || lessons.length !== 47 || lessons.some((lesson) => lesson.reviewed !== false) ||
+  if (ids.size !== lessons.length || lessons.length !== 48 || lessons.some((lesson) => lesson.reviewed !== false) ||
       lessons.filter((lesson) => lesson.stage === "foundation").length !== 10 ||
       lessons.filter((lesson) => lesson.stage === "core").length !== 30 ||
-      lessons.filter((lesson) => lesson.stage === "master").length !== 7 ||
+      lessons.filter((lesson) => lesson.stage === "master").length !== 8 ||
       lessons.some((lesson, index) => lesson.stableId !== expectedIds[index]))
     throw new Error("Japanese Dinner draft lesson inventory changed");
   return lessons;

@@ -163,7 +163,7 @@ test("guests, learners and support staff get 403 before any private read or writ
     }
   }));
 
-test("platform owner can inspect 48 unregistered Japanese Dinner drafts", () =>
+test("platform owner can inspect 49 unregistered Japanese Dinner drafts", () =>
   fixture(async (api, c, req) => {
     c.role = "owner";
     const response = await api.japaneseDrafts.server.handlers.GET({
@@ -177,9 +177,9 @@ test("platform owner can inspect 48 unregistered Japanese Dinner drafts", () =>
     assert.equal(data.reviewed, false);
     assert.equal(data.registered, false);
     assert.equal(data.audioRegistered, false);
-    assert.equal(data.lessons.length, 48);
+    assert.equal(data.lessons.length, 49);
     assert.equal(data.lessons[0].stableId, "foundation-travel-dinner:1:ja-en");
-    assert.equal(data.lessons.at(-1).stableId, "master-travel-dinner:8:ja-en");
+    assert.equal(data.lessons.at(-1).stableId, "master-travel-dinner:9:ja-en");
     assert.ok(data.lessons.every((lesson) => lesson.reviewed === false));
     assert.ok(data.lessons.every((lesson) => !Object.hasOwn(lesson, "internalReviewNote")));
   }));

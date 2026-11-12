@@ -1,0 +1,295 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/travel-zone.ts",
+    "curriculumSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "passagePath": "public/lesson-content/es/travel-dinner.json",
+    "passageSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 15,
+      "stableId": "travel-dinner:15:fr-en",
+      "sourceTitleEnglish": "Dinner midpoint review",
+      "sourceObjectiveEnglish": "combine reservation, arrival, ordering courses, an allergy question, and paying from lessons 1–14 in one ordinary evening",
+      "sourceSpeakingEnglish": "Get through an ordinary dinner reservation from the host stand to the bill, with one small change along the way.",
+      "title": "Midpoint Dinner Review",
+      "objective": "Get through an ordinary dinner from reservation to payment: give a reservation under the name Ana for 8 p.m., order soup as a starter and fish with a glass of white wine as a main course, ask about a nut allergy (whether the dish has nuts and whether the same pans are used), accept the chef's nut-free adaptation made in a clean pan, change dessert for fruit, ask for the bill, notice that the tip is not included, and pay by card.",
+      "focus": "J'ai une réservation au nom d'Ana. gives a reservation under a name. En entrée, je prends la soupe. and En plat principal, je prends le poisson avec un verre de vin blanc. order courses with the restaurant's terms. Je suis allergique aux fruits à coque. states the allergy. Est-ce que ce plat contient des fruits à coque ? and Est-ce que vous utilisez les mêmes poêles ? ask about the dish and the pans. Est-ce que je peux remplacer le dessert par des fruits ? makes the one small change. Pourriez-vous m'apporter l'addition, s'il vous plaît ? and Le pourboire est-il compris ? handle the bill. Je voudrais payer par carte bancaire. finishes with a card payment.",
+      "scene": "On an ordinary evening at a French restaurant, Ana arrives at 8 p.m. with a reservation under her name. The waiter seats her and gives her the menu. She orders soup as a starter and fish with a glass of white wine as a main course. Because she is allergic to nuts, she asks whether the dish has nuts and whether the same pans are used. The waiter checks with the chef, who says the dish has nuts but will be made without them, in a clean pan. For dessert, Ana asks to change it for fruit. At the end she asks for the bill, sees that the tip is not included, and pays by card.",
+      "forms": [
+        {
+          "infinitive": "prendre",
+          "presentJe": "je prends",
+          "presentVous": "vous prenez",
+          "example": "En entrée, je prends la soupe.",
+          "meaning": "to take / I take / you take"
+        },
+        {
+          "infinitive": "pouvoir",
+          "presentJe": "je peux",
+          "presentVous": "vous pouvez",
+          "example": "Est-ce que je peux remplacer le dessert par des fruits ?",
+          "meaning": "can, to be able to / I can / you can"
+        },
+        {
+          "infinitive": "demander",
+          "presentJe": "je demande",
+          "presentVous": "vous demandez",
+          "example": "Je demande l'addition.",
+          "meaning": "to ask for / I ask for / you ask for"
+        },
+        {
+          "infinitive": "payer",
+          "presentJe": "je paie",
+          "presentNous": "nous payons",
+          "example": "Je paie par carte.",
+          "meaning": "to pay / I pay / we pay"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "la réservation",
+          "en": "reservation",
+          "kind": "term"
+        },
+        {
+          "fr": "J'ai une réservation au nom d'Ana.",
+          "en": "I have a reservation under the name Ana.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "la table",
+          "en": "table",
+          "kind": "term"
+        },
+        {
+          "fr": "la carte",
+          "en": "menu",
+          "kind": "term",
+          "note": "In a restaurant, la carte means the menu. Not the same as la carte bancaire."
+        },
+        {
+          "fr": "le serveur",
+          "en": "waiter",
+          "kind": "term"
+        },
+        {
+          "fr": "En entrée, je prends la soupe.",
+          "en": "As a starter, I'll have the soup.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "En plat principal, je prends le poisson avec un verre de vin blanc.",
+          "en": "For the main course, I'll have the fish with a glass of white wine.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je suis allergique aux fruits à coque.",
+          "en": "I'm allergic to nuts.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Est-ce que ce plat contient des fruits à coque ?",
+          "en": "Does this dish have nuts?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Est-ce que vous utilisez les mêmes poêles ?",
+          "en": "Do you use the same pans?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Oui, ce plat contient des fruits à coque, mais le chef va le préparer sans fruits à coque, dans une poêle propre.",
+          "en": "Yes, it has nuts, but the chef is going to make it without nuts, in a clean pan.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Est-ce que je peux remplacer le dessert par des fruits ?",
+          "en": "Can I change the dessert for fruit?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "le dessert",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "fr": "Pourriez-vous m'apporter l'addition, s'il vous plaît ?",
+          "en": "Could you bring me the check, please?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "l'addition",
+          "en": "check, bill",
+          "kind": "term"
+        },
+        {
+          "fr": "le pourboire",
+          "en": "tip",
+          "kind": "term"
+        },
+        {
+          "fr": "Le pourboire est-il compris ?",
+          "en": "Is the tip included?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je voudrais payer par carte bancaire.",
+          "en": "I'd like to pay by card.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "la carte bancaire",
+          "en": "card",
+          "kind": "term",
+          "note": "Common in France for a debit or credit card."
+        },
+        {
+          "fr": "le vin blanc",
+          "en": "white wine",
+          "kind": "term"
+        },
+        {
+          "fr": "les fruits à coque",
+          "en": "nuts (tree nuts)",
+          "kind": "term"
+        },
+        {
+          "fr": "allergique",
+          "en": "allergic",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "Ana arrive au restaurant à vingt heures.",
+          "en": "Ana arrives at the restaurant at 8 p.m."
+        },
+        {
+          "speaker": "Ana",
+          "fr": "Bonsoir. J'ai une réservation au nom d'Ana.",
+          "en": "Good evening. I have a reservation under the name Ana."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Bonsoir, madame. Suivez-moi, votre table est prête. Voici la carte.",
+          "en": "Good evening, madam. Follow me, your table is ready. Here is the menu."
+        },
+        {
+          "speaker": "Ana",
+          "fr": "En entrée, je prends la soupe. En plat principal, je prends le poisson avec un verre de vin blanc.",
+          "en": "As a starter, I'll have the soup. For the main course, I'll have the fish with a glass of white wine."
+        },
+        {
+          "speaker": "Ana",
+          "fr": "Je suis allergique aux fruits à coque. Est-ce que ce plat contient des fruits à coque ? Et est-ce que vous utilisez les mêmes poêles ?",
+          "en": "I'm allergic to nuts. Does this dish contain nuts? And do you use the same pans?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le serveur va voir le chef, puis revient à la table.",
+          "en": "The waiter goes to see the chef, then comes back to the table."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, ce plat contient des fruits à coque, mais le chef va le préparer sans fruits à coque, dans une poêle propre.",
+          "en": "Yes, it has nuts, but the chef is going to make it without nuts, in a clean pan."
+        },
+        {
+          "speaker": "Ana",
+          "fr": "Est-ce que je peux remplacer le dessert par des fruits ?",
+          "en": "Can I change the dessert for fruit?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Bien sûr, des fruits à la place du dessert, pas de problème.",
+          "en": "Of course, fruit instead of dessert, no problem."
+        },
+        {
+          "speaker": "Ana",
+          "fr": "Pourriez-vous m'apporter l'addition, s'il vous plaît ?",
+          "en": "Could you bring me the check, please?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Ana vérifie l'addition : le pourboire n'est pas compris.",
+          "en": "Ana checks the bill: the tip is not included."
+        },
+        {
+          "speaker": "Ana",
+          "fr": "Je voudrais payer par carte bancaire.",
+          "en": "I'd like to pay by card."
+        }
+      ],
+      "speaking": {
+        "role": "Ana, who arrives at 8 p.m. for dinner and wants to pay at the end",
+        "partnerRole": "Server who seats her, takes the order, checks with the chef, and brings the bill",
+        "opening": "Bonsoir. Vous avez une réservation ?",
+        "goal": "Give a reservation under the name Ana, order soup as a starter and fish with white wine as a main course, ask whether the dish contains nuts and whether the same pans are used, ask to change dessert for fruit, request the bill, notice that the tip is not included, and pay by card.",
+        "closure": "Très bien, bonne soirée.",
+        "wordBank": [
+          "J'ai une réservation au nom d'Ana.",
+          "En entrée, je prends la soupe.",
+          "En plat principal, je prends le poisson avec un verre de vin blanc.",
+          "Je suis allergique aux fruits à coque.",
+          "Est-ce que ce plat contient des fruits à coque ?",
+          "Est-ce que vous utilisez les mêmes poêles ?",
+          "Est-ce que je peux remplacer le dessert par des fruits ?",
+          "Pourriez-vous m'apporter l'addition, s'il vous plaît ?",
+          "Le pourboire est-il compris ?",
+          "Je voudrais payer par carte bancaire.",
+          "la carte bancaire",
+          "le pourboire"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French phrase: Does this dish have nuts?",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, say: Can I change the dessert for fruit?",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the request for the check.",
+          "sourceCard": 14,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French for: I'd like to pay by card.",
+          "sourceCard": 18,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Tell the server that you are allergic to nuts.",
+          "sourceCard": 8,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a French sentence saying you have a reservation under the name Ana.",
+          "sourceCard": 2,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Owner-only draft. The source allergy question and clean-pan adaptation are taught directly. Qualified French and food-domain review remain open. English nuts here follows Spanish nueces and the French fruits à coque; check this lexical scope during qualified review. The source has Ana observe that the tip is not included; the speaking goal follows that sequence."
+    }
+  ]
+}

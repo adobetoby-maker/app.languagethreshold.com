@@ -1,0 +1,375 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "masterPath": "src/data/core60/es/master-travel-dinner.json",
+    "masterSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "contentPath": "public/lesson-content/es/master-travel-dinner.json",
+    "contentSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 10,
+      "stableId": "master-travel-dinner:10:ja-en",
+      "sourceTitleEnglish": "Calm a Dispute with the Next Table",
+      "sourceObjectiveEnglish": "Report what each side said, explain the background calmly, and help your friend and a neighbor reach a truce.",
+      "sourceSpeakingEnglish": "You are a diner on a terrace in Montevideo, and the AI is Martín, the server: calmly report what Señora Graciela and Kofi each said (dijo que...), give the background in the imperfect (cuando llegamos, estaba...), and propose a truce both tables can accept.",
+      "title": "Calm a Dispute with the Next Table",
+      "objective": "Report what each side said, explain the background calmly, and help your friend and a neighbor reach a truce.",
+      "focus": "それぞれが言ったことを「〜と言いました」「〜と説明しました」で報告し、背景を「〜たとき、〜ていました」で伝えます。相手の苦情と友人の返答を区別し、声を落とすことと穏やかに食事を続けることを提案します。",
+      "scene": "You are dining with Kofi on a terrace in Montevideo’s Ciudad Vieja. Martín, the waiter, asks what happened after Señora Graciela at the next table complained about the loud music and laughter. Report both accounts calmly, explain the background and propose a truce.",
+      "forms": [
+        {
+          "base": "言う",
+          "polite": "言います",
+          "meaning": "to say, to tell",
+          "example": "グラシエラさんは、夫の声が聞こえないと言いました。",
+          "question": "グラシエラさんは何と言いましたか"
+        },
+        {
+          "base": "説明する",
+          "polite": "説明します",
+          "meaning": "to explain",
+          "example": "私はマルティンに経緯を説明します。",
+          "question": "誰に経緯を説明しますか"
+        },
+        {
+          "base": "答える",
+          "polite": "答えます",
+          "meaning": "to answer, to reply",
+          "example": "コフィは、ここは公共の場所だと彼女に答えました。",
+          "question": "コフィは何と答えましたか"
+        },
+        {
+          "base": "頼む",
+          "polite": "頼みます",
+          "meaning": "to ask, to request",
+          "example": "私はコフィに、二人とも小さな声で話すように頼みました。",
+          "question": "私はコフィに何を頼みましたか"
+        },
+        {
+          "base": "落ち着く",
+          "polite": "落ち着きます",
+          "meaning": "to calm down",
+          "example": "コフィ、少し落ち着いて。",
+          "question": "誰に落ち着いてと言いますか"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "隣のテーブル",
+          "en": "the next table",
+          "kind": "term",
+          "readingKana": "となりのテーブル"
+        },
+        {
+          "ja": "隣のテーブルの女性",
+          "en": "the woman at the next table",
+          "kind": "term",
+          "readingKana": "となりのテーブルのじょせい"
+        },
+        {
+          "ja": "苦情",
+          "en": "the complaint",
+          "kind": "term",
+          "readingKana": "くじょう"
+        },
+        {
+          "ja": "音量",
+          "en": "the volume",
+          "kind": "term",
+          "readingKana": "おんりょう"
+        },
+        {
+          "ja": "大きな笑い声",
+          "en": "the loud laughter",
+          "kind": "term",
+          "readingKana": "おおきなわらいごえ"
+        },
+        {
+          "ja": "言い争い",
+          "en": "the argument",
+          "kind": "term",
+          "readingKana": "いいあらそい"
+        },
+        {
+          "ja": "口調",
+          "en": "the tone",
+          "kind": "term",
+          "readingKana": "くちょう"
+        },
+        {
+          "ja": "休戦",
+          "en": "the truce",
+          "kind": "term",
+          "readingKana": "きゅうせん"
+        },
+        {
+          "ja": "謝罪",
+          "en": "the apology",
+          "kind": "term",
+          "readingKana": "しゃざい"
+        },
+        {
+          "ja": "ウェイター",
+          "en": "the waiter",
+          "kind": "term",
+          "readingKana": "ウェイター"
+        },
+        {
+          "ja": "スピーカー（音響機器）",
+          "en": "the speaker (audio)",
+          "kind": "term",
+          "readingKana": "スピーカー（おんきょうきき）"
+        },
+        {
+          "ja": "言い分",
+          "en": "the version (of events)",
+          "kind": "term",
+          "readingKana": "いいぶん"
+        },
+        {
+          "ja": "経緯",
+          "en": "the context",
+          "kind": "term",
+          "readingKana": "けいい"
+        },
+        {
+          "ja": "小声で",
+          "en": "quietly, in a low voice",
+          "kind": "term",
+          "readingKana": "こごえで"
+        },
+        {
+          "ja": "辛抱強さ",
+          "en": "the patience",
+          "kind": "term",
+          "readingKana": "しんぼうづよさ"
+        },
+        {
+          "ja": "マルティンさん、説明させてください。あの女性は、私たちが迷惑をかけていると言いました。",
+          "en": "Martín, let me explain: the lady said we were bothering her.",
+          "kind": "phrase",
+          "readingKana": "マルティンさん、せつめいさせてください。あのじょせいは、わたしたちがめいわくをかけているといいました。"
+        },
+        {
+          "ja": "私たちが着いたとき、テラスはほとんど空いていました。",
+          "en": "When we arrived, the terrace was almost empty.",
+          "kind": "phrase",
+          "readingKana": "わたしたちがついたとき、テラスはほとんどすいていました。"
+        },
+        {
+          "ja": "コフィは、ここは公共の場所だと彼女に答えました。",
+          "en": "Kofi answered her that we were in a public place.",
+          "kind": "phrase",
+          "readingKana": "コフィは、ここはこうきょうのばしょだとかのじょにこたえました。"
+        },
+        {
+          "ja": "彼女は、疲れていて静かに食事をしたいのだと説明しました。",
+          "en": "She explained that she was tired and wanted to dine in peace.",
+          "kind": "phrase",
+          "readingKana": "かのじょは、つかれていてしずかにしょくじをしたいのだとせつめいしました。"
+        },
+        {
+          "ja": "コフィ、少し落ち着いて。そこまでのことじゃないよ。",
+          "en": "Kofi, calm down a bit; it's not worth it.",
+          "kind": "phrase",
+          "readingKana": "コフィ、すこしおちついて。そこまでのことじゃないよ。"
+        },
+        {
+          "ja": "グラシエラさん、申し訳ありません。私たちの声がこんなに大きかったとは気づきませんでした。",
+          "en": "Ma'am, I'm sorry; we didn't realize how loud we were.",
+          "kind": "phrase",
+          "readingKana": "グラシエラさん、もうしわけありません。わたしたちのこえがこんなにおおきかったとはきづきませんでした。"
+        },
+        {
+          "ja": "私はコフィに、二人とももっと小さな声で話すように頼みました。",
+          "en": "I asked Kofi for us to speak more quietly.",
+          "kind": "phrase",
+          "readingKana": "わたしはコフィに、ふたりとももっとちいさなこえではなすようにたのみました。"
+        },
+        {
+          "ja": "私たちも声を落としますので、このまま静かに食事を続けるということでいかがでしょうか。",
+          "en": "How about we lower our voices and keep eating in peace?",
+          "kind": "phrase",
+          "readingKana": "わたしたちもこえをおとしますので、このまましずかにしょくじをつづけるということでいかがでしょうか。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "土曜の夜、コフィと私はモンテビデオの旧市街シウダー・ビエハにあるテラスで食事をしています。",
+          "en": "On Saturday night, Kofi and I are having dinner on a terrace in Montevideo's Ciudad Vieja."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "すると突然、隣のテーブルとの言い争いが聞こえたので、ウェイターのマルティンがやって来ます。",
+          "en": "Suddenly, the waiter Martín comes over because he heard an argument with the next table."
+        },
+        {
+          "speaker": "Martín",
+          "ja": "「お客様から見て、何があったのかお聞かせいただけますか。」",
+          "en": "Martín: Can you tell me your version of what happened?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "私はまず、落ち着いて経緯を説明します。",
+          "en": "First I calmly give him the context."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "私たちが着いたとき、テラスはほとんど空いていました。",
+          "en": "When we arrived, the terrace was almost empty."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "私たちのテーブルの近くにスピーカーがあって、音楽がかなり大きく鳴っていました。",
+          "en": "There was a speaker near our table and the music was quite loud."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "コフィは旅の話をしていて、私たちの大きな笑い声がテラス中に響いていました。",
+          "en": "Kofi was telling stories about his trip and our loud laughter could be heard across the whole terrace."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "その後、隣のテーブルの女性、グラシエラさんが、かなりきつい口調で私たちに苦情を言いました。",
+          "en": "Later, Señora Graciela, the woman at the next table, made a complaint to us in a fairly harsh tone."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "グラシエラさんは、夫の声が聞こえないし、私たちがとても騒がしくしていると言いました。",
+          "en": "Graciela said she couldn't hear her husband and that we were making a lot of noise."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "コフィは、ここは公共の場所だと彼女に答えました。",
+          "en": "Kofi answered her that we were in a public place."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "彼女は、疲れていて静かに食事をしたいのだと説明しました。",
+          "en": "She explained that she was tired and wanted to dine in peace."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "私はコフィに、二人とももっと小さな声で話すように頼みました。",
+          "en": "I asked Kofi for us to speak more quietly."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "そのとき、私は友人に言いました。「コフィ、少し落ち着いて。そこまでのことじゃないよ。」",
+          "en": "At that moment, I said to my friend: Kofi, calm down a bit; it's not worth it."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "マルティンは辛抱強く私の話を聞き、スピーカーの音量を下げます。",
+          "en": "Martín listens to me patiently and turns down the volume of the speaker."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "それから私はグラシエラさんのテーブルへ行き、小声で伝えます。「グラシエラさん、申し訳ありません。私たちの声がこんなに大きかったとは気づきませんでした。」",
+          "en": "Then I go over to Graciela's table and tell her quietly: Ma'am, I'm sorry; we didn't realize how loud we were."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "コフィも、今度はもっと穏やかな口調で、心からのお詫びを伝えます。",
+          "en": "Kofi also offers her a sincere apology, now in a friendlier tone."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "そして私はグラシエラさんに尋ねます。「私たちも声を落としますので、このまま静かに食事を続けるということでいかがでしょうか。」",
+          "en": "Then I ask Graciela: How about we lower our voices and keep eating in peace?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "グラシエラさんは微笑んで休戦に応じ、マルティンは両方のテーブルに水差しを持ってきます。",
+          "en": "Graciela smiles and accepts the truce, and Martín brings a pitcher of water for both tables."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "the next table",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "the truce",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Martín, let me explain: the lady said we were bothering her.",
+          "sourceCard": 16,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "the context",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ma'am, I'm sorry; we didn't realize how loud we were.",
+          "sourceCard": 21,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "How about we lower our voices and keep eating in peace?",
+          "sourceCard": 23,
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "You, a diner on a terrace in Montevideo’s Ciudad Vieja.",
+        "partnerRole": "Martín, the waiter, played by the AI.",
+        "opening": "マルティンさん、何があったか説明します。",
+        "objectives": [
+          "Report that Graciela complained she could not hear her husband and wanted to dine in peace.",
+          "Report that Kofi answered that they were in a public place.",
+          "Give the background: the terrace was nearly empty and the music and laughter were loud.",
+          "Ask Kofi to calm down and apologize for the volume.",
+          "Propose lowering voices and continuing dinner in peace."
+        ],
+        "closure": "私たちも声を落としますので、このまま静かに食事を続けるということでいかがでしょうか。",
+        "wordBank": [
+          "隣のテーブル",
+          "隣のテーブルの女性",
+          "苦情",
+          "音量",
+          "大きな笑い声",
+          "言い争い",
+          "口調",
+          "休戦",
+          "謝罪",
+          "ウェイター",
+          "スピーカー（音響機器）",
+          "言い分",
+          "経緯",
+          "小声で",
+          "辛抱強さ",
+          "マルティンさん、説明させてください。あの女性は、私たちが迷惑をかけていると言いました。",
+          "私たちが着いたとき、テラスはほとんど空いていました。",
+          "コフィは、ここは公共の場所だと彼女に答えました。",
+          "彼女は、疲れていて静かに食事をしたいのだと説明しました。",
+          "コフィ、少し落ち着いて。そこまでのことじゃないよ。",
+          "グラシエラさん、申し訳ありません。私たちの声がこんなに大きかったとは気づきませんでした。",
+          "私はコフィに、二人とももっと小さな声で話すように頼みました。",
+          "私たちも声を落としますので、このまま静かに食事を続けるということでいかがでしょうか。"
+        ],
+        "goal": "Report what each side said, explain the background calmly, and help your friend and a neighbor reach a truce."
+      },
+      "reviewed": false
+    }
+  ]
+}

@@ -1,0 +1,323 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "contentPath": "public/lesson-content/es/travel-dinner.json",
+    "contentSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "title": "Navigate a holiday set menu",
+      "objective": "Ask what the fixed holiday menu includes, its price, and whether a lighter option exists.",
+      "focus": "含まれています (is included) is the ている form of 含まれる, the passive of 含む (to include). あまりお腹が空いていない expresses not being very hungry: あまり with a negative verb. 値段は変わりません means the price does not change. できれば softens the preference for just the starter and dessert.",
+      "scene": "On a public holiday, the restaurant serves only a fixed menu. The narrator asks the waiter what the set menu includes. The waiter lists a starter, a main course, a dessert and a drink. The narrator asks how much it costs per person, and the waiter says 45 euros with an extra 3 euros for coffee. The narrator is not very hungry and asks for a lighter option. The waiter says a half portion of the main course is possible at the same price. The narrator asks for only the starter and dessert, and the waiter checks with the chef and agrees to 25 euros.",
+      "forms": [
+        {
+          "base": "含まれる",
+          "polite": "含まれます",
+          "question": "含まれますか",
+          "meaning": "to be included",
+          "example": "セットメニューには前菜が含まれています。"
+        },
+        {
+          "base": "注文する",
+          "polite": "注文します",
+          "question": "注文しますか",
+          "meaning": "to order",
+          "example": "ハーフサイズを注文します。"
+        },
+        {
+          "base": "確認する",
+          "polite": "確認します",
+          "question": "確認しますか",
+          "meaning": "to check",
+          "example": "店員はシェフに確認します。"
+        },
+        {
+          "base": "変わる",
+          "polite": "変わります",
+          "question": "変わりますか",
+          "meaning": "to change",
+          "example": "値段は変わりません。"
+        },
+        {
+          "base": "かかる",
+          "polite": "かかります",
+          "question": "かかりますか",
+          "meaning": "to cost; to incur a charge",
+          "example": "コーヒーには追加料金が3ユーロかかります。"
+        },
+        {
+          "base": "お腹が空く",
+          "polite": "お腹が空きます",
+          "question": "お腹が空いていますか",
+          "meaning": "to get hungry (空く is read すく here)",
+          "example": "あまりお腹が空いていません。"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "店員",
+          "en": "waiter",
+          "kind": "term",
+          "readingKana": "てんいん"
+        },
+        {
+          "ja": "祝日",
+          "en": "public holiday",
+          "kind": "term",
+          "readingKana": "しゅくじつ"
+        },
+        {
+          "ja": "セットメニュー",
+          "en": "fixed menu",
+          "kind": "term"
+        },
+        {
+          "ja": "前菜",
+          "en": "starter",
+          "kind": "term",
+          "readingKana": "ぜんさい"
+        },
+        {
+          "ja": "メイン料理",
+          "en": "main course",
+          "kind": "term",
+          "readingKana": "メインりょうり"
+        },
+        {
+          "ja": "デザート",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "ja": "飲み物",
+          "en": "drink",
+          "kind": "term",
+          "readingKana": "のみもの"
+        },
+        {
+          "ja": "一人あたりの値段",
+          "en": "price per person",
+          "kind": "term",
+          "readingKana": "ひとりあたりのねだん"
+        },
+        {
+          "ja": "追加料金",
+          "en": "extra charge",
+          "kind": "term",
+          "readingKana": "ついかりょうきん"
+        },
+        {
+          "ja": "ハーフサイズ",
+          "en": "half portion",
+          "kind": "term"
+        },
+        {
+          "ja": "軽めの料理",
+          "en": "lighter option",
+          "kind": "term",
+          "readingKana": "かるめのりょうり"
+        },
+        {
+          "ja": "シェフ",
+          "en": "chef",
+          "kind": "term"
+        },
+        {
+          "ja": "コーヒー",
+          "en": "coffee",
+          "kind": "term"
+        },
+        {
+          "ja": "一人45ユーロです。",
+          "en": "It is 45 euros per person.",
+          "kind": "phrase",
+          "readingKana": "ひとり45ユーロです。"
+        },
+        {
+          "ja": "コーヒーは追加で3ユーロです。",
+          "en": "Coffee is an extra 3 euros.",
+          "kind": "phrase",
+          "readingKana": "コーヒーはついかで3ユーロです。"
+        },
+        {
+          "ja": "祝日なので、セットメニューだけです。",
+          "en": "Because it is a holiday, there is only the fixed menu.",
+          "kind": "phrase",
+          "readingKana": "しゅくじつなので、セットメニューだけです。"
+        },
+        {
+          "ja": "セットメニューには何が含まれていますか。",
+          "en": "What does the fixed menu include?",
+          "kind": "phrase",
+          "readingKana": "セットメニューにはなにがふくまれていますか。"
+        },
+        {
+          "ja": "一人あたりいくらですか。",
+          "en": "How much is it per person?",
+          "kind": "phrase",
+          "readingKana": "ひとりあたりいくらですか。"
+        },
+        {
+          "ja": "もっと軽めの料理はありますか。",
+          "en": "Is there a lighter option?",
+          "kind": "phrase",
+          "readingKana": "もっとかるめのりょうりはありますか。"
+        },
+        {
+          "ja": "ハーフサイズで頼めますか。",
+          "en": "Can I order a half portion?",
+          "kind": "phrase",
+          "readingKana": "ハーフサイズでたのめますか。"
+        },
+        {
+          "ja": "値段は変わりません。",
+          "en": "The price does not change.",
+          "kind": "phrase",
+          "readingKana": "ねだんはかわりません。"
+        },
+        {
+          "ja": "できれば、前菜とデザートだけにしたいです。",
+          "en": "If possible, I'd prefer just the starter and the dessert.",
+          "kind": "phrase",
+          "readingKana": "できれば、ぜんさいとデザートだけにしたいです。"
+        },
+        {
+          "ja": "店員はシェフに確認します。",
+          "en": "The waiter checks with the chef.",
+          "kind": "phrase",
+          "readingKana": "てんいんはシェフにかくにんします。"
+        },
+        {
+          "ja": "前菜とデザートで25ユーロです。",
+          "en": "The starter and dessert are 25 euros.",
+          "kind": "phrase",
+          "readingKana": "ぜんさいとデザートで25ユーロです。"
+        },
+        {
+          "ja": "飲み物は値段に含まれていますか。",
+          "en": "Is the drink included in the price?",
+          "kind": "phrase",
+          "readingKana": "のみものはねだんにふくまれていますか。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "今日は祝日なので、このレストランはセットメニューだけを出しています。",
+          "en": "Today is a public holiday and the restaurant only serves a fixed menu."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店員に「セットメニューには何が含まれていますか。」と尋ねます。",
+          "en": "I ask the waiter: What does the fixed menu include?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店員は、前菜、メイン料理、デザート、飲み物が含まれていると説明します。",
+          "en": "He explains that it includes a starter, a main course, a dessert and a drink."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "次に「一人あたりいくらですか。」と聞きます。",
+          "en": "Then I ask: How much is it per person?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店員は、一人45ユーロで、コーヒーには追加料金が3ユーロかかると言います。",
+          "en": "The waiter says that the price per person is 45 euros and that coffee has an extra charge of 3 euros."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "あまりお腹が空いていないので、「もっと軽めの料理はありますか。」と尋ねます。",
+          "en": "Since I am not very hungry, I ask him: Is there a lighter option?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店員は、メイン料理はハーフサイズで頼めるけれど、値段は変わらないと答えます。",
+          "en": "He answers that I can order a half portion of the main course, but the price does not change."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "そこで「できれば、前菜とデザートだけにしたいです。」と言います。",
+          "en": "Then I say: If possible, I'd prefer just the starter and the dessert."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店員はシェフに確認し、前菜とデザートを25ユーロで出せると返事をします。",
+          "en": "The waiter checks with the chef and agrees to a price of 25 euros."
+        }
+      ],
+      "speaking": {
+        "role": "Guest on a public holiday asking about a fixed set menu, its price, and a lighter option",
+        "partnerRole": "Waiter who explains the menu and checks with the chef",
+        "opening": "セットメニューには何が含まれていますか。",
+        "goal": "On a public holiday the restaurant serves only a fixed menu; ask what it includes and negotiate a lighter option.",
+        "closure": "ありがとうございます。助かります。",
+        "wordBank": [
+          "セットメニューには何が含まれていますか。",
+          "一人あたりいくらですか。",
+          "もっと軽めの料理はありますか。",
+          "ハーフサイズで頼めますか。",
+          "できれば、前菜とデザートだけにしたいです。",
+          "飲み物は値段に含まれていますか。",
+          "軽めの料理",
+          "追加料金"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "waiter",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "half portion",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "What does the fixed menu include?",
+          "sourceCard": 17,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "chef",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Is there a lighter option?",
+          "sourceCard": 19,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Is the drink included in the price?",
+          "sourceCard": 25,
+          "responseKind": "open"
+        }
+      },
+      "n": 25,
+      "stableId": "travel-dinner:25:ja-en",
+      "sourceTitleEnglish": "Navigate a holiday set menu",
+      "sourceObjectiveEnglish": "ask what a fixed holiday menu includes, its price, and whether a lighter option exists",
+      "sourceSpeakingEnglish": "On a public holiday the restaurant serves only a fixed menu; ask what it includes and negotiate a lighter option.",
+      "reviewed": false,
+      "internalReviewNote": "Source-pinned author draft; qualified Japanese and restaurant-domain review remains open. Haiku draft and Opus read-only critique are internal aids, not human approval. The 45-euro set menu, 3-euro coffee charge, half portion at unchanged price, and chef-approved 25-euro starter plus dessert remain in source order."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+# French Dinner Core 20 owner-review checkpoint
+
+Core 20 extends the owner-only French→English Dinner preview to Foundation 10 + Core 20 = 30 source-pinned drafts. Stable ID `travel-dinner:20:fr-en` and earlier IDs are unchanged. The exact English plan and nine Reader turns match the pinned Spanish-track source. The lesson follows the Oaxaca tasting menu: seven courses with dessert last, about two hours because the chef cooks to order, a beverage pairing at 400 pesos per person, and a shellfish-free shrimp substitution requested through the chef.
+
+It has 23 contextual cards, nine aligned Reader turns, six French form records, six anchored mode prompts and a diner/server speaking scene. Claude CLI Haiku 5.5 authored a candidate; Opus 5.5 critiqued it read-only. Self-check corrected the false `-t-` inversion explanation, shellfish (`fruits de mer`) scope, approximate-duration question, beverage pairing scope, made-to-order wording, spoken number style, irrelevant filler card, forms and exact word-bank references. Qualified French and restaurant/food review remains open; AI critique is not human approval.
+
+`verify-private-core-1-20.py` checks source hashes, exact plan and Reader English alignment, stable IDs, cards/forms/speaking/modes, source facts and closed gates. The owner route excludes internal notes. The draft remains `reviewed:false`, `registered:false`, `readyForLearner:false`, `audio:none`; learner catalog, playback and progress remain unchanged.
+
+The private exact-text audio delta subtracts prior Dinner scopes and pins 26 new strings, 52 fr-FR Aoede/Charon clips and 2,634 submitted characters. All 52 were synthesized privately with quota project `project-91661021-fb2d-4524-b9f` and pass exact text, voice, SHA-256, byte count, duration and decoded-signal verification with zero flags. The [private listening worksheet](/Users/drive/lt-audio/french-travel-dinner/core-20/listening-review.html) requires distinct decisions; all remain `listeningReviewed:false`, unbundled and unregistered. Earlier pilot approvals do not apply.
+
+Core 21–30/Master 1–20, qualified review, exact-pair learner runtime/offline/dictionary integration, browser/phone and independent V4 acceptance remain open.

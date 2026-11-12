@@ -1,0 +1,291 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/travel-zone.ts",
+    "curriculumSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "passagePath": "public/lesson-content/es/travel-dinner.json",
+    "passageSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "title": "Order a Tasting Menu",
+      "objective": "Ask about the courses, duration, pairing, substitution, and price of a tasting menu.",
+      "focus": "Combien de plats le menu dégustation comprend-il ? uses inversion: il follows comprend, whose final -d links as a [t] sound. A written -t- is added only after a vowel, as in a-t-il. Puis-je remplacer… ? uses the special inverted form puis, not peux-je. Combien de temps dure le dîner, à peu près ? asks for an approximate duration; remplacer X par Y expresses a substitution.",
+      "scene": "You sit down at a restaurant in Oaxaca and decide to order the tasting menu. Before ordering, you ask the server how many courses there are, how long dinner lasts, whether the pairing is included in the price, and whether the shrimp can be swapped for another dish, because you don't eat shellfish.",
+      "forms": [
+        {
+          "infinitive": "commander",
+          "presentJe": "je commande",
+          "presentVous": "vous commandez",
+          "example": "Ce soir, je commande le menu dégustation.",
+          "meaning": "to order / I order / you order"
+        },
+        {
+          "infinitive": "demander",
+          "presentJe": "je demande",
+          "presentVous": "vous demandez",
+          "example": "Je demande au serveur : « Combien de plats le menu dégustation comprend-il ? »",
+          "meaning": "to ask / I ask / you ask"
+        },
+        {
+          "infinitive": "expliquer",
+          "presentJe": "j'explique",
+          "presentVous": "vous expliquez",
+          "example": "Pouvez-vous m'expliquer le menu dégustation ?",
+          "meaning": "to explain / I explain / you explain"
+        },
+        {
+          "infinitive": "remplacer",
+          "presentJe": "je remplace",
+          "presentVous": "vous remplacez",
+          "example": "Puis-je remplacer les crevettes par un autre plat ?",
+          "meaning": "to replace, substitute / I replace / you replace"
+        },
+        {
+          "infinitive": "durer",
+          "presentIl": "il dure",
+          "example": "Le dîner dure environ deux heures.",
+          "meaning": "to last / it lasts"
+        },
+        {
+          "infinitive": "coûter",
+          "presentIl": "il coûte",
+          "example": "L’accord mets et boissons coûte 400 pesos par personne.",
+          "meaning": "to cost / it costs"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "le menu dégustation",
+          "en": "tasting menu",
+          "kind": "term"
+        },
+        {
+          "fr": "le plat",
+          "en": "course",
+          "kind": "term"
+        },
+        {
+          "fr": "le dessert",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "fr": "l’accord mets et boissons",
+          "en": "pairing",
+          "kind": "term"
+        },
+        {
+          "fr": "le remplacement",
+          "en": "substitution",
+          "kind": "term"
+        },
+        {
+          "fr": "la durée",
+          "en": "duration",
+          "kind": "term"
+        },
+        {
+          "fr": "le serveur",
+          "en": "server",
+          "kind": "term"
+        },
+        {
+          "fr": "le prix",
+          "en": "price",
+          "kind": "term"
+        },
+        {
+          "fr": "la carte",
+          "en": "menu",
+          "kind": "term",
+          "note": "La carte is the printed menu here; le menu can also mean a fixed-price set menu."
+        },
+        {
+          "fr": "le chef",
+          "en": "chef",
+          "kind": "term"
+        },
+        {
+          "fr": "les fruits de mer",
+          "en": "shellfish",
+          "kind": "term"
+        },
+        {
+          "fr": "les crevettes",
+          "en": "shrimp",
+          "kind": "term"
+        },
+        {
+          "fr": "environ",
+          "en": "about",
+          "kind": "term"
+        },
+        {
+          "fr": "le nombre de plats",
+          "en": "number of courses",
+          "kind": "term"
+        },
+        {
+          "fr": "par personne",
+          "en": "per person",
+          "kind": "term"
+        },
+        {
+          "fr": "Combien de plats le menu dégustation comprend-il ?",
+          "en": "How many courses does the tasting menu have?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Combien de temps dure le dîner, à peu près ?",
+          "en": "About how long does the dinner last?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "L’accord mets et boissons est-il inclus dans le prix ?",
+          "en": "Is the pairing included in the price?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Puis-je remplacer les crevettes par un autre plat ?",
+          "en": "Can I swap the shrimp for another dish?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Quel est le prix par personne ?",
+          "en": "What is the price per person?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je ne mange pas de fruits de mer.",
+          "en": "I don't eat shellfish.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pouvez-vous m'expliquer le menu dégustation ?",
+          "en": "Can you walk me through the tasting menu?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je vais commander le menu dégustation.",
+          "en": "I'm going to order the tasting menu.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "Ce soir, je vais commander le menu dégustation dans un restaurant à Oaxaca.",
+          "en": "Tonight I'm going to order the tasting menu at a restaurant in Oaxaca."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "D'abord, je demande au serveur : « Combien de plats le menu dégustation comprend-il ? »",
+          "en": "First, I ask the server: How many courses does the tasting menu have?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le serveur explique : « D’après la carte, il y a sept plats, avec le dessert à la fin. »",
+          "en": "The server explains: According to the menu, there are 7 courses, with dessert at the end."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Ensuite, je demande : « Combien de temps dure le dîner, à peu près ? »",
+          "en": "Then I ask: About how long does the dinner last?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Il répond : « La durée est d’environ deux heures, parce que le chef prépare tout à la minute. »",
+          "en": "He says: The duration is about 2 hours, because the chef cooks everything to order."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Je demande aussi : « L’accord mets et boissons est-il inclus dans le prix ? »",
+          "en": "I also ask: Is the pairing included in the price?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le serveur répond : « Non, d’après la carte, l’accord mets et boissons coûte 400 pesos par personne. »",
+          "en": "The server answers: No, according to the menu, the pairing costs 400 pesos per person."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Enfin, je dis : « Je ne mange pas de fruits de mer. Puis-je remplacer les crevettes par un autre plat ? »",
+          "en": "Finally I say: I don't eat shellfish, can I swap the shrimp for another dish?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le serveur sourit : « Bien sûr, je vais demander au chef si le remplacement est possible. »",
+          "en": "The server smiles: Sure, I'm going to ask the chef about the substitution."
+        }
+      ],
+      "speaking": {
+        "role": "Diner ordering a tasting menu at a restaurant in Oaxaca.",
+        "partnerRole": "Server at the restaurant.",
+        "opening": "Bonsoir, je vais commander le menu dégustation.",
+        "goal": "Ask the server to walk you through the tasting menu and request one substitution.",
+        "closure": "Merci beaucoup, c'est parfait.",
+        "wordBank": [
+          "Combien de plats le menu dégustation comprend-il ?",
+          "Combien de temps dure le dîner, à peu près ?",
+          "L’accord mets et boissons est-il inclus dans le prix ?",
+          "Puis-je remplacer les crevettes par un autre plat ?",
+          "Quel est le prix par personne ?",
+          "Je ne mange pas de fruits de mer.",
+          "Pouvez-vous m'expliquer le menu dégustation ?"
+        ]
+      },
+      "n": 20,
+      "stableId": "travel-dinner:20:fr-en",
+      "sourceTitleEnglish": "Order a tasting menu",
+      "sourceObjectiveEnglish": "ask about the number of courses, duration, pairings, substitutions, and price",
+      "sourceSpeakingEnglish": "Ask the server to walk you through the tasting menu and request one substitution.",
+      "reviewed": false,
+      "internalReviewNote": "Author-drafted against pinned English Core 20. Qualified French and restaurant-domain review remains open. Haiku authoring and Opus read-only critique are AI evidence, not human approval. Preserve Oaxaca, seven courses/dessert last, about two hours, made-to-order chef preparation, 400-peso beverage pairing, direct shellfish statement, shrimp substitution and chef inquiry.",
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French for tasting menu.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, say price.",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for: How many courses does the tasting menu have?",
+          "sourceCard": 16,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French for shrimp.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask the server to walk you through the tasting menu.",
+          "sourceCard": 22,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write in French that you do not eat shellfish.",
+          "sourceCard": 21,
+          "responseKind": "open"
+        }
+      }
+    }
+  ]
+}

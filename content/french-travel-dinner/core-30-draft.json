@@ -1,0 +1,263 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/travel-zone.ts",
+    "curriculumSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "passagePath": "public/lesson-content/es/travel-dinner.json",
+    "passageSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "title": "Dinner threshold",
+      "objective": "navigate a special evening with a booking problem, a special need, a declined upsell, a disputed charge, a toast, and a safe ride home without English",
+      "focus": "Au restaurant, commander un plat signifie passer une commande; demander sert à poser une question ou à solliciter quelque chose. L'espagnol pedir couvre ces deux usages. Une allergie à l'arachide nomme précisément l'allergie de la sœur de Clara; une cacahuète est le fruit dans l'assiette. Ce plat contient-il des cacahuètes ? demande si elles entrent dans le plat. Préférer prend è dans je préfère, mais é dans nous préférons. Je crois que… introduit la contestation de l'addition avec tact. Le serveur vérifie l'addition et la corrige. À la santé de ma sœur ! porte le toast. Dans Pourriez-vous m'appeler un taxi de confiance ?, m' signifie « pour moi »; le vouvoiement rend la demande polie.",
+      "scene": "Clara arrives at a restaurant with her family; her reservation is for six and says she has a reservation under the name Clara for 6 people. The waiter cannot find the reservation, but offers a table near the window in 10 minutes. Her sister has a peanut allergy, so Clara asks whether the dish has peanuts. After asking the chef, the waiter says the dish has no peanuts and is prepared separately, then recommends a very expensive bottle of wine. Clara declines it and chooses the house wine. Before dessert she raises a toast to her sister. Later a charge for another bottle appears on the bill. Clara calmly points out the charge, the waiter checks the bill and corrects it, and Clara leaves a tip and asks for a safe taxi.",
+      "forms": [
+        {
+          "infinitive": "demander",
+          "presentJe": "je demande",
+          "example": "Je demande si ce plat contient des cacahuètes.",
+          "meaning": "to ask, to request / I ask (je demande; nous demandons)"
+        },
+        {
+          "infinitive": "contenir",
+          "presentIl": "il contient",
+          "example": "Ce plat contient-il des cacahuètes ?",
+          "meaning": "to contain / it contains (il contient; ils contiennent)"
+        },
+        {
+          "infinitive": "préférer",
+          "presentJe": "je préfère",
+          "example": "Nous préférons le vin de la maison.",
+          "meaning": "to prefer / I prefer (je préfère; nous préférons)"
+        },
+        {
+          "infinitive": "vérifier",
+          "presentJe": "je vérifie",
+          "example": "Le serveur vérifie l'addition.",
+          "meaning": "to check, to verify / I check (je vérifie; nous vérifions)"
+        },
+        {
+          "infinitive": "corriger",
+          "presentJe": "je corrige",
+          "example": "Le serveur corrige l'addition.",
+          "meaning": "to correct / I correct (je corrige; nous corrigeons)"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "la réservation",
+          "en": "reservation",
+          "kind": "term"
+        },
+        {
+          "fr": "la table",
+          "en": "table",
+          "kind": "term"
+        },
+        {
+          "fr": "le serveur",
+          "en": "waiter",
+          "kind": "term"
+        },
+        {
+          "fr": "l'allergie",
+          "en": "allergy",
+          "kind": "term"
+        },
+        {
+          "fr": "la cacahuète",
+          "en": "peanut",
+          "kind": "term"
+        },
+        {
+          "fr": "le chef",
+          "en": "chef",
+          "kind": "term"
+        },
+        {
+          "fr": "la bouteille",
+          "en": "bottle",
+          "kind": "term"
+        },
+        {
+          "fr": "le vin de la maison",
+          "en": "house wine",
+          "kind": "term"
+        },
+        {
+          "fr": "le dessert",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "fr": "l'addition",
+          "en": "bill",
+          "kind": "term"
+        },
+        {
+          "fr": "le montant facturé",
+          "en": "charge",
+          "kind": "term"
+        },
+        {
+          "fr": "le pourboire",
+          "en": "tip",
+          "kind": "term"
+        },
+        {
+          "fr": "J'ai une réservation au nom de Clara pour six personnes.",
+          "en": "I have a reservation under the name Clara for 6 people.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Ma sœur a une allergie à l'arachide. Ce plat contient-il des cacahuètes ?",
+          "en": "My sister has a peanut allergy, does this dish have peanuts?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Non, merci, nous préférons le vin de la maison.",
+          "en": "No, thank you, we prefer the house wine.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "À la santé de ma sœur !",
+          "en": "Cheers to my sister!",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je crois qu'on nous a facturé une bouteille que nous n'avons pas commandée.",
+          "en": "I think there is a charge we did not order.",
+          "kind": "phrase",
+          "note": "Je crois que… exprime la contestation avec tact."
+        },
+        {
+          "fr": "Pourriez-vous m'appeler un taxi de confiance, s'il vous plaît ?",
+          "en": "Can you call a safe taxi for me, please?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "Clara arrive au restaurant avec sa famille et dit : « J'ai une réservation au nom de Clara pour six personnes. »",
+          "en": "Clara arrives at the restaurant with her family and says: I have a reservation under the name Clara for 6 people."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le serveur ne trouve pas la réservation, mais il leur propose une table près de la fenêtre, libre dans dix minutes.",
+          "en": "The waiter cannot find the reservation, but he offers them a table near the window in 10 minutes."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Clara demande avec prudence : « Ma sœur a une allergie à l'arachide. Ce plat contient-il des cacahuètes ? »",
+          "en": "Clara asks carefully: My sister has a peanut allergy, does this dish have peanuts?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Après avoir demandé au chef, le serveur dit que ce plat ne contient pas de cacahuètes et qu'on le prépare à part, puis il recommande une bouteille de vin très chère.",
+          "en": "After asking the chef, the waiter says that dish has no peanuts and that they make it separately, and then he recommends a very expensive bottle of wine."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Clara répond gentiment : « Non, merci, nous préférons le vin de la maison. »",
+          "en": "Clara answers kindly: No, thank you, we prefer the house wine."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Avant le dessert, Clara lève son verre et dit : « À la santé de ma sœur ! »",
+          "en": "Before dessert, Clara raises her glass and says: Cheers to my sister!"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "À la fin, une autre bouteille est facturée sur l'addition.",
+          "en": "At the end, a charge for another bottle appears on the bill."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Clara dit calmement : « Je crois qu'on nous a facturé une bouteille que nous n'avons pas commandée. »",
+          "en": "Clara says calmly: I think there is a charge we did not order."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le serveur vérifie l'addition et la corrige, puis Clara laisse le pourboire et demande : « Pourriez-vous m'appeler un taxi de confiance, s'il vous plaît ? »",
+          "en": "The waiter checks the bill and corrects it, and Clara leaves the tip and asks: Can you call a safe taxi for me, please?"
+        }
+      ],
+      "speaking": {
+        "role": "Clara, at a restaurant with her family and a reservation for six for a celebration dinner, when the reservation cannot be found: she gets a table, asks about peanuts for her sister's allergy, declines the expensive bottle, makes a toast, questions a charge, and asks for a safe taxi.",
+        "partnerRole": "Le serveur, the waiter, who cannot find the reservation, offers a table near the window in 10 minutes, asks the chef about the dish, recommends a bottle, corrects the bill, and receives the request for a safe taxi.",
+        "opening": "J'ai une réservation au nom de Clara pour six personnes.",
+        "goal": "Host a celebration dinner from a missing reservation through toasts and a contested bill to a safe ride back to your lodging.",
+        "closure": "Pourriez-vous m'appeler un taxi de confiance, s'il vous plaît ?",
+        "wordBank": [
+          "J'ai une réservation au nom de Clara pour six personnes.",
+          "Ma sœur a une allergie à l'arachide. Ce plat contient-il des cacahuètes ?",
+          "Non, merci, nous préférons le vin de la maison.",
+          "À la santé de ma sœur !",
+          "Je crois qu'on nous a facturé une bouteille que nous n'avons pas commandée.",
+          "Pourriez-vous m'appeler un taxi de confiance, s'il vous plaît ?"
+        ],
+        "objectives": [
+          "Say you have a reservation under the name Clara for 6 people when the waiter cannot find it.",
+          "Ask whether the dish has peanuts, because your sister has a peanut allergy; the waiter checks with the chef and says the dish has no peanuts and is prepared separately.",
+          "Decline the expensive bottle with: No, thank you, we prefer the house wine.",
+          "Raise a toast to your sister with: Cheers to my sister!",
+          "Question the extra bottle charge on the bill, then ask for a safe taxi back to your lodging."
+        ]
+      },
+      "n": 30,
+      "stableId": "travel-dinner:30:fr-en",
+      "sourceTitleEnglish": "Dinner threshold",
+      "sourceObjectiveEnglish": "navigate a special evening with a booking problem, a special need, a declined upsell, a disputed charge, a toast, and a safe ride home without English",
+      "sourceSpeakingEnglish": "Host a celebration dinner from a missing reservation through toasts and a contested bill to a safe ride back to your lodging.",
+      "reviewed": false,
+      "internalReviewNote": "Owner-only source-pinned draft; reviewed:false, registered:false, no audio. Authored by Haiku 5.5 from the supplied Spanish-source English plan and passage. Source hashes copied from the exemplar and not re-verified against the working tree. Qualified French review required for le montant facturé, l'arachide, the bill and charge wording, le pourboire, and the taxi phrase. The family of six, reservation, peanut allergy, chef check, declined wine, toast, corrected charge, tip, and safe taxi are scene facts from the source.",
+      "modes": {
+        "see": {
+          "cueEnglish": "waiter",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "house wine",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "My sister has a peanut allergy, does this dish have peanuts?",
+          "sourceCard": 14,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "bill",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Can you call a safe taxi for me, please?",
+          "sourceCard": 18,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "I think there is a charge we did not order.",
+          "sourceCard": 17,
+          "responseKind": "open"
+        }
+      },
+      "model": "claude-haiku-5-5"
+    }
+  ]
+}

@@ -75,6 +75,7 @@ async function dinnerDrafts() {
     import("../../content/french-travel-dinner/core-28-draft.json"),
     import("../../content/french-travel-dinner/core-29-draft.json"),
     import("../../content/french-travel-dinner/core-30-draft.json"),
+    import("../../content/french-travel-dinner/master-1-draft.json"),
   ]);
   const batches = modules.map((module) => module.default as unknown as DraftBatch);
   const lessons = batches.flatMap((batch) => {
@@ -85,7 +86,8 @@ async function dinnerDrafts() {
       batch.source.revision !== revision
     ) throw new Error("French Dinner draft identity or review gate changed");
     const stage = batch.stageId === "foundation-travel-dinner" ? "foundation" :
-      batch.stageId === "travel-dinner" ? "core" : null;
+      batch.stageId === "travel-dinner" ? "core" :
+      batch.stageId === "master-travel-dinner" ? "master" : null;
     if (!stage) throw new Error("Unexpected French Dinner stage");
     if (stage === "foundation" && (
       batch.source.path !== "src/data/core60/es/foundation-travel-dinner.json" ||
@@ -97,6 +99,12 @@ async function dinnerDrafts() {
       batch.source.passagePath !== "public/lesson-content/es/travel-dinner.json" ||
       batch.source.passageSHA256 !== "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895"
     )) throw new Error("French Dinner Core source pin changed");
+    if (stage === "master" && (
+      batch.source.curriculumPath !== "src/data/core60/es/master-travel-dinner.json" ||
+      batch.source.curriculumSHA256 !== "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be" ||
+      batch.source.passagePath !== "public/lesson-content/es/master-travel-dinner.json" ||
+      batch.source.passageSHA256 !== "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80"
+    )) throw new Error("French Dinner Master source pin changed");
     return batch.lessons.map((lesson) => {
       if (lesson.reviewed !== false || !Number.isInteger(lesson.n) ||
           lesson.stableId !== `${batch.stageId}:${lesson.n}:fr-en` ||
@@ -128,11 +136,12 @@ async function dinnerDrafts() {
     });
   });
   const ids = new Set(lessons.map((lesson) => lesson.stableId));
-  if (lessons.length !== 40 || ids.size !== 40 ||
+  if (lessons.length !== 41 || ids.size !== 41 ||
       lessons.filter((lesson) => lesson.stage === "foundation").map((lesson) => lesson.n).join() !==
         Array.from({ length: 10 }, (_, index) => index + 1).join() ||
       lessons.filter((lesson) => lesson.stage === "core").map((lesson) => lesson.n).join() !==
-        Array.from({ length: 30 }, (_, index) => index + 1).join())
+        Array.from({ length: 30 }, (_, index) => index + 1).join() ||
+      lessons.filter((lesson) => lesson.stage === "master").map((lesson) => lesson.n).join() !== "1")
     throw new Error("French Dinner stage counts or lesson order changed");
   return lessons;
 }

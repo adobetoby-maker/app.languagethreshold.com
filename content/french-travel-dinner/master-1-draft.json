@@ -1,0 +1,336 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-dinner.json",
+    "curriculumSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "passagePath": "public/lesson-content/es/master-travel-dinner.json",
+    "passageSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 1,
+      "stableId": "master-travel-dinner:1:fr-en",
+      "sourceTitleEnglish": "Explain the Asado Order to a Friend at a Parrilla",
+      "sourceObjectiveEnglish": "Retell the grill cook's explanation of the asado's order and timing to a friend, giving the reason for each step.",
+      "sourceSpeakingEnglish": "You are at a Buenos Aires parrilla, and the AI is your friend Lena, who wants her steak first: pass on Don Osvaldo's order of the asado and give the reason for each step, using primero, luego, porque, como and por eso.",
+      "title": "Explain the Asado Order to a Friend at a Parrilla",
+      "objective": "Retell the grill cook's explanation of the asado's order and timing to a friend, giving the reason for each step.",
+      "focus": "D'abord, en premier, ensuite, puis et en dernier donnent l'ordre ; parce que, comme, donc, alors et c'est pourquoi donnent la raison : d'abord les achuras, ensuite le vacío, parce qu'il met plus de temps. Comme l'asado de tira demande plus de temps, il sort après. Le bife sort en dernier, alors mieux vaut attendre. On tutoie Lena, une amie (Regarde, goûte), et on vouvoie Don Osvaldo, le parrillero (Pourriez-vous me réexpliquer…). Le bife de chorizo est un steak, pas une saucisse ; le chorizo, lui, est la saucisse de porc. Le verbe mettre dit combien de temps prend une cuisson : il met plus de temps.",
+      "scene": "Sam and his friend Lena are having dinner at a neighborhood parrilla in Palermo, Buenos Aires. Lena is hungry and has already ordered the sirloin strip steak first. Don Osvaldo, the grill cook, explains the order of the asado to Sam. Sam asks him to explain again why the flank steak goes later. Sam then tells Lena the order and the reason for each step: the offal comes out first because it cooks fast, then the flank steak, then the short ribs, then the skirt steak, and the steak last. Lena tries the grilled provolone with chimichurri, agrees to wait, and suggests asking for the steak medium-rare at the end.",
+      "forms": [
+        {
+          "infinitive": "sortir",
+          "presentIl": "il sort",
+          "example": "Les achuras sortent en premier parce qu'elles cuisent vite.",
+          "meaning": "to come out / it comes out (il sort; ils sortent; nous sortons)"
+        },
+        {
+          "infinitive": "mettre",
+          "presentIl": "il met",
+          "example": "Le vacío met plus de temps à cuire sur les braises.",
+          "meaning": "to take (time) / it takes (il met; ils mettent; nous mettons)"
+        },
+        {
+          "infinitive": "attendre",
+          "presentJe": "j'attends",
+          "example": "Le bife va à la fin ; c'est pourquoi nous attendons.",
+          "meaning": "to wait / I wait (j'attends; nous attendons)"
+        },
+        {
+          "infinitive": "goûter",
+          "presentJe": "je goûte",
+          "example": "En attendant, goûte la provoleta avec du chimichurri.",
+          "meaning": "to try, to taste / I taste (je goûte; goûte ! when speaking to a friend)"
+        },
+        {
+          "infinitive": "demander",
+          "presentJe": "je demande",
+          "example": "On lui demande le bife jugoso pour la fin ?",
+          "meaning": "to ask for, to order / I ask (je demande; nous demandons)"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "les achuras (abats grillés)",
+          "en": "the offal (grilled organ meats)",
+          "kind": "term",
+          "note": "En Argentine, le chorizo, la morcilla, les mollejas et les chinchulines sortent d'ordinaire en premier."
+        },
+        {
+          "fr": "le chorizo (saucisse de porc)",
+          "en": "the pork sausage",
+          "kind": "term"
+        },
+        {
+          "fr": "la morcilla (boudin noir)",
+          "en": "the blood sausage",
+          "kind": "term"
+        },
+        {
+          "fr": "les mollejas (ris de veau)",
+          "en": "the sweetbreads",
+          "kind": "term"
+        },
+        {
+          "fr": "les chinchulines (intestins grêles grillés)",
+          "en": "the grilled small intestines",
+          "kind": "term"
+        },
+        {
+          "fr": "la provoleta (provolone grillé)",
+          "en": "the grilled provolone cheese",
+          "kind": "term"
+        },
+        {
+          "fr": "le vacío",
+          "en": "the flank steak",
+          "kind": "term",
+          "note": "Bavette de flanchet. Un morceau argentin. Il cuit lentement, donc il sort après les achuras."
+        },
+        {
+          "fr": "l'asado de tira (plat de côtes en bande)",
+          "en": "the short ribs",
+          "kind": "term"
+        },
+        {
+          "fr": "l'entraña (hampe)",
+          "en": "the skirt steak",
+          "kind": "term"
+        },
+        {
+          "fr": "le bife de chorizo",
+          "en": "the sirloin strip steak",
+          "kind": "term",
+          "note": "Faux-filet : un morceau à steak, pas une saucisse."
+        },
+        {
+          "fr": "le parrillero (le grillardin)",
+          "en": "the grill cook",
+          "kind": "term",
+          "note": "On dit la parrillera pour une femme."
+        },
+        {
+          "fr": "les braises",
+          "en": "the embers",
+          "kind": "term"
+        },
+        {
+          "fr": "le feu doux",
+          "en": "the slow heat",
+          "kind": "term"
+        },
+        {
+          "fr": "le chimichurri (sauce à l'ail et au persil)",
+          "en": "the chimichurri sauce",
+          "kind": "term"
+        },
+        {
+          "fr": "jugoso (rosé, juteux)",
+          "en": "medium-rare (juicy)",
+          "kind": "term",
+          "note": "En Argentine, on demande la viande jugoso, a punto ou bien cocido."
+        },
+        {
+          "fr": "Regarde, Lena, les achuras sortent en premier parce qu'elles cuisent vite.",
+          "en": "Look, Lena, the offal comes out first because it cooks fast.",
+          "kind": "phrase",
+          "note": "Registre familier : on tutoie une amie."
+        },
+        {
+          "fr": "Ensuite vient le vacío, qui met plus de temps à cuire sur les braises.",
+          "en": "Then comes the flank steak, which takes longer on the embers.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Comme l'asado de tira demande plus de temps, il sort après.",
+          "en": "Since the short ribs take more time, they come out later.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le bife sort en dernier, alors mieux vaut attendre.",
+          "en": "The steak comes out last, so it's better to wait.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "En attendant, goûte la provoleta avec du chimichurri.",
+          "en": "Meanwhile, try the grilled provolone with chimichurri.",
+          "kind": "phrase",
+          "note": "Impératif familier, à dire à une amie."
+        },
+        {
+          "fr": "Don Osvaldo, pourriez-vous me réexpliquer pourquoi le vacío passe après ?",
+          "en": "Don Osvaldo, could you explain again why the flank steak goes later?",
+          "kind": "phrase",
+          "note": "Vouvoiement pour le parrillero."
+        },
+        {
+          "fr": "Alors, on lui demande le bife jugoso pour la fin ?",
+          "en": "So, should we ask him for the steak medium-rare, at the end?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Tout sort dans l'ordre, donc rien ne refroidit.",
+          "en": "Everything comes out in order, so nothing gets cold.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "Ce soir, Sam et son amie Lena dînent dans une parrilla de quartier à Palermo, à Buenos Aires.",
+          "en": "Tonight, Sam and his friend Lena are having dinner at a neighborhood parrilla in Palermo, Buenos Aires."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Lena a très faim et a déjà demandé au serveur d'apporter le bife de chorizo en premier.",
+          "en": "Lena is very hungry and has already asked the waiter for the sirloin strip steak first."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Don Osvaldo, le parrillero, s'approche de la table et explique à Sam l'ordre de l'asado.",
+          "en": "Don Osvaldo, the grill cook, comes over to the table and explains the order of the asado to Sam."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Sam ne comprend pas bien un point et demande : « Don Osvaldo, pourriez-vous me réexpliquer pourquoi le vacío passe après ? »",
+          "en": "Sam doesn't quite understand one part and asks: Don Osvaldo, could you explain again why the flank steak goes later?"
+        },
+        {
+          "speaker": "Don Osvaldo",
+          "fr": "Don Osvaldo : Parce que le vacío est un morceau épais qui a besoin d'un feu doux, donc il met plus de temps que les achuras.",
+          "en": "Don Osvaldo: Because the flank steak is a thick cut and needs slow heat, so it takes longer than the offal."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Puis Sam se retourne et dit à son amie : « Regarde, Lena, les achuras sortent en premier parce qu'elles cuisent vite. »",
+          "en": "Then Sam turns around and says to his friend: Look, Lena, the offal comes out first because it cooks fast."
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Sam : Le chorizo sort avec les achuras, et on peut le manger dans du pain, comme un choripán.",
+          "en": "Sam: The pork sausage comes out with the offal, and you can eat it in bread like a choripán."
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Sam : La morcilla sort tôt aussi, parce qu'il suffit de la réchauffer sur le gril.",
+          "en": "Sam: The blood sausage also comes out early, because it only needs to be heated on the grill."
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Sam : Les mollejas sont aussi des achuras, et Don Osvaldo les dore lentement pour qu'elles soient croustillantes.",
+          "en": "Sam: The sweetbreads are offal too, and Don Osvaldo browns them slowly so they turn out crispy."
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Sam : Les chinchulines vont tout près des braises, c'est pourquoi ils sortent tout de suite.",
+          "en": "Sam: The grilled small intestines go right next to the embers, that's why they come out right away."
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Sam : Ensuite vient le vacío, qui met plus de temps à cuire sur les braises.",
+          "en": "Sam: Then comes the flank steak, which takes longer on the embers."
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Sam : Comme l'asado de tira demande plus de temps, il sort après.",
+          "en": "Sam: Since the short ribs take more time, they come out later."
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Sam : L'entraña est fine et cuit vite, alors Don Osvaldo la met sur le gril juste après l'asado de tira.",
+          "en": "Sam: The skirt steak is thin and cooks fast, so Don Osvaldo puts it on right after the short ribs."
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Sam : Le bife sort en dernier, alors mieux vaut attendre.",
+          "en": "Sam: The steak comes out last, so it's better to wait."
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Sam : Tout sort dans l'ordre, donc rien ne refroidit.",
+          "en": "Sam: Everything comes out in order, so nothing gets cold."
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Sam : En attendant, goûte la provoleta avec du chimichurri.",
+          "en": "Sam: Meanwhile, try the grilled provolone with chimichurri."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Lena goûte la provoleta, dit qu'il y a beaucoup d'ail et de persil dans le chimichurri, et accepte d'attendre.",
+          "en": "Lena tries the grilled provolone, says the chimichurri has lots of garlic and parsley, and agrees to wait."
+        },
+        {
+          "speaker": "Lena",
+          "fr": "Lena : Alors, on lui demande le bife jugoso pour la fin ?",
+          "en": "Lena: So, should we ask him for the steak medium-rare, at the end?"
+        }
+      ],
+      "speaking": {
+        "role": "Sam, at a Buenos Aires parrilla, passing on Don Osvaldo's explanation of the asado to a friend.",
+        "partnerRole": "Lena, Sam's hungry friend, who wants her steak first.",
+        "opening": "Regarde, Lena, les achuras sortent en premier parce qu'elles cuisent vite.",
+        "goal": "Lena wants her steak first. Explain Don Osvaldo's order of the asado and give the reason for each step: the offal first because it cooks fast, then the flank steak, then the short ribs, then the skirt steak, and the steak last. Use d'abord or en premier, ensuite, puis, en dernier, parce que, comme, donc and c'est pourquoi.",
+        "closure": "Tout sort dans l'ordre, donc rien ne refroidit.",
+        "wordBank": [
+          "les achuras (abats grillés)",
+          "le chorizo (saucisse de porc)",
+          "la morcilla (boudin noir)",
+          "les mollejas (ris de veau)",
+          "les chinchulines (intestins grêles grillés)",
+          "la provoleta (provolone grillé)",
+          "Ensuite vient le vacío, qui met plus de temps à cuire sur les braises.",
+          "Comme l'asado de tira demande plus de temps, il sort après.",
+          "Le bife sort en dernier, alors mieux vaut attendre.",
+          "Tout sort dans l'ordre, donc rien ne refroidit."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "the flank steak",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "the sirloin strip steak",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Since the short ribs take more time, they come out later.",
+          "sourceCard": 18,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "the slow heat",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Don Osvaldo, could you explain again why the flank steak goes later?",
+          "sourceCard": 21,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "The steak comes out last, so it's better to wait.",
+          "sourceCard": 19,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "model": "claude-sonnet-5-5"
+    }
+  ]
+}

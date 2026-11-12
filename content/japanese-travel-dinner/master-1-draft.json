@@ -1,0 +1,349 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "masterPath": "src/data/core60/es/master-travel-dinner.json",
+    "masterSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "contentPath": "public/lesson-content/es/master-travel-dinner.json",
+    "contentSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 1,
+      "stableId": "master-travel-dinner:1:ja-en",
+      "sourceTitleEnglish": "Explain the Asado Order to a Friend at a Parrilla",
+      "sourceObjectiveEnglish": "Retell the grill cook's explanation of the asado's order and timing to a friend, giving the reason for each step.",
+      "sourceSpeakingEnglish": "You are at a Buenos Aires parrilla, and the AI is your friend Lena, who wants her steak first: pass on Don Osvaldo's order of the asado and give the reason for each step, using primero, luego, porque, como and por eso.",
+      "title": "Explain the Asado Order to a Friend at a Parrilla",
+      "objective": "Retell the grill cook's explanation of the asado's order and timing to a friend, giving the reason for each step.",
+      "focus": "最初に / 次に / 最後に give the order, and から / だから give the reason. Examples: アサード・デ・ティラはもっと時間がかかるから、そのあとで出てくるよ。 ビフェは最後に出てくるから、待ったほうがいいよ。 全部順番に出てくるから、冷めることはないよ。 ～ていただけますか is the polite request to Don Osvaldo: もう一度説明していただけますか。",
+      "scene": "Sam and his friend Lena are having dinner at a neighborhood parrilla in Palermo, Buenos Aires. Lena is hungry and has already ordered the sirloin strip steak first. Don Osvaldo, the grill cook, explains the order of the asado to Sam. Sam asks him to explain again why the flank steak goes later. Sam then tells Lena the order and the reason for each step: the offal comes out first because it cooks fast, then the flank steak, then the short ribs, then the skirt steak, and the steak last. Lena tries the grilled provolone with chimichurri, agrees to wait, and suggests asking for the steak medium-rare at the end.",
+      "forms": [
+        {
+          "base": "出る",
+          "polite": "出ます",
+          "meaning": "to come out",
+          "example": "最初にアチュラスが出ます。",
+          "question": "出ますか"
+        },
+        {
+          "base": "かかる",
+          "polite": "かかります",
+          "meaning": "to take (time)",
+          "example": "バシオは熾火でもっと時間がかかります。",
+          "question": "かかりますか"
+        },
+        {
+          "base": "待つ",
+          "polite": "待ちます",
+          "meaning": "to wait",
+          "example": "ビフェは最後に出るので、待ちます。",
+          "question": "待ちますか"
+        },
+        {
+          "base": "食べてみる",
+          "polite": "食べてみます",
+          "meaning": "to try, to taste",
+          "example": "その間に、プロボレタを食べてみます。",
+          "question": "食べてみますか"
+        },
+        {
+          "base": "頼む",
+          "polite": "頼みます",
+          "meaning": "to ask for, to order",
+          "example": "最後のビフェはミディアムレアで頼みます。",
+          "question": "頼みますか"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "アチュラス（内臓の炭火焼き）",
+          "en": "the offal (grilled organ meats)",
+          "kind": "term",
+          "readingKana": "アチュラス（ないぞうのすみびやき）"
+        },
+        {
+          "ja": "チョリソ（豚肉のソーセージ）",
+          "en": "the pork sausage",
+          "kind": "term",
+          "readingKana": "チョリソ（ぶたにくのソーセージ）"
+        },
+        {
+          "ja": "モルシージャ（血のソーセージ）",
+          "en": "the blood sausage",
+          "kind": "term",
+          "readingKana": "モルシージャ（ちのソーセージ）"
+        },
+        {
+          "ja": "モジェハ（シビレ・胸腺）",
+          "en": "the sweetbreads",
+          "kind": "term",
+          "readingKana": "モジェハ（きょうせん）"
+        },
+        {
+          "ja": "チンチュリン（焼いた小腸）",
+          "en": "the grilled small intestines",
+          "kind": "term",
+          "readingKana": "チンチュリン（やいたしょうちょう）"
+        },
+        {
+          "ja": "プロボレタ（焼いたプロボローネチーズ）",
+          "en": "the grilled provolone cheese",
+          "kind": "term",
+          "readingKana": "プロボレタ（やいたプロボローネチーズ）"
+        },
+        {
+          "ja": "バシオ（フランクステーキ）",
+          "en": "the flank steak",
+          "kind": "term"
+        },
+        {
+          "ja": "アサード・デ・ティラ（ショートリブ）",
+          "en": "the short ribs",
+          "kind": "term"
+        },
+        {
+          "ja": "エントラーニャ（ハラミ）",
+          "en": "the skirt steak",
+          "kind": "term"
+        },
+        {
+          "ja": "ビフェ・デ・チョリソ（サーロインステーキ）",
+          "en": "the sirloin strip steak",
+          "kind": "term"
+        },
+        {
+          "ja": "パリジェーロ（焼き担当）",
+          "en": "the grill cook",
+          "kind": "term",
+          "readingKana": "パリジェーロ（やきたんとう）"
+        },
+        {
+          "ja": "熾火",
+          "en": "the embers",
+          "kind": "term",
+          "readingKana": "おきび"
+        },
+        {
+          "ja": "弱火",
+          "en": "the slow heat",
+          "kind": "term",
+          "readingKana": "よわび"
+        },
+        {
+          "ja": "チミチュリソース",
+          "en": "the chimichurri sauce",
+          "kind": "term"
+        },
+        {
+          "ja": "ジューシーなミディアムレア",
+          "en": "medium-rare (juicy)",
+          "kind": "term"
+        },
+        {
+          "ja": "ほら、レナ、アチュラスは火が通るのが早いから、最初に出てくるよ。",
+          "en": "Look, Lena, the offal comes out first because it cooks fast.",
+          "kind": "phrase",
+          "readingKana": "ほら、レナ、アチュラスはひがとおるのがはやいから、さいしょにでてくるよ。"
+        },
+        {
+          "ja": "次に出てくるのはバシオで、熾火で焼くともっと時間がかかるんだ。",
+          "en": "Then comes the flank steak, which takes longer on the embers.",
+          "kind": "phrase",
+          "readingKana": "つぎにでてくるのはバシオで、おきびだとじかんがかかるんだ。"
+        },
+        {
+          "ja": "アサード・デ・ティラはもっと時間がかかるから、そのあとで出てくるよ。",
+          "en": "Since the short ribs take more time, they come out later.",
+          "kind": "phrase",
+          "readingKana": "アサード・デ・ティラはじかんがかかるから、あとででてくるよ。"
+        },
+        {
+          "ja": "ビフェは最後に出てくるから、待ったほうがいいよ。",
+          "en": "The steak comes out last, so it's better to wait.",
+          "kind": "phrase",
+          "readingKana": "ビフェはさいごにでてくるから、まったほうがいいよ。"
+        },
+        {
+          "ja": "その間に、プロボレタにチミチュリをつけて食べてみて。",
+          "en": "Meanwhile, try the grilled provolone with chimichurri.",
+          "kind": "phrase",
+          "readingKana": "そのあいだに、プロボレタにチミチュリをつけてたべてみて。"
+        },
+        {
+          "ja": "ドン・オスバルド、バシオがあとになる理由をもう一度説明していただけますか。",
+          "en": "Don Osvaldo, could you explain again why the flank steak goes later?",
+          "kind": "phrase",
+          "readingKana": "ドン・オスバルド、バシオがあとになるりゆうをもういちどせつめいしていただけますか。"
+        },
+        {
+          "ja": "それじゃ、最後のビフェは、ドン・オスバルドにジューシーなミディアムレアで頼もうか。",
+          "en": "So, should we ask him for the steak medium-rare, at the end?",
+          "kind": "phrase",
+          "readingKana": "それじゃ、さいごのビフェはジューシーなミディアムレアでおねがいしましょうか。"
+        },
+        {
+          "ja": "全部順番に出てくるから、冷めることはないよ。",
+          "en": "Everything comes out in order, so nothing gets cold.",
+          "kind": "phrase",
+          "readingKana": "ぜんぶじゅんばんにでてくるから、さめることはないよ。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "今夜、サムと友だちのレナは、ブエノスアイレスのパレルモにある地元のパリージャで夕食を食べています。",
+          "en": "Tonight, Sam and his friend Lena are having dinner at a neighborhood parrilla in Palermo, Buenos Aires."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "レナはとてもおなかがすいていて、もうウェイターにビフェ・デ・チョリソを最初に出してほしいと頼んでいます。",
+          "en": "Lena is very hungry and has already asked the waiter for the sirloin strip steak first."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "パリジェーロのドン・オスバルドがテーブルに来て、サムにアサードの順番を説明します。",
+          "en": "Don Osvaldo, the grill cook, comes over to the table and explains the order of the asado to Sam."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "サムは一か所よく分からなくて、「ドン・オスバルド、バシオがあとになる理由をもう一度説明していただけますか」と聞きます。",
+          "en": "Sam doesn't quite understand one part and asks: Don Osvaldo, could you explain again why the flank steak goes later?"
+        },
+        {
+          "speaker": "Don Osvaldo",
+          "ja": "ドン・オスバルド：バシオは厚い肉で、弱火でじっくり焼く必要があるから、アチュラスより時間がかかるんだよ。",
+          "en": "Don Osvaldo: Because the flank steak is a thick cut and needs slow heat, so it takes longer than the offal."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "それからサムは振り向いて、友だちに言います。「ほら、レナ、アチュラスは火が通るのが早いから、最初に出てくるよ」",
+          "en": "Then Sam turns around and says to his friend: Look, Lena, the offal comes out first because it cooks fast."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "サム：アチュラスと一緒にチョリソも出てくるよ。パンにはさんでチョリパンみたいに食べられるんだ。",
+          "en": "Sam: The pork sausage comes out with the offal, and you can eat it in bread like a choripán."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "サム：モルシージャも早めに出てくるよ。グリルで温めるだけだからね。",
+          "en": "Sam: The blood sausage also comes out early, because it only needs to be heated on the grill."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "サム：モジェハもアチュラスだよ。ドン・オスバルドがゆっくり焼き色をつけて、カリッと仕上げるんだ。",
+          "en": "Sam: The sweetbreads are offal too, and Don Osvaldo browns them slowly so they turn out crispy."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "サム：チンチュリンは熾火の近くで焼くんだ。だから、すぐに出てくるよ。",
+          "en": "Sam: The grilled small intestines go right next to the embers, that's why they come out right away."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "サム：次に出てくるのはバシオで、熾火で焼くともっと時間がかかるんだ。",
+          "en": "Sam: Then comes the flank steak, which takes longer on the embers."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "サム：アサード・デ・ティラはもっと時間がかかるから、そのあとで出てくるよ。",
+          "en": "Sam: Since the short ribs take more time, they come out later."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "サム：エントラーニャは薄くて早く焼けるから、ドン・オスバルドはアサード・デ・ティラのすぐあとに焼くよ。",
+          "en": "Sam: The skirt steak is thin and cooks fast, so Don Osvaldo puts it on right after the short ribs."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "サム：ビフェは最後に出てくるから、待ったほうがいいよ。",
+          "en": "Sam: The steak comes out last, so it's better to wait."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "サム：全部順番に出てくるから、冷めることはないよ。",
+          "en": "Sam: Everything comes out in order, so nothing gets cold."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "サム：その間に、プロボレタにチミチュリをつけて食べてみて。",
+          "en": "Sam: Meanwhile, try the grilled provolone with chimichurri."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "レナはプロボレタを食べてみて、チミチュリにはニンニクとパセリがたっぷり入っていると言い、待つことにします。",
+          "en": "Lena tries the grilled provolone, says the chimichurri has lots of garlic and parsley, and agrees to wait."
+        },
+        {
+          "speaker": "Lena",
+          "ja": "レナ：それじゃ、最後のビフェは、ドン・オスバルドにジューシーなミディアムレアで頼もうか。",
+          "en": "Lena: So, should we ask him for the steak medium-rare, at the end?"
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "the flank steak",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "the sirloin strip steak",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Since the short ribs take more time, they come out later.",
+          "sourceCard": 18,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "the slow heat",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Don Osvaldo, could you explain again why the flank steak goes later?",
+          "sourceCard": 21,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "The steak comes out last, so it's better to wait.",
+          "sourceCard": 19,
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "Sam, at a Buenos Aires parrilla, passing on Don Osvaldo's explanation of the asado to a friend.",
+        "partnerRole": "Lena, Sam's hungry friend, who wants her steak first.",
+        "opening": "ほら、レナ、アチュラスは火が通るのが早いから、最初に出てくるよ。",
+        "goal": "Lena wants her steak first. Explain Don Osvaldo's order of the asado and give the reason for each step: the offal first because it cooks fast, then the flank steak, then the short ribs, then the skirt steak, and the steak last. Use 最初に, 次に, 最後に, から and だから.",
+        "closure": "全部順番に出てくるから、冷めることはないよ。",
+        "wordBank": [
+          "アチュラス",
+          "バシオ",
+          "アサード・デ・ティラ",
+          "エントラーニャ",
+          "熾火",
+          "弱火",
+          "次に出てくるのはバシオで、熾火で焼くともっと時間がかかるんだ。",
+          "アサード・デ・ティラはもっと時間がかかるから、そのあとで出てくるよ。",
+          "ビフェは最後に出てくるから、待ったほうがいいよ。",
+          "全部順番に出てくるから、冷めることはないよ。"
+        ]
+      },
+      "reviewed": false
+    }
+  ]
+}

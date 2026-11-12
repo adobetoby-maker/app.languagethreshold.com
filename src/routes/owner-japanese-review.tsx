@@ -7,7 +7,7 @@ import { AuthProvider, useAuth } from "@/state/auth-state";
 
 type Card = { ja: string; en: string; kind: string; readingKana?: string };
 type Lesson = {
-  stage: "foundation" | "core";
+  stage: "foundation" | "core" | "master";
   n: number;
   stableId: string;
   title: string;
@@ -108,11 +108,11 @@ function JapaneseReview() {
         <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
       </section> : error ? <p role="alert" className={panel}>{error}</p> : !packet ? <p role="status">Loading owner review…</p> : <>
         <section className={panel}>
-          <p className="font-semibold">Foundation 10/10 · Core 19/30 · Master 0/20</p>
+          <p className="font-semibold">Foundation {packet.lessons.filter((entry) => entry.stage === "foundation").length}/10 · Core {packet.lessons.filter((entry) => entry.stage === "core").length}/30 · Master {packet.lessons.filter((entry) => entry.stage === "master").length}/20</p>
           <p className="mt-1 text-sm text-muted-foreground">Owner-review draft · reviewed: false · learner registration: false · recorded audio: not yet registered</p>
           <label className="mt-4 block font-semibold" htmlFor="japanese-draft-lesson">Choose a lesson</label>
           <select id="japanese-draft-lesson" className="mt-2 w-full rounded-lg border border-border bg-background p-3" value={selected} onChange={(event) => { setSelected(event.target.value); setRevealed(false); setNote(""); }}>
-            {packet.lessons.map((entry) => <option key={entry.stableId} value={entry.stableId}>{entry.stage === "foundation" ? "Foundation" : "Core"} {entry.n}: {entry.title}</option>)}
+            {packet.lessons.map((entry) => <option key={entry.stableId} value={entry.stableId}>{entry.stage === "foundation" ? "Foundation" : entry.stage === "core" ? "Core" : "Master"} {entry.n}: {entry.title}</option>)}
           </select>
         </section>
         {lesson && <>

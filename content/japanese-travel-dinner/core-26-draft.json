@@ -1,0 +1,316 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "contentPath": "public/lesson-content/es/travel-dinner.json",
+    "contentSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "title": "Give a toast at a group dinner",
+      "objective": "Offer a short toast, respond to others' toasts, and keep a group conversation going.",
+      "focus": "乾杯 is the everyday toast. 乾杯の音頭を取る means to lead the toast; 取らせていただきます is a formal, humble way to volunteer. Among friends, 一言いいですか and 乾杯しましょう are simpler. In 私たちの友情に乾杯, に marks what the group toasts. グラスを掲げる is formal or written; グラスを上げる is the everyday phrase. 一言ご挨拶させていただいてもよろしいでしょうか is a formal request to say a few words.",
+      "scene": "At a restaurant in Seville, Clara raises her glass of wine at a reunion dinner with her travel friends. She asks permission to speak and offers a short toast to friendship and to the hostess. The group toasts back. Marco then toasts Clara. She thanks him warmly, and she keeps the conversation going by asking a new couple how they met. When dessert arrives, the group toasts the chef again.",
+      "forms": [
+        {
+          "base": "乾杯する",
+          "polite": "乾杯します",
+          "question": "乾杯しますか",
+          "meaning": "to make a toast",
+          "example": "友情に乾杯します。"
+        },
+        {
+          "base": "音頭を取る",
+          "polite": "音頭を取ります",
+          "question": "音頭を取りますか",
+          "meaning": "to lead a toast",
+          "example": "私が乾杯の音頭を取ります。"
+        },
+        {
+          "base": "掲げる",
+          "polite": "掲げます",
+          "question": "掲げますか",
+          "meaning": "to raise (a glass)",
+          "example": "グラスを掲げます。"
+        },
+        {
+          "base": "感謝する",
+          "polite": "感謝します",
+          "question": "感謝しますか",
+          "meaning": "to be grateful",
+          "example": "みなさんに感謝します。"
+        },
+        {
+          "base": "話す",
+          "polite": "話します",
+          "question": "話しますか",
+          "meaning": "to speak",
+          "example": "少し話します。"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "乾杯",
+          "en": "toast",
+          "kind": "term",
+          "readingKana": "かんぱい"
+        },
+        {
+          "ja": "乾杯の挨拶",
+          "en": "toast speech",
+          "kind": "term",
+          "readingKana": "かんぱいのあいさつ"
+        },
+        {
+          "ja": "グラス",
+          "en": "glass",
+          "kind": "term"
+        },
+        {
+          "ja": "ワイン",
+          "en": "wine",
+          "kind": "term"
+        },
+        {
+          "ja": "再会の食事会",
+          "en": "reunion dinner",
+          "kind": "term",
+          "readingKana": "さいかいのしょくじかい"
+        },
+        {
+          "ja": "友情",
+          "en": "friendship",
+          "kind": "term",
+          "readingKana": "ゆうじょう"
+        },
+        {
+          "ja": "主催者",
+          "en": "hostess",
+          "kind": "term",
+          "readingKana": "しゅさいしゃ"
+        },
+        {
+          "ja": "テーブル",
+          "en": "table",
+          "kind": "term"
+        },
+        {
+          "ja": "思い出",
+          "en": "memory",
+          "kind": "term",
+          "readingKana": "おもいで"
+        },
+        {
+          "ja": "デザート",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "ja": "シェフ",
+          "en": "chef",
+          "kind": "term"
+        },
+        {
+          "ja": "旅",
+          "en": "trip",
+          "kind": "term",
+          "readingKana": "たび"
+        },
+        {
+          "ja": "夕食",
+          "en": "dinner",
+          "kind": "term",
+          "readingKana": "ゆうしょく"
+        },
+        {
+          "ja": "グラスを掲げる",
+          "en": "raise a glass",
+          "kind": "phrase",
+          "readingKana": "グラスをかかげる"
+        },
+        {
+          "ja": "一言ご挨拶させていただいてもよろしいでしょうか。",
+          "en": "May I say a few words?",
+          "kind": "phrase",
+          "readingKana": "ひとことごあいさつさせていただいてもよろしいでしょうか。"
+        },
+        {
+          "ja": "乾杯の音頭を取らせていただきます。",
+          "en": "I would like to propose a toast.",
+          "kind": "phrase",
+          "readingKana": "かんぱいのおんどをとらせていただきます。"
+        },
+        {
+          "ja": "乾杯！",
+          "en": "Cheers to everyone!",
+          "kind": "phrase",
+          "readingKana": "かんぱい！"
+        },
+        {
+          "ja": "私たちの友情に乾杯。",
+          "en": "Here's to our friendship.",
+          "kind": "phrase",
+          "readingKana": "わたしたちのゆうじょうにかんぱい。"
+        },
+        {
+          "ja": "温かいお言葉、本当にありがとうございます。",
+          "en": "Thank you so much for your kind words.",
+          "kind": "phrase",
+          "readingKana": "あたたかいおことば、ほんとうにありがとうございます。"
+        },
+        {
+          "ja": "お二人はどうやってお知り合いになったのですか。",
+          "en": "And how did you two meet?",
+          "kind": "phrase",
+          "readingKana": "おふたりはどうやっておしりあいになったのですか。"
+        },
+        {
+          "ja": "もう一度乾杯しましょう。",
+          "en": "Let's toast again.",
+          "kind": "phrase",
+          "readingKana": "もういちどかんぱいしましょう。"
+        },
+        {
+          "ja": "感謝",
+          "en": "gratitude",
+          "kind": "term",
+          "readingKana": "かんしゃ"
+        },
+        {
+          "ja": "提案",
+          "en": "proposal",
+          "kind": "term",
+          "readingKana": "ていあん"
+        },
+        {
+          "ja": "乾杯しましょう。",
+          "en": "Let's toast.",
+          "kind": "phrase",
+          "readingKana": "かんぱいしましょう。"
+        },
+        {
+          "ja": "素敵な席",
+          "en": "lovely table setting",
+          "kind": "phrase",
+          "readingKana": "すてきなせき"
+        },
+        {
+          "ja": "旅の思い出",
+          "en": "travel memories",
+          "kind": "term",
+          "readingKana": "たびのおもいで"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "セビリアのレストランで、クララは旅の友人たちとの再会の食事会で、ワインの入ったグラスを掲げます。",
+          "en": "At a restaurant in Seville, Clara raises her glass of wine during the reunion dinner with her travel friends."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "彼女はみんなを見回して言います。「一言ご挨拶させていただいてもよろしいでしょうか。」",
+          "en": "She looks at everyone and says: May I say a few words?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "それから笑顔で、「私たちの友情と、この素敵な席を用意してくださった主催者の方に乾杯したいと思います。」と言います。",
+          "en": "Then she smiles and says: I would like to propose a toast to our friendship and to the hostess, who prepared this lovely table."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "みんなグラスを上げて、「乾杯！」と答えます。",
+          "en": "Everyone raises their glasses and answers: Cheers to everyone!"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "その後、マルコはクララに乾杯します。彼女はいつも、どの旅でもいちばんの思い出を大切にしているからです。",
+          "en": "Afterward, Marco offers a toast to Clara because she always keeps the best memories of every trip."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "クララは心を込めて答えます。「温かいお言葉、本当にありがとうございます。」",
+          "en": "Clara answers warmly: Thank you so much for your kind words."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "会話を続けるため、彼女は新しいカップルに尋ねます。「お二人はどうやってお知り合いになったのですか。」",
+          "en": "To keep the conversation going, she asks a new couple: And how did you two meet?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "デザートが運ばれてくると、シェフが挨拶に出てきて、みんなでシェフにもう一度乾杯します。",
+          "en": "When dessert arrives, the chef comes out to say hello and the group toasts him again."
+        }
+      ],
+      "speaking": {
+        "role": "Guest at a reunion dinner who offers a short toast and responds warmly when others toast you",
+        "partnerRole": "Friend at the table who toasts you back, then answers when you ask how they and their partner met",
+        "opening": "一言ご挨拶させていただいてもよろしいでしょうか。",
+        "goal": "At a reunion dinner, give a short toast and respond warmly when others toast you.",
+        "closure": "これからもよろしくお願いします。乾杯！",
+        "wordBank": [
+          "乾杯の挨拶",
+          "一言ご挨拶させていただいてもよろしいでしょうか。",
+          "乾杯！",
+          "温かいお言葉、本当にありがとうございます。",
+          "お二人はどうやってお知り合いになったのですか。",
+          "私たちの友情に乾杯。",
+          "乾杯の音頭を取らせていただきます。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "toast",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "glass",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "May I say a few words?",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "friendship",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Thank you so much for your kind words.",
+          "sourceCard": 19,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "And how did you two meet?",
+          "sourceCard": 20,
+          "responseKind": "open"
+        }
+      },
+      "n": 26,
+      "stableId": "travel-dinner:26:ja-en",
+      "sourceTitleEnglish": "Give a toast at a group dinner",
+      "sourceObjectiveEnglish": "offer a short toast, respond to others' toasts, and keep a group conversation going",
+      "sourceSpeakingEnglish": "At a reunion dinner, give a short toast and respond warmly when others toast you.",
+      "reviewed": false,
+      "internalReviewNote": "Source-pinned author draft; qualified Japanese and restaurant-domain review remains open. Haiku 5.5 authored a candidate. Opus 5.5 read-only critique found literal calques in the toast and hostess expressions, a role mismatch, overformalized language, and a missing always; self-check corrected these while preserving exact English source Reader lines and plan. AI critique is not human approval. Japanese 主催者 does not encode the female gender of English hostess; verify context with a qualified reviewer."
+    }
+  ]
+}

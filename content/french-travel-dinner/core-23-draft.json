@@ -1,0 +1,280 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/travel-zone.ts",
+    "curriculumSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "passagePath": "public/lesson-content/es/travel-dinner.json",
+    "passageSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "title": "Ask Where Locals Celebrate",
+      "objective": "get a recommendation by cuisine, price, booking needs, and what to order",
+      "focus": "Où vont les gens d'ici pour fêter quelque chose ? asks where people from here celebrate; fêter is the everyday verb for a birthday. Dois-je faire une réservation ? and Combien faut-il compter par personne, environ ? use inversion for polite questions. Que me recommandez-vous de commander là-bas ? uses recommander à quelqu'un de + infinitive: me (= à moi) goes before the conjugated verb, and que is the object of commander. Y a-t-il quelque chose de moins cher, mais tout aussi bon ? uses de before an adjective after quelque chose. Prévenez le restaurant uses the vous imperative. La carte is the printed menu; le menu dégustation is a set tasting menu.",
+      "scene": "At the hotel, Laura asks the concierge where people from here go to celebrate her husband's birthday. She wants regional cuisine, not a touristy place. The concierge suggests a quiet family restaurant with homemade food. She asks the price per person, whether she needs a reservation, and what to order. He mentions about 250 pesos for a main dish, 450 pesos for the Friday tasting menu, a full house on Fridays, the local mole, and a possible special dessert from the chef.",
+      "forms": [
+        {
+          "infinitive": "recommander",
+          "presentVous": "vous recommandez",
+          "example": "Que me recommandez-vous de commander là-bas ?",
+          "meaning": "to recommend / you recommend"
+        },
+        {
+          "infinitive": "commander",
+          "presentIls": "ils commandent",
+          "example": "Les gens d'ici commandent le mole.",
+          "meaning": "to order / they order"
+        },
+        {
+          "infinitive": "fêter",
+          "presentNous": "nous fêtons",
+          "example": "Nous fêtons l'anniversaire de mon mari.",
+          "meaning": "to celebrate / we celebrate"
+        },
+        {
+          "infinitive": "réserver",
+          "presentVous": "vous réservez",
+          "example": "Vous me réservez une table pour deux personnes, s’il vous plaît ?",
+          "meaning": "to book or reserve / you book"
+        },
+        {
+          "infinitive": "prévenir",
+          "presentVous": "vous prévenez",
+          "example": "Vous prévenez le restaurant que vous fêtez quelque chose.",
+          "meaning": "to let know / you let know"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "le concierge",
+          "en": "concierge",
+          "kind": "term"
+        },
+        {
+          "fr": "la célébration",
+          "en": "celebration",
+          "kind": "term"
+        },
+        {
+          "fr": "l'anniversaire",
+          "en": "birthday",
+          "kind": "term"
+        },
+        {
+          "fr": "la cuisine régionale",
+          "en": "regional cuisine",
+          "kind": "term"
+        },
+        {
+          "fr": "l'ambiance",
+          "en": "atmosphere",
+          "kind": "term"
+        },
+        {
+          "fr": "la carte",
+          "en": "menu",
+          "kind": "term"
+        },
+        {
+          "fr": "le menu dégustation",
+          "en": "tasting menu",
+          "kind": "term"
+        },
+        {
+          "fr": "la réservation",
+          "en": "reservation",
+          "kind": "term"
+        },
+        {
+          "fr": "le plat typique",
+          "en": "traditional dish",
+          "kind": "term"
+        },
+        {
+          "fr": "le dessert",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "fr": "le chef",
+          "en": "chef",
+          "kind": "term"
+        },
+        {
+          "fr": "le restaurant familial",
+          "en": "family restaurant",
+          "kind": "term"
+        },
+        {
+          "fr": "Où vont les gens d'ici pour fêter quelque chose ?",
+          "en": "Where do people from here go to celebrate?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Combien faut-il compter par personne, environ ?",
+          "en": "About how much does it cost per person?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Dois-je faire une réservation ?",
+          "en": "Do I need to make a reservation?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Que me recommandez-vous de commander là-bas ?",
+          "en": "What do you recommend I order there?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Y a-t-il quelque chose de moins cher, mais tout aussi bon ?",
+          "en": "Is there something less expensive but just as good?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Si c'est complet, y a-t-il une autre option près d'ici ?",
+          "en": "If it's full, is there another option nearby?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je voudrais de la cuisine régionale, pas un endroit pour touristes.",
+          "en": "I want regional cuisine, not a touristy place.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Un plat principal coûte environ 250 pesos.",
+          "en": "A main dish costs about 250 pesos.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le menu dégustation du vendredi coûte 450 pesos.",
+          "en": "The Friday tasting menu costs 450 pesos.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Prévenez le restaurant que vous fêtez quelque chose.",
+          "en": "Let them know it is a celebration.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Merci beaucoup pour vos conseils.",
+          "en": "Thank you very much for your advice.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "À l’hôtel, Laura demande au concierge : « Où vont les gens d’ici pour fêter quelque chose ? »",
+          "en": "At the hotel, Laura asks the concierge: Where do people from here go to celebrate?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Elle explique que c'est l'anniversaire de son mari et qu'elle veut de la cuisine régionale, pas un endroit pour touristes.",
+          "en": "She explains that it is her husband's birthday and that she wants regional cuisine, not a touristy place."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le concierge lui recommande un restaurant familial parce que l'ambiance y est tranquille et que la cuisine est faite maison.",
+          "en": "The concierge recommends a family restaurant to her because the atmosphere is quiet and the food is homemade."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Laura demande : « Combien faut-il compter par personne, environ ? »",
+          "en": "Laura asks: About how much does it cost per person?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Il répond que, d'après la carte du restaurant, un plat principal coûte environ 250 pesos et que le menu dégustation du vendredi coûte 450 pesos.",
+          "en": "He answers that, according to the restaurant's menu, a main dish costs about 250 pesos, and the Friday tasting menu costs 450 pesos."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Ensuite, elle demande : « Dois-je faire une réservation ? »",
+          "en": "Then she asks: Do I need to make a reservation?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le concierge dit que oui, parce que le vendredi, c'est presque toujours complet.",
+          "en": "The concierge says yes, because on Fridays it is almost always full."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Laura demande : « Que me recommandez-vous de commander là-bas ? »",
+          "en": "Laura asks: What do you recommend I order there?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le concierge dit : « Les gens d'ici commandent le mole, le plat typique. Prévenez le restaurant que vous fêtez quelque chose, parce que parfois le chef envoie un dessert spécial. »",
+          "en": "The concierge says: People from here order the mole, the traditional dish, and let them know it is a celebration, because sometimes the chef sends out a special dessert."
+        }
+      ],
+      "speaking": {
+        "role": "Hotel guest asking the concierge where locals celebrate.",
+        "partnerRole": "Hotel concierge.",
+        "opening": "Où vont les gens d'ici pour fêter quelque chose ?",
+        "goal": "Ask your concierge where locals book for a celebration and what to order there.",
+        "closure": "Merci beaucoup pour vos conseils.",
+        "wordBank": [
+          "Où vont les gens d'ici pour fêter quelque chose ?",
+          "Je voudrais de la cuisine régionale, pas un endroit pour touristes.",
+          "Combien faut-il compter par personne, environ ?",
+          "Dois-je faire une réservation ?",
+          "Que me recommandez-vous de commander là-bas ?",
+          "Si c'est complet, y a-t-il une autre option près d'ici ?",
+          "Merci beaucoup pour vos conseils."
+        ]
+      },
+      "n": 23,
+      "stableId": "travel-dinner:23:fr-en",
+      "sourceTitleEnglish": "Ask where locals celebrate",
+      "sourceObjectiveEnglish": "get a recommendation by cuisine, price, booking needs, and what to order",
+      "sourceSpeakingEnglish": "Ask your concierge where locals book for a celebration and what to order there.",
+      "reviewed": false,
+      "internalReviewNote": "Owner-only source-pinned draft. Haiku 5.5 was requested but Claude CLI metadata reported Sonnet 5.5. Opus 5.5 read-only critique found an ambiguous pronoun, stiff French, an invalid grammar explanation and a form/example mismatch; these were corrected and self-checked. Keep mole and peso context and any audio-pronunciation concern in internal review. Qualified French and dining-domain review remains open.",
+      "modes": {
+        "see": {
+          "cueEnglish": "concierge",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "tasting menu",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Do I need to make a reservation?",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "reservation",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "What do you recommend I order there?",
+          "sourceCard": 16,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Where do people from here go to celebrate?",
+          "sourceCard": 13,
+          "responseKind": "open"
+        }
+      }
+    }
+  ]
+}

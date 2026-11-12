@@ -1,0 +1,270 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/travel-zone.ts",
+    "curriculumSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "passagePath": "public/lesson-content/es/travel-dinner.json",
+    "passageSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "title": "Decline an Expensive Bottle",
+      "objective": "refuse a recommendation gracefully and find a better-priced bottle or glass",
+      "focus": "Je préfère quelque chose à moins de 40 euros uses the present of préférer: é changes to è in je, tu, il/elle and ils/elles, while nous and vous retain é. The French present can express a polite preference translated here as ‘I'd prefer’. Combien coûte la demi-bouteille ? places the noun subject after coûte. Avez-vous quelque chose de similaire à un prix plus bas ? uses inversion with vous. Merci pour la recommandation, mais cela dépasse mon budget declines the suggested bottle without criticizing it.",
+      "scene": "You are at a restaurant with a friend. The sommelier recommends a bottle far over your budget. Decline politely without criticizing the wine, ask for something cheaper, and ask whether a half bottle of the house wine is available.",
+      "forms": [
+        {
+          "infinitive": "recommander",
+          "presentVous": "vous recommandez",
+          "example": "Quel vin rouge me recommandez-vous au verre ?",
+          "meaning": "to recommend / you recommend"
+        },
+        {
+          "infinitive": "préférer",
+          "presentJe": "je préfère",
+          "example": "Je préfère le vin de la maison.",
+          "meaning": "to prefer / I prefer"
+        },
+        {
+          "infinitive": "coûter",
+          "presentIl": "il coûte",
+          "example": "Combien coûte la demi-bouteille ?",
+          "meaning": "to cost / it costs"
+        },
+        {
+          "infinitive": "prendre",
+          "presentNous": "nous prenons",
+          "example": "Nous prenons une demi-bouteille de vin de la maison.",
+          "meaning": "to have, to take when ordering / we will have"
+        },
+        {
+          "infinitive": "boire",
+          "presentElle": "elle boit",
+          "example": "Mon amie ne boit pas beaucoup de vin.",
+          "meaning": "to drink / she drinks"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "la carte des vins",
+          "en": "wine list",
+          "kind": "term"
+        },
+        {
+          "fr": "la bouteille",
+          "en": "bottle",
+          "kind": "term"
+        },
+        {
+          "fr": "la demi-bouteille",
+          "en": "half bottle",
+          "kind": "term"
+        },
+        {
+          "fr": "le verre",
+          "en": "glass (of wine)",
+          "kind": "term"
+        },
+        {
+          "fr": "le vin de la maison",
+          "en": "house wine",
+          "kind": "term"
+        },
+        {
+          "fr": "le vin rouge",
+          "en": "red wine",
+          "kind": "term"
+        },
+        {
+          "fr": "le budget",
+          "en": "budget",
+          "kind": "term"
+        },
+        {
+          "fr": "le prix",
+          "en": "price",
+          "kind": "term"
+        },
+        {
+          "fr": "la recommandation",
+          "en": "recommendation",
+          "kind": "term"
+        },
+        {
+          "fr": "le millésime",
+          "en": "vintage",
+          "kind": "term"
+        },
+        {
+          "fr": "le sommelier",
+          "en": "sommelier",
+          "kind": "term"
+        },
+        {
+          "fr": "la région",
+          "en": "region",
+          "kind": "term"
+        },
+        {
+          "fr": "le vin au verre",
+          "en": "wine by the glass",
+          "kind": "term"
+        },
+        {
+          "fr": "moins cher",
+          "en": "cheaper",
+          "kind": "term"
+        },
+        {
+          "fr": "Merci pour la recommandation, mais cela dépasse mon budget.",
+          "en": "Thanks for the recommendation, but it's over my budget.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Avez-vous quelque chose de similaire à un prix plus bas ?",
+          "en": "Do you have something similar at a lower price?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Qu’est-ce que vous me recommandez au verre ?",
+          "en": "What do you recommend by the glass?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je préfère quelque chose à moins de 40 euros.",
+          "en": "I'd prefer something under 40 euros.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Si vous avez une demi-bouteille, cela m'intéresse.",
+          "en": "If you have a half bottle, I'm interested.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Nous prenons une demi-bouteille de vin de la maison.",
+          "en": "We'll order the half bottle of the house wine.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Combien coûte la demi-bouteille ?",
+          "en": "How much does the half bottle cost?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "C'est un bon millésime.",
+          "en": "It's a good vintage.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "Le sommelier s'approche de la table avec la carte des vins et recommande une bouteille à 120 euros.",
+          "en": "The sommelier comes to the table with the wine list and recommends a bottle that costs 120 euros."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le voyageur sourit et dit : « Merci pour la recommandation, mais cela dépasse mon budget. »",
+          "en": "The traveler smiles and says: Thank you for the recommendation, but it's over my budget."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Puis il demande poliment : « Avez-vous quelque chose de similaire à un prix plus bas ? »",
+          "en": "Then he asks kindly: Do you have something similar at a lower price?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le sommelier explique que le vin de la maison est un vin rouge de la même région et que la bouteille coûte 35 euros.",
+          "en": "The sommelier explains that the house wine is a red wine from the same region and that the bottle costs 35 euros."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le voyageur demande aussi s’ils ont une demi-bouteille, car son amie ne boit pas beaucoup de vin.",
+          "en": "The traveler also asks if they have a half bottle, because his friend doesn't drink much wine."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le sommelier répond : « Oui, la demi-bouteille coûte 20 euros et elle est d’un bon millésime. »",
+          "en": "The sommelier says: Yes, the half bottle costs 20 euros and it is from a good vintage."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le voyageur répond : « Parfait, nous prenons une demi-bouteille de vin de la maison. »",
+          "en": "The traveler answers: Perfect, we'll order the half bottle of the house wine."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Pour finir, il remercie le sommelier pour son aide et sa patience.",
+          "en": "In the end, he thanks the sommelier for his help and his patience."
+        }
+      ],
+      "speaking": {
+        "role": "Diner declining an expensive bottle at a restaurant.",
+        "partnerRole": "Sommelier at the restaurant.",
+        "opening": "Merci pour la recommandation, mais cela dépasse mon budget.",
+        "goal": "The sommelier recommends a bottle far over your budget; decline gracefully and find a better-priced option.",
+        "closure": "Merci beaucoup, c'est parfait.",
+        "wordBank": [
+          "Merci pour la recommandation, mais cela dépasse mon budget.",
+          "Avez-vous quelque chose de similaire à un prix plus bas ?",
+          "Si vous avez une demi-bouteille, cela m'intéresse.",
+          "Je préfère quelque chose à moins de 40 euros.",
+          "Combien coûte la demi-bouteille ?",
+          "Qu’est-ce que vous me recommandez au verre ?",
+          "Nous prenons une demi-bouteille de vin de la maison."
+        ]
+      },
+      "n": 21,
+      "stableId": "travel-dinner:21:fr-en",
+      "sourceTitleEnglish": "Decline an expensive bottle",
+      "sourceObjectiveEnglish": "refuse a recommendation gracefully and find a better-priced bottle or glass",
+      "sourceSpeakingEnglish": "The sommelier recommends a bottle far over your budget; decline gracefully and find a better-priced option.",
+      "reviewed": false,
+      "internalReviewNote": "Source-pinned author draft; qualified French and restaurant-domain review remains open. Haiku 5.5 authored a candidate. Opus 5.5 read-only critique found the added “very” in good vintage, a female-friend mismatch, a false verre/vase contrast, a stiff ordering calque, and a roleplay goal mismatch. Self-check corrected those, retained the exact English Reader and plan, and kept the learner opening in the existing course schema. AI critique is not human approval. The 120-euro recommendation, 35-euro house bottle, 20-euro half bottle, under-40 preference and friend who drinks little remain in the source order.",
+      "modes": {
+        "see": {
+          "cueEnglish": "wine list",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "price",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Do you have something similar at a lower price?",
+          "sourceCard": 16,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "half bottle",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "I'd prefer something under 40 euros.",
+          "sourceCard": 18,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Thanks for the recommendation, but it's over my budget.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        }
+      }
+    }
+  ]
+}

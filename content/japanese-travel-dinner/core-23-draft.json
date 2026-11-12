@@ -1,0 +1,332 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "contentPath": "public/lesson-content/es/travel-dinner.json",
+    "contentSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "title": "Ask where locals celebrate",
+      "objective": "Ask a hotel concierge for a local celebration restaurant, including regional cuisine, price, reservation needs, and what to order.",
+      "focus": "地元の人はお祝いのとき、どこへ行きますか asks where locals go. 郷土料理 refers to regional cuisine; 観光客向けの店 contrasts a tourist-oriented restaurant. 一人あたり、だいたいいくらですか asks for an approximate per-person price. 予約が必要ですか checks booking needs. その店では何を注文するのがおすすめですか asks for a dish recommendation.",
+      "scene": "At a hotel in Mexico, Laura asks the concierge where local people celebrate her husband’s birthday. She wants regional cuisine at a quiet family-run restaurant with home-style food, not a tourist-oriented place. The concierge cites the menu: about 250 pesos for a main dish and 450 pesos for the Friday tasting menu. Friday is usually full, so he recommends a reservation. He suggests mole as a traditional dish and says the chef sometimes sends out a special dessert for a celebration.",
+      "forms": [
+        {
+          "base": "予約する",
+          "polite": "予約します",
+          "question": "予約しますか",
+          "meaning": "to book, to reserve"
+        },
+        {
+          "base": "勧める",
+          "polite": "勧めます",
+          "question": "勧めますか",
+          "meaning": "to recommend",
+          "example": "コンシェルジュはこの店を勧めます。"
+        },
+        {
+          "base": "頼む",
+          "polite": "頼みます",
+          "question": "頼みますか",
+          "meaning": "to order (food)"
+        },
+        {
+          "base": "祝う",
+          "polite": "祝います",
+          "question": "祝いますか",
+          "meaning": "to celebrate"
+        },
+        {
+          "base": "食べる",
+          "polite": "食べます",
+          "question": "食べますか",
+          "meaning": "to eat"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "コンシェルジュ",
+          "en": "concierge",
+          "kind": "term"
+        },
+        {
+          "ja": "お祝い",
+          "en": "celebration",
+          "kind": "term",
+          "readingKana": "おいわい"
+        },
+        {
+          "ja": "誕生日",
+          "en": "birthday",
+          "kind": "term",
+          "readingKana": "たんじょうび"
+        },
+        {
+          "ja": "郷土料理",
+          "en": "regional cuisine",
+          "kind": "term",
+          "readingKana": "きょうどりょうり"
+        },
+        {
+          "ja": "雰囲気",
+          "en": "atmosphere",
+          "kind": "term",
+          "readingKana": "ふんいき"
+        },
+        {
+          "ja": "家族経営のレストラン",
+          "en": "family restaurant",
+          "kind": "term",
+          "readingKana": "かぞくけいえいのレストラン"
+        },
+        {
+          "ja": "家庭料理",
+          "en": "homemade food",
+          "kind": "term",
+          "readingKana": "かていりょうり"
+        },
+        {
+          "ja": "メニュー",
+          "en": "menu",
+          "kind": "term"
+        },
+        {
+          "ja": "テイスティングメニュー",
+          "en": "tasting menu",
+          "kind": "term"
+        },
+        {
+          "ja": "予約",
+          "en": "reservation",
+          "kind": "term",
+          "readingKana": "よやく"
+        },
+        {
+          "ja": "伝統料理",
+          "en": "traditional dish",
+          "kind": "term",
+          "readingKana": "でんとうりょうり"
+        },
+        {
+          "ja": "デザート",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "ja": "シェフ",
+          "en": "chef",
+          "kind": "term"
+        },
+        {
+          "ja": "もう少し安くて、同じくらいおいしいところはありますか。",
+          "en": "Is there something less expensive but just as good?",
+          "kind": "phrase",
+          "readingKana": "もうすこしやすくて、おなじくらいおいしいところはありますか。"
+        },
+        {
+          "ja": "一人あたり",
+          "en": "per person",
+          "kind": "term",
+          "readingKana": "ひとりあたり"
+        },
+        {
+          "ja": "250ペソ",
+          "en": "250 pesos",
+          "kind": "term"
+        },
+        {
+          "ja": "450ペソ",
+          "en": "450 pesos",
+          "kind": "term"
+        },
+        {
+          "ja": "満席だったら、近くにほかの店はありますか。",
+          "en": "If it's full, is there another option nearby?",
+          "kind": "phrase",
+          "readingKana": "まんせきだったら、ちかくにほかのみせはありますか。"
+        },
+        {
+          "ja": "満席",
+          "en": "fully booked",
+          "kind": "term",
+          "readingKana": "まんせき"
+        },
+        {
+          "ja": "モレ",
+          "en": "mole",
+          "kind": "term",
+          "note": "A Mexican traditional dish named in the source scene."
+        },
+        {
+          "ja": "特別なデザート",
+          "en": "special dessert",
+          "kind": "term",
+          "readingKana": "とくべつなデザート"
+        },
+        {
+          "ja": "観光客向けの店",
+          "en": "touristy place",
+          "kind": "term",
+          "readingKana": "かんこうきゃくむけのみせ"
+        },
+        {
+          "ja": "地元の人はお祝いのとき、どこへ行きますか。",
+          "en": "Where do people from here go to celebrate?",
+          "kind": "phrase",
+          "readingKana": "じもとのひとはおいわいのとき、どこへいきますか。"
+        },
+        {
+          "ja": "一人あたり、だいたいいくらですか。",
+          "en": "About how much does it cost per person?",
+          "kind": "phrase",
+          "readingKana": "ひとりあたり、だいたいいくらですか。"
+        },
+        {
+          "ja": "予約が必要ですか。",
+          "en": "Do I need to make a reservation?",
+          "kind": "phrase",
+          "readingKana": "よやくがひつようですか。"
+        },
+        {
+          "ja": "その店では何を注文するのがおすすめですか。",
+          "en": "What do you recommend I order there?",
+          "kind": "phrase",
+          "readingKana": "そのみせではなにをちゅうもんするのがおすすめですか。"
+        },
+        {
+          "ja": "金曜日はほぼいつも満席です。",
+          "en": "On Fridays it is almost always full.",
+          "kind": "phrase",
+          "readingKana": "きんようびはほぼいつもまんせきです。"
+        },
+        {
+          "ja": "お店にお祝いだと伝えてください。",
+          "en": "Let them know it is a celebration.",
+          "kind": "phrase",
+          "readingKana": "おみせにおいわいだとつたえてください。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "ホテルで、ローラはコンシェルジュに「地元の人はお祝いのとき、どこへ行きますか」と尋ねます。",
+          "en": "At the hotel, Laura asks the concierge: Where do people from here go to celebrate?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "夫の誕生日だと説明し、観光客向けの店ではなく郷土料理の店に行きたいと伝えます。",
+          "en": "She explains that it is her husband's birthday and that she wants regional cuisine, not a touristy place."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "コンシェルジュは、落ち着いた雰囲気で家庭料理が味わえる家族経営のレストランを勧めます。",
+          "en": "The concierge recommends a family restaurant to her because the atmosphere is quiet and the food is homemade."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ローラは「一人あたり、だいたいいくらですか」と尋ねます。",
+          "en": "Laura asks: About how much does it cost per person?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "彼は、店のメニューによると、メイン料理はおよそ250ペソで、金曜日のテイスティングメニューは450ペソだと答えます。",
+          "en": "He answers that, according to the restaurant's menu, a main dish costs about 250 pesos, and the Friday tasting menu costs 450 pesos."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "それからローラは「予約が必要ですか」と尋ねます。",
+          "en": "Then she asks: Do I need to make a reservation?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "コンシェルジュは、金曜日はたいてい満席なので予約が必要だと答えます。",
+          "en": "The concierge says yes, because on Fridays it is almost always full."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ローラは「その店では何を注文するのがおすすめですか」と尋ねます。",
+          "en": "Laura asks: What do you recommend I order there?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "コンシェルジュは「地元の人は伝統料理のモレを注文します。お店にお祝いだと伝えてください。シェフが特別なデザートを出してくれることもありますから」と言います。",
+          "en": "The concierge says: People from here order the mole, the traditional dish, and let them know it is a celebration, because sometimes the chef sends out a special dessert."
+        }
+      ],
+      "speaking": {
+        "role": "Guest asking the hotel concierge for a local restaurant recommendation",
+        "partnerRole": "Concierge who recommends a family restaurant for a celebration",
+        "opening": "地元の人はお祝いのとき、どこへ行きますか。",
+        "goal": "Ask your concierge where locals book for a celebration and what to order there.",
+        "closure": "ありがとうございます。予約についても聞いてみます。",
+        "wordBank": [
+          "お祝い",
+          "誕生日",
+          "郷土料理",
+          "家族経営のレストラン",
+          "予約",
+          "メニュー",
+          "一人あたり、だいたいいくらですか。",
+          "予約が必要ですか。",
+          "その店では何を注文するのがおすすめですか。",
+          "お店にお祝いだと伝えてください。",
+          "金曜日はほぼいつも満席です。",
+          "満席だったら、近くにほかの店はありますか。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "concierge",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "birthday",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Do I need to make a reservation?",
+          "sourceCard": 25,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "tasting menu",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "What do you recommend I order there?",
+          "sourceCard": 26,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Let them know it is a celebration.",
+          "sourceCard": 28,
+          "responseKind": "open"
+        }
+      },
+      "n": 23,
+      "stableId": "travel-dinner:23:ja-en",
+      "sourceTitleEnglish": "Ask where locals celebrate",
+      "sourceObjectiveEnglish": "get a recommendation by cuisine, price, booking needs, and what to order",
+      "sourceSpeakingEnglish": "Ask your concierge where locals book for a celebration and what to order there.",
+      "reviewed": false,
+      "internalReviewNote": "Owner-only source-aligned draft. Haiku 5.5 candidate, Opus 5.5 read-only critique and source-grounded self-corrections. Corrected go-to destination, local-people register, tourist-oriented restaurant, regional cuisine, family-run/home-style distinction, restaurant recommendation, Friday booking response and chef-dessert sentence. Mexico pesos/mole context preserved. Qualified Japanese, Mexico restaurant, menu/pricing and cultural review remains open; AI is not human approval."
+    }
+  ]
+}

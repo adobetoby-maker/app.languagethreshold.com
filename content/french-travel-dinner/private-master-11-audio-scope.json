@@ -1,0 +1,515 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "voices": [
+    "fr-FR-Chirp3-HD-Aoede",
+    "fr-FR-Chirp3-HD-Charon"
+  ],
+  "sourceSHA256": {
+    "master-11-private-draft.json": "a7092e4dd2e15728be66930ee3322376719a86c432a0e6577a34d30c5c1b8ca7"
+  },
+  "previousScopeSHA256": {
+    "foundation.json": "cdbee8c457ff9c9f0f400113d63347fb471506c22bb6bbd2eb089762fb77e9fe",
+    "core-1-3.json": "ab62ab86e0b9b51bfe5f4905a86cded44d046adb156f4cd194f79ec357599d10",
+    "core-4-9.json": "3d4aa7070a2d8bd67cac94208a11a43b813fcb3e4d6b1da8ffe99389e233c344",
+    "core-10-12.json": "ebc33851805ff0125eddab0a4836f3afd27fa1e2ea99d4eeed1434b6808531a6",
+    "private-owner-delta-audio-scope.json": "97484eaa2099e1820a68da85843f0e5a32ff9f9ac861b7d275dcc27620ba7206",
+    "private-core-13-audio-scope.json": "dab949203658a04cc91da3ef3094590048919296d4e2cb45e22dba47e969cf2e",
+    "private-core-14-audio-scope.json": "ce2fdbd2b5c41f23d8a51996c9f6245a38159bb8ce3593af35b0fa0e69f547b3",
+    "private-core-15-audio-scope.json": "3d8b7c021b39f809795def5b5b03837ce75617cc9ebece0e89fe24be77bec8d5",
+    "private-core-16-audio-scope.json": "33db9f45805dd8910425f1e5840943e7509f3c65cabdf1b4a7fa6fba41fc1e5b",
+    "private-core-17-audio-scope.json": "c5b9cd5c8aa0257f3104ad7ee7ae4d8270acd70db52bc36d9eea449fa63872df",
+    "private-core-18-audio-scope.json": "edd20f215e7720ab6f61aadb11fc7d86429adfd23baa8fee773e9d90690bebd4",
+    "private-core-19-audio-scope.json": "27b626c300ced17a3675a230899fa1ff123a4bd1443eda6d54b61de4f75308e4",
+    "private-core-20-audio-scope.json": "7e6badf17a000b50aed36910317708d30c37016b7b4b4b06ca35b7d584a8f7f0",
+    "private-core-21-audio-scope.json": "3a4ee65d6d3b7f38b166a516c88f303e09f910801e72a701165ca61ba9c9f2d1",
+    "private-core-22-audio-scope.json": "52ed5c65d71e8fbdb228ef8bc3a7a1cee8b0afc17b416097cdea36c171838e4e",
+    "private-core-23-audio-scope.json": "f742a6d201149062b199bbcb9cb6bf37bd070940c98377e28170da2c1f881ea7",
+    "private-core-24-audio-scope.json": "896cb33c0149fac4cfb3187dbe9ef82a72e093f070adaea916518f339e30bfa4",
+    "private-core-25-audio-scope.json": "3956c727ff300622929244baec1ce06c5ea371c06573cbe8b90b51a5c3db4d9b",
+    "private-core-26-audio-scope.json": "07b4608c082487ba5a55f47edcee07c95cd850dedfed11d160ea91529d0c3573",
+    "private-core-27-audio-scope.json": "5b31a3f11424d275eec7eac05356e4b95c42cbe86fd5c1322babf24fc31f9b5d",
+    "private-core-28-audio-scope.json": "10be69783b3b0e3be4817001a49fdc836469598655e5763ecb73c2cf8d32a43e",
+    "private-core-29-audio-scope.json": "12df60efddd5ee662977ca5aba6229b57dbb5c71b244cae99cfc578289540ba5",
+    "private-core-30-audio-scope.json": "68cc5151faaa5864f27b81c930b1e8412c0fc891609c7498699aac5f1990feda",
+    "private-master-1-audio-scope.json": "73974d1ea2fd2ef77baab624490efda93e4038e7470cd2083b0a4d4284b2984a",
+    "private-master-2-audio-scope.json": "f867fd31a1e7c7991d359a3e5f1248d936b14083f07717e74c21245af8960b98",
+    "private-master-3-audio-scope.json": "96f52df5299501275d4f6d7957737e9db27235d145946f084a3e21b4de986319",
+    "private-master-4-audio-scope.json": "ea7becf0ab92df7fc6d485ab97205efec6b0e530dfaa3ad0f53c28e43514d9e0",
+    "private-master-5-audio-scope.json": "312b1e136bac580f1d4eb73ee993ae9d42c13e131d5de3051d1363687cf57bc9",
+    "private-master-6-audio-scope.json": "94f3acbfa5634d54efb33042195f15877472a8010af1dbeaf933a219ec9a5e8c",
+    "private-master-7-audio-scope.json": "0cd9c4a0602d91e2f4abf883b38ddda60b87f8a3c41f836f201ae1a5e78040e6",
+    "private-master-8-audio-scope.json": "4fd81aa8cea629a7984168f394220b33b99f59cd00ad5a7865d7313b3965d358",
+    "private-master-9-audio-scope.json": "093d226253ca3c0c5bea852ee71a3492ebbc9d4dc3dbbf1e910912aebd707dd5",
+    "private-master-10-audio-scope.json": "5e476f4026157303b726864d2ec667c8bb6bb21e88433aac9c1884e33e42521b"
+  },
+  "lessonIds": [
+    "master-travel-dinner:11:fr-en"
+  ],
+  "placements": 42,
+  "uniqueTexts": 41,
+  "proposedClips": 82,
+  "submittedCharacters": 4968,
+  "texts": [
+    {
+      "spokenText": "Allez, Walter, c'est moi qui me chargerai de demander l'addition.",
+      "textSHA256": "400ac7ab7ed63fe5584a872330cbe4a6fe736f7ad912b52320f91349f3d1a9dd",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 23
+        }
+      ]
+    },
+    {
+      "spokenText": "Courage, les filles, on y est presque ! Les croquettes arrivent.",
+      "textSHA256": "e46c7a9a331292aa6b494327a56b05e0023828fd4e05f135104fadfa9b417235",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "spokenText": "En attendant, nous regarderons comment ils servent le cidre de haut.",
+      "textSHA256": "8ba77d740c01376029d98a6faec355cd6c06620d91f97b57a45a0f0df0b429f3",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 21
+        }
+      ]
+    },
+    {
+      "spokenText": "Il est 21 h 10 un samedi, et la sidrería El Puerto, à Gijón, est pleine à craquer.",
+      "textSHA256": "82e3aa7e5bea59ce56ceebdc59c7116e48b5f8f48fc00d6bce0742b3cc17a1ae",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "Il y a un moment, ils ont commandé un cachopo à partager et une fabada pour Walter.",
+      "textSHA256": "9d61392af1d47e88aa0517a4a8096732491732757d9ea5fe5712cc4314f1ea3a",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "Je vous promets que le cachopo en vaudra la peine.",
+      "textSHA256": "8f32e0e93402863f6411be7de48de431c6380c6c73a36e10023b9b31eca404ce",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 20
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura : Allez, Walter, c'est moi qui me chargerai de demander l'addition.",
+      "textSHA256": "0b0da481ea228b6f3c9d9c3324679ced7386e50ee33765958b4e03b9f42ceb22",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "reader",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura : En attendant, nous regarderons comment ils servent le cidre de haut.",
+      "textSHA256": "14d3ffa785fff76d6337c77b516742b34dba3c30bf4b42e47a5f00ebde1c8aa0",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "reader",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura : Je commanderai aussi une planche de charcuterie à grignoter tout de suite.",
+      "textSHA256": "3ff0c371a0cb04e17821dc8fddfbadfa29651657802032159dbdf65173a6f48e",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura : Nel, tu nous apportes des croquettes en attendant, s'il te plaît ?",
+      "textSHA256": "ae1202e3cd944afc7daefa978cd27a443442f5a0795428123286f86374ecc3a2",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura : Nel, tu nous préviens si la cuisine met plus de 50 minutes ?",
+      "textSHA256": "e5c21dd1f8b46181f9bf4b468f3bf353528989384d0dc729e121acdbb119ebfc",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "reader",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura : Si à 22 h il n'y a pas de cachopo, nous commanderons autre chose.",
+      "textSHA256": "98cca99c541391a044bd1e5937237a3225d7460a2cfbc0cf84844c84e19d505c",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "reader",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura encourage les filles : Courage, on y est presque !",
+      "textSHA256": "c84fe85392d75db239c97fb0a13c96585a909562d4b52ed3dd6202276cee679c",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "reader",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura est venue dîner avec son beau-père, Walter, et ses deux nièces, Inés et Carla.",
+      "textSHA256": "5a0007bf3bc7f52a62c4a331c092777adb2a6c30c529a3e197e3c1ec61c9fa83",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura et Walter boivent leur culín d'un trait, Inés et Carla trinquent avec du jus de pomme, et tout le monde sourit.",
+      "textSHA256": "267f27cc6f3739127450397045854d6b06f5da00531106fe71859b1675f0a30d",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "reader",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "spokenText": "Nel : Votre bon de commande est déjà en cuisine, mais ce soir, nous sommes très lents.",
+      "textSHA256": "799247580172c43d0349ebe485f4afb8a670db1fd324f9fa80ae596863e59612",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "Nel : « Votre commande est déjà en cuisine, mais ce soir, nous sommes très lents. »",
+      "textSHA256": "afd92fc8f27c0e083f60d8c7e72f0da18febbf2f434bb2d5e9ec40ffc3a6ee2f",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "spokenText": "Nel accepte cette limite de temps et promet qu'à 22 h il passera à la table leur donner des nouvelles.",
+      "textSHA256": "d19ea9258a9f1b9105c42c985d71c2f5aff03be1bab802e9ae49f480907935aa",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "reader",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "spokenText": "Nel recommande le fromage bleu de Cabrales, mais Inés dit que le fromage bleu est trop fort pour elle.",
+      "textSHA256": "744429f4fd40061802921bf8d17998575cce7e2b02c77243796f57f57d5832df",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "Nel sert le cidre naturel avec un long escanciado, en levant la bouteille au-dessus de sa tête.",
+      "textSHA256": "9532f87d544a7226a2d344cede442ddc148edcfbb2461e86519d15b6ecdf7d04",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "reader",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "spokenText": "Nel, le serveur, s'approche et explique que la cuisine accuse 50 minutes de retard.",
+      "textSHA256": "89abd128bce2cb0286d8b12b86b0aeb7ea97e10d350859b02e45e80989f35ad9",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "Nel, tu nous apportes des croquettes en attendant, s'il te plaît ?",
+      "textSHA256": "e3036396415ad3a4a2bb911d36eb5765f99664128586560be45514b78387f6b5",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "spokenText": "Nel, tu nous préviens si la cuisine met plus de 50 minutes ?",
+      "textSHA256": "bb85b612560b022d7e3564e60701e2140e949e5c3a29444e56bf145166be1dfb",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 22
+        }
+      ]
+    },
+    {
+      "spokenText": "Quand le picoteo arrive, Inés et Carla reprennent aussitôt le moral.",
+      "textSHA256": "1c90e71ef654b47977a1fbcef32fb6a5819b93931eb12ccf4ae8715e459f470b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "reader",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "spokenText": "Si à 22 h il n'y a pas de cachopo, nous commanderons autre chose.",
+      "textSHA256": "a7d4c3b3df249ebd2c36b2b164bdef26325cebd01712da71bec6e929ffd0464d",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 19
+        },
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "spokenText": "Walter est fatigué et demande s'il ne vaudrait pas mieux chercher un autre endroit.",
+      "textSHA256": "95d0526d2039cb535b5f080d4f6955d76cc8d3e244091606080647e3ca0130ff",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "Walter, dans 20 minutes, nous déciderons si nous restons.",
+      "textSHA256": "0962aba010b98f5ccd71c524c9be3297b7e3ef70b6f9d9f93b22ebf2df78f452",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "spokenText": "l'escanciado (cidre versé de haut pour l'aérer)",
+      "textSHA256": "b43c5420323a2b29f5850ba853089feb89db67904a70390f7e48aa047f16dfb3",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "la fabada (ragoût asturien de haricots blancs)",
+      "textSHA256": "232a320a390b05801d86d9c755fc8bc1b74592dc3afb246b18e912e9081d20e5",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "la limite de temps",
+      "textSHA256": "6e1d8e17db75d6184e0dbcbc75096c230e0dda0821568591654de116740230ea",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "spokenText": "la planche de charcuterie",
+      "textSHA256": "9bd2b19113f8a5386095c76f92c09b52250786ef7b4c0a358414bd6ca7e63c67",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "spokenText": "la sidrería (bar à cidre asturien)",
+      "textSHA256": "6fcb18c63b7310738d3ce4bacb48300642b29f526651646fe2648aa22b71d41d",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "le beau-père",
+      "textSHA256": "e9f7f82432f083a013a519471633ba317d0c60f555ebf405ee108ebe3fbab274",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "spokenText": "le bon de commande",
+      "textSHA256": "72683d7dabcddb6d5384ff5033965b96217e651d9ecfd1a2ed521ba961b845fb",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "le cachopo (escalope de veau panée et farcie)",
+      "textSHA256": "f946ba32446ff98338bce3ca2ff9a6dfac82e7074de4292bfc73d94382fe3d13",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "le cidre naturel (sidra natural)",
+      "textSHA256": "838303b37268e2ff886fb1128183a2831baa1d22f67ffc5534eb8dd755132937",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "le culín (petite dose de cidre à boire d’un trait)",
+      "textSHA256": "3df15269c3a79d89258541373a50f1b1e94f19e46e495574fbc2b2f0b3b873f2",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "le fromage bleu de Cabrales",
+      "textSHA256": "5dcf94b4616c91f310c57bc9d045af1de368501d8054422ef9b06a736ff4e82a",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "le picoteo (de quoi grignoter à partager)",
+      "textSHA256": "9afb2c650f429c9a353de5dfa7c28331c080e625e43548a155134274b2dc0512",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "les croquettes",
+      "textSHA256": "a2986c5fbcf49966ebb32be406928e76d2cb017008033d88635c073739eeb604",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "spokenText": "les nièces",
+      "textSHA256": "f223b31dda9d31d0461bb8010ecaef179761eab0c129b432fdda51f2f131aa1e",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:11:fr-en",
+          "surface": "card",
+          "index": 14
+        }
+      ]
+    }
+  ],
+  "recordingsBundled": false,
+  "listeningReviewed": false,
+  "registered": false
+}

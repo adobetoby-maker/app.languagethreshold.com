@@ -1,0 +1,525 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "voices": [
+    "fr-FR-Chirp3-HD-Aoede",
+    "fr-FR-Chirp3-HD-Charon"
+  ],
+  "sourceSHA256": {
+    "master-15-private-draft.json": "3fe10c95576ed45d9d1587c5d9197435b46dabbedd8f39c382a6e6464b16d923"
+  },
+  "previousScopeSHA256": {
+    "foundation.json": "cdbee8c457ff9c9f0f400113d63347fb471506c22bb6bbd2eb089762fb77e9fe",
+    "core-1-3.json": "ab62ab86e0b9b51bfe5f4905a86cded44d046adb156f4cd194f79ec357599d10",
+    "core-4-9.json": "3d4aa7070a2d8bd67cac94208a11a43b813fcb3e4d6b1da8ffe99389e233c344",
+    "core-10-12.json": "ebc33851805ff0125eddab0a4836f3afd27fa1e2ea99d4eeed1434b6808531a6",
+    "private-owner-delta-audio-scope.json": "97484eaa2099e1820a68da85843f0e5a32ff9f9ac861b7d275dcc27620ba7206",
+    "private-core-13-audio-scope.json": "dab949203658a04cc91da3ef3094590048919296d4e2cb45e22dba47e969cf2e",
+    "private-core-14-audio-scope.json": "ce2fdbd2b5c41f23d8a51996c9f6245a38159bb8ce3593af35b0fa0e69f547b3",
+    "private-core-15-audio-scope.json": "3d8b7c021b39f809795def5b5b03837ce75617cc9ebece0e89fe24be77bec8d5",
+    "private-core-16-audio-scope.json": "33db9f45805dd8910425f1e5840943e7509f3c65cabdf1b4a7fa6fba41fc1e5b",
+    "private-core-17-audio-scope.json": "c5b9cd5c8aa0257f3104ad7ee7ae4d8270acd70db52bc36d9eea449fa63872df",
+    "private-core-18-audio-scope.json": "edd20f215e7720ab6f61aadb11fc7d86429adfd23baa8fee773e9d90690bebd4",
+    "private-core-19-audio-scope.json": "27b626c300ced17a3675a230899fa1ff123a4bd1443eda6d54b61de4f75308e4",
+    "private-core-20-audio-scope.json": "7e6badf17a000b50aed36910317708d30c37016b7b4b4b06ca35b7d584a8f7f0",
+    "private-core-21-audio-scope.json": "3a4ee65d6d3b7f38b166a516c88f303e09f910801e72a701165ca61ba9c9f2d1",
+    "private-core-22-audio-scope.json": "52ed5c65d71e8fbdb228ef8bc3a7a1cee8b0afc17b416097cdea36c171838e4e",
+    "private-core-23-audio-scope.json": "f742a6d201149062b199bbcb9cb6bf37bd070940c98377e28170da2c1f881ea7",
+    "private-core-24-audio-scope.json": "896cb33c0149fac4cfb3187dbe9ef82a72e093f070adaea916518f339e30bfa4",
+    "private-core-25-audio-scope.json": "3956c727ff300622929244baec1ce06c5ea371c06573cbe8b90b51a5c3db4d9b",
+    "private-core-26-audio-scope.json": "07b4608c082487ba5a55f47edcee07c95cd850dedfed11d160ea91529d0c3573",
+    "private-core-27-audio-scope.json": "5b31a3f11424d275eec7eac05356e4b95c42cbe86fd5c1322babf24fc31f9b5d",
+    "private-core-28-audio-scope.json": "10be69783b3b0e3be4817001a49fdc836469598655e5763ecb73c2cf8d32a43e",
+    "private-core-29-audio-scope.json": "12df60efddd5ee662977ca5aba6229b57dbb5c71b244cae99cfc578289540ba5",
+    "private-core-30-audio-scope.json": "68cc5151faaa5864f27b81c930b1e8412c0fc891609c7498699aac5f1990feda",
+    "private-master-1-audio-scope.json": "73974d1ea2fd2ef77baab624490efda93e4038e7470cd2083b0a4d4284b2984a",
+    "private-master-2-audio-scope.json": "f867fd31a1e7c7991d359a3e5f1248d936b14083f07717e74c21245af8960b98",
+    "private-master-3-audio-scope.json": "96f52df5299501275d4f6d7957737e9db27235d145946f084a3e21b4de986319",
+    "private-master-4-audio-scope.json": "ea7becf0ab92df7fc6d485ab97205efec6b0e530dfaa3ad0f53c28e43514d9e0",
+    "private-master-5-audio-scope.json": "312b1e136bac580f1d4eb73ee993ae9d42c13e131d5de3051d1363687cf57bc9",
+    "private-master-6-audio-scope.json": "94f3acbfa5634d54efb33042195f15877472a8010af1dbeaf933a219ec9a5e8c",
+    "private-master-7-audio-scope.json": "0cd9c4a0602d91e2f4abf883b38ddda60b87f8a3c41f836f201ae1a5e78040e6",
+    "private-master-8-audio-scope.json": "4fd81aa8cea629a7984168f394220b33b99f59cd00ad5a7865d7313b3965d358",
+    "private-master-9-audio-scope.json": "093d226253ca3c0c5bea852ee71a3492ebbc9d4dc3dbbf1e910912aebd707dd5",
+    "private-master-10-audio-scope.json": "5e476f4026157303b726864d2ec667c8bb6bb21e88433aac9c1884e33e42521b",
+    "private-master-11-audio-scope.json": "b8bf481ebb04a7628ef3eb96df412db658fbdc2aa30df2d0fef3756503ee74e4",
+    "private-master-12-audio-scope.json": "3d906ab2a93551156818bd69c16c165fa34ae920302ef7d62ca643602f803d07",
+    "private-master-13-audio-scope.json": "c80dbd95f47055fdc2e4d35b493490a1dfcba0fa93173787d662d0038149e031",
+    "private-master-14-audio-scope.json": "425ca2e56973613e62c72dfc9eb101e068fe844fe774bfdffb388ed1824d3e4e"
+  },
+  "lessonIds": [
+    "master-travel-dinner:15:fr-en"
+  ],
+  "placements": 42,
+  "uniqueTexts": 42,
+  "proposedClips": 84,
+  "submittedCharacters": 4714,
+  "texts": [
+    {
+      "spokenText": "Dans l’escalier, Olivia tousse, car la fumée monte derrière eux.",
+      "textSHA256": "fdc7b68f72957432159fd1ece3fd3550fd51e27618fa952f9b11b515323ba9e8",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "De la fumée sort de la cuisine d'un restaurant en sous-sol.",
+      "textSHA256": "242f4676cf8ae2284914717567bd2537413e5808dbad06bba996cfc781b0a803",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 20
+        }
+      ]
+    },
+    {
+      "spokenText": "Dois-je rester en ligne jusqu'à l'arrivée des pompiers ?",
+      "textSHA256": "7cb931702b58ff2133d0276ecb6bc31abbdae97e8f09f960457501468c042c57",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 23
+        }
+      ]
+    },
+    {
+      "spokenText": "Enfin, ils sortent par la porte de la rue, et Álvaro compte tous les clients sur le trottoir.",
+      "textSHA256": "ae2067f534f0b8ec1ac34734f4cd09d1bd9bd8d3177ff8d9d5bcced4626b60e4",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "L'adresse est rue de la Cava Baja, numéro 24.",
+      "textSHA256": "f1b67f08bfc6b53471c21881d888b4c991993e4a2bf8a4012ca3fa170932e88f",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 21
+        }
+      ]
+    },
+    {
+      "spokenText": "L'opératrice demande l'adresse exacte, et Sam lit le numéro de l'immeuble sur le mur.",
+      "textSHA256": "ea392e58011960ec149dbe2db87ca50add8c1b2ab922941d37639041ce427480",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "reader",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "spokenText": "Nate s'arrête et dit que sa veste est toujours sur la chaise du sous-sol.",
+      "textSHA256": "515ab73d576121ceb4dc40c653b0243548fcc51abfd0f97a6e81eea25cb90924",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "Nate, n’y retourne pas, la veste n’a pas d’importance !",
+      "textSHA256": "92d454145220d31aed36dfc3cc8587725993cb07e2154daa8d9893532bdb05e0",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "spokenText": "Nous sommes tous dehors et, à notre connaissance, il n’y a pas de blessés.",
+      "textSHA256": "6cc8d0a79ef1693611f19e9325d01e99d62ef28f575d33f2008f21fe2b78bda2",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 22
+        }
+      ]
+    },
+    {
+      "spokenText": "Olivia, accroche-toi à moi et ne t’éloigne pas.",
+      "textSHA256": "06db28d098574e0841c681c81b26193f4df31032b5619737cb2cf28ffe9b6d0c",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "spokenText": "Opératrice : Oui, restez avec moi ; si quelqu'un a une forte toux, nous enverrons aussi une ambulance.",
+      "textSHA256": "5426b8c20cf3e3262e8bd9088bcafa6b7edf95fbe92c9c5ecd5e8219a7e41ec5",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "reader",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "spokenText": "Oui, je reste en ligne avec vous jusqu’à l’arrivée des pompiers.",
+      "textSHA256": "71a740b3f30472bc45e3e50ad1e916aed9d96a0f1357dd4b63f104a7b16f2ea3",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "spokenText": "Sam : Dois-je rester en ligne jusqu'à l'arrivée des pompiers ?",
+      "textSHA256": "74eccf980998867c057e1992f974dd93259c7274f876ef6dc86c8d234acd0fbd",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "reader",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "spokenText": "Sam : L'adresse est rue de la Cava Baja, numéro 24.",
+      "textSHA256": "1a90cbeff11aec64e67ea9f623c78ad2b68b57dc63f2fe959a3549cbb1771055",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "reader",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "spokenText": "Sam : Nate, n’y retourne pas, la veste n’a pas d’importance !",
+      "textSHA256": "637ddc536782f6a840b145fd22ad61e67b0a7162ff1faae217aa416fc7a49bfb",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "Sam : Nous sommes tous dehors et, à notre connaissance, il n’y a pas de blessés.",
+      "textSHA256": "bbe9ade740f8af0d0ca01165a4d91b74e05b56c57de0e21fb64eadd067a02d82",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "reader",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "spokenText": "Sam : Olivia, accroche-toi à moi et ne t’éloigne pas.",
+      "textSHA256": "0b2097ae2f5f166a65bf37545b56c2522850c8106a941e5340e326d95365152b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "Sam : Suivez-moi, par ici, derrière Álvaro !",
+      "textSHA256": "98069e7e7c125e1acf9eb8ea5a648c18bf187dfc52df72955976c101a23de784",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "Sam : S’il sort davantage de fumée, nous traverserons la rue pour passer sur le trottoir d’en face.",
+      "textSHA256": "51f758606d1c71af4c608a483300e315ab2415d9cd6fc0b49bc100bae079f4f5",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "reader",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "spokenText": "Sam appelle le 112 depuis la rue et dit : De la fumée sort de la cuisine d'un restaurant en sous-sol.",
+      "textSHA256": "ebdb20bdaff3bea66daf4813360964d4008a119fc4291ab7152c98a9d7db2f90",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "reader",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "spokenText": "Sam dit à ses amis : Si les pompiers nous le demandent, nous attendrons ici jusqu'à la fin.",
+      "textSHA256": "3a738225dfa321df804f12343586a923bbca0208b70e1978d70e54bfd9f7d72b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "reader",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "spokenText": "Sam dîne avec ses amis Olivia et Nate dans un restaurant situé au sous-sol d'un vieil immeuble de Madrid.",
+      "textSHA256": "7026611f5ae07328555530fd4276ca630694bac073d9bf2089de3c4b081ef54a",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "Soudain, le serveur Álvaro sent une forte odeur de brûlé et voit une fumée grise sortir de la cuisine.",
+      "textSHA256": "4398231a27fe396b062c324902624376e6afe7e16de4c8028636060dc024f4dc",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "Suivez-moi, par ici, derrière Álvaro !",
+      "textSHA256": "5facb4135a156e159ad29b7d6d174340592eafe1fe27231d78a32b27403206e4",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "spokenText": "S’il sort davantage de fumée, nous traverserons la rue pour passer sur le trottoir d’en face.",
+      "textSHA256": "2a241b739d1344bcab3aa20a43310b18419a012de7a0079fac6e85a6ae2b563c",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 19
+        }
+      ]
+    },
+    {
+      "spokenText": "l'adresse exacte",
+      "textSHA256": "5719c48eeb2867f2d8c0d226d0c34610ec87eb637be4f24f0a8e2d8c6afbcc2c",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "l'incendie",
+      "textSHA256": "38c5a8dfef50024db0bf08d44778e08f4fca91decfb842ec42f5a8074de4c1bb",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "l'odeur de brûlé",
+      "textSHA256": "34b52a17553257d5d29046cb8a58c3a1d7e31ff816056fe0c52a49cca8e53798",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "la fumée",
+      "textSHA256": "9cc83fcbf728796dcb5c9a1d7e9b4442faa37cc9487388aa74741d2299dd273e",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "la porte de la rue",
+      "textSHA256": "eaea82c84e735aea2dc79983addc942349edb3dccc881ad163d5e9654fc45f4c",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "la sortie de secours",
+      "textSHA256": "be54c15192af92ce74af53be04bbbad9963b71d5c8e74f8c25231f6d81f4d419",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "la toux",
+      "textSHA256": "38451d1cf483f82466dd02c3d6c12b21e16f2b3473dd49f901de3f5f34becb0c",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "spokenText": "le carrefour",
+      "textSHA256": "ac46afe7ea5aa0db8f1044ea8c4dfaac33bae868f589451d0f0a988f9e59ae96",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "spokenText": "le numéro de l'immeuble",
+      "textSHA256": "e67953e11c9a309a682022a3ad5e753c58edd4016c7f04c8a929f044eee4caca",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "spokenText": "le point de rassemblement",
+      "textSHA256": "77d12a30e587722586b5541ecee94536603a8deca641206f58ca0c97be350be0",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "le sous-sol",
+      "textSHA256": "1b897d9c8fd281bb7ebe7b3ce443fa20a21e79aee9a1cd5ed8db1787c5a987e2",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "le trottoir d'en face",
+      "textSHA256": "a545fd62bab2dc7b266039579f86d9be33499cf4fe722023994747934a0e93b6",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "les blessés",
+      "textSHA256": "ad9232d906570e1da0d3a4c9c3a3bb52faf077198dd3896a80dd8d1ab3c4f154",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "spokenText": "les pompiers",
+      "textSHA256": "02c63820f78ecaee936b2e7166493f7cb8fc6358ba850b93493e6feacee56c51",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "card",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "Álvaro : Il y a un petit incendie dans la cuisine ; s'il vous plaît, laissez tout et montez l'escalier jusqu'à la sortie de secours.",
+      "textSHA256": "76ce901640cbeec678c606bc56261fea9dc9948797b9d73a98f44e5d52415415",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "Álvaro : Il y a un petit incendie dans la cuisine. Laissez tout et suivez-moi vers la sortie de secours.",
+      "textSHA256": "3d12821c533f47a7b8c80f8be360ddfea7cc37f73f7d4f81aed74312d8ab72ac",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "spokenText": "Álvaro : Si tout le monde est là, nous irons ensemble au point de rassemblement, au carrefour à l’angle de la rue.",
+      "textSHA256": "e83f0d98782dd700ff6311b088c0584cdfc213fc4b5ab41b87c2daea5d2e6667",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:fr-en",
+          "surface": "reader",
+          "index": 10
+        }
+      ]
+    }
+  ],
+  "recordingsBundled": false,
+  "listeningReviewed": false,
+  "registered": false
+}

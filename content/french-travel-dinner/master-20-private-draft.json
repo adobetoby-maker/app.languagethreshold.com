@@ -1,0 +1,360 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-dinner.json",
+    "curriculumSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "passagePath": "public/lesson-content/es/master-travel-dinner.json",
+    "passageSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 20,
+      "stableId": "master-travel-dinner:20:fr-en",
+      "sourceTitleEnglish": "Capstone: An Engagement Dinner Day in Cusco",
+      "sourceObjectiveEnglish": "Run a full celebration day: rebook, fix a menu gap, protect a guest, handle a near miss, and send the day's summary.",
+      "sourceSpeakingEnglish": "You are organizing Emma's engagement dinner in Cusco, and the AI is Wilber, Killa and the guests: re-place the pisco order, agree on a wine replacement, check a guest's allergy and text the family a summary, using conditionals, siempre que and connectors like por consiguiente.",
+      "title": "Capstone: An Engagement Dinner Day in Cusco",
+      "objective": "Run a full celebration day: rebook, fix a menu gap, protect a guest, handle a near miss, and send the day's summary.",
+      "focus": "Capstone : intégrer la grammaire du Master 20. La condition avec « si » + imparfait et conditionnel présent ; « à condition que » + subjonctif ; « par conséquent » pour exprimer la conséquence ; le vouvoiement avec le personnel et le tutoiement avec un enfant.",
+      "scene": "Ce soir, à Cusco, nous fêtons les fiançailles de ma sœur Emma dans un restaurant du centre-ville. Son fiancé, Diego, arrive à 18 h avec les bagues. Pendant le dîner, il faut réparer une commande de pisco perdue, remplacer un vin épuisé, protéger mon cousin, allergique aux cacahuètes et gérer un incident avec la pierre chaude.",
+      "cards": [
+        {
+          "en": "the engagement",
+          "fr": "les fiançailles",
+          "kind": "term"
+        },
+        {
+          "en": "the fiancé",
+          "fr": "le fiancé",
+          "kind": "term"
+        },
+        {
+          "en": "the lost order",
+          "fr": "la commande égarée",
+          "kind": "term"
+        },
+        {
+          "en": "the quebranta pisco",
+          "fr": "le pisco quebranta",
+          "kind": "term"
+        },
+        {
+          "en": "the chilcano",
+          "fr": "le chilcano",
+          "kind": "term"
+        },
+        {
+          "en": "the grape variety",
+          "fr": "le cépage",
+          "kind": "term"
+        },
+        {
+          "en": "the replacement",
+          "fr": "le vin de remplacement",
+          "kind": "term"
+        },
+        {
+          "en": "the peanut",
+          "fr": "la cacahuète",
+          "kind": "term"
+        },
+        {
+          "en": "the ocopa sauce",
+          "fr": "la sauce ocopa",
+          "kind": "term"
+        },
+        {
+          "en": "the trout",
+          "fr": "la truite",
+          "kind": "term"
+        },
+        {
+          "en": "the hot stone",
+          "fr": "la pierre chaude",
+          "kind": "term"
+        },
+        {
+          "en": "the burn",
+          "fr": "la brûlure",
+          "kind": "term"
+        },
+        {
+          "en": "the edge of the table",
+          "fr": "le bord de la table",
+          "kind": "term"
+        },
+        {
+          "en": "the rings",
+          "fr": "les bagues",
+          "kind": "term"
+        },
+        {
+          "en": "the family group chat",
+          "fr": "le groupe de discussion de la famille",
+          "kind": "term"
+        },
+        {
+          "en": "Wilber, I'd appreciate it if you placed the pisco order again.",
+          "fr": "Wilber, je vous saurais gré de repasser la commande de pisco.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Killa, which Peruvian grape would you recommend instead of that wine?",
+          "fr": "Killa, quel cépage péruvien nous recommanderiez-vous à la place de ce vin ?",
+          "kind": "phrase"
+        },
+        {
+          "en": "My cousin is allergic to peanuts: does the ocopa have any?",
+          "fr": "Mon cousin est allergique aux cacahuètes : la sauce ocopa en contient-elle ?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you confirm it with the kitchen before serving him anything?",
+          "fr": "Pourriez-vous le confirmer avec la cuisine avant de lui servir quoi que ce soit ?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Lucas, don't touch the stone, it's hot!",
+          "fr": "Lucas, ne touche pas à la pierre, elle est brûlante !",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you put the stone in the middle, away from the edge?",
+          "fr": "Pourriez-vous mettre la pierre au milieu, loin du bord ?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Luckily nobody got burned, but it was very close.",
+          "fr": "Heureusement, personne ne s'est brûlé, mais il s'en est fallu de peu.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Family, in short: the dinner turned out beautiful and we all made a toast.",
+          "fr": "Famille, en bref : le dîner a été magnifique et nous avons tous trinqué.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "en": "Tonight we're celebrating my sister Emma's engagement at a restaurant in downtown Cusco.",
+          "fr": "Ce soir, nous fêtons les fiançailles de ma sœur Emma dans un restaurant du centre de Cusco."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Her fiancé, Diego, arrives at 6 with the rings, which they are going to exchange during the toast.",
+          "fr": "Son fiancé, Diego, arrive à 18 h avec les bagues, qu'ils vont échanger pendant le toast."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Wilber, the manager, explains to me that the lost order included all the pisco for the pairing; consequently, it has to be ordered again.",
+          "fr": "Wilber, le gérant, m'explique que la commande égarée contenait tout le pisco de l'accord mets-boissons ; par conséquent, il faut la repasser."
+        },
+        {
+          "speaker": "Me",
+          "en": "Me: Wilber, I'd appreciate it if you placed the pisco order again.",
+          "fr": "Moi : Wilber, je vous saurais gré de repasser la commande de pisco."
+        },
+        {
+          "speaker": "Wilber",
+          "en": "Wilber: If the supplier didn't arrive before 7, we'd serve chilcanos, as long as we have quebranta pisco left at the bar.",
+          "fr": "Wilber : Si le fournisseur n'arrivait pas avant 19 h, nous servirions des chilcanos, à condition qu'il reste du pisco quebranta au bar."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Then the sommelier, Killa, lets me know that one of the wines on the menu has run out.",
+          "fr": "Ensuite, Killa, la sommelière, me prévient qu’un des vins du menu est épuisé."
+        },
+        {
+          "speaker": "Me",
+          "en": "Me: Killa, which Peruvian grape would you recommend instead of that wine?",
+          "fr": "Moi : Killa, quel cépage péruvien nous recommanderiez-vous à la place de ce vin ?"
+        },
+        {
+          "speaker": "Killa",
+          "en": "Killa: The replacement I suggest is a white from Ica, which goes very well with the grilled trout.",
+          "fr": "Killa : Je vous propose à la place un vin blanc d’Ica, qui se marie très bien avec la truite grillée."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "As a starter there are potatoes with ocopa, and my cousin Tomás has a serious allergy.",
+          "fr": "En entrée, il y a des pommes de terre à la sauce ocopa, et mon cousin Tomás a une allergie grave."
+        },
+        {
+          "speaker": "Me",
+          "en": "Me: My cousin is allergic to peanuts: does the ocopa have any?",
+          "fr": "Moi : Mon cousin est allergique aux cacahuètes : la sauce ocopa en contient-elle ?"
+        },
+        {
+          "speaker": "Me",
+          "en": "Me: Could you confirm it with the kitchen before serving him anything?",
+          "fr": "Moi : Pourriez-vous le confirmer avec la cuisine avant de lui servir quoi que ce soit ?"
+        },
+        {
+          "speaker": "Narrator",
+          "en": "The waiter comes back from the kitchen and confirms: Yes, our ocopa has peanuts, so we'll serve your cousin the potatoes with just fresh cheese, on a separate plate and with clean utensils.",
+          "fr": "Le serveur revient de la cuisine et confirme : « Oui, notre sauce ocopa contient des cacahuètes, donc nous servirons à votre cousin les pommes de terre avec seulement du fromage frais, dans une assiette à part et avec des ustensiles propres. »"
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Later, another waiter leaves the hot stone with alpaca meat very close to the edge of the table.",
+          "fr": "Plus tard, un autre serveur pose la pierre chaude avec de la viande d'alpaga très près du bord de la table."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "My nephew Lucas, who is 5, reaches his hand toward it.",
+          "fr": "Mon neveu Lucas, qui a 5 ans, tend la main vers elle."
+        },
+        {
+          "speaker": "Me",
+          "en": "Me: Lucas, don't touch the stone, it's hot!",
+          "fr": "Moi : Lucas, ne touche pas à la pierre, elle est brûlante !"
+        },
+        {
+          "speaker": "Me",
+          "en": "Me: Could you put the stone in the middle, away from the edge?",
+          "fr": "Moi : Pourriez-vous mettre la pierre au milieu, loin du bord ?"
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Wilber checks Lucas's hand, confirms he has no burn at all and writes down the incident following the restaurant's protocol.",
+          "fr": "Wilber examine la main de Lucas, confirme qu'il n'a aucune brûlure et note l'incident selon le protocole du restaurant."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "That night I write in the family group chat: Family, in short: the dinner turned out beautiful and we all made a toast.",
+          "fr": "Ce soir-là, j'écris dans le groupe de discussion de la famille : « Famille, en bref : le dîner a été magnifique et nous avons tous trinqué. »"
+        }
+      ],
+      "forms": [
+        {
+          "infinitive": "repasser (une commande)",
+          "meaning": "to place an order again",
+          "example": "Wilber repasse la commande de pisco.",
+          "question": "Avez-vous repassé la commande de pisco ?",
+          "politeRequest": "Wilber, je vous saurais gré de repasser la commande de pisco."
+        },
+        {
+          "infinitive": "servir",
+          "meaning": "to serve",
+          "example": "Nous servirions des chilcanos.",
+          "question": "Qu'est-ce que vous servez en entrée ?",
+          "politeRequest": "Pourriez-vous servir les pommes de terre sur une assiette à part ?"
+        },
+        {
+          "infinitive": "confirmer",
+          "meaning": "to confirm",
+          "example": "Je vais le confirmer avec la cuisine.",
+          "question": "La cuisine a-t-elle confirmé la présence de cacahuètes dans la sauce ocopa ?",
+          "politeRequest": "Pourriez-vous le confirmer avec la cuisine avant de lui servir quoi que ce soit ?"
+        },
+        {
+          "infinitive": "toucher",
+          "meaning": "to touch",
+          "example": "Ne touche pas à la pierre, elle est brûlante !",
+          "question": "Est-ce que tu touches à la pierre ?",
+          "politeRequest": "Lucas, ne touche pas à la pierre, s’il te plaît."
+        },
+        {
+          "infinitive": "mettre",
+          "meaning": "to put, to place",
+          "example": "Il met la pierre au milieu de la table.",
+          "question": "Où est-ce que vous mettez la pierre ?",
+          "politeRequest": "Pourriez-vous mettre la pierre au milieu, loin du bord ?"
+        }
+      ],
+      "modes": {
+        "see": {
+          "sourceCard": 11,
+          "cueEnglish": "the hot stone",
+          "cueFrench": "la pierre chaude",
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "sourceCard": 12,
+          "cueEnglish": "the burn",
+          "cueFrench": "la brûlure",
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "sourceCard": 17,
+          "cueEnglish": "Killa, which Peruvian grape would you recommend instead of that wine?",
+          "cueFrench": "Killa, quel cépage péruvien nous recommanderiez-vous à la place de ce vin ?",
+          "responseKind": "open"
+        },
+        "type": {
+          "sourceCard": 19,
+          "cueEnglish": "Could you confirm it with the kitchen before serving him anything?",
+          "cueFrench": "Pourriez-vous le confirmer avec la cuisine avant de lui servir quoi que ce soit ?",
+          "responseKind": "open"
+        },
+        "say": {
+          "sourceCard": 20,
+          "cueEnglish": "Lucas, don't touch the stone, it's hot!",
+          "cueFrench": "Lucas, ne touche pas à la pierre, elle est brûlante !",
+          "responseKind": "open"
+        },
+        "write": {
+          "sourceCard": 23,
+          "cueEnglish": "Family, in short: the dinner turned out beautiful and we all made a toast.",
+          "cueFrench": "Famille, en bref : le dîner a été magnifique et nous avons tous trinqué.",
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "Vous organisez le dîner de fiançailles d'Emma à Cusco.",
+        "partnerRole": "Wilber (le gérant), Killa (qui s'occupe des vins) et les convives.",
+        "opening": "Wilber : Bonsoir. La commande de pisco s'est égarée. Que souhaitez-vous faire ?",
+        "objectives": [
+          "Reprendre poliment la commande de pisco avec Wilber : « Je vous saurais gré de repasser la commande de pisco. »",
+          "Formuler une condition au conditionnel avec « à condition que » : « Si le fournisseur n'arrivait pas avant 19 h, nous servirions des chilcanos, à condition qu'il reste du pisco quebranta au bar. »",
+          "Demander à Killa quel cépage péruvien elle recommande à la place du vin épuisé ; expliquer que, par conséquent, elle propose un blanc d'Ica.",
+          "Expliquer que Tomás est allergique aux cacahuètes et demander si la sauce ocopa en contient.",
+          "Demander à confirmer la présence de cacahuètes auprès de la cuisine avant de servir quoi que ce soit à Tomás.",
+          "Décrire la pierre chaude placée trop près du bord, demander qu’on la déplace et constater que Lucas n’a aucune brûlure : il s’agissait d’un quasi-accident.",
+          "Rédiger le résumé pour la famille ; tutoyer Lucas et vouvoyer le personnel pendant les échanges."
+        ],
+        "closure": "Wilber : Merci, tout est en ordre. Félicitations aux fiancés !",
+        "goal": "Run a full celebration day: rebook, fix a menu gap, protect a guest, handle a near miss, and send the day's summary.",
+        "wordBank": [
+          "les fiançailles",
+          "le fiancé",
+          "la commande égarée",
+          "le pisco quebranta",
+          "le chilcano",
+          "le cépage",
+          "le vin de remplacement",
+          "la cacahuète",
+          "la sauce ocopa",
+          "la truite",
+          "la pierre chaude",
+          "la brûlure",
+          "le bord de la table",
+          "les bagues",
+          "le groupe de discussion de la famille",
+          "Wilber, je vous saurais gré de repasser la commande de pisco.",
+          "Killa, quel cépage péruvien nous recommanderiez-vous à la place de ce vin ?",
+          "Mon cousin est allergique aux cacahuètes : la sauce ocopa en contient-elle ?",
+          "Pourriez-vous le confirmer avec la cuisine avant de lui servir quoi que ce soit ?",
+          "Lucas, ne touche pas à la pierre, elle est brûlante !",
+          "Pourriez-vous mettre la pierre au milieu, loin du bord ?",
+          "Heureusement, personne ne s'est brûlé, mais il s'en est fallu de peu.",
+          "Famille, en bref : le dîner a été magnifique et nous avons tous trinqué."
+        ]
+      },
+      "reviewed": false
+    }
+  ]
+}

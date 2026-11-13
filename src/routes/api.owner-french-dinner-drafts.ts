@@ -95,6 +95,7 @@ async function dinnerDrafts() {
     import("../../content/french-travel-dinner/master-17-private-draft.json"),
     import("../../content/french-travel-dinner/master-18-private-draft.json"),
     import("../../content/french-travel-dinner/master-19-private-draft.json"),
+    import("../../content/french-travel-dinner/master-20-private-draft.json"),
   ]);
   const batches = modules.map((module) => module.default as unknown as DraftBatch);
   const lessons = batches.flatMap((batch) => {
@@ -156,12 +157,12 @@ async function dinnerDrafts() {
     });
   });
   const ids = new Set(lessons.map((lesson) => lesson.stableId));
-  if (lessons.length !== 59 || ids.size !== 59 ||
+  if (lessons.length !== 60 || ids.size !== 60 ||
       lessons.filter((lesson) => lesson.stage === "foundation").map((lesson) => lesson.n).join() !==
         Array.from({ length: 10 }, (_, index) => index + 1).join() ||
       lessons.filter((lesson) => lesson.stage === "core").map((lesson) => lesson.n).join() !==
         Array.from({ length: 30 }, (_, index) => index + 1).join() ||
-      lessons.filter((lesson) => lesson.stage === "master").map((lesson) => lesson.n).join() !== "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19")
+      lessons.filter((lesson) => lesson.stage === "master").map((lesson) => lesson.n).join() !== "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20")
     throw new Error("French Dinner stage counts or lesson order changed");
   return lessons;
 }

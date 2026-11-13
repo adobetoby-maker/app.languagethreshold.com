@@ -1,0 +1,9 @@
+# French Dinner Master 7 — owner-only review candidate
+
+- Source: Spanish Dinner Master 7, “Phone Snatched from the Terrace: Statement to Police”; the draft pins both curriculum and Reader SHA-256 hashes and keeps the exact 24 English card meanings and 18 English Reader lines.
+- State: `reviewed:false`, `registered:false`, `readyForLearner:false`, `audio:none`. The lesson is exposed through the owner-only review route, with no learner registration or audio.
+- Authoring: the first CLI Haiku 5.5 request returned Spanish and was discarded. A focused second request returned French with actual `claude-haiku-5-5` metadata. Read-only critique returned actual `claude-opus-5-5` metadata. These model passes do not constitute qualified French or domain approval.
+- Self-check: corrected “waited” to “stayed” for `me quedé`; used Emma’s feminine `restée`; corrected the formal officer address and Marc’s mistaken 22:30 recollection. Changed the phone-case term to `étui du téléphone` because the blue case contains a credit card. Kept 22:10 receipt, 22:15 theft, 22:30 initial witness recollection, phone 612 345 678, IMEI ending 3907, card ending 4821, and next-day report copy.
+- Pending review: qualified French and Catalan police terminology/register; exact speech and number pronunciation; source context; six-mode interaction, dictionary, offline and native acceptance. No audio has been synthesized or approved for this candidate. Recompute the audio scope after text review, estimate paid synthesis, then build and listen to every new clip before any learner playback.
+
+Owner-route validation: focused owner API tests 7/7 (guest access remains 403), TypeScript, lint, build, 2,957 unit tests, and full smoke:e2e 101 passed/22 skipped. The owner route now has Dinner Foundation 10/Core 30/Master 7 = 47 unregistered drafts. These checks do not establish qualified French review or learner readiness.

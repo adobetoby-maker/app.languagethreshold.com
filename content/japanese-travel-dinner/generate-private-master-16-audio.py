@@ -16,7 +16,7 @@ from pathlib import Path
 
 DIR = Path(__file__).resolve().parent
 SCOPE = DIR / "private-master-16-audio-scope.json"
-OUTPUT = Path("/Users/drive/lt-audio/japanese-travel-dinner/master-16")
+OUTPUT = Path("/Users/drive/lt-audio/japanese-travel-dinner/master-16-rev1")
 MANIFEST = OUTPUT / "manifest.json"
 EXPECT_TEXTS = 38
 EXPECT_CLIPS = 76

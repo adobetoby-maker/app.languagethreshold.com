@@ -1,0 +1,358 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-dinner.json",
+    "curriculumSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "passagePath": "public/lesson-content/es/master-travel-dinner.json",
+    "passageSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "1415561ffcd6dafd51e6792c93d2de03222dc1a9"
+  },
+  "lessons": [
+    {
+      "n": 7,
+      "stableId": "master-travel-dinner:7:fr-en",
+      "sourceTitleEnglish": "Phone Snatched from the Terrace: Statement to Police",
+      "sourceObjectiveEnglish": "Tell an officer what happened step by step and give times, numbers, and descriptions accurately under pressure.",
+      "sourceSpeakingEnglish": "You are the traveler whose phone was snatched, and the AI is Agent Puig: tell what happened step by step in the preterite (dejé, lo cogió, se fue), and give the time, your phone number, the IMEI and the last card digits clearly and accurately.",
+      "title": "Phone Snatched from the Terrace: Statement to Police",
+      "objective": "Tell an officer what happened step by step and give times, numbers, and descriptions accurately under pressure.",
+      "focus": "Racontez les faits dans l’ordre avec « j’ai laissé », « il l’a pris » et « il est parti ». Distinguez l’heure du paiement de celle du vol, puis énoncez clairement les numéros et la description.",
+      "scene": "Sur une terrasse à Barcelone, Emma décrit le vol de son téléphone à l’agent Puig des Mossos d’Esquadra. Le serveur Marc témoigne ; le ticket à 22:10 permet de vérifier l’heure du vol à 22:15.",
+      "forms": [
+        {
+          "infinitive": "laisser",
+          "meaning": "to leave; j’ai laissé",
+          "example": "J'étais en terrasse et j'ai laissé mon téléphone sur la table.",
+          "question": "Où avez-vous laissé le téléphone ?",
+          "politeRequest": "Veuillez préciser où vous l’avez laissé."
+        },
+        {
+          "infinitive": "prendre",
+          "meaning": "to take; il l’a pris",
+          "example": "À 22:15, un jeune en trottinette a pris mon téléphone.",
+          "question": "Qui a pris le téléphone ?",
+          "politeRequest": "Pourriez-vous préciser qui l’a pris ?"
+        },
+        {
+          "infinitive": "partir",
+          "meaning": "to leave; il est parti",
+          "example": "Il est parti vers la plage.",
+          "question": "Dans quelle direction est-il parti ?",
+          "politeRequest": "Pourriez-vous indiquer dans quelle direction il est parti ?"
+        },
+        {
+          "infinitive": "suivre",
+          "meaning": "to follow; je ne l’ai pas suivi",
+          "example": "Je ne l’ai pas suivi ; je suis restée à table.",
+          "question": "L’avez-vous suivi ?",
+          "politeRequest": "Pouvez-vous dire si vous l’avez suivi ?"
+        },
+        {
+          "infinitive": "vérifier",
+          "meaning": "to check; je peux vérifier",
+          "example": "Je peux vérifier l'heure exacte avec le paiement par carte.",
+          "question": "Comment pouvez-vous vérifier l’heure exacte ?",
+          "politeRequest": "Pourriez-vous vérifier l’heure exacte ?"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "la plainte",
+          "en": "the police report",
+          "kind": "term"
+        },
+        {
+          "fr": "le vol à l'arraché",
+          "en": "the snatch",
+          "kind": "term"
+        },
+        {
+          "fr": "la trottinette",
+          "en": "the scooter",
+          "kind": "term"
+        },
+        {
+          "fr": "le numéro IMEI",
+          "en": "the IMEI number",
+          "kind": "term"
+        },
+        {
+          "fr": "l’étui du téléphone",
+          "en": "the phone case",
+          "kind": "term"
+        },
+        {
+          "fr": "les derniers chiffres",
+          "en": "the last digits",
+          "kind": "term"
+        },
+        {
+          "fr": "le sweat à capuche",
+          "en": "the hoodie",
+          "kind": "term"
+        },
+        {
+          "fr": "la casquette",
+          "en": "the cap",
+          "kind": "term"
+        },
+        {
+          "fr": "la taille",
+          "en": "the height",
+          "kind": "term"
+        },
+        {
+          "fr": "le témoin",
+          "en": "the witness (man)",
+          "kind": "term"
+        },
+        {
+          "fr": "l'heure exacte",
+          "en": "the exact time",
+          "kind": "term"
+        },
+        {
+          "fr": "le commissariat",
+          "en": "the police station",
+          "kind": "term"
+        },
+        {
+          "fr": "le téléphone portable",
+          "en": "the mobile phone",
+          "kind": "term"
+        },
+        {
+          "fr": "l'opérateur téléphonique",
+          "en": "the phone carrier",
+          "kind": "term"
+        },
+        {
+          "fr": "les Mossos d'Esquadra",
+          "en": "the Catalan police",
+          "kind": "term"
+        },
+        {
+          "fr": "dans quelle direction ?",
+          "en": "which way?",
+          "kind": "term"
+        },
+        {
+          "fr": "J'étais en terrasse et j'ai laissé mon téléphone sur la table.",
+          "en": "I was on the terrace and I left my phone on the table.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "À 22:15, un jeune en trottinette l'a arraché.",
+          "en": "At 22:15, a young man on a scooter grabbed it.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il portait un sweat à capuche gris et une casquette noire.",
+          "en": "He was wearing a gray hoodie and a black cap.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je ne l’ai pas suivi ; je suis restée à table.",
+          "en": "I didn't follow him; I stayed at the table.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Mon numéro de portable est le 612 345 678.",
+          "en": "My mobile number is 612 345 678.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Les 4 derniers chiffres de la carte sont 4821.",
+          "en": "The last 4 digits of the card are 4821.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je peux vérifier l'heure exacte avec le paiement par carte.",
+          "en": "I can check the exact time with the card payment.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Monsieur l’agent, pouvez-vous me donner une copie de la plainte, s’il vous plaît ?",
+          "en": "Officer, can you give me a copy of the report, please?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "L'agent Puig, des Mossos d'Esquadra, arrive sur une terrasse de Barcelone pour recueillir la plainte d'Emma.",
+          "en": "Officer Puig, of the Mossos d'Esquadra, arrives at a terrace in Barcelona to take Emma's police report."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Agent Puig : Racontez-moi ce qui s'est passé, étape par étape, s'il vous plaît.",
+          "en": "Officer Puig: Tell me what happened, step by step, please."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Emma : J'étais en terrasse et j'ai laissé mon téléphone sur la table.",
+          "en": "Emma: I was on the terrace and I left my phone on the table."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Emma : À 22:15, un jeune en trottinette l'a arraché.",
+          "en": "Emma: At 22:15, a young man on a scooter grabbed it."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Agent Puig : Dans quelle direction est-il parti ?",
+          "en": "Officer Puig: Which way did he go?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Emma : Ça a été un vol à l'arraché très rapide, et le jeune est parti vers la plage.",
+          "en": "Emma: It was a very fast snatch and the young man went off toward the beach."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Emma : Je ne l’ai pas suivi ; je suis restée à table.",
+          "en": "Emma: I didn't follow him; I stayed at the table."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Emma : Il portait un sweat à capuche gris et une casquette noire.",
+          "en": "Emma: He was wearing a gray hoodie and a black cap."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Agent Puig : Et quelle était sa taille, à peu près ?",
+          "en": "Officer Puig: And how tall was he, more or less?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Emma : Il mesurait à peu près 1,80 mètre et la casquette lui cachait le visage.",
+          "en": "Emma: He was about 1.80 meters tall and the cap covered his face."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Marc, le serveur, est le témoin : il a vu le sweat à capuche, mais il situe le vol à 22:30.",
+          "en": "Marc, the waiter, is the witness: he saw the hoodie, but he remembers the robbery at 22:30."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Emma : Je peux vérifier l'heure exacte avec le paiement par carte.",
+          "en": "Emma: I can check the exact time with the card payment."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le ticket du terminal de paiement indique 22:10, et Marc reconnaît que le vol a eu lieu 5 minutes plus tard.",
+          "en": "The card terminal receipt says 22:10, and Marc admits that the snatch happened 5 minutes later."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Emma : Mon numéro de portable est le 612 345 678.",
+          "en": "Emma: My mobile number is 612 345 678."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Emma : Le numéro IMEI se termine par 3907 ; je l'ai copié sur la boîte avant le voyage.",
+          "en": "Emma: The IMEI number ends in 3907; I copied it from the box before the trip."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Emma : Dans l’étui bleu du téléphone, j’avais une carte de crédit, et les derniers chiffres sont 4821.",
+          "en": "Emma: In the blue phone case I had a credit card, and the last digits are 4821."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Emma : Monsieur l’agent, pouvez-vous me donner une copie de la plainte, s’il vous plaît ?",
+          "en": "Emma: Officer, can you give me a copy of the report, please?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Agent Puig : Oui, demain au commissariat je vous donne une copie ; maintenant, appelez votre opérateur et votre banque.",
+          "en": "Officer Puig: Yes, tomorrow at the police station I'll give you a copy; now call your phone carrier and your bank."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "the police report",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "the IMEI number",
+          "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "I was on the terrace and I left my phone on the table.",
+          "sourceCard": 17,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "The last 4 digits of the card are 4821.",
+          "sourceCard": 22,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "I can check the exact time with the card payment.",
+          "sourceCard": 23,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Officer, can you give me a copy of the report, please?",
+          "sourceCard": 24,
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "Emma, voyageuse sur une terrasse à Barcelone.",
+        "partnerRole": "Agent Puig des Mossos d’Esquadra, joué par l’IA.",
+        "opening": "J'étais en terrasse et j'ai laissé mon téléphone sur la table.",
+        "goal": "Tell an officer what happened step by step and give times, numbers, and descriptions accurately under pressure.",
+        "closure": "Monsieur l’agent, pouvez-vous me donner une copie de la plainte, s’il vous plaît ?",
+        "wordBank": [
+          "la plainte",
+          "le vol à l'arraché",
+          "la trottinette",
+          "le numéro IMEI",
+          "l’étui du téléphone",
+          "les derniers chiffres",
+          "le sweat à capuche",
+          "la casquette",
+          "la taille",
+          "le témoin",
+          "l'heure exacte",
+          "le commissariat",
+          "le téléphone portable",
+          "l'opérateur téléphonique",
+          "les Mossos d'Esquadra",
+          "dans quelle direction ?",
+          "J'étais en terrasse et j'ai laissé mon téléphone sur la table.",
+          "À 22:15, un jeune en trottinette l'a arraché.",
+          "Il portait un sweat à capuche gris et une casquette noire.",
+          "Je ne l’ai pas suivi ; je suis restée à table.",
+          "Mon numéro de portable est le 612 345 678.",
+          "Les 4 derniers chiffres de la carte sont 4821.",
+          "Je peux vérifier l'heure exacte avec le paiement par carte.",
+          "Monsieur l’agent, pouvez-vous me donner une copie de la plainte, s’il vous plaît ?"
+        ],
+        "objectives": [
+          "Raconter le vol du téléphone dans l’ordre et situer le départ vers la plage.",
+          "Décrire le témoin, les vêtements du suspect et sa taille.",
+          "Préciser l’heure à partir du ticket de paiement et rectifier le souvenir de Marc.",
+          "Énoncer le numéro de téléphone, la fin de l’IMEI et les quatre derniers chiffres de la carte."
+        ]
+      },
+      "reviewed": false,
+      "model": "Haiku 5.5 French candidate; Opus 5.5 read-only critique; source-grounded self-check. Qualified review pending."
+    }
+  ]
+}

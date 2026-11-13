@@ -1,0 +1,687 @@
+{
+  "schema": 1,
+  "moduleId": "travel-lunch",
+  "stageId": "master-travel-lunch",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-lunch.json",
+    "curriculumSha256": "bce5c0799e9d8d038450599ab839a7d48d6f69533968c94f1d3f2ae3808f4bfa",
+    "readerPath": "public/lesson-content/es/master-travel-lunch.json",
+    "readerSha256": "602b0a9b0c29ae6942275ad44734c36267364af6ebe5685e48dabe5da7f94539",
+    "sourceLessonNumbers": [
+      10,
+      11,
+      12
+    ]
+  },
+  "lessons": [
+    {
+      "n": 10,
+      "sourceEnglishTitle": "Settling a Group Argument over Where to Eat",
+      "sourceEnglishObjective": "Report what each person and the hostel staff said, and help the group agree on one lunch plan.",
+      "title": "昼食先の意見をまとめる",
+      "objective": "Report each group member’s preference and the hostel receptionist’s information, then propose one plan everyone accepts.",
+      "focus": "～と言っていました reports what someone said; ～によると attributes information to a person; 今日は…、明日は… offers a time-based compromise.",
+      "scene": "Three travelers disagree about lunch at a Tokyo hostel; the receptionist has checked the nearby options.",
+      "cards": [
+        {
+          "ja": "意見が分かれる",
+          "en": "opinions differ",
+          "kind": "term"
+        },
+        {
+          "ja": "予算",
+          "en": "budget",
+          "kind": "term"
+        },
+        {
+          "ja": "定食",
+          "en": "set lunch",
+          "kind": "term"
+        },
+        {
+          "ja": "行列",
+          "en": "line",
+          "kind": "term"
+        },
+        {
+          "ja": "受付",
+          "en": "front desk",
+          "kind": "term"
+        },
+        {
+          "ja": "受付係",
+          "en": "receptionist",
+          "kind": "term"
+        },
+        {
+          "ja": "近所",
+          "en": "neighborhood",
+          "kind": "term"
+        },
+        {
+          "ja": "駅の近く",
+          "en": "near the station",
+          "kind": "term"
+        },
+        {
+          "ja": "徒歩四十分",
+          "en": "a forty-minute walk",
+          "kind": "term"
+        },
+        {
+          "ja": "地下鉄",
+          "en": "subway",
+          "kind": "term"
+        },
+        {
+          "ja": "折衷案",
+          "en": "compromise",
+          "kind": "term"
+        },
+        {
+          "ja": "空いている",
+          "en": "available",
+          "kind": "term"
+        },
+        {
+          "ja": "カミラは安くて早い昼食がいいと言っていました。",
+          "en": "Camila said she wanted a cheap, quick lunch.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ホアキンは評判のラーメンを食べたいと言っていました。",
+          "en": "Joaquín said he wanted to try the well-reviewed ramen.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "受付係のイェセニアさんによると、ラーメン店は今満席です。",
+          "en": "According to receptionist Yesenia, the ramen shop is full now.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "その店までは歩いて四十分かかるそうです。",
+          "en": "She said that it takes forty minutes to walk to that shop.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "近くの定食屋なら千二百円で食べられます。",
+          "en": "At the nearby set-lunch shop, we can eat for 1,200 yen.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "今日は定食にして、明日早めにラーメンを食べませんか。",
+          "en": "How about a set lunch today and ramen early tomorrow?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "誰かが悪いわけではありません。好みが違うだけです。",
+          "en": "Nobody is at fault. We simply have different preferences.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "それなら、みんな賛成ですか。",
+          "en": "Then does everyone agree?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "今日の予算は千五百円までです。",
+          "en": "Today’s budget is up to 1,500 yen.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "明日は混む前に行きましょう。",
+          "en": "Let’s go tomorrow before it gets crowded.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "正午、東京のホステルの受付で三人が昼食先を相談しています。",
+          "en": "At noon, three travelers discuss lunch at the front desk of a Tokyo hostel."
+        },
+        {
+          "speaker": "Camila",
+          "ja": "今日は千五百円しか使えません。安くて早い定食がいいです。",
+          "en": "I can spend only 1,500 yen today. I want a cheap, quick set lunch."
+        },
+        {
+          "speaker": "Joaquín",
+          "ja": "でも、評判のラーメン店に行きたいんです。",
+          "en": "But I want to go to the well-reviewed ramen shop."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "朝、三人は受付係のイェセニアさんに近くの店を聞きました。",
+          "en": "This morning, the three asked receptionist Yesenia about nearby restaurants."
+        },
+        {
+          "speaker": "Yesenia",
+          "ja": "ラーメン店は正午には満席で、行列もできます。",
+          "en": "The ramen shop is full at noon and has a line."
+        },
+        {
+          "speaker": "Yesenia",
+          "ja": "歩くと四十分です。地下鉄を使うと早いですよ。",
+          "en": "It is a forty-minute walk. The subway is faster."
+        },
+        {
+          "speaker": "Yesenia",
+          "ja": "駅の近くの定食屋なら千二百円で、みそ汁とお茶が付きます。",
+          "en": "At the set-lunch shop near the station, a meal is 1,200 yen and includes miso soup and tea."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ホアキンはラーメンをあきらめたくありません。",
+          "en": "Joaquín does not want to give up the ramen."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "誰かが悪いわけではありません。好みが違うだけです。",
+          "en": "Nobody is at fault. We simply have different preferences."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "カミラは安くて早い昼食がいいと言っていました。",
+          "en": "Camila said she wanted a cheap, quick lunch."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "ホアキンは評判のラーメンを食べたいと言っていました。",
+          "en": "Joaquín said he wanted to try the well-reviewed ramen."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "受付係のイェセニアさんによると、ラーメン店は今満席です。",
+          "en": "According to receptionist Yesenia, the ramen shop is full now."
+        },
+        {
+          "speaker": "Yesenia",
+          "ja": "明日は十一時半に開くので、その前に着けば並びやすいです。",
+          "en": "Tomorrow it opens at 11:30, so arriving before then makes the line easier."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "今日は定食にして、明日早めにラーメンを食べませんか。",
+          "en": "How about a set lunch today and ramen early tomorrow?"
+        },
+        {
+          "speaker": "Camila",
+          "ja": "今日は予算内です。それならいいです。",
+          "en": "That fits today’s budget. That works for me."
+        },
+        {
+          "speaker": "Joaquín",
+          "ja": "明日ラーメンに行けるなら、今日は定食でいいよ。",
+          "en": "If we can have ramen tomorrow, a set lunch today is fine."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "それなら、みんな賛成ですか。",
+          "en": "Then does everyone agree?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "三人はうなずき、駅の近くへ歩き出します。",
+          "en": "All three nod and walk toward the station."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler mediating a lunch choice",
+        "partnerRole": "Two friends and hostel receptionist",
+        "opening": "まず、みんなの希望を一つずつ確認しませんか。",
+        "goal": "Report each friend’s preference and the receptionist’s facts, explain the budget and wait, propose a today/tomorrow compromise, and confirm agreement.",
+        "closure": "それなら、みんな賛成ですか。"
+      },
+      "stableId": "master-travel-lunch:10:ja-en"
+    },
+    {
+      "n": 11,
+      "sourceEnglishTitle": "Keeping a Tired Group Going After the Kitchens Close",
+      "sourceEnglishObjective": "Encourage a hungry, tired group and commit to a clear plan for finding food during the afternoon closure.",
+      "title": "閉店時間後の空腹な仲間を励ます",
+      "objective": "Encourage a hungry, tired group and commit to a clear ten-minute plan for finding food while restaurant kitchens are closed.",
+      "focus": "まず…、それから… sequences stops. 十分で… promises a time frame, and ～まで閉まっています states the closure.",
+      "scene": "At five in Kyoto, a tired group finds a closed restaurant kitchen and asks for nearby alternatives.",
+      "cards": [
+        {
+          "ja": "疲れた仲間",
+          "en": "tired companions",
+          "kind": "term"
+        },
+        {
+          "ja": "空腹",
+          "en": "hunger",
+          "kind": "term"
+        },
+        {
+          "ja": "厨房",
+          "en": "kitchen",
+          "kind": "term"
+        },
+        {
+          "ja": "閉まっている",
+          "en": "closed",
+          "kind": "term"
+        },
+        {
+          "ja": "日陰",
+          "en": "shade",
+          "kind": "term"
+        },
+        {
+          "ja": "パン屋",
+          "en": "bakery",
+          "kind": "term"
+        },
+        {
+          "ja": "シャワルマ",
+          "en": "shawarma",
+          "kind": "term"
+        },
+        {
+          "ja": "ファラフェル",
+          "en": "falafel",
+          "kind": "term"
+        },
+        {
+          "ja": "ベジタリアン",
+          "en": "vegetarian",
+          "kind": "term"
+        },
+        {
+          "ja": "二本先の通り",
+          "en": "two streets away",
+          "kind": "term"
+        },
+        {
+          "ja": "向かい",
+          "en": "across from",
+          "kind": "term"
+        },
+        {
+          "ja": "十分以内",
+          "en": "within ten minutes",
+          "kind": "term"
+        },
+        {
+          "ja": "ここで日陰に座って待っていて。すぐ戻るね。",
+          "en": "Wait here in the shade. I will be right back.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "まだ何か食べられますか。",
+          "en": "Can we still get something to eat?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "厨房は十八時まで閉まっています。",
+          "en": "The kitchen is closed until six.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "二本先の通りに、まだ開いているパン屋があります。",
+          "en": "There is a bakery still open two streets away.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "パン屋の向かいにはシャワルマの店もあります。",
+          "en": "There is also a shawarma shop across from the bakery.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ファラフェルもありますか。",
+          "en": "Do they have falafel too?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "まずパン屋に行って、それからシャワルマの店に行きましょう。",
+          "en": "First we will go to the bakery, then to the shawarma shop.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "十分以内に何か食べられるようにします。約束します。",
+          "en": "I will get us something to eat within ten minutes. I promise.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "食べたら、座って休みましょう。",
+          "en": "After we eat, let’s sit down and rest.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "みんな疲れていますが、一緒に行きましょう。",
+          "en": "We are all tired, but let’s go together.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "午後五時、京都でルシアたちのグループは三時間歩いたところです。",
+          "en": "At five in Kyoto, Lucía’s group has been walking for three hours."
+        },
+        {
+          "speaker": "Marcos",
+          "ja": "お腹がすいた。もう歩きたくないよ。",
+          "en": "I am hungry. I do not want to walk any more."
+        },
+        {
+          "speaker": "Lucía",
+          "ja": "ここで日陰に座って待っていて。すぐ戻るね。",
+          "en": "Wait here in the shade. I will be right back."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ルシアは小さな食堂に入り、店主のパコに尋ねます。",
+          "en": "Lucía enters a small restaurant and asks owner Paco."
+        },
+        {
+          "speaker": "Lucía",
+          "ja": "まだ何か食べられますか。",
+          "en": "Can we still get something to eat?"
+        },
+        {
+          "speaker": "Paco",
+          "ja": "すみません。厨房は十八時まで閉まっています。",
+          "en": "Sorry. The kitchen is closed until six."
+        },
+        {
+          "speaker": "Paco",
+          "ja": "二本先の通りに、まだ開いているパン屋があります。",
+          "en": "There is a bakery still open two streets away."
+        },
+        {
+          "speaker": "Paco",
+          "ja": "パン屋の向かいにはシャワルマの店もあります。",
+          "en": "There is also a shawarma shop across from the bakery."
+        },
+        {
+          "speaker": "Lucía",
+          "ja": "その店は何時まで開いていますか。ファラフェルもありますか。",
+          "en": "How late is that shop open? Do they have falafel too?"
+        },
+        {
+          "speaker": "Paco",
+          "ja": "夜十二時までです。ファラフェルもあります。",
+          "en": "It is open until midnight. They also have falafel."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "外ではアナが坂道に座り、携帯電話を見ています。",
+          "en": "Outside, Ana sits on the slope and looks at her phone."
+        },
+        {
+          "speaker": "Lucía",
+          "ja": "みんな、もう少しです。まずパン屋に行きましょう。",
+          "en": "Everyone, we are almost there. First let’s go to the bakery."
+        },
+        {
+          "speaker": "Lucía",
+          "ja": "それから向かいのシャワルマの店に行きましょう。",
+          "en": "Then let’s go to the shawarma shop across the street."
+        },
+        {
+          "speaker": "Lucía",
+          "ja": "十分以内に何か食べられるようにします。約束します。",
+          "en": "I will get us something to eat within ten minutes. I promise."
+        },
+        {
+          "speaker": "Lucía",
+          "ja": "アナにはパン屋でチョコレートパンを買うね。",
+          "en": "Ana, I will buy you a chocolate pastry at the bakery."
+        },
+        {
+          "speaker": "Marcos",
+          "ja": "食べたら、夜のおやつも買いたい。",
+          "en": "After we eat, I want to buy snacks for tonight too."
+        },
+        {
+          "speaker": "Lucía",
+          "ja": "まず食べて、それから座って休みましょう。",
+          "en": "Let’s eat first, then sit down and rest."
+        },
+        {
+          "speaker": "Lucía",
+          "ja": "みんな疲れていますが、一緒に行きましょう。",
+          "en": "We are all tired, but let’s go together."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler keeping a tired group moving",
+        "partnerRole": "Tired friends and local restaurant owner",
+        "opening": "ここで日陰に座って待っていて。すぐ戻るね。",
+        "goal": "Ask whether food is available, find two nearby alternatives including falafel, give an ordered ten-minute plan, offer Ana a pastry, and promise rest afterward.",
+        "closure": "まず食べて、それから座って休みましょう。"
+      },
+      "stableId": "master-travel-lunch:11:ja-en"
+    },
+    {
+      "n": 12,
+      "sourceEnglishTitle": "One Table, Three Registers: Lunch with a Chilean Family",
+      "sourceEnglishObjective": "Switch between usted and tú as you talk with grandparents, cousins and the host during a family lunch.",
+      "title": "家族の食卓で丁寧さを切り替える",
+      "objective": "Switch between polite and casual Japanese appropriately when speaking to a grandmother, cousin, and host at a family lunch.",
+      "focus": "～です／ます and ～いただけますか mark respectful speech to the grandmother. ～てくれる？ and plain-form replies fit a familiar cousin. Japanese register is chosen by relationship and situation, not a one-to-one usted/tú substitution.",
+      "scene": "Daniel visits Valentina’s family in Osaka and checks how each person prefers to be addressed.",
+      "cards": [
+        {
+          "ja": "丁寧な話し方",
+          "en": "polite speech",
+          "kind": "term"
+        },
+        {
+          "ja": "くだけた話し方",
+          "en": "casual speech",
+          "kind": "term"
+        },
+        {
+          "ja": "祖母",
+          "en": "grandmother",
+          "kind": "term"
+        },
+        {
+          "ja": "いとこ",
+          "en": "cousin",
+          "kind": "term"
+        },
+        {
+          "ja": "招待",
+          "en": "invitation",
+          "kind": "term"
+        },
+        {
+          "ja": "おかず",
+          "en": "side dish",
+          "kind": "term"
+        },
+        {
+          "ja": "おかわり",
+          "en": "another serving",
+          "kind": "term"
+        },
+        {
+          "ja": "片付け",
+          "en": "clearing away",
+          "kind": "term"
+        },
+        {
+          "ja": "たこ焼き",
+          "en": "takoyaki",
+          "kind": "term"
+        },
+        {
+          "ja": "だし",
+          "en": "broth",
+          "kind": "term"
+        },
+        {
+          "ja": "商店街",
+          "en": "shopping street",
+          "kind": "term"
+        },
+        {
+          "ja": "焼きおにぎり",
+          "en": "grilled rice ball",
+          "kind": "term"
+        },
+        {
+          "ja": "よかったら、丁寧な言葉でお話ししてもいいですか。",
+          "en": "If you do not mind, may I speak to you politely?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "おばあさま、このだしの作り方を教えていただけますか。",
+          "en": "Grandmother, could you tell me how to make this broth?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "マティアス、パンを取ってくれる？",
+          "en": "Matías, can you pass me the bread?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "これ、辛いから気をつけてね。",
+          "en": "This is spicy, so be aware.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ヴァレンティナ、もう少し焼きおにぎりをもらってもいい？",
+          "en": "Valentina, may I have another grilled rice ball?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "とてもおいしかったです。",
+          "en": "It was very delicious.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "片付けを手伝おうか。",
+          "en": "Shall I help clear the table?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "招待してくれてありがとう。ごちそうさま。",
+          "en": "Thank you for inviting me. Thank you for the meal.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "エリアナさんには丁寧に、いとこにはくだけて話します。",
+          "en": "I speak politely to Eliana and casually to the cousin.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "話し方を合わせてもいい？",
+          "en": "May I match the way you speak?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "日曜日、ダニエルは大阪のヴァレンティナの家に昼食に招かれます。",
+          "en": "On Sunday, Daniel is invited to lunch at Valentina’s home in Osaka."
+        },
+        {
+          "speaker": "Valentina",
+          "ja": "うちでは気楽に話してね。",
+          "en": "Please speak casually in our home."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "ありがとう。でも、おばあさまには丁寧に話してもいい？",
+          "en": "Thank you. But may I speak politely to your grandmother?"
+        },
+        {
+          "speaker": "Valentina",
+          "ja": "もちろん。本人にも聞いてみて。",
+          "en": "Of course. Ask her too."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "エリアナさん、よかったら、丁寧な言葉でお話ししてもいいですか。",
+          "en": "Eliana, if you do not mind, may I speak to you politely?"
+        },
+        {
+          "speaker": "Eliana",
+          "ja": "ええ、どうぞ。気を使ってくれてありがとう。",
+          "en": "Yes, please. Thank you for being considerate."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "最初に熱々のたこ焼きが出て、それからだしのきいた汁物が来ます。",
+          "en": "First hot takoyaki is served, then a broth-based soup arrives."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "おばあさま、このだしの作り方を教えていただけますか。",
+          "en": "Grandmother, could you tell me how to make this broth?"
+        },
+        {
+          "speaker": "Eliana",
+          "ja": "日曜日に商店街で買う昆布を使うのよ。",
+          "en": "I use kombu bought at the shopping street on Sundays."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "十六歳のいとこ、マティアスがダニエルの隣に座ります。",
+          "en": "Sixteen-year-old cousin Matías sits next to Daniel."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "マティアス、パンを取ってくれる？",
+          "en": "Matías, can you pass me the bread?"
+        },
+        {
+          "speaker": "Matías",
+          "ja": "うん。こっちの薬味は辛いから気をつけてね。",
+          "en": "Sure. This condiment is spicy, so be aware."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "マティアス、たこ焼きを作るのを手伝った？",
+          "en": "Matías, did you help make the takoyaki?"
+        },
+        {
+          "speaker": "Matías",
+          "ja": "うん。今、ロドリゴおじさんがおにぎりを焼いてる。",
+          "en": "Yes. Uncle Rodrigo is grilling rice balls now."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "ヴァレンティナ、もう少し焼きおにぎりをもらってもいい？",
+          "en": "Valentina, may I have another grilled rice ball?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "デザートのあと、ダニエルはエリアナさんに向き直ります。",
+          "en": "After dessert, Daniel turns to Eliana."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "とてもおいしかったです。ごちそうさまでした。",
+          "en": "It was very delicious. Thank you for the meal."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "ヴァレンティナ、片付けを手伝おうか。招待してくれてありがとう。",
+          "en": "Valentina, shall I help clear the table? Thank you for inviting me."
+        }
+      ],
+      "speaking": {
+        "role": "Guest adjusting Japanese register at a family lunch",
+        "partnerRole": "Grandmother, cousin, and host",
+        "opening": "エリアナさん、よかったら、丁寧な言葉でお話ししてもいいですか。",
+        "goal": "Ask the grandmother politely for a recipe, use casual forms with the cousin and host, request another serving, and close with register-appropriate thanks.",
+        "closure": "とてもおいしかったです。ごちそうさまでした。"
+      },
+      "stableId": "master-travel-lunch:12:ja-en"
+    }
+  ]
+}

@@ -1,0 +1,637 @@
+{
+  "schema": 1,
+  "moduleId": "travel-lunch",
+  "stageId": "master-travel-lunch",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-lunch.json",
+    "curriculumSha256": "bce5c0799e9d8d038450599ab839a7d48d6f69533968c94f1d3f2ae3808f4bfa",
+    "readerPath": "public/lesson-content/es/master-travel-lunch.json",
+    "readerSha256": "602b0a9b0c29ae6942275ad44734c36267364af6ebe5685e48dabe5da7f94539",
+    "sourceLessonNumbers": [
+      1,
+      2,
+      3
+    ]
+  },
+  "lessons": [
+    {
+      "n": 1,
+      "sourceEnglishTitle": "Explain the Menú del Día to a Newly Arrived Friend",
+      "sourceEnglishObjective": "Explain step by step how a fixed-price lunch works and why, then have your friend explain it back.",
+      "title": "日替わり定食の仕組みを友人に説明する",
+      "objective": "Explain how a fixed-price Japanese lunch set works, compare it with individual orders, clarify a surcharge and coffee price, then ask a newly arrived friend to explain it back.",
+      "focus": "日替わり定食 is the day’s set meal. 主菜 is the main dish and 副菜 a side dish. ～が含まれています names included items; 別料金 and 追加料金 mark separate and extra charges. 最初に…それから…最後に… sequences an explanation.",
+      "scene": "Emma takes newly arrived Lucas to a home-style restaurant in Kanazawa and explains the chalkboard lunch set.",
+      "cards": [
+        {
+          "ja": "家庭料理の店",
+          "en": "home-style eatery",
+          "kind": "term"
+        },
+        {
+          "ja": "日替わり定食",
+          "en": "daily set meal",
+          "kind": "term"
+        },
+        {
+          "ja": "主菜",
+          "en": "main dish",
+          "kind": "term"
+        },
+        {
+          "ja": "副菜",
+          "en": "side dish",
+          "kind": "term"
+        },
+        {
+          "ja": "ご飯",
+          "en": "rice",
+          "kind": "term"
+        },
+        {
+          "ja": "味噌汁",
+          "en": "miso soup",
+          "kind": "term"
+        },
+        {
+          "ja": "追加料金",
+          "en": "surcharge",
+          "kind": "term"
+        },
+        {
+          "ja": "黒板",
+          "en": "chalkboard",
+          "kind": "term"
+        },
+        {
+          "ja": "単品",
+          "en": "individual dish",
+          "kind": "term"
+        },
+        {
+          "ja": "飲み物",
+          "en": "drink",
+          "kind": "term"
+        },
+        {
+          "ja": "デザート",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "ja": "コーヒー",
+          "en": "coffee",
+          "kind": "term"
+        },
+        {
+          "ja": "別料金",
+          "en": "charged separately",
+          "kind": "term"
+        },
+        {
+          "ja": "含まれています",
+          "en": "is included",
+          "kind": "term"
+        },
+        {
+          "ja": "お得",
+          "en": "good value",
+          "kind": "term"
+        },
+        {
+          "ja": "お客さん",
+          "en": "diner",
+          "kind": "term"
+        },
+        {
+          "ja": "最初に主菜を選んで、それから副菜を選びます。",
+          "en": "First choose the main dish, then choose a side dish.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ご飯と味噌汁は定食に含まれています。",
+          "en": "Rice and miso soup are included in the set meal.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "和牛の主菜には三百円の追加料金がかかります。",
+          "en": "The Wagyu main dish has a three-hundred-yen surcharge.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "黒板を見てから席に座ると分かりやすいです。",
+          "en": "It helps to read the chalkboard before sitting down.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "すみません。コーヒーは定食に含まれていますか。それとも別料金ですか。",
+          "en": "Excuse me. Is coffee included in the set meal or charged separately?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "分かりました。コーヒーは別料金ですね。",
+          "en": "I understand. Coffee is extra.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "今度はあなたが説明してみてください。",
+          "en": "Now try explaining it back to me.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "エマとルーカスは金沢の家庭料理の店に入ります。昼どきで、近くで働くお客さんがたくさんいます。",
+          "en": "Emma and Lucas enter a home-style restaurant in Kanazawa at lunchtime. Many nearby workers are there."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ルーカスは日本に来たばかりで、入口の黒板を見ても定食の仕組みが分かりません。",
+          "en": "Lucas has just arrived in Japan and does not understand the set-meal chalkboard at the entrance."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "黒板によると、日替わり定食は千四百円です。単品で頼むよりお得です。",
+          "en": "According to the board, the daily set meal is fourteen hundred yen, a better value than ordering individual dishes."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "最初に主菜を選んで、それから副菜を選びます。",
+          "en": "First choose the main dish, then choose a side dish."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "今日は主菜が焼き魚か鶏の照り焼きで、副菜は煮物かサラダです。",
+          "en": "Today the main dish is grilled fish or teriyaki chicken, and the side is simmered vegetables or salad."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "和牛の主菜もありますが、三百円の追加料金がかかります。",
+          "en": "There is also a Wagyu main dish, but it has a three-hundred-yen surcharge."
+        },
+        {
+          "speaker": "Lucas",
+          "ja": "ご飯と味噌汁もその値段に入っていますか。",
+          "en": "Are rice and miso soup included in that price?"
+        },
+        {
+          "speaker": "Emma",
+          "ja": "はい。ご飯と味噌汁、それに今日のデザートが含まれています。",
+          "en": "Yes. Rice, miso soup, and today’s dessert are included."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "厨房で作る料理を毎日数種類に絞っているので、定食の値段を抑えられるそうです。",
+          "en": "The kitchen makes only a few dishes each day, which helps keep the set-meal price down."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "だから、席に座る前に黒板を確かめるといいですよ。",
+          "en": "That is why checking the board before sitting down helps."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "エマはコーヒーも含まれると思いましたが、店員に確認します。",
+          "en": "Emma thinks coffee may be included, but checks with the server."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "すみません。コーヒーは定食に含まれていますか。それとも別料金ですか。",
+          "en": "Excuse me. Is coffee included in the set meal or charged separately?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "デザートは含まれていますが、コーヒーは別料金です。",
+          "en": "Dessert is included, but coffee is charged separately."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "分かりました。コーヒーは別料金ですね。",
+          "en": "I understand. Coffee is extra."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "今度はあなたが説明してみてください。",
+          "en": "Now try explaining it back to me."
+        },
+        {
+          "speaker": "Lucas",
+          "ja": "最初に主菜と副菜を選びます。ご飯と味噌汁とデザートは含まれています。和牛には追加料金があって、コーヒーは別料金です。",
+          "en": "First I choose a main and a side. Rice, miso soup, and dessert are included. Wagyu has a surcharge, and coffee is extra."
+        }
+      ],
+      "speaking": {
+        "role": "Friend explaining a fixed-price lunch set to a newcomer",
+        "partnerRole": "Newly arrived friend and server",
+        "opening": "この黒板の日替わり定食は、どういう仕組みですか。",
+        "goal": "Explain the sequence and included items, compare set and individual prices, clarify the surcharge and coffee charge with staff, then ask the friend to explain the arrangement back in Japanese.",
+        "closure": "今度はあなたが説明してみてください。"
+      },
+      "stableId": "master-travel-lunch:1:ja-en"
+    },
+    {
+      "n": 2,
+      "sourceEnglishTitle": "Why the Kitchen Closes at Four: Explaining Local Rhythm",
+      "sourceEnglishObjective": "Explain to a fellow traveler how lunch hours, sobremesa and closures work here, and check your facts with staff.",
+      "title": "昼と夜の営業時間を確かめる",
+      "objective": "Explain this restaurant’s lunch, afternoon break, last order, and evening reopening to a fellow traveler, then verify the exact time with staff.",
+      "focus": "昼の営業 and 夜の営業 distinguish lunch and evening service. ラストオーダー is the last kitchen order. 休憩時間 marks the interval between services. 店員に確認しましょう turns an assumption into a checked fact.",
+      "scene": "At three thirty, two travelers find a neighborhood restaurant’s kitchen closed and ask the server about reopening.",
+      "cards": [
+        {
+          "ja": "昼の営業",
+          "en": "lunch service",
+          "kind": "term"
+        },
+        {
+          "ja": "夜の営業",
+          "en": "evening service",
+          "kind": "term"
+        },
+        {
+          "ja": "再開",
+          "en": "reopening",
+          "kind": "term"
+        },
+        {
+          "ja": "ラストオーダー",
+          "en": "last order",
+          "kind": "term"
+        },
+        {
+          "ja": "休憩時間",
+          "en": "break between services",
+          "kind": "term"
+        },
+        {
+          "ja": "冷たい料理",
+          "en": "cold dish",
+          "kind": "term"
+        },
+        {
+          "ja": "軽食",
+          "en": "small snack",
+          "kind": "term"
+        },
+        {
+          "ja": "看板",
+          "en": "sign",
+          "kind": "term"
+        },
+        {
+          "ja": "習慣",
+          "en": "custom",
+          "kind": "term"
+        },
+        {
+          "ja": "食後の会話",
+          "en": "after-meal conversation",
+          "kind": "term"
+        },
+        {
+          "ja": "午後三時半",
+          "en": "three thirty p.m.",
+          "kind": "term"
+        },
+        {
+          "ja": "午後五時半",
+          "en": "five thirty p.m.",
+          "kind": "term"
+        },
+        {
+          "ja": "この店の昼のラストオーダーは二時です。",
+          "en": "This restaurant’s last lunch order is at two.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "三時半に来ると、厨房は休憩時間です。",
+          "en": "If you come at three thirty, the kitchen is on its break.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "無視されているわけではありません。昼の営業が終わったんです。",
+          "en": "They are not ignoring you. Lunch service has ended.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "今すぐ食べたいなら、軽食があるか聞いてみましょう。",
+          "en": "If you want to eat now, let us ask whether there is a snack.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "すみません。夜の厨房は何時から開きますか。",
+          "en": "Excuse me. What time does the kitchen open for evening service?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "五時半からまた注文できますか。",
+          "en": "Can we order again starting at five thirty?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "私が時間を勘違いしていました。",
+          "en": "I misunderstood the time.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "それまで近くで軽食を食べましょう。",
+          "en": "Until then, let us eat a snack nearby.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "午後三時半、フェムケとダニエルは町の食堂に入ります。",
+          "en": "At three thirty, Femke and Daniel enter a neighborhood restaurant."
+        },
+        {
+          "speaker": "Femke",
+          "ja": "定食を頼もうとしたら、厨房はもう閉まったと言われました。",
+          "en": "I tried to order the set meal, but they told me the kitchen had closed."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "無視されているわけではありません。昼の営業が終わったんです。",
+          "en": "They are not ignoring you. Lunch service has ended."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "入口の看板では、昼のラストオーダーは二時です。",
+          "en": "The sign at the entrance says the last lunch order is at two."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "三時半は昼と夜の営業の間の休憩時間なんですね。",
+          "en": "Three thirty is the break between lunch and evening service here."
+        },
+        {
+          "speaker": "Femke",
+          "ja": "この辺では、昼食は何時ごろ食べる人が多いですか。",
+          "en": "Around what time do people here usually eat lunch?"
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "正午から一時半ごろが多いと思います。でも、この店の時間は店員に確認しましょう。",
+          "en": "I think many eat between noon and one thirty. Let us check this restaurant’s hours with staff."
+        },
+        {
+          "speaker": "Femke",
+          "ja": "食後にコーヒーを飲んで話す人もいますか。",
+          "en": "Do some people drink coffee and talk after eating?"
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "そういう人もいますが、店ごとの営業時間は違います。",
+          "en": "Some do, but each restaurant has its own hours."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "すみません。夜の厨房は何時から開きますか。",
+          "en": "Excuse me. What time does the kitchen open for evening service?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "看板のとおり、五時半からです。",
+          "en": "As the sign says, from five thirty."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "五時半からまた注文できますか。",
+          "en": "Can we order again starting at five thirty?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "はい。五時半から夜のメニューを注文できます。",
+          "en": "Yes. You can order from the evening menu starting at five thirty."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "私が時間を勘違いしていました。教えてくださってありがとうございます。",
+          "en": "I misunderstood the time. Thank you for explaining it."
+        },
+        {
+          "speaker": "Femke",
+          "ja": "それまで近くで軽食を食べましょう。",
+          "en": "Until then, let us eat a snack nearby."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler explaining and checking lunch-service hours",
+        "partnerRole": "Fellow traveler and restaurant server",
+        "opening": "厨房が閉まっていると言われました。どうしてですか。",
+        "goal": "Explain the posted last-order and break times, discuss after-meal conversation without treating it as a universal custom, ask staff for the exact reopening, correct your earlier assumption, and suggest an interim snack.",
+        "closure": "私が時間を勘違いしていました。教えてくださってありがとうございます。"
+      },
+      "stableId": "master-travel-lunch:2:ja-en"
+    },
+    {
+      "n": 3,
+      "sourceEnglishTitle": "Coach a Friend Through Ordering at a Busy Taco Stand",
+      "sourceEnglishObjective": "Coach a friend with short commands on how to order, add salsas and pay at a crowded stand, then let them do it.",
+      "title": "混んだ屋台で友人に注文を任せる",
+      "objective": "Coach a friend through ordering at a busy yakitori stall with short Japanese commands, then let the friend state quantities, choose seasoning, and pay.",
+      "focus": "～を注文して, ～を選んで, and ～を伝えて are short conversational commands. 焼き鳥 is grilled chicken skewers, 本 counts skewers, and たれ／塩 distinguish sauce and salt seasoning. 今度はあなたの番です hands the task to the friend.",
+      "scene": "Daniel helps Aiko order at a crowded evening yakitori stall, then steps back so she completes the order.",
+      "cards": [
+        {
+          "ja": "屋台",
+          "en": "food stall",
+          "kind": "term"
+        },
+        {
+          "ja": "焼き鳥",
+          "en": "grilled chicken skewers",
+          "kind": "term"
+        },
+        {
+          "ja": "店主",
+          "en": "stall cook",
+          "kind": "term"
+        },
+        {
+          "ja": "串",
+          "en": "skewer",
+          "kind": "term"
+        },
+        {
+          "ja": "もも",
+          "en": "chicken thigh skewer",
+          "kind": "term"
+        },
+        {
+          "ja": "つくね",
+          "en": "chicken meatball skewer",
+          "kind": "term"
+        },
+        {
+          "ja": "ねぎま",
+          "en": "chicken and scallion skewer",
+          "kind": "term"
+        },
+        {
+          "ja": "たれ",
+          "en": "sweet-salty sauce",
+          "kind": "term"
+        },
+        {
+          "ja": "塩",
+          "en": "salt seasoning",
+          "kind": "term"
+        },
+        {
+          "ja": "七味",
+          "en": "seven-spice blend",
+          "kind": "term"
+        },
+        {
+          "ja": "本",
+          "en": "counter for skewers",
+          "kind": "term"
+        },
+        {
+          "ja": "注文",
+          "en": "order",
+          "kind": "term"
+        },
+        {
+          "ja": "小銭",
+          "en": "coins",
+          "kind": "term"
+        },
+        {
+          "ja": "何本",
+          "en": "how many skewers",
+          "kind": "term"
+        },
+        {
+          "ja": "種類と本数を伝えて。",
+          "en": "Tell the cook the kinds and quantities.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "たれか塩を選んで。",
+          "en": "Choose sauce or salt.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "七味は少しずつ試して。",
+          "en": "Try the seven-spice a little at a time.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ももを二本、つくねを一本、たれでお願いします。",
+          "en": "Two thigh skewers and one meatball skewer with sauce, please.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "お会計はいくらですか。",
+          "en": "How much do I owe?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "今度はあなたの番です。",
+          "en": "Now it is your turn.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "食べ終わったら店主に払って。",
+          "en": "Pay the cook when you finish.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "夜の屋台は混んでいて、ダニエルは友人のアイコと焼き鳥の列に並びます。",
+          "en": "The evening stall is crowded. Daniel and Aiko line up for yakitori."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店主はもも、つくね、ねぎまの串を次々に焼いています。",
+          "en": "The cook grills thigh, meatball, and chicken-and-scallion skewers one after another."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "どの串を食べたいか、先に決めて。種類と本数を伝えて。",
+          "en": "Decide which skewers you want first. Tell him the kinds and quantities."
+        },
+        {
+          "speaker": "Aiko",
+          "ja": "ももとつくねにします。",
+          "en": "I will have thigh and meatball skewers."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "たれか塩を選んで。",
+          "en": "Choose sauce or salt."
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "七味はここにあります。少しずつ試して。",
+          "en": "The seven-spice is here. Try it a little at a time."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店主は列を進めながらアイコに声をかけます。",
+          "en": "The cook moves the line along and addresses Aiko."
+        },
+        {
+          "speaker": "Cook",
+          "ja": "次の方、何本ですか。",
+          "en": "Next person, how many skewers?"
+        },
+        {
+          "speaker": "Daniel",
+          "ja": "今度はあなたの番です。",
+          "en": "Now it is your turn."
+        },
+        {
+          "speaker": "Aiko",
+          "ja": "ももを二本、つくねを一本、たれでお願いします。",
+          "en": "Two thigh skewers and one meatball skewer with sauce, please."
+        },
+        {
+          "speaker": "Cook",
+          "ja": "はい、少々お待ちください。",
+          "en": "Certainly. Please wait a moment."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店主が焼き鳥を渡し、アイコは自分で七味を少し加えます。",
+          "en": "The cook hands over the skewers, and Aiko adds a little seven-spice herself."
+        },
+        {
+          "speaker": "Aiko",
+          "ja": "お会計はいくらですか。",
+          "en": "How much do I owe?"
+        },
+        {
+          "speaker": "Cook",
+          "ja": "九百円です。",
+          "en": "Nine hundred yen."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "アイコは小銭を出して、自分で支払います。",
+          "en": "Aiko takes out her coins and pays on her own."
+        }
+      ],
+      "speaking": {
+        "role": "Friend coaching and then yielding a yakitori order",
+        "partnerRole": "Friend Aiko and stall cook",
+        "opening": "次の方、何本ですか。",
+        "goal": "Use short Japanese commands for skewer kinds, quantities, sauce or salt, and payment; then step back while the friend orders and pays without English.",
+        "closure": "今度はあなたの番です。"
+      },
+      "stableId": "master-travel-lunch:3:ja-en"
+    }
+  ]
+}

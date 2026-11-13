@@ -1,0 +1,692 @@
+{
+  "schema": 1,
+  "moduleId": "travel-lunch",
+  "stageId": "master-travel-lunch",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-lunch.json",
+    "curriculumSha256": "bce5c0799e9d8d038450599ab839a7d48d6f69533968c94f1d3f2ae3808f4bfa",
+    "readerPath": "public/lesson-content/es/master-travel-lunch.json",
+    "readerSha256": "602b0a9b0c29ae6942275ad44734c36267364af6ebe5685e48dabe5da7f94539",
+    "sourceLessonNumbers": [
+      7,
+      8,
+      9
+    ]
+  },
+  "lessons": [
+    {
+      "n": 7,
+      "sourceEnglishTitle": "Two Menus, Two Prices: Sorting It Out with the Guide",
+      "sourceEnglishObjective": "Narrate what you ordered and what each menu said, with exact numbers, to resolve a price gap with owner and guide.",
+      "title": "二つの定食価格を照合する",
+      "objective": "Narrate the exact quantities and prices on a restaurant sign and printed receipt, ask the owner and guide to clarify the mismatch, and confirm the corrected total and change.",
+      "focus": "四人分と五人分 distinguishes four versus five sets. 一人前千二百円 marks the posted unit price, and 明細付きの領収書 requests an itemized receipt. 合計 and おつり make the arithmetic explicit: 4 × 1,200 + 3 × 350 = 5,850 yen.",
+      "scene": "Laura and three friends visit a small restaurant with their guide; the printed bill lists an extra, higher-priced set meal.",
+      "cards": [
+        {
+          "ja": "観光客向けの定食",
+          "en": "tourist set menu",
+          "kind": "term"
+        },
+        {
+          "ja": "入口の看板",
+          "en": "sign at the entrance",
+          "kind": "term"
+        },
+        {
+          "ja": "円",
+          "en": "yen",
+          "kind": "term"
+        },
+        {
+          "ja": "印刷した領収書",
+          "en": "printed receipt",
+          "kind": "term"
+        },
+        {
+          "ja": "金額",
+          "en": "amount",
+          "kind": "term"
+        },
+        {
+          "ja": "おつり",
+          "en": "change",
+          "kind": "term"
+        },
+        {
+          "ja": "明細",
+          "en": "itemized list",
+          "kind": "term"
+        },
+        {
+          "ja": "差額",
+          "en": "difference",
+          "kind": "term"
+        },
+        {
+          "ja": "店主",
+          "en": "owner",
+          "kind": "term"
+        },
+        {
+          "ja": "案内人",
+          "en": "guide",
+          "kind": "term"
+        },
+        {
+          "ja": "ぶどうジュース",
+          "en": "grape juice",
+          "kind": "term"
+        },
+        {
+          "ja": "りんごジュース",
+          "en": "apple juice",
+          "kind": "term"
+        },
+        {
+          "ja": "温かいお茶",
+          "en": "hot tea",
+          "kind": "term"
+        },
+        {
+          "ja": "余分に",
+          "en": "extra",
+          "kind": "term"
+        },
+        {
+          "ja": "ちょうど",
+          "en": "exactly",
+          "kind": "term"
+        },
+        {
+          "ja": "定食を四人分とジュースを三つ注文しましたが、定食が五人分付いています。",
+          "en": "We ordered four set lunches and three juices, but the bill lists five set lunches.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "入口の看板には、定食が一人前千二百円と書いてありました。",
+          "en": "The entrance sign said the set lunch was 1,200 yen per person.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "明細付きの領収書をいただけますか。",
+          "en": "Could I have an itemized receipt?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "案内人さん、定食に飲み物が付くと説明しましたか。",
+          "en": "Guide, did you say that the set lunch includes a drink?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "金額より、差額の理由を知りたいんです。",
+          "en": "More than the money, I want to understand the difference.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "定食四人分は千二百円ずつで、四千八百円です。",
+          "en": "Four set lunches at 1,200 yen each make 4,800 yen.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "観光客向けの定食は、入口の定食と値段が違いますか。",
+          "en": "Is the tourist set menu priced differently from the one at the entrance?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "確認してくださってありがとうございます。これで合っています。",
+          "en": "Thank you for checking. This is correct now.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "午後一時、案内人のウィルマーはローラと友人三人を小さな食堂に連れて行きます。",
+          "en": "At one, guide Wilmer takes Laura and three friends to a small restaurant."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "入口の看板には「本日の定食、千二百円。スープ、主菜、ぶどうジュース付き」とあります。",
+          "en": "The entrance sign says: daily set lunch, 1,200 yen, including soup, main, and grape juice."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店主は最初に温かいお茶を無料で出します。",
+          "en": "The owner first serves hot tea at no charge."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "四人は定食を四人分、りんごジュースを三つ頼みます。",
+          "en": "The four order four set lunches and three apple juices."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "印刷した領収書の合計は九千五十円で、予想より高い金額です。",
+          "en": "The printed receipt totals 9,050 yen, more than expected."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "定食を四人分とジュースを三つ注文しましたが、定食が五人分付いています。",
+          "en": "We ordered four set lunches and three juices, but the bill lists five set lunches."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "入口の看板には、定食が一人前千二百円と書いてありました。",
+          "en": "The entrance sign said the set lunch was 1,200 yen per person."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "明細付きの領収書をいただけますか。",
+          "en": "Could I have an itemized receipt?"
+        },
+        {
+          "speaker": "Owner",
+          "ja": "厨房では、千六百円の観光客向け定食を五人分として入力していました。",
+          "en": "The kitchen entered five tourist sets at 1,600 yen each."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "観光客向けの定食は、入口の定食と値段が違いますか。",
+          "en": "Is the tourist set menu priced differently from the one at the entrance?"
+        },
+        {
+          "speaker": "Owner",
+          "ja": "はい。デザートが付くので千六百円ですが、皆さんはそれを注文していません。",
+          "en": "Yes. It is 1,600 yen because it includes dessert, but you did not order it."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "ウィルマーさん、定食に飲み物が付くと説明しましたか。",
+          "en": "Wilmer, did you say the set lunch includes a drink?"
+        },
+        {
+          "speaker": "Wilmer",
+          "ja": "はい。ぶどうジュースは含まれますが、りんごジュースは別料金です。",
+          "en": "Yes. Grape juice is included, but apple juice is extra."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "金額より、差額の理由を知りたいんです。",
+          "en": "More than the money, I want to understand the difference."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "定食四人分は千二百円ずつで、四千八百円です。",
+          "en": "Four set lunches at 1,200 yen each make 4,800 yen."
+        },
+        {
+          "speaker": "Owner",
+          "ja": "りんごジュースは三つで千五十円です。訂正後の合計は五千八百五十円です。",
+          "en": "Three apple juices cost 1,050 yen. The corrected total is 5,850 yen."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ローラは一万円を払い、四千百五十円のおつりを受け取ります。",
+          "en": "Laura pays 10,000 yen and receives 4,150 yen in change."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "確認してくださってありがとうございます。これで合っています。",
+          "en": "Thank you for checking. This is correct now."
+        }
+      ],
+      "speaking": {
+        "role": "Guest reconciling a posted set price and printed receipt",
+        "partnerRole": "Restaurant owner and guide",
+        "opening": "お会計は九千五十円です。",
+        "goal": "State four sets and three extra juices, compare posted and tourist prices, request an itemized receipt, confirm the guide’s explanation, calculate 4,800 plus 1,050 equals 5,850 yen, and confirm 4,150 yen change from 10,000.",
+        "closure": "確認してくださってありがとうございます。これで合っています。"
+      },
+      "stableId": "master-travel-lunch:7:ja-en"
+    },
+    {
+      "n": 8,
+      "sourceEnglishTitle": "Talking a Friend Out of Afternoon Ceviche from a Hot Cart",
+      "sourceEnglishObjective": "Say no to an unsafe food choice, explain why, and suggest a better option without embarrassing your friend.",
+      "title": "暑い屋台の生魚を断る",
+      "objective": "Tell a friend directly why you will not buy unrefrigerated raw fish from a hot afternoon cart, name food poisoning and upset stomach, and suggest a different meal without embarrassing the friend.",
+      "focus": "生魚 means raw fish, 冷蔵 means refrigeration, 氷 means ice, 食中毒 means food poisoning, and お腹をこわす means to get an upset stomach. 買わないで and 代わりに…にしよう express a quiet refusal and alternative.",
+      "scene": "At four on a hot afternoon, Diego wants raw-fish rice from an unrefrigerated cart. Emma speaks to him quietly.",
+      "cards": [
+        {
+          "ja": "屋台",
+          "en": "food cart",
+          "kind": "term"
+        },
+        {
+          "ja": "氷",
+          "en": "ice",
+          "kind": "term"
+        },
+        {
+          "ja": "冷蔵",
+          "en": "refrigeration",
+          "kind": "term"
+        },
+        {
+          "ja": "生魚",
+          "en": "raw fish",
+          "kind": "term"
+        },
+        {
+          "ja": "食中毒",
+          "en": "food poisoning",
+          "kind": "term"
+        },
+        {
+          "ja": "お腹をこわす",
+          "en": "upset stomach",
+          "kind": "term"
+        },
+        {
+          "ja": "昼どき",
+          "en": "midday",
+          "kind": "term"
+        },
+        {
+          "ja": "店主",
+          "en": "shopkeeper",
+          "kind": "term"
+        },
+        {
+          "ja": "危険",
+          "en": "risk",
+          "kind": "term"
+        },
+        {
+          "ja": "新鮮",
+          "en": "fresh",
+          "kind": "term"
+        },
+        {
+          "ja": "よく火を通した",
+          "en": "well cooked",
+          "kind": "term"
+        },
+        {
+          "ja": "焼き鳥",
+          "en": "grilled chicken skewers",
+          "kind": "term"
+        },
+        {
+          "ja": "焼き魚定食",
+          "en": "grilled fish set meal",
+          "kind": "term"
+        },
+        {
+          "ja": "レモン汁",
+          "en": "lemon juice",
+          "kind": "term"
+        },
+        {
+          "ja": "ディエゴ、買わないで。あの屋台には氷がありません。",
+          "en": "Diego, do not buy it. That cart has no ice.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この暑さの中で、今それを食べるのはすすめません。",
+          "en": "I do not recommend eating that now in this heat.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "生魚です。ここでは昼どきに食べる人が多いです。",
+          "en": "It is raw fish. People here often eat it at midday.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "今日はやめて、明日の昼に魚料理の店へ行こう。",
+          "en": "Let us skip it today and go to a fish restaurant tomorrow at lunch.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "すみません。この近くでおすすめの魚料理の店はどこですか。",
+          "en": "Excuse me. Which nearby fish restaurant do you recommend?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "代わりに、よく火を通した焼き鳥を食べない？",
+          "en": "Instead, shall we eat thoroughly cooked yakitori?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "困らせたいわけじゃないよ。元気でいてほしいんだ。",
+          "en": "I am not trying to bother you. I care that you are well.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "教えてくださってありがとうございます。とても助かりました。",
+          "en": "Thank you for telling us. You helped a lot.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "暑い日の午後四時、ディエゴは屋台で生魚の丼を買おうとします。",
+          "en": "At four on a hot afternoon, Diego wants to buy a raw-fish bowl from a cart."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "エマは屋台に氷も冷蔵設備もないことに気付き、ディエゴに静かに話します。",
+          "en": "Emma notices the cart has no ice or refrigeration and speaks quietly to Diego."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "ディエゴ、買わないで。あの屋台には氷がありません。",
+          "en": "Diego, do not buy it. That cart has no ice."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "この暑さの中で、今それを食べるのはすすめません。",
+          "en": "I do not recommend eating that now in this heat."
+        },
+        {
+          "speaker": "Diego",
+          "ja": "でも、レモン汁をかければ魚は加熱されたのと同じでしょう？",
+          "en": "But if they add lemon juice, that is like cooking the fish, right?"
+        },
+        {
+          "speaker": "Emma",
+          "ja": "生魚です。レモン汁をかけても、火を通したことにはなりません。",
+          "en": "It is raw fish. Lemon juice does not cook it with heat."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "冷蔵していない魚なら、食中毒やお腹をこわすことが心配です。",
+          "en": "With unrefrigerated fish, I worry about food poisoning or an upset stomach."
+        },
+        {
+          "speaker": "Shopkeeper",
+          "ja": "魚料理なら、明日の昼に行く人が多いですよ。",
+          "en": "For fish dishes, many people go at lunchtime tomorrow."
+        },
+        {
+          "speaker": "Diego",
+          "ja": "前の旅行でお腹をこわしたから、今日は別のものにするよ。",
+          "en": "I had an upset stomach on a previous trip, so I will choose something else today."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "困らせたいわけじゃないよ。元気でいてほしいんだ。",
+          "en": "I am not trying to bother you. I care that you are well."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "すみません。この近くでおすすめの魚料理の店はどこですか。",
+          "en": "Excuse me. Which nearby fish restaurant do you recommend?"
+        },
+        {
+          "speaker": "Shopkeeper",
+          "ja": "次の通りに魚料理の店があります。昼には混みます。",
+          "en": "There is a fish restaurant on the next street. It gets busy at lunch."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "今日はやめて、明日の昼にその店へ行こう。",
+          "en": "Let us skip it today and go there tomorrow at lunch."
+        },
+        {
+          "speaker": "Shopkeeper",
+          "ja": "角には焼き鳥の屋台もあります。",
+          "en": "There is also a yakitori stall on the corner."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "代わりに、よく火を通した焼き鳥を食べない？",
+          "en": "Instead, shall we eat thoroughly cooked yakitori?"
+        },
+        {
+          "speaker": "Diego",
+          "ja": "いいね。今夜は焼き魚定食も食べたい。",
+          "en": "Good idea. I would like a grilled fish set meal tonight too."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "教えてくださってありがとうございます。とても助かりました。",
+          "en": "Thank you for telling us. You helped a lot."
+        }
+      ],
+      "speaking": {
+        "role": "Friend declining an unrefrigerated raw-fish cart",
+        "partnerRole": "Friend Diego and nearby shopkeeper",
+        "opening": "あの屋台の生魚の丼を買いたいな。",
+        "goal": "Quietly say no, identify absent ice/refrigeration and food poisoning directly, correct the lemon-juice misunderstanding, ask a shopkeeper for a nearby fish restaurant, and suggest a cooked alternative without embarrassing the friend.",
+        "closure": "困らせたいわけじゃないよ。元気でいてほしいんだ。"
+      },
+      "stableId": "master-travel-lunch:8:ja-en"
+    },
+    {
+      "n": 9,
+      "sourceEnglishTitle": "Honest Feedback When the Owner Asks About a New Dish",
+      "sourceEnglishObjective": "Give the owner sincere, specific feedback on a new dish, mixing praise with one tactful recommendation.",
+      "title": "新しい料理に具体的な感想を伝える",
+      "objective": "Give the owner sincere, detailed feedback on a new vegetarian hot sandwich, praise its texture and presentation, make one tactful suggestion about salt, and say you would order it again.",
+      "focus": "率直な感想 means honest feedback. 焼きなす, パプリカ, and ズッキーニ name ingredients. 食感 is texture, 盛り付け is presentation, and 塩を少し控えると… makes a tactful recommendation.",
+      "scene": "At a small café, owner Graciela asks Laura for feedback on a new vegetarian hot sandwich created by cook Bruno.",
+      "cards": [
+        {
+          "ja": "野菜のホットサンド",
+          "en": "vegetarian hot sandwich",
+          "kind": "term"
+        },
+        {
+          "ja": "モッツァレラ",
+          "en": "mozzarella",
+          "kind": "term"
+        },
+        {
+          "ja": "目玉焼き",
+          "en": "fried egg",
+          "kind": "term"
+        },
+        {
+          "ja": "焼きパプリカ",
+          "en": "roasted bell pepper",
+          "kind": "term"
+        },
+        {
+          "ja": "焼きなす",
+          "en": "grilled eggplant",
+          "kind": "term"
+        },
+        {
+          "ja": "ズッキーニ",
+          "en": "zucchini",
+          "kind": "term"
+        },
+        {
+          "ja": "オリーブ",
+          "en": "olives",
+          "kind": "term"
+        },
+        {
+          "ja": "料理人",
+          "en": "cook",
+          "kind": "term"
+        },
+        {
+          "ja": "塩加減",
+          "en": "seasoning level",
+          "kind": "term"
+        },
+        {
+          "ja": "食感",
+          "en": "texture",
+          "kind": "term"
+        },
+        {
+          "ja": "盛り付け",
+          "en": "presentation",
+          "kind": "term"
+        },
+        {
+          "ja": "ポテトサラダ",
+          "en": "potato salad",
+          "kind": "term"
+        },
+        {
+          "ja": "ドレッシング",
+          "en": "dressing",
+          "kind": "term"
+        },
+        {
+          "ja": "カリッとした",
+          "en": "crispy",
+          "kind": "term"
+        },
+        {
+          "ja": "ジューシー",
+          "en": "juicy",
+          "kind": "term"
+        },
+        {
+          "ja": "グラシエラさん、この野菜のホットサンドがとても気に入りました。",
+          "en": "Ms. Graciela, I really liked this vegetarian hot sandwich.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "焼きなすがおいしくて、パンがカリッとしています。",
+          "en": "The eggplant is delicious, and the bread is crispy.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "塩を少し控えると、もっとおいしくなると思います。",
+          "en": "I think a little less salt would make it even better.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "パプリカをもう少し長く焼くといいと思います。",
+          "en": "I think roasting the pepper a little longer would help.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "メニューに残してほしいです。また注文します。",
+          "en": "I hope you keep it on the menu. I would order it again.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ブルーノさんが考えた料理ですか。とてもいいですね。",
+          "en": "Did Bruno create this dish? It is very good.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "小さな点だけです。ほかはとても気に入りました。",
+          "en": "It is only a small point. I liked everything else.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "好意で率直にお伝えしています。",
+          "en": "I am telling you honestly and kindly.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "ローラは町の小さなカフェで昼食を食べます。",
+          "en": "Laura eats lunch at a small café in town."
+        },
+        {
+          "speaker": "Owner",
+          "ja": "新しい野菜のホットサンドです。率直な感想を聞かせてください。",
+          "en": "This is our new vegetarian hot sandwich. Please tell me your honest opinion."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "料理を考えた息子のブルーノも厨房から聞いています。",
+          "en": "Her son Bruno, who created the dish, listens from the kitchen."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "パンには焼きなすと溶けたモッツァレラが重なっています。",
+          "en": "The bread holds grilled eggplant and melted mozzarella."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "目玉焼き、オリーブ、焼きパプリカ、ズッキーニも入っています。",
+          "en": "It also has a fried egg, olives, roasted pepper, and zucchini."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "付け合わせは自家製ドレッシングのポテトサラダです。",
+          "en": "The side is potato salad with house-made dressing."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "グラシエラさん、この野菜のホットサンドがとても気に入りました。",
+          "en": "Ms. Graciela, I really liked this vegetarian hot sandwich."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "焼きなすがおいしくて、パンがカリッとしています。",
+          "en": "The eggplant is delicious, and the bread is crispy."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "パプリカとズッキーニもジューシーです。",
+          "en": "The pepper and zucchini are juicy too."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "モッツァレラと卵の食感もよく、盛り付けもきれいです。",
+          "en": "The mozzarella and egg have a good texture, and the presentation is beautiful."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "好意で率直にお伝えしています。",
+          "en": "I am telling you honestly and kindly."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "ズッキーニの塩加減だけ、少し強いと感じました。",
+          "en": "Only the zucchini tastes a little too salty to me."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "塩を少し控えると、もっとおいしくなると思います。",
+          "en": "I think a little less salt would make it even better."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "小さな点だけです。ほかはとても気に入りました。",
+          "en": "It is only a small point. I liked everything else."
+        },
+        {
+          "speaker": "Owner",
+          "ja": "ポテトサラダのドレッシングも塩辛いですか。",
+          "en": "Is the potato-salad dressing too salty too?"
+        },
+        {
+          "speaker": "Laura",
+          "ja": "いいえ、そちらはちょうどいいです。",
+          "en": "No, that one is just right."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "ブルーノさんが考えた料理ですか。とてもいいですね。",
+          "en": "Did Bruno create this dish? It is very good."
+        },
+        {
+          "speaker": "Laura",
+          "ja": "メニューに残してほしいです。また注文します。",
+          "en": "I hope you keep it on the menu. I would order it again."
+        }
+      ],
+      "speaking": {
+        "role": "Guest giving honest feedback on a new vegetarian dish",
+        "partnerRole": "Restaurant owner and cook",
+        "opening": "この新しい料理について、率直な感想を聞かせてください。",
+        "goal": "Praise specific ingredients, texture and presentation, give one tactful suggestion about the zucchini salt, answer a follow-up about dressing, and say you would order the dish again.",
+        "closure": "メニューに残してほしいです。また注文します。"
+      },
+      "stableId": "master-travel-lunch:9:ja-en"
+    }
+  ]
+}

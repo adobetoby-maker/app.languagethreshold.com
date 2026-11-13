@@ -1,0 +1,494 @@
+{
+  "schema": 1,
+  "moduleId": "travel-lunch",
+  "stageId": "travel-lunch",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "mapPath": "src/data/travel-zone.ts",
+    "mapSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "readerPath": "public/lesson-content/es/travel-lunch.json",
+    "readerSha256": "9c6104911c7c3fc2d8f0e1914edb5bd8e490f0d3961babfcece22238f995580d",
+    "sourceLessonNumbers": [
+      13,
+      14,
+      15
+    ]
+  },
+  "lessons": [
+    {
+      "n": 13,
+      "sourceEnglishTitle": "Praise the chef sincerely",
+      "sourceEnglishSkills": "describe what made a dish exceptional and ask staff to pass on thanks",
+      "sourceEnglishScenario": "Tell the chef the meal was extraordinary and explain the flavor or memory it created.",
+      "title": "Thanking the cook for a memorable lunch",
+      "objective": "Praise a dish with a concrete detail, say what memory its flavor brought back, and ask staff to pass thanks to the cook.",
+      "focus": "とてもおいしかったです praises a finished meal. 〜に伝えていただけますか politely asks someone to pass on a message. 〜を思い出しました says something brought back a memory.",
+      "scene": "Sam thanks the staff after a lunch that reminded them of home.",
+      "cards": [
+        {
+          "ja": "料理人",
+          "en": "cook / chef",
+          "kind": "term"
+        },
+        {
+          "ja": "味",
+          "en": "flavor",
+          "kind": "term"
+        },
+        {
+          "ja": "たれ",
+          "en": "sauce / glaze",
+          "kind": "term"
+        },
+        {
+          "ja": "材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "手作り",
+          "en": "homemade",
+          "kind": "term"
+        },
+        {
+          "ja": "新鮮",
+          "en": "fresh",
+          "kind": "term"
+        },
+        {
+          "ja": "思い出",
+          "en": "memory",
+          "kind": "term"
+        },
+        {
+          "ja": "皆さん",
+          "en": "everyone / the team",
+          "kind": "term"
+        },
+        {
+          "ja": "とてもおいしかったです",
+          "en": "Everything was very delicious",
+          "kind": "phrase"
+        },
+        {
+          "ja": "たれの味が特に好きでした",
+          "en": "I especially liked the sauce flavor",
+          "kind": "phrase"
+        },
+        {
+          "ja": "祖母の料理を思い出しました",
+          "en": "It reminded me of my grandmother’s cooking",
+          "kind": "phrase"
+        },
+        {
+          "ja": "料理人にお礼を伝えていただけますか",
+          "en": "Could you pass my thanks to the cook?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "料理人にご挨拶できますか",
+          "en": "Could I say hello to the cook?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "皆さん、ありがとうございました",
+          "en": "Thank you, everyone",
+          "kind": "phrase"
+        },
+        {
+          "ja": "お会計をお願いします",
+          "en": "The bill, please",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "とてもおいしかったです。",
+          "en": "Everything was very delicious."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "ありがとうございます。",
+          "en": "Thank you very much."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "たれの味が特に好きでした。",
+          "en": "I especially liked the sauce flavor."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "手作りの味で、祖母の料理を思い出しました。",
+          "en": "It tasted homemade and reminded me of my grandmother’s cooking."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "そう言っていただけてうれしいです。",
+          "en": "I am glad to hear that."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "料理人にお礼を伝えていただけますか。",
+          "en": "Could you pass my thanks to the cook?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、伝えます。",
+          "en": "Yes, I will."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "お時間があれば、料理人にご挨拶できますか。",
+          "en": "If they have time, could I say hello to the cook?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "聞いてみます。",
+          "en": "I will ask."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "皆さん、ありがとうございました。",
+          "en": "Thank you, everyone."
+        }
+      ],
+      "speaking": {
+        "role": "Guest praising a finished meal",
+        "partnerRole": "Server",
+        "opening": "お食事はいかがでしたか。",
+        "goal": "Praise the sauce and fresh ingredients, explain the memory the flavor brought back, and ask the server to pass thanks to the cook.",
+        "closure": "料理人にお礼を伝えていただけますか。"
+      },
+      "stableId": "travel-lunch:13:ja-en"
+    },
+    {
+      "n": 14,
+      "sourceEnglishTitle": "Invite someone to lunch",
+      "sourceEnglishSkills": "make a low-pressure invitation, agree on time and place, and accept either answer",
+      "sourceEnglishScenario": "Invite a local acquaintance to lunch and choose a place together.",
+      "title": "A relaxed lunch invitation",
+      "objective": "Invite an acquaintance to lunch without pressure, agree on a time and meeting place if they accept, and respond warmly if they decline.",
+      "focus": "一緒に昼ごはんを食べませんか is a gentle invitation. 都合が悪ければ大丈夫です leaves room to decline. 何時がいいですか asks what time works. また今度 says another time.",
+      "scene": "Sam invites a local acquaintance to lunch near the market.",
+      "cards": [
+        {
+          "ja": "昼ごはん",
+          "en": "lunch",
+          "kind": "term"
+        },
+        {
+          "ja": "明日",
+          "en": "tomorrow",
+          "kind": "term"
+        },
+        {
+          "ja": "市場",
+          "en": "market",
+          "kind": "term"
+        },
+        {
+          "ja": "入口",
+          "en": "entrance",
+          "kind": "term"
+        },
+        {
+          "ja": "定食屋",
+          "en": "set-meal restaurant",
+          "kind": "term"
+        },
+        {
+          "ja": "一時",
+          "en": "one o’clock",
+          "kind": "term"
+        },
+        {
+          "ja": "予定",
+          "en": "plan / schedule",
+          "kind": "term"
+        },
+        {
+          "ja": "一緒に昼ごはんを食べませんか",
+          "en": "Would you like to have lunch together?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "都合が悪ければ大丈夫です",
+          "en": "If it does not work for you, no problem",
+          "kind": "phrase"
+        },
+        {
+          "ja": "何時がいいですか",
+          "en": "What time works for you?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "どこで会いましょうか",
+          "en": "Where shall we meet?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "市場の入口で会いましょう",
+          "en": "Let us meet at the market entrance",
+          "kind": "phrase"
+        },
+        {
+          "ja": "その店でいいです",
+          "en": "That place works for me",
+          "kind": "phrase"
+        },
+        {
+          "ja": "また今度にしましょう",
+          "en": "Let us do it another time",
+          "kind": "phrase"
+        },
+        {
+          "ja": "教えてくれてありがとう",
+          "en": "Thanks for letting me know",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "明日、一緒に昼ごはんを食べませんか。",
+          "en": "Would you like to have lunch together tomorrow?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "都合が悪ければ大丈夫です。",
+          "en": "If it does not work for you, no problem."
+        },
+        {
+          "speaker": "Marta",
+          "ja": "いいですね。市場の近くに定食屋があります。",
+          "en": "That sounds good. There is a set-meal restaurant near the market."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "何時がいいですか。",
+          "en": "What time works for you?"
+        },
+        {
+          "speaker": "Marta",
+          "ja": "一時はどうですか。",
+          "en": "How about one o’clock?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "いいですね。どこで会いましょうか。",
+          "en": "Sounds good. Where shall we meet?"
+        },
+        {
+          "speaker": "Marta",
+          "ja": "市場の入口で会いましょう。",
+          "en": "Let us meet at the market entrance."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "分かりました。その店でいいです。",
+          "en": "Understood. That place works for me."
+        },
+        {
+          "speaker": "Marta",
+          "ja": "では、明日一時に。",
+          "en": "Then tomorrow at one."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler inviting an acquaintance",
+        "partnerRole": "Local acquaintance",
+        "opening": "明日は何か予定がありますか。",
+        "goal": "Invite the acquaintance without pressure, ask what time and place work, and respond naturally to either an acceptance or a decline.",
+        "closure": "都合が悪ければ、また今度にしましょう。"
+      },
+      "stableId": "travel-lunch:14:ja-en",
+      "alternateReader": [
+        {
+          "speaker": "Marta",
+          "ja": "すみません、明日は予定があります。",
+          "en": "Sorry, I have plans tomorrow."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "分かりました。また今度にしましょう。教えてくれてありがとう。",
+          "en": "I understand. Let us do it another time. Thanks for telling me."
+        }
+      ]
+    },
+    {
+      "n": 15,
+      "sourceEnglishTitle": "Lunch midpoint review",
+      "sourceEnglishSkills": "combine choosing a place, ordering, a dietary question, a correction, and splitting the bill from lessons 1–14",
+      "sourceEnglishScenario": "Run an ordinary weekday lunch with a friend from finding a table to splitting the bill, fixing one small problem along the way.",
+      "title": "A complete weekday lunch",
+      "objective": "Choose a lunch place, ask for a table for two, state a nut allergy and ask about ingredients, correct a wrong dish, and split the bill.",
+      "focus": "〜アレルギーがあります states an allergy directly. 〜は入っていますか asks whether an ingredient is present. 注文したのは〜です corrects a wrong dish. 別々に払えますか asks to split payment.",
+      "scene": "Sam and Elena have lunch near a museum and correct a salad-versus-soup mix-up.",
+      "cards": [
+        {
+          "ja": "二人席",
+          "en": "table for two",
+          "kind": "term"
+        },
+        {
+          "ja": "ランチセット",
+          "en": "set lunch",
+          "kind": "term"
+        },
+        {
+          "ja": "材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "ナッツ",
+          "en": "nuts",
+          "kind": "term"
+        },
+        {
+          "ja": "ナッツアレルギー",
+          "en": "nut allergy",
+          "kind": "term"
+        },
+        {
+          "ja": "スープ",
+          "en": "soup",
+          "kind": "term"
+        },
+        {
+          "ja": "サラダ",
+          "en": "salad",
+          "kind": "term"
+        },
+        {
+          "ja": "お会計",
+          "en": "bill / payment",
+          "kind": "term"
+        },
+        {
+          "ja": "二人席はありますか",
+          "en": "Do you have a table for two?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ランチセットをお願いします",
+          "en": "The lunch set, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ナッツアレルギーがあります",
+          "en": "I have a nut allergy",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この料理にナッツは入っていますか",
+          "en": "Does this dish contain nuts?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "厨房に確認してもらえますか",
+          "en": "Could you check with the kitchen?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "注文したのはスープで、サラダではありません",
+          "en": "I ordered soup, not salad",
+          "kind": "phrase"
+        },
+        {
+          "ja": "別々に払えますか",
+          "en": "Can we pay separately?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "お会計をお願いします",
+          "en": "The bill, please",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。二人席はありますか。",
+          "en": "Excuse me. Do you have a table for two?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、こちらへどうぞ。",
+          "en": "Yes, this way, please."
+        },
+        {
+          "speaker": "Elena",
+          "ja": "ランチセットをお願いします。",
+          "en": "The lunch set, please."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "私はナッツアレルギーがあります。この料理にナッツは入っていますか。",
+          "en": "I have a nut allergy. Does this dish contain nuts?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "厨房に確認します。",
+          "en": "I will check with the kitchen."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "確認しました。この料理にはナッツは入っていません。",
+          "en": "I checked. This dish does not contain nuts."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。スープをお願いします。",
+          "en": "Thank you. Soup, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "サラダをお持ちしました。",
+          "en": "I have brought the salad."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "すみません。注文したのはスープで、サラダではありません。",
+          "en": "Excuse me. I ordered soup, not salad."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "失礼しました。スープをお持ちします。",
+          "en": "I am sorry. I will bring the soup."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "お会計をお願いします。別々に払えますか。",
+          "en": "The bill, please. Can we pay separately?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、できます。",
+          "en": "Yes, you can."
+        }
+      ],
+      "speaking": {
+        "role": "Guest reviewing a complete lunch",
+        "partnerRole": "Server",
+        "opening": "いらっしゃいませ。何名様ですか。",
+        "goal": "Ask for a table for two, order a set lunch, state a nut allergy and ask about ingredients, correct soup versus salad, then ask to pay separately.",
+        "closure": "お会計をお願いします。別々に払えますか。"
+      },
+      "stableId": "travel-lunch:15:ja-en"
+    }
+  ],
+  "reviewGates": [
+    "qualifiedJapaneseReview",
+    "domainAndContextReview",
+    "exactTextAudioAndListening",
+    "sixModeRuntimeAndOffline",
+    "browserPhoneNativeAcceptance"
+  ]
+}

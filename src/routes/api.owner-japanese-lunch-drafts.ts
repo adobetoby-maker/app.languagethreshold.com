@@ -65,7 +65,16 @@ async function lunchDrafts() {
     nextEnrichment.lessons.map((lesson) => lesson.stableId).join() ===
       "foundation-travel-lunch:4:ja-en,foundation-travel-lunch:5:ja-en,foundation-travel-lunch:6:ja-en",
     "Japanese Lunch Foundation 4–6 enrichment source or release gate changed");
-  const authoredLessons = [...enrichment.lessons, ...nextEnrichment.lessons];
+  const finalFoundationEnrichment = (await import("../../content/japanese-travel-lunch/private-foundation-7-10-enrichment.json")).default as Enrichment;
+  check(finalFoundationEnrichment.pairKey === "Japanese:English" &&
+    finalFoundationEnrichment.sourcePath === "content/japanese-travel-lunch/foundation-7-10-draft.json" &&
+    finalFoundationEnrichment.sourceSha256 === "ba303cb272cf5d4b1073911e43eedeaed40dadf472d7800b579da21a5bd5c6bf" &&
+    finalFoundationEnrichment.reviewed === false && finalFoundationEnrichment.registered === false &&
+    finalFoundationEnrichment.readyForLearner === false &&
+    finalFoundationEnrichment.lessons.map((lesson) => lesson.stableId).join() ===
+      "foundation-travel-lunch:7:ja-en,foundation-travel-lunch:8:ja-en,foundation-travel-lunch:9:ja-en,foundation-travel-lunch:10:ja-en",
+    "Japanese Lunch Foundation 7–10 enrichment source or release gate changed");
+  const authoredLessons = [...enrichment.lessons, ...nextEnrichment.lessons, ...finalFoundationEnrichment.lessons];
   const packets = await Promise.all(stages.map(async ({ draft, modes, sourceSha256 }) => ({
     batch: (await draft()).default as Draft, sidecar: (await modes()).default as Sidecar, sourceSha256,
   })));
@@ -85,7 +94,7 @@ async function lunchDrafts() {
         lesson.cards.length > 0 && lesson.reader.length > 0, "Japanese Lunch lesson identity changed");
       const activities = sidecar.activities.filter((activity) => activity.lessonId === lesson.stableId);
       const authored = authoredLessons.find((entry) => entry.stableId === lesson.stableId);
-      if (authored) check(stage === "foundation" && lesson.n <= 6 && authored.forms.length === 3 &&
+      if (authored) check(stage === "foundation" && lesson.n <= 10 && authored.forms.length === 3 &&
         authored.speakingObjectives.length >= 3 && authored.wordBank.length >= 4 &&
         authored.wordBank.every((word) => lesson.cards.some((card) => card.ja === word)),
         "Japanese Lunch authored enrichment scope changed");

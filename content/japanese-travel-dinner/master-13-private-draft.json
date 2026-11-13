@@ -1,0 +1,365 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "masterPath": "src/data/core60/es/master-travel-dinner.json",
+    "masterSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "contentPath": "public/lesson-content/es/master-travel-dinner.json",
+    "contentSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 13,
+      "stableId": "master-travel-dinner:13:ja-en",
+      "sourceTitleEnglish": "A Friend Slips on the Restroom Stairs",
+      "sourceObjectiveEnglish": "Tell the manager exactly what happened and when, ask for first aid help, and ask for an incident note.",
+      "sourceSpeakingEnglish": "You are a diner whose friend Priya just fell, and the AI is Rocío, the manager: tell her what happened in order using a las diez y cuarto, justo después del postre and en ese momento, ask for first aid, and ask for a written incident note.",
+      "title": "A Friend Slips on the Restroom Stairs",
+      "objective": "Tell the manager exactly what happened and when, ask for first aid help, and ask for an incident note.",
+      "focus": "終わった出来事は「～ました」で順に報告します。「デザートのすぐあと」「十時十五分」「そのとき」「少しして」で時点を分け、見たこととPriyaから聞いたことを言い分けます。手首、腫れ、応急手当、救急外来、骨折は場面に即して直接言います。",
+      "scene": "今夜、グラナダのアルバイシンにある小さなレストランで、Priyaがトイレへ向かう石の階段で足を滑らせ、Tomが支配人のRocíoに知らせます。",
+      "forms": [
+        {
+          "base": "滑る（すべる）",
+          "polite": "滑ります（すべります）",
+          "meaning": "to slip",
+          "example": "階段で足が滑りました。",
+          "question": "どこで滑りましたか。"
+        },
+        {
+          "base": "見る（みる）",
+          "polite": "見ます（みます）",
+          "meaning": "to see",
+          "example": "注意の看板は一つも見ませんでした。",
+          "question": "看板を見ましたか。"
+        },
+        {
+          "base": "書く（かく）",
+          "polite": "書きます（かきます）",
+          "meaning": "to write",
+          "example": "Rocíoは手帳に時刻を書きます。",
+          "question": "手帳に何を書きますか。"
+        },
+        {
+          "base": "持つ（もつ）",
+          "polite": "持ちます（もちます）",
+          "meaning": "to hold, to carry",
+          "example": "彼女はバッグを持っていました。",
+          "question": "何を持っていましたか。"
+        },
+        {
+          "base": "呼ぶ（よぶ）",
+          "polite": "呼びます（よびます）",
+          "meaning": "to call",
+          "example": "Rocíoが救急外来へ行くためのタクシーを呼びます。",
+          "question": "だれがタクシーを呼びますか。"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "階段",
+          "readingKana": "かいだん",
+          "en": "the stairs",
+          "kind": "term"
+        },
+        {
+          "ja": "濡れた床",
+          "readingKana": "ぬれたゆか",
+          "en": "the wet floor",
+          "kind": "term"
+        },
+        {
+          "ja": "手すり",
+          "readingKana": "てすり",
+          "en": "the handrail",
+          "kind": "term"
+        },
+        {
+          "ja": "注意看板",
+          "readingKana": "ちゅういかんばん",
+          "en": "the warning sign",
+          "kind": "term"
+        },
+        {
+          "ja": "トイレ",
+          "readingKana": "トイレ",
+          "en": "the restroom",
+          "kind": "term"
+        },
+        {
+          "ja": "転倒",
+          "readingKana": "てんとう",
+          "en": "the fall",
+          "kind": "term"
+        },
+        {
+          "ja": "足を滑らせること",
+          "readingKana": "あしをすべらせること",
+          "en": "the slip",
+          "kind": "term"
+        },
+        {
+          "ja": "手首",
+          "readingKana": "てくび",
+          "en": "the wrist",
+          "kind": "term"
+        },
+        {
+          "ja": "腫れ",
+          "readingKana": "はれ",
+          "en": "the swelling",
+          "kind": "term"
+        },
+        {
+          "ja": "救急箱",
+          "readingKana": "きゅうきゅうばこ",
+          "en": "the first-aid kit",
+          "kind": "term"
+        },
+        {
+          "ja": "応急手当",
+          "readingKana": "おうきゅうてあて",
+          "en": "first aid",
+          "kind": "term"
+        },
+        {
+          "ja": "氷",
+          "readingKana": "こおり",
+          "en": "the ice",
+          "kind": "term"
+        },
+        {
+          "ja": "救急外来",
+          "readingKana": "きゅうきゅうがいらい",
+          "en": "the emergency room",
+          "kind": "term"
+        },
+        {
+          "ja": "事故報告書",
+          "readingKana": "じこほうこくしょ",
+          "en": "the incident report",
+          "kind": "term"
+        },
+        {
+          "ja": "デザートのすぐあとに、Priyaはトイレへ下りていきました。",
+          "readingKana": "デザートのすぐあとに、Priyaはトイレへおりていきました。",
+          "en": "Right after dessert, Priya went down to the restroom.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "十時十五分に、彼女は三段目で足を滑らせました。",
+          "readingKana": "じゅうじじゅうごふんに、かのじょはさんだんめであしをすべらせました。",
+          "en": "At a quarter past ten she slipped on the third step.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "そのとき床は濡れていて、注意の看板は一つも見ませんでした。",
+          "readingKana": "そのときゆかはぬれていて、ちゅういのかんばんはひとつもみませんでした。",
+          "en": "At that moment the floor was wet and I didn't see any sign.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "少しして、彼女の手首が腫れ始めました。",
+          "readingKana": "すこしして、かのじょのてくびがはれはじめました。",
+          "en": "Shortly after, her wrist started to swell.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "Rocíoさん、救急箱と氷を少しいただけますか。",
+          "readingKana": "Rocíoさん、きゅうきゅうばことこおりをすこしいただけますか。",
+          "en": "Rocío, do you have a first-aid kit and some ice, please?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "Priya、手首を動かさないで。今、氷を持ってきてくれるからね。",
+          "readingKana": "Priya、てくびをうごかさないで。いま、こおりをもってきてくれるからね。",
+          "en": "Priya, don't move your wrist; they're bringing you ice now.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "何があったかをメモに書いていただき、控えを一部いただけますか。",
+          "readingKana": "なにがあったかをメモにかいていただき、ひかえをいちぶいただけますか。",
+          "en": "Could you write a note of what happened and give us a copy?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "今夜、Tomと友人のPriyaはグラナダのアルバイシンにある小さなレストランで夕食をとっています。",
+          "en": "Tonight, Tom and his friend Priya are having dinner in a small restaurant in the Albaicín, in Granada."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "トイレは地下にあり、そこへ行くには、かなり狭い石の階段を下りなければなりません。",
+          "en": "The restroom is in the basement, and to get there you have to go down a fairly narrow stone staircase."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ドスンという音が聞こえると、Tomは駆け下り、階段の下にいるPriyaを見つけて、支配人のRocíoに知らせます。",
+          "en": "On hearing a thud, Tom runs down, finds Priya at the foot of the stairs and alerts Rocío, the manager."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "Rocíoは、何かを書き留める前に、何が起きたかの正確な説明を求めています。",
+          "en": "Rocío wants an exact account of what happened before writing anything down."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "Tom：「デザートのすぐあとに、Priyaはトイレへ下りていきました。」",
+          "en": "Tom: Right after dessert, Priya went down to the restroom."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "Tom：「十時十五分に、彼女は三段目で足を滑らせました。」",
+          "en": "Tom: At a quarter past ten she slipped on the third step."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "Tom：「そのとき床は濡れていて、注意の看板は一つも見ませんでした。」",
+          "en": "Tom: At that moment the floor was wet and I didn't see any sign."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "Tom：「Priyaは、手すりにつかまらなかったと言っていました。手すりは一つしかなく、左側にだけあって、彼女はその側にバッグを持っていたからです。」",
+          "en": "Tom: Priya told me she didn't hold on to the handrail because there is only one, on the left side, and she was carrying her bag on that side."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "Tom：「Priyaは、転んだとき、体重のすべてを右手にかけたと言っていました。」",
+          "en": "Tom: Priya told me that, in the fall, she put all her weight on her right hand."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "Tom：「少しして、彼女の手首が腫れ始めました。」",
+          "en": "Tom: Shortly after, her wrist started to swell."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "Rocíoは、Priyaが滑った時刻と何段目だったかを手帳に書き留めます。",
+          "en": "Rocío writes the time of the slip and the number of the step in her notebook."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "Rocíoはその段のそばの濡れた床を見て、トイレのドアの後ろに注意の看板があるのを見つけます。",
+          "en": "Rocío sees the wet floor next to the step and finds the warning sign behind the restroom door."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "腫れがひどくなり、TomはRocíoに応急手当の手助けを頼みます。",
+          "en": "The swelling gets worse, and Tom asks Rocío for help with first aid."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "Tom：「Rocíoさん、救急箱と氷を少しいただけますか。」",
+          "en": "Tom: Rocío, do you have a first-aid kit and some ice, please?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ウェイターが厨房から救急箱と、布で包んだ氷の袋を持ってきます。",
+          "en": "A waiter brings the first-aid kit from the kitchen and a bag of ice wrapped in a cloth."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "Rocío：「時刻と何段目か、それにTomさんからお聞きしたことをすべて、事故報告書に記入します。」",
+          "en": "Rocío: I'm going to fill out the incident report with the time, the step and everything you've told me."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "Tom：「何があったかをメモに書いていただき、控えを一部いただけますか。」",
+          "en": "Tom: Could you write a note of what happened and give us a copy?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "Rocíoは署名入りの控えを二人に渡し、救急外来へ行くためのタクシーを呼びます。骨折しているかどうかは、医師にしか分からないからです。",
+          "en": "Rocío gives them a signed copy and calls them a taxi to go to the emergency room, because only a doctor can see whether there is a fracture."
+        }
+      ],
+      "modes": {
+        "see": {
+          "sourceCard": 2,
+          "cueEnglish": "the wet floor",
+          "cueJapanese": "英語の意味を手がかりに、床の状態を表す日本語を見分けましょう。",
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "sourceCard": 10,
+          "cueEnglish": "the first-aid kit",
+          "cueJapanese": "英語の「first-aid kit」に当たる日本語を思い出しましょう。",
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "sourceCard": 12,
+          "cueEnglish": "the ice",
+          "cueJapanese": "日本語の音声を聞き、氷を表す語か確かめましょう。",
+          "responseKind": "fixed"
+        },
+        "type": {
+          "sourceCard": 13,
+          "cueEnglish": "the emergency room",
+          "cueJapanese": "英語の「emergency room」に当たる日本語を入力しましょう。",
+          "responseKind": "fixed"
+        },
+        "say": {
+          "sourceCard": 8,
+          "cueEnglish": "the wrist",
+          "cueJapanese": "英語の「wrist」に当たる日本語を声に出しましょう。",
+          "responseKind": "open"
+        },
+        "write": {
+          "sourceCard": 16,
+          "cueEnglish": "At a quarter past ten she slipped on the third step.",
+          "cueJapanese": "英語の時刻と三段目の出来事を、日本語の一文で書きましょう。",
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "You are Tom, dining with your friend Priya in Granada.",
+        "partnerRole": "Rocío, the restaurant manager, played by the AI.",
+        "opening": "Tomさん、何がありましたか。書き留める前に、Priyaさんに何が起きたのか、順番に正確に教えていただけますか。",
+        "objectives": [
+          "Report the sequence and exact time of Priya’s slip on the third step.",
+          "Describe the wet floor, handrail and warning sign accurately.",
+          "Ask Rocío for first-aid help and ice.",
+          "Request a written incident note and a copy."
+        ],
+        "closure": "何があったかをメモに書いていただき、控えを一部いただけますか。",
+        "wordBank": [
+          "階段",
+          "濡れた床",
+          "手すり",
+          "注意看板",
+          "トイレ",
+          "転倒",
+          "足を滑らせること",
+          "手首",
+          "腫れ",
+          "救急箱",
+          "応急手当",
+          "氷",
+          "救急外来",
+          "事故報告書",
+          "デザートのすぐあとに、Priyaはトイレへ下りていきました。",
+          "十時十五分に、彼女は三段目で足を滑らせました。",
+          "そのとき床は濡れていて、注意の看板は一つも見ませんでした。",
+          "少しして、彼女の手首が腫れ始めました。",
+          "Rocíoさん、救急箱と氷を少しいただけますか。",
+          "Priya、手首を動かさないで。今、氷を持ってきてくれるからね。",
+          "何があったかをメモに書いていただき、控えを一部いただけますか。"
+        ]
+      },
+      "reviewed": false
+    }
+  ]
+}

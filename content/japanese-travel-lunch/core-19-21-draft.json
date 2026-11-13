@@ -1,0 +1,510 @@
+{
+  "schema": 1,
+  "moduleId": "travel-lunch",
+  "stageId": "travel-lunch",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "mapPath": "src/data/travel-zone.ts",
+    "mapSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "readerPath": "public/lesson-content/es/travel-lunch.json",
+    "readerSha256": "9c6104911c7c3fc2d8f0e1914edb5bd8e490f0d3961babfcece22238f995580d",
+    "sourceLessonNumbers": [
+      19,
+      20,
+      21
+    ]
+  },
+  "lessons": [
+    {
+      "n": 19,
+      "sourceEnglishTitle": "Navigate a severe allergy",
+      "sourceEnglishSkills": "explain severity, ask about shared fryers, stocks, and sauces, and decide whether to eat elsewhere",
+      "sourceEnglishScenario": "Explain that your partner reacts severely to shellfish, ask about the fryer and stock, and politely decide whether to stay.",
+      "title": "貝類の重いアレルギーを伝える",
+      "objective": "Explain a severe shellfish allergy, ask about the shared fryer, stock, sauce, and kitchen ingredients, then decide to eat elsewhere.",
+      "focus": "重度の貝類・甲殻類アレルギー means severe shellfish allergy. 少量でも重篤なアレルギー反応が出ます explains that even a small amount causes a severe reaction. 同じフライヤーを使っていますか asks about shared equipment; 交差接触 names cross-contact.",
+      "scene": "Ana and Tom enter a small lunch restaurant. Ana speaks with the server about Tom’s shellfish allergy.",
+      "cards": [
+        {
+          "ja": "アレルギー",
+          "en": "allergy",
+          "kind": "term"
+        },
+        {
+          "ja": "貝類・甲殻類",
+          "en": "shellfish",
+          "kind": "term"
+        },
+        {
+          "ja": "エビ",
+          "en": "shrimp",
+          "kind": "term"
+        },
+        {
+          "ja": "重篤なアレルギー反応",
+          "en": "severe allergic reaction",
+          "kind": "term"
+        },
+        {
+          "ja": "フライヤー",
+          "en": "fryer",
+          "kind": "term"
+        },
+        {
+          "ja": "だし",
+          "en": "stock",
+          "kind": "term"
+        },
+        {
+          "ja": "ソース",
+          "en": "sauce",
+          "kind": "term"
+        },
+        {
+          "ja": "原材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "厨房",
+          "en": "kitchen",
+          "kind": "term"
+        },
+        {
+          "ja": "交差接触",
+          "en": "cross-contact",
+          "kind": "term"
+        },
+        {
+          "ja": "店員",
+          "en": "server",
+          "kind": "term"
+        },
+        {
+          "ja": "パートナーには重度の貝類・甲殻類アレルギーがあります。",
+          "en": "My partner has a severe shellfish allergy.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "少量でも重篤なアレルギー反応が出ます。",
+          "en": "Even a small amount causes a severe allergic reaction.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "エビと同じフライヤーを使っていますか。",
+          "en": "Do you use the same fryer for the shrimp?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "このスープのだしに貝類や甲殻類は入っていますか。",
+          "en": "Does the stock for this soup contain shellfish?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "厨房に確認していただけますか。",
+          "en": "Could you check with the kitchen?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "このソースの原材料は何ですか。",
+          "en": "What are the ingredients in this sauce?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ありがとうございます。でも、別のお店で食べます。",
+          "en": "Thank you, but we will eat somewhere else.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "アナとトムは昼食のために小さな食堂に入ります。",
+          "en": "Ana and Tom enter a small diner for lunch."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "パートナーには重度の貝類・甲殻類アレルギーがあります。",
+          "en": "My partner has a severe shellfish allergy."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "少量でも重篤なアレルギー反応が出ます。",
+          "en": "Even a small amount causes him a severe allergic reaction."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "エビと同じフライヤーを使っていますか。",
+          "en": "Do you use the same fryer for the shrimp?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "はい、同じフライヤーを使っています。",
+          "en": "Yes, we use the same fryer."
+        },
+        {
+          "speaker": "Server",
+          "ja": "本日のスープのだしにも貝類が入っています。",
+          "en": "The stock for today’s soup also contains shellfish."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "厨房に確認していただけますか。ソースの原材料も知りたいです。",
+          "en": "Could you check with the kitchen? I also want to know the sauce ingredients."
+        },
+        {
+          "speaker": "Server",
+          "ja": "料理人によると、ソースにも干しエビが入っています。",
+          "en": "The cook says the sauce also contains dried shrimp."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "アナは交差接触についても考えます。",
+          "en": "Ana also considers cross-contact."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "ありがとうございます。でも、別のお店で食べます。",
+          "en": "Thank you, but we will eat somewhere else."
+        }
+      ],
+      "speaking": {
+        "role": "Guest explaining a partner’s severe shellfish allergy",
+        "partnerRole": "Restaurant server",
+        "opening": "いらっしゃいませ。お二人ですか。",
+        "goal": "State the severe shellfish allergy and severe reaction, ask about the shared fryer, soup stock, sauce ingredients, and kitchen, then decide whether to stay.",
+        "closure": "ありがとうございます。でも、別のお店で食べます。"
+      },
+      "stableId": "travel-lunch:19:ja-en"
+    },
+    {
+      "n": 20,
+      "sourceEnglishTitle": "Dispute a cover or service charge",
+      "sourceEnglishSkills": "question an unexpected cover, bread, or service charge and agree on a resolution",
+      "sourceEnglishScenario": "Your bill includes bread you declined and a service charge not on the menu; question it calmly and settle the total.",
+      "title": "予想外の請求を確認する",
+      "objective": "Ask about an unexpected bread charge, seat charge, and service charge; agree on a corrected total and pay by card.",
+      "focus": "パン代 is a bread charge, 席料 is a seat or cover charge, and サービス料 is a service charge. 頼んでいません states you did not order something; 請求書を訂正していただけますか asks for a corrected bill.",
+      "scene": "Ana reviews a lunch bill at a small restaurant and speaks with the server about three charges.",
+      "cards": [
+        {
+          "ja": "請求書",
+          "en": "bill",
+          "kind": "term"
+        },
+        {
+          "ja": "料金",
+          "en": "charge",
+          "kind": "term"
+        },
+        {
+          "ja": "席料",
+          "en": "seat or cover charge",
+          "kind": "term"
+        },
+        {
+          "ja": "サービス料",
+          "en": "service charge",
+          "kind": "term"
+        },
+        {
+          "ja": "パン代",
+          "en": "bread charge",
+          "kind": "term"
+        },
+        {
+          "ja": "合計",
+          "en": "total",
+          "kind": "term"
+        },
+        {
+          "ja": "メニュー",
+          "en": "menu",
+          "kind": "term"
+        },
+        {
+          "ja": "店員",
+          "en": "server",
+          "kind": "term"
+        },
+        {
+          "ja": "チップ",
+          "en": "tip",
+          "kind": "term"
+        },
+        {
+          "ja": "カード",
+          "en": "card",
+          "kind": "term"
+        },
+        {
+          "ja": "領収書",
+          "en": "receipt",
+          "kind": "term"
+        },
+        {
+          "ja": "すみません。この料金について説明していただけますか。",
+          "en": "Excuse me, could you explain this charge?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "パンは頼んでいません。",
+          "en": "I did not order the bread.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "サービス料はメニューに書いてありません。",
+          "en": "The service charge is not listed on the menu.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "サービス料は含まれていますか。",
+          "en": "Is the service charge included?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "請求書を訂正していただけますか。",
+          "en": "Could you correct the bill?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "席料は払います。",
+          "en": "I will pay the seat charge.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "訂正後の合計をカードで払います。",
+          "en": "I will pay the corrected total by card.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "昼食のあと、アナは請求書を頼みます。",
+          "en": "After lunch, Ana asks for the bill."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "パン代、席料、十パーセントのサービス料が付いています。",
+          "en": "It includes a bread charge, a seat charge, and a ten percent service charge."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "すみません。この料金について説明していただけますか。",
+          "en": "Excuse me, could you explain this charge?"
+        },
+        {
+          "speaker": "Ana",
+          "ja": "パンは頼んでいません。サービス料はメニューに書いてありません。",
+          "en": "I did not order the bread, and the service charge is not listed on the menu."
+        },
+        {
+          "speaker": "Server",
+          "ja": "確認します。パン代は取り消します。",
+          "en": "I will check. I will remove the bread charge."
+        },
+        {
+          "speaker": "Server",
+          "ja": "席料はお一人三百円です。店の案内に書いてあります。",
+          "en": "The seat charge is three hundred yen per person. It is listed in the restaurant notice."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "分かりました。席料は払います。",
+          "en": "I understand. I will pay the seat charge."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "サービス料も確認して、請求書を訂正していただけますか。",
+          "en": "Could you also check the service charge and correct the bill?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "はい。サービス料も取り消しました。こちらが新しい合計です。",
+          "en": "Yes. I removed the service charge too. Here is the new total."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "ありがとうございます。カードで払います。領収書もお願いします。",
+          "en": "Thank you. I will pay by card. A receipt, please."
+        }
+      ],
+      "speaking": {
+        "role": "Guest reviewing an unexpected restaurant bill",
+        "partnerRole": "Restaurant server",
+        "opening": "こちらが請求書です。",
+        "goal": "Ask about the bread, seat, and service charges, explain the declined bread and unlisted service charge, agree on a corrected total, and pay by card.",
+        "closure": "訂正後の合計をカードで払います。"
+      },
+      "stableId": "travel-lunch:20:ja-en"
+    },
+    {
+      "n": 21,
+      "sourceEnglishTitle": "Hold your choice against an upsell",
+      "sourceEnglishSkills": "politely insist on your order, explain your budget, and decline a pricier suggestion",
+      "sourceEnglishScenario": "The server keeps steering you toward the most expensive fish; hold your choice politely and explain your budget.",
+      "title": "予算に合わせて注文を守る",
+      "objective": "Politely keep a chosen set meal after the server suggests a more expensive fish, ask the price, state a budget, and decline an extra side dish.",
+      "focus": "日替わり定食 means daily set meal, 本日の魚料理 means fish of the day, and 予算 means budget. 注文したものにします holds the original order; 追加はしません declines an extra item.",
+      "scene": "Ana orders a daily set meal at lunch. The server suggests a pricier fish and an added side dish.",
+      "cards": [
+        {
+          "ja": "日替わり定食",
+          "en": "daily set meal",
+          "kind": "term"
+        },
+        {
+          "ja": "本日の魚料理",
+          "en": "fish of the day",
+          "kind": "term"
+        },
+        {
+          "ja": "店員",
+          "en": "server",
+          "kind": "term"
+        },
+        {
+          "ja": "メニュー",
+          "en": "menu",
+          "kind": "term"
+        },
+        {
+          "ja": "値段",
+          "en": "price",
+          "kind": "term"
+        },
+        {
+          "ja": "予算",
+          "en": "budget",
+          "kind": "term"
+        },
+        {
+          "ja": "おすすめ",
+          "en": "recommendation",
+          "kind": "term"
+        },
+        {
+          "ja": "付け合わせ",
+          "en": "side dish",
+          "kind": "term"
+        },
+        {
+          "ja": "注文",
+          "en": "order",
+          "kind": "term"
+        },
+        {
+          "ja": "請求書",
+          "en": "bill",
+          "kind": "term"
+        },
+        {
+          "ja": "チップ",
+          "en": "tip",
+          "kind": "term"
+        },
+        {
+          "ja": "日替わり定食をお願いします。",
+          "en": "The daily set meal, please.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "本日の魚料理はいくらですか。",
+          "en": "How much is the fish of the day?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "今日は予算が限られています。",
+          "en": "I have a limited budget today.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "おすすめはありがとうございます。でも、注文したものにします。",
+          "en": "Thank you for the suggestion, but I will stick with my order.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "それより高ければ、注文しません。",
+          "en": "If it is more expensive than that, I will not order it.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "付け合わせの追加はしません。",
+          "en": "I will not add a side dish.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "定食にはスープとデザートが付いています。",
+          "en": "The set meal includes soup and dessert.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "アナは昼食に日替わり定食を注文します。",
+          "en": "Ana orders the daily set meal for lunch."
+        },
+        {
+          "speaker": "Server",
+          "ja": "本日の魚料理もおすすめです。新鮮ですよ。",
+          "en": "I also recommend the fish of the day. It is fresh."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "本日の魚料理はいくらですか。",
+          "en": "How much is the fish of the day?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "三千二百円です。",
+          "en": "It is three thousand two hundred yen."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "おすすめはありがとうございます。でも、今日は予算が限られています。",
+          "en": "Thank you for the suggestion, but I have a limited budget today."
+        },
+        {
+          "speaker": "Server",
+          "ja": "魚料理に付け合わせも追加できます。",
+          "en": "You can also add a side dish to the fish."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "付け合わせの追加はしません。注文したものにします。",
+          "en": "I will not add a side dish. I will stick with my order."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "日替わり定食にはスープとデザートが付いています。",
+          "en": "The daily set meal includes soup and dessert."
+        },
+        {
+          "speaker": "Server",
+          "ja": "かしこまりました。日替わり定食ですね。",
+          "en": "Certainly. The daily set meal."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "請求書は千四百円です。アナは会計を済ませます。",
+          "en": "The bill is fourteen hundred yen. Ana pays it."
+        }
+      ],
+      "speaking": {
+        "role": "Guest keeping a set-meal order within a budget",
+        "partnerRole": "Server recommending a pricier special",
+        "opening": "本日の魚料理もおすすめです。",
+        "goal": "Ask the fish price, explain the limited budget, decline a suggested side dish, and keep the original daily set meal.",
+        "closure": "おすすめはありがとうございます。でも、注文したものにします。"
+      },
+      "stableId": "travel-lunch:21:ja-en"
+    }
+  ]
+}

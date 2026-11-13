@@ -1,0 +1,492 @@
+{
+  "schema": 1,
+  "moduleId": "travel-lunch",
+  "stageId": "travel-lunch",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "mapPath": "src/data/travel-zone.ts",
+    "mapSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "readerPath": "public/lesson-content/es/travel-lunch.json",
+    "readerSha256": "9c6104911c7c3fc2d8f0e1914edb5bd8e490f0d3961babfcece22238f995580d",
+    "sourceLessonNumbers": [
+      7,
+      8,
+      9
+    ]
+  },
+  "lessons": [
+    {
+      "n": 7,
+      "sourceEnglishTitle": "Share dishes",
+      "sourceEnglishSkills": "ask for plates, divide food, and check whether sharing is customary",
+      "sourceEnglishScenario": "Order several dishes for the table and explain how the group wants to share.",
+      "title": "Sharing dishes at the table",
+      "objective": "Ask whether dishes can be shared, request small plates and serving utensils, divide food, and ask about separate payment.",
+      "focus": "取り分ける means to portion food out for people. 取り皿 are small sharing plates. 〜てもいいですか asks whether an action is okay. 別々に払えますか asks whether the bill can be split.",
+      "scene": "Four friends order several dishes to share at a casual restaurant.",
+      "cards": [
+        {
+          "ja": "取り皿",
+          "en": "small plate for sharing",
+          "kind": "term"
+        },
+        {
+          "ja": "取り分け用のスプーン",
+          "en": "serving spoon",
+          "kind": "term"
+        },
+        {
+          "ja": "四人",
+          "en": "four people",
+          "kind": "term"
+        },
+        {
+          "ja": "サラダ",
+          "en": "salad",
+          "kind": "term"
+        },
+        {
+          "ja": "ピザ",
+          "en": "pizza",
+          "kind": "term"
+        },
+        {
+          "ja": "ポテトフライ",
+          "en": "french fries",
+          "kind": "term"
+        },
+        {
+          "ja": "真ん中",
+          "en": "middle / center",
+          "kind": "term"
+        },
+        {
+          "ja": "四つに",
+          "en": "into four pieces",
+          "kind": "term"
+        },
+        {
+          "ja": "取り分けます",
+          "en": "portion out / share",
+          "kind": "phrase"
+        },
+        {
+          "ja": "料理を取り分けてもいいですか",
+          "en": "May we share the dishes?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "取り皿を四枚お願いします",
+          "en": "Four small plates, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ピザを四つに切ってもらえますか",
+          "en": "Could you cut the pizza into four?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "全部、テーブルの真ん中にお願いします",
+          "en": "Everything in the middle of the table, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "別々に払えますか",
+          "en": "Can we pay separately?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この料理は何人分ですか",
+          "en": "How many people does this dish serve?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "四人で料理を取り分けてもいいですか。",
+          "en": "May the four of us share the dishes?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、大丈夫です。",
+          "en": "Yes, that is fine."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "サラダとピザとポテトフライをお願いします。",
+          "en": "Salad, pizza, and french fries, please."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "全部、テーブルの真ん中にお願いします。",
+          "en": "Please put everything in the middle of the table."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "かしこまりました。",
+          "en": "Certainly."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "取り皿を四枚と、取り分け用のスプーンをお願いします。",
+          "en": "Four small plates and a serving spoon, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、こちらです。",
+          "en": "Certainly, here they are."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ピザを四つに切ってもらえますか。",
+          "en": "Could you cut the pizza into four?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。",
+          "en": "Yes."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "お会計は別々に払えますか。",
+          "en": "Can we pay separately?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、できます。",
+          "en": "Yes, you can."
+        }
+      ],
+      "speaking": {
+        "role": "Guest organizing a shared lunch",
+        "partnerRole": "Server",
+        "opening": "四名様ですね。ご注文は何になさいますか。",
+        "goal": "Ask whether sharing is possible, order several dishes for the table, request four small plates and a serving spoon, then ask to pay separately.",
+        "closure": "取り皿を四枚お願いします。ありがとうございます。"
+      },
+      "stableId": "travel-lunch:7:ja-en"
+    },
+    {
+      "n": 8,
+      "sourceEnglishTitle": "Manage lunch dietary needs",
+      "sourceEnglishSkills": "ask about ingredients and simple modifications without demanding an unsafe guarantee",
+      "sourceEnglishScenario": "Find a workable lunch for a vegetarian or someone avoiding a stated ingredient.",
+      "title": "Ingredients and stated food needs",
+      "objective": "State a vegetarian preference and a sesame allergy directly, ask about stock and sesame, and request a simple ingredient change.",
+      "focus": "ベジタリアンです directly states vegetarian status. ごまアレルギーがあります states a sesame allergy. 〜が入っていますか asks whether an ingredient is present. 〜抜きでお願いします requests an omission; 厨房に確認してもらえますか asks the staff to check with the kitchen.",
+      "scene": "Two lunch guests ask staff about a vegetable dish and a stated sesame allergy.",
+      "cards": [
+        {
+          "ja": "材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "ベジタリアン",
+          "en": "vegetarian",
+          "kind": "term"
+        },
+        {
+          "ja": "アレルギー",
+          "en": "allergy",
+          "kind": "term"
+        },
+        {
+          "ja": "ごまアレルギー",
+          "en": "sesame allergy",
+          "kind": "term"
+        },
+        {
+          "ja": "魚のだし",
+          "en": "fish stock",
+          "kind": "term"
+        },
+        {
+          "ja": "肉",
+          "en": "meat",
+          "kind": "term"
+        },
+        {
+          "ja": "チーズ",
+          "en": "cheese",
+          "kind": "term"
+        },
+        {
+          "ja": "サラダ",
+          "en": "salad",
+          "kind": "term"
+        },
+        {
+          "ja": "ソース",
+          "en": "sauce",
+          "kind": "term"
+        },
+        {
+          "ja": "ベジタリアンです",
+          "en": "I am vegetarian",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ごまアレルギーがあります",
+          "en": "I have a sesame allergy",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この料理には何が入っていますか",
+          "en": "What ingredients are in this dish?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "魚のだしは入っていますか",
+          "en": "Does it contain fish stock?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ごまは入っていますか",
+          "en": "Does it contain sesame?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "チーズ抜きでお願いします",
+          "en": "Without cheese, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "厨房に確認してもらえますか",
+          "en": "Could you check with the kitchen?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ソースは別にお願いします",
+          "en": "The sauce on the side, please",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。この料理には何が入っていますか。",
+          "en": "Excuse me. What ingredients are in this dish?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "野菜と豆腐とソースが入っています。",
+          "en": "It has vegetables, tofu, and sauce."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "私はベジタリアンです。魚のだしは入っていますか。",
+          "en": "I am vegetarian. Does it contain fish stock?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "厨房に確認します。",
+          "en": "I will check with the kitchen."
+        },
+        {
+          "speaker": "Companion",
+          "ja": "私はごまアレルギーがあります。ごまは入っていますか。",
+          "en": "I have a sesame allergy. Does it contain sesame?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "それも確認します。",
+          "en": "I will check that too."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "厨房に確認しました。だしは野菜だけで、ごまは入っていません。",
+          "en": "I checked with the kitchen. The stock is vegetable only, and it does not contain sesame."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "では、チーズ抜きでお願いします。",
+          "en": "Then without cheese, please."
+        },
+        {
+          "speaker": "Companion",
+          "ja": "ソースは別にお願いします。",
+          "en": "The sauce on the side, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "かしこまりました。",
+          "en": "Certainly."
+        }
+      ],
+      "speaking": {
+        "role": "Guest stating food needs",
+        "partnerRole": "Server",
+        "opening": "本日の野菜料理はいかがですか。",
+        "goal": "State that one guest is vegetarian and another has a sesame allergy; ask about fish stock and sesame, request a kitchen check, and ask for a simple omission.",
+        "closure": "チーズ抜きでお願いします。"
+      },
+      "stableId": "travel-lunch:8:ja-en"
+    },
+    {
+      "n": 9,
+      "sourceEnglishTitle": "Ask for water, bread, and condiments",
+      "sourceEnglishSkills": "request table basics and understand whether they carry a charge",
+      "sourceEnglishScenario": "Clarify whether water and bread are complimentary before accepting them.",
+      "title": "Table basics and extra charges",
+      "objective": "Request water, bread, napkins, and condiments, then check which items are complimentary and which cost extra.",
+      "focus": "無料ですか asks whether an item is free. 別料金ですか asks whether it costs extra. お水 usually means drinking water; ボトルの水 specifies bottled water. 〜をお願いします is a polite table request.",
+      "scene": "Sam sits down for lunch and clarifies the price of table items before ordering them.",
+      "cards": [
+        {
+          "ja": "お水",
+          "en": "drinking water",
+          "kind": "term"
+        },
+        {
+          "ja": "ボトルの水",
+          "en": "bottled water",
+          "kind": "term"
+        },
+        {
+          "ja": "パン",
+          "en": "bread",
+          "kind": "term"
+        },
+        {
+          "ja": "バター",
+          "en": "butter",
+          "kind": "term"
+        },
+        {
+          "ja": "紙ナプキン",
+          "en": "paper napkins",
+          "kind": "term"
+        },
+        {
+          "ja": "塩",
+          "en": "salt",
+          "kind": "term"
+        },
+        {
+          "ja": "辛いソース",
+          "en": "hot sauce",
+          "kind": "term"
+        },
+        {
+          "ja": "無料",
+          "en": "free of charge",
+          "kind": "term"
+        },
+        {
+          "ja": "別料金",
+          "en": "extra charge",
+          "kind": "term"
+        },
+        {
+          "ja": "お水をお願いします",
+          "en": "Water, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "お水は無料ですか",
+          "en": "Is the water free?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ボトルの水は別料金ですか",
+          "en": "Does bottled water cost extra?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "パンは無料ですか",
+          "en": "Is the bread complimentary?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "紙ナプキンをもう少しお願いします",
+          "en": "A few more napkins, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "これは別料金ですか",
+          "en": "Is this charged separately?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "お会計をお願いします",
+          "en": "The bill, please",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Staff",
+          "ja": "お飲み物はいかがですか。",
+          "en": "Would you like a drink?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "お水をお願いします。お水は無料ですか。",
+          "en": "Water, please. Is the water free?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。お水は無料です。ボトルの水は別料金です。",
+          "en": "Yes. Drinking water is free. Bottled water costs extra."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "分かりました。パンは無料ですか。",
+          "en": "I understand. Is the bread complimentary?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、このパンは無料です。",
+          "en": "Yes, this bread is complimentary."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "塩と辛いソースをお願いします。",
+          "en": "Salt and hot sauce, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、こちらです。",
+          "en": "Certainly, here they are."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "紙ナプキンをもう少しお願いします。",
+          "en": "A few more napkins, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "かしこまりました。",
+          "en": "Certainly."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "お会計をお願いします。",
+          "en": "The bill, please."
+        }
+      ],
+      "speaking": {
+        "role": "Guest checking table items",
+        "partnerRole": "Server",
+        "opening": "お飲み物はいかがですか。",
+        "goal": "Request drinking water and bread, ask whether each is complimentary, check if bottled water costs extra, and ask for napkins and condiments.",
+        "closure": "お会計をお願いします。"
+      },
+      "stableId": "travel-lunch:9:ja-en"
+    }
+  ],
+  "reviewGates": [
+    "qualifiedJapaneseReview",
+    "domainAndContextReview",
+    "exactTextAudioAndListening",
+    "sixModeRuntimeAndOffline",
+    "browserPhoneNativeAcceptance"
+  ]
+}

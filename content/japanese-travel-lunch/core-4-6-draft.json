@@ -1,0 +1,508 @@
+{
+  "schema": 1,
+  "moduleId": "travel-lunch",
+  "stageId": "travel-lunch",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "mapPath": "src/data/travel-zone.ts",
+    "mapSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "readerPath": "public/lesson-content/es/travel-lunch.json",
+    "readerSha256": "9c6104911c7c3fc2d8f0e1914edb5bd8e490f0d3961babfcece22238f995580d",
+    "sourceLessonNumbers": [
+      4,
+      5,
+      6
+    ]
+  },
+  "lessons": [
+    {
+      "n": 4,
+      "sourceEnglishTitle": "Build a sandwich",
+      "sourceEnglishSkills": "choose bread, filling, cheese, vegetables, condiments, and preparation",
+      "sourceEnglishScenario": "Order a made-to-order sandwich and change one ingredient politely.",
+      "title": "Making a sandwich order",
+      "objective": "Choose bread, filling, vegetables, and condiments for a sandwich, then request one ingredient change politely.",
+      "focus": "〜でお願いします chooses an option; 〜を入れてください asks to add an ingredient. 〜抜きで asks to leave one out. 変更できますか asks whether a choice can be changed.",
+      "scene": "Sam orders a made-to-order sandwich at a small lunch shop.",
+      "cards": [
+        {
+          "ja": "サンドイッチ",
+          "en": "sandwich",
+          "kind": "term"
+        },
+        {
+          "ja": "全粒粉パン",
+          "en": "whole-wheat bread",
+          "kind": "term"
+        },
+        {
+          "ja": "鶏肉",
+          "en": "chicken",
+          "kind": "term"
+        },
+        {
+          "ja": "チーズ",
+          "en": "cheese",
+          "kind": "term"
+        },
+        {
+          "ja": "レタス",
+          "en": "lettuce",
+          "kind": "term"
+        },
+        {
+          "ja": "トマト",
+          "en": "tomato",
+          "kind": "term"
+        },
+        {
+          "ja": "マヨネーズ",
+          "en": "mayonnaise",
+          "kind": "term"
+        },
+        {
+          "ja": "マスタード",
+          "en": "mustard",
+          "kind": "term"
+        },
+        {
+          "ja": "玉ねぎ",
+          "en": "onion",
+          "kind": "term"
+        },
+        {
+          "ja": "アボカド",
+          "en": "avocado",
+          "kind": "term"
+        },
+        {
+          "ja": "パンを焼いてもらえますか",
+          "en": "Could you toast the bread?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "マヨネーズは少なめでお願いします",
+          "en": "Not much mayonnaise, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "玉ねぎ抜きでお願いします",
+          "en": "No onion, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "チーズを変更できますか",
+          "en": "Can I change the cheese?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "鶏肉のサンドイッチをお願いします",
+          "en": "A chicken sandwich, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "全粒粉パンでお願いします",
+          "en": "Whole-wheat bread, please",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Staff",
+          "ja": "パンはどちらにしますか。",
+          "en": "Which bread would you like?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "全粒粉パンでお願いします。",
+          "en": "Whole-wheat bread, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "具は何にしますか。",
+          "en": "What filling would you like?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "鶏肉とチーズをお願いします。",
+          "en": "Chicken and cheese, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "野菜とソースは何にしますか。",
+          "en": "Which vegetables and sauce would you like?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "レタスとトマトを入れてください。マヨネーズは少なめでお願いします。",
+          "en": "Please add lettuce and tomato. Not much mayonnaise, please."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "パンを焼いてもらえますか。",
+          "en": "Could you toast the bread?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、できます。",
+          "en": "Yes, we can."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "玉ねぎ抜きでお願いします。",
+          "en": "No onion, please."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "チーズを変更できますか。",
+          "en": "Can I change the cheese?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。別のチーズに変更できます。",
+          "en": "Yes, you can change to another cheese."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "では、それでお願いします。",
+          "en": "Then I will have it that way, please."
+        }
+      ],
+      "speaking": {
+        "role": "Guest ordering a sandwich",
+        "partnerRole": "Sandwich-shop staff",
+        "opening": "パンはどちらにしますか。",
+        "goal": "Choose whole-wheat bread, a chicken filling, vegetables, and a condiment; ask for the bread toasted and change one ingredient politely.",
+        "closure": "玉ねぎ抜きでお願いします。ありがとうございます。"
+      },
+      "stableId": "travel-lunch:4:ja-en"
+    },
+    {
+      "n": 5,
+      "sourceEnglishTitle": "Ask about the daily special",
+      "sourceEnglishSkills": "understand ingredients, preparation, availability, and price",
+      "sourceEnglishScenario": "Ask what the cook made today and whether it is a good choice for a quick lunch.",
+      "title": "Checking today’s special",
+      "objective": "Ask what the daily special is made of, how it is prepared, whether it is still available, and whether it fits a quick lunch.",
+      "focus": "日替わり定食 is a daily-changing set meal. 何が入っていますか asks about ingredients; どうやって作りますか asks how it is prepared. まだありますか asks if it is still available.",
+      "scene": "Sam has little time and asks a server about the daily set meal.",
+      "cards": [
+        {
+          "ja": "日替わり定食",
+          "en": "daily set meal",
+          "kind": "term"
+        },
+        {
+          "ja": "鶏の照り焼き",
+          "en": "teriyaki chicken",
+          "kind": "term"
+        },
+        {
+          "ja": "ごはん",
+          "en": "rice",
+          "kind": "term"
+        },
+        {
+          "ja": "野菜",
+          "en": "vegetables",
+          "kind": "term"
+        },
+        {
+          "ja": "玉ねぎ",
+          "en": "onion",
+          "kind": "term"
+        },
+        {
+          "ja": "しょうゆ",
+          "en": "soy sauce",
+          "kind": "term"
+        },
+        {
+          "ja": "焼きます",
+          "en": "grill / cook by heating",
+          "kind": "phrase"
+        },
+        {
+          "ja": "値段",
+          "en": "price",
+          "kind": "term"
+        },
+        {
+          "ja": "持ち帰り",
+          "en": "to go / takeout",
+          "kind": "term"
+        },
+        {
+          "ja": "今日の日替わり定食は何ですか",
+          "en": "What is today’s special?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "何が入っていますか",
+          "en": "What is in it?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "どうやって作りますか",
+          "en": "How is it prepared?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "まだありますか",
+          "en": "Is it still available?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "いくらですか",
+          "en": "How much is it?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "早くできますか",
+          "en": "Can it be ready quickly?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "持ち帰りでお願いします",
+          "en": "To go, please",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "今日の日替わり定食は何ですか。",
+          "en": "What is today’s special?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "鶏の照り焼きとごはんです。",
+          "en": "Teriyaki chicken with rice."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "何が入っていますか。",
+          "en": "What is in it?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "鶏肉、しょうゆ、玉ねぎが入っています。",
+          "en": "It contains chicken, soy sauce, and onion."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "どうやって作りますか。",
+          "en": "How is it prepared?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "鶏肉を焼いて、たれをかけます。",
+          "en": "We grill the chicken and add the sauce."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "まだありますか。いくらですか。",
+          "en": "Is it still available? How much is it?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、あります。九百円です。",
+          "en": "Yes, it is. It is 900 yen."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "早くできますか。あまり時間がありません。",
+          "en": "Can it be ready quickly? I do not have much time."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、十分ほどです。",
+          "en": "Yes, about ten minutes."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "では、持ち帰りでお願いします。",
+          "en": "Then to go, please."
+        }
+      ],
+      "speaking": {
+        "role": "Guest with limited lunch time",
+        "partnerRole": "Server",
+        "opening": "本日の日替わり定食は鶏の照り焼きです。",
+        "goal": "Ask about ingredients, preparation, price, and remaining availability; check if it can be ready quickly and order it to go.",
+        "closure": "持ち帰りでお願いします。"
+      },
+      "stableId": "travel-lunch:5:ja-en"
+    },
+    {
+      "n": 6,
+      "sourceEnglishTitle": "Order pasta, rice, or soup",
+      "sourceEnglishSkills": "compare options and ask about portion, sauce, and local tradition",
+      "sourceEnglishScenario": "Choose between two regional lunch dishes after asking meaningful questions.",
+      "title": "Comparing noodles, rice, and soup",
+      "objective": "Compare two lunch dishes by portion, sauce, spiciness, and local style before choosing one.",
+      "focus": "どちら means which of two. 違いは何ですか asks what the difference is. 量は多いですか checks portion size; 辛いですか asks whether a sauce is spicy. この地域の料理ですか asks whether a dish is local to the area.",
+      "scene": "Sam compares udon, a rice bowl, and soup at a neighborhood diner.",
+      "cards": [
+        {
+          "ja": "うどん",
+          "en": "udon noodles",
+          "kind": "term"
+        },
+        {
+          "ja": "ごはん",
+          "en": "rice",
+          "kind": "term"
+        },
+        {
+          "ja": "スープ",
+          "en": "soup",
+          "kind": "term"
+        },
+        {
+          "ja": "丼",
+          "en": "rice bowl dish",
+          "kind": "term",
+          "note": "Read どんぶり when used alone."
+        },
+        {
+          "ja": "鶏肉の丼",
+          "en": "chicken rice bowl",
+          "kind": "term"
+        },
+        {
+          "ja": "つゆ",
+          "en": "broth / dipping sauce",
+          "kind": "term"
+        },
+        {
+          "ja": "たれ",
+          "en": "sauce / glaze",
+          "kind": "term"
+        },
+        {
+          "ja": "量",
+          "en": "portion size",
+          "kind": "term"
+        },
+        {
+          "ja": "辛い",
+          "en": "spicy",
+          "kind": "term"
+        },
+        {
+          "ja": "あっさり",
+          "en": "light in flavor",
+          "kind": "term"
+        },
+        {
+          "ja": "どちらがおすすめですか",
+          "en": "Which do you recommend?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "二つの違いは何ですか",
+          "en": "What is the difference between the two?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "量は多いですか",
+          "en": "Is the portion large?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "たれは辛いですか",
+          "en": "Is the sauce spicy?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この地域の料理ですか",
+          "en": "Is this a local dish?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "うどんをお願いします",
+          "en": "Udon, please",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "うどんと鶏肉の丼では、どちらがおすすめですか。",
+          "en": "Which do you recommend, the udon or the chicken rice bowl?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "うどんがおすすめです。",
+          "en": "I recommend the udon."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "二つの違いは何ですか。",
+          "en": "What is the difference between the two?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "うどんはつゆがあっさりしています。丼は量が多いです。",
+          "en": "The udon has a light broth. The rice bowl is a large portion."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "丼のたれは辛いですか。",
+          "en": "Is the rice bowl sauce spicy?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "いいえ、辛くありません。",
+          "en": "No, it is not spicy."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "うどんはこの地域の料理ですか。",
+          "en": "Is the udon a local dish?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "この店では地元の作り方です。",
+          "en": "At this shop, we make it in a local style."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "スープもありますか。",
+          "en": "Do you also have soup?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、あります。",
+          "en": "Yes, we do."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "では、うどんをお願いします。",
+          "en": "Then udon, please."
+        }
+      ],
+      "speaking": {
+        "role": "Guest choosing between lunch dishes",
+        "partnerRole": "Server",
+        "opening": "うどんと鶏肉の丼がございます。",
+        "goal": "Compare udon and a chicken rice bowl by portion, sauce, spice level, and local style, then choose a dish.",
+        "closure": "うどんをお願いします。"
+      },
+      "stableId": "travel-lunch:6:ja-en"
+    }
+  ],
+  "reviewGates": [
+    "qualifiedJapaneseReview",
+    "domainAndContextReview",
+    "exactTextAudioAndListening",
+    "sixModeRuntimeAndOffline",
+    "browserPhoneNativeAcceptance"
+  ]
+}

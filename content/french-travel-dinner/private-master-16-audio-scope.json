@@ -1,0 +1,537 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "voices": [
+    "fr-FR-Chirp3-HD-Aoede",
+    "fr-FR-Chirp3-HD-Charon"
+  ],
+  "sourceSHA256": {
+    "master-16-private-draft.json": "bc3af5d4b135d3636ace5fe111872a909015c99ed09fa793d8c936931c6ad2a3"
+  },
+  "previousScopeSHA256": {
+    "foundation.json": "cdbee8c457ff9c9f0f400113d63347fb471506c22bb6bbd2eb089762fb77e9fe",
+    "core-1-3.json": "ab62ab86e0b9b51bfe5f4905a86cded44d046adb156f4cd194f79ec357599d10",
+    "core-4-9.json": "3d4aa7070a2d8bd67cac94208a11a43b813fcb3e4d6b1da8ffe99389e233c344",
+    "core-10-12.json": "ebc33851805ff0125eddab0a4836f3afd27fa1e2ea99d4eeed1434b6808531a6",
+    "private-owner-delta-audio-scope.json": "97484eaa2099e1820a68da85843f0e5a32ff9f9ac861b7d275dcc27620ba7206",
+    "private-core-13-audio-scope.json": "dab949203658a04cc91da3ef3094590048919296d4e2cb45e22dba47e969cf2e",
+    "private-core-14-audio-scope.json": "ce2fdbd2b5c41f23d8a51996c9f6245a38159bb8ce3593af35b0fa0e69f547b3",
+    "private-core-15-audio-scope.json": "3d8b7c021b39f809795def5b5b03837ce75617cc9ebece0e89fe24be77bec8d5",
+    "private-core-16-audio-scope.json": "33db9f45805dd8910425f1e5840943e7509f3c65cabdf1b4a7fa6fba41fc1e5b",
+    "private-core-17-audio-scope.json": "c5b9cd5c8aa0257f3104ad7ee7ae4d8270acd70db52bc36d9eea449fa63872df",
+    "private-core-18-audio-scope.json": "edd20f215e7720ab6f61aadb11fc7d86429adfd23baa8fee773e9d90690bebd4",
+    "private-core-19-audio-scope.json": "27b626c300ced17a3675a230899fa1ff123a4bd1443eda6d54b61de4f75308e4",
+    "private-core-20-audio-scope.json": "7e6badf17a000b50aed36910317708d30c37016b7b4b4b06ca35b7d584a8f7f0",
+    "private-core-21-audio-scope.json": "3a4ee65d6d3b7f38b166a516c88f303e09f910801e72a701165ca61ba9c9f2d1",
+    "private-core-22-audio-scope.json": "52ed5c65d71e8fbdb228ef8bc3a7a1cee8b0afc17b416097cdea36c171838e4e",
+    "private-core-23-audio-scope.json": "f742a6d201149062b199bbcb9cb6bf37bd070940c98377e28170da2c1f881ea7",
+    "private-core-24-audio-scope.json": "896cb33c0149fac4cfb3187dbe9ef82a72e093f070adaea916518f339e30bfa4",
+    "private-core-25-audio-scope.json": "3956c727ff300622929244baec1ce06c5ea371c06573cbe8b90b51a5c3db4d9b",
+    "private-core-26-audio-scope.json": "07b4608c082487ba5a55f47edcee07c95cd850dedfed11d160ea91529d0c3573",
+    "private-core-27-audio-scope.json": "5b31a3f11424d275eec7eac05356e4b95c42cbe86fd5c1322babf24fc31f9b5d",
+    "private-core-28-audio-scope.json": "10be69783b3b0e3be4817001a49fdc836469598655e5763ecb73c2cf8d32a43e",
+    "private-core-29-audio-scope.json": "12df60efddd5ee662977ca5aba6229b57dbb5c71b244cae99cfc578289540ba5",
+    "private-core-30-audio-scope.json": "68cc5151faaa5864f27b81c930b1e8412c0fc891609c7498699aac5f1990feda",
+    "private-master-1-audio-scope.json": "73974d1ea2fd2ef77baab624490efda93e4038e7470cd2083b0a4d4284b2984a",
+    "private-master-2-audio-scope.json": "f867fd31a1e7c7991d359a3e5f1248d936b14083f07717e74c21245af8960b98",
+    "private-master-3-audio-scope.json": "96f52df5299501275d4f6d7957737e9db27235d145946f084a3e21b4de986319",
+    "private-master-4-audio-scope.json": "ea7becf0ab92df7fc6d485ab97205efec6b0e530dfaa3ad0f53c28e43514d9e0",
+    "private-master-5-audio-scope.json": "312b1e136bac580f1d4eb73ee993ae9d42c13e131d5de3051d1363687cf57bc9",
+    "private-master-6-audio-scope.json": "94f3acbfa5634d54efb33042195f15877472a8010af1dbeaf933a219ec9a5e8c",
+    "private-master-7-audio-scope.json": "0cd9c4a0602d91e2f4abf883b38ddda60b87f8a3c41f836f201ae1a5e78040e6",
+    "private-master-8-audio-scope.json": "4fd81aa8cea629a7984168f394220b33b99f59cd00ad5a7865d7313b3965d358",
+    "private-master-9-audio-scope.json": "093d226253ca3c0c5bea852ee71a3492ebbc9d4dc3dbbf1e910912aebd707dd5",
+    "private-master-10-audio-scope.json": "5e476f4026157303b726864d2ec667c8bb6bb21e88433aac9c1884e33e42521b",
+    "private-master-11-audio-scope.json": "b8bf481ebb04a7628ef3eb96df412db658fbdc2aa30df2d0fef3756503ee74e4",
+    "private-master-12-audio-scope.json": "3d906ab2a93551156818bd69c16c165fa34ae920302ef7d62ca643602f803d07",
+    "private-master-13-audio-scope.json": "c80dbd95f47055fdc2e4d35b493490a1dfcba0fa93173787d662d0038149e031",
+    "private-master-14-audio-scope.json": "425ca2e56973613e62c72dfc9eb101e068fe844fe774bfdffb388ed1824d3e4e",
+    "private-master-15-audio-scope.json": "3fe2c4691ab7e9bd393aa372a7c2d500c7698e1f6d9e0042bb4c91b27e3922b9"
+  },
+  "lessonIds": [
+    "master-travel-dinner:16:fr-en"
+  ],
+  "placements": 43,
+  "uniqueTexts": 43,
+  "proposedClips": 86,
+  "submittedCharacters": 5728,
+  "texts": [
+    {
+      "spokenText": "Bonjour, madame Collins. Je suis Monsieur Ortega, le gérant. Vous souhaitez me parler de votre réservation ?",
+      "textSHA256": "05a0ac0b955ea292af73751b91929ed91218e05bdbdde005ccd916ca4cf6f6fb",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "spokenText": "D'après les instructions imprimées, le délai de réponse de l'établissement est de 10 jours ouvrés.",
+      "textSHA256": "71dab097d4b70d6c4be522f820880613224fa1fb170fa82a1e76c3512360f645",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "reader",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "spokenText": "D'après les instructions, quel exemplaire l'établissement garde-t-il ?",
+      "textSHA256": "dd223a9da97aabe764660cd42bdd5720c02ebeeea68ffa0163fd8d1972717b13",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "spokenText": "Dans la case du réclamant, Emma écrit son nom complet et son numéro de passeport.",
+      "textSHA256": "ff565cf7cb6f75c44be0e569825bd98fdd23afad666317dc1b7f499b046ea5f6",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "Dans la partie « demande », Emma écrit : « Je demande le remboursement intégral de l'acompte de 60 euros. »",
+      "textSHA256": "f76273b746cfd5dc415f5d8d8bc1cdc4fc8b77ff75b135711ba9fc92274aece0",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "reader",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "Dans la partie « faits », elle écrit : « Ma réservation a été annulée, mais l'acompte n'a pas été restitué. »",
+      "textSHA256": "69f302b31337149b16840d5cdd51848e73674b29cbfadc198f0864e6db33da02",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "Elle explique aussi que l'annulation est arrivée vendredi par courriel et que le restaurant ne lui a pas proposé d'autre date.",
+      "textSHA256": "226ed2eefcde83a2c6751f341ff35e8d14bc2d7f7e146a50e6da463e4106571c",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "Emma : D'après les instructions, quel exemplaire l'établissement garde-t-il ?",
+      "textSHA256": "7a5219b8117cb1c99a48b8b13ca61d37db61dc4d6ac386dffc21f55adcfc12fc",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "reader",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "spokenText": "Emma : Je joins le justificatif de paiement et le courriel d'annulation.",
+      "textSHA256": "5a19e0c7f9abe5cff506b047358374ee83dbcac2f4f7af11f102894cf1c840f4",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "reader",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "spokenText": "Emma : Je préfère n'exposer que les faits, sans appréciations personnelles.",
+      "textSHA256": "4d2721e1e9a69bedce291228c7f1e1545d052826fe215396e3a584db272667e1",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "Emma : Monsieur Ortega, pourriez-vous me donner le formulaire officiel de réclamation, s'il vous plaît ?",
+      "textSHA256": "dd1679165fe13e179e4060a3541ac3dde692e9d7ccbb9c8be80a2872f1606088",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "Emma : Pourriez-vous apposer le cachet et votre signature sur mon exemplaire, s'il vous plaît ?",
+      "textSHA256": "5b9a4cc69716cca834f4d7f731d3bb2ebc36221db87c6399f5724afbc75544cc",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "reader",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "spokenText": "Emma Collins retourne au restaurant La Caleta, à Málaga, pour parler au gérant, Monsieur Ortega.",
+      "textSHA256": "afb58807adb3632046f69b964d7634e2263484a82f3bcc850aacb83d02ec33f5",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "Emma lit à voix haute : « Le formulaire se remplit avec les renseignements de la réclamante et de l'établissement. »",
+      "textSHA256": "b2702eaa9a08e9db9b3151ae9c5e741d3e3d5a9d113e5d2061ffebd16fd8ed60",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "Je demande le remboursement intégral de l'acompte de 60 euros.",
+      "textSHA256": "daae89df3a2abe170055e2d4536423a398c83bc19b72a402868133220324bf52",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 20
+        }
+      ]
+    },
+    {
+      "spokenText": "Je joins le justificatif de paiement et le courriel d'annulation.",
+      "textSHA256": "6d5ffb83510b790d85c4ff4fe67827b191a8a6beb1108a32080e080ca95e921c",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 21
+        }
+      ]
+    },
+    {
+      "spokenText": "Je préfère n'exposer que les faits, sans appréciations personnelles.",
+      "textSHA256": "b978397b6e47bd2db53316d468b2bf52f8c74ff515600b213c738f1745887fc8",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 22
+        }
+      ]
+    },
+    {
+      "spokenText": "Je vais apposer le cachet du restaurant et ma signature sur votre exemplaire.",
+      "textSHA256": "d0eaf9bf4289ab801dcbfe1c035cb281c042caffed9198d90a06b46204cbfe6c",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "spokenText": "Le restaurant a annulé son dîner de samedi, mais il n'a pas restitué l'acompte qu'elle a versé lors de la réservation.",
+      "textSHA256": "2d2cd1715142c8f603c24c0ce28c761075bf5ea7ff5171f64fc914ba61805936",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "Ma réservation a été annulée, mais l'acompte n'a pas été restitué.",
+      "textSHA256": "3172babc45e14aacce1ce9b22f60b5dbf523fe7ce3c080e9c2ff451ed46e4717",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 19
+        }
+      ]
+    },
+    {
+      "spokenText": "Monsieur Ortega : D'après les instructions, un exemplaire est remis à l'établissement, et vous gardez les deux autres.",
+      "textSHA256": "de3b4f47aae55b419b61d0214d48ea356f7f60c0ca8635edfa79b14243ec103f",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "reader",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "spokenText": "Monsieur Ortega : Un exemplaire est pour vous, et l'autre est transmis à l'administration si nous ne parvenons pas à un accord.",
+      "textSHA256": "5ed127949163cc090c517822dfd280d49489fb4a2fd8b8ecde1bba77aa1d8616",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "reader",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "spokenText": "Monsieur Ortega appose le cachet du restaurant et sa signature sur l'exemplaire d'Emma.",
+      "textSHA256": "9c578138e597c6691160edd25b8f74e2f3851b6b1d57b8adb6eef2f8afe4c38c",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "reader",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "spokenText": "Monsieur Ortega lui remet le formulaire officiel de réclamation, qui comporte trois exemplaires et quelques instructions imprimées.",
+      "textSHA256": "57f62915d7cff32f5ece172075f0dd810261a773790b4eb70c696de44bdd1016",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "Monsieur Ortega, pourriez-vous me donner le formulaire officiel de réclamation, s'il vous plaît ?",
+      "textSHA256": "8a3ce99a23b4573739c36b7ba819dfbb9117a025992603d3f0cebc75fae58769",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "spokenText": "Pourriez-vous apposer le cachet et votre signature sur mon exemplaire, s'il vous plaît ?",
+      "textSHA256": "39507add14824175c13f902406b6d0a37a0ae3919823c0ae74f7382aedbb7824",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 23
+        }
+      ]
+    },
+    {
+      "spokenText": "Si elle ne reçoit pas le remboursement dans ce délai, Emma portera son exemplaire au service de la consommation de Málaga.",
+      "textSHA256": "ec868f62393c91b3bbd3057101ce4dad68a2e6a701c860e417122f08439fd0a3",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "reader",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "spokenText": "l'acompte",
+      "textSHA256": "4f194508955bdd44d1f223e673df8319dd64e15f5b1ce3ae841f65d3634e5800",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "l'administration",
+      "textSHA256": "2650cee6f9a84d13304c9a32dcc5220c5b0c7feac0e7d32d1225e93bce6a74a1",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "l'annulation",
+      "textSHA256": "5db7d40a9d64527969f3ef92043e7204274edba178926ae4f45175c3f214a0ac",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "l'exemplaire",
+      "textSHA256": "c260978a521edef879be81b8ecfe9c10934556cd222550ed3028a17d991ac1a2",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "l'établissement",
+      "textSHA256": "08495da5297a687a076bb3917ab02bdad3754ead6dfd3dd0f8006c689b3ecf9e",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "la demande (ce que l'on réclame)",
+      "textSHA256": "7fb1f2c4ffb4206fcd57bd80f8ddf089b0824098b638b8a691215a46030bcf68",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "la signature",
+      "textSHA256": "40ea92be2e7017aaa1ede73baf233f02dfa8623c29699f5e2205baa659dd5f52",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "spokenText": "le cachet",
+      "textSHA256": "408235b6d0bee0f45dec8773442828758759a162cf072f1c234435a39245b23d",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "spokenText": "le délai de réponse",
+      "textSHA256": "fb40b9a848a6ef379de0e0b5a56480c8728bd1b59ee5ca378412c9ce26a67ee7",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "spokenText": "le formulaire officiel de réclamation",
+      "textSHA256": "c13fe08ddfdc2280a7fb7cf6215a59d64e9166ea625480fd885e9c0b4f97fd3e",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "le justificatif de paiement",
+      "textSHA256": "d07cc06ba78d69cd6af52f026a17fd91d7d514bedd0d4275b97577b9f49c51da",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "spokenText": "le numéro de passeport",
+      "textSHA256": "81ab02120ab0795d0a39a2841b690dab29553d643c42ac3d7ca3057a7eedee36",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "spokenText": "le remboursement",
+      "textSHA256": "9ac158e60305a053c584ecf47e1ca27cb8abb551350d9079c088c295440b8e72",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "le réclamant / la réclamante",
+      "textSHA256": "8ef56a05f768bc4ae3695ec262e5a83a597de0385574bbf52b6ba69c952312ec",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "le service de la consommation",
+      "textSHA256": "7979550fbf5252434a07609be751f2ecd348798422bdefe880eba4d7f777e78e",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "spokenText": "les faits",
+      "textSHA256": "ae9a1d67856693799c903854de85290a4557376ebe306917a368dfbaff4d0009",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:fr-en",
+          "surface": "card",
+          "index": 6
+        }
+      ]
+    }
+  ],
+  "recordingsBundled": false,
+  "listeningReviewed": false,
+  "registered": false
+}

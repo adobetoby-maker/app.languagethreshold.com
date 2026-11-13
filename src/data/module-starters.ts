@@ -589,6 +589,21 @@ export function getLessons(moduleId: string, language: Language): string[] {
     return language === "Spanish"
       ? Array.from({ length: soundCount }, (_, i) => `seed-es-${moduleId}-lesson-${i + 1}`)
       : [];
+  const cleaningBase = moduleId.replace(/^(foundation|master)-/, "");
+  if (["or-evs", "or-cleaning"].includes(cleaningBase)) {
+    const target = cleaningBase === "or-evs" ? "English" : "Spanish";
+    const count = moduleId.startsWith("foundation-")
+      ? 10
+      : moduleId.startsWith("master-")
+        ? 20
+        : 30;
+    return language === target
+      ? Array.from(
+          { length: count },
+          (_, i) => `seed-${target === "English" ? "en" : "es"}-${moduleId}-lesson-${i + 1}`,
+        )
+      : [];
+  }
   const militaryCount =
     moduleId === "military"
       ? 30

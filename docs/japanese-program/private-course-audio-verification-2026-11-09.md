@@ -1,0 +1,7 @@
+# Japanese 101 private full-course audio verification — 2026-11-09
+
+`scripts/verify-japanese101-private-course-audio.py` checked the private `/Users/drive/lt-audio/japanese-101` recordings against the current `public/lesson-content/ja` Foundation 10, Core 30, and Master 20 sources. It checked exact displayed-text coverage for every lesson, natural unspaced synthesis text, both ja-JP Chirp 3 HD voice identities, deterministic filenames, file SHA-256, byte count, and measured duration. The current source-text fingerprint is `8cfce671c012ea7e9be2128c9fad74aa4082560105eb1d9b0efbf63eb8d7d411`.
+
+The saved result is `private-course-audio-verification-2026-11-09.json`: 60 lessons, 840 distinct source texts, 2,242 per-lesson clip occurrences, and 15,719,136 bytes verified. Duplicate text/voice pairs across lesson folders are intentionally counted per occurrence. All 60 lesson manifests still have `listeningReviewed:false`. The owner's separate approval of the earlier ten Japanese 101 Foundation 1 pilot clips does not approve these full-course manifests.
+
+The verifier reads files and writes a report only when `--output` is supplied. It does not synthesize, normalize, retake, approve, register, or publish audio. This result confirms source and file integrity, not pronunciation or content quality. Qualified Japanese listening and lesson review, exact-pair runtime/offline routing, browser and phone checks, and independent V4 acceptance remain open before full-course release.

@@ -1,0 +1,322 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "contentPath": "public/lesson-content/es/travel-dinner.json",
+    "contentSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 21,
+      "stableId": "travel-dinner:21:ja-en",
+      "sourceTitleEnglish": "Decline an expensive bottle",
+      "sourceObjectiveEnglish": "refuse a recommendation gracefully and find a better-priced bottle or glass",
+      "sourceSpeakingEnglish": "The sommelier recommends a bottle far over your budget; decline gracefully and find a better-priced option.",
+      "title": "Decline an expensive bottle",
+      "objective": "Refuse a recommendation politely and find a better-priced bottle or glass.",
+      "focus": "予算を超えてしまいます uses 〜てしまう to mark the unwanted result of going over budget. 予算を超えてしまいますので gives a polite reason for declining. 六千円くらいまでにしたいです uses 〜まで plus 〜にする and 〜たい to set a preferred ceiling. 友人はあまりワインを飲まないんです uses 〜んです to explain the half-bottle request. ハーフボトルはありますか asks about availability.",
+      "scene": "At a restaurant in Japan, the sommelier brings the wine list and recommends an 18,000-yen bottle. The guest politely declines because it is over a 6,000-yen budget, then asks for something similar at a lower price. The house wine is a red from the same region as the recommended bottle and costs 5,000 yen. The guest also asks about wine by the glass, which costs 1,200 yen. Because their friend drinks little, the guest asks for a half bottle; it costs 3,000 yen and is from a good vintage. The guest orders the half bottle of the house red and thanks the sommelier for help and patience.",
+      "forms": [
+        {
+          "base": "勧める",
+          "polite": "勧めます",
+          "question": "勧めますか",
+          "meaning": "to recommend"
+        },
+        {
+          "base": "超える",
+          "polite": "超えます",
+          "question": "超えますか",
+          "meaning": "to exceed"
+        },
+        {
+          "base": "ある",
+          "polite": "あります",
+          "question": "ありますか",
+          "meaning": "to exist, to be available"
+        },
+        {
+          "base": "飲む",
+          "polite": "飲みます",
+          "question": "飲みますか",
+          "meaning": "to drink"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "ソムリエ",
+          "en": "sommelier",
+          "kind": "term"
+        },
+        {
+          "ja": "ワインリスト",
+          "en": "wine list",
+          "kind": "term"
+        },
+        {
+          "ja": "ボトル",
+          "en": "bottle",
+          "kind": "term"
+        },
+        {
+          "ja": "ハーフボトル",
+          "en": "half bottle",
+          "kind": "term"
+        },
+        {
+          "ja": "グラス",
+          "en": "glass (of wine)",
+          "kind": "term"
+        },
+        {
+          "ja": "ハウスワイン",
+          "en": "house wine",
+          "kind": "term"
+        },
+        {
+          "ja": "赤ワイン",
+          "en": "red wine",
+          "kind": "term",
+          "readingKana": "あかワイン"
+        },
+        {
+          "ja": "同じ産地",
+          "en": "same wine region",
+          "kind": "term",
+          "readingKana": "おなじさんち"
+        },
+        {
+          "ja": "予算",
+          "en": "budget",
+          "kind": "term",
+          "readingKana": "よさん"
+        },
+        {
+          "ja": "値段",
+          "en": "price",
+          "kind": "term",
+          "readingKana": "ねだん"
+        },
+        {
+          "ja": "おすすめ",
+          "en": "recommendation",
+          "kind": "term"
+        },
+        {
+          "ja": "当たり年",
+          "en": "good vintage (year)",
+          "kind": "term",
+          "readingKana": "あたりどし"
+        },
+        {
+          "ja": "友人",
+          "en": "friend",
+          "kind": "term",
+          "readingKana": "ゆうじん"
+        },
+        {
+          "ja": "予算を超えてしまいます。",
+          "en": "It's over my budget.",
+          "kind": "phrase",
+          "readingKana": "よさんをこえてしまいます。"
+        },
+        {
+          "ja": "似たタイプで、もう少しお手頃なものはありますか。",
+          "en": "Do you have something similar at a lower price?",
+          "kind": "phrase",
+          "readingKana": "にたタイプで、もうすこしおてごろなものはありますか。"
+        },
+        {
+          "ja": "グラスでおすすめのワインは何ですか。",
+          "en": "What do you recommend by the glass?",
+          "kind": "phrase",
+          "readingKana": "グラスでおすすめのワインはなんですか。"
+        },
+        {
+          "ja": "六千円くらいまでにしたいです。",
+          "en": "I'd like to keep it to about 6,000 yen.",
+          "kind": "phrase",
+          "readingKana": "ろくせんえんくらいまでにしたいです。"
+        },
+        {
+          "ja": "ハーフボトルはありますか。",
+          "en": "Do you have a half bottle?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "友人はあまりワインを飲まないんです。",
+          "en": "My friend doesn't drink much wine.",
+          "kind": "phrase",
+          "readingKana": "ゆうじんはあまりワインをのまないんです。"
+        },
+        {
+          "ja": "当たり年のワインです。",
+          "en": "It's from a good vintage.",
+          "kind": "phrase",
+          "readingKana": "あたりどしのワインです。"
+        },
+        {
+          "ja": "ハウスワインの赤を、ハーフボトルでお願いします。",
+          "en": "We'll have the half bottle of the house red.",
+          "kind": "phrase",
+          "readingKana": "ハウスワインのあかを、ハーフボトルでおねがいします。"
+        },
+        {
+          "ja": "お値段は一万八千円です。",
+          "en": "The price is 18,000 yen.",
+          "kind": "phrase",
+          "readingKana": "おねだんはいちまんはっせんえんです。"
+        },
+        {
+          "ja": "いろいろご案内いただき、ありがとうございました。お時間を取らせてしまってすみません。",
+          "en": "Thank you for all your help and patience.",
+          "kind": "phrase",
+          "readingKana": "いろいろごあんないいただき、ありがとうございました。おじかんをとらせてしまってすみません。"
+        },
+        {
+          "ja": "三千円です。",
+          "en": "It's 3,000 yen.",
+          "kind": "phrase",
+          "readingKana": "さんぜんえんです。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sommelier",
+          "ja": "ワインリストをお持ちしました。こちらのボトルはいかがでしょうか。お値段は一万八千円です。",
+          "en": "I've brought the wine list. How about this bottle? It's 18,000 yen."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "おすすめいただき、ありがとうございます。ただ、予算を超えてしまいますので、今回は遠慮させてください。六千円くらいまでにしたいです。",
+          "en": "Thank you for the recommendation, but it's over my budget. I'd like to keep it to about 6,000 yen."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "似たタイプで、もう少しお手頃なものはありますか。",
+          "en": "Do you have something similar at a lower price?"
+        },
+        {
+          "speaker": "Sommelier",
+          "ja": "ハウスワインは先ほどのボトルと同じ産地の赤ワインで、ボトルは五千円です。",
+          "en": "Our house wine is a red wine from the same region, and the bottle is 5,000 yen."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "グラスでおすすめのワインは何ですか。",
+          "en": "What do you recommend by the glass?"
+        },
+        {
+          "speaker": "Sommelier",
+          "ja": "ハウスワインの赤はグラスでもお出しできます。グラスは千二百円です。",
+          "en": "The house red is also available by the glass; a glass costs 1,200 yen."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "友人はあまりワインを飲まないんです。ハーフボトルはありますか。",
+          "en": "My friend doesn't drink much wine. Do you have a half bottle?"
+        },
+        {
+          "speaker": "Sommelier",
+          "ja": "はい、ハーフボトルは三千円です。当たり年のワインです。",
+          "en": "Yes, the half bottle costs 3,000 yen, and it is from a good vintage."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "ハウスワインの赤を、ハーフボトルでお願いします。",
+          "en": "We'll have the half bottle of the house red."
+        },
+        {
+          "speaker": "Sommelier",
+          "ja": "かしこまりました。ハーフボトルでご用意いたします。",
+          "en": "Certainly. I'll prepare the half bottle."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "いろいろご案内いただき、ありがとうございました。お時間を取らせてしまってすみません。",
+          "en": "Thank you for all your help and patience."
+        }
+      ],
+      "speaking": {
+        "role": "Guest choosing wine at a restaurant in Japan with a budget of about 6,000 yen",
+        "partnerRole": "Sommelier recommending a bottle, then explaining the house wine, the half bottle and its vintage",
+        "opening": "こちらのボトルがおすすめです。お値段は一万八千円です。",
+        "goal": "The sommelier recommends a bottle far over your budget; decline gracefully and find a better-priced option.",
+        "closure": "かしこまりました。ハーフボトルでご用意いたします。",
+        "wordBank": [
+          "ソムリエ",
+          "ワインリスト",
+          "ボトル",
+          "ハーフボトル",
+          "グラス",
+          "ハウスワイン",
+          "赤ワイン",
+          "同じ産地",
+          "予算",
+          "値段",
+          "おすすめ",
+          "当たり年",
+          "友人",
+          "予算を超えてしまいます。",
+          "似たタイプで、もう少しお手頃なものはありますか。",
+          "グラスでおすすめのワインは何ですか。",
+          "六千円くらいまでにしたいです。",
+          "ハーフボトルはありますか。",
+          "友人はあまりワインを飲まないんです。",
+          "当たり年のワインです。",
+          "ハウスワインの赤を、ハーフボトルでお願いします。",
+          "お値段は一万八千円です。",
+          "いろいろご案内いただき、ありがとうございました。お時間を取らせてしまってすみません。",
+          "三千円です。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "wine list",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "half bottle",
+          "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Do you have a half bottle?",
+          "sourceCard": 18,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "house wine",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "It's over my budget.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "We'll have the half bottle of the house red.",
+          "sourceCard": 21,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Owner-only draft. Source prices of 120/35/20 euros are localized as 18,000/5,000/3,000 yen; the source 40-euro budget gloss is localized as an about-6,000-yen ceiling. A 1,200-yen glass option supports the plan objective; the source scene still resolves with a half bottle. Qualified Japanese and wine-domain review remain open. Claude CLI Haiku 5.5 authored the candidate; Opus 5.5 gave a read-only critique; source-grounded corrections were applied by the author."
+    }
+  ]
+}

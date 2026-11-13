@@ -1,0 +1,195 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "foundation-travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "path": "src/data/core60/es/foundation-travel-dinner.json",
+    "sha256": "1d51f84acdf62115f88e5f1bbadf7af8988725e0647ef4958962ce7abd8ea014",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 1,
+      "stableId": "foundation-travel-dinner:1:fr-en",
+      "sourceTitleEnglish": "Sounds and Greetings",
+      "sourceObjectiveEnglish": "Say the Spanish sounds of table words clearly and greet a host or server politely.",
+      "sourceSpeakingEnglish": "Greet the host with buenas noches, say your name, ask how they are, and say three table words clearly.",
+      "title": "Evening Greetings and French Table Sounds",
+      "objective": "Greet a host in the evening, introduce yourself, and say common French dinner words clearly.",
+      "focus": "Use bonsoir on arrival and vous with an unfamiliar host. Hear the nasal vowel in bonsoir, French u in menu, and the final consonant in fourchette; the final x in choix is silent. Bonne soirée is a farewell, while bonne nuit is normally said when someone is going to sleep.",
+      "scene": "Sam arrives at a restaurant in Lyon and greets the host, Camille.",
+      "cards": [
+        {"fr": "bonsoir", "en": "good evening", "kind": "phrase"},
+        {"fr": "la table", "en": "the table", "kind": "term"},
+        {"fr": "le dîner", "en": "dinner", "kind": "term"},
+        {"fr": "la cuillère", "en": "the spoon", "kind": "term"},
+        {"fr": "l'ail", "en": "the garlic", "kind": "term"},
+        {"fr": "la serviette", "en": "the napkin", "kind": "term", "note": "At a restaurant, une serviette is a napkin; context distinguishes it from a towel."},
+        {"fr": "le riz", "en": "the rice", "kind": "term"},
+        {"fr": "la carte", "en": "the menu", "kind": "term"},
+        {"fr": "le citron vert", "en": "the lime", "kind": "term"},
+        {"fr": "l'eau", "en": "the water", "kind": "term"},
+        {"fr": "la fourchette", "en": "the fork", "kind": "term"},
+        {"fr": "Je m'appelle Sam.", "en": "My name is Sam.", "kind": "phrase"},
+        {"fr": "Comment allez-vous ?", "en": "How are you?", "kind": "phrase"},
+        {"fr": "Très bien, merci. Et vous ?", "en": "Very well, thank you. And you?", "kind": "phrase"},
+        {"fr": "Merci, c'est très gentil.", "en": "Thank you, that's very kind.", "kind": "phrase"},
+        {"fr": "À bientôt, bonne soirée !", "en": "See you soon, have a good evening!", "kind": "phrase"}
+      ],
+      "reader": [
+        {"speaker": "Sam", "fr": "Bonsoir. Je m'appelle Sam.", "en": "Good evening. My name is Sam."},
+        {"speaker": "Camille", "fr": "Bonsoir, Sam. Bienvenue au restaurant.", "en": "Good evening, Sam. Welcome to the restaurant."},
+        {"speaker": "Sam", "fr": "Comment allez-vous ?", "en": "How are you?"},
+        {"speaker": "Camille", "fr": "Très bien, merci. Et vous ?", "en": "Very well, thank you. And you?"},
+        {"speaker": "Sam", "fr": "Très bien. Je vois la table et la carte.", "en": "Very well. I see the table and the menu."},
+        {"speaker": "Camille", "fr": "Voici une serviette, une fourchette et une cuillère.", "en": "Here are a napkin, a fork, and a spoon."},
+        {"speaker": "Sam", "fr": "Merci, c'est très gentil. De l'eau, s'il vous plaît.", "en": "Thank you, that's very kind. Some water, please."},
+        {"speaker": "Camille", "fr": "Bien sûr. Bon dîner !", "en": "Of course. Enjoy your dinner!"}
+      ],
+      "speaking": {
+        "role": "Dinner guest",
+        "partnerRole": "Restaurant host",
+        "opening": "Bonsoir. Bienvenue au restaurant.",
+        "goal": "Greet the host, say your name, ask how they are using vous, and name a table, napkin, and fork clearly.",
+        "closure": "Merci, bonne soirée !",
+        "wordBank": ["bonsoir", "la table", "la serviette", "la fourchette", "Je m'appelle Sam.", "Comment allez-vous ?", "Très bien, merci. Et vous ?"]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the French evening greeting.", "sourceCard": 1, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, say the French word for napkin.", "sourceCard": 6, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the French word for fork.", "sourceCard": 11, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the French word for the menu.", "sourceCard": 8, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Introduce yourself to the host.", "sourceCard": 12, "responseKind": "open"},
+        "write": {"cueEnglish": "Write a polite question asking how the host is.", "sourceCard": 13, "responseKind": "open"}
+      },
+      "reviewed": false
+    },
+    {
+      "n": 2,
+      "stableId": "foundation-travel-dinner:2:fr-en",
+      "sourceTitleEnglish": "Numbers, Time and Measurements",
+      "sourceObjectiveEnglish": "Give the size of your group, a dinner time and simple quantities of wine, food and pesos.",
+      "sourceSpeakingEnglish": "Tell the host how many people are in your group, what time your reservation is, and order 2 glasses of wine.",
+      "title": "Party Size, Reservation Time, and Dinner Quantities",
+      "objective": "State how many people are dining, give a reservation time, and order simple quantities in French.",
+      "focus": "Use une table pour quatre and nous sommes six for party size. Say a reservation time with à: à vingt heures trente. Deux verres de vin rouge uses de after the measure; une demi-bouteille and un demi-kilo show different forms of demi.",
+      "scene": "Sam confirms a reservation for four and asks Camille for wine and a shared dish.",
+      "cards": [
+        {"fr": "la réservation", "en": "the reservation", "kind": "term"},
+        {"fr": "l'heure", "en": "the time / hour", "kind": "term"},
+        {"fr": "le verre", "en": "the glass", "kind": "term"},
+        {"fr": "la bouteille", "en": "the bottle", "kind": "term"},
+        {"fr": "l'assiette", "en": "the plate", "kind": "term"},
+        {"fr": "le plat", "en": "the dish", "kind": "term"},
+        {"fr": "le kilo", "en": "the kilogram", "kind": "term"},
+        {"fr": "les euros", "en": "the euros", "kind": "term"},
+        {"fr": "une demi-heure", "en": "half an hour", "kind": "term"},
+        {"fr": "le prix", "en": "the price", "kind": "term"},
+        {"fr": "Une table pour quatre, s'il vous plaît.", "en": "A table for four, please.", "kind": "phrase"},
+        {"fr": "Nous sommes six.", "en": "There are six of us.", "kind": "phrase"},
+        {"fr": "Ma réservation est à vingt heures trente.", "en": "My reservation is at 8:30 p.m.", "kind": "phrase"},
+        {"fr": "Deux verres de vin rouge, s'il vous plaît.", "en": "Two glasses of red wine, please.", "kind": "phrase"},
+        {"fr": "La bouteille à trente euros, s'il vous plaît.", "en": "The thirty-euro bottle, please.", "kind": "phrase"},
+        {"fr": "Un demi-kilo, s'il vous plaît.", "en": "Half a kilogram, please.", "kind": "phrase"}
+      ],
+      "reader": [
+        {"speaker": "Camille", "fr": "Bonsoir. Vous avez une réservation ?", "en": "Good evening. Do you have a reservation?"},
+        {"speaker": "Sam", "fr": "Oui. Une table pour quatre, au nom de Sam.", "en": "Yes. A table for four, under Sam's name."},
+        {"speaker": "Camille", "fr": "À quelle heure est votre réservation ?", "en": "What time is your reservation?"},
+        {"speaker": "Sam", "fr": "Ma réservation est à vingt heures trente.", "en": "My reservation is at 8:30 p.m."},
+        {"speaker": "Camille", "fr": "Parfait. Voici la carte des vins.", "en": "Perfect. Here is the wine list."},
+        {"speaker": "Sam", "fr": "Deux verres de vin rouge, s'il vous plaît.", "en": "Two glasses of red wine, please."},
+        {"speaker": "Camille", "fr": "La bouteille est aussi à trente euros.", "en": "The bottle is also thirty euros."},
+        {"speaker": "Sam", "fr": "Merci. D'abord, deux verres, et un plat à partager.", "en": "Thank you. First, two glasses, and a dish to share."}
+      ],
+      "speaking": {
+        "role": "Dinner guest",
+        "partnerRole": "Restaurant host",
+        "opening": "Bonsoir. Vous avez une réservation ?",
+        "goal": "Say how many people are in the group, give the reservation time, and order two glasses of red wine.",
+        "closure": "Très bien. Je vous accompagne à votre table.",
+        "wordBank": ["la réservation", "l'heure", "le verre", "la bouteille", "le prix", "Une table pour quatre, s'il vous plaît.", "Ma réservation est à vingt heures trente.", "Deux verres de vin rouge, s'il vous plaît."]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the French word for reservation.", "sourceCard": 1, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, ask for a table for four.", "sourceCard": 11, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the reservation time.", "sourceCard": 13, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the French word for price.", "sourceCard": 10, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Order two glasses of red wine.", "sourceCard": 14, "responseKind": "open"},
+        "write": {"cueEnglish": "Write your 8:30 p.m. reservation time in French.", "sourceCard": 13, "responseKind": "open"}
+      },
+      "reviewed": false
+    },
+    {
+      "n": 3,
+      "stableId": "foundation-travel-dinner:3:fr-en",
+      "sourceTitleEnglish": "Ser and Estar",
+      "sourceObjectiveEnglish": "Describe dishes, tables and yourself with ser and estar at dinner.",
+      "sourceSpeakingEnglish": "Tell the server where you are from, then say whether your dish is hot, cold, salty or delicious.",
+      "title": "Describe a Dish and Check a Table",
+      "objective": "Identify yourself, describe a dish's present taste or temperature, and ask whether a table is available in French.",
+      "focus": "French uses être in both c'est mon anniversaire and la soupe est froide; it has no ser/estar verb split. Use c'est to identify an occasion and est with an adjective to describe a dish or table. Est-ce que introduces a yes/no question.",
+      "scene": "Sam asks for a terrace table and tells Camille about a cold soup and a birthday dinner.",
+      "cards": [
+        {"fr": "délicieux", "en": "delicious", "kind": "term"},
+        {"fr": "chaud", "en": "hot (temperature)", "kind": "term"},
+        {"fr": "froid", "en": "cold", "kind": "term"},
+        {"fr": "salé", "en": "salty", "kind": "term"},
+        {"fr": "épicé", "en": "spicy", "kind": "term"},
+        {"fr": "sucré", "en": "sweet", "kind": "term"},
+        {"fr": "frais", "en": "fresh", "kind": "term"},
+        {"fr": "occupé", "en": "occupied", "kind": "term"},
+        {"fr": "libre", "en": "available / free", "kind": "term"},
+        {"fr": "le serveur", "en": "the server", "kind": "term"},
+        {"fr": "la terrasse", "en": "the terrace", "kind": "term"},
+        {"fr": "La soupe est froide.", "en": "The soup is cold.", "kind": "phrase"},
+        {"fr": "Est-ce que la table en terrasse est libre ?", "en": "Is the terrace table available?", "kind": "phrase"},
+        {"fr": "C'est mon anniversaire.", "en": "It's my birthday.", "kind": "phrase"},
+        {"fr": "Le poisson est délicieux.", "en": "The fish is delicious.", "kind": "phrase"},
+        {"fr": "Est-ce que ce plat est épicé ?", "en": "Is this dish spicy?", "kind": "phrase"},
+        {"fr": "Je viens du Canada et je suis en vacances.", "en": "I'm from Canada and I'm on vacation.", "kind": "phrase"}
+      ],
+      "reader": [
+        {"speaker": "Sam", "fr": "Bonsoir. Est-ce que la table en terrasse est libre ?", "en": "Good evening. Is the terrace table available?"},
+        {"speaker": "Camille", "fr": "Oui, cette table est libre. Vous êtes d'où ?", "en": "Yes, this table is available. Where are you from?"},
+        {"speaker": "Sam", "fr": "Je viens du Canada et je suis en vacances.", "en": "I'm from Canada and I'm on vacation."},
+        {"speaker": "Camille", "fr": "Bienvenue ! Vous fêtez quelque chose ?", "en": "Welcome! Are you celebrating something?"},
+        {"speaker": "Sam", "fr": "Oui, c'est mon anniversaire. La soupe est froide.", "en": "Yes, it's my birthday. The soup is cold."},
+        {"speaker": "Camille", "fr": "Je vais apporter une soupe chaude. Et le poisson ?", "en": "I'll bring a hot soup. And the fish?"},
+        {"speaker": "Sam", "fr": "Le poisson est délicieux. Est-ce que ce plat est épicé ?", "en": "The fish is delicious. Is this dish spicy?"},
+        {"speaker": "Camille", "fr": "Non, il n'est pas épicé. Bon anniversaire !", "en": "No, it is not spicy. Happy birthday!"}
+      ],
+      "speaking": {
+        "role": "Dinner guest",
+        "partnerRole": "Restaurant server",
+        "opening": "Bonsoir. Est-ce que cette table vous convient ?",
+        "goal": "Say where you are from, ask whether the terrace table is available, and describe your dish as hot, cold, salty, or delicious.",
+        "closure": "Merci. Je vais m'occuper de votre soupe.",
+        "wordBank": ["chaud", "froid", "salé", "délicieux", "libre", "la terrasse", "La soupe est froide.", "Est-ce que la table en terrasse est libre ?", "Le poisson est délicieux.", "Je viens du Canada et je suis en vacances."]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the French adjective for cold.", "sourceCard": 3, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, say that the soup is cold.", "sourceCard": 12, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the question about the terrace table.", "sourceCard": 13, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the French adjective for spicy.", "sourceCard": 5, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Tell the server that the fish is delicious.", "sourceCard": 15, "responseKind": "open"},
+        "write": {"cueEnglish": "Write a question asking if this dish is spicy.", "sourceCard": 16, "responseKind": "open"}
+      },
+      "reviewed": false
+    }
+  ],
+  "internalReviewNotes": [
+    "Qualified French review is required for naturalness, register, pronunciation notes, and variant responses before release.",
+    "Foundation 2 adapts the source's peso example to euros for the French restaurant scene; preserve the outcome of giving a price and quantity.",
+    "Foundation 3 replaces the Spanish ser/estar contrast with French être, c'est, adjective agreement and question formation; the language-specific difference is taught explicitly."
+  ]
+}

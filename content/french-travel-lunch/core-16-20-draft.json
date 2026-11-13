@@ -1,0 +1,990 @@
+{
+  "schema": 1,
+  "courseId": "travel-lunch",
+  "stageId": "core-travel-lunch",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "path": "src/data/travel-zone.ts",
+    "sha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 16,
+      "stableId": "core-travel-lunch:16:fr-en",
+      "sourceTitleEnglish": "Order at a workers' canteen",
+      "sourceObjectiveEnglish": "follow a tray line, choose set courses, pay first, and find a seat",
+      "sourceSpeakingEnglish": "At a workers' canteen, follow the line, choose a first and second course, and pay at the register before sitting.",
+      "title": "Follow the Canteen Line",
+      "objective": "Follow the tray line, choose an entrée and main course, pay at the register, and find a free seat.",
+      "focus": "Use prenez un plateau, une entrée, un plat, la caisse and une place libre to follow the sequence in a workers’ canteen.",
+      "scene": "Maya joins a workers’ canteen line for a quick lunch before returning to work.",
+      "cards": [
+        {
+          "fr": "la cantine",
+          "en": "the canteen",
+          "kind": "term"
+        },
+        {
+          "fr": "la file",
+          "en": "the line / queue",
+          "kind": "term"
+        },
+        {
+          "fr": "un plateau",
+          "en": "a tray",
+          "kind": "term"
+        },
+        {
+          "fr": "une entrée",
+          "en": "a starter / first course",
+          "kind": "term"
+        },
+        {
+          "fr": "un plat",
+          "en": "a main course / second course",
+          "kind": "term"
+        },
+        {
+          "fr": "la caisse",
+          "en": "the register",
+          "kind": "term"
+        },
+        {
+          "fr": "une place libre",
+          "en": "a free seat",
+          "kind": "term"
+        },
+        {
+          "fr": "les couverts",
+          "en": "the cutlery",
+          "kind": "term"
+        },
+        {
+          "fr": "On prend un plateau ici ?",
+          "en": "Do we take a tray here?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Quelle entrée est disponible ?",
+          "en": "Which starter is available?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je prends la salade et le poulet.",
+          "en": "I will have the salad and the chicken.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "On paie avant de s’asseoir ?",
+          "en": "Do we pay before sitting down?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Où est la caisse ?",
+          "en": "Where is the register?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il reste une place libre près de la fenêtre.",
+          "en": "There is a free seat left near the window.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je prends mes couverts avec le plateau.",
+          "en": "I take my cutlery with the tray.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. On prend un plateau ici ?",
+          "en": "Hello. Do we take a tray here?"
+        },
+        {
+          "speaker": "Worker",
+          "fr": "Oui. Prenez un plateau et vos couverts, puis suivez la file.",
+          "en": "Yes. Take a tray and your cutlery, then follow the line."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Quelle entrée est disponible aujourd’hui ?",
+          "en": "Which starter is available today?"
+        },
+        {
+          "speaker": "Worker",
+          "fr": "Une salade. Pour le plat, il y a du poulet ou des légumes.",
+          "en": "A salad. For the main course, there is chicken or vegetables."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Je prends la salade et le poulet.",
+          "en": "I will have the salad and the chicken."
+        },
+        {
+          "speaker": "Worker",
+          "fr": "Très bien. Passez à la caisse avant de vous asseoir.",
+          "en": "Very good. Go to the register before sitting down."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "La caisse est au bout de la file ?",
+          "en": "Is the register at the end of the line?"
+        },
+        {
+          "speaker": "Worker",
+          "fr": "Oui. Ensuite, il reste une place libre près de la fenêtre.",
+          "en": "Yes. Then there is a free seat left near the window."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci. Je paie d’abord, puis je cherche cette table.",
+          "en": "Thanks. I will pay first, then look for that table."
+        }
+      ],
+      "speaking": {
+        "role": "Canteen guest",
+        "partnerRole": "Canteen worker",
+        "opening": "Bonjour. On prend un plateau ici ?",
+        "goal": "Follow the tray line, select the salad and chicken, confirm that payment comes before seating and find a free table.",
+        "closure": "Merci. Je passe à la caisse, puis je m’assieds.",
+        "wordBank": [
+          "la cantine",
+          "la file",
+          "un plateau",
+          "une entrée",
+          "un plat",
+          "la caisse",
+          "une place libre",
+          "les couverts",
+          "On prend un plateau ici ?",
+          "Quelle entrée est disponible ?",
+          "Je prends la salade et le poulet.",
+          "On paie avant de s’asseoir ?",
+          "Où est la caisse ?",
+          "Il reste une place libre près de la fenêtre.",
+          "Je prends mes couverts avec le plateau."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French word for a tray.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the word for a free seat.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question about paying before sitting.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French word for the register.",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask which starter is available.",
+          "sourceCard": 10,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write an order for salad and chicken.",
+          "sourceCard": 11,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "The canteen workflow is a fictional scene, not a claim about all workers’ canteens. Review entrée/plat terminology for this setting."
+    },
+    {
+      "n": 17,
+      "stableId": "core-travel-lunch:17:fr-en",
+      "sourceTitleEnglish": "Bring a child to lunch",
+      "sourceObjectiveEnglish": "ask about children's portions, plain dishes, high chairs, and sharing an adult plate",
+      "sourceSpeakingEnglish": "Your picky six-year-old will only eat plain pasta; ask the kitchen what they can prepare and how it will be priced.",
+      "title": "Ask for a Plain Child’s Lunch",
+      "objective": "Ask for a small portion of plain pasta, a high chair or shared adult plate, and the price of the child’s serving.",
+      "focus": "Use une portion pour enfant, des pâtes nature, sans sauce, une chaise haute and partager mon plat to describe the child’s lunch directly.",
+      "scene": "Maya arrives with a six-year-old who wants plain pasta and a younger child who needs a high chair.",
+      "cards": [
+        {
+          "fr": "un enfant de six ans",
+          "en": "a six-year-old child",
+          "kind": "term"
+        },
+        {
+          "fr": "une portion pour enfant",
+          "en": "a child’s portion",
+          "kind": "term"
+        },
+        {
+          "fr": "des pâtes nature",
+          "en": "plain pasta",
+          "kind": "term"
+        },
+        {
+          "fr": "sans sauce",
+          "en": "without sauce",
+          "kind": "term"
+        },
+        {
+          "fr": "une chaise haute",
+          "en": "a high chair",
+          "kind": "term"
+        },
+        {
+          "fr": "une petite assiette",
+          "en": "a small plate",
+          "kind": "term"
+        },
+        {
+          "fr": "partager mon plat",
+          "en": "to share my dish",
+          "kind": "term"
+        },
+        {
+          "fr": "le prix",
+          "en": "the price",
+          "kind": "term"
+        },
+        {
+          "fr": "Mon enfant ne veut que des pâtes nature.",
+          "en": "My child only wants plain pasta.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La cuisine peut préparer une petite portion ?",
+          "en": "Can the kitchen prepare a small serving?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Vous avez une chaise haute ?",
+          "en": "Do you have a high chair?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Combien coûte la portion pour enfant ?",
+          "en": "How much is the child’s portion?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "On peut partager mon plat ?",
+          "en": "Can we share my dish?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Sans sauce ni fromage, s’il vous plaît.",
+          "en": "Without sauce or cheese, please.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je prendrai la petite portion de pâtes.",
+          "en": "I will take the small pasta serving.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Vous avez une chaise haute pour mon plus jeune enfant ?",
+          "en": "Hello. Do you have a high chair for my younger child?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, je vous en apporte une. Qu’est-ce que votre enfant de six ans voudrait manger ?",
+          "en": "Yes, I will bring you one. What would your six-year-old like to eat?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Il ne veut que des pâtes nature, sans sauce ni fromage.",
+          "en": "He only wants plain pasta, without sauce or cheese."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Je peux demander à la cuisine une petite portion.",
+          "en": "I can ask the kitchen for a small serving."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci. Combien coûte la portion pour enfant ?",
+          "en": "Thank you. How much is the child’s portion?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Sept euros ici. Sinon, il peut partager votre plat.",
+          "en": "Seven euros here. Otherwise, he can share your dish."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Je prendrai la petite portion de pâtes pour lui.",
+          "en": "I will take the small pasta serving for him."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Très bien. Je vous apporte aussi une petite assiette.",
+          "en": "Very good. I will bring you a small plate."
+        }
+      ],
+      "speaking": {
+        "role": "Parent ordering lunch",
+        "partnerRole": "Restaurant server",
+        "opening": "Bonjour. Vous avez une chaise haute pour mon plus jeune enfant ?",
+        "goal": "Ask for a high chair for the younger child and plain pasta without sauce or cheese for the six-year-old, check the child’s price and compare sharing your own dish.",
+        "closure": "Merci. Je prends la petite portion pour lui.",
+        "wordBank": [
+          "un enfant de six ans",
+          "une portion pour enfant",
+          "des pâtes nature",
+          "sans sauce",
+          "une chaise haute",
+          "une petite assiette",
+          "partager mon plat",
+          "le prix",
+          "Mon enfant ne veut que des pâtes nature.",
+          "La cuisine peut préparer une petite portion ?",
+          "Vous avez une chaise haute ?",
+          "Combien coûte la portion pour enfant ?",
+          "On peut partager mon plat ?",
+          "Sans sauce ni fromage, s’il vous plaît.",
+          "Je prendrai la petite portion de pâtes."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the phrase for plain pasta.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to ask for a high chair.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the child’s portion price question.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French word for a small plate.",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether the kitchen can make a small serving.",
+          "sourceCard": 10,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a request for pasta without sauce or cheese.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "The children’s preferences, kitchen offering and seven-euro price are fictional. Review age-specific chair language and pronoun clarity."
+    },
+    {
+      "n": 18,
+      "stableId": "core-travel-lunch:18:fr-en",
+      "sourceTitleEnglish": "Call ahead about access",
+      "sourceObjectiveEnglish": "ask about step-free entry, restrooms, quiet tables, and space for mobility aids",
+      "sourceSpeakingEnglish": "Call a lunch spot to ask whether it has step-free access and a table that fits a wheelchair.",
+      "title": "Call Ahead About Access",
+      "objective": "Call a lunch spot to ask about step-free entry, wheelchair space, accessible restrooms and a quiet table.",
+      "focus": "Use sans marche, fauteuil roulant, assez de place, toilettes accessibles and une table au calme to ask precise access questions.",
+      "scene": "Maya phones a restaurant before lunch for a companion who uses a wheelchair.",
+      "cards": [
+        {
+          "fr": "une entrée sans marche",
+          "en": "a step-free entrance",
+          "kind": "term"
+        },
+        {
+          "fr": "un fauteuil roulant",
+          "en": "a wheelchair",
+          "kind": "term"
+        },
+        {
+          "fr": "une rampe",
+          "en": "a ramp",
+          "kind": "term"
+        },
+        {
+          "fr": "les toilettes accessibles",
+          "en": "the accessible restroom",
+          "kind": "term"
+        },
+        {
+          "fr": "une table au calme",
+          "en": "a quiet table",
+          "kind": "term"
+        },
+        {
+          "fr": "assez de place",
+          "en": "enough space",
+          "kind": "term"
+        },
+        {
+          "fr": "le passage",
+          "en": "the passage / aisle",
+          "kind": "term"
+        },
+        {
+          "fr": "réserver",
+          "en": "to reserve",
+          "kind": "term"
+        },
+        {
+          "fr": "L’entrée est sans marche ?",
+          "en": "Is the entrance step-free?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il y a assez de place pour un fauteuil roulant ?",
+          "en": "Is there enough space for a wheelchair?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Les toilettes sont accessibles en fauteuil roulant ?",
+          "en": "Is the restroom wheelchair-accessible?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Vous avez une table au calme pour deux ?",
+          "en": "Do you have a quiet table for two?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le passage jusqu’à la table est assez large ?",
+          "en": "Is the route to the table wide enough?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je voudrais réserver cette table pour midi.",
+          "en": "I would like to reserve that table for noon.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Merci de confirmer l’entrée et les toilettes.",
+          "en": "Thank you for confirming the entrance and restroom.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Je voudrais venir déjeuner avec une personne en fauteuil roulant.",
+          "en": "Hello. I would like to come for lunch with someone who uses a wheelchair."
+        },
+        {
+          "speaker": "Host",
+          "fr": "Bonjour. Que voulez-vous savoir ?",
+          "en": "Hello. What would you like to know?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "L’entrée est sans marche ?",
+          "en": "Is the entrance step-free?"
+        },
+        {
+          "speaker": "Host",
+          "fr": "Oui, il y a une rampe à l’entrée.",
+          "en": "Yes, there is a ramp at the entrance."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Le passage jusqu’à la table est assez large pour un fauteuil roulant ?",
+          "en": "Is the route to the table wide enough for a wheelchair?"
+        },
+        {
+          "speaker": "Host",
+          "fr": "Oui. Je peux vous réserver une table avec de la place autour.",
+          "en": "Yes. I can reserve a table with space around it."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Les toilettes sont accessibles en fauteuil roulant ?",
+          "en": "Is the restroom wheelchair-accessible?"
+        },
+        {
+          "speaker": "Host",
+          "fr": "Oui, les toilettes sont accessibles en fauteuil roulant et se trouvent au même niveau. Nous avons aussi une table au calme.",
+          "en": "Yes, the restroom is wheelchair-accessible and on the same level. We also have a quiet table."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci. Je voudrais réserver cette table pour midi.",
+          "en": "Thank you. I would like to reserve that table for noon."
+        }
+      ],
+      "speaking": {
+        "role": "Caller planning lunch",
+        "partnerRole": "Restaurant host on phone",
+        "opening": "Bonjour. Je voudrais venir déjeuner avec une personne en fauteuil roulant.",
+        "goal": "Confirm step-free entry, sufficient space through the room and at the table, restroom access and a quiet reservation at noon.",
+        "closure": "Merci. Nous viendrons à midi.",
+        "wordBank": [
+          "une entrée sans marche",
+          "un fauteuil roulant",
+          "une rampe",
+          "les toilettes accessibles",
+          "une table au calme",
+          "assez de place",
+          "le passage",
+          "réserver",
+          "L’entrée est sans marche ?",
+          "Il y a assez de place pour un fauteuil roulant ?",
+          "Les toilettes sont accessibles en fauteuil roulant ?",
+          "Vous avez une table au calme pour deux ?",
+          "Le passage jusqu’à la table est assez large ?",
+          "Je voudrais réserver cette table pour midi.",
+          "Merci de confirmer l’entrée et les toilettes."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the phrase for a step-free entrance.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to ask about wheelchair space.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the restroom access question.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French word for a ramp.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether the route to the table is wide enough.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a reservation request for the quiet table at noon.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Access statements are fictional scene facts. Qualified accessibility review should assess precision of sans marche, route width and restroom terminology; keep these notes outside teaching text."
+    },
+    {
+      "n": 19,
+      "stableId": "core-travel-lunch:19:fr-en",
+      "sourceTitleEnglish": "Navigate a severe allergy",
+      "sourceObjectiveEnglish": "explain severity, ask about shared fryers, stocks, and sauces, and decide whether to eat elsewhere",
+      "sourceSpeakingEnglish": "Explain that your partner reacts severely to shellfish, ask about the fryer and stock, and politely decide whether to stay.",
+      "title": "Ask Directly About a Severe Shellfish Allergy",
+      "objective": "State a severe shellfish allergy, ask about the fryer, broth and sauce, then decide whether to eat elsewhere.",
+      "focus": "Use allergie grave, coquillages et crustacés, la même friteuse, le bouillon and contient to name the ingredient and preparation questions directly.",
+      "scene": "At a market lunch stall, Maya asks about shellfish for a companion who reacts severely and chooses another place after the vendor answers.",
+      "cards": [
+        {
+          "fr": "une allergie grave",
+          "en": "a severe allergy",
+          "kind": "term"
+        },
+        {
+          "fr": "les coquillages",
+          "en": "shellfish / mollusks",
+          "kind": "term"
+        },
+        {
+          "fr": "les crustacés",
+          "en": "crustaceans",
+          "kind": "term"
+        },
+        {
+          "fr": "les crevettes",
+          "en": "shrimp / prawns",
+          "kind": "term"
+        },
+        {
+          "fr": "une friteuse",
+          "en": "a fryer",
+          "kind": "term"
+        },
+        {
+          "fr": "la même huile",
+          "en": "the same oil",
+          "kind": "term"
+        },
+        {
+          "fr": "le bouillon",
+          "en": "the stock / broth",
+          "kind": "term"
+        },
+        {
+          "fr": "la sauce",
+          "en": "the sauce",
+          "kind": "term"
+        },
+        {
+          "fr": "Mon partenaire est gravement allergique aux coquillages et aux crustacés.",
+          "en": "My partner is severely allergic to mollusks and crustaceans.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Vous utilisez la même friteuse pour les crevettes ?",
+          "en": "Do you use the same fryer for shrimp?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le bouillon contient des crustacés ?",
+          "en": "Does the stock contain crustaceans?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La sauce contient des coquillages ?",
+          "en": "Does the sauce contain shellfish?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Nous allons manger ailleurs, merci.",
+          "en": "We will eat elsewhere, thank you.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Merci de m’avoir expliqué la préparation.",
+          "en": "Thank you for explaining the preparation.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il réagit gravement aux coquillages et aux crustacés.",
+          "en": "He has a severe reaction to mollusks and crustaceans.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La sauce contient aussi des crevettes séchées.",
+          "en": "The sauce also contains dried shrimp.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Mon partenaire est gravement allergique aux coquillages et aux crustacés.",
+          "en": "Hello. My partner is severely allergic to mollusks and crustaceans."
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "D’accord. Qu’aimeriez-vous savoir ?",
+          "en": "All right. What would you like to know?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Vous utilisez la même friteuse pour les crevettes et les frites ?",
+          "en": "Do you use the same fryer for shrimp and fries?"
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "Oui, nous utilisons la même huile.",
+          "en": "Yes, we use the same oil."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Le bouillon ou la sauce contiennent des crustacés ?",
+          "en": "Does the stock or sauce contain crustaceans?"
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "Le bouillon contient des crevettes, et la sauce contient aussi des crevettes séchées.",
+          "en": "The stock contains shrimp, and the sauce also contains dried shrimp."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci de m’avoir expliqué la préparation et l’utilisation de la même huile. Nous allons manger ailleurs.",
+          "en": "Thank you for explaining the preparation and use of the same oil. We will eat elsewhere."
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "Je comprends. Bonne journée à vous deux.",
+          "en": "I understand. Have a good day, both of you."
+        }
+      ],
+      "speaking": {
+        "role": "Lunch guest speaking for a companion",
+        "partnerRole": "Street-food vendor",
+        "opening": "Bonjour. Mon partenaire est gravement allergique aux coquillages et aux crustacés.",
+        "goal": "Name the severe shellfish allergy, ask whether shrimp shares the fryer and whether the broth or sauce contains shellfish, then politely decide to eat elsewhere.",
+        "closure": "Merci pour vos réponses. Nous allons manger ailleurs.",
+        "wordBank": [
+          "une allergie grave",
+          "les coquillages",
+          "les crustacés",
+          "les crevettes",
+          "une friteuse",
+          "la même huile",
+          "le bouillon",
+          "la sauce",
+          "Mon partenaire est gravement allergique aux coquillages et aux crustacés.",
+          "Vous utilisez la même friteuse pour les crevettes ?",
+          "Le bouillon contient des crustacés ?",
+          "La sauce contient des coquillages ?",
+          "Nous allons manger ailleurs, merci.",
+          "Merci de m’avoir expliqué la préparation.",
+          "Il réagit gravement aux coquillages et aux crustacés.",
+          "La sauce contient aussi des crevettes séchées."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for a severe allergy.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the French word for a fryer.",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question about shrimp in the fryer.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French term for crustaceans.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether the stock contains crustaceans.",
+          "sourceCard": 11,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a polite decision to eat elsewhere.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Qualified French and food-domain review should confirm exact shellfish scope, fryer/stock terminology and scenario facts. Preserve direct clinical vocabulary; do not add learner-facing cautions."
+    },
+    {
+      "n": 20,
+      "stableId": "core-travel-lunch:20:fr-en",
+      "sourceTitleEnglish": "Dispute a cover or service charge",
+      "sourceObjectiveEnglish": "question an unexpected cover, bread, or service charge and agree on a resolution",
+      "sourceSpeakingEnglish": "Your bill includes bread you declined and a service charge not on the menu; question it calmly and settle the total.",
+      "title": "Question an Unexpected Bill Charge",
+      "objective": "Identify bread and service charges on a bill, explain that the bread was declined, ask where the service charge was listed, and settle a corrected total.",
+      "focus": "Use des frais de couvert, des frais de service, je n’ai pas pris, c’était indiqué and corriger l’addition to question each charge precisely.",
+      "scene": "At the end of lunch, Maya notices bread and service charges she did not expect and asks the server to explain them.",
+      "cards": [
+        {
+          "fr": "des frais de couvert",
+          "en": "a cover charge",
+          "kind": "term"
+        },
+        {
+          "fr": "des frais de service",
+          "en": "a service charge",
+          "kind": "term"
+        },
+        {
+          "fr": "le pain",
+          "en": "the bread",
+          "kind": "term"
+        },
+        {
+          "fr": "la carte",
+          "en": "the menu",
+          "kind": "term"
+        },
+        {
+          "fr": "l’addition",
+          "en": "the bill / check",
+          "kind": "term"
+        },
+        {
+          "fr": "une ligne",
+          "en": "a line item",
+          "kind": "term"
+        },
+        {
+          "fr": "le total corrigé",
+          "en": "the corrected total",
+          "kind": "term"
+        },
+        {
+          "fr": "retirer",
+          "en": "to remove",
+          "kind": "term"
+        },
+        {
+          "fr": "Je n’ai pas pris de pain.",
+          "en": "I did not take any bread.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pourquoi le pain figure-t-il sur l’addition ?",
+          "en": "Why is bread listed on the bill?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Les frais de service étaient indiqués sur la carte ?",
+          "en": "Was the service charge listed on the menu?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pouvez-vous m’expliquer cette ligne ?",
+          "en": "Can you explain this line item?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pouvez-vous retirer le pain et corriger l’addition ?",
+          "en": "Can you remove the bread and correct the bill?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Quel est le total corrigé ?",
+          "en": "What is the corrected total?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "D’accord, je règle ce total.",
+          "en": "All right, I will pay this total.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Excusez-moi. Pouvez-vous m’expliquer ces deux lignes sur l’addition ?",
+          "en": "Excuse me. Can you explain these two line items on the bill?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Ce sont des frais de couvert pour le pain et des frais de service.",
+          "en": "They are a cover charge for bread and a service charge."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Je n’ai pas pris de pain ; je l’ai refusé au début du repas.",
+          "en": "I did not take any bread; I declined it at the start of the meal."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Je vais vérifier et retirer cette ligne.",
+          "en": "I will check and remove that line item."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Merci. Les frais de service étaient indiqués sur la carte ?",
+          "en": "Thank you. Was the service charge listed on the menu?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Non, elle ne les indique pas. Je vais aussi retirer ces frais.",
+          "en": "No, it does not list them. I will remove those charges too."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Quel est le total corrigé ?",
+          "en": "What is the corrected total?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Vingt-quatre euros, sans le pain ni les frais de service.",
+          "en": "Twenty-four euros, without the bread or the service charge."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "D’accord, je règle ce total. Merci pour la correction.",
+          "en": "All right, I will pay this total. Thank you for the correction."
+        }
+      ],
+      "speaking": {
+        "role": "Guest checking a bill",
+        "partnerRole": "Restaurant server",
+        "opening": "Excusez-moi. Pouvez-vous m’expliquer ces deux lignes sur l’addition ?",
+        "goal": "Question both charges, state that bread was declined, ask where service was listed, confirm the corrected total and pay it.",
+        "closure": "D’accord. Je règle le total corrigé.",
+        "wordBank": [
+          "des frais de couvert",
+          "des frais de service",
+          "le pain",
+          "la carte",
+          "l’addition",
+          "une ligne",
+          "le total corrigé",
+          "retirer",
+          "Je n’ai pas pris de pain.",
+          "Pourquoi le pain figure-t-il sur l’addition ?",
+          "Les frais de service étaient indiqués sur la carte ?",
+          "Pouvez-vous m’expliquer cette ligne ?",
+          "Pouvez-vous retirer le pain et corriger l’addition ?",
+          "Quel est le total corrigé ?",
+          "D’accord, je règle ce total."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the term for a service charge.",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to say the bread was not taken.",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question about the menu listing.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the expression for the corrected total.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask the server to explain one bill line.",
+          "sourceCard": 12,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a request to remove the bread and correct the bill.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "The fictional cover/service charges and resolution require qualified factual review for local law and restaurant practice. No legal claim belongs in learner-facing cards or Reader."
+    }
+  ],
+  "internalReviewNotes": [
+    "Core 16–20 map exact Spanish Lunch Core learning purposes to French scenes. Qualified language and relevant accessibility/food/domain review remain required.",
+    "Direct clinical and access vocabulary stays in teaching text; factual uncertainties, local practice and source-review questions are internal only."
+  ],
+  "sourceContent": {
+    "path": "public/lesson-content/es/travel-lunch.json",
+    "sha256": "9c6104911c7c3fc2d8f0e1914edb5bd8e490f0d3961babfcece22238f995580d"
+  }
+}

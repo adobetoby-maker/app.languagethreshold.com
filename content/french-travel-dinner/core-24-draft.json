@@ -1,0 +1,285 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/travel-zone.ts",
+    "curriculumSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "passagePath": "public/lesson-content/es/travel-dinner.json",
+    "passageSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "title": "Help a Guest Who Feels Unwell",
+      "objective": "ask staff for water, a quiet place, and emergency help if needed",
+      "focus": "Mon amie ne se sent pas bien uses se sentir with a reflexive pronoun; se sentir means to feel, while sentir means to smell or sense. Mon precedes amie because amie begins with a vowel, even though the friend is female. J'appelle doubles the l in the present singular; nous appelons has one l. Pourriez-vous nous apporter un verre d'eau ? places nous before the infinitive apporter. Y a-t-il un endroit calme où elle puisse s'asseoir ? uses the subjunctive puisse because the question asks whether such a place exists. Si elle ne va pas mieux, pouvez-vous appeler une ambulance ? pairs si + present with a present-tense request. Avoir la tête qui tourne describes everyday dizziness; avoir des étourdissements names light-headedness, le vertige names spinning dizziness. Faire un malaise means to feel faint or have a fainting spell, and s'évanouir means to faint. Pâle has the same masculine and feminine form; only the plural adds s.",
+      "scene": "During dinner, your friend Paula feels faint, says she feels dizzy, and turns very pale. You call the waiter and ask for a glass of water. The waiter brings it quickly and also calls the manager. You ask the manager for a quiet place where she can sit, and he takes you to a chair near the window with fresh air and less noise. You ask him to call an ambulance if she does not get better. He says he knows the emergency number and that there is a doctor at another table. Paula drinks water slowly, breathes better, and says she feels a little better.",
+      "forms": [
+        {
+          "infinitive": "se sentir",
+          "presentElle": "elle se sent",
+          "example": "Mon amie ne se sent pas bien.",
+          "meaning": "to feel / she feels"
+        },
+        {
+          "infinitive": "apporter",
+          "presentIl": "il apporte",
+          "example": "Le serveur apporte rapidement de l’eau.",
+          "meaning": "to bring / he brings"
+        },
+        {
+          "infinitive": "appeler",
+          "presentJe": "j'appelle",
+          "example": "J'appelle le serveur.",
+          "meaning": "to call / I call"
+        },
+        {
+          "infinitive": "avoir besoin de",
+          "presentNous": "nous avons besoin de",
+          "example": "Nous avons besoin d’un endroit calme, s’il vous plaît.",
+          "meaning": "to need / we need"
+        },
+        {
+          "infinitive": "aller mieux",
+          "presentElle": "elle va mieux",
+          "example": "Si elle ne va pas mieux, pouvez-vous appeler une ambulance ?",
+          "meaning": "to get better / she gets better"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "le serveur",
+          "en": "waiter",
+          "kind": "term"
+        },
+        {
+          "fr": "le gérant",
+          "en": "manager",
+          "kind": "term"
+        },
+        {
+          "fr": "le verre d'eau",
+          "en": "glass of water",
+          "kind": "term"
+        },
+        {
+          "fr": "l'endroit calme",
+          "en": "quiet place",
+          "kind": "term"
+        },
+        {
+          "fr": "l'étourdissement",
+          "en": "dizziness",
+          "kind": "term"
+        },
+        {
+          "fr": "la chaise",
+          "en": "chair",
+          "kind": "term"
+        },
+        {
+          "fr": "l'air frais",
+          "en": "fresh air",
+          "kind": "term"
+        },
+        {
+          "fr": "l'ambulance",
+          "en": "ambulance",
+          "kind": "term"
+        },
+        {
+          "fr": "le numéro d'urgence",
+          "en": "emergency number",
+          "kind": "term"
+        },
+        {
+          "fr": "le médecin",
+          "en": "doctor",
+          "kind": "term"
+        },
+        {
+          "fr": "pâle",
+          "en": "pale",
+          "kind": "term"
+        },
+        {
+          "fr": "la fenêtre",
+          "en": "window",
+          "kind": "term"
+        },
+        {
+          "fr": "le bruit",
+          "en": "noise",
+          "kind": "term"
+        },
+        {
+          "fr": "Mon amie ne se sent pas bien.",
+          "en": "My friend feels unwell.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pourriez-vous nous apporter un verre d'eau, s'il vous plaît ?",
+          "en": "Could you bring us a glass of water, please?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Y a-t-il un endroit calme où elle puisse s'asseoir ?",
+          "en": "Is there a quiet place where she can sit?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Si elle ne va pas mieux, pouvez-vous appeler une ambulance ?",
+          "en": "If she does not get better, can you call an ambulance?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Quel est le numéro d'urgence ici ?",
+          "en": "What is the emergency number here?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Elle se sent déjà un peu mieux.",
+          "en": "She already feels a little better.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Elle respire mieux.",
+          "en": "She breathes better.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "le malaise",
+          "en": "fainting spell",
+          "kind": "term"
+        },
+        {
+          "fr": "faire un malaise",
+          "en": "to feel faint",
+          "kind": "phrase"
+        },
+        {
+          "fr": "s’évanouir",
+          "en": "to faint",
+          "kind": "term"
+        },
+        {
+          "fr": "le vertige",
+          "en": "spinning dizziness",
+          "kind": "term"
+        },
+        {
+          "fr": "Nous avons besoin d’un endroit calme, s’il vous plaît.",
+          "en": "We need a quiet place, please.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "Pendant le dîner, mon amie Paula dit qu’elle a la tête qui tourne, et elle devient toute pâle.",
+          "en": "During dinner, my friend Paula says she feels dizzy and turns very pale."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "J'appelle le serveur et je lui dis : « Mon amie ne se sent pas bien. Pourriez-vous nous apporter un verre d'eau, s'il vous plaît ? »",
+          "en": "I call the waiter and tell him: My friend feels unwell, could you bring us a glass of water, please?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le serveur apporte rapidement de l’eau et appelle aussi le gérant.",
+          "en": "The waiter brings the water quickly and also calls the manager."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Je demande au gérant : « Y a-t-il un endroit calme où elle puisse s'asseoir ? »",
+          "en": "I ask the manager: Is there a quiet place where she can sit?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Il nous installe près de la fenêtre, parce que là, il y a de l’air frais et moins de bruit.",
+          "en": "He takes us to a chair near the window, because there is fresh air and less noise there."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Je lui explique : « Si elle ne va pas mieux, pouvez-vous appeler une ambulance ? »",
+          "en": "I explain to him: If she does not get better, can you call an ambulance?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le gérant répond qu'il connaît le numéro d'urgence et qu'il y a un médecin à une autre table.",
+          "en": "The manager answers that he knows the emergency number and that there is a doctor at another table."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Paula boit de l'eau lentement, respire mieux et dit qu'elle se sent déjà un peu mieux.",
+          "en": "Paula drinks water slowly, breathes better, and says she already feels a little better."
+        }
+      ],
+      "speaking": {
+        "role": "Dinner guest whose friend suddenly feels unwell.",
+        "partnerRole": "Waiter and restaurant manager.",
+        "opening": "Mon amie ne se sent pas bien.",
+        "goal": "Your dinner companion suddenly feels faint; ask staff for water, a quiet spot, and emergency help if needed.",
+        "closure": "Elle se sent déjà un peu mieux.",
+        "wordBank": [
+          "Mon amie ne se sent pas bien.",
+          "Pourriez-vous nous apporter un verre d'eau, s'il vous plaît ?",
+          "Y a-t-il un endroit calme où elle puisse s'asseoir ?",
+          "Si elle ne va pas mieux, pouvez-vous appeler une ambulance ?",
+          "Quel est le numéro d'urgence ici ?",
+          "Elle se sent déjà un peu mieux."
+        ]
+      },
+      "n": 24,
+      "stableId": "travel-dinner:24:fr-en",
+      "sourceTitleEnglish": "Help a guest who feels unwell",
+      "sourceObjectiveEnglish": "ask staff for water, a quiet place, and emergency help if needed",
+      "sourceSpeakingEnglish": "Your dinner companion suddenly feels faint; ask staff for water, a quiet spot, and emergency help if needed.",
+      "reviewed": false,
+      "internalReviewNote": "Owner-only source-pinned draft. Haiku 5.5 requested but Claude CLI metadata reported Sonnet 5.5. Opus 5.5 read-only critique and self-check corrected the Reader subject, clinical term distinctions, French morphology, source need verb, location detail, and exact speaking goal. Opus incorrectly claimed the initial speaking goal matched source; self-check found and fixed it. France-specific emergency-number details were kept out of learner text pending qualified factual review. Qualified French and medical review remain open.",
+      "modes": {
+        "see": {
+          "cueEnglish": "waiter",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "ambulance",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Could you bring us a glass of water, please?",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "dizziness",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "What is the emergency number here?",
+          "sourceCard": 18,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "My friend feels unwell.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      },
+      "model": "claude-sonnet-5-5"
+    }
+  ]
+}

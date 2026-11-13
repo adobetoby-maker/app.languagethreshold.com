@@ -1,0 +1,11 @@
+# Japanese Dinner Core 24 owner-review checkpoint
+
+Core 24 extends the owner-only Japanese→English Dinner preview to Foundation 10 + Core 24 = 34 source-pinned drafts. Stable ID `travel-dinner:24:ja-en` and all previous IDs are unchanged. The eight English Reader turns and English plan exactly match the pinned Spanish-track source. The lesson covers Paula feeling dizzy and turning pale, the waiter bringing water, a quiet chair with fresh air, an ambulance request if she does not improve, the emergency phone number, and a doctor at another table. It teaches the clinical terms directly.
+
+The draft has 28 cards with kana readings where kanji appears, eight aligned Reader turns, six form contrasts, six anchored mode prompts and a restaurant speaking scene. Claude CLI Haiku 5.5 authored a candidate and Opus 5.5 critiqued it read-only. The self-check corrected restaurant-manager terminology, the emergency phone-number phrase, Reader cause and quotation scope, the already-improving line, a literal request verb, missing source forms, exact card/word-bank references and the restaurant role. Qualified Japanese and clinical review remains open; AI critique is not human approval.
+
+`verify-private-core-1-24.py` checks source hashes, exact plan and Reader English alignment, the stable ID, cards/kana/forms/speaking/modes, source facts and closed gates. The owner route omits internal notes. The lesson remains `reviewed:false`, `registered:false`, `readyForLearner:false`, `audio:none`; learner catalog, playback and progress are unchanged.
+
+The private audio delta subtracts previous Dinner scopes and pins 35 new strings, 70 ja-JP Aoede/Charon clips and 1,148 submitted characters. All 70 were synthesized privately with quota project `project-91661021-fb2d-4524-b9f` and pass exact text, voice, SHA-256, byte count, duration and decoded-signal verification with zero flags. The [private listening worksheet](/Users/drive/lt-audio/japanese-travel-dinner/core-24/listening-review.html) needs a distinct decision; every clip remains `listeningReviewed:false`, unbundled and unregistered.
+
+Core 25–30/Master 1–20, qualified review, exact-pair learner runtime/offline/dictionary integration, browser/phone and independent V4 acceptance remain open.

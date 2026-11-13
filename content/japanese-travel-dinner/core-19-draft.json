@@ -1,0 +1,303 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "contentPath": "public/lesson-content/es/travel-dinner.json",
+    "contentSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 19,
+      "stableId": "travel-dinner:19:ja-en",
+      "sourceTitleEnglish": "Request accessible, quiet seating",
+      "sourceObjectiveEnglish": "ask for a step-free route, nearby restroom, good lighting, and a quieter table",
+      "sourceSpeakingEnglish": "Your parent has limited mobility and hearing; request an accessible, quiet table and explain why.",
+      "title": "Request accessible, quiet seating",
+      "objective": "Ask for a step-free route, a nearby restroom, good lighting, and a quieter table, and explain why your parent needs them.",
+      "focus": "Asking about a step-free entrance and ramp, explaining a parent's walker use and hearing needs, requesting a quiet table, and asking about the nearby restroom and lighting.",
+      "scene": "A guest arrives at a restaurant with their mother for an 8 o'clock reservation. The guest asks the host whether there is a step-free entrance, and the host says the ramp is on the right, away from the steps. The guest explains that the mother uses a walker and doesn't hear well with a lot of noise, then asks for a quiet table. The host gives them the corner table, away from the speakers. The guest asks whether the restroom is near the table, and the host says it is very close and the table has good lighting for reading the menu.",
+      "forms": [
+        {
+          "base": "聞こえる",
+          "polite": "聞こえます",
+          "question": "聞こえますか",
+          "meaning": "to be audible, to be able to hear"
+        },
+        {
+          "base": "使っている",
+          "polite": "使っています",
+          "question": "使っていますか",
+          "meaning": "to be using (a walker)"
+        },
+        {
+          "base": "お願いする",
+          "polite": "お願いします",
+          "question": "お願いできますか",
+          "meaning": "to request politely"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "予約",
+          "en": "reservation",
+          "kind": "term",
+          "readingKana": "よやく"
+        },
+        {
+          "ja": "案内係",
+          "en": "host",
+          "kind": "term",
+          "readingKana": "あんないがかり"
+        },
+        {
+          "ja": "入口",
+          "en": "entrance",
+          "kind": "term",
+          "readingKana": "いりぐち"
+        },
+        {
+          "ja": "段差のない入口",
+          "en": "step-free entrance",
+          "kind": "term",
+          "readingKana": "だんさのないいりぐち"
+        },
+        {
+          "ja": "スロープ",
+          "en": "ramp",
+          "kind": "term"
+        },
+        {
+          "ja": "階段",
+          "en": "steps",
+          "kind": "term",
+          "readingKana": "かいだん"
+        },
+        {
+          "ja": "歩行器",
+          "en": "walker",
+          "kind": "term",
+          "readingKana": "ほこうき"
+        },
+        {
+          "ja": "周りの音",
+          "en": "noise around us",
+          "kind": "term",
+          "readingKana": "まわりのおと"
+        },
+        {
+          "ja": "静かな席",
+          "en": "quiet table",
+          "kind": "term",
+          "readingKana": "しずかなせき"
+        },
+        {
+          "ja": "隅の席",
+          "en": "corner table",
+          "kind": "term",
+          "readingKana": "すみのせき"
+        },
+        {
+          "ja": "照明",
+          "en": "lighting",
+          "kind": "term",
+          "readingKana": "しょうめい"
+        },
+        {
+          "ja": "お手洗い",
+          "en": "restroom",
+          "kind": "term",
+          "readingKana": "おてあらい"
+        },
+        {
+          "ja": "スピーカー",
+          "en": "speakers",
+          "kind": "term"
+        },
+        {
+          "ja": "段差のない入口はありますか。",
+          "en": "Is there a step-free entrance?",
+          "kind": "phrase",
+          "readingKana": "だんさのないいりぐちはありますか。"
+        },
+        {
+          "ja": "スロープは右側にあって、階段から離れています。",
+          "en": "The ramp is on the right, away from the steps.",
+          "kind": "phrase",
+          "readingKana": "スロープはみぎがわにあって、かいだんからはなれています。"
+        },
+        {
+          "ja": "母は歩行器を使っています。",
+          "en": "My mother uses a walker.",
+          "kind": "phrase",
+          "readingKana": "はははほこうきをつかっています。"
+        },
+        {
+          "ja": "母は、周りがうるさいと聞こえにくいんです。",
+          "en": "My mother doesn't hear well with a lot of noise.",
+          "kind": "phrase",
+          "readingKana": "ははは、まわりがうるさいときこえにくいんです。"
+        },
+        {
+          "ja": "静かな席をお願いできますか。",
+          "en": "Can you give us a quiet table, please?",
+          "kind": "phrase",
+          "readingKana": "しずかなせきをおねがいできますか。"
+        },
+        {
+          "ja": "スピーカーから離れた隅の席をご用意します。",
+          "en": "I'm going to give you the corner table, away from the speakers.",
+          "kind": "phrase",
+          "readingKana": "スピーカーからはなれたすみのせきをごよういします。"
+        },
+        {
+          "ja": "お手洗いは席の近くにありますか。",
+          "en": "Is the restroom near the table?",
+          "kind": "phrase",
+          "readingKana": "おてあらいはせきのちかくにありますか。"
+        },
+        {
+          "ja": "はい、近くにあります。そちらの席は照明が明るく、メニューも読みやすいです。",
+          "en": "Yes, it is very close, and this table has good lighting for reading the menu.",
+          "kind": "phrase",
+          "readingKana": "はい、ちかくにあります。そちらのせきはしょうめいがあかるく、メニューもよみやすいです。"
+        },
+        {
+          "ja": "明るい席はありますか。",
+          "en": "Is there a table with good lighting?",
+          "kind": "phrase",
+          "readingKana": "あかるいせきはありますか。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "8時の予約で、母と一緒にレストランに来ました。",
+          "en": "I arrive at the restaurant with my mother for our 8 o’clock reservation."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "すみません、段差のない入口はありますか。",
+          "en": "Excuse me, is there a step-free entrance?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "はい。スロープは右側にあって、階段から離れています。",
+          "en": "Yes. The ramp is on the right, away from the steps."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "母は歩行器を使っています。",
+          "en": "My mother uses a walker."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "母は、周りがうるさいと聞こえにくいんです。",
+          "en": "My mother doesn't hear well with a lot of noise."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "静かな席をお願いできますか。",
+          "en": "Can you give us a quiet table, please?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "スピーカーから離れた隅の席をご用意します。",
+          "en": "I'm going to give you the corner table, away from the speakers."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "お手洗いは席の近くにありますか。",
+          "en": "Is the restroom near the table?"
+        },
+        {
+          "speaker": "Guest",
+          "ja": "明るい席はありますか。",
+          "en": "Is there a table with good lighting?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "はい、近くにあります。そちらの席は照明が明るく、メニューも読みやすいです。",
+          "en": "Yes, it is close by, and that table has good lighting for reading the menu."
+        }
+      ],
+      "speaking": {
+        "role": "Guest arriving for an 8 o'clock reservation with a parent who has limited mobility and hearing",
+        "partnerRole": "Host who answers about the step-free entrance, the quiet corner table, and the nearby restroom and lighting",
+        "opening": "8時の予約をしている者です。母と一緒に来ました。",
+        "goal": "Your parent has limited mobility and hearing; request an accessible, quiet table and explain why.",
+        "closure": "母は歩行器を使っていて、周りがうるさいと聞こえにくいので、段差なく行ける静かな席をお願いできますか。",
+        "wordBank": [
+          "予約",
+          "案内係",
+          "入口",
+          "段差のない入口",
+          "スロープ",
+          "階段",
+          "歩行器",
+          "周りの音",
+          "静かな席",
+          "隅の席",
+          "照明",
+          "お手洗い",
+          "スピーカー",
+          "段差のない入口はありますか。",
+          "スロープは右側にあって、階段から離れています。",
+          "母は歩行器を使っています。",
+          "母は、周りがうるさいと聞こえにくいんです。",
+          "静かな席をお願いできますか。",
+          "スピーカーから離れた隅の席をご用意します。",
+          "お手洗いは席の近くにありますか。",
+          "はい、近くにあります。そちらの席は照明が明るく、メニューも読みやすいです。",
+          "明るい席はありますか。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "step-free entrance",
+          "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "walker",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Can you give us a quiet table, please?",
+          "sourceCard": 18,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "lighting",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Is there a step-free entrance?",
+          "sourceCard": 14,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "My mother doesn't hear well with a lot of noise.",
+          "sourceCard": 17,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Haiku 5.5 source-grounded draft; Opus 5.5 identified narration-as-speech, restaurant noise register, corner seating, lighting request, and form issues. Self-corrected against pinned source. Qualified Japanese/accessibility review remains required."
+    }
+  ]
+}

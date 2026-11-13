@@ -1,0 +1,314 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "contentPath": "public/lesson-content/es/travel-dinner.json",
+    "contentSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 29,
+      "stableId": "travel-dinner:29:ja-en",
+      "sourceTitleEnglish": "Get a safe ride home",
+      "sourceObjectiveEnglish": "ask staff to call a licensed taxi, where to wait, and the expected price",
+      "sourceSpeakingEnglish": "It's late and you don't know the area; ask the restaurant to call a reliable taxi and tell you where to wait.",
+      "title": "Get a safe ride home",
+      "objective": "Ask staff to call a licensed taxi, where to wait, and the expected price.",
+      "focus": "～ていただけますか politely asks someone to do something for you: 正規のタクシーを呼んでいただけますか。 ～ばいいですか asks what to do or where to do it: どこで待てばいいですか。 いくらかかりますか asks how much something costs: ホテルまでだいたいいくらかかりますか。 お～ください is the polite request staff use: お待ちください。 ～ほうがいいです says what you prefer or think is better: 中で待つほうがいいです。",
+      "scene": "It is 11 at night and Laura is finishing dinner at a restaurant downtown. She asks the waiter to call a licensed taxi. The waiter says the restaurant always calls a trusted taxi company. Laura asks where to wait, and the waiter tells her to wait inside by the main entrance because the taxi stand on the street is dark. She asks about how much the ride to her hotel costs. The waiter says the usual fare is about 150 pesos and the driver uses a meter. Before leaving, Laura asks for the license plate number so she can check that it is the right taxi.",
+      "forms": [
+        {
+          "base": "呼ぶ",
+          "polite": "呼びます",
+          "question": "呼びますか",
+          "meaning": "to call (a person or a taxi)",
+          "example": "店員が正規のタクシーを呼びます。"
+        },
+        {
+          "base": "待つ",
+          "polite": "待ちます",
+          "question": "待ちますか",
+          "meaning": "to wait",
+          "example": "正面入口のそばでタクシーを待ちます。"
+        },
+        {
+          "base": "かかる",
+          "polite": "かかります",
+          "question": "かかりますか",
+          "meaning": "to cost, to take (money or time)",
+          "example": "ホテルまで150ペソぐらいかかります。"
+        },
+        {
+          "base": "頼む",
+          "polite": "頼みます",
+          "question": "頼みますか",
+          "meaning": "to ask for, to request",
+          "example": "ローラは店員にナンバーを教えてほしいと頼みます。"
+        },
+        {
+          "base": "確認する",
+          "polite": "確認します",
+          "question": "確認しますか",
+          "meaning": "to check, to confirm",
+          "example": "ナンバーを見て、呼んだタクシーかどうか確認します。"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "正規のタクシー",
+          "en": "licensed taxi",
+          "kind": "term",
+          "readingKana": "せいきのタクシー"
+        },
+        {
+          "ja": "タクシー会社",
+          "en": "taxi company",
+          "kind": "term",
+          "readingKana": "タクシーがいしゃ"
+        },
+        {
+          "ja": "タクシー乗り場",
+          "en": "taxi stand",
+          "kind": "term",
+          "readingKana": "タクシーのりば"
+        },
+        {
+          "ja": "正面入口",
+          "en": "main entrance",
+          "kind": "term",
+          "readingKana": "しょうめんいりぐち"
+        },
+        {
+          "ja": "料金",
+          "en": "fare",
+          "kind": "term",
+          "readingKana": "りょうきん"
+        },
+        {
+          "ja": "メーター",
+          "en": "meter",
+          "kind": "term"
+        },
+        {
+          "ja": "運転手",
+          "en": "driver",
+          "kind": "term",
+          "readingKana": "うんてんしゅ"
+        },
+        {
+          "ja": "車のナンバー",
+          "en": "license plate number",
+          "kind": "term",
+          "readingKana": "くるまのナンバー"
+        },
+        {
+          "ja": "店員",
+          "en": "waiter",
+          "kind": "term",
+          "readingKana": "てんいん"
+        },
+        {
+          "ja": "ホテル",
+          "en": "hotel",
+          "kind": "term"
+        },
+        {
+          "ja": "固定料金",
+          "en": "fixed fare",
+          "kind": "term",
+          "readingKana": "こていりょうきん"
+        },
+        {
+          "ja": "通り",
+          "en": "street",
+          "kind": "term",
+          "readingKana": "とおり"
+        },
+        {
+          "ja": "約150ペソ",
+          "en": "about 150 pesos",
+          "kind": "term",
+          "readingKana": "やくひゃくごじゅうペソ"
+        },
+        {
+          "ja": "正規のタクシーを呼んでいただけますか。",
+          "en": "Could you call a licensed taxi for me, please?",
+          "kind": "phrase",
+          "readingKana": "せいきのタクシーをよんでいただけますか。"
+        },
+        {
+          "ja": "タクシーはどこで待てばいいですか。",
+          "en": "Where do I wait for the taxi?",
+          "kind": "phrase",
+          "readingKana": "タクシーはどこでまてばいいですか。"
+        },
+        {
+          "ja": "ホテルまでだいたいいくらかかりますか。",
+          "en": "About how much does it cost to my hotel?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "タクシーはメーターを使いますか、それとも固定料金ですか。",
+          "en": "Does the taxi use a meter or have a fixed fare?",
+          "kind": "phrase",
+          "readingKana": "タクシーはメーターをつかいますか、それともこていりょうきんですか。"
+        },
+        {
+          "ja": "タクシーのナンバーを教えていただけますか。",
+          "en": "Can you tell me the taxi's license plate number?",
+          "kind": "phrase",
+          "readingKana": "タクシーのナンバーをおしえていただけますか。"
+        },
+        {
+          "ja": "このあたりはよく知らないので、中で待つほうがいいです。",
+          "en": "I prefer to wait inside because I don't know the area.",
+          "kind": "phrase",
+          "readingKana": "このあたりはよくしらないので、なかでまつほうがいいです。"
+        },
+        {
+          "ja": "店内の正面入口のそばでお待ちください。",
+          "en": "Wait inside, next to the main entrance.",
+          "kind": "phrase",
+          "readingKana": "てんないのしょうめんいりぐちのそばでおまちください。"
+        },
+        {
+          "ja": "いつも信頼できるタクシー会社に電話します。",
+          "en": "We always call a trusted taxi company.",
+          "kind": "phrase",
+          "readingKana": "いつもしんらいできるタクシーがいしゃにでんわします。"
+        },
+        {
+          "ja": "通りのタクシー乗り場は暗いです。",
+          "en": "The taxi stand on the street is dark.",
+          "kind": "phrase",
+          "readingKana": "とおりのタクシーのりばはくらいです。"
+        },
+        {
+          "ja": "呼んだタクシーかどうか確認します。",
+          "en": "I check that it is the right taxi.",
+          "kind": "phrase",
+          "readingKana": "よんだタクシーかどうかかくにんします。"
+        },
+        {
+          "ja": "暗い",
+          "en": "dark",
+          "kind": "term",
+          "readingKana": "くらい"
+        },
+        {
+          "ja": "中",
+          "en": "inside",
+          "kind": "term",
+          "readingKana": "なか"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "夜の11時です。ローラは街の中心部にあるレストランで夕食を終えようとしています。",
+          "en": "It is 11 at night, and Laura is finishing her dinner at a restaurant downtown."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ローラは店員に「すみません、正規のタクシーを呼んでいただけますか」と言います。",
+          "en": "She says to the waiter: Excuse me, could you call a licensed taxi for me, please?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店員は、このレストランではいつも信頼できるタクシー会社に電話すると答えます。",
+          "en": "The waiter answers that the restaurant always calls a trusted taxi company."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ローラは「タクシーはどこで待てばいいですか」と聞きます。",
+          "en": "Laura asks: Where do I wait for the taxi?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店員は「店内の正面入口のそばでお待ちください。通りのタクシー乗り場は暗いので」と説明します。",
+          "en": "The waiter explains: Wait inside, next to the main entrance, because the taxi stand on the street is dark."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "それから、ローラは「ホテルまでだいたいいくらかかりますか」と聞きます。",
+          "en": "Then she asks: About how much does it cost to my hotel?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店員の話では、ふだんの料金は約150ペソですが、運転手はメーターを使うそうです。",
+          "en": "According to the waiter, the usual fare is about 150 pesos, but the driver uses a meter."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "出発する前に、ローラは呼んだタクシーかどうか確認するために、店員に車のナンバーを教えてほしいと頼みます。",
+          "en": "Before leaving, Laura asks him for the license plate number so she can check that it is the right taxi."
+        }
+      ],
+      "speaking": {
+        "role": "Diner finishing dinner late at night in an unfamiliar area.",
+        "partnerRole": "Server at the restaurant.",
+        "opening": "すみません、正規のタクシーを呼んでいただけますか。",
+        "goal": "It's late and you don't know the area; ask the restaurant to call a reliable taxi and tell you where to wait.",
+        "closure": "ありがとうございます。助かります。",
+        "wordBank": [
+          "正規のタクシー",
+          "タクシー乗り場",
+          "正規のタクシーを呼んでいただけますか。",
+          "タクシーはどこで待てばいいですか。",
+          "ホテルまでだいたいいくらかかりますか。",
+          "タクシーはメーターを使いますか、それとも固定料金ですか。",
+          "タクシーのナンバーを教えていただけますか。",
+          "このあたりはよく知らないので、中で待つほうがいいです。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "licensed taxi",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "fare",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Where do I wait for the taxi?",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "meter",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "About how much does it cost to my hotel?",
+          "sourceCard": 16,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Could you call a licensed taxi for me, please?",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Owner-only source-pinned draft. Haiku 5.5 requested; CLI metadata reported Sonnet 5.5. Opus 5.5 read-only critique and self-check corrected Reader hearsay, inside-location fidelity, right-taxi wording, card alignment, and mode selection. Supporting cards extend source vocabulary. Taxi terminology and pesos remain source-faithful, pending qualified Japanese and transport-domain review.",
+      "model": "claude-sonnet-5-5"
+    }
+  ]
+}

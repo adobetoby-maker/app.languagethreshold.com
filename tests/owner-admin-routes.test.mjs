@@ -25,7 +25,7 @@ async function fixture(run) {
   try {
     await build({
       stdin: {
-        contents: `export {Route as support} from '@/routes/api.owner-support';export {Route as analytics} from '@/routes/api.owner-analytics';export {Route as teams} from '@/routes/api.owner-teams';export {Route as activity} from '@/routes/api.owner-activity';export {Route as users} from '@/routes/api.owner-users';export {Route as platform} from '@/routes/api.platform';`,
+        contents: `export {Route as support} from '@/routes/api.owner-support';export {Route as analytics} from '@/routes/api.owner-analytics';export {Route as teams} from '@/routes/api.owner-teams';export {Route as activity} from '@/routes/api.owner-activity';export {Route as users} from '@/routes/api.owner-users';export {Route as platform} from '@/routes/api.platform';export {Route as japaneseDrafts} from '@/routes/api.owner-japanese-drafts';export {Route as frenchDrafts} from '@/routes/api.owner-french-drafts';export {Route as frenchDinnerDrafts} from '@/routes/api.owner-french-dinner-drafts';`,
         resolveDir: process.cwd(),
       },
       outfile: join(dir, "api.mjs"),
@@ -100,6 +100,9 @@ const reads = [
   ["analytics", "/api/owner-analytics?part=ga&range=7"],
   ["teams", `/api/owner-teams?org=${ORG}`],
   ["activity", "/api/owner-activity?page=0"],
+  ["japaneseDrafts", "/api/owner-japanese-drafts"],
+  ["frenchDrafts", "/api/owner-french-drafts"],
+  ["frenchDinnerDrafts", "/api/owner-french-dinner-drafts"],
 ];
 const writes = [
   [
@@ -158,6 +161,76 @@ test("guests, learners and support staff get 403 before any private read or writ
         false,
       );
     }
+  }));
+
+test("platform owner can inspect 56 unregistered Japanese Dinner drafts", () =>
+  fixture(async (api, c, req) => {
+    c.role = "owner";
+    const response = await api.japaneseDrafts.server.handlers.GET({
+      request: req("/api/owner-japanese-drafts"),
+    });
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get("cache-control"), "private, no-store");
+    const data = await response.json();
+    assert.equal(data.pairKey, "Japanese:English");
+    assert.equal(data.courseId, "travel-dinner");
+    assert.equal(data.reviewed, false);
+    assert.equal(data.registered, false);
+    assert.equal(data.audioRegistered, false);
+    assert.equal(data.lessons.length, 56);
+    assert.equal(data.lessons[0].stableId, "foundation-travel-dinner:1:ja-en");
+    assert.equal(data.lessons.at(-1).stableId, "master-travel-dinner:16:ja-en");
+    assert.ok(data.lessons.every((lesson) => lesson.reviewed === false));
+    assert.ok(data.lessons.every((lesson) => !Object.hasOwn(lesson, "internalReviewNote")));
+  }));
+
+test("platform owner can inspect 60 unregistered French Lunch drafts without internal notes", () =>
+  fixture(async (api, c, req) => {
+    c.role = "owner";
+    const response = await api.frenchDrafts.server.handlers.GET({
+      request: req("/api/owner-french-drafts"),
+    });
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get("cache-control"), "private, no-store");
+    const data = await response.json();
+    assert.equal(data.pairKey, "French:English");
+    assert.equal(data.courseId, "travel-lunch");
+    assert.equal(data.reviewed, false);
+    assert.equal(data.registered, false);
+    assert.equal(data.audioRegistered, false);
+    assert.equal(data.lessons.length, 60);
+    assert.equal(data.lessons[0].stableId, "foundation-travel-lunch:1:fr-en");
+    assert.equal(data.lessons.at(-1).stableId, "master-travel-lunch:20:fr-en");
+    assert.deepEqual(
+      ["foundation", "core", "master"].map((stage) =>
+        data.lessons.filter((lesson) => lesson.stage === stage).length),
+      [10, 30, 20],
+    );
+    assert.ok(data.lessons.every((lesson) => lesson.reviewed === false));
+    assert.ok(data.lessons.every((lesson) => !("internalReviewNote" in lesson)));
+  }));
+
+test("platform owner can inspect 52 unregistered French Dinner drafts without internal notes", () =>
+  fixture(async (api, c, req) => {
+    c.role = "owner";
+    const response = await api.frenchDinnerDrafts.server.handlers.GET({
+      request: req("/api/owner-french-dinner-drafts"),
+    });
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get("cache-control"), "private, no-store");
+    const data = await response.json();
+    assert.equal(data.pairKey, "French:English");
+    assert.equal(data.courseId, "travel-dinner");
+    assert.equal(data.reviewed, false);
+    assert.equal(data.registered, false);
+    assert.equal(data.audioRegistered, false);
+    assert.equal(data.lessons.length, 52);
+    assert.equal(data.lessons[0].stableId, "foundation-travel-dinner:1:fr-en");
+    assert.equal(data.lessons.at(-1).stableId, "master-travel-dinner:12:fr-en");
+    assert.deepEqual(["foundation", "core", "master"].map((stage) =>
+      data.lessons.filter((lesson) => lesson.stage === stage).length), [10, 30, 12]);
+    assert.ok(data.lessons.every((lesson) => lesson.reviewed === false));
+    assert.ok(data.lessons.every((lesson) => !("internalReviewNote" in lesson)));
   }));
 
 test("malformed or cross-origin writes are rejected before authentication", () =>

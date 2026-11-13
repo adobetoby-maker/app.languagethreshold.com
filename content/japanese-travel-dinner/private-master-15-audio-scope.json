@@ -1,0 +1,530 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "voices": [
+    "ja-JP-Chirp3-HD-Aoede",
+    "ja-JP-Chirp3-HD-Charon"
+  ],
+  "sourceSHA256": {
+    "master-15-private-draft.json": "5dfa19db18c9b0e151588d1d8bd3bd3a6aba6ced5e20c8ccc500f7e5f0fce502"
+  },
+  "previousScopeSHA256": {
+    "private-foundation-audio-scope.json": "f4b48c046a13a344a996703523bdb8cfdff5bf69188c699fa02db544ccc0a28f",
+    "private-core-1-3-audio-scope.json": "ad72a64b46d08401ee572f63af5d88baafca0388afbd55161acd948dc8062e3d",
+    "private-core-4-6-audio-scope.json": "3925840b1b1bca92059fe07abc63aed981d43bcaaf87f0296f43114414264c89",
+    "private-core-7-9-audio-scope.json": "30a880bda09c371f1eb197a95ffa1237769bff18ac3a268ee55974e524306248",
+    "private-core-10-12-audio-scope.json": "73c8886aea6f96148763c77c5709585edc35503521cdb2dbf361927e547ed120",
+    "private-core-13-15-audio-scope.json": "3dbd18a0920c84e83194b9932d3e0e12f4d9dc0a995f1de249a664667ca10211",
+    "private-core-16-18-audio-scope.json": "4e1b20b7b56175cbcbad937032785ce4acad2e470bc1099135166b63ab34327c",
+    "private-core-19-audio-scope.json": "1e60d7da18055264c2141807b4a5b15232cc68825154bc026ba7f7307db01a1d",
+    "private-core-20-audio-scope.json": "7d3768994313e77e95e8c768e81db7fa3b45a7bf7d8658d8e19767b4ab650f2b",
+    "private-core-21-audio-scope.json": "88f089af289371ee21102f088328b3f04e455402a6442e7310c8cec5e4ff624c",
+    "private-core-22-audio-scope.json": "201a695bd0b7ff1c8f019f63c10dcf40f75824944c70d61fa92b802d44fe199d",
+    "private-core-23-audio-scope.json": "11604d8c9aec4ec38e69b1049450d0192a7b9b2d639fd862c6b1bf2e486f88f6",
+    "private-core-24-audio-scope.json": "50d24bcd803a4fa2da4129e82c27695abe5485ea012e2a6edacadfbbc78cc6a3",
+    "private-core-25-audio-scope.json": "5274f7c1a6e92f8bdcbb434bc4943cc5a0b5a5d0b4285a6d593390c4cd45da1f",
+    "private-core-26-audio-scope.json": "a97ec70fadef466979abbe39adac98f1ab4f88d7e7a5902de73eca2d5809103c",
+    "private-core-27-audio-scope.json": "20964e288176158ec6d3fb62983714c409dea1bf06f2bfa07a14f5ad3e7a7e3b",
+    "private-core-28-audio-scope.json": "65c655f8a73ecd312708b3cd902f4dd7d95643e592bb0825a4ec16d2c14c7f89",
+    "private-core-29-audio-scope.json": "8177aac28d7507d8d2b127c47d25a5517690e06f7d9dda831ac12713334b33a6",
+    "private-core-30-audio-scope.json": "3f489c4f091bd7f1f0bdec1315030b08a87786c9cfd56dfc17176a7568c23a11",
+    "private-master-1-audio-scope.json": "82a2bb3d90712e80e3752833c24c1768bc644c876a7cd475afe0d879ed1e2560",
+    "private-master-2-audio-scope.json": "e601980fa4d7801f5660523bf1725cfe2d75c6ced6019042da4abbbdd1a959f0",
+    "private-master-3-audio-scope.json": "6ba9530b51a30bd836f79e16d92cd7016bfeb002050afd8ab2d4f41a525c6c65",
+    "private-master-4-audio-scope.json": "3ec984da919228f9b5af8d40d67c4ac4da96a2397db7a4be076ae9f543639d09",
+    "private-master-5-audio-scope.json": "8724196f72c0a4507cb7ffa633dfd9d14cf758e2e1b66f736a96327e28dca4b4",
+    "private-master-6-audio-scope.json": "98ccb1546d8a509dd0fc7aad1c5b639e0a9a56d3aad551177cd0fe50e1323844",
+    "private-master-7-audio-scope.json": "2fc27f06a5bf20cb930aba8e0e754c0107ac876a3992bf1f29b74baa43ce9604",
+    "private-master-8-audio-scope.json": "f745103931c409b44414c71d3af4bf4adbf8dff4f32f7af400086a74180a2a3b",
+    "private-master-9-audio-scope.json": "326ab928eb2c26a2a7961127408d8cf4cc37c7f8200e7dcc4e4b4f7f8a5445eb",
+    "private-master-10-audio-scope.json": "646e20ae251cfe3ac3f3310a677062e623f0e17c2dcf9e847f42b6f89ad57885",
+    "private-master-11-audio-scope.json": "612870b0d7c11ae4f876776404d6e83fa5ce69d783a534bfaf1726a4df958e96",
+    "private-master-12-audio-scope.json": "445b7e736a8418f232390483cfe2474e82bdef9608ac87d324ecd99b8ff41e27",
+    "private-master-13-audio-scope.json": "3cb1968de3f47a934ca541a5e49bbb5125065c7bb74dde76c5617e9bf451558a",
+    "private-master-14-audio-scope.json": "e650aaae11d8778093be9d7b44023f3db065e05e05ee07d575165ae8099804b2"
+  },
+  "lessonIds": [
+    "master-travel-dinner:15:ja-en"
+  ],
+  "placements": 44,
+  "uniqueTexts": 36,
+  "proposedClips": 72,
+  "submittedCharacters": 1598,
+  "texts": [
+    {
+      "displayText": "はい、そのまま電話をつないでいてください。もし誰かがひどい咳をしていれば、救急車も送ります。",
+      "spokenText": "はい、そのまま電話をつないでいてください。もし誰かがひどい咳をしていれば、救急車も送ります。",
+      "textSHA256": "c6d6d681cbe61869e1fdb1e439ac301e81c23a7b254fc54b6335af7618508921",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "reader",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "displayText": "みんな、ついてきて！こっちだよ、アルバロさんの後ろ！",
+      "spokenText": "みんな、ついてきて！こっちだよ、アルバロさんの後ろ！",
+      "textSHA256": "144f6bc1d3d341b3d621ee2f30c3f8480811d3b2fb09dba53774b861fdc0b7c0",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 16
+        },
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "displayText": "もっと煙が出てきたら、向かい側の歩道へ渡りましょう。",
+      "spokenText": "もっと煙が出てきたら、向かい側の歩道へ渡りましょう。",
+      "textSHA256": "06d72954e702b18b79a5090b10389bf101bfa04e5591a70ad877376e64330cf9",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 19
+        },
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "reader",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "displayText": "ようやく一行は通りに面した扉から外に出て、アルバロは歩道にいるお客さんの人数を数えます。",
+      "spokenText": "ようやく一行は通りに面した扉から外に出て、アルバロは歩道にいるお客さんの人数を数えます。",
+      "textSHA256": "dbd7799e393237bed4628bb80f095aa310df1e57636f1a381f365b5895eda68e",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "displayText": "アルバロ：「キッチンで小さな火事が起きています。荷物はすべて置いて、階段を上がって非常口へ向かってください。」",
+      "spokenText": "アルバロ：「キッチンで小さな火事が起きています。荷物はすべて置いて、階段を上がって非常口へ向かってください。」",
+      "textSHA256": "6b3525d2666ec0498902a815bb2c3433c50a2b7c9dec4e7fb0c6a32bbfbc8f1c",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "オペレーターが正確な住所を尋ね、サムは壁に書かれた建物の番号を読み上げます。",
+      "spokenText": "オペレーターが正確な住所を尋ね、サムは壁に書かれた建物の番号を読み上げます。",
+      "textSHA256": "25b0222b61a59a8f64a1b92bee3a68157a12eae7a39c21f6d7564b9f8859cee7",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "reader",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "displayText": "オリビア、私につかまって。はぐれないでね。",
+      "spokenText": "オリビア、私につかまって。はぐれないでね。",
+      "textSHA256": "15a1634fda78bf102234248af9f886114bf9ac5b16a1de9031695810cc74a0e6",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 17
+        },
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "displayText": "キッチンで小さな火事が起きています。荷物はすべて置いて、階段を上がって非常口へ向かってください。",
+      "spokenText": "キッチンで小さな火事が起きています。荷物はすべて置いて、階段を上がって非常口へ向かってください。",
+      "textSHA256": "215af9a891491f45c0bcf454eaa31b282d4dbaf7f55743157e6cedcd11513707",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "displayText": "サムは友人たちに言います。「消防隊員にそう言われたら、最後までここで待ちましょう。」",
+      "spokenText": "サムは友人たちに言います。「消防隊員にそう言われたら、最後までここで待ちましょう。」",
+      "textSHA256": "4bdde0f7b091a81e08c4e0dfdce2b1087f6d4774aafeb735a7c2e83ae2e653a2",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "reader",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "displayText": "サムは友人のオリビアとネイトと一緒に、マドリードの古い建物の地下にあるレストランで夕食をとっています。",
+      "spokenText": "サムは友人のオリビアとネイトと一緒に、マドリードの古い建物の地下にあるレストランで夕食をとっています。",
+      "textSHA256": "d6344e35057c7ae57c975208fbb4e15cea7fc7ffa02ea81fd101930fe8150b0a",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "displayText": "サムは通りから112に電話をかけ、こう言います。「地下にあるレストランのキッチンから煙が出ています。」",
+      "spokenText": "サムは通りから112に電話をかけ、こう言います。「地下にあるレストランのキッチンから煙が出ています。」",
+      "textSHA256": "902809a6213a322aadc4f444f59da5c6e2d4be6f84e78c4507994fe66b0d00db",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "reader",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "displayText": "ネイト、戻らないで。上着なんてどうでもいいから！",
+      "spokenText": "ネイト、戻らないで。上着なんてどうでもいいから！",
+      "textSHA256": "d082a94174fa7a303f4837280ea4f38dcef14e134063865996284da36164d429",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 18
+        },
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "displayText": "ネイトは立ち止まり、上着がまだ地下の椅子の上にあると言います。",
+      "spokenText": "ネイトは立ち止まり、上着がまだ地下の椅子の上にあると言います。",
+      "textSHA256": "efa79d01c98c91a28a98372b1af28e7f9571313d303046100923caadb55329b5",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "displayText": "上着",
+      "spokenText": "上着",
+      "textSHA256": "90c2f28eb1d34796c6c2148e420f44504b63f7149ca094dd70fb4d82808dcfc9",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "displayText": "交差点",
+      "spokenText": "交差点",
+      "textSHA256": "85f1b218b3f2cf0ef8051cfacf91c54b9197e58207b0d14eb10096e4b0d8e288",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "displayText": "住所はカバ・バハ通りの24番地です。",
+      "spokenText": "住所はカバ・バハ通りの24番地です。",
+      "textSHA256": "c3cde4bce9351e4f376ca444e3fad124dc25da062dd9a8ec278ce439d2182518",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 21
+        },
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "reader",
+          "index": 14
+        },
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "hear-mode-model"
+        }
+      ]
+    },
+    {
+      "displayText": "全員外にいます。私たちが知る限り、負傷者はいません。",
+      "spokenText": "全員外にいます。私たちが知る限り、負傷者はいません。",
+      "textSHA256": "8823e21c799ee651a504b4b951643df084eb9d6668d2f281cd678dacec6fb15a",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 22
+        },
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "reader",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "displayText": "向かい側の歩道",
+      "spokenText": "向かい側の歩道",
+      "textSHA256": "7c90cb7608f7cf691c750232d111563b5ff04e5ad36862236b1d2b883a0fe1f6",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "displayText": "咳",
+      "spokenText": "咳",
+      "textSHA256": "a2fe52c484d5e67aeeb68956b6b2531f0f9bb5b57f26f2271f94008ff32dd211",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "displayText": "地下",
+      "spokenText": "地下",
+      "textSHA256": "03876ed80d3e816c424cfc162421aae78e97de1b19382903c10f8d298b505a94",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "displayText": "地下にあるレストランのキッチンから煙が出ています。",
+      "spokenText": "地下にあるレストランのキッチンから煙が出ています。",
+      "textSHA256": "bebdfa3e04c438bc2f1dc635debe9941c5dd355c39be8d9ccd876f9338af7e1b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 20
+        }
+      ]
+    },
+    {
+      "displayText": "建物の番号",
+      "spokenText": "建物の番号",
+      "textSHA256": "4e52eb8dda4565aec269a3bedd0b219a1c351d9597966535eb143d39111fab5a",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "displayText": "正確な住所",
+      "spokenText": "正確な住所",
+      "textSHA256": "ceda3cd6fbd5771f55cd2422236f2626547854ade3fe260ef84ce5e391d75ac7",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "displayText": "消防隊員",
+      "spokenText": "消防隊員",
+      "textSHA256": "3e465520f18334c048c8629fb0d9730ec555ac43f3e8888ccb5d50e44a900129",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "displayText": "消防隊員が到着するまで、電話をつないだままでいましょうか。",
+      "spokenText": "消防隊員が到着するまで、電話をつないだままでいましょうか。",
+      "textSHA256": "8e76abcb036d7f6f4cd6971328ecba72354003659acee9791428942b0e6d24a0",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 23
+        },
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "reader",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "displayText": "消防隊員にそう言われたら、最後までここで待ちましょう。",
+      "spokenText": "消防隊員にそう言われたら、最後までここで待ちましょう。",
+      "textSHA256": "7bacfe5a2109f45bccb1398f13ef3ed7c3c272af6b8f881dc78572d9cf4e011f",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "火事",
+      "spokenText": "火事",
+      "textSHA256": "80edc56087fef86ac7bf2f4368026ed0560b60ec33c6fe236d6f2ad95534bd47",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "displayText": "焦げ臭いにおい",
+      "spokenText": "焦げ臭いにおい",
+      "textSHA256": "f802ee32a27a5efee489ee09e1d34e22fc89a1b8cb034023f82366b7da78ee90",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "displayText": "煙",
+      "spokenText": "煙",
+      "textSHA256": "b32a359e85ed9e73c7451d48efbd3fccc9844fa54114c3c605f3ae62fc4524fd",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "displayText": "突然、ウェイターのアルバロが強い焦げ臭いにおいに気づき、キッチンから灰色の煙が出ているのを見ます。",
+      "spokenText": "突然、ウェイターのアルバロが強い焦げ臭いにおいに気づき、キッチンから灰色の煙が出ているのを見ます。",
+      "textSHA256": "d9bd0d1212029ef926f990a3104415bb35b4160d0c244372903e6f58b691bef5",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "displayText": "誰も欠けていなければ、角の交差点にある集合場所へみんなで行きましょう。",
+      "spokenText": "誰も欠けていなければ、角の交差点にある集合場所へみんなで行きましょう。",
+      "textSHA256": "0b606cfaa3fb1ad28f72a8145d46d637352b9d1793e0848473cf70002978b87d",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "reader",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "displayText": "負傷者",
+      "spokenText": "負傷者",
+      "textSHA256": "0cd22c571c736ccd7d39af6ae92439ceb65ad4f2b90554e7738b36b562bbe282",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "displayText": "通りに面した扉",
+      "spokenText": "通りに面した扉",
+      "textSHA256": "7634ddc9e970382aaabd314e5d7dcdaa8b5324cf9476b6613369b002d7b5564c",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "displayText": "階段で、後ろから煙が上ってくるので、オリビアは咳が出ています。",
+      "spokenText": "階段で、後ろから煙が上ってくるので、オリビアは咳が出ています。",
+      "textSHA256": "2ccef6e292ef003ea41d0f5d8104ced35bf09aeb2c6463829606b5ea4731a2e4",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "displayText": "集合場所",
+      "spokenText": "集合場所",
+      "textSHA256": "47e6d66f500e28a248a9dc28d3d543a2c514108f1719c1893bacb44cf0011d0a",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "displayText": "非常口",
+      "spokenText": "非常口",
+      "textSHA256": "b0d8aa3d578279ad27faf26fcc0f64b4522c69d2acce2eab990999767424de9c",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:15:ja-en",
+          "surface": "card",
+          "index": 5
+        }
+      ]
+    }
+  ],
+  "recordingsBundled": false,
+  "listeningReviewed": false,
+  "registered": false
+}

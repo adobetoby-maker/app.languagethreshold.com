@@ -1,3 +1,7 @@
+import { useChatFollow } from "@/hooks/use-chat-follow";
+import { SpeakingPartnerPicker } from "./SpeakingPartnerPicker";
+import { speakingPartner } from "@/data/speaking-partners";
+import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import { SpeakingConversationControls } from "./SpeakingConversationControls";
 import { SpeakTutorDock, type SpeakTutorSelection } from "./SpeakTutorDock";
 import { LongPressWordText } from "./LongPressWordText";
@@ -119,6 +123,23 @@ export function SpeakLearn() {
     clear,
   } = useSpeak();
   const language = state.selectedLanguage;
+  const partnerStore = useLearnerDeviceStore(
+    `speaking-partner:${language}:${state.nativeLanguage}:${state.activeModuleId ?? "core"}`,
+  );
+  const [partnerId, setPartnerId] = useState("open");
+  useEffect(() => {
+    const saved = partnerStore.read();
+    setPartnerId(speakingPartner(typeof saved === "string" ? saved : undefined)[0]);
+  }, [partnerStore]);
+  const changePartner = (id: string) => {
+    if (id === partnerId) return;
+    cancel();
+    stopOwned();
+    clear();
+    setPartnerId(id);
+    partnerStore.write(id);
+  };
+
   // Saved speaking practice advances the next session, never a running session.
   const practiceSeconds = Object.values(state.speakSecondsByLang ?? {}).reduce(
     (sum, seconds) => sum + (seconds ?? 0),
@@ -170,7 +191,8 @@ export function SpeakLearn() {
   const [surface, setSurface] = useState<"missions" | "conversation">("missions");
   const conversationViewport = usePracticeViewport(surface);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
-  const transcriptRef = useRef<HTMLDivElement | null>(null);
+  const chatFollow = useChatFollow(turns);
+  const { containerRef: transcriptRef, contentRef, onScroll: onTranscriptScroll } = chatFollow;
   const abortRef = useRef<AbortController | null>(null);
   const sessionStartRef = useRef<number | null>(null);
   const { isCurrentUser } = speakingAuth;
@@ -187,6 +209,7 @@ export function SpeakLearn() {
       accent,
       voiceURI,
       surface,
+      partnerId,
     ]),
     speakingAuth,
   );
@@ -249,13 +272,6 @@ export function SpeakLearn() {
   useEffect(() => {
     setChallenge(null);
   }, [language]);
-
-  useEffect(() => {
-    transcriptRef.current?.scrollTo({
-      top: transcriptRef.current.scrollHeight,
-      behavior: "smooth",
-    });
-  }, [turns, interim, thinking]);
 
   // Track conversation minutes — start clock on first user turn, flush on unmount
   useEffect(() => {
@@ -340,7 +356,7 @@ export function SpeakLearn() {
     }
   };
 
-  const streamReply = async (userText: string) => {
+  const streamReply = async (userText: string, startConversation = false) => {
     const lease = capture();
     if (!lease.isCurrent() || abortRef.current) return;
     setThinking(true);
@@ -356,7 +372,7 @@ export function SpeakLearn() {
     const timeout = window.setTimeout(() => {
       if (!current()) return;
       setThinking(false);
-      setTypedTurn(userText);
+      setTypedTurn(startConversation ? "" : userText);
       setConversationError(
         "The reply took too long. Send your answer again, or reset the conversation.",
       );
@@ -389,6 +405,9 @@ export function SpeakLearn() {
         headers,
         body: JSON.stringify({
           mode: "chat",
+          partnerRoleId: partnerId,
+          moduleId: state.activeModuleId ?? undefined,
+          startConversation,
           language,
           level: state.level,
           nativeLanguage: state.nativeLanguage,
@@ -414,7 +433,7 @@ export function SpeakLearn() {
           /* ignore */
         }
         if (!current()) return;
-        setTypedTurn(userText);
+        setTypedTurn(startConversation ? "" : userText);
         setConversationError(msg);
         toast("Conversation paused", { description: msg });
         setThinking(false);
@@ -422,7 +441,7 @@ export function SpeakLearn() {
       }
       if (!res.body) throw new Error("The partner returned no reply. Please try again.");
 
-      const aiTurn = addTurn("ai", "");
+      let aiTurnId: string | null = null;
       const reader = res.body.getReader();
       const disposeReader = () => {
         void reader.cancel().catch(() => {});
@@ -459,7 +478,8 @@ export function SpeakLearn() {
             const delta = parsed?.choices?.[0]?.delta?.content as string | undefined;
             if (delta) {
               full += delta;
-              appendToTurn(aiTurn.id, delta);
+              if (aiTurnId) appendToTurn(aiTurnId, delta);
+              else aiTurnId = addTurn("ai", delta).id;
             }
           } catch {
             buf = line + "\n" + buf;
@@ -474,13 +494,15 @@ export function SpeakLearn() {
       if (!full.trim()) throw new Error("The partner returned no reply. Please try again.");
       if (full.trim()) {
         if (currentAutomaticReplyAudio.current) speakAloud(full);
-        incrementExchanges();
-        awardExchange();
+        if (!startConversation) {
+          incrementExchanges();
+          awardExchange();
+        }
       }
     } catch (e: unknown) {
       if (!current()) return;
       setThinking(false);
-      setTypedTurn(userText);
+      setTypedTurn(startConversation ? "" : userText);
       setConversationError(
         "Could not finish the reply. Send your answer again, or reset the conversation.",
       );
@@ -712,92 +734,104 @@ export function SpeakLearn() {
     () => (
       <div
         ref={transcriptRef}
+        onScroll={onTranscriptScroll}
         role="region"
         aria-label="Conversation replies"
-        className="min-h-32 flex-1 overflow-y-auto overscroll-contain rounded-2xl border border-border/60 bg-card/40 p-3 backdrop-blur"
+        className="min-h-0 flex-1 overflow-y-auto overscroll-contain rounded-2xl border border-border/60 bg-card/40 p-3 backdrop-blur"
       >
-        {isEmpty && !interim ? (
-          <div className="flex h-full flex-col items-center justify-center text-center">
-            <p className="font-serif text-2xl text-foreground/70">Your conversation begins here</p>
-            <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-              Tap the microphone or pick a topic chip to start speaking {language}.
-            </p>
-          </div>
-        ) : (
-          <ul className="flex flex-col gap-3">
-            {turns.map((t) => (
-              <li
-                key={t.id}
-                className={t.role === "user" ? "flex justify-end" : "flex justify-start"}
-              >
-                <div className="max-w-[85%]">
-                  <div
-                    className={
-                      t.role === "user"
-                        ? "rounded-2xl rounded-br-sm bg-primary px-4 py-2.5 text-sm text-primary-foreground shadow-sm"
-                        : "flex items-start gap-2 rounded-2xl rounded-bl-sm border border-gold/30 bg-background/60 px-4 py-2.5 text-sm text-foreground shadow-sm"
-                    }
-                  >
-                    {t.role === "ai" && (
-                      <button
-                        onClick={() => speakAloud(t.text)}
-                        className="mt-0.5 shrink-0 text-gold transition-opacity hover:opacity-80"
-                        aria-label="Replay"
-                      >
-                        🔊
-                      </button>
-                    )}
-                    <span className="leading-relaxed whitespace-pre-wrap">
-                      {t.role === "ai" && hideReplyText ? (
-                        "Audio reply"
-                      ) : t.text ? (
-                        <LongPressWordText
-                          text={t.text}
-                          onWordLookup={(word, sentence) => {
-                            if (!micActive && !audioCaptureBusy)
-                              setTutorSelection({
-                                word,
-                                sentence,
-                                id: Date.now(),
-                                owner: speakingAuth.isTestGuest ? undefined : speakingAuth.user?.id,
-                                scope: `free:${language}:${state.nativeLanguage}:${state.activeModuleId}`,
-                              });
-                          }}
-                        />
-                      ) : t.role === "ai" ? (
-                        "…"
-                      ) : (
-                        ""
-                      )}
-                    </span>
-                  </div>
-                  {showFeedback && t.tip && (
-                    <div className="mt-1 inline-block rounded-full border border-gold/40 bg-gold/10 px-2.5 py-0.5 text-xs text-gold">
-                      💡 Tip: {t.tip}
+        <div ref={contentRef}>
+          {isEmpty && !interim ? (
+            <div className="flex h-full flex-col items-center justify-center text-center">
+              <p className="px-2 py-2 text-sm text-muted-foreground">
+                Your partner’s reply will appear here.
+              </p>
+            </div>
+          ) : (
+            <ul className="flex flex-col gap-3">
+              {turns.map((t) => (
+                <li
+                  key={t.id}
+                  className={t.role === "user" ? "flex justify-end" : "flex justify-start"}
+                >
+                  <div className="max-w-[85%]">
+                    <div
+                      className={`mb-1 text-xs font-semibold text-muted-foreground ${t.role === "user" ? "text-right" : "text-left"}`}
+                    >
+                      {t.role === "user" ? "You" : "Partner"}
                     </div>
-                  )}
-                </div>
-              </li>
-            ))}
-            {interim && (
-              <li className="flex justify-end">
-                <div className="max-w-[85%] rounded-2xl rounded-br-sm border border-dashed border-primary/50 bg-primary/10 px-4 py-2.5 text-sm text-foreground/80">
-                  {interim}
-                </div>
-              </li>
-            )}
-            {thinking && (
-              <li className="flex justify-start">
-                <div className="rounded-2xl rounded-bl-sm border border-gold/20 bg-background/40 px-4 py-2 text-xs text-muted-foreground">
-                  thinking…
-                </div>
-              </li>
-            )}
-          </ul>
-        )}
+                    <div
+                      className={
+                        t.role === "user"
+                          ? "rounded-2xl rounded-br-sm bg-primary px-4 py-2.5 text-sm text-primary-foreground shadow-sm"
+                          : "flex items-start gap-2 rounded-2xl rounded-bl-sm border border-gold/30 bg-background/60 px-4 py-2.5 text-sm text-foreground shadow-sm"
+                      }
+                    >
+                      {t.role === "ai" && (
+                        <button
+                          onClick={() => speakAloud(t.text)}
+                          className="mt-0.5 shrink-0 text-gold transition-opacity hover:opacity-80"
+                          aria-label="Replay"
+                        >
+                          🔊
+                        </button>
+                      )}
+                      <span className="leading-relaxed whitespace-pre-wrap">
+                        {t.role === "ai" && hideReplyText ? (
+                          "Audio reply"
+                        ) : t.text ? (
+                          <LongPressWordText
+                            text={t.text}
+                            onWordLookup={(word, sentence) => {
+                              if (!micActive && !audioCaptureBusy)
+                                setTutorSelection({
+                                  word,
+                                  sentence,
+                                  id: Date.now(),
+                                  owner: speakingAuth.isTestGuest
+                                    ? undefined
+                                    : speakingAuth.user?.id,
+                                  scope: `free:${language}:${state.nativeLanguage}:${state.activeModuleId}`,
+                                });
+                            }}
+                          />
+                        ) : t.role === "ai" ? (
+                          "…"
+                        ) : (
+                          ""
+                        )}
+                      </span>
+                    </div>
+                    {showFeedback && t.tip && (
+                      <div className="mt-1 inline-block rounded-full border border-gold/40 bg-gold/10 px-2.5 py-0.5 text-xs text-gold">
+                        💡 Tip: {t.tip}
+                      </div>
+                    )}
+                  </div>
+                </li>
+              ))}
+              {interim && (
+                <li className="flex justify-end">
+                  <div className="max-w-[85%] rounded-2xl rounded-br-sm border border-dashed border-primary/50 bg-primary/10 px-4 py-2.5 text-sm text-foreground/80">
+                    {interim}
+                  </div>
+                </li>
+              )}
+              {thinking && (
+                <li className="flex justify-start">
+                  <div className="rounded-2xl rounded-bl-sm border border-gold/20 bg-background/40 px-4 py-2 text-xs text-muted-foreground">
+                    thinking…
+                  </div>
+                </li>
+              )}
+            </ul>
+          )}
+        </div>
       </div>
     ),
     [
+      contentRef,
+      onTranscriptScroll,
+      transcriptRef,
       turns,
       interim,
       isEmpty,
@@ -868,6 +902,13 @@ export function SpeakLearn() {
                     <option value="browser">Browser dictation</option>
                   </select>
                 </label>
+                <SpeakingPartnerPicker
+                  value={partnerId}
+                  onChange={changePartner}
+                  moduleId={state.activeModuleId ?? ""}
+                  category={getModule(state.activeModuleId)?.category ?? ""}
+                  disabled={thinking || micActive || audioCaptureBusy}
+                />
                 <ModuleMatchPanel surface="Speak & Learn" className="mb-4" />
 
                 <ChallengePanel
@@ -1025,10 +1066,38 @@ export function SpeakLearn() {
         <section
           ref={conversationViewport.ref}
           style={conversationViewport.style}
-          className="lt-speaking-frame mt-3 flex min-h-0 flex-col gap-2 overflow-y-auto"
+          className={`lt-speaking-frame mt-3 flex min-h-0 flex-col gap-2 ${isEmpty ? "overflow-y-auto" : "overflow-hidden"}`}
           aria-label="Free conversation practice"
         >
+          {isEmpty && (
+            <SpeakingPartnerPicker
+              value={partnerId}
+              onChange={changePartner}
+              moduleId={state.activeModuleId ?? ""}
+              category={getModule(state.activeModuleId)?.category ?? ""}
+              disabled={thinking || micActive || audioCaptureBusy}
+            />
+          )}
+          {isEmpty && (
+            <button
+              type="button"
+              disabled={thinking || !conversationAllowed}
+              onClick={() => gated(() => streamReply("Begin the conversation.", true))}
+              className="min-h-11 shrink-0 rounded-xl border border-border bg-card px-4 py-2 font-semibold"
+            >
+              Let partner start
+            </button>
+          )}
           {transcript}
+          {!chatFollow.following && (
+            <button
+              type="button"
+              onClick={chatFollow.jumpToLatest}
+              className="shrink-0 self-center rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold"
+            >
+              ↓ Latest response
+            </button>
+          )}
           {conversationError && (
             <p role="alert" className="shrink-0 text-sm text-foreground">
               {conversationError}

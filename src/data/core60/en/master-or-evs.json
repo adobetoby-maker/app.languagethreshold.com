@@ -5,16 +5,16 @@
   "stage": "master",
   "language": "English",
   "nativeLanguage": "Spanish",
-  "headline": "The OR Environmental Services Master 20",
-  "threshold": "By Lesson 20, you can train a new tech and have them teach a turnover back to you, explain a delay or a product substitution to a circulator or surgeon, say no to an unsafe shortcut, report an incident or near miss without blame, and write the shift's cleaning log in English.",
+  "headline": "OR Cleaning Crew · Master",
+  "threshold": "Communicate during OR cleaning shifts in English, ask for clarification and confirm room readiness.",
   "reviewed": false,
-  "model": "claude-opus-5-5",
-  "generatedAt": "2026-10-21T23:56:32.172Z",
   "lessons": [
     {
       "n": 1,
       "title": "Explain Top-to-Bottom, Clean-to-Dirty to a New Hire",
       "objective": "Explain the order of an OR turnover and the reason for each step to a new tech.",
+      "focus": "Communicate clearly during the cleaning shift",
+      "speaking": "You are the experienced OR tech, and the AI is Devon, a new hire who wants to mop OR 4 first: explain the top-to-bottom, clean-to-dirty order with first, then, because and so, and have Devon explain it back to you.",
       "words": [
         {
           "en": "la lámpara quirúrgica",
@@ -135,7 +135,7 @@
           "note": "Formal: \"may I\" es la forma cortés de pedir permiso."
         }
       ],
-      "speaking": "You are the experienced OR tech, and the AI is Devon, a new hire who wants to mop OR 4 first: explain the top-to-bottom, clean-to-dirty order with first, then, because and so, and have Devon explain it back to you.",
+      "readingTemplate": "seed-en-master-or-evs-lesson-1",
       "grammar": {
         "focus": "Connectors for sequence and cause (first, then, because, so the dust falls on surfaces you haven't cleaned yet)",
         "examples": [
@@ -156,6 +156,8 @@
       "n": 2,
       "title": "Why the Surface Has to Stay Wet: Dwell Time",
       "objective": "Explain why disinfectant must stay wet for the label's contact time and check that a float tech understands.",
+      "focus": "Communicate clearly during the cleaning shift",
+      "speaking": "You are the lead OR tech, and the AI is Kenji, a float tech who dried the mayo stand right away: explain why it must stay wet for the label's contact time, using the passive (is kept wet) and if-sentences, then check that he understands.",
       "words": [
         {
           "en": "el tiempo de contacto",
@@ -276,7 +278,7 @@
           "note": "Formal, para el personal de enfermería."
         }
       ],
-      "speaking": "You are the lead OR tech, and the AI is Kenji, a float tech who dried the mayo stand right away: explain why it must stay wet for the label's contact time, using the passive (is kept wet) and if-sentences, then check that he understands.",
+      "readingTemplate": "seed-en-master-or-evs-lesson-2",
       "grammar": {
         "focus": "The passive for general rules; the zero conditional (the surface is kept wet; if it dries too early, it isn't disinfected)",
         "examples": [
@@ -297,6 +299,8 @@
       "n": 3,
       "title": "Training a New Tech on Canisters and Sharps Swaps",
       "objective": "Coach a new tech step by step to close suction canisters and change a sharps container safely.",
+      "focus": "Communicate clearly during the cleaning shift",
+      "speaking": "You are the senior tech, and the AI is Amara, a new tech at a full sharps container in OR 6: stop her, then coach the sharps swap and the canister closing step by step with commands like close it, lift it by the handle and don't push it down.",
       "words": [
         {
           "en": "la línea de llenado",
@@ -419,7 +423,7 @@
           "note": "Formal, para el personal de enfermería del quirófano."
         }
       ],
-      "speaking": "You are the senior tech, and the AI is Amara, a new tech at a full sharps container in OR 6: stop her, then coach the sharps swap and the canister closing step by step with commands like close it, lift it by the handle and don't push it down.",
+      "readingTemplate": "seed-en-master-or-evs-lesson-3",
       "grammar": {
         "focus": "Commands with object pronouns (close it, lift it by the handle, don't push it down)",
         "examples": [
@@ -440,6 +444,8 @@
       "n": 4,
       "title": "Read the New Disinfectant Label Before Terminal Clean",
       "objective": "Read a new product's label and SDS aloud and explain its contact time and PPE to the night crew.",
+      "focus": "Communicate clearly during the cleaning shift",
+      "speaking": "You are the night lead, and the AI is Gloria, a night tech: read the new disinfectant label and SDS aloud before the terminal clean of OR 12, explain its contact time and PPE using before + -ing, have to and must, and check that she understands.",
       "words": [
         {
           "en": "la palabra de advertencia",
@@ -559,7 +565,7 @@
           "note": "Formal, para la enfermera a cargo."
         }
       ],
-      "speaking": "You are the night lead, and the AI is Gloria, a night tech: read the new disinfectant label and SDS aloud before the terminal clean of OR 12, explain its contact time and PPE using before + -ing, have to and must, and check that she understands.",
+      "readingTemplate": "seed-en-master-or-evs-lesson-4",
       "grammar": {
         "focus": "Before / after + -ing; have to and must (before opening it, you have to put on gloves; the label says you must…)",
         "examples": [
@@ -580,6 +586,8 @@
       "n": 5,
       "title": "Blood Found Under the Table Base After Room Ready",
       "objective": "Explain how a spot was missed, take responsibility, and propose a fast re-clean to the circulator.",
+      "focus": "Communicate clearly during the cleaning shift",
+      "speaking": "You are the EVS tech, and the AI is charge nurse Hakim Saleh: explain how you missed the blood in the caster wells using the past continuous and past simple (I was cleaning… when…), take responsibility, and propose a fast re-clean with I would…",
       "words": [
         {
           "en": "la base de la mesa",
@@ -693,7 +701,7 @@
           "kind": "phrase"
         }
       ],
-      "speaking": "You are the EVS tech, and the AI is charge nurse Hakim Saleh: explain how you missed the blood in the caster wells using the past continuous and past simple (I was cleaning… when…), take responsibility, and propose a fast re-clean with I would…",
+      "readingTemplate": "seed-en-master-or-evs-lesson-5",
       "grammar": {
         "focus": "Past simple vs past continuous; would for the proposal (I was cleaning the base when you called me; I would re-clean it now)",
         "examples": [
@@ -714,6 +722,8 @@
       "n": 6,
       "title": "Out of Wipes: The Approved Substitute Takes Longer",
       "objective": "Tell the circulator about an approved substitute product and how it changes the turnover time.",
+      "focus": "Communicate clearly during the cleaning shift",
+      "speaking": "You are the EVS tech, and the AI is circulator Owen Fitzgerald: tell him the wipes ran out and Linda approved a substitute, then give a new ready time using going to, will and comparisons (longer than, slower than, per the label).",
       "words": [
         {
           "en": "el producto sustituto",
@@ -830,7 +840,7 @@
           "note": "Formal y cortés con el enfermero circulante."
         }
       ],
-      "speaking": "You are the EVS tech, and the AI is circulator Owen Fitzgerald: tell him the wipes ran out and Linda approved a substitute, then give a new ready time using going to, will and comparisons (longer than, slower than, per the label).",
+      "readingTemplate": "seed-en-master-or-evs-lesson-6",
       "grammar": {
         "focus": "Will and going to; comparisons (it's going to take longer; its contact time is longer than our usual wipes, per the label)",
         "examples": [
@@ -851,6 +861,8 @@
       "n": 7,
       "title": "Ceiling Dust from a Contractor in a Clean Room",
       "objective": "Stop a contractor's work in a clean OR and report what happened, with times and rooms, to the charge nurse.",
+      "focus": "Communicate clearly during the cleaning shift",
+      "speaking": "You are the EVS tech, and the AI is contractor Bruno Kessler, then charge nurse Priya Nair: stop his work politely but firmly, then report what happened in the past simple with exact times and room numbers (he opened… at 6:40).",
       "words": [
         {
           "en": "el contratista",
@@ -971,7 +983,7 @@
           "note": "Pregunta directa para la jefa de enfermería."
         }
       ],
-      "speaking": "You are the EVS tech, and the AI is contractor Bruno Kessler, then charge nurse Priya Nair: stop his work politely but firmly, then report what happened in the past simple with exact times and room numbers (he opened… at 6:40).",
+      "readingTemplate": "seed-en-master-or-evs-lesson-7",
       "grammar": {
         "focus": "Past simple narration; numbers under pressure (he opened the panel at 6:40; two rooms were affected)",
         "examples": [
@@ -992,6 +1004,8 @@
       "n": 8,
       "title": "Saying No: The Surgeon Wants the Patient In Now",
       "objective": "Politely refuse to skip the dwell time and the floor, give a real time estimate, and offer to work faster safely.",
+      "focus": "Communicate clearly during the cleaning shift",
+      "speaking": "You are the EVS tech, and the AI is Dr. Elaine Foster: politely refuse to bring the patient in while the disinfectant is wet, using negative commands (please don't…) and I don't recommend that you…, give a real time estimate, and offer a safe way to work faster.",
       "words": [
         {
           "en": "la superficie mojada",
@@ -1108,7 +1122,7 @@
           "note": "Formal: ofrece la cadena de mando sin discutir."
         }
       ],
-      "speaking": "You are the EVS tech, and the AI is Dr. Elaine Foster: politely refuse to bring the patient in while the disinfectant is wet, using negative commands (please don't…) and I don't recommend that you…, give a real time estimate, and offer a safe way to work faster.",
+      "readingTemplate": "seed-en-master-or-evs-lesson-8",
       "grammar": {
         "focus": "Negative commands; I don't recommend that you… (please don't bring the bed in yet; I don't recommend that you roll over a wet floor)",
         "examples": [
@@ -1129,6 +1143,8 @@
       "n": 9,
       "title": "Feedback for a Tech Who Missed the Mayo Stand",
       "objective": "Give a coworker clear, respectful feedback about missed surfaces and agree on what to do next time.",
+      "focus": "Communicate clearly during the cleaning shift",
+      "speaking": "You are the lead tech, and the AI is Jordan Ellis, a tech who left the mayo stand underside and the bovie cord dirty: give specific, respectful feedback with you should, I suggest + -ing and I recommend, then agree on a plan for next time.",
       "words": [
         {
           "en": "la parte de abajo",
@@ -1249,7 +1265,7 @@
           "note": "Formal: Ms. + apellido con una enfermera; se pronuncia \"miz\"."
         }
       ],
-      "speaking": "You are the lead tech, and the AI is Jordan Ellis, a tech who left the mayo stand underside and the bovie cord dirty: give specific, respectful feedback with you should, I suggest + -ing and I recommend, then agree on a plan for next time.",
+      "readingTemplate": "seed-en-master-or-evs-lesson-9",
       "grammar": {
         "focus": "Should, recommend and suggest + verb (you should check the underside; I suggest wiping the bovie cord last)",
         "examples": [
@@ -1270,6 +1286,8 @@
       "n": 10,
       "title": "Day and Evening Techs Argue Over a Half-Done Room",
       "objective": "Listen to both sides of a conflict, report what each person said, and agree on a fair handoff rule.",
+      "focus": "Communicate clearly during the cleaning shift",
+      "speaking": "You are the lead tech, and the AI plays day tech Carla Brooks and evening tech Malik Johnson: hear both sides about OR 14, report what each said with she said that she had…, use the past continuous for background, and agree on a fair handoff rule.",
       "words": [
         {
           "en": "el cambio de turno",
@@ -1383,7 +1401,7 @@
           "kind": "phrase"
         }
       ],
-      "speaking": "You are the lead tech, and the AI plays day tech Carla Brooks and evening tech Malik Johnson: hear both sides about OR 14, report what each said with she said that she had…, use the past continuous for background, and agree on a fair handoff rule.",
+      "readingTemplate": "seed-en-master-or-evs-lesson-10",
       "grammar": {
         "focus": "Reported speech (she said that she had started the room); the past continuous for background (he was covering another case)",
         "examples": [
@@ -1404,6 +1422,8 @@
       "n": 11,
       "title": "Keeping a Short-Staffed Crew Going All Weekend",
       "objective": "Encourage a tired crew, make clear commitments, and share the work fairly during a long, busy shift.",
+      "focus": "Communicate clearly during the cleaning shift",
+      "speaking": "You are the lead tech, and the AI plays Ines, Rob and Keisha, a tired crew two people short on a long trauma board: listen to how each feels, encourage them, make clear commitments with I'll and we'll, and share the rooms fairly.",
       "words": [
         {
           "en": "el fin de semana festivo",
@@ -1519,7 +1539,7 @@
           "kind": "phrase"
         }
       ],
-      "speaking": "You are the lead tech, and the AI plays Ines, Rob and Keisha, a tired crew two people short on a long trauma board: listen to how each feels, encourage them, make clear commitments with I'll and we'll, and share the rooms fairly.",
+      "readingTemplate": "seed-en-master-or-evs-lesson-11",
       "grammar": {
         "focus": "Will for commitments; encouragement register (I'll take the next two rooms; you're doing great, we'll get through this)",
         "examples": [
@@ -1540,6 +1560,8 @@
       "n": 12,
       "title": "One Delay, Four Listeners: Surgeon to Family",
       "objective": "Explain the same room delay to a surgeon, a nurse, a new tech and a family member in the right register.",
+      "focus": "Communicate clearly during the cleaning shift",
+      "speaking": "You are the EVS tech for OR 7, and the AI plays Dr. Hahn, circulator Nadia Petrova, new tech Leo Martin and a patient's husband: explain the delay to each in the right register with softeners like could you and would you mind, and kindly refer the husband to the nurse.",
       "words": [
         {
           "en": "el inicio tardío",
@@ -1657,7 +1679,7 @@
           "kind": "phrase"
         }
       ],
-      "speaking": "You are the EVS tech for OR 7, and the AI plays Dr. Hahn, circulator Nadia Petrova, new tech Leo Martin and a patient's husband: explain the delay to each in the right register with softeners like could you and would you mind, and kindly refer the husband to the nurse.",
+      "readingTemplate": "seed-en-master-or-evs-lesson-12",
       "grammar": {
         "focus": "Formal and informal register; softeners (could you give me five more minutes, would you mind waiting for the nurse)",
         "examples": [
@@ -1678,6 +1700,8 @@
       "n": 13,
       "title": "Needlestick in the Drapes: The Incident Report",
       "objective": "Help a coworker follow the exposure policy and tell and write what happened in order, with times.",
+      "focus": "Communicate clearly during the cleaning shift",
+      "speaking": "You are the EVS lead, and the AI is charge nurse Megan Riley: report Andre's needlestick in order with times, using the past tense and markers like at 10:15, right after that and then, and say what goes in the incident report.",
       "words": [
         {
           "en": "la sábana quirúrgica",
@@ -1801,7 +1825,7 @@
           "kind": "phrase"
         }
       ],
-      "speaking": "You are the EVS lead, and the AI is charge nurse Megan Riley: report Andre's needlestick in order with times, using the past tense and markers like at 10:15, right after that and then, and say what goes in the incident report.",
+      "readingTemplate": "seed-en-master-or-evs-lesson-13",
       "grammar": {
         "focus": "Past narration with time markers (at 10:15 he lifted the drape; right after that, he washed it; then we called)",
         "examples": [
@@ -1822,6 +1846,8 @@
       "n": 14,
       "title": "Near Miss: Two Cleaners Almost in One Bucket",
       "objective": "Talk through a near miss without blame, say what could have happened, and agree on one change.",
+      "focus": "Communicate clearly during the cleaning shift",
+      "speaking": "You are the EVS lead, and the AI is supervisor Darnell Wright: talk through Sofia's near miss without blame, say what almost happened with nearly and could have + past participle, use if clauses, and agree on one change.",
       "words": [
         {
           "en": "el casi accidente",
@@ -1943,7 +1969,7 @@
           "kind": "phrase"
         }
       ],
-      "speaking": "You are the EVS lead, and the AI is supervisor Darnell Wright: talk through Sofia's near miss without blame, say what almost happened with nearly and could have + past participle, use if clauses, and agree on one change.",
+      "readingTemplate": "seed-en-master-or-evs-lesson-14",
       "grammar": {
         "focus": "Almost, nearly, could have + past participle; if clauses (she nearly mixed them; it could have made a toxic gas if…)",
         "examples": [
@@ -1964,6 +1990,8 @@
       "n": 15,
       "title": "Stop Work: Formalin Spill in the Substerile Room",
       "objective": "Stop work, keep people out, and call in a chemical spill with short, clear phone commands.",
+      "focus": "Communicate clearly during the cleaning shift",
+      "speaking": "You are the EVS tech who found the spill, and the AI is charge nurse Joanne Kim on the phone: stop work, keep people out, and call in the formalin spill with short commands like stay out and close the door, plus if + present → will.",
       "words": [
         {
           "en": "el formol",
@@ -2084,7 +2112,7 @@
           "note": "Formal."
         }
       ],
-      "speaking": "You are the EVS tech who found the spill, and the AI is charge nurse Joanne Kim on the phone: stop work, keep people out, and call in the formalin spill with short commands like stay out and close the door, plus if + present → will.",
+      "readingTemplate": "seed-en-master-or-evs-lesson-15",
       "grammar": {
         "focus": "If + present → will; short radio or phone commands (if you smell it, you'll leave; stay out, close the door, call the spill team)",
         "examples": [
@@ -2105,6 +2133,8 @@
       "n": 16,
       "title": "A Surveyor Watches Your Terminal Clean",
       "objective": "Answer a surveyor's questions formally and describe how each step of a terminal clean is done and checked.",
+      "focus": "Communicate clearly during the cleaning shift",
+      "speaking": "You are the EVS tech, and the AI is state surveyor Patricia Gomez: answer her questions formally and describe how each terminal clean step is done and checked, using the passive (is cleaned, is verified, is recorded).",
       "words": [
         {
           "en": "el inspector estatal",
@@ -2229,7 +2259,7 @@
           "note": "Formal; útil si no sabe la respuesta."
         }
       ],
-      "speaking": "You are the EVS tech, and the AI is state surveyor Patricia Gomez: answer her questions formally and describe how each terminal clean step is done and checked, using the passive (is cleaned, is verified, is recorded).",
+      "readingTemplate": "seed-en-master-or-evs-lesson-16",
       "grammar": {
         "focus": "Formal register; the passive for procedures (the table is cleaned top to bottom; contact time is checked against the label)",
         "examples": [
@@ -2250,6 +2280,8 @@
       "n": 17,
       "title": "Write the Night Shift Terminal Clean Log",
       "objective": "Write a clear end-of-shift log of rooms cleaned, problems found, supplies short and work left for days.",
+      "focus": "Communicate clearly during the cleaning shift",
+      "speaking": "You are the night shift EVS lead, and the AI is supervisor Yvonne Clarke: write and read her your end-of-shift log for ORs 16 to 19, covering rooms done, supplies short and work left for days, using in addition, however, as a result and therefore.",
       "words": [
         {
           "en": "el registro de fin de turno",
@@ -2372,7 +2404,7 @@
           "note": "Informal, para un mensaje rápido a tu supervisora."
         }
       ],
-      "speaking": "You are the night shift EVS lead, and the AI is supervisor Yvonne Clarke: write and read her your end-of-shift log for ORs 16 to 19, covering rooms done, supplies short and work left for days, using in addition, however, as a result and therefore.",
+      "readingTemplate": "seed-en-master-or-evs-lesson-17",
       "grammar": {
         "focus": "Written register; report connectors (in addition, however, as a result, therefore)",
         "examples": [
@@ -2393,6 +2425,8 @@
       "n": 18,
       "title": "Texts and Calls for a 2 a.m. Emergency Add-On",
       "objective": "Answer a call, text a clear status, and politely ask a backup tech to come in for an emergency case.",
+      "focus": "Communicate clearly during the cleaning shift",
+      "speaking": "You are the night EVS tech, and the AI is house supervisor Craig Dunn and then backup tech Rosa Bianchi: answer Craig's call, text him a clear status for OR 11, and contact Rosa to ask her to come in, using would you be able to and I'd appreciate.",
       "words": [
         {
           "en": "el caso de emergencia agregado",
@@ -2518,7 +2552,7 @@
           "note": "Informal: úsalo con compañeros, no con un supervisor."
         }
       ],
-      "speaking": "You are the night EVS tech, and the AI is house supervisor Craig Dunn and then backup tech Rosa Bianchi: answer Craig's call, text him a clear status for OR 11, and contact Rosa to ask her to come in, using would you be able to and I'd appreciate.",
+      "readingTemplate": "seed-en-master-or-evs-lesson-18",
       "grammar": {
         "focus": "Phone and text conventions; would for politeness (would you be able to come in; I'd appreciate a quick reply)",
         "examples": [
@@ -2539,6 +2573,8 @@
       "n": 19,
       "title": "Walkthrough Before a Renovated OR Reopens",
       "objective": "Walk the OR manager through a cleaned, renovated room and state the conditions for reopening it.",
+      "focus": "Communicate clearly during the cleaning shift",
+      "speaking": "You are the EVS lead, and the AI is OR manager Diane Whitfield walking with infection preventionist Raj Mehta: walk them through renovated OR 21, describe what you cleaned, and state the conditions for reopening using as long as and unless.",
       "words": [
         {
           "en": "la remodelación",
@@ -2664,7 +2700,7 @@
           "kind": "phrase"
         }
       ],
-      "speaking": "You are the EVS lead, and the AI is OR manager Diane Whitfield walking with infection preventionist Raj Mehta: walk them through renovated OR 21, describe what you cleaned, and state the conditions for reopening using as long as and unless.",
+      "readingTemplate": "seed-en-master-or-evs-lesson-19",
       "grammar": {
         "focus": "Conditionals with as long as and unless (it can open as long as the vents pass; unless the dust is gone, we clean again)",
         "examples": [
@@ -2685,6 +2721,8 @@
       "n": 20,
       "title": "Capstone: A Hard Day Running the Turnover Team",
       "objective": "Lead a full day: train, explain delays, refuse a shortcut, handle a spill and report the shift in English.",
+      "focus": "Communicate clearly during the cleaning shift",
+      "speaking": "You are the turnover team lead, and the AI plays new tech Ben Adler, the OR team and supervisor Olivia Tran: train Ben, run ORs 22 and 23 with the alternate wipes, keep every safety step, and report your day using commands, would, unless, past tenses and however.",
       "words": [
         {
           "en": "el equipo de rotación de salas",
@@ -2806,7 +2844,7 @@
           "note": "Estilo indirecto: 'feels' pasa a 'felt' después de 'said'."
         }
       ],
-      "speaking": "You are the turnover team lead, and the AI plays new tech Ben Adler, the OR team and supervisor Olivia Tran: train Ben, run ORs 22 and 23 with the alternate wipes, keep every safety step, and report your day using commands, would, unless, past tenses and however.",
+      "readingTemplate": "seed-en-master-or-evs-lesson-20",
       "grammar": {
         "focus": "Capstone: integrating the Master 20 grammar",
         "examples": [

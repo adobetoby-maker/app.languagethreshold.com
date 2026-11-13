@@ -102,6 +102,8 @@ export interface ContentLimits {
   maxVerbs: number;
   maxNoteLength: number;
   preserveAccentContrasts?: boolean;
+  maxTermWords?: number;
+  maxPhraseWords?: number;
 }
 
 /**
@@ -127,6 +129,9 @@ export const MASTER_CONTENT_LIMITS: ContentLimits = {
 /** The limits profile for a module id: Master for "master-*", the Core 30 limits for the rest. */
 export function contentLimitsFor(moduleId: string | null | undefined): ContentLimits {
   const base = moduleId?.startsWith("master-") ? MASTER_CONTENT_LIMITS : CONTENT_LIMITS;
+  // Spanish clinical compounds and complete shift reports need their full wording.
+  if (/^(foundation-|master-)?or-cleaning$/.test(moduleId ?? ""))
+    return { ...base, maxTermWords: 7, maxPhraseWords: 18 };
   // Pronunciation keeps a compact word set and spends Master time on sound/prosody
   // transfer. Preserve accent distinctions such as público/publico/publicó.
   if (/^(foundation-|master-)?sound-like-a-native$/.test(moduleId ?? "")) return {
@@ -567,7 +572,7 @@ function validateWords(words: readonly LessonWord[] | undefined, ctx: ValidateCo
         `"${word.es}": the note thinks out loud ("${wordSelfTalk}"); state the final rule only: ${word.note}`,
       );
     }
-    const limit = word.kind === "term" ? 5 : 14;
+    const limit = word.kind === "term" ? (limits.maxTermWords ?? 5) : (limits.maxPhraseWords ?? 14);
     if (wordsOf(word.es).length > limit) errors.push(`"${word.es}" is too long for a ${word.kind}`);
   }
 }

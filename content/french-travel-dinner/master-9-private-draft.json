@@ -1,0 +1,360 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-dinner.json",
+    "curriculumSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "passagePath": "public/lesson-content/es/master-travel-dinner.json",
+    "passageSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "title": "Honest Feedback When the Chef Asks for It",
+      "objective": "Praise what worked and politely recommend specific changes when a chef asks for your honest opinion.",
+      "focus": "Recommander de + infinitif ; suggérer que / j'aimerais que + subjonctif pour une recommandation ou un souhait poli.",
+      "scene": "À la soirée d’essai de La Casona à Bogotá, Daniel fait à la cheffe Valentina un retour honnête sur l’ajiaco et le dessert.",
+      "forms": [
+        {
+          "infinitive": "recommander",
+          "meaning": "to recommend",
+          "example": "Je vous recommande de goûter l'ajiaco avant de le servir.",
+          "question": "Que recommandez-vous à Valentina ?",
+          "politeRequest": "Pourriez-vous goûter l'ajiaco avant de le servir ?"
+        },
+        {
+          "infinitive": "goûter",
+          "meaning": "to taste",
+          "example": "Je recommande que vous goûtiez l'ajiaco avant de le servir.",
+          "question": "Goûtez-vous l'ajiaco avant de le servir ?",
+          "politeRequest": "Pourriez-vous goûter l'ajiaco avant de le servir ?"
+        },
+        {
+          "infinitive": "servir",
+          "meaning": "to serve",
+          "example": "Je vous conseille de servir la crème à part.",
+          "question": "Servez-vous la crème à part ?",
+          "politeRequest": "Pourriez-vous servir la crème à part ?"
+        },
+        {
+          "infinitive": "avoir",
+          "meaning": "to have",
+          "example": "J'aimerais que l'ajiaco ait un tout petit peu moins de sel.",
+          "question": "L'ajiaco a-t-il trop de sel ?",
+          "politeRequest": "Pourriez-vous mettre un peu moins de sel dans l'ajiaco ?"
+        },
+        {
+          "infinitive": "suggérer",
+          "meaning": "to suggest",
+          "example": "Je suggère que la cuisine vérifie le niveau de sel.",
+          "question": "Que suggérez-vous à la cuisine ?",
+          "politeRequest": "Pourriez-vous vérifier le niveau de sel en cuisine ?"
+        }
+      ],
+      "cards": [
+        {
+          "en": "the ajiaco (Bogotá chicken and potato soup)",
+          "fr": "l'ajiaco (soupe de poulet et de pommes de terre de Bogotá)",
+          "kind": "term"
+        },
+        {
+          "en": "the guascas (herb for ajiaco)",
+          "fr": "les guascas (herbe pour l'ajiaco)",
+          "kind": "term"
+        },
+        {
+          "en": "the small yellow potato",
+          "fr": "la papa criolla (petite pomme de terre jaune)",
+          "kind": "term"
+        },
+        {
+          "en": "the corn on the cob",
+          "fr": "l'épi de maïs (mazorca)",
+          "kind": "term",
+          "note": "Colombian word; choclo is used further south."
+        },
+        {
+          "en": "the capers",
+          "fr": "les câpres",
+          "kind": "term"
+        },
+        {
+          "en": "the cream",
+          "fr": "la crème",
+          "kind": "term"
+        },
+        {
+          "en": "the figs with arequipe (caramel spread)",
+          "fr": "les figues à l'arequipe (brevas con arequipe)",
+          "kind": "term"
+        },
+        {
+          "en": "the salt level",
+          "fr": "le niveau de sel",
+          "kind": "term"
+        },
+        {
+          "en": "salty",
+          "fr": "salé",
+          "kind": "term",
+          "note": "Muy salado = too salty; un poquito salado softens the criticism."
+        },
+        {
+          "en": "the seasoning, the flavor touch",
+          "fr": "l'assaisonnement, la touche de saveur (sazón)",
+          "kind": "term",
+          "note": "Feminine in Colombia: la sazón."
+        },
+        {
+          "en": "the delay",
+          "fr": "le retard",
+          "kind": "term"
+        },
+        {
+          "en": "the plating",
+          "fr": "le dressage de l'assiette",
+          "kind": "term"
+        },
+        {
+          "en": "the suggestion",
+          "fr": "la suggestion",
+          "kind": "term"
+        },
+        {
+          "en": "the constructive criticism",
+          "fr": "la critique constructive",
+          "kind": "term"
+        },
+        {
+          "en": "the strong point",
+          "fr": "le point fort",
+          "kind": "term"
+        },
+        {
+          "en": "Valentina, the figs with arequipe were spectacular.",
+          "fr": "Valentina, les figues à l'arequipe étaient spectaculaires.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I recommend you taste the ajiaco before serving it.",
+          "fr": "Je vous recommande de goûter l'ajiaco avant de le servir.",
+          "kind": "phrase",
+          "note": "Formal. Bogotanos often use usted even with young people."
+        },
+        {
+          "en": "I hope the ajiaco has a little less salt.",
+          "fr": "J'aimerais que l'ajiaco ait un tout petit peu moins de sel.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I suggest the kitchen checks the salt level.",
+          "fr": "Je suggère que la cuisine vérifie le niveau de sel.",
+          "kind": "phrase",
+          "note": "Revisen (ustedes) addresses the whole kitchen team."
+        },
+        {
+          "en": "For me, the main course took too long.",
+          "fr": "Pour moi, le plat principal a mis trop de temps à arriver.",
+          "kind": "phrase",
+          "note": "Demorarse is the everyday Colombian verb for taking long."
+        },
+        {
+          "en": "I advise you to serve the cream on the side.",
+          "fr": "Je vous conseille de servir la crème à part.",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "I say it kindly: the dessert was the best part of the night.",
+          "fr": "Je le dis gentiment : le dessert a été le meilleur moment de la soirée.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you want me to tell you first what I liked most?",
+          "fr": "Voulez-vous que je vous dise d'abord ce que j'ai le plus aimé ?",
+          "kind": "phrase",
+          "note": "Formal. Starting with praise makes the criticism easier to hear."
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "en": "On Saturday, Daniel has dinner at the trial night of La Casona, a small restaurant in Bogotá.",
+          "fr": "Samedi, Daniel dîne lors de la soirée d'essai de La Casona, un petit restaurant de Bogotá."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Chef Valentina, 26 years old, wants to listen to her first customers before opening to the public.",
+          "fr": "La cheffe Valentina, 26 ans, veut écouter ses premiers clients avant d'ouvrir au public."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Her ajiaco has fresh guascas from the Paloquemao market, which give it a very Bogotá-style seasoning.",
+          "fr": "Son ajiaco contient des guascas fraîches du marché de Paloquemao, qui lui donnent un assaisonnement typiquement bogotanais."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "The small yellow potato thickens the broth, and each plate comes with half an ear of corn.",
+          "fr": "La papa criolla épaissit le bouillon, et chaque assiette est accompagnée d'un demi-épi de maïs."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "The capers come on the side, but the cream already comes mixed into the soup.",
+          "fr": "Les câpres sont servies à part, mais la crème est déjà mélangée à la soupe."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "The ajiaco took 50 minutes to arrive and, on top of that, it was quite salty.",
+          "fr": "L'ajiaco a mis 50 minutes à arriver et, en plus, il était assez salé."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "For dessert, figs with arequipe arrive, and the plating is very elegant.",
+          "fr": "Comme dessert, on sert des figues à l'arequipe, et le dressage est très élégant."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Afterward, Valentina comes over to the table and asks Daniel for constructive criticism.",
+          "fr": "Ensuite, Valentina s'approche de la table et demande à Daniel une critique constructive."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Daniel: Do you want me to tell you first what I liked most?",
+          "fr": "Daniel : Voulez-vous que je vous dise d'abord ce que j'ai le plus aimé ?"
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Daniel: Valentina, the figs with arequipe were spectacular.",
+          "fr": "Daniel : Valentina, les figues à l'arequipe étaient spectaculaires."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Daniel: Without a doubt, the dessert is your strong point.",
+          "fr": "Daniel : Sans aucun doute, le dessert est votre point fort."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Daniel: For me, the main course took too long.",
+          "fr": "Daniel : Pour moi, le plat principal a mis trop de temps à arriver."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Daniel: I hope the delay is shorter when you open to the public.",
+          "fr": "Daniel : J'aimerais que l'attente soit plus courte quand vous ouvrirez au public."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Daniel: I hope the ajiaco has a little less salt.",
+          "fr": "Daniel : J'aimerais que l'ajiaco ait un tout petit peu moins de sel."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Daniel: I recommend you taste the ajiaco before serving it.",
+          "fr": "Daniel : Je vous recommande de goûter l'ajiaco avant de le servir."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Daniel: I suggest the kitchen checks the salt level.",
+          "fr": "Daniel : Je suggère que la cuisine vérifie le niveau de sel."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Daniel: I advise you to serve the cream on the side.",
+          "fr": "Daniel : Je vous conseille de servir la crème à part."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Valentina writes down each suggestion and thanks Daniel for his honesty.",
+          "fr": "Valentina note chaque suggestion et remercie Daniel pour sa franchise."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "the ajiaco (Bogotá chicken and potato soup)",
+          "cueFrench": "Regardez la carte et donnez le nom français de ce plat.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "the corn on the cob",
+          "cueFrench": "Rappelez-vous le mot français pour ce terme, puis dites-le à voix haute.",
+          "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "I recommend you taste the ajiaco before serving it.",
+          "cueFrench": "Écoutez la phrase française qui correspond à cette carte, puis répétez-la.",
+          "sourceCard": 17,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "salty",
+          "cueFrench": "Tapez l'équivalent français de cet adjectif à la forme masculine.",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Do you want me to tell you first what I liked most?",
+          "cueFrench": "Dites la phrase française en vous adressant à Valentina avec « vous ».",
+          "sourceCard": 23,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "I hope the ajiaco has a little less salt.",
+          "cueFrench": "Écrivez la phrase complète pour souhaiter un peu moins de sel, avec le subjonctif après « j'aimerais que ».",
+          "sourceCard": 18,
+          "responseKind": "fixed"
+        }
+      },
+      "speaking": {
+        "role": "Daniel, invité à la soirée d’essai de La Casona à Bogotá.",
+        "partnerRole": "La cheffe Valentina, jouée par l’IA.",
+        "opening": "Daniel, pourriez-vous me donner votre avis franc ?",
+        "goal": "Praise the dessert, then warmly and politely recommend specific changes to the salty, slow main course using French recommendation and wish forms.",
+        "closure": "Merci pour votre franchise, Daniel. Je note chaque suggestion.",
+        "wordBank": [
+          "l'ajiaco (soupe de poulet et de pommes de terre de Bogotá)",
+          "les guascas (herbe pour l'ajiaco)",
+          "la papa criolla (petite pomme de terre jaune)",
+          "l'épi de maïs (mazorca)",
+          "les câpres",
+          "la crème",
+          "les figues à l'arequipe (brevas con arequipe)",
+          "le niveau de sel",
+          "salé",
+          "l'assaisonnement, la touche de saveur (sazón)",
+          "le retard",
+          "le dressage de l'assiette",
+          "la suggestion",
+          "la critique constructive",
+          "le point fort",
+          "Valentina, les figues à l'arequipe étaient spectaculaires.",
+          "Je vous recommande de goûter l'ajiaco avant de le servir.",
+          "J'aimerais que l'ajiaco ait un tout petit peu moins de sel.",
+          "Je suggère que la cuisine vérifie le niveau de sel.",
+          "Pour moi, le plat principal a mis trop de temps à arriver.",
+          "Je vous conseille de servir la crème à part.",
+          "Je le dis gentiment : le dessert a été le meilleur moment de la soirée.",
+          "Voulez-vous que je vous dise d'abord ce que j'ai le plus aimé ?"
+        ]
+      },
+      "n": 9,
+      "stableId": "master-travel-dinner:9:fr-en",
+      "sourceTitleEnglish": "Honest Feedback When the Chef Asks for It",
+      "sourceObjectiveEnglish": "Praise what worked and politely recommend specific changes when a chef asks for your honest opinion.",
+      "sourceSpeakingEnglish": "You are a guest at the soft opening, and the AI is Valentina, the young chef: praise the dessert, then recommend specific changes to the salty, slow main course with le recomiendo que + subjunctive and ojalá que, staying warm and polite.",
+      "reviewed": false,
+      "model": "claude-haiku-5-5 candidate; claude-opus-5-5 read-only critique; source-grounded self-check; reviewed:false"
+    }
+  ]
+}

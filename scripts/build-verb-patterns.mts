@@ -37,6 +37,7 @@ function readJson<T>(file: string): T {
 // Verb Games pool until its additions receive a separate review. Shipping a course must not
 // silently invalidate the signed pool used by every other learner.
 const PENDING_REVIEW_MODULES: ReadonlySet<string> = new Set([
+  "or-cleaning",
   "place-directions",
   "sound-like-a-native",
   "medical-mission-logistics",

@@ -1,0 +1,7 @@
+# Japanese Dinner Core 4 private draft
+
+Core 4 preserves the Spanish lesson's purpose: ask about the order of dishes, portion size, sharing, and pacing before ordering a multi-course dinner. The Japanese scene uses 前菜 → 主菜, この料理は何人前ですか, 二人で取り分けてもいいですか, and 料理をゆっくり出していただけますか. It teaches 最初に and その後に for sequence, the serving counter ～人前, and a polite request with ～ていただけますか. The Kanazawa setting and exchange are original Japanese-language teaching, not a literal Spanish passage translation.
+
+The draft pins the same Spanish plan and content hashes as Core 1–3 and keeps stable ID `travel-dinner:4:ja-en`. `verify-private-core-1-4.py` checks exact source objectives, consecutive stage-local IDs, 18 contextual cards with kana support for kanji cards, ten aligned Reader turns, two Japanese form contrasts, a lesson-owned speaking scene, six distinct mode prompts, and closed release flags. It passed with JSON and Python syntax checks.
+
+Qualified Japanese review should check restaurant register, ～人前 phrasing, and the naturalness of asking to divide a one-serving dish. This internal review note does not alter the direct learner vocabulary. Reader furigana, dictionary senses, audio, runtime/offline wiring, browser/phone checks, and independent V4 acceptance remain open. Foundation is 10/10 draft, Core 4/30 draft, Master 0/20. `reviewed:false`, `registered:false`, `readyForLearner:false`, and `audio:none` remain in place; no learner route or progress key changed.

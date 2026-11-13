@@ -1,0 +1,324 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "voices": [
+    "fr-FR-Chirp3-HD-Aoede",
+    "fr-FR-Chirp3-HD-Charon"
+  ],
+  "sourceSHA256": {
+    "core-20-draft.json": "a0c682dd0d89de8ee5357340e7e4bb97c3995c02f8519dcb1bbbc98eb9094381"
+  },
+  "previousScopeSHA256": {
+    "foundation.json": "cdbee8c457ff9c9f0f400113d63347fb471506c22bb6bbd2eb089762fb77e9fe",
+    "core-1-3.json": "ab62ab86e0b9b51bfe5f4905a86cded44d046adb156f4cd194f79ec357599d10",
+    "core-4-9.json": "3d4aa7070a2d8bd67cac94208a11a43b813fcb3e4d6b1da8ffe99389e233c344",
+    "core-10-12.json": "ebc33851805ff0125eddab0a4836f3afd27fa1e2ea99d4eeed1434b6808531a6",
+    "private-owner-delta-audio-scope.json": "97484eaa2099e1820a68da85843f0e5a32ff9f9ac861b7d275dcc27620ba7206",
+    "private-core-13-audio-scope.json": "dab949203658a04cc91da3ef3094590048919296d4e2cb45e22dba47e969cf2e",
+    "private-core-14-audio-scope.json": "ce2fdbd2b5c41f23d8a51996c9f6245a38159bb8ce3593af35b0fa0e69f547b3",
+    "private-core-15-audio-scope.json": "3d8b7c021b39f809795def5b5b03837ce75617cc9ebece0e89fe24be77bec8d5",
+    "private-core-16-audio-scope.json": "33db9f45805dd8910425f1e5840943e7509f3c65cabdf1b4a7fa6fba41fc1e5b",
+    "private-core-17-audio-scope.json": "c5b9cd5c8aa0257f3104ad7ee7ae4d8270acd70db52bc36d9eea449fa63872df",
+    "private-core-18-audio-scope.json": "edd20f215e7720ab6f61aadb11fc7d86429adfd23baa8fee773e9d90690bebd4",
+    "private-core-19-audio-scope.json": "27b626c300ced17a3675a230899fa1ff123a4bd1443eda6d54b61de4f75308e4"
+  },
+  "lessonIds": [
+    "travel-dinner:20:fr-en"
+  ],
+  "placements": 26,
+  "uniqueTexts": 26,
+  "proposedClips": 52,
+  "submittedCharacters": 2634,
+  "texts": [
+    {
+      "spokenText": "Bonsoir, je vais commander le menu dégustation.",
+      "textSHA256": "6e85cb4abcd09749b98eae732b9d4c7503fd395992a3f1e0da3cbd61f10dceb1",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "spokenText": "Ce soir, je vais commander le menu dégustation dans un restaurant à Oaxaca.",
+      "textSHA256": "17b74b92519ea8df980ecde3ee9cab76213981c401b932e964fbbb6c14c203b1",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "Combien de plats le menu dégustation comprend-il ?",
+      "textSHA256": "f803b1a9471c8f9201fcc00cdf5761bba084b7cb6e5466d805810e90a3598b16",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "card",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "spokenText": "Combien de temps dure le dîner, à peu près ?",
+      "textSHA256": "1c9a1cfb093b052494634a24a677e3161a296b31fe0ab6e7e57bb0a64260e698",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "card",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "spokenText": "D'abord, je demande au serveur : « Combien de plats le menu dégustation comprend-il ? »",
+      "textSHA256": "285dc37a256b3955f587cc527545a1833f8e87c4d39ef9463dd58e3d45cb4a15",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "Enfin, je dis : « Je ne mange pas de fruits de mer. Puis-je remplacer les crevettes par un autre plat ? »",
+      "textSHA256": "8944d7418b674112a71c5a9049b81422bd52549eff8e427124587d0c35e3afb8",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "Ensuite, je demande : « Combien de temps dure le dîner, à peu près ? »",
+      "textSHA256": "8886cd80d7b4aff569fd973e45c9cbef29c9611cd4ed60bb5326f8f16fecfb4e",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "Il répond : « La durée est d’environ deux heures, parce que le chef prépare tout à la minute. »",
+      "textSHA256": "9dc612c057e7867c89318e3f65121daae6a8faed94e70c55579855eef462c6d2",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "Je demande aussi : « L’accord mets et boissons est-il inclus dans le prix ? »",
+      "textSHA256": "20256c3cb3456c9f8f234ef41897acc01508b2dcce6a917ec5be0ef3b5018c9c",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "Je ne mange pas de fruits de mer.",
+      "textSHA256": "ec0e4cac6302987f836176843181241d90762961a31f796276edecca9a9ddf55",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "card",
+          "index": 21
+        }
+      ]
+    },
+    {
+      "spokenText": "Je vais commander le menu dégustation.",
+      "textSHA256": "4d6db83f702fd687ccfd8d27b03e3ae3f979e7033d5126e0e3dce028f1fd64cb",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "card",
+          "index": 23
+        }
+      ]
+    },
+    {
+      "spokenText": "Le serveur explique : « D’après la carte, il y a sept plats, avec le dessert à la fin. »",
+      "textSHA256": "451918af182dbc8439dbabe816a35b85ca27568fb46c82b3b3baa21c456ad789",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "Le serveur répond : « Non, d’après la carte, l’accord mets et boissons coûte 400 pesos par personne. »",
+      "textSHA256": "d445a017c51d6e394b860921a88f0a3606faa74806645c97a570ebf08ddb0aa2",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "Le serveur sourit : « Bien sûr, je vais demander au chef si le remplacement est possible. »",
+      "textSHA256": "7c0c11110f7cf1a81ba37630f0bfc46afa657958ed907b0d77ccb4f32468868d",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "L’accord mets et boissons est-il inclus dans le prix ?",
+      "textSHA256": "40bf5a75699779cd3083974b25662a027bdd1f1c32b4989490fe4f928347751c",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "card",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "spokenText": "Merci beaucoup, c'est parfait.",
+      "textSHA256": "d0760a219477c8d2a9a4a6e69d326a824aec5471ac79451a227b62855286e9bf",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "spokenText": "Pouvez-vous m'expliquer le menu dégustation ?",
+      "textSHA256": "7a4c399022eb42c5be0095beff887729854a1529f7259144ca18540d18718757",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "card",
+          "index": 22
+        }
+      ]
+    },
+    {
+      "spokenText": "Puis-je remplacer les crevettes par un autre plat ?",
+      "textSHA256": "e60f70247ff8b9bda9b865189472e3afc4f4071bf3e1018d1ad69122201b0cb8",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "card",
+          "index": 19
+        }
+      ]
+    },
+    {
+      "spokenText": "Quel est le prix par personne ?",
+      "textSHA256": "d627726f55869a96b2ee9380d1ee2ace799c6d08b033a2970b12bced2c899ff6",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "card",
+          "index": 20
+        }
+      ]
+    },
+    {
+      "spokenText": "environ",
+      "textSHA256": "4c36748b11620c31b463a58261a7afcda743e815dd7b9b7e7232c54ae083c56a",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "card",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "spokenText": "la durée",
+      "textSHA256": "8d7f691dba253c0e01cc61cb6d8f3a5fdeaefc20c7f03513a0c136890aafcd41",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "card",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "le menu dégustation",
+      "textSHA256": "fb7a296fea007527fd0a9e93ecc6e2c54317df66a81e2f5ef62a40849d461ee1",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "card",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "le nombre de plats",
+      "textSHA256": "e722875a79be4920b07a46cb54f2df1ee69dc0e9a3825af46848b1a6cac69d8a",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "card",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "spokenText": "le remplacement",
+      "textSHA256": "99444a56420f6cdb3ae25b2ae86394bcc7dd45658b11425138833ff151160543",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "card",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "l’accord mets et boissons",
+      "textSHA256": "c02fda626cba798628883f2823932acbb5986e5aace9b4158dbb4dc70200ae0a",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "card",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "par personne",
+      "textSHA256": "d5afb0c567d404e30816156da8c211ce9bd017796cd21d3765c3652a781f698b",
+      "placements": [
+        {
+          "lessonId": "travel-dinner:20:fr-en",
+          "surface": "card",
+          "index": 15
+        }
+      ]
+    }
+  ],
+  "recordingsBundled": false,
+  "listeningReviewed": false,
+  "registered": false
+}

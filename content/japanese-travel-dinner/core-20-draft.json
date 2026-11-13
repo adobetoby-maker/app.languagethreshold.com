@@ -1,0 +1,350 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "contentPath": "public/lesson-content/es/travel-dinner.json",
+    "contentSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 20,
+      "stableId": "travel-dinner:20:ja-en",
+      "sourceTitleEnglish": "Order a tasting menu",
+      "sourceObjectiveEnglish": "ask about the number of courses, duration, pairings, substitutions, and price",
+      "sourceSpeakingEnglish": "Ask the server to walk you through the tasting menu and request one substitution.",
+      "title": "Order a tasting menu",
+      "objective": "Ask about the number of courses, duration, drink pairings, substitutions, and price.",
+      "focus": "テイスティングメニュー asks for a tasting menu. 何品 asks how many dishes are served; in this food context it is read なんしな. お食事はどのくらいかかりますか asks about duration. ペアリングは料金に含まれていますか asks whether a drink pairing is included, and お一人様四千円 names this menu’s separate pairing price. 貝類と甲殻類は食べません states that the guest does not eat shellfish, including shrimp; エビを別の料理に変えられますか requests the substitution.",
+      "scene": "At a Western-style restaurant in Japan, a guest asks the server to explain a seven-course tasting menu. The guest asks how long dinner takes, whether the pairing is included, and the pairing price per person. The server says the pairing is separate and costs 4,000 yen per person on this fictional menu. The guest says they do not eat shellfish, including crustaceans, and asks to replace the shrimp course. The server offers to check with the chef.",
+      "forms": [
+        {
+          "base": "注文する",
+          "polite": "注文します",
+          "question": "注文しますか",
+          "meaning": "to order"
+        },
+        {
+          "base": "含まれている",
+          "polite": "含まれています",
+          "question": "含まれていますか",
+          "meaning": "to be included"
+        },
+        {
+          "base": "かかる",
+          "polite": "かかります",
+          "question": "かかりますか",
+          "meaning": "to take (time)"
+        },
+        {
+          "base": "変えられる",
+          "polite": "変えられます",
+          "question": "変えられますか",
+          "meaning": "to be able to change, to swap"
+        },
+        {
+          "base": "お願いする",
+          "polite": "お願いします",
+          "question": "お願いできますか",
+          "meaning": "to request politely"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "テイスティングメニュー",
+          "en": "tasting menu",
+          "kind": "term"
+        },
+        {
+          "ja": "一品",
+          "en": "one course or dish",
+          "kind": "term",
+          "readingKana": "いっぴん"
+        },
+        {
+          "ja": "品数",
+          "en": "number of courses",
+          "kind": "term",
+          "readingKana": "しなかず"
+        },
+        {
+          "ja": "時間",
+          "en": "duration, time",
+          "kind": "term",
+          "readingKana": "じかん"
+        },
+        {
+          "ja": "ペアリング",
+          "en": "pairing",
+          "kind": "term"
+        },
+        {
+          "ja": "料金",
+          "en": "price",
+          "kind": "term",
+          "readingKana": "りょうきん"
+        },
+        {
+          "ja": "一人あたり",
+          "en": "per person",
+          "kind": "term",
+          "readingKana": "ひとりあたり"
+        },
+        {
+          "ja": "代わりの料理",
+          "en": "substitute dish",
+          "kind": "term",
+          "readingKana": "かわりのりょうり"
+        },
+        {
+          "ja": "エビ",
+          "en": "shrimp",
+          "kind": "term"
+        },
+        {
+          "ja": "貝類と甲殻類",
+          "en": "shellfish (mollusks and crustaceans)",
+          "kind": "term",
+          "readingKana": "かいるいとこうかくるい"
+        },
+        {
+          "ja": "スタッフ",
+          "en": "server, staff",
+          "kind": "term"
+        },
+        {
+          "ja": "料理の説明",
+          "en": "explanation of the dishes",
+          "kind": "term",
+          "readingKana": "りょうりのせつめい"
+        },
+        {
+          "ja": "一人あたりの料金はいくらですか。",
+          "en": "What is the price per person?",
+          "kind": "phrase",
+          "readingKana": "ひとりあたりのりょうきんはいくらですか。"
+        },
+        {
+          "ja": "テイスティングメニューは何品ありますか。",
+          "en": "How many courses does the tasting menu have?",
+          "kind": "phrase",
+          "readingKana": "テイスティングメニューはなんしなありますか。"
+        },
+        {
+          "ja": "お食事はどのくらいかかりますか。",
+          "en": "About how long does the dinner last?",
+          "kind": "phrase",
+          "readingKana": "おしょくじはどのくらいかかりますか。"
+        },
+        {
+          "ja": "ペアリングは料金に含まれていますか。",
+          "en": "Is the pairing included in the price?",
+          "kind": "phrase",
+          "readingKana": "ペアリングはりょうきんにふくまれていますか。"
+        },
+        {
+          "ja": "ペアリングは料金に含まれていません。別料金です。",
+          "en": "The pairing is not included in the price. It is a separate charge.",
+          "kind": "phrase",
+          "readingKana": "ペアリングはりょうきんにふくまれていません。べつりょうきんです。"
+        },
+        {
+          "ja": "ペアリングはお一人様四千円です。",
+          "en": "The pairing costs 4,000 yen per person.",
+          "kind": "phrase",
+          "readingKana": "ペアリングはおひとりさまよんせんえんです。"
+        },
+        {
+          "ja": "貝類と甲殻類は食べないんです。",
+          "en": "I don't eat shellfish, including crustaceans.",
+          "kind": "phrase",
+          "readingKana": "かいるいとこうかくるいはたべないんです。"
+        },
+        {
+          "ja": "エビを別の料理に変えられますか。",
+          "en": "Can I change the shrimp to another dish?",
+          "kind": "phrase",
+          "readingKana": "エビをべつのりょうりにかえられますか。"
+        },
+        {
+          "ja": "テイスティングメニューの説明をお願いできますか。",
+          "en": "Can you walk us through the tasting menu, please?",
+          "kind": "phrase",
+          "readingKana": "テイスティングメニューのせつめいをおねがいできますか。"
+        },
+        {
+          "ja": "代わりの料理をお願いできますか。",
+          "en": "Could I have a substitute dish, please?",
+          "kind": "phrase",
+          "readingKana": "かわりのりょうりをおねがいできますか。"
+        },
+        {
+          "ja": "テイスティングメニューを注文したいです。",
+          "en": "I'd like to order the tasting menu.",
+          "kind": "phrase",
+          "readingKana": "テイスティングメニューをちゅうもんしたいです。"
+        },
+        {
+          "ja": "デザート",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "ja": "メニュー",
+          "en": "menu",
+          "kind": "term"
+        },
+        {
+          "ja": "グラス",
+          "en": "glass",
+          "kind": "term"
+        },
+        {
+          "ja": "ほかの料理はありますか。",
+          "en": "Is there another dish?",
+          "kind": "phrase",
+          "readingKana": "ほかのりょうりはありますか。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "テイスティングメニューの説明をお願いできますか。",
+          "en": "Could you walk me through the tasting menu?"
+        },
+        {
+          "speaker": "Guest",
+          "ja": "テイスティングメニューは何品ありますか。",
+          "en": "How many courses does the tasting menu have?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "メニューによりますと、全部で七品で、最後にデザートをお出しします。",
+          "en": "According to the menu, there are seven courses, with dessert at the end."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "お食事はどのくらいかかりますか。",
+          "en": "About how long does dinner last?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "シェフが一品ずつその場でお作りしますので、二時間ほどかかります。",
+          "en": "It takes about two hours because the chef cooks each course to order."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "ペアリングは料金に含まれていますか。",
+          "en": "Is the pairing included in the price?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "ペアリングは料金に含まれていません。別料金です。",
+          "en": "The pairing is not included in the price. It is a separate charge."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "一人あたりの料金はいくらですか。",
+          "en": "What is the price per person?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "メニューによりますと、ペアリングはお一人様四千円です。",
+          "en": "According to the menu, the pairing costs 4,000 yen per person."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "貝類と甲殻類は食べないんです。エビを別の料理に変えられますか。",
+          "en": "I don't eat shellfish, including crustaceans. Can I swap the shrimp for another dish?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "もちろんです。シェフに代わりの料理を確認してきます。",
+          "en": "Of course. I'll ask the chef about a substitute dish."
+        }
+      ],
+      "speaking": {
+        "role": "Guest ordering a tasting menu at a Western-style restaurant in Japan who does not eat shellfish, including crustaceans",
+        "partnerRole": "Server explaining the seven courses, duration, separate pairing price and substitution request",
+        "opening": "テイスティングメニューの説明をお願いできますか。",
+        "goal": "Ask the server to walk you through the tasting menu and request one substitution.",
+        "closure": "貝類と甲殻類は食べないので、エビを別の料理に変えられますか。",
+        "wordBank": [
+          "テイスティングメニュー",
+          "一品",
+          "品数",
+          "時間",
+          "ペアリング",
+          "料金",
+          "一人あたり",
+          "代わりの料理",
+          "エビ",
+          "貝類と甲殻類",
+          "スタッフ",
+          "料理の説明",
+          "一人あたりの料金はいくらですか。",
+          "テイスティングメニューは何品ありますか。",
+          "お食事はどのくらいかかりますか。",
+          "ペアリングは料金に含まれていますか。",
+          "ペアリングは料金に含まれていません。別料金です。",
+          "ペアリングはお一人様四千円です。",
+          "貝類と甲殻類は食べないんです。",
+          "エビを別の料理に変えられますか。",
+          "テイスティングメニューの説明をお願いできますか。",
+          "代わりの料理をお願いできますか。",
+          "テイスティングメニューを注文したいです。",
+          "デザート",
+          "メニュー",
+          "グラス",
+          "ほかの料理はありますか。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "tasting menu",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "pairing",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Can you walk us through the tasting menu, please?",
+          "sourceCard": 21,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "shellfish (mollusks and crustaceans)",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Can I change the shrimp to another dish?",
+          "sourceCard": 20,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "The pairing costs 4,000 yen per person.",
+          "sourceCard": 18,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Haiku 5.5 source-grounded draft; Opus 5.5 read-only critique identified the shellfish/crustacean mismatch, price omission, inconsistent kana and restaurant register. Self-corrected against pinned source. The fictional Japanese venue localizes the source pairing price of 400 pesos to 4,000 yen and keeps a concrete per-person price. Opus flagged 何品→なんしな as wrong, but a Japanese public educational source explicitly uses 何品(なんしな) for food counts; this reading remains subject to qualified Japanese review. No allergy was inferred from the source food preference. Qualified Japanese and restaurant review remain required."
+    }
+  ]
+}

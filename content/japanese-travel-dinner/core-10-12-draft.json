@@ -1,0 +1,750 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "contentPath": "public/lesson-content/es/travel-dinner.json",
+    "contentSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 10,
+      "stableId": "travel-dinner:10:ja-en",
+      "sourceTitleEnglish": "Celebrate an occasion",
+      "sourceObjectiveEnglish": "explain a birthday, anniversary, reunion, or personal milestone",
+      "sourceSpeakingEnglish": "Arrange a small surprise and confirm what the restaurant can provide.",
+      "title": "Celebrate an occasion at dinner",
+      "objective": "Explain a birthday, anniversary, reunion, or personal milestone at a restaurant table.",
+      "focus": "Saying what you are celebrating, asking for a surprise dessert with a candle, and asking what the restaurant can prepare.",
+      "scene": "A guest has a dinner reservation tonight to celebrate their anniversary. Family will join at the table for a small reunion, the guest wants a surprise dessert with a candle, and the waiter explains what the restaurant can prepare.",
+      "forms": [
+        {
+          "base": "祝う",
+          "polite": "祝います",
+          "question": "祝いますか",
+          "meaning": "to celebrate"
+        },
+        {
+          "base": "予約する",
+          "polite": "予約します",
+          "question": "予約しますか",
+          "meaning": "to reserve"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "誕生日",
+          "en": "birthday",
+          "kind": "term",
+          "readingKana": "たんじょうび"
+        },
+        {
+          "ja": "記念日",
+          "en": "anniversary",
+          "kind": "term",
+          "readingKana": "きねんび"
+        },
+        {
+          "ja": "家族の集まり",
+          "en": "family reunion",
+          "kind": "term",
+          "readingKana": "かぞくのあつまり"
+        },
+        {
+          "ja": "サプライズ",
+          "en": "surprise",
+          "kind": "term"
+        },
+        {
+          "ja": "ケーキ",
+          "en": "cake",
+          "kind": "term"
+        },
+        {
+          "ja": "ろうそく",
+          "en": "candle",
+          "kind": "term"
+        },
+        {
+          "ja": "デザート",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "ja": "乾杯",
+          "en": "toast",
+          "kind": "term",
+          "readingKana": "かんぱい"
+        },
+        {
+          "ja": "予約",
+          "en": "reservation",
+          "kind": "term",
+          "readingKana": "よやく"
+        },
+        {
+          "ja": "店員さん",
+          "en": "waiter",
+          "kind": "term",
+          "readingKana": "てんいんさん"
+        },
+        {
+          "ja": "テーブル",
+          "en": "table",
+          "kind": "term"
+        },
+        {
+          "ja": "お祝い",
+          "en": "celebration",
+          "kind": "term",
+          "readingKana": "おいわい"
+        },
+        {
+          "ja": "今夜、予約しています。",
+          "en": "I have a reservation for tonight.",
+          "kind": "phrase",
+          "readingKana": "こんや、よやくしています。"
+        },
+        {
+          "ja": "記念日のお祝いをしたいです。",
+          "en": "We want to celebrate our anniversary.",
+          "kind": "phrase",
+          "readingKana": "きねんびのおいわいをしたいです。"
+        },
+        {
+          "ja": "サプライズなので、何も言わないでください。",
+          "en": "It's a surprise, please don't say anything.",
+          "kind": "phrase",
+          "readingKana": "サプライズなので、なにもいわないでください。"
+        },
+        {
+          "ja": "ろうそくの付いたデザートを持ってきていただけますか。",
+          "en": "Can you bring a dessert with a candle?",
+          "kind": "phrase",
+          "readingKana": "ろうそくのついたデザートをもってきていただけますか。"
+        },
+        {
+          "ja": "当店の決まりで、小さなケーキをご用意できます。",
+          "en": "According to the restaurant's policy, we can prepare a small cake.",
+          "kind": "phrase",
+          "readingKana": "とうてんのきまりで、ちいさなケーキをごよういできます。"
+        },
+        {
+          "ja": "お祝い用に、何を用意していただけますか。",
+          "en": "What can you prepare for the occasion?",
+          "kind": "phrase",
+          "readingKana": "おいわいように、なにをよういしていただけますか。"
+        },
+        {
+          "ja": "今日は妻の誕生日です。",
+          "en": "It's my wife's birthday.",
+          "kind": "phrase",
+          "readingKana": "きょうはつまのたんじょうびです。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "こんにちは。今夜、予約しています。",
+          "en": "Good afternoon, I have a reservation for tonight."
+        },
+        {
+          "speaker": "Waiter",
+          "ja": "かしこまりました。どのようなお祝いですか。",
+          "en": "Certainly. What are you celebrating?"
+        },
+        {
+          "speaker": "Guest",
+          "ja": "記念日のお祝いをしたいです。",
+          "en": "We want to celebrate our anniversary."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "まず、家族が来て、テーブルで小さな集まりをします。",
+          "en": "First, my family is going to arrive for a small reunion at the table."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "サプライズなので、何も言わないでください。",
+          "en": "It's a surprise, please don't say anything."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "ろうそくの付いたデザートを持ってきていただけますか。",
+          "en": "Can you bring a dessert with a candle?"
+        },
+        {
+          "speaker": "Waiter",
+          "ja": "当店の決まりで、小さなケーキをご用意できます。",
+          "en": "According to the restaurant's policy, we can prepare a small cake."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "デザートのあとに、夫が乾杯のあいさつをします。",
+          "en": "After the dessert, my husband is going to make a toast."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "お祝いを手伝ってくださって、本当にありがとうございます。",
+          "en": "Thank you very much for helping us with this celebration."
+        }
+      ],
+      "speaking": {
+        "role": "Guest planning a surprise anniversary dinner",
+        "partnerRole": "Waiter confirming what the restaurant can provide",
+        "opening": "こんにちは。今夜、予約しています。",
+        "goal": "Arrange a small surprise and confirm what the restaurant can provide.",
+        "closure": "お祝いを手伝ってくださって、ありがとうございます。",
+        "wordBank": [
+          "誕生日",
+          "記念日",
+          "家族の集まり",
+          "サプライズ",
+          "ケーキ",
+          "ろうそく",
+          "デザート",
+          "乾杯",
+          "予約",
+          "店員さん",
+          "テーブル",
+          "お祝い",
+          "今夜、予約しています。",
+          "記念日のお祝いをしたいです。",
+          "サプライズなので、何も言わないでください。",
+          "ろうそくの付いたデザートを持ってきていただけますか。",
+          "当店の決まりで、小さなケーキをご用意できます。",
+          "お祝い用に、何を用意していただけますか。",
+          "今日は妻の誕生日です。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "birthday",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "cake",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "It's a surprise, please don't say anything.",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "reservation",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "We want to celebrate our anniversary.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Can you bring a dessert with a candle?",
+          "sourceCard": 16,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Source-pinned celebration/anniversary scene with separate birthday phrase. Haiku 5.5 authored; Opus 5.5 read-only findings self-adjudicated. Japanese review required."
+    },
+    {
+      "n": 11,
+      "stableId": "travel-dinner:11:ja-en",
+      "sourceTitleEnglish": "Send back a dish respectfully",
+      "sourceObjectiveEnglish": "describe a concrete problem and request correction or replacement",
+      "sourceSpeakingEnglish": "A dish is undercooked or not what was ordered; resolve it without insulting the kitchen.",
+      "title": "Send back a dish respectfully",
+      "objective": "Describe a concrete problem with a dish and request correction or replacement.",
+      "focus": "Naming the problem (raw inside, wrong dish), asking the waiter politely, requesting more cooking or a replacement, and asking how long it will take.",
+      "scene": "At a restaurant, the guest ordered chicken with mushroom sauce, but the chicken is raw on the inside. The guest calls the waiter, explains calmly, asks for more cooking, and later thanks the waiter after the kitchen fixes the mistake.",
+      "forms": [
+        {
+          "base": "火を通す",
+          "polite": "火を通します",
+          "question": "火を通していただけますか",
+          "meaning": "cook through / cook through politely / could you cook it through?"
+        },
+        {
+          "base": "取り替える",
+          "polite": "取り替えます",
+          "question": "取り替えていただけますか",
+          "meaning": "to replace"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "料理",
+          "en": "dish",
+          "kind": "term",
+          "readingKana": "りょうり"
+        },
+        {
+          "ja": "店員さん",
+          "en": "waiter",
+          "kind": "term",
+          "readingKana": "てんいんさん"
+        },
+        {
+          "ja": "シェフ",
+          "en": "chef",
+          "kind": "term"
+        },
+        {
+          "ja": "料理人",
+          "en": "cook",
+          "kind": "term",
+          "readingKana": "りょうりにん"
+        },
+        {
+          "ja": "厨房",
+          "en": "kitchen",
+          "kind": "term",
+          "readingKana": "ちゅうぼう"
+        },
+        {
+          "ja": "チキン",
+          "en": "chicken",
+          "kind": "term"
+        },
+        {
+          "ja": "ソース",
+          "en": "sauce",
+          "kind": "term"
+        },
+        {
+          "ja": "生焼け",
+          "en": "raw, undercooked",
+          "kind": "term",
+          "readingKana": "なまやけ"
+        },
+        {
+          "ja": "間違い",
+          "en": "mistake",
+          "kind": "term",
+          "readingKana": "まちがい"
+        },
+        {
+          "ja": "取り替え",
+          "en": "change, replacement",
+          "kind": "term",
+          "readingKana": "とりかえ"
+        },
+        {
+          "ja": "魚",
+          "en": "fish (as food)",
+          "kind": "term",
+          "readingKana": "さかな"
+        },
+        {
+          "ja": "肉",
+          "en": "meat",
+          "kind": "term",
+          "readingKana": "にく"
+        },
+        {
+          "ja": "すみません、少しこちらに来ていただけますか。",
+          "en": "Excuse me, can you come over for a moment?",
+          "kind": "phrase",
+          "readingKana": "すみません、すこしこちらにきていただけますか。"
+        },
+        {
+          "ja": "これは注文したものと違うと思います。",
+          "en": "I think this is not what I ordered.",
+          "kind": "phrase",
+          "readingKana": "これはちゅうもんしたものとちがうとおもいます。"
+        },
+        {
+          "ja": "中が生焼けで、食べられません。",
+          "en": "It is raw on the inside and I can't eat it.",
+          "kind": "phrase",
+          "readingKana": "なかがなまやけで、たべられません。"
+        },
+        {
+          "ja": "シェフに、もう少し火を通すよう伝えていただけますか。",
+          "en": "Could you ask the chef to cook it more?",
+          "kind": "phrase",
+          "readingKana": "シェフに、もうすこしひをとおすようつたえていただけますか。"
+        },
+        {
+          "ja": "取り替えていただけますか。",
+          "en": "Could you replace it for me, please?",
+          "kind": "phrase",
+          "readingKana": "とりかえていただけますか。"
+        },
+        {
+          "ja": "厨房を責めているわけではありません。ただ、直してほしいのです。",
+          "en": "It's not a problem with the kitchen, I just want to fix it.",
+          "kind": "phrase",
+          "readingKana": "ちゅうぼうをせめているわけではありません。ただ、なおしてほしいのです。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "すみません。きのこソースのチキンを注文したのですが、少し来ていただけますか。",
+          "en": "Excuse me. I ordered the chicken with mushroom sauce. Could you come over for a moment?"
+        },
+        {
+          "speaker": "Waiter",
+          "ja": "はい、どうなさいましたか。",
+          "en": "Yes, what seems to be the problem?"
+        },
+        {
+          "speaker": "Guest",
+          "ja": "チキンの中が生焼けのようで、このままでは食べられません。",
+          "en": "I think the chicken is raw inside, and I cannot eat it like this."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "シェフに、もう少し火を通すよう伝えていただけますか。",
+          "en": "Could you ask the chef to cook it a little longer?"
+        },
+        {
+          "speaker": "Waiter",
+          "ja": "大変申し訳ありません。ただいま厨房で作り直しております。",
+          "en": "I am very sorry. The kitchen is preparing it again now."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "私も魚を注文したのですが、肉料理が来ました。こちらも取り替えていただけますか。",
+          "en": "I also ordered fish, but a meat dish arrived. Could you replace this one too?"
+        },
+        {
+          "speaker": "Waiter",
+          "ja": "承知しました。魚料理をお持ちします。",
+          "en": "Of course. I will bring the fish dish."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "新しい料理に時間がかかるようでしたら、あとどのくらいかかるか教えていただけますか。",
+          "en": "If the new dishes take long, could you tell us how much time is left?"
+        },
+        {
+          "speaker": "Waiter",
+          "ja": "十分ほどです。",
+          "en": "About ten minutes."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "間違いを直してくださって、ありがとうございます。",
+          "en": "Thank you for fixing the mistakes."
+        }
+      ],
+      "speaking": {
+        "role": "Guest whose dish is undercooked",
+        "partnerRole": "Waiter resolving the problem with the kitchen",
+        "opening": "すみません、少しこちらに来ていただけますか。",
+        "goal": "A dish is undercooked or not what was ordered; resolve it without insulting the kitchen.",
+        "closure": "ありがとうございます。よろしくお願いします。",
+        "wordBank": [
+          "料理",
+          "店員さん",
+          "シェフ",
+          "料理人",
+          "厨房",
+          "チキン",
+          "ソース",
+          "生焼け",
+          "間違い",
+          "取り替え",
+          "魚",
+          "肉",
+          "すみません、少しこちらに来ていただけますか。",
+          "これは注文したものと違うと思います。",
+          "中が生焼けで、食べられません。",
+          "シェフに、もう少し火を通すよう伝えていただけますか。",
+          "取り替えていただけますか。",
+          "厨房を責めているわけではありません。ただ、直してほしいのです。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "raw, undercooked",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "kitchen",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Excuse me, can you come over for a moment?",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "change, replacement",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "It is raw on the inside and I can't eat it.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "It's not a problem with the kitchen, I just want to fix it.",
+          "sourceCard": 18,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Source-pinned undercooked chicken and wrong fish order. Polite direct correction request. Haiku 5.5 authored; Opus 5.5 read-only findings self-adjudicated. Japanese review required."
+    },
+    {
+      "n": 12,
+      "stableId": "travel-dinner:12:ja-en",
+      "sourceTitleEnglish": "Order dessert and digestif",
+      "sourceObjectiveEnglish": "ask about sweets, cheese, coffee, and local after-dinner drinks",
+      "sourceSpeakingEnglish": "Choose a shared dessert and ask what locals drink afterward.",
+      "title": "Order dessert and an after-dinner drink",
+      "objective": "Ask about sweets, cheese, coffee, and local after-dinner drinks.",
+      "focus": "Asking what desserts are available, ordering one to share, asking about cheese and coffee, and asking what locals drink after dinner.",
+      "scene": "After dinner at a restaurant in Japan, a traveler asks about desserts to share, a cheese board, regional coffee and local after-dinner drinks.",
+      "forms": [
+        {
+          "base": "注文する",
+          "polite": "注文します",
+          "question": "注文しますか",
+          "meaning": "to order"
+        },
+        {
+          "base": "説明する",
+          "polite": "説明します",
+          "question": "説明していただけますか",
+          "meaning": "to explain"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "デザート",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "ja": "フラン",
+          "en": "flan",
+          "kind": "term"
+        },
+        {
+          "ja": "チョコレートケーキ",
+          "en": "chocolate cake",
+          "kind": "term"
+        },
+        {
+          "ja": "チーズの盛り合わせ",
+          "en": "cheese board",
+          "kind": "term",
+          "readingKana": "チーズのもりあわせ"
+        },
+        {
+          "ja": "アメリカーノ",
+          "en": "americano coffee",
+          "kind": "term"
+        },
+        {
+          "ja": "食後酒",
+          "en": "after-dinner drink",
+          "kind": "term",
+          "readingKana": "しょくござけ"
+        },
+        {
+          "ja": "焼酎",
+          "en": "shochu",
+          "kind": "term",
+          "readingKana": "しょうちゅう"
+        },
+        {
+          "ja": "薬草のリキュール",
+          "en": "herbal liqueur",
+          "kind": "term",
+          "readingKana": "やくそうのリキュール"
+        },
+        {
+          "ja": "風味",
+          "en": "flavor",
+          "kind": "term",
+          "readingKana": "ふうみ"
+        },
+        {
+          "ja": "お会計",
+          "en": "check",
+          "kind": "term",
+          "readingKana": "おかいけい"
+        },
+        {
+          "ja": "地元",
+          "en": "local, from the region",
+          "kind": "term",
+          "readingKana": "じもと"
+        },
+        {
+          "ja": "今夜のデザートは、何がありますか。",
+          "en": "What desserts do you have tonight?",
+          "kind": "phrase",
+          "readingKana": "こんやのデザートは、なにがありますか。"
+        },
+        {
+          "ja": "デザートを一つ、みんなで分けたいです。",
+          "en": "We want one dessert to share.",
+          "kind": "phrase",
+          "readingKana": "デザートをひとつ、みんなでわけたいです。"
+        },
+        {
+          "ja": "地元の人は、夕食のあとに何を飲みますか。",
+          "en": "What do locals drink after dinner?",
+          "kind": "phrase",
+          "readingKana": "じもとのひとは、ゆうしょくのあとになにをのみますか。"
+        },
+        {
+          "ja": "チーズに合うおすすめはありますか。",
+          "en": "What do you recommend to go with the cheese?",
+          "kind": "phrase",
+          "readingKana": "チーズにあうおすすめはありますか。"
+        },
+        {
+          "ja": "このデザートに何が入っているか、説明していただけますか。",
+          "en": "Could you explain to me what is in this dessert?",
+          "kind": "phrase",
+          "readingKana": "このデザートになにがはいっているか、せつめいしていただけますか。"
+        },
+        {
+          "ja": "このコーヒーは地元のものですか。",
+          "en": "Is the coffee from the region?",
+          "kind": "phrase",
+          "readingKana": "このコーヒーはじもとのものですか。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Traveler",
+          "ja": "今夜のデザートは、何がありますか。",
+          "en": "After dinner, the traveler asks the waiter: What desserts do you have tonight?"
+        },
+        {
+          "speaker": "Waiter",
+          "ja": "フランとチョコレートケーキが、一番人気です。",
+          "en": "The waiter answers that the flan and the chocolate cake are the most popular."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "もうたくさん食べたので、デザートを一つ、みんなで分けたいです。",
+          "en": "We have already eaten a lot, so we want one dessert to share."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "チーズの盛り合わせはありますか。",
+          "en": "She also asks if there is a cheese board."
+        },
+        {
+          "speaker": "Waiter",
+          "ja": "はい、ございます。",
+          "en": "The waiter says yes."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "アメリカーノを一つお願いします。このコーヒーは地元のものですか。",
+          "en": "One americano, please. Is this coffee from the region?"
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "地元の人は、夕食のあとにどんな食後酒を飲みますか。",
+          "en": "What kind of after-dinner drink do local people have after dinner?"
+        },
+        {
+          "speaker": "Waiter",
+          "ja": "強い風味がお好きでしたら、地元の焼酎か、薬草のリキュールはいかがですか。",
+          "en": "If you like a strong flavor, how about local shochu or an herbal liqueur?"
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "フランをシェアして、焼酎も少し試してみます。",
+          "en": "She decides to order the flan to share and a little shochu to try."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "すみません、お会計をお願いします。",
+          "en": "Excuse me, the check, please."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler choosing a shared dessert",
+        "partnerRole": "Waiter recommending a dessert and a local drink",
+        "opening": "今夜のデザートは、何がありますか。",
+        "goal": "Choose a shared dessert and ask what locals drink afterward.",
+        "closure": "ごちそうさまでした。お会計をお願いします。",
+        "wordBank": [
+          "デザート",
+          "フラン",
+          "チョコレートケーキ",
+          "チーズの盛り合わせ",
+          "アメリカーノ",
+          "食後酒",
+          "焼酎",
+          "薬草のリキュール",
+          "風味",
+          "お会計",
+          "地元",
+          "今夜のデザートは、何がありますか。",
+          "デザートを一つ、みんなで分けたいです。",
+          "地元の人は、夕食のあとに何を飲みますか。",
+          "チーズに合うおすすめはありますか。",
+          "このデザートに何が入っているか、説明していただけますか。",
+          "このコーヒーは地元のものですか。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "flan",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "after-dinner drink",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "What desserts do you have tonight?",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "flavor",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "We want one dessert to share.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Could you explain to me what is in this dessert?",
+          "sourceCard": 16,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Restaurant localized to Japan. Source mezcal adapted to local shochu; flan retained as a possible menu item. Haiku 5.5 authored; Opus 5.5 read-only findings self-adjudicated. Japanese/food review required."
+    }
+  ]
+}

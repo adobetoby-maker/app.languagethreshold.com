@@ -1,0 +1,511 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/travel-zone.ts",
+    "curriculumSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "passagePath": "public/lesson-content/es/travel-dinner.json",
+    "passageSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 11,
+      "stableId": "travel-dinner:11:fr-en",
+      "sourceTitleEnglish": "Send back a dish respectfully",
+      "sourceObjectiveEnglish": "describe a concrete problem and request correction or replacement",
+      "sourceSpeakingEnglish": "A dish is undercooked or not what was ordered; resolve it without insulting the kitchen.",
+      "title": "Explain a Problem With a Dish",
+      "objective": "Tell the server that chicken is undercooked or that the wrong dish arrived, request further cooking or a replacement, and ask about the wait.",
+      "focus": "Le poulet est cru à l'intérieur directly describes the undercooked chicken. Je crois que ce n'est pas ce que j'ai commandé identifies a wrong order without blaming anyone. Pourriez-vous le faire cuire davantage ? asks for more cooking; Pourriez-vous me le remplacer ? requests a replacement. Combien de temps faudra-t-il ? asks how long the correction will take.",
+      "scene": "At dinner, Léa's chicken with mushroom sauce is raw inside, while her friend's fish order was brought as meat. They describe each problem to the server, request corrections, and ask how much time is left if the new dishes take too long.",
+      "forms": [
+        {
+          "infinitive": "commander",
+          "pastJe": "j'ai commandé",
+          "meaning": "to order / I ordered"
+        },
+        {
+          "infinitive": "cuire",
+          "presentIl": "il cuit",
+          "politeRequest": "pourriez-vous le faire cuire",
+          "meaning": "to cook / it cooks / could you have it cooked"
+        },
+        {
+          "infinitive": "remplacer",
+          "presentVous": "vous remplacez",
+          "politeRequest": "pourriez-vous le remplacer",
+          "meaning": "to replace / you replace / could you replace it"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "le plat",
+          "en": "dish",
+          "kind": "term"
+        },
+        {
+          "fr": "le serveur",
+          "en": "server",
+          "kind": "term"
+        },
+        {
+          "fr": "le cuisinier",
+          "en": "cook",
+          "kind": "term"
+        },
+        {
+          "fr": "la cuisine",
+          "en": "kitchen",
+          "kind": "term"
+        },
+        {
+          "fr": "le poulet",
+          "en": "chicken",
+          "kind": "term"
+        },
+        {
+          "fr": "la sauce aux champignons",
+          "en": "mushroom sauce",
+          "kind": "term"
+        },
+        {
+          "fr": "cru à l'intérieur",
+          "en": "raw on the inside",
+          "kind": "term"
+        },
+        {
+          "fr": "pas assez cuit",
+          "en": "undercooked / not cooked enough",
+          "kind": "term"
+        },
+        {
+          "fr": "une erreur de commande",
+          "en": "order mistake",
+          "kind": "term"
+        },
+        {
+          "fr": "un remplacement",
+          "en": "a replacement",
+          "kind": "term"
+        },
+        {
+          "fr": "le poisson",
+          "en": "fish (as food)",
+          "kind": "term"
+        },
+        {
+          "fr": "la viande",
+          "en": "meat",
+          "kind": "term"
+        },
+        {
+          "fr": "Excusez-moi, pouvez-vous venir un instant ?",
+          "en": "Excuse me, can you come over for a moment?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je crois que ce n'est pas ce que j'ai commandé.",
+          "en": "I think this is not what I ordered.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Désolée, je crois que le poulet est cru à l'intérieur ; je ne peux pas le manger comme ça.",
+          "en": "Sorry, I think the chicken is raw inside; I can't eat it like this.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pourriez-vous demander au chef de le faire cuire davantage ?",
+          "en": "Could you ask the chef to cook it more?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pourriez-vous me le remplacer, s'il vous plaît ?",
+          "en": "Could you replace it for me, please?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Combien de temps faudra-t-il pour le nouveau plat ?",
+          "en": "How long will the new dish take?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "le chef",
+          "en": "chef",
+          "kind": "term"
+        },
+        {
+          "fr": "Je ne critique pas la cuisine, je veux juste régler le problème.",
+          "en": "I'm not blaming the kitchen; I just want to fix the problem.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Léa",
+          "fr": "J'ai commandé le poulet à la sauce aux champignons.",
+          "en": "I ordered the chicken with mushroom sauce."
+        },
+        {
+          "speaker": "Léa",
+          "fr": "Excusez-moi, pouvez-vous venir un instant ?",
+          "en": "Excuse me, can you come over for a moment?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Bien sûr. Il y a un problème avec le plat ?",
+          "en": "Of course. Is there a problem with the dish?"
+        },
+        {
+          "speaker": "Léa",
+          "fr": "Désolée, je crois que le poulet est cru à l'intérieur ; je ne peux pas le manger comme ça.",
+          "en": "Sorry, I think the chicken is raw inside; I can't eat it like this."
+        },
+        {
+          "speaker": "Léa",
+          "fr": "Pourriez-vous demander au chef de le faire cuire davantage ?",
+          "en": "Could you ask the chef to cook it more?"
+        },
+        {
+          "speaker": "Léa",
+          "fr": "Je ne critique pas la cuisine, je veux juste régler le problème.",
+          "en": "I'm not blaming the kitchen; I just want to fix the problem."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Je suis désolé. Je vais demander à la cuisine de le refaire.",
+          "en": "I'm sorry. I will ask the kitchen to make it again."
+        },
+        {
+          "speaker": "Friend",
+          "fr": "J'ai commandé du poisson, mais on m'a apporté de la viande.",
+          "en": "I ordered fish, but I was brought meat."
+        },
+        {
+          "speaker": "Friend",
+          "fr": "Pourriez-vous me remplacer ce plat, s'il vous plaît ?",
+          "en": "Could you replace it for me, please?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, je vais faire corriger les deux commandes.",
+          "en": "Yes, I will have both orders corrected."
+        },
+        {
+          "speaker": "Léa",
+          "fr": "Si les nouveaux plats prennent trop de temps, pourriez-vous nous dire combien de temps il reste ?",
+          "en": "If the new dishes take too long, could you tell us how much time is left?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Je vais vérifier le temps d’attente et revenir vous le confirmer.",
+          "en": "I will check the wait time and come back to confirm it."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Voici les plats corrigés. Le poulet est cuit à cœur cette fois.",
+          "en": "Here are the corrected dishes. The chicken is cooked through this time."
+        },
+        {
+          "speaker": "Léa",
+          "fr": "Merci beaucoup d’avoir corrigé les plats.",
+          "en": "Thank you very much for correcting the dishes."
+        }
+      ],
+      "speaking": {
+        "role": "Guest whose chicken arrived undercooked",
+        "partnerRole": "Restaurant server",
+        "opening": "Tout se passe bien avec vos plats ?",
+        "goal": "Describe the raw chicken precisely, ask for it to be cooked more or replaced, mention that a companion received meat instead of fish, and ask how long the correction will take.",
+        "closure": "Je vais faire corriger les commandes et revenir avec une estimation du temps.",
+        "wordBank": [
+          "le poulet",
+          "cru à l'intérieur",
+          "pas assez cuit",
+          "une erreur de commande",
+          "un remplacement",
+          "le poisson",
+          "la viande",
+          "Je crois que ce n'est pas ce que j'ai commandé.",
+          "Désolée, je crois que le poulet est cru à l'intérieur ; je ne peux pas le manger comme ça.",
+          "Pourriez-vous me le remplacer, s'il vous plaît ?",
+          "le chef",
+          "Je ne critique pas la cuisine, je veux juste régler le problème."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French phrase for raw on the inside.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, say that this is not what you ordered.",
+          "sourceCard": 14,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the direct description of the raw chicken.",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the request to have it cooked more.",
+          "sourceCard": 16,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask the server politely to replace the dish.",
+          "sourceCard": 17,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a question asking how long the new dish will take.",
+          "sourceCard": 18,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false
+    },
+    {
+      "n": 12,
+      "stableId": "travel-dinner:12:fr-en",
+      "sourceTitleEnglish": "Order dessert and digestif",
+      "sourceObjectiveEnglish": "ask about sweets, cheese, coffee, and local after-dinner drinks",
+      "sourceSpeakingEnglish": "Choose a shared dessert and ask what locals drink afterward.",
+      "title": "Share Dessert and Ask About a Digestif",
+      "objective": "Ask about dessert, cheese, regional coffee, and local after-dinner drinks, then order a dessert to share and a drink to taste.",
+      "focus": "Un dessert à partager is a dessert for two people to share; une assiette de fromages is a cheese plate. Un café allongé is a longer, diluted espresso, whereas un digestif names an after-dinner alcoholic drink. Que boit-on ici après le dîner ? asks about local custom without assuming one drink everywhere. Je voudrais goûter… asks to try a small serving.",
+      "scene": "After dinner in Alsace, Nora asks about crème caramel and cheese. She and her companion share a dessert, then ask whether the restaurant has regional coffee and which local digestif it serves.",
+      "forms": [
+        {
+          "infinitive": "partager",
+          "presentNous": "nous partageons",
+          "meaning": "to share / we share"
+        },
+        {
+          "infinitive": "boire",
+          "presentOn": "on boit",
+          "meaning": "to drink / people drink"
+        },
+        {
+          "infinitive": "goûter",
+          "presentJe": "je goûte",
+          "politeWish": "je voudrais goûter",
+          "meaning": "to taste / I taste / I would like to try"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "le dessert",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "fr": "une crème caramel",
+          "en": "crème caramel",
+          "kind": "term"
+        },
+        {
+          "fr": "un gâteau au chocolat",
+          "en": "chocolate cake",
+          "kind": "term"
+        },
+        {
+          "fr": "une assiette de fromages",
+          "en": "cheese plate",
+          "kind": "term"
+        },
+        {
+          "fr": "un café allongé",
+          "en": "long coffee / diluted espresso",
+          "kind": "term"
+        },
+        {
+          "fr": "un digestif",
+          "en": "after-dinner alcoholic drink",
+          "kind": "term"
+        },
+        {
+          "fr": "une eau-de-vie",
+          "en": "fruit brandy / eau-de-vie",
+          "kind": "term"
+        },
+        {
+          "fr": "une liqueur aux plantes",
+          "en": "herbal liqueur",
+          "kind": "term"
+        },
+        {
+          "fr": "le goût",
+          "en": "flavor / taste",
+          "kind": "term"
+        },
+        {
+          "fr": "l'addition",
+          "en": "the check / bill",
+          "kind": "term"
+        },
+        {
+          "fr": "Quels desserts proposez-vous ce soir ?",
+          "en": "What desserts do you offer tonight?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Nous voudrions un dessert à partager.",
+          "en": "We would like a dessert to share.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Que boit-on ici après le dîner ?",
+          "en": "What do people here drink after dinner?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Que recommandez-vous avec le fromage ?",
+          "en": "What do you recommend with the cheese?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pourriez-vous m'expliquer ce qu'il y a dans ce dessert ?",
+          "en": "Could you explain what is in this dessert?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Ce café vient-il de la région ?",
+          "en": "Is this coffee from the region?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je voudrais goûter une petite eau-de-vie.",
+          "en": "I would like to try a small serving of eau-de-vie.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "L'addition, s'il vous plaît.",
+          "en": "The check, please.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Nora",
+          "fr": "Quels desserts proposez-vous ce soir ?",
+          "en": "What desserts do you offer tonight?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "La crème caramel et le gâteau au chocolat sont très demandés.",
+          "en": "The crème caramel and chocolate cake are very popular."
+        },
+        {
+          "speaker": "Nora",
+          "fr": "Nous voudrions un dessert à partager. Avez-vous aussi une assiette de fromages ?",
+          "en": "We would like a dessert to share. Do you also have a cheese plate?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, nous servons une assiette de fromages d'Alsace.",
+          "en": "Yes, we serve a plate of cheeses from Alsace."
+        },
+        {
+          "speaker": "Nora",
+          "fr": "Je prendrai la crème caramel à partager. Puis-je avoir un café allongé ?",
+          "en": "I will have the crème caramel to share. May I have a long coffee?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Bien sûr. Nous avons aussi un café torréfié dans la région.",
+          "en": "Of course. We also have coffee roasted in the region."
+        },
+        {
+          "speaker": "Nora",
+          "fr": "Que boit-on ici après le dîner ?",
+          "en": "What do people here drink after dinner?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Nous proposons une eau-de-vie de poire et une liqueur aux plantes comme digestifs.",
+          "en": "We offer pear eau-de-vie and an herbal liqueur as after-dinner drinks."
+        },
+        {
+          "speaker": "Nora",
+          "fr": "Je voudrais goûter une petite eau-de-vie de poire.",
+          "en": "I would like to try a small serving of pear eau-de-vie."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Très bien : une crème caramel à partager, un café allongé et une petite eau-de-vie de poire.",
+          "en": "Very well: a crème caramel to share, a long coffee, and a small serving of pear eau-de-vie."
+        },
+        {
+          "speaker": "Nora",
+          "fr": "Merci. L'addition, s'il vous plaît, après le dessert.",
+          "en": "Thank you. The check after dessert, please."
+        }
+      ],
+      "speaking": {
+        "role": "Guest choosing dessert after dinner",
+        "partnerRole": "Restaurant server",
+        "opening": "Souhaitez-vous voir la carte des desserts ou des fromages ?",
+        "goal": "Ask about desserts and cheese, choose a dessert to share, request a coffee, and ask which local digestif the restaurant offers.",
+        "closure": "Je vous apporte la crème caramel à partager et les boissons.",
+        "wordBank": [
+          "le dessert",
+          "une crème caramel",
+          "une assiette de fromages",
+          "un café allongé",
+          "un digestif",
+          "une eau-de-vie",
+          "Quels desserts proposez-vous ce soir ?",
+          "Nous voudrions un dessert à partager.",
+          "Que boit-on ici après le dîner ?",
+          "Je voudrais goûter une petite eau-de-vie."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French term for an after-dinner alcoholic drink.",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, ask for a dessert to share.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question about what people here drink after dinner.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the question asking what desserts are offered tonight.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask what the server recommends with the cheese.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write that you would like to try a small eau-de-vie.",
+          "sourceCard": 17,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false
+    }
+  ]
+}

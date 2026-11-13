@@ -1,0 +1,9 @@
+# French Dinner Core 27 owner-review checkpoint
+
+The owner-only French Dinner preview adds `travel-dinner:27:fr-en`, the Puebla dinner-at-Lucía's-parents scene. Dinner now has Foundation 10 + Core 27 = 37 source-pinned draft lessons. The new lesson has 24 cards, including all 16 source English meanings in order, nine exact-English aligned Reader turns, five French form records, six mode prompts with unique anchors, and a speaking mission. Mark asks Lucía about a gift, arrival time and her family's table manners. The 15-minute lateness remains explicitly her family's practice.
+
+The Claude CLI request specified Haiku 5.5, but its metadata reported **Sonnet 5.5** for the candidate. Opus 5.5 gave read-only critique. I corrected the Reader's speaker attribution, a tu/vous mismatch, the offer-of-help phrasing, several grammar overstatements and an unnatural final line. Source and six-mode checks pass. Qualified French review remains open for `les hôtes` ambiguity, the rendering of `sobremesa`, inversion register with a friend, the dinner-time expression, and `ma mère` versus `maman`. This is not an AI or human approval.
+
+The exact-text private audio delta subtracts prior Dinner scopes. It has 31 new fr-FR strings and 62 Aoede/Charon MP3s (3,026 submitted characters). All 62 recordings pass exact text, voice, SHA-256, bytes, duration and decoded-signal checks with zero flags. [The listening worksheet](/Users/drive/lt-audio/french-travel-dinner/core-27/listening-review.html) needs distinct clip decisions. Every clip remains `listeningReviewed:false`, unbundled and unregistered.
+
+The owner route keeps `reviewed:false` and no learner runtime, audio or progress registration. Core 28–30, Master 1–20, qualified French/domain review, exact-pair learner integration, offline, browser/phone and independent V4 acceptance remain open.

@@ -1,0 +1,219 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "contentPath": "public/lesson-content/es/travel-dinner.json",
+    "contentSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 7,
+      "stableId": "travel-dinner:7:ja-en",
+      "sourceTitleEnglish": "Order seafood or meat",
+      "sourceObjectiveEnglish": "ask about preparation, doneness, bones, sides, and price by weight",
+      "sourceSpeakingEnglish": "Order a fish priced by weight and confirm the estimated total before agreeing.",
+      "title": "Order Fish by Weight",
+      "objective": "Ask how a whole fish is cooked, whether it has bones, which side dishes are included, and its estimated total when priced by weight.",
+      "focus": "一尾 counts one whole fish; 切り身 is a fillet. 小骨 means small fish bones. 一キロ当たり gives a price per kilogram, while 重さ and 合計の目安 distinguish the fish's weight from an estimated total. 焼き加減 describes how meat is cooked, and ミディアム specifies medium doneness. Confirm the estimated total before ordering.",
+      "scene": "At a seafood restaurant, Naomi asks about a whole salt-grilled fish with small bones. The server says it is priced per kilogram, names the fish's approximate weight, and calculates the estimated total. Naomi chooses salad as the side dish and orders after confirming the price.",
+      "forms": [
+        {"base": "焼く", "polite": "焼きます", "question": "どう焼きますか", "meaning": "grill / grill politely / how do you grill it?"},
+        {"base": "付く", "polite": "付きます", "question": "何が付いていますか", "meaning": "come with / comes with / what comes with it?"}
+      ],
+      "cards": [
+        {"ja": "魚一尾", "en": "one whole fish", "kind": "term", "readingKana": "さかないちび"},
+        {"ja": "魚介類", "en": "seafood", "kind": "term", "readingKana": "ぎょかいるい"},
+        {"ja": "塩焼き", "en": "salt-grilled", "kind": "term", "readingKana": "しおやき"},
+        {"ja": "小骨", "en": "small fish bones", "kind": "term", "readingKana": "こぼね"},
+        {"ja": "付け合わせ", "en": "side dish", "kind": "term", "readingKana": "つけあわせ"},
+        {"ja": "一キロ当たり", "en": "per kilogram", "kind": "term", "readingKana": "いちキロあたり"},
+        {"ja": "重さ", "en": "weight", "kind": "term", "readingKana": "おもさ"},
+        {"ja": "合計の目安", "en": "estimated total", "kind": "term", "readingKana": "ごうけいのめやす"},
+        {"ja": "サラダ", "en": "salad", "kind": "term"},
+        {"ja": "ご飯", "en": "rice", "kind": "term", "readingKana": "ごはん"},
+        {"ja": "切り身", "en": "fish fillet", "kind": "term", "readingKana": "きりみ"},
+        {"ja": "肉の焼き加減", "en": "meat doneness", "kind": "term", "readingKana": "にくのやきかげん"},
+        {"ja": "魚はどう調理しますか。", "en": "How do you prepare the fish?", "kind": "phrase", "readingKana": "さかなはどうちょうりしますか。"},
+        {"ja": "小骨はありますか。", "en": "Does it have small bones?", "kind": "phrase", "readingKana": "こぼねはありますか。"},
+        {"ja": "付け合わせは何ですか。", "en": "What side dishes come with it?", "kind": "phrase", "readingKana": "つけあわせはなんですか。"},
+        {"ja": "一キロ当たりいくらですか。", "en": "How much is it per kilogram?", "kind": "phrase", "readingKana": "いちキロあたりいくらですか。"},
+        {"ja": "合計はいくらぐらいになりますか。", "en": "About how much will the total be?", "kind": "phrase", "readingKana": "ごうけいはいくらぐらいになりますか。"},
+        {"ja": "肉はミディアムでお願いします。", "en": "Medium-cooked meat, please.", "kind": "phrase", "readingKana": "にくはミディアムでおねがいします。"}
+      ],
+      "reader": [
+        {"speaker": "Naomi", "ja": "この魚はどうやって調理しますか。", "en": "How do you prepare this fish?"},
+        {"speaker": "Server", "ja": "一尾まるごと塩焼きにします。一キロ当たり六千円です。", "en": "We salt-grill the whole fish. It is 6,000 yen per kilogram."},
+        {"speaker": "Naomi", "ja": "小骨はありますか。", "en": "Does it have small bones?"},
+        {"speaker": "Server", "ja": "はい、一尾の魚なので小骨があります。", "en": "Yes. It is a whole fish, so it has small bones."},
+        {"speaker": "Naomi", "ja": "付け合わせは何ですか。", "en": "What side dishes come with it?"},
+        {"speaker": "Server", "ja": "ご飯かサラダを選べます。", "en": "You can choose rice or salad."},
+        {"speaker": "Naomi", "ja": "サラダにします。魚の重さはどのくらいですか。", "en": "I will have salad. About how much does the fish weigh?"},
+        {"speaker": "Server", "ja": "約五百グラムです。", "en": "It is about 500 grams."},
+        {"speaker": "Naomi", "ja": "では、合計はいくらぐらいになりますか。", "en": "Then about how much will the total be?"},
+        {"speaker": "Server", "ja": "合計で約三千円です。サラダは付け合わせなので、追加料金はかかりません。", "en": "The estimated total is about 3,000 yen. Salad comes with it at no extra charge."},
+        {"speaker": "Naomi", "ja": "合計三千円ぐらいですね。では、その魚をお願いします。", "en": "About 3,000 yen total, then. I will have that fish."}
+      ],
+      "speaking": {
+        "role": "Guest considering a whole fish priced by weight",
+        "partnerRole": "Seafood restaurant server",
+        "opening": "本日の魚は一キロ当たり六千円です。",
+        "goal": "Ask how the fish is prepared, whether it has bones, which side dish comes with it, its approximate weight, and estimated total before ordering.",
+        "closure": "魚の塩焼きをサラダと一緒にお出しします。",
+        "wordBank": ["魚一尾", "小骨", "付け合わせ", "一キロ当たり", "重さ", "合計の目安", "サラダ", "魚はどう調理しますか。", "小骨はありますか。", "一キロ当たりいくらですか。", "合計はいくらぐらいになりますか。"]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the Japanese term for small fish bones.", "sourceCard": 4, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, ask how much one kilogram costs.", "sourceCard": 16, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the question about included side dishes.", "sourceCard": 15, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the question asking whether the fish has small bones.", "sourceCard": 14, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Ask about the fish's preparation.", "sourceCard": 13, "responseKind": "open"},
+        "write": {"cueEnglish": "Write a question asking for the approximate total.", "sourceCard": 17, "responseKind": "open"}
+      },
+      "reviewed": false
+    },
+    {
+      "n": 8,
+      "stableId": "travel-dinner:8:ja-en",
+      "sourceTitleEnglish": "Handle allergies at dinner",
+      "sourceObjectiveEnglish": "state a restriction, ask about cross-contact realistically, and choose an alternative",
+      "sourceSpeakingEnglish": "Work with the server to find a safer option without treating the AI as medical advice.",
+      "title": "State a Peanut Allergy and Ask About Cross-Contact",
+      "objective": "State a peanut allergy, ask about ingredients and cross-contact from a shared fryer, ask the cook, and order grilled chicken without sauce as an alternative.",
+      "focus": "ピーナッツアレルギーがあります directly states a peanut allergy; 落花生 is the ingredient-label term for peanuts. 交差接触 names cross-contact when an allergen can transfer during preparation. ピーナッツが混入する可能性はありますか asks the same preparation question in everyday restaurant language. 同じフライヤーを使っていますか asks whether the fryer is shared. ソースなしの鶏肉のグリルをお願いします orders the alternative after those questions.",
+      "scene": "A guest tells the server about a peanut allergy. The sauce has no peanuts, but the cook confirms that fried dishes use a shared fryer. The guest does not order the fried chicken and instead orders grilled chicken without sauce, then asks separately about dessert ingredients.",
+      "forms": [
+        {"base": "含む", "polite": "含みます", "question": "含まれていますか", "meaning": "contain / contains / is it contained?"},
+        {"base": "使う", "polite": "使います", "question": "使っていますか", "meaning": "use / use politely / is it being used?"}
+      ],
+      "cards": [
+        {"ja": "食物アレルギー", "en": "food allergy", "kind": "term", "readingKana": "しょくもつアレルギー"},
+        {"ja": "ピーナッツ", "en": "peanuts", "kind": "term"},
+        {"ja": "落花生", "en": "peanuts (ingredient-label term)", "kind": "term", "readingKana": "らっかせい"},
+        {"ja": "貝類・甲殻類", "en": "shellfish (mollusks and crustaceans)", "kind": "term", "readingKana": "かいるい・こうかくるい"},
+        {"ja": "原材料", "en": "ingredients", "kind": "term", "readingKana": "げんざいりょう"},
+        {"ja": "交差接触", "en": "allergen cross-contact", "kind": "term", "readingKana": "こうさせっしょく"},
+        {"ja": "フライヤー", "en": "fryer", "kind": "term"},
+        {"ja": "ソース", "en": "sauce", "kind": "term"},
+        {"ja": "別の料理", "en": "another dish", "kind": "term", "readingKana": "べつのりょうり"},
+        {"ja": "鶏肉のグリル", "en": "grilled chicken", "kind": "term", "readingKana": "とりにくのグリル"},
+        {"ja": "鶏の唐揚げ", "en": "fried chicken (karaage)", "kind": "term", "readingKana": "とりのからあげ"},
+        {"ja": "ピーナッツアレルギーがあります。", "en": "I have a peanut allergy.", "kind": "phrase"},
+        {"ja": "この料理に落花生は入っていますか。", "en": "Does this dish contain peanuts?", "kind": "phrase", "readingKana": "このりょうりにらっかせいははいっていますか。"},
+        {"ja": "ピーナッツとの交差接触はありますか。", "en": "Is there peanut cross-contact?", "kind": "phrase", "readingKana": "ピーナッツとのこうさせっしょくはありますか。"},
+        {"ja": "他の料理と同じフライヤーを使っていますか。", "en": "Do you use the same fryer for other dishes?", "kind": "phrase", "readingKana": "ほかのりょうりとおなじフライヤーをつかっていますか。"},
+        {"ja": "調理する方に聞いていただけますか。", "en": "Could you ask the cook, please?", "kind": "phrase", "readingKana": "ちょうりするかたにきいていただけますか。"},
+        {"ja": "ピーナッツを使わない別の料理はありますか。", "en": "Is there another dish without peanuts?", "kind": "phrase", "readingKana": "ピーナッツをつかわないべつのりょうりはありますか。"},
+        {"ja": "ソースなしの鶏肉のグリルをお願いします。", "en": "Grilled chicken without sauce, please.", "kind": "phrase", "readingKana": "ソースなしのとりにくのグリルをおねがいします。"}
+      ],
+      "reader": [
+        {"speaker": "Guest", "ja": "ピーナッツアレルギーがあります。", "en": "I have a peanut allergy."},
+        {"speaker": "Guest", "ja": "この料理に落花生は入っていますか。", "en": "Does this dish contain peanuts?"},
+        {"speaker": "Server", "ja": "ソースの原材料を確認しました。落花生は入っていません。", "en": "I checked the sauce ingredients. It does not contain peanuts."},
+        {"speaker": "Guest", "ja": "ピーナッツとの交差接触はありますか。", "en": "Is there peanut cross-contact?"},
+        {"speaker": "Guest", "ja": "調理中にピーナッツが混入する可能性はありますか。", "en": "Could peanuts get mixed in during preparation?"},
+        {"speaker": "Guest", "ja": "他の料理と同じフライヤーを使っていますか。", "en": "Do you use the same fryer for other dishes?"},
+        {"speaker": "Server", "ja": "調理担当者に確認してきます。", "en": "I will check with the cook."},
+        {"speaker": "Server", "ja": "揚げ物には同じフライヤーを使っています。", "en": "We use the same fryer for fried dishes."},
+        {"speaker": "Guest", "ja": "では、鶏の唐揚げは頼みません。", "en": "Then I will not order the fried chicken."},
+        {"speaker": "Guest", "ja": "ソースなしの鶏肉のグリルをお願いします。", "en": "Grilled chicken without sauce, please."},
+        {"speaker": "Server", "ja": "かしこまりました。鶏肉のグリルをソースなしでお出しします。", "en": "Certainly. We will serve the grilled chicken without sauce."},
+        {"speaker": "Guest", "ja": "デザートを頼む前に、原材料をもう一度確認します。", "en": "I will check the ingredients again before ordering dessert."}
+      ],
+      "speaking": {
+        "role": "Guest with a peanut allergy choosing a dinner dish",
+        "partnerRole": "Restaurant server",
+        "opening": "ご注文をお伺いします。",
+        "goal": "State the peanut allergy, ask whether the dish contains peanuts, ask explicitly about allergen cross-contact and the shared fryer, request that the cook be asked, and choose grilled chicken without sauce.",
+        "closure": "かしこまりました。鶏肉のグリルをソースなしでお出しします。",
+        "wordBank": ["食物アレルギー", "ピーナッツ", "落花生", "原材料", "交差接触", "フライヤー", "鶏肉のグリル", "ピーナッツアレルギーがあります。", "この料理に落花生は入っていますか。", "ピーナッツとの交差接触はありますか。", "他の料理と同じフライヤーを使っていますか。", "ソースなしの鶏肉のグリルをお願いします。"]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the Japanese technical term for allergen cross-contact.", "sourceCard": 6, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, state that you have a peanut allergy.", "sourceCard": 12, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the question about peanuts in this dish.", "sourceCard": 13, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the question about using the same fryer for other dishes.", "sourceCard": 15, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Ask directly about peanut cross-contact.", "sourceCard": 14, "responseKind": "open"},
+        "write": {"cueEnglish": "Order grilled chicken without sauce.", "sourceCard": 18, "responseKind": "open"}
+      },
+      "reviewed": false
+    },
+    {
+      "n": 9,
+      "stableId": "travel-dinner:9:ja-en",
+      "sourceTitleEnglish": "Control the meal's pace",
+      "sourceObjectiveEnglish": "ask to slow down, speed up, hold a course, or take a break",
+      "sourceSpeakingEnglish": "The next course arrived too quickly; ask the server to pause service.",
+      "title": "Set the Pace of Dinner",
+      "objective": "Ask the server to slow down, hold the next course, take a short break, later bring a course sooner, and say when you are ready for dessert.",
+      "focus": "もう少しゆっくり出していただけますか asks the server to bring dishes more slowly; 少し早めにお願いします asks for something sooner. 次の料理は後でお願いします holds a course, while 次の料理まで少し時間をいただけますか asks for a pause before it. ～ていただけますか makes a polite request to the server. まだ前菜を食べています explains that the starter is still in progress.",
+      "scene": "A main course reaches a table while the guests are still eating the starter. Yui asks the server to pause service and give them a short break. Later the guests request the next course, and when ready, they ask for dessert.",
+      "forms": [
+        {"base": "待つ", "polite": "待ちます", "request": "待っていただけますか", "meaning": "wait / wait politely / could you wait?"},
+        {"base": "出す", "polite": "出します", "request": "出していただけますか", "meaning": "bring out / bring out politely / could you bring it out?"}
+      ],
+      "cards": [
+        {"ja": "前菜", "en": "starter / appetizer", "kind": "term", "readingKana": "ぜんさい"},
+        {"ja": "主菜", "en": "main course", "kind": "term", "readingKana": "しゅさい"},
+        {"ja": "次の料理", "en": "next course", "kind": "term", "readingKana": "つぎのりょうり"},
+        {"ja": "デザート", "en": "dessert", "kind": "term"},
+        {"ja": "店員", "en": "restaurant staff member", "kind": "term", "readingKana": "てんいん"},
+        {"ja": "テーブル", "en": "table", "kind": "term"},
+        {"ja": "ワイン", "en": "wine", "kind": "term"},
+        {"ja": "食事のペース", "en": "pace of the meal", "kind": "term", "readingKana": "しょくじのペース"},
+        {"ja": "休憩", "en": "break / pause", "kind": "term", "readingKana": "きゅうけい"},
+        {"ja": "配膳", "en": "serving dishes", "kind": "term", "readingKana": "はいぜん"},
+        {"ja": "お会計", "en": "the bill / check", "kind": "term", "readingKana": "おかいけい"},
+        {"ja": "もう少しゆっくり出していただけますか。", "en": "Could you bring the dishes a little more slowly?", "kind": "phrase", "readingKana": "もうすこしゆっくりだしていただけますか。"},
+        {"ja": "次の料理は後でお願いします。", "en": "The next course later, please.", "kind": "phrase", "readingKana": "つぎのりょうりはあとでおねがいします。"},
+        {"ja": "デザートをお願いします。", "en": "Dessert, please.", "kind": "phrase", "readingKana": "デザートをおねがいします。"},
+        {"ja": "次の料理まで少し時間をいただけますか。", "en": "Could you give us a little time before the next course?", "kind": "phrase", "readingKana": "つぎのりょうりまですこしじかんをいただけますか。"},
+        {"ja": "料理の間をもう少し空けていただけますか。", "en": "Could you leave more time between courses?", "kind": "phrase", "readingKana": "りょうりのあいだをもうすこしあけていただけますか。"},
+        {"ja": "次の料理を少し早めにお願いします。", "en": "The next course a little sooner, please.", "kind": "phrase", "readingKana": "つぎのりょうりをすこしはやめにおねがいします。"},
+        {"ja": "まだ前菜を食べています。", "en": "We are still eating the starter.", "kind": "phrase", "readingKana": "まだぜんさいをたべています。"}
+      ],
+      "reader": [
+        {"speaker": "Server", "ja": "前菜とワインをお持ちしました。", "en": "I have brought the starter and wine."},
+        {"speaker": "Yui", "ja": "ありがとうございます。まだ前菜を食べています。", "en": "Thank you. We are still eating the starter."},
+        {"speaker": "Server", "ja": "次の料理もお持ちしました。", "en": "I have brought the next course too."},
+        {"speaker": "Yui", "ja": "すみません。もう少しゆっくり出していただけますか。", "en": "Excuse me. Could you bring the dishes a little more slowly?"},
+        {"speaker": "Yui", "ja": "次の料理は後でお願いします。次の料理まで少し時間をいただけますか。", "en": "The next course later, please. Could you give us a little time before it?"},
+        {"speaker": "Server", "ja": "承知しました。この料理はいったんお下げして、後でお出しします。", "en": "Understood. I will take this dish away for now and serve it later."},
+        {"speaker": "Yui", "ja": "料理の間をもう少し空けていただけますか。", "en": "Could you leave more time between courses?"},
+        {"speaker": "Server", "ja": "はい。ゆっくりお召し上がりください。", "en": "Yes. Please enjoy your meal at an unhurried pace."},
+        {"speaker": "Yui", "ja": "もう大丈夫です。次の料理を少し早めにお願いします。", "en": "We are ready now. The next course a little sooner, please."},
+        {"speaker": "Server", "ja": "かしこまりました。主菜をお持ちします。", "en": "Certainly. I will bring the main course."},
+        {"speaker": "Yui", "ja": "主菜を食べ終わりました。デザートをお願いします。", "en": "We have finished the main course. We are ready for dessert."}
+      ],
+      "speaking": {
+        "role": "Guest whose next course arrived too quickly",
+        "partnerRole": "Restaurant server",
+        "opening": "次の料理をお持ちしました。",
+        "goal": "Explain that the starter is still being eaten, ask to hold the next course and pause service, then request a quicker course when ready and ask for dessert.",
+        "closure": "お客様のペースに合わせてお出しします。",
+        "wordBank": ["前菜", "主菜", "次の料理", "デザート", "食事のペース", "休憩", "もう少しゆっくり出していただけますか。", "次の料理は後でお願いします。", "次の料理まで少し時間をいただけますか。", "料理の間をもう少し空けていただけますか。", "次の料理を少し早めにお願いします。"]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the Japanese term for the next course.", "sourceCard": 3, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, ask for the next course later.", "sourceCard": 13, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the request to leave more time between courses.", "sourceCard": 16, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the request for more time before the next course.", "sourceCard": 15, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Tell the server you are still eating the starter.", "sourceCard": 18, "responseKind": "open"},
+        "write": {"cueEnglish": "Write a request for the next course a little sooner.", "sourceCard": 17, "responseKind": "open"}
+      },
+      "reviewed": false
+    }
+  ]
+}

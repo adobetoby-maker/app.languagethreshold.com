@@ -1,0 +1,342 @@
+{
+  "version": 1,
+  "roles": [
+    {
+      "id": "open",
+      "label": "Open conversation",
+      "group": "Everyday",
+      "partnerRole": "a friendly conversation partner",
+      "learnerRole": "a language learner"
+    },
+    {
+      "id": "friend",
+      "label": "Friend",
+      "group": "Everyday",
+      "partnerRole": "the learner's friend",
+      "learnerRole": "your friend"
+    },
+    {
+      "id": "family",
+      "label": "Family member",
+      "group": "Everyday",
+      "partnerRole": "an adult family member",
+      "learnerRole": "an adult relative"
+    },
+    {
+      "id": "neighbor",
+      "label": "Neighbor",
+      "group": "Everyday",
+      "partnerRole": "the learner's neighbor",
+      "learnerRole": "your neighbor"
+    },
+    {
+      "id": "boss",
+      "label": "Boss / supervisor",
+      "group": "Work",
+      "partnerRole": "the learner's supervisor",
+      "learnerRole": "a team member"
+    },
+    {
+      "id": "employee",
+      "label": "Employee / team member",
+      "group": "Work",
+      "partnerRole": "a team member reporting to the learner",
+      "learnerRole": "the team supervisor"
+    },
+    {
+      "id": "coworker",
+      "label": "Coworker",
+      "group": "Work",
+      "partnerRole": "a colleague working alongside the learner",
+      "learnerRole": "your coworker"
+    },
+    {
+      "id": "customer",
+      "label": "Customer / client",
+      "group": "Work",
+      "partnerRole": "a customer asking for a service",
+      "learnerRole": "a service provider"
+    },
+    {
+      "id": "receptionist",
+      "label": "Receptionist / scheduler",
+      "group": "Appointments",
+      "partnerRole": "a receptionist arranging an appointment",
+      "learnerRole": "someone arranging an appointment"
+    },
+    {
+      "id": "patient",
+      "label": "Patient",
+      "group": "Healthcare",
+      "partnerRole": "a patient communicating with the learner",
+      "learnerRole": "a healthcare worker"
+    },
+    {
+      "id": "patient-family",
+      "label": "Patient's family member",
+      "group": "Healthcare",
+      "partnerRole": "an adult relative asking about a patient's care",
+      "learnerRole": "a healthcare worker"
+    },
+    {
+      "id": "nurse",
+      "label": "Nurse",
+      "group": "Healthcare",
+      "partnerRole": "a nurse coordinating care or room preparation",
+      "learnerRole": "a colleague or patient, as the module specifies"
+    },
+    {
+      "id": "physician",
+      "label": "Physician",
+      "group": "Healthcare",
+      "partnerRole": "a physician discussing the selected situation",
+      "learnerRole": "a colleague or patient, as the module specifies"
+    },
+    {
+      "id": "medical-assistant",
+      "label": "Medical assistant",
+      "group": "Healthcare",
+      "partnerRole": "a medical assistant handling clinic intake",
+      "learnerRole": "a patient arriving at a clinic"
+    },
+    {
+      "id": "evs-supervisor",
+      "label": "OR cleaning supervisor",
+      "group": "OR cleaning",
+      "partnerRole": "an OR environmental services supervisor coordinating the cleaning crew",
+      "learnerRole": "an OR cleaning technician"
+    },
+    {
+      "id": "evs-coworker",
+      "label": "OR cleaning coworker",
+      "group": "OR cleaning",
+      "partnerRole": "an OR cleaning technician working alongside the learner",
+      "learnerRole": "another OR cleaning technician"
+    },
+    {
+      "id": "circulating-nurse",
+      "label": "Circulating nurse",
+      "group": "OR cleaning",
+      "partnerRole": "the circulating nurse coordinating room access and turnover",
+      "learnerRole": "an OR cleaning crew member"
+    },
+    {
+      "id": "new-cleaner",
+      "label": "New cleaning crew member",
+      "group": "OR cleaning",
+      "partnerRole": "a new OR cleaning employee asking for instruction",
+      "learnerRole": "an experienced OR cleaning crew member"
+    },
+    {
+      "id": "surgeon",
+      "label": "Surgeon",
+      "group": "OR cleaning",
+      "partnerRole": "a surgeon asking about room readiness",
+      "learnerRole": "an OR cleaning crew member"
+    },
+    {
+      "id": "inspector",
+      "label": "Inspector",
+      "group": "Trades",
+      "partnerRole": "an inspector asking for an explanation of the work and its documentation",
+      "learnerRole": "the worker responsible for explaining the work"
+    },
+    {
+      "id": "foreman",
+      "label": "Foreman",
+      "group": "Trades",
+      "partnerRole": "a foreman coordinating the crew",
+      "learnerRole": "a crew member"
+    },
+    {
+      "id": "apprentice",
+      "label": "Apprentice",
+      "group": "Trades",
+      "partnerRole": "an apprentice learning a job",
+      "learnerRole": "an experienced worker"
+    },
+    {
+      "id": "supplier",
+      "label": "Supplier",
+      "group": "Trades",
+      "partnerRole": "a supplier confirming an order",
+      "learnerRole": "a worker ordering supplies"
+    },
+    {
+      "id": "mechanic",
+      "label": "Mechanic",
+      "group": "Trades",
+      "partnerRole": "a mechanic discussing a vehicle problem",
+      "learnerRole": "a customer explaining a vehicle problem"
+    },
+    {
+      "id": "dispatcher",
+      "label": "Dispatcher",
+      "group": "Work",
+      "partnerRole": "a dispatcher coordinating a route or response",
+      "learnerRole": "a worker confirming instructions"
+    },
+    {
+      "id": "lawyer",
+      "label": "Lawyer",
+      "group": "Professional services",
+      "partnerRole": "a lawyer conducting a practice intake conversation",
+      "learnerRole": "a prospective client"
+    },
+    {
+      "id": "accountant",
+      "label": "Accountant",
+      "group": "Professional services",
+      "partnerRole": "an accountant asking about records and a financial question",
+      "learnerRole": "a client explaining their records"
+    },
+    {
+      "id": "salesperson",
+      "label": "Salesperson",
+      "group": "Shopping & travel",
+      "partnerRole": "a salesperson helping compare products",
+      "learnerRole": "a shopper"
+    },
+    {
+      "id": "car-salesperson",
+      "label": "Car salesperson",
+      "group": "Shopping & travel",
+      "partnerRole": "a car salesperson asking about vehicle needs and budget",
+      "learnerRole": "a customer shopping for a vehicle"
+    },
+    {
+      "id": "server",
+      "label": "Server / barista",
+      "group": "Shopping & travel",
+      "partnerRole": "a restaurant server or barista taking an order",
+      "learnerRole": "a customer ordering food or drinks"
+    },
+    {
+      "id": "hotel",
+      "label": "Hotel receptionist",
+      "group": "Shopping & travel",
+      "partnerRole": "a hotel receptionist confirming a reservation",
+      "learnerRole": "a hotel guest"
+    },
+    {
+      "id": "driver",
+      "label": "Driver",
+      "group": "Shopping & travel",
+      "partnerRole": "a taxi or rideshare driver confirming the destination",
+      "learnerRole": "a passenger"
+    },
+    {
+      "id": "guide",
+      "label": "Local guide",
+      "group": "Shopping & travel",
+      "partnerRole": "a local guide helping plan a visit",
+      "learnerRole": "a visitor"
+    },
+    {
+      "id": "pharmacist",
+      "label": "Pharmacist",
+      "group": "Healthcare",
+      "partnerRole": "a pharmacist clarifying a prescription and questions",
+      "learnerRole": "a customer at a pharmacy"
+    },
+    {
+      "id": "teacher",
+      "label": "Teacher",
+      "group": "Education",
+      "partnerRole": "a teacher discussing a lesson or school situation",
+      "learnerRole": "a learner or parent, as the module specifies"
+    },
+    {
+      "id": "student",
+      "label": "Student",
+      "group": "Education",
+      "partnerRole": "a student asking about the lesson",
+      "learnerRole": "a teacher"
+    },
+    {
+      "id": "parent",
+      "label": "Parent / guardian",
+      "group": "Education",
+      "partnerRole": "an adult parent discussing school arrangements",
+      "learnerRole": "a teacher or school staff member"
+    },
+    {
+      "id": "coach",
+      "label": "Coach",
+      "group": "Sports",
+      "partnerRole": "a coach planning training and giving feedback",
+      "learnerRole": "a player"
+    },
+    {
+      "id": "teammate",
+      "label": "Teammate",
+      "group": "Sports",
+      "partnerRole": "a teammate coordinating practice",
+      "learnerRole": "another player"
+    },
+    {
+      "id": "referee",
+      "label": "Referee",
+      "group": "Sports",
+      "partnerRole": "a referee explaining a decision",
+      "learnerRole": "a player or coach"
+    },
+    {
+      "id": "captain",
+      "label": "Fishing captain",
+      "group": "Sports",
+      "partnerRole": "a fishing captain discussing conditions and the trip",
+      "learnerRole": "an angler"
+    },
+    {
+      "id": "belayer",
+      "label": "Climbing partner / belayer",
+      "group": "Sports",
+      "partnerRole": "a climbing partner confirming commands and plans",
+      "learnerRole": "a climber"
+    },
+    {
+      "id": "farm-supervisor",
+      "label": "Farm supervisor",
+      "group": "Agriculture",
+      "partnerRole": "a farm supervisor assigning the day's work",
+      "learnerRole": "a farmworker"
+    },
+    {
+      "id": "farmworker",
+      "label": "Farmworker / ranch hand",
+      "group": "Agriculture",
+      "partnerRole": "a farmworker confirming tasks",
+      "learnerRole": "a farm supervisor"
+    },
+    {
+      "id": "veterinarian",
+      "label": "Veterinarian",
+      "group": "Agriculture",
+      "partnerRole": "a veterinarian asking about an animal's condition",
+      "learnerRole": "an animal caretaker"
+    },
+    {
+      "id": "visitor",
+      "label": "Community visitor",
+      "group": "Faith",
+      "partnerRole": "a community member curious about the learner's ministry",
+      "learnerRole": "a ministry volunteer"
+    },
+    {
+      "id": "ministry-colleague",
+      "label": "Ministry colleague",
+      "group": "Faith",
+      "partnerRole": "a fellow ministry volunteer planning a visit",
+      "learnerRole": "another ministry volunteer"
+    }
+  ],
+  "orCleaningSuggestions": [
+    "circulating-nurse",
+    "evs-supervisor",
+    "evs-coworker",
+    "new-cleaner",
+    "surgeon",
+    "inspector"
+  ]
+}

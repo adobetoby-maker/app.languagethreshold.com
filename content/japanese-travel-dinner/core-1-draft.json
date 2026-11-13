@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "contentPath": "public/lesson-content/es/travel-dinner.json",
+    "contentSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 1,
+      "stableId": "travel-dinner:1:ja-en",
+      "sourceTitleEnglish": "Reserve a dinner table",
+      "sourceObjectiveEnglish": "book a date, time, party size, seating preference, and occasion",
+      "sourceSpeakingEnglish": "Call for a dinner reservation and ask for an outdoor table without assuming it is available.",
+      "title": "Reserve a Dinner Table",
+      "objective": "Call a restaurant, ask whether a table is available on a chosen evening, give a party size and time, and request a terrace seat for an occasion.",
+      "focus": "予約をしたいのですが introduces a polite reservation request. Use 土曜日の午後八時に for a time and 四名 for a party size; ～名 is a polite people counter in bookings. テラス席は空いていますか asks whether terrace seating is available. Say 誕生日のお祝いです to explain the occasion. 予約します, 予約したいです, and 予約できますか differ as statement, wish, and availability question.",
+      "scene": "Mika calls a Kyoto restaurant to reserve dinner for four on Saturday at 8:00, asks about the terrace, and gives her name and phone number.",
+      "forms": [
+        {"base": "予約する", "polite": "予約します", "request": "予約したいのですが", "meaning": "reserve / I reserve / I would like to reserve"},
+        {"base": "空く", "polite": "空いています", "question": "空いていますか", "meaning": "become available / is available / is it available?"}
+      ],
+      "cards": [
+        {"ja": "予約", "en": "reservation", "kind": "term", "readingKana": "よやく"},
+        {"ja": "土曜日", "en": "Saturday", "kind": "term", "readingKana": "どようび"},
+        {"ja": "午後八時", "en": "8:00 p.m.", "kind": "term", "readingKana": "ごごはちじ"},
+        {"ja": "四名", "en": "four people (for a reservation)", "kind": "term", "readingKana": "よんめい"},
+        {"ja": "テラス席", "en": "terrace seating", "kind": "term", "readingKana": "テラスせき"},
+        {"ja": "静かな席", "en": "a quiet table", "kind": "term", "readingKana": "しずかなせき"},
+        {"ja": "誕生日", "en": "birthday", "kind": "term", "readingKana": "たんじょうび"},
+        {"ja": "記念日", "en": "anniversary / commemorative day", "kind": "term", "readingKana": "きねんび"},
+        {"ja": "名前", "en": "name", "kind": "term", "readingKana": "なまえ"},
+        {"ja": "電話番号", "en": "phone number", "kind": "term", "readingKana": "でんわばんごう"},
+        {"ja": "予約をしたいのですが。", "en": "I would like to make a reservation.", "kind": "phrase", "readingKana": "よやくをしたいのですが。"},
+        {"ja": "土曜日の午後八時に予約できますか。", "en": "Can I reserve for Saturday at 8:00 p.m.?", "kind": "phrase", "readingKana": "どようびのごごはちじによやくできますか。"},
+        {"ja": "四名です。", "en": "There are four of us.", "kind": "phrase", "readingKana": "よんめいです。"},
+        {"ja": "テラス席は空いていますか。", "en": "Is terrace seating available?", "kind": "phrase", "readingKana": "テラスせきはあいていますか。"},
+        {"ja": "誕生日のお祝いです。", "en": "It is for a birthday celebration.", "kind": "phrase", "readingKana": "たんじょうびのおいわいです。"},
+        {"ja": "何時なら空いていますか。", "en": "At what time is a table available?", "kind": "phrase", "readingKana": "なんじならあいていますか。"},
+        {"ja": "名前はミカです。", "en": "The name is Mika.", "kind": "phrase", "readingKana": "なまえはミカです。"},
+        {"ja": "電話番号をお伝えします。", "en": "I will give you my phone number.", "kind": "phrase", "readingKana": "でんわばんごうをおつたえします。"}
+      ],
+      "reader": [
+        {"speaker": "Staff", "ja": "お電話ありがとうございます。京の花でございます。", "en": "Thank you for calling. This is Kyo no Hana."},
+        {"speaker": "Mika", "ja": "こんばんは。土曜日の夕食の予約をしたいのですが。", "en": "Good evening. I would like to reserve dinner for Saturday."},
+        {"speaker": "Staff", "ja": "何時をご希望ですか。", "en": "What time would you like?"},
+        {"speaker": "Mika", "ja": "午後八時に四名です。", "en": "Four people at 8:00 p.m."},
+        {"speaker": "Staff", "ja": "はい、八時にお席がございます。", "en": "Yes, we have a table at eight."},
+        {"speaker": "Mika", "ja": "テラス席は空いていますか。誕生日のお祝いです。", "en": "Is terrace seating available? It is for a birthday celebration."},
+        {"speaker": "Staff", "ja": "テラス席を確認します。少々お待ちください。", "en": "I will check the terrace seating. Please wait a moment."},
+        {"speaker": "Staff", "ja": "テラス席は空いています。お名前をお願いします。", "en": "Terrace seating is available. May I have your name?"},
+        {"speaker": "Mika", "ja": "名前はミカです。電話番号をお伝えします。", "en": "The name is Mika. I will give you my phone number."},
+        {"speaker": "Staff", "ja": "ありがとうございます。土曜日の午後八時、四名様で承りました。", "en": "Thank you. I have your reservation for four people on Saturday at 8:00 p.m."}
+      ],
+      "speaking": {
+        "role": "Guest calling for a dinner reservation",
+        "partnerRole": "Restaurant booking staff",
+        "opening": "お電話ありがとうございます。ご予約でしょうか。",
+        "goal": "Ask for Saturday at 8:00 p.m. for four people, check terrace availability, explain the birthday, and give your name.",
+        "closure": "土曜日の午後八時、四名様で承りました。",
+        "wordBank": ["予約", "土曜日", "午後八時", "四名", "テラス席", "誕生日", "予約をしたいのですが。", "テラス席は空いていますか。", "名前はミカです。"]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the Japanese term for a reservation.", "sourceCard": 1, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, give the party size as four people using the booking counter.", "sourceCard": 13, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the question about terrace availability.", "sourceCard": 14, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the phrase asking to reserve Saturday at 8:00 p.m.", "sourceCard": 12, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Tell the booking staff you would like to make a reservation.", "sourceCard": 11, "responseKind": "open"},
+        "write": {"cueEnglish": "Write that this booking is for a birthday celebration.", "sourceCard": 15, "responseKind": "open"}
+      },
+      "reviewed": false
+    }
+  ]
+}

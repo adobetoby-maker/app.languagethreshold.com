@@ -1,0 +1,375 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "masterPath": "src/data/core60/es/master-travel-dinner.json",
+    "masterSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "contentPath": "public/lesson-content/es/master-travel-dinner.json",
+    "contentSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 4,
+      "stableId": "master-travel-dinner:4:ja-en",
+      "sourceTitleEnglish": "Read the Allergen Chart with a Celiac Friend",
+      "sourceObjectiveEnglish": "Read a restaurant's allergen chart aloud, explain its notes to a friend, and list what to confirm with the kitchen.",
+      "sourceSpeakingEnglish": "You are at a rice restaurant in Valencia, and the AI is your friend Grace, who has celiac disease: read the allergen chart aloud, explain its notes, and list what to confirm with the kitchen, using antes de / después de + infinitive and hay que.",
+      "title": "Read the Allergen Chart with a Celiac Friend",
+      "objective": "Read a restaurant's allergen chart aloud, explain its notes to a friend, and list what to confirm with the kitchen.",
+      "focus": "友だちに順序を伝えるときは「～前に」と「～てから」を使う。例：注文する前に脚注を読む。読んでから厨房に聞く。必要な確認は「～なければならない」で表し、友だちにはくだけた「～なきゃ」も使える。店員には「～ていただけますか」と丁寧に頼む。",
+      "scene": "At a Valencia rice restaurant, you read an allergen chart and its footnote aloud with your friend Grace, who has celiac disease. You ask server Amparo to check the shared fryer and the rice stock with the kitchen. Grace decides what to order after hearing the answers.",
+      "forms": [
+        {
+          "base": "読む",
+          "polite": "読みます",
+          "meaning": "to read",
+          "example": "注文する前に、脚注を読みます。",
+          "question": "読みますか"
+        },
+        {
+          "base": "頼む",
+          "polite": "頼みます",
+          "meaning": "to order, to ask for",
+          "example": "グレースはアロス・ア・バンダを頼みます。",
+          "question": "頼みますか"
+        },
+        {
+          "base": "含む",
+          "polite": "含みます",
+          "meaning": "to contain (an ingredient)",
+          "example": "このだしはグルテンを含みますか。",
+          "question": "含みますか"
+        },
+        {
+          "base": "確認する",
+          "polite": "確認します",
+          "meaning": "to confirm, to check",
+          "example": "注文する前に、厨房に確認します。",
+          "question": "確認しますか"
+        },
+        {
+          "base": "決める",
+          "polite": "決めます",
+          "meaning": "to decide",
+          "example": "何を頼むかはグレースが決めます。",
+          "question": "決めますか"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "アレルゲン一覧表",
+          "en": "the allergen chart",
+          "kind": "term",
+          "readingKana": "アレルゲンいちらんひょう"
+        },
+        {
+          "ja": "グルテン",
+          "en": "the gluten",
+          "kind": "term",
+          "readingKana": "グルテン"
+        },
+        {
+          "ja": "セリアック病の女性",
+          "en": "celiac (woman)",
+          "kind": "term",
+          "readingKana": "セリアックびょうのじょせい"
+        },
+        {
+          "ja": "脚注",
+          "en": "the footnote",
+          "kind": "term",
+          "readingKana": "きゃくちゅう"
+        },
+        {
+          "ja": "共用のフライヤー",
+          "en": "the shared fryer",
+          "kind": "term",
+          "readingKana": "きょうようのフライヤー"
+        },
+        {
+          "ja": "フィデウア（麺のパエリア）",
+          "en": "the noodle paella",
+          "kind": "term",
+          "readingKana": "フィデウア（めんのパエリア）"
+        },
+        {
+          "ja": "衣",
+          "en": "the batter coating",
+          "kind": "term",
+          "readingKana": "ころも"
+        },
+        {
+          "ja": "小麦粉",
+          "en": "the wheat flour",
+          "kind": "term",
+          "readingKana": "こむぎこ"
+        },
+        {
+          "ja": "微量の混入",
+          "en": "the traces",
+          "kind": "term",
+          "readingKana": "びりょうのこんにゅう"
+        },
+        {
+          "ja": "記号",
+          "en": "the symbol",
+          "kind": "term",
+          "readingKana": "きごう"
+        },
+        {
+          "ja": "凡例",
+          "en": "the key (of a chart)",
+          "kind": "term",
+          "readingKana": "はんれい"
+        },
+        {
+          "ja": "アスタリスク",
+          "en": "the asterisk",
+          "kind": "term",
+          "readingKana": "アスタリスク"
+        },
+        {
+          "ja": "だし",
+          "en": "the stock",
+          "kind": "term",
+          "readingKana": "だし"
+        },
+        {
+          "ja": "グルテンフリー",
+          "en": "gluten-free",
+          "kind": "term",
+          "readingKana": "グルテンフリー"
+        },
+        {
+          "ja": "セリアック病の人に適した",
+          "en": "suitable for people with celiac disease",
+          "kind": "term",
+          "readingKana": "セリアックびょうのひとにてきした"
+        },
+        {
+          "ja": "選ぶ前に、下の注記を読まなきゃ。",
+          "en": "Before choosing, we have to read the notes at the bottom.",
+          "kind": "phrase",
+          "readingKana": "えらぶまえに、したのちゅうきをよまなきゃ。"
+        },
+        {
+          "ja": "ここに、フィデウアにはグルテンが入っているって書いてあるよ。",
+          "en": "It says here that the noodle paella has gluten.",
+          "kind": "phrase",
+          "readingKana": "ここに、フィデウアにはグルテンがはいっているってかいてあるよ。"
+        },
+        {
+          "ja": "ほら、このアスタリスクは脚注を指しているよ。",
+          "en": "Look, this asterisk refers to the footnote.",
+          "kind": "phrase",
+          "readingKana": "ほら、このアスタリスクはきゃくちゅうをさしているよ。"
+        },
+        {
+          "ja": "すみません、この表には共用のフライヤーの料理も含まれていますか。",
+          "en": "Excuse me, does this chart include the dishes from the shared fryer?",
+          "kind": "phrase",
+          "readingKana": "すみません、このひょうにはきょうようのフライヤーのりょうりもふくまれていますか。"
+        },
+        {
+          "ja": "連れはセリアック病です。厨房に確認していただけますか。",
+          "en": "My friend has celiac disease; could you ask in the kitchen, please?",
+          "kind": "phrase",
+          "readingKana": "つれはセリアックびょうです。ちゅうぼうにかくにんしていただけますか。"
+        },
+        {
+          "ja": "厨房に確認したところ、お米料理のだしにグルテンを含むものは入っていますか。",
+          "en": "According to the kitchen, does the rice stock contain anything with gluten?",
+          "kind": "phrase",
+          "readingKana": "ちゅうぼうにかくにんしたところ、おこめりょうりのだしにグルテンをふくむものははいっていますか。"
+        },
+        {
+          "ja": "厨房に聞いてから、何を頼むか決めます。",
+          "en": "After talking to the kitchen, we'll decide what to order.",
+          "kind": "phrase",
+          "readingKana": "ちゅうぼうにきいてから、なにをたのむかきめます。"
+        },
+        {
+          "ja": "決めるのはグレースだよ。私は書いてあることを読んで聞かせているだけだから。",
+          "en": "You decide, Grace; I'm just reading you what it says.",
+          "kind": "phrase",
+          "readingKana": "きめるのはグレースだよ。わたしはかいてあることをよんできかせているだけだから。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "バレンシアのお米料理のレストランで、店員のアンパロさんが店のアレルゲン一覧表を持ってきます。",
+          "en": "At a rice restaurant in Valencia, the server Amparo brings us the house allergen chart."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "友だちのグレースはセリアック病なので、私は何かを頼む前に表を声に出して読みます。",
+          "en": "My friend Grace has celiac disease, so I read the chart aloud before ordering anything."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "グレースに言います。「選ぶ前に、下の注記を読まなきゃ。」",
+          "en": "I tell Grace: Before choosing, we have to read the notes at the bottom."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "凡例によると、麦の穂の記号は、その料理にグルテンが入っていることを示します。",
+          "en": "According to the key, the wheat-ear symbol means the dish contains gluten."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "グレースに読み上げます。「ここに、フィデウアにはグルテンが入っているって書いてあるよ。」",
+          "en": "I read to Grace: It says here that the noodle paella has gluten."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "フィデウアは小麦粉の麺で作るので、グレースには選べない料理です。",
+          "en": "The noodle paella is made with wheat flour noodles, so it is not an option for her."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "イカのフライにも麦の穂の記号があります。衣に小麦粉が入っているからです。",
+          "en": "The fried squid also has the wheat ear because the batter coating contains wheat flour."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "フライドポテトはグルテンフリーと書いてありますが、横にアスタリスクがついています。",
+          "en": "The fries are listed as gluten-free, but they have an asterisk next to them."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "グレースに言います。「ほら、このアスタリスクは脚注を指しているよ。」",
+          "en": "I tell Grace: Look, this asterisk refers to the footnote."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "脚注には、この表は共用のフライヤーで調理する料理を対象にしておらず、その料理には微量のグルテンが混入している可能性があると書いてあります。",
+          "en": "The footnote says the chart does not cover the dishes from the shared fryer, which may have traces of gluten."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "アロス・ア・バンダにはセリアック病の人に適した料理という印がありますが、表にはだしについて何も書かれていません。",
+          "en": "The arroz a banda is marked as suitable for people with celiac disease, but the chart says nothing about the stock."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "私はグレースのために確認する項目を挙げます。共用のフライヤーと、お米料理のだしを厨房に確認しなければなりません。",
+          "en": "I make a list for Grace: we have to check the fryer and the rice stock with the kitchen."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "脚注を読んでから、アンパロさんに聞きます。「すみません、この表には共用のフライヤーの料理も含まれていますか。」",
+          "en": "After reading the note, I ask Amparo: Excuse me, does this chart include the dishes from the shared fryer?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "続けて言います。「連れはセリアック病です。厨房に確認していただけますか。」",
+          "en": "Then I tell her: My friend has celiac disease; could you ask in the kitchen, please?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "さらに聞きます。「厨房に確認したところ、お米料理のだしにグルテンを含むものは入っていますか。」",
+          "en": "I also ask her: According to the kitchen, does the rice stock contain anything with gluten?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "アンパロさんが厨房から戻って言います。「料理人によると、だしにグルテンは入っていません。ただ、ポテトはイカと同じフライヤーで揚げています。」",
+          "en": "Amparo comes back from the kitchen: According to the cook, the stock has no gluten, but the fries are fried in the same fryer as the squid."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "グレースに言います。「決めるのはグレースだよ。私は書いてあることを読んで聞かせているだけだから。」",
+          "en": "I tell Grace: You decide, Grace; I'm just reading you what it says."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "グレースはフライドポテトを付けずに、アロス・ア・バンダを頼むことにします。",
+          "en": "Grace decides to order the arroz a banda without the fries."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "the allergen chart",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "celiac (woman)",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Excuse me, does this chart include the dishes from the shared fryer?",
+          "sourceCard": 19,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "My friend has celiac disease; could you ask in the kitchen, please?",
+          "sourceCard": 20,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "According to the kitchen, does the rice stock contain anything with gluten?",
+          "sourceCard": 21,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "You decide, Grace; I'm just reading you what it says.",
+          "sourceCard": 23,
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "You, reading the Valencia rice restaurant's allergen chart aloud to Grace.",
+        "partnerRole": "Grace, your friend who has celiac disease and decides what to order.",
+        "opening": "選ぶ前に、下の注記を読まなきゃ。",
+        "objectives": [
+          "Tell Grace that before choosing (～前に), you need to read the chart's wheat-ear symbol and footnote aloud.",
+          "Explain that the fideuà and fried squid contain wheat or gluten.",
+          "Explain the asterisk and shared-fryer note; list what needs checking with the kitchen using ～なきゃ or ～なければならない.",
+          "Tell Grace that after reading the footnote (～てから), you will ask about the shared fryer and rice stock.",
+          "Relay the kitchen's answer to Grace, and let her choose arroz a banda without fries."
+        ],
+        "closure": "決めるのはグレースだよ。私は書いてあることを読んで聞かせているだけだから。",
+        "wordBank": [
+          "アレルゲン一覧表",
+          "グルテン",
+          "セリアック病の女性",
+          "脚注",
+          "共用のフライヤー",
+          "フィデウア（麺のパエリア）",
+          "衣",
+          "小麦粉",
+          "微量の混入",
+          "記号",
+          "凡例",
+          "アスタリスク",
+          "だし",
+          "グルテンフリー",
+          "セリアック病の人に適した",
+          "選ぶ前に、下の注記を読まなきゃ。",
+          "ここに、フィデウアにはグルテンが入っているって書いてあるよ。",
+          "ほら、このアスタリスクは脚注を指しているよ。",
+          "すみません、この表には共用のフライヤーの料理も含まれていますか。",
+          "連れはセリアック病です。厨房に確認していただけますか。",
+          "厨房に確認したところ、お米料理のだしにグルテンを含むものは入っていますか。",
+          "厨房に聞いてから、何を頼むか決めます。",
+          "決めるのはグレースだよ。私は書いてあることを読んで聞かせているだけだから。"
+        ],
+        "goal": "Read a restaurant's allergen chart aloud, explain its notes to a friend, and list what to confirm with the kitchen."
+      },
+      "reviewed": false
+    }
+  ]
+}

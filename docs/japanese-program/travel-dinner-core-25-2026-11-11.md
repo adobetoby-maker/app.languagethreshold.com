@@ -1,0 +1,11 @@
+# Japanese Dinner Core 25 owner-review checkpoint
+
+Core 25 extends the owner-only Japanese→English Dinner preview to Foundation 10 + Core 25 = 35 source-pinned drafts. Stable ID `travel-dinner:25:ja-en` and previous IDs remain unchanged. The nine English Reader turns and three English plan strings match the pinned Spanish-track source. The lesson follows the holiday fixed menu, its four included courses/drink, €45 per-person price, €3 coffee surcharge, half portion at the same price, and a chef-approved starter and dessert for €25.
+
+The draft has 25 cards with kana readings where kanji appears, nine aligned Reader turns, six form contrasts, six anchored mode prompts, and a guest/waiter speaking scene. Claude CLI Haiku 5.5 authored the candidate and Opus 5.5 critiqued it read-only. Self-check corrected the exact plan goal, passive `含まれる` grammar, `お腹が空く` reading and negative hunger example, the unnatural price-agreement phrasing, incomplete 25-euro card, source-aligned request, and guest-facing speaking bank. Qualified Japanese and restaurant-domain review remain open; AI critique is not human approval.
+
+`verify-private-core-1-25.py` checks source hashes, exact plan and Reader English alignment, stable ID, cards/kana/forms/speaking/modes, source facts, and closed gates. The owner route omits internal notes. The lesson remains `reviewed:false`, `registered:false`, `readyForLearner:false`, `audio:none`; learner catalog, playback and progress are unchanged.
+
+The private audio delta subtracts prior Dinner scopes and pins 28 new strings, 56 ja-JP Aoede/Charon clips and 1,036 submitted characters. All 56 were synthesized privately with quota project `project-91661021-fb2d-4524-b9f` and pass exact text, voice, SHA-256, byte count, duration and decoded-signal verification with zero flags. The [private listening worksheet](/Users/drive/lt-audio/japanese-travel-dinner/core-25/listening-review.html) needs a distinct decision for each clip; all remain `listeningReviewed:false`, unbundled and unregistered. Earlier pilot approvals do not cover this batch.
+
+Core 26–30/Master 1–20, qualified review, exact-pair learner runtime/offline/dictionary integration, browser/phone and independent V4 acceptance remain open.

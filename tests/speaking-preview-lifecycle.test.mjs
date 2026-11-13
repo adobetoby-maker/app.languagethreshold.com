@@ -46,7 +46,7 @@ test("actual speaking missions isolate late replies, playback, microphone and co
             b.onResolve(
               {
                 filter:
-                  /^(fixture|react|lucide-react|@\/state\/(app|speech|auth|ai-gate)-state|@\/lib\/(mission-tts|tts|voices|speaking-client|speaking-privacy|speaking-navigation|lesson-return)|@\/components\/(auth\/AuthModal|reader\/(WordCard|FuriganaText|PinyinText)|travel\/NextTripBanner)|\.\/(SpeakTutorDock|LongPressWordText|RecordedReplyControl|LongPressWordText|SpeakingConsentDialog|MicrophoneTestDialog))$/,
+                  /^(@\/hooks\/use-chat-follow|fixture|react|lucide-react|@\/state\/(app|speech|auth|ai-gate)-state|@\/lib\/(mission-tts|tts|voices|speaking-client|speaking-privacy|speaking-navigation|lesson-return)|@\/components\/(auth\/AuthModal|reader\/(WordCard|FuriganaText|PinyinText)|travel\/NextTripBanner)|\.\/(SpeakTutorDock|LongPressWordText|RecordedReplyControl|LongPressWordText|SpeakingConsentDialog|MicrophoneTestDialog))$/,
               },
               () => ({ path: "fixture", namespace: "fixture" }),
             );
@@ -56,6 +56,8 @@ test("actual speaking missions isolate late replies, playback, microphone and co
  export const c={actor:'a',session:{user:{id:'a'}},slots:[],cursor:0,effects:[],writes:0,actions:[],audio:[],headers:[],waitHeaders:false,confirmed:true,saves:[],reads:[],waitRead:false,state:{selectedLanguage:'Spanish',nativeLanguage:'English',activeModuleId:'construction-foreman',nextTrips:{}}};
  const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
  export const useRef=initial=>{const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];};
+ // DOM scrolling is covered by speaking-chat-follow browser tests.
+ export const useChatFollow=()=>({containerRef:useRef(null),contentRef:useRef(null),following:true,onScroll:()=>{},jumpToLatest:()=>{}});
  export const useState=initial=>{const i=c.cursor++;if(!(i in c.slots))c.slots[i]=typeof initial==='function'?initial():initial;return[c.slots[i],v=>{c.writes++;if(typeof v==='function'){v(c.slots[i]);c.slots[i]=v(c.slots[i]);}else c.slots[i]=v;}];};
  export const useMemo=(fn,deps)=>{const i=c.cursor++,old=c.slots[i];if(!old||changed(old.deps,deps))c.slots[i]={value:fn(),deps};return c.slots[i].value;};export const useCallback=(fn,deps)=>useMemo(()=>fn,deps);
  export const useEffect=(fn,deps)=>{const i=c.cursor++,old=c.slots[i];if(!old||!deps||changed(old.deps,deps))c.effects.push(()=>{old?.cleanup?.();c.slots[i]={deps,cleanup:fn()};});};

@@ -1,0 +1,347 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-dinner.json",
+    "curriculumSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "passagePath": "public/lesson-content/es/master-travel-dinner.json",
+    "passageSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 3,
+      "stableId": "master-travel-dinner:3:fr-en",
+      "sourceTitleEnglish": "Teach a Friend to Eat Calçots at a Masia",
+      "sourceObjectiveEnglish": "Give step-by-step instructions for peeling, dipping, and eating calçots, then correct your friend as they try.",
+      "sourceSpeakingEnglish": "You are at a masia near Valls, and the AI is your friend Aisha, trying calçots for the first time: teach her step by step to hold, peel, dip and eat one, and correct her as she tries, with commands like cógelo, pélalo, mójalo and no lo muerdas.",
+      "title": "Teach a Friend to Eat Calçots at a Masia",
+      "objective": "Give step-by-step instructions for peeling, dipping, and eating calçots, then correct your friend as they try.",
+      "focus": "À l'impératif affirmatif, le pronom objet suit le verbe avec un trait d'union : tiens-le, épluche-le, trempe-le. À la négation, il précède le verbe : ne le mords pas. Les verbes en -er perdent le -s au tutoiement : tire, épluche, trempe, mange. Le pronom réfléchi suit aussi le verbe dans penche-toi. On tutoie Aisha, et on vouvoie Jordi : pourriez-vous nous le montrer ? Les mots catalans calçot, calçotada, romesco, porrón et butifarra nomment les éléments de la scène.",
+      "scene": "At a masia near Valls, you teach your friend Aisha to eat calçots. Jordi serves grilled calçots on a clay roof tile with bibs and romesco sauce. He demonstrates too quickly, then slowly repeats the steps. Guide Aisha through holding the green stalk, pulling off the charred layer, dipping the white part, and eating it from the bottom. Correct her when she brings the black tip to her mouth. Afterward, Jordi serves grilled Catalan pork sausage and passes the porrón for a toast.",
+      "forms": [
+        {
+          "meaning": "hold it; affirmative command: tiens-le (tu), tenez-le (vous)",
+          "example": "Tiens-le par le haut, par la tige verte.",
+          "question": "Par quelle partie le tiens-tu ?",
+          "infinitive": "tenir",
+          "politeRequest": "tenez-le"
+        },
+        {
+          "meaning": "peel it; affirmative command: épluche-le (tu), épluchez-le (vous)",
+          "example": "Épluche-le d'un coup, n'aie pas peur.",
+          "question": "Comment l'épluches-tu ?",
+          "infinitive": "éplucher",
+          "politeRequest": "épluchez-le"
+        },
+        {
+          "meaning": "dip it; affirmative command: trempe-le (tu), trempez-le (vous)",
+          "example": "Maintenant, trempe-le bien dans la sauce romesco.",
+          "question": "Dans quelle sauce le trempes-tu ?",
+          "infinitive": "tremper",
+          "politeRequest": "trempez-le"
+        },
+        {
+          "meaning": "do not bite it; negative command: ne le mords pas (tu), ne le mordez pas (vous)",
+          "example": "Non, Aisha, ne le mords pas là ; cette partie est calcinée.",
+          "question": "Pourquoi ne le mords-tu pas par la pointe noire ?",
+          "infinitive": "mordre",
+          "politeRequest": "ne le mordez pas"
+        },
+        {
+          "meaning": "pull; affirmative command: tire (tu), tirez (vous)",
+          "example": "Avec l'autre main, tire la couche calcinée vers le bas.",
+          "question": "Dans quelle direction tires-tu la couche calcinée ?",
+          "infinitive": "tirer",
+          "politeRequest": "tirez"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "le calçot (oignon de printemps grillé)",
+          "en": "the calçot (grilled spring onion)",
+          "kind": "term"
+        },
+        {
+          "fr": "la calçotada (festin de calçots)",
+          "en": "the calçot feast",
+          "kind": "term"
+        },
+        {
+          "fr": "la tuile en terre cuite (plat de service)",
+          "en": "the clay roof tile (serving dish)",
+          "kind": "term"
+        },
+        {
+          "fr": "le bavoir",
+          "en": "the bib",
+          "kind": "term"
+        },
+        {
+          "fr": "la sauce romesco",
+          "en": "the romesco sauce",
+          "kind": "term"
+        },
+        {
+          "fr": "la couche extérieure calcinée",
+          "en": "the charred outer layer",
+          "kind": "term"
+        },
+        {
+          "fr": "la partie blanche",
+          "en": "the white part",
+          "kind": "term"
+        },
+        {
+          "fr": "l'extrémité de la racine",
+          "en": "the root end",
+          "kind": "term"
+        },
+        {
+          "fr": "la tige verte",
+          "en": "the green stalk",
+          "kind": "term"
+        },
+        {
+          "fr": "le porrón (pichet à vin en verre avec bec verseur)",
+          "en": "the glass wine pitcher with a spout",
+          "kind": "term"
+        },
+        {
+          "fr": "la butifarra (saucisse de porc catalane)",
+          "en": "the Catalan pork sausage",
+          "kind": "term"
+        },
+        {
+          "fr": "les sarments de vigne (pour le feu)",
+          "en": "the vine shoots (for the fire)",
+          "kind": "term"
+        },
+        {
+          "fr": "le jeune oignon",
+          "en": "the young onion",
+          "kind": "term"
+        },
+        {
+          "fr": "le papier journal (pour envelopper)",
+          "en": "the newspaper (for wrapping)",
+          "kind": "term"
+        },
+        {
+          "fr": "Tiens-le par le haut, par la tige verte.",
+          "en": "Hold it at the top, by the green stalk.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Avec l'autre main, tire la couche calcinée vers le bas.",
+          "en": "With your other hand, pull the charred layer down.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Épluche-le d'un coup, n'aie pas peur.",
+          "en": "Peel it in one go, don't be afraid.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Maintenant, trempe-le bien dans la sauce romesco.",
+          "en": "Now dip it well in the romesco sauce.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Non, Aisha, ne le mords pas là ; cette partie est calcinée.",
+          "en": "No, Aisha, don't bite it there; that part is charred.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Soulève-le, penche-toi un peu en arrière et mange-le par le bas.",
+          "en": "Lift it, lean back a little and eat it from the bottom.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Mets le bavoir, parce que la sauce tache beaucoup.",
+          "en": "Put on the bib, because the sauce stains a lot.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Jordi, pourriez-vous nous le montrer encore une fois, s'il vous plaît ?",
+          "en": "Jordi, could you show us again, please?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "Aisha et moi arrivons dans une masia près de Valls pour fêter notre première calçotada.",
+          "en": "Aisha and I arrive at a masia near Valls to celebrate our first calçot feast."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Dehors, le cuisinier fait griller les calçots sur des sarments de vigne, qui produisent une flamme très vive.",
+          "en": "Outside, the cook grills the calçots over the vine shoots, which give off a very strong flame."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Jordi, le serveur, nous explique que le calçot est un jeune oignon typique de cette région.",
+          "en": "Jordi, the waiter, explains to us that the calçot is a young onion typical of this area."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Ensuite, on enveloppe les calçots dans du papier journal pour les garder au chaud, et Jordi les sert sur une tuile en terre cuite.",
+          "en": "Then they wrap the calçots in newspaper to keep them warm, and Jordi serves them on a clay roof tile."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Il nous laisse aussi un bavoir à chacun et un bol de sauce romesco au milieu de la table.",
+          "en": "He also leaves a bib for each of us and a bowl of romesco sauce in the middle of the table."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Jordi en mange un devant nous, mais il le fait si vite qu'Aisha ne voit rien.",
+          "en": "Jordi eats one in front of us, but he does it so fast that Aisha sees nothing."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Je lui demande : « Jordi, pourriez-vous nous le montrer encore une fois, s'il vous plaît ? »",
+          "en": "I ask him: Jordi, could you show us again, please?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Cette fois, il le fait lentement, puis c'est à moi de l'expliquer à Aisha, étape par étape.",
+          "en": "This time he does it slowly, and then it is my turn to explain it to Aisha step by step."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "D'abord, je lui dis : « Mets le bavoir, parce que la sauce tache beaucoup. »",
+          "en": "First I tell her: Put on the bib, because the sauce stains a lot."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Ensuite, je lui explique : « Tiens-le par le haut, par la tige verte. »",
+          "en": "Then I explain: Hold it at the top, by the green stalk."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Puis j'ajoute : « Avec l'autre main, tire la couche calcinée vers le bas. »",
+          "en": "Then I add: With your other hand, pull the charred layer down."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Aisha tire timidement et la couche calcinée se déchire avant d'arriver à l'extrémité de la racine.",
+          "en": "Aisha pulls timidly and the charred layer breaks before it reaches the root end."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Je lui dis : « Épluche-le d'un coup, n'aie pas peur. »",
+          "en": "I tell her: Peel it in one go, don't be afraid."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Cette fois, la partie blanche sort propre, mais Aisha porte le calçot à sa bouche par la pointe noire.",
+          "en": "This time the white part comes out clean, but Aisha brings the calçot to her mouth by the black tip."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Je m'écrie : « Non, Aisha, ne le mords pas là ; cette partie est calcinée. »",
+          "en": "I shout: No, Aisha, don't bite it there; that part is charred."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Alors je lui explique : « Maintenant, trempe-le bien dans la sauce romesco. »",
+          "en": "Then I explain: Now dip it well in the romesco sauce."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Enfin, je lui montre : « Soulève-le, penche-toi un peu en arrière et mange-le par le bas. »",
+          "en": "Finally I show her: Lift it, lean back a little and eat it from the bottom."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Après les calçots arrive la butifarra, la saucisse de porc catalane grillée, et Jordi nous passe le porrón pour trinquer.",
+          "en": "After the calçots comes the grilled Catalan pork sausage, and Jordi passes us the porrón to make a toast."
+        }
+      ],
+      "speaking": {
+        "role": "You, teaching your friend Aisha at a masia near Valls.",
+        "partnerRole": "Aisha, trying calçots for the first time, played by the AI.",
+        "opening": "Mets le bavoir, parce que la sauce tache beaucoup.",
+        "goal": "Give step-by-step instructions for peeling, dipping, and eating calçots, then correct your friend as they try.",
+        "closure": "Soulève-le, penche-toi un peu en arrière et mange-le par le bas.",
+        "wordBank": [
+          "le calçot (oignon de printemps grillé)",
+          "la calçotada (festin de calçots)",
+          "la tuile en terre cuite (plat de service)",
+          "le bavoir",
+          "la sauce romesco",
+          "la couche extérieure calcinée",
+          "la partie blanche",
+          "l'extrémité de la racine",
+          "la tige verte",
+          "le porrón (pichet à vin en verre avec bec verseur)",
+          "la butifarra (saucisse de porc catalane)",
+          "les sarments de vigne (pour le feu)",
+          "le jeune oignon",
+          "le papier journal (pour envelopper)",
+          "Tiens-le par le haut, par la tige verte.",
+          "Avec l'autre main, tire la couche calcinée vers le bas.",
+          "Épluche-le d'un coup, n'aie pas peur.",
+          "Maintenant, trempe-le bien dans la sauce romesco.",
+          "Non, Aisha, ne le mords pas là ; cette partie est calcinée.",
+          "Soulève-le, penche-toi un peu en arrière et mange-le par le bas.",
+          "Mets le bavoir, parce que la sauce tache beaucoup.",
+          "Jordi, pourriez-vous nous le montrer encore une fois, s'il vous plaît ?"
+        ],
+        "objectives": [
+          "Tell Aisha step by step to hold, peel, dip, and eat a calçot.",
+          "Tell Aisha to put on the bib and hold the green stalk at the top.",
+          "Explain how to pull the charred layer down and peel the calçot in one go.",
+          "Correct Aisha when she tries to bite the charred end.",
+          "Tell her to dip it in romesco, lift it, lean back a little, and eat it from the bottom."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "the calçot (grilled spring onion)",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "the white part",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Hold it at the top, by the green stalk.",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "the bib",
+          "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "No, Aisha, don't bite it there; that part is charred.",
+          "sourceCard": 19,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Jordi, could you show us again, please?",
+          "sourceCard": 22,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "model": "claude-sonnet-5-5"
+    }
+  ]
+}

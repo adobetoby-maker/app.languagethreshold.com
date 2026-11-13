@@ -1,0 +1,357 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-dinner.json",
+    "curriculumSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "passagePath": "public/lesson-content/es/master-travel-dinner.json",
+    "passageSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 5,
+      "stableId": "master-travel-dinner:5:fr-en",
+      "sourceTitleEnglish": "Pre-Ordered Suckling Pig Was Never Logged",
+      "sourceObjectiveEnglish": "Explain what was arranged by phone, ask what went wrong, and propose realistic options for a group of six.",
+      "sourceSpeakingEnglish": "You are the guest who pre-ordered the suckling pig, and the AI is Paloma, the asador manager: explain what was arranged by phone with the preterite and imperfect (cuando llamé, me dijo que...), ask what happened, and propose options for 6 with ¿podrían...? and esperaríamos.",
+      "title": "Pre-Ordered Suckling Pig Was Never Logged",
+      "objective": "Explain what was arranged by phone, ask what went wrong, and propose realistic options for a group of six.",
+      "focus": "« J’ai appelé » et « la personne a dit » présentent des événements ponctuels ; « c’était noté » décrit la situation rapportée à l’imparfait. Pour demander une solution avec politesse, employez « Pourriez-vous… ? ». Pour une possibilité conditionnelle, dites « Si vous aviez…, nous reviendrions… » ou « Nous attendrions… ». Expliquez la commande pour six, demandez ce qui s’est passé et comparez l’agneau de lait ce soir avec un retour demain.",
+      "scene": "At a traditional asador in Segovia, Sam arrives with cousin Mark and four friends. The roast suckling pig ordered a week earlier for six is absent from Paloma’s order book. It was promised for 21:00, but the wood-fired oven needs four hours. Ask what happened without blaming anyone. Discuss roast lamb after 90 minutes, soup and beans while waiting, and a return tomorrow at 14:00.",
+      "forms": [
+        {
+          "infinitive": "appeler",
+          "meaning": "to call; j’appelle, nous appelons",
+          "example": "J’ai appelé l’asador une semaine à l’avance.",
+          "question": "Quand ai-je appelé l’asador ?",
+          "politeRequest": "appelez"
+        },
+        {
+          "infinitive": "dire",
+          "meaning": "to say, to tell; je dis, nous disons",
+          "example": "La personne qui a répondu a dit que la commande était notée.",
+          "question": "Qu’a dit la personne qui a répondu ?",
+          "politeRequest": "dites"
+        },
+        {
+          "infinitive": "se passer",
+          "meaning": "to happen; il se passe, il s’est passé",
+          "example": "Savez-vous ce qui s’est passé avec la commande ?",
+          "question": "Que s’est-il passé avec la commande ?",
+          "politeRequest": "Que s’est-il passé ?"
+        },
+        {
+          "infinitive": "pouvoir",
+          "meaning": "can, to be able; je peux, nous pouvons",
+          "example": "Pourriez-vous préparer de l’agneau de lait rôti pour six personnes ?",
+          "question": "Que pourraient-ils préparer pour six ?",
+          "politeRequest": "Pourriez-vous… ?"
+        },
+        {
+          "infinitive": "attendre",
+          "meaning": "to wait; j’attends, nous attendons",
+          "example": "Nous attendrions l’agneau pendant environ 90 minutes.",
+          "question": "Combien de temps attendrions-nous l’agneau ?",
+          "politeRequest": "attendez"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "le cochon de lait rôti",
+          "en": "the roast suckling pig",
+          "kind": "term"
+        },
+        {
+          "fr": "l’asador",
+          "en": "the roast house",
+          "kind": "term",
+          "note": "Restaurant traditionnel de viandes rôties à Ségovie."
+        },
+        {
+          "fr": "la commande passée à l’avance",
+          "en": "the pre-order",
+          "kind": "term"
+        },
+        {
+          "fr": "la gérante",
+          "en": "the manager (woman)",
+          "kind": "term"
+        },
+        {
+          "fr": "le four à bois",
+          "en": "the wood-fired oven",
+          "kind": "term"
+        },
+        {
+          "fr": "le plat à rôtir en terre cuite",
+          "en": "the clay roasting dish",
+          "kind": "term"
+        },
+        {
+          "fr": "la trace écrite",
+          "en": "the record",
+          "kind": "term"
+        },
+        {
+          "fr": "le carnet de commandes",
+          "en": "the order book",
+          "kind": "term"
+        },
+        {
+          "fr": "l’agneau de lait rôti",
+          "en": "the roast suckling lamb",
+          "kind": "term"
+        },
+        {
+          "fr": "les gros haricots blancs",
+          "en": "the giant white beans",
+          "kind": "term"
+        },
+        {
+          "fr": "la soupe à l’ail castillane",
+          "en": "the Castilian garlic soup",
+          "kind": "term"
+        },
+        {
+          "fr": "le ponche segoviano",
+          "en": "the Segovian custard cake",
+          "kind": "term",
+          "note": "Gâteau de Ségovie garni de crème pâtissière."
+        },
+        {
+          "fr": "le malentendu",
+          "en": "the misunderstanding",
+          "kind": "term"
+        },
+        {
+          "fr": "l’acompte",
+          "en": "the deposit",
+          "kind": "term"
+        },
+        {
+          "fr": "l’appel téléphonique",
+          "en": "the phone call",
+          "kind": "term"
+        },
+        {
+          "fr": "le délai de commande",
+          "en": "the advance notice",
+          "kind": "term",
+          "note": "Le temps laissé au restaurant avant le repas pour préparer une commande."
+        },
+        {
+          "fr": "Quand j’ai appelé, la personne qui a répondu a dit que c’était noté.",
+          "en": "When I called, the person who answered said it was written down.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "On m’a dit que le cochon de lait serait prêt à 21 h.",
+          "en": "They told me the suckling pig would be ready at 21:00.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Savez-vous ce qui s’est passé avec la commande passée à l’avance ?",
+          "en": "Do you know what happened with the pre-order?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je n’accuse personne, je veux seulement comprendre.",
+          "en": "I'm not blaming anyone, I just want to understand it.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pourriez-vous nous servir de l’agneau de lait rôti à la place du cochon de lait ?",
+          "en": "Could you serve us roast lamb instead of the suckling pig?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Si vous aviez du cochon de lait demain, nous reviendrions à 14 h.",
+          "en": "If you had suckling pig tomorrow, we would come back at 14:00.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pourriez-vous nous garder la commande pour demain midi ?",
+          "en": "Could you hold the order for us for tomorrow at noon?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Mark, le cochon de lait n’est pas là ; je vais t’expliquer les possibilités.",
+          "en": "Mark, the suckling pig isn't here; I'll tell you the options now.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "Samedi soir, Sam arrive avec son cousin Mark et quatre amis dans un asador traditionnel de Ségovie.",
+          "en": "On Saturday night, Sam arrives with his cousin Mark and four friends at a traditional roast house in Segovia."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Une semaine plus tôt, Sam a commandé par téléphone un cochon de lait rôti pour six personnes, bien à l’avance.",
+          "en": "A week ago, Sam pre-ordered a roast suckling pig for 6 people by phone, with plenty of advance notice."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Paloma, la gérante, vérifie deux fois le carnet de commandes près de l’entrée.",
+          "en": "Paloma, the manager, checks the order book by the entrance twice."
+        },
+        {
+          "speaker": "Paloma",
+          "fr": "Paloma : Je suis désolée, mais je ne trouve aucune trace de votre commande pour ce soir.",
+          "en": "Paloma: I'm sorry, but I have no record of your pre-order for tonight."
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Sam : Quand j’ai appelé, la personne qui a répondu a dit que c’était noté.",
+          "en": "Sam: When I called, the person who answered said it was written down."
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Sam : On m’a dit que le cochon de lait serait prêt à 21 h.",
+          "en": "Sam: They told me the suckling pig would be ready at 21:00."
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Sam : Il m’a également dit qu’aucun acompte n’était nécessaire parce que nous étions un petit groupe.",
+          "en": "Sam: He also told me no deposit was needed because we were a small group."
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Sam : Savez-vous ce qui s’est passé avec la commande passée à l’avance ?",
+          "en": "Sam: Do you know what happened with the pre-order?"
+        },
+        {
+          "speaker": "Paloma",
+          "fr": "Paloma : Je pense qu’il y a eu un malentendu : le collègue qui a pris l’appel était nouveau et n’a pas noté la commande.",
+          "en": "Paloma: I think it was a misunderstanding, because the coworker who took the phone call was new and didn't write it down."
+        },
+        {
+          "speaker": "Paloma",
+          "fr": "Paloma : De plus, il faut environ quatre heures de cuisson au four à bois pour un cochon de lait ; il ne peut donc pas être prêt ce soir.",
+          "en": "Paloma: Also, the wood-fired oven needs about 4 hours for a suckling pig, so it can't be ready tonight."
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Sam : Je n’accuse personne, je veux seulement comprendre.",
+          "en": "Sam: I'm not blaming anyone, I just want to understand it."
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Sam : Pourriez-vous nous servir de l’agneau de lait rôti à la place du cochon de lait ?",
+          "en": "Sam: Could you serve us roast lamb instead of the suckling pig?"
+        },
+        {
+          "speaker": "Paloma",
+          "fr": "Paloma : Oui, nous pouvons préparer l’agneau dans un plat à rôtir en terre cuite ; il sortirait du four dans environ 90 minutes.",
+          "en": "Paloma: Yes, we can prepare the lamb in the clay roasting dish, and it would come out of the oven in about 90 minutes."
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Sam : Nous attendrions sans problème ; entre-temps, nous commanderions la soupe à l’ail castillane et de gros haricots blancs à partager.",
+          "en": "Sam: We would wait, no problem, and in the meantime we would order the Castilian garlic soup and some giant white beans to share."
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Sam : Si vous aviez du cochon de lait demain, nous reviendrions à 14 h.",
+          "en": "Sam: If you had suckling pig tomorrow, we would come back at 14:00."
+        },
+        {
+          "speaker": "Paloma",
+          "fr": "Paloma : Parfait, je le note tout de suite. Pour le désagrément, je vous offre le ponche segoviano en dessert.",
+          "en": "Paloma: Perfect, I'll write it down right now and, for the trouble, the Segovian custard cake for dessert is on me."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Sam se tourne vers son cousin et lui dit : « Mark, le cochon de lait n’est pas là ; je vais t’expliquer les possibilités. »",
+          "en": "Sam turns to his cousin and tells him: Mark, the suckling pig isn't here; I'll tell you the options now."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "the roast suckling pig",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "the record",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "When I called, the person who answered said it was written down.",
+          "sourceCard": 17,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "the deposit",
+          "sourceCard": 14,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Could you serve us roast lamb instead of the suckling pig?",
+          "sourceCard": 21,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "If you had suckling pig tomorrow, we would come back at 14:00.",
+          "sourceCard": 22,
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "You, Sam, who ordered a roast suckling pig for six in Segovia.",
+        "partnerRole": "Paloma, the asador manager, played by the AI.",
+        "opening": "Quand j’ai appelé, la personne qui a répondu a dit que c’était noté.",
+        "goal": "Explain what was arranged by phone, ask what went wrong, and propose realistic options for a group of six.",
+        "closure": "Pourriez-vous nous servir de l’agneau de lait rôti à la place du cochon de lait ?",
+        "wordBank": [
+          "le cochon de lait rôti",
+          "l’asador",
+          "la commande passée à l’avance",
+          "la gérante",
+          "le four à bois",
+          "le plat à rôtir en terre cuite",
+          "la trace écrite",
+          "le carnet de commandes",
+          "l’agneau de lait rôti",
+          "les gros haricots blancs",
+          "la soupe à l’ail castillane",
+          "le ponche segoviano",
+          "le malentendu",
+          "l’acompte",
+          "l’appel téléphonique",
+          "le délai de commande",
+          "Quand j’ai appelé, la personne qui a répondu a dit que c’était noté.",
+          "On m’a dit que le cochon de lait serait prêt à 21 h.",
+          "Savez-vous ce qui s’est passé avec la commande passée à l’avance ?",
+          "Je n’accuse personne, je veux seulement comprendre.",
+          "Pourriez-vous nous servir de l’agneau de lait rôti à la place du cochon de lait ?",
+          "Si vous aviez du cochon de lait demain, nous reviendrions à 14 h.",
+          "Pourriez-vous nous garder la commande pour demain midi ?",
+          "Mark, le cochon de lait n’est pas là ; je vais t’expliquer les possibilités."
+        ],
+        "objectives": [
+          "Explain that you ordered roast suckling pig for six a week in advance and were told it would be ready at 21:00.",
+          "Ask Paloma what happened to the pre-order without blaming anyone.",
+          "Ask whether roast lamb could be served instead and whether the group could wait about 90 minutes.",
+          "Mention soup and giant white beans while waiting.",
+          "Propose returning tomorrow at 14:00 if roast suckling pig is available."
+        ]
+      },
+      "reviewed": false,
+      "model": "candidate requested Haiku 5.5; actual CLI metadata Sonnet 5.5; Opus 5.5 read-only critique and source-grounded self-check corrections recorded"
+    }
+  ]
+}

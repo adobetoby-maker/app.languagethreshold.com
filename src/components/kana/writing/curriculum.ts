@@ -101,6 +101,26 @@ export const KATAKANA_GROUPS: CharGroup[] = [
     chars: ["ナ", "ニ", "ヌ", "ネ", "ノ"],
     romaji: ["na", "ni", "nu", "ne", "no"],
   },
+  {
+    id: "k-h",
+    name: "H-row ハヒフヘホ",
+    chars: ["ハ", "ヒ", "フ", "ヘ", "ホ"],
+    romaji: ["ha", "hi", "fu", "he", "ho"],
+  },
+  {
+    id: "k-m",
+    name: "M-row マミムメモ",
+    chars: ["マ", "ミ", "ム", "メ", "モ"],
+    romaji: ["ma", "mi", "mu", "me", "mo"],
+  },
+  { id: "k-y", name: "Y-row ヤユヨ", chars: ["ヤ", "ユ", "ヨ"], romaji: ["ya", "yu", "yo"] },
+  {
+    id: "k-r",
+    name: "R-row ラリルレロ",
+    chars: ["ラ", "リ", "ル", "レ", "ロ"],
+    romaji: ["ra", "ri", "ru", "re", "ro"],
+  },
+  { id: "k-w", name: "W-row ワヲン", chars: ["ワ", "ヲ", "ン"], romaji: ["wa", "wo", "n"] },
 ];
 
 // Words built from early hiragana groups — shown after the group is practiced

@@ -1,3 +1,4 @@
+import { orCleaningTeaching, OR_CLEANING_VERSION } from "./or-cleaning.ts";
 import { placeTeaching, PLACE_VERSION } from "./place-directions.ts";
 import { soundTeaching, SOUND_PRACTICE_VERSION } from "./sound-like-a-native.ts";
 import { spanishBasicsTeaching, SPANISH_BASICS_VERSION } from "./spanish-basics.ts";
@@ -15,6 +16,8 @@ export function moduleTeachingSettings(
   target: string,
   native: string,
 ) {
+  const cleaning = orCleaningTeaching(moduleId, n, target, native);
+  if (cleaning) return cleaning;
   if (target === "English" && native === "Spanish") return militaryTeachingSettings(moduleId, n);
   if (target === "Japanese" && native === "English")
     return japaneseBasicsTeaching(moduleId, n, target, native);
@@ -37,6 +40,7 @@ export function moduleTeachingSettings(
 
 export const ROOFING_PRACTICE_VERSION = "roofing-es-en-2026-10-16-draft";
 export function modulePracticeVersion(moduleId: string, target: string, native: string) {
+  if (orCleaningTeaching(moduleId, 1, target, native)) return OR_CLEANING_VERSION;
   if (
     target === "Japanese" &&
     native === "English" &&

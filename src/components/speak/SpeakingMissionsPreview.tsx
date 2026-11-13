@@ -1,3 +1,4 @@
+import { useChatFollow } from "@/hooks/use-chat-follow";
 import { SpeakingConversationControls } from "./SpeakingConversationControls";
 import { SpeakTutorDock, type SpeakTutorSelection } from "./SpeakTutorDock";
 import { conversationGoogleVoice } from "@/lib/conversation-voice";
@@ -300,7 +301,8 @@ export function SpeakingMissionsPreview({
   const recognitionStopTimerRef = useRef<number | null>(null);
   const requestRef = useRef<AbortController | null>(null);
   const translationRef = useRef<AbortController | null>(null);
-  const transcriptRef = useRef<HTMLDivElement | null>(null);
+  const chatFollow = useChatFollow(turns);
+  const { containerRef: transcriptRef, contentRef, onScroll: onTranscriptScroll } = chatFollow;
   const viewTopRef = useRef<HTMLElement | null>(null);
   const previousViewKeyRef = useRef<string | null>(null);
   const sessionStartedAtRef = useRef<number | null>(null);
@@ -524,13 +526,6 @@ export function SpeakingMissionsPreview({
       });
     return () => controller.abort();
   }, [missionLocale]);
-
-  useEffect(() => {
-    transcriptRef.current?.scrollTo({
-      top: transcriptRef.current.scrollHeight,
-      behavior: "smooth",
-    });
-  }, [turns, interim, status]);
 
   const stopAudio = useCallback(() => {
     audioRef.current?.abort();
@@ -2032,7 +2027,7 @@ export function SpeakingMissionsPreview({
       style={practiceViewport.style}
       data-testid="focused-speaking-frame"
       data-speaking-session="active"
-      className="lt-speaking-frame scroll-mt-4 desktop:scroll-mt-24 flex min-h-0 flex-col gap-2 overflow-y-auto"
+      className="lt-speaking-frame scroll-mt-4 desktop:scroll-mt-24 flex min-h-0 flex-col gap-2 overflow-hidden"
     >
       <div className="relative flex shrink-0 items-start justify-between gap-2">
         <div className="min-w-0">
@@ -2306,106 +2301,123 @@ export function SpeakingMissionsPreview({
 
       <div
         ref={transcriptRef}
-        className="min-h-32 flex-1 overflow-y-auto overscroll-contain rounded-2xl border border-border/60 bg-card/40 p-3"
+        onScroll={onTranscriptScroll}
+        className="min-h-0 flex-1 overflow-y-auto overscroll-contain rounded-2xl border border-border/60 bg-card/40 p-3"
         role="region"
         aria-label="Conversation"
         aria-live="polite"
       >
-        <ul className="flex flex-col gap-3">
-          {turns.map((turn) => (
-            <li
-              key={turn.id}
-              className={turn.role === "learner" ? "flex justify-end" : "flex justify-start"}
-            >
-              <div className="max-w-[88%]">
-                <div
-                  className={
-                    turn.role === "learner"
-                      ? "rounded-2xl rounded-br-sm bg-primary px-4 py-2.5 text-sm text-primary-foreground"
-                      : "rounded-2xl rounded-bl-sm border border-gold/30 bg-background/70 px-4 py-2.5 text-sm text-foreground"
-                  }
-                >
-                  {turn.role === "partner" && partnerAudioSource !== "text" && (
-                    <button
-                      type="button"
-                      onClick={() => void speakPartnerText(turn.text)}
-                      className="mr-2 text-gold"
-                      aria-label="Replay partner speech"
-                    >
-                      🔊
-                    </button>
-                  )}
-                  <span className="furigana-line leading-relaxed">
-                    {turn.role === "partner" && hideReplyText ? (
-                      "Audio reply"
-                    ) : (
-                      <LongPressWordText
-                        text={turn.text}
-                        onWordLookup={openWordDefinition}
-                        reading={readingScript}
-                      />
-                    )}
-                  </span>
-                </div>
-                {turn.role === "partner" && (
-                  <div className="mt-1">
-                    <button
-                      type="button"
-                      aria-expanded={revealedTranslations.includes(turn.id)}
-                      disabled={translatingTurnId === turn.id}
-                      onClick={() => void togglePartnerTranslation(turn)}
-                      className="inline-flex min-h-10 items-center gap-1.5 rounded-lg px-2 text-xs font-medium text-gold disabled:opacity-60"
-                    >
-                      <Languages className="h-4 w-4" aria-hidden="true" />
-                      {translatingTurnId === turn.id
-                        ? "Translating…"
-                        : revealedTranslations.includes(turn.id)
-                          ? "Hide translation"
-                          : "Translate"}
-                    </button>
-                    {revealedTranslations.includes(turn.id) && translations[turn.id] && (
-                      <p
-                        id={`translation-${turn.id}`}
-                        className="rounded-xl border border-border/60 bg-background/60 px-3 py-2 text-sm leading-relaxed text-foreground"
-                      >
-                        {translations[turn.id]}
-                      </p>
-                    )}
+        <div ref={contentRef}>
+          <ul className="flex flex-col gap-3">
+            {turns.map((turn) => (
+              <li
+                key={turn.id}
+                className={turn.role === "learner" ? "flex justify-end" : "flex justify-start"}
+              >
+                <div className="max-w-[88%]">
+                  <div
+                    className={`mb-1 text-xs font-semibold text-muted-foreground ${turn.role === "learner" ? "text-right" : "text-left"}`}
+                  >
+                    {turn.role === "learner" ? "You" : "Partner"}
                   </div>
-                )}
-                {showFeedback &&
-                  turn.feedback?.map((feedback, index) => (
-                    <p
-                      key={`${turn.id}-feedback-${index}`}
-                      className="mt-1 rounded-xl bg-gold/10 px-3 py-1.5 text-xs text-gold"
-                    >
-                      💡 {feedback}
-                    </p>
-                  ))}
-              </div>
-            </li>
-          ))}
-          {interim && (
-            <li className="flex justify-end">
-              <div className="max-w-[88%] rounded-2xl border border-dashed border-primary/50 bg-primary/10 px-4 py-2.5 text-sm">
-                {interim}
-              </div>
-            </li>
-          )}
-          {status === "thinking" && (
-            <li className="flex justify-start">
-              <div className="rounded-2xl border border-gold/20 px-4 py-2 text-xs text-muted-foreground">
-                Partner is responding…
-              </div>
-            </li>
-          )}
-          {translationError && (
-            <li role="alert" className="text-sm text-[var(--streak-ink)]">
-              {translationError}
-            </li>
-          )}
-        </ul>
+                  <div
+                    className={
+                      turn.role === "learner"
+                        ? "rounded-2xl rounded-br-sm bg-primary px-4 py-2.5 text-sm text-primary-foreground"
+                        : "rounded-2xl rounded-bl-sm border border-gold/30 bg-background/70 px-4 py-2.5 text-sm text-foreground"
+                    }
+                  >
+                    {turn.role === "partner" && partnerAudioSource !== "text" && (
+                      <button
+                        type="button"
+                        onClick={() => void speakPartnerText(turn.text)}
+                        className="mr-2 text-gold"
+                        aria-label="Replay partner speech"
+                      >
+                        🔊
+                      </button>
+                    )}
+                    <span className="furigana-line leading-relaxed">
+                      {turn.role === "partner" && hideReplyText ? (
+                        "Audio reply"
+                      ) : (
+                        <LongPressWordText
+                          text={turn.text}
+                          onWordLookup={openWordDefinition}
+                          reading={readingScript}
+                        />
+                      )}
+                    </span>
+                  </div>
+                  {turn.role === "partner" && (
+                    <div className="mt-1">
+                      <button
+                        type="button"
+                        aria-expanded={revealedTranslations.includes(turn.id)}
+                        disabled={translatingTurnId === turn.id}
+                        onClick={() => void togglePartnerTranslation(turn)}
+                        className="inline-flex min-h-10 items-center gap-1.5 rounded-lg px-2 text-xs font-medium text-gold disabled:opacity-60"
+                      >
+                        <Languages className="h-4 w-4" aria-hidden="true" />
+                        {translatingTurnId === turn.id
+                          ? "Translating…"
+                          : revealedTranslations.includes(turn.id)
+                            ? "Hide translation"
+                            : "Translate"}
+                      </button>
+                      {revealedTranslations.includes(turn.id) && translations[turn.id] && (
+                        <p
+                          id={`translation-${turn.id}`}
+                          className="rounded-xl border border-border/60 bg-background/60 px-3 py-2 text-sm leading-relaxed text-foreground"
+                        >
+                          {translations[turn.id]}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                  {showFeedback &&
+                    turn.feedback?.map((feedback, index) => (
+                      <p
+                        key={`${turn.id}-feedback-${index}`}
+                        className="mt-1 rounded-xl bg-gold/10 px-3 py-1.5 text-xs text-gold"
+                      >
+                        💡 {feedback}
+                      </p>
+                    ))}
+                </div>
+              </li>
+            ))}
+            {interim && (
+              <li className="flex justify-end">
+                <div className="max-w-[88%] rounded-2xl border border-dashed border-primary/50 bg-primary/10 px-4 py-2.5 text-sm">
+                  {interim}
+                </div>
+              </li>
+            )}
+            {status === "thinking" && (
+              <li className="flex justify-start">
+                <div className="rounded-2xl border border-gold/20 px-4 py-2 text-xs text-muted-foreground">
+                  Partner is responding…
+                </div>
+              </li>
+            )}
+            {translationError && (
+              <li role="alert" className="text-sm text-[var(--streak-ink)]">
+                {translationError}
+              </li>
+            )}
+          </ul>
+        </div>
       </div>
+      {!chatFollow.following && (
+        <button
+          type="button"
+          onClick={chatFollow.jumpToLatest}
+          className="shrink-0 self-center rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold"
+        >
+          ↓ Latest response
+        </button>
+      )}
 
       <SpeakTutorDock
         scope={selectedMission.id}

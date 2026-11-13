@@ -1,0 +1,380 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "masterPath": "src/data/core60/es/master-travel-dinner.json",
+    "masterSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "contentPath": "public/lesson-content/es/master-travel-dinner.json",
+    "contentSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 16,
+      "stableId": "master-travel-dinner:16:ja-en",
+      "sourceTitleEnglish": "File an Official Complaint Form for a Kept Deposit",
+      "sourceObjectiveEnglish": "Read the official complaint form's instructions and write a formal, factual complaint about a deposit that was kept.",
+      "sourceSpeakingEnglish": "You are the customer whose booking was cancelled, and the AI is Señor Ortega, the manager: read the form's instructions aloud with passive se (se rellena, se entrega), state the facts formally, request the refund, and ask which copy goes where.",
+      "title": "File an Official Complaint Form for a Kept Deposit",
+      "objective": "Read the official complaint form's instructions and write a formal, factual complaint about a deposit that was kept.",
+      "focus": "「〜てください」「〜ことになっています」「〜によりますと」「〜ていただけますか」「〜れました（受身）」を使い、公式の苦情用紙の説明を読み、事実を丁寧に述べて、返金と三枚つづりの用紙の扱いを依頼します。",
+      "scene": "スペインのマラガにあるラ・カレタというレストランで、エマ・コリンズが支配人のオルテガさんと話しています。土曜日の夕食の予約は取り消されましたが、予約時に支払った60ユーロの預かり金は返金されていません。エマは、三枚つづりの公式の苦情用紙（オハ・デ・レクラマシオネス）を求めます。",
+      "forms": [
+        {
+          "base": "記入する",
+          "polite": "記入します",
+          "meaning": "to fill in",
+          "example": "申立人の欄に、お名前とパスポート番号を記入します。",
+          "question": "用紙に書き入れることを丁寧な現在の形で言うとき、「記入する」をどの形にしますか？"
+        },
+        {
+          "base": "提出する",
+          "polite": "提出します",
+          "meaning": "to submit",
+          "example": "合意に至らなかった場合は、行政機関へ提出されます。",
+          "question": "「提出されます」と受身で言うとき、基本の形の「提出する」をどの形に変えますか？"
+        },
+        {
+          "base": "返金する",
+          "polite": "返金します",
+          "meaning": "to refund",
+          "example": "期限内に返金がなければ、消費者相談室へ持参します。",
+          "question": "「返金してください」と頼むとき、「返金する」をどの形にしますか？"
+        },
+        {
+          "base": "署名する",
+          "polite": "署名します",
+          "meaning": "to sign",
+          "example": "私の控えに店の印を押し、署名していただけますか。",
+          "question": "「署名していただけますか」と頼むとき、「署名する」をどの形にしますか？"
+        },
+        {
+          "base": "相談する",
+          "polite": "相談します",
+          "meaning": "to consult",
+          "example": "返金がなければ、消費者相談室に相談します。",
+          "question": "「相談しましょう」と誘うとき、「相談する」をどの形にしますか？"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "公式の苦情用紙（オハ・デ・レクラマシオネス）",
+          "readingKana": "こうしきのくじょうようし（おは・で・れくらましおねす）",
+          "en": "the official complaint form",
+          "kind": "term"
+        },
+        {
+          "ja": "用紙の一枚",
+          "readingKana": "ようしのいちまい",
+          "en": "the copy",
+          "kind": "term"
+        },
+        {
+          "ja": "事業者",
+          "readingKana": "じぎょうしゃ",
+          "en": "the establishment",
+          "kind": "term"
+        },
+        {
+          "ja": "行政機関",
+          "readingKana": "ぎょうせいきかん",
+          "en": "the government authorities",
+          "kind": "term"
+        },
+        {
+          "ja": "申立人",
+          "readingKana": "もうしたてにん",
+          "en": "the complainant",
+          "kind": "term"
+        },
+        {
+          "ja": "事実",
+          "readingKana": "じじつ",
+          "en": "the facts",
+          "kind": "term"
+        },
+        {
+          "ja": "請求事項",
+          "readingKana": "せいきゅうじこう",
+          "en": "the request (what you claim)",
+          "kind": "term"
+        },
+        {
+          "ja": "預かり金（デポジット）",
+          "readingKana": "あずかりきん（でぽじっと）",
+          "en": "the deposit",
+          "kind": "term"
+        },
+        {
+          "ja": "予約の取消し",
+          "readingKana": "よやくのとりけし",
+          "en": "the cancellation",
+          "kind": "term"
+        },
+        {
+          "ja": "返金",
+          "readingKana": "へんきん",
+          "en": "the refund",
+          "kind": "term"
+        },
+        {
+          "ja": "支払い証明書",
+          "readingKana": "しはらいしょうめいしょ",
+          "en": "the proof of payment",
+          "kind": "term"
+        },
+        {
+          "ja": "店の印",
+          "readingKana": "みせのしるし",
+          "en": "the stamp",
+          "kind": "term"
+        },
+        {
+          "ja": "署名",
+          "readingKana": "しょめい",
+          "en": "the signature",
+          "kind": "term"
+        },
+        {
+          "ja": "パスポート番号",
+          "readingKana": "ぱすぽーとばんごう",
+          "en": "the passport number",
+          "kind": "term"
+        },
+        {
+          "ja": "回答期限",
+          "readingKana": "かいとうきげん",
+          "en": "the response deadline",
+          "kind": "term"
+        },
+        {
+          "ja": "消費者相談室",
+          "readingKana": "しょうひしゃそうだんしつ",
+          "en": "the consumer affairs office",
+          "kind": "term"
+        },
+        {
+          "ja": "オルテガ支配人、オハ・デ・レクラマシオネスをいただけますでしょうか。",
+          "readingKana": "おるてがしはいにん、おは・で・れくらましおねすをいただけますでしょうか。",
+          "en": "Mr. Ortega, could you give me the complaint form, please?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "説明書によりますと、どの一枚を事業者が保管することになっていますか。",
+          "readingKana": "せつめいしょによりますと、どのいちまいをじぎょうしゃがほかんすることになっていますか。",
+          "en": "According to the instructions, which copy does the establishment keep?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "私の予約は取り消されましたが、預かり金は返金されませんでした。",
+          "readingKana": "わたしのよやくはとりけされましたが、あずかりきんはへんきんされませんでした。",
+          "en": "My booking was cancelled, but the deposit was not returned.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "60ユーロの預かり金の全額の返金を請求いたします。",
+          "readingKana": "ろくじゅうゆーろのあずかりきんのぜんがくのへんきんをせいきゅういたします。",
+          "en": "I request a full refund of the 60-euro deposit.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "支払い証明書と予約取消しのメールを添付いたします。",
+          "readingKana": "しはらいしょうめいしょと、よやくとりけしのめーるをてんぷいたします。",
+          "en": "I attach the proof of payment and the cancellation email.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "個人的な評価を含めず、事実のみを述べたいと存じます。",
+          "readingKana": "こじんてきなひょうかをふくめず、じじつのみをのべたいとぞんじます。",
+          "en": "I prefer to state only the facts, without personal opinions.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "私の控えに店の印を押し、署名していただけますでしょうか。",
+          "readingKana": "わたしのひかえにみせのしるしをおし、しょめいしていただけますでしょうか。",
+          "en": "Can you stamp and sign my copy, please?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "エマ・コリンズは、スペインのマラガにあるラ・カレタというレストランへ戻り、支配人のオルテガさんと話します。",
+          "en": "Emma Collins goes back to La Caleta restaurant, in Málaga, to speak with the manager, Mr. Ortega."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "レストランは、彼女の土曜日の夕食の予約を取り消しましたが、予約時に彼女が支払った預かり金は返金していません。",
+          "en": "The restaurant cancelled her Saturday dinner, but it did not return the deposit she paid when she booked."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "オルテガ支配人、オハ・デ・レクラマシオネスをいただけますでしょうか。",
+          "en": "Emma: Mr. Ortega, could you give me the complaint form, please?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "オルテガさんは、三枚つづりの用紙と印刷された説明書きをエマに手渡します。",
+          "en": "Mr. Ortega hands her the official complaint form, which has three copies and some printed instructions."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "エマは声に出して読みます。「用紙には、申立人と事業者の詳細が記入されます。」",
+          "en": "Emma reads aloud: The form is filled in with the details of the complainant and of the establishment."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "申立人の欄に、エマは自分のフルネームとパスポート番号を書きます。",
+          "en": "In the complainant's box, Emma writes her full name and her passport number."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "個人的な評価を含めず、事実のみを述べたいと存じます。",
+          "en": "Emma: I prefer to state only the facts, without personal opinions."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "事実の欄に、彼女は次のように書きます。「私の予約は取り消されましたが、預かり金は返金されませんでした。」",
+          "en": "In the facts section, she writes: My booking was cancelled, but the deposit was not returned."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "また、取消しの連絡が金曜日にメールで届いたことと、レストランが別の日程を提示しなかったことも説明します。",
+          "en": "She also explains that the cancellation arrived by email on Friday and that the restaurant did not offer her another date."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "請求事項の欄に、彼女は次のように書きます。「60ユーロの預かり金の全額の返金を請求いたします。」",
+          "en": "In the request section, Emma writes: I request a full refund of the 60-euro deposit."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "支払い証明書と予約取消しのメールを添付いたします。",
+          "en": "Emma: I attach the proof of payment and the cancellation email."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "説明書によりますと、どの一枚を事業者が保管することになっていますか。",
+          "en": "Emma: According to the instructions, which copy does the establishment keep?"
+        },
+        {
+          "speaker": "Mr. Ortega",
+          "ja": "説明書によりますと、一枚は事業者に渡され、残りの二枚はお客様が保管します。",
+          "en": "Mr. Ortega: According to the instructions, one copy is handed to the establishment and you keep the other two."
+        },
+        {
+          "speaker": "Mr. Ortega",
+          "ja": "一枚はお客様の控えで、もう一枚は、合意に至らなかった場合に行政機関へ提出されます。",
+          "en": "Mr. Ortega: One is for you, and the other is submitted to the government authorities if we do not reach an agreement."
+        },
+        {
+          "speaker": "Emma",
+          "ja": "私の控えに店の印を押し、署名していただけますでしょうか。",
+          "en": "Emma: Can you stamp and sign my copy, please?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "オルテガさんは、エマの控えに店の印を押し、署名します。",
+          "en": "Mr. Ortega puts the restaurant's stamp and his signature on Emma's copy."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "印刷された説明書によりますと、事業者の回答期限は十営業日です。",
+          "en": "According to the printed instructions, the establishment's response deadline is 10 working days."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "その期限内に返金を受けられない場合、エマは自分の控えをマラガの消費者相談室へ持参します。",
+          "en": "If she does not receive the refund within that deadline, Emma will take her copy to the Málaga consumer affairs office."
+        }
+      ],
+      "modes": {
+        "see": {
+          "sourceCard": 1,
+          "cueEnglish": "the official complaint form",
+          "cueJapanese": "英語の意味を手がかりに、スペインで苦情を伝えるときに求める用紙の名前を見分けましょう。",
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "sourceCard": 10,
+          "cueEnglish": "the refund",
+          "cueJapanese": "英語の「the refund」に当たる日本語を思い出しましょう。",
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "sourceCard": 20,
+          "cueEnglish": "I request a full refund of the 60-euro deposit.",
+          "cueJapanese": "日本語の音声を聞き、60ユーロの預かり金の何を請求しているか確かめましょう。",
+          "responseKind": "fixed"
+        },
+        "type": {
+          "sourceCard": 14,
+          "cueEnglish": "the passport number",
+          "cueJapanese": "英語の「the passport number」に当たる日本語を入力しましょう。",
+          "responseKind": "fixed"
+        },
+        "say": {
+          "sourceCard": 23,
+          "cueEnglish": "Can you stamp and sign my copy, please?",
+          "cueJapanese": "自分の控えに店の印を押して署名してほしいと、丁寧な日本語で声に出して言いましょう。",
+          "responseKind": "open"
+        },
+        "write": {
+          "sourceCard": 19,
+          "cueEnglish": "My booking was cancelled, but the deposit was not returned.",
+          "cueJapanese": "予約は取り消されたが預かり金は返金されなかったという事実を、丁寧な日本語で書きましょう。",
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "You are Emma Collins, the customer whose Saturday booking was cancelled at La Caleta in Málaga.",
+        "partnerRole": "Mr. Ortega, the manager of La Caleta, played by the AI.",
+        "opening": "オルテガ支配人：「こちらがオハ・デ・レクラマシオネスです。三枚つづりの用紙と説明書がついています。」",
+        "objectives": [
+          "Read the form's instructions aloud with passive forms, such as 用紙には、申立人と事業者の詳細が記入されます。",
+          "State the facts formally: 予約は取り消されましたが、預かり金は返金されませんでした。",
+          "Request a full refund of the 60-euro deposit.",
+          "Ask which copy the establishment keeps, using 〜ことになっていますか。",
+          "オルテガ支配人に、自分の控えに店の印を押して署名してほしいと頼む。"
+        ],
+        "closure": "説明書によりますと、回答期限は十営業日です。期限内に返金がなければ、マラガの消費者相談室へ持参します。",
+        "wordBank": [
+          "公式の苦情用紙（オハ・デ・レクラマシオネス）",
+          "用紙の一枚",
+          "事業者",
+          "行政機関",
+          "申立人",
+          "事実",
+          "請求事項",
+          "預かり金（デポジット）",
+          "予約の取消し",
+          "返金",
+          "支払い証明書",
+          "店の印",
+          "署名",
+          "パスポート番号",
+          "回答期限",
+          "消費者相談室",
+          "オルテガ支配人、オハ・デ・レクラマシオネスをいただけますでしょうか。",
+          "説明書によりますと、どの一枚を事業者が保管することになっていますか。",
+          "私の予約は取り消されましたが、預かり金は返金されませんでした。",
+          "60ユーロの預かり金の全額の返金を請求いたします。",
+          "支払い証明書と予約取消しのメールを添付いたします。",
+          "個人的な評価を含めず、事実のみを述べたいと存じます。",
+          "私の控えに店の印を押し、署名していただけますでしょうか。"
+        ]
+      },
+      "reviewed": false
+    }
+  ]
+}

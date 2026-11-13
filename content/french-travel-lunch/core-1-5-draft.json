@@ -1,0 +1,966 @@
+{
+  "schema": 1,
+  "courseId": "travel-lunch",
+  "stageId": "core-travel-lunch",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "path": "src/data/travel-zone.ts",
+    "sha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 1,
+      "stableId": "core-travel-lunch:1:fr-en",
+      "sourceTitleEnglish": "Choose a lunch place",
+      "sourceObjectiveEnglish": "ask about wait time, seating, local style, and whether a place is touristy",
+      "sourceSpeakingEnglish": "Ask a local which nearby lunch spot they genuinely use and why.",
+      "title": "Choose a Neighborhood Lunch Place",
+      "objective": "Ask a local where they eat, compare wait times and seating, and decide whether a nearby place feels aimed at visitors.",
+      "focus": "Use où vous déjeunez, il faut attendre, il reste des places, and c’est surtout pour les touristes in a short recommendation exchange.",
+      "scene": "At a market square, Maya asks a local which nearby place they genuinely choose.",
+      "cards": [
+        {
+          "fr": "le quartier",
+          "en": "the neighborhood",
+          "kind": "term"
+        },
+        {
+          "fr": "une terrasse",
+          "en": "a terrace / outdoor seating",
+          "kind": "term"
+        },
+        {
+          "fr": "une table à l’intérieur",
+          "en": "an indoor table",
+          "kind": "term"
+        },
+        {
+          "fr": "l’attente",
+          "en": "the wait",
+          "kind": "term"
+        },
+        {
+          "fr": "les habitués",
+          "en": "the regular customers",
+          "kind": "term"
+        },
+        {
+          "fr": "un restaurant touristique",
+          "en": "a tourist-oriented restaurant",
+          "kind": "term"
+        },
+        {
+          "fr": "un bistrot de quartier",
+          "en": "a neighborhood bistro",
+          "kind": "term"
+        },
+        {
+          "fr": "la cuisine du coin",
+          "en": "local food",
+          "kind": "term"
+        },
+        {
+          "fr": "Vous déjeunez où, vous ?",
+          "en": "Where do you eat lunch?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il faut attendre longtemps ?",
+          "en": "Is there a long wait?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il reste des places à l’intérieur ?",
+          "en": "Are there indoor seats left?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "C’est surtout pour les touristes ?",
+          "en": "Is it mainly for tourists?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je vais souvent au bistrot de la rue Victor.",
+          "en": "I often go to the bistro on Victor Street.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "À midi, comptez dix minutes d’attente.",
+          "en": "At noon, allow ten minutes of waiting.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La terrasse est pleine, mais il reste une table dedans.",
+          "en": "The terrace is full, but one table is left inside.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Excusez-moi. Vous déjeunez où, vous, dans ce quartier ?",
+          "en": "Excuse me. Where do you eat lunch in this neighborhood?"
+        },
+        {
+          "speaker": "Local",
+          "fr": "Je vais souvent au bistrot de la rue Victor.",
+          "en": "I often go to the bistro on Victor Street."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "C’est surtout pour les touristes ?",
+          "en": "Is it mainly for tourists?"
+        },
+        {
+          "speaker": "Local",
+          "fr": "Non, il y a beaucoup d’habitués et la cuisine du coin est bonne.",
+          "en": "No, there are many regulars, and the local food is good."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Il faut attendre longtemps à midi ?",
+          "en": "Is there a long wait at noon?"
+        },
+        {
+          "speaker": "Local",
+          "fr": "Comptez dix minutes. La terrasse est souvent pleine.",
+          "en": "Allow ten minutes. The terrace is often full."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Il reste des places à l’intérieur ?",
+          "en": "Are there indoor seats left?"
+        },
+        {
+          "speaker": "Local",
+          "fr": "Oui, il reste généralement une table dedans.",
+          "en": "Yes, there is usually an indoor table left."
+        }
+      ],
+      "speaking": {
+        "role": "Lunch visitor",
+        "partnerRole": "Local resident",
+        "opening": "Excusez-moi. Vous déjeunez où, vous, dans ce quartier ?",
+        "goal": "Ask for an actual local lunch choice, check whether it is tourist-oriented, then confirm wait time and seating.",
+        "closure": "Merci pour le conseil. Bonne journée !",
+        "wordBank": [
+          "le quartier",
+          "une terrasse",
+          "l’attente",
+          "les habitués",
+          "un restaurant touristique",
+          "un bistrot de quartier",
+          "la cuisine du coin",
+          "Vous déjeunez où, vous ?",
+          "Il faut attendre longtemps ?",
+          "Il reste des places à l’intérieur ?",
+          "C’est surtout pour les touristes ?"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the phrase for a neighborhood bistro.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to ask whether there is a long wait.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question about tourists.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the word for regular customers.",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask a local where they really eat lunch.",
+          "sourceCard": 9,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a question about indoor seating.",
+          "sourceCard": 11,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Review whether the fictional Victor Street bistro and wait time are presented clearly as scene details, not a general claim about a real business."
+    },
+    {
+      "n": 2,
+      "stableId": "core-travel-lunch:2:fr-en",
+      "sourceTitleEnglish": "Understand the lunch menu",
+      "sourceObjectiveEnglish": "ask about courses, set menus, portions, and what is available today",
+      "sourceSpeakingEnglish": "Have a server explain the fixed-price lunch and what choices it includes.",
+      "title": "Read the Midday Menu",
+      "objective": "Ask what a fixed-price lunch includes, identify course choices and portion sizes, and order from today’s options.",
+      "focus": "Distinguish entrée (starter), plat (main course), dessert, formule, and à la carte; ask qu’est-ce qui est compris and quelle taille fait la portion.",
+      "scene": "At a small restaurant, Maya asks the server to explain the midday formula before ordering.",
+      "cards": [
+        {
+          "fr": "la formule du midi",
+          "en": "the fixed-price lunch",
+          "kind": "term"
+        },
+        {
+          "fr": "une entrée",
+          "en": "a starter",
+          "kind": "term"
+        },
+        {
+          "fr": "un plat",
+          "en": "a main course",
+          "kind": "term"
+        },
+        {
+          "fr": "un dessert",
+          "en": "a dessert",
+          "kind": "term"
+        },
+        {
+          "fr": "à la carte",
+          "en": "from the regular menu",
+          "kind": "term"
+        },
+        {
+          "fr": "la portion",
+          "en": "the serving / portion",
+          "kind": "term"
+        },
+        {
+          "fr": "compris",
+          "en": "included",
+          "kind": "term"
+        },
+        {
+          "fr": "au choix",
+          "en": "to choose from",
+          "kind": "term"
+        },
+        {
+          "fr": "Qu’est-ce qui est compris dans la formule ?",
+          "en": "What is included in the set lunch?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "On choisit une entrée ou un dessert ?",
+          "en": "Do we choose a starter or a dessert?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Quels plats sont disponibles aujourd’hui ?",
+          "en": "Which main courses are available today?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La portion est grande ?",
+          "en": "Is the portion large?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La formule comprend une entrée et un plat.",
+          "en": "The set lunch includes a starter and a main course.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le poisson est épuisé.",
+          "en": "The fish is sold out.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je prendrai la soupe et le poulet.",
+          "en": "I will have the soup and the chicken.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Qu’est-ce qui est compris dans la formule du midi ?",
+          "en": "Hello. What is included in the fixed-price lunch?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Une entrée et un plat, ou un plat et un dessert.",
+          "en": "A starter and a main course, or a main course and a dessert."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Quels plats sont disponibles aujourd’hui ?",
+          "en": "Which main courses are available today?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Le poulet et les légumes. Le poisson est épuisé.",
+          "en": "Chicken and vegetables. The fish is sold out."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "La portion de poulet est grande ?",
+          "en": "Is the chicken portion large?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, c’est une portion généreuse.",
+          "en": "Yes, it is a generous serving."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Alors, je prendrai la soupe en entrée et le poulet en plat.",
+          "en": "Then I will have the soup as a starter and the chicken as my main course."
+        },
+        {
+          "speaker": "Server",
+          "fr": "Très bien. Le dessert est aussi disponible à la carte.",
+          "en": "Very good. Dessert is also available from the regular menu."
+        }
+      ],
+      "speaking": {
+        "role": "Lunch guest",
+        "partnerRole": "Restaurant server",
+        "opening": "Bonjour. Qu’est-ce qui est compris dans la formule du midi ?",
+        "goal": "Find out the set-lunch courses and choices, check a portion, then place an order using today’s availability.",
+        "closure": "Merci, ce sera tout pour le moment.",
+        "wordBank": [
+          "la formule du midi",
+          "une entrée",
+          "un plat",
+          "à la carte",
+          "la portion",
+          "compris",
+          "au choix",
+          "Qu’est-ce qui est compris dans la formule ?",
+          "Quels plats sont disponibles aujourd’hui ?",
+          "La portion est grande ?",
+          "Le poisson est épuisé.",
+          "Je prendrai la soupe et le poulet."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the word for a starter.",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the expression for included.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for what the formula includes.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the word for a serving.",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask which main courses are available today.",
+          "sourceCard": 11,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write an order for soup and chicken.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Confirm regional register for formule du midi and à la carte, and review the distinction between an entrée and an English entrée."
+    },
+    {
+      "n": 3,
+      "stableId": "core-travel-lunch:3:fr-en",
+      "sourceTitleEnglish": "Order street food",
+      "sourceObjectiveEnglish": "identify fillings, sauces, spice, portion, and whether to eat there or walk",
+      "sourceSpeakingEnglish": "Order a regional street-food specialty from a busy counter.",
+      "title": "Order a Breton Galette at a Stall",
+      "objective": "Ask about a regional street-food filling, sauce, spice and serving size, then choose whether to eat there or take it away.",
+      "focus": "Use garniture for filling, avec/sans for ingredients, relevé for noticeable spice, and sur place/à emporter for where the food will be eaten.",
+      "scene": "At a Breton market stall, Maya asks how the galette is prepared and orders one to take away.",
+      "cards": [
+        {
+          "fr": "une galette bretonne",
+          "en": "a Breton buckwheat crêpe",
+          "kind": "term"
+        },
+        {
+          "fr": "la garniture",
+          "en": "the filling",
+          "kind": "term"
+        },
+        {
+          "fr": "le sarrasin",
+          "en": "buckwheat",
+          "kind": "term"
+        },
+        {
+          "fr": "le jambon",
+          "en": "ham",
+          "kind": "term"
+        },
+        {
+          "fr": "le fromage",
+          "en": "cheese",
+          "kind": "term"
+        },
+        {
+          "fr": "un œuf",
+          "en": "an egg",
+          "kind": "term"
+        },
+        {
+          "fr": "la sauce",
+          "en": "the sauce",
+          "kind": "term"
+        },
+        {
+          "fr": "relevé",
+          "en": "spicy / well-seasoned",
+          "kind": "term"
+        },
+        {
+          "fr": "sur place",
+          "en": "to eat here",
+          "kind": "term"
+        },
+        {
+          "fr": "à emporter",
+          "en": "to take away",
+          "kind": "term"
+        },
+        {
+          "fr": "Qu’est-ce qu’il y a dans la galette ?",
+          "en": "What is in the galette?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Vous avez une sauce relevée ?",
+          "en": "Do you have a spicy sauce?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La portion est assez grande pour déjeuner ?",
+          "en": "Is the serving large enough for lunch?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je la prends avec un œuf et du fromage, sans jambon.",
+          "en": "I will have it with egg and cheese, without ham.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "À emporter, s’il vous plaît.",
+          "en": "To take away, please.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Qu’est-ce qu’il y a dans la galette bretonne ?",
+          "en": "Hello. What is in the Breton galette?"
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "La pâte est au sarrasin. Vous choisissez la garniture.",
+          "en": "The batter is made with buckwheat. You choose the filling."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Vous avez du jambon, du fromage et un œuf ?",
+          "en": "Do you have ham, cheese and an egg?"
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "Oui, et une sauce relevée si vous voulez.",
+          "en": "Yes, and a spicy sauce if you want."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Je la prends avec un œuf et du fromage, sans jambon.",
+          "en": "I will have it with egg and cheese, without ham."
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "Bien sûr. C’est pour manger sur place ?",
+          "en": "Of course. Is it to eat here?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Non, à emporter. La portion est assez grande pour déjeuner ?",
+          "en": "No, to take away. Is the serving large enough for lunch?"
+        },
+        {
+          "speaker": "Vendor",
+          "fr": "Oui, elle est copieuse. Je vous la prépare.",
+          "en": "Yes, it is filling. I will prepare it for you."
+        }
+      ],
+      "speaking": {
+        "role": "Market customer",
+        "partnerRole": "Galette stall vendor",
+        "opening": "Bonjour. Qu’est-ce qu’il y a dans la galette bretonne ?",
+        "goal": "Ask about the galette filling and sauce, change an ingredient, confirm the portion and order it to take away.",
+        "closure": "Merci. Bonne journée !",
+        "wordBank": [
+          "une galette bretonne",
+          "la garniture",
+          "le sarrasin",
+          "le jambon",
+          "le fromage",
+          "un œuf",
+          "la sauce",
+          "relevé",
+          "sur place",
+          "à emporter",
+          "Qu’est-ce qu’il y a dans la galette ?",
+          "La portion est assez grande pour déjeuner ?",
+          "Je la prends avec un œuf et du fromage, sans jambon.",
+          "À emporter, s’il vous plaît."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the word for the galette filling.",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to say to take away.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question about what is inside.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the word for buckwheat.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether a spicy sauce is available.",
+          "sourceCard": 12,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write an order with egg and cheese but without ham.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Verify regional food description and vendor register. The stall and its particular ingredient options are fictional scene facts."
+    },
+    {
+      "n": 4,
+      "stableId": "core-travel-lunch:4:fr-en",
+      "sourceTitleEnglish": "Build a sandwich",
+      "sourceObjectiveEnglish": "choose bread, filling, cheese, vegetables, condiments, and preparation",
+      "sourceSpeakingEnglish": "Order a made-to-order sandwich and change one ingredient politely.",
+      "title": "Customize a Sandwich",
+      "objective": "Choose bread, filling, cheese, vegetables and condiments, then ask for one change in preparation.",
+      "focus": "Use je voudrais, avec/sans, à la place de and pouvez-vous to specify a sandwich without losing the original order.",
+      "scene": "At a sandwich counter, Maya orders a made-to-order baguette and replaces one condiment.",
+      "cards": [
+        {
+          "fr": "une baguette",
+          "en": "a baguette",
+          "kind": "term"
+        },
+        {
+          "fr": "du pain complet",
+          "en": "whole-wheat bread",
+          "kind": "term"
+        },
+        {
+          "fr": "la garniture",
+          "en": "the filling",
+          "kind": "term"
+        },
+        {
+          "fr": "du poulet",
+          "en": "chicken",
+          "kind": "term"
+        },
+        {
+          "fr": "du fromage",
+          "en": "cheese",
+          "kind": "term"
+        },
+        {
+          "fr": "de la laitue",
+          "en": "lettuce",
+          "kind": "term"
+        },
+        {
+          "fr": "des tomates",
+          "en": "tomatoes",
+          "kind": "term"
+        },
+        {
+          "fr": "de la moutarde",
+          "en": "mustard",
+          "kind": "term"
+        },
+        {
+          "fr": "de la mayonnaise",
+          "en": "mayonnaise",
+          "kind": "term"
+        },
+        {
+          "fr": "chaud",
+          "en": "warm / hot",
+          "kind": "term"
+        },
+        {
+          "fr": "Je voudrais un sandwich au poulet.",
+          "en": "I would like a chicken sandwich.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Vous avez du pain complet ?",
+          "en": "Do you have whole-wheat bread?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Avec de la laitue et des tomates, s’il vous plaît.",
+          "en": "With lettuce and tomatoes, please.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Sans mayonnaise ; de la moutarde à la place.",
+          "en": "Without mayonnaise; mustard instead.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pouvez-vous le faire chauffer ?",
+          "en": "Can you warm it up?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Je voudrais un sandwich au poulet.",
+          "en": "Hello. I would like a chicken sandwich."
+        },
+        {
+          "speaker": "Worker",
+          "fr": "Dans une baguette ou avec du pain complet ?",
+          "en": "On a baguette or on whole-wheat bread?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Avec du pain complet, s’il vous plaît.",
+          "en": "On whole-wheat bread, please."
+        },
+        {
+          "speaker": "Worker",
+          "fr": "Avec du fromage et des légumes ?",
+          "en": "With cheese and vegetables?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Oui, avec de la laitue et des tomates.",
+          "en": "Yes, with lettuce and tomatoes."
+        },
+        {
+          "speaker": "Worker",
+          "fr": "Et de la mayonnaise ?",
+          "en": "And mayonnaise?"
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Non, sans mayonnaise ; de la moutarde à la place. Pouvez-vous le faire chauffer ?",
+          "en": "No, without mayonnaise; mustard instead. Can you warm it up?"
+        },
+        {
+          "speaker": "Worker",
+          "fr": "Bien sûr. Un sandwich au poulet avec du pain complet et de la moutarde, bien chaud.",
+          "en": "Of course. A warm chicken sandwich on whole-wheat bread, with mustard."
+        }
+      ],
+      "speaking": {
+        "role": "Sandwich customer",
+        "partnerRole": "Counter worker",
+        "opening": "Bonjour. Je voudrais un sandwich au poulet.",
+        "goal": "Choose bread and vegetables, replace mayonnaise with mustard, ask for the sandwich warm, and confirm the order.",
+        "closure": "Parfait, merci beaucoup.",
+        "wordBank": [
+          "une baguette",
+          "du pain complet",
+          "la garniture",
+          "du poulet",
+          "du fromage",
+          "de la laitue",
+          "des tomates",
+          "de la moutarde",
+          "de la mayonnaise",
+          "chaud",
+          "Je voudrais un sandwich au poulet.",
+          "Vous avez du pain complet ?",
+          "Avec de la laitue et des tomates, s’il vous plaît.",
+          "Sans mayonnaise ; de la moutarde à la place.",
+          "Pouvez-vous le faire chauffer ?"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the expression for whole-wheat bread.",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall the word for mustard.",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the request to replace mayonnaise.",
+          "sourceCard": 14,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the word for lettuce.",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask whether the worker can warm the sandwich.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a chicken sandwich order with lettuce and tomatoes.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Review sandwich-counter register and naturalness of de la moutarde à la place in an oral order."
+    },
+    {
+      "n": 5,
+      "stableId": "core-travel-lunch:5:fr-en",
+      "sourceTitleEnglish": "Ask about the daily special",
+      "sourceObjectiveEnglish": "understand ingredients, preparation, availability, and price",
+      "sourceSpeakingEnglish": "Ask what the cook made today and whether it is a good choice for a quick lunch.",
+      "title": "Ask About Today’s Special",
+      "objective": "Ask what today’s cooked dish contains, how it is made, whether it is still available and what it costs.",
+      "focus": "Use le plat du jour, il est préparé avec, est encore disponible / il en reste, and combien ça coûte to ask before choosing.",
+      "scene": "At a neighborhood restaurant, Maya compares the daily special with a quicker lunch.",
+      "cards": [
+        {
+          "fr": "le plat du jour",
+          "en": "the daily special / dish of the day",
+          "kind": "term"
+        },
+        {
+          "fr": "la préparation",
+          "en": "the preparation / way of cooking",
+          "kind": "term"
+        },
+        {
+          "fr": "les ingrédients",
+          "en": "the ingredients",
+          "kind": "term"
+        },
+        {
+          "fr": "des légumes rôtis",
+          "en": "roasted vegetables",
+          "kind": "term"
+        },
+        {
+          "fr": "du poulet grillé",
+          "en": "grilled chicken",
+          "kind": "term"
+        },
+        {
+          "fr": "la sauce au citron",
+          "en": "the lemon sauce",
+          "kind": "term"
+        },
+        {
+          "fr": "le prix",
+          "en": "the price",
+          "kind": "term"
+        },
+        {
+          "fr": "disponible",
+          "en": "available",
+          "kind": "term"
+        },
+        {
+          "fr": "Le plat du jour est encore disponible ?",
+          "en": "Is the daily special still available?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Quels sont les ingrédients ?",
+          "en": "What are the ingredients?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Comment le poulet est-il préparé ?",
+          "en": "How is the chicken prepared?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il est servi avec du riz ?",
+          "en": "Is it served with rice?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Combien coûte le plat du jour ?",
+          "en": "How much does the daily special cost?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "C’est un bon choix pour un déjeuner rapide ?",
+          "en": "Is it a good choice for a quick lunch?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je vais prendre le plat du jour.",
+          "en": "I will have the daily special.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Maya",
+          "fr": "Bonjour. Le plat du jour est encore disponible ?",
+          "en": "Hello. Is the daily special still available?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui, il en reste trois portions.",
+          "en": "Yes, there are three servings left."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Quels sont les ingrédients ?",
+          "en": "What are the ingredients?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Du poulet grillé, des légumes rôtis et une sauce au citron.",
+          "en": "Grilled chicken, roasted vegetables and a lemon sauce."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Le poulet est servi avec du riz ?",
+          "en": "Is the chicken served with rice?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Oui. Il est grillé et servi avec du riz.",
+          "en": "Yes. It is grilled and served with rice."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Combien coûte le plat du jour ? C’est un bon choix pour un déjeuner rapide ?",
+          "en": "How much does the daily special cost? Is it a good choice for a quick lunch?"
+        },
+        {
+          "speaker": "Server",
+          "fr": "Quatorze euros. Il peut être prêt dans quelques minutes.",
+          "en": "Fourteen euros. It can be ready in a few minutes."
+        },
+        {
+          "speaker": "Maya",
+          "fr": "Très bien. Je vais prendre le plat du jour.",
+          "en": "Very good. I will have the daily special."
+        }
+      ],
+      "speaking": {
+        "role": "Lunch guest",
+        "partnerRole": "Restaurant server",
+        "opening": "Bonjour. Le plat du jour est encore disponible ?",
+        "goal": "Ask about ingredients, preparation, availability, price and timing, then decide whether to order today’s special.",
+        "closure": "Merci, je vais prendre celui-là.",
+        "wordBank": [
+          "le plat du jour",
+          "la préparation",
+          "les ingrédients",
+          "des légumes rôtis",
+          "du poulet grillé",
+          "la sauce au citron",
+          "le prix",
+          "disponible",
+          "Le plat du jour est encore disponible ?",
+          "Quels sont les ingrédients ?",
+          "Comment le poulet est-il préparé ?",
+          "Il est servi avec du riz ?",
+          "Combien coûte le plat du jour ?",
+          "C’est un bon choix pour un déjeuner rapide ?",
+          "Je vais prendre le plat du jour."
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the expression for the dish of the day.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Recall how to ask whether any remains.",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the ingredients question.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the word for ingredients.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask how the chicken is prepared.",
+          "sourceCard": 11,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a question about the special’s price.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Review the fictional dish, remaining portions, price and timing as scene facts; do not present them as a general restaurant promise."
+    }
+  ],
+  "internalReviewNotes": [
+    "Core 1–5 map the exact Spanish Lunch Core learning purposes to French scenes; vocabulary, grammar, register and regional food descriptions require qualified French review before release.",
+    "All prices, businesses, availability, timings and vendor offerings in dialogues are fictional scene facts."
+  ],
+  "sourceContent": {
+    "path": "public/lesson-content/es/travel-lunch.json",
+    "sha256": "9c6104911c7c3fc2d8f0e1914edb5bd8e490f0d3961babfcece22238f995580d"
+  }
+}

@@ -1,0 +1,826 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "foundation-travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "path": "src/data/core60/es/foundation-travel-dinner.json",
+    "sha256": "1d51f84acdf62115f88e5f1bbadf7af8988725e0647ef4958962ce7abd8ea014",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 7,
+      "stableId": "foundation-travel-dinner:7:ja-en",
+      "sourceTitleEnglish": "Questions",
+      "sourceObjectiveEnglish": "Ask the server what, which, how, where and how much about dishes, wine and the restaurant.",
+      "sourceSpeakingEnglish": "Ask the server what they recommend, how a dish is prepared, and how much a bottle of wine costs.",
+      "title": "Ask About the Menu",
+      "objective": "Ask what is recommended, which dish is local, how fish is prepared, where facilities are, and how much wine costs.",
+      "focus": "なに asks “what”; どれ asks “which one.” どこ, いつ, どう, どうして, and いくら ask place, time, method, reason, and price. か closes a polite yes/no question, while these question words can appear inside a polite information question.",
+      "scene": "Sam asks the server about a regional dish, grilled fish, the restrooms, and a bottle price.",
+      "cards": [
+        {
+          "ja": "なに",
+          "en": "what",
+          "kind": "term"
+        },
+        {
+          "ja": "だれ",
+          "en": "who",
+          "kind": "term"
+        },
+        {
+          "ja": "どこ",
+          "en": "where",
+          "kind": "term"
+        },
+        {
+          "ja": "いつ",
+          "en": "when",
+          "kind": "term"
+        },
+        {
+          "ja": "いくら",
+          "en": "how much / price",
+          "kind": "term"
+        },
+        {
+          "ja": "どう",
+          "en": "how",
+          "kind": "term"
+        },
+        {
+          "ja": "どうして",
+          "en": "why",
+          "kind": "term"
+        },
+        {
+          "ja": "どれ",
+          "en": "which one",
+          "kind": "term"
+        },
+        {
+          "ja": "本日の料理",
+          "en": "dish of the day",
+          "kind": "term",
+          "readingKana": "ほんじつのりょうり"
+        },
+        {
+          "ja": "地元の料理",
+          "en": "local dish",
+          "kind": "term",
+          "readingKana": "じもとのりょうり"
+        },
+        {
+          "ja": "おすすめは何ですか。",
+          "en": "What do you recommend?",
+          "kind": "phrase",
+          "readingKana": "おすすめはなんですか。"
+        },
+        {
+          "ja": "地元の料理はどれですか。",
+          "en": "Which one is the local dish?",
+          "kind": "phrase",
+          "readingKana": "じもとのりょうりはどれですか。"
+        },
+        {
+          "ja": "このボトルはいくらですか。",
+          "en": "How much is this bottle?",
+          "kind": "phrase",
+          "readingKana": "このボトルはいくらですか。"
+        },
+        {
+          "ja": "魚はどう調理しますか。",
+          "en": "How is the fish prepared?",
+          "kind": "phrase",
+          "readingKana": "さかなはどうちょうりしますか。"
+        },
+        {
+          "ja": "お手洗いはどこですか。",
+          "en": "Where are the restrooms?",
+          "kind": "phrase",
+          "readingKana": "おてあらいはどこですか。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。おすすめは何ですか。",
+          "en": "Excuse me. What do you recommend?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "本日の料理は魚です。",
+          "en": "The dish of the day is fish."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "地元の料理はどれですか。",
+          "en": "Which one is the local dish?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "この魚の料理です。",
+          "en": "This fish dish is local."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "魚はどう調理しますか。",
+          "en": "How is the fish prepared?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "塩をふって焼きます。",
+          "en": "We season it with salt and grill it."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "このボトルはいくらですか。",
+          "en": "How much is this bottle?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "三千円です。",
+          "en": "It is 3,000 yen."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。お手洗いはどこですか。",
+          "en": "Thank you. Where are the restrooms?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "奥の右側です。",
+          "en": "At the back on the right."
+        }
+      ],
+      "speaking": {
+        "role": "Guest asking menu questions",
+        "partnerRole": "Restaurant server",
+        "opening": "ご注文はお決まりですか。",
+        "goal": "Ask what the server recommends, how the fish is prepared, and the price of a bottle.",
+        "closure": "ほかにもご質問はありますか。",
+        "wordBank": [
+          "なに",
+          "どこ",
+          "いくら",
+          "どれ",
+          "おすすめは何ですか。",
+          "地元の料理はどれですか。",
+          "このボトルはいくらですか。",
+          "魚はどう調理しますか。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the Japanese word for which one.",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, ask what the server recommends.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the bottle-price question.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the Japanese word for where.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask how the fish is prepared.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Ask where the restrooms are.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false
+    },
+    {
+      "n": 8,
+      "stableId": "foundation-travel-dinner:8:ja-en",
+      "sourceTitleEnglish": "No, Never and How Much",
+      "sourceObjectiveEnglish": "Say not yet, nothing more, another one, more or less while ordering and finishing dinner.",
+      "sourceSpeakingEnglish": "Tell the server you are not ready yet, then ask for another drink and say you want nothing more after dessert.",
+      "title": "Not Yet, Another, and Nothing More",
+      "objective": "Say you are not ready yet, order another drink, request less spice, and finish the meal without ordering anything more.",
+      "focus": "まだ…ません says “not yet”; もう一杯 means one more glass. これ以上は…ません means no more than this; 何も…ません means nothing in a negative sentence. ぜんぜん飲みません states a firm “never” in the drinking context without copying Spanish no/nunca word order.",
+      "scene": "Sam delays ordering, requests another nonalcoholic drink, and finishes after dessert.",
+      "cards": [
+        {
+          "ja": "なにも",
+          "en": "anything / nothing with a negative verb",
+          "kind": "term"
+        },
+        {
+          "ja": "だれも",
+          "en": "anyone / nobody with a negative verb",
+          "kind": "term"
+        },
+        {
+          "ja": "ぜんぜん",
+          "en": "not at all / never with a negative verb",
+          "kind": "term"
+        },
+        {
+          "ja": "まだ",
+          "en": "still / not yet",
+          "kind": "term"
+        },
+        {
+          "ja": "もっと",
+          "en": "more",
+          "kind": "term"
+        },
+        {
+          "ja": "少なめ",
+          "en": "less / a smaller amount",
+          "kind": "term",
+          "readingKana": "すくなめ"
+        },
+        {
+          "ja": "もう一杯",
+          "en": "one more glass",
+          "kind": "term",
+          "readingKana": "もういっぱい"
+        },
+        {
+          "ja": "おつり",
+          "en": "change (money)",
+          "kind": "term"
+        },
+        {
+          "ja": "チップ",
+          "en": "tip",
+          "kind": "term"
+        },
+        {
+          "ja": "まだ決めていません。",
+          "en": "We have not decided yet.",
+          "kind": "phrase",
+          "readingKana": "まだきめていません。"
+        },
+        {
+          "ja": "これ以上は何もいりません。",
+          "en": "We do not want anything more.",
+          "kind": "phrase",
+          "readingKana": "これいじょうはなにもいりません。"
+        },
+        {
+          "ja": "白ワインをもう一杯お願いします。",
+          "en": "Another glass of white wine, please.",
+          "kind": "phrase",
+          "readingKana": "しろワインをもういっぱいおねがいします。"
+        },
+        {
+          "ja": "辛さは少なめでお願いします。",
+          "en": "Less spicy, please.",
+          "kind": "phrase",
+          "readingKana": "からさはすくなめでおねがいします。"
+        },
+        {
+          "ja": "お酒はぜんぜん飲みません。",
+          "en": "I never drink alcohol.",
+          "kind": "phrase",
+          "readingKana": "おさけはぜんぜんのみません。"
+        },
+        {
+          "ja": "デザートのあとで終わりです。",
+          "en": "We are finished after dessert.",
+          "kind": "phrase",
+          "readingKana": "デザートのあとでおわりです。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Server",
+          "ja": "ご注文はお決まりですか。",
+          "en": "Have you decided what to order?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "まだ決めていません。少し待ってください。",
+          "en": "We have not decided yet. Please wait a little."
+        },
+        {
+          "speaker": "Server",
+          "ja": "はい。お飲み物はどうしますか。",
+          "en": "Certainly. What about drinks?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "お酒はぜんぜん飲みません。炭酸水をもう一杯お願いします。",
+          "en": "I never drink alcohol. One more sparkling water, please."
+        },
+        {
+          "speaker": "Server",
+          "ja": "かしこまりました。お料理はいかがですか。",
+          "en": "Certainly. How is the food?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "おいしいです。次は辛さを少なめでお願いします。",
+          "en": "It is good. Next time, less spicy, please."
+        },
+        {
+          "speaker": "Server",
+          "ja": "デザートはいかがですか。",
+          "en": "Would you like dessert?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "はい、デザートを一つお願いします。",
+          "en": "Yes, one dessert, please."
+        },
+        {
+          "speaker": "Server",
+          "ja": "ほかに何かご注文はありますか。",
+          "en": "Would you like anything else?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "いいえ。デザートのあとで終わりです。これ以上は何もいりません。",
+          "en": "No. We are finished after dessert. We do not want anything more."
+        }
+      ],
+      "speaking": {
+        "role": "Guest finishing a dinner order",
+        "partnerRole": "Restaurant server",
+        "opening": "ご注文はお決まりですか。",
+        "goal": "Say you are not ready yet, request another nonalcoholic drink, ask for less spice, and say you want nothing more after dessert.",
+        "closure": "かしこまりました。",
+        "wordBank": [
+          "まだ",
+          "もっと",
+          "少なめ",
+          "もう一杯",
+          "まだ決めていません。",
+          "これ以上は何もいりません。",
+          "辛さは少なめでお願いします。",
+          "お酒はぜんぜん飲みません。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the Japanese expression for not yet.",
+          "sourceCard": 4,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, say the group has not decided yet.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for a request for less spice.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the expression for one more glass.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Say you never drink alcohol.",
+          "sourceCard": 14,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Say you want nothing more.",
+          "sourceCard": 11,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false
+    },
+    {
+      "n": 9,
+      "stableId": "foundation-travel-dinner:9:ja-en",
+      "sourceTitleEnglish": "Polite Requests and Commands",
+      "sourceObjectiveEnglish": "Ask the server politely for the check, a photo and items at the table.",
+      "sourceSpeakingEnglish": "Ask the server politely for a glass of water and the check, and ask if you can pay by card.",
+      "title": "Polite Table Requests and Payment",
+      "objective": "Ask politely for a glass of water, the bill, and a photo, and ask whether card payment is accepted.",
+      "focus": "〜をお願いします is a polite request for an item. 〜ていただけますか asks a person to do something, as in 写真を撮っていただけますか. 〜てもいいですか asks permission, as in カードで払ってもいいですか. These forms replace Spanish usted commands.",
+      "scene": "Sam asks a server for table items, a group photo, and the bill.",
+      "cards": [
+        {
+          "ja": "お会計",
+          "en": "the bill / check",
+          "kind": "term",
+          "readingKana": "おかいけい"
+        },
+        {
+          "ja": "カード",
+          "en": "payment card",
+          "kind": "term"
+        },
+        {
+          "ja": "現金",
+          "en": "cash",
+          "kind": "term",
+          "readingKana": "げんきん"
+        },
+        {
+          "ja": "レシート",
+          "en": "receipt",
+          "kind": "term"
+        },
+        {
+          "ja": "塩",
+          "en": "salt",
+          "kind": "term",
+          "readingKana": "しお"
+        },
+        {
+          "ja": "こしょう",
+          "en": "pepper",
+          "kind": "term"
+        },
+        {
+          "ja": "コップ",
+          "en": "water glass",
+          "kind": "term"
+        },
+        {
+          "ja": "ナイフ",
+          "en": "knife",
+          "kind": "term"
+        },
+        {
+          "ja": "写真",
+          "en": "photo",
+          "kind": "term",
+          "readingKana": "しゃしん"
+        },
+        {
+          "ja": "お会計をお願いします。",
+          "en": "The bill, please.",
+          "kind": "phrase",
+          "readingKana": "おかいけいをおねがいします。"
+        },
+        {
+          "ja": "写真を撮っていただけますか。",
+          "en": "Could you take a photo of us?",
+          "kind": "phrase",
+          "readingKana": "しゃしんをとっていただけますか。"
+        },
+        {
+          "ja": "水を一杯お願いします。",
+          "en": "A glass of water, please.",
+          "kind": "phrase",
+          "readingKana": "みずをいっぱいおねがいします。"
+        },
+        {
+          "ja": "塩を取っていただけますか。",
+          "en": "Could you pass the salt?",
+          "kind": "phrase",
+          "readingKana": "しおをとっていただけますか。"
+        },
+        {
+          "ja": "少し待っていただけますか。",
+          "en": "Could you wait a moment?",
+          "kind": "phrase",
+          "readingKana": "すこしまっていただけますか。"
+        },
+        {
+          "ja": "カードで払ってもいいですか。",
+          "en": "May I pay by card?",
+          "kind": "phrase",
+          "readingKana": "カードではらってもいいですか。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。水を一杯お願いします。",
+          "en": "Excuse me. A glass of water, please."
+        },
+        {
+          "speaker": "Server",
+          "ja": "はい。すぐお持ちします。",
+          "en": "Yes. I will bring it right away."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "塩を取っていただけますか。",
+          "en": "Could you pass the salt?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "もちろんです。こちらです。",
+          "en": "Of course. Here you are."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "写真を撮っていただけますか。",
+          "en": "Could you take a photo of us?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "はい。皆さん、こちらを見てください。",
+          "en": "Yes. Everyone, please look here."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。お会計をお願いします。",
+          "en": "Thank you. The bill, please."
+        },
+        {
+          "speaker": "Server",
+          "ja": "こちらがお会計です。",
+          "en": "Here is the bill."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "カードで払ってもいいですか。",
+          "en": "May I pay by card?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "はい、カードでお支払いいただけます。",
+          "en": "Yes, you can pay by card."
+        }
+      ],
+      "speaking": {
+        "role": "Guest making requests and paying",
+        "partnerRole": "Restaurant server",
+        "opening": "何かご用でしょうか。",
+        "goal": "Politely request water and the bill, ask for a photo, and confirm whether you may pay by card.",
+        "closure": "レシートをお持ちします。",
+        "wordBank": [
+          "お会計",
+          "カード",
+          "写真",
+          "お会計をお願いします。",
+          "写真を撮っていただけますか。",
+          "水を一杯お願いします。",
+          "塩を取っていただけますか。",
+          "カードで払ってもいいですか。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the Japanese term for the bill.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, ask for the bill.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the request to take a photo.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the Japanese term for cash.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Request a glass of water politely.",
+          "sourceCard": 12,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Ask whether you may pay by card.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false
+    },
+    {
+      "n": 10,
+      "stableId": "foundation-travel-dinner:10:ja-en",
+      "sourceTitleEnglish": "Words You Already Know and Getting Help",
+      "sourceObjectiveEnglish": "Spot dinner cognates and use survival phrases to get help when you don't understand.",
+      "sourceSpeakingEnglish": "Tell the server you don't understand, ask them to repeat more slowly, and ask how to say a dish in Spanish.",
+      "title": "Recognize Loanwords and Ask for Help",
+      "objective": "Recognize familiar dinner loanwords, state a peanut allergy directly, and ask for a slower repeat or the Japanese name of a dish.",
+      "focus": "レストラン, チョコレート, and オプション are katakana loanwords that may be recognizable from context; Japanese has no Spanish -ción/-dad cognate rule. わかりません says you do not understand; もう一度ゆっくりお願いします asks for a slower repeat. ピーナッツアレルギーがあります states the allergy directly.",
+      "scene": "At dinner, Sam asks the server to repeat a dish name and checks an ingredient after stating a peanut allergy.",
+      "cards": [
+        {
+          "ja": "お祝い",
+          "en": "celebration",
+          "kind": "term",
+          "readingKana": "おいわい"
+        },
+        {
+          "ja": "おすすめ",
+          "en": "recommendation",
+          "kind": "term"
+        },
+        {
+          "ja": "オプション",
+          "en": "option",
+          "kind": "term"
+        },
+        {
+          "ja": "名物",
+          "en": "specialty / local specialty",
+          "kind": "term",
+          "readingKana": "めいぶつ"
+        },
+        {
+          "ja": "材料",
+          "en": "ingredient",
+          "kind": "term",
+          "readingKana": "ざいりょう"
+        },
+        {
+          "ja": "アレルギー",
+          "en": "allergy",
+          "kind": "term"
+        },
+        {
+          "ja": "レストラン",
+          "en": "restaurant",
+          "kind": "term"
+        },
+        {
+          "ja": "緊急",
+          "en": "emergency",
+          "kind": "term",
+          "readingKana": "きんきゅう"
+        },
+        {
+          "ja": "チョコレート",
+          "en": "chocolate",
+          "kind": "term"
+        },
+        {
+          "ja": "わかりません。ゆっくり話していただけますか。",
+          "en": "I do not understand. Could you speak more slowly?",
+          "kind": "phrase",
+          "readingKana": "わかりません。ゆっくりはなしていただけますか。"
+        },
+        {
+          "ja": "もう一度言っていただけますか。",
+          "en": "Could you repeat that, please?",
+          "kind": "phrase",
+          "readingKana": "もういちどいっていただけますか。"
+        },
+        {
+          "ja": "これは日本語で何と言いますか。",
+          "en": "How do you say this in Japanese?",
+          "kind": "phrase",
+          "readingKana": "これはにほんごでなんといいますか。"
+        },
+        {
+          "ja": "ピーナッツアレルギーがあります。",
+          "en": "I have a peanut allergy.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "英語を話せますか。",
+          "en": "Do you speak English?",
+          "kind": "phrase",
+          "readingKana": "えいごをはなせますか。"
+        },
+        {
+          "ja": "手伝ってください。",
+          "en": "Please help me.",
+          "kind": "phrase",
+          "readingKana": "てつだってください。"
+        },
+        {
+          "ja": "この料理にピーナッツは入っていますか。",
+          "en": "Does this dish contain peanuts?",
+          "kind": "phrase",
+          "readingKana": "このりょうりにピーナッツははいっていますか。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Server",
+          "ja": "本日の名物はこちらです。",
+          "en": "This is today’s specialty."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "すみません。わかりません。ゆっくり話していただけますか。",
+          "en": "Excuse me. I do not understand. Could you speak more slowly?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "はい。これは魚の料理です。",
+          "en": "Yes. This is a fish dish."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "もう一度言っていただけますか。",
+          "en": "Could you repeat that, please?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "魚の料理です。",
+          "en": "It is a fish dish."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "これは日本語で何と言いますか。",
+          "en": "How do you say this in Japanese?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "焼き魚と言います。",
+          "en": "It is called yakizakana."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。ピーナッツアレルギーがあります。この料理にピーナッツは入っていますか。",
+          "en": "Thank you. I have a peanut allergy. Does this dish contain peanuts?"
+        },
+        {
+          "speaker": "Server",
+          "ja": "材料を確認します。",
+          "en": "I will check the ingredients."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。",
+          "en": "Thank you."
+        }
+      ],
+      "speaking": {
+        "role": "Guest clarifying a dinner menu",
+        "partnerRole": "Restaurant server",
+        "opening": "本日の名物はこちらです。",
+        "goal": "Say you do not understand, request a slow repeat, ask how to name a dish in Japanese, and state a peanut allergy before asking about ingredients.",
+        "closure": "材料を確認してお伝えします。",
+        "wordBank": [
+          "名物",
+          "材料",
+          "アレルギー",
+          "わかりません。ゆっくり話していただけますか。",
+          "もう一度言っていただけますか。",
+          "これは日本語で何と言いますか。",
+          "ピーナッツアレルギーがあります。",
+          "この料理にピーナッツは入っていますか。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the Japanese term for an ingredient.",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, ask for a slower repeat.",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the direct peanut-allergy statement.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the Japanese loanword for restaurant.",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask how to say this in Japanese.",
+          "sourceCard": 12,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Ask whether this dish contains peanuts.",
+          "sourceCard": 16,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false
+    }
+  ],
+  "internalReviewNotes": [
+    "Qualified Japanese review is required for restaurant register, question-word progression, negative expressions, kana readings, and acceptable responses.",
+    "Lesson 10 preserves the source peanut-allergy and ingredient terms directly; factual review notes remain internal, not in learner-facing content.",
+    "All four lessons remain private, unregistered, and without recorded audio."
+  ]
+}

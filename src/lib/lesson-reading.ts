@@ -1,3 +1,4 @@
+import { orCleaningLesson } from "../data/or-cleaning.ts";
 import { placeLesson } from "../data/place-directions.ts";
 import { soundLesson } from "../data/sound-like-a-native.ts";
 import { spanishBasicsLesson } from "../data/spanish-basics.ts";
@@ -14,6 +15,18 @@ export function authoredLessonReading(
   targetLanguage: string,
   instructionLanguage: string,
 ) {
+  const cleaning = lessonNumber
+    ? orCleaningLesson(moduleId, lessonNumber, targetLanguage, instructionLanguage)
+    : null;
+  if (cleaning)
+    return {
+      id: `${moduleId}-lesson-${lessonNumber}`,
+      title: cleaning.reading.title,
+      sentences: cleaning.reading.target.map((target, i) => ({
+        target,
+        en: cleaning.reading.native[i],
+      })),
+    };
   if (targetLanguage === "English" && instructionLanguage === "Spanish" && lessonNumber) {
     const draft = militaryLessonPractice(moduleId, lessonNumber);
     return draft
@@ -103,7 +116,7 @@ export function exactLessonLibraryId(
 
 export function libraryTranslationLanguage(id: string | null) {
   return id?.startsWith("esl-") ||
-    /^seed-en-(?:foundation-|master-)?military-lesson-/.test(id ?? "")
+    /^seed-en-(?:foundation-|master-)?(?:military|or-evs)-lesson-/.test(id ?? "")
     ? "Spanish"
     : "English";
 }

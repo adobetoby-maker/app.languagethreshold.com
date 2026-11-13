@@ -1,0 +1,353 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-dinner.json",
+    "curriculumSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "passagePath": "public/lesson-content/es/master-travel-dinner.json",
+    "passageSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 4,
+      "stableId": "master-travel-dinner:4:fr-en",
+      "sourceTitleEnglish": "Read the Allergen Chart with a Celiac Friend",
+      "sourceObjectiveEnglish": "Read a restaurant's allergen chart aloud, explain its notes to a friend, and list what to confirm with the kitchen.",
+      "sourceSpeakingEnglish": "You are at a rice restaurant in Valencia, and the AI is your friend Grace, who has celiac disease: read the allergen chart aloud, explain its notes, and list what to confirm with the kitchen, using antes de / después de + infinitive and hay que.",
+      "title": "Read the Allergen Chart with a Celiac Friend",
+      "objective": "Read a restaurant's allergen chart aloud, explain its notes to a friend, and list what to confirm with the kitchen.",
+      "focus": "Avant de + infinitif exprime l’action préalable : avant de choisir, il faut lire la note. Après + infinitif passé exprime une action accomplie : après avoir parlé à la cuisine, nous déciderons. Il faut + infinitif sert à énoncer ce qui est à faire : il faut vérifier la friteuse et le bouillon. Avec Grace, on emploie tu ; avec Amparo, vous. La maladie cœliaque, le gluten, les traces et la friteuse commune sont nommés directement dans le tableau et dans les questions.",
+      "scene": "At a rice restaurant in Valencia, Amparo brings an allergen chart. You read it aloud to Grace, who has celiac disease. The fideuà and battered squid contain wheat. The fries are marked gluten-free but have a footnote about a shared fryer. The arroz a banda is marked suitable for people with celiac disease, while its stock is not described. Ask Amparo about the fryer and stock; relay the cook’s answer exactly. Grace decides what to order.",
+      "forms": [
+        {
+          "infinitive": "lire",
+          "meaning": "to read; je lis, nous lisons",
+          "example": "Je vais te lire la note de bas de page.",
+          "question": "Que vais-je te lire ?",
+          "politeRequest": "lisez"
+        },
+        {
+          "infinitive": "commander",
+          "meaning": "to order; je commande, nous commandons",
+          "example": "Grace commande l’arroz a banda.",
+          "question": "Que commande Grace ?",
+          "politeRequest": "commandez"
+        },
+        {
+          "infinitive": "contenir",
+          "meaning": "to contain; il contient, ils contiennent",
+          "example": "Il est écrit ici que la fideuà contient du gluten.",
+          "question": "Que contient la fideuà ?",
+          "politeRequest": "Ce plat contient-il du gluten ?"
+        },
+        {
+          "infinitive": "vérifier",
+          "meaning": "to check; je vérifie, nous vérifions",
+          "example": "Avant de commander, il faut tout vérifier auprès de la cuisine.",
+          "question": "Que faut-il vérifier avant de commander ?",
+          "politeRequest": "vérifiez"
+        },
+        {
+          "infinitive": "décider",
+          "meaning": "to decide; je décide, nous décidons",
+          "example": "C’est toi qui décides, Grace.",
+          "question": "Qui décide de la commande ?",
+          "politeRequest": "décidez"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "le tableau des allergènes",
+          "en": "the allergen chart",
+          "kind": "term"
+        },
+        {
+          "fr": "le gluten",
+          "en": "the gluten",
+          "kind": "term"
+        },
+        {
+          "fr": "cœliaque",
+          "en": "celiac (woman)",
+          "kind": "term"
+        },
+        {
+          "fr": "la note de bas de page",
+          "en": "the footnote",
+          "kind": "term"
+        },
+        {
+          "fr": "la friteuse commune",
+          "en": "the shared fryer",
+          "kind": "term"
+        },
+        {
+          "fr": "la fideuà (paella aux vermicelles)",
+          "en": "the noodle paella",
+          "kind": "term"
+        },
+        {
+          "fr": "la pâte à frire",
+          "en": "the batter coating",
+          "kind": "term"
+        },
+        {
+          "fr": "la farine de blé",
+          "en": "the wheat flour",
+          "kind": "term"
+        },
+        {
+          "fr": "les traces",
+          "en": "the traces",
+          "kind": "term"
+        },
+        {
+          "fr": "le symbole",
+          "en": "the symbol",
+          "kind": "term"
+        },
+        {
+          "fr": "la légende du tableau",
+          "en": "the key (of a chart)",
+          "kind": "term"
+        },
+        {
+          "fr": "l’astérisque",
+          "en": "the asterisk",
+          "kind": "term"
+        },
+        {
+          "fr": "le bouillon",
+          "en": "the stock",
+          "kind": "term"
+        },
+        {
+          "fr": "sans gluten",
+          "en": "gluten-free",
+          "kind": "term"
+        },
+        {
+          "fr": "adapté aux personnes atteintes de la maladie cœliaque",
+          "en": "suitable for people with celiac disease",
+          "kind": "term"
+        },
+        {
+          "fr": "Avant de choisir, il faut lire les notes en bas de page.",
+          "en": "Before choosing, we have to read the notes at the bottom.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il est écrit ici que la fideuà contient du gluten.",
+          "en": "It says here that the noodle paella has gluten.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Regarde, cet astérisque renvoie à la note de bas de page.",
+          "en": "Look, this asterisk refers to the footnote.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Excusez-moi, ce tableau inclut-il les plats de la friteuse commune ?",
+          "en": "Excuse me, does this chart include the dishes from the shared fryer?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Mon amie est atteinte de la maladie cœliaque ; pourriez-vous vous renseigner en cuisine, s’il vous plaît ?",
+          "en": "My friend has celiac disease; could you ask in the kitchen, please?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "D’après la cuisine, le bouillon du riz contient-il un ingrédient contenant du gluten ?",
+          "en": "According to the kitchen, does the rice stock contain anything with gluten?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Après avoir parlé à la cuisine, nous déciderons quoi commander.",
+          "en": "After talking to the kitchen, we'll decide what to order.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "C’est toi qui décides, Grace ; je te lis seulement ce qui est écrit.",
+          "en": "You decide, Grace; I'm just reading you what it says.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "Dans un restaurant de riz à Valence, Amparo, la serveuse, nous apporte le tableau des allergènes de la maison.",
+          "en": "At a rice restaurant in Valencia, the server Amparo brings us the house allergen chart."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Mon amie Grace est atteinte de la maladie cœliaque ; je lis donc le tableau à voix haute avant de commander quoi que ce soit.",
+          "en": "My friend Grace has celiac disease, so I read the chart aloud before ordering anything."
+        },
+        {
+          "speaker": "You",
+          "fr": "Je dis à Grace : « Avant de choisir, il faut lire les notes en bas de page. »",
+          "en": "I tell Grace: Before choosing, we have to read the notes at the bottom."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "D’après la légende, le symbole de l’épi de blé signifie que le plat contient du gluten.",
+          "en": "According to the key, the wheat-ear symbol means the dish contains gluten."
+        },
+        {
+          "speaker": "You",
+          "fr": "Je lis à Grace : « Il est écrit ici que la fideuà contient du gluten. »",
+          "en": "I read to Grace: It says here that the noodle paella has gluten."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "La fideuà se prépare avec des vermicelles à base de farine de blé ; ce n’est donc pas une option pour elle.",
+          "en": "The noodle paella is made with wheat flour noodles, so it is not an option for her."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Les calamars frits portent aussi le symbole de l’épi de blé, car la pâte à frire contient de la farine de blé.",
+          "en": "The fried squid also has the wheat ear because the batter coating contains wheat flour."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Les frites sont indiquées comme étant sans gluten, mais un astérisque figure à côté.",
+          "en": "The fries are listed as gluten-free, but they have an asterisk next to them."
+        },
+        {
+          "speaker": "You",
+          "fr": "Je dis à Grace : « Regarde, cet astérisque renvoie à la note de bas de page. »",
+          "en": "I tell Grace: Look, this asterisk refers to the footnote."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "La note de bas de page précise que le tableau ne couvre pas les plats de la friteuse commune, qui peuvent contenir des traces de gluten.",
+          "en": "The footnote says the chart does not cover the dishes from the shared fryer, which may have traces of gluten."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "L’arroz a banda est indiqué comme adapté aux personnes atteintes de la maladie cœliaque, mais le tableau ne dit rien du bouillon.",
+          "en": "The arroz a banda is marked as suitable for people with celiac disease, but the chart says nothing about the stock."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Je dresse une liste pour Grace : il faut vérifier la friteuse et le bouillon du riz auprès de la cuisine.",
+          "en": "I make a list for Grace: we have to check the fryer and the rice stock with the kitchen."
+        },
+        {
+          "speaker": "You",
+          "fr": "Après avoir lu la note, je demande à Amparo : « Excusez-moi, ce tableau inclut-il les plats de la friteuse commune ? »",
+          "en": "After reading the note, I ask Amparo: Excuse me, does this chart include the dishes from the shared fryer?"
+        },
+        {
+          "speaker": "You",
+          "fr": "Puis je lui dis : « Mon amie est atteinte de la maladie cœliaque ; pourriez-vous vous renseigner en cuisine, s’il vous plaît ? »",
+          "en": "Then I tell her: My friend has celiac disease; could you ask in the kitchen, please?"
+        },
+        {
+          "speaker": "You",
+          "fr": "Je lui demande aussi : « D’après la cuisine, le bouillon du riz contient-il un ingrédient contenant du gluten ? »",
+          "en": "I also ask her: According to the kitchen, does the rice stock contain anything with gluten?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Amparo revient de la cuisine : « D’après le cuisinier, le bouillon ne contient pas de gluten, mais les frites cuisent dans la même friteuse que les calamars. »",
+          "en": "Amparo comes back from the kitchen: According to the cook, the stock has no gluten, but the fries are fried in the same fryer as the squid."
+        },
+        {
+          "speaker": "You",
+          "fr": "Je dis à Grace : « C’est toi qui décides, Grace ; je te lis seulement ce qui est écrit. »",
+          "en": "I tell Grace: You decide, Grace; I'm just reading you what it says."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Grace décide de commander l’arroz a banda sans les frites.",
+          "en": "Grace decides to order the arroz a banda without the fries."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "the allergen chart",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "the shared fryer",
+          "sourceCard": 5,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "My friend has celiac disease; could you ask in the kitchen, please?",
+          "sourceCard": 20,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "the asterisk",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "According to the kitchen, does the rice stock contain anything with gluten?",
+          "sourceCard": 21,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "You decide, Grace; I'm just reading you what it says.",
+          "sourceCard": 23,
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "You, reading an allergen chart aloud to Grace at a Valencia rice restaurant.",
+        "partnerRole": "Grace, your friend with celiac disease, played by the AI.",
+        "opening": "Avant de choisir, il faut lire les notes en bas de page.",
+        "goal": "Read a restaurant's allergen chart aloud, explain its notes to a friend, and list what to confirm with the kitchen.",
+        "closure": "C’est toi qui décides, Grace ; je te lis seulement ce qui est écrit.",
+        "wordBank": [
+          "le tableau des allergènes",
+          "le gluten",
+          "cœliaque",
+          "la note de bas de page",
+          "la friteuse commune",
+          "la fideuà (paella aux vermicelles)",
+          "la pâte à frire",
+          "la farine de blé",
+          "les traces",
+          "le symbole",
+          "la légende du tableau",
+          "l’astérisque",
+          "le bouillon",
+          "sans gluten",
+          "adapté aux personnes atteintes de la maladie cœliaque",
+          "Avant de choisir, il faut lire les notes en bas de page.",
+          "Il est écrit ici que la fideuà contient du gluten.",
+          "Regarde, cet astérisque renvoie à la note de bas de page.",
+          "Excusez-moi, ce tableau inclut-il les plats de la friteuse commune ?",
+          "Mon amie est atteinte de la maladie cœliaque ; pourriez-vous vous renseigner en cuisine, s’il vous plaît ?",
+          "D’après la cuisine, le bouillon du riz contient-il un ingrédient contenant du gluten ?",
+          "Après avoir parlé à la cuisine, nous déciderons quoi commander.",
+          "C’est toi qui décides, Grace ; je te lis seulement ce qui est écrit."
+        ],
+        "objectives": [
+          "Read the allergen chart aloud, including the wheat-ear symbol and fideuà.",
+          "Explain the footnote about the shared fryer and possible traces of gluten.",
+          "Ask Amparo to confirm the fryer and rice stock with the kitchen.",
+          "Relay the kitchen’s answer about the stock and the fries precisely.",
+          "Leave the choice to Grace."
+        ]
+      },
+      "reviewed": false,
+      "model": "candidate requested Haiku 5.5; CLI metadata reported Sonnet 5.5; Opus 5.5 read-only critique and self-check corrections recorded"
+    }
+  ]
+}

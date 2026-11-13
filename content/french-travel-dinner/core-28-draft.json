@@ -1,0 +1,264 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/travel-zone.ts",
+    "curriculumSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "passagePath": "public/lesson-content/es/travel-dinner.json",
+    "passageSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "title": "Settle a Large Group Bill",
+      "objective": "split unevenly, separate drinks, add a shared tip, and combine cash and cards",
+      "focus": "L'addition is the restaurant bill. Ask Pourriez-vous nous apporter l'addition, s'il vous plaît ? Check Le pourboire est-il déjà inclus dans l'addition ?; in this scene the waiter says no. For this group, les plats names the food on the bill: séparer les boissons des plats. Séparer A de B takes de. La carte can also mean menu, so la carte bancaire names the payment card; par carte means by card. Une partie en espèces et une autre par carte names the two payment portions. Payer has je paie or je paye, and nous payons. Demander à quelqu'un de + infinitive gives je lui demande de séparer les boissons. Nous sommes huit has no preposition. La monnaie is change, le reçu is a receipt, and floué means cheated.",
+      "scene": "Eight friends are finishing dinner at a restaurant. Everyone ordered something very different, so the narrator does not want the bill split into equal parts. The narrator asks the waiter to bring the bill, then asks whether the tip is already included. The waiter says no, so the group decides to leave one tip for everyone. The narrator asks the waiter to separate the drinks from the food, because three people did not drink wine. Then the narrator asks to pay part in cash and part by card. The waiter brings the card terminal and says he will charge the cash first and then each card. At the end he brings the change and the receipt, the group checks the total, and nobody feels cheated.",
+      "forms": [
+        {
+          "infinitive": "payer",
+          "presentJe": "je paie",
+          "example": "Je paie ma part en espèces.",
+          "meaning": "to pay / I pay (je paie or je paye; nous payons)"
+        },
+        {
+          "infinitive": "partager",
+          "presentJe": "je partage",
+          "example": "Nous ne partageons pas l'addition à parts égales.",
+          "meaning": "to split, to share / I split (nous partageons keeps the e)"
+        },
+        {
+          "infinitive": "demander",
+          "presentJe": "je demande",
+          "example": "Je demande au serveur de séparer les boissons.",
+          "meaning": "to ask (for) / I ask; demander à quelqu'un de + infinitive. To order food is commander"
+        },
+        {
+          "infinitive": "apporter",
+          "presentJe": "j'apporte",
+          "example": "Le serveur apporte le terminal de paiement.",
+          "meaning": "to bring / I bring (j'apporte, tu apportes, il apporte)"
+        },
+        {
+          "infinitive": "laisser",
+          "presentJe": "je laisse",
+          "example": "Nous laissons un pourboire pour tout le groupe.",
+          "meaning": "to leave / I leave (something behind)"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "l'addition",
+          "en": "bill",
+          "kind": "term"
+        },
+        {
+          "fr": "le pourboire",
+          "en": "tip",
+          "kind": "term"
+        },
+        {
+          "fr": "les boissons",
+          "en": "drinks",
+          "kind": "term"
+        },
+        {
+          "fr": "les plats",
+          "en": "food",
+          "kind": "term"
+        },
+        {
+          "fr": "les espèces",
+          "en": "cash",
+          "kind": "term"
+        },
+        {
+          "fr": "la carte bancaire",
+          "en": "card",
+          "kind": "term"
+        },
+        {
+          "fr": "le serveur",
+          "en": "waiter",
+          "kind": "term"
+        },
+        {
+          "fr": "le terminal de paiement",
+          "en": "card terminal",
+          "kind": "term"
+        },
+        {
+          "fr": "le total",
+          "en": "total",
+          "kind": "term"
+        },
+        {
+          "fr": "la monnaie",
+          "en": "change",
+          "kind": "term"
+        },
+        {
+          "fr": "le reçu",
+          "en": "receipt",
+          "kind": "term"
+        },
+        {
+          "fr": "Pourriez-vous nous apporter l'addition, s'il vous plaît ?",
+          "en": "Could you bring us the bill, please?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le pourboire est-il déjà inclus dans l'addition ?",
+          "en": "Is the tip already included in the bill?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pouvez-vous séparer les boissons des plats ?",
+          "en": "Can you separate the drinks from the food?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pouvons-nous payer une partie en espèces et une autre par carte ?",
+          "en": "Can we pay part in cash and part by card?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Nous voulons laisser un pourboire pour tout le groupe.",
+          "en": "We want to leave a tip for the whole group.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Nous ne voulons pas partager l'addition à parts égales.",
+          "en": "We do not want to split the bill into equal parts.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Trois personnes n'ont pas bu de vin.",
+          "en": "Three people did not drink wine.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Merci. Vérifions le total, la monnaie et le reçu.",
+          "en": "Thank you. Let's check the total, the change and the receipt.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "Nous sommes huit à table et chacun a commandé quelque chose de très différent, donc nous ne voulons pas partager l'addition à parts égales.",
+          "en": "There are 8 of us at the table and everyone ordered something very different, so we do not want to split the bill into equal parts."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Je dis au serveur : « Pourriez-vous nous apporter l'addition, s'il vous plaît ? »",
+          "en": "I say to the waiter: Could you bring us the bill, please?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Quand elle arrive, je lui demande : « Le pourboire est-il déjà inclus dans l'addition ? »",
+          "en": "When it arrives, I ask him: Is the tip already included in the bill?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le serveur répond que non, alors nous décidons de laisser un pourboire pour tout le groupe.",
+          "en": "The waiter says no, so we decide to leave a tip for the whole group."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Ensuite, je lui demande de séparer les boissons des plats, parce que trois personnes n'ont pas bu de vin.",
+          "en": "Then I ask him to separate the drinks from the food, because 3 people did not drink wine."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Après, je demande : « Pouvons-nous payer une partie en espèces et une autre par carte ? »",
+          "en": "Afterwards I ask: Can we pay part in cash and part by card?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Le serveur apporte le terminal de paiement et dit : « Bien sûr, j'encaisse d'abord la part en espèces, puis chaque paiement par carte. »",
+          "en": "The waiter brings the card terminal and says: Of course, first I charge the cash and then each card."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "À la fin, il nous apporte la monnaie et le reçu, nous vérifions le total, et personne ne se sent floué.",
+          "en": "In the end he brings us the change and the receipt, we check the total, and nobody feels cheated."
+        }
+      ],
+      "speaking": {
+        "role": "Diner at a table of eight settling the bill with the server.",
+        "partnerRole": "Le serveur, the waiter who brings the bill and the card terminal.",
+        "opening": "Pourriez-vous nous apporter l'addition, s'il vous plaît ?",
+        "goal": "Divide the bill for eight people who ordered very differently, without anyone feeling cheated.",
+        "closure": "Merci. Vérifions le total, la monnaie et le reçu.",
+        "wordBank": [
+          "Pourriez-vous nous apporter l'addition, s'il vous plaît ?",
+          "Le pourboire est-il déjà inclus dans l'addition ?",
+          "Pouvez-vous séparer les boissons des plats ?",
+          "Pouvons-nous payer une partie en espèces et une autre par carte ?",
+          "Nous voulons laisser un pourboire pour tout le groupe.",
+          "Nous ne voulons pas partager l'addition à parts égales.",
+          "Trois personnes n'ont pas bu de vin.",
+          "Merci. Vérifions le total, la monnaie et le reçu."
+        ],
+        "objectives": [
+          "Say the eight diners ordered differently and will not split the bill equally.",
+          "Ask whether the tip is included; the waiter says no, so propose one group tip.",
+          "Ask to separate drinks because three people did not drink wine.",
+          "Ask to pay one part in cash and the rest with each card.",
+          "Check the total, change and receipt so nobody feels cheated."
+        ]
+      },
+      "n": 28,
+      "stableId": "travel-dinner:28:fr-en",
+      "sourceTitleEnglish": "Settle a large group bill",
+      "sourceObjectiveEnglish": "split unevenly, separate drinks, add a shared tip, and combine cash and cards",
+      "sourceSpeakingEnglish": "Divide the bill for eight people who ordered very differently, without anyone feeling cheated.",
+      "reviewed": false,
+      "internalReviewNote": "Owner-only source-pinned draft. Haiku 5.5 requested; CLI returned Sonnet 5.5. Opus 5.5 read-only critique and self-check corrected split-bill idiom, food terminology, payment sequence and speaking closure. All 17 source English cards and eight English Reader lines are exact in order. Qualified French review remains for le reçu/le ticket, service-compris wording, le serveur, floué, payment idiom and register. reviewed:false; no learner runtime or audio registration.",
+      "modes": {
+        "see": {
+          "cueEnglish": "card terminal",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "change",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Can you separate the drinks from the food?",
+          "sourceCard": 14,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "tip",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Can we pay part in cash and part by card?",
+          "sourceCard": 15,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "We do not want to split the bill into equal parts.",
+          "sourceCard": 17,
+          "responseKind": "open"
+        }
+      },
+      "model": "claude-sonnet-5-5"
+    }
+  ]
+}

@@ -1,0 +1,267 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/travel-zone.ts",
+    "curriculumSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "passagePath": "public/lesson-content/es/travel-dinner.json",
+    "passageSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 16,
+      "stableId": "travel-dinner:16:fr-en",
+      "sourceTitleEnglish": "Fix a lost reservation",
+      "sourceObjectiveEnglish": "show your confirmation, ask what the restaurant can offer, and accept or decline an alternative",
+      "sourceSpeakingEnglish": "The host can't find your anniversary booking; show your confirmation and negotiate a solution.",
+      "title": "Fixing a Lost Reservation",
+      "objective": "Show the confirmation for a missing 8 p.m. anniversary reservation, ask what the restaurant can offer, and accept the terrace table or politely decline and wait for the inside table.",
+      "focus": "J'ai une réservation au nom de Miller. states the booking name. Voici ma confirmation. presents the email confirmation. Qu'est-ce que vous pouvez nous proposer ce soir ? asks what the restaurant can offer. Très bien, nous prenons la table en terrasse. accepts the immediate alternative. Non, merci, nous préférons attendre la table à l'intérieur. politely declines it. Toutes nos excuses pour cette erreur. is a host's apology.",
+      "scene": "You arrive with your wife at 8 p.m. for your anniversary dinner, but the host cannot find the booking under Miller. You show the confirmation email and number. The host apologizes and offers a terrace table now or an inside table in 30 minutes. The source scene ends with you taking the terrace table; the speaking practice also lets you decline that alternative politely.",
+      "forms": [
+        {
+          "infinitive": "avoir",
+          "presentJe": "j'ai",
+          "presentVous": "vous avez",
+          "example": "J'ai une réservation au nom de Miller.",
+          "meaning": "to have / I have / you have"
+        },
+        {
+          "infinitive": "prendre",
+          "presentJe": "je prends",
+          "presentVous": "vous prenez",
+          "example": "Nous prenons la table en terrasse.",
+          "meaning": "to take / I take / you take",
+          "presentNous": "nous prenons"
+        },
+        {
+          "infinitive": "pouvoir",
+          "presentJe": "je peux",
+          "presentVous": "vous pouvez",
+          "example": "Qu'est-ce que vous pouvez nous proposer ce soir ?",
+          "meaning": "can, to be able to / I can / you can"
+        },
+        {
+          "infinitive": "trouver",
+          "presentJe": "je trouve",
+          "presentVous": "vous trouvez",
+          "example": "Elle ne trouve pas notre réservation.",
+          "meaning": "to find / I find / you find"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "la réservation",
+          "en": "reservation",
+          "kind": "term"
+        },
+        {
+          "fr": "J'ai une réservation au nom de Miller.",
+          "en": "I have a reservation under the name Miller.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Vous avez une réservation ?",
+          "en": "Do you have a reservation?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "la liste",
+          "en": "list",
+          "kind": "term"
+        },
+        {
+          "fr": "l'e-mail",
+          "en": "email",
+          "kind": "term",
+          "note": "Also le mail in everyday France French; le courriel is formal or common in Québec."
+        },
+        {
+          "fr": "Voici ma confirmation.",
+          "en": "Here is my confirmation.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "le numéro de confirmation",
+          "en": "confirmation number",
+          "kind": "term"
+        },
+        {
+          "fr": "Toutes nos excuses pour cette erreur.",
+          "en": "We're very sorry for this mistake.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Qu'est-ce que vous pouvez nous proposer ce soir ?",
+          "en": "What can you offer us tonight?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "la table",
+          "en": "table",
+          "kind": "term"
+        },
+        {
+          "fr": "la terrasse",
+          "en": "terrace",
+          "kind": "term"
+        },
+        {
+          "fr": "J'ai une table en terrasse tout de suite, ou une table à l'intérieur dans trente minutes.",
+          "en": "I have a table on the terrace right now, or a table inside in 30 minutes.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Très bien, nous prenons la table en terrasse.",
+          "en": "That's fine, we'll take the table on the terrace.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Non, merci, nous préférons attendre la table à l'intérieur.",
+          "en": "No, thank you, we prefer to wait for the table inside.",
+          "kind": "phrase",
+          "note": "A polite way to decline an alternative."
+        },
+        {
+          "fr": "Nous ne voulons pas attendre.",
+          "en": "We don't want to wait.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "l'anniversaire de mariage",
+          "en": "wedding anniversary",
+          "kind": "term",
+          "note": "Anniversaire alone usually means birthday; anniversaire de mariage is wedding anniversary."
+        },
+        {
+          "fr": "l'hôtesse d'accueil",
+          "en": "host (woman)",
+          "kind": "term",
+          "note": "At the entrance; a male greeter may be l'hôte d'accueil or le maître d'hôtel. Hôte alone can also mean guest."
+        },
+        {
+          "fr": "l'erreur",
+          "en": "mistake",
+          "kind": "term"
+        },
+        {
+          "fr": "la confirmation",
+          "en": "confirmation",
+          "kind": "term"
+        },
+        {
+          "fr": "à l'intérieur",
+          "en": "inside",
+          "kind": "term"
+        },
+        {
+          "fr": "Combien de temps faut-il attendre ?",
+          "en": "How long do we have to wait?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "Ma femme et moi arrivons au restaurant à vingt heures pour notre anniversaire de mariage.",
+          "en": "My wife and I arrive at the restaurant at 8 for our anniversary."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "L'hôtesse d'accueil consulte la liste, mais elle ne trouve pas notre réservation.",
+          "en": "The host looks through the list, but she doesn't find our reservation."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "D’abord, je lui dis : « J’ai une réservation au nom de Miller. »",
+          "en": "First, I tell her: I have a reservation under the name Miller."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Ensuite, j'ouvre l'e-mail et je dis : « Voici ma confirmation. »",
+          "en": "Then I open the email and say: Here is my confirmation."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Elle voit le numéro de confirmation et présente ses excuses pour cette erreur.",
+          "en": "She sees the confirmation number and apologizes for the mistake."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Après cela, je lui demande : « Qu'est-ce que vous pouvez nous proposer ce soir ? »",
+          "en": "After that I ask: What can you offer us tonight?"
+        },
+        {
+          "speaker": "Host",
+          "fr": "J'ai une table en terrasse tout de suite, ou une table à l'intérieur dans trente minutes.",
+          "en": "She says: There is a table on the terrace now or a table inside in 30 minutes."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Nous ne voulons pas attendre, alors je dis : « Très bien, nous prenons la table en terrasse. »",
+          "en": "We don't want to wait, so I say: That's fine, we'll take the table on the terrace."
+        }
+      ],
+      "speaking": {
+        "role": "Guest arriving with your wife at 8 p.m. for your anniversary dinner; the booking is under Miller",
+        "partnerRole": "Host who checks the booking list, apologizes, and offers a terrace table now or an inside table in 30 minutes",
+        "opening": "Bonsoir. Vous avez une réservation ?",
+        "goal": "Give a reservation under the name Miller, show your confirmation, ask what the restaurant can offer tonight, and accept or decline the alternative.",
+        "closure": "Très bien, c'est noté.",
+        "wordBank": [
+          "J'ai une réservation au nom de Miller.",
+          "Voici ma confirmation.",
+          "Qu'est-ce que vous pouvez nous proposer ce soir ?",
+          "Très bien, nous prenons la table en terrasse.",
+          "Non, merci, nous préférons attendre la table à l'intérieur.",
+          "Combien de temps faut-il attendre ?"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French phrase: I have a reservation under the name Miller.",
+          "sourceCard": 2,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, say: Here is my confirmation.",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the offer: a table on the terrace now or a table inside in 30 minutes.",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French for: We don't want to wait.",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Accept the terrace table in French.",
+          "sourceCard": 13,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a French sentence asking what the restaurant can offer you tonight.",
+          "sourceCard": 9,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Owner-only draft. The Reader follows all eight English source sentences, including their narrator framing, and ends with acceptance of the terrace table. The host greeting card and refusal/wait cards support the broader plan objective and speaking branch but are not extra source Reader events. Qualified French and restaurant-domain review remain open; no reservation guarantee, refund or policy has been invented."
+    }
+  ]
+}

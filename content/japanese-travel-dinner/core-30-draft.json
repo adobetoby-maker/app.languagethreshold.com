@@ -1,0 +1,357 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "contentPath": "public/lesson-content/es/travel-dinner.json",
+    "contentSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 30,
+      "stableId": "travel-dinner:30:ja-en",
+      "sourceTitleEnglish": "Dinner threshold",
+      "sourceObjectiveEnglish": "navigate a special evening with a booking problem, a special need, a declined upsell, a disputed charge, a toast, and a safe ride home without English",
+      "sourceSpeakingEnglish": "Host a celebration dinner from a missing reservation through toasts and a contested bill to a safe ride back to your lodging.",
+      "title": "Dinner threshold",
+      "objective": "Navigate a special evening with a booking problem, a special need, a declined upsell, a disputed charge, a toast, and a safe ride home without English.",
+      "focus": "～ています describes a state that holds now: クララの名前で6名で予約しています。 ～ていません says it does not hold: この料理にはピーナッツは入っていません。 ～アレルギーです names the allergy directly: 妹はピーナッツアレルギーです。 ～のほうがいいです says what you prefer: ハウスワインのほうがいいです。 ～と思います keeps a complaint calm: 頼んでいないものの料金が入っていると思います。 ～ていただけますか politely asks someone to do something for you: 安心して乗れるタクシーを呼んでいただけますか。",
+      "scene": "Clara arrives at a restaurant with her family and says she has a reservation under the name Clara for 6 people. The waiter cannot find the reservation, but he offers them a table near the window in 10 minutes. Clara says her sister has a peanut allergy and asks whether a dish has peanuts. After asking the chef, the waiter says that dish has no peanuts and that they make it separately, and then he recommends a very expensive bottle of wine. Clara declines kindly and says they prefer the house wine. Before dessert she raises her glass and toasts her sister. At the end, a charge for another bottle appears on the bill, and Clara calmly says there is a charge they did not order. The waiter checks the bill and corrects it. Clara leaves the tip and asks the waiter to call a safe taxi.",
+      "forms": [
+        {
+          "base": "予約する",
+          "polite": "予約します",
+          "question": "予約しますか",
+          "meaning": "to reserve, to book",
+          "example": "クララは家族のために6名で予約しています。"
+        },
+        {
+          "base": "入る",
+          "polite": "入ります",
+          "question": "入りますか",
+          "meaning": "to be in (an ingredient in a dish)",
+          "example": "この料理にはピーナッツは入っていません。"
+        },
+        {
+          "base": "勧める",
+          "polite": "勧めます",
+          "question": "勧めますか",
+          "meaning": "to recommend",
+          "example": "店員は高いボトルワインを勧めます。"
+        },
+        {
+          "base": "頼む",
+          "polite": "頼みます",
+          "question": "頼みますか",
+          "meaning": "to order, to ask for",
+          "example": "私たちはそのボトルを頼んでいません。"
+        },
+        {
+          "base": "確認する",
+          "polite": "確認します",
+          "question": "確認しますか",
+          "meaning": "to check, to confirm",
+          "example": "店員が会計を確認して、直します。"
+        },
+        {
+          "base": "呼ぶ",
+          "polite": "呼びます",
+          "question": "呼びますか",
+          "meaning": "to call (a taxi)",
+          "example": "店員が安心して乗れるタクシーを呼びます。"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "予約",
+          "en": "reservation",
+          "kind": "term",
+          "readingKana": "よやく"
+        },
+        {
+          "ja": "テーブル",
+          "en": "table",
+          "kind": "term"
+        },
+        {
+          "ja": "店員",
+          "en": "waiter",
+          "kind": "term",
+          "readingKana": "てんいん"
+        },
+        {
+          "ja": "アレルギー",
+          "en": "allergy",
+          "kind": "term"
+        },
+        {
+          "ja": "ピーナッツ",
+          "en": "peanut",
+          "kind": "term"
+        },
+        {
+          "ja": "シェフ",
+          "en": "chef",
+          "kind": "term"
+        },
+        {
+          "ja": "ボトル",
+          "en": "bottle",
+          "kind": "term"
+        },
+        {
+          "ja": "ハウスワイン",
+          "en": "house wine",
+          "kind": "term"
+        },
+        {
+          "ja": "デザート",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "ja": "お会計",
+          "en": "bill",
+          "kind": "term",
+          "readingKana": "おかいけい"
+        },
+        {
+          "ja": "料金",
+          "en": "charge",
+          "kind": "term",
+          "readingKana": "りょうきん"
+        },
+        {
+          "ja": "チップ",
+          "en": "tip",
+          "kind": "term"
+        },
+        {
+          "ja": "乾杯",
+          "en": "cheers, toast",
+          "kind": "term",
+          "readingKana": "かんぱい"
+        },
+        {
+          "ja": "安心して乗れるタクシー",
+          "en": "safe taxi",
+          "kind": "term",
+          "readingKana": "あんしんしてのれるタクシー"
+        },
+        {
+          "ja": "窓際のテーブル",
+          "en": "table near the window",
+          "kind": "term",
+          "readingKana": "まどぎわのテーブル"
+        },
+        {
+          "ja": "クララの名前で、6名で予約しています。",
+          "en": "I have a reservation under the name Clara for 6 people.",
+          "kind": "phrase",
+          "readingKana": "クララのなまえで、ろくめいでよやくしています。"
+        },
+        {
+          "ja": "ご予約が見つかりません。",
+          "en": "I can't find the reservation.",
+          "kind": "phrase",
+          "readingKana": "ごよやくがみつかりません。"
+        },
+        {
+          "ja": "10分後でしたら、窓際のお席をご用意できます。",
+          "en": "We can have a table by the window ready in 10 minutes.",
+          "kind": "phrase",
+          "readingKana": "じゅっぷんごでしたら、まどぎわのおせきをごよういできます。"
+        },
+        {
+          "ja": "妹はピーナッツアレルギーです。この料理にピーナッツは入っていますか。",
+          "en": "My sister has a peanut allergy, does this dish have peanuts?",
+          "kind": "phrase",
+          "readingKana": "いもうとはピーナッツアレルギーです。このりょうりにピーナッツははいっていますか。"
+        },
+        {
+          "ja": "シェフに確認いたしました。こちらの料理にはピーナッツは入っておりません。",
+          "en": "I checked with the chef. This dish has no peanuts.",
+          "kind": "phrase",
+          "readingKana": "シェフにかくにんいたしました。こちらのりょうりにはピーナッツははいっておりません。"
+        },
+        {
+          "ja": "そちらの料理はほかの料理とは別に作っております。",
+          "en": "We make that dish separately.",
+          "kind": "phrase",
+          "readingKana": "そちらのりょうりはほかのりょうりとはべつにつくっております。"
+        },
+        {
+          "ja": "こちらのボトルワインがおすすめです。",
+          "en": "I recommend this bottle of wine.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "いえ、大丈夫です。ハウスワインのほうがいいです。",
+          "en": "No, thank you, we prefer the house wine.",
+          "kind": "phrase",
+          "readingKana": "いえ、だいじょうぶです。ハウスワインのほうがいいです。"
+        },
+        {
+          "ja": "妹に乾杯！",
+          "en": "Cheers to my sister!",
+          "kind": "phrase",
+          "readingKana": "いもうとにかんぱい！"
+        },
+        {
+          "ja": "伝票にもう1本分のボトルの料金が載っています。",
+          "en": "The bill has a charge for another bottle.",
+          "kind": "phrase",
+          "readingKana": "でんぴょうにもういっぽんぶんのボトルのりょうきんがのっています。"
+        },
+        {
+          "ja": "頼んでいないものの料金が入っていると思います。",
+          "en": "I think there is a charge we did not order.",
+          "kind": "phrase",
+          "readingKana": "たのんでいないもののりょうきんがはいっているとおもいます。"
+        },
+        {
+          "ja": "お会計を確認して、訂正いたします。",
+          "en": "I'll check the bill and correct it.",
+          "kind": "phrase",
+          "readingKana": "おかいけいをかくにんして、ていせいいたします。"
+        },
+        {
+          "ja": "チップを置きます。",
+          "en": "I'll leave the tip.",
+          "kind": "phrase",
+          "readingKana": "チップをおきます。"
+        },
+        {
+          "ja": "安心して乗れるタクシーを呼んでいただけますか。",
+          "en": "Can you call a safe taxi for me, please?",
+          "kind": "phrase",
+          "readingKana": "あんしんしてのれるタクシーをよんでいただけますか。"
+        },
+        {
+          "ja": "お会計をもう一度確認していただけますか。",
+          "en": "Could you check the bill again, please?",
+          "kind": "phrase",
+          "readingKana": "おかいけいをもういちどかくにんしていただけますか。"
+        },
+        {
+          "ja": "ホテルまでお願いします。",
+          "en": "To my hotel, please.",
+        "kind": "phrase",
+        "readingKana": "ホテルまでおねがいします。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "クララは家族と一緒にレストランに着いて、「クララの名前で、6名で予約しています」と言います。",
+          "en": "Clara arrives at the restaurant with her family and says: I have a reservation under the name Clara for 6 people."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店員は予約を見つけられませんが、10分後に窓際のテーブルを用意すると申し出ます。",
+          "en": "The waiter cannot find the reservation, but he offers them a table near the window in 10 minutes."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "クララは慎重に聞きます。「妹はピーナッツアレルギーです。この料理にピーナッツは入っていますか」",
+          "en": "Clara asks carefully: My sister has a peanut allergy, does this dish have peanuts?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店員はシェフに確認してから、その料理にはピーナッツは入っておらず、ほかの料理とは別に作っていると言います。それから、とても高いボトルワインを勧めます。",
+          "en": "After asking the chef, the waiter says that dish has no peanuts and that they make it separately, and then he recommends a very expensive bottle of wine."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "クララは感じよく答えます。「いえ、大丈夫です。ハウスワインのほうがいいです」",
+          "en": "Clara answers kindly: No, thank you, we prefer the house wine."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "デザートの前に、クララはグラスを上げて「妹に乾杯！」と言います。",
+          "en": "Before dessert, Clara raises her glass and says: Cheers to my sister!"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "最後に、伝票にもう1本分のボトルの料金が載っています。",
+          "en": "At the end, a charge for another bottle appears on the bill."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "クララは落ち着いて「頼んでいないものの料金が入っていると思います」と言います。",
+          "en": "Clara says calmly: I think there is a charge we did not order."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "店員は会計を確認して訂正します。クララはチップを置いて、「安心して乗れるタクシーを呼んでいただけますか」と聞きます。",
+          "en": "The waiter checks the bill and corrects it, and Clara leaves the tip and asks: Can you call a safe taxi for me, please?"
+        }
+      ],
+      "speaking": {
+        "role": "Host of a celebration dinner at a restaurant.",
+        "partnerRole": "Server at the restaurant.",
+        "opening": "クララの名前で、6名で予約しています。",
+        "goal": "Host a celebration dinner from a missing reservation through toasts and a contested bill to a safe ride back to your lodging.",
+        "closure": "ありがとうございます。助かります。",
+        "wordBank": [
+          "クララの名前で、6名で予約しています。",
+          "妹はピーナッツアレルギーです。この料理にピーナッツは入っていますか。",
+          "いえ、大丈夫です。ハウスワインのほうがいいです。",
+          "妹に乾杯！",
+          "頼んでいないものの料金が入っていると思います。",
+          "お会計をもう一度確認していただけますか。",
+          "チップを置きます。",
+          "安心して乗れるタクシーを呼んでいただけますか。",
+          "ホテルまでお願いします。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "reservation",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "charge",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Cheers to my sister!",
+          "sourceCard": 24,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "tip",
+          "sourceCard": 12,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "My sister has a peanut allergy, does this dish have peanuts?",
+          "sourceCard": 19,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Can you call a safe taxi for me, please?",
+          "sourceCard": 29,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Owner-only source-pinned draft. Not yet critiqued by Opus 5.5 or a qualified Japanese speaker. Source says only 'sister'; 妹 (younger sister) is chosen because Japanese must specify, so confirm or change to 姉. Tipping is kept because the source states it, though it is not customary in Japan. Supporting cards extend source vocabulary. Pending qualified Japanese and dining-domain review.",
+      "model": "claude-sonnet-5-5"
+    }
+  ]
+}

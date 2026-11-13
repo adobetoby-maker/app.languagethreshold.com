@@ -53,7 +53,8 @@ test("module Reader navigation exposes only loaded translated passages", async (
   assert.equal(getAvailableModuleLessons("rock-climbing", "Spanish", ALL_SEEDS).length, 0);
   assert.equal(getAvailableModuleLessons("roofing", "Spanish", ALL_SEEDS).length, 5);
   assert.equal(getAvailableModuleLessons("travel-breakfast", "Spanish", ALL_SEEDS).length, 0);
-  assert.equal(getAvailableModuleLessons("or-evs", "English", ALL_SEEDS).length, 0);
+  assert.equal(getAvailableModuleLessons("or-evs", "English", ALL_SEEDS).length, 30);
+  assert.equal(getAvailableModuleLessons("or-cleaning", "Spanish", ALL_SEEDS).length, 30);
 });
 
 test("Spanish-native learners get English Reader lessons in the right direction", async () => {

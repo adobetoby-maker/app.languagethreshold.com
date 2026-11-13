@@ -1,0 +1,294 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/travel-zone.ts",
+    "curriculumSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "passagePath": "public/lesson-content/es/travel-dinner.json",
+    "passageSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "title": "A Quiet Table for My Mother",
+      "objective": "Ask for a step-free route, a nearby restroom, good lighting, and a quieter table.",
+      "focus": "Y a-t-il une entrée sans marches ? uses inversion: il follows a, with -t- between the vowels. Pouvez-vous nous installer… ? makes a polite request; nous is the object before the infinitive installer. In Ma mère n’entend pas bien, ne… pas surrounds entend. Une table au calme means a quiet table, and une rampe d’accès is an access ramp.",
+      "scene": "You arrive at the restaurant with your mother for your 8 p.m. reservation. She uses a walker and does not hear well in noisy places. You ask the host for a step-free entrance, a quiet table away from the speakers, a nearby restroom, and good lighting for reading the menu.",
+      "forms": [
+        {
+          "infinitive": "demander",
+          "presentJe": "je demande",
+          "presentVous": "vous demandez",
+          "example": "Je demande à l'hôtesse : « Y a-t-il une entrée sans marches ? »",
+          "meaning": "to ask / I ask / you ask"
+        },
+        {
+          "infinitive": "entendre",
+          "presentJe": "j'entends",
+          "presentVous": "vous entendez",
+          "example": "Ma mère n’entend pas bien quand il y a beaucoup de bruit.",
+          "meaning": "to hear / I hear / you hear"
+        },
+        {
+          "infinitive": "donner",
+          "presentJe": "je donne",
+          "presentVous": "vous donnez",
+          "example": "Pouvez-vous nous donner une table au calme, s’il vous plaît ?",
+          "meaning": "to give / I give / you give"
+        },
+        {
+          "infinitive": "utiliser",
+          "presentJe": "j'utilise",
+          "presentVous": "vous utilisez",
+          "example": "Ma mère utilise un déambulateur.",
+          "meaning": "to use / I use / you use"
+        },
+        {
+          "infinitive": "expliquer",
+          "presentJe": "j'explique",
+          "presentVous": "vous expliquez",
+          "example": "Ensuite, je lui explique : « Ma mère utilise un déambulateur. »",
+          "meaning": "to explain / I explain / you explain"
+        },
+        {
+          "infinitive": "pouvoir",
+          "presentJe": "je peux",
+          "presentVous": "vous pouvez",
+          "example": "Pouvez-vous nous installer loin des haut-parleurs ?",
+          "meaning": "to be able to, can / I can / you can"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "la réservation",
+          "en": "reservation",
+          "kind": "term"
+        },
+        {
+          "fr": "l'hôtesse",
+          "en": "host",
+          "kind": "term",
+          "note": "Hôtesse is feminine; hôte is masculine."
+        },
+        {
+          "fr": "l'entrée sans marches",
+          "en": "step-free entrance",
+          "kind": "term"
+        },
+        {
+          "fr": "la rampe d’accès",
+          "en": "ramp",
+          "kind": "term"
+        },
+        {
+          "fr": "les marches",
+          "en": "steps",
+          "kind": "term"
+        },
+        {
+          "fr": "le déambulateur",
+          "en": "walker",
+          "kind": "term",
+          "note": "In Quebec, une marchette is also used."
+        },
+        {
+          "fr": "les toilettes",
+          "en": "restroom",
+          "kind": "term",
+          "note": "Toilettes is plural in French, so questions use sont-elles."
+        },
+        {
+          "fr": "une table au calme",
+          "en": "quiet table",
+          "kind": "term"
+        },
+        {
+          "fr": "le coin",
+          "en": "corner",
+          "kind": "term"
+        },
+        {
+          "fr": "l'éclairage",
+          "en": "lighting",
+          "kind": "term"
+        },
+        {
+          "fr": "le bruit",
+          "en": "noise",
+          "kind": "term"
+        },
+        {
+          "fr": "les haut-parleurs",
+          "en": "speakers",
+          "kind": "term"
+        },
+        {
+          "fr": "la mobilité réduite",
+          "en": "limited mobility",
+          "kind": "term"
+        },
+        {
+          "fr": "malentendante",
+          "en": "hard of hearing (woman)",
+          "kind": "term"
+        },
+        {
+          "fr": "Pouvez-vous nous donner une table au calme, s’il vous plaît ?",
+          "en": "Can you give us a quiet table, please?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Les toilettes sont-elles près de la table ?",
+          "en": "Is the restroom near the table?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Ma mère utilise un déambulateur.",
+          "en": "My mother uses a walker.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Ma mère n’entend pas bien quand il y a beaucoup de bruit.",
+          "en": "My mother doesn't hear well with a lot of noise.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je vais vous installer à la table dans le coin.",
+          "en": "I'm going to give you the corner table.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Cette table a un bon éclairage pour lire le menu.",
+          "en": "That table has good lighting for reading the menu.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Y a-t-il une entrée sans marches ?",
+          "en": "Is there a step-free entrance?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "entendre mal",
+          "en": "to not hear well",
+          "kind": "term"
+        },
+        {
+          "fr": "Y a-t-il une table bien éclairée ?",
+          "en": "Is there a table with good lighting?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "J'arrive au restaurant avec ma mère pour notre réservation de 20 h.",
+          "en": "I arrive at the restaurant with my mother for our 8 o'clock reservation."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "D'abord, je demande à l'hôtesse : « Y a-t-il une entrée sans marches ? »",
+          "en": "First I ask the host: Is there a step-free entrance?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Elle répond : « Oui, la rampe d’accès est à droite, loin des marches. »",
+          "en": "She answers: Yes, the ramp is on the right, away from the steps."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Ensuite, je lui explique : « Ma mère utilise un déambulateur et n’entend pas bien quand il y a beaucoup de bruit. »",
+          "en": "Then I explain to her: My mother uses a walker and doesn't hear well with a lot of noise."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Après cela, je lui demande : « Pouvez-vous nous donner une table au calme, s’il vous plaît ? »",
+          "en": "After that I ask her: Can you give us a quiet table, please?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "L’hôtesse dit : « Je vais vous installer à la table dans le coin, loin des haut-parleurs. »",
+          "en": "The host says: I'm going to give you the corner table, away from the speakers."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Je demande aussi : « Les toilettes sont-elles près de la table ? »",
+          "en": "I also ask: Is the restroom near the table?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Elle répond : « Oui, elles sont tout près, et cette table a un bon éclairage pour lire le menu. »",
+          "en": "She replies: Yes, it is very close, and that table has good lighting for reading the menu."
+        }
+      ],
+      "speaking": {
+        "role": "Adult child arriving at a restaurant with their mother, who uses a walker and is hard of hearing.",
+        "partnerRole": "Host at the restaurant.",
+        "opening": "Bonsoir, j’ai une réservation pour 20 h. Y a-t-il une entrée sans marches ?",
+        "goal": "Your parent has limited mobility and hearing; request an accessible, quiet table and explain why.",
+        "closure": "Merci beaucoup, c’est parfait.",
+        "wordBank": [
+          "Y a-t-il une entrée sans marches ?",
+          "Pouvez-vous nous donner une table au calme, s’il vous plaît ?",
+          "Les toilettes sont-elles près de la table ?",
+          "Ma mère utilise un déambulateur.",
+          "Ma mère n’entend pas bien quand il y a beaucoup de bruit.",
+          "une table au calme",
+          "la rampe d’accès",
+          "les haut-parleurs",
+          "Y a-t-il une table bien éclairée ?",
+          "l'éclairage",
+          "malentendante"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "Find the French for step-free entrance.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "From memory, say walker.",
+          "sourceCard": 6,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Listen for the question: Is the restroom near the table?",
+          "sourceCard": 16,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Type the French for noise.",
+          "sourceCard": 11,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Ask for a quiet table, please.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Write a French sentence saying your mother uses a walker.",
+          "sourceCard": 17,
+          "responseKind": "open"
+        }
+      },
+      "n": 19,
+      "stableId": "travel-dinner:19:fr-en",
+      "reviewed": false,
+      "sourceTitleEnglish": "Request accessible, quiet seating",
+      "sourceObjectiveEnglish": "ask for a step-free route, nearby restroom, good lighting, and a quieter table",
+      "sourceSpeakingEnglish": "Your parent has limited mobility and hearing; request an accessible, quiet table and explain why.",
+      "internalReviewNote": "Haiku 5.5 source-grounded draft, Opus 5.5 read-only critique and self-check. Corrected plan title, restaurant role/closure, walker note, accessibility register, step-free ramp, noise phrasing, good-lighting question, Reader corner-table idiom and exact word bank. Qualified French/accessibility review remains open; AI is not human approval."
+    }
+  ]
+}

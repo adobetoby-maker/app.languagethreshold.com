@@ -1,0 +1,151 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "contentPath": "public/lesson-content/es/travel-dinner.json",
+    "contentSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 2,
+      "stableId": "travel-dinner:2:ja-en",
+      "sourceTitleEnglish": "Arrive and speak with the host",
+      "sourceObjectiveEnglish": "give the reservation name, handle a wait, and discuss seating",
+      "sourceSpeakingEnglish": "Arrive early, confirm the booking, and decide whether to wait at the bar.",
+      "title": "Arrive, Confirm, and Wait",
+      "objective": "Give the reservation name on arrival, ask how long the table will take, choose where to wait, and ask about a window seat.",
+      "focus": "スミスの名前で予約しています identifies the booking name. まだ席の準備ができていません reports that the table is not ready; あと十五分ほど gives an approximate wait. バーで待ってもいいですか asks permission to wait at the bar, while 窓際の席は空いていますか asks about a seating preference. ～で marks the place where waiting happens; ～に marks the place where a table is located.",
+      "scene": "Sam and a companion arrive early at a restaurant. The host finds their booking but asks them to wait fifteen minutes, so they ask to wait at the bar and check for a window seat.",
+      "forms": [
+        {"base": "待つ", "polite": "待ちます", "permission": "待ってもいいですか", "meaning": "wait / wait politely / may we wait?"},
+        {"base": "確認する", "polite": "確認します", "request": "確認をお願いします", "meaning": "check / I will check / please check"}
+      ],
+      "cards": [
+        {"ja": "予約の名前", "en": "reservation name", "kind": "term", "readingKana": "よやくのなまえ"},
+        {"ja": "受付", "en": "reception / host desk", "kind": "term", "readingKana": "うけつけ"},
+        {"ja": "順番", "en": "turn / place in line", "kind": "term", "readingKana": "じゅんばん"},
+        {"ja": "待ち時間", "en": "waiting time", "kind": "term", "readingKana": "まちじかん"},
+        {"ja": "バー", "en": "bar", "kind": "term"},
+        {"ja": "窓際の席", "en": "a seat by the window", "kind": "term", "readingKana": "まどぎわのせき"},
+        {"ja": "テラス席", "en": "terrace seat", "kind": "term", "readingKana": "テラスせき"},
+        {"ja": "二名", "en": "two people (for a booking)", "kind": "term", "readingKana": "にめい"},
+        {"ja": "飲み物", "en": "drink", "kind": "term", "readingKana": "のみもの"},
+        {"ja": "一覧", "en": "list", "kind": "term", "readingKana": "いちらん"},
+        {"ja": "スミスの名前で予約しています。", "en": "I have a reservation under the name Smith.", "kind": "phrase", "readingKana": "スミスのなまえでよやくしています。"},
+        {"ja": "待ち時間はどのくらいですか。", "en": "How long is the wait?", "kind": "phrase", "readingKana": "まちじかんはどのくらいですか。"},
+        {"ja": "バーで待ってもいいですか。", "en": "May we wait at the bar?", "kind": "phrase", "readingKana": "バーでまってもいいですか。"},
+        {"ja": "窓際の席は空いていますか。", "en": "Is a window seat available?", "kind": "phrase", "readingKana": "まどぎわのせきはあいていますか。"},
+        {"ja": "席の準備がまだできていません。", "en": "The table is not ready yet.", "kind": "phrase", "readingKana": "せきのじゅんびがまだできていません。"},
+        {"ja": "あと十五分ほどです。", "en": "About fifteen more minutes.", "kind": "phrase", "readingKana": "あとじゅうごふんほどです。"},
+        {"ja": "もう一度言っていただけますか。", "en": "Could you say that again, please?", "kind": "phrase", "readingKana": "もういちどいっていただけますか。"},
+        {"ja": "テラス席のほうがいいです。", "en": "I would prefer a terrace seat.", "kind": "phrase", "readingKana": "テラスせきのほうがいいです。"}
+      ],
+      "reader": [
+        {"speaker": "Host", "ja": "いらっしゃいませ。ご予約はございますか。", "en": "Welcome. Do you have a reservation?"},
+        {"speaker": "Sam", "ja": "はい。スミスの名前で二名、午後八時に予約しています。", "en": "Yes. I have a reservation for two at 8:00 p.m. under the name Smith."},
+        {"speaker": "Host", "ja": "一覧を確認します。少々お待ちください。", "en": "I will check the list. Please wait a moment."},
+        {"speaker": "Host", "ja": "ご予約がございます。席の準備がまだできていません。", "en": "I found your reservation. The table is not ready yet."},
+        {"speaker": "Sam", "ja": "待ち時間はどのくらいですか。", "en": "How long is the wait?"},
+        {"speaker": "Host", "ja": "あと十五分ほどです。番号札をお渡しします。", "en": "About fifteen more minutes. I will give you a number."},
+        {"speaker": "Sam", "ja": "バーで待ってもいいですか。", "en": "May we wait at the bar?"},
+        {"speaker": "Host", "ja": "はい。バーでお待ちいただけます。", "en": "Yes. You may wait at the bar."},
+        {"speaker": "Sam", "ja": "窓際の席は空いていますか。", "en": "Is a window seat available?"},
+        {"speaker": "Host", "ja": "空いたらご案内します。お飲み物をどうぞ。", "en": "If one opens up, I will show you there. Please enjoy a drink."}
+      ],
+      "speaking": {
+        "role": "Guest arriving early with a reservation",
+        "partnerRole": "Restaurant host",
+        "opening": "いらっしゃいませ。ご予約のお名前をお願いします。",
+        "goal": "Give the reservation name, ask about the wait, decide to wait at the bar, and ask whether a window seat is available.",
+        "closure": "お席が空いたらお呼びします。",
+        "wordBank": ["予約の名前", "待ち時間", "バー", "窓際の席", "二名", "スミスの名前で予約しています。", "待ち時間はどのくらいですか。", "バーで待ってもいいですか。", "窓際の席は空いていますか。"]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the Japanese term for a seat by the window.", "sourceCard": 6, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, give the reservation name as Smith.", "sourceCard": 11, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the host's approximate fifteen-minute wait.", "sourceCard": 16, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the question asking how long the wait is.", "sourceCard": 12, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Ask the host whether you may wait at the bar.", "sourceCard": 13, "responseKind": "open"},
+        "write": {"cueEnglish": "Write a question asking whether a window seat is available.", "sourceCard": 14, "responseKind": "open"}
+      },
+      "reviewed": false
+    },
+    {
+      "n": 3,
+      "stableId": "travel-dinner:3:ja-en",
+      "sourceTitleEnglish": "Order aperitivo",
+      "sourceObjectiveEnglish": "ask about drinks, nonalcoholic choices, and included snacks",
+      "sourceSpeakingEnglish": "Join the local pre-dinner custom and ask how it works.",
+      "title": "Ask About Pre-Dinner Drinks",
+      "objective": "Ask what drinks are offered before dinner, choose a nonalcoholic option, and check whether a small snack comes with a drink.",
+      "focus": "食前酒 is an alcoholic aperitif; 食前の飲み物 is the broader phrase for a pre-dinner drink. アルコールなしの飲み物 asks for a nonalcoholic choice. 飲み物のメニューを見せていただけますか requests the drink menu politely. おつまみは飲み物に付いていますか asks whether a snack comes with the drink. Each restaurant's service may differ, so ask what is offered here.",
+      "scene": "Before dinner, Mika asks a server how pre-dinner drinks work at this restaurant. The server offers sparkling water, juice, and wine and explains that olives come with the drinks.",
+      "forms": [
+        {"base": "付く", "polite": "付きます", "question": "付いていますか", "meaning": "come with / comes with / is it included with?"},
+        {"base": "見せる", "polite": "見せます", "request": "見せていただけますか", "meaning": "show / I show / could you show me?"}
+      ],
+      "cards": [
+        {"ja": "食前酒", "en": "aperitif (alcoholic pre-dinner drink)", "kind": "term", "readingKana": "しょくぜんしゅ"},
+        {"ja": "食前の飲み物", "en": "pre-dinner drink", "kind": "term", "readingKana": "しょくぜんののみもの"},
+        {"ja": "飲み物のメニュー", "en": "drink menu", "kind": "term", "readingKana": "のみもののメニュー"},
+        {"ja": "ノンアルコール", "en": "nonalcoholic", "kind": "term"},
+        {"ja": "ビール", "en": "beer", "kind": "term"},
+        {"ja": "白ワイン", "en": "white wine", "kind": "term", "readingKana": "しろワイン"},
+        {"ja": "炭酸水", "en": "sparkling water", "kind": "term", "readingKana": "たんさんすい"},
+        {"ja": "オレンジジュース", "en": "orange juice", "kind": "term"},
+        {"ja": "オリーブ", "en": "olives", "kind": "term"},
+        {"ja": "おつまみ", "en": "small snack with a drink", "kind": "term"},
+        {"ja": "店員", "en": "restaurant staff member", "kind": "term", "readingKana": "てんいん"},
+        {"ja": "飲み物のメニューを見せていただけますか。", "en": "Could you show me the drink menu?", "kind": "phrase", "readingKana": "のみもののメニューをみせていただけますか。"},
+        {"ja": "アルコールなしの飲み物はありますか。", "en": "Do you have a drink without alcohol?", "kind": "phrase", "readingKana": "アルコールなしののみものはありますか。"},
+        {"ja": "おつまみは飲み物に付いていますか。", "en": "Does a snack come with the drink?", "kind": "phrase", "readingKana": "おつまみはのみものについていますか。"},
+        {"ja": "食前に飲み物を頼めますか。", "en": "Can I order a drink before dinner?", "kind": "phrase", "readingKana": "しょくぜんにのみものをたのめますか。"},
+        {"ja": "こちらでは食前酒を出していますか。", "en": "Do you serve aperitifs here?", "kind": "phrase", "readingKana": "こちらではしょくぜんしゅをだしていますか。"},
+        {"ja": "炭酸水をお願いします。", "en": "Sparkling water, please.", "kind": "phrase", "readingKana": "たんさんすいをおねがいします。"},
+        {"ja": "オリーブが付いています。", "en": "Olives come with it.", "kind": "phrase", "readingKana": "オリーブがついています。"}
+      ],
+      "reader": [
+        {"speaker": "Mika", "ja": "夕食の前に飲み物を頼めますか。", "en": "Can we order a drink before dinner?"},
+        {"speaker": "Server", "ja": "はい。食前の飲み物をご用意しています。", "en": "Yes. We offer pre-dinner drinks."},
+        {"speaker": "Mika", "ja": "飲み物のメニューを見せていただけますか。", "en": "Could you show me the drink menu?"},
+        {"speaker": "Server", "ja": "もちろんです。食前酒もございます。", "en": "Of course. We also have aperitifs."},
+        {"speaker": "Mika", "ja": "アルコールなしの飲み物はありますか。", "en": "Do you have a drink without alcohol?"},
+        {"speaker": "Server", "ja": "炭酸水とオレンジジュースがございます。", "en": "We have sparkling water and orange juice."},
+        {"speaker": "Mika", "ja": "炭酸水をお願いします。おつまみは飲み物に付いていますか。", "en": "Sparkling water, please. Does a snack come with the drink?"},
+        {"speaker": "Server", "ja": "はい、オリーブが付いています。", "en": "Yes, olives come with it."},
+        {"speaker": "Companion", "ja": "私は白ワインをお願いします。", "en": "I will have white wine, please."},
+        {"speaker": "Server", "ja": "かしこまりました。炭酸水と白ワインですね。", "en": "Certainly. Sparkling water and white wine."}
+      ],
+      "speaking": {
+        "role": "Dinner guest asking about pre-dinner drinks",
+        "partnerRole": "Restaurant server",
+        "opening": "食前のお飲み物はいかがですか。",
+        "goal": "Ask how pre-dinner drinks work here, request the drink menu, choose a nonalcoholic drink, and ask whether a snack comes with it.",
+        "closure": "炭酸水とオリーブをお持ちします。",
+        "wordBank": ["食前酒", "食前の飲み物", "飲み物のメニュー", "ノンアルコール", "炭酸水", "おつまみ", "飲み物のメニューを見せていただけますか。", "アルコールなしの飲み物はありますか。", "おつまみは飲み物に付いていますか。"]
+      },
+      "modes": {
+        "see": {"cueEnglish": "Find the Japanese word for an alcoholic aperitif.", "sourceCard": 1, "responseKind": "fixed"},
+        "recall": {"cueEnglish": "From memory, name sparkling water.", "sourceCard": 7, "responseKind": "fixed"},
+        "hear": {"cueEnglish": "Listen for the question about a snack with the drink.", "sourceCard": 14, "responseKind": "fixed"},
+        "type": {"cueEnglish": "Type the request to see the drink menu.", "sourceCard": 12, "responseKind": "fixed"},
+        "say": {"cueEnglish": "Ask for a drink without alcohol.", "sourceCard": 13, "responseKind": "open"},
+        "write": {"cueEnglish": "Write a question asking to order a drink before dinner.", "sourceCard": 15, "responseKind": "open"}
+      },
+      "reviewed": false
+    }
+  ]
+}

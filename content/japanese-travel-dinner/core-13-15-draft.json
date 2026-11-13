@@ -1,0 +1,749 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSHA256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "contentPath": "public/lesson-content/es/travel-dinner.json",
+    "contentSHA256": "6ddc4c99484467b9923609db4ab46f8a1cb2b35812ec987ed0fb9aac86105895",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 13,
+      "stableId": "travel-dinner:13:ja-en",
+      "sourceTitleEnglish": "Give a once-in-a-lifetime compliment",
+      "sourceObjectiveEnglish": "express deep gratitude with a specific emotional memory",
+      "sourceSpeakingEnglish": "Tell the chef: this experience was amazing, and I will tell my children about this meal.",
+      "title": "Thank the chef at the end of dinner",
+      "objective": "Express deep gratitude to the chef through a specific emotional memory at the end of dinner.",
+      "focus": "Asking to thank the chef, recalling the main course as a memory of your grandmother’s table, and saying your children will hear about the meal.",
+      "scene": "At the end of a special dinner, the guest asks the waiter if they may thank the chef. The chef comes out of the kitchen, and the guest thanks him for the evening, says the main course reminds them of their grandmother's table, and says the experience was incredible.",
+      "forms": [
+        {
+          "base": "立ち上がる",
+          "polite": "立ち上がります",
+          "question": "立ち上がりますか",
+          "meaning": "to stand up"
+        },
+        {
+          "base": "話す",
+          "polite": "話します",
+          "question": "話しますか",
+          "meaning": "to tell"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "夕食",
+          "en": "dinner",
+          "kind": "term",
+          "readingKana": "ゆうしょく"
+        },
+        {
+          "ja": "シェフ",
+          "en": "chef",
+          "kind": "term"
+        },
+        {
+          "ja": "厨房",
+          "en": "kitchen",
+          "kind": "term",
+          "readingKana": "ちゅうぼう"
+        },
+        {
+          "ja": "テーブル",
+          "en": "table",
+          "kind": "term"
+        },
+        {
+          "ja": "味",
+          "en": "flavor",
+          "kind": "term",
+          "readingKana": "あじ"
+        },
+        {
+          "ja": "メインディッシュ",
+          "en": "main course",
+          "kind": "term"
+        },
+        {
+          "ja": "ワイン",
+          "en": "wine",
+          "kind": "term"
+        },
+        {
+          "ja": "デザート",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "ja": "サービス",
+          "en": "service",
+          "kind": "term"
+        },
+        {
+          "ja": "思い出",
+          "en": "memory",
+          "kind": "term",
+          "readingKana": "おもいで"
+        },
+        {
+          "ja": "店員さん",
+          "en": "waiter",
+          "kind": "term",
+          "readingKana": "てんいんさん"
+        },
+        {
+          "ja": "シェフにお礼を言ってもいいですか。",
+          "en": "May I thank the chef?",
+          "kind": "phrase",
+          "readingKana": "シェフにおれいをいってもいいですか。"
+        },
+        {
+          "ja": "この特別な夜を、本当にありがとうございました。",
+          "en": "Thank you very much for this very special night.",
+          "kind": "phrase",
+          "readingKana": "このとくべつなよるを、ほんとうにありがとうございました。"
+        },
+        {
+          "ja": "この体験は、私にとって本当にすばらしかったです。",
+          "en": "This experience was incredible for me.",
+          "kind": "phrase",
+          "readingKana": "このたいけんは、わたしにとってほんとうにすばらしかったです。"
+        },
+        {
+          "ja": "子どもたちに、この食事のことを話すつもりです。",
+          "en": "I am going to tell my children about this meal.",
+          "kind": "phrase",
+          "readingKana": "こどもたちに、このしょくじのことをはなすつもりです。"
+        },
+        {
+          "ja": "この味は、一生忘れません。",
+          "en": "I am never going to forget this flavor.",
+          "kind": "phrase",
+          "readingKana": "このあじは、いっしょうわすれません。"
+        },
+        {
+          "ja": "このメインディッシュの味は、祖母の食卓を思い出させます。",
+          "en": "The flavor of the main course reminds me of my grandmother's table.",
+          "kind": "phrase",
+          "readingKana": "このメインディッシュのあじは、そぼのしょくたくをおもいださせます。"
+        },
+        {
+          "ja": "こちらこそ、来てくださってありがとうございます。",
+          "en": "Thank you for coming, too.",
+          "kind": "phrase",
+          "readingKana": "こちらこそ、きてくださってありがとうございます。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "シェフにお礼を言ってもいいですか。",
+          "en": "May I thank the chef?"
+        },
+        {
+          "speaker": "Waiter",
+          "ja": "もちろんです。少々お待ちください。",
+          "en": "Of course. Please wait a moment."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "シェフが厨房から出てきたので、私は席から立ち上がります。",
+          "en": "The chef comes out of the kitchen, so I stand up from my seat."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "この特別な夜を、本当にありがとうございました。",
+          "en": "Thank you very much for this very special night."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "このメインディッシュの味は祖母の食卓を思い出させて、思わず泣きそうになります。",
+          "en": "The flavor of the main course reminds me of my grandmother's table, and I almost cry."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "ワイン、デザート、サービスは、すべて完璧でした。",
+          "en": "The wine, the dessert, and the service were perfect."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "この体験は、私にとって本当にすばらしかったです。",
+          "en": "This experience was incredible for me."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "子どもたちに、この食事のことを話すつもりです。",
+          "en": "I am going to tell my children about this meal."
+        },
+        {
+          "speaker": "Chef",
+          "ja": "こちらこそ、来てくださってありがとうございます。",
+          "en": "Thank you for coming."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "この味は、一生忘れません。",
+          "en": "I am never going to forget this flavor."
+        }
+      ],
+      "speaking": {
+        "role": "Guest thanking the chef at the end of a special dinner",
+        "partnerRole": "Chef receiving the guest's thanks",
+        "opening": "シェフにお礼を言ってもいいですか。",
+        "goal": "Tell the chef: this experience was amazing, and I will tell my children about this meal.",
+        "closure": "この特別な夜を、本当にありがとうございました。",
+        "wordBank": [
+          "夕食",
+          "シェフ",
+          "厨房",
+          "テーブル",
+          "味",
+          "メインディッシュ",
+          "ワイン",
+          "デザート",
+          "サービス",
+          "思い出",
+          "店員さん",
+          "シェフにお礼を言ってもいいですか。",
+          "この特別な夜を、本当にありがとうございました。",
+          "この体験は、私にとって本当にすばらしかったです。",
+          "子どもたちに、この食事のことを話すつもりです。",
+          "この味は、一生忘れません。",
+          "このメインディッシュの味は、祖母の食卓を思い出させます。",
+          "こちらこそ、来てくださってありがとうございます。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "dinner",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "dessert",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Thank you very much for this very special night.",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "memory",
+          "sourceCard": 10,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "May I thank the chef?",
+          "sourceCard": 12,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "I am going to tell my children about this meal.",
+          "sourceCard": 15,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Haiku 5.5 authored from pinned English source; Opus 5.5 read-only findings self-adjudicated. Qualified Japanese and domain review required; reviewed:false."
+    },
+    {
+      "n": 14,
+      "stableId": "travel-dinner:14:ja-en",
+      "sourceTitleEnglish": "Pay and understand service",
+      "sourceObjectiveEnglish": "request the bill, check charges, ask about tipping, and pay",
+      "sourceSpeakingEnglish": "Clarify cover and service charges, then leave an appropriate compliment and tip.",
+      "title": "Pay the bill and understand service",
+      "objective": "Ask for the bill, check the charges, ask about service and tipping, and pay at a restaurant table.",
+      "focus": "Asking for the bill, checking the total and service charge, asking whether service is included, and paying by card.",
+      "scene": "After dinner, the guest asks for the bill and sees a service charge on the receipt. The waiter explains the restaurant's policy for large tables. Because service is already included, the guest leaves a small cash tip, pays by credit card, and thanks the chef before leaving.",
+      "forms": [
+        {
+          "base": "払う",
+          "polite": "払います",
+          "question": "払いますか",
+          "meaning": "to pay"
+        },
+        {
+          "base": "確認する",
+          "polite": "確認します",
+          "question": "確認しますか",
+          "meaning": "to check"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "会計",
+          "en": "bill, check",
+          "kind": "term",
+          "readingKana": "かいけい"
+        },
+        {
+          "ja": "店員さん",
+          "en": "waiter",
+          "kind": "term",
+          "readingKana": "てんいんさん"
+        },
+        {
+          "ja": "合計",
+          "en": "total",
+          "kind": "term",
+          "readingKana": "ごうけい"
+        },
+        {
+          "ja": "レシート",
+          "en": "receipt",
+          "kind": "term"
+        },
+        {
+          "ja": "サービス料",
+          "en": "service charge",
+          "kind": "term",
+          "readingKana": "サービスりょう"
+        },
+        {
+          "ja": "税金",
+          "en": "tax",
+          "kind": "term",
+          "readingKana": "ぜいきん"
+        },
+        {
+          "ja": "チップ",
+          "en": "tip",
+          "kind": "term"
+        },
+        {
+          "ja": "現金",
+          "en": "cash",
+          "kind": "term",
+          "readingKana": "げんきん"
+        },
+        {
+          "ja": "クレジットカード",
+          "en": "credit card",
+          "kind": "term"
+        },
+        {
+          "ja": "カード端末",
+          "en": "card machine",
+          "kind": "term",
+          "readingKana": "カードたんまつ"
+        },
+        {
+          "ja": "お釣り",
+          "en": "change (money back)",
+          "kind": "term",
+          "readingKana": "おつり"
+        },
+        {
+          "ja": "お会計をお願いできますか。",
+          "en": "Could you bring us the bill, please?",
+          "kind": "phrase",
+          "readingKana": "おかいけいをおねがいできますか。"
+        },
+        {
+          "ja": "サービス料は、もう含まれていますか。",
+          "en": "Is the service already included?",
+          "kind": "phrase",
+          "readingKana": "サービスりょうは、もうふくまれていますか。"
+        },
+        {
+          "ja": "この料金を確認していただけますか。",
+          "en": "Could you check this charge, please?",
+          "kind": "phrase",
+          "readingKana": "このりょうきんをかくにんしていただけますか。"
+        },
+        {
+          "ja": "こちらでは、チップはどのくらいが一般的ですか。",
+          "en": "How much is it customary to leave as a tip?",
+          "kind": "phrase",
+          "readingKana": "こちらでは、チップはどのくらいがいっぱんてきですか。"
+        },
+        {
+          "ja": "クレジットカードで払いたいです。",
+          "en": "I want to pay by credit card.",
+          "kind": "phrase",
+          "readingKana": "クレジットカードではらいたいです。"
+        },
+        {
+          "ja": "お釣りは取っておいてください。",
+          "en": "Keep the change.",
+          "kind": "phrase",
+          "readingKana": "おつりはとっておいてください。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "お会計をお願いできますか。",
+          "en": "Could you bring us the bill, please?"
+        },
+        {
+          "speaker": "Waiter",
+          "ja": "かしこまりました。",
+          "en": "Certainly."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "合計を確認すると、レシートにサービス料が入っていました。",
+          "en": "I check the total and see a service charge on the receipt."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "サービス料は、もう含まれていますか。",
+          "en": "Is the service already included?"
+        },
+        {
+          "speaker": "Waiter",
+          "ja": "当店の決まりで、大人数のお席の場合は、サービス料が10%です。",
+          "en": "According to the restaurant's policy, the service charge is 10% for large tables."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "サービス料が含まれているので、とても行き届いたサービスに感謝して、現金で少しだけチップを置いていきます。",
+          "en": "Since the service is already included, I leave only a small tip in cash because the attention was excellent."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "クレジットカードで払いたいです。",
+          "en": "I want to pay by credit card."
+        },
+        {
+          "speaker": "Waiter",
+          "ja": "かしこまりました。カード端末をお持ちします。",
+          "en": "Certainly. I'll bring the card machine."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "帰る前に、レシートを取っておき、シェフに忘れられない夕食のお礼を言います。",
+          "en": "Before leaving, I keep the receipt and thank the chef for an unforgettable dinner."
+        }
+      ],
+      "speaking": {
+        "role": "Guest paying the bill and checking the service charge",
+        "partnerRole": "Waiter explaining the service charge and bringing the card machine",
+        "opening": "お会計をお願いできますか。",
+        "goal": "Clarify cover and service charges, then leave an appropriate compliment and tip.",
+        "closure": "ありがとうございました。とてもおいしかったです。シェフにもよろしくお伝えください。",
+        "wordBank": [
+          "会計",
+          "店員さん",
+          "合計",
+          "レシート",
+          "サービス料",
+          "税金",
+          "チップ",
+          "現金",
+          "クレジットカード",
+          "カード端末",
+          "お釣り",
+          "お会計をお願いできますか。",
+          "サービス料は、もう含まれていますか。",
+          "この料金を確認していただけますか。",
+          "こちらでは、チップはどのくらいが一般的ですか。",
+          "クレジットカードで払いたいです。",
+          "お釣りは取っておいてください。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "bill, check",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "total",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Is the service already included?",
+          "sourceCard": 13,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "cash",
+          "sourceCard": 8,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "I want to pay by credit card.",
+          "sourceCard": 16,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Keep the change.",
+          "sourceCard": 17,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Haiku 5.5 authored from pinned English source; Opus 5.5 read-only findings self-adjudicated. Qualified Japanese and domain review required; reviewed:false."
+    },
+    {
+      "n": 15,
+      "stableId": "travel-dinner:15:ja-en",
+      "sourceTitleEnglish": "Dinner midpoint review",
+      "sourceObjectiveEnglish": "combine reservation, arrival, ordering courses, an allergy question, and paying from lessons 1–14 in one ordinary evening",
+      "sourceSpeakingEnglish": "Get through an ordinary dinner reservation from the host stand to the bill, with one small change along the way.",
+      "title": "Dinner from reservation to bill",
+      "objective": "Combine reservation, arrival, ordering courses, an allergy question, and paying from lessons 1–14 in one ordinary evening.",
+      "focus": "Giving a reservation name, ordering courses, asking about nuts and shared pans, changing the dessert, and asking for the check.",
+      "scene": "Ana arrives at 8 for her reservation and is taken to her table. She orders soup and fish with a glass of white wine. Because she is allergic to nuts, she asks whether the dish has nuts and whether the same pans are used. The waiter checks with the chef and explains that the dish has nuts, but the chef will make it without nuts and in a clean pan. Ana asks to change her dessert to fruit, then asks for the check, sees that the tip is not included, and pays by card.",
+      "forms": [
+        {
+          "base": "予約する",
+          "polite": "予約します",
+          "question": "予約しますか",
+          "meaning": "to reserve"
+        },
+        {
+          "base": "注文する",
+          "polite": "注文します",
+          "question": "注文しますか",
+          "meaning": "to order"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "予約",
+          "en": "reservation",
+          "kind": "term",
+          "readingKana": "よやく"
+        },
+        {
+          "ja": "テーブル",
+          "en": "table",
+          "kind": "term"
+        },
+        {
+          "ja": "メニュー",
+          "en": "menu",
+          "kind": "term"
+        },
+        {
+          "ja": "店員さん",
+          "en": "waiter",
+          "kind": "term",
+          "readingKana": "てんいんさん"
+        },
+        {
+          "ja": "前菜",
+          "en": "starter",
+          "kind": "term",
+          "readingKana": "ぜんさい"
+        },
+        {
+          "ja": "メインディッシュ",
+          "en": "main course",
+          "kind": "term"
+        },
+        {
+          "ja": "デザート",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "ja": "アレルギー",
+          "en": "allergy",
+          "kind": "term"
+        },
+        {
+          "ja": "ナッツ",
+          "en": "nuts",
+          "kind": "term"
+        },
+        {
+          "ja": "会計",
+          "en": "check",
+          "kind": "term",
+          "readingKana": "かいけい"
+        },
+        {
+          "ja": "チップ",
+          "en": "tip",
+          "kind": "term"
+        },
+        {
+          "ja": "カード",
+          "en": "card",
+          "kind": "term"
+        },
+        {
+          "ja": "フライパン",
+          "en": "pan",
+          "kind": "term"
+        },
+        {
+          "ja": "アナという名前で予約しています。",
+          "en": "I have a reservation under the name Ana.",
+          "kind": "phrase",
+          "readingKana": "アナというなまえでよやくしています。"
+        },
+        {
+          "ja": "前菜として、スープを注文するつもりです。",
+          "en": "As a starter, I'm going to order the soup.",
+          "kind": "phrase",
+          "readingKana": "ぜんさいとして、スープをちゅうもんするつもりです。"
+        },
+        {
+          "ja": "この料理にはナッツが入っていますか。",
+          "en": "Does this dish have nuts?",
+          "kind": "phrase",
+          "readingKana": "このりょうりにはナッツがはいっていますか。"
+        },
+        {
+          "ja": "デザートを、フルーツに変えてもいいですか。",
+          "en": "Can I change the dessert for fruit?",
+          "kind": "phrase",
+          "readingKana": "デザートを、フルーツにかえてもいいですか。"
+        },
+        {
+          "ja": "お会計をお願いできますか。",
+          "en": "Could you bring me the check, please?",
+          "kind": "phrase",
+          "readingKana": "おかいけいをおねがいできますか。"
+        },
+        {
+          "ja": "チップは含まれていますか。",
+          "en": "Is the tip included?",
+          "kind": "phrase",
+          "readingKana": "チップはふくまれていますか。"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "こんばんは。八時にアナという名前で予約しています。",
+          "en": "Good evening. I have a reservation at 8 under the name Ana."
+        },
+        {
+          "speaker": "Waiter",
+          "ja": "こちらのテーブルへどうぞ。メニューです。",
+          "en": "Please come this way to your table. Here is the menu."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "前菜としてスープを、メインディッシュとして魚料理と白ワインを一杯注文します。",
+          "en": "As a starter I'll have the soup, and as a main course, the fish with a glass of white wine."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "ナッツのアレルギーがあります。この料理にはナッツが入っていますか。",
+          "en": "I am allergic to nuts. Does this dish have nuts?"
+        },
+        {
+          "speaker": "Guest",
+          "ja": "ナッツを使う料理と同じフライパンを使っていますか。",
+          "en": "Do you use the same frying pans as for dishes with nuts?"
+        },
+        {
+          "speaker": "Waiter",
+          "ja": "シェフに確認しました。はい、この料理にはナッツが入っていますが、シェフはナッツを使わずに、きれいなフライパンで作ります。",
+          "en": "I checked with the chef. Yes, this dish has nuts, but the chef is going to make it without nuts, in a clean pan."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "デザートを、フルーツに変えてもいいですか。",
+          "en": "Can I change the dessert for fruit?"
+        },
+        {
+          "speaker": "Guest",
+          "ja": "お会計をお願いできますか。",
+          "en": "Could you bring me the check, please?"
+        },
+        {
+          "speaker": "Guest",
+          "ja": "チップは含まれていますか。",
+          "en": "Is the tip included?"
+        },
+        {
+          "speaker": "Guest",
+          "ja": "会計を確認すると、チップは含まれていませんでした。",
+          "en": "I check the bill and see that the tip is not included."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "カードで払います。",
+          "en": "I'll pay by card."
+        }
+      ],
+      "speaking": {
+        "role": "Guest at an ordinary dinner reservation, from arrival to the bill",
+        "partnerRole": "Waiter seating the guest, checking the nut question with the chef, and bringing the check",
+        "opening": "こんばんは。八時にアナという名前で予約しています。",
+        "goal": "Get through an ordinary dinner reservation from the host stand to the bill, with one small change along the way.",
+        "closure": "カードで払います。",
+        "wordBank": [
+          "予約",
+          "テーブル",
+          "メニュー",
+          "店員さん",
+          "前菜",
+          "メインディッシュ",
+          "デザート",
+          "アレルギー",
+          "ナッツ",
+          "会計",
+          "チップ",
+          "カード",
+          "フライパン",
+          "アナという名前で予約しています。",
+          "前菜として、スープを注文するつもりです。",
+          "この料理にはナッツが入っていますか。",
+          "デザートを、フルーツに変えてもいいですか。",
+          "お会計をお願いできますか。",
+          "チップは含まれていますか。"
+        ]
+      },
+      "modes": {
+        "see": {
+          "cueEnglish": "reservation",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "nuts",
+          "sourceCard": 9,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Is the tip included?",
+          "sourceCard": 19,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "menu",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Does this dish have nuts?",
+          "sourceCard": 16,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Can I change the dessert for fruit?",
+          "sourceCard": 17,
+          "responseKind": "open"
+        }
+      },
+      "reviewed": false,
+      "internalReviewNote": "Haiku 5.5 authored from pinned English source; Opus 5.5 read-only findings self-adjudicated. Qualified Japanese and domain review required; reviewed:false."
+    }
+  ]
+}

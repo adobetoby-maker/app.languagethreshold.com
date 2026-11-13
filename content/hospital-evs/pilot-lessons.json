@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "status": "unreviewed-authoring-pilot-not-shipped",
+  "lessons": [
+    {
+      "courseId": "hospital-evs-en",
+      "stage": "foundation",
+      "n": 1,
+      "lesson": {
+        "title": "Introduce yourself on the unit",
+        "objective": "Introduce yourself as an EVS technician, confirm your assigned area with a nurse, and ask who can answer a question.",
+        "focus": "English introductions, I am, and short questions",
+        "speaking": "You arrive on a patient-care unit for your first shift. Introduce yourself to the nurse, confirm the area assigned to you, and ask who can answer a question about the room list.",
+        "partnerRole": "English-speaking unit nurse",
+        "openingLine": "Hello. Are you the EVS technician assigned to this unit?"
+      },
+      "content": {
+        "passage": {
+          "title": "First shift on the unit",
+          "target": [
+            "The EVS technician arrives at the unit before the shift begins.",
+            "Nurse: Hello, I am the nurse for this hallway.",
+            "Technician: I am the EVS technician assigned to this unit.",
+            "Technician: Can you confirm my room assignment?",
+            "Nurse: Your supervisor has the room list for this shift.",
+            "Technician: Thank you. I have a question for the supervisor."
+          ],
+          "native": [
+            "El técnico de servicios ambientales llega a la unidad antes de que comience el turno.",
+            "Enfermera: Hola, soy la enfermera de este pasillo.",
+            "Técnico: Soy el técnico de servicios ambientales asignado a esta unidad.",
+            "Técnico: ¿Puede confirmar qué habitación me asignaron?",
+            "Enfermera: Su supervisor tiene la lista de habitaciones para este turno.",
+            "Técnico: Gracias. Tengo una pregunta para el supervisor."
+          ]
+        },
+        "words": [
+          {"es":"technician","en":"técnico","kind":"term","note":"English: A worker trained for a specific job."},
+          {"es":"nurse","en":"enfermera o enfermero","kind":"term","note":"English: A licensed care-team member; ask them about patient-room access."},
+          {"es":"supervisor","en":"supervisor o supervisora","kind":"term","note":"English: The person who coordinates the EVS assignment."},
+          {"es":"assignment","en":"asignación","kind":"term","note":"English: The work or area assigned to a person."},
+          {"es":"unit","en":"unidad","kind":"term","note":"English: A hospital care area."},
+          {"es":"room","en":"habitación","kind":"term","note":"English: A patient-care space in this lesson."},
+          {"es":"shift","en":"turno","kind":"term","note":"English: A scheduled period of work."},
+          {"es":"question","en":"pregunta","kind":"term","note":"English: Something you ask to clarify an instruction."},
+          {"es":"I am the EVS technician.","en":"Soy el técnico de servicios ambientales.","kind":"phrase"},
+          {"es":"Can you confirm my room assignment?","en":"¿Puede confirmar qué habitación me asignaron?","kind":"phrase"},
+          {"es":"I have a question for the supervisor.","en":"Tengo una pregunta para el supervisor.","kind":"phrase"},
+          {"es":"Who is the nurse for this unit?","en":"¿Quién es la enfermera de esta unidad?","kind":"phrase"}
+        ],
+        "verbs": [
+          {"infinitive":"ask","native":"preguntar","forms":{"i":"ask","you":"ask","he_she":"asks","we":"ask","they":"ask"},"example":{"target":"I ask the nurse a question.","native":"Le hago una pregunta a la enfermera."}},
+          {"infinitive":"confirm","native":"confirmar","forms":{"i":"confirm","you":"confirm","he_she":"confirms","we":"confirm","they":"confirm"},"example":{"target":"I confirm my assignment with the supervisor.","native":"Confirmo mi asignación con el supervisor."}},
+          {"infinitive":"report","native":"informar","forms":{"i":"report","you":"report","he_she":"reports","we":"report","they":"report"},"example":{"target":"I report a problem to the nurse.","native":"Le informo de un problema a la enfermera."}}
+        ]
+      }
+    },
+    {
+      "courseId": "hospital-evs-es",
+      "stage": "foundation",
+      "n": 1,
+      "lesson": {
+        "title": "Meet the EVS team",
+        "objective": "Greet a Spanish-speaking teammate, describe your work area, and confirm who coordinates the shift.",
+        "focus": "Spanish soy, estoy, and polite questions",
+        "speaking": "You are joining a Spanish-speaking EVS team. Tell a teammate your name and area, ask where the supervisor is, and confirm the handoff point.",
+        "partnerRole": "Spanish-speaking EVS teammate",
+        "openingLine": "Hola. ¿Eres la persona nueva del equipo de servicios ambientales?"
+      },
+      "content": {
+        "passage": {
+          "title": "A new teammate",
+          "target": [
+            "El técnico nuevo llega al pasillo antes del turno.",
+            "Compañera: Hola, soy tu compañera en esta área.",
+            "Técnico: Soy el técnico nuevo de servicios ambientales.",
+            "Técnico: Estoy asignado a esta habitación y tengo una pregunta.",
+            "Compañera: La supervisora coordina el turno desde la unidad.",
+            "Técnico: Gracias. Voy a confirmar el área con ella."
+          ],
+          "native": [
+            "The new technician arrives in the hallway before the shift.",
+            "Teammate: Hello, I am your teammate in this area.",
+            "Technician: I am the new environmental services technician.",
+            "Technician: I am assigned to this room and I have a question.",
+            "Teammate: The supervisor coordinates the shift from the unit.",
+            "Technician: Thank you. I am going to confirm the area with her."
+          ]
+        },
+        "words": [
+          {"es":"técnico","en":"technician","kind":"term"},
+          {"es":"compañera","en":"female teammate","kind":"term"},
+          {"es":"supervisora","en":"female supervisor","kind":"term"},
+          {"es":"área","en":"area","kind":"term"},
+          {"es":"turno","en":"shift","kind":"term"},
+          {"es":"habitación","en":"room","kind":"term"},
+          {"es":"pasillo","en":"hallway","kind":"term"},
+          {"es":"pregunta","en":"question","kind":"term"},
+          {"es":"Soy el técnico nuevo.","en":"I am the new technician.","kind":"phrase"},
+          {"es":"Estoy asignado a esta habitación.","en":"I am assigned to this room.","kind":"phrase"},
+          {"es":"Tengo una pregunta.","en":"I have a question.","kind":"phrase"},
+          {"es":"Voy a confirmar el área.","en":"I am going to confirm the area.","kind":"phrase"}
+        ],
+        "verbs": [
+          {"infinitive":"preguntar","native":"to ask","forms":{"yo":"pregunto","tú":"preguntas","él_ella_usted":"pregunta","nosotros":"preguntamos","ellos_ustedes":"preguntan"},"example":{"target":"Pregunto dónde está la supervisora.","native":"I ask where the supervisor is."}},
+          {"infinitive":"confirmar","native":"to confirm","forms":{"yo":"confirmo","tú":"confirmas","él_ella_usted":"confirma","nosotros":"confirmamos","ellos_ustedes":"confirman"},"example":{"target":"Confirmo el área con mi compañera.","native":"I confirm the area with my teammate."}},
+          {"infinitive":"llegar","native":"to arrive","forms":{"yo":"llego","tú":"llegas","él_ella_usted":"llega","nosotros":"llegamos","ellos_ustedes":"llegan"},"example":{"target":"Llego al pasillo antes del turno.","native":"I arrive in the hallway before the shift."}}
+        ]
+      }
+    }
+  ]
+}

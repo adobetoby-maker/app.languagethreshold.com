@@ -1,0 +1,511 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "voices": [
+    "fr-FR-Chirp3-HD-Aoede",
+    "fr-FR-Chirp3-HD-Charon"
+  ],
+  "sourceSHA256": {
+    "master-12-private-draft.json": "84d487382765ec973e4c5985aeefb057252b932e5f9b11ecb416e7c46f6e958b"
+  },
+  "previousScopeSHA256": {
+    "foundation.json": "cdbee8c457ff9c9f0f400113d63347fb471506c22bb6bbd2eb089762fb77e9fe",
+    "core-1-3.json": "ab62ab86e0b9b51bfe5f4905a86cded44d046adb156f4cd194f79ec357599d10",
+    "core-4-9.json": "3d4aa7070a2d8bd67cac94208a11a43b813fcb3e4d6b1da8ffe99389e233c344",
+    "core-10-12.json": "ebc33851805ff0125eddab0a4836f3afd27fa1e2ea99d4eeed1434b6808531a6",
+    "private-owner-delta-audio-scope.json": "97484eaa2099e1820a68da85843f0e5a32ff9f9ac861b7d275dcc27620ba7206",
+    "private-core-13-audio-scope.json": "dab949203658a04cc91da3ef3094590048919296d4e2cb45e22dba47e969cf2e",
+    "private-core-14-audio-scope.json": "ce2fdbd2b5c41f23d8a51996c9f6245a38159bb8ce3593af35b0fa0e69f547b3",
+    "private-core-15-audio-scope.json": "3d8b7c021b39f809795def5b5b03837ce75617cc9ebece0e89fe24be77bec8d5",
+    "private-core-16-audio-scope.json": "33db9f45805dd8910425f1e5840943e7509f3c65cabdf1b4a7fa6fba41fc1e5b",
+    "private-core-17-audio-scope.json": "c5b9cd5c8aa0257f3104ad7ee7ae4d8270acd70db52bc36d9eea449fa63872df",
+    "private-core-18-audio-scope.json": "edd20f215e7720ab6f61aadb11fc7d86429adfd23baa8fee773e9d90690bebd4",
+    "private-core-19-audio-scope.json": "27b626c300ced17a3675a230899fa1ff123a4bd1443eda6d54b61de4f75308e4",
+    "private-core-20-audio-scope.json": "7e6badf17a000b50aed36910317708d30c37016b7b4b4b06ca35b7d584a8f7f0",
+    "private-core-21-audio-scope.json": "3a4ee65d6d3b7f38b166a516c88f303e09f910801e72a701165ca61ba9c9f2d1",
+    "private-core-22-audio-scope.json": "52ed5c65d71e8fbdb228ef8bc3a7a1cee8b0afc17b416097cdea36c171838e4e",
+    "private-core-23-audio-scope.json": "f742a6d201149062b199bbcb9cb6bf37bd070940c98377e28170da2c1f881ea7",
+    "private-core-24-audio-scope.json": "896cb33c0149fac4cfb3187dbe9ef82a72e093f070adaea916518f339e30bfa4",
+    "private-core-25-audio-scope.json": "3956c727ff300622929244baec1ce06c5ea371c06573cbe8b90b51a5c3db4d9b",
+    "private-core-26-audio-scope.json": "07b4608c082487ba5a55f47edcee07c95cd850dedfed11d160ea91529d0c3573",
+    "private-core-27-audio-scope.json": "5b31a3f11424d275eec7eac05356e4b95c42cbe86fd5c1322babf24fc31f9b5d",
+    "private-core-28-audio-scope.json": "10be69783b3b0e3be4817001a49fdc836469598655e5763ecb73c2cf8d32a43e",
+    "private-core-29-audio-scope.json": "12df60efddd5ee662977ca5aba6229b57dbb5c71b244cae99cfc578289540ba5",
+    "private-core-30-audio-scope.json": "68cc5151faaa5864f27b81c930b1e8412c0fc891609c7498699aac5f1990feda",
+    "private-master-1-audio-scope.json": "73974d1ea2fd2ef77baab624490efda93e4038e7470cd2083b0a4d4284b2984a",
+    "private-master-2-audio-scope.json": "f867fd31a1e7c7991d359a3e5f1248d936b14083f07717e74c21245af8960b98",
+    "private-master-3-audio-scope.json": "96f52df5299501275d4f6d7957737e9db27235d145946f084a3e21b4de986319",
+    "private-master-4-audio-scope.json": "ea7becf0ab92df7fc6d485ab97205efec6b0e530dfaa3ad0f53c28e43514d9e0",
+    "private-master-5-audio-scope.json": "312b1e136bac580f1d4eb73ee993ae9d42c13e131d5de3051d1363687cf57bc9",
+    "private-master-6-audio-scope.json": "94f3acbfa5634d54efb33042195f15877472a8010af1dbeaf933a219ec9a5e8c",
+    "private-master-7-audio-scope.json": "0cd9c4a0602d91e2f4abf883b38ddda60b87f8a3c41f836f201ae1a5e78040e6",
+    "private-master-8-audio-scope.json": "4fd81aa8cea629a7984168f394220b33b99f59cd00ad5a7865d7313b3965d358",
+    "private-master-9-audio-scope.json": "093d226253ca3c0c5bea852ee71a3492ebbc9d4dc3dbbf1e910912aebd707dd5",
+    "private-master-10-audio-scope.json": "5e476f4026157303b726864d2ec667c8bb6bb21e88433aac9c1884e33e42521b",
+    "private-master-11-audio-scope.json": "b8bf481ebb04a7628ef3eb96df412db658fbdc2aa30df2d0fef3756503ee74e4"
+  },
+  "lessonIds": [
+    "master-travel-dinner:12:fr-en"
+  ],
+  "placements": 41,
+  "uniqueTexts": 41,
+  "proposedClips": 82,
+  "submittedCharacters": 5310,
+  "texts": [
+    {
+      "spokenText": "Alex : Doña Socorro, est-ce que vous avez enseigné à Daniela à cuisiner ?",
+      "textSHA256": "b9577cc2b13de21298ad37d63e6f89e878cc6640bd063cb384f2bd29609759a4",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "reader",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "spokenText": "Alex : Hé, Mateo, tu peux me passer le quesillo ?",
+      "textSHA256": "6b8dddc5e48d354eccccb6e5a050730de4c04b1ceb51b1661eff46d1a2551d7d",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "reader",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "spokenText": "Alex : Pourriez-vous me dire d'où vient la recette ?",
+      "textSHA256": "28f66d641ea092fce81eb606dd9d01ae9e14a01f926f0e7393e01b94eb1ac4a4",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "Alex : Vous avez déjà goûté les chapulines ? Ils sont vraiment croustillants !",
+      "textSHA256": "5925ab0565edec61d6ad0d93dfd808e767558bdc47a40b89cc0d7dbc32ab88c8",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "reader",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "spokenText": "Alex goûte le mole noir et se lève pour lui parler : Doña Eufrosina, je voudrais vous féliciter pour ce mole noir.",
+      "textSHA256": "e0ec295a7e223d6f7d7a1d152ef29df80608d37f9e52f1df5ee3e5066f16bdb5",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "Alex lui serre la main avec respect : Doña Socorro, c'est un honneur de vous rencontrer.",
+      "textSHA256": "603a6b2b1ae4993032b5b8c5547d3edb15653164a922d44080bf1d2509f85d24",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "reader",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "Alex se tourne vers son amie : Daniela, tu peux me passer l'eau de jamaica, s'il te plaît ?",
+      "textSHA256": "a33c3d652660d9014c84e6d23a25b316ab7b287d7e70a78aa34efced78bc7c76",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "reader",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "spokenText": "Brayan revient avec un panier de tortillas faites à la main et un pichet d'eau de jamaica.",
+      "textSHA256": "0f98d1000609ae17cc235f7510e0139344dd9066c51c85f6757a06da5fd76837",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "Brayan, seriez-vous assez aimable pour nous apporter encore des tortillas ?",
+      "textSHA256": "9e033584a8997bd9483b1e13ea6e760c9b5a6493afd7efc72bc895da41bba5dc",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "spokenText": "Daniela, tu peux me passer l'eau de jamaica, s'il te plaît ?",
+      "textSHA256": "41618ac68c96f572d1039ea502c9cb8a458337ea01a65027ef90b9b258ceb424",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 22
+        }
+      ]
+    },
+    {
+      "spokenText": "Doña Eufrosina : C'est la recette familiale de mon arrière-grand-mère, et je la fais toujours de la même façon.",
+      "textSHA256": "38301b78037354132468ad0a5b21ec29e9a709c68430883727fa2536d84dc3e7",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "Doña Eufrosina : « Bienvenue ! Vous êtes l'ami de Daniela ? Avez-vous goûté mon mole noir ? »",
+      "textSHA256": "6636e505c24a2cc95431bcd5366e6a531cc426a4431ec7a4d1a73204331fd384",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "spokenText": "Doña Eufrosina, je voudrais vous féliciter pour ce mole noir.",
+      "textSHA256": "4f423a87b0636e61e77351afcf6570a7466eba24e46b9d8bc4dd7d32022f5e95",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "spokenText": "Doña Socorro boit une gorgée de tejate et raconte que Daniela faisait déjà des tortillas sur son comal à l'âge de 8 ans.",
+      "textSHA256": "fac0c9fb42079211542f1050bb96ce8785452402fed2d49c041402a6c4c996db",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "reader",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "spokenText": "Doña Socorro, c'est un honneur de vous rencontrer.",
+      "textSHA256": "9d32be3a082173b852193e46d4466d7fcc1738ed3733449e8fc7c4080d1721c2",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "spokenText": "Doña Socorro, est-ce que vous avez enseigné à Daniela à cuisiner ?",
+      "textSHA256": "74ac9216b37f047744197e2dfa3232bf74e2c28ceb75198887b987985c84450d",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 19
+        }
+      ]
+    },
+    {
+      "spokenText": "Elle fait chauffer les tlayudas sur un immense comal, à côté de la longue table.",
+      "textSHA256": "4a7f069f71cf0afcb90b02d5523f762365b2f61f1eae20e1126e5094a4969095",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "Hé, Mateo, tu peux me passer le quesillo ?",
+      "textSHA256": "36b27920f738c1aedceec2155a762915fe8e6f6137a54a36c07d5607e2e1af3b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 20
+        }
+      ]
+    },
+    {
+      "spokenText": "La propriétaire du restaurant, Doña Eufrosina, est aussi la cuisinière traditionnelle de la maison.",
+      "textSHA256": "5e61a89b110571176532498ec37ca0341b3663c88034b14b58b0046484161886",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "Les tortillas s'épuisent vite, alors Alex appelle le serveur : Brayan, seriez-vous assez aimable pour nous apporter encore des tortillas ?",
+      "textSHA256": "f9a94359c3e32fd627db9dcd3b67af51607cf9c150ab69e1c2663eb1cda73fb8",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "Mateo lui passe le quesillo, et Alex propose aux enfants une assiette de chapulines.",
+      "textSHA256": "16a10f797c2ad70f1cc24d0795698b0412a2a55e760c887bd4d8133951b3a0c9",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "reader",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "spokenText": "Plus tard, Alex s'assoit avec les jeunes cousins, Mateo et Sofi, qui mangent des memelas avec des haricots.",
+      "textSHA256": "121ee9938ff5a0295e7d56a177315b807b41380231fa2a2011f3d231c7e9a96d",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "reader",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "spokenText": "Pourriez-vous me dire d'où vient la recette ?",
+      "textSHA256": "de90e6785cd59c1bdb0cba9d597641e9d88797116dc9a5fab8c9b8fa195406db",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "spokenText": "Puis Daniela présente Alex à sa grand-mère, Doña Socorro, qui fête ses 90 ans.",
+      "textSHA256": "0ae53a806f48dc359f788adf0b05ed896ddcf451712e95baf97e3869baf238d3",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "Remerciez tout le monde pour l'accueil, puis dites au revoir à Doña Socorro avec le vouvoiement et aux enfants avec le tutoiement.",
+      "textSHA256": "122a08ffd8f16766cb207e3b110c3f675140e89693549bcf9cf3996d4b9a2f8a",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "spokenText": "Samedi, Daniela invite son ami Alex à la fête de sa grand-mère dans un restaurant familial d'Oaxaca.",
+      "textSHA256": "39096e4c21440f4c6aefe15d2e24fdc82604ea16a3812139254e40e9ac7a5b61",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "Vous avez déjà goûté les chapulines ? Ils sont vraiment croustillants !",
+      "textSHA256": "069957592d23511b57fc294675b99950814cf82b62f4d8a05d0e038ee23827ca",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 21
+        }
+      ]
+    },
+    {
+      "spokenText": "l'eau de jamaica (eau d'hibiscus)",
+      "textSHA256": "c25ca7ab3a5f85c868d64d1cd8dc6c4aadf36b70582b5ac6d79da3cb1a570436",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "spokenText": "la cuisinière traditionnelle",
+      "textSHA256": "825ffb79ff2bb14c35a2752b88bb97f8068e6e37450124dde1389f9a64e00183",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "la mamie",
+      "textSHA256": "41c78b5002d66a119161e689736ee5a57e9a4490a3f3db9dbeb3a537f61e5b22",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "la propriétaire",
+      "textSHA256": "67b8185b9d67895c31dd083a4070cb797736c44eecdec5a79a4d375422f267bf",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "la recette familiale",
+      "textSHA256": "8114c734dd5ddcd6722e42ac57f071f1eb8b84a54c30a85a58c291f3e25e1abf",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "la tortilla faite à la main",
+      "textSHA256": "2021cde9454de083f9ea3e2f84015645b3f67f850fd03569ce7fac24d25d197b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "spokenText": "le comal (plaque de cuisson)",
+      "textSHA256": "f459d29cf9543be8f9b2407313531b79540178505ba8340b369823f365c78be1",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "le mole noir",
+      "textSHA256": "646192b89d3acd59e32a02ab7acb6d1e270c958e2ab743e6a8b4c7b49039e3e9",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "le quesillo (fromage filé d'Oaxaca)",
+      "textSHA256": "cd9468a8358490082c968dad28ab63d6e68c3f02975d2da61dc4cb732c16cfa8",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "le tejate (boisson de maïs et de cacao)",
+      "textSHA256": "82b10dfc1f9919e532a6a7ccfd2a9389d20d4d6678a1670f7324025eac2d6201",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "les chapulines (sauterelles grillées)",
+      "textSHA256": "0082d813f907349167280ba2a4482df994582205afac253c96ec2e523c9c2b6c",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "les jeunes cousins (les enfants)",
+      "textSHA256": "c62a1e45f0226a4dcf56034567ac4d5455170d310f68e48573aa0f1ab44c68ed",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "spokenText": "les memelas (épaisses tortillas garnies)",
+      "textSHA256": "f7f1bba33282de7aef0c098499b0390d906bc6894048e21a323c55e6762f2c85",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "spokenText": "les tlayudas (grandes tortillas croustillantes d'Oaxaca)",
+      "textSHA256": "dfd5d915c43f9288b1c2e53a1923a73c653920a5f5af9e1e1a17dc3a2d26eb58",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:12:fr-en",
+          "surface": "card",
+          "index": 4
+        }
+      ]
+    }
+  ],
+  "recordingsBundled": false,
+  "listeningReviewed": false,
+  "registered": false
+}

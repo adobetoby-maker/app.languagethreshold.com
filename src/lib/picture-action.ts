@@ -72,7 +72,8 @@ export const PICTURE_OBJECTS: Record<string, { es: string; en: string; icon?: st
 };
 export const PICTURE_MODULES = profiles.modules;
 export function basePictureModule(id: string) {
-  return id.replace(/^(foundation-|master-)/, "");
+  const base = id.replace(/^(foundation-|master-)/, "");
+  return base === "or-cleaning" ? "or-evs" : base;
 }
 export const MODULE_PICTURE_SCENES: readonly PictureScene[] = profiles.modules.map((m) => {
   const base = SHARED_PICTURE_SCENES.find((s) => s.id === m.scene)!;

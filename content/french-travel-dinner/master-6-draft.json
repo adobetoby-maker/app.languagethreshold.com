@@ -1,0 +1,358 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-dinner.json",
+    "curriculumSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "passagePath": "public/lesson-content/es/master-travel-dinner.json",
+    "passageSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 6,
+      "stableId": "master-travel-dinner:6:fr-en",
+      "sourceTitleEnglish": "No Corvina Today: Choose a Substitute Ceviche",
+      "sourceObjectiveEnglish": "Understand why the usual fish is unavailable, compare the substitutes the chef offers, and decide with your partner.",
+      "sourceSpeakingEnglish": "You are dining with your partner Sam, and the AI is chef Renzo at a Lima cevichería: ask why there is no corvina, compare his substitutes with más... que and va a ser, ask him to state each price, and decide together with vamos a pedir.",
+      "title": "No Corvina Today: Choose a Substitute Ceviche",
+      "objective": "Understand why the usual fish is unavailable, compare the substitutes the chef offers, and decide with your partner.",
+      "focus": "Comparez les ceviches avec « plus délicat que » et « plus ferme que ». Pour prévoir, utilisez « sera » et « il y aura » ; pour annoncer votre choix, dites « nous allons commander ». Demandez chaque prix avant de choisir avec Sam.",
+      "scene": "At a cevichería in Miraflores, Lima, chef Renzo says today’s rough swell kept the boats out. Corvina is unavailable. Ask about sole, pota, bonito, pejerrey and mixed seafood ceviche, compare texture and prices, then decide with Sam.",
+      "forms": [
+        {
+          "infinitive": "avoir",
+          "meaning": "to have; j’ai, nous avons; future: il y aura",
+          "example": "Y aura-t-il de la corvina demain ?",
+          "question": "Y aura-t-il de la corvina demain ?",
+          "politeRequest": "Auriez-vous… ?"
+        },
+        {
+          "infinitive": "être",
+          "meaning": "to be; je suis, nous sommes; future: sera",
+          "example": "La sole sera plus délicate que la pota.",
+          "question": "Quel ceviche sera le plus délicat ?",
+          "politeRequest": "Serait-il possible… ?"
+        },
+        {
+          "infinitive": "pouvoir",
+          "meaning": "can, to be able; je peux, nous pouvons",
+          "example": "Pourriez-vous nous dire le prix de chaque ceviche ?",
+          "question": "Que demande Alex au chef ?",
+          "politeRequest": "Pourriez-vous… ?"
+        },
+        {
+          "infinitive": "préférer",
+          "meaning": "to prefer; je préfère, nous préférons",
+          "example": "Lequel préfères-tu, Sam, le plus tendre ou le plus ferme ?",
+          "question": "Que préfère Sam ?",
+          "politeRequest": "préférez"
+        },
+        {
+          "infinitive": "commander",
+          "meaning": "to order; je commande, nous commandons",
+          "example": "Nous allons commander un ceviche de sole et un ceviche mixte.",
+          "question": "Quels ceviches vont-ils commander ?",
+          "politeRequest": "commandez"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "la corvina (bar)",
+          "en": "the corvina (sea bass)",
+          "kind": "term"
+        },
+        {
+          "fr": "la sole",
+          "en": "the sole",
+          "kind": "term"
+        },
+        {
+          "fr": "la pota (calmar géant)",
+          "en": "the jumbo squid",
+          "kind": "term"
+        },
+        {
+          "fr": "la bonite",
+          "en": "the bonito",
+          "kind": "term"
+        },
+        {
+          "fr": "le pejerrey (poisson argenté)",
+          "en": "the silverside",
+          "kind": "term"
+        },
+        {
+          "fr": "la pêche du jour",
+          "en": "the catch of the day",
+          "kind": "term"
+        },
+        {
+          "fr": "la forte houle",
+          "en": "the rough swell",
+          "kind": "term"
+        },
+        {
+          "fr": "le lait de tigre (marinade citronnée du ceviche)",
+          "en": "the tiger's milk",
+          "kind": "term"
+        },
+        {
+          "fr": "le piment limo",
+          "en": "the limo chili pepper",
+          "kind": "term"
+        },
+        {
+          "fr": "la patate douce",
+          "en": "the sweet potato",
+          "kind": "term"
+        },
+        {
+          "fr": "le maïs à gros grains",
+          "en": "the large-kernel corn",
+          "kind": "term"
+        },
+        {
+          "fr": "la cancha (maïs grillé croustillant)",
+          "en": "the toasted corn",
+          "kind": "term"
+        },
+        {
+          "fr": "le ceviche mixte de fruits de mer",
+          "en": "the mixed seafood ceviche",
+          "kind": "term"
+        },
+        {
+          "fr": "le poulpe",
+          "en": "the octopus",
+          "kind": "term"
+        },
+        {
+          "fr": "la texture",
+          "en": "the texture",
+          "kind": "term"
+        },
+        {
+          "fr": "ferme",
+          "en": "firm",
+          "kind": "term"
+        },
+        {
+          "fr": "Alors, les bateaux ne sont pas sortis aujourd’hui à cause de la houle ?",
+          "en": "So the boats didn't go out today because of the swell?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Lequel sera le plus délicat, la sole ou le pejerrey ?",
+          "en": "Which one will be more delicate, the sole or the silverside?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Chef, pourriez-vous nous dire le prix de chaque ceviche, s’il vous plaît ?",
+          "en": "Chef, could you tell us the price of each one, please?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Sam, la pota sera plus ferme que la sole.",
+          "en": "Sam, the squid is going to be firmer than the sole.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Le ceviche de sole est plus cher, mais je pense que cela vaut la peine.",
+          "en": "The sole is more expensive, but I think it's worth it.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il y aura de la corvina demain, ou ça dépend de la mer ?",
+          "en": "Will there be corvina tomorrow, or does it depend on the sea?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Lequel préfères-tu, Sam, le plus tendre ou le plus ferme ?",
+          "en": "Which do you prefer, Sam, the softer one or the firmer one?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Nous allons commander un ceviche de sole et un ceviche mixte à partager.",
+          "en": "We're going to order one sole and one mixed to share.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "Dans une cevichería de Miraflores, à Lima, le chef Renzo explique à Alex et Sam qu’il n’y a pas de corvina dans la pêche du jour.",
+          "en": "At a cevichería in Miraflores, in Lima, chef Renzo explains to Alex and Sam that there is no corvina in today's catch of the day."
+        },
+        {
+          "speaker": "Alex",
+          "fr": "Alex : Alors, les bateaux ne sont pas sortis aujourd’hui à cause de la houle ?",
+          "en": "Alex: So the boats didn't go out today because of the swell?"
+        },
+        {
+          "speaker": "Renzo",
+          "fr": "Renzo : Exactement, la houle est très forte depuis hier soir et les pêcheurs n’ont pas pu sortir.",
+          "en": "Renzo: That's right, the swell has been very rough since last night and the fishermen couldn't go out."
+        },
+        {
+          "speaker": "Alex",
+          "fr": "Alex : Il y aura de la corvina demain, ou ça dépend de la mer ?",
+          "en": "Alex: Will there be corvina tomorrow, or does it depend on the sea?"
+        },
+        {
+          "speaker": "Renzo",
+          "fr": "Renzo : Il y aura de la corvina demain si la mer se calme, mais aujourd’hui je peux vous proposer de la sole ou de la pota, un calmar géant.",
+          "en": "Renzo: There will be corvina tomorrow if the sea calms down, but today I can offer you sole or jumbo squid."
+        },
+        {
+          "speaker": "Renzo",
+          "fr": "Renzo : J’ai aussi de la bonite, qui aura un goût plus prononcé, et du pejerrey, qui est petit mais très frais.",
+          "en": "Renzo: I also have bonito, which is going to have a stronger flavor, and silverside, which is small but very fresh."
+        },
+        {
+          "speaker": "Alex",
+          "fr": "Alex : Lequel sera le plus délicat, la sole ou le pejerrey ?",
+          "en": "Alex: Which one will be more delicate, the sole or the silverside?"
+        },
+        {
+          "speaker": "Renzo",
+          "fr": "Renzo : La sole sera plus délicate que le pejerrey parce que sa texture est plus tendre.",
+          "en": "Renzo: The sole is going to be more delicate than the silverside, because it has a softer texture."
+        },
+        {
+          "speaker": "Alex",
+          "fr": "Alex : Sam, la pota sera plus ferme que la sole.",
+          "en": "Alex: Sam, the squid is going to be firmer than the sole."
+        },
+        {
+          "speaker": "Renzo",
+          "fr": "Renzo : Si vous voulez quelque chose de ferme, le ceviche mixte de fruits de mer contient du poulpe et des noix de Saint-Jacques ; il sera plus copieux que celui de sole.",
+          "en": "Renzo: If you want something firm, the mixed seafood ceviche has octopus and scallops, and it's going to be heartier than the sole one."
+        },
+        {
+          "speaker": "Alex",
+          "fr": "Alex : Chef, pourriez-vous nous dire le prix de chaque ceviche, s’il vous plaît ?",
+          "en": "Alex: Chef, could you tell us the price of each one, please?"
+        },
+        {
+          "speaker": "Renzo",
+          "fr": "Renzo : Le ceviche de sole coûte 58 soles, le mixte 48 soles, et les trois autres 38 soles chacun.",
+          "en": "Renzo: The sole one costs 58 soles, the mixed one costs 48 and the other three cost 38 soles each."
+        },
+        {
+          "speaker": "Renzo",
+          "fr": "Renzo : Ils sont tous préparés avec du lait de tigre au piment limo, donc ils seront un peu piquants.",
+          "en": "Renzo: They all come with tiger's milk made with limo chili pepper, so they're going to be a little spicy."
+        },
+        {
+          "speaker": "Renzo",
+          "fr": "Renzo : Chaque plat est aussi accompagné de patate douce et de maïs à gros grains.",
+          "en": "Renzo: Also, each dish comes with sweet potato and large-kernel corn on the side."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Pendant que Sam mange de la cancha, du maïs grillé croustillant, Alex demande : Lequel préfères-tu, Sam, le plus tendre ou le plus ferme ?",
+          "en": "While Sam eats some toasted corn, Alex asks: Which do you prefer, Sam, the softer one or the firmer one?"
+        },
+        {
+          "speaker": "Sam",
+          "fr": "Sam : Le ceviche de sole est plus cher, mais je pense que cela vaut la peine.",
+          "en": "Sam: The sole is more expensive, but I think it's worth it."
+        },
+        {
+          "speaker": "Alex",
+          "fr": "Alex : Nous allons commander un ceviche de sole et un ceviche mixte à partager.",
+          "en": "Alex: We're going to order one sole and one mixed to share."
+        },
+        {
+          "speaker": "Renzo",
+          "fr": "Renzo : Parfait, les ceviches seront prêts dans 15 minutes.",
+          "en": "Renzo: Perfect, the ceviches will be ready in 15 minutes."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "the corvina (sea bass)",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "the jumbo squid",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "So the boats didn't go out today because of the swell?",
+          "sourceCard": 17,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "the rough swell",
+          "sourceCard": 7,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Chef, could you tell us the price of each one, please?",
+          "sourceCard": 19,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "We're going to order one sole and one mixed to share.",
+          "sourceCard": 24,
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "You, Alex, dining with your partner Sam in Miraflores, Lima.",
+        "partnerRole": "Renzo, the cevichería chef, played by the AI.",
+        "opening": "Alors, les bateaux ne sont pas sortis aujourd’hui à cause de la houle ?",
+        "goal": "Understand why the usual fish is unavailable, compare the substitutes the chef offers, and decide with your partner.",
+        "closure": "Nous allons commander un ceviche de sole et un ceviche mixte à partager.",
+        "wordBank": [
+          "la corvina (bar)",
+          "la sole",
+          "la pota (calmar géant)",
+          "la bonite",
+          "le pejerrey (poisson argenté)",
+          "la pêche du jour",
+          "la forte houle",
+          "le lait de tigre (marinade citronnée du ceviche)",
+          "le piment limo",
+          "la patate douce",
+          "le maïs à gros grains",
+          "la cancha (maïs grillé croustillant)",
+          "le ceviche mixte de fruits de mer",
+          "le poulpe",
+          "la texture",
+          "ferme",
+          "Alors, les bateaux ne sont pas sortis aujourd’hui à cause de la houle ?",
+          "Lequel sera le plus délicat, la sole ou le pejerrey ?",
+          "Chef, pourriez-vous nous dire le prix de chaque ceviche, s’il vous plaît ?",
+          "Sam, la pota sera plus ferme que la sole.",
+          "Le ceviche de sole est plus cher, mais je pense que cela vaut la peine.",
+          "Il y aura de la corvina demain, ou ça dépend de la mer ?",
+          "Lequel préfères-tu, Sam, le plus tendre ou le plus ferme ?",
+          "Nous allons commander un ceviche de sole et un ceviche mixte à partager."
+        ],
+        "objectives": [
+          "Ask Renzo why corvina is unavailable today and whether the sea will allow it tomorrow.",
+          "Compare sole, pejerrey and pota by delicacy, texture and flavor.",
+          "Ask the chef for the price of each ceviche.",
+          "Choose a sole ceviche and a mixed ceviche to share."
+        ]
+      },
+      "reviewed": false,
+      "model": "Haiku 5.5 requested; actual candidate metadata Sonnet 5.5; Opus 5.5 read-only critique timed out; source-grounded self-check recorded"
+    }
+  ]
+}

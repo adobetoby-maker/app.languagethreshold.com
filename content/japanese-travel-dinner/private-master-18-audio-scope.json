@@ -1,0 +1,582 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "voices": [
+    "ja-JP-Chirp3-HD-Aoede",
+    "ja-JP-Chirp3-HD-Charon"
+  ],
+  "sourceSHA256": {
+    "master-18-private-draft.json": "a53a4bc171e48e5aaef1a912604ed1f45d46646300aec1c8f3b4e768aedd9ba5"
+  },
+  "previousScopeSHA256": {
+    "private-foundation-audio-scope.json": "f4b48c046a13a344a996703523bdb8cfdff5bf69188c699fa02db544ccc0a28f",
+    "private-core-1-3-audio-scope.json": "ad72a64b46d08401ee572f63af5d88baafca0388afbd55161acd948dc8062e3d",
+    "private-core-4-6-audio-scope.json": "3925840b1b1bca92059fe07abc63aed981d43bcaaf87f0296f43114414264c89",
+    "private-core-7-9-audio-scope.json": "30a880bda09c371f1eb197a95ffa1237769bff18ac3a268ee55974e524306248",
+    "private-core-10-12-audio-scope.json": "73c8886aea6f96148763c77c5709585edc35503521cdb2dbf361927e547ed120",
+    "private-core-13-15-audio-scope.json": "3dbd18a0920c84e83194b9932d3e0e12f4d9dc0a995f1de249a664667ca10211",
+    "private-core-16-18-audio-scope.json": "4e1b20b7b56175cbcbad937032785ce4acad2e470bc1099135166b63ab34327c",
+    "private-core-19-audio-scope.json": "1e60d7da18055264c2141807b4a5b15232cc68825154bc026ba7f7307db01a1d",
+    "private-core-20-audio-scope.json": "7d3768994313e77e95e8c768e81db7fa3b45a7bf7d8658d8e19767b4ab650f2b",
+    "private-core-21-audio-scope.json": "88f089af289371ee21102f088328b3f04e455402a6442e7310c8cec5e4ff624c",
+    "private-core-22-audio-scope.json": "201a695bd0b7ff1c8f019f63c10dcf40f75824944c70d61fa92b802d44fe199d",
+    "private-core-23-audio-scope.json": "11604d8c9aec4ec38e69b1049450d0192a7b9b2d639fd862c6b1bf2e486f88f6",
+    "private-core-24-audio-scope.json": "50d24bcd803a4fa2da4129e82c27695abe5485ea012e2a6edacadfbbc78cc6a3",
+    "private-core-25-audio-scope.json": "5274f7c1a6e92f8bdcbb434bc4943cc5a0b5a5d0b4285a6d593390c4cd45da1f",
+    "private-core-26-audio-scope.json": "a97ec70fadef466979abbe39adac98f1ab4f88d7e7a5902de73eca2d5809103c",
+    "private-core-27-audio-scope.json": "20964e288176158ec6d3fb62983714c409dea1bf06f2bfa07a14f5ad3e7a7e3b",
+    "private-core-28-audio-scope.json": "65c655f8a73ecd312708b3cd902f4dd7d95643e592bb0825a4ec16d2c14c7f89",
+    "private-core-29-audio-scope.json": "8177aac28d7507d8d2b127c47d25a5517690e06f7d9dda831ac12713334b33a6",
+    "private-core-30-audio-scope.json": "3f489c4f091bd7f1f0bdec1315030b08a87786c9cfd56dfc17176a7568c23a11",
+    "private-master-1-audio-scope.json": "82a2bb3d90712e80e3752833c24c1768bc644c876a7cd475afe0d879ed1e2560",
+    "private-master-2-audio-scope.json": "e601980fa4d7801f5660523bf1725cfe2d75c6ced6019042da4abbbdd1a959f0",
+    "private-master-3-audio-scope.json": "6ba9530b51a30bd836f79e16d92cd7016bfeb002050afd8ab2d4f41a525c6c65",
+    "private-master-4-audio-scope.json": "3ec984da919228f9b5af8d40d67c4ac4da96a2397db7a4be076ae9f543639d09",
+    "private-master-5-audio-scope.json": "8724196f72c0a4507cb7ffa633dfd9d14cf758e2e1b66f736a96327e28dca4b4",
+    "private-master-6-audio-scope.json": "98ccb1546d8a509dd0fc7aad1c5b639e0a9a56d3aad551177cd0fe50e1323844",
+    "private-master-7-audio-scope.json": "2fc27f06a5bf20cb930aba8e0e754c0107ac876a3992bf1f29b74baa43ce9604",
+    "private-master-8-audio-scope.json": "f745103931c409b44414c71d3af4bf4adbf8dff4f32f7af400086a74180a2a3b",
+    "private-master-9-audio-scope.json": "326ab928eb2c26a2a7961127408d8cf4cc37c7f8200e7dcc4e4b4f7f8a5445eb",
+    "private-master-10-audio-scope.json": "646e20ae251cfe3ac3f3310a677062e623f0e17c2dcf9e847f42b6f89ad57885",
+    "private-master-11-audio-scope.json": "612870b0d7c11ae4f876776404d6e83fa5ce69d783a534bfaf1726a4df958e96",
+    "private-master-12-audio-scope.json": "445b7e736a8418f232390483cfe2474e82bdef9608ac87d324ecd99b8ff41e27",
+    "private-master-13-audio-scope.json": "3cb1968de3f47a934ca541a5e49bbb5125065c7bb74dde76c5617e9bf451558a",
+    "private-master-14-audio-scope.json": "e650aaae11d8778093be9d7b44023f3db065e05e05ee07d575165ae8099804b2",
+    "private-master-15-audio-scope.json": "f70f6f517f5493e4aac3d43f118f83ab86b5811008eb4a8ff37d274667567eb6",
+    "private-master-16-audio-scope.json": "8097cc33582e1bd0349ce356fd2ad69ee2156c5494ff15e1b06256dc5bf117b3",
+    "private-master-17-audio-scope.json": "16419cc3998c1e9760b5271b3ee57306801cba2f1c89b1691e883d3b16c75979"
+  },
+  "lessonIds": [
+    "master-travel-dinner:18:ja-en"
+  ],
+  "placements": 44,
+  "uniqueTexts": 43,
+  "proposedClips": 86,
+  "submittedCharacters": 2412,
+  "texts": [
+    {
+      "displayText": "22時に変更していただけますか。",
+      "spokenText": "22時に変更していただけますか。",
+      "textSHA256": "0e1864e5420f8491478a254e049d823dc48f7188f7bd2197e8b3735f281134de",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "displayText": "ありがとうございます、イェセニアさん。10名、22時、リベラの名前でお願いします。チャットでのご確認もありがとうございました。",
+      "spokenText": "ありがとうございます、イェセニアさん。10名、22時、リベラの名前でお願いします。チャットでのご確認もありがとうございました。",
+      "textSHA256": "67a64a5c039cab64c3bc7df9e334a69fd8f107712e08bebf438f486db66a19ad",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "こんにちは、イェセニアさん。10名の予約の件でご連絡しています。",
+      "spokenText": "こんにちは、イェセニアさん。10名の予約の件でご連絡しています。",
+      "textSHA256": "b7e4f266d0351c841658d0ef19054e08525fc06ce5e42f9bba336154dbcd2002",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "displayText": "すみません、ボイスメッセージが途切れて聞こえません。文字で送っていただけますか。",
+      "spokenText": "すみません、ボイスメッセージが途切れて聞こえません。文字で送っていただけますか。",
+      "textSHA256": "56131b46f6a535446091f1ecbf25a7b0852237d3b15be3e2b2c853994f281a42",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 20
+        }
+      ]
+    },
+    {
+      "displayText": "そこでサムは留守番電話にはっきりとメッセージを残します。「イェセニアさん、こんにちは。サム・リベラと申します。乗る予定の便が遅れています。」",
+      "spokenText": "そこでサムは留守番電話にはっきりとメッセージを残します。「イェセニアさん、こんにちは。サム・リベラと申します。乗る予定の便が遅れています。」",
+      "textSHA256": "b171826cb34996b126d17ed7fcb8b225aebe743d72bb299aab039b4d9ce6b2d8",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "displayText": "ただいま電話に出られません。発信音の後にお名前とご用件をお話しください。",
+      "spokenText": "ただいま電話に出られません。発信音の後にお名前とご用件をお話しください。",
+      "textSHA256": "3c26cfb07454190e6b9d5af73a924b1e4bd56f2472f85f7150123739a056d72e",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "では、10名、22時、リベラの名前でお願いします。",
+      "spokenText": "では、10名、22時、リベラの名前でお願いします。",
+      "textSHA256": "b42563ee129d78002235b192e6d3473d2d2ca9c9ce0016f3aa53230f710e193b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 22
+        },
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "hear-mode-model"
+        }
+      ]
+    },
+    {
+      "displayText": "みんな、予約を変更できたよ。22時にごはんだよ。",
+      "spokenText": "みんな、予約を変更できたよ。22時にごはんだよ。",
+      "textSHA256": "b709b7ef7b4143da8a584de18854c391c0e1e934d05d1e02c699f59d9136d48d",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 23
+        }
+      ]
+    },
+    {
+      "displayText": "イェセニアさん、こんにちは。サム・リベラと申します。乗る予定の便が遅れています。",
+      "spokenText": "イェセニアさん、こんにちは。サム・リベラと申します。乗る予定の便が遅れています。",
+      "textSHA256": "6b7218d0946e39d0913158d566c719c533f49a3be25180d37366a8aafa54f02c",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 21
+        }
+      ]
+    },
+    {
+      "displayText": "イェセニアさんは、最終の予約枠が22時に始まり、キッチンは23時に営業を終えると書きます。",
+      "spokenText": "イェセニアさんは、最終の予約枠が22時に始まり、キッチンは23時に営業を終えると書きます。",
+      "textSHA256": "c9f791ed7565514e586482069ff2ccdba4f2c4f4ba51f21da9c0309bf07af6e5",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "reader",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "displayText": "イェセニアさんはチャットですべて確認し、サムは空港送迎の会社にメッセージを書いて、お迎えを21時に変更してもらいます。",
+      "spokenText": "イェセニアさんはチャットですべて確認し、サムは空港送迎の会社にメッセージを書いて、お迎えを21時に変更してもらいます。",
+      "textSHA256": "aa71262cc7fbb567f7fe08bc4c88c964b56e567326e091bac549dd288b007496",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "reader",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "displayText": "イェセニアさんは素早くボイスメッセージで返信しますが、搭乗ゲート付近の電波状況はとても悪いです。",
+      "spokenText": "イェセニアさんは素早くボイスメッセージで返信しますが、搭乗ゲート付近の電波状況はとても悪いです。",
+      "textSHA256": "62b0883e122f90801105a3e088b993ecf1531176ff85764dd796ce73385c200b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "reader",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "displayText": "イェセニアさん：「はい、席はあります。すでにお支払いいただいた20万ペソの予約金は、新しい時間にもそのまま使えます。」",
+      "spokenText": "イェセニアさん：「はい、席はあります。すでにお支払いいただいた20万ペソの予約金は、新しい時間にもそのまま使えます。」",
+      "textSHA256": "205da06759ac7fe09555bacd3af5b3531bea50dfb4df7d4dc87125a6cc1c4cb9",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "reader",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "displayText": "イェセニアさん：「予約名義人の方から、内容の確認をいただければ大丈夫です。」",
+      "spokenText": "イェセニアさん：「予約名義人の方から、内容の確認をいただければ大丈夫です。」",
+      "textSHA256": "4e28ebf4966a1ef14bbf6175c08874e414724f3374b501c5c3411af76cbdc506",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "reader",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "displayText": "キッチンが閉まる前に、10名分の席はまだ空いていますか。",
+      "spokenText": "キッチンが閉まる前に、10名分の席はまだ空いていますか。",
+      "textSHA256": "5bed37582c95f70b9758f0aa8eb9276fe7cf530d0326b82be258a3c51e2f0393",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "displayText": "キッチンの営業終了時刻",
+      "spokenText": "キッチンの営業終了時刻",
+      "textSHA256": "2a4b5a32cfee24fcfcffa0a6e432368def9231d476392070ef7fbc6e62403918",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "displayText": "サムはメッセージをゆっくり続けます。「私たちは10名です。予約は私の名義で、今からWhatsAppでご連絡します。」",
+      "spokenText": "サムはメッセージをゆっくり続けます。「私たちは10名です。予約は私の名義で、今からWhatsAppでご連絡します。」",
+      "textSHA256": "c4b64941886ce34a6ee10a690d806c0034b8e4194c8391895ce735db5cc0e582",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "displayText": "サムはレストランに電話をかけますが、誰も出ず、イェセニアさんの電話には不在着信が残ります。",
+      "spokenText": "サムはレストランに電話をかけますが、誰も出ず、イェセニアさんの電話には不在着信が残ります。",
+      "textSHA256": "0600d37f3098067554be4606c926ba1c4f125de44927626b03cac821b97b9704",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "displayText": "サム・リベラは、9人の友人とボゴタ空港の搭乗ゲートにいて、心配そうに画面を見ています。",
+      "spokenText": "サム・リベラは、9人の友人とボゴタ空港の搭乗ゲートにいて、心配そうに画面を見ています。",
+      "textSHA256": "c78a96f36f41eac2b0f569978ce83f720740ad7b25617ba64e59ca3b90dee51e",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "displayText": "サム：「22時に変更していただけますか。」",
+      "spokenText": "サム：「22時に変更していただけますか。」",
+      "textSHA256": "6cdd75644a6537277525c87ebbc2dce8a90958a7dc067278c8bc19c30c9cfbdc",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "displayText": "サム：「すみません、ボイスメッセージが途切れて聞こえません。文字で送っていただけますか。」",
+      "spokenText": "サム：「すみません、ボイスメッセージが途切れて聞こえません。文字で送っていただけますか。」",
+      "textSHA256": "f1a3b513e39e76224aaafaa7818b9f7e5f9cae8de33dc9f15d6acd31824a9a79",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "reader",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "displayText": "サム：「では、10名、22時、リベラの名前でお願いします。」",
+      "spokenText": "サム：「では、10名、22時、リベラの名前でお願いします。」",
+      "textSHA256": "58a4413dec5d17d96ced9fef00269c0af0cc074290a35bf3073c51c079dd5390",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "reader",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "displayText": "サム：「キッチンが閉まる前に、10名分の席はまだ空いていますか。」",
+      "spokenText": "サム：「キッチンが閉まる前に、10名分の席はまだ空いていますか。」",
+      "textSHA256": "b4edb47c7345760e981f734eec7fb6dd2fba5c585a638d95a65eff19676f0ff7",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "displayText": "サム：「変更内容をこのチャットの文面でご確認いただけますと幸いです。」",
+      "spokenText": "サム：「変更内容をこのチャットの文面でご確認いただけますと幸いです。」",
+      "textSHA256": "0b4af50bdc0a5ef3d407a57c4e88de9521a7598931eeace09ac953cb1462331f",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "reader",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "displayText": "ボイスメッセージ",
+      "spokenText": "ボイスメッセージ",
+      "textSHA256": "0b2f93d29279f946b0aff17de12c805a8b02bb47e92a761e17cb1fbdc863a6ca",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "displayText": "不在着信",
+      "spokenText": "不在着信",
+      "textSHA256": "66784a484df7a44e521603568f6c7f0788af52e641f35ffa5e92f33b806ae8b2",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "displayText": "予約名義人",
+      "spokenText": "予約名義人",
+      "textSHA256": "bb331186a6574413974d120b76fa804a5bca150bda19ebe14a714f923d8e1897",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "displayText": "予約金",
+      "spokenText": "予約金",
+      "textSHA256": "b37b90d32c264fc5e7cdb984a4bbfa55416d0f54bdbb35f1e1d45c0cebfdee4f",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "displayText": "今、カルタヘナへの到着予定時刻は20時45分で、グループの予約は20時です。",
+      "spokenText": "今、カルタヘナへの到着予定時刻は20時45分で、グループの予約は20時です。",
+      "textSHA256": "c3ab816b7760b1153fbd2b83ea9f12664ffb48517c7f5a628b5165b56ff104d6",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "displayText": "到着予定時刻",
+      "spokenText": "到着予定時刻",
+      "textSHA256": "85b4cfab114190b159728dbce6197d1d596f3b261afb06df530c47969e754f8a",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "displayText": "変更内容をこのチャットの文面でご確認いただけますと幸いです。",
+      "spokenText": "変更内容をこのチャットの文面でご確認いただけますと幸いです。",
+      "textSHA256": "3305a378f8d05e7d417a2ccac0ea32e8c8bdfc7c2e321a8043b8a9a53fa0ac22",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 19
+        }
+      ]
+    },
+    {
+      "displayText": "搭乗ゲート",
+      "spokenText": "搭乗ゲート",
+      "textSHA256": "18d8ab25a9cfb81aac5409be4d874494ec1e4c3785319fb869340d464f7e83fc",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "displayText": "文面で",
+      "spokenText": "文面で",
+      "textSHA256": "ed8cbe3dd58cee718615f2074e1a43c7a922710c443559c0d4a7a029b4675d5b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "displayText": "最後に、サムは友人たちに伝えます。「みんな、予約を変更できたよ。22時にごはんだよ。」",
+      "spokenText": "最後に、サムは友人たちに伝えます。「みんな、予約を変更できたよ。22時にごはんだよ。」",
+      "textSHA256": "fe98bec694ea593179c553ec93474dfd8e7d20ecec9456823fc7d5713d0e5880",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "reader",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "displayText": "最終の予約枠",
+      "spokenText": "最終の予約枠",
+      "textSHA256": "ee36eed3903c164f1f944762a7ad8fc718ccd8b1a3dcfbcb5d7c03028b28c59f",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "displayText": "次に、サムはレストランのチャットに書き込みます。「こんにちは、イェセニアさん。10名の予約の件でご連絡しています。」",
+      "spokenText": "次に、サムはレストランのチャットに書き込みます。「こんにちは、イェセニアさん。10名の予約の件でご連絡しています。」",
+      "textSHA256": "aaa523817a57792266f30381734478cc351e130630e1b3fd15e720a27abb027b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "displayText": "留守番電話",
+      "spokenText": "留守番電話",
+      "textSHA256": "69619802d4e8e13976a20db4f0536fda9b87572c7ba563d5b6ed0ef656210427",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "displayText": "空席状況",
+      "spokenText": "空席状況",
+      "textSHA256": "d7de1dab32bc6bfb2f1eedca4b4cac2e72a968eba2b0a12124c39cd8d5abe8f3",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "displayText": "空港送迎",
+      "spokenText": "空港送迎",
+      "textSHA256": "7da8d32845deed637a01a45108c0fbe1f15d575c4ec97d97b44246c4d483ea3a",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "displayText": "航空会社",
+      "spokenText": "航空会社",
+      "textSHA256": "76b311bfdad6fbed8585510fed50909a6da7071115a4db3f741ee1c57adf6296",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "displayText": "航空会社は、この便が2時間遅れで出発すると発表しています。",
+      "spokenText": "航空会社は、この便が2時間遅れで出発すると発表しています。",
+      "textSHA256": "9a02e6a9aa86466275f2432fe6584de1e59a9ce12d04a841d7d82a3c007f31c4",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "displayText": "遅延便",
+      "spokenText": "遅延便",
+      "textSHA256": "badb0151f6f33af91acf83f3ded599532d6ed553d7e5ccb4a19362f487bb91cb",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "displayText": "電波状況",
+      "spokenText": "電波状況",
+      "textSHA256": "9dac3501e0130e2b598f05fc000dfc1c6c9e2639a3d71ddf2fc14ec64c295d07",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:ja-en",
+          "surface": "card",
+          "index": 8
+        }
+      ]
+    }
+  ],
+  "recordingsBundled": false,
+  "listeningReviewed": false,
+  "registered": false
+}

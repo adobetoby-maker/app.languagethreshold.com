@@ -19,7 +19,7 @@ type Lesson = {
   reader: { speaker: string; fr: string; en: string }[];
   forms?: { infinitive: string; meaning: string; [key: string]: string }[];
   modes: Record<string, { cueEnglish: string; sourceCard: number; responseKind: string }>;
-  speaking: { role: string; partnerRole: string; opening: string; goal: string; closure: string; wordBank: string[] };
+  speaking: { role: string; partnerRole: string; opening: string; goal: string; closure: string; wordBank: string[]; objectives?: string[] };
 };
 type Packet = {
   pairKey: "French:English";
@@ -130,7 +130,7 @@ function FrenchDinnerReview() {
           </section>
           <section className={panel}><h2 className="font-serif text-2xl">Cards</h2><ul className="mt-4 grid gap-3 sm:grid-cols-2">{lesson.cards.map((card, index) => <li key={`${index}-${card.fr}`} className="rounded-xl border border-border p-3"><p lang="fr" className="text-lg">{card.fr}</p>{card.note && <p className="text-sm text-muted-foreground">{card.note}</p>}<p className="mt-1">{card.en}</p></li>)}</ul></section>
           <section className={panel}><h2 className="font-serif text-2xl">Reader</h2><ol className="mt-4 space-y-3">{lesson.reader.map((turn, index) => <li key={index} className="border-l-2 border-gold/50 pl-4"><p className="text-sm font-semibold">{turn.speaker}</p><p lang="fr" className="text-lg">{turn.fr}</p><p>{turn.en}</p></li>)}</ol></section>
-          <section className={panel}><h2 className="font-serif text-2xl">Speaking scene</h2><p className="mt-2">{lesson.speaking.role} · {lesson.speaking.partnerRole}</p><p className="mt-2">Opening: <span lang="fr">{lesson.speaking.opening}</span></p><p className="mt-2">Goal: {lesson.speaking.goal}</p><p className="mt-2">Closure: <span lang="fr">{lesson.speaking.closure}</span></p><p className="mt-2">Word bank: <span lang="fr">{lesson.speaking.wordBank.join(" · ")}</span></p></section>
+          <section className={panel}><h2 className="font-serif text-2xl">Speaking scene</h2><p className="mt-2">{lesson.speaking.role} · {lesson.speaking.partnerRole}</p><p className="mt-2">Opening: <span lang="fr">{lesson.speaking.opening}</span></p><p className="mt-2">Goal: {lesson.speaking.goal}</p>{!!lesson.speaking.objectives?.length && <ul className="mt-2 list-disc pl-5">{lesson.speaking.objectives.map((objective, index) => <li key={index}>{objective}</li>)}</ul>}<p className="mt-2">Closure: <span lang="fr">{lesson.speaking.closure}</span></p><p className="mt-2">Word bank: <span lang="fr">{lesson.speaking.wordBank.join(" · ")}</span></p></section>
           <section className={panel}><h2 className="font-serif text-2xl">Review note</h2><p className="mt-1 text-sm text-muted-foreground">Download a lesson-specific note for the authoring ledger. This does not mark the lesson approved.</p><textarea className="mt-3 min-h-28 w-full rounded-lg border border-border bg-background p-3" value={note} onChange={(event) => setNote(event.target.value)} aria-label="Review note" /><button className="mt-2 rounded-lg border border-border px-4 py-2 disabled:opacity-50" disabled={!note.trim()} onClick={downloadNote}>Download review note</button></section>
         </>}
       </>}

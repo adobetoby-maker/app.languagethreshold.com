@@ -56,8 +56,12 @@ test("existing curriculum word opens a card with lesson links and no dictionary 
     await page.getByRole("button", { name: "Start reading", exact: true }).click();
   }
   await page.getByRole("button", { name: "tren", exact: true }).first().click();
-  const practice = page.getByRole("region", { name: "Practice this word" });
+  const practice = page.getByRole("region", { name: "Practice it here" });
   await expect(practice).toBeVisible();
   await expect(practice.getByRole("link").first()).toHaveAttribute("href", /lesson=/);
+  expect(await page.locator(".word-card-pop [data-word-card-scroll-body]").evaluate((body) => {
+    const practiceSection = body.querySelector('[aria-label="Practice it here"]');
+    return practiceSection?.parentElement?.lastElementChild === practiceSection;
+  })).toBe(true);
   expect(calls).toBe(0);
 });

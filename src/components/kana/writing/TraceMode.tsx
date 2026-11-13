@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { ChevronRight, RotateCcw } from "lucide-react";
 import { CharacterCanvas, type CharacterCanvasRef } from "./CharacterCanvas";
-import { type CharGroup, type PracticeWord } from "./curriculum";
+import { kanaPatternNote, type CharGroup, type PracticeWord } from "./curriculum";
 import { type ScoreResult } from "./scoring";
 
 type Stage = "chars" | "words" | "sentence";
@@ -70,6 +70,7 @@ export function TraceMode({ group, words, sentence, fullScreen = false }: Props)
       : stage === "sentence"
         ? sentence?.meaning
         : undefined;
+  const patternNote = stage === "words" ? kanaPatternNote(currentChar) : null;
 
   const handleStrokeEnd = () => {
     if (!canvasRef.current?.hasStrokes()) return;
@@ -187,6 +188,9 @@ export function TraceMode({ group, words, sentence, fullScreen = false }: Props)
             ? "Write the full word. The guide is lighter — try to match it from memory."
             : "Write the full sentence from memory. Take your time."}
       </p>
+      {patternNote && (
+        <p className="text-xs text-muted-foreground">{patternNote}</p>
+      )}
 
       {/* Canvas */}
       <div className="relative">

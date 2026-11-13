@@ -1,0 +1,549 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "core",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "englishSourceSubsetSHA256": "94417130af51f53b1aaf7cfa18b804688f27806fa13f3c23751a3513a3066df9",
+  "sourceFileSHA256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+  },
+  "lessons": [
+    {
+      "n": 7,
+      "stableId": "roofing:7:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Tear-Off Scope",
+      "sourceEnglishObjective": "Tell the crew exactly what to remove",
+      "sourceEnglishSpeaking": "Give the command 'Tear off everything down to the deck' and ask for confirmation.",
+      "title": "既存屋根材の撤去範囲",
+      "objective": "撤去する層と材料を作業班に具体的に伝える。",
+      "focus": "～まで marks the removal endpoint; ～も adds another component. ～を撤去してください gives an instruction, and ～を理解しましたか checks understanding.",
+      "cards": [
+        {
+          "ja": "既存屋根材の撤去",
+          "en": "tear-off",
+          "kind": "term"
+        },
+        {
+          "ja": "シングル材",
+          "en": "shingles",
+          "kind": "term"
+        },
+        {
+          "ja": "屋根下地",
+          "en": "deck",
+          "kind": "term"
+        },
+        {
+          "ja": "既存の屋根",
+          "en": "old roof",
+          "kind": "term"
+        },
+        {
+          "ja": "層",
+          "en": "layer",
+          "kind": "term"
+        },
+        {
+          "ja": "作業範囲",
+          "en": "scope of work",
+          "kind": "term"
+        },
+        {
+          "ja": "ルーフィング",
+          "en": "underlayment",
+          "kind": "term"
+        },
+        {
+          "ja": "バール",
+          "en": "pry bar",
+          "kind": "term"
+        },
+        {
+          "ja": "水切り板金",
+          "en": "flashing",
+          "kind": "term"
+        },
+        {
+          "ja": "屋根下地まで全て撤去してください。",
+          "en": "Tear off everything down to the deck.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "シングル材を廃材用コンテナに投げ入れてください。",
+          "en": "Throw the shingles into the dumpster.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "全ての層を撤去してください。",
+          "en": "Remove all the layers.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "水切り板金も撤去してください。",
+          "en": "Tear off the flashing too.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "何を撤去するか理解しましたか。",
+          "en": "Do you understand what must be removed?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "分かりましたか。",
+          "en": "Is that clear?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "今日、既存の屋根の撤去が始まります。",
+          "en": "Today the tear-off of the old roof begins."
+        },
+        {
+          "ja": "職長が作業範囲を説明します。",
+          "en": "The foreman explains the scope of work."
+        },
+        {
+          "ja": "屋根下地まで全て撤去してください。",
+          "en": "Tear off everything down to the deck."
+        },
+        {
+          "ja": "ルーフィングを含め、全ての層を撤去してください。",
+          "en": "Remove all the layers, including the underlayment."
+        },
+        {
+          "ja": "水切り板金も撤去してください。",
+          "en": "Tear off the flashing too."
+        },
+        {
+          "ja": "バールは注意して使ってください。",
+          "en": "Use the pry bar carefully."
+        },
+        {
+          "ja": "シングル材を廃材用コンテナに投げ入れてください。",
+          "en": "Throw the shingles into the dumpster."
+        },
+        {
+          "ja": "何を撤去するか理解しましたか。",
+          "en": "Do you understand what must be removed?"
+        },
+        {
+          "ja": "分かりましたか。",
+          "en": "Is that clear?"
+        }
+      ],
+      "forms": [
+        {
+          "base": "撤去する",
+          "exampleJa": "屋根下地まで全て撤去してください。",
+          "meaningEnglish": "to remove, to tear off",
+          "exampleEnglish": "Tear off everything down to the deck.",
+          "sourceInfinitiveSpanish": "quitar"
+        },
+        {
+          "base": "投げ入れる",
+          "exampleJa": "シングル材を廃材用コンテナに投げ入れてください。",
+          "meaningEnglish": "to throw, to toss",
+          "exampleEnglish": "Throw the shingles into the dumpster.",
+          "sourceInfinitiveSpanish": "tirar"
+        },
+        {
+          "base": "使う",
+          "exampleJa": "バールは注意して使ってください。",
+          "meaningEnglish": "to use",
+          "exampleEnglish": "Use the pry bar carefully.",
+          "sourceInfinitiveSpanish": "usar"
+        },
+        {
+          "base": "理解する",
+          "exampleJa": "何を撤去するか理解しましたか。",
+          "meaningEnglish": "to understand",
+          "exampleEnglish": "Do you understand what must be removed?",
+          "sourceInfinitiveSpanish": "entender"
+        },
+        {
+          "base": "始まる",
+          "exampleJa": "今日、既存の屋根の撤去が始まります。",
+          "meaningEnglish": "to begin, to start",
+          "exampleEnglish": "Today the tear-off of the old roof begins.",
+          "sourceInfinitiveSpanish": "empezar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "屋根下地まで全て撤去してください。何を撤去するか理解しましたか。",
+        "goal": "Give the command 'Tear off everything down to the deck' and ask for confirmation."
+      },
+      "modes": {
+        "see": "Find every layer named for removal in the reading.",
+        "recall": "Recall the terms for tear-off, roof deck, and flashing.",
+        "hear": "Distinguish 屋根下地 from 水切り板金 when spoken.",
+        "type": "Type 'Tear off everything down to the deck.' in Japanese.",
+        "say": "Give the removal instruction and ask the crew to confirm it.",
+        "write": "Write which layers and components the scope includes."
+      }
+    },
+    {
+      "n": 8,
+      "stableId": "roofing:8:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Protect the Sheathing",
+      "sourceEnglishObjective": "Ask workers to prevent and report deck damage",
+      "sourceEnglishSpeaking": "Stop a worker who is about to cover a soft panel and request a repair.",
+      "title": "屋根下地の損傷を伝える",
+      "objective": "柔らかい下地や損傷を見つけ、補修が必要だと伝える。",
+      "focus": "～ないでください tells someone not to cover a panel; ～たら知らせてください requests a report if a condition is found. ～前に identifies what must happen before work continues.",
+      "cards": [
+        {
+          "ja": "野地板",
+          "en": "sheathing",
+          "kind": "term"
+        },
+        {
+          "ja": "柔らかくなった屋根下地",
+          "en": "soft deck",
+          "kind": "term"
+        },
+        {
+          "ja": "損傷",
+          "en": "damage",
+          "kind": "term"
+        },
+        {
+          "ja": "腐った木材",
+          "en": "rotten wood",
+          "kind": "term"
+        },
+        {
+          "ja": "補修",
+          "en": "repair",
+          "kind": "term"
+        },
+        {
+          "ja": "交換する",
+          "en": "replace",
+          "kind": "term"
+        },
+        {
+          "ja": "板材",
+          "en": "panel",
+          "kind": "term"
+        },
+        {
+          "ja": "合板",
+          "en": "plywood",
+          "kind": "term"
+        },
+        {
+          "ja": "印を付ける",
+          "en": "mark",
+          "kind": "term"
+        },
+        {
+          "ja": "野地板を傷つけないでください。",
+          "en": "Don't damage the sheathing.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "屋根下地が柔らかいか、損傷していると感じたら知らせてください。",
+          "en": "Tell me if the deck feels soft or damaged.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ここで止めてください。続ける前に屋根下地の補修が必要です。",
+          "en": "Stop here; the deck needs repair before we continue.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "柔らかい板材を覆わないでください。",
+          "en": "Do not cover the soft panel.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "損傷した場所に印を付けてください。",
+          "en": "Mark the damaged area.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この合板を交換する必要があります。",
+          "en": "We need to replace this plywood.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "作業班は屋根からシングル材を撤去します。",
+          "en": "The crew removes the shingles from the roof."
+        },
+        {
+          "ja": "野地板を傷つけないでください。",
+          "en": "Don't damage the sheathing."
+        },
+        {
+          "ja": "屋根下地が柔らかいか、損傷していると感じたら知らせてください。",
+          "en": "Tell me if the deck feels soft or damaged."
+        },
+        {
+          "ja": "作業員が板材に足を乗せ、木材が腐っていると気づきます。",
+          "en": "A worker steps on a panel and feels that the wood is rotten."
+        },
+        {
+          "ja": "職長は「ここで止めてください。続ける前に屋根下地の補修が必要です」と言います。",
+          "en": "The foreman says: Stop here; the deck needs repair before we continue."
+        },
+        {
+          "ja": "柔らかい板材を覆わないでください。",
+          "en": "Do not cover the soft panel."
+        },
+        {
+          "ja": "損傷した場所に印を付けてください。",
+          "en": "Mark the damaged area."
+        },
+        {
+          "ja": "この合板を交換する必要があります。",
+          "en": "We need to replace this plywood."
+        }
+      ],
+      "forms": [
+        {
+          "base": "補修する",
+          "exampleJa": "作業班は今日、屋根下地を補修します。",
+          "meaningEnglish": "to repair",
+          "exampleEnglish": "The crew repairs the deck today.",
+          "sourceInfinitiveSpanish": "reparar"
+        },
+        {
+          "base": "印を付ける",
+          "exampleJa": "作業員は損傷した場所に印を付けます。",
+          "meaningEnglish": "to mark",
+          "exampleEnglish": "The worker marks the damaged area.",
+          "sourceInfinitiveSpanish": "marcar"
+        },
+        {
+          "base": "交換する",
+          "exampleJa": "今日、この合板を交換します。",
+          "meaningEnglish": "to replace",
+          "exampleEnglish": "We replace this plywood today.",
+          "sourceInfinitiveSpanish": "reemplazar"
+        },
+        {
+          "base": "覆う",
+          "exampleJa": "作業員は柔らかい板材を覆いません。",
+          "meaningEnglish": "to cover",
+          "exampleEnglish": "The worker does not cover the soft panel.",
+          "sourceInfinitiveSpanish": "cubrir"
+        },
+        {
+          "base": "伝える",
+          "exampleJa": "作業員は職長に伝えます。",
+          "meaningEnglish": "to tell, to let know",
+          "exampleEnglish": "The worker tells the foreman.",
+          "sourceInfinitiveSpanish": "avisar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "ここで止めてください。屋根下地が柔らかいので、補修が必要です。",
+        "goal": "Stop a worker who is about to cover a soft panel and request a repair."
+      },
+      "modes": {
+        "see": "Find what the worker notices in the deck panel.",
+        "recall": "Recall sheathing, damage, repair, and plywood.",
+        "hear": "Distinguish 補修 from 交換 when spoken.",
+        "type": "Type 'Do not cover the soft panel.' in Japanese.",
+        "say": "Stop a coworker and report the soft panel to the foreman.",
+        "write": "Write where the damage is and what must happen before continuing."
+      }
+    },
+    {
+      "n": 9,
+      "stableId": "roofing:9:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Debris & Old Nails",
+      "sourceEnglishObjective": "Coordinate debris removal and deck cleanup",
+      "sourceEnglishSpeaking": "Assign one worker to collect shingles and another to pull old nails.",
+      "title": "廃材と古い釘の片付け",
+      "objective": "廃材、古い釘、屋根下地の清掃を担当者に割り当てる。",
+      "focus": "～てから orders actions; ～前に marks the next task's prerequisite. 一人は～、もう一人は～ distributes work between two people.",
+      "cards": [
+        {
+          "ja": "廃材用コンテナ",
+          "en": "dumpster",
+          "kind": "term"
+        },
+        {
+          "ja": "古い釘",
+          "en": "old nails",
+          "kind": "term"
+        },
+        {
+          "ja": "掃く",
+          "en": "sweep",
+          "kind": "term"
+        },
+        {
+          "ja": "廃材",
+          "en": "debris",
+          "kind": "term"
+        },
+        {
+          "ja": "磁石",
+          "en": "magnet",
+          "kind": "term"
+        },
+        {
+          "ja": "ほうき",
+          "en": "broom",
+          "kind": "term"
+        },
+        {
+          "ja": "手押し車",
+          "en": "wheelbarrow",
+          "kind": "term"
+        },
+        {
+          "ja": "シャベル",
+          "en": "shovel",
+          "kind": "term"
+        },
+        {
+          "ja": "手袋",
+          "en": "gloves",
+          "kind": "term"
+        },
+        {
+          "ja": "シングル材を廃材用コンテナに投げ入れてください。",
+          "en": "Throw the shingles into the dumpster.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "古い釘を全て抜いてください。",
+          "en": "Pull all the old nails.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ルーフィングを敷く前に屋根下地を掃いてください。",
+          "en": "Sweep the deck before underlayment.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "磁石での釘拾いが終わったら知らせてください。",
+          "en": "Tell me when the magnetic nail sweep is finished.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "シングル材の破片を全て拾ってください。",
+          "en": "Pick up all the shingle pieces.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "手袋を着けてください。",
+          "en": "Put on your gloves.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "撤去の後、廃材があちこちにあります。",
+          "en": "After the tear-off there is debris everywhere."
+        },
+        {
+          "ja": "手袋を着けてください。",
+          "en": "Put on your gloves."
+        },
+        {
+          "ja": "シングル材を廃材用コンテナに投げ入れてください。",
+          "en": "Throw the shingles into the debris dumpster."
+        },
+        {
+          "ja": "一人はシャベルを使い、もう一人は手押し車を使います。",
+          "en": "One worker uses the shovel and another uses the wheelbarrow."
+        },
+        {
+          "ja": "古い釘を全て抜いてください。",
+          "en": "Pull all the old nails."
+        },
+        {
+          "ja": "それから庭の地面に磁石をかけます。",
+          "en": "Then run the magnet over the yard."
+        },
+        {
+          "ja": "ルーフィングを敷く前に屋根下地を掃いてください。",
+          "en": "Sweep the deck before the underlayment."
+        },
+        {
+          "ja": "磁石で釘を拾い終えたら知らせてください。",
+          "en": "Tell me when you finish picking up the nails with the magnet."
+        }
+      ],
+      "forms": [
+        {
+          "base": "掃く",
+          "exampleJa": "ルーフィングを敷く前に屋根下地を掃きます。",
+          "meaningEnglish": "to sweep",
+          "exampleEnglish": "We sweep the deck before the underlayment.",
+          "sourceInfinitiveSpanish": "barrer"
+        },
+        {
+          "base": "投げ入れる",
+          "exampleJa": "シングル材を廃材用コンテナに投げ入れます。",
+          "meaningEnglish": "to throw",
+          "exampleEnglish": "They throw the shingles into the debris dumpster.",
+          "sourceInfinitiveSpanish": "tirar"
+        },
+        {
+          "base": "抜く",
+          "exampleJa": "作業員が古い釘を全て抜きます。",
+          "meaningEnglish": "to pull out",
+          "exampleEnglish": "One worker pulls out all the old nails.",
+          "sourceInfinitiveSpanish": "sacar"
+        },
+        {
+          "base": "拾う",
+          "exampleJa": "シングル材の破片を全て拾います。",
+          "meaningEnglish": "to pick up",
+          "exampleEnglish": "They pick up all the shingle pieces.",
+          "sourceInfinitiveSpanish": "recoger"
+        },
+        {
+          "base": "使う",
+          "exampleJa": "一人はシャベルを使い、もう一人は手押し車を使います。",
+          "meaningEnglish": "to use",
+          "exampleEnglish": "One worker uses the shovel and another uses the wheelbarrow.",
+          "sourceInfinitiveSpanish": "usar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "一人はシングル材の破片を拾ってください。もう一人は古い釘を抜いてください。",
+        "goal": "Assign one worker to collect shingles and another to pull old nails."
+      },
+      "modes": {
+        "see": "Find which worker uses the shovel and which uses the wheelbarrow.",
+        "recall": "Recall dumpster, old nails, broom, and magnet.",
+        "hear": "Distinguish 釘 from 磁石 when spoken.",
+        "type": "Type 'Pull all the old nails.' in Japanese.",
+        "say": "Assign one coworker to collect shingles and another to pull nails.",
+        "write": "Write the cleanup order before underlayment is laid."
+      }
+    }
+  ],
+  "reviewGates": {
+    "independentJapaneseReview": false,
+    "qualifiedRoofingReview": false,
+    "sixModeRuntime": false,
+    "dictionarySenses": false,
+    "offlineVerified": false,
+    "recordedAudioListening": false,
+    "phoneAndNativeAcceptance": false
+  }
+}

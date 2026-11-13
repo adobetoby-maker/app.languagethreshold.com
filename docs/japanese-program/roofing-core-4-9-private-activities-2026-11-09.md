@@ -1,0 +1,5 @@
+# Japanese Roofing Core 4–9 private activities — 2026-11-09
+
+Core 4–9 now has 36 lesson-specific Japanese→English See, Recall, Hear, Type, Say, and Write activities. They cover ridge/vent/drainage, material ordering, crew assignments, tear-off scope, deck damage, and debris/old-nail cleanup. Each task cites an exact aligned card or Reader pair; the deterministic validator pins source hashes, stable lesson/mode IDs, response kinds, and audio requirements. Together with Foundation 1–10 and Core 1–3, the private activity set covers 19 of 60 lessons and 114 activities.
+
+All new activities remain `readyForLearner:false`; the sidecars remain `reviewed:false`, `registered:false`, and `audioListeningReviewed:false`. Core 10–30 and Master 1–20 still need authored activities. Qualified Japanese and roofing-domain review, dictionary resolution, recorded-audio listening decisions, runtime/offline integration, and web/native acceptance remain open. No published lesson or learner progress is changed.

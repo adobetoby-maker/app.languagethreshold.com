@@ -1,0 +1,7 @@
+# Japanese Roofing Master speaking-goal correction
+
+The 20 private Master lessons previously exposed Spanish grammar directions in their English speaking goals. Nineteen goals now use scenario-specific Japanese roleplay directions from `author-master-speaking-goals-ja-en.json`; Master 12 retains its authored Japanese-specific `goalEn`. Spanish source speaking instructions remain in the top-level `sourceEnglishSpeaking` provenance field only. A validator checks this boundary for every Master lesson.
+
+The Master draft comparison against the prior commit confirms that only the speaking goal and Master 12's nested provenance placement changed. No Japanese cards, Reader lines, forms, speaking openings, audio display text, or stable IDs changed. The audio inventory retains its exact 1,589 spoken strings, `stringsSHA256` (`bca36ca73102c26a55df1c8366f41408b60c4df829e1d2987f3eeea36b0df409`), voices, locale, and 3,178 projected two-voice clips. Its full-file hash changed because it pins the corrected Master draft hashes. The two private audio manifests were rebound to that hash after exact text checks; their prior versions were backed up alongside them. No clips were regenerated or marked listened.
+
+All content remains `reviewed:false` and unregistered. Qualified Japanese and roofing review, full-course listening review, runtime/offline integration, and browser/native acceptance remain open. This correction is a private draft checkpoint, not a release decision.

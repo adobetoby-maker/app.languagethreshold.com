@@ -1,0 +1,724 @@
+{
+  "schema": 1,
+  "moduleId": "master-roofing",
+  "stage": "master",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "englishSourceSubsetSHA256": "477123de23bf5474ecf5240e6bfdfbc6df53a71bd466465320a5eed730d38389",
+  "sourceFileSHA256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+  },
+  "lessons": [
+    {
+      "n": 1,
+      "stableId": "master-roofing:1:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Explain the Roof System to a New Hire",
+      "sourceEnglishObjective": "Walk a new hire through every layer of the roof, in order, and say why each one is there",
+      "sourceEnglishSpeaking": "You are the crew lead and the AI is a new hire on day one: walk them from the deck to the ridge, name each layer in order, and explain why each one goes where it does using primero, luego, porque and por eso.",
+      "title": "新人に屋根の構成を説明する",
+      "objective": "新人に屋根の各層を順に示し、それぞれの役割を説明する。",
+      "focus": "まず、次に、最後に order the layers. ～ので and そのために connect a layer's position with its purpose; customer-facing questions use a more polite register.",
+      "cards": [
+        {
+          "ja": "屋根の構成",
+          "en": "the roof system",
+          "kind": "term"
+        },
+        {
+          "ja": "野地板",
+          "en": "the roof deck",
+          "kind": "term"
+        },
+        {
+          "ja": "下葺き材",
+          "en": "the underlayment",
+          "kind": "term"
+        },
+        {
+          "ja": "軒先の水切り板金",
+          "en": "the drip edge",
+          "kind": "term"
+        },
+        {
+          "ja": "スターター材",
+          "en": "the starter strip",
+          "kind": "term"
+        },
+        {
+          "ja": "アスファルトシングル材",
+          "en": "the asphalt shingle",
+          "kind": "term"
+        },
+        {
+          "ja": "アイス・アンド・ウォーター・シールド（防水膜）",
+          "en": "the ice and water shield",
+          "kind": "term"
+        },
+        {
+          "ja": "水切り板金",
+          "en": "the flashing",
+          "kind": "term"
+        },
+        {
+          "ja": "谷部",
+          "en": "the valley",
+          "kind": "term"
+        },
+        {
+          "ja": "棟",
+          "en": "the ridge",
+          "kind": "term"
+        },
+        {
+          "ja": "棟包み材",
+          "en": "the ridge cap",
+          "kind": "term"
+        },
+        {
+          "ja": "棟換気材",
+          "en": "the ridge vent",
+          "kind": "term"
+        },
+        {
+          "ja": "軒先",
+          "en": "the eave",
+          "kind": "term"
+        },
+        {
+          "ja": "層",
+          "en": "the layer",
+          "kind": "term"
+        },
+        {
+          "ja": "まず野地板を敷き、次に下葺き材を敷きます。",
+          "en": "First comes the deck, then the underlayment.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "各層にはそれぞれ役割があります。",
+          "en": "Each layer has its job.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "水は常に低い方へ流れます。",
+          "en": "Water always runs downhill.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "そのため、下から始めます。",
+          "en": "That's why we start from the bottom.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "説明は伝わっていますか。",
+          "en": "Am I making sense?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "何でも質問してください。",
+          "en": "Ask me anything you want.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ご質問があれば、私にお尋ねください。",
+          "en": "If you have questions, ask me.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "今日はケビンが作業班に入った初日で、ロヘリオが屋根に上がる前に屋根の構成を説明します。",
+          "en": "Today is Kevin's first day on the crew, and Rogelio explains the roof system to him before they go up."
+        },
+        {
+          "ja": "ロヘリオ「各層にはそれぞれ役割があり、すべてが一緒に働きます。」",
+          "en": "Rogelio: Each layer has its job, and they all work together."
+        },
+        {
+          "ja": "ロヘリオ「まず野地板を敷き、次に下葺き材を敷きます。」",
+          "en": "Rogelio: First comes the deck, then the underlayment."
+        },
+        {
+          "ja": "ロヘリオ「野地板は土台なので、しっかりしていて乾いている必要があります。」",
+          "en": "Rogelio: The deck is the base, so it has to be solid and dry."
+        },
+        {
+          "ja": "ロヘリオ「軒先には水切り板金を取り付けます。水を木部ではなく雨どいに落とすためです。」",
+          "en": "Rogelio: At the eave we put the drip edge, because the water has to fall into the gutter and not onto the wood."
+        },
+        {
+          "ja": "ロヘリオ「軒先と谷部にはアイス・アンド・ウォーター・シールドも敷きます。そこにはより多くの水が流れるからです。」",
+          "en": "Rogelio: At the eave and in the valley the ice and water shield goes on too, because more water runs there."
+        },
+        {
+          "ja": "ケビン「なぜ棟のある上から始めないのですか。」",
+          "en": "Kevin: And why don't we start at the top, where the ridge is?"
+        },
+        {
+          "ja": "ロヘリオ「水は常に低い方へ流れるからです。」",
+          "en": "Rogelio: Because water always runs downhill."
+        },
+        {
+          "ja": "ロヘリオ「そのため下から始めます。まずスターター材、次にアスファルトシングル材を一段ずつ重ねます。」",
+          "en": "Rogelio: That's why we start from the bottom: first the starter strip and then the asphalt shingles, one course on top of another."
+        },
+        {
+          "ja": "ロヘリオ「各段が下の段を覆うので、水はその上を流れ、下には入りません。」",
+          "en": "Rogelio: Each course covers the one below, so the water runs over it and never under it."
+        },
+        {
+          "ja": "ロヘリオ「煙突や壁の周りには水切り板金を取り付けます。その接合部は弱い箇所だからです。」",
+          "en": "Rogelio: Around the chimney and the walls we put flashing, because those joints are the weak points."
+        },
+        {
+          "ja": "ロヘリオ「最後に一番上へ棟換気材を取り付け、その上に棟包み材を取り付けます。」",
+          "en": "Rogelio: At the end, at the very top, goes the ridge vent and then the ridge cap."
+        },
+        {
+          "ja": "ロヘリオ「屋根裏には換気が必要なので、棟に換気材を設けます。」",
+          "en": "Rogelio: The attic needs to breathe; that's why we leave the vent at the ridge."
+        },
+        {
+          "ja": "ロヘリオ「説明は伝わっていますか。」",
+          "en": "Rogelio: Am I making sense?"
+        },
+        {
+          "ja": "ケビン「はい。まず土台、次に水からの保護、最後に換気ですね。」",
+          "en": "Kevin: Yes, first the base, then the protection against water, and at the end the ventilation."
+        },
+        {
+          "ja": "ロヘリオ「その通りです。疑問があれば何でも質問してください。」",
+          "en": "Rogelio: Exactly, and if you have questions, ask me anything you want."
+        },
+        {
+          "ja": "ロヘリオ「お客様には『ご質問があれば、私にお尋ねください』と言います。」",
+          "en": "Rogelio: With a client you say it this way: If you have questions, ask me."
+        }
+      ],
+      "forms": [
+        {
+          "base": "説明する",
+          "exampleJa": "ロヘリオは屋根に上がる前にケビンに屋根の構成を説明します。",
+          "meaningEnglish": "to explain",
+          "exampleEnglish": "Rogelio explains the roof system to him before they go up.",
+          "sourceInfinitiveSpanish": "explicar"
+        },
+        {
+          "base": "始める",
+          "exampleJa": "そのため、下から始めます。",
+          "meaningEnglish": "to start",
+          "exampleEnglish": "That's why we start from the bottom.",
+          "sourceInfinitiveSpanish": "empezar"
+        },
+        {
+          "base": "流れる",
+          "exampleJa": "水は常に低い方へ流れます。",
+          "meaningEnglish": "to run (water)",
+          "exampleEnglish": "Water always runs downhill.",
+          "sourceInfinitiveSpanish": "correr"
+        },
+        {
+          "base": "覆う",
+          "exampleJa": "各段が下の段を覆います。",
+          "meaningEnglish": "to cover",
+          "exampleEnglish": "Each course covers the one below.",
+          "sourceInfinitiveSpanish": "cubrir"
+        },
+        {
+          "base": "取り付ける",
+          "exampleJa": "軒先には水切り板金を取り付けます。",
+          "meaningEnglish": "to put",
+          "exampleEnglish": "At the eave we put the drip edge.",
+          "sourceInfinitiveSpanish": "poner"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "まず野地板、次に下葺き材と防水膜、最後に棟換気材と棟包み材です。各層の役割を順に説明します。",
+        "goal": "Lead a new hire through the roof layers from deck to ridge. Name each layer in order and explain its role with natural Japanese sequencing such as まず and 次に."
+      },
+      "modes": {
+        "see": "Identify each roof layer from deck to ridge.",
+        "recall": "Recall deck, underlayment, drip edge, flashing, ridge vent, and ridge cap.",
+        "hear": "Distinguish 野地板 from 下葺き材 when spoken.",
+        "type": "Type 'Each layer has its job' in Japanese.",
+        "say": "Teach a new hire the layer order and why each layer is there.",
+        "write": "Write a customer-facing question invitation in polite Japanese."
+      }
+    },
+    {
+      "n": 2,
+      "stableId": "master-roofing:2:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Why We Stagger Joints",
+      "sourceEnglishObjective": "Explain why joints are staggered, using impersonal se and general rules with si",
+      "sourceEnglishSpeaking": "You are the crew lead and the AI is a new hire who wants to lay shingles faster: explain how water travels across the roof, why the joints are staggered, and what happens over time if they line up, using se and si.",
+      "title": "継ぎ目をずらす理由",
+      "objective": "継ぎ目をずらす理由と水の流れを、一般条件の日本語で説明する。",
+      "focus": "～と and ～場合 express a general condition and result. ～によって attributes the pattern to the manufacturer; ～てはいけません states a site rule without a Spanish impersonal construction.",
+      "cards": [
+        {
+          "ja": "継ぎ目",
+          "en": "the joint",
+          "kind": "term"
+        },
+        {
+          "ja": "ずらす",
+          "en": "to stagger",
+          "kind": "term"
+        },
+        {
+          "ja": "重なり",
+          "en": "the overlap",
+          "kind": "term"
+        },
+        {
+          "ja": "シングル材の段",
+          "en": "the course (row of shingles)",
+          "kind": "term"
+        },
+        {
+          "ja": "タブ",
+          "en": "the tab",
+          "kind": "term"
+        },
+        {
+          "ja": "タブの間の溝",
+          "en": "the slot (between tabs)",
+          "kind": "term"
+        },
+        {
+          "ja": "雨漏り",
+          "en": "the leak",
+          "kind": "term"
+        },
+        {
+          "ja": "水の通り道",
+          "en": "the water path",
+          "kind": "term"
+        },
+        {
+          "ja": "湿気",
+          "en": "the moisture",
+          "kind": "term"
+        },
+        {
+          "ja": "墨線",
+          "en": "the chalk line",
+          "kind": "term"
+        },
+        {
+          "ja": "配置パターン",
+          "en": "the pattern",
+          "kind": "term"
+        },
+        {
+          "ja": "粘着帯",
+          "en": "the sealant strip",
+          "kind": "term"
+        },
+        {
+          "ja": "時間がたつと",
+          "en": "over time",
+          "kind": "term"
+        },
+        {
+          "ja": "風",
+          "en": "the wind",
+          "kind": "term"
+        },
+        {
+          "ja": "継ぎ目が一直線に並ぶと、水が入ります。",
+          "en": "If the joints line up, water gets in.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "継ぎ目はメーカーの指定に従ってずらします。",
+          "en": "The joints are staggered according to the manufacturer.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "水は通りやすい道を探します。",
+          "en": "Water looks for the easiest path.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "そうすると、手遅れになるまで雨漏りに気づきません。",
+          "en": "That way you don't see the leak until it's too late.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "見てください。お見せします。",
+          "en": "Look, I'll show you.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "理由を説明してもよろしいですか。",
+          "en": "May I explain why?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ここではそのようには施工しません。",
+          "en": "That's not done here.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "ケビンは屋根を見て、なぜ継ぎ目が一直線に並んでいないのか尋ねます。",
+          "en": "Kevin looks at the roof and asks why the joints don't go in a straight line."
+        },
+        {
+          "ja": "ロヘリオ「見てください。シングル材を二枚使ってお見せします。」",
+          "en": "Rogelio: Look, I'll show you with two shingles."
+        },
+        {
+          "ja": "ロヘリオ「継ぎ目が一直線に並ぶと、水が入ります。」",
+          "en": "Rogelio: If the joints line up, water gets in."
+        },
+        {
+          "ja": "ロヘリオ「水は通りやすい道を探します。開いた継ぎ目は最も通りやすい道です。」",
+          "en": "Rogelio: Water looks for the easiest path, and an open joint is the easiest path."
+        },
+        {
+          "ja": "ロヘリオ「そのため、継ぎ目はメーカーの指定に従ってずらします。目分量で決めてはいけません。」",
+          "en": "Rogelio: That's why the joints are staggered according to the manufacturer, and it's never done by eye."
+        },
+        {
+          "ja": "ロヘリオ「上の段が下の継ぎ目を覆えば、水はシングル材の上を流れていきます。」",
+          "en": "Rogelio: If a course covers the joint below, the water runs over the shingle and keeps going on its way."
+        },
+        {
+          "ja": "ロヘリオ「しかし、溝が上下に重なると、水は溝を通って下葺き材へまっすぐ流れます。」",
+          "en": "Rogelio: But if the slots end up one on top of another, the water goes straight down the slot to the underlayment."
+        },
+        {
+          "ja": "ロヘリオ「時間がたつと、湿気が木部に達し、家の中に雨漏りが現れます。」",
+          "en": "Rogelio: Over time, the moisture reaches the wood and the leak shows up inside the house."
+        },
+        {
+          "ja": "ロヘリオ「そうすると、手遅れになるまで雨漏りに気づきません。」",
+          "en": "Rogelio: That way you don't see the leak until it's too late."
+        },
+        {
+          "ja": "ロヘリオ「粘着帯が十分に付いていなければ、風がタブを持ち上げます。」",
+          "en": "Rogelio: The wind also lifts the tabs if the sealant strip doesn't stick well."
+        },
+        {
+          "ja": "ロヘリオ「そのため、各段の配置パターンを確認し、必要なら墨線を引きます。」",
+          "en": "Rogelio: That's why the pattern is checked on every course and a chalk line is snapped when it's needed."
+        },
+        {
+          "ja": "庭で聞いていた家主にも質問があります。",
+          "en": "The homeowner is listening from the yard and also has a question."
+        },
+        {
+          "ja": "ロヘリオ「理由を説明してもよろしいですか。」",
+          "en": "Rogelio: Ma'am, may I explain why?"
+        },
+        {
+          "ja": "ロヘリオ「重なりと継ぎ目が適切なら屋根は長持ちしますが、そうでなければ水がしみ込みます。」",
+          "en": "Rogelio: If the overlap and the joints are right, the roof lasts many years; if not, water seeps in."
+        },
+        {
+          "ja": "ロヘリオ「ケビン、継ぎ目を一直線に並べるのは誤りです。ここではそのようには施工しません。」",
+          "en": "Rogelio: Kevin, putting the joints in a straight line is a mistake, and that's not done here."
+        }
+      ],
+      "forms": [
+        {
+          "base": "ずらす",
+          "exampleJa": "そのため、メーカーの指定に従って継ぎ目をずらします。",
+          "meaningEnglish": "to stagger",
+          "exampleEnglish": "That's why the joints are staggered according to the manufacturer.",
+          "sourceInfinitiveSpanish": "escalonar"
+        },
+        {
+          "base": "並ぶ",
+          "exampleJa": "継ぎ目が一直線に並ぶと、水が入ります。",
+          "meaningEnglish": "to line up",
+          "exampleEnglish": "If the joints line up, water gets in.",
+          "sourceInfinitiveSpanish": "alinear"
+        },
+        {
+          "base": "探す",
+          "exampleJa": "水は通りやすい道を探します。",
+          "meaningEnglish": "to look for",
+          "exampleEnglish": "Water looks for the easiest path.",
+          "sourceInfinitiveSpanish": "buscar"
+        },
+        {
+          "base": "持ち上げる",
+          "exampleJa": "粘着帯が十分に付かなければ、風がタブを持ち上げます。",
+          "meaningEnglish": "to lift",
+          "exampleEnglish": "The wind lifts the tabs if the sealant strip doesn't stick well.",
+          "sourceInfinitiveSpanish": "levantar"
+        },
+        {
+          "base": "確認する",
+          "exampleJa": "各段の配置パターンを確認します。",
+          "meaningEnglish": "to check",
+          "exampleEnglish": "The pattern is checked on every course.",
+          "sourceInfinitiveSpanish": "revisar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "継ぎ目が一直線に並ぶと、水が入りやすくなります。メーカーの指定に従って段ごとにずらし、配置パターンを確認します。",
+        "goal": "Explain to a new hire how water travels across the roof, why joints are staggered to the manufacturer's pattern, and what can happen over time if they line up."
+      },
+      "modes": {
+        "see": "Find aligned joints, staggered joints, and the water path.",
+        "recall": "Recall joint, overlap, slot, chalk line, and sealant strip.",
+        "hear": "Distinguish 継ぎ目 from 重なり when spoken.",
+        "type": "Type 'If the joints line up, water gets in' in Japanese.",
+        "say": "Explain to a new hire why joints are staggered and what happens over time.",
+        "write": "Write a polite explanation to the homeowner using a condition and result."
+      }
+    },
+    {
+      "n": 3,
+      "stableId": "master-roofing:3:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Training a New Crew Member on Nailing",
+      "sourceEnglishObjective": "Coach a new roofer on nailing with clear commands, correcting mistakes without embarrassing them",
+      "sourceEnglishSpeaking": "You are training the AI, a new crew member, on the nail gun: show where to nail, check their work, and correct mistakes with commands like clávalo aquí and no lo hundas, keeping the tone supportive.",
+      "title": "新人への釘打ち指導",
+      "objective": "新人に釘打ち位置を示し、間違いを直すよう支援的な言葉で伝える。",
+      "focus": "～てください gives a clear instruction, ～ないでください prohibits overdriving, and ～たら orders a correction after checking the nail head.",
+      "cards": [
+        {
+          "ja": "釘打ち機",
+          "en": "the nail gun",
+          "kind": "term"
+        },
+        {
+          "ja": "釘打ち範囲",
+          "en": "the nailing zone",
+          "kind": "term"
+        },
+        {
+          "ja": "釘打ちパターン",
+          "en": "the nail pattern",
+          "kind": "term"
+        },
+        {
+          "ja": "深く打ち込みすぎた釘",
+          "en": "the overdriven nail",
+          "kind": "term"
+        },
+        {
+          "ja": "高すぎる位置の釘",
+          "en": "the high nail",
+          "kind": "term"
+        },
+        {
+          "ja": "釘の頭",
+          "en": "the nail head",
+          "kind": "term"
+        },
+        {
+          "ja": "空気圧",
+          "en": "the air pressure",
+          "kind": "term"
+        },
+        {
+          "ja": "コンプレッサー",
+          "en": "the compressor",
+          "kind": "term"
+        },
+        {
+          "ja": "深さ",
+          "en": "the depth",
+          "kind": "term"
+        },
+        {
+          "ja": "ホース",
+          "en": "the hose",
+          "kind": "term"
+        },
+        {
+          "ja": "引き金",
+          "en": "the trigger",
+          "kind": "term"
+        },
+        {
+          "ja": "面一",
+          "en": "flush",
+          "kind": "term"
+        },
+        {
+          "ja": "穴",
+          "en": "the hole",
+          "kind": "term"
+        },
+        {
+          "ja": "ここ、釘打ち範囲の中に打ってください。",
+          "en": "Nail it here, in the nailing zone.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "深く打ち込みすぎないでください。",
+          "en": "Don't sink it.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "空気圧を下げてください。",
+          "en": "Turn down the pressure.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "それを抜いて、別の釘を打ってください。",
+          "en": "Pull it out and put in another one.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "釘の頭をよく見てください。",
+          "en": "Look closely at the nail head.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "大丈夫です。誰にでも起こることです。",
+          "en": "Don't worry, it happened to all of us.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ご自身でも確認してください。",
+          "en": "Please check it yourself too.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "今日、ケビンは初めて釘打ち機を使い、ロヘリオがそばで見守ります。",
+          "en": "Today Kevin uses the nail gun for the first time, and Rogelio stays at his side."
+        },
+        {
+          "ja": "ロヘリオ「始める前にホースとコンプレッサーを確認し、引き金に指を掛けないでください。」",
+          "en": "Rogelio: Before you start, check the hose and the compressor, and don't put your finger on the trigger."
+        },
+        {
+          "ja": "ロヘリオ「シングル材のこの線を見てください。ここが釘打ち範囲です。」",
+          "en": "Rogelio: Look at this line on the shingle; this is the nailing zone."
+        },
+        {
+          "ja": "ロヘリオ「釘打ち範囲の中のここに打ち、メーカーの釘打ちパターンに従ってください。」",
+          "en": "Rogelio: Nail it here, in the nailing zone, and follow the manufacturer's nail pattern."
+        },
+        {
+          "ja": "ケビンは最初のシングル材に釘を打ちますが、一本は高すぎる位置に入ります。",
+          "en": "Kevin nails the first shingle, but one nail ends up too high."
+        },
+        {
+          "ja": "ロヘリオ「その高すぎる位置の釘では、下のシングル材を十分に留められません。抜いて別の釘を打ってください。」",
+          "en": "Rogelio: That high nail doesn't hold the shingle below well; pull it out and put in another one."
+        },
+        {
+          "ja": "ロヘリオ「穴は製品の説明書に従ってシーリングしてください。開いたままにしないでください。」",
+          "en": "Rogelio: And the hole, seal it according to the product instructions; don't leave it open."
+        },
+        {
+          "ja": "次にケビンが別の釘を打つと、釘の頭がシングル材に沈み込みます。",
+          "en": "Then Kevin fires another nail, and the nail head sinks into the shingle."
+        },
+        {
+          "ja": "ロヘリオ「釘の頭をよく見てください。表面と面一で、低くなってはいけません。」",
+          "en": "Rogelio: Look closely at the nail head; it has to sit flush, not lower."
+        },
+        {
+          "ja": "ロヘリオ「深く打ち込みすぎた釘はシングル材を切り、風で持ち上がることがあります。」",
+          "en": "Rogelio: An overdriven nail cuts the shingle, and the wind can lift it."
+        },
+        {
+          "ja": "ロヘリオ「空気圧を少し下げて、もう一度試してください。深く打ち込みすぎないでください。」",
+          "en": "Rogelio: Turn the air pressure down a little and try again; don't sink it."
+        },
+        {
+          "ja": "ロヘリオ「深さが変わったら教えてください。一緒に調整しましょう。」",
+          "en": "Rogelio: If the depth changes, let me know and we'll adjust it together."
+        },
+        {
+          "ja": "ケビンは顔を赤らめますが、ロヘリオは「大丈夫です。誰にでも起こることです」と伝えます。",
+          "en": "Kevin turns red, but Rogelio tells him: Don't worry, it happened to all of us."
+        },
+        {
+          "ja": "ロヘリオ「釘打ち機を人に向けないでください。冗談でもいけません。」",
+          "en": "Rogelio: And the gun, don't point it at anyone, not even as a joke."
+        },
+        {
+          "ja": "その後、別の会社で長年働いた新人のエルネストさんが来ます。",
+          "en": "Later Don Ernesto arrives, a new worker with many years of experience at another company."
+        },
+        {
+          "ja": "ロヘリオ「エルネストさん、ここではこのように釘を打ちます。ご自身でも確認してください。」",
+          "en": "Rogelio: Don Ernesto, here we nail like this; please check it yourself too."
+        }
+      ],
+      "forms": [
+        {
+          "base": "打つ",
+          "exampleJa": "ここ、釘打ち範囲の中に打ってください。",
+          "meaningEnglish": "to nail",
+          "exampleEnglish": "Nail it here, in the nailing zone.",
+          "sourceInfinitiveSpanish": "clavar"
+        },
+        {
+          "base": "抜く",
+          "exampleJa": "それを抜いて、別の釘を打ってください。",
+          "meaningEnglish": "to pull out",
+          "exampleEnglish": "Pull it out and put in another one.",
+          "sourceInfinitiveSpanish": "sacar"
+        },
+        {
+          "base": "深く打ち込む",
+          "exampleJa": "深く打ち込みすぎないでください。",
+          "meaningEnglish": "to sink",
+          "exampleEnglish": "Don't sink it.",
+          "sourceInfinitiveSpanish": "hundir"
+        },
+        {
+          "base": "調整する",
+          "exampleJa": "教えてください。一緒に調整しましょう。",
+          "meaningEnglish": "to adjust",
+          "exampleEnglish": "Let me know and we'll adjust it together.",
+          "sourceInfinitiveSpanish": "ajustar"
+        },
+        {
+          "base": "向ける",
+          "exampleJa": "釘打ち機を人に向けないでください。",
+          "meaningEnglish": "to point (aim)",
+          "exampleEnglish": "Don't point it at anyone.",
+          "sourceInfinitiveSpanish": "apuntar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "この線が釘打ち範囲です。ここに打ってください。釘の頭が沈んだら空気圧を調整しましょう。大丈夫です。一緒に確認します。",
+        "goal": "Coach a new crew member on nail placement and depth. Show the nailing zone, correct high and overdriven nails with clear Japanese requests, and keep a supportive tone."
+      },
+      "modes": {
+        "see": "Find the nailing zone, high nail, and overdriven nail.",
+        "recall": "Recall nail gun, air pressure, trigger, and flush nail head.",
+        "hear": "Distinguish 高すぎる位置の釘 from 深く打ち込みすぎた釘 when spoken.",
+        "type": "Type 'Don't sink it' in Japanese.",
+        "say": "Coach a new roofer on nail placement with clear, supportive instructions.",
+        "write": "Write a correction for a high nail and a separate correction for an overdriven nail."
+      }
+    }
+  ],
+  "reviewGates": {
+    "independentJapaneseReview": false,
+    "qualifiedRoofingReview": false,
+    "sixModeRuntime": false,
+    "dictionarySenses": false,
+    "offlineVerified": false,
+    "recordedAudioListening": false,
+    "phoneAndNativeAcceptance": false
+  }
+}

@@ -1,0 +1,549 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "core",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "englishSourceSubsetSHA256": "fcb3bbf85932687e8b45d5fcfd0e2611f0024aef2fe6c1732e97888d6ce596d3",
+  "sourceFileSHA256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+  },
+  "lessons": [
+    {
+      "n": 4,
+      "stableId": "roofing:4:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Ridge, Vents & Drainage",
+      "sourceEnglishObjective": "Name ridge and drainage components",
+      "sourceEnglishSpeaking": "Describe where the ridge vent and downspouts belong.",
+      "title": "棟、換気口、排水",
+      "objective": "棟と屋根の排水部材を日本語で示す。",
+      "focus": "～に沿って describes placement along the ridge. ～から離れて describes water moving away from a house. ～はどこに付きますか asks where a component goes.",
+      "cards": [
+        {
+          "ja": "棟包み材",
+          "en": "ridge cap",
+          "kind": "term"
+        },
+        {
+          "ja": "換気口",
+          "en": "vent",
+          "kind": "term"
+        },
+        {
+          "ja": "雨どい",
+          "en": "gutter",
+          "kind": "term"
+        },
+        {
+          "ja": "竪どい",
+          "en": "downspout",
+          "kind": "term"
+        },
+        {
+          "ja": "鼻隠し板",
+          "en": "fascia",
+          "kind": "term"
+        },
+        {
+          "ja": "棟",
+          "en": "ridge",
+          "kind": "term"
+        },
+        {
+          "ja": "棟換気口",
+          "en": "ridge vent",
+          "kind": "term"
+        },
+        {
+          "ja": "箱形換気口",
+          "en": "box vent",
+          "kind": "term"
+        },
+        {
+          "ja": "軒裏",
+          "en": "soffit",
+          "kind": "term"
+        },
+        {
+          "ja": "小屋裏",
+          "en": "attic",
+          "kind": "term"
+        },
+        {
+          "ja": "棟換気口は棟に沿って設置します。",
+          "en": "The ridge vent goes along the ridge.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "竪どいはどこに付きますか。",
+          "en": "Where does the downspout go?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "雨どいが詰まっています。",
+          "en": "The gutter is clogged.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "水は家から離れる方向に流れなければなりません。",
+          "en": "The water must drain away from the house.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "小屋裏には換気が必要です。",
+          "en": "The attic needs ventilation.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "屋根の一番高いところが棟です。",
+          "en": "At the highest part of the roof is the ridge."
+        },
+        {
+          "ja": "棟換気口は棟に沿って設置します。",
+          "en": "The ridge vent goes along the ridge."
+        },
+        {
+          "ja": "小屋裏には換気が必要です。",
+          "en": "The attic needs ventilation."
+        },
+        {
+          "ja": "その下の屋根の端には、鼻隠し板と軒裏があります。",
+          "en": "Below, at the edge of the roof, are the fascia and the soffit."
+        },
+        {
+          "ja": "雨どいが詰まっています。",
+          "en": "The gutter is clogged."
+        },
+        {
+          "ja": "水は家から離れる方向に流れなければなりません。",
+          "en": "The water has to run away from the house."
+        },
+        {
+          "ja": "職長は「竪どいはどこに付きますか」と聞きます。",
+          "en": "The foreman asks: Where does the downspout go?"
+        },
+        {
+          "ja": "作業員は家の角にある竪どいを指します。",
+          "en": "A worker points to it at the corner of the house."
+        }
+      ],
+      "forms": [
+        {
+          "base": "必要である",
+          "exampleJa": "小屋裏には換気が必要です。",
+          "meaningEnglish": "to need",
+          "exampleEnglish": "The attic needs ventilation.",
+          "sourceInfinitiveSpanish": "necesitar"
+        },
+        {
+          "base": "沿う",
+          "exampleJa": "棟換気口は棟に沿っています。",
+          "meaningEnglish": "to go",
+          "exampleEnglish": "The ridge vent goes along the ridge.",
+          "sourceInfinitiveSpanish": "ir"
+        },
+        {
+          "base": "聞く",
+          "exampleJa": "職長は「竪どいはどこに付きますか」と聞きます。",
+          "meaningEnglish": "to ask",
+          "exampleEnglish": "The foreman asks: Where does the downspout go?",
+          "sourceInfinitiveSpanish": "preguntar"
+        },
+        {
+          "base": "指す",
+          "exampleJa": "作業員は家の角にある竪どいを指します。",
+          "meaningEnglish": "to point to",
+          "exampleEnglish": "A worker points to it at the corner of the house.",
+          "sourceInfinitiveSpanish": "señalar"
+        },
+        {
+          "base": "流れる",
+          "exampleJa": "水は家から離れる方向に流れます。",
+          "meaningEnglish": "to run, to flow",
+          "exampleEnglish": "The water runs away from the house.",
+          "sourceInfinitiveSpanish": "correr"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "棟換気口は棟に沿って設置します。竪どいはどこに付きますか。",
+        "goal": "Describe where the ridge vent and downspouts belong."
+      },
+      "modes": {
+        "see": "Find the ridge vent and downspout in the scene.",
+        "recall": "Recall ridge, gutter, fascia, and soffit in Japanese.",
+        "hear": "Distinguish 雨どい from 竪どい when spoken.",
+        "type": "Type 'The gutter is clogged.' in Japanese.",
+        "say": "Describe where the ridge vent and downspout go.",
+        "write": "Write two sentences about ventilation and water drainage."
+      }
+    },
+    {
+      "n": 5,
+      "stableId": "roofing:5:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Fasteners & Consumables",
+      "sourceEnglishObjective": "Request roofing fasteners and sealants clearly",
+      "sourceEnglishSpeaking": "Call a supplier and confirm the fasteners specified for this job.",
+      "title": "釘と副資材の発注",
+      "objective": "屋根用の釘とシーリング材を明確に発注する。",
+      "focus": "～が必要です states a need; ～はありますか checks stock. ～を届けられますか asks about delivery, and ～を確認してください requests confirmation.",
+      "cards": [
+        {
+          "ja": "屋根用釘",
+          "en": "roofing nails",
+          "kind": "term"
+        },
+        {
+          "ja": "樹脂キャップ付き釘",
+          "en": "plastic cap nails",
+          "kind": "term"
+        },
+        {
+          "ja": "屋根用アスファルトセメント",
+          "en": "roofing cement",
+          "kind": "term"
+        },
+        {
+          "ja": "釘",
+          "en": "nail",
+          "kind": "term"
+        },
+        {
+          "ja": "ステープル",
+          "en": "staple",
+          "kind": "term"
+        },
+        {
+          "ja": "ねじ",
+          "en": "screw",
+          "kind": "term"
+        },
+        {
+          "ja": "亜鉛めっき釘",
+          "en": "galvanized nails",
+          "kind": "term"
+        },
+        {
+          "ja": "箱",
+          "en": "box",
+          "kind": "term"
+        },
+        {
+          "ja": "シーリング材",
+          "en": "sealant",
+          "kind": "term"
+        },
+        {
+          "ja": "屋根用釘が二箱必要です。",
+          "en": "I need two boxes of roofing nails.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "樹脂キャップ付き釘はありますか。",
+          "en": "Do you have plastic cap nails?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この現場ではどの釘が指定されていますか。",
+          "en": "Which nails does the job require?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "いつ届けられますか。",
+          "en": "When can you deliver them?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "注文を確認してください。",
+          "en": "Please confirm the order.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "職長は仕入れ先に電話します。",
+          "en": "The foreman calls the supplier."
+        },
+        {
+          "ja": "職長は「屋根用釘が二箱必要です」と言います。",
+          "en": "He says: I need two boxes of roofing nails."
+        },
+        {
+          "ja": "樹脂キャップ付き釘はありますか。",
+          "en": "Do you have plastic cap nails?"
+        },
+        {
+          "ja": "職長は現場の仕様書を読み、指定された釘を確認します。",
+          "en": "The foreman reads the job specifications to see which nails the job requires."
+        },
+        {
+          "ja": "屋根用アスファルトセメントとシーリング材も必要です。",
+          "en": "He also needs roofing cement and sealant."
+        },
+        {
+          "ja": "いつ届けられますか。",
+          "en": "When can you deliver them?"
+        },
+        {
+          "ja": "仕入れ先は一覧を確認し、納品日を伝えます。",
+          "en": "The supplier checks his list and gives a delivery date."
+        },
+        {
+          "ja": "注文を確認してください。",
+          "en": "Please confirm the order."
+        }
+      ],
+      "forms": [
+        {
+          "base": "必要である",
+          "exampleJa": "屋根用釘が二箱必要です。",
+          "meaningEnglish": "to need",
+          "exampleEnglish": "I need two boxes of roofing nails.",
+          "sourceInfinitiveSpanish": "necesitar"
+        },
+        {
+          "base": "注文する",
+          "exampleJa": "この現場ではどの釘を注文する必要がありますか。",
+          "meaningEnglish": "to ask for, to order",
+          "exampleEnglish": "Which nails does the job require?",
+          "sourceInfinitiveSpanish": "pedir"
+        },
+        {
+          "base": "できる",
+          "exampleJa": "いつ届けられますか。",
+          "meaningEnglish": "to be able to, can",
+          "exampleEnglish": "When can you deliver them?",
+          "sourceInfinitiveSpanish": "poder"
+        },
+        {
+          "base": "届ける",
+          "exampleJa": "仕入れ先は明日、釘を届けます。",
+          "meaningEnglish": "to deliver",
+          "exampleEnglish": "The supplier delivers the nails tomorrow.",
+          "sourceInfinitiveSpanish": "entregar"
+        },
+        {
+          "base": "確認する",
+          "exampleJa": "注文を確認してください。",
+          "meaningEnglish": "to confirm",
+          "exampleEnglish": "Please confirm the order.",
+          "sourceInfinitiveSpanish": "confirmar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "屋根用釘が二箱必要です。指定された釘はありますか。",
+        "goal": "Call a supplier and confirm the fasteners specified for this job."
+      },
+      "modes": {
+        "see": "Find the specified fastener and the delivery date in the reading.",
+        "recall": "Recall roofing nails, sealant, and plastic cap nails.",
+        "hear": "Distinguish 釘 from ねじ when spoken.",
+        "type": "Type 'When can you deliver them?' in Japanese.",
+        "say": "Call a supplier and ask about specified nails and delivery.",
+        "write": "Write a short order for nails and sealant."
+      }
+    },
+    {
+      "n": 6,
+      "stableId": "roofing:6:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Morning Crew Brief",
+      "sourceEnglishObjective": "Open the day with assignments and a clear plan",
+      "sourceEnglishSpeaking": "Run a two-minute morning brief covering work zones and material staging.",
+      "title": "朝の班ミーティング",
+      "objective": "作業区域、担当、資材の仮置き場所を朝の打ち合わせで確認する。",
+      "focus": "～前に sets a sequence; 誰が identifies the person responsible. ～を見せてください asks someone to show a location; ～があれば知らせてください invites a report.",
+      "cards": [
+        {
+          "ja": "班長",
+          "en": "crew lead",
+          "kind": "term"
+        },
+        {
+          "ja": "資材仮置き場",
+          "en": "staging area",
+          "kind": "term"
+        },
+        {
+          "ja": "既存屋根材の撤去",
+          "en": "tear-off",
+          "kind": "term"
+        },
+        {
+          "ja": "作業班",
+          "en": "crew",
+          "kind": "term"
+        },
+        {
+          "ja": "職長",
+          "en": "foreman",
+          "kind": "term"
+        },
+        {
+          "ja": "作業区域",
+          "en": "work zone",
+          "kind": "term"
+        },
+        {
+          "ja": "担当作業",
+          "en": "assignment",
+          "kind": "term"
+        },
+        {
+          "ja": "屋根の施工計画",
+          "en": "roof plan",
+          "kind": "term"
+        },
+        {
+          "ja": "危険箇所",
+          "en": "hazard",
+          "kind": "term"
+        },
+        {
+          "ja": "納品",
+          "en": "delivery",
+          "kind": "term"
+        },
+        {
+          "ja": "始める前に今日の屋根の施工計画を確認しましょう。",
+          "en": "Let's review today's roof plan before we start.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "撤去班を率いるのは誰ですか。",
+          "en": "Who is leading the tear-off crew?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "資材をどこに仮置きするか見せてください。",
+          "en": "Show me where you will stage the materials.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "危険箇所を見つけたら知らせてください。",
+          "en": "Tell me if you see any hazard.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "全員、計画を理解しましたか。",
+          "en": "Does everyone understand the plan?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "始める前に質問はありますか。",
+          "en": "Any questions before we start?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "朝七時に作業班が集まります。",
+          "en": "It is 7:00 in the morning and the crew gathers."
+        },
+        {
+          "ja": "職長は「始める前に今日の屋根の施工計画を確認しましょう」と言います。",
+          "en": "The foreman says: Let's review today's roof plan before we start."
+        },
+        {
+          "ja": "職長は「撤去班を率いるのは誰ですか」と聞きます。",
+          "en": "The foreman asks: Who is leading the tear-off crew?"
+        },
+        {
+          "ja": "班長のルイスが手を挙げます。",
+          "en": "Luis, the crew lead, raises his hand."
+        },
+        {
+          "ja": "一人ひとりに作業区域と担当作業があります。",
+          "en": "Each person has a task in a work zone."
+        },
+        {
+          "ja": "資材をどこに仮置きするか見せてください。",
+          "en": "Show me where you will stage the materials."
+        },
+        {
+          "ja": "危険箇所を見つけたら知らせてください。",
+          "en": "Tell me if you see any hazard."
+        },
+        {
+          "ja": "全員、計画を理解しましたか。",
+          "en": "Does everyone understand the plan?"
+        },
+        {
+          "ja": "始める前に質問はありますか。",
+          "en": "Any questions before we start?"
+        }
+      ],
+      "forms": [
+        {
+          "base": "率いる",
+          "exampleJa": "ルイスは撤去班を率います。",
+          "meaningEnglish": "to lead, to direct",
+          "exampleEnglish": "Luis leads the tear-off crew.",
+          "sourceInfinitiveSpanish": "dirigir"
+        },
+        {
+          "base": "理解する",
+          "exampleJa": "全員、計画を理解しましたか。",
+          "meaningEnglish": "to understand",
+          "exampleEnglish": "Does everyone understand the plan?",
+          "sourceInfinitiveSpanish": "entender"
+        },
+        {
+          "base": "ある",
+          "exampleJa": "一人ひとりに担当作業があります。",
+          "meaningEnglish": "to have",
+          "exampleEnglish": "Each person has an assignment.",
+          "sourceInfinitiveSpanish": "tener"
+        },
+        {
+          "base": "始める",
+          "exampleJa": "七時半に既存屋根材の撤去を始めます。",
+          "meaningEnglish": "to start, to begin",
+          "exampleEnglish": "We start the tear-off at 7:30.",
+          "sourceInfinitiveSpanish": "empezar"
+        },
+        {
+          "base": "見つける",
+          "exampleJa": "危険箇所を見つけたら知らせてください。",
+          "meaningEnglish": "to see",
+          "exampleEnglish": "Tell me if you see any hazard.",
+          "sourceInfinitiveSpanish": "ver"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "始める前に今日の計画を確認しましょう。資材はどこに仮置きしますか。",
+        "goal": "Run a two-minute morning brief covering work zones and material staging."
+      },
+      "modes": {
+        "see": "Find the crew lead and each worker's assignment.",
+        "recall": "Recall work zone, staging area, and tear-off.",
+        "hear": "Distinguish 班長 from 職長 when spoken.",
+        "type": "Type 'Does everyone understand the plan?' in Japanese.",
+        "say": "Lead a brief about assignments and staging.",
+        "write": "Write a short morning brief naming the work zone and material staging area."
+      }
+    }
+  ],
+  "reviewGates": {
+    "independentJapaneseReview": false,
+    "qualifiedRoofingReview": false,
+    "sixModeRuntime": false,
+    "dictionarySenses": false,
+    "offlineVerified": false,
+    "recordedAudioListening": false,
+    "phoneAndNativeAcceptance": false
+  }
+}

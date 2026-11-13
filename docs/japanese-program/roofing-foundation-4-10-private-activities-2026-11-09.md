@@ -1,0 +1,5 @@
+# Japanese Roofing Foundation 4–10 private activities — 2026-11-09
+
+Foundation 4–10 now has 42 authored, lesson-specific See, Recall, Hear, Type, Say, and Write activities in two private sidecars. Together with the earlier Foundation 1–3 sidecar, the full 10-lesson Foundation stage has 60 source-linked activities. Each task references an exact aligned Japanese/English card or Reader line, carries a stable lesson/mode ID and a mode-appropriate response kind, and records whether reviewed audio is required. `scripts/validate-japanese-roofing-foundation-4-10-activities.py` regenerates the F4–10 sidecars and verifies source-file hashes and exact pairs.
+
+The Foundation activities remain `reviewed:false`, `registered:false`, `audioListeningReviewed:false`, and `readyForLearner:false`. The full-course recorded audio remains private and awaits listening review. Core 1–30 and Master 1–20 still need comparable activities. Qualified Japanese and roofing review, dictionary sense resolution, runtime/offline integration, and web/native acceptance remain open. No learner-facing course or audio is released by these sidecars.

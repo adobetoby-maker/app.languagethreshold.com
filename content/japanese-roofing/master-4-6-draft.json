@@ -1,0 +1,733 @@
+{
+  "schema": 1,
+  "moduleId": "master-roofing",
+  "stage": "master",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "englishSourceSubsetSHA256": "268f2f086a4d6c71a980338b8638c7e37116edb1c29374a1acc67fbee93a96b5",
+  "sourceFileSHA256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+  },
+  "lessons": [
+    {
+      "n": 4,
+      "stableId": "master-roofing:4:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Read the Manufacturer Sheet Before the Flashing Goes On",
+      "sourceEnglishObjective": "Read a manufacturer instruction sheet, find the key specs, and explain the steps to the crew",
+      "sourceEnglishSpeaking": "You are the crew lead and the AI is a crew member ready to install flashing from habit: read the key steps of the manufacturer sheet aloud, explain what has to happen before and after each step, and get agreement to follow the sheet.",
+      "title": "水切り板金の前にメーカー仕様書を読む",
+      "objective": "メーカーの施工仕様書から主要条件を読み取り、作業班に手順を説明する。",
+      "focus": "～前に orders reading before installation. ～に従って ties work to the specification; ～ではなく contrasts the written sheet with habit.",
+      "cards": [
+        {
+          "ja": "施工仕様書",
+          "en": "the spec sheet",
+          "kind": "term"
+        },
+        {
+          "ja": "メーカーの施工説明書",
+          "en": "the manufacturer instructions",
+          "kind": "term"
+        },
+        {
+          "ja": "段差水切り",
+          "en": "the step flashing",
+          "kind": "term"
+        },
+        {
+          "ja": "配管貫通部用ブーツ",
+          "en": "the pipe boot",
+          "kind": "term"
+        },
+        {
+          "ja": "固定具",
+          "en": "the fastener",
+          "kind": "term"
+        },
+        {
+          "ja": "仕様",
+          "en": "the specification",
+          "kind": "term"
+        },
+        {
+          "ja": "最小重ね幅",
+          "en": "the minimum overlap",
+          "kind": "term"
+        },
+        {
+          "ja": "シーリング材",
+          "en": "the sealant",
+          "kind": "term"
+        },
+        {
+          "ja": "外壁際",
+          "en": "the sidewall",
+          "kind": "term"
+        },
+        {
+          "ja": "外壁材",
+          "en": "the siding",
+          "kind": "term"
+        },
+        {
+          "ja": "警告",
+          "en": "the warning",
+          "kind": "term"
+        },
+        {
+          "ja": "手順",
+          "en": "the step (in a procedure)",
+          "kind": "term"
+        },
+        {
+          "ja": "習慣",
+          "en": "the habit",
+          "kind": "term"
+        },
+        {
+          "ja": "煙突",
+          "en": "the chimney",
+          "kind": "term"
+        },
+        {
+          "ja": "施工する前に仕様書を読まなければなりません。",
+          "en": "Before installing, you have to read the sheet.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "習慣ではなく仕様書に従います。",
+          "en": "The sheet rules, not habit.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "重ね幅について仕様書には何と書いてありますか。",
+          "en": "What does the sheet say about the overlap?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "記憶だけで施工しないでください。",
+          "en": "Don't do it from memory.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "それがメーカーの指定です。",
+          "en": "That's what the manufacturer asks for.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ねえ、もう読みましたか。",
+          "en": "Hey, have you already read it?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "少々お時間をいただけますか。",
+          "en": "Could you give me a moment, please?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "外壁際に段差水切りを取り付ける前に、ロヘリオは箱から施工仕様書を取り出します。",
+          "en": "Before putting the step flashing on the sidewall, Rogelio takes the spec sheet out of the box."
+        },
+        {
+          "ja": "ロヘリオ「長年この作業をしていても、施工する前に仕様書を読まなければなりません。」",
+          "en": "Rogelio: Before installing, you have to read the sheet, even if we've been doing this for years."
+        },
+        {
+          "ja": "ロヘリオ「習慣ではなく仕様書に従います。」",
+          "en": "Rogelio: The sheet rules, not habit."
+        },
+        {
+          "ja": "ロヘリオはメーカーの施工説明書の手順一を声に出して読みます。",
+          "en": "Rogelio reads step 1 of the manufacturer instructions out loud."
+        },
+        {
+          "ja": "手順一「水切り板金を取り付ける前に、仕様に従って野地板の上に下葺き材を敷き、外壁際まで立ち上げます。」",
+          "en": "Step 1: Before placing the flashing, install the underlayment over the deck and run it up the sidewall according to the specification."
+        },
+        {
+          "ja": "手順二「各段に段差水切りを一枚ずつ取り付け、この仕様書に示された最小重ね幅を守ります。」",
+          "en": "Step 2: Place one piece of step flashing on each course, with the minimum overlap this sheet indicates."
+        },
+        {
+          "ja": "手順三「指定された固定具を使い、各部材を壁ではなく野地板にのみ固定します。」",
+          "en": "Step 3: Fasten each piece only to the deck, never to the wall, with the specified fastener."
+        },
+        {
+          "ja": "手順四「水切り板金を取り付けた後、外壁材で覆います。水切り板金の代わりにシーリング材を使わないでください。」",
+          "en": "Step 4: After placing the flashing, the siding must cover it; do not use sealant instead of flashing."
+        },
+        {
+          "ja": "警告「この手順に従わないと製品が機能せず、メーカーが損害を補償しない場合があります。」",
+          "en": "Warning: If you do not follow these steps, the product may fail and the manufacturer may not cover the damage."
+        },
+        {
+          "ja": "ケビン「ねえ、もう全部読みましたか。」",
+          "en": "Kevin: Hey, have you already read all of it?"
+        },
+        {
+          "ja": "ロヘリオ「はい。あなたも読んでください。記憶だけで施工しないでください。」",
+          "en": "Rogelio: Yes, and you have to read it too; don't do it from memory."
+        },
+        {
+          "ja": "ロヘリオ「各手順を読んだ後、トラックの資材が仕様書のものと同じか確認します。」",
+          "en": "Rogelio: After reading each step, you have to check whether the material on the truck is the same as on the sheet."
+        },
+        {
+          "ja": "ロヘリオ「重ね幅について仕様書には何と書いてありますか。」",
+          "en": "Rogelio: What does the sheet say about the overlap?"
+        },
+        {
+          "ja": "ケビン「仕様書の最小重ね幅を使うと書いてあります。煙突と配管貫通部用ブーツには別の項目があります。」",
+          "en": "Kevin: It says you have to use the sheet's minimum overlap, and that the chimney and the pipe boot have another section."
+        },
+        {
+          "ja": "その後、家主が作業開始時刻を尋ね、ロヘリオは「少々お時間をいただけますか」と答えます。",
+          "en": "Then the homeowner asks when they're starting, and Rogelio answers: Could you give me a moment, please?"
+        },
+        {
+          "ja": "ロヘリオ「それがメーカーの指定です。そのとおりに施工します。」",
+          "en": "Rogelio: That's what the manufacturer asks for, and that's how we do it."
+        }
+      ],
+      "forms": [
+        {
+          "base": "読む",
+          "exampleJa": "ロヘリオはメーカーの施工説明書の手順一を声に出して読みます。",
+          "meaningEnglish": "to read",
+          "exampleEnglish": "Rogelio reads step 1 of the manufacturer instructions out loud.",
+          "sourceInfinitiveSpanish": "leer"
+        },
+        {
+          "base": "施工する",
+          "exampleJa": "施工する前に仕様書を読まなければなりません。",
+          "meaningEnglish": "to install",
+          "exampleEnglish": "Before installing, you have to read the sheet.",
+          "sourceInfinitiveSpanish": "instalar"
+        },
+        {
+          "base": "取り付ける",
+          "exampleJa": "ロヘリオは各段に段差水切りを一枚ずつ取り付けます。",
+          "meaningEnglish": "to place",
+          "exampleEnglish": "Rogelio places one piece of step flashing on each course.",
+          "sourceInfinitiveSpanish": "colocar"
+        },
+        {
+          "base": "固定する",
+          "exampleJa": "各部材を野地板にのみ固定してください。",
+          "meaningEnglish": "to fasten",
+          "exampleEnglish": "Fasten each piece only to the deck.",
+          "sourceInfinitiveSpanish": "fijar"
+        },
+        {
+          "base": "従う",
+          "exampleJa": "この手順に従わないと、製品が機能しない場合があります。",
+          "meaningEnglish": "to follow",
+          "exampleEnglish": "If you do not follow these steps, the product may fail.",
+          "sourceInfinitiveSpanish": "seguir"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "まずメーカーの施工仕様書を読みましょう。各段に一枚ずつ段差水切りを取り付け、仕様書の最小重ね幅と指定固定具を確認してください。",
+        "goal": "Read the relevant manufacturer instructions before installing flashing. Explain the order, specified fasteners and overlap, and confirm that the crew will follow the sheet."
+      },
+      "modes": {
+        "see": "Find the spec sheet, step flashing, sidewall, and pipe boot.",
+        "recall": "Recall minimum overlap, specified fastener, siding, and sealant.",
+        "hear": "Distinguish 最小重ね幅 from 固定具 when spoken.",
+        "type": "Type 'The sheet rules, not habit' in Japanese.",
+        "say": "Read the manufacturer sheet and explain its four steps to the crew.",
+        "write": "Write what material is checked against the sheet before installation."
+      }
+    },
+    {
+      "n": 5,
+      "stableId": "master-roofing:5:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Unexpected Rotten Deck: Change Order with the Homeowner",
+      "sourceEnglishObjective": "Tell a homeowner what you found under the old roof, propose the repair, and get a signed change order",
+      "sourceEnglishSpeaking": "You are the crew lead and the AI is the homeowner: describe what you found during the tear-off and what it looked like, propose the repair with its cost and extra time using the conditional, and ask for a signature on the change order.",
+      "title": "腐朽した野地板と変更注文書",
+      "objective": "家主に撤去後に見つかった腐朽箇所を説明し、補修案と署名付き変更注文書を扱う。",
+      "focus": "～たとき places the discovery after tear-off. ～ことをお勧めします makes a polite proposal; ～ため states why signed authorization precedes repair.",
+      "cards": [
+        {
+          "ja": "柔らかい、または腐朽した野地板",
+          "en": "the soft or rotten deck",
+          "kind": "term"
+        },
+        {
+          "ja": "腐朽した木材",
+          "en": "the rotten wood",
+          "kind": "term"
+        },
+        {
+          "ja": "変更注文書（change order）",
+          "en": "the change order",
+          "kind": "term"
+        },
+        {
+          "ja": "見積書",
+          "en": "the estimate",
+          "kind": "term"
+        },
+        {
+          "ja": "追加費用",
+          "en": "the extra cost",
+          "kind": "term"
+        },
+        {
+          "ja": "合板一枚",
+          "en": "the sheet of plywood",
+          "kind": "term"
+        },
+        {
+          "ja": "署名",
+          "en": "the signature",
+          "kind": "term"
+        },
+        {
+          "ja": "契約書",
+          "en": "the contract",
+          "kind": "term"
+        },
+        {
+          "ja": "承認",
+          "en": "the authorization",
+          "kind": "term"
+        },
+        {
+          "ja": "損傷箇所の写真",
+          "en": "the photo of the damage",
+          "kind": "term"
+        },
+        {
+          "ja": "既存屋根材の撤去",
+          "en": "the tear-off",
+          "kind": "term"
+        },
+        {
+          "ja": "垂木",
+          "en": "the rafter",
+          "kind": "term"
+        },
+        {
+          "ja": "追加の一日",
+          "en": "the extra day",
+          "kind": "term"
+        },
+        {
+          "ja": "家主",
+          "en": "the homeowner",
+          "kind": "term"
+        },
+        {
+          "ja": "シングル材を撤去したとき、腐朽した木材が見つかりました。",
+          "en": "When we removed the shingles, we found rotten wood.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この区画の野地板は柔らかくなっていました。",
+          "en": "The deck was soft in this section.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "合板三枚の交換をお勧めします。",
+          "en": "I would recommend replacing three sheets.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "費用が増え、もう一日かかります。",
+          "en": "It would cost more and take an extra day.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "写真をお見せしましょうか。",
+          "en": "Shall I show you the photos?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "変更注文書にご署名をお願いします。",
+          "en": "I need your signature on the change order.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ねえ、これを見に来てください。",
+          "en": "Hey, come look at this.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "午前九時、作業班は北側の既存屋根材の撤去を終えました。",
+          "en": "At nine in the morning, the crew finished the tear-off on the north side."
+        },
+        {
+          "ja": "ケビンは慎重に歩いているとき、野地板が沈むのを感じました。",
+          "en": "Kevin was stepping carefully when he felt the deck sinking."
+        },
+        {
+          "ja": "ケビン「ねえ、これを見に来てください。」",
+          "en": "Kevin: Hey, come look at this."
+        },
+        {
+          "ja": "ロヘリオはバールでその場所を確認しました。木材は黒く湿っており、垂木にも染みがありました。",
+          "en": "Rogelio checked the area with the pry bar: the wood was black and damp, and a rafter had stains."
+        },
+        {
+          "ja": "ロヘリオは損傷箇所を撮影し、塗料で縁に印を付けました。",
+          "en": "Rogelio took photos of the damage and marked the edge with paint."
+        },
+        {
+          "ja": "その後、家主のラミレスさんと話すために下へ降りました。",
+          "en": "Then he went down to talk with the homeowner, Mr. Ramírez."
+        },
+        {
+          "ja": "ロヘリオ「ラミレスさん、シングル材を撤去したとき、腐朽した木材が見つかりました。」",
+          "en": "Rogelio: Mr. Ramírez, when we removed the shingles, we found rotten wood."
+        },
+        {
+          "ja": "ロヘリオ「煙突の近くのこの区画では野地板が柔らかく、何年も水が入っていたように見えました。」",
+          "en": "Rogelio: The deck was soft in this section, near the chimney, and it looked like water had been getting in for years."
+        },
+        {
+          "ja": "ロヘリオ「写真をお見せしましょうか。」",
+          "en": "Rogelio: Shall I show you the photos?"
+        },
+        {
+          "ja": "ラミレスさん「はい、お願いします。それは見積書に入っていなかったのですか。」",
+          "en": "Mr. Ramírez: Yes, please. And that wasn't in the estimate?"
+        },
+        {
+          "ja": "ロヘリオ「はい。撤去する前は誰にも見えなかったため、変更注文書で扱います。」",
+          "en": "Rogelio: No, because nobody could see it before the tear-off; that's what the change order is for."
+        },
+        {
+          "ja": "ロヘリオ「合板三枚を交換し、垂木を確認することをお勧めします。」",
+          "en": "Rogelio: I would recommend replacing three sheets of plywood and checking the rafter."
+        },
+        {
+          "ja": "ロヘリオ「費用が増え、もう一日かかります。契約書にあるとおり、追加費用はここに書面で示しています。」",
+          "en": "Rogelio: It would cost more and take an extra day, and the extra cost appears here, in writing, as the contract says."
+        },
+        {
+          "ja": "ロヘリオ「腐朽した木材を覆うことはできません。新しい釘が十分に効かないからです。」",
+          "en": "Rogelio: We can't cover rotten wood, because the new nails wouldn't hold well."
+        },
+        {
+          "ja": "ラミレスさん「分かりました。では、お願いします。」",
+          "en": "Mr. Ramírez: All right, then do it."
+        },
+        {
+          "ja": "ロヘリオ「ありがとうございます。補修を始めるには承認が必要ですので、変更注文書にご署名をお願いします。」",
+          "en": "Rogelio: Thank you; I need your signature on the change order, because without your authorization we can't start the repair."
+        }
+      ],
+      "forms": [
+        {
+          "base": "見つける",
+          "exampleJa": "ロヘリオは煙突の近くで腐朽した木材を見つけます。",
+          "meaningEnglish": "to find",
+          "exampleEnglish": "Rogelio finds rotten wood near the chimney.",
+          "sourceInfinitiveSpanish": "encontrar"
+        },
+        {
+          "base": "撤去する",
+          "exampleJa": "シングル材を撤去したとき、腐朽した木材が見つかりました。",
+          "meaningEnglish": "to remove",
+          "exampleEnglish": "When we removed the shingles, we found rotten wood.",
+          "sourceInfinitiveSpanish": "quitar"
+        },
+        {
+          "base": "柔らかい",
+          "exampleJa": "この区画の野地板は柔らかくなっていました。",
+          "meaningEnglish": "to be (condition)",
+          "exampleEnglish": "The deck was soft in this section.",
+          "sourceInfinitiveSpanish": "estar"
+        },
+        {
+          "base": "かかる",
+          "exampleJa": "費用が増え、もう一日かかります。",
+          "meaningEnglish": "to cost",
+          "exampleEnglish": "It would cost more and take an extra day.",
+          "sourceInfinitiveSpanish": "costar"
+        },
+        {
+          "base": "勧める",
+          "exampleJa": "合板三枚の交換をお勧めします。",
+          "meaningEnglish": "to recommend",
+          "exampleEnglish": "I would recommend replacing three sheets of plywood.",
+          "sourceInfinitiveSpanish": "recomendar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "シングル材を撤去したとき、腐朽した木材が見つかりました。写真をお見せし、合板三枚の交換と追加費用を変更注文書でご説明します。",
+        "goal": "Tell the homeowner about rotten deck found during tear-off. Show the photos, explain the proposed repair, added cost and time, and request authorization on the change order politely."
+      },
+      "modes": {
+        "see": "Identify the soft deck, damaged plywood, photo, and change order.",
+        "recall": "Recall estimate, extra cost, signature, rafter, and authorization.",
+        "hear": "Distinguish 見積書 from 変更注文書 when spoken.",
+        "type": "Type 'I need your signature on the change order' in Japanese.",
+        "say": "Explain the rotten deck, proposed repair, extra cost, and signed change order to the homeowner.",
+        "write": "Write what the crew found and why it was not in the original estimate."
+      }
+    },
+    {
+      "n": 6,
+      "stableId": "master-roofing:6:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Material Shortage and Substitution",
+      "sourceEnglishObjective": "Handle a short delivery: get dates from the supplier, compare a substitute, and give the new plan",
+      "sourceEnglishSpeaking": "You are the crew lead and the AI is the supplier: find out what is missing and when it will arrive, compare the substitute with the original product, and say what you will do next using the future and ir a.",
+      "title": "資材不足と代替品",
+      "objective": "不足した納品について入荷予定を確認し、代替品を比較して新しい作業計画を伝える。",
+      "focus": "～予定です gives a revised plan. ～なら makes customer approval the delivery condition; ～と言っています attributes uncertain supplier timing and product claims.",
+      "cards": [
+        {
+          "ja": "仕入先",
+          "en": "the supplier",
+          "kind": "term"
+        },
+        {
+          "ja": "注文",
+          "en": "the order",
+          "kind": "term"
+        },
+        {
+          "ja": "納品",
+          "en": "the delivery",
+          "kind": "term"
+        },
+        {
+          "ja": "代替品",
+          "en": "the substitute",
+          "kind": "term"
+        },
+        {
+          "ja": "パレット",
+          "en": "the pallet",
+          "kind": "term"
+        },
+        {
+          "ja": "倉庫",
+          "en": "the warehouse",
+          "kind": "term"
+        },
+        {
+          "ja": "在庫がある",
+          "en": "in stock",
+          "kind": "term"
+        },
+        {
+          "ja": "遅れ",
+          "en": "the delay",
+          "kind": "term"
+        },
+        {
+          "ja": "ブランド",
+          "en": "the brand",
+          "kind": "term"
+        },
+        {
+          "ja": "ラミネートシングル材（architectural shingle）",
+          "en": "the architectural shingle",
+          "kind": "term"
+        },
+        {
+          "ja": "三枚タブシングル材",
+          "en": "the three-tab shingle",
+          "kind": "term"
+        },
+        {
+          "ja": "色",
+          "en": "the color",
+          "kind": "term"
+        },
+        {
+          "ja": "請求書",
+          "en": "the invoice",
+          "kind": "term"
+        },
+        {
+          "ja": "価格",
+          "en": "the price",
+          "kind": "term"
+        },
+        {
+          "ja": "注文品は全部そろって届きません。",
+          "en": "The order won't arrive complete.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "残りはいつ届きますか。",
+          "en": "When will the rest arrive?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "別のブランドを使う予定です。",
+          "en": "We're going to use another brand.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "耐久性は同じですが、より重いです。",
+          "en": "It's just as durable, but heavier.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この色は元の色により近いです。",
+          "en": "This color is closer to the original.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "色の写真をお送りします。",
+          "en": "I'm going to send you the photo of the color.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "手を貸してもらえますか。",
+          "en": "Can you give me a hand?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "午前七時、仕入先からロヘリオに悪い知らせの電話がありました。",
+          "en": "At seven, the supplier called Rogelio with bad news."
+        },
+        {
+          "ja": "仕入先「申し訳ありません。あの色の在庫がないため、注文品は全部そろって届きません。」",
+          "en": "Supplier: I'm sorry, the order won't arrive complete, because we don't have that color in stock."
+        },
+        {
+          "ja": "ロヘリオ「残りはいつ届きますか。」",
+          "en": "Rogelio: When will the rest arrive?"
+        },
+        {
+          "ja": "仕入先「工場は木曜日に倉庫へ届くと言っていますが、確実ではありません。」",
+          "en": "Supplier: The factory says it will arrive at the warehouse on Thursday, but it's not certain."
+        },
+        {
+          "ja": "ロヘリオ「それでは四日の遅れになります。お客様はもっと早い完成を望んでいます。」",
+          "en": "Rogelio: That would be a four-day delay, and the customer wants to finish sooner."
+        },
+        {
+          "ja": "仕入先「別のブランドに同じラミネートシングル材があり、価格も同じです。」",
+          "en": "Supplier: I have the same architectural shingle from another brand, at the same price."
+        },
+        {
+          "ja": "仕入先「耐久性は同じですが、より重く、色もよく似ています。」",
+          "en": "Supplier: It's just as durable, but heavier, and the color is very similar."
+        },
+        {
+          "ja": "ロヘリオ「別ブランドのラミネート材なら使えますが、三枚タブシングル材は受け入れません。契約書にはラミネート材とあります。」",
+          "en": "Rogelio: The architectural one from another brand works for me, but I'm not going to accept three-tab shingle; the contract says architectural."
+        },
+        {
+          "ja": "ロヘリオ「仕様書を送ってください。決める前にお客様と話します。」",
+          "en": "Rogelio: Send me the spec sheet, and before deciding I'm going to talk to the customer."
+        },
+        {
+          "ja": "その後、ロヘリオは家主のディアスさんに電話しました。",
+          "en": "Then Rogelio called Mrs. Díaz, the homeowner."
+        },
+        {
+          "ja": "ロヘリオ「仕入先に代替品があり、この色はほかの候補より元の色に近いです。」",
+          "en": "Rogelio: Ma'am, the supplier has a substitute, and this color is closer to the original than the others."
+        },
+        {
+          "ja": "ロヘリオ「色の写真をお送りします。承認いただければ、明日の早い時間に納品されます。」",
+          "en": "Rogelio: I'm going to send you the photo of the color, and if you approve it, the delivery will be early tomorrow."
+        },
+        {
+          "ja": "ディアスさんはメッセージで変更を承認し、ロヘリオは新しい請求書を依頼しました。",
+          "en": "Mrs. Díaz approved the change by text, and Rogelio asked for a new invoice."
+        },
+        {
+          "ja": "その後、ロヘリオはトラックの横に作業班を集めました。",
+          "en": "Then he gathered the crew next to the truck."
+        },
+        {
+          "ja": "ロヘリオ「別のブランドを使います。明日はパレット二つが届きます。」",
+          "en": "Rogelio: We're going to use another brand, and tomorrow two pallets will arrive."
+        },
+        {
+          "ja": "ロヘリオ「今日は下葺き材と軒先の水切り板金を仕上げ、明日シングル材の施工を始めます。」",
+          "en": "Rogelio: Today we're going to finish the underlayment and the drip edge, and tomorrow we'll start on the shingles."
+        },
+        {
+          "ja": "ロヘリオ「ケビン、この巻き物を運ぶのを手伝ってもらえますか。」",
+          "en": "Rogelio: Kevin, can you give me a hand with these rolls?"
+        }
+      ],
+      "forms": [
+        {
+          "base": "届く",
+          "exampleJa": "注文品は全部そろって届きません。",
+          "meaningEnglish": "to arrive",
+          "exampleEnglish": "The order won't arrive complete.",
+          "sourceInfinitiveSpanish": "llegar"
+        },
+        {
+          "base": "送る",
+          "exampleJa": "色の写真をお送りします。",
+          "meaningEnglish": "to send",
+          "exampleEnglish": "I'm going to send you the photo of the color.",
+          "sourceInfinitiveSpanish": "mandar"
+        },
+        {
+          "base": "使う",
+          "exampleJa": "別のブランドを使う予定です。",
+          "meaningEnglish": "to use",
+          "exampleEnglish": "We're going to use another brand.",
+          "sourceInfinitiveSpanish": "usar"
+        },
+        {
+          "base": "承認する",
+          "exampleJa": "承認いただければ、明日の早い時間に納品されます。",
+          "meaningEnglish": "to approve",
+          "exampleEnglish": "If you approve it, the delivery will be early tomorrow.",
+          "sourceInfinitiveSpanish": "aprobar"
+        },
+        {
+          "base": "仕上げる",
+          "exampleJa": "今日は下葺き材と軒先の水切り板金を仕上げます。",
+          "meaningEnglish": "to finish",
+          "exampleEnglish": "Today we're going to finish the underlayment and the drip edge.",
+          "sourceInfinitiveSpanish": "terminar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "仕入先から納品不足の連絡がありました。代替品の仕様書と色の写真をお送りします。承認いただければ、明日納品し、作業計画を変更します。",
+        "goal": "Ask the supplier what is missing and when it may arrive. Compare the proposed substitute with the contracted product, request its specification, and explain the approval and delivery plan."
+      },
+      "modes": {
+        "see": "Identify the substitute shingle, two pallets, and color photo.",
+        "recall": "Recall supplier, delivery delay, brand, invoice, and contract type.",
+        "hear": "Distinguish ラミネートシングル材 from 三枚タブシングル材 when spoken.",
+        "type": "Type 'When will the rest arrive?' in Japanese.",
+        "say": "Discuss the short delivery, substitute, customer approval, and revised plan.",
+        "write": "Write today's and tomorrow's work after the delivery changes."
+      }
+    }
+  ],
+  "reviewGates": {
+    "independentJapaneseReview": false,
+    "qualifiedRoofingReview": false,
+    "sixModeRuntime": false,
+    "dictionarySenses": false,
+    "offlineVerified": false,
+    "recordedAudioListening": false,
+    "phoneAndNativeAcceptance": false
+  }
+}

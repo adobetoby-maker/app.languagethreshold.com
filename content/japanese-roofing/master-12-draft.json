@@ -1,0 +1,324 @@
+{
+  "schema": 1,
+  "moduleId": "master-roofing",
+  "stage": "master",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-language-adapted",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "languageAdaptation": {
+    "sourceConcept": "Spanish usted/tú forms and titles",
+    "japaneseConcept": "plain, polite and honorific register by listener",
+    "sourceEnglishFieldsAreProvenanceOnly": true
+  },
+  "englishSourceSubsetSHA256": "f339458da7e270bd941345510cd8486b3ed7f9b9e68783747a878b446418251f",
+  "sourceFileSHA256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+  },
+  "lessons": [
+    {
+      "n": 12,
+      "stableId": "master-roofing:12:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Register: Homeowner, Crew, Boss, Inspector",
+      "sourceEnglishObjective": "Deliver the same news to a crew member, a homeowner, your manager and an inspector in the right register",
+      "sourceEnglishSpeaking": "You are the crew lead and the AI will play the people you work with, one after another: tell each of them that you found rotten deck, switching between tú and usted and using softeners like quisiera and me gustaría.",
+      "title": "相手に合わせた日本語の話し方",
+      "objective": "同じ野地板の損傷を作業員、家主、上司、検査員に適切な話し方で伝える。",
+      "focus": "普通体 and です・ます体 change register. お／ご～する and ～ていただけますか make a customer or inspector request polite; titles such as さん and 様 are chosen by relationship.",
+      "cards": [
+        {
+          "ja": "丁寧語で話す",
+          "en": "to speak politely in Japanese",
+          "kind": "term",
+          "sourceEnglish": "using usted with someone"
+        },
+        {
+          "ja": "普通体で話す",
+          "en": "to speak in the plain form",
+          "kind": "term",
+          "sourceEnglish": "using tú with someone"
+        },
+        {
+          "ja": "呼び方",
+          "en": "form of address",
+          "kind": "term",
+          "sourceEnglish": "the title (form of address)"
+        },
+        {
+          "ja": "話し方",
+          "en": "tone of speech",
+          "kind": "term",
+          "sourceEnglish": "the tone"
+        },
+        {
+          "ja": "礼儀",
+          "en": "courtesy",
+          "kind": "term",
+          "sourceEnglish": "the courtesy"
+        },
+        {
+          "ja": "用件",
+          "en": "message or matter to convey",
+          "kind": "term",
+          "sourceEnglish": "the message"
+        },
+        {
+          "ja": "お客様／○○さん",
+          "en": "polite address for a customer or colleague",
+          "kind": "term",
+          "sourceEnglish": "sir / ma'am"
+        },
+        {
+          "ja": "名前に「さん」や「様」を付ける",
+          "en": "to attach a respectful suffix to a name",
+          "kind": "term",
+          "sourceEnglish": "respectful title before a first name"
+        },
+        {
+          "ja": "上司",
+          "en": "manager",
+          "kind": "term",
+          "sourceEnglish": "the manager"
+        },
+        {
+          "ja": "丁寧さ",
+          "en": "formality",
+          "kind": "term",
+          "sourceEnglish": "the formality"
+        },
+        {
+          "ja": "失礼な言い方",
+          "en": "rude wording",
+          "kind": "term",
+          "sourceEnglish": "the rudeness"
+        },
+        {
+          "ja": "あだ名",
+          "en": "nickname",
+          "kind": "term",
+          "sourceEnglish": "the nickname"
+        },
+        {
+          "ja": "依頼",
+          "en": "request",
+          "kind": "term",
+          "sourceEnglish": "the request"
+        },
+        {
+          "ja": "くだけた言葉",
+          "en": "casual or slang wording",
+          "kind": "term",
+          "sourceEnglish": "the slang"
+        },
+        {
+          "ja": "見て、腐朽した木材が見つかった。",
+          "en": "Look, we found rotten wood.",
+          "kind": "phrase",
+          "sourceEnglish": "Look, we found rotten wood."
+        },
+        {
+          "ja": "お忙しいところ失礼します、○○様。",
+          "en": "Excuse me for interrupting you, Ms. or Mr. [name].",
+          "kind": "phrase",
+          "sourceEnglish": "Sorry to bother you, ma'am."
+        },
+        {
+          "ja": "見つかった箇所についてお伝えしたいことがあります。",
+          "en": "I would like to tell you about something we found.",
+          "kind": "phrase",
+          "sourceEnglish": "I'd like to mention something we found."
+        },
+        {
+          "ja": "その箇所をお見せしてもよろしいでしょうか。",
+          "en": "May I show you the area?",
+          "kind": "phrase",
+          "sourceEnglish": "Would you allow me to show you the area?"
+        },
+        {
+          "ja": "野地板に問題が見つかりましたので、ご報告します。",
+          "en": "I am reporting that we found a problem in the roof deck.",
+          "kind": "phrase",
+          "sourceEnglish": "I'm letting you know that we found a problem."
+        },
+        {
+          "ja": "覆う前にご確認いただけますか。",
+          "en": "Could you inspect it before we cover it?",
+          "kind": "phrase",
+          "sourceEnglish": "I'd like you to check it."
+        },
+        {
+          "ja": "どのようにお呼びすればよいでしょうか。",
+          "en": "How would you like me to address you?",
+          "kind": "phrase",
+          "sourceEnglish": "Should I address you as usted or tú?"
+        },
+        {
+          "ja": "「さん」で大丈夫です。",
+          "en": "You can use -san with my name.",
+          "kind": "phrase",
+          "sourceEnglish": "Use tú with me, no problem."
+        }
+      ],
+      "reader": [
+        {
+          "ja": "ケビンは現場で相手ごとにどう話せばよいか知りたくて、ロヘリオに尋ねます。",
+          "en": "Kevin asks Rogelio how to speak to different people at the job site.",
+          "sourceEnglish": "Kevin wants to know how to talk to each person on the job, and Rogelio explains it to him with an example."
+        },
+        {
+          "ja": "ロヘリオ「用件は同じです。腐朽した木材が見つかりました。ただし、相手に合わせて話し方を変えます。」",
+          "en": "Rogelio: The news is the same: we found rotten wood. The tone changes with the listener.",
+          "sourceEnglish": "Rogelio: The message is the same, we found rotten wood, but the tone changes depending on the person."
+        },
+        {
+          "ja": "ロヘリオ「親しい作業仲間には普通体も使いますが、失礼な言い方はしません。」",
+          "en": "Rogelio: With a close crew member, plain speech may fit, but rude wording does not.",
+          "sourceEnglish": "Rogelio: With the crew we use tú, sometimes a nickname, but never anything rude."
+        },
+        {
+          "ja": "ロヘリオ「作業仲間には『見て、腐朽した木材が見つかった。上がってきたら見せるよ』と言えます。」",
+          "en": "Rogelio: To a crew member I can say, 'Look, we found rotten wood. Come up and I'll show you.'",
+          "sourceEnglish": "Rogelio: To the crew I say: Look, we found rotten wood; come up and I'll show you."
+        },
+        {
+          "ja": "ロヘリオ「家主には丁寧語を使い、名前が分かれば『○○様』と呼びます。」",
+          "en": "Rogelio: With the homeowner, use polite Japanese and an appropriate name and title.",
+          "sourceEnglish": "Rogelio: With the homeowner I use usted and a title, señora or doña Carmen; with her husband, señor."
+        },
+        {
+          "ja": "ロヘリオ「『お忙しいところ失礼します。見つかった箇所についてお伝えしたいことがあります』と言います。」",
+          "en": "Rogelio: I say, 'Excuse the interruption. I would like to tell you about something we found.'",
+          "sourceEnglish": "Rogelio: To her I say: Sorry to bother you, ma'am; I'd like to mention something we found."
+        },
+        {
+          "ja": "ロヘリオ「そして『その箇所をお見せしてもよろしいでしょうか』と尋ねます。」",
+          "en": "Rogelio: Then I ask, 'May I show you the area?'",
+          "sourceEnglish": "Rogelio: And then I ask her: Would you allow me to show you the area?"
+        },
+        {
+          "ja": "ロヘリオ「上司にも丁寧に話しますが、要点を先に伝えます。」",
+          "en": "Rogelio: I also speak politely to the manager, but lead with the point.",
+          "sourceEnglish": "Rogelio: With the company manager I also use usted, but I go straight to the point."
+        },
+        {
+          "ja": "ロヘリオ「『野地板に問題が見つかりましたので、ご報告します。写真を今送ります』と伝えます。」",
+          "en": "Rogelio: 'I am reporting a problem in the roof deck. I am sending the photos now.'",
+          "sourceEnglish": "Rogelio: I'm letting you know that we found a problem in the deck, and I'm sending you the photos now."
+        },
+        {
+          "ja": "ロヘリオ「検査員には、くだけた言葉や冗談を避け、さらに改まった言い方をします。」",
+          "en": "Rogelio: With the inspector, avoid slang and jokes and use a more formal tone.",
+          "sourceEnglish": "Rogelio: With the inspector there's more formality: no slang and no jokes."
+        },
+        {
+          "ja": "ロヘリオ「『覆う前にご確認いただけますか』と依頼します。」",
+          "en": "Rogelio: I ask, 'Could you inspect it before we cover it?'",
+          "sourceEnglish": "Rogelio: To him I would say: I'd like you to check it before we cover it."
+        },
+        {
+          "ja": "ロヘリオ「『お見せします』『ご確認いただけますか』は、丁寧な説明や依頼に使えます。」",
+          "en": "Rogelio: 'I will show you' and 'Could you inspect it?' are polite ways to explain and ask.",
+          "sourceEnglish": "Rogelio: Quisiera, me gustaría and podría are words that soften a request."
+        },
+        {
+          "ja": "ケビン「エルネストさんのような年上の作業員には、どう話しますか。」",
+          "en": "Kevin: How should I speak to an older crew member such as Ernesto?",
+          "sourceEnglish": "Kevin: And what if someone on the crew is older, like Don Ernesto?"
+        },
+        {
+          "ja": "ロヘリオ「まず『どのようにお呼びすればよいでしょうか』と丁寧に尋ねます。」",
+          "en": "Rogelio: First ask politely, 'How would you like me to address you?'",
+          "sourceEnglish": "Rogelio: Then ask him politely: Should I address you as usted or tú?"
+        },
+        {
+          "ja": "ロヘリオ「『さんで大丈夫です』と言う人もいます。」",
+          "en": "Rogelio: Some people will say, 'Using -san is fine.'",
+          "sourceEnglish": "Rogelio: Many will tell you: Use tú with me, no problem."
+        },
+        {
+          "ja": "ロヘリオ「迷ったら丁寧な言い方から始めて、相手の希望に合わせます。」",
+          "en": "Rogelio: When unsure, begin politely and adjust to the person's preference.",
+          "sourceEnglish": "Rogelio: But if you're not sure, start with usted, because nobody gets offended by respect."
+        }
+      ],
+      "forms": [
+        {
+          "base": "話す",
+          "exampleJa": "相手に合わせて丁寧に話します。",
+          "exampleEn": "We speak politely according to the listener.",
+          "sourceEnglish": {
+            "meaningEnglish": "to speak",
+            "exampleEnglish": "Should I address you as usted or tú?",
+            "sourceInfinitiveSpanish": "hablar"
+          }
+        },
+        {
+          "base": "知りたい",
+          "exampleJa": "ケビンは相手ごとの話し方を知りたいと思っています。",
+          "exampleEn": "Kevin wants to know how to speak to each person.",
+          "sourceEnglish": {
+            "meaningEnglish": "to want",
+            "exampleEnglish": "Kevin wants to know how to talk to each person.",
+            "sourceInfinitiveSpanish": "querer"
+          }
+        },
+        {
+          "base": "許可する",
+          "exampleJa": "その箇所をお見せしてもよろしいでしょうか。",
+          "exampleEn": "May I show you the area?",
+          "sourceEnglish": {
+            "meaningEnglish": "to allow",
+            "exampleEnglish": "Would you allow me to show you the area?",
+            "sourceInfinitiveSpanish": "permitir"
+          }
+        },
+        {
+          "base": "見せる",
+          "exampleJa": "ロヘリオは上司に写真を見せます。",
+          "exampleEn": "Rogelio shows the photos to the manager.",
+          "sourceEnglish": {
+            "meaningEnglish": "to show",
+            "exampleEnglish": "Rogelio shows the photos to the manager.",
+            "sourceInfinitiveSpanish": "mostrar"
+          }
+        },
+        {
+          "base": "変わる",
+          "exampleJa": "用件は同じでも、相手によって話し方は変わります。",
+          "exampleEn": "The message stays the same, but the tone changes with the listener.",
+          "sourceEnglish": {
+            "meaningEnglish": "to change",
+            "exampleEnglish": "The message is the same, but the tone changes depending on the person.",
+            "sourceInfinitiveSpanish": "cambiar"
+          }
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew lead",
+        "opening": "同じ野地板の損傷でも、作業仲間、家主、上司、検査員にはそれぞれ適切な話し方で伝えます。",
+        "goalEn": "Tell a crew member, homeowner, manager, and inspector about the same deck problem in appropriate Japanese register."
+      },
+      "modes": {
+        "see": "Match each listener with an appropriate Japanese form of address.",
+        "recall": "Recall plain form, polite form, name suffixes, and formal requests.",
+        "hear": "Distinguish 見せる from お見せする when spoken.",
+        "type": "Type 'May I show you the area?' in polite Japanese.",
+        "say": "Report the same rotten-deck finding to four listeners in appropriate register.",
+        "write": "Write a crew version and an inspector version of the same message."
+      }
+    }
+  ],
+  "reviewGates": {
+    "independentJapaneseReview": false,
+    "qualifiedRoofingReview": false,
+    "sixModeRuntime": false,
+    "dictionarySenses": false,
+    "offlineVerified": false,
+    "recordedAudioListening": false,
+    "phoneAndNativeAcceptance": false
+  }
+}

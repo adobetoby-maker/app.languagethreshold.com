@@ -1,0 +1,32 @@
+{
+  "21": {
+    "title": "屋根に上がる前のハーネスの接続",
+    "objective": "屋根に上がる前の墜落防止用ハーネスの接続を明確に指示する。",
+    "focus": "～前に places the tie-off before roof access. ～ないでください prohibits an action; ～がなければ states the condition for not going up.",
+    "words": ["フルハーネス", "墜落防止用の接続", "屋根のアンカー", "ランヤード", "墜落防止", "バックル", "ヘルメット", "墜落の危険", "屋根に上がる前にハーネスをアンカーに接続してください。", "屋根のアンカーを使ってください。自己判断で別の場所に接続しないでください。", "地面に接触しない長さのランヤードを使ってください。", "承認されたアンカーを見せてください。", "上がる前にハーネスを確認してください。", "ハーネスなしでは誰も上がらないでください。"],
+    "reader": ["屋根に上がる前に、職長ははしごの横に作業班を集めます。", "屋根の端には墜落の危険があるため、ハーネスなしでは誰も上がらないでください。", "上がる前に、バックル、ランヤード、ストラップを確認してください。", "屋根に上がる前にハーネスをアンカーに接続してください。", "承認されたアンカーを見せてください。", "屋根のアンカーが見つからなければ、上がらずに職長に伝えてください。", "ヘルメットも着用してください。", "墜落防止は、各自が正しく使って初めて機能します。", "接続した後、各自が職長に親指を立てて合図します。"],
+    "verbs": [["上がる", "ハーネスなしでは誰も上がらないでください。"], ["確認する", "全員が屋根に上がる前にハーネスを確認します。"], ["接続する", "屋根に上がる前にハーネスをアンカーに接続します。"], ["見せる", "各自が承認されたアンカーを職長に見せます。"], ["使う", "墜落防止は各自が正しく使って初めて機能します。"]],
+    "speaking": "上がる前にハーネスを確認し、承認された屋根のアンカーに接続してください。アンカーを見せてください。",
+    "modes": {"see": "Identify the harness, lanyard, buckle, and roof anchor.", "recall": "Recall tie-off, roof anchor, and fall hazard.", "hear": "Distinguish アンカー from ランヤード when spoken.", "type": "Type 'Check your harness before you climb' in Japanese.", "say": "Give a clear tie-off instruction before roof access.", "write": "Write what the crew checks and shows before going up."}
+  },
+  "22": {
+    "title": "アンカーと親綱の点検",
+    "objective": "アンカーや親綱に関する懸念を伝える。",
+    "focus": "～かどうか embeds an inspection question. ～たら marks the failure condition, and ～前に orders confirmation before continuing.",
+    "words": ["アンカー", "親綱", "墜落距離", "フルハーネス", "ランヤード", "適任者（competent person）", "点検", "ロープ", "作業を止める", "屋根のアンカーを使ってください。自己判断で別の場所に接続しないでください。", "作業を止めてください。アンカーは安全ではありません。", "適任者はどこにいますか。", "親綱に損傷がないか確認してください。", "続ける前にアンカーの設置状態を確認してください。"],
+    "reader": ["屋根で作業中、作業員が親綱の異常に気づきます。", "作業員は立ち止まり、職長に伝えます。", "職長は「作業を止めてください。アンカーは安全ではありません」と言います。", "職長は「適任者はどこにいますか」と尋ねます。", "親綱に損傷がないか確認してください。", "適任者が点検し、墜落防止システムの墜落距離を確認します。", "続ける前にアンカーの設置状態を確認してください。", "アンカーやランヤードが機能しなければ、ハーネスは役に立ちません。"],
+    "verbs": [["止める", "作業を止めてください。アンカーは安全ではありません。"], ["確認する", "親綱に損傷がないか確認してください。"], ["確認する", "適任者がシステムの墜落距離を確認します。"], ["伝える", "作業員は立ち止まり、職長に伝えます。"], ["機能しない", "アンカーやランヤードが機能しなければ、ハーネスは役に立ちません。"]],
+    "speaking": "作業を止めてください。親綱に損傷があるようです。適任者にアンカーの設置状態と墜落距離を確認してもらってください。",
+    "modes": {"see": "Identify the damaged lifeline and the anchor setup.", "recall": "Recall lifeline, competent person, fall distance, and inspection.", "hear": "Distinguish 親綱 from ロープ when spoken.", "type": "Type 'Where is the competent person?' in Japanese.", "say": "Raise a concern about the anchor and request an inspection.", "write": "Write what must be confirmed before work continues."}
+  },
+  "23": {
+    "title": "足元の安定と天候",
+    "objective": "滑りやすい状態と変わる天候について警告する。",
+    "focus": "～ので gives the reason for a warning. ～たら sets a weather-change condition; ～てください gives a direct instruction to come down.",
+    "words": ["朝露", "足元の安定", "雷", "滑りやすい", "濡れている", "雨", "風", "嵐", "作業靴", "足元に気をつけてください。朝露で滑りやすくなっています。", "雷が発生している間は屋根で作業しないでください。", "天候が変わったら作業を止めて降りてください。", "屋根が濡れています。気をつけてください。", "嵐が近づいています。今すぐ降りてください。", "滑りにくい作業靴を履いてください。"],
+    "reader": ["午前六時半、屋根にはまだ朝露が残っています。", "職長は「屋根が濡れています。気をつけてください」と警告します。", "朝露で屋根が滑りやすいため、安定した足元を探してください。", "滑りにくい作業靴を履いてください。", "その後、風が強まり、空に暗い雲が現れます。", "雷が発生している間は屋根で作業しないでください。", "職長は「嵐が近づいています。今すぐ降りてください」と叫びます。", "天候が変わったら作業を止めて降りてください。"],
+    "verbs": [["降りる", "嵐が近づいています。今すぐ降りてください。"], ["止める", "天候が変わったら作業を止めて降りてください。"], ["履く", "滑りにくい作業靴を履いてください。"], ["探す", "朝露で滑りやすいので、安定した足元を探します。"], ["変わる", "天候が変わったら降りてください。"]],
+    "speaking": "屋根が朝露で滑りやすくなっています。足元に気をつけてください。嵐が近づいているので、今すぐ降りてください。",
+    "modes": {"see": "Find the dew on the roof and the approaching dark clouds.", "recall": "Recall dew, slippery footing, lightning, wind, and storm.", "hear": "Distinguish 朝露 from 雨 when spoken.", "type": "Type 'A storm is coming. Come down now' in Japanese.", "say": "Warn the crew about slippery footing and changing weather.", "write": "Write the foreman's instruction when the weather changes."}
+  }
+}

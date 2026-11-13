@@ -1,0 +1,548 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "core",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "englishSourceSubsetSHA256": "5917cfa5eaabd24eaf0ee22a4b771cc104f567aef1ec2fdaf36d1f169b45667b",
+  "sourceFileSHA256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+  },
+  "lessons": [
+    {
+      "n": 24,
+      "stableId": "roofing:24:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Heat & Water",
+      "sourceEnglishObjective": "Check on crew hydration and heat symptoms",
+      "sourceEnglishSpeaking": "Ask a worker how they feel and direct a water break under the site heat plan.",
+      "title": "暑さと水分補給",
+      "objective": "作業員の水分補給と暑さによる症状を確認する。",
+      "focus": "～ごとに gives the hourly interval. ～なら invites a report of symptoms; ～ので connects dizziness with resting in the shade.",
+      "cards": [
+        {
+          "ja": "水分補給の休憩",
+          "en": "water break",
+          "kind": "term"
+        },
+        {
+          "ja": "暑さ",
+          "en": "heat",
+          "kind": "term"
+        },
+        {
+          "ja": "日陰",
+          "en": "shade",
+          "kind": "term"
+        },
+        {
+          "ja": "水",
+          "en": "water",
+          "kind": "term"
+        },
+        {
+          "ja": "めまいがする",
+          "en": "dizzy",
+          "kind": "term"
+        },
+        {
+          "ja": "熱疲労",
+          "en": "heat exhaustion",
+          "kind": "term"
+        },
+        {
+          "ja": "休む",
+          "en": "rest",
+          "kind": "term"
+        },
+        {
+          "ja": "水分補給",
+          "en": "hydration",
+          "kind": "term"
+        },
+        {
+          "ja": "日焼け止め",
+          "en": "sunscreen",
+          "kind": "term"
+        },
+        {
+          "ja": "一時間ごとに水分補給の休憩を取ってください。",
+          "en": "Take a water break every hour.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "体調はどうですか。",
+          "en": "How do you feel?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "めまいがしますか。",
+          "en": "Are you dizzy?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "日陰に行って休んでください。",
+          "en": "Go to the shade and rest.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "今、水を飲んでください。",
+          "en": "Drink water now.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "気分が悪ければ教えてください。",
+          "en": "Tell me if you feel sick.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "とても暑く、屋根には強い日差しが照りつけています。",
+          "en": "It is very hot and the sun beats down on the roof."
+        },
+        {
+          "ja": "職長は「一時間ごとに水分補給の休憩を取ってください」と言います。",
+          "en": "The foreman says: Take a water break every hour."
+        },
+        {
+          "ja": "しかし、ラウルの顔色が悪く見え、職長が近づきます。",
+          "en": "But Raúl does not look well, and the foreman walks over."
+        },
+        {
+          "ja": "職長は「体調はどうですか」と尋ねます。",
+          "en": "The foreman asks him: How do you feel?"
+        },
+        {
+          "ja": "「めまいがしますか。」",
+          "en": "Are you dizzy?"
+        },
+        {
+          "ja": "ラウルは「はい、少し」と答えます。",
+          "en": "Raúl answers yes, a little."
+        },
+        {
+          "ja": "職長は「日陰に行って休んでください。今、水を飲んでください」と伝えます。",
+          "en": "The foreman tells him: Go to the shade and rest. Drink water now."
+        },
+        {
+          "ja": "「気分が悪ければ教えてください。現場の暑熱対策計画に従います。」",
+          "en": "Tell me if you feel sick, and we will follow the site heat plan."
+        },
+        {
+          "ja": "水分補給と日陰での休息は熱疲労の予防に役立ちます。",
+          "en": "Hydration and rest in the shade help prevent heat exhaustion."
+        }
+      ],
+      "forms": [
+        {
+          "base": "飲む",
+          "exampleJa": "ラウルは一時間ごとに水を飲みます。",
+          "meaningEnglish": "to take, to drink",
+          "exampleEnglish": "Raúl drinks water every hour.",
+          "sourceInfinitiveSpanish": "tomar"
+        },
+        {
+          "base": "休む",
+          "exampleJa": "ラウルはめまいがするので日陰で休みます。",
+          "meaningEnglish": "to rest",
+          "exampleEnglish": "Raúl rests in the shade because he feels dizzy.",
+          "sourceInfinitiveSpanish": "descansar"
+        },
+        {
+          "base": "感じる",
+          "exampleJa": "ラウル、体調はどう感じますか。",
+          "meaningEnglish": "to feel",
+          "exampleEnglish": "How do you feel, Raúl?",
+          "sourceInfinitiveSpanish": "sentirse"
+        },
+        {
+          "base": "伝える",
+          "exampleJa": "ラウルは気分が悪ければ職長に伝えます。",
+          "meaningEnglish": "to let know, to tell, to notify",
+          "exampleEnglish": "Raúl tells the foreman if he feels sick.",
+          "sourceInfinitiveSpanish": "avisar"
+        },
+        {
+          "base": "行く",
+          "exampleJa": "ラウルは休むために日陰に行きます。",
+          "meaningEnglish": "to go",
+          "exampleEnglish": "Raúl goes to the shade to rest.",
+          "sourceInfinitiveSpanish": "ir"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "体調はどうですか。めまいがしますか。日陰に行って休み、今、水を飲んでください。",
+        "goal": "Ask a worker how they feel and direct a water break under the site heat plan."
+      },
+      "modes": {
+        "see": "Find the water, shade, and crew member feeling dizzy.",
+        "recall": "Recall dizziness, heat exhaustion, hydration, and rest.",
+        "hear": "Distinguish めまい from 熱疲労 when spoken.",
+        "type": "Type 'Are you dizzy?' in Japanese.",
+        "say": "Ask how a crew member feels and mention water and shade.",
+        "write": "Write how the foreman follows the site heat plan."
+      }
+    },
+    {
+      "n": 25,
+      "stableId": "roofing:25:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Falling Debris",
+      "sourceEnglishObjective": "Keep workers below clear of debris",
+      "sourceEnglishSpeaking": "Tell the ground crew to move clear before tear-off resumes.",
+      "title": "落下する廃材",
+      "objective": "地上班が落下する廃材に近づかないよう伝える。",
+      "focus": "～の下に identifies a prohibited location. ～まで marks how long the crew waits, and ～前に orders warning before using the chute.",
+      "cards": [
+        {
+          "ja": "地上班",
+          "en": "ground crew",
+          "kind": "term"
+        },
+        {
+          "ja": "廃材",
+          "en": "debris",
+          "kind": "term"
+        },
+        {
+          "ja": "立入禁止区域",
+          "en": "exclusion area",
+          "kind": "term"
+        },
+        {
+          "ja": "ヘルメット",
+          "en": "hard hat",
+          "kind": "term"
+        },
+        {
+          "ja": "警告テープ",
+          "en": "warning tape",
+          "kind": "term"
+        },
+        {
+          "ja": "危険",
+          "en": "danger",
+          "kind": "term"
+        },
+        {
+          "ja": "廃材用シュート",
+          "en": "chute",
+          "kind": "term"
+        },
+        {
+          "ja": "カラーコーン",
+          "en": "cone",
+          "kind": "term"
+        },
+        {
+          "ja": "既存屋根材の撤去",
+          "en": "tear-off",
+          "kind": "term"
+        },
+        {
+          "ja": "落下する廃材から地上班を離してください。",
+          "en": "Keep the ground crew clear of falling debris.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "家から離れてください。",
+          "en": "Move away from the house.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "作業している場所の下に立たないでください。",
+          "en": "Don't stand under the work.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "私が安全を確認したと言うまで待ってください。",
+          "en": "Wait until I say it's clear.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "警告テープを張ってください。",
+          "en": "Put up the warning tape.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "頭上注意！廃材が落ちます！",
+          "en": "Heads up! Debris coming down!",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "既存屋根材の撤去を続ける前に、職長は地上班に話します。",
+          "en": "Before continuing with the tear-off, the foreman talks to the ground crew."
+        },
+        {
+          "ja": "廃材が屋根から落ち、下にいる人がけがをすることがあります。",
+          "en": "Debris can fall from the roof and hurt someone below."
+        },
+        {
+          "ja": "立入禁止区域の周りに警告テープを張ってください。",
+          "en": "Put up the warning tape around the exclusion area."
+        },
+        {
+          "ja": "家から離れてください。",
+          "en": "Move away from the house."
+        },
+        {
+          "ja": "ヘルメットをかぶっていても、作業している場所の下に立たないでください。",
+          "en": "Don't stand under the work, even if you are wearing a hard hat."
+        },
+        {
+          "ja": "落下する廃材から地上班を離してください。",
+          "en": "Keep the ground crew clear of falling debris."
+        },
+        {
+          "ja": "廃材用シュートを使うなら、先に「頭上注意！廃材が落ちます！」と知らせてください。",
+          "en": "If you use the debris chute, warn people first: Heads up! Debris coming down!"
+        },
+        {
+          "ja": "私が安全を確認したと言うまで待ってください。",
+          "en": "Wait until I say it's clear."
+        }
+      ],
+      "forms": [
+        {
+          "base": "張る",
+          "exampleJa": "立入禁止区域の周りに警告テープを張ります。",
+          "meaningEnglish": "to put (up), to place",
+          "exampleEnglish": "We put up the warning tape around the exclusion area.",
+          "sourceInfinitiveSpanish": "poner"
+        },
+        {
+          "base": "離れる",
+          "exampleJa": "撤去作業の前に全員が家から離れます。",
+          "meaningEnglish": "to move away",
+          "exampleEnglish": "Everyone moves away from the house before the tear-off.",
+          "sourceInfinitiveSpanish": "alejarse"
+        },
+        {
+          "base": "待つ",
+          "exampleJa": "職長が安全を確認したと言うまで待ちます。",
+          "meaningEnglish": "to wait",
+          "exampleEnglish": "We wait until the foreman says it's clear.",
+          "sourceInfinitiveSpanish": "esperar"
+        },
+        {
+          "base": "知らせる",
+          "exampleJa": "廃材用シュートを使うなら先に周囲の人に知らせます。",
+          "meaningEnglish": "to warn, to let know",
+          "exampleEnglish": "If we use the debris chute, we warn people first.",
+          "sourceInfinitiveSpanish": "avisar"
+        },
+        {
+          "base": "落ちる",
+          "exampleJa": "頭上注意！廃材が落ちます！",
+          "meaningEnglish": "to fall",
+          "exampleEnglish": "Heads up! Debris coming down!",
+          "sourceInfinitiveSpanish": "caer"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "地上班は家から離れてください。警告テープを張り、私が安全を確認したと言うまで待ってください。",
+        "goal": "Tell the ground crew to move clear before tear-off resumes."
+      },
+      "modes": {
+        "see": "Find the exclusion area and the ground crew below.",
+        "recall": "Recall falling debris, chute, warning tape, and ground crew.",
+        "hear": "Distinguish 廃材 from 廃材用シュート when spoken.",
+        "type": "Type 'Don't stand under the work' in Japanese.",
+        "say": "Warn the ground crew before debris comes down.",
+        "write": "Write what the crew does before using the debris chute."
+      }
+    },
+    {
+      "n": 26,
+      "stableId": "roofing:26:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Document Deck Repairs",
+      "sourceEnglishObjective": "Describe and record a repaired deck section",
+      "sourceEnglishSpeaking": "Ask for a photo of a deck repair before the crew covers it.",
+      "title": "野地板の補修記録",
+      "objective": "補修した野地板の範囲を説明し、写真と寸法で記録する。",
+      "focus": "～前に places the photo before covering. ～まで prohibits covering until inspection; ～た後 gives the after-repair photo sequence.",
+      "cards": [
+        {
+          "ja": "補修写真",
+          "en": "repair photo",
+          "kind": "term"
+        },
+        {
+          "ja": "野地板",
+          "en": "deck",
+          "kind": "term"
+        },
+        {
+          "ja": "覆われる範囲",
+          "en": "covered area",
+          "kind": "term"
+        },
+        {
+          "ja": "補修",
+          "en": "repair",
+          "kind": "term"
+        },
+        {
+          "ja": "合板",
+          "en": "plywood",
+          "kind": "term"
+        },
+        {
+          "ja": "写真",
+          "en": "photo",
+          "kind": "term"
+        },
+        {
+          "ja": "損傷した範囲",
+          "en": "damaged area",
+          "kind": "term"
+        },
+        {
+          "ja": "下地板",
+          "en": "sheathing",
+          "kind": "term"
+        },
+        {
+          "ja": "寸法",
+          "en": "measurement",
+          "kind": "term"
+        },
+        {
+          "ja": "覆う前に補修した範囲の写真を撮ってください。",
+          "en": "Take a photo of the repaired area before covering it.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "損傷した範囲を見せてください。",
+          "en": "Show me the damaged area.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "補修の前後に写真を撮ってください。",
+          "en": "Take a photo before and after the repair.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "私が確認するまで覆わないでください。",
+          "en": "Do not cover it until I check it.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "補修した範囲はどのくらいの大きさですか。",
+          "en": "How big is the repaired section?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "既存屋根材の撤去中、作業班は野地板の損傷した範囲を見つけました。",
+          "en": "During the tear-off, the crew found a damaged area on the deck."
+        },
+        {
+          "ja": "職長は「損傷した範囲を見せてください」と言います。",
+          "en": "The foreman says: Show me the damaged area."
+        },
+        {
+          "ja": "補修の前後に写真を撮ってください。",
+          "en": "Take a photo before and after the repair."
+        },
+        {
+          "ja": "作業員は損傷した合板を交換します。",
+          "en": "The workers replace the damaged plywood."
+        },
+        {
+          "ja": "職長は「補修した範囲はどのくらいの大きさですか」と尋ねます。",
+          "en": "The foreman asks: How big is the repaired section?"
+        },
+        {
+          "ja": "作業員はその範囲を測り、寸法を伝えます。",
+          "en": "A worker measures the section and gives the measurement."
+        },
+        {
+          "ja": "覆う前に補修した範囲の写真を撮ってください。",
+          "en": "Take a photo of the repaired area before covering it."
+        },
+        {
+          "ja": "私が確認するまで覆わないでください。",
+          "en": "Do not cover it until I check it."
+        },
+        {
+          "ja": "補修写真は、覆われる範囲に何が残るかを示す記録です。",
+          "en": "The repair photo is the record of what stays in the covered area."
+        }
+      ],
+      "forms": [
+        {
+          "base": "撮る",
+          "exampleJa": "作業員は補修の前後に写真を撮ります。",
+          "meaningEnglish": "to take",
+          "exampleEnglish": "The workers take a photo before and after the repair.",
+          "sourceInfinitiveSpanish": "tomar"
+        },
+        {
+          "base": "見せる",
+          "exampleJa": "作業員は損傷した範囲を職長に見せます。",
+          "meaningEnglish": "to show",
+          "exampleEnglish": "A worker shows the damaged area to the foreman.",
+          "sourceInfinitiveSpanish": "mostrar"
+        },
+        {
+          "base": "交換する",
+          "exampleJa": "作業員は損傷した合板を交換します。",
+          "meaningEnglish": "to replace",
+          "exampleEnglish": "The workers replace the damaged plywood.",
+          "sourceInfinitiveSpanish": "reemplazar"
+        },
+        {
+          "base": "測る",
+          "exampleJa": "作業員はその範囲を測り、寸法を伝えます。",
+          "meaningEnglish": "to measure",
+          "exampleEnglish": "A worker measures the section and gives the measurement.",
+          "sourceInfinitiveSpanish": "medir"
+        },
+        {
+          "base": "確認する",
+          "exampleJa": "職長は覆う前に補修した範囲を確認します。",
+          "meaningEnglish": "to check",
+          "exampleEnglish": "The foreman checks the repaired section before covering it.",
+          "sourceInfinitiveSpanish": "revisar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "損傷した範囲を見せてください。補修の前後に写真を撮り、寸法を伝えてください。私が確認するまで覆わないでください。",
+        "goal": "Ask for a photo of a deck repair before the crew covers it."
+      },
+      "modes": {
+        "see": "Find the damaged deck section and the repair photo.",
+        "recall": "Recall deck, sheathing, plywood, measurement, and repair photo.",
+        "hear": "Distinguish 野地板 from 下地板 when spoken.",
+        "type": "Type 'How big is the repaired section?' in Japanese.",
+        "say": "Ask a worker to show and document the deck repair.",
+        "write": "Write the photo and measurement sequence before covering."
+      }
+    }
+  ],
+  "reviewGates": {
+    "independentJapaneseReview": false,
+    "qualifiedRoofingReview": false,
+    "sixModeRuntime": false,
+    "dictionarySenses": false,
+    "offlineVerified": false,
+    "recordedAudioListening": false,
+    "phoneAndNativeAcceptance": false
+  }
+}

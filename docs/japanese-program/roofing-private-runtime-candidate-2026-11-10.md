@@ -1,0 +1,7 @@
+# Japanese Roofing private runtime candidate — 2026-11-10
+
+The Japanese→English Roofing draft now has a source-backed, exact-pair inspection adapter at `src/data/private-japanese-roofing-candidate.ts`. It reads the existing 21 lesson batches and 21 activity batches without importing them into the production catalog or routes. It verifies 10 Foundation, 30 Core, and 20 Master stage-local source IDs; 360 six-mode activities; every activity's Japanese and English model against its cited card or Reader line; and closed review/registration/listening flags. The focused test also checks each activity batch's pinned lesson-file SHA-256.
+
+Candidate stage and offline-pack IDs use `foundation-japanese-roofing`, `japanese-roofing`, and `master-japanese-roofing` with `-ja-en` pack suffixes. These are inspection-only names, separate from the existing Spanish Roofing IDs. The adapter returns no lessons or activities for another target/native pair. `releasedJapaneseRoofing()` returns `null`, and `JAPANESE_ROOFING_RELEASE_ENABLED` remains `false`; no catalog, progress, offline, or audio registration changed.
+
+Validation: `node --test tests/private-japanese-roofing-candidate.test.mjs` passed 3/3, including mismatched text, missing activity, and premature listening-review failures. `npx tsc --noEmit` passed. The draft remains `reviewed:false` and unreleased. Qualified Japanese and roofing-domain review, full-course audio listening/retakes, actual runtime and offline integration, browser/phone/native acceptance, and release checks are still open.

@@ -16,6 +16,8 @@ Pair: Japanese target / English support. Scope: all 60 source-aligned private dr
 
 Foundation 3, 8 and 10; Core 2, 3, 6, 15, 18, 24, 27 and 30; and Master 2, 3, 6, 19 and 20 had learner-facing warning or disclaimer language that displaced the language objective. Their focus/closure fields now teach the source vocabulary, Japanese grammar and scenario task directly. The retained allergy, shared handling, incident and consent dialogue is part of the source scenario, not an added medical treatment lesson. The correction script applies the changes idempotently after private source builders; it does not alter pinned source hashes, stable IDs, registration or review flags.
 
+A later pass found the same editorial phrasing in fourteen learner-facing **Say** mode prompts (Core 6, 18, 24, 25; Master 4, 5, 8–10, 13, 14, 16, 19, 20). Those prompts now ask learners to state the source's dietary, clinical, incident, equipment or service language directly. Core 25 explicitly names burn, skin and napkins; Master 4/8/10/13/14 explicitly name their clinical terms in the speaking task. The exercise remains a private draft; no speech routing or human review is inferred from the rewritten instructions.
+
 ## Still open
 
 - A fluent Japanese reviewer must check naturalness, register, kanji/kana choices, bilingual pair fidelity and pronunciation for the edited scenes. No Fable/Opus or human re-review is claimed for these corrections.

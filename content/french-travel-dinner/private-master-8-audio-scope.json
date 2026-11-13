@@ -1,0 +1,523 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "voices": [
+    "fr-FR-Chirp3-HD-Aoede",
+    "fr-FR-Chirp3-HD-Charon"
+  ],
+  "sourceSHA256": {
+    "master-8-draft.json": "d706735b9c3fdc2b2a87a885668788a91e771f21ad20afcecbf3094c05ee4a4e"
+  },
+  "previousScopeSHA256": {
+    "foundation.json": "cdbee8c457ff9c9f0f400113d63347fb471506c22bb6bbd2eb089762fb77e9fe",
+    "core-1-3.json": "ab62ab86e0b9b51bfe5f4905a86cded44d046adb156f4cd194f79ec357599d10",
+    "core-4-9.json": "3d4aa7070a2d8bd67cac94208a11a43b813fcb3e4d6b1da8ffe99389e233c344",
+    "core-10-12.json": "ebc33851805ff0125eddab0a4836f3afd27fa1e2ea99d4eeed1434b6808531a6",
+    "private-owner-delta-audio-scope.json": "97484eaa2099e1820a68da85843f0e5a32ff9f9ac861b7d275dcc27620ba7206",
+    "private-core-13-audio-scope.json": "dab949203658a04cc91da3ef3094590048919296d4e2cb45e22dba47e969cf2e",
+    "private-core-14-audio-scope.json": "ce2fdbd2b5c41f23d8a51996c9f6245a38159bb8ce3593af35b0fa0e69f547b3",
+    "private-core-15-audio-scope.json": "3d8b7c021b39f809795def5b5b03837ce75617cc9ebece0e89fe24be77bec8d5",
+    "private-core-16-audio-scope.json": "33db9f45805dd8910425f1e5840943e7509f3c65cabdf1b4a7fa6fba41fc1e5b",
+    "private-core-17-audio-scope.json": "c5b9cd5c8aa0257f3104ad7ee7ae4d8270acd70db52bc36d9eea449fa63872df",
+    "private-core-18-audio-scope.json": "edd20f215e7720ab6f61aadb11fc7d86429adfd23baa8fee773e9d90690bebd4",
+    "private-core-19-audio-scope.json": "27b626c300ced17a3675a230899fa1ff123a4bd1443eda6d54b61de4f75308e4",
+    "private-core-20-audio-scope.json": "7e6badf17a000b50aed36910317708d30c37016b7b4b4b06ca35b7d584a8f7f0",
+    "private-core-21-audio-scope.json": "3a4ee65d6d3b7f38b166a516c88f303e09f910801e72a701165ca61ba9c9f2d1",
+    "private-core-22-audio-scope.json": "52ed5c65d71e8fbdb228ef8bc3a7a1cee8b0afc17b416097cdea36c171838e4e",
+    "private-core-23-audio-scope.json": "f742a6d201149062b199bbcb9cb6bf37bd070940c98377e28170da2c1f881ea7",
+    "private-core-24-audio-scope.json": "896cb33c0149fac4cfb3187dbe9ef82a72e093f070adaea916518f339e30bfa4",
+    "private-core-25-audio-scope.json": "3956c727ff300622929244baec1ce06c5ea371c06573cbe8b90b51a5c3db4d9b",
+    "private-core-26-audio-scope.json": "07b4608c082487ba5a55f47edcee07c95cd850dedfed11d160ea91529d0c3573",
+    "private-core-27-audio-scope.json": "5b31a3f11424d275eec7eac05356e4b95c42cbe86fd5c1322babf24fc31f9b5d",
+    "private-core-28-audio-scope.json": "10be69783b3b0e3be4817001a49fdc836469598655e5763ecb73c2cf8d32a43e",
+    "private-core-29-audio-scope.json": "12df60efddd5ee662977ca5aba6229b57dbb5c71b244cae99cfc578289540ba5",
+    "private-core-30-audio-scope.json": "68cc5151faaa5864f27b81c930b1e8412c0fc891609c7498699aac5f1990feda",
+    "private-master-1-audio-scope.json": "73974d1ea2fd2ef77baab624490efda93e4038e7470cd2083b0a4d4284b2984a",
+    "private-master-2-audio-scope.json": "f867fd31a1e7c7991d359a3e5f1248d936b14083f07717e74c21245af8960b98",
+    "private-master-3-audio-scope.json": "96f52df5299501275d4f6d7957737e9db27235d145946f084a3e21b4de986319",
+    "private-master-4-audio-scope.json": "ea7becf0ab92df7fc6d485ab97205efec6b0e530dfaa3ad0f53c28e43514d9e0",
+    "private-master-5-audio-scope.json": "312b1e136bac580f1d4eb73ee993ae9d42c13e131d5de3051d1363687cf57bc9",
+    "private-master-6-audio-scope.json": "94f3acbfa5634d54efb33042195f15877472a8010af1dbeaf933a219ec9a5e8c",
+    "private-master-7-audio-scope.json": "0cd9c4a0602d91e2f4abf883b38ddda60b87f8a3c41f836f201ae1a5e78040e6"
+  },
+  "lessonIds": [
+    "master-travel-dinner:8:fr-en"
+  ],
+  "placements": 43,
+  "uniqueTexts": 42,
+  "proposedClips": 84,
+  "submittedCharacters": 4940,
+  "texts": [
+    {
+      "spokenText": "Après un long déjeuner au domaine viticole de Fernando, près de Haro, Laura et Ben prennent un café sur la terrasse.",
+      "textSHA256": "c9007365d93a22bfbef40ffddaf4bc4c8e5d687c414ab7e8f9de668286bc182d",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "Ben : Demain, sans nous presser, on revient chercher la voiture.",
+      "textSHA256": "e7162b10c0419f38c8c9e748137ec90e68580087c97ee9b9dd86c1cf39c0fe6f",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "spokenText": "Ben dit qu’il est sobre, mais Laura lui rappelle que personne ne connaît son taux d’alcool dans le sang sans faire de test.",
+      "textSHA256": "21bd9f4bca9ff3bfb63fd6e57eb73802b8ceb362d54a98a1cd4318da782e5ffe",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "Ben tend la main vers les clés de la voiture et dit qu'il conduira la voiture de location pour rentrer à l'hôtel.",
+      "textSHA256": "5367cd68546171942a7951135dd3f76092e3e9d9a805fb864d9325777db0e7ba",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "Ben, ne prends pas les clés ; tu ne conduis pas aujourd'hui.",
+      "textSHA256": "344da3070967ca50a08e14327e0f49b74f7aefde45629d81456f63f407169679",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "spokenText": "Bon, je prends les clés : je conduis la voiture de location jusqu’à l’hôtel.",
+      "textSHA256": "5f1871feef3084fbd51b2ffbf2e7d217af70916008675c1c6ca4cc2ed02efbf8",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "spokenText": "C'est délicieux, mais j'en ai déjà assez bu.",
+      "textSHA256": "21f1705789d0953f16abec81d0c649f3ad6cfb4d1b797c00a12916d48aca4e0a",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 21
+        }
+      ]
+    },
+    {
+      "spokenText": "Demain, sans nous presser, on revient chercher la voiture.",
+      "textSHA256": "065a26c81369d3aa1ecdff9f2cb5f3b5c970e51c8496a4ce61f2ecb3188e044b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 24
+        },
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "spokenText": "Fernando : Les taxis mettent beaucoup de temps par ici, alors j'appelle mon cousin Julián, qui travaille comme chauffeur privé.",
+      "textSHA256": "22d8ef9372923c02cf18e66ac0ca7da53e8a6cd30c591187017fcadc6ecd8977",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "spokenText": "Fernando : N’attendez pas l’autocar de ligne, parce que le dimanche il ne passe pas avant le soir.",
+      "textSHA256": "587d1bfcab2eabdd63254e0e8a91623a24c8bac9419069cfd16e7bfa8fc73d03",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "spokenText": "Fernando dit oui, et Ben donne les clés de la voiture à Laura avant de monter dans la voiture de Julián.",
+      "textSHA256": "fc39f5e73521e783d1f1b0fb33d0638927461a509b6e6f54bd7520219eaeaaa7",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "spokenText": "Fernando mentionne que la Guardia Civil installe parfois un contrôle d'alcoolémie près d'ici, et que l'amende peut être très élevée.",
+      "textSHA256": "f3becbb7b1bd49e382a459c8409535abd83e6033eb2ef5baabb60074fd910952",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "Je ne recommande pas que tu conduises dans ces virages.",
+      "textSHA256": "3b126630773dd8331319b983e990aa67baaedbb9120fb1b584a3e61a74caae9e",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura : Ben, ne prends pas les clés ; tu ne conduis pas aujourd'hui.",
+      "textSHA256": "18b091b2d46613bb78146efd9e4439903f42af8cba12866ee1a9bd7786a17b59",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura : C'est délicieux, mais j'en ai déjà assez bu.",
+      "textSHA256": "4aecc6e70fc1f001bc1cc4598ba60eaab8110b33614df3390355529b26854b3b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura : Je ne recommande pas que tu conduises dans ces virages.",
+      "textSHA256": "6784265012a00a8266b9fb4891efd55a19f930ef6cc52a2fde4e4d76ba671cd7",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura : Merci beaucoup, Fernando, mais ne m’en versez plus, s’il vous plaît.",
+      "textSHA256": "9327911d1a4502e4e0400c18547cf063c8cb8f422e02d45101774972e758edbb",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura : Ne te fâche pas, Ben ; je le dis parce que je tiens à toi.",
+      "textSHA256": "9536b6ef8e2fd36464cdfd6ad8e3da968c551cdfbb22c70b4bb4a9c5c69e4dad",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura : Pourriez-vous nous appeler un taxi pour Haro, s'il vous plaît ?",
+      "textSHA256": "27ba4cd6fe4106c82ccd6e44196cc6a264a27176d5bb820a46973cf0080714a1",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura : Pouvons-nous laisser la voiture sur votre parking jusqu'à demain ?",
+      "textSHA256": "7faac86c0818fff7ccfea52dac7ef9f8a6d91a192ab2fcaa5d4ac0277f1db76e",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura ajoute que, selon le contrat de location, l'assurance de la voiture ne couvre pas les dégâts si le conducteur a bu.",
+      "textSHA256": "950e30eac782a25e30d55a325f2e4493a0f96ce64d4b36c2d8fcc0268cab0a31",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura lui explique que la route jusqu'à Haro a beaucoup de virages et que le risque est trop élevé après tant de vin.",
+      "textSHA256": "66805bda3cabdf143915e504480b6b6782c1971fd1d12258b0408db91d1a2d58",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "Merci beaucoup, Fernando, mais ne m’en versez plus, s’il vous plaît.",
+      "textSHA256": "133ae6c2bd98fdaa877b407e94f991bc92686d66be33a8d7885c33e156c95638",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 20
+        }
+      ]
+    },
+    {
+      "spokenText": "Ne te fâche pas, Ben ; je le dis parce que je tiens à toi.",
+      "textSHA256": "0671b45beee836947a124985e35941a0d8d06558b4a05fe649ffc429bdc8e2bb",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 19
+        }
+      ]
+    },
+    {
+      "spokenText": "Pourriez-vous nous appeler un taxi pour Haro, s'il vous plaît ?",
+      "textSHA256": "f0bfbce1225c202d5cce691223bf942972023c314811339ba92cb06a4741c4c2",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 22
+        }
+      ]
+    },
+    {
+      "spokenText": "Pouvons-nous laisser la voiture sur votre parking jusqu'à demain ?",
+      "textSHA256": "cef2eaff196aa04139f1729be8133f4cc4610aec3a99612e25fefb035125ca56",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 23
+        }
+      ]
+    },
+    {
+      "spokenText": "l'amende",
+      "textSHA256": "3263d802a7a091c5cbf9c1815d1914b83a90528e799f41a5db08eaa36966645d",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "spokenText": "l'assurance de la voiture",
+      "textSHA256": "16b87ba4b56c9d88b1f773c094d995ddfed13892d121df34473fa321bd358f93",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "spokenText": "la route",
+      "textSHA256": "303de55f1573ffa35bd90d8f63bd41427ab0a7d7da11a0c601b497b016f250de",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "la voiture de location",
+      "textSHA256": "396cbecfd7dff2a98240d711b13421e8292e29b01e44d7aab038afa097293d11",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "le chauffeur privé",
+      "textSHA256": "8d105c8ea6d8cbee2b943e1773cb08410ae05a75d7ea48946d7dea305feb0d82",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "spokenText": "le contrôle d'alcoolémie",
+      "textSHA256": "6ecdbe2614f8838c7b2c7b93fb69d2bd08179d02caba625569c1745172d0454e",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "le domaine viticole",
+      "textSHA256": "8d1fa01d9e1ec4699d484547d2f2a20a46dffbd1fb6ffb8eb20d97aed331a8b5",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "le petit verre",
+      "textSHA256": "8d9eac1cc92c1d6e0af6cadc135d5e1656b09a04a3bcb60a9c0d63d02b6f9604",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "le retour",
+      "textSHA256": "d9b783427ab4191374e1a4540e2ac50257ab0e245c7251f6e2fef4485c7ce3d6",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "spokenText": "le risque",
+      "textSHA256": "ec919e5f77b89970e8ea55ec27c5b6fcbceeb9ceb5155b8ceaa233ca5f450e2b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "spokenText": "le taux d'alcool dans le sang",
+      "textSHA256": "b968f460c5eeb33b8e0139ec5af83708469085a6f9189c5061903d61bb7ef4d0",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "les clés de la voiture",
+      "textSHA256": "d0468b191438b0c5d0c3ada55aad456cffbda63cd558a8ebd9b22af258696f96",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "les virages",
+      "textSHA256": "14da8812e83a75d9f692634223fd2e241d4930d9dca3046cf37e4166e113821a",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "l’autocar de ligne",
+      "textSHA256": "0d17f35a8cd13769c9caa889e24443e2a6a28d326476834aa7505e5164c53427",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "sobre",
+      "textSHA256": "6919d6353a2a0be00c39828def564cead2cb7f28d51be0e1141d0a88f98418f8",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "card",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "À ce moment-là, Fernando ouvre une autre bouteille et leur propose un petit verre pour la route.",
+      "textSHA256": "22f6cc1deaef12e9ac3b1fbeefb70125c32f98160087607f13fbcf04258a3028",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:8:fr-en",
+          "surface": "reader",
+          "index": 10
+        }
+      ]
+    }
+  ],
+  "recordingsBundled": false,
+  "listeningReviewed": false,
+  "registered": false
+}

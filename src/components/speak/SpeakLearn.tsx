@@ -1,3 +1,4 @@
+import { useChatFollow } from "@/hooks/use-chat-follow";
 import { SpeakingPartnerPicker } from "./SpeakingPartnerPicker";
 import { speakingPartner } from "@/data/speaking-partners";
 import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
@@ -190,7 +191,8 @@ export function SpeakLearn() {
   const [surface, setSurface] = useState<"missions" | "conversation">("missions");
   const conversationViewport = usePracticeViewport(surface);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
-  const transcriptRef = useRef<HTMLDivElement | null>(null);
+  const chatFollow = useChatFollow(turns);
+  const { containerRef: transcriptRef, contentRef, onScroll: onTranscriptScroll } = chatFollow;
   const abortRef = useRef<AbortController | null>(null);
   const sessionStartRef = useRef<number | null>(null);
   const { isCurrentUser } = speakingAuth;
@@ -270,13 +272,6 @@ export function SpeakLearn() {
   useEffect(() => {
     setChallenge(null);
   }, [language]);
-
-  useEffect(() => {
-    transcriptRef.current?.scrollTo({
-      top: transcriptRef.current.scrollHeight,
-      behavior: "smooth",
-    });
-  }, [turns, interim, thinking]);
 
   // Track conversation minutes — start clock on first user turn, flush on unmount
   useEffect(() => {
@@ -739,91 +734,104 @@ export function SpeakLearn() {
     () => (
       <div
         ref={transcriptRef}
+        onScroll={onTranscriptScroll}
         role="region"
         aria-label="Conversation replies"
-        className="min-h-32 flex-1 overflow-y-auto overscroll-contain rounded-2xl border border-border/60 bg-card/40 p-3 backdrop-blur"
+        className="min-h-0 flex-1 overflow-y-auto overscroll-contain rounded-2xl border border-border/60 bg-card/40 p-3 backdrop-blur"
       >
-        {isEmpty && !interim ? (
-          <div className="flex h-full flex-col items-center justify-center text-center">
-            <p className="px-2 py-2 text-sm text-muted-foreground">
-              Your partner’s reply will appear here.
-            </p>
-          </div>
-        ) : (
-          <ul className="flex flex-col gap-3">
-            {turns.map((t) => (
-              <li
-                key={t.id}
-                className={t.role === "user" ? "flex justify-end" : "flex justify-start"}
-              >
-                <div className="max-w-[85%]">
-                  <div
-                    className={
-                      t.role === "user"
-                        ? "rounded-2xl rounded-br-sm bg-primary px-4 py-2.5 text-sm text-primary-foreground shadow-sm"
-                        : "flex items-start gap-2 rounded-2xl rounded-bl-sm border border-gold/30 bg-background/60 px-4 py-2.5 text-sm text-foreground shadow-sm"
-                    }
-                  >
-                    {t.role === "ai" && (
-                      <button
-                        onClick={() => speakAloud(t.text)}
-                        className="mt-0.5 shrink-0 text-gold transition-opacity hover:opacity-80"
-                        aria-label="Replay"
-                      >
-                        🔊
-                      </button>
-                    )}
-                    <span className="leading-relaxed whitespace-pre-wrap">
-                      {t.role === "ai" && hideReplyText ? (
-                        "Audio reply"
-                      ) : t.text ? (
-                        <LongPressWordText
-                          text={t.text}
-                          onWordLookup={(word, sentence) => {
-                            if (!micActive && !audioCaptureBusy)
-                              setTutorSelection({
-                                word,
-                                sentence,
-                                id: Date.now(),
-                                owner: speakingAuth.isTestGuest ? undefined : speakingAuth.user?.id,
-                                scope: `free:${language}:${state.nativeLanguage}:${state.activeModuleId}`,
-                              });
-                          }}
-                        />
-                      ) : t.role === "ai" ? (
-                        "…"
-                      ) : (
-                        ""
-                      )}
-                    </span>
-                  </div>
-                  {showFeedback && t.tip && (
-                    <div className="mt-1 inline-block rounded-full border border-gold/40 bg-gold/10 px-2.5 py-0.5 text-xs text-gold">
-                      💡 Tip: {t.tip}
+        <div ref={contentRef}>
+          {isEmpty && !interim ? (
+            <div className="flex h-full flex-col items-center justify-center text-center">
+              <p className="px-2 py-2 text-sm text-muted-foreground">
+                Your partner’s reply will appear here.
+              </p>
+            </div>
+          ) : (
+            <ul className="flex flex-col gap-3">
+              {turns.map((t) => (
+                <li
+                  key={t.id}
+                  className={t.role === "user" ? "flex justify-end" : "flex justify-start"}
+                >
+                  <div className="max-w-[85%]">
+                    <div
+                      className={`mb-1 text-xs font-semibold text-muted-foreground ${t.role === "user" ? "text-right" : "text-left"}`}
+                    >
+                      {t.role === "user" ? "You" : "Partner"}
                     </div>
-                  )}
-                </div>
-              </li>
-            ))}
-            {interim && (
-              <li className="flex justify-end">
-                <div className="max-w-[85%] rounded-2xl rounded-br-sm border border-dashed border-primary/50 bg-primary/10 px-4 py-2.5 text-sm text-foreground/80">
-                  {interim}
-                </div>
-              </li>
-            )}
-            {thinking && (
-              <li className="flex justify-start">
-                <div className="rounded-2xl rounded-bl-sm border border-gold/20 bg-background/40 px-4 py-2 text-xs text-muted-foreground">
-                  thinking…
-                </div>
-              </li>
-            )}
-          </ul>
-        )}
+                    <div
+                      className={
+                        t.role === "user"
+                          ? "rounded-2xl rounded-br-sm bg-primary px-4 py-2.5 text-sm text-primary-foreground shadow-sm"
+                          : "flex items-start gap-2 rounded-2xl rounded-bl-sm border border-gold/30 bg-background/60 px-4 py-2.5 text-sm text-foreground shadow-sm"
+                      }
+                    >
+                      {t.role === "ai" && (
+                        <button
+                          onClick={() => speakAloud(t.text)}
+                          className="mt-0.5 shrink-0 text-gold transition-opacity hover:opacity-80"
+                          aria-label="Replay"
+                        >
+                          🔊
+                        </button>
+                      )}
+                      <span className="leading-relaxed whitespace-pre-wrap">
+                        {t.role === "ai" && hideReplyText ? (
+                          "Audio reply"
+                        ) : t.text ? (
+                          <LongPressWordText
+                            text={t.text}
+                            onWordLookup={(word, sentence) => {
+                              if (!micActive && !audioCaptureBusy)
+                                setTutorSelection({
+                                  word,
+                                  sentence,
+                                  id: Date.now(),
+                                  owner: speakingAuth.isTestGuest
+                                    ? undefined
+                                    : speakingAuth.user?.id,
+                                  scope: `free:${language}:${state.nativeLanguage}:${state.activeModuleId}`,
+                                });
+                            }}
+                          />
+                        ) : t.role === "ai" ? (
+                          "…"
+                        ) : (
+                          ""
+                        )}
+                      </span>
+                    </div>
+                    {showFeedback && t.tip && (
+                      <div className="mt-1 inline-block rounded-full border border-gold/40 bg-gold/10 px-2.5 py-0.5 text-xs text-gold">
+                        💡 Tip: {t.tip}
+                      </div>
+                    )}
+                  </div>
+                </li>
+              ))}
+              {interim && (
+                <li className="flex justify-end">
+                  <div className="max-w-[85%] rounded-2xl rounded-br-sm border border-dashed border-primary/50 bg-primary/10 px-4 py-2.5 text-sm text-foreground/80">
+                    {interim}
+                  </div>
+                </li>
+              )}
+              {thinking && (
+                <li className="flex justify-start">
+                  <div className="rounded-2xl rounded-bl-sm border border-gold/20 bg-background/40 px-4 py-2 text-xs text-muted-foreground">
+                    thinking…
+                  </div>
+                </li>
+              )}
+            </ul>
+          )}
+        </div>
       </div>
     ),
     [
+      contentRef,
+      onTranscriptScroll,
+      transcriptRef,
       turns,
       interim,
       isEmpty,
@@ -1058,7 +1066,7 @@ export function SpeakLearn() {
         <section
           ref={conversationViewport.ref}
           style={conversationViewport.style}
-          className="lt-speaking-frame mt-3 flex min-h-0 flex-col gap-2 overflow-y-auto"
+          className={`lt-speaking-frame mt-3 flex min-h-0 flex-col gap-2 ${isEmpty ? "overflow-y-auto" : "overflow-hidden"}`}
           aria-label="Free conversation practice"
         >
           {isEmpty && (
@@ -1081,6 +1089,15 @@ export function SpeakLearn() {
             </button>
           )}
           {transcript}
+          {!chatFollow.following && (
+            <button
+              type="button"
+              onClick={chatFollow.jumpToLatest}
+              className="shrink-0 self-center rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold"
+            >
+              ↓ Latest response
+            </button>
+          )}
           {conversationError && (
             <p role="alert" className="shrink-0 text-sm text-foreground">
               {conversationError}

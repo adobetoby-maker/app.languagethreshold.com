@@ -2,6 +2,7 @@
 """Validate the source-pinned, unreleased Japanese Dinner Master 12 candidate."""
 import hashlib
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -31,6 +32,7 @@ for mode in lesson['modes'].values():
     card = curriculum['words'][mode['sourceCard'] - 1]
     assert mode['cueEnglish'] == card['en']
 assert lesson['speaking']['wordBank'] == [row['ja'] for row in lesson['cards']]
+assert all(row.get('readingKana') and not re.search(r'[\u3400-\u9fff]', row['readingKana']) for row in lesson['cards'])
 for row in lesson['cards'] + lesson['reader']:
     assert row.get('ja') and row.get('en')
 print('Japanese Dinner Master 12 private candidate: 22 exact-English cards, 17 aligned Reader turns, 5 forms, 6 modes, closed gates PASS')

@@ -1,0 +1,68 @@
+I reviewed the pasted JSON only. I opened no repo files and changed nothing. Line numbers are 1-based positions in each lesson's `reading.target` array.
+
+## Prior findings: status
+
+| # | Status | Evidence |
+|---|---|---|
+| M1 wrong-language "how do you say" | Resolved | L1 line 5 is now `Comment dit-on « ladder » en français ?`. The opener asks for « hammer » et « harness » en français, `speakingEnglish` says "in French", and the original wording is kept in `sourceNative`. |
+| M2 silent-letter rule | Resolved | toit and comment are given as silent. vite and parle now say the consonant is said and only the e is silent. The t in dit-on is sounded. |
+| M3 Comment dit-on note | Resolved | |
+| M4 third verb | Resolved | 3 verbs per lesson: `répéter`, `commencer`, `monter`. |
+| M5 untaught falloir | Resolved | Lines 3–4 and the opener use `avoir besoin de`. |
+| M6 `on` unexplained | Resolved | |
+| M7 garbled time note | Resolved | |
+| M8 weather verb | Resolved | `Il fait froid le matin.` and the faire rule is taught. |
+| M9 j'ai chaud / j'ai froid | Resolved | Both notes now cover it. |
+| M10 agreement claim | Resolved | Sound changes are split correctly from spelling-only changes. |
+| M11 sûr | Resolved for AI scope | Changed to `sans danger`, with a note on sécuritaire and sûr. Final wording goes to G3 and G5. |
+| M12 title and leaked author instructions | Partly resolved | The title is fixed and the old instructions are gone. Similar internal text has moved into other learner-facing fields (see Open 1). |
+| M13 inversion question | Resolved | `Est-ce que le matériel est prêt ?` |
+| M14 French variety and register | Still open, as a human gate (G1) | `scopeNotesEnglish` now records the question. |
+| Prior minor findings | All addressed | One inconsistency is left, listed under Minor. |
+
+## OPEN material issues (AI scope)
+
+**1. Internal process text is showing in learner-facing fields.** This is the remaining part of M12. The learner would see:
+- L1 `regionalNotesEnglish[0]`: "This French-target adaptation changes that language name… preserving the original in reading.sourceNative."
+- L3 `regionalNotesEnglish[2]`: "A qualified roofing safety reviewer must approve or replace… before this lesson can be released."
+- L3 `grammarTeachingEnglish`, last sentence: "…is a source-aligned language example…"
+
+Fix: move all three into an internal field such as `reviewNotesEnglish`. If a learner-facing line is still wanted, use something plain like: "This sentence practices the words. It does not certify any equipment. Follow your employer's checks."
+
+**2. L2 says it teaches numbers 0 to 100 but doesn't.** `grammarFocusEnglish` promises "French numbers 0 to 100". The teaching text only covers the tens (vingt, trente, soixante, soixante-dix, quatre-vingts, quatre-vingt-dix). There is nothing on 1–16, the 17–19 pattern (dix-sept), or the et un forms (vingt et un, soixante et onze). The objective is "Count", and the lesson can't deliver that. Fix one of two ways:
+- add a short teaching line on 1–16, dix-sept to dix-neuf, and the et un / et onze pattern, or
+- narrow the focus to "the numbers used in this lesson" and confirm that a number table exists somewhere else in the app.
+
+## Minor (not blocking)
+
+- **L2 `mesurer` example** still uses the formal `soit environ trois mètres`, but the reading now says `ou à peu près trois mètres`. Make them match.
+- **L3 teaching** gives c'est for names and nouns, and il/elle est for things already mentioned. It doesn't cover `C'est dangereux`, which is c'est plus an adjective for a general situation. Only the phrase note explains it. Add one sentence: "c'est + adjective for a general judgment (c'est dangereux); il/elle est + adjective for a specific thing (il est mouillé)."
+- **L3 teaching** still mentions `sûre`, but sûr is no longer a lesson word. Replace it or drop it.
+- **Untaught words:** `sec` (L3 monter example), `Attention` (L3 opener), `du`/`de la` contractions (L1 line 3), `du matin`, `Ça mesure`. Gloss them, or accept them as reading exposure.
+- **Apostrophes are mixed** (`s’il` vs `s'il`, `m’appelle` vs `m'appelle`). Use one form throughout if answers are string-matched or sent to TTS.
+- **`pour`** is used as a sound example but isn't a lesson word. `sur`/`du` vs `clou` already covers the contrast.
+
+## Safety / roofing check
+
+- No invented standards, certifications or regulators.
+- The disclaimers on the harness, the bundle weight and the units hand those decisions to the employer and the job documents.
+- L3 line 7 (`le harnais est prêt et il est sans danger`) still has a crew member saying out loud that a harness is safe. It comes from the source. AI can't approve it, so it goes to G5.
+- `sans danger` for equipment sounds closer to "harmless" than "fit for use". `en bon état` or Quebec `sécuritaire` may fit better. That's for G3 and G5 to decide.
+
+## AI-scope verdict: NOT PASS, with 2 open issues
+
+Fixing Open 1 and 2 would bring this to a PASS for AI scope.
+
+## Qualified human gates (all still open, and AI can't clear them)
+
+- **G1. Owner ruling on target variety and register.** Quebec, France or other; tu or vous. The draft currently uses vous throughout.
+- **G2. Blind native French review** in the chosen variety.
+- **G3. Roofing trade reviewer.** Check bardeau and tuile, paquet and ballot, harnais (de sécurité), corde and ligne de vie, chef d'équipe, contremaître and boss.
+- **G4. Owner or curriculum ruling on the adapted source-locked items.** That covers Spanish changed to French, the "Ser and Estar" title replaced, and the L3 objective rewritten.
+- **G5. Qualified safety reviewer** for the L3 harness line and the "safe" wording.
+- **G6. Process.** This was drafted by Haiku, but the project standard is Opus plus blind review. `reviewed` must stay `false`.
+
+`★ Insight ─────────────────────────────────────`
+- The leaked notes in Open 1 are the same problem as M12 in a different field. Adding a dedicated internal field such as `reviewNotesEnglish` to the schema would stop it coming back, because writers would have somewhere to put process text.
+- Numbers are where French and Spanish differ most structurally: 70, 80 and 90 are built from 60 and 4×20. Lessons ported from Spanish tend to cover those famous irregulars and skip the plainer 17–19 and et un patterns, which learners actually need first.
+`─────────────────────────────────────────────────`

@@ -1,0 +1,330 @@
+{
+  "schema": 1,
+  "scope": "French→English Travel Breakfast Foundation 4–6 only",
+  "aiNotHumanReview": true,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFilesSHA256": {
+    "src/data/core60/es/foundation-travel-breakfast.json": "94621cca4158b76c69435f35eb1dfdc4893df553afaccb8a1963bdd9e6d80e79",
+    "public/lesson-content/es/foundation-travel-breakfast.json": "e11886cd3e030534ba8f8b8e92515c528e07c2875f20a58034faed2bc3d0f78a"
+  },
+  "draftModel": "Claude Haiku via CLI OAuth",
+  "initialIndependentFable": {
+    "verdict": "fail",
+    "findings": [
+      {
+        "lesson": 5,
+        "field": "words[9].noteEnglish (Je vais à la boulangerie.)",
+        "severity": "material",
+        "issue": "States 'Use à le for masculine places, such as au marché.' The form à le never occurs in French; à + le obligatorily contracts to au. Teaches a nonexistent form.",
+        "suggestion": "Rewrite: 'À + la stays à la (à la boulangerie). À + le contracts to au: au marché, au café.'"
+      },
+      {
+        "lesson": 5,
+        "field": "teachingNotesEnglish[6]",
+        "severity": "material",
+        "issue": "Claims 'In Québec, the same ideas are expressed with the same words.' Québec counters commonly use pour ici ou pour emporter; sur place is far less usual there. Regional claim is inaccurate.",
+        "suggestion": "Replace with: 'In France: sur place ou à emporter. In Québec you will usually hear pour ici ou pour emporter.' Align words[7].noteEnglish (pour emporter) with this Québec note."
+      },
+      {
+        "lesson": 4,
+        "field": "words[9].fr, speakingFrench, passage.french[1] (jus d'orange frais)",
+        "severity": "material",
+        "issue": "Spanish source 'natural' = freshly squeezed. In French café usage that is jus d'orange pressé; frais reads as chilled or not stale. The draft's own term note and teachingNotesEnglish[6] say pressé is the menu word, so phrase, speaking line and reading line contradict the notes.",
+        "suggestion": "Use 'Vous avez du jus d'orange pressé ?' in all three places, and add to the note: 'frais means chilled or not stale; pressé means freshly squeezed.'"
+      },
+      {
+        "lesson": 5,
+        "field": "teachingNotesEnglish[5]",
+        "severity": "minor",
+        "issue": "'ask for les toilettes or la salle de bain at a hotel' invites a false friend: salle de bain is the bathroom with a shower, not the toilet. A learner asking a café for la salle de bain will not be understood.",
+        "suggestion": "Drop salle de bain or state: 'Ask for les toilettes. La salle de bain is a hotel-room bathroom with a shower, never the café toilet.'"
+      },
+      {
+        "lesson": 5,
+        "field": "words[4].noteEnglish, words[12].fr, speakingFrench, passage.french[4] (sur la terrasse)",
+        "severity": "minor",
+        "issue": "Sur la terrasse is grammatical but the fixed café idiom is en terrasse (s'asseoir / s'installer en terrasse).",
+        "suggestion": "Use 'Est-ce que je peux m'asseoir en terrasse ?' and note 'en terrasse is the café idiom'; keep sur la terrasse only as a literal gloss."
+      },
+      {
+        "lesson": 5,
+        "field": "words[14].fr (Vous faites des œufs à la demande ?)",
+        "severity": "minor",
+        "issue": "À la demande means on request, not cooked to taste. For huevos al gusto the café wording is œufs au choix or comme vous voulez.",
+        "suggestion": "'Vous faites les œufs au choix ?' with note 'au choix = cooked the way you ask; comme vous voulez is also heard.'"
+      },
+      {
+        "lesson": 4,
+        "field": "passage.french[4]",
+        "severity": "minor",
+        "issue": "'le pain grillé vient avec du beurre' calques English 'comes with'; venir avec is not idiomatic for a dish.",
+        "suggestion": "'Oui, le pain grillé est servi avec du beurre et de la confiture.'"
+      },
+      {
+        "lesson": 5,
+        "field": "passage.french[8] and authoringNotesEnglish[2]",
+        "severity": "minor",
+        "issue": "English anchor is 'is going to go'. Draft uses present va à, dropping the lesson's target structure; the authoring note calls va aller awkward, but Emma va aller à la boulangerie is normal French.",
+        "suggestion": "'Ensuite, Emma va aller à la boulangerie chercher du pain.' and correct the authoring note."
+      },
+      {
+        "lesson": 5,
+        "field": "passage.french[1]",
+        "severity": "minor",
+        "issue": "'Diego le barista fait le café' uses English apposition order and fait for brewing.",
+        "suggestion": "'Au comptoir, le barista Diego prépare le café.'"
+      },
+      {
+        "lesson": 4,
+        "field": "focusFrench / focusEnglish (avoir envie de)",
+        "severity": "minor",
+        "issue": "Focus lists avoir envie de + infinitif but no word, phrase, speaking line or reading line uses it; it appears only in teachingNotesEnglish[3].",
+        "suggestion": "Either add one learner item (e.g. 'J'ai envie d'un café.') or remove avoir envie de from both focus fields."
+      },
+      {
+        "lesson": 6,
+        "field": "focusFrench / focusEnglish (choisir)",
+        "severity": "minor",
+        "issue": "Focus names regular -ir verbs (choisir) but no learner item uses one; only teachingNotesEnglish[1] does.",
+        "suggestion": "Add a phrase such as 'Je choisis les œufs brouillés.' or drop choisir from the focus."
+      },
+      {
+        "lesson": 6,
+        "field": "words[12].noteEnglish vs passage.french[6] and speakingFrench",
+        "severity": "minor",
+        "issue": "Note says vous is for someone you have just met; passage and speaking line use tu with Lucía, whom Emma has just met. Inherited from the Spanish source, but the French note contradicts the reading.",
+        "suggestion": "Change the note to: 'Vous is the safe form with staff or a stranger; between hotel guests of the same age, tu is common, as in the reading.'"
+      },
+      {
+        "lesson": 6,
+        "field": "words[3].fr (les haricots)",
+        "severity": "minor",
+        "issue": "Bare haricots in a French food context often suggests haricots verts; Mexican frijoles are haricots rouges or haricots noirs.",
+        "suggestion": "Add to note: 'For Mexican-style beans say haricots noirs or haricots rouges; haricots verts are green beans.'"
+      },
+      {
+        "lesson": 5,
+        "field": "words[6].noteEnglish (Les WC)",
+        "severity": "minor",
+        "issue": "'Les WC is more informal' is imprecise; WC is neutral and widely used on signs and in speech.",
+        "suggestion": "'Les toilettes is the everyday word; les WC also appears on signs and is equally acceptable.'"
+      }
+    ],
+    "residualGates": [
+      "Native French teacher review of every French field (none has been done; this is an AI check only)",
+      "Regional review for France, Québec, Belgium and Switzerland terms (sur place/pour ici, porridge/gruau, bacon, haricots)",
+      "Audio or phonetic review of all pronunciation hints (BUHR, kwee-YEHR, TAY)",
+      "Pedagogical pacing check for prendre, boire, ouvrir and choisir in a lesson-6 beginner stage",
+      "Mexico/Oaxaca setting still unadapted; France or Québec café variant with local currency outstanding",
+      "French-course display fields are not wired into the app schema; confirm UI before runtime integration",
+      "Lesson 4-6 titleFrench reuse 'Petit-déjeuner à Oaxaca'; confirm this matches the lesson 1-3 title convention after edits"
+    ]
+  },
+  "initialIndependentOpus": {
+    "verdict": "fail",
+    "findings": [
+      {
+        "lesson": 5,
+        "field": "words['I’m going to the bakery.'].noteEnglish",
+        "severity": "material",
+        "issue": "The note says 'Use à le for masculine places, such as au marché.' This is a grammar error shown to learners: à + le always contracts to au, and 'à le' is never correct. The contractions au and du also appear in the passage without explanation (au comptoir, au fond, près du marché).",
+        "suggestion": "Replace with: 'With a masculine place, à + le becomes au: Je vais au marché. De + le becomes du: près du marché. À la and à l’ do not change.' Add the same rule to teachingNotesEnglish[0]."
+      },
+      {
+        "lesson": 6,
+        "field": "teachingNotesEnglish[5]; words['Do you drink coffee or tea?'].noteEnglish; passage.french lines 5 and 7; speakingFrench",
+        "severity": "material",
+        "issue": "This copies the Spanish tú rule ('tu with a fellow guest your age'). In French, vous is the default with an adult you have just met, and Lucía is a parent at a hotel. The lesson is also inconsistent: the phrase list teaches 'Vous habitez ici ?' as polite for someone you just met, but the passage and speakingFrench use 'Tu habites ici ?' with that same person. Lesson 4 teachingNotesEnglish[7] repeats the same rule.",
+        "suggestion": "Reword the note: 'Use vous with adults you have just met. Switch to tu when the other person uses it or suggests it (On peut se tutoyer ?). Young travellers often use tu with each other.' Either add a passage line where Lucía says 'On peut se tutoyer ?' before Emma's tu questions, or change speakingFrench to '… Vous buvez du café ou du thé ? Vous habitez ici ?' Apply the same fix to the Lesson 4 note."
+      },
+      {
+        "lesson": 5,
+        "field": "words['Do you make eggs to order?'].fr and .noteEnglish",
+        "severity": "material",
+        "issue": "'Vous faites des œufs à la demande ?' is not how French speakers say eggs cooked the way you like. 'À la demande' means 'on request'. 'Au choix' means 'your choice of' an item, not how it is cooked. The authoring note calls both options natural.",
+        "suggestion": "Use 'Vous faites les œufs comme je veux ?' (or '… à mon goût ?'). Note: 'Faire means to make or do. Comme je veux means the way I want: brouillés, au plat…'"
+      },
+      {
+        "lesson": 5,
+        "field": "passage.french line 9; authoringNotesEnglish[2]",
+        "severity": "minor",
+        "issue": "'Emma va à la boulangerie chercher du pain' drops the aller + infinitive form for the source line 'is going to go'. The note gives a wrong reason: 'va aller' is standard French and is a good example of this lesson's focus.",
+        "suggestion": "'Ensuite, Emma va aller à la boulangerie chercher du pain.' Delete the 'awkward aller + aller' claim from the authoring note."
+      },
+      {
+        "lesson": 5,
+        "field": "words['Can I sit on the terrace?'].fr; words['the terrace'].noteEnglish; passage.french line 5; speakingFrench",
+        "severity": "minor",
+        "issue": "French cafés say 's’asseoir en terrasse'. 'Sur la terrasse' is understood but less natural.",
+        "suggestion": "'Est-ce que je peux m’asseoir en terrasse ?' Note: 'En terrasse means outside at a café’s tables.'"
+      },
+      {
+        "lesson": 5,
+        "field": "teachingNotesEnglish[5]",
+        "severity": "minor",
+        "issue": "'In Oaxaca, the restroom is often at the back of the café' is an unsupported generalization. 'Ask for la salle de bain at a hotel' is wrong for France, where it means a room with a bath or shower. In Québec, 'la salle de bain' is a common way to ask for the restroom.",
+        "suggestion": "'Ask Où sont les toilettes ? In Québec, la salle de bain is also common.' Delete the Oaxaca generalization. In the restroom word note, change 'WC is more informal' to 'WC is common on signs.'"
+      },
+      {
+        "lesson": 5,
+        "field": "teachingNotesEnglish[6]; words['to go'].noteEnglish",
+        "severity": "minor",
+        "issue": "'In Québec, the same ideas are expressed with the same words' contradicts the word note. Québec usually says 'pour emporter', and France says 'à emporter'.",
+        "suggestion": "'France: sur place / à emporter. Québec: pour emporter is usual, and pour manger ici is also heard.'"
+      },
+      {
+        "lesson": 4,
+        "field": "passage.french line 5",
+        "severity": "minor",
+        "issue": "'Le pain grillé vient avec du beurre' copies English 'comes with'.",
+        "suggestion": "'Oui, le pain grillé est servi avec du beurre et de la confiture.'"
+      },
+      {
+        "lesson": 4,
+        "field": "words['Do you have fresh orange juice?'].fr; passage.french line 2; speakingFrench",
+        "severity": "minor",
+        "issue": "'Jus d’orange frais' can mean chilled juice. The source means freshly squeezed, and the draft's own term note says pressé.",
+        "suggestion": "'Vous avez du jus d’orange pressé ?' Keep frais only in 'des fruits frais'."
+      },
+      {
+        "lesson": 4,
+        "field": "focusFrench; focusEnglish; teachingNotesEnglish[3]",
+        "severity": "minor",
+        "issue": "Avoir envie de is in the focus, but no phrase, passage line or speaking task practises it. The focus says '+ infinitif', yet the note's example uses a noun (d’un thé). The partitive (du, de la, des) is explained in a word note and used throughout, but it is not in the focus.",
+        "suggestion": "Add a phrase such as 'J’ai envie d’un café.' or 'J’ai envie de manger des fruits.' Change the focus to 'avoir envie de + nom/infinitif'. Add the partitive du/de la/des to focusEnglish."
+      },
+      {
+        "lesson": 4,
+        "field": "words['the toast'].noteEnglish",
+        "severity": "minor",
+        "issue": "There is no Québec regional note, though Lessons 1–3 give regional notes for breakfast vocabulary.",
+        "suggestion": "Append: 'In Québec, toast is usually des rôties.'"
+      },
+      {
+        "lesson": 6,
+        "field": "focusEnglish; focusFrench; teachingNotesEnglish[1]",
+        "severity": "minor",
+        "issue": "Choisir (regular -ir) is in the focus, but no word, passage line or speaking task uses it.",
+        "suggestion": "Add a phrase such as 'Je choisis les chilaquiles.' or 'Vous choisissez quoi ?', or remove choisir from the focus."
+      },
+      {
+        "lesson": 6,
+        "field": "teachingNotesEnglish[0]",
+        "severity": "minor",
+        "issue": "Beginners are not told the most important present-tense sound rule: the -ent ending of ils/elles is silent, so mangent sounds like mange.",
+        "suggestion": "Add: 'The -ent of ils mangent / ils boivent is silent: je mange, tu manges, il mange and ils mangent sound the same.'"
+      },
+      {
+        "lesson": 6,
+        "field": "words['the ham'].noteEnglish; words['the fried eggs'].noteEnglish",
+        "severity": "minor",
+        "issue": "'Jambon is cooked ham' is inaccurate, because jambon cru (cured ham) is also jambon. 'Yolk uncooked' should say runny.",
+        "suggestion": "'Jambon is ham. Jambon blanc is cooked, jambon cru is cured.' For the eggs: 'usually with a runny yolk'."
+      },
+      {
+        "lesson": 6,
+        "field": "teachingNotesEnglish[6]; words['the beans'].noteEnglish",
+        "severity": "minor",
+        "issue": "'The usual word for beans in a café' is odd in a Mexico scene. French usually calls Mexican-style beans haricots noirs or haricots rouges.",
+        "suggestion": "'Beans are les haricots. Mexican beans are often haricots noirs, and menus may keep the Spanish word frijoles.'"
+      }
+    ],
+    "residualGates": [
+      "Native French teacher review of all French in L4–L6, especially register (tu/vous), the eggs-to-order phrase and naturalness of café phrasing",
+      "Regional review for Québec, Belgium and Switzerland (rôties, pour emporter, salle de bain, gruau, déjeuner)",
+      "Audio and pronunciation review of the respellings (cuillère, beurre, thé) and of liaison and silent -ent",
+      "Structural validator run: source hashes, English lines identical and in order, French line count equal to English",
+      "Schema decision: the per-lesson authoringNotesEnglish in L4–L6 differs from the module-level placement in L1–L3; the French-course display fields are not yet wired into the UI",
+      "A France or Québec café variant with local currency before any claim of general Francophone coverage; the Mexico/Oaxaca frame is preserved, and L4–L6 contain no prices",
+      "This is an AI-only review; it does not count as human or native-speaker review"
+    ]
+  },
+  "scopedFableRecheck": {
+    "verdict": "pass",
+    "materialRemaining": [],
+    "minorRemaining": [
+      "Lesson 5 words[14].fr 'Vous pouvez faire les œufs comme je les aime ?' is grammatical and comprehensible, but a server cannot know how you like them; more natural café wording is 'Vous pouvez faire les œufs comme je veux ?' or 'Je peux choisir la cuisson des œufs ?'. Correctly flagged as a native-review gate in authoringNotesEnglish[1].",
+      "Lesson 6 learner items use vous only (words[11], words[12], speakingFrench, passage); the source lesson deliberately contrasts tú (fellow guest) with usted (someone just met). The French register is self-consistent and defensible, but the tu form now appears only in teachingNotesEnglish[0]; consider one tu item (e.g. 'Tu bois du café ou du thé ?' with a fellow-guest note) so the lesson still teaches the contrast.",
+      "Lesson 6 words[7].fr 'la salsa verte' mixes the Spanish loan with a French adjective; French menus write 'salsa verde' or 'sauce verte (mexicaine)'. Note's claim that 'sauce verte' is an alternative is loose: in France 'sauce verte' usually means an herb sauce. Suggest 'la salsa verde' with note 'a Spanish loan kept as is in French'.",
+      "Lesson 4 teachingNotesEnglish[2] 'un or une becomes d'un or d'une' is imprecise: it is de + un/une that elides to d'un/d'une. Suggest 'de + une becomes d'une: j'ai besoin d'une serviette.'",
+      "Lesson 6 passage.french[0] 'pour le petit-déjeuner' is acceptable; 'au petit-déjeuner' is the more idiomatic choice and matches speakingFrench.",
+      "Lesson 6 words[15] note calls ouvrir 'irregular' while teachingNotesEnglish[3] says it follows the -er pattern in the present; both are true but the two labels may confuse a beginner. Suggest 'Ouvrir ends in -ir but takes -er endings in the present'."
+    ],
+    "residualGates": [
+      "Native French teacher review of every French field (AI check only; no human review has been done)",
+      "Regional review for France, Québec, Belgium and Switzerland terms (sur place/pour ici, rôties, porridge/gruau, bacon, haricots, salle de bain)",
+      "Audio or phonetic review of pronunciation hints (BUHR, kwee-YEHR, TAY)",
+      "Pedagogical pacing check for prendre, boire and ouvrir in a lesson-6 beginner stage, and for dropping the tu form from lesson 6 learner items",
+      "Mexico/Oaxaca setting still unadapted; France or Québec café variant with local currency outstanding",
+      "French-course display fields (titleFrenchCourseEnglish, objectiveFrenchCourseEnglish, speakingInstructionEnglish) are not wired into the app schema; confirm UI before runtime integration",
+      "Lessons 4-6 titleFrench all reuse 'Petit-déjeuner à Oaxaca'; confirm this matches the lesson 1-3 title convention",
+      "Source English title, objective and reading lines verified identical to the source at revision 7a2bef7; sourceFilesSHA256 values match the source manifest but were not recomputed against disk in this review"
+    ]
+  },
+  "scopedOpusRecheck": {
+    "verdict": "pass",
+    "materialRemaining": [],
+    "minorRemaining": [
+      "L5 words['Do you make eggs to order?'].fr: 'Vous pouvez faire les œufs comme je les aime ?' is grammatical and clear, so it is no longer material. It is still slightly unidiomatic. Café French more often says 'On peut choisir la cuisson des œufs ?' or 'Vous faites les œufs comme on veut ?'. Keep this phrase under the native-review gate.",
+      "L5 authoringNotesEnglish[1]: it calls 'à la demande' 'the literal Spanish'. 'À la demande' is French, not Spanish; it was the earlier draft's French wording. Reword to: 'replaces the earlier à la demande, which means on request'.",
+      "L5 passage.french line 6: 'Oui, vous pouvez, et les toilettes sont au fond.' Copying Spanish 'Sí, puede' sounds a little stiff. 'Oui, bien sûr, et les toilettes sont au fond.' is more natural.",
+      "L6 words['the green salsa'].noteEnglish: 'Sauce verte is an alternative in French' can mislead. In French cooking, sauce verte is a herb sauce. Say 'menus may also say sauce verte mexicaine', or drop the alternative.",
+      "L6 focus: the source covers regular -ar, -er and -ir verbs. The French version removed choisir and now has no regular -ir verb of the finir/choisir type. Ouvrir is conjugated like an -er verb. This is acceptable for a beginner, but either add one -ir example (e.g. 'Je choisis les chilaquiles.') or say in an authoring note that it was left out on purpose.",
+      "L6 teachingNotesEnglish[0]: 'Regular -er verbs drop the ending and add:' should say 'drop -er and add -e, -es, -e, -ons, -ez, -ent'.",
+      "L6 words['the oatmeal'].noteEnglish: the Québec word gruau appears only in an authoring note. Move it into the learner note: 'In Québec, gruau is common.'",
+      "L4 teachingNotesEnglish[3]: avoir envie de is now labelled an optional extension and is out of focusFrench, which resolves the inconsistency. No phrase or passage line practises it, so it could be cut entirely."
+    ],
+    "residualGates": [
+      "Native French teacher review of all L4–L6 French. Check in particular the eggs-to-order phrase, 'Il faut payer à la caisse ?' as a question to a server, and the naturalness of the café dialogue.",
+      "Regional review for Québec, Belgium and Switzerland: rôties, pour ici / pour emporter, salle de bain, gruau, and déjeuner vs petit-déjeuner.",
+      "Audio and pronunciation review of the respellings (BUHR, TAY, kwee-YEHR) and of silent -ent and liaison (vous avez, nous allons, mes enfants).",
+      "Structural validator run: source hashes, English lines identical to the source and in order, and the same number of French and English lines in each passage.",
+      "Schema decision: authoringNotesEnglish is per lesson in L4–L6 but module-level in L1–L3, and the French-course display fields are not yet wired into the UI.",
+      "A France or Québec café variant with local dishes and currency is still needed before any claim of general French-speaking coverage. The Oaxaca frame is kept, and there are no prices.",
+      "This is an AI-only re-review. It does not count as human or native-speaker review, and the draft stays reviewed:false."
+    ]
+  },
+  "finalFableNaturalnessEditCheck": {
+    "verdict": "fail",
+    "materialRemaining": [
+      "Lesson 6: word list teaches 'la salsa verde' (Spanish loan, per the new note), but passage line 1 still reads 'avec de la salsa verte', a Spanish-French hybrid that matches neither the taught term nor standard French; the taught vocabulary item does not appear in the reading. Fix: 'avec de la salsa verde'."
+    ],
+    "minorRemaining": [
+      "Lesson 5: 'Je peux choisir la cuisson des œufs ?' is a natural paraphrase (can I choose how the eggs are cooked) rather than a literal rendering of 'Do you make eggs to order?'; acceptable, but the learner-facing English anchor and French are not one-to-one.",
+      "Lesson 5 passage: 'Oui, bien sûr' for 'Yes, you can' drops the pouvoir echo (vous pouvez) that the lesson focuses on; pre-existing, not introduced by this edit.",
+      "Lesson 5 passage: 'prépare le café' for 'makes coffee' bypasses faire even though faire is the lesson focus; pre-existing.",
+      "Lesson 4 passage: 'des fruits frais au petit-déjeuner' for 'with breakfast' is a slight shift (at breakfast); meaning preserved.",
+      "Lesson 6 passage: 'Lucía : Je bois du café' matches 'I drink coffee'; fine, but the speaking instruction says 'say what you eat' while source says 'what you eat for breakfast'; speakingFrench includes 'au petit-déjeuner' so meaning is kept."
+    ],
+    "residualGates": [
+      "Native French naturalness review (human) still open per authoringNotesEnglish; cuisson-des-œufs phrase and il faut payer à la caisse flagged for confirmation.",
+      "Typographic check: French punctuation uses ASCII spaces before ? and : rather than narrow no-break spaces; decide policy before publish.",
+      "Run scripts/validate-french-travel-breakfast-pilot.py against the corrected draft after the salsa fix.",
+      "France or Québec variant with local dishes and currency not yet produced; draft remains Oaxaca-anchored by design.",
+      "Draft state remains translation-draft with reviewed:false; promotion to reviewed requires the material fix above plus re-run of this recheck."
+    ]
+  },
+  "fableSalsaLineRecheck": {
+    "verdict": "pass",
+    "materialRemaining": [],
+    "notes": "On disk, vocabulary line 359 'la salsa verde' and passage line 427 'avec de la salsa verde' now match; 'salsa verte' no longer appears. Partitive 'de la' is correct with the feminine loan noun. Passage renders the English source line faithfully (Emma / has / chilaquiles / with green salsa / for breakfast / at her hotel)."
+  },
+  "correctedFindings": [
+    "à + le contracts to au; de + le to du",
+    "Québec counter terms differ from France",
+    "freshly squeezed juice is pressé",
+    "vous for unfamiliar adult guests",
+    "eggs-to-order phrasing adjusted",
+    "salsa verde vocabulary and passage now match"
+  ],
+  "openGates": [
+    "native French teacher review",
+    "regional France/Québec/Belgium/Switzerland review",
+    "recorded audio and pronunciation review",
+    "six-mode and Reader/cards/speaking/dictionary runtime wiring",
+    "iPhone/Watch V4 integration and TestFlight",
+    "source-specific Oaxaca/Mexico/peso adaptation to Francophone café settings"
+  ],
+  "reviewed": false,
+  "released": false
+}

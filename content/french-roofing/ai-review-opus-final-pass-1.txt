@@ -1,0 +1,63 @@
+# AI verdict: FAIL
+
+Two of the four prior items are fixed. The numbers item is still open, and the process-text item is open in one sentence. Both sit in the same field, L2 `grammarTeachingEnglish`, so one rewrite closes both.
+
+I reviewed only the draft as pasted. I did not run `scripts/validate-french-roofing-pilot.py` or check the source hashes in this pass.
+
+## The four prior items
+
+| # | Prior item | Status | What the draft shows |
+|---|---|---|---|
+| 1 | English in the L1 spoken opener (Fable) | **Resolved** | The English aside "(nouvelle if speaking as a woman)" is gone. The feminine form now appears in `grammarTeachingEnglish` ("A woman says je suis nouvelle"). The quoted « hammer » and « harness » are the English words the learner is asking about, which is what the task asks for. |
+| 2 | Process text in lesson fields (Fable and Opus) | **Mostly resolved, one sentence left** | The liability and process notes are now short learner-facing disclaimers ("verify with the intended crew"; "This is vocabulary, not safety approval"). The release and sign-off text sits in `reviewNotesEnglish`, where it belongs. One leak remains: L2 `grammarTeachingEnglish` begins "Teach 0 zéro, 1–16 as base words…". That is an instruction to an author or teacher, written into text the learner reads. |
+| 3 | L3 weather line: reading and native didn't match (Fable) | **Resolved** | The French "Il fait froid le matin." now matches the English "It's cold in the morning." The original "The air is cold in the morning." is kept in `sourceNative`. The grammar text now teaches faire for weather. |
+| 4 | Numbers 0–100 not fully taught (Opus) | **Not resolved** | See the next section. |
+
+## What is still wrong with the numbers (material)
+
+The L2 objective and grammar focus both say "French numbers 0 to 100". The teaching text does not deliver that:
+
+- **Missing numbers:** 40 quarante, 50 cinquante and 100 cent are never given, although 100 is the stated end of the range.
+- **1–16 named but not shown:** the text says "1–16 as base words" but never lists un through seize, so the learner has nothing to learn from.
+- **Wrong rule for quatre-vingts (new error from the edit):** the text says "the s of quatre-vingts drops before dix." The s actually drops before any number that follows it: quatre-vingt-un, quatre-vingt-trois, quatre-vingt-dix. As written, a learner will spell quatre-vingts-trois.
+- **No warning about 81 and 91:** the text teaches et in vingt et un and soixante et onze but never says that 81 and 91 take no et (quatre-vingt-un, quatre-vingt-onze). A learner will reasonably produce *quatre-vingt et un*, which is wrong.
+- **No hyphen rule:** nothing says compounds are hyphenated (vingt-deux, trente-cinq).
+
+Suggested replacement for the numbers part of L2 `grammarTeachingEnglish`. It also removes the "Teach" wording:
+
+> Numbers 0–16 are single words: zéro, un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize. 17–19 build on dix: dix-sept, dix-huit, dix-neuf. Tens: vingt, trente, quarante, cinquante, soixante. Other numbers are joined with a hyphen (vingt-deux, trente-cinq). For 21, 31, 41, 51 and 61, use et instead: vingt et un. 71 is soixante et onze. 70–79 count on from soixante: soixante-dix, soixante-douze. 80 is quatre-vingts; the s drops when another number follows: quatre-vingt-un (no et), quatre-vingt-cinq. 90–99 run from quatre-vingt-dix to quatre-vingt-dix-neuf; 91 is quatre-vingt-onze, again with no et. 100 is cent.
+
+Keep the rest of the field from "For clock time say il est sept heures…" onward unchanged.
+
+## Other new material issues
+
+None found. I rechecked the edited grammar notes:
+
+- **L1:** the sound notes are accurate (the nasal vowels in bonjour, dans and besoin, the t sounded in dit-on, and the silent e in vite and parle).
+- **L2:** "un pouce et demi" and "une heure et demie" are both correct.
+- **L3:** the c'est versus il/elle est rule, the note that chef d'équipe drops its article after il est, the j'ai chaud / j'ai froid trap, and the note that only some feminine forms change the sound are all correct.
+
+## Minor items (not blocking)
+
+- **L1 bardeau:** the English gloss "(also roof tile)" contradicts the note, which says not to treat bardeau and tuile as the same thing. Suggest the gloss "the shingle".
+- **L3 monter example:** "On monte quand le toit est sec." uses sec, which the lesson never teaches. The sentence also reads like a safety rule, so the safety reviewer should look at it.
+- **L2 time:** "il est une heure" (singular, no s) is not mentioned.
+- **Apostrophes:** straight ' and curly ’ are mixed across fields, and L3 `grammarTeachingEnglish` ends with a trailing space.
+
+`★ Insight ─────────────────────────────────────`
+- The "drops before dix" rule shows how a partial fix can create a new error: the edit added one correct example and implied a wrong general rule. Recheck any new rule the edit states, not only the example it adds.
+- Text that starts with "Teach…" can be caught automatically. A validator check that rejects imperative author verbs (Teach, Add, Note that the reviewer) in learner-facing English fields would stop this kind of leak from coming back.
+`─────────────────────────────────────────────────`
+
+## Human, trade and safety gates (separate from the AI verdict; none approved)
+
+| Gate | Status |
+|---|---|
+| Owner ruling on which French the course teaches (France, Quebec or international) and how formal it is | Open |
+| Blind native French teacher review (France and Quebec) | Open |
+| Roofing trade review of the terms (bardeau/tuile, paquet, chef d'équipe/contremaître, units) | Open |
+| Owner ruling on the source changes for French (L1 Spanish→French references, L3 Ser/Estar→être/avoir/faire) | Open |
+| Qualified safety review of "le harnais est prêt et il est sans danger", the sans danger/sécuritaire choice, and the monter/sec example | Open |
+| Process: the draft model is Haiku, but the project standard is Opus plus blind review | Open |
+
+`reviewed: false` should stay false.

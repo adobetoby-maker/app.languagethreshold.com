@@ -1,0 +1,38 @@
+All 12 prior material findings and most minor ones are resolved in the corrected draft. The on-disk file matches the inline draft on every checked item, the subset SHA matches `content/french-roofing/source-english-foundation-1-3.json`, and the validator passes. Three material items remain open, two of them new.
+
+**Open material issues (AI language scope)**
+
+1. **L1 speakingFrenchOpening.** The French model line now contains English: "Je suis nouveau (nouvelle if speaking as a woman)." The learner is meant to say this line aloud, and the English breaks any read-aloud or answer comparison. The feminine form is already taught in grammarTeachingEnglish, so drop the parenthetical from the opener.
+
+2. **Process text inside lesson fields.** L3 regionalNotesEnglish item 3 is a release gate ("A qualified roofing safety reviewer must approve..."). L1 regionalNotesEnglish item 1 describes the adaptation process, and L2 item 2 says "this pilot". The last sentence of L3 grammarTeachingEnglish is a liability disclaimer. The validator does not define whether these fields render to learners. If they do, this is the same defect as prior finding 14. Move gate and provenance text to the top-level scopeNotesEnglish or a new reviewGates field.
+
+3. **L3 reading line 4 pairing.** French "Il fait froid le matin." is now paired with native "The air is cold in the morning." The native no longer translates the French, and no sourceNative was recorded. Either adapt native to "It's cold in the morning." with sourceNative retained, or revert the French to "Le matin, l'air est froid." so the être drill holds.
+
+**Minor new findings**
+
+- L2 verb example "Le mur mesure dix pieds, soit environ trois mètres." differs from reading line 6 ("ou à peu près") for identical English. Untaught `soit`. Align to the reading.
+- L3 grammarTeachingEnglish still cites "sûre", and the "sans danger" note mentions `sûr`, but the word is no longer taught. Replace with mouillée alone.
+- Reading "je suis le chef d'équipe" versus teaching "Il est chef d'équipe has no article." Both are correct, but one line explaining the article with "the" would prevent a learner question.
+- `sec` in the monter example is untaught. Source requires it, so add a gloss.
+- Apostrophes are mixed across the file. Normalize to one form for answer matching.
+
+| Apostrophe form | Count |
+|---|---|
+| Curly | 18 |
+| Straight | 34 |
+
+**Source-English adaptations found**
+
+- L1 reading line 5, L1 speakingEnglish, L1 objective: Spanish changed to French. Only the reading line keeps a sourceNative record.
+- L3 title "Ser and Estar" became "Être: People, Conditions and Location". L3 objective and both être verb meanings were rewritten. The second meaning dropped "location" from the source.
+- These five adaptations have no retained source string in the draft. The source file and matching SHA cover provenance, so this is acceptable if the source file is the agreed record. State that in scopeNotesEnglish.
+
+**Human gates (not AI-clearable)**
+
+- Native review from France and Quebec on register, `bardeau`/`paquet`, and the regional notes.
+- Roofing trade review of tool and unit terms.
+- Qualified safety review of the harness "sans danger" line.
+- Owner ruling on the adaptation policy above and on the teaching locale.
+- Process: draftModel is Haiku against the Opus plus blind-review standard. `reviewed` stays false.
+
+Verdict: not PASS. Items 1 through 3 need fixes or rulings before native review.

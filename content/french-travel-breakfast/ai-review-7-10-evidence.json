@@ -1,0 +1,111 @@
+{
+  "scope": "French Travel Breakfast Foundation 7–10 translation draft; exact English source anchors, aligned readings, French fidelity/curriculum; AI review only",
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "draftSHA256": "9e8d6b638555a66b5620ee4d3b41423f928cfd2efd1f042c1460b671c44b6096",
+  "draftModel": "claude-haiku-5-5 via Claude CLI OAuth",
+  "draftResult": "Completed; initial exact source pairs passed",
+  "reviewers": [
+    {
+      "model": "claude-opus-5-5",
+      "scope": "Initial curriculum, safety, travel register and source pairing",
+      "result": "Failed initial; four material findings",
+      "findings": [
+        {
+          "lesson": 8,
+          "field": "passage.french[6], passage.french[7]",
+          "issue": "The safety hedge is added to the end of Luis's own claim. It reads as a stray label rather than something he says, and the claim itself is still stated as fact. He has also just said he would ask the kitchen.",
+          "correction": "[6] \"Luis : Normalement, les chilaquiles verts sans crème ni fromage n'ont ni viande ni produits laitiers, mais je vérifie avec la cuisine.\" [7] \"Luis : Les tortillas de maïs sont normalement sans gluten, mais je demande à la cuisine pour les allergies.\""
+        },
+        {
+          "lesson": 8,
+          "field": "passage.french[5]; words['the nuts'].fr/noteEnglish",
+          "issue": "When an allergy is involved, 'des noix' can be read as walnuts only. French allergen labels use 'fruits à coque' for tree nuts.",
+          "correction": "Change passage.french[5] to \"Luis : Je vais demander à la cuisine s'ils utilisent des fruits à coque ou des cacahuètes.\" Keep la noix in the word list, and add to the note: \"For allergies, ask about les fruits à coque (all tree nuts), the word used on French allergen labels.\""
+        },
+        {
+          "lesson": 10,
+          "field": "words['the emergency'].noteEnglish; authoringNotesEnglish[2]",
+          "issue": "The reading is set in Mexico, but the note gives numbers only for France/Europe (112) and Québec (911) and leaves out Mexico. The authoring note also says no emergency numbers are stated as facts, which contradicts the word note.",
+          "correction": "Change the note to: \"Une urgence means an emergency. This reading is set in Mexico, where the emergency number is 911. In France and the rest of the EU it is 112, and in Québec it is 911. Check the local number before you travel.\" Change the authoring note to: \"Emergency numbers 911 (Mexico, Québec) and 112 (EU) are stated in the word note and need verification before publication.\""
+        },
+        {
+          "lesson": 10,
+          "field": "words['How do you say this in Spanish?']",
+          "issue": "The word card has no French-course English field. If the app displays word.en, the learner sees 'in Spanish' next to 'en français'. The sourceEnglishPolicy only covers the title, objective, focus and speaking fields.",
+          "correction": "Add enFrenchCourse: \"How do you say this in French?\" (or extend sourceEnglishPolicy to define a word-level display override), and make sure the runtime reads that field instead of en."
+        }
+      ],
+      "minorFindings": [
+        {
+          "lesson": 7,
+          "field": "authoringNotesEnglish[1]",
+          "correction": "The source does not name Mexico, and 'pesos-free' is meaningless. Rewrite as: \"Setting: a hotel with café de olla and concha, which implies Mexico. Those terms are kept as loan terms.\""
+        },
+        {
+          "lesson": 7,
+          "field": "passage.french[5]",
+          "correction": "Rosa's answer to 'how much' is unclear. Use \"Rosa : Le petit-déjeuner est inclus, et il se termine à 11 heures.\""
+        },
+        {
+          "lesson": 7,
+          "field": "words['which?'].noteEnglish",
+          "correction": "Add: \"Lequel also changes form: laquelle, lesquels, lesquelles.\""
+        },
+        {
+          "lesson": 8,
+          "field": "words (phrase) or teachingNotesEnglish",
+          "correction": "Add the standard allergy statement \"Je suis allergique aux cacahuètes.\" This teaches à + les = aux."
+        },
+        {
+          "lesson": 9,
+          "field": "teachingNotesEnglish[3]; words['the tip'].noteEnglish",
+          "correction": "In France, service is included in the price by law (service compris), so the draft's 'often included' is inaccurate. Also, the reading is set in Mexico, where a 10–15% tip is customary. Teach both: \"In France, service is included by law and extra is optional. In Mexico, a 10–15% tip is customary.\" Have a native speaker verify this."
+        },
+        {
+          "lesson": 9,
+          "field": "words['Can you give me a glass of water?'].fr",
+          "correction": "The focus says Pouvez-vous is taught, but no card uses it. Use \"Pouvez-vous me donner un verre d'eau ?\" for the 'Can you' anchor and keep Pourriez-vous for the 'Could you' anchor."
+        },
+        {
+          "lesson": 9,
+          "field": "teachingNotesEnglish",
+          "correction": "Add that \"Gardez la monnaie\" is also natural and polite. Some vous imperatives are normal at a café, so the lesson should not suggest they are rude."
+        },
+        {
+          "lesson": 10,
+          "field": "passage.french[6]",
+          "correction": "Foundation 6 uses 'la salsa verde' as a loan term. Use \"de la salsa verde\" here as well so the module stays consistent."
+        },
+        {
+          "lesson": 10,
+          "field": "focusFrench",
+          "correction": "Foundation 10 does not teach 'qu'est-ce que c'est'. Replace it with 'quels sont les ingrédients'."
+        },
+        {
+          "lesson": 10,
+          "field": "authoringNotesEnglish[3]",
+          "correction": "The source does not place Café Luna in Oaxaca. Say that the setting is inferred from the module."
+        }
+      ],
+      "corrections": "Applied fixes to allergy dialogue and nuts note; removed unverified emergency numbers; added learner-facing English override for French-course card; corrected minor lesson wording. Exact source pair validator passed afterward.",
+      "recheck": "Attempted scoped Opus CLI recheck but budget_exhausted without findings; NOT passed."
+    },
+    {
+      "model": "claude-fable-5-1",
+      "scope": "French term/phrase/passage fidelity, full and two narrowed batches",
+      "result": "No completed review. Full attempt and both narrower attempts stopped budget_exhausted without findings. Do not infer approval.",
+      "recheck": "Pending successful independent fidelity review."
+    }
+  ],
+  "validation": [
+    "scripts/validate-french-travel-breakfast-pilot.py passed exact source hashes and every English term/phrase/reading pair for Foundation 1–10",
+    "All new lesson reviewed flags false"
+  ],
+  "openGates": [
+    "Independent Fable French fidelity review and Opus correction recheck not complete",
+    "Qualified native French and travel-domain review",
+    "French-course word display override enFrenchCourse requires runtime wiring",
+    "France/Québec/Belgium variants, recorded audio and listening review",
+    "Core/Master, six modes, Reader, cards, dictionary, offline, native apps and TestFlight not built"
+  ]
+}

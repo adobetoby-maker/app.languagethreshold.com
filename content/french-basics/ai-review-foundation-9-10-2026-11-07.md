@@ -1,0 +1,10 @@
+# French 101 Foundation 9–10 AI review — 2026-11-07
+
+Exact pair: French target / English support. Source objectives and subset hashes are recorded in `foundation-9-10-draft.json` and checked by `scripts/validate-french-basics-draft.py`.
+
+- Draft: Claude Haiku via CLI OAuth, from the English progression for questions/negation and asking for help.
+- Independent fidelity review: Claude Fable 5.1 via CLI OAuth. Initial verdict **FAIL**: circular help dialogue, Spanish *ser/estar* gloss leakage, missing *nouvel* before a masculine vowel sound, unnatural objectless *pratiquer*, and grading that accepted a written answer without *ne*. The dialogue, cards and checks were corrected. Its first recheck **PASSED** on material findings, and the final narrow recheck **PASSED** after subsequent edits.
+- Independent curriculum/grammar review: Claude Opus 5.5 via CLI OAuth. Initial verdict **FAIL**: missing *n’* elision, missing yes/no question and negation cards, missing gendered answers, false review claims, confusing repair flow, and a polite form not taught. Those were corrected. Its first recheck found three remaining material issues: *il y a* was not cited to its Lesson 7 introduction, the article returning with an adjective after a role noun was not explained, and Lesson 10 had duplicate/stale cards. All three were corrected; the final narrow Opus recheck **PASSED** with no material issue.
+- After final narrow checks, minor editorial fixes broadened the adjective/article explanation, added *Merci beaucoup !* and *un mot* cards, and clarified the Lesson 9/10 help text. These edits passed structural validation but were not separately sent for another AI review.
+
+Residual minor limits: French narrow no-break punctuation spacing remains a module-wide presentation decision; the listening checks are honest script-only dictation preparations without recorded audio; native French and France/Québec review are still pending. This is **AI review**, not human approval. Both lessons remain `reviewed:false` and `state:authored-draft`; no runtime, offline or audio registration is claimed. Provider usage cost was not returned by the CLI transcript.

@@ -1,0 +1,26 @@
+**AI scope verdict: FAIL, on one remaining item.** Reviewed the pasted JSON only, no files touched, no human approval claimed.
+
+**Prior open items**
+
+- **L1 English in spoken opener (Fable): resolved.** The parenthetical "(nouvelle if speaking as a woman)" is gone from the opener. The gender point now lives in the grammar teaching. The quoted English tool words "hammer" and "harness" are the words being asked about, which is the correct use of Comment dit-on.
+- **L3 weather reading/native mismatch (Fable): resolved.** Target "Il fait froid le matin" now pairs with native "It's cold in the morning", and the original "The air is cold" line is preserved in sourceNative.
+- **Process text in lesson fields (Fable and Opus): mostly resolved.** The liability and workflow notes moved to reviewNotesEnglish and scopeNotesEnglish. What remains in learner-facing fields is a disclaimer in L3 regional notes and the harness word note, which reads as learner guidance and is acceptable. One new leak is covered under the item below.
+- **Numbers 0 to 100 (Opus): not resolved.** L2 grammarTeachingEnglish now reads "Teach 0 zéro, 1–16 as base words, 17–19 as dix-sept..." This is an instruction to the author, not teaching for the learner. The 1 to 16 words are still never listed, and quarante, cinquante and cent are absent, while the grammar focus still promises 0 to 100. Compounds 21 to 99 are also not shown except vingt et un and soixante et onze, and the no-et forms quatre-vingt-un and quatre-vingt-onze are missing.
+
+Minimum fix for the failing item: replace "Teach 0 zéro, 1–16 as base words" with the actual list (zéro, un, deux... seize), add quarante, cinquante and cent, state the hyphen rule for vingt-deux through soixante-neuf, and add that 81 and 91 take no et. Alternatively narrow the grammar focus to the numbers actually used in the reading.
+
+**New issues from the edits**
+
+- No new material errors found. French forms checked line by line: aspirated h on harnais with du harnais, dit-on liaison, "un pouce et demi" versus "une heure et demie", quatre-vingts s-drop, être paradigm now includes vous êtes, c'est versus il est article rule, avoir chaud and faire froid split. All correct.
+- Minor: L1 regional note "verify with the intended crew" reads as author-facing wording. Minor: curly apostrophe in the répéter note and several L2 and L3 strings against straight apostrophes elsewhere. Minor: L3 counts être twice as separate verb entries plus monter, so the lesson has two distinct verbs. This mirrors the ser and estar source and is noted in reviewNotes, but needs a spec ruling on whether duplicate infinitives satisfy the three-verb requirement.
+
+**Human, trade and safety gates (still open, not AI-approvable)**
+
+- Owner ruling on target variety and register (France versus Quebec forms are called out in notes but not decided).
+- Blind native French review of all three lessons.
+- Roofing trade review of bardeau, paquet, chef d'équipe, and the imperial unit notes.
+- Qualified safety review of the L3 line "le harnais est prêt et il est sans danger" and of the sans danger versus sécuritaire word choice.
+- Owner ruling on source-locked items (Spanish-to-French adaptations recorded in sourceNative).
+- Process gate: draftModel is still Haiku against the Opus plus blind review standard.
+
+`reviewed` should stay false.

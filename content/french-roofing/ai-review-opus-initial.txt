@@ -1,0 +1,125 @@
+I reviewed the pasted JSON as given. I opened no repo files and changed nothing. The line numbers below are 1-based positions in each lesson's `reading.target` array.
+
+## Material findings
+
+**M1 — L1 reading line 5, `speakingEnglish`, `speakingFrenchOpening`: the "how do you say" lines ask about the wrong language and don't make sense.**
+- Line 5 is `Comment dit-on « échelle » en espagnol ?`. A French learner is asking, in French, for the Spanish word for a French word.
+- The speaking opener asks `Comment dit-on « marteau » et « harnais » ?`. That asks for words the learner just used.
+- Fix line 5: `Comment dit-on « ladder » en français ?`
+- Fix the opener: `… Comment dit-on « hammer » et « harness » en français ?`
+- Change `speakingEnglish` to "…in French". The regional note on this can then go.
+- Needs gate G4, because the `native` text is locked to the English source.
+
+**M2 — L1 `grammarTeachingEnglish`: the silent-letter rule is wrong.**
+- The draft says "toit, parle, vite, and Comment lose their final consonant or e". In `vite` and `parle` the t and l are pronounced; only the e is silent. In `dit-on` the t is pronounced too.
+- Fix: "Final consonants are often silent (toit, Comment). A final e is silent but the consonant before it is said (vite, parle). In dit-on the t is sounded and links to on."
+
+**M3 — L1 `words[9].noteEnglish`: the speech claim is inaccurate.**
+- The draft says "Inversion dit-on is the natural form in speech". In fact `Comment dit-on… ?` is the standard set phrase, and casual speech often uses `Comment on dit… ?`.
+- Fix: "Standard set phrase. In casual speech you will also hear Comment on dit… ?"
+
+**M4 — All lessons, `verbs`: the third source verb is missing from every lesson.**
+- The source has 3 verbs per lesson and the draft has 2.
+- L2 drops "to start", even though `commencer` is in its reading, phrase and opener.
+- L3 drops "to go up, to climb", the verb in its only line about waiting for a dry roof. What's left in L3 is two entries for the same verb, être.
+- Add:
+  - L1: `répéter` – "Mon collègue répète le mot."
+  - L2: `commencer` – "On commence à six heures du matin."
+  - L3: `monter` – "On monte quand le toit est sec." (You will go up, to climb.)
+- If the pilot deliberately caps verbs at 2, that needs an owner ruling (G4). Even then, L3 should keep `monter` rather than two être entries.
+
+**M5 — L2 lines 3–4 and `speakingFrenchOpening`: they use a construction the lessons never teach.**
+- `Combien de paquets nous faut-il… ?`, `Il nous faut…` and `Il me faut…` use impersonal falloir plus inversion. That is written-register French and it isn't taught anywhere.
+- Reuse `avoir besoin de` from L1 instead:
+  - Line 3: `On a besoin de combien de paquets aujourd'hui ?`
+  - Line 4: `On a besoin de trente paquets de bardeaux.`
+  - Opener: `J'ai besoin de vingt paquets de bardeaux.`
+
+**M6 — L2 `grammarTeachingEnglish`: `on` is used everywhere but never explained.**
+- `on` appears in the title, line 1 and a phrase, with no explanation. Add: "On is everyday spoken 'we'. It takes the il/elle verb form (on commence)."
+
+**M7 — L2 `words[9].noteEnglish`: the note is garbled.**
+- It reads "Il est plus heure (sept heures)". Fix: "Il est + number + heures: Il est sept heures."
+
+**M8 — L3 reading line 4: the weather sentence uses the wrong verb.**
+- `L'air est froid le matin.` is not how French says this; weather uses faire. This is the classic English-speaker mistake, and it belongs in the "to be" lesson.
+- Fix: `Il fait froid le matin.`
+- Add a teaching sentence: "Weather uses faire: il fait froid, il fait chaud."
+
+**M9 — L3 `words[5]` and `words[6]` (hot, cold): the most predictable learner error is not covered.**
+- Learners will say `je suis chaud` for "I'm hot". In French that carries a slang or sexual meaning.
+- Add to both notes: "For a person: j'ai chaud / j'ai froid (avoir), not je suis chaud."
+
+**M10 — L3 `grammarTeachingEnglish`: the agreement claim is wrong.**
+- The draft says "the spelling changes are written even when silent". That's only half true:
+  - For prête, chaude, froide and glissante, the feminine makes the final consonant audible.
+  - Only mouillée and sûre are spelling-only changes.
+- Fix it to say exactly that.
+
+**M11 — L3 `words[1]` "safe" = `sûr`: the word choice is ambiguous.**
+- `sûr` mostly means "sure" (je suis sûr = "I'm sure"). In Quebec, `sécuritaire` is the usual word for "safe".
+- Minimum fix: add to the note "Also means 'sure'. In Quebec, sécuritaire is common for 'safe'."
+- Which word is primary depends on gate G1.
+
+**M12 — L3 `titleEnglish`, `grammarFocusEnglish`, last sentence of `grammarTeachingEnglish`: wrong title, and author instructions in learner text.**
+- A French learner sees the title "Ser and Estar". Suggested display title: "Être: Who, What and Conditions" (G4).
+- Author instructions have leaked into learner-facing text: "Do not teach ser or estar in this lesson" and "do not add safety rules that are not in the lesson". Move both to an internal review-notes field.
+
+**M13 — L3 reading line 6: `Le matériel est-il prêt ?` uses a question form nobody has taught.**
+- That is complex inversion. The phrase list teaches `est-ce que`.
+- Fix: `Est-ce que le matériel est prêt ?`
+
+**M14 — Program level: the target variety of French is undecided, and the draft mixes them.**
+- Quebec usage: `bardeau`, `pieds`/`pouces`, `livres`.
+- France or written usage: `soit`, `nous faut-il`, `Le matériel est-il`.
+- Register is also unsettled: `s'il vous plaît` to a coworker is formal, and Quebec crews usually use tu.
+- An owner ruling is needed before native review (G1).
+
+## Minor findings
+
+- **L1 opener, `Je suis nouveau`:** add "(nouvelle if you're a woman)".
+- **L1 `words[11]`:** `Redites, s'il vous plaît` is uncommon. Use `Pouvez-vous répéter ?` instead.
+- **L1 teaching examples:** rue, tout and nous are not lesson words. Use lesson words instead: `du`, `sur`, `pour`, `clou`.
+- **L2 `words[1].noteEnglish`:** "Quebec and France both use heures for hours" adds nothing. Drop it.
+- **L2 `words[4]`:** "historically meant 500 g" should say "colloquially means 500 g in France today".
+- **L2 line 6, `soit environ`:** this is formal. Spoken: `ou à peu près trois mètres`.
+- **L2 line 7 and opener, `fait un pouce et demi (de long)`:** faire + measurement + `de long` is not explained. Add one line.
+- **L2 teaching:**
+  - Add that the s in `quatre-vingts` drops in `quatre-vingt-dix`.
+  - Add that `demi` doesn't agree after `et` (`un pouce et demi`, `une heure et demie`).
+  - "English imperial units are kept as US job words" is confusing, because pied and pouce are French words. Reword.
+- **L3 teaching:**
+  - The examples given for "il est / elle est" don't actually use il est. Use `Il est mouillé.` and `Elle est prête.`
+  - Add the contrast `il est chef d'équipe` (no article) vs `c'est le chef`. That is the real "be" trap in French.
+- **L3 `words[7]`:** Quebec crews also say `le boss`. Add it to the regional note.
+
+## Safety and standards check
+
+The drafts don't invent any standard, certification or regulator. The harness and `sûr` notes correctly hand those decisions to the employer and local authority.
+
+One safety item needs specialist review, and I'm not judging it myself. L3 line 7, `le harnais est prêt et il est sûr`, shows a crew member saying out loud that a harness is safe. That comes from the source. A qualified reviewer should decide whether the lesson should say that at all.
+
+## Review gates
+
+These need qualified people. AI review can't clear them.
+
+- **G1 – Owner ruling on the target variety** (Quebec, France or African French) and crew register (tu or vous). Do this before native review.
+- **G2 – Native French reviewer, blind**, in the chosen variety.
+- **G3 – Roofing trade reviewer with experience on French-speaking crews.** Terms to check:
+  - `bardeau (d'asphalte)`
+  - `paquet` vs `ballot`
+  - `harnais (de sécurité)`
+  - `corde` vs `ligne de vie`
+  - `chef d'équipe` / `contremaître` / `boss`
+- **G4 – Owner or curriculum ruling on adapting source-locked items:** the Spanish-language references, the "Ser and Estar" title, and the verb count.
+- **G5 – Qualified safety reviewer** for the L3 harness line and for `sûr` vs `sécuritaire` wording.
+- **G6 – Process.** The draft was written with Claude Haiku (`draftModel`). The project standard is Opus generation plus blind native review. `reviewed` must stay false.
+
+`★ Insight ─────────────────────────────────────`
+- Spanish's ser/estar split doesn't carry over to French. The real "be" traps in French are être vs avoir (j'ai froid), être vs faire (il fait froid), and c'est vs il est. A lesson ported from Spanish should teach those instead.
+- When adjectives change for the feminine, French sometimes changes the sound (prêt → prête) and sometimes only the spelling (sûr → sûre). Teaching all of them as silent builds wrong pronunciation early.
+`─────────────────────────────────────────────────`
+
+## Verdict: FAIL
+
+There are 14 material findings. The biggest are M1, M4, M8, M9 and M10. Gates G1–G6 are open.

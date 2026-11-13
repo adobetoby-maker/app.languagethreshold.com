@@ -1,0 +1,35 @@
+Review complete. Verdict and findings below.
+
+**Verdict: FAIL** (AI language scope). All French target sentences, verb forms, question structures, negations, vous requests and the 911 handling are correct. The failures are in grammar explanations and stored term fields that would teach a wrong rule or display a non-French string. Validator passes structurally and pins verb `meaningEnglish` and `exampleEnglish` to the source, so findings 4 and 5 must be fixed with a note, not by editing the pinned text.
+
+**Material findings**
+
+1. Lesson 8, `grammarTeachingEnglish`. Original: "After any negation, and after quantities such as plus de, moins de and un peu de, the article du, de la, des or un/une becomes de". As stated, the rule produces "Ce n'est pas d'urgence", and lesson 10 correctly models "Ce n'est pas une urgence". Proposed: "After pas, jamais, plus or rien with most verbs, du, de la, des and un/une become de (d' before a vowel): Je n'ai pas de marteau; Il n'y a plus de clous. Not after être: Ce n'est pas une urgence. Quantity words take de plus a bare noun: plus de clous, moins de bardeaux, un peu d'eau."
+
+2. Lesson 9, `grammarTeachingEnglish`. Original: "For -er verbs, drop the -ez... and keep -ez for the command: vous attendez becomes Attendez". Self-contradictory, and attendre is an -re verb. Proposed: "For regular verbs, drop the pronoun vous and keep the vous form: vous attendez becomes Attendez; vous apportez becomes Apportez."
+
+3. Lesson 9, `grammarTeachingEnglish`. Original: "In a negative command it stays before the verb: Ne touchez pas." The example has no object pronoun, so it does not show the rule. Proposed: "Ne le touchez pas" or "Ne me le passez pas".
+
+4. Lesson 8, verb `utiliser`, `meaningEnglish` "to use, to wear" (pinned to source). Utiliser never means to wear; the correction sits only in a regional note. Proposed: add `noteEnglish` on the verb entry: "Utiliser means to use. For wearing gear, French uses porter: Il faut porter le harnais."
+
+5. Lesson 10, verb `vouloir dire`. `exampleFrench` "Que veut dire le mot « chute » ?" against pinned `exampleEnglish` "What does the word caída mean?", while `reading.native` was adapted to "chute". The card pairs chute with caída with no explanation on the card. Proposed: add `noteEnglish` on the verb entry: "The English keeps the Spanish source word caída. Chute is the French word for fall." Also confirm one policy for adapting versus preserving the Spanish word across `reading.native` and verb examples.
+
+6. Lesson 9, word `excuse me (to pass)`, `fr` "excusez-moi (pour passer)". The English gloss was translated into the target string; it is not a French term and will display or voice as one. Proposed: `fr` "excusez-moi", move "(to pass)" into `noteEnglish`. Same convention issue for `fr` fields "combien (de)", "plus (de)", "moins (de)", "un peu (de)" and the eight lesson 10 nouns tagged "(f.)" or "(m.)": the 4-6 draft stores bare terms ("le casque", "la bâche") with no gender tags. Proposed: "combien de", "plus de", "moins de", "un peu de", "l'urgence", "l'accident", etc., with gender in `noteEnglish`.
+
+**Minor notes**
+
+- Lesson 7: "Quand les matériaux arrivent-ils ?" is correct but "Quand arrivent les matériaux ?" is the more natural inversion with a noun subject. The teaching text presents pronoun repetition as the rule rather than one option.
+- Lesson 7, reading lines 5 and 6: "Combien de matériaux il nous faut" and "comment je mets le harnais" use spoken statement order after the question word. Acceptable in speech, but the lesson tells learners est-ce que is the safe default. Consider "Combien de matériaux est-ce qu'il nous faut" or label these as spoken register.
+- Lesson 7, regional note: "patron" is widely used for "the boss" in everyday France speech, not only the owner. Quebec crews commonly say "le boss". Soften the claim.
+- Lesson 8: "plus de" (more) sounds the final s, "ne... plus" does not. Worth one line since both appear in the same note.
+- Lesson 9: "désolé" takes "désolée" for a female speaker.
+- Lesson 9, speaking opening: "Posez-la contre le mur" is understandable; "Appuyez-la contre le mur" is the natural verb for leaning a ladder.
+- Lesson 10: "la construction (f.)" and "la protection (f.)" carry both article and gender tag; the other nouns use l' plus tag. Formatting inconsistency.
+- Lesson 10: "la sécurité passe en premier" is fine; "la sécurité avant tout" is the stock phrase. "Dans la construction" is natural in Quebec; France would more often say "dans le bâtiment" or "sur les chantiers".
+- Punctuation: 56 ASCII spaces before ? ! : ; and zero no-break spaces. The 4-6 draft uses ASCII too, so this is consistent, but French typography expects a no-break space.
+- 911 and Quebec/France claims check out: 911 for US and Canada including Quebec, 112 for France and the EU. Adding 15 and 18 for France is optional.
+- F10 adaptation: `objectiveEnglishSource` and `reading.sourceNative` preserved correctly; the -ción/-dad/-ente focus is correctly remapped to -tion/-té/-ent.
+
+**Residual human-review limits**
+
+This is an AI review, not human approval. Not verified: whether "paquet" is the term Quebec or France roofing crews actually use for a bundle of shingles, whether "chef" versus "chef d'équipe" or "boss" is the natural site address in each region, the audio and pronunciation layer, and any trade-safety wording beyond the 911 line. `reviewed` should stay false until a native French speaker and a roofing-trade reviewer sign off. No files were edited.

@@ -1,0 +1,22 @@
+**Verdict: PASS** for scoped AI French fidelity, pinned to draft SHA256 `377aa823…aacb237` (mtime 02:50:01). The file changed twice during this recheck, so any later edit needs its own pass. No files were edited. The empty placeholder `ai-review-fable-7-10-recheck.txt` was left untouched per instruction.
+
+**Material findings from the initial report**
+
+1. **L8 negation rule — RESOLVED.** Now: "After pas, jamais, plus or rien with most verbs, un, une, du, de la and des become de (d' before a vowel)… the article remains after être: Ce n'est pas une urgence. Quantity expressions take de + noun." Correct, and it no longer contradicts the L10 reading. The added plus-de versus ne…plus pronunciation line is correct.
+2. **L9 "drop the -ez" contradiction — RESOLVED.** Now: "drop the subject pronoun and use the vous verb form: vous attendez → Attendez; vous apportez → Apportez; vous venez → Venez. Faire is irregular: vous faites becomes Faites." Correct.
+3. **L9 negative-command pronoun example — RESOLVED.** "Ne le touchez pas" now shows the pronoun placement.
+4. **L8 utiliser "to wear" — RESOLVED,** by a different route than proposed. The card now shows "to use", the pinned text moved to `meaningEnglishSource`, and the validator was extended to accept that fallback. A verb note and regional note both point to porter.
+5. **L10 vouloir dire chute/caída — RESOLVED.** `exampleEnglish` now says chute, matching `reading.native`, with `exampleEnglishSource` preserving caída. The reading and verb card now follow one policy.
+6. **Non-French `fr` strings — RESOLVED.** "excusez-moi", "combien de", "plus de", "moins de", "un peu de", and all eight L10 nouns are bare terms with article. Gender moved to notes, all eight genders correct. No parentheses remain in any `fr` field.
+
+**English source preservation — PASS.** Titles, objectives, word en/kind order, readings, speaking prompts and verb pairs all match the source through the validator's `*Source` fallbacks. The only adapted English lines are L10 reading 7 and the vouloir dire example, both with the original preserved.
+
+**French checked line by line.** F7 questions, F8 negations, F9 vous commands and polite requests, and F10 cognates and emergency lines are all correct French. Minor items from the initial report (patron, désolée, ladder verb, spoken register in reading lines 5 and 6) were addressed.
+
+**Introduced issues, none blocking**
+
+- **L10 regional note 2 is now stale.** It says "The English example keeps the source word caída", but the example now reads chute. The verb note next to it is correct. One-line fix: say the source said caída and the card shows chute.
+- **Policy shift undocumented.** Verb-level `meaningEnglishSource` and `exampleEnglishSource` are new to this draft and the validator. The roofing README documents only `reading.sourceNative` and still lists Foundation 7–10 as unbuilt.
+- **Typography drift.** Three "→" arrows in L9 where the rest of the text says "becomes", and two curly apostrophes (L7 grammar end, L8 "un peu d'eau") against straight apostrophes everywhere else. ASCII spaces before ? ! : ; remain, consistent with the 4–6 draft.
+
+**Still unverified by AI.** Whether "paquet" is the trade term for a shingle bundle in Quebec or France, "chef" versus "boss" as site address by region, and the audio layer. `reviewed` stays false. This is an AI review, not human approval.

@@ -1,0 +1,424 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "foundation",
+  "target": "French",
+  "native": "English",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceFiles": [
+    "src/data/foundation-roofing-curriculum.ts",
+    "public/lesson-content/es/foundation-roofing.json"
+  ],
+  "englishSourceSubsetSHA256": "9a3a270e17a0471a4d9f51ae63c65743e56a0eb7732e29f95c32cb5c67435116",
+  "draftModel": "Claude Haiku via CLI OAuth",
+  "lessons": [
+    {
+      "n": 1,
+      "titleEnglish": "Sounds and Greetings",
+      "objectiveEnglish": "Say French vowels and the sounds English speakers miss (u, ou, nasal vowels, silent final letters), and greet the crew",
+      "grammarFocusEnglish": "French vowels: u versus ou, nasal vowels (on, an, in), silent final consonants; greetings; je m'appelle; Comment dit-on...?",
+      "words": [
+        {
+          "en": "the roof",
+          "kind": "term",
+          "fr": "le toit",
+          "noteEnglish": "Silent final t."
+        },
+        {
+          "en": "the shingle (also roof tile)",
+          "kind": "term",
+          "fr": "le bardeau",
+          "noteEnglish": "Standard in Quebec and common for asphalt shingles in French trade talk. In France, tuile is the usual word for roof tile, so check local usage before treating them as the same."
+        },
+        {
+          "en": "the nail",
+          "kind": "term",
+          "fr": "le clou"
+        },
+        {
+          "en": "the hammer",
+          "kind": "term",
+          "fr": "le marteau"
+        },
+        {
+          "en": "the ladder",
+          "kind": "term",
+          "fr": "l'échelle",
+          "noteEnglish": "Feminine noun; the elided l' is written before a vowel."
+        },
+        {
+          "en": "the wheelbarrow",
+          "kind": "term",
+          "fr": "la brouette"
+        },
+        {
+          "en": "the harness",
+          "kind": "term",
+          "fr": "le harnais",
+          "noteEnglish": "Aspirated h: no elision or liaison; le harnais, du harnais. Harness selection and safety checks come from the employer and local rules."
+        },
+        {
+          "en": "the rope",
+          "kind": "term",
+          "fr": "la corde"
+        },
+        {
+          "en": "Good morning.",
+          "kind": "phrase",
+          "fr": "Bonjour.",
+          "noteEnglish": "Standard greeting on a crew. Salut is informal and fits people you already know."
+        },
+        {
+          "en": "How do you say…?",
+          "kind": "phrase",
+          "fr": "Comment dit-on… ?",
+          "noteEnglish": "Standard set phrase. In casual speech you may also hear Comment on dit… ?"
+        },
+        {
+          "en": "Slower, please.",
+          "kind": "phrase",
+          "fr": "Plus lentement, s'il vous plaît."
+        },
+        {
+          "en": "Please repeat.",
+          "kind": "phrase",
+          "fr": "Répétez, s'il vous plaît.",
+          "noteEnglish": "Polite form. You can also ask: Vous pouvez répéter, s’il vous plaît ?"
+        }
+      ],
+      "reading": {
+        "titleFrench": "Bonjour, je suis le nouveau",
+        "target": [
+          "Bonjour, je m'appelle Luis et je suis nouveau.",
+          "Aujourd'hui, je monte sur le toit avec l'échelle.",
+          "J'ai besoin du harnais, de la corde et du marteau.",
+          "Le bardeau et le clou sont dans la brouette.",
+          "Comment dit-on « ladder » en français ?",
+          "Mon collègue parle très vite.",
+          "Plus lentement, s'il vous plaît."
+        ],
+        "native": [
+          "Good morning, my name is Luis and I'm new.",
+          "Today I go up to the roof with the ladder.",
+          "I need the harness, the rope and the hammer.",
+          "The shingle and the nail are in the wheelbarrow.",
+          "How do you say ladder in French?",
+          "My coworker talks very fast.",
+          "Slower, please."
+        ],
+        "sourceNative": [
+          "Good morning, my name is Luis and I'm new.",
+          "Today I go up to the roof with the ladder.",
+          "I need the harness, the rope and the hammer.",
+          "The shingle and the nail are in the wheelbarrow.",
+          "How do you say ladder in Spanish?",
+          "My coworker talks very fast.",
+          "Slower, please."
+        ]
+      },
+      "speakingEnglish": "Greet a roofing crew member, say your name, and ask how to say two tools in French.",
+      "speakingFrenchOpening": "Bonjour, je m’appelle ___. Je suis nouveau. Comment dit-on « hammer » et « harness » en français ?",
+      "grammarTeachingEnglish": "French sound contrasts: bonjour and mon have the nasal on; dans has nasal an; besoin has nasal in. The French u in du and sur differs from ou in clou and pour. Final consonants are often silent (toit, comment). A final e is silent but the preceding consonant is pronounced (vite, parle). In dit-on, the t is sounded and links to on. A woman says je suis nouvelle; ma collègue means my female coworker. Practice Comment dit-on… ? for asking about a new tool word.",
+      "verbs": [
+        {
+          "infinitiveFrench": "dire",
+          "meaningEnglish": "to say",
+          "exampleFrench": "Comment dit-on « ladder » en français ?",
+          "exampleEnglish": "How do you say ladder in French?"
+        },
+        {
+          "infinitiveFrench": "parler",
+          "meaningEnglish": "to speak, to talk",
+          "exampleFrench": "Mon collègue parle très vite.",
+          "exampleEnglish": "My coworker talks very fast."
+        },
+        {
+          "infinitiveFrench": "répéter",
+          "meaningEnglish": "to repeat",
+          "exampleFrench": "Mon collègue répète le mot.",
+          "exampleEnglish": "My coworker repeats the word."
+        }
+      ],
+      "regionalNotesEnglish": [
+        "Tool and crew terms vary across French-speaking regions; verify with the intended crew."
+      ]
+    },
+    {
+      "n": 2,
+      "titleEnglish": "Numbers, Time and Measurements",
+      "objectiveEnglish": "Count, tell time, and give measurements and quantities on the job",
+      "grammarFocusEnglish": "French numbers 0 to 100, including soixante-dix, quatre-vingts and quatre-vingt-dix; telling time with il est and heures; quantities with de; US job measurements (feet, inches, pounds) and metric equivalents",
+      "words": [
+        {
+          "en": "the number",
+          "kind": "term",
+          "fr": "le nombre",
+          "noteEnglish": "Use numéro for phone numbers and page numbers."
+        },
+        {
+          "en": "the hour, the time",
+          "kind": "term",
+          "fr": "l'heure"
+        },
+        {
+          "en": "the foot (measurement)",
+          "kind": "term",
+          "fr": "le pied",
+          "noteEnglish": "Imperial unit, about 30.5 cm. Quebec trade talk often uses pieds; France usually uses mètres."
+        },
+        {
+          "en": "the inch",
+          "kind": "term",
+          "fr": "le pouce",
+          "noteEnglish": "Imperial unit, 2.54 cm. Common in Quebec construction talk; less common in France."
+        },
+        {
+          "en": "the pound",
+          "kind": "term",
+          "fr": "la livre",
+          "noteEnglish": "A US pound is about 0.454 kg. In France, une livre colloquially means 500 g; in Quebec it commonly denotes the imperial pound. Confirm units on the job."
+        },
+        {
+          "en": "the bundle",
+          "kind": "term",
+          "fr": "le paquet",
+          "noteEnglish": "A bundle of shingles; confirm the supplier’s term and package quantity."
+        },
+        {
+          "en": "the meter",
+          "kind": "term",
+          "fr": "le mètre"
+        },
+        {
+          "en": "the minute",
+          "kind": "term",
+          "fr": "la minute"
+        },
+        {
+          "en": "How many bundles?",
+          "kind": "phrase",
+          "fr": "Combien de paquets ?"
+        },
+        {
+          "en": "It's seven o'clock.",
+          "kind": "phrase",
+          "fr": "Il est sept heures.",
+          "noteEnglish": "Il est + number + heures: il est sept heures."
+        },
+        {
+          "en": "It measures ten feet.",
+          "kind": "phrase",
+          "fr": "Ça mesure dix pieds."
+        },
+        {
+          "en": "We start at six.",
+          "kind": "phrase",
+          "fr": "On commence à six heures.",
+          "noteEnglish": "Use à with a time of day."
+        }
+      ],
+      "reading": {
+        "titleFrench": "On commence à six heures",
+        "target": [
+          "On commence à six heures du matin.",
+          "Le camion arrive dans vingt minutes.",
+          "On a besoin de combien de paquets aujourd’hui ?",
+          "On a besoin de trente paquets de bardeaux.",
+          "Chaque paquet pèse environ soixante-dix livres.",
+          "Le mur mesure dix pieds, ou à peu près trois mètres.",
+          "Le clou fait un pouce et demi de long.",
+          "J'écris le nombre et l'heure sur ma feuille."
+        ],
+        "native": [
+          "We start at six in the morning.",
+          "The truck arrives in twenty minutes.",
+          "How many bundles do we need today?",
+          "We need thirty bundles of shingles.",
+          "Each bundle weighs about seventy pounds.",
+          "The wall measures ten feet, or about three meters.",
+          "The nail is one and a half inches long.",
+          "I write down the number and the time on my paper."
+        ]
+      },
+      "speakingEnglish": "Tell the crew lead what time you start, how many bundles you need, and one measurement.",
+      "speakingFrenchOpening": "On commence à sept heures. J’ai besoin de vingt paquets de bardeaux. Le clou fait un pouce et demi de long.",
+      "grammarTeachingEnglish": "Numbers 0–16 are single words: zéro, un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize. 17–19 build on dix: dix-sept, dix-huit, dix-neuf. Tens: vingt, trente, quarante, cinquante, soixante. Compounds use hyphens, as in vingt-deux and trente-cinq. For 21, 31, 41, 51 and 61, use et un: vingt et un. 71 is soixante et onze. 70–79 count on from soixante: soixante-dix, soixante-douze. 80 is quatre-vingts; the s drops when another number follows: quatre-vingt-un (no et), quatre-vingt-cinq. 90–99 run from quatre-vingt-dix to quatre-vingt-dix-neuf; 91 is quatre-vingt-onze (no et). 100 is cent. For clock time say il est sept heures; use à for a start time. Dans vingt minutes means in twenty minutes. Quantities use de: paquets de bardeaux. A measurement follows the number: dix pieds; un pouce et demi de long. After the noun, demi agrees in gender only: un pouce et demi, une heure et demie. Pieds and pouces are French names for US job units; On site, confirm whether the measurement is in feet or metres and check the product specifications.",
+      "verbs": [
+        {
+          "infinitiveFrench": "mesurer",
+          "meaningEnglish": "to measure",
+          "exampleFrench": "Le mur mesure dix pieds, ou à peu près trois mètres.",
+          "exampleEnglish": "The wall measures ten feet, or about three meters."
+        },
+        {
+          "infinitiveFrench": "peser",
+          "meaningEnglish": "to weigh",
+          "exampleFrench": "Chaque paquet pèse environ soixante-dix livres.",
+          "exampleEnglish": "Each bundle weighs about seventy pounds."
+        },
+        {
+          "infinitiveFrench": "commencer",
+          "meaningEnglish": "to start",
+          "exampleFrench": "On commence à six heures du matin.",
+          "exampleEnglish": "We start at six in the morning."
+        }
+      ],
+      "regionalNotesEnglish": [
+        "US crews may use feet, inches and pounds; French sites generally use metric, while Quebec construction often uses imperial measures. Confirm job documents and spoken units.",
+        "Belgian and Swiss number words may use septante/nonante; this lesson uses soixante-dix/quatre-vingt-dix.",
+        "The reading’s bundle weight is an example, not a product specification."
+      ]
+    },
+    {
+      "n": 3,
+      "titleEnglish": "Être: People, Conditions and Location",
+      "objectiveEnglish": "Use être to say who or what something is, and its condition or location, to describe people, conditions and safety",
+      "grammarFocusEnglish": "être for identity, condition and location; c’est versus il/elle est; avoir for feeling hot/cold and faire for weather",
+      "words": [
+        {
+          "en": "ready",
+          "kind": "term",
+          "fr": "prêt",
+          "noteEnglish": "Feminine prête. Use with être."
+        },
+        {
+          "en": "safe",
+          "kind": "term",
+          "fr": "sans danger",
+          "noteEnglish": "For a condition, sans danger means safe. In Quebec, sécuritaire is common; sûr also means “sure/certain”. This is vocabulary, not safety approval."
+        },
+        {
+          "en": "dangerous",
+          "kind": "term",
+          "fr": "dangereux",
+          "noteEnglish": "Feminine dangereuse."
+        },
+        {
+          "en": "wet",
+          "kind": "term",
+          "fr": "mouillé",
+          "noteEnglish": "Feminine mouillée."
+        },
+        {
+          "en": "slippery",
+          "kind": "term",
+          "fr": "glissant",
+          "noteEnglish": "Feminine glissante."
+        },
+        {
+          "en": "hot",
+          "kind": "term",
+          "fr": "chaud",
+          "noteEnglish": "Feminine chaude. For a person say j’ai chaud, not je suis chaud, which has a different slang meaning."
+        },
+        {
+          "en": "cold",
+          "kind": "term",
+          "fr": "froid",
+          "noteEnglish": "Feminine froide. For a person say j’ai froid, not je suis froid."
+        },
+        {
+          "en": "the boss",
+          "kind": "term",
+          "fr": "le chef",
+          "noteEnglish": "Chef d’équipe means crew lead; patron means employer/owner. In Quebec, boss is also heard informally."
+        },
+        {
+          "en": "The roof is wet.",
+          "kind": "phrase",
+          "fr": "Le toit est mouillé."
+        },
+        {
+          "en": "It's dangerous.",
+          "kind": "phrase",
+          "fr": "C'est dangereux.",
+          "noteEnglish": "C'est is used for an evaluation with an adjective."
+        },
+        {
+          "en": "Is it ready?",
+          "kind": "phrase",
+          "fr": "Est-ce qu'il est prêt ?",
+          "noteEnglish": "Il refers to a masculine thing such as le matériel. Use elle for a feminine thing such as la corde."
+        },
+        {
+          "en": "I'm here.",
+          "kind": "phrase",
+          "fr": "Je suis là."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Le toit est mouillé",
+        "target": [
+          "Je suis Pedro et je suis le chef d'équipe.",
+          "Aujourd'hui, le toit est mouillé.",
+          "Un toit mouillé est glissant et dangereux.",
+          "Il fait froid le matin.",
+          "À deux heures de l'après-midi, le toit est chaud.",
+          "Est-ce que le matériel est prêt ?",
+          "Oui, le harnais est prêt et il est sans danger."
+        ],
+        "native": [
+          "I'm Pedro and I'm the crew boss.",
+          "Today the roof is wet.",
+          "A wet roof is slippery and dangerous.",
+          "It's cold in the morning.",
+          "At two in the afternoon the roof is hot.",
+          "Is the equipment ready?",
+          "Yes, the harness is ready and it's safe."
+        ],
+        "sourceNative": [
+          "I'm Pedro and I'm the crew boss.",
+          "Today the roof is wet.",
+          "A wet roof is slippery and dangerous.",
+          "The air is cold in the morning.",
+          "At two in the afternoon the roof is hot.",
+          "Is the equipment ready?",
+          "Yes, the harness is ready and it's safe."
+        ]
+      },
+      "speakingEnglish": "Describe the roof to a crew member: say whether it is wet, slippery or safe, and who the boss is.",
+      "speakingFrenchOpening": "Attention, le toit est mouillé et glissant. Le chef, c'est Pedro.",
+      "grammarTeachingEnglish": "Être: je suis, tu es, il/elle est, on est, nous sommes, vous êtes, ils/elles sont. Use c’est with a name or noun phrase (c’est Pedro; c’est le chef), or an adjective for a general judgment (c’est dangereux). Use il/elle est with a specific person or thing (il est mouillé; elle est prête). Il est chef d’équipe has no article, while c’est le chef has one. Some feminine endings change the sound (prête, chaude, froide, glissante); mouillée differs only in spelling. For people, use avoir for feeling hot or cold: j’ai chaud, j’ai froid. Weather uses faire: il fait froid; il fait chaud. ",
+      "verbs": [
+        {
+          "infinitiveFrench": "être",
+          "meaningEnglish": "to be (identity)",
+          "exampleFrench": "Je suis Pedro et je suis le chef d'équipe.",
+          "exampleEnglish": "I'm Pedro and I'm the crew boss."
+        },
+        {
+          "infinitiveFrench": "être",
+          "meaningEnglish": "to be (condition)",
+          "exampleFrench": "Aujourd'hui, le toit est mouillé.",
+          "exampleEnglish": "Today the roof is wet."
+        },
+        {
+          "infinitiveFrench": "monter",
+          "meaningEnglish": "to go up, to climb",
+          "exampleFrench": "On monte quand le toit est sec.",
+          "exampleEnglish": "We go up when the roof is dry."
+        }
+      ],
+      "regionalNotesEnglish": [
+        "Crew-boss terms vary. Chef d'équipe is widely understood. Contremaître is used in some French and Quebec trades. Check which term the local crew uses.",
+        "Safety words here describe conditions only. Actual safety rules, certifications and inspection requirements must come from the employer and the local authority, not from this lesson."
+      ]
+    }
+  ],
+  "sourceFileSHA256": {
+    "src/data/foundation-roofing-curriculum.ts": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b",
+    "public/lesson-content/es/foundation-roofing.json": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+  },
+  "scopeNotesEnglish": [
+    "Spanish-only source items are adapted where French would otherwise teach the wrong language or grammar; source English is retained in reading.sourceNative for those lines.",
+    "International French draft with France and Quebec variants called out; the final teaching locale and register require a curriculum decision.",
+    "The exact original source English also remains in source-english-foundation-1-3.json; adapted lesson titles, objectives, reading lines and verb meanings are compared there."
+  ],
+  "reviewNotesEnglish": [
+    "Lesson 1 adapts Spanish-only source reading and speaking references to French; original line is preserved in reading.sourceNative.",
+    "Lesson 3 adapts Ser and Estar to French être, avoir and faire.",
+    "A qualified safety reviewer must approve or replace the source-aligned harness-safe statement before release.",
+    "French target variety/register and human native/trade review remain open."
+  ]
+}

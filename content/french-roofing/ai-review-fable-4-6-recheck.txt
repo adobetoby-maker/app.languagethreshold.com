@@ -1,0 +1,32 @@
+**Verdict: PASS for AI language scope.** All four material corrections landed on disk exactly as pasted, no flagged term survives, and nothing newly introduced rises to material. Two newly introduced items are worth a decision, listed below. This is an AI recheck only. It is not human, native, trade or safety approval.
+
+**Verification run**
+- On-disk `content/french-roofing/foundation-4-6-draft.json` matches the pasted corrected draft on every field I compared: word pairs, notes, readings, verbs, grammar focus, teaching, speaking openings, regional notes, review notes.
+- Both source file hashes verify. The project validator passes F4 to F6, including the English subset hash against the source file bytes.
+- All 36 word pairs, 21 reading lines, 10 verb examples, titles, objectives and speaking prompts are byte-identical to the English source.
+- Residual greps: vivre 0, devez/devoir 0, Où vivez 0, Il manque 0. "Char" appears only in the two corrected Quebec notes, now saying car. "Matériel" appears once, in the contrast note.
+
+**The four material findings, rechecked**
+1. **Le char, lesson 5.** Fixed. Word note and regional note now say le char means a car, pickup is le pick-up or le truck informally, le camion is standard. Accurate.
+2. **Vivre to habiter, lesson 6.** Fixed in verb, phrase, note, grammar focus, teaching and regional note. The habiter conjugation and the elision rule are correct. "Vous habitez où ?" keeps the spoken register from lesson 5.
+3. **Le matériel to les matériaux, lesson 4.** Fixed in the word entry and reading line 6. The contrast note is accurate and the term now agrees with lesson 6.
+4. **Vous devez to Il faut, lesson 4.** Fixed. Il faut is taught in the same lesson. The safety sentence survives.
+
+**Newly introduced, not material**
+- **Lesson 5 reading line 1 drifted from source.** English says "Today we're going to a new house." French now says "Aujourd'hui, on va travailler sur une nouvelle maison." The added travailler is correct French but is not in the English, and it turns motion aller into near-future aller. A closer rendering is "Aujourd'hui, on va sur une nouvelle maison." or the literal "on va à une nouvelle maison." Recommend reverting to one of those.
+- **Typographic quotes entered one field.** The new harness note in lesson 4 uses curly quotes and a curly apostrophe. Every other field uses straight ASCII. The prior review stated apostrophes were straight throughout, so this is a regression in file hygiene. Replace with straight quotes.
+
+**Other spot checks on the edits**
+- The plus de clous pronunciation distinction is correct: the s sounds in "plus de clous" meaning more, and is silent in "il n'y a plus de clous."
+- The un/une versus bare de rule for avoir besoin de is stated correctly.
+- "En camion" for reading line 2 and "Il n'y a pas de clous sur le toit" in the speaking opening use taught grammar and are idiomatic.
+- Descendre as "bring down" with a direct object is correct.
+
+**Gates this review does not clear**
+- Native speaker, Quebec roofer: bardeaux, casque versus casque de sécurité, bâche versus toile, Chef as address to a crew lead, le pick-up versus le truck.
+- Native speaker, France roofer: bardeaux versus bardeaux bitumés or shingles for asphalt shingles.
+- Trade reviewer: that the vocabulary matches what crews actually say on site.
+- Safety reviewer: the heat and work-fast sentence in lesson 5 and the harness language in lesson 4, as the file's own review notes already require.
+- Native read-aloud pass on all three reading passages.
+
+The file remains marked `reviewed: false` and `state: translation-draft`, which is correct for its status.

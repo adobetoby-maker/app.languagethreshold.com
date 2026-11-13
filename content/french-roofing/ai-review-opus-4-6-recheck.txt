@@ -1,0 +1,41 @@
+**Verdict: PASS** for AI curriculum scope only. This is not a human, native-speaker, trade or safety approval. The draft still says `"reviewed": false`, and it should stay that way.
+
+I ran `scripts/validate-french-roofing-pilot.py`. F1–F3 and F4–F6 both pass: source hashes, English pairs, readings and verb counts. The on-disk file `content/french-roofing/foundation-4-6-draft.json` matches the corrected draft you pasted on every fix I spot-checked.
+
+## English source match
+Every English field matches the source exactly. That covers titles, objectives, all 21 reading lines, the three speaking prompts, the 10 verb examples and meanings, and all 36 words in order. Verb counts are still 3, 3 and 4.
+
+## Prior material findings
+
+| # | Finding | Status | What I saw |
+|---|---|---|---|
+| 1 | L5 `le char` = truck | Fixed | The word note and `regionalNotesEnglish[0]` now say *le char* means a car, and a pickup is *le pick-up* or *le truck*. The only two `le char` hits left in the file are these correct notes. |
+| 2 | L6 lunch-word warning | Fixed | The word note and `regionalNotesEnglish[0]` now cover both meanings: *déjeuner* is lunch in France and breakfast in Quebec, Belgium and Switzerland. They also give *dîner* and *souper* and suggest *à midi* to avoid confusion. |
+| 3 | L6 `vivre` | Fixed | `verbs[2]` is now *habiter* / "Vous habitez où ?", and the word entry matches. The full regular paradigm and the *j'* elision are taught in `grammarTeachingEnglish`, and `grammarFocusEnglish` names regular *habiter*. *Vivre* no longer appears anywhere in the file. |
+| 4a | L4 `Il manque` never taught | Fixed | The speaking opening now ends "Il n'y a pas de clous sur le toit." It uses only taught grammar and still answers "what is missing". |
+| 4b | L4 `Vous devez` never taught | Fixed | The phrase is now "Il faut porter le harnais." *Il faut* + infinitive is now in both the grammar focus and the grammar teaching. |
+| 5 | `au` never taught | Fixed | L5 now teaches *à + le = au* (with *aux*, *à la*, *à l'*) in both grammar fields. L6 reuses *au chantier* after L5 has taught it, and L4 never uses *au*. |
+
+The prior minor items were applied too: the two L5 reading lines, the *ne…pas* wording, the *l'équipe* gender note, *je voudrais*, and the pronunciation of *plus*. *Matériel* and *matériaux* are now consistent. L4 now teaches *les matériaux* (building materials), and F1–F3 already uses *le matériel* for equipment (`foundation-1-3-draft.json:342,358`), so the L6 reading fits as written.
+
+## Newly introduced errors
+I found none that are material. Five small things, none blocking:
+- **Harness disclaimer got shorter.** The L4 harness note now says only "Follow the employer's fall-protection requirements." The local-rules half of the old disclaimer is gone. The prior review asked to keep both parts, so add it back or take it to the safety reviewer.
+- **Mixed quote characters.** The L4 harness note uses curly quotes (“you have to.”, employer’s), and the rest of the file uses straight ones. Standardize them.
+- **No non-breaking spaces before `?`.** Lines like "Vous pouvez m'aider ?" use a plain space, so the `?` can wrap onto its own line in the app. The usual French fix is a non-breaking space (U+202F or U+00A0).
+- **Awkward sentence in L4 grammar teaching.** "Avoir besoin de means to need, and keep un/une for one item…" reads clumsily. Split it into two sentences.
+- **Small meaning shift in L5 reading line 1.** "on va travailler sur une nouvelle maison" is closer to "we're going to work on" than "going to" a new house. This was the prior review's own suggestion and is fine for teaching.
+
+`★ Insight ─────────────────────────────────────`
+- All five fixes work because each corrected sentence now uses grammar the lessons actually teach. The validator only checks structure, so it can't catch a sentence that uses grammar the lessons haven't taught yet.
+- Moving L4 from *le matériel* to *les matériaux* also resolved an earlier conflict. F1–F3 had already used *le matériel* to mean equipment, so splitting the two words by meaning removed the clash. L6 needed no extra note after that.
+`─────────────────────────────────────────────────`
+
+## Human gates (still open, not covered by this review)
+1. **Target region:** the owner picks France or Quebec. That sets the meal words, the truck word, and *vous* vs *tu* with crew members (the L5 opening uses *vous* with a crew member).
+2. **Trade terminology:** a French-speaking roofer should confirm *bardeaux*, *bâche*, *matériaux*/*matériel*, *casque*, *débris*/*déchets* and *descendre les vieux matériaux*.
+3. **Safety:** a safety reviewer should check the harness phrase and its disclaimer, and the L5 line "Il fait chaud, alors on travaille vite." That line is faithful to the English source, so changing it is the owner's call at the source level.
+4. **Native-teacher review:** a blind check of naturalness and register across L4–L6, per the Core 60 pipeline.
+5. **Pronunciation and audio:** *plus* meaning "more" vs *ne…plus*, *j'habite* elision, silent *-ent* endings, and *nous mangeons*.
+
+I didn't edit anything. The next step would be a small cleanup pass for the five items above, then sending L4–L6 to the human gates.

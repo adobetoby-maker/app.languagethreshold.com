@@ -1,0 +1,572 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "voices": [
+    "ja-JP-Chirp3-HD-Aoede",
+    "ja-JP-Chirp3-HD-Charon"
+  ],
+  "sourceSHA256": {
+    "master-20-private-draft.json": "a08a307c47c69329abcedf39c36b52a390bb2881b3d08e96a381d9b4d75b3f18"
+  },
+  "previousScopeSHA256": {
+    "private-foundation-audio-scope.json": "f4b48c046a13a344a996703523bdb8cfdff5bf69188c699fa02db544ccc0a28f",
+    "private-core-1-3-audio-scope.json": "ad72a64b46d08401ee572f63af5d88baafca0388afbd55161acd948dc8062e3d",
+    "private-core-4-6-audio-scope.json": "3925840b1b1bca92059fe07abc63aed981d43bcaaf87f0296f43114414264c89",
+    "private-core-7-9-audio-scope.json": "30a880bda09c371f1eb197a95ffa1237769bff18ac3a268ee55974e524306248",
+    "private-core-10-12-audio-scope.json": "73c8886aea6f96148763c77c5709585edc35503521cdb2dbf361927e547ed120",
+    "private-core-13-15-audio-scope.json": "3dbd18a0920c84e83194b9932d3e0e12f4d9dc0a995f1de249a664667ca10211",
+    "private-core-16-18-audio-scope.json": "4e1b20b7b56175cbcbad937032785ce4acad2e470bc1099135166b63ab34327c",
+    "private-core-19-audio-scope.json": "1e60d7da18055264c2141807b4a5b15232cc68825154bc026ba7f7307db01a1d",
+    "private-core-20-audio-scope.json": "7d3768994313e77e95e8c768e81db7fa3b45a7bf7d8658d8e19767b4ab650f2b",
+    "private-core-21-audio-scope.json": "88f089af289371ee21102f088328b3f04e455402a6442e7310c8cec5e4ff624c",
+    "private-core-22-audio-scope.json": "201a695bd0b7ff1c8f019f63c10dcf40f75824944c70d61fa92b802d44fe199d",
+    "private-core-23-audio-scope.json": "11604d8c9aec4ec38e69b1049450d0192a7b9b2d639fd862c6b1bf2e486f88f6",
+    "private-core-24-audio-scope.json": "50d24bcd803a4fa2da4129e82c27695abe5485ea012e2a6edacadfbbc78cc6a3",
+    "private-core-25-audio-scope.json": "5274f7c1a6e92f8bdcbb434bc4943cc5a0b5a5d0b4285a6d593390c4cd45da1f",
+    "private-core-26-audio-scope.json": "a97ec70fadef466979abbe39adac98f1ab4f88d7e7a5902de73eca2d5809103c",
+    "private-core-27-audio-scope.json": "20964e288176158ec6d3fb62983714c409dea1bf06f2bfa07a14f5ad3e7a7e3b",
+    "private-core-28-audio-scope.json": "65c655f8a73ecd312708b3cd902f4dd7d95643e592bb0825a4ec16d2c14c7f89",
+    "private-core-29-audio-scope.json": "8177aac28d7507d8d2b127c47d25a5517690e06f7d9dda831ac12713334b33a6",
+    "private-core-30-audio-scope.json": "3f489c4f091bd7f1f0bdec1315030b08a87786c9cfd56dfc17176a7568c23a11",
+    "private-master-1-audio-scope.json": "82a2bb3d90712e80e3752833c24c1768bc644c876a7cd475afe0d879ed1e2560",
+    "private-master-2-audio-scope.json": "e601980fa4d7801f5660523bf1725cfe2d75c6ced6019042da4abbbdd1a959f0",
+    "private-master-3-audio-scope.json": "6ba9530b51a30bd836f79e16d92cd7016bfeb002050afd8ab2d4f41a525c6c65",
+    "private-master-4-audio-scope.json": "3ec984da919228f9b5af8d40d67c4ac4da96a2397db7a4be076ae9f543639d09",
+    "private-master-5-audio-scope.json": "8724196f72c0a4507cb7ffa633dfd9d14cf758e2e1b66f736a96327e28dca4b4",
+    "private-master-6-audio-scope.json": "98ccb1546d8a509dd0fc7aad1c5b639e0a9a56d3aad551177cd0fe50e1323844",
+    "private-master-7-audio-scope.json": "2fc27f06a5bf20cb930aba8e0e754c0107ac876a3992bf1f29b74baa43ce9604",
+    "private-master-8-audio-scope.json": "f745103931c409b44414c71d3af4bf4adbf8dff4f32f7af400086a74180a2a3b",
+    "private-master-9-audio-scope.json": "326ab928eb2c26a2a7961127408d8cf4cc37c7f8200e7dcc4e4b4f7f8a5445eb",
+    "private-master-10-audio-scope.json": "646e20ae251cfe3ac3f3310a677062e623f0e17c2dcf9e847f42b6f89ad57885",
+    "private-master-11-audio-scope.json": "612870b0d7c11ae4f876776404d6e83fa5ce69d783a534bfaf1726a4df958e96",
+    "private-master-12-audio-scope.json": "445b7e736a8418f232390483cfe2474e82bdef9608ac87d324ecd99b8ff41e27",
+    "private-master-13-audio-scope.json": "3cb1968de3f47a934ca541a5e49bbb5125065c7bb74dde76c5617e9bf451558a",
+    "private-master-14-audio-scope.json": "e650aaae11d8778093be9d7b44023f3db065e05e05ee07d575165ae8099804b2",
+    "private-master-15-audio-scope.json": "f70f6f517f5493e4aac3d43f118f83ab86b5811008eb4a8ff37d274667567eb6",
+    "private-master-16-audio-scope.json": "8097cc33582e1bd0349ce356fd2ad69ee2156c5494ff15e1b06256dc5bf117b3",
+    "private-master-17-audio-scope.json": "16419cc3998c1e9760b5271b3ee57306801cba2f1c89b1691e883d3b16c75979",
+    "private-master-18-audio-scope.json": "b4af61c199051a74c324919ce6811dc93c16e28efbe1bfab5e636451012c7aed",
+    "private-master-19-audio-scope.json": "17d04920a34a7d484ca1d4963ec7ff14190d1a7577a92046d1a6c7597bec4084"
+  },
+  "lessonIds": [
+    "master-travel-dinner:20:ja-en"
+  ],
+  "placements": 43,
+  "uniqueTexts": 42,
+  "proposedClips": 84,
+  "submittedCharacters": 2676,
+  "texts": [
+    {
+      "displayText": "5歳の甥のLucasが、その石に手を伸ばします。",
+      "spokenText": "5歳の甥のLucasが、その石に手を伸ばします。",
+      "textSHA256": "8d00757c1a20d0f4d576f3f8da369918d3753e0f881e96ed7ad6164f477f1ba0",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "reader",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "displayText": "Killaさん、そのワインの代わりに、どのペルーのぶどう品種をお勧めになりますか。",
+      "spokenText": "Killaさん、そのワインの代わりに、どのペルーのぶどう品種をお勧めになりますか。",
+      "textSHA256": "8176e4b12750ffbfa2429bc5531084e51aaa1f620cba718c41457228001737b9",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "displayText": "Killa：「代わりにお勧めするのは、イカ産の白ワインです。焼いたマスとの相性がとてもいいですよ。」",
+      "spokenText": "Killa：「代わりにお勧めするのは、イカ産の白ワインです。焼いたマスとの相性がとてもいいですよ。」",
+      "textSHA256": "6459c18779a1c03a4fc811f7e4c156d8afd1e46053a2edbfdb66ed11539589a8",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "displayText": "Lucas、石に触らないで。熱いよ！",
+      "spokenText": "Lucas、石に触らないで。熱いよ！",
+      "textSHA256": "0316c9729a47a27c1f3173deef8fb39b0395576e89b40c334f0b6c2d4f07ccd8",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 20
+        }
+      ]
+    },
+    {
+      "displayText": "WilberがLucasの手を確認し、やけどがまったくないことを確かめます。そして、店の手順に従って、この出来事を記録します。",
+      "spokenText": "WilberがLucasの手を確認し、やけどがまったくないことを確かめます。そして、店の手順に従って、この出来事を記録します。",
+      "textSHA256": "871c4c80ebe856828ca04d316501c688b7bc46784c7ae086dc45eae07eb58e8f",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "reader",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "displayText": "Wilberさん、ピスコの注文をもう一度していただけるとありがたいです。",
+      "spokenText": "Wilberさん、ピスコの注文をもう一度していただけるとありがたいです。",
+      "textSHA256": "d660c2e94fcf67d72957fe5ee21bcfb4d71b24d3206e0906b5e9485d4756bbd9",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "displayText": "Wilber：「もし業者が7時前に到着しなければ、バーにケブランタ種のピスコが残っているかぎり、チルカーノをお出しすることになります。」",
+      "spokenText": "Wilber：「もし業者が7時前に到着しなければ、バーにケブランタ種のピスコが残っているかぎり、チルカーノをお出しすることになります。」",
+      "textSHA256": "356b230d20984250e0ab583cb28e7434c53ad78e742c9e56e537a6a90a9ae2fa",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "displayText": "ありがとうございます、Wilberさん。ピスコの注文を、もう一度よろしくお願いします。ご家族にも、今夜のことをまとめてお伝えしますね。",
+      "spokenText": "ありがとうございます、Wilberさん。ピスコの注文を、もう一度よろしくお願いします。ご家族にも、今夜のことをまとめてお伝えしますね。",
+      "textSHA256": "d49cc3ab79e59f39a93fccf9930a7e74b359f263c0f7f1328511b04e2c86ae4c",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "こんばんは。ようこそお越しくださいました。夕食会の準備は整っています。まず、ご要望を教えてください。",
+      "spokenText": "こんばんは。ようこそお越しくださいました。夕食会の準備は整っています。まず、ご要望を教えてください。",
+      "textSHA256": "813b647563c9ebe626f1cd0f3a1216f851ae6006ed922e9718a7fdb5c1fe75a5",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "そのあと、ソムリエのKillaが、メニューにあったワインの一つが切れてしまったと知らせてくれます。",
+      "spokenText": "そのあと、ソムリエのKillaが、メニューにあったワインの一つが切れてしまったと知らせてくれます。",
+      "textSHA256": "1156a06c3328d1bff5087f081e2a785ff3db59e51d6be34f615e13e8a03d15dd",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "displayText": "その夜、私は家族のグループチャットにこう書きます。「みんな、まとめると、夕食会はすてきな会になって、みんなで乾杯したよ。」",
+      "spokenText": "その夜、私は家族のグループチャットにこう書きます。「みんな、まとめると、夕食会はすてきな会になって、みんなで乾杯したよ。」",
+      "textSHA256": "f0007bafbf9367819efdd0d13e6e9e7618af2d789c452afc0e755c0527411db4",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "reader",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "displayText": "その後、別のウェイターが、アルパカ肉をのせた熱い石を、テーブルの端のすぐ近くに置いてしまいます。",
+      "spokenText": "その後、別のウェイターが、アルパカ肉をのせた熱い石を、テーブルの端のすぐ近くに置いてしまいます。",
+      "textSHA256": "da789ed345a301c53db79cde9f09d456de59d0fc6c6e765cd930d84f96856cd3",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "reader",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "displayText": "ぶどうの品種",
+      "spokenText": "ぶどうの品種",
+      "textSHA256": "a49df7fae000f2f9a562ed5e66bd755e0813e7395d8740a8ff5a5cd4382b6169",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "displayText": "みんな、まとめると、夕食会はとてもすてきで、みんなで乾杯したよ。",
+      "spokenText": "みんな、まとめると、夕食会はとてもすてきで、みんなで乾杯したよ。",
+      "textSHA256": "3196ee375e693fb5b87faf42bca986e5c3a15a337b317c233b57a7983d1acf71",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 23
+        }
+      ]
+    },
+    {
+      "displayText": "やけど",
+      "spokenText": "やけど",
+      "textSHA256": "e1fd90fae325fdcd868f5d55cd9bb5673b4467c054eda88672db0b2948086d3b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "displayText": "ウェイターが厨房から戻り、確認します。「はい、当店のオコパソースにはピーナッツが入っています。ですので、いとこの方には、フレッシュチーズだけをのせたじゃがいもを、別皿で、清潔なカトラリーとともにお出しします。」",
+      "spokenText": "ウェイターが厨房から戻り、確認します。「はい、当店のオコパソースにはピーナッツが入っています。ですので、いとこの方には、フレッシュチーズだけをのせたじゃがいもを、別皿で、清潔なカトラリーとともにお出しします。」",
+      "textSHA256": "084ed09583a09136b727b978c35926c8969eb3bac1473a44f850f64c56484747",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "reader",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "displayText": "オコパソース",
+      "spokenText": "オコパソース",
+      "textSHA256": "38c2a63d5df43052d87ab6d2ae646ff7bc80c535ee5332cf4866bd6bbd113bfb",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "displayText": "ケブランタ種のピスコ",
+      "spokenText": "ケブランタ種のピスコ",
+      "textSHA256": "24f92fb753b253e40f4a32ea63788d5b84c3047648a9d2ba8f97b7bdaa326c1c",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "displayText": "チルカーノ",
+      "spokenText": "チルカーノ",
+      "textSHA256": "c9b955cdc8055cbb214e14fd02e00b804e0cdd904c28dc6cfec9fd075bdf9fd5",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "displayText": "テーブルの端",
+      "spokenText": "テーブルの端",
+      "textSHA256": "ab38e809c7ed33e514978ea819f073a34b4a283a117a7447997a407409f2c34b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "displayText": "マス",
+      "spokenText": "マス",
+      "textSHA256": "cd1abecccf07df1209ee4f1a63a8e064228b5496426b5a69ea9885076b7a3226",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "displayText": "マネージャーのWilberが、紛失した注文にはペアリング用のピスコがすべて含まれていたと説明します。そのため、ピスコは注文し直す必要があります。",
+      "spokenText": "マネージャーのWilberが、紛失した注文にはペアリング用のピスコがすべて含まれていたと説明します。そのため、ピスコは注文し直す必要があります。",
+      "textSHA256": "58a852c5c76d734faebadf3cbe7f8c333c6647165a2961cc9590002e651b2f60",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "displayText": "今夜は、クスコの中心部にあるレストランで、姉妹のEmmaの婚約をお祝いします。",
+      "spokenText": "今夜は、クスコの中心部にあるレストランで、姉妹のEmmaの婚約をお祝いします。",
+      "textSHA256": "82e6aeeca8ecc4cd0587ea781a329ac79d6cb3a1ecd9021ddeeace77223f52d3",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "displayText": "代わり",
+      "spokenText": "代わり",
+      "textSHA256": "fd0e19b95ecaf8c07c546ded523677eb6fbfe3e14662773255e40010795427fb",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "displayText": "前菜には、オコパソースを添えたじゃがいもがあります。そして、いとこのTomásは重いアレルギーを持っています。",
+      "spokenText": "前菜には、オコパソースを添えたじゃがいもがあります。そして、いとこのTomásは重いアレルギーを持っています。",
+      "textSHA256": "42e24c7e15f93aafec107dde7367310dfe8386509b767885bb141c78658de77f",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "displayText": "婚約",
+      "spokenText": "婚約",
+      "textSHA256": "2c26e8d3d90e98595b9b9c2cd16bc905303ebf4817a70fac77045fd129c56bfe",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "displayText": "婚約者",
+      "spokenText": "婚約者",
+      "textSHA256": "6c32a1d4a970cc05f8d38fe159f5751fe73eb1d5316f2665ca0d2b1aec6b8268",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "displayText": "家族のグループチャット",
+      "spokenText": "家族のグループチャット",
+      "textSHA256": "b1ad20c253a036625502406c3c7d8b0dbfabdc0be55df6c26a105499ea9650cd",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "displayText": "幸い、やけどをした人はいませんでしたが、本当に危ないところでした。",
+      "spokenText": "幸い、やけどをした人はいませんでしたが、本当に危ないところでした。",
+      "textSHA256": "f3a569b5e05bbef1e1dcd3fd7e09128dec8980eba1fd446b7e320a29fdf275ee",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 22
+        }
+      ]
+    },
+    {
+      "displayText": "彼に何かを出す前に、厨房に確認していただけますか。",
+      "spokenText": "彼に何かを出す前に、厨房に確認していただけますか。",
+      "textSHA256": "c241ec0d9604931cf5d15156498530ca40ca9a444746ec5b5f24e38c5967cefd",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 19
+        }
+      ]
+    },
+    {
+      "displayText": "彼女の婚約者Diegoが、6時に指輪を持って到着します。二人は乾杯のときに、その指輪を交換する予定です。",
+      "spokenText": "彼女の婚約者Diegoが、6時に指輪を持って到着します。二人は乾杯のときに、その指輪を交換する予定です。",
+      "textSHA256": "468024cd7d4437b22166b55a842520eeb937e1a8b31275623595623d230597d9",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "displayText": "指輪",
+      "spokenText": "指輪",
+      "textSHA256": "b97b85e501eff2adb99ab60852e9885476aee008182170a367a946ee46886f67",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "displayText": "熱い石",
+      "spokenText": "熱い石",
+      "textSHA256": "0553df8bd3cb2b84a4fce1c9859410ba3648ccee4d01385c549ed56bc72300fa",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "displayText": "石を真ん中に、端から離して置いていただけますか。",
+      "spokenText": "石を真ん中に、端から離して置いていただけますか。",
+      "textSHA256": "be1a844924b1341b47fd53a038dca11b473a2022550a00d12ecf0ea55101785e",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 21
+        },
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "hear-mode-model"
+        }
+      ]
+    },
+    {
+      "displayText": "私のいとこはピーナッツにアレルギーがあります。オコパソースにはピーナッツが入っていますか。",
+      "spokenText": "私のいとこはピーナッツにアレルギーがあります。オコパソースにはピーナッツが入っていますか。",
+      "textSHA256": "67ab9108f4638fca3c7d75ce4fa2cee50825db050141721dd2527f92986715e2",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "displayText": "私：「Killaさん、そのワインの代わりに、どのペルーのぶどう品種をお勧めになりますか。」",
+      "spokenText": "私：「Killaさん、そのワインの代わりに、どのペルーのぶどう品種をお勧めになりますか。」",
+      "textSHA256": "80c9f1600673ed41fab9834a6150773fb9994ea7a254e0ce603b29f054e55da5",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "displayText": "私：「Lucas、石に触らないで。熱いよ！」",
+      "spokenText": "私：「Lucas、石に触らないで。熱いよ！」",
+      "textSHA256": "57068ff9bb6bd7ecfd7fb4597afb07b7aa84add927f51487c1f187186e4b04be",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "reader",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "displayText": "私：「Wilberさん、ピスコの注文をもう一度していただけるとありがたいです。」",
+      "spokenText": "私：「Wilberさん、ピスコの注文をもう一度していただけるとありがたいです。」",
+      "textSHA256": "ca2b078e92443e5ab1c86269423e6cb89b5c2f5c28ecc1cc8a91c1e757d738c9",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "displayText": "私：「彼に何かを出す前に、厨房に確認していただけますか。」",
+      "spokenText": "私：「彼に何かを出す前に、厨房に確認していただけますか。」",
+      "textSHA256": "e9a2973bfa8126bf073142c003321a886a2e5bc709f724976a3fc4eb032c7c84",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "reader",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "displayText": "私：「石を真ん中に、端から離して置いていただけますか。」",
+      "spokenText": "私：「石を真ん中に、端から離して置いていただけますか。」",
+      "textSHA256": "43235f75ab0620846c6c1971216da869ac99686d75445a7fd74d995ce03f0992",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "reader",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "displayText": "私：「私のいとこはピーナッツにアレルギーがあります。オコパソースにはピーナッツが入っていますか。」",
+      "spokenText": "私：「私のいとこはピーナッツにアレルギーがあります。オコパソースにはピーナッツが入っていますか。」",
+      "textSHA256": "c54d58c4f39f84d91af616ad5a8f1e06a6998722975a79caa4c1729b99583669",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "reader",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "displayText": "紛失した注文",
+      "spokenText": "紛失した注文",
+      "textSHA256": "02e6894a66813fab186f7b2090d57474e482359cb375d202af49a0e4360e93ed",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:20:ja-en",
+          "surface": "card",
+          "index": 3
+        }
+      ]
+    }
+  ],
+  "recordingsBundled": false,
+  "listeningReviewed": false,
+  "registered": false
+}

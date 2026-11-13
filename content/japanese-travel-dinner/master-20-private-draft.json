@@ -1,0 +1,380 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "masterPath": "src/data/core60/es/master-travel-dinner.json",
+    "masterSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "contentPath": "public/lesson-content/es/master-travel-dinner.json",
+    "contentSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 20,
+      "stableId": "master-travel-dinner:20:ja-en",
+      "sourceTitleEnglish": "Capstone: An Engagement Dinner Day in Cusco",
+      "title": "最終課題：クスコでの婚約祝いの夕食会の一日",
+      "sourceObjectiveEnglish": "Run a full celebration day: rebook, fix a menu gap, protect a guest, handle a near miss, and send the day's summary.",
+      "objective": "夕食会の一日を通して、ピスコの注文の再手配、メニューの代わりの決定、ピーナッツアレルギーの確認、やけどのニアミスへの対応、家族への要約の送信を行います。",
+      "sourceSpeakingEnglish": "You are organizing Emma's engagement dinner in Cusco, and the AI is Wilber, Killa and the guests: re-place the pisco order, agree on a wine replacement, check a guest's allergy and text the family a summary, using conditionals, siempre que and connectors like por consiguiente.",
+      "focus": "総合復習：条件を表す「〜かぎり」「〜ば」と、結果を表す「そのため」「したがって」",
+      "scene": "クスコで姉妹のEmmaの婚約を祝う夕食会の一日です。ピスコの注文を再度お願いし、切れたワインの代わりを相談します。いとこのピーナッツアレルギーを確認し、熱い石によるやけどのニアミスに対応したあと、家族に一日の要約を送ります。",
+      "forms": [
+        {
+          "base": "注文する（ちゅうもんする）",
+          "polite": "注文します（ちゅうもんします）",
+          "meaning": "to order something; here, to place an order again after a lost one",
+          "example": "ピスコを注文し直します。",
+          "question": "ピスコをもう一度注文していただけますか。"
+        },
+        {
+          "base": "提供する（ていきょうする）",
+          "polite": "提供します（ていきょうします）",
+          "meaning": "to serve or provide food or drink to guests",
+          "example": "チルカーノを提供します。",
+          "question": "チルカーノを提供していただけますか。"
+        },
+        {
+          "base": "離す（はなす）",
+          "polite": "離します（はなします）",
+          "meaning": "to move something away from something else",
+          "example": "石をテーブルの端から離します。",
+          "question": "石をテーブルの端から離していただけますか。"
+        },
+        {
+          "base": "避ける（さける）",
+          "polite": "避けます（さけます）",
+          "meaning": "to avoid something harmful, such as a dish with peanuts for someone with a peanut allergy",
+          "example": "いとこのために、ピーナッツの入った料理を避けます。",
+          "question": "ピーナッツの入ったものを避けていただけますか。"
+        },
+        {
+          "base": "触る（さわる）",
+          "polite": "触ります（さわります）",
+          "meaning": "to touch something with the hand; a hot stone can cause a burn",
+          "example": "Lucasが石に触ろうとします。",
+          "question": "Lucasは熱い石に触りそうですか。"
+        }
+      ],
+      "cards": [
+        {
+          "en": "the engagement",
+          "kind": "term",
+          "ja": "婚約",
+          "readingKana": "こんやく"
+        },
+        {
+          "en": "the fiancé",
+          "kind": "term",
+          "ja": "婚約者",
+          "readingKana": "こんやくしゃ"
+        },
+        {
+          "en": "the lost order",
+          "kind": "term",
+          "ja": "紛失した注文",
+          "readingKana": "ふんしつしたちゅうもん"
+        },
+        {
+          "en": "the quebranta pisco",
+          "kind": "term",
+          "ja": "ケブランタ種のピスコ",
+          "readingKana": "けぶらんたしゅのぴすこ"
+        },
+        {
+          "en": "the chilcano",
+          "kind": "term",
+          "ja": "チルカーノ",
+          "readingKana": "ちるかーの"
+        },
+        {
+          "en": "the grape variety",
+          "kind": "term",
+          "ja": "ぶどうの品種",
+          "readingKana": "ぶどうのひんしゅ"
+        },
+        {
+          "en": "the replacement",
+          "kind": "term",
+          "ja": "代わり",
+          "readingKana": "かわり"
+        },
+        {
+          "en": "the peanut",
+          "kind": "term",
+          "ja": "ピーナッツ",
+          "readingKana": "ぴーなっつ"
+        },
+        {
+          "en": "the ocopa sauce",
+          "kind": "term",
+          "ja": "オコパソース",
+          "readingKana": "おこぱそーす"
+        },
+        {
+          "en": "the trout",
+          "kind": "term",
+          "ja": "マス",
+          "readingKana": "ます"
+        },
+        {
+          "en": "the hot stone",
+          "kind": "term",
+          "ja": "熱い石",
+          "readingKana": "あついいし"
+        },
+        {
+          "en": "the burn",
+          "kind": "term",
+          "ja": "やけど",
+          "readingKana": "やけど"
+        },
+        {
+          "en": "the edge of the table",
+          "kind": "term",
+          "ja": "テーブルの端",
+          "readingKana": "てーぶるのはし"
+        },
+        {
+          "en": "the rings",
+          "kind": "term",
+          "ja": "指輪",
+          "readingKana": "ゆびわ"
+        },
+        {
+          "en": "the family group chat",
+          "kind": "term",
+          "ja": "家族のグループチャット",
+          "readingKana": "かぞくのぐるーぷちゃっと"
+        },
+        {
+          "en": "Wilber, I'd appreciate it if you placed the pisco order again.",
+          "kind": "phrase",
+          "ja": "Wilberさん、ピスコの注文をもう一度していただけるとありがたいです。",
+          "readingKana": "うぃるばーさん、ぴすこのちゅうもんをもういちどしていただけるとありがたいです。"
+        },
+        {
+          "en": "Killa, which Peruvian grape would you recommend instead of that wine?",
+          "kind": "phrase",
+          "ja": "Killaさん、そのワインの代わりに、どのペルーのぶどう品種をお勧めになりますか。",
+          "readingKana": "きやさん、そのわいんのかわりに、どのぺるーのぶどうひんしゅをおすすめになりますか。"
+        },
+        {
+          "en": "My cousin is allergic to peanuts: does the ocopa have any?",
+          "kind": "phrase",
+          "ja": "私のいとこはピーナッツにアレルギーがあります。オコパソースにはピーナッツが入っていますか。",
+          "readingKana": "わたしのいとこはぴーなっつにあれるぎーがあります。おこぱそーすにはぴーなっつがはいっていますか。"
+        },
+        {
+          "en": "Could you confirm it with the kitchen before serving him anything?",
+          "kind": "phrase",
+          "ja": "彼に何かを出す前に、厨房に確認していただけますか。",
+          "readingKana": "かれになにかをだすまえに、ちゅうぼうにかくにんしていただけますか。"
+        },
+        {
+          "en": "Lucas, don't touch the stone, it's hot!",
+          "kind": "phrase",
+          "ja": "Lucas、石に触らないで。熱いよ！",
+          "readingKana": "るかす、いしにさわらないで。あついよ！"
+        },
+        {
+          "en": "Could you put the stone in the middle, away from the edge?",
+          "kind": "phrase",
+          "ja": "石を真ん中に、端から離して置いていただけますか。",
+          "readingKana": "いしをまんなかに、はしからはなしておいていただけますか。"
+        },
+        {
+          "en": "Luckily nobody got burned, but it was very close.",
+          "kind": "phrase",
+          "ja": "幸い、やけどをした人はいませんでしたが、本当に危ないところでした。",
+          "readingKana": "さいわい、やけどをしたひとはいませんでしたが、ほんとうにあぶないところでした。"
+        },
+        {
+          "en": "Family, in short: the dinner turned out beautiful and we all made a toast.",
+          "kind": "phrase",
+          "ja": "みんな、まとめると、夕食会はとてもすてきで、みんなで乾杯したよ。",
+          "readingKana": "みんな、まとめると、ゆうしょくかいはとてもすてきで、みんなでかんぱいしたよ。"
+        }
+      ],
+      "reader": [
+        {
+          "en": "Tonight we're celebrating my sister Emma's engagement at a restaurant in downtown Cusco.",
+          "ja": "今夜は、クスコの中心部にあるレストランで、姉妹のEmmaの婚約をお祝いします。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Her fiancé, Diego, arrives at 6 with the rings, which they are going to exchange during the toast.",
+          "ja": "彼女の婚約者Diegoが、6時に指輪を持って到着します。二人は乾杯のときに、その指輪を交換する予定です。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Wilber, the manager, explains to me that the lost order included all the pisco for the pairing; consequently, it has to be ordered again.",
+          "ja": "マネージャーのWilberが、紛失した注文にはペアリング用のピスコがすべて含まれていたと説明します。そのため、ピスコは注文し直す必要があります。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Me: Wilber, I'd appreciate it if you placed the pisco order again.",
+          "ja": "私：「Wilberさん、ピスコの注文をもう一度していただけるとありがたいです。」",
+          "speaker": "Me"
+        },
+        {
+          "en": "Wilber: If the supplier didn't arrive before 7, we'd serve chilcanos, as long as we have quebranta pisco left at the bar.",
+          "ja": "Wilber：「もし業者が7時前に到着しなければ、バーにケブランタ種のピスコが残っているかぎり、チルカーノをお出しすることになります。」",
+          "speaker": "Wilber"
+        },
+        {
+          "en": "Then the sommelier, Killa, lets me know that one of the wines on the menu has run out.",
+          "ja": "そのあと、ソムリエのKillaが、メニューにあったワインの一つが切れてしまったと知らせてくれます。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Me: Killa, which Peruvian grape would you recommend instead of that wine?",
+          "ja": "私：「Killaさん、そのワインの代わりに、どのペルーのぶどう品種をお勧めになりますか。」",
+          "speaker": "Me"
+        },
+        {
+          "en": "Killa: The replacement I suggest is a white from Ica, which goes very well with the grilled trout.",
+          "ja": "Killa：「代わりにお勧めするのは、イカ産の白ワインです。焼いたマスとの相性がとてもいいですよ。」",
+          "speaker": "Killa"
+        },
+        {
+          "en": "As a starter there are potatoes with ocopa, and my cousin Tomás has a serious allergy.",
+          "ja": "前菜には、オコパソースを添えたじゃがいもがあります。そして、いとこのTomásは重いアレルギーを持っています。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Me: My cousin is allergic to peanuts: does the ocopa have any?",
+          "ja": "私：「私のいとこはピーナッツにアレルギーがあります。オコパソースにはピーナッツが入っていますか。」",
+          "speaker": "Me"
+        },
+        {
+          "en": "Me: Could you confirm it with the kitchen before serving him anything?",
+          "ja": "私：「彼に何かを出す前に、厨房に確認していただけますか。」",
+          "speaker": "Me"
+        },
+        {
+          "en": "The waiter comes back from the kitchen and confirms: Yes, our ocopa has peanuts, so we'll serve your cousin the potatoes with just fresh cheese, on a separate plate and with clean utensils.",
+          "ja": "ウェイターが厨房から戻り、確認します。「はい、当店のオコパソースにはピーナッツが入っています。ですので、いとこの方には、フレッシュチーズだけをのせたじゃがいもを、別皿で、清潔なカトラリーとともにお出しします。」",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Later, another waiter leaves the hot stone with alpaca meat very close to the edge of the table.",
+          "ja": "その後、別のウェイターが、アルパカ肉をのせた熱い石を、テーブルの端のすぐ近くに置いてしまいます。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "My nephew Lucas, who is 5, reaches his hand toward it.",
+          "ja": "5歳の甥のLucasが、その石に手を伸ばします。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Me: Lucas, don't touch the stone, it's hot!",
+          "ja": "私：「Lucas、石に触らないで。熱いよ！」",
+          "speaker": "Me"
+        },
+        {
+          "en": "Me: Could you put the stone in the middle, away from the edge?",
+          "ja": "私：「石を真ん中に、端から離して置いていただけますか。」",
+          "speaker": "Me"
+        },
+        {
+          "en": "Wilber checks Lucas's hand, confirms he has no burn at all and writes down the incident following the restaurant's protocol.",
+          "ja": "WilberがLucasの手を確認し、やけどがまったくないことを確かめます。そして、店の手順に従って、この出来事を記録します。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "That night I write in the family group chat: Family, in short: the dinner turned out beautiful and we all made a toast.",
+          "ja": "その夜、私は家族のグループチャットにこう書きます。「みんな、まとめると、夕食会はすてきな会になって、みんなで乾杯したよ。」",
+          "speaker": "Narrator"
+        }
+      ],
+      "modes": {
+        "see": {
+          "sourceCard": 17,
+          "cueEnglish": "Killa, which Peruvian grape would you recommend instead of that wine?",
+          "cueJapanese": "「Killaさん、そのワインの代わりに、どのペルーのぶどう品種をお勧めになりますか。」を見て、代わりのワインの品種を丁寧に尋ねる形を確認しましょう。",
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "sourceCard": 22,
+          "cueEnglish": "Luckily nobody got burned, but it was very close.",
+          "cueJapanese": "「幸い、やけどをした人はいませんでしたが、本当に危ないところでした。」を思い出し、やけどにならなかった出来事を一文で言いましょう。",
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "sourceCard": 21,
+          "cueEnglish": "Could you put the stone in the middle, away from the edge?",
+          "cueJapanese": "日本語の音声を聞き、「石を真ん中に、端から離して置いていただけますか。」という依頼を聞き取りましょう。",
+          "responseKind": "fixed"
+        },
+        "type": {
+          "sourceCard": 8,
+          "cueEnglish": "the peanut",
+          "cueJapanese": "英語の「the peanut」に当たる日本語を入力しましょう。",
+          "responseKind": "fixed"
+        },
+        "say": {
+          "sourceCard": 18,
+          "cueEnglish": "My cousin is allergic to peanuts: does the ocopa have any?",
+          "cueJapanese": "「私のいとこはピーナッツにアレルギーがあります。オコパソースにはピーナッツが入っていますか。」の内容を、丁寧な言い方で伝えて質問しましょう。",
+          "responseKind": "open"
+        },
+        "write": {
+          "sourceCard": 19,
+          "cueEnglish": "Could you confirm it with the kitchen before serving him anything?",
+          "cueJapanese": "「彼に何かを出す前に、厨房に確認していただけますか。」を使い、厨房に確認してもらう依頼を書きましょう。",
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "あなたは、クスコでEmmaの婚約を祝う夕食会を準備している人です。ピスコの注文を再度お願いし、切れたワインの代わりを決め、いとこのアレルギーを確認して、最後に家族へ一日の要約を送ります。",
+        "partnerRole": "AIは、レストランのマネージャーWilber、ソムリエのKilla、そして招待客を演じます。注文の再手配、代わりのワインの提案、アレルギーの確認に応じます。",
+        "opening": "こんばんは。ようこそお越しくださいました。夕食会の準備は整っています。まず、ご要望を教えてください。",
+        "objectives": [
+          "紛失したピスコの注文をWilberさんに丁寧に頼み、業者が7時前に到着しなければ、バーにケブランタ種のピスコが残っている場合にチルカーノを出す計画を確認する。",
+          "Killaさんに、切れたワインの代わりとしてどのペルーのぶどう品種がよいかを尋ねる。",
+          "いとこのピーナッツアレルギーについて、オコパソースに入っているかを確かめ、厨房に確認してから料理を出してもらうよう頼む。",
+          "熱い石をテーブルの端から離して置いてもらうよう頼み、やけどがなかったことを確認して、家族への要約を書く。"
+        ],
+        "closure": "ありがとうございます、Wilberさん。ピスコの注文を、もう一度よろしくお願いします。ご家族にも、今夜のことをまとめてお伝えしますね。",
+        "goal": "Wilberさん、Killaさん、招待客との会話で、ピスコの再注文、ワインの代替、アレルギーとやけどへの対応を条件つきの表現を使って丁寧に伝え、家族への要約を完成させる。",
+        "wordBank": [
+          "婚約",
+          "婚約者",
+          "紛失した注文",
+          "ケブランタ種のピスコ",
+          "チルカーノ",
+          "ぶどうの品種",
+          "代わり",
+          "ピーナッツ",
+          "オコパソース",
+          "マス",
+          "熱い石",
+          "やけど",
+          "テーブルの端",
+          "指輪",
+          "家族のグループチャット",
+          "Wilberさん、ピスコの注文をもう一度していただけるとありがたいです。",
+          "Killaさん、そのワインの代わりに、どのペルーのぶどう品種をお勧めになりますか。",
+          "私のいとこはピーナッツにアレルギーがあります。オコパソースにはピーナッツが入っていますか。",
+          "彼に何かを出す前に、厨房に確認していただけますか。",
+          "Lucas、石に触らないで。熱いよ！",
+          "石を真ん中に、端から離して置いていただけますか。",
+          "幸い、やけどをした人はいませんでしたが、本当に危ないところでした。",
+          "みんな、まとめると、夕食会はとてもすてきで、みんなで乾杯したよ。"
+        ]
+      },
+      "reviewed": false
+    }
+  ]
+}

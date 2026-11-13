@@ -100,7 +100,16 @@ export function placementBlocks(lessons: PlacementLesson[], seed: string): Place
   return blocks;
 }
 export function placementCorrect(question: PlacementQuestion, response: string): boolean {
-  return !!response.trim() && normalize(response) === normalize(question.answer);
+  if (!response.trim()) return false;
+  const actual = normalize(response);
+  if (actual === normalize(question.answer)) return true;
+  // A fully completed cloze sentence is also a correct response. Require the entire
+  // expected sentence, never just an answer word appearing inside arbitrary text.
+  return (
+    question.type === "typed" &&
+    question.prompt.includes("____") &&
+    actual === normalize(question.prompt.replace("____", question.answer))
+  );
 }
 export function placementBlockScore(block: PlacementBlock, responses: Record<string, string>) {
   const answered = block.questions.every((q) => Object.hasOwn(responses, q.id));

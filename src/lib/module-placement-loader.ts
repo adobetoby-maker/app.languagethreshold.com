@@ -4,26 +4,44 @@ import { ensureStageForModule } from "@/data/core60-stages";
 import { spanishBasicsLesson } from "@/data/spanish-basics";
 import { core60PathOfPair } from "./core60-path";
 import { loadLessonContent } from "./lesson-content";
-import { loadLessonDeck } from "./lesson-words";
-import { authoredWordsPairForModule, pickAuthoredWords, pickDeckWords } from "./lesson-words-core";
+import {
+  authoredWordsPairForModule,
+  pickAuthoredWords,
+  pickDeckWords,
+  lessonDeckPath,
+  parseLessonDeck,
+} from "./lesson-words-core";
 import { pickContentWords, pickContentPassage } from "./lesson-content-core";
 import { authoredLessonReading } from "./lesson-reading";
 import { placementBlocks, placementCloze, type PlacementLesson } from "./module-placement";
 import type { Language, NativeLanguage } from "@/data/languages";
+
+// Public self-assessments use authored static material only, without the AI word-generation hook.
+async function placementDeck(moduleId: string, target: Language) {
+  const response = await fetch(lessonDeckPath(moduleId, target), {
+    signal: AbortSignal.timeout(8000),
+  });
+  if (!response.ok) return null;
+  return parseLessonDeck(await response.json(), { moduleId, language: target });
+}
 
 export async function loadModulePlacement(
   moduleId: string,
   target: Language,
   native: NativeLanguage,
   seed: string,
+  mode: "placement" | "post-core" = "placement",
 ) {
   const module = getModule(moduleId);
   if (!module || !moduleSupportsLearningPair(module, target, native))
     throw new Error("Placement is not available for this module and language pair.");
   const path = core60PathOfPair(moduleId, target, native);
-  const stages = path
-    ? path.steps.filter((s) => s.available).map((s) => ({ id: s.moduleId, label: s.stage }))
-    : [{ id: moduleId, label: "course" }];
+  const stages =
+    mode === "post-core"
+      ? [{ id: path?.tradeModuleId ?? moduleId, label: "core" }]
+      : path
+        ? path.steps.filter((s) => s.available).map((s) => ({ id: s.moduleId, label: s.stage }))
+        : [{ id: moduleId, label: "course" }];
   const loaded = await Promise.all(
     stages.map(async (stage) => {
       const stageModule = getModule(stage.id);
@@ -38,7 +56,7 @@ export async function loadModulePlacement(
       );
       const [content, deck] = await Promise.all([
         loadLessonContent(stage.id, target),
-        needsFiles ? loadLessonDeck(stage.id, target) : Promise.resolve(null),
+        needsFiles ? placementDeck(stage.id, target) : Promise.resolve(null),
       ]);
       return curriculum.lessons.map((lesson): PlacementLesson => {
         const words =
@@ -67,6 +85,8 @@ export async function loadModulePlacement(
   const lessons = loaded.flat();
   const blocks = placementBlocks(lessons, seed);
   const covered = blocks.reduce((sum, b) => sum + b.lessons.length, 0);
+  if (mode === "post-core" && (lessons.length !== 30 || covered !== 30))
+    throw new Error("A complete 30-lesson Core check is not available for this module yet.");
   return {
     blocks,
     totalLessons: lessons.length,

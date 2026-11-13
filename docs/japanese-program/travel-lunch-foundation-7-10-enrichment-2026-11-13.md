@@ -1,0 +1,9 @@
+# Japanese Lunch Foundation 7–10 owner-review enrichment
+
+This owner-only sidecar pins the unchanged `foundation-7-10-draft.json` bytes (`ba303cb272cf5d4b1073911e43eedeaed40dadf472d7800b579da21a5bd5c6bf`) and stage-local IDs 7–10. Each lesson gains three source-linked Japanese form examples, source-goal speaking objectives, and eight unique card-only word-bank entries. The source cards, Reader, six closed-gate mode cues and learner registration are unchanged. `reviewed`, `registered` and `readyForLearner` remain `false`; no audio was generated or approved.
+
+Direct Claude CLI `--safe-mode` returned `claude-haiku-5-5` for candidate authoring and `claude-opus-5-5` for read-only critique, verified from CLI `modelUsage`. Self-check corrected the Lesson 7 subject marker (`どちらが`, not `おすすめが`), explained Lesson 8 `で` as the requested condition without an unsettled copula claim, and tied the Lesson 8 rice objective to the Reader's offered plate because no rice card exists. It clarified the literal sense of Lesson 9 `おつりは結構です` while preserving the card's “Keep the change” meaning; this phrase is absent from the Reader. Lesson 10's word bank now covers katakana menu items and its salad-order closure. AI editorial checks are not qualified Japanese or food-domain approval.
+
+The validator checks the source hash, IDs, closed gates, unique card-only word banks, and form examples against source cards or Reader. Foundation 1–10 now shows authored form and speaking support in the owner review route. The remaining 50 Lunch lessons still lack those fields. Dictionary ambiguities from the Lunch audit, qualified review, exact-pair learner/offline/native integration and distinct per-batch audio listening remain open.
+
+The read-only exact-pair audit at source revision `b2321829de14cd3cac707fcc2a4a6f5e155b7f8c` still reports Japanese Lunch as catalog-only in learner runtime. This owner-only sidecar does not change that state.

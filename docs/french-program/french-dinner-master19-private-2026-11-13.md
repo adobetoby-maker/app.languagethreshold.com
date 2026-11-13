@@ -1,0 +1,9 @@
+# French Dinner Master 19 — owner-review checkpoint
+
+Source: `src/data/core60/es/master-travel-dinner.json` lesson 19 and `public/lesson-content/es/master-travel-dinner.json` passage 19, pinned by SHA-256 in the private draft. Stable ID: `master-travel-dinner:19:fr-en`. The owner-only route presents 23 exact-English cards, 18 aligned Reader lines, five French forms, six source-card-linked prompts, and a speaking scene with six objectives. `reviewed:false`; learner registration, audio playback, and progress gates remain closed.
+
+Direct safe-mode Claude CLI metadata verified **Haiku 5.5** candidate authoring and **Opus 5.5** read-only critique. Source-grounded self-check corrected the distinction between hearing each other and getting along, wedding anniversary versus birthday cake, serving versus bringing the cake, screen placement, formal venue wording, French time notation, and speaking coverage. These model passes are editorial aids, not qualified review. The lesson preserves Laura and Macarena's Seville private-room walk-through: 24 guests, 30-person capacity, service-door clearance and screen before 20 h 30, salmorejo at 21 h, and the speech finishing before 23 h 30. Qualified French and event-service review remains.
+
+A private exact-text audio scope pins **43 unique French strings, at most 86 proposed fr-FR Aoede/Charon clips, and 5,560 submitted characters**. At $30 per million characters, estimated synthesis is **$0.1668**. Quota project for any later batch: `project-91661021-fb2d-4524-b9f`. No Master 19 clips were synthesized, reviewed by listening, bundled, or registered in this checkpoint. Earlier pilot approval does not apply. Text should be frozen after qualified review before any paid candidate batch.
+
+Exact-pair learner runtime, offline, six modes, Reader, cards, dictionary, speaking, progress preservation, browser/phone and independent V4 native acceptance remain separate release gates.

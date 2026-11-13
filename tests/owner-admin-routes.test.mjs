@@ -237,7 +237,7 @@ test("platform owner can inspect 60 unregistered French Lunch drafts without int
     assert.ok(data.lessons.every((lesson) => !("internalReviewNote" in lesson)));
   }));
 
-test("platform owner can inspect 58 unregistered French Dinner drafts without internal notes", () =>
+test("platform owner can inspect 59 unregistered French Dinner drafts without internal notes", () =>
   fixture(async (api, c, req) => {
     c.role = "owner";
     const response = await api.frenchDinnerDrafts.server.handlers.GET({
@@ -251,11 +251,12 @@ test("platform owner can inspect 58 unregistered French Dinner drafts without in
     assert.equal(data.reviewed, false);
     assert.equal(data.registered, false);
     assert.equal(data.audioRegistered, false);
-    assert.equal(data.lessons.length, 58);
+    assert.equal(data.lessons.length, 59);
     assert.equal(data.lessons[0].stableId, "foundation-travel-dinner:1:fr-en");
-    assert.equal(data.lessons.at(-1).stableId, "master-travel-dinner:18:fr-en");
+    assert.equal(data.lessons.at(-1).stableId, "master-travel-dinner:19:fr-en");
+    assert.equal(data.lessons.at(-1).speaking.objectives.length, 6);
     assert.deepEqual(["foundation", "core", "master"].map((stage) =>
-      data.lessons.filter((lesson) => lesson.stage === stage).length), [10, 30, 18]);
+      data.lessons.filter((lesson) => lesson.stage === stage).length), [10, 30, 19]);
     assert.ok(data.lessons.every((lesson) => lesson.reviewed === false));
     assert.ok(data.lessons.every((lesson) => !("internalReviewNote" in lesson)));
   }));

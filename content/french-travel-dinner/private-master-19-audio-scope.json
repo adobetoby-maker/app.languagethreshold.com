@@ -1,0 +1,540 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "voices": [
+    "fr-FR-Chirp3-HD-Aoede",
+    "fr-FR-Chirp3-HD-Charon"
+  ],
+  "sourceSHA256": {
+    "master-19-private-draft.json": "71e7a3ccfdf3de2ef5fd96300493f030d4a2e9e06b94782f463ff31d05082f57"
+  },
+  "previousScopeSHA256": {
+    "foundation.json": "cdbee8c457ff9c9f0f400113d63347fb471506c22bb6bbd2eb089762fb77e9fe",
+    "core-1-3.json": "ab62ab86e0b9b51bfe5f4905a86cded44d046adb156f4cd194f79ec357599d10",
+    "core-4-9.json": "3d4aa7070a2d8bd67cac94208a11a43b813fcb3e4d6b1da8ffe99389e233c344",
+    "core-10-12.json": "ebc33851805ff0125eddab0a4836f3afd27fa1e2ea99d4eeed1434b6808531a6",
+    "private-owner-delta-audio-scope.json": "97484eaa2099e1820a68da85843f0e5a32ff9f9ac861b7d275dcc27620ba7206",
+    "private-core-13-audio-scope.json": "dab949203658a04cc91da3ef3094590048919296d4e2cb45e22dba47e969cf2e",
+    "private-core-14-audio-scope.json": "ce2fdbd2b5c41f23d8a51996c9f6245a38159bb8ce3593af35b0fa0e69f547b3",
+    "private-core-15-audio-scope.json": "3d8b7c021b39f809795def5b5b03837ce75617cc9ebece0e89fe24be77bec8d5",
+    "private-core-16-audio-scope.json": "33db9f45805dd8910425f1e5840943e7509f3c65cabdf1b4a7fa6fba41fc1e5b",
+    "private-core-17-audio-scope.json": "c5b9cd5c8aa0257f3104ad7ee7ae4d8270acd70db52bc36d9eea449fa63872df",
+    "private-core-18-audio-scope.json": "edd20f215e7720ab6f61aadb11fc7d86429adfd23baa8fee773e9d90690bebd4",
+    "private-core-19-audio-scope.json": "27b626c300ced17a3675a230899fa1ff123a4bd1443eda6d54b61de4f75308e4",
+    "private-core-20-audio-scope.json": "7e6badf17a000b50aed36910317708d30c37016b7b4b4b06ca35b7d584a8f7f0",
+    "private-core-21-audio-scope.json": "3a4ee65d6d3b7f38b166a516c88f303e09f910801e72a701165ca61ba9c9f2d1",
+    "private-core-22-audio-scope.json": "52ed5c65d71e8fbdb228ef8bc3a7a1cee8b0afc17b416097cdea36c171838e4e",
+    "private-core-23-audio-scope.json": "f742a6d201149062b199bbcb9cb6bf37bd070940c98377e28170da2c1f881ea7",
+    "private-core-24-audio-scope.json": "896cb33c0149fac4cfb3187dbe9ef82a72e093f070adaea916518f339e30bfa4",
+    "private-core-25-audio-scope.json": "3956c727ff300622929244baec1ce06c5ea371c06573cbe8b90b51a5c3db4d9b",
+    "private-core-26-audio-scope.json": "07b4608c082487ba5a55f47edcee07c95cd850dedfed11d160ea91529d0c3573",
+    "private-core-27-audio-scope.json": "5b31a3f11424d275eec7eac05356e4b95c42cbe86fd5c1322babf24fc31f9b5d",
+    "private-core-28-audio-scope.json": "10be69783b3b0e3be4817001a49fdc836469598655e5763ecb73c2cf8d32a43e",
+    "private-core-29-audio-scope.json": "12df60efddd5ee662977ca5aba6229b57dbb5c71b244cae99cfc578289540ba5",
+    "private-core-30-audio-scope.json": "68cc5151faaa5864f27b81c930b1e8412c0fc891609c7498699aac5f1990feda",
+    "private-master-1-audio-scope.json": "73974d1ea2fd2ef77baab624490efda93e4038e7470cd2083b0a4d4284b2984a",
+    "private-master-2-audio-scope.json": "f867fd31a1e7c7991d359a3e5f1248d936b14083f07717e74c21245af8960b98",
+    "private-master-3-audio-scope.json": "96f52df5299501275d4f6d7957737e9db27235d145946f084a3e21b4de986319",
+    "private-master-4-audio-scope.json": "ea7becf0ab92df7fc6d485ab97205efec6b0e530dfaa3ad0f53c28e43514d9e0",
+    "private-master-5-audio-scope.json": "312b1e136bac580f1d4eb73ee993ae9d42c13e131d5de3051d1363687cf57bc9",
+    "private-master-6-audio-scope.json": "94f3acbfa5634d54efb33042195f15877472a8010af1dbeaf933a219ec9a5e8c",
+    "private-master-7-audio-scope.json": "0cd9c4a0602d91e2f4abf883b38ddda60b87f8a3c41f836f201ae1a5e78040e6",
+    "private-master-8-audio-scope.json": "4fd81aa8cea629a7984168f394220b33b99f59cd00ad5a7865d7313b3965d358",
+    "private-master-9-audio-scope.json": "093d226253ca3c0c5bea852ee71a3492ebbc9d4dc3dbbf1e910912aebd707dd5",
+    "private-master-10-audio-scope.json": "5e476f4026157303b726864d2ec667c8bb6bb21e88433aac9c1884e33e42521b",
+    "private-master-11-audio-scope.json": "b8bf481ebb04a7628ef3eb96df412db658fbdc2aa30df2d0fef3756503ee74e4",
+    "private-master-12-audio-scope.json": "3d906ab2a93551156818bd69c16c165fa34ae920302ef7d62ca643602f803d07",
+    "private-master-13-audio-scope.json": "c80dbd95f47055fdc2e4d35b493490a1dfcba0fa93173787d662d0038149e031",
+    "private-master-14-audio-scope.json": "425ca2e56973613e62c72dfc9eb101e068fe844fe774bfdffb388ed1824d3e4e",
+    "private-master-15-audio-scope.json": "3fe2c4691ab7e9bd393aa372a7c2d500c7698e1f6d9e0042bb4c91b27e3922b9",
+    "private-master-16-audio-scope.json": "7cb36ad193476a0c99e56d2e1cff449f2a0096a7d6cd1b510f7cb4b53a838eea",
+    "private-master-17-audio-scope.json": "4b39031a548a57a92d125b2248256309a6755d4a6353db862d4b923d1329084c",
+    "private-master-18-audio-scope.json": "5ae87479fce45a122005f1772dc77231655065cfff264d4a7510700b7fa559a6"
+  },
+  "lessonIds": [
+    "master-travel-dinner:19:fr-en"
+  ],
+  "placements": 43,
+  "uniqueTexts": 43,
+  "proposedClips": 86,
+  "submittedCharacters": 5560,
+  "texts": [
+    {
+      "spokenText": "Avec tout ce va-et-vient, mes parents auraient du mal à s'entendre parler.",
+      "textSHA256": "390ba32006265337ec4b9526c810c298233882f855ac72c2974818629c06bab5",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "spokenText": "Bonjour Macarena, merci de me recevoir. Pourriez-vous me montrer le salon privé, s'il vous plaît ?",
+      "textSHA256": "7f801763871be742cf630f5af3af0b675b3bddb21f05eef8c1fff6c094fc5396",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura : Avec tout ce va-et-vient, mes parents auraient du mal à s'entendre parler.",
+      "textSHA256": "7a3d860ae4b24e973dbd171a6cb1de9173a237285aa998c3772fa2f3dba7f69d",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura : Macarena, pourriez-vous tout me confirmer par e-mail aujourd'hui ?",
+      "textSHA256": "0f9ba17ffd5ee163b45384186f1d982d630d33ff245bd63b7ef7f9936589173a",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "reader",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura : Mon frère prononcerait un discours, à condition qu'il y ait un micro.",
+      "textSHA256": "1ec6f782a4aa71890dadacaa25683be80474666525fdc28d59244d1e073ef7b4",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "reader",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura : Nous accepterions la salle à condition que vous placiez un paravent devant.",
+      "textSHA256": "8dd6857a382b86e4efa365b3006ced10047490a60a669b2d19925f9fccda0774",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura : Nous servirions le gâteau à la fin, à condition que la cuisine le permette.",
+      "textSHA256": "b2beed4b2dd2d900d3fb0fc2eceaaafc38653e127266d30270c6a8d7c8b23a5f",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "reader",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura : Pourrions-nous éloigner la longue table de cette porte ?",
+      "textSHA256": "a7f30dbb381cddf0bbc50d4fe56faa73ae44d98fc76c5d1cb55df2cc76b2912b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura : Quelle serait la capacité maximale de la salle, selon le restaurant ?",
+      "textSHA256": "b0a2c42ff4f67e4bf50c4be92e65f2d9bff544f17a58935d9e46549e0f12f198",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura demande un centre de table bas, pour que ses parents puissent voir tous les invités.",
+      "textSHA256": "3ee107487962fb6c3da8448f0d5a12a908b2bd2aa720ebe2dde7ec04c6c51a5e",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "reader",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura et Macarena passent ensuite en revue le menu, qui commence par un salmorejo à 21 h et se termine par le gâteau d'anniversaire de mariage que la famille apporte.",
+      "textSHA256": "57324d4e3cb7724ca860358cee3f4a3698a5fc0a3aca36ac5ad4e24098ecc332",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "reader",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura remarque que la table se trouve juste à côté de la porte de service, et que le va-et-vient des serveurs s'entend dans toute la salle.",
+      "textSHA256": "c3295758f99c0306d6714c2a771929b3361d96eb662be5edadd4385937e49ed4",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura se renseigne sur la climatisation, et Macarena promet de l’allumer une heure à l’avance, car il fait encore chaud à Séville.",
+      "textSHA256": "9cf1a9f0911a5fb79a00be8e3f9027662683ed057636f4ef0237d3d40de755cc",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "reader",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "spokenText": "Laura visite le salon privé d'un restaurant de Séville la veille du dîner des noces de rubis de ses parents.",
+      "textSHA256": "63c6ee7ef22dcc570c5e9fb1bfa580aeeaa8b4e1b2cdfa0663932be4ebf1793b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "Macarena : La cuisine le sortirait juste après le discours, à condition que celui-ci se termine avant 23 h 30.",
+      "textSHA256": "9febb32f07be65066a78897351f3a04323f2697ad3433e1337b675f68973ab26",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "reader",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "spokenText": "Macarena : Selon la licence de l'établissement, la capacité maximale est de 30 personnes, donc vos 24 invités tiennent largement.",
+      "textSHA256": "caaf8b6ab1c6fc3b321fe6557154786ee6388cf4e36b3e44e34aaaa54e85f911",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "reader",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "Macarena accepte et promet que le paravent sera installé avant 20 h 30.",
+      "textSHA256": "55bb9c59650c1286006393fbfd3834faca6242c2a3a69878008fbd3e42479df2",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "Macarena confirme qu'il y a un micro et aussi un projecteur pour montrer d'anciennes photos du mariage.",
+      "textSHA256": "fdf49bd455689107faab3d4a99713e22823a995fe59c0c0625f0ee91406e040e",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "reader",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "spokenText": "Macarena explique que la disposition des tables peut être modifiée, mais que la porte de service doit rester dégagée.",
+      "textSHA256": "ba369706bcf38f6a6d0649ccbf3cad0d33571ce70dfd09db2ed02ff07c70e731",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "Macarena, la coordinatrice événementielle, lui montre la table impériale, déjà dressée pour 24 invités.",
+      "textSHA256": "b17e1e6a001e2145a867a4987ca965baafadd7627929fba1d64929b8c79c619d",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "Macarena, pourriez-vous tout me confirmer par e-mail aujourd'hui ?",
+      "textSHA256": "54248478067f74dd40dc04b8d40802190c8731d7be449151e4ffd015d5759f54",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 23
+        }
+      ]
+    },
+    {
+      "spokenText": "Merci beaucoup, Macarena. À demain soir !",
+      "textSHA256": "1a82f50ab8a389c4698ae83ba9e5079d528f3bee16dae32501c8c221aed85a0b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "spokenText": "Mon frère prononcerait un discours, à condition qu'il y ait un micro.",
+      "textSHA256": "c295cd949902ed2cb07cde66ae0a144ca840a4699c081f2c8ea12445c0c63d0b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 20
+        }
+      ]
+    },
+    {
+      "spokenText": "Nous accepterions la salle à condition que vous placiez un paravent devant.",
+      "textSHA256": "fbd2c84ea3a7a415083106b8ce7052e4033498a34d003e1f418cc066f5428d24",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 19
+        }
+      ]
+    },
+    {
+      "spokenText": "Nous servirions le gâteau à la fin, à condition que la cuisine le permette.",
+      "textSHA256": "e177b74ab1dfbf336080f56154adac85072deb60d85781bab4d2e0afe39d7045",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "spokenText": "Pourrions-nous éloigner la longue table de cette porte ?",
+      "textSHA256": "1ebe4a1df4b9c088e9385196ae33abb851622513b27e4ae22cf5c2a69023a0af",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "spokenText": "Quelle serait la capacité maximale de la salle, selon le restaurant ?",
+      "textSHA256": "eecbe998396ab58d9cd280c74034345332b21a4b3393899e816880018e330c33",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 21
+        }
+      ]
+    },
+    {
+      "spokenText": "Si ce n'était pas possible, nous préférerions une autre salle, plus petite.",
+      "textSHA256": "a173bc8e214c386f638f7ab2ac8ce7bae0514e19ad6b254c40eb5ec1067cf9b0",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 22
+        }
+      ]
+    },
+    {
+      "spokenText": "la capacité maximale",
+      "textSHA256": "76c706b3ffa8a40db7f42292e227bf5732d4f21cfd61fa728819183e490492a9",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "spokenText": "la climatisation",
+      "textSHA256": "25c2ffd361d713f86a34c7f759393606cc997c36528fbac488bad63ba9018c71",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "spokenText": "la coordinatrice événementielle",
+      "textSHA256": "f1934789e673af72e6784a9c38464463191ffa5fde02ae2eb183537591679231",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "la disposition des tables",
+      "textSHA256": "b8cf0c82c7c53901bfed98ee3c97598facf54438541479313bbef0ba1f65d0aa",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "la porte de service",
+      "textSHA256": "20b53c7b1beff076544be785bb58bf655d6dd5bc1310f6ba74d80ca6cb624d7b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "la table impériale",
+      "textSHA256": "46e84aa9d09625ae53baaee920d8948f2dcbc51f7ecbdb3e082f2da6f7032106",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "le centre de table",
+      "textSHA256": "5b3c8364f87ac9881b616599919bce43737c000c54dd8c27f8b8ce7d6bf59209",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "le discours",
+      "textSHA256": "acc4b126a8447ae06005a2997637831b3c99aeaaa77823547812cf48c1ac3577",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "spokenText": "le gâteau d'anniversaire de mariage",
+      "textSHA256": "b58435b84ed39a0b3a8936ed1f1352e2b4a4cee1db19821f9836a4c2b9bc1b98",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "le micro",
+      "textSHA256": "d8a590de8555f376d67b43e15f7d358ebb974e2231f6c5156c043fb070a0b990",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "spokenText": "le paravent",
+      "textSHA256": "86086b83180bec5bd5bdf2983965b8af40d5d4690a36028c80a52a7960d24c82",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "le salon privé",
+      "textSHA256": "a2a8e9463cbd1581d21d30a4a333496814e6f8ffeaf3efa93aa1f3fbb0d44a7f",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "le va-et-vient",
+      "textSHA256": "ffd59772e8a179d9d690192caaefb3f83c9445d399e1bc26f77d907e2ed4e468",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "le vidéoprojecteur",
+      "textSHA256": "01405c51ccfc6069eb4384431bdde5ad3c719e4fbb93959d110333c41eae2337",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "spokenText": "les noces de rubis",
+      "textSHA256": "26e311cf330b055f5092212f76a60144c080dc1ea6b51bc772e31567a409074d",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:fr-en",
+          "surface": "card",
+          "index": 8
+        }
+      ]
+    }
+  ],
+  "recordingsBundled": false,
+  "listeningReviewed": false,
+  "registered": false
+}

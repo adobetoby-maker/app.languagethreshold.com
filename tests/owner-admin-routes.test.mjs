@@ -202,10 +202,10 @@ test("platform owner can inspect partial Japanese Lunch drafts without releasing
     assert.equal(data.lessons.at(-1).stableId, "master-travel-lunch:20:ja-en");
     assert.deepEqual(["foundation", "core", "master"].map((stage) => data.lessons.filter((lesson) => lesson.stage === stage).length), [10, 30, 20]);
     assert.ok(data.lessons.every((lesson) => lesson.reviewed === false));
-    assert.ok(data.lessons.slice(0, 3).every((lesson) => lesson.forms.length === 3 &&
+    assert.ok(data.lessons.slice(0, 6).every((lesson) => lesson.forms.length === 3 &&
       lesson.speaking.objectives.length >= 3 && lesson.speaking.wordBankAuthored === true &&
       lesson.reviewGaps.length === 1));
-    assert.ok(data.lessons.slice(3).every((lesson) => lesson.forms.length === 0 &&
+    assert.ok(data.lessons.slice(6).every((lesson) => lesson.forms.length === 0 &&
       lesson.speaking.objectives.length === 0 && lesson.speaking.wordBankAuthored === false &&
       lesson.reviewGaps.length === 2));
     assert.ok(data.lessons.every((lesson) => !Object.hasOwn(lesson, "internalReviewNote")));

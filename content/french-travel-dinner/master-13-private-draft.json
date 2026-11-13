@@ -1,0 +1,350 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-dinner.json",
+    "curriculumSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "passagePath": "public/lesson-content/es/master-travel-dinner.json",
+    "passageSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 13,
+      "stableId": "master-travel-dinner:13:fr-en",
+      "sourceTitleEnglish": "A Friend Slips on the Restroom Stairs",
+      "sourceObjectiveEnglish": "Tell the manager exactly what happened and when, ask for first aid help, and ask for an incident note.",
+      "sourceSpeakingEnglish": "You are a diner whose friend Priya just fell, and the AI is Rocío, the manager: tell her what happened in order using a las diez y cuarto, justo después del postre and en ese momento, ask for first aid, and ask for a written incident note.",
+      "title": "A Friend Slips on the Restroom Stairs",
+      "objective": "Tell the manager exactly what happened and when, ask for first aid help, and ask for an incident note.",
+      "focus": "Narration au passé avec des repères de temps : à dix heures et quart, juste après le dessert, à ce moment-là, peu après. Passé composé pour les actions, imparfait pour l'état (le sol était mouillé).",
+      "scene": "Ce soir, Tom et son amie Priya dînent dans un petit restaurant de l'Albaicín, à Grenade (Granada). Les toilettes sont au sous-sol, et pour y aller il faut descendre un escalier en pierre assez étroit. Juste après le dessert, Priya est descendue aux toilettes. À dix heures et quart (22 h 15), elle a glissé sur la troisième marche. À ce moment-là, le sol était mouillé. Il n'y a qu'une seule rampe, du côté gauche, et elle portait son sac de ce côté-là, donc elle ne s'est pas tenue à la rampe. Pendant la chute, elle a mis tout son poids sur la main droite. Peu après, son poignet a commencé à gonfler. Rocío, la gérante, note l'heure et le numéro de la marche, voit le sol mouillé à côté de la marche et trouve le panneau d'avertissement derrière la porte des toilettes. Un serveur apporte de la cuisine une trousse de secours et de la glace enveloppée dans un linge. Rocío remplit le rapport d'incident et le signe, puis appelle un taxi pour aller aux urgences, car seul un médecin peut voir s'il y a une fracture. Rocío lui remet une copie signée de la note avant leur départ en taxi vers les urgences.",
+      "forms": [
+        {
+          "infinitive": "glisser",
+          "meaning": "to slip",
+          "example": "Elle a glissé sur la troisième marche.",
+          "question": "Sur quelle marche a-t-elle glissé ?",
+          "politeRequest": "Pourriez-vous nous dire sur quelle marche elle a glissé ?"
+        },
+        {
+          "infinitive": "descendre",
+          "meaning": "to go down",
+          "example": "Juste après le dessert, Priya est descendue aux toilettes.",
+          "question": "Où est-elle descendue ?",
+          "politeRequest": "Pourriez-vous descendre avec nous voir la marche ?"
+        },
+        {
+          "infinitive": "se tenir (à)",
+          "meaning": "to hold on (to)",
+          "example": "Elle ne s'est pas tenue à la rampe.",
+          "question": "Est-ce que vous vous tenez à la rampe en descendant ?",
+          "politeRequest": "Pourriez-vous vous tenir à la rampe, s'il vous plaît ?"
+        },
+        {
+          "infinitive": "avoir",
+          "meaning": "to have",
+          "example": "Vous avez une trousse de secours et de la glace ?",
+          "question": "Avez-vous une trousse de secours ?",
+          "politeRequest": "Pourriez-vous nous apporter une trousse de secours et de la glace, s'il vous plaît ?"
+        },
+        {
+          "infinitive": "écrire",
+          "meaning": "to write",
+          "example": "Rocío écrit l'heure dans son carnet.",
+          "question": "Qu'est-ce que Rocío écrit dans son carnet ?",
+          "politeRequest": "Pourriez-vous écrire une note de ce qui s'est passé et nous en donner une copie ?"
+        }
+      ],
+      "cards": [
+        {
+          "en": "the stairs",
+          "fr": "l'escalier",
+          "kind": "term"
+        },
+        {
+          "en": "the wet floor",
+          "fr": "le sol mouillé",
+          "kind": "term"
+        },
+        {
+          "en": "the handrail",
+          "fr": "la rampe",
+          "kind": "term"
+        },
+        {
+          "en": "the warning sign",
+          "fr": "le panneau d'avertissement",
+          "kind": "term"
+        },
+        {
+          "en": "the restroom",
+          "fr": "les toilettes",
+          "kind": "term",
+          "note": "Les toilettes is the standard word in France; les WC is also common."
+        },
+        {
+          "en": "the fall",
+          "fr": "la chute",
+          "kind": "term"
+        },
+        {
+          "en": "the slip",
+          "fr": "la glissade",
+          "kind": "term"
+        },
+        {
+          "en": "the wrist",
+          "fr": "le poignet",
+          "kind": "term"
+        },
+        {
+          "en": "the swelling",
+          "fr": "le gonflement",
+          "kind": "term"
+        },
+        {
+          "en": "the first-aid kit",
+          "fr": "la trousse de secours",
+          "kind": "term"
+        },
+        {
+          "en": "first aid",
+          "fr": "les premiers secours",
+          "kind": "term"
+        },
+        {
+          "en": "the ice",
+          "fr": "la glace",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency room",
+          "fr": "les urgences",
+          "kind": "term",
+          "note": "Always plural with article: aller aux urgences (aux = à + les)."
+        },
+        {
+          "en": "the incident report",
+          "fr": "le rapport d'incident",
+          "kind": "term"
+        },
+        {
+          "en": "Right after dessert, Priya went down to the restroom.",
+          "fr": "Juste après le dessert, Priya est descendue aux toilettes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "At a quarter past ten she slipped on the third step.",
+          "fr": "À dix heures et quart du soir, elle a glissé sur la troisième marche.",
+          "kind": "phrase"
+        },
+        {
+          "en": "At that moment the floor was wet and I didn't see any sign.",
+          "fr": "À ce moment-là, le sol était mouillé et je n'ai vu aucun panneau.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Shortly after, her wrist started to swell.",
+          "fr": "Peu après, son poignet a commencé à gonfler.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Rocío, do you have a first-aid kit and some ice, please?",
+          "fr": "Rocío, vous avez une trousse de secours et de la glace, s'il vous plaît ?",
+          "kind": "phrase",
+          "note": "Formal: vous with the manager."
+        },
+        {
+          "en": "Priya, don't move your wrist; they're bringing you ice now.",
+          "fr": "Priya, ne bouge pas le poignet ; on t'apporte de la glace maintenant.",
+          "kind": "phrase",
+          "note": "Informal: tu with your friend."
+        },
+        {
+          "en": "Could you write a note of what happened and give us a copy?",
+          "fr": "Pourriez-vous écrire une note de ce qui s'est passé et nous en donner une copie ?",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "reader": [
+        {
+          "en": "Tonight, Tom and his friend Priya are having dinner in a small restaurant in the Albaicín, in Granada.",
+          "fr": "Ce soir, Tom et son amie Priya dînent dans un petit restaurant de l'Albaicín, à Grenade.",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "The restroom is in the basement, and to get there you have to go down a fairly narrow stone staircase.",
+          "fr": "Les toilettes sont au sous-sol, et pour y aller il faut descendre un escalier en pierre assez étroit.",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "On hearing a thud, Tom runs down, finds Priya at the foot of the stairs and alerts Rocío, the manager.",
+          "fr": "En entendant un bruit sourd, Tom descend en courant, trouve Priya au pied de l'escalier et prévient Rocío, la gérante.",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Rocío wants an exact account of what happened before writing anything down.",
+          "fr": "Rocío veut un récit exact de ce qui s'est passé avant d'écrire quoi que ce soit.",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Tom: Right after dessert, Priya went down to the restroom.",
+          "fr": "Tom : Juste après le dessert, Priya est descendue aux toilettes.",
+          "speaker": "Tom"
+        },
+        {
+          "en": "Tom: At a quarter past ten she slipped on the third step.",
+          "fr": "Tom : À dix heures et quart du soir, elle a glissé sur la troisième marche.",
+          "speaker": "Tom"
+        },
+        {
+          "en": "Tom: At that moment the floor was wet and I didn't see any sign.",
+          "fr": "Tom : À ce moment-là, le sol était mouillé et je n'ai vu aucun panneau.",
+          "speaker": "Tom"
+        },
+        {
+          "en": "Tom: Priya told me she didn't hold on to the handrail because there is only one, on the left side, and she was carrying her bag on that side.",
+          "fr": "Tom : Priya m'a dit qu'elle ne s'était pas tenue à la rampe, parce qu'il n'y en a qu'une, du côté gauche, et qu'elle portait son sac de ce côté-là.",
+          "speaker": "Tom"
+        },
+        {
+          "en": "Tom: Priya told me that, in the fall, she put all her weight on her right hand.",
+          "fr": "Tom : Priya m'a dit que, pendant la chute, elle avait mis tout son poids sur la main droite.",
+          "speaker": "Tom"
+        },
+        {
+          "en": "Tom: Shortly after, her wrist started to swell.",
+          "fr": "Tom : Peu après, son poignet a commencé à gonfler.",
+          "speaker": "Tom"
+        },
+        {
+          "en": "Rocío writes the time of the slip and the number of the step in her notebook.",
+          "fr": "Rocío note dans son carnet l'heure de la glissade et le numéro de la marche.",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Rocío sees the wet floor next to the step and finds the warning sign behind the restroom door.",
+          "fr": "Rocío voit le sol mouillé à côté de la marche et trouve le panneau d'avertissement derrière la porte des toilettes.",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "The swelling gets worse, and Tom asks Rocío for help with first aid.",
+          "fr": "Le gonflement s'aggrave, et Tom demande à Rocío de l'aide pour les premiers secours.",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Tom: Rocío, do you have a first-aid kit and some ice, please?",
+          "fr": "Tom : Rocío, vous avez une trousse de secours et de la glace, s'il vous plaît ?",
+          "speaker": "Tom"
+        },
+        {
+          "en": "A waiter brings the first-aid kit from the kitchen and a bag of ice wrapped in a cloth.",
+          "fr": "Un serveur apporte de la cuisine la trousse de secours et un sac de glace enveloppé dans un linge.",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Rocío: I'm going to fill out the incident report with the time, the step and everything you've told me.",
+          "fr": "Rocío : Je vais remplir le rapport d'incident avec l'heure, la marche et tout ce que vous m'avez raconté.",
+          "speaker": "Rocío"
+        },
+        {
+          "en": "Tom: Could you write a note of what happened and give us a copy?",
+          "fr": "Tom : Pourriez-vous écrire une note de ce qui s'est passé et nous en donner une copie ?",
+          "speaker": "Tom"
+        },
+        {
+          "en": "Rocío gives them a signed copy and calls them a taxi to go to the emergency room, because only a doctor can see whether there is a fracture.",
+          "fr": "Rocío leur remet une copie signée et appelle un taxi pour les conduire aux urgences, car seul un médecin peut voir s'il y a une fracture.",
+          "speaker": "Narrator"
+        }
+      ],
+      "modes": {
+        "see": {
+          "sourceCard": 4,
+          "cueEnglish": "the warning sign",
+          "cueFrench": "Regarde la scène : sur quelle marche Priya a-t-elle glissé, et où se trouve le panneau d'avertissement ?",
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "sourceCard": 16,
+          "cueEnglish": "At a quarter past ten she slipped on the third step.",
+          "cueFrench": "Rappelez-vous : à quelle heure exactement Priya a-t-elle glissé, et juste après quoi ?",
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "sourceCard": 8,
+          "cueEnglish": "the wrist",
+          "cueFrench": "Écoutez : « À dix heures et quart du soir, elle a glissé sur la troisième marche. » Quelle marche ?",
+          "responseKind": "fixed"
+        },
+        "type": {
+          "sourceCard": 19,
+          "cueEnglish": "Rocío, do you have a first-aid kit and some ice, please?",
+          "cueFrench": "Écris en français : « Rocío, vous avez une trousse de secours et de la glace, s'il vous plaît ? »",
+          "responseKind": "fixed"
+        },
+        "say": {
+          "sourceCard": 16,
+          "cueEnglish": "At a quarter past ten she slipped on the third step.",
+          "cueFrench": "Dis à Rocío ce qui s'est passé, dans l'ordre, en commençant par « Juste après le dessert, Priya est descendue aux toilettes. »",
+          "responseKind": "fixed"
+        },
+        "write": {
+          "sourceCard": 21,
+          "cueEnglish": "Could you write a note of what happened and give us a copy?",
+          "cueFrench": "Demandez à Rocío d’écrire une note de ce qui s’est passé et de vous en donner une copie signée.",
+          "responseKind": "fixed"
+        }
+      },
+      "speaking": {
+        "role": "Un·e client·e dont l'amie Priya vient de glisser dans l'escalier des toilettes",
+        "partnerRole": "Rocío, la gérante",
+        "opening": "Bonsoir, je suis Rocío, la gérante. Dites-moi exactement ce qui s'est passé, dans l'ordre.",
+        "objectives": [
+          "Raconter dans l’ordre ce qui s’est passé avec « Juste après le dessert », « À ce moment-là » et « À dix heures et quart du soir » (22 h 15).",
+          "Dire que vous n’avez vu aucun panneau, que la seule rampe se trouvait à gauche et que Priya portait son sac de ce côté.",
+          "Expliquer que Priya a mis tout son poids sur la main droite et que son poignet gonfle, puis demander une trousse de secours et de la glace.",
+          "Demander une note écrite de ce qui s’est passé et une copie signée de cette note."
+        ],
+        "closure": "Merci beaucoup, Rocío. Nous vous remercions pour la copie et pour le taxi vers les urgences.",
+        "goal": "Dire à Rocío exactement ce qui s'est passé, dans l'ordre, et obtenir les premiers secours ainsi qu'une note écrite.",
+        "wordBank": [
+          "l'escalier",
+          "le sol mouillé",
+          "la rampe",
+          "le panneau d'avertissement",
+          "les toilettes",
+          "la chute",
+          "la glissade",
+          "le poignet",
+          "le gonflement",
+          "la trousse de secours",
+          "les premiers secours",
+          "la glace",
+          "les urgences",
+          "le rapport d'incident",
+          "Juste après le dessert, Priya est descendue aux toilettes.",
+          "À dix heures et quart, elle a glissé sur la troisième marche.",
+          "À ce moment-là, le sol était mouillé et je n'ai vu aucun panneau.",
+          "Peu après, son poignet a commencé à gonfler.",
+          "Rocío, vous avez une trousse de secours et de la glace, s'il vous plaît ?",
+          "Priya, ne bouge pas le poignet ; on t'apporte de la glace maintenant.",
+          "Pourriez-vous écrire une note de ce qui s'est passé et nous en donner une copie ?"
+        ]
+      },
+      "reviewed": false
+    }
+  ]
+}

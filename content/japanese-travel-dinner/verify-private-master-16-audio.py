@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 DIR = Path(__file__).resolve().parent
 SCOPE_PATH = DIR / "private-master-16-audio-scope.json"
-AUDIO = Path("/Users/drive/lt-audio/japanese-travel-dinner/master-16")
+AUDIO = Path("/Users/drive/lt-audio/japanese-travel-dinner/master-16-rev1")
 MANIFEST_PATH = AUDIO / "manifest.json"
 REPORT = AUDIO / "technical-review.json"
 SHEET = AUDIO / "listening-review.html"

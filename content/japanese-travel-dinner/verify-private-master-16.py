@@ -35,4 +35,10 @@ assert lesson['speaking']['wordBank'] == [row['ja'] for row in lesson['cards']]
 assert all(row.get('readingKana') and not re.search(r'[\u3400-\u9fff]', row['readingKana']) for row in lesson['cards'])
 for row in lesson['cards'] + lesson['reader']:
     assert row.get('ja') and row.get('en')
+# The form has three sheets total; do not turn it into three duplicate copies.
+learner_text = json.dumps(lesson, ensure_ascii=False)
+assert not any(stale in learner_text for stale in ('ホハ', 'ほは', '副本', '三部の副本'))
+assert '三枚つづり' in lesson['scene'] and '三枚つづり' in lesson['reader'][3]['ja']
+assert lesson['cards'][1]['ja'] == '用紙の一枚'
+assert '控え' in lesson['cards'][22]['ja'] and '控え' in lesson['reader'][17]['ja']
 print('Japanese Dinner Master 16 private candidate: 23 exact-English cards, 18 aligned Reader turns, 5 forms, 6 modes, closed gates PASS')

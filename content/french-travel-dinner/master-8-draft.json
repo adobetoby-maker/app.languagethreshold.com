@@ -1,0 +1,363 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-dinner.json",
+    "curriculumSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "passagePath": "public/lesson-content/es/master-travel-dinner.json",
+    "passageSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 8,
+      "stableId": "master-travel-dinner:8:fr-en",
+      "sourceTitleEnglish": "Saying No to Driving Back from the Winery Lunch",
+      "sourceObjectiveEnglish": "Refuse a friend's plan to drive after a wine lunch, decline one more glass, and agree on another way back.",
+      "sourceSpeakingEnglish": "You are at a winery lunch, and the AI plays your friend Ben and the owner Fernando: refuse Ben's plan to drive with negative commands (no cojas las llaves) and no recomiendo que + subjunctive, decline one more glass politely, and agree on another way back.",
+      "title": "Saying No to Driving Back from the Winery Lunch",
+      "objective": "Refuse a friend's plan to drive after a wine lunch, decline one more glass, and agree on another way back.",
+      "focus": "Pour refuser directement, utilisez l'impératif négatif : « Ne prends pas les clés » (avec tu) ou « Ne prenez pas les clés » (avec vous), et l'indicatif pour constater : « tu ne conduis pas aujourd'hui ». Pour une recommandation négative, dites « Je ne recommande pas que tu conduises » : après recommander que, le verbe passe au subjonctif présent (conduire → conduises). Pour décliner un autre verre, dites « ne m’en versez plus, s'il vous plaît » et justifiez avec « j'en ai déjà assez bu » (en remplace « de vin »). Pour demander un taxi, utilisez le conditionnel de politesse : « Pourriez-vous nous appeler un taxi… ? ». Pour proposer de laisser la voiture, utilisez « Pouvons-nous laisser… ? ».",
+      "scene": "Au domaine viticole de Fernando, près de Haro, Laura et Ben doivent décider comment rentrer après le déjeuner.",
+      "forms": [
+        {
+          "infinitive": "conduire",
+          "meaning": "to drive",
+          "example": "Je ne recommande pas que tu conduises après le déjeuner.",
+          "question": "Est-ce que tu peux conduire jusqu'à l'hôtel ?",
+          "politeRequest": "Pourriez-vous éviter de conduire aujourd’hui, s’il vous plaît ?"
+        },
+        {
+          "infinitive": "boire",
+          "meaning": "to drink",
+          "example": "J'ai déjà assez bu, merci.",
+          "question": "Est-ce que vous voulez encore un peu de vin ?",
+          "politeRequest": "Pourriez-vous ne plus me verser de vin, s'il vous plaît ?"
+        },
+        {
+          "infinitive": "prendre",
+          "meaning": "to take",
+          "example": "Ne prends pas les clés, Ben.",
+          "question": "Est-ce que tu prends un taxi pour rentrer ?",
+          "politeRequest": "Pourriez-vous prendre les clés, s’il vous plaît ?"
+        },
+        {
+          "infinitive": "appeler",
+          "meaning": "to call",
+          "example": "Fernando va appeler son cousin Julián.",
+          "question": "Qui est-ce que vous allez appeler pour le taxi ?",
+          "politeRequest": "Pourriez-vous nous appeler un taxi pour Haro, s'il vous plaît ?"
+        },
+        {
+          "infinitive": "laisser",
+          "meaning": "to leave",
+          "example": "Nous laissons la voiture sur le parking.",
+          "question": "Où est-ce que vous laissez la voiture ce soir ?",
+          "politeRequest": "Pourrions-nous laisser la voiture ici jusqu'à demain, s'il vous plaît ?"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "les clés de la voiture",
+          "en": "the car keys",
+          "kind": "term"
+        },
+        {
+          "fr": "la voiture de location",
+          "en": "the rental car",
+          "kind": "term"
+        },
+        {
+          "fr": "le petit verre",
+          "en": "the little glass",
+          "kind": "term"
+        },
+        {
+          "fr": "le domaine viticole",
+          "en": "the winery",
+          "kind": "term"
+        },
+        {
+          "fr": "le contrôle d'alcoolémie",
+          "en": "the breath-test checkpoint",
+          "kind": "term"
+        },
+        {
+          "fr": "le taux d'alcool dans le sang",
+          "en": "the blood alcohol level",
+          "kind": "term"
+        },
+        {
+          "fr": "l’autocar de ligne",
+          "en": "the regular bus service",
+          "kind": "term"
+        },
+        {
+          "fr": "sobre",
+          "en": "sober",
+          "kind": "term"
+        },
+        {
+          "fr": "la route",
+          "en": "the road",
+          "kind": "term"
+        },
+        {
+          "fr": "les virages",
+          "en": "the bends",
+          "kind": "term"
+        },
+        {
+          "fr": "le chauffeur privé",
+          "en": "the private driver",
+          "kind": "term"
+        },
+        {
+          "fr": "le parking",
+          "en": "the parking lot",
+          "kind": "term"
+        },
+        {
+          "fr": "le retour",
+          "en": "the way back",
+          "kind": "term"
+        },
+        {
+          "fr": "le risque",
+          "en": "the risk",
+          "kind": "term"
+        },
+        {
+          "fr": "l'amende",
+          "en": "the fine",
+          "kind": "term"
+        },
+        {
+          "fr": "l'assurance de la voiture",
+          "en": "the car insurance",
+          "kind": "term"
+        },
+        {
+          "fr": "Ben, ne prends pas les clés ; tu ne conduis pas aujourd'hui.",
+          "en": "Ben, don't take the keys; you're not driving today.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je ne recommande pas que tu conduises dans ces virages.",
+          "en": "I don't recommend you drive on these bends.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Ne te fâche pas, Ben ; je le dis parce que je tiens à toi.",
+          "en": "Don't get upset, Ben; I'm saying it because I care about you.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Merci beaucoup, Fernando, mais ne m’en versez plus, s’il vous plaît.",
+          "en": "Thank you so much, Fernando, but please don't pour me any more.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "C'est délicieux, mais j'en ai déjà assez bu.",
+          "en": "It's delicious, but I've already had enough.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pourriez-vous nous appeler un taxi pour Haro, s'il vous plaît ?",
+          "en": "Could you call us a taxi to Haro, please?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pouvons-nous laisser la voiture sur votre parking jusqu'à demain ?",
+          "en": "Can we leave the car in your parking lot until tomorrow?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Demain, sans nous presser, on revient chercher la voiture.",
+          "en": "Tomorrow, with no rush, we'll come back for the car.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "Après un long déjeuner au domaine viticole de Fernando, près de Haro, Laura et Ben prennent un café sur la terrasse.",
+          "en": "After a long lunch at Fernando's winery, near Haro, Laura and Ben have coffee on the terrace."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Ben tend la main vers les clés de la voiture et dit qu'il conduira la voiture de location pour rentrer à l'hôtel.",
+          "en": "Ben reaches for the car keys and says that he'll drive the rental car on the way back to the hotel."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Laura : Ben, ne prends pas les clés ; tu ne conduis pas aujourd'hui.",
+          "en": "Laura: Ben, don't take the keys; you're not driving today."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Ben dit qu’il est sobre, mais Laura lui rappelle que personne ne connaît son taux d’alcool dans le sang sans faire de test.",
+          "en": "Ben says that he's sober, but Laura reminds him that nobody knows their blood alcohol level without a test."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Laura : Je ne recommande pas que tu conduises dans ces virages.",
+          "en": "Laura: I don't recommend you drive on these bends."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Laura lui explique que la route jusqu'à Haro a beaucoup de virages et que le risque est trop élevé après tant de vin.",
+          "en": "Laura explains to him that the road to Haro has a lot of bends and that the risk is too high after so much wine."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Fernando mentionne que la Guardia Civil installe parfois un contrôle d'alcoolémie près d'ici, et que l'amende peut être très élevée.",
+          "en": "Fernando mentions that the Guardia Civil sometimes sets up a breath-test checkpoint near here, and that the fine can be very high."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Laura ajoute que, selon le contrat de location, l'assurance de la voiture ne couvre pas les dégâts si le conducteur a bu.",
+          "en": "Laura adds that, according to the rental contract, the car insurance doesn't cover damage if the driver has been drinking."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Laura : Ne te fâche pas, Ben ; je le dis parce que je tiens à toi.",
+          "en": "Laura: Don't get upset, Ben; I'm saying it because I care about you."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "À ce moment-là, Fernando ouvre une autre bouteille et leur propose un petit verre pour la route.",
+          "en": "At that moment, Fernando opens another bottle and offers them a little glass for the road."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Laura : Merci beaucoup, Fernando, mais ne m’en versez plus, s’il vous plaît.",
+          "en": "Laura: Thank you so much, Fernando, but please don't pour me any more."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Laura : C'est délicieux, mais j'en ai déjà assez bu.",
+          "en": "Laura: It's delicious, but I've already had enough."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Laura : Pourriez-vous nous appeler un taxi pour Haro, s'il vous plaît ?",
+          "en": "Laura: Could you call us a taxi to Haro, please?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Fernando : N’attendez pas l’autocar de ligne, parce que le dimanche il ne passe pas avant le soir.",
+          "en": "Fernando: Don't wait for the regular bus service, because on Sundays it doesn't come until the evening."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Fernando : Les taxis mettent beaucoup de temps par ici, alors j'appelle mon cousin Julián, qui travaille comme chauffeur privé.",
+          "en": "Fernando: Taxis take a long time out here, so I'll call my cousin Julián, who works as a private driver."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Laura : Pouvons-nous laisser la voiture sur votre parking jusqu'à demain ?",
+          "en": "Laura: Can we leave the car in your parking lot until tomorrow?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Fernando dit oui, et Ben donne les clés de la voiture à Laura avant de monter dans la voiture de Julián.",
+          "en": "Fernando says yes, and Ben gives the car keys to Laura before getting into Julián's car."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Ben : Demain, sans nous presser, on revient chercher la voiture.",
+          "en": "Ben: Tomorrow, with no rush, we'll come back for the car."
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "the car keys",
+          "cueFrench": "Repérez les clés que Ben veut prendre, puis donnez leur sens anglais.",
+          "sourceCard": 1,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "the little glass",
+          "cueFrench": "Rappelez le nom du petit verre que Fernando propose pour la route.",
+          "sourceCard": 3,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Ben, don't take the keys; you're not driving today.",
+          "cueFrench": "Écoutez le refus de Laura à Ben et reformulez-le en français.",
+          "sourceCard": 17,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "I don't recommend you drive on these bends.",
+          "cueFrench": "Tapez la recommandation de Laura à propos des virages.",
+          "sourceCard": 18,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Could you call us a taxi to Haro, please?",
+          "cueFrench": "Demandez à Fernando, à voix haute, d’appeler un taxi pour Haro.",
+          "sourceCard": 22,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Thank you so much, Fernando, but please don't pour me any more.",
+          "cueFrench": "Écrivez la phrase polie par laquelle Laura refuse un autre verre.",
+          "sourceCard": 20,
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "Laura, amie de Ben au domaine viticole de Fernando près de Haro.",
+        "partnerRole": "Ben et Fernando, joués par l’IA.",
+        "opening": "Bon, je prends les clés : je conduis la voiture de location jusqu’à l’hôtel.",
+        "goal": "Refuse a friend's plan to drive after a wine lunch, decline one more glass, and agree on another way back.",
+        "closure": "Demain, sans nous presser, on revient chercher la voiture.",
+        "wordBank": [
+          "les clés de la voiture",
+          "la voiture de location",
+          "le petit verre",
+          "le domaine viticole",
+          "le contrôle d'alcoolémie",
+          "le taux d'alcool dans le sang",
+          "l’autocar de ligne",
+          "sobre",
+          "la route",
+          "les virages",
+          "le chauffeur privé",
+          "le parking",
+          "le retour",
+          "le risque",
+          "l'amende",
+          "l'assurance de la voiture",
+          "Ben, ne prends pas les clés ; tu ne conduis pas aujourd'hui.",
+          "Je ne recommande pas que tu conduises dans ces virages.",
+          "Ne te fâche pas, Ben ; je le dis parce que je tiens à toi.",
+          "Merci beaucoup, Fernando, mais ne m’en versez plus, s’il vous plaît.",
+          "C'est délicieux, mais j'en ai déjà assez bu.",
+          "Pourriez-vous nous appeler un taxi pour Haro, s'il vous plaît ?",
+          "Pouvons-nous laisser la voiture sur votre parking jusqu'à demain ?",
+          "Demain, sans nous presser, on revient chercher la voiture."
+        ]
+      },
+      "reviewed": false,
+      "model": {
+        "authorRequested": "claude-haiku-5-5",
+        "authorActual": "claude-haiku-5-5",
+        "reviewRequested": "claude-opus-5-5",
+        "reviewActual": "claude-opus-5-5"
+      }
+    }
+  ]
+}

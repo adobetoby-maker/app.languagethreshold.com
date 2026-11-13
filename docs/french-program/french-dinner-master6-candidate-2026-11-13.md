@@ -1,6 +1,6 @@
 # French Dinner Master 6 — source-grounded candidate
 
-Status: owner-review candidate only. No learner registration, audio playback, or progress change. Qualified French and Peruvian-food review remains open.
+Status: source-pinned owner-only draft on main through #550. No learner registration, audio playback, or progress change. Qualified French and Peruvian-food review remains open.
 
 Source: `src/data/core60/es/master-travel-dinner.json`, lesson 6, SHA-256 `fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be`; `public/lesson-content/es/master-travel-dinner.json`, passage 6, SHA-256 `53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80`. Preserve `master-travel-dinner:6:fr-en`.
 

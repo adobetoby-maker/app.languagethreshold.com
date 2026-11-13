@@ -1,0 +1,383 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "masterPath": "src/data/core60/es/master-travel-dinner.json",
+    "masterSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "contentPath": "public/lesson-content/es/master-travel-dinner.json",
+    "contentSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 18,
+      "stableId": "master-travel-dinner:18:ja-en",
+      "sourceTitleEnglish": "Flight Delayed: Move the Group Booking by WhatsApp",
+      "sourceObjectiveEnglish": "Text and phone a restaurant to move a group booking, confirm the new details, and leave a clear voice message.",
+      "sourceSpeakingEnglish": "You are the traveler at the airport gate, and the AI is Yesenia, the restaurant host: ask to move your booking for 10 to a later time with ¿podrían pasarnos…? and le agradecería que me confirmara…, confirm the new details, and leave a clear voice message.",
+      "title": "Flight Delayed: Move the Group Booking by WhatsApp",
+      "objective": "Text and phone a restaurant to move a group booking, confirm the new details, and leave a clear voice message.",
+      "focus": "電話とWhatsAppでの丁寧な予約変更。依頼には「～していただけますか」、文面での確認依頼には「～ていただけますと幸いです」を使い、友人にはくだけた言い方に切り替えます。",
+      "scene": "ボゴタ空港の搭乗ゲートで、サム・リベラと友人9人が遅延の案内を見ています。カルタヘナのレストランの予約は20時ですが、到着予定は20時45分になりました。サムはイェセニアさんに電話しますが応答がなく、留守番電話にメッセージを残します。その後、WhatsAppで10名の予約を22時に変更できるか尋ねます。",
+      "forms": [
+        {
+          "base": "変更する（へんこうする）",
+          "polite": "変更します（へんこうします）",
+          "meaning": "to change (a booking or a time); used for changing an existing reservation",
+          "example": "予約時間を22時に変更します。",
+          "question": "予約時間を22時に変更しますか。"
+        },
+        {
+          "base": "予約する（よやくする）",
+          "polite": "予約します（よやくします）",
+          "meaning": "to book or reserve; used for making a new booking, not for moving one",
+          "example": "今夜、10名で予約します。",
+          "question": "今夜、10名で予約しますか。"
+        },
+        {
+          "base": "確認する（かくにんする）",
+          "polite": "確認します（かくにんします）",
+          "meaning": "to check or confirm details; you confirm information yourself or ask someone to confirm it",
+          "example": "変更の内容を書面で確認します。",
+          "question": "変更の内容を書面で確認しましたか。"
+        },
+        {
+          "base": "遅れる（おくれる）",
+          "polite": "遅れます（おくれます）",
+          "meaning": "to be late or delayed; used for a flight or a person running behind schedule",
+          "example": "便は2時間遅れます。",
+          "question": "便は何時間遅れますか。"
+        },
+        {
+          "base": "空く（あく）",
+          "polite": "空きます（あきます）",
+          "meaning": "to become free or vacant; used for seats or tables that are available at a time",
+          "example": "22時なら、10名分の席が空きます。",
+          "question": "22時に席は空きますか。"
+        }
+      ],
+      "cards": [
+        {
+          "en": "the delayed flight",
+          "kind": "term",
+          "ja": "遅延便",
+          "readingKana": "ちえんびん"
+        },
+        {
+          "en": "the boarding gate",
+          "kind": "term",
+          "ja": "搭乗ゲート",
+          "readingKana": "とうじょうげーと"
+        },
+        {
+          "en": "the airline",
+          "kind": "term",
+          "ja": "航空会社",
+          "readingKana": "こうくうがいしゃ"
+        },
+        {
+          "en": "the estimated arrival time",
+          "kind": "term",
+          "ja": "到着予定時刻",
+          "readingKana": "とうちゃくよていじこく"
+        },
+        {
+          "en": "the voice note",
+          "kind": "term",
+          "ja": "ボイスメッセージ",
+          "readingKana": "ぼいすめっせーじ"
+        },
+        {
+          "en": "the voicemail",
+          "kind": "term",
+          "ja": "留守番電話",
+          "readingKana": "るすばんでんわ"
+        },
+        {
+          "en": "the missed call",
+          "kind": "term",
+          "ja": "不在着信",
+          "readingKana": "ふざいちゃくしん"
+        },
+        {
+          "en": "the phone signal",
+          "kind": "term",
+          "ja": "電波状況",
+          "readingKana": "でんぱじょうきょう"
+        },
+        {
+          "en": "the room, availability",
+          "kind": "term",
+          "ja": "空席状況",
+          "readingKana": "くうせきじょうきょう"
+        },
+        {
+          "en": "the last seating",
+          "kind": "term",
+          "ja": "最終の予約枠",
+          "readingKana": "さいしゅうのよやくわく"
+        },
+        {
+          "en": "the kitchen closing time",
+          "kind": "term",
+          "ja": "キッチンの営業終了時刻",
+          "readingKana": "きっちんのえいぎょうしゅうりょうじこく"
+        },
+        {
+          "en": "the advance payment",
+          "kind": "term",
+          "ja": "予約金",
+          "readingKana": "よやくきん"
+        },
+        {
+          "en": "the person the booking is under",
+          "kind": "term",
+          "ja": "予約名義人",
+          "readingKana": "よやくめいぎにん"
+        },
+        {
+          "en": "the transfer (airport ride)",
+          "kind": "term",
+          "ja": "空港送迎",
+          "readingKana": "くうこうそうげい"
+        },
+        {
+          "en": "in writing",
+          "kind": "term",
+          "ja": "文面で",
+          "readingKana": "ぶんめんで"
+        },
+        {
+          "en": "Good afternoon, Yesenia, I'm writing about the booking for 10 people.",
+          "kind": "phrase",
+          "ja": "こんにちは、イェセニアさん。10名の予約の件でご連絡しています。",
+          "readingKana": "こんにちは、いぇせにあさん。じゅうめいの よやくの けんで ごれんらくしています。"
+        },
+        {
+          "en": "Could you move us to 22:00, please?",
+          "kind": "phrase",
+          "ja": "22時に変更していただけますか。",
+          "readingKana": "にじゅうにじに へんこうして いただけますか。"
+        },
+        {
+          "en": "Would you still have room for 10 people before the kitchen closes?",
+          "kind": "phrase",
+          "ja": "キッチンが閉まる前に、10名分の席はまだ空いていますか。",
+          "readingKana": "きっちんが しまるまえに、じゅうめいぶんの せきは まだ あいていますか。"
+        },
+        {
+          "en": "I'd appreciate it if you confirmed the change in writing.",
+          "kind": "phrase",
+          "ja": "変更内容をこのチャットの文面でご確認いただけますと幸いです。",
+          "readingKana": "へんこうないようを このちゃっとの ぶんめんで ごかくにんいただけますと さいわいです。"
+        },
+        {
+          "en": "Sorry, the voice note is breaking up; could you write it to me, please?",
+          "kind": "phrase",
+          "ja": "すみません、ボイスメッセージが途切れて聞こえません。文字で送っていただけますか。",
+          "readingKana": "すみません、ぼいすめっせーじが とぎれて きこえません。もじで おくっていただけますか。"
+        },
+        {
+          "en": "Hello, Yesenia, this is Sam Rivera; our flight is delayed.",
+          "kind": "phrase",
+          "ja": "イェセニアさん、こんにちは。サム・リベラと申します。乗る予定の便が遅れています。",
+          "readingKana": "いぇせにあさん、こんにちは。さむ・りべらと もうします。のる よていの びんが おくれています。"
+        },
+        {
+          "en": "So we're set: 10 people, at 22:00, under the name Rivera.",
+          "kind": "phrase",
+          "ja": "では、10名、22時、リベラの名前でお願いします。",
+          "readingKana": "では、じゅうめい、にじゅうにじ、りべらの なまえで おねがいします。"
+        },
+        {
+          "en": "Guys, it's done: we're having dinner at 22:00.",
+          "kind": "phrase",
+          "ja": "みんな、予約を変更できたよ。22時にごはんだよ。",
+          "readingKana": "みんな、よやくを へんこうできたよ。にじゅうにじに ごはんだよ。"
+        }
+      ],
+      "reader": [
+        {
+          "en": "Sam Rivera is at the boarding gate of the Bogotá airport with nine friends and looks at the screen with concern.",
+          "ja": "サム・リベラは、9人の友人とボゴタ空港の搭乗ゲートにいて、心配そうに画面を見ています。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "The airline announces that the delayed flight is going to leave two hours late.",
+          "ja": "航空会社は、この便が2時間遅れで出発すると発表しています。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Now the estimated arrival time in Cartagena is 20:45, and the group's booking is at 20:00.",
+          "ja": "今、カルタヘナへの到着予定時刻は20時45分で、グループの予約は20時です。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Sam calls the restaurant, but nobody answers, and a missed call is left on Yesenia's phone.",
+          "ja": "サムはレストランに電話をかけますが、誰も出ず、イェセニアさんの電話には不在着信が残ります。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "So Sam leaves a clear message on the voicemail: Hello, Yesenia, this is Sam Rivera; our flight is delayed.",
+          "ja": "そこでサムは留守番電話にはっきりとメッセージを残します。「イェセニアさん、こんにちは。サム・リベラと申します。乗る予定の便が遅れています。」",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Sam continues the message slowly: We are 10 people, the booking is under my name, and I'm writing to you on WhatsApp right now.",
+          "ja": "サムはメッセージをゆっくり続けます。「私たちは10名です。予約は私の名義で、今からWhatsAppでご連絡します。」",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Then Sam writes in the restaurant's chat: Good afternoon, Yesenia, I'm writing about the booking for 10 people.",
+          "ja": "次に、サムはレストランのチャットに書き込みます。「こんにちは、イェセニアさん。10名の予約の件でご連絡しています。」",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Sam: Could you move us to 22:00, please?",
+          "ja": "サム：「22時に変更していただけますか。」",
+          "speaker": "Sam"
+        },
+        {
+          "en": "Sam: Would you still have room for 10 people before the kitchen closes?",
+          "ja": "サム：「キッチンが閉まる前に、10名分の席はまだ空いていますか。」",
+          "speaker": "Sam"
+        },
+        {
+          "en": "Yesenia answers with a fast voice note, but the phone signal near the boarding gate is very bad.",
+          "ja": "イェセニアさんは素早くボイスメッセージで返信しますが、搭乗ゲート付近の電波状況はとても悪いです。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Sam: Sorry, the voice note is breaking up; could you write it to me, please?",
+          "ja": "サム：「すみません、ボイスメッセージが途切れて聞こえません。文字で送っていただけますか。」",
+          "speaker": "Sam"
+        },
+        {
+          "en": "Yesenia writes that the last seating starts at 22:00 and that the kitchen closes at 23:00.",
+          "ja": "イェセニアさんは、最終の予約枠が22時に始まり、キッチンは23時に営業を終えると書きます。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Yesenia: Yes, there is room, and the 200,000 pesos advance payment you already made counts for the new time.",
+          "ja": "イェセニアさん：「はい、席はあります。すでにお支払いいただいた20万ペソの予約金は、新しい時間にもそのまま使えます。」",
+          "speaker": "Yesenia"
+        },
+        {
+          "en": "Yesenia: I just need the person the booking is under to confirm the details for me.",
+          "ja": "イェセニアさん：「予約名義人の方から、内容の確認をいただければ大丈夫です。」",
+          "speaker": "Yesenia"
+        },
+        {
+          "en": "Sam: So we're set: 10 people, at 22:00, under the name Rivera.",
+          "ja": "サム：「では、10名、22時、リベラの名前でお願いします。」",
+          "speaker": "Sam"
+        },
+        {
+          "en": "Sam: I'd appreciate it if you confirmed the change in writing.",
+          "ja": "サム：「変更内容をこのチャットの文面でご確認いただけますと幸いです。」",
+          "speaker": "Sam"
+        },
+        {
+          "en": "Yesenia confirms everything in the chat, and Sam writes to the transfer company to change the pickup to 21:00.",
+          "ja": "イェセニアさんはチャットですべて確認し、サムは空港送迎の会社にメッセージを書いて、お迎えを21時に変更してもらいます。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "In the end, Sam tells the friends: Guys, it's done: we're having dinner at 22:00.",
+          "ja": "最後に、サムは友人たちに伝えます。「みんな、予約を変更できたよ。22時にごはんだよ。」",
+          "speaker": "Narrator"
+        }
+      ],
+      "modes": {
+        "see": {
+          "sourceCard": 17,
+          "cueEnglish": "Could you move us to 22:00, please?",
+          "cueJapanese": "「22時に変更していただけますか。」を見て、「～していただけますか」で予約の変更を丁寧に頼む形を確認しましょう。",
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "sourceCard": 19,
+          "cueEnglish": "I'd appreciate it if you confirmed the change in writing.",
+          "cueJapanese": "「文面で」を使い、変更内容をこのチャットの文面で確認してほしいと丁寧に頼む一文を思い出しましょう。",
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "sourceCard": 22,
+          "cueEnglish": "So we're set: 10 people, at 22:00, under the name Rivera.",
+          "cueJapanese": "日本語の音声を聞き、10名、22時、リベラの名前で予約を確認する言い方を聞き取りましょう。",
+          "responseKind": "fixed"
+        },
+        "type": {
+          "sourceCard": 9,
+          "cueEnglish": "the room, availability",
+          "cueJapanese": "英語の「the room, availability」に当たる日本語を入力しましょう。",
+          "responseKind": "fixed"
+        },
+        "say": {
+          "sourceCard": 20,
+          "cueEnglish": "Sorry, the voice note is breaking up; could you write it to me, please?",
+          "cueJapanese": "ボイスメッセージが途切れて聞こえないので文字で送ってほしいと、丁寧に伝えましょう。",
+          "responseKind": "open"
+        },
+        "write": {
+          "sourceCard": 16,
+          "cueEnglish": "Good afternoon, Yesenia, I'm writing about the booking for 10 people.",
+          "cueJapanese": "「ご連絡しています」を使い、10名の予約の件でイェセニアさんに書き出す一文を書きましょう。",
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "あなたはサム・リベラです。ボゴタ空港から、カルタヘナのレストランに10名の予約を22時へ変更してほしいと頼みます。",
+        "partnerRole": "AIは最初にレストランの留守番電話を、続いてホストのイェセニアを演じます。",
+        "opening": "ただいま電話に出られません。発信音の後にお名前とご用件をお話しください。",
+        "objectives": [
+          "まず、留守番電話でサム・リベラと名乗り、便の遅延をはっきり伝える。",
+          "WhatsAppで10名の予約を22時に変更できるか、丁寧に尋ねる。",
+          "最終の予約枠とキッチンの営業終了時刻を確認する。",
+          "20万ペソの予約金が新しい時間にも使えるか確かめる。",
+          "10名、22時、リベラの名前という新しい内容を確認し、このチャットの文面でも確認してほしいと頼む。",
+          "電波が悪くボイスメッセージが途切れると伝え、文字で送ってほしいと頼む。",
+          "空港送迎の迎えを21時に変え、友人にはくだけた言い方で22時の夕食を知らせる。"
+        ],
+        "closure": "ありがとうございます、イェセニアさん。10名、22時、リベラの名前でお願いします。チャットでのご確認もありがとうございました。",
+        "goal": "レストランのホストに、10名の予約を22時へ丁寧に変更してもらい、新しい内容を確認して、はっきりした留守番電話を残す。",
+        "wordBank": [
+          "遅延便",
+          "搭乗ゲート",
+          "航空会社",
+          "到着予定時刻",
+          "ボイスメッセージ",
+          "留守番電話",
+          "不在着信",
+          "電波状況",
+          "空席状況",
+          "最終の予約枠",
+          "キッチンの営業終了時刻",
+          "予約金",
+          "予約名義人",
+          "空港送迎",
+          "文面で",
+          "こんにちは、イェセニアさん。10名の予約の件でご連絡しています。",
+          "22時に変更していただけますか。",
+          "キッチンが閉まる前に、10名分の席はまだ空いていますか。",
+          "変更内容をこのチャットの文面でご確認いただけますと幸いです。",
+          "すみません、ボイスメッセージが途切れて聞こえません。文字で送っていただけますか。",
+          "イェセニアさん、こんにちは。サム・リベラと申します。乗る予定の便が遅れています。",
+          "では、10名、22時、リベラの名前でお願いします。",
+          "みんな、予約を変更できたよ。22時にごはんだよ。"
+        ]
+      },
+      "reviewed": false
+    }
+  ]
+}

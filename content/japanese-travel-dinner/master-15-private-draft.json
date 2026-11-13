@@ -1,0 +1,380 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "masterPath": "src/data/core60/es/master-travel-dinner.json",
+    "masterSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "contentPath": "public/lesson-content/es/master-travel-dinner.json",
+    "contentSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 15,
+      "stableId": "master-travel-dinner:15:ja-en",
+      "sourceTitleEnglish": "Smoke in the Cellar Restaurant: Get Out and Call 112",
+      "sourceObjectiveEnglish": "Follow staff instructions, guide your friends out with short commands, and give 112 clear information by phone.",
+      "sourceSpeakingEnglish": "You are leaving the restaurant with Olivia and Nate, and the AI plays Álvaro, your friends and then the 112 operator: follow staff instructions, guide your friends with ¡síganme! and ¡no vuelvan!, and give 112 the address and situation using si + present → future.",
+      "title": "Smoke in the Cellar Restaurant: Get Out and Call 112",
+      "objective": "Follow staff instructions, guide your friends out with short commands, and give 112 clear information by phone.",
+      "focus": "「もし〜たら」「〜ましょう」「〜ないで」「〜てください」「〜まで」を使い、係員の指示に従って友人を短い言葉で導き、112に住所と状況を伝えます。",
+      "scene": "マドリードの古い建物の地下にあるレストランで、キッチンから煙が出ます。サムは友人のオリビアとネイトと一緒に、アルバロの指示で非常口から外へ出ます。通りからマドリードの緊急番号112に電話し、住所と状況を伝えます。",
+      "forms": [
+        {
+          "base": "出てくる",
+          "polite": "出てきます",
+          "meaning": "to come out",
+          "example": "もっと煙が出てきたら、向かい側の歩道へ渡りましょう。",
+          "question": "煙が出てくることを条件にするとき、「出てくる」をどの形にして「たら」をつけますか？"
+        },
+        {
+          "base": "ついてくる",
+          "polite": "ついてきます",
+          "meaning": "to follow",
+          "example": "みんな、ついてきて！こっちだよ、アルバロさんの後ろ！",
+          "question": "友だちに「ついてきて」と呼びかけるとき、「ついてくる」をどの形にしますか？"
+        },
+        {
+          "base": "戻る",
+          "polite": "戻ります",
+          "meaning": "to go back",
+          "example": "ネイト、戻らないで。上着なんてどうでもいいから！",
+          "question": "「戻らないで」と短く言うとき、「戻る」をどの形にしますか？"
+        },
+        {
+          "base": "いる",
+          "polite": "います",
+          "meaning": "to stay",
+          "example": "消防隊員が到着するまで、電話をつないだままでいましょうか。",
+          "question": "電話を切らずに「そのままでいる」と言うとき、「いる」をどの形にしますか？"
+        },
+        {
+          "base": "つかまる",
+          "polite": "つかまります",
+          "meaning": "to hold on",
+          "example": "オリビア、私につかまって。はぐれないでね。",
+          "question": "友だちに「つかまって」と頼むとき、「つかまる」をどの形にしますか？"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "煙",
+          "readingKana": "けむり",
+          "en": "the smoke",
+          "kind": "term"
+        },
+        {
+          "ja": "焦げ臭いにおい",
+          "readingKana": "こげくさいにおい",
+          "en": "the burning smell",
+          "kind": "term"
+        },
+        {
+          "ja": "火事",
+          "readingKana": "かじ",
+          "en": "the fire",
+          "kind": "term"
+        },
+        {
+          "ja": "地下",
+          "readingKana": "ちか",
+          "en": "the basement",
+          "kind": "term"
+        },
+        {
+          "ja": "非常口",
+          "readingKana": "ひじょうぐち",
+          "en": "the emergency exit",
+          "kind": "term"
+        },
+        {
+          "ja": "通りに面した扉",
+          "readingKana": "とおりにめんしたとびら",
+          "en": "the street door",
+          "kind": "term"
+        },
+        {
+          "ja": "向かい側の歩道",
+          "readingKana": "むかいがわのほどう",
+          "en": "the opposite sidewalk",
+          "kind": "term"
+        },
+        {
+          "ja": "集合場所",
+          "readingKana": "しゅうごうばしょ",
+          "en": "the meeting point",
+          "kind": "term"
+        },
+        {
+          "ja": "消防隊員",
+          "readingKana": "しょうぼうたいいん",
+          "en": "the firefighters",
+          "kind": "term"
+        },
+        {
+          "ja": "正確な住所",
+          "readingKana": "せいかくなじゅうしょ",
+          "en": "the exact address",
+          "kind": "term"
+        },
+        {
+          "ja": "建物の番号",
+          "readingKana": "たてもののばんごう",
+          "en": "the building number",
+          "kind": "term"
+        },
+        {
+          "ja": "交差点",
+          "readingKana": "こうさてん",
+          "en": "the intersection",
+          "kind": "term"
+        },
+        {
+          "ja": "上着",
+          "readingKana": "うわぎ",
+          "en": "the jacket",
+          "kind": "term"
+        },
+        {
+          "ja": "咳",
+          "readingKana": "せき",
+          "en": "the cough",
+          "kind": "term"
+        },
+        {
+          "ja": "負傷者",
+          "readingKana": "ふしょうしゃ",
+          "en": "the injured",
+          "kind": "term"
+        },
+        {
+          "ja": "みんな、ついてきて！こっちだよ、アルバロさんの後ろ！",
+          "readingKana": "みんな、ついてきて！こっちだよ、アルバロさんのうしろ！",
+          "en": "Follow me, this way, behind Álvaro!",
+          "kind": "phrase"
+        },
+        {
+          "ja": "オリビア、私につかまって。はぐれないでね。",
+          "readingKana": "オリビア、わたしにつかまって。はぐれないでね。",
+          "en": "Olivia, hold on to me and don't get separated.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ネイト、戻らないで。上着なんてどうでもいいから！",
+          "readingKana": "ネイト、もどらないで。うわぎなんてどうでもいいから！",
+          "en": "Nate, don't go back, the jacket doesn't matter!",
+          "kind": "phrase"
+        },
+        {
+          "ja": "もっと煙が出てきたら、向かい側の歩道へ渡りましょう。",
+          "readingKana": "もっとけむりがでてきたら、むかいがわのほどうへわたりましょう。",
+          "en": "If more smoke comes out, we'll cross to the opposite sidewalk.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "地下にあるレストランのキッチンから煙が出ています。",
+          "readingKana": "ちかにあるレストランのキッチンからけむりがでています。",
+          "en": "Smoke is coming from the kitchen of a basement restaurant.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "住所はカバ・バハ通りの24番地です。",
+          "readingKana": "じゅうしょはカバ・バハどおりのにじゅうよんばんちです。",
+          "en": "The address is Cava Baja street, number 24.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "全員外にいます。私たちが知る限り、負傷者はいません。",
+          "readingKana": "ぜんいんそとにいます。わたしたちがしるかぎり、ふしょうしゃはいません。",
+          "en": "We're all outside and, as far as we know, nobody is injured.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "消防隊員が到着するまで、電話をつないだままでいましょうか。",
+          "readingKana": "しょうぼうたいいんがとうちゃくするまで、でんわをつないだままでいましょうか。",
+          "en": "Should I stay on the line until the firefighters arrive?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "サムは友人のオリビアとネイトと一緒に、マドリードの古い建物の地下にあるレストランで夕食をとっています。",
+          "en": "Sam is having dinner with friends Olivia and Nate in a restaurant located in the basement of an old building in Madrid."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "突然、ウェイターのアルバロが強い焦げ臭いにおいに気づき、キッチンから灰色の煙が出ているのを見ます。",
+          "en": "Suddenly, the waiter Álvaro notices a strong burning smell and sees gray smoke coming out of the kitchen."
+        },
+        {
+          "speaker": "Álvaro",
+          "ja": "キッチンで小さな火事が起きています。荷物はすべて置いて、階段を上がって非常口へ向かってください。",
+          "en": "Álvaro: There is a small fire in the kitchen; please leave everything and go up the stairs to the emergency exit."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "みんな、ついてきて！こっちだよ、アルバロさんの後ろ！",
+          "en": "Sam: Follow me, this way, behind Álvaro!"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "オリビア、私につかまって。はぐれないでね。",
+          "en": "Sam: Olivia, hold on to me and don't get separated."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "階段で、後ろから煙が上ってくるので、オリビアは咳が出ています。",
+          "en": "On the stairs, Olivia has a cough because the smoke is rising behind them."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ネイトは立ち止まり、上着がまだ地下の椅子の上にあると言います。",
+          "en": "Nate stops and says that his jacket is still on the chair in the basement."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ネイト、戻らないで。上着なんてどうでもいいから！",
+          "en": "Sam: Nate, don't go back, the jacket doesn't matter!"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ようやく一行は通りに面した扉から外に出て、アルバロは歩道にいるお客さんの人数を数えます。",
+          "en": "At last they go out through the street door, and Álvaro counts all the customers on the sidewalk."
+        },
+        {
+          "speaker": "Álvaro",
+          "ja": "誰も欠けていなければ、角の交差点にある集合場所へみんなで行きましょう。",
+          "en": "Álvaro: If nobody is missing, we'll go together to the meeting point, at the intersection on the corner."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "もっと煙が出てきたら、向かい側の歩道へ渡りましょう。",
+          "en": "Sam: If more smoke comes out, we'll cross to the opposite sidewalk."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "サムは通りから112に電話をかけ、こう言います。「地下にあるレストランのキッチンから煙が出ています。」",
+          "en": "Sam calls 112 from the street and says: Smoke is coming from the kitchen of a basement restaurant."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "オペレーターが正確な住所を尋ね、サムは壁に書かれた建物の番号を読み上げます。",
+          "en": "The operator asks for the exact address, and Sam reads the building number on the wall."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "住所はカバ・バハ通りの24番地です。",
+          "en": "Sam: The address is Cava Baja street, number 24."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "全員外にいます。私たちが知る限り、負傷者はいません。",
+          "en": "Sam: We're all outside and, as far as we know, nobody is injured."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "消防隊員が到着するまで、電話をつないだままでいましょうか。",
+          "en": "Sam: Should I stay on the line until the firefighters arrive?"
+        },
+        {
+          "speaker": "Operator",
+          "ja": "はい、そのまま電話をつないでいてください。もし誰かがひどい咳をしていれば、救急車も送ります。",
+          "en": "Operator: Yes, stay with me; if anyone has a bad cough, we'll also send an ambulance."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "サムは友人たちに言います。「消防隊員にそう言われたら、最後までここで待ちましょう。」",
+          "en": "Sam tells his friends: If the firefighters ask us to, we'll wait here until the end."
+        }
+      ],
+      "modes": {
+        "see": {
+          "sourceCard": 5,
+          "cueEnglish": "the emergency exit",
+          "cueJapanese": "英語の意味を手がかりに、階段の先にある出口を表す日本語を見分けましょう。",
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "sourceCard": 15,
+          "cueEnglish": "the injured",
+          "cueJapanese": "英語の「the injured」に当たる日本語を思い出しましょう。",
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "sourceCard": 21,
+          "cueEnglish": "The address is Cava Baja street, number 24.",
+          "cueJapanese": "日本語の音声を聞き、カバ・バハ通りの何番地を伝えているか確かめましょう。",
+          "responseKind": "fixed"
+        },
+        "type": {
+          "sourceCard": 14,
+          "cueEnglish": "the cough",
+          "cueJapanese": "英語の「the cough」に当たる日本語を入力しましょう。",
+          "responseKind": "fixed"
+        },
+        "say": {
+          "sourceCard": 19,
+          "cueEnglish": "If more smoke comes out, we'll cross to the opposite sidewalk.",
+          "cueJapanese": "もっと煙が出てきたら向かい側の歩道へ渡ろうと、友だちに日本語で声に出して言いましょう。",
+          "responseKind": "open"
+        },
+        "write": {
+          "sourceCard": 22,
+          "cueEnglish": "We're all outside and, as far as we know, nobody is injured.",
+          "cueJapanese": "全員外にいて、知る限り負傷者はいないと、丁寧な日本語で書きましょう。",
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "You are Sam, leaving the basement restaurant in Madrid with Olivia and Nate.",
+        "partnerRole": "Álvaro, the waiter, then your friends Olivia and Nate, then the 112 operator, played by the AI.",
+        "opening": "アルバロ：「キッチンで小さな火事が起きています。荷物はすべて置いて、階段を上がって非常口へ向かってください。」",
+        "objectives": [
+          "Follow Álvaro's instructions and head up the stairs to the emergency exit.",
+          "Guide Olivia and Nate with short commands to follow you, hold on and stay together.",
+          "Tell Nate not to go back for his jacket.",
+          "Use a Japanese conditional: If more smoke comes out, we'll cross to the opposite sidewalk.",
+          "Give 112 Cava Baja street, number 24, report that everyone is outside and nobody is injured as far as you know, then ask whether to stay on the line."
+        ],
+        "closure": "消防隊員にそう言われたら、最後までここで待ちましょう。",
+        "wordBank": [
+          "煙",
+          "焦げ臭いにおい",
+          "火事",
+          "地下",
+          "非常口",
+          "通りに面した扉",
+          "向かい側の歩道",
+          "集合場所",
+          "消防隊員",
+          "正確な住所",
+          "建物の番号",
+          "交差点",
+          "上着",
+          "咳",
+          "負傷者",
+          "みんな、ついてきて！こっちだよ、アルバロさんの後ろ！",
+          "オリビア、私につかまって。はぐれないでね。",
+          "ネイト、戻らないで。上着なんてどうでもいいから！",
+          "もっと煙が出てきたら、向かい側の歩道へ渡りましょう。",
+          "地下にあるレストランのキッチンから煙が出ています。",
+          "住所はカバ・バハ通りの24番地です。",
+          "全員外にいます。私たちが知る限り、負傷者はいません。",
+          "消防隊員が到着するまで、電話をつないだままでいましょうか。"
+        ]
+      },
+      "reviewed": false
+    }
+  ]
+}

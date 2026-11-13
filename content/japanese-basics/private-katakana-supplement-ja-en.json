@@ -1,0 +1,456 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "registered": false,
+  "reviewed": false,
+  "sourceFiles": {
+    "foundation": {
+      "path": "content/japanese-basics/foundation.json",
+      "sha256": "b36cf1dda4c0121d3cfabf49576058e33e0af4f336b33ca53e0054ec794d9c85"
+    },
+    "core": {
+      "path": "content/japanese-basics/core.json",
+      "sha256": "c44067dc6241077f67616dfdd781b63e617fa219355683d281a8205bdca74da5"
+    },
+    "master": {
+      "path": "content/japanese-basics/master.json",
+      "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+    }
+  },
+  "unitCount": 5,
+  "basicSignCount": 46,
+  "units": [
+    {
+      "id": "ja101-katakana-unit:1",
+      "focus": "Vowels and K row",
+      "cards": [
+        {
+          "id": "ja101-katakana:1:0",
+          "hiragana": "あ",
+          "katakana": "ア",
+          "readPrompt": "Read ア in hiragana.",
+          "writePrompt": "Write the katakana for あ."
+        },
+        {
+          "id": "ja101-katakana:1:1",
+          "hiragana": "い",
+          "katakana": "イ",
+          "readPrompt": "Read イ in hiragana.",
+          "writePrompt": "Write the katakana for い."
+        },
+        {
+          "id": "ja101-katakana:1:2",
+          "hiragana": "う",
+          "katakana": "ウ",
+          "readPrompt": "Read ウ in hiragana.",
+          "writePrompt": "Write the katakana for う."
+        },
+        {
+          "id": "ja101-katakana:1:3",
+          "hiragana": "え",
+          "katakana": "エ",
+          "readPrompt": "Read エ in hiragana.",
+          "writePrompt": "Write the katakana for え."
+        },
+        {
+          "id": "ja101-katakana:1:4",
+          "hiragana": "お",
+          "katakana": "オ",
+          "readPrompt": "Read オ in hiragana.",
+          "writePrompt": "Write the katakana for お."
+        },
+        {
+          "id": "ja101-katakana:1:5",
+          "hiragana": "か",
+          "katakana": "カ",
+          "readPrompt": "Read カ in hiragana.",
+          "writePrompt": "Write the katakana for か."
+        },
+        {
+          "id": "ja101-katakana:1:6",
+          "hiragana": "き",
+          "katakana": "キ",
+          "readPrompt": "Read キ in hiragana.",
+          "writePrompt": "Write the katakana for き."
+        },
+        {
+          "id": "ja101-katakana:1:7",
+          "hiragana": "く",
+          "katakana": "ク",
+          "readPrompt": "Read ク in hiragana.",
+          "writePrompt": "Write the katakana for く."
+        },
+        {
+          "id": "ja101-katakana:1:8",
+          "hiragana": "け",
+          "katakana": "ケ",
+          "readPrompt": "Read ケ in hiragana.",
+          "writePrompt": "Write the katakana for け."
+        },
+        {
+          "id": "ja101-katakana:1:9",
+          "hiragana": "こ",
+          "katakana": "コ",
+          "readPrompt": "Read コ in hiragana.",
+          "writePrompt": "Write the katakana for こ."
+        }
+      ],
+      "sourceExamples": [
+        {
+          "sourceLessonKey": "foundation-japanese-basics:5",
+          "sourceTermIndex": 1,
+          "kana": "アメリカ",
+          "english": "United States"
+        },
+        {
+          "sourceLessonKey": "foundation-japanese-basics:7",
+          "sourceTermIndex": 3,
+          "kana": "ドア",
+          "english": "door"
+        }
+      ],
+      "readingTask": "Read ア in アメリカ and ドア; copy each vowel and its katakana partner.",
+      "reviewed": false
+    },
+    {
+      "id": "ja101-katakana-unit:2",
+      "focus": "S and T rows",
+      "cards": [
+        {
+          "id": "ja101-katakana:2:0",
+          "hiragana": "さ",
+          "katakana": "サ",
+          "readPrompt": "Read サ in hiragana.",
+          "writePrompt": "Write the katakana for さ."
+        },
+        {
+          "id": "ja101-katakana:2:1",
+          "hiragana": "し",
+          "katakana": "シ",
+          "readPrompt": "Read シ in hiragana.",
+          "writePrompt": "Write the katakana for し."
+        },
+        {
+          "id": "ja101-katakana:2:2",
+          "hiragana": "す",
+          "katakana": "ス",
+          "readPrompt": "Read ス in hiragana.",
+          "writePrompt": "Write the katakana for す."
+        },
+        {
+          "id": "ja101-katakana:2:3",
+          "hiragana": "せ",
+          "katakana": "セ",
+          "readPrompt": "Read セ in hiragana.",
+          "writePrompt": "Write the katakana for せ."
+        },
+        {
+          "id": "ja101-katakana:2:4",
+          "hiragana": "そ",
+          "katakana": "ソ",
+          "readPrompt": "Read ソ in hiragana.",
+          "writePrompt": "Write the katakana for そ."
+        },
+        {
+          "id": "ja101-katakana:2:5",
+          "hiragana": "た",
+          "katakana": "タ",
+          "readPrompt": "Read タ in hiragana.",
+          "writePrompt": "Write the katakana for た."
+        },
+        {
+          "id": "ja101-katakana:2:6",
+          "hiragana": "ち",
+          "katakana": "チ",
+          "readPrompt": "Read チ in hiragana.",
+          "writePrompt": "Write the katakana for ち."
+        },
+        {
+          "id": "ja101-katakana:2:7",
+          "hiragana": "つ",
+          "katakana": "ツ",
+          "readPrompt": "Read ツ in hiragana.",
+          "writePrompt": "Write the katakana for つ."
+        },
+        {
+          "id": "ja101-katakana:2:8",
+          "hiragana": "て",
+          "katakana": "テ",
+          "readPrompt": "Read テ in hiragana.",
+          "writePrompt": "Write the katakana for て."
+        },
+        {
+          "id": "ja101-katakana:2:9",
+          "hiragana": "と",
+          "katakana": "ト",
+          "readPrompt": "Read ト in hiragana.",
+          "writePrompt": "Write the katakana for と."
+        }
+      ],
+      "sourceExamples": [
+        {
+          "sourceLessonKey": "foundation-japanese-basics:3",
+          "sourceTermIndex": 4,
+          "kana": "ノート",
+          "english": "notebook"
+        },
+        {
+          "sourceLessonKey": "japanese-basics:12",
+          "sourceTermIndex": 5,
+          "kana": "パン",
+          "english": "bread"
+        }
+      ],
+      "readingTask": "Find ト in ノート and the small ュ in メニュー; the small kana is a preview, not a basic sign.",
+      "reviewed": false
+    },
+    {
+      "id": "ja101-katakana-unit:3",
+      "focus": "N and H rows",
+      "cards": [
+        {
+          "id": "ja101-katakana:3:0",
+          "hiragana": "な",
+          "katakana": "ナ",
+          "readPrompt": "Read ナ in hiragana.",
+          "writePrompt": "Write the katakana for な."
+        },
+        {
+          "id": "ja101-katakana:3:1",
+          "hiragana": "に",
+          "katakana": "ニ",
+          "readPrompt": "Read ニ in hiragana.",
+          "writePrompt": "Write the katakana for に."
+        },
+        {
+          "id": "ja101-katakana:3:2",
+          "hiragana": "ぬ",
+          "katakana": "ヌ",
+          "readPrompt": "Read ヌ in hiragana.",
+          "writePrompt": "Write the katakana for ぬ."
+        },
+        {
+          "id": "ja101-katakana:3:3",
+          "hiragana": "ね",
+          "katakana": "ネ",
+          "readPrompt": "Read ネ in hiragana.",
+          "writePrompt": "Write the katakana for ね."
+        },
+        {
+          "id": "ja101-katakana:3:4",
+          "hiragana": "の",
+          "katakana": "ノ",
+          "readPrompt": "Read ノ in hiragana.",
+          "writePrompt": "Write the katakana for の."
+        },
+        {
+          "id": "ja101-katakana:3:5",
+          "hiragana": "は",
+          "katakana": "ハ",
+          "readPrompt": "Read ハ in hiragana.",
+          "writePrompt": "Write the katakana for は."
+        },
+        {
+          "id": "ja101-katakana:3:6",
+          "hiragana": "ひ",
+          "katakana": "ヒ",
+          "readPrompt": "Read ヒ in hiragana.",
+          "writePrompt": "Write the katakana for ひ."
+        },
+        {
+          "id": "ja101-katakana:3:7",
+          "hiragana": "ふ",
+          "katakana": "フ",
+          "readPrompt": "Read フ in hiragana.",
+          "writePrompt": "Write the katakana for ふ."
+        },
+        {
+          "id": "ja101-katakana:3:8",
+          "hiragana": "へ",
+          "katakana": "ヘ",
+          "readPrompt": "Read ヘ in hiragana.",
+          "writePrompt": "Write the katakana for へ."
+        },
+        {
+          "id": "ja101-katakana:3:9",
+          "hiragana": "ほ",
+          "katakana": "ホ",
+          "readPrompt": "Read ホ in hiragana.",
+          "writePrompt": "Write the katakana for ほ."
+        }
+      ],
+      "sourceExamples": [
+        {
+          "sourceLessonKey": "foundation-japanese-basics:3",
+          "sourceTermIndex": 4,
+          "kana": "ノート",
+          "english": "notebook"
+        },
+        {
+          "sourceLessonKey": "japanese-basics:5",
+          "sourceTermIndex": 8,
+          "kana": "ペン",
+          "english": "pen"
+        }
+      ],
+      "readingTask": "Find ノ in ノート; compare the basic ヘ with the voiced ペ in ペン.",
+      "reviewed": false
+    },
+    {
+      "id": "ja101-katakana-unit:4",
+      "focus": "M and Y rows",
+      "cards": [
+        {
+          "id": "ja101-katakana:4:0",
+          "hiragana": "ま",
+          "katakana": "マ",
+          "readPrompt": "Read マ in hiragana.",
+          "writePrompt": "Write the katakana for ま."
+        },
+        {
+          "id": "ja101-katakana:4:1",
+          "hiragana": "み",
+          "katakana": "ミ",
+          "readPrompt": "Read ミ in hiragana.",
+          "writePrompt": "Write the katakana for み."
+        },
+        {
+          "id": "ja101-katakana:4:2",
+          "hiragana": "む",
+          "katakana": "ム",
+          "readPrompt": "Read ム in hiragana.",
+          "writePrompt": "Write the katakana for む."
+        },
+        {
+          "id": "ja101-katakana:4:3",
+          "hiragana": "め",
+          "katakana": "メ",
+          "readPrompt": "Read メ in hiragana.",
+          "writePrompt": "Write the katakana for め."
+        },
+        {
+          "id": "ja101-katakana:4:4",
+          "hiragana": "も",
+          "katakana": "モ",
+          "readPrompt": "Read モ in hiragana.",
+          "writePrompt": "Write the katakana for も."
+        },
+        {
+          "id": "ja101-katakana:4:5",
+          "hiragana": "や",
+          "katakana": "ヤ",
+          "readPrompt": "Read ヤ in hiragana.",
+          "writePrompt": "Write the katakana for や."
+        },
+        {
+          "id": "ja101-katakana:4:6",
+          "hiragana": "ゆ",
+          "katakana": "ユ",
+          "readPrompt": "Read ユ in hiragana.",
+          "writePrompt": "Write the katakana for ゆ."
+        },
+        {
+          "id": "ja101-katakana:4:7",
+          "hiragana": "よ",
+          "katakana": "ヨ",
+          "readPrompt": "Read ヨ in hiragana.",
+          "writePrompt": "Write the katakana for よ."
+        }
+      ],
+      "sourceExamples": [
+        {
+          "sourceLessonKey": "foundation-japanese-basics:3",
+          "sourceTermIndex": 5,
+          "kana": "けしゴム",
+          "english": "eraser"
+        },
+        {
+          "sourceLessonKey": "japanese-basics:12",
+          "sourceTermIndex": 6,
+          "kana": "メニュー",
+          "english": "menu"
+        }
+      ],
+      "readingTask": "Find ム in けしゴム and メ in メニュー; the katakana word may contain other signs too.",
+      "reviewed": false
+    },
+    {
+      "id": "ja101-katakana-unit:5",
+      "focus": "R, W, and final N",
+      "cards": [
+        {
+          "id": "ja101-katakana:5:0",
+          "hiragana": "ら",
+          "katakana": "ラ",
+          "readPrompt": "Read ラ in hiragana.",
+          "writePrompt": "Write the katakana for ら."
+        },
+        {
+          "id": "ja101-katakana:5:1",
+          "hiragana": "り",
+          "katakana": "リ",
+          "readPrompt": "Read リ in hiragana.",
+          "writePrompt": "Write the katakana for り."
+        },
+        {
+          "id": "ja101-katakana:5:2",
+          "hiragana": "る",
+          "katakana": "ル",
+          "readPrompt": "Read ル in hiragana.",
+          "writePrompt": "Write the katakana for る."
+        },
+        {
+          "id": "ja101-katakana:5:3",
+          "hiragana": "れ",
+          "katakana": "レ",
+          "readPrompt": "Read レ in hiragana.",
+          "writePrompt": "Write the katakana for れ."
+        },
+        {
+          "id": "ja101-katakana:5:4",
+          "hiragana": "ろ",
+          "katakana": "ロ",
+          "readPrompt": "Read ロ in hiragana.",
+          "writePrompt": "Write the katakana for ろ."
+        },
+        {
+          "id": "ja101-katakana:5:5",
+          "hiragana": "わ",
+          "katakana": "ワ",
+          "readPrompt": "Read ワ in hiragana.",
+          "writePrompt": "Write the katakana for わ."
+        },
+        {
+          "id": "ja101-katakana:5:6",
+          "hiragana": "を",
+          "katakana": "ヲ",
+          "readPrompt": "Read ヲ in hiragana.",
+          "writePrompt": "Write the katakana for を."
+        },
+        {
+          "id": "ja101-katakana:5:7",
+          "hiragana": "ん",
+          "katakana": "ン",
+          "readPrompt": "Read ン in hiragana.",
+          "writePrompt": "Write the katakana for ん."
+        }
+      ],
+      "sourceExamples": [
+        {
+          "sourceLessonKey": "foundation-japanese-basics:5",
+          "sourceTermIndex": 1,
+          "kana": "アメリカ",
+          "english": "United States"
+        },
+        {
+          "sourceLessonKey": "master-japanese-basics:1",
+          "sourceTermIndex": 0,
+          "kana": "グループ",
+          "english": "group"
+        }
+      ],
+      "readingTask": "Find リ in アメリカ and ル in グループ; distinguish ン from the similar-looking ソ.",
+      "reviewed": false
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Japanese 101 Core 11–20 form practice — private draft
+
+`content/japanese-basics/private-form-practice-core-11-20-ja-en.json` selects 39 exact Japanese→English dialogue pairs. The deterministic builder pins the Core source SHA-256, module ID, lesson and dialogue turn, and stable prompt ID. The selected scenes practice `すき/きらい` with `が`, `ほしい/たい`, permission and potential forms, obligation, activity `します`, sequence words, prices, location `に/で`, intention/plans, and progressive `～ています`. These are Japanese-specific constructions, not projections of Spanish conjugation tables.
+
+The fixture remains `registered:false` and `reviewed:false`. All 39 selected Japanese text keys occur in the corresponding private Core 11–20 audio manifests, but those recordings still require listening review before learner playback. Standalone English cues can permit other correct Japanese phrasings; `knownJapaneseVariants` records only the exact source line and is not an exhaustive answer key. Qualified Japanese review, Core 21–30 and Master form practice, runtime answer handling, offline audio, browser/phone and independent V4 acceptance remain open. No learner progress changes.
+
+Run `python3 scripts/build-japanese101-core-11-20-form-practice.py --check`, `python3 scripts/build-japanese-basics.py --check`, and `node --test tests/japanese101-form-practice.test.mjs tests/japanese-basics-course.test.mjs` after source edits. This contributes to [verb parity issue #427](https://github.com/adobetoby-maker/app.languagethreshold.com/issues/427).

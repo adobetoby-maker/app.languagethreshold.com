@@ -1,0 +1,5 @@
+# Japanese 101 Foundation speaking candidate
+
+The public Japanese 101 practice generator currently assigns the same partner role to all 60 lessons. A private exact Japanese→English sidecar now authors a distinct role, exact source-dialogue opening, three lesson-specific objectives, a complication, and a closure for each of the ten Foundation lessons. The deterministic candidate changes only Foundation speaking instructions and roles; it preserves every existing Reader line, grammar example, check, opening, and stage-local lesson key.
+
+Evidence: `private-foundation-speaking-missions-ja-en.json` pins the Foundation source and generated practice SHA-256 values. `build-japanese101-foundation-speaking-candidate.py --check`, `build-japanese-basics.py --check`, and `japanese-101-private-foundation-speaking.test.mjs` pass. The candidate remains `reviewed:false`, `registered:false`, and absent from the learner runtime. Its English mission briefs need qualified Japanese instructional review before release. Core 30 and Master 20 still need equivalent authored speaking scenarios; recorded audio and independent V4 acceptance remain separate gates.

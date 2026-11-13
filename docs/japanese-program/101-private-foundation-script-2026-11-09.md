@@ -1,0 +1,7 @@
+# Japanese 101 private Foundation script sequence
+
+`content/japanese-basics/private-foundation-script-ja-en.json` adds 10 lesson-linked script units to the existing Japanese→English Foundation draft. Each unit pins the exact Foundation source hash, stage-local lesson key, two source term pairs, and a reading task. The first five units introduce the 46 basic hiragana; later units cover voiced signs, small っ and ゃゅょ, long vowels, counters, question endings, and repair phrases. Earlier lessons may be cited for review, but a unit cannot cite a later lesson as an example.
+
+This is a private instructional draft, not a complete reading trainer. A separate private supplement now covers all 46 basic katakana signs, but its prompts are not wired to a learner UI and voiced/small-kana contrasts remain open. The Foundation 3 map says to finish core hiragana there; this draft reaches all 46 by Foundation 5 instead. Qualified Japanese review must resolve that pacing difference before integration. The existing kana-to-kanji bridge remains a separate, unreviewed supplement. No lesson, audio, runtime registration, or progress key changed.
+
+Run `python3 scripts/build-japanese101-foundation-script.py --check` and `node --test tests/japanese101-foundation-script.test.mjs` after Foundation source edits. Keep `registered:false` and `reviewed:false` until the full script path and learner UI are accepted.

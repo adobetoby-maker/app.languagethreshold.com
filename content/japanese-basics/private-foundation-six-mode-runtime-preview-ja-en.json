@@ -1,0 +1,512 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "registered": false,
+  "reviewed": false,
+  "sourceSha256": "b36cf1dda4c0121d3cfabf49576058e33e0af4f336b33ca53e0054ec794d9c85",
+  "authoredSha256": "135e3e35c119816548ec5d097a45b79370b3591c1c0606bcfeaad9de52a4fe24",
+  "lessonCount": 10,
+  "activityCount": 60,
+  "lessons": [
+    {
+      "moduleId": "foundation-japanese-basics",
+      "lessonNumber": 1,
+      "stableLessonKey": "foundation-japanese-basics:1",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:foundation:1:see",
+          "prompt": "Read the opening greeting and identify its hiragana sound units.",
+          "sourceDialogueTurn": 1,
+          "targetText": "こんにちは。",
+          "nativeText": "Hello."
+        },
+        "recall": {
+          "id": "ja101:foundation:1:recall",
+          "prompt": "Recall Aki’s polite self-introduction, including the topic marker は and ending です.",
+          "sourceDialogueTurn": 2,
+          "targetText": "わたしは あきです。",
+          "nativeText": "I am Aki."
+        },
+        "hear": {
+          "id": "ja101:foundation:1:hear",
+          "prompt": "Listen for the question ending か when the classmate asks for a name.",
+          "sourceDialogueTurn": 3,
+          "targetText": "おなまえは なんですか。",
+          "nativeText": "What is your name?"
+        },
+        "type": {
+          "id": "ja101:foundation:1:type",
+          "prompt": "Type Ken’s self-introduction with the hiragana name and polite です.",
+          "sourceDialogueTurn": 4,
+          "targetText": "わたしは けんです。",
+          "nativeText": "I am Ken."
+        },
+        "say": {
+          "id": "ja101:foundation:1:say",
+          "prompt": "Address Ken by name and say the full polite meeting phrase aloud.",
+          "sourceDialogueTurn": 5,
+          "targetText": "けんさん、よろしくおねがいします。",
+          "nativeText": "Ken, pleased to meet you."
+        },
+        "write": {
+          "id": "ja101:foundation:1:write",
+          "prompt": "Write the complete reply meaning ‘Likewise, pleased to meet you.’",
+          "sourceDialogueTurn": 6,
+          "targetText": "こちらこそ、よろしくおねがいします。",
+          "nativeText": "Likewise, pleased to meet you."
+        }
+      }
+    },
+    {
+      "moduleId": "foundation-japanese-basics",
+      "lessonNumber": 2,
+      "stableLessonKey": "foundation-japanese-basics:2",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:foundation:2:see",
+          "prompt": "Read the question about an object near the speaker; identify これ and なん.",
+          "sourceDialogueTurn": 1,
+          "targetText": "これは なんですか。",
+          "nativeText": "What is this?"
+        },
+        "recall": {
+          "id": "ja101:foundation:2:recall",
+          "prompt": "Recall the answer about a book near the listener, using それ.",
+          "sourceDialogueTurn": 2,
+          "targetText": "それは ほんです。",
+          "nativeText": "That is a book."
+        },
+        "hear": {
+          "id": "ja101:foundation:2:hear",
+          "prompt": "Listen for この before ほん and の in the statement of ownership.",
+          "sourceDialogueTurn": 3,
+          "targetText": "この ほんは わたしのです。",
+          "nativeText": "This book is mine."
+        },
+        "type": {
+          "id": "ja101:foundation:2:type",
+          "prompt": "Type the question about the object over there, keeping あれ.",
+          "sourceDialogueTurn": 4,
+          "targetText": "あれは なんですか。",
+          "nativeText": "What is that over there?"
+        },
+        "say": {
+          "id": "ja101:foundation:2:say",
+          "prompt": "Answer aloud that the distant object is a bag.",
+          "sourceDialogueTurn": 5,
+          "targetText": "あれは かばんです。",
+          "nativeText": "That is a bag."
+        },
+        "write": {
+          "id": "ja101:foundation:2:write",
+          "prompt": "Write the full sentence locating the pencil on top of the desk.",
+          "sourceDialogueTurn": 6,
+          "targetText": "えんぴつは つくえの うえです。",
+          "nativeText": "The pencil is on the desk."
+        }
+      }
+    },
+    {
+      "moduleId": "foundation-japanese-basics",
+      "lessonNumber": 3,
+      "stableLessonKey": "foundation-japanese-basics:3",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:foundation:3:see",
+          "prompt": "Read the request for two notebooks; identify the bound-item counter にさつ.",
+          "sourceDialogueTurn": 1,
+          "targetText": "ノートを にさつ ください。",
+          "nativeText": "Two notebooks, please."
+        },
+        "recall": {
+          "id": "ja101:foundation:3:recall",
+          "prompt": "Recall the shopkeeper’s confirmation of two notebooks.",
+          "sourceDialogueTurn": 2,
+          "targetText": "はい、ノートを にさつですね。",
+          "nativeText": "Yes, two notebooks, correct?"
+        },
+        "hear": {
+          "id": "ja101:foundation:3:hear",
+          "prompt": "Listen for ひとつ when the learner adds one eraser.",
+          "sourceDialogueTurn": 3,
+          "targetText": "けしゴムも ひとつ ください。",
+          "nativeText": "One eraser too, please."
+        },
+        "type": {
+          "id": "ja101:foundation:3:type",
+          "prompt": "Type the confirmation of one eraser, including も.",
+          "sourceDialogueTurn": 4,
+          "targetText": "はい、けしゴムも ひとつですね。",
+          "nativeText": "Yes, one eraser too, correct?"
+        },
+        "say": {
+          "id": "ja101:foundation:3:say",
+          "prompt": "Say where the notebooks are, using かばんの なか.",
+          "sourceDialogueTurn": 5,
+          "targetText": "ノートは かばんの なかです。",
+          "nativeText": "The notebooks are in the bag."
+        },
+        "write": {
+          "id": "ja101:foundation:3:write",
+          "prompt": "Write the complete polite thank-you at the end of the exchange.",
+          "sourceDialogueTurn": 6,
+          "targetText": "ありがとうございます。",
+          "nativeText": "Thank you very much."
+        }
+      }
+    },
+    {
+      "moduleId": "foundation-japanese-basics",
+      "lessonNumber": 4,
+      "stableLessonKey": "foundation-japanese-basics:4",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:foundation:4:see",
+          "prompt": "Read the polite question asking who this person is; identify どなた.",
+          "sourceDialogueTurn": 1,
+          "targetText": "こちらは どなたですか。",
+          "nativeText": "Who is this person?"
+        },
+        "recall": {
+          "id": "ja101:foundation:4:recall",
+          "prompt": "Recall the short answer naming Tanaka.",
+          "sourceDialogueTurn": 2,
+          "targetText": "たなかさんです。",
+          "nativeText": "This is Tanaka."
+        },
+        "hear": {
+          "id": "ja101:foundation:4:hear",
+          "prompt": "Listen for the question asking whether Tanaka is a teacher.",
+          "sourceDialogueTurn": 3,
+          "targetText": "たなかさんは せんせいですか。",
+          "nativeText": "Is Tanaka a teacher?"
+        },
+        "type": {
+          "id": "ja101:foundation:4:type",
+          "prompt": "Type the correction that Tanaka is a student, not a teacher.",
+          "sourceDialogueTurn": 4,
+          "targetText": "いいえ、がくせいです。",
+          "nativeText": "No, a student."
+        },
+        "say": {
+          "id": "ja101:foundation:4:say",
+          "prompt": "Introduce the person aloud as your friend.",
+          "sourceDialogueTurn": 5,
+          "targetText": "わたしの ともだちです。",
+          "nativeText": "This person is my friend."
+        },
+        "write": {
+          "id": "ja101:foundation:4:write",
+          "prompt": "Write the greeting to everyone with the full polite meeting phrase.",
+          "sourceDialogueTurn": 6,
+          "targetText": "みなさん、よろしくおねがいします。",
+          "nativeText": "Everyone, pleased to meet you."
+        }
+      }
+    },
+    {
+      "moduleId": "foundation-japanese-basics",
+      "lessonNumber": 5,
+      "stableLessonKey": "foundation-japanese-basics:5",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:foundation:5:see",
+          "prompt": "Read Mari’s self-introduction and identify the name before です.",
+          "sourceDialogueTurn": 1,
+          "targetText": "わたしは マリです。",
+          "nativeText": "I am Mari."
+        },
+        "recall": {
+          "id": "ja101:foundation:5:recall",
+          "prompt": "Recall the sentence saying the speaker came from Japan, using から.",
+          "sourceDialogueTurn": 2,
+          "targetText": "にほんから きました。",
+          "nativeText": "I came from Japan."
+        },
+        "hear": {
+          "id": "ja101:foundation:5:hear",
+          "prompt": "Listen for the polite origin question addressed to Ken.",
+          "sourceDialogueTurn": 3,
+          "targetText": "けんさんは どちらから きましたか。",
+          "nativeText": "Ken, where did you come from?"
+        },
+        "type": {
+          "id": "ja101:foundation:5:type",
+          "prompt": "Type the answer saying the speaker came from the United States.",
+          "sourceDialogueTurn": 4,
+          "targetText": "アメリカから きました。",
+          "nativeText": "I came from the United States."
+        },
+        "say": {
+          "id": "ja101:foundation:5:say",
+          "prompt": "Ask aloud who the teacher is, using どなた.",
+          "sourceDialogueTurn": 5,
+          "targetText": "せんせいは どなたですか。",
+          "nativeText": "Who is the teacher?"
+        },
+        "write": {
+          "id": "ja101:foundation:5:write",
+          "prompt": "Write the sentence identifying Sato as the teacher with が.",
+          "sourceDialogueTurn": 6,
+          "targetText": "さとうさんが せんせいです。",
+          "nativeText": "Sato is the teacher."
+        }
+      }
+    },
+    {
+      "moduleId": "foundation-japanese-basics",
+      "lessonNumber": 6,
+      "stableLessonKey": "foundation-japanese-basics:6",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:foundation:6:see",
+          "prompt": "Read the location question about Ken; notice います for a person.",
+          "sourceDialogueTurn": 1,
+          "targetText": "けんさんは どこに いますか。",
+          "nativeText": "Where is Ken?"
+        },
+        "recall": {
+          "id": "ja101:foundation:6:recall",
+          "prompt": "Recall the answer placing him in that room with に.",
+          "sourceDialogueTurn": 2,
+          "targetText": "あの へやに います。",
+          "nativeText": "He is in that room."
+        },
+        "hear": {
+          "id": "ja101:foundation:6:hear",
+          "prompt": "Listen for あります in the question about the chair.",
+          "sourceDialogueTurn": 3,
+          "targetText": "いすは どこに ありますか。",
+          "nativeText": "Where is the chair?"
+        },
+        "type": {
+          "id": "ja101:foundation:6:type",
+          "prompt": "Type the short answer saying the chair is here.",
+          "sourceDialogueTurn": 4,
+          "targetText": "ここに あります。",
+          "nativeText": "It is here."
+        },
+        "say": {
+          "id": "ja101:foundation:6:say",
+          "prompt": "Ask aloud whether the cat is in the room too, using います.",
+          "sourceDialogueTurn": 5,
+          "targetText": "ねこも へやに いますか。",
+          "nativeText": "Is the cat in the room too?"
+        },
+        "write": {
+          "id": "ja101:foundation:6:write",
+          "prompt": "Write the full negative answer placing the cat over there.",
+          "sourceDialogueTurn": 6,
+          "targetText": "いいえ、ねこは あそこに います。",
+          "nativeText": "No, the cat is over there."
+        }
+      }
+    },
+    {
+      "moduleId": "foundation-japanese-basics",
+      "lessonNumber": 7,
+      "stableLessonKey": "foundation-japanese-basics:7",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:foundation:7:see",
+          "prompt": "Read the question about what is in the room; identify なに and あります.",
+          "sourceDialogueTurn": 1,
+          "targetText": "へやに なにが ありますか。",
+          "nativeText": "What is in the room?"
+        },
+        "recall": {
+          "id": "ja101:foundation:7:recall",
+          "prompt": "Recall the answer listing a desk and a chair with と.",
+          "sourceDialogueTurn": 2,
+          "targetText": "つくえと いすが あります。",
+          "nativeText": "There is a desk and a chair."
+        },
+        "hear": {
+          "id": "ja101:foundation:7:hear",
+          "prompt": "Listen for となり in the sentence placing the door next to the window.",
+          "sourceDialogueTurn": 3,
+          "targetText": "まどの となりに ドアが あります。",
+          "nativeText": "There is a door next to the window."
+        },
+        "type": {
+          "id": "ja101:foundation:7:type",
+          "prompt": "Type the question asking who is in the room, using だれ and います.",
+          "sourceDialogueTurn": 4,
+          "targetText": "へやに だれが いますか。",
+          "nativeText": "Who is in the room?"
+        },
+        "say": {
+          "id": "ja101:foundation:7:say",
+          "prompt": "Say aloud that Sato is there, using います for a person.",
+          "sourceDialogueTurn": 5,
+          "targetText": "さとうさんが います。",
+          "nativeText": "Sato is there."
+        },
+        "write": {
+          "id": "ja101:foundation:7:write",
+          "prompt": "Write the complete sentence saying the meeting is in this room.",
+          "sourceDialogueTurn": 6,
+          "targetText": "かいぎは この へやです。",
+          "nativeText": "The meeting is in this room."
+        }
+      }
+    },
+    {
+      "moduleId": "foundation-japanese-basics",
+      "lessonNumber": 8,
+      "stableLessonKey": "foundation-japanese-basics:8",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:foundation:8:see",
+          "prompt": "Read the question counting students; identify the people counter なんにん.",
+          "sourceDialogueTurn": 1,
+          "targetText": "がくせいは なんにん いますか。",
+          "nativeText": "How many students are there?"
+        },
+        "recall": {
+          "id": "ja101:foundation:8:recall",
+          "prompt": "Recall the answer saying there are two people.",
+          "sourceDialogueTurn": 2,
+          "targetText": "ふたり います。",
+          "nativeText": "There are two people."
+        },
+        "hear": {
+          "id": "ja101:foundation:8:hear",
+          "prompt": "Listen for いくつ in the question counting pens as items.",
+          "sourceDialogueTurn": 3,
+          "targetText": "ペンは いくつ ありますか。",
+          "nativeText": "How many pens are there?"
+        },
+        "type": {
+          "id": "ja101:foundation:8:type",
+          "prompt": "Type the answer saying there are two items.",
+          "sourceDialogueTurn": 4,
+          "targetText": "ふたつ あります。",
+          "nativeText": "There are two."
+        },
+        "say": {
+          "id": "ja101:foundation:8:say",
+          "prompt": "Ask Ken’s age aloud with the question word なんさい.",
+          "sourceDialogueTurn": 6,
+          "targetText": "けんさんは なんさいですか。",
+          "nativeText": "How old is Ken?"
+        },
+        "write": {
+          "id": "ja101:foundation:8:write",
+          "prompt": "Write the full answer saying he is eighteen years old.",
+          "sourceDialogueTurn": 7,
+          "targetText": "じゅうはっさいです。",
+          "nativeText": "He is eighteen years old."
+        }
+      }
+    },
+    {
+      "moduleId": "foundation-japanese-basics",
+      "lessonNumber": 9,
+      "stableLessonKey": "foundation-japanese-basics:9",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:foundation:9:see",
+          "prompt": "Read the notebook question and identify か as its question ending.",
+          "sourceDialogueTurn": 1,
+          "targetText": "ノートは ありますか。",
+          "nativeText": "Do you have a notebook?"
+        },
+        "recall": {
+          "id": "ja101:foundation:9:recall",
+          "prompt": "Recall the negative answer saying there is no notebook.",
+          "sourceDialogueTurn": 2,
+          "targetText": "いいえ、ありません。",
+          "nativeText": "No, I do not."
+        },
+        "hear": {
+          "id": "ja101:foundation:9:hear",
+          "prompt": "Listen for の in the question asking whether this book is Ken’s.",
+          "sourceDialogueTurn": 3,
+          "targetText": "この ほんは けんさんのですか。",
+          "nativeText": "Is this Ken's book?"
+        },
+        "type": {
+          "id": "ja101:foundation:9:type",
+          "prompt": "Type the negative answer saying the book is not Ken’s.",
+          "sourceDialogueTurn": 4,
+          "targetText": "いいえ、けんさんのじゃありません。",
+          "nativeText": "No, it is not Ken's."
+        },
+        "say": {
+          "id": "ja101:foundation:9:say",
+          "prompt": "Ask aloud whether the explanation is understood.",
+          "sourceDialogueTurn": 5,
+          "targetText": "せつめいは わかりますか。",
+          "nativeText": "Do you understand the explanation?"
+        },
+        "write": {
+          "id": "ja101:foundation:9:write",
+          "prompt": "Write the answer saying the speaker does not understand yet.",
+          "sourceDialogueTurn": 6,
+          "targetText": "まだ わかりません。",
+          "nativeText": "I do not understand yet."
+        }
+      }
+    },
+    {
+      "moduleId": "foundation-japanese-basics",
+      "lessonNumber": 10,
+      "stableLessonKey": "foundation-japanese-basics:10",
+      "reviewed": false,
+      "modes": {
+        "see": {
+          "id": "ja101:foundation:10:see",
+          "prompt": "Read the polite opening that introduces a question with しつもん.",
+          "sourceDialogueTurn": 1,
+          "targetText": "すみません、しつもんが あります。",
+          "nativeText": "Excuse me, I have a question."
+        },
+        "recall": {
+          "id": "ja101:foundation:10:recall",
+          "prompt": "Recall the short reply inviting the question.",
+          "sourceDialogueTurn": 2,
+          "targetText": "はい、なんですか。",
+          "nativeText": "Yes, what is it?"
+        },
+        "hear": {
+          "id": "ja101:foundation:10:hear",
+          "prompt": "Listen for わかりません in the sentence about an unknown word.",
+          "sourceDialogueTurn": 3,
+          "targetText": "この ことばが わかりません。",
+          "nativeText": "I do not understand this word."
+        },
+        "type": {
+          "id": "ja101:foundation:10:type",
+          "prompt": "Type the request to hear it one more time.",
+          "sourceDialogueTurn": 4,
+          "targetText": "もういちど おねがいします。",
+          "nativeText": "One more time, please."
+        },
+        "say": {
+          "id": "ja101:foundation:10:say",
+          "prompt": "Reply aloud that you will speak slowly.",
+          "sourceDialogueTurn": 5,
+          "targetText": "はい、ゆっくり はなします。",
+          "nativeText": "Yes, I will speak slowly."
+        },
+        "write": {
+          "id": "ja101:foundation:10:write",
+          "prompt": "Write the complete thank-you and statement of understanding.",
+          "sourceDialogueTurn": 6,
+          "targetText": "ありがとうございます。わかりました。",
+          "nativeText": "Thank you very much. I understand now."
+        }
+      }
+    }
+  ]
+}

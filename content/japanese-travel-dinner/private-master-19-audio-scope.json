@@ -1,0 +1,583 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "voices": [
+    "ja-JP-Chirp3-HD-Aoede",
+    "ja-JP-Chirp3-HD-Charon"
+  ],
+  "sourceSHA256": {
+    "master-19-private-draft.json": "1a7f9d93b78008293179ec1e7aed9a68c4ef1a4e849cba69ea5aff8b89b0476a"
+  },
+  "previousScopeSHA256": {
+    "private-foundation-audio-scope.json": "f4b48c046a13a344a996703523bdb8cfdff5bf69188c699fa02db544ccc0a28f",
+    "private-core-1-3-audio-scope.json": "ad72a64b46d08401ee572f63af5d88baafca0388afbd55161acd948dc8062e3d",
+    "private-core-4-6-audio-scope.json": "3925840b1b1bca92059fe07abc63aed981d43bcaaf87f0296f43114414264c89",
+    "private-core-7-9-audio-scope.json": "30a880bda09c371f1eb197a95ffa1237769bff18ac3a268ee55974e524306248",
+    "private-core-10-12-audio-scope.json": "73c8886aea6f96148763c77c5709585edc35503521cdb2dbf361927e547ed120",
+    "private-core-13-15-audio-scope.json": "3dbd18a0920c84e83194b9932d3e0e12f4d9dc0a995f1de249a664667ca10211",
+    "private-core-16-18-audio-scope.json": "4e1b20b7b56175cbcbad937032785ce4acad2e470bc1099135166b63ab34327c",
+    "private-core-19-audio-scope.json": "1e60d7da18055264c2141807b4a5b15232cc68825154bc026ba7f7307db01a1d",
+    "private-core-20-audio-scope.json": "7d3768994313e77e95e8c768e81db7fa3b45a7bf7d8658d8e19767b4ab650f2b",
+    "private-core-21-audio-scope.json": "88f089af289371ee21102f088328b3f04e455402a6442e7310c8cec5e4ff624c",
+    "private-core-22-audio-scope.json": "201a695bd0b7ff1c8f019f63c10dcf40f75824944c70d61fa92b802d44fe199d",
+    "private-core-23-audio-scope.json": "11604d8c9aec4ec38e69b1049450d0192a7b9b2d639fd862c6b1bf2e486f88f6",
+    "private-core-24-audio-scope.json": "50d24bcd803a4fa2da4129e82c27695abe5485ea012e2a6edacadfbbc78cc6a3",
+    "private-core-25-audio-scope.json": "5274f7c1a6e92f8bdcbb434bc4943cc5a0b5a5d0b4285a6d593390c4cd45da1f",
+    "private-core-26-audio-scope.json": "a97ec70fadef466979abbe39adac98f1ab4f88d7e7a5902de73eca2d5809103c",
+    "private-core-27-audio-scope.json": "20964e288176158ec6d3fb62983714c409dea1bf06f2bfa07a14f5ad3e7a7e3b",
+    "private-core-28-audio-scope.json": "65c655f8a73ecd312708b3cd902f4dd7d95643e592bb0825a4ec16d2c14c7f89",
+    "private-core-29-audio-scope.json": "8177aac28d7507d8d2b127c47d25a5517690e06f7d9dda831ac12713334b33a6",
+    "private-core-30-audio-scope.json": "3f489c4f091bd7f1f0bdec1315030b08a87786c9cfd56dfc17176a7568c23a11",
+    "private-master-1-audio-scope.json": "82a2bb3d90712e80e3752833c24c1768bc644c876a7cd475afe0d879ed1e2560",
+    "private-master-2-audio-scope.json": "e601980fa4d7801f5660523bf1725cfe2d75c6ced6019042da4abbbdd1a959f0",
+    "private-master-3-audio-scope.json": "6ba9530b51a30bd836f79e16d92cd7016bfeb002050afd8ab2d4f41a525c6c65",
+    "private-master-4-audio-scope.json": "3ec984da919228f9b5af8d40d67c4ac4da96a2397db7a4be076ae9f543639d09",
+    "private-master-5-audio-scope.json": "8724196f72c0a4507cb7ffa633dfd9d14cf758e2e1b66f736a96327e28dca4b4",
+    "private-master-6-audio-scope.json": "98ccb1546d8a509dd0fc7aad1c5b639e0a9a56d3aad551177cd0fe50e1323844",
+    "private-master-7-audio-scope.json": "2fc27f06a5bf20cb930aba8e0e754c0107ac876a3992bf1f29b74baa43ce9604",
+    "private-master-8-audio-scope.json": "f745103931c409b44414c71d3af4bf4adbf8dff4f32f7af400086a74180a2a3b",
+    "private-master-9-audio-scope.json": "326ab928eb2c26a2a7961127408d8cf4cc37c7f8200e7dcc4e4b4f7f8a5445eb",
+    "private-master-10-audio-scope.json": "646e20ae251cfe3ac3f3310a677062e623f0e17c2dcf9e847f42b6f89ad57885",
+    "private-master-11-audio-scope.json": "612870b0d7c11ae4f876776404d6e83fa5ce69d783a534bfaf1726a4df958e96",
+    "private-master-12-audio-scope.json": "445b7e736a8418f232390483cfe2474e82bdef9608ac87d324ecd99b8ff41e27",
+    "private-master-13-audio-scope.json": "3cb1968de3f47a934ca541a5e49bbb5125065c7bb74dde76c5617e9bf451558a",
+    "private-master-14-audio-scope.json": "e650aaae11d8778093be9d7b44023f3db065e05e05ee07d575165ae8099804b2",
+    "private-master-15-audio-scope.json": "f70f6f517f5493e4aac3d43f118f83ab86b5811008eb4a8ff37d274667567eb6",
+    "private-master-16-audio-scope.json": "8097cc33582e1bd0349ce356fd2ad69ee2156c5494ff15e1b06256dc5bf117b3",
+    "private-master-17-audio-scope.json": "16419cc3998c1e9760b5271b3ee57306801cba2f1c89b1691e883d3b16c75979",
+    "private-master-18-audio-scope.json": "b4af61c199051a74c324919ce6811dc93c16e28efbe1bfab5e636451012c7aed"
+  },
+  "lessonIds": [
+    "master-travel-dinner:19:ja-en"
+  ],
+  "placements": 44,
+  "uniqueTexts": 43,
+  "proposedClips": 86,
+  "submittedCharacters": 2536,
+  "texts": [
+    {
+      "displayText": "ありがとうございます、マカレナさん。そのドアの前に屏風を置いていただけるという条件で、この個室でお願いします。今日中に、すべての内容について確認のメールを送っていただけますか。",
+      "spokenText": "ありがとうございます、マカレナさん。そのドアの前に屏風を置いていただけるという条件で、この個室でお願いします。今日中に、すべての内容について確認のメールを送っていただけますか。",
+      "textSHA256": "7597cd56ee8988905b8f1d66486fae4499e6ff5667d63f5be60e1b30f61f9817",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "この個室の最大収容人数は、お店では何名としていますか。",
+      "spokenText": "この個室の最大収容人数は、お店では何名としていますか。",
+      "textSHA256": "3bc5cb03dd27ffcd84b21debf0f77e9f2cb75c59f39b9352070c1209e0b940e9",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 21
+        }
+      ]
+    },
+    {
+      "displayText": "これだけ人の出入りが多いと、両親はお互いの声がよく聞こえないと思います。",
+      "spokenText": "これだけ人の出入りが多いと、両親はお互いの声がよく聞こえないと思います。",
+      "textSHA256": "44302c5009c49fd39bc9ad7b49bf76a498d62eb57db7c7e4e1f415cf0a234d58",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "displayText": "こんにちは、ラウラさん。イベントマネージャーのマカレナです。個室とテーブルの準備は整っています。まず、ご希望を聞かせてください。",
+      "spokenText": "こんにちは、ラウラさん。イベントマネージャーのマカレナです。個室とテーブルの準備は整っています。まず、ご希望を聞かせてください。",
+      "textSHA256": "b0e145be74c4c07772eda573b89c9e207554751e87976c775a8bff1c062b806e",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "そのあと二人はメニューを確認します。メニューは21時にサルモレホから始まり、家族が持ち込む記念のケーキで終わります。",
+      "spokenText": "そのあと二人はメニューを確認します。メニューは21時にサルモレホから始まり、家族が持ち込む記念のケーキで終わります。",
+      "textSHA256": "02928d1f511b85a0714c6789d5df95ac24fcaf41a4d4f3831acba3d772a60a4d",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "reader",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "displayText": "そのドアの前に屏風を置いていただけるという条件で、この個室でお願いします。",
+      "spokenText": "そのドアの前に屏風を置いていただけるという条件で、この個室でお願いします。",
+      "textSHA256": "5812bc605e71ec2b136b7ae26fa4480a2866ca89e98c4538f9aa96dd7f8c3226",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 19
+        }
+      ]
+    },
+    {
+      "displayText": "もし難しいのであれば、もっと小さい別の個室のほうがいいです。",
+      "spokenText": "もし難しいのであれば、もっと小さい別の個室のほうがいいです。",
+      "textSHA256": "6ddeeebd7a2ca364df3de19c75ce0d36cb532194f1659ace56a41379165acb77",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 22
+        }
+      ]
+    },
+    {
+      "displayText": "イベントマネージャー",
+      "spokenText": "イベントマネージャー",
+      "textSHA256": "006b8439df3485fcbcb1ab3c654198ad5206475271901ed3662134a0ed2fa3c9",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "displayText": "イベントマネージャーのマカレナが、24名分の準備が整った長い宴会用テーブルを案内します。",
+      "spokenText": "イベントマネージャーのマカレナが、24名分の準備が整った長い宴会用テーブルを案内します。",
+      "textSHA256": "eb732e3ac6aa8d6b936b077a8b1fee3452fcff877fb72ab28601847bf94e31b7",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "displayText": "エアコン",
+      "spokenText": "エアコン",
+      "textSHA256": "238c41e1b9322f27573afc46a5926ffd15d29e8e96aee3eb564bfbc15f619f5d",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "displayText": "スピーチ",
+      "spokenText": "スピーチ",
+      "textSHA256": "3232fbddb9f881534b8ebbe1eae2585322472ee0b11166fd985901a78fd8fd6f",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "displayText": "センターピース",
+      "spokenText": "センターピース",
+      "textSHA256": "2cfa9ac23e335d6d1ded6d5c564f4cd7b1740d94ddb8a82b7d208e7852bb90f5",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "displayText": "テーブルの配置",
+      "spokenText": "テーブルの配置",
+      "textSHA256": "7aa7783e50ce321cdc9114db4f0b45b0aeb1c8cb9945868bbfd4eb9d174f9f00",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "displayText": "プロジェクター",
+      "spokenText": "プロジェクター",
+      "textSHA256": "513fdd1ea17e443435cc15fbad0be033bf5fb5a9065c8e1b771872eecf6dcc87",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "displayText": "マイク",
+      "spokenText": "マイク",
+      "textSHA256": "759cb5f4dcb828596de58d45f1db9b3ec2e585adcd9990323495ec176b18366a",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "displayText": "マイクがあるのであれば、私の兄弟がスピーチをします。",
+      "spokenText": "マイクがあるのであれば、私の兄弟がスピーチをします。",
+      "textSHA256": "f51d5335e1c3940d9b476643525e80ecabcdded0ead328bc6bcded9733ded076",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 20
+        },
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "hear-mode-model"
+        }
+      ]
+    },
+    {
+      "displayText": "マカレナさん、今日中に、すべての内容について確認のメールを送っていただけますか。",
+      "spokenText": "マカレナさん、今日中に、すべての内容について確認のメールを送っていただけますか。",
+      "textSHA256": "3bb654b20aec3fb16b2f1a55b437d7fa5b8db3b000cc608212acade275df125f",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 23
+        }
+      ]
+    },
+    {
+      "displayText": "マカレナさんは、テーブルの配置は変えられるけれど、従業員用のドアの前はあけておく必要があると説明します。",
+      "spokenText": "マカレナさんは、テーブルの配置は変えられるけれど、従業員用のドアの前はあけておく必要があると説明します。",
+      "textSHA256": "838e3ba71c0c1beeb95634770310b448c5b379718947cd2857d4ccc95795484a",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "displayText": "マカレナさんは、マイクがあることと、結婚式の昔の写真を映すプロジェクターもあることを確認します。",
+      "spokenText": "マカレナさんは、マイクがあることと、結婚式の昔の写真を映すプロジェクターもあることを確認します。",
+      "textSHA256": "d7c91b5a6700dc7dffcfa0ce6d53a02fc6d944864ae754d2058b4afafd21cb3f",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "reader",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "displayText": "マカレナさんは了承し、20時30分までに屏風を置くと約束します。",
+      "spokenText": "マカレナさんは了承し、20時30分までに屏風を置くと約束します。",
+      "textSHA256": "c4b0cf6d80ad8d1a4ce374140ee3c3e60189ac6b522d93fe9324cc3662c99280",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "displayText": "マカレナ：「スピーチが23時30分までに終われば、そのすぐ後に厨房からケーキをお出しします。」",
+      "spokenText": "マカレナ：「スピーチが23時30分までに終われば、そのすぐ後に厨房からケーキをお出しします。」",
+      "textSHA256": "4315aaab11cd472268ee1ef1aa5648e20b85fd913fdfd50a50edb0a41350de31",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "reader",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "displayText": "マカレナ：「店の営業許可では、最大収容人数は30名ですので、24名様でしたら十分に入れます。」",
+      "spokenText": "マカレナ：「店の営業許可では、最大収容人数は30名ですので、24名様でしたら十分に入れます。」",
+      "textSHA256": "8bb6438f69b50d0ccbdb7a167e7db92cfce172156009c92e76ecb8a7f54ca1c0",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "reader",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "displayText": "ラウラがエアコンについて尋ねると、マカレナさんは、セビリアではまだ暑いので、1時間早くエアコンを入れると約束します。",
+      "spokenText": "ラウラがエアコンについて尋ねると、マカレナさんは、セビリアではまだ暑いので、1時間早くエアコンを入れると約束します。",
+      "textSHA256": "e41d1b43dbd7c4c61129bb6ef4e516da0ecbca7a3a414e298a50c94733e83f69",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "reader",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "displayText": "ラウラは、テーブルが従業員用のドアのすぐ横にあり、ウェイターの出入りの音が部屋中に聞こえることに気づきます。",
+      "spokenText": "ラウラは、テーブルが従業員用のドアのすぐ横にあり、ウェイターの出入りの音が部屋中に聞こえることに気づきます。",
+      "textSHA256": "a4edacd83e5f4e95249acd4dcbcc3c3c7a275f5f6a37fff82f7a1eee004ac6b2",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "displayText": "ラウラは、両親が招待客全員を見渡せるように、背の低いセンターピースを頼みます。",
+      "spokenText": "ラウラは、両親が招待客全員を見渡せるように、背の低いセンターピースを頼みます。",
+      "textSHA256": "dc3ffc593616e539a10052f6631c822ad46111f384a6b5551d9d60f6d7bae5b8",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "reader",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "displayText": "ラウラは、両親の結婚40周年（ルビー婚）を祝う夕食会の前日に、セビリアのレストランの個室を見に行きます。",
+      "spokenText": "ラウラは、両親の結婚40周年（ルビー婚）を祝う夕食会の前日に、セビリアのレストランの個室を見に行きます。",
+      "textSHA256": "3f9b182dcf19fe13bd8836dcf7d9209d276c90323a2184a85d90ed669b8c8b75",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "displayText": "ラウラ：「この個室の最大収容人数は、お店では何名としていますか。」",
+      "spokenText": "ラウラ：「この個室の最大収容人数は、お店では何名としていますか。」",
+      "textSHA256": "7c590b640ef647deeaa7e18647dd2d70cfb6e16d5929e0f8a725bc42408e63eb",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "displayText": "ラウラ：「これだけ人の出入りが多いと、両親はお互いの声がよく聞こえないと思います。」",
+      "spokenText": "ラウラ：「これだけ人の出入りが多いと、両親はお互いの声がよく聞こえないと思います。」",
+      "textSHA256": "b78fe80d1051a6bcda43de41f1a3657f7a40bf6032e0c05c8438f006792b1915",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "displayText": "ラウラ：「そのドアの前に屏風を置いていただけるという条件で、この個室でお願いします。」",
+      "spokenText": "ラウラ：「そのドアの前に屏風を置いていただけるという条件で、この個室でお願いします。」",
+      "textSHA256": "20f84b85b28ec796646cb72d3704f6897f58b8900e86f3954ca098c6387549e1",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "displayText": "ラウラ：「マイクがあるのであれば、私の兄弟がスピーチをします。」",
+      "spokenText": "ラウラ：「マイクがあるのであれば、私の兄弟がスピーチをします。」",
+      "textSHA256": "d369261d7f0edc7d84c98a42aeeb982b349fb4c7267e1a963c44e6cf03fb8bcb",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "reader",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "displayText": "ラウラ：「マカレナさん、今日中に、すべての内容について確認のメールを送っていただけますか。」",
+      "spokenText": "ラウラ：「マカレナさん、今日中に、すべての内容について確認のメールを送っていただけますか。」",
+      "textSHA256": "82fb1c21a6958b8e9fed4a67ab61ac4344d65724343a74a98d6a77c3a7de776c",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "reader",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "displayText": "ラウラ：「厨房の許可があれば、ケーキは最後に出したいです。」",
+      "spokenText": "ラウラ：「厨房の許可があれば、ケーキは最後に出したいです。」",
+      "textSHA256": "2c6e82e0b30cc9d80f6d04a79d0dcb887be8d1d2d23f1f653a42865aa8fb98a1",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "reader",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "displayText": "ラウラ：「長いテーブルを、そのドアから離すことはできますか。」",
+      "spokenText": "ラウラ：「長いテーブルを、そのドアから離すことはできますか。」",
+      "textSHA256": "fa9ae33b29eebd62e14c756c26e76eaf7e6f324ff02b88601ac32da9486c3c7b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "displayText": "ルビー婚",
+      "spokenText": "ルビー婚",
+      "textSHA256": "2757b30df43cb5d4d64f905f5091f8ae5ebbf26051688826e68803c98045c4fe",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "displayText": "人の出入り",
+      "spokenText": "人の出入り",
+      "textSHA256": "8924e3639bc2ccb8f0106f617ee647e7effc52f436011fd7eb1a76f5b5cb0d26",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "displayText": "個室",
+      "spokenText": "個室",
+      "textSHA256": "aff530e3141fcff5f98a5f948f9ffab2e637a43ccc7a8585448c2a36d1e0f1f3",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "displayText": "厨房の許可があれば、ケーキは最後に出したいです。",
+      "spokenText": "厨房の許可があれば、ケーキは最後に出したいです。",
+      "textSHA256": "a3573ecb23913e48327f2a00d4a5a3f699b60a4fcec662702057468ec0c4230d",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "displayText": "屏風",
+      "spokenText": "屏風",
+      "textSHA256": "14086428f35bdf4ef4d480d77d9a12006e23b5f75e183507941a317e494c9f47",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "displayText": "従業員用のドア",
+      "spokenText": "従業員用のドア",
+      "textSHA256": "bc3353c30fa277b25a59fbfb904586beb1f6893f531a3815f176e0478a211f3d",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "displayText": "最大収容人数",
+      "spokenText": "最大収容人数",
+      "textSHA256": "3073440fdc9e60a213d3216907e49c42879e7629d7fee42a8db01f8daa1f3522",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "displayText": "記念のケーキ",
+      "spokenText": "記念のケーキ",
+      "textSHA256": "713a14c29d6d078ed8f630f3d0bee1ddcb314080a2311233fdddd0fc95447005",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "displayText": "長いテーブルを、そのドアから離すことはできますか。",
+      "spokenText": "長いテーブルを、そのドアから離すことはできますか。",
+      "textSHA256": "383afb52a88da2b4e03daed9284ac3aef93fb7faa60060da26f681cf48a83ecc",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "displayText": "長い宴会用テーブル",
+      "spokenText": "長い宴会用テーブル",
+      "textSHA256": "95251450d00ccbd3a054d750f99285f77e8103820a594b2386e89edbe283e470",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:19:ja-en",
+          "surface": "card",
+          "index": 6
+        }
+      ]
+    }
+  ],
+  "recordingsBundled": false,
+  "listeningReviewed": false,
+  "registered": false
+}

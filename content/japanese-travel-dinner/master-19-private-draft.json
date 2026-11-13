@@ -1,0 +1,380 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "masterPath": "src/data/core60/es/master-travel-dinner.json",
+    "masterSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "contentPath": "public/lesson-content/es/master-travel-dinner.json",
+    "contentSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 19,
+      "stableId": "master-travel-dinner:19:ja-en",
+      "sourceTitleEnglish": "Walk the Private Room Before the Anniversary Dinner",
+      "sourceObjectiveEnglish": "Check the room, menu, and timing with the event manager and agree on the conditions for each request.",
+      "sourceSpeakingEnglish": "You are planning your parents' 40th anniversary dinner, and the AI is Macarena, the event manager: walk the private room, check the menu and timing, and set conditions using the conditional and siempre que + subjunctive, like pondríamos la tarta al final.",
+      "title": "Walk the Private Room Before the Anniversary Dinner",
+      "objective": "Check the room, menu, and timing with the event manager and agree on the conditions for each request.",
+      "focus": "条件つきの依頼：「～なら」「～のであれば」「～という条件で」を使うと、丁寧に条件を伝えられます。依頼には「～していただけますか」を使い、条件はその前に短く添えましょう。",
+      "scene": "セビリアのレストランの個室で、ラウラがイベントマネージャーのマカレナと、両親の結婚40周年（ルビー婚）の夕食会の準備を確認します。個室、テーブルの配置、メニュー、時間を一つずつ見ながら、条件をつけて希望を伝えます。",
+      "forms": [
+        {
+          "base": "変更する（へんこうする）",
+          "polite": "変更します（へんこうします）",
+          "meaning": "to change (a plan or setting); used for changing a booked arrangement",
+          "example": "テーブルの配置を変更します。",
+          "question": "テーブルの配置を変更しますか。"
+        },
+        {
+          "base": "確認する（かくにんする）",
+          "polite": "確認します（かくにんします）",
+          "meaning": "to check or confirm (something)",
+          "example": "メールで予約を確認します。",
+          "question": "今日中に予約を確認しますか。"
+        },
+        {
+          "base": "用意する（よういする）",
+          "polite": "用意します（よういします）",
+          "meaning": "to prepare or set up (something needed)",
+          "example": "屏風を用意します。",
+          "question": "屏風を用意できますか。"
+        },
+        {
+          "base": "調整する（ちょうせいする）",
+          "polite": "調整します（ちょうせいします）",
+          "meaning": "to adjust (a time or a setting)",
+          "example": "エアコンの時間を調整します。",
+          "question": "エアコンの時間を調整していただけますか。"
+        },
+        {
+          "base": "聞こえる（きこえる）",
+          "polite": "聞こえます（きこえます）",
+          "meaning": "to be audible; to be heard without effort",
+          "example": "マイクの声がよく聞こえます。",
+          "question": "席から声がよく聞こえますか。"
+        }
+      ],
+      "cards": [
+        {
+          "en": "the private room",
+          "kind": "term",
+          "ja": "個室",
+          "readingKana": "こしつ"
+        },
+        {
+          "en": "the event manager",
+          "kind": "term",
+          "ja": "イベントマネージャー",
+          "readingKana": "いべんとまねーじゃー"
+        },
+        {
+          "en": "the service door",
+          "kind": "term",
+          "ja": "従業員用のドア",
+          "readingKana": "じゅうぎょういんようのどあ"
+        },
+        {
+          "en": "the coming and going",
+          "kind": "term",
+          "ja": "人の出入り",
+          "readingKana": "ひとのでいり"
+        },
+        {
+          "en": "the folding screen",
+          "kind": "term",
+          "ja": "屏風",
+          "readingKana": "びょうぶ"
+        },
+        {
+          "en": "the long banquet table",
+          "kind": "term",
+          "ja": "長い宴会用テーブル",
+          "readingKana": "ながいえんかいようてーぶる"
+        },
+        {
+          "en": "the table layout",
+          "kind": "term",
+          "ja": "テーブルの配置",
+          "readingKana": "てーぶるのはいち"
+        },
+        {
+          "en": "the ruby wedding anniversary",
+          "kind": "term",
+          "ja": "ルビー婚",
+          "readingKana": "るびーこん"
+        },
+        {
+          "en": "the centerpiece",
+          "kind": "term",
+          "ja": "センターピース",
+          "readingKana": "せんたーぴーす"
+        },
+        {
+          "en": "the anniversary cake",
+          "kind": "term",
+          "ja": "記念のケーキ",
+          "readingKana": "きねんのけーき"
+        },
+        {
+          "en": "the speech",
+          "kind": "term",
+          "ja": "スピーチ",
+          "readingKana": "すぴーち"
+        },
+        {
+          "en": "the microphone",
+          "kind": "term",
+          "ja": "マイク",
+          "readingKana": "まいく"
+        },
+        {
+          "en": "the projector",
+          "kind": "term",
+          "ja": "プロジェクター",
+          "readingKana": "ぷろじぇくたー"
+        },
+        {
+          "en": "the maximum capacity",
+          "kind": "term",
+          "ja": "最大収容人数",
+          "readingKana": "さいだいしゅうようにんずう"
+        },
+        {
+          "en": "the air conditioning",
+          "kind": "term",
+          "ja": "エアコン",
+          "readingKana": "えあこん"
+        },
+        {
+          "en": "We'd bring the cake out at the end, as long as the kitchen allows it.",
+          "kind": "phrase",
+          "ja": "厨房の許可があれば、ケーキは最後に出したいです。",
+          "readingKana": "ちゅうぼうのきょかがあれば、けーきはさいごにだしたいです。"
+        },
+        {
+          "en": "Could we move the long table away from that door?",
+          "kind": "phrase",
+          "ja": "長いテーブルを、そのドアから離すことはできますか。",
+          "readingKana": "ながいてーぶるを、そのどあからはなすことはできますか。"
+        },
+        {
+          "en": "With all this coming and going, my parents wouldn't hear each other well.",
+          "kind": "phrase",
+          "ja": "これだけ人の出入りが多いと、両親はお互いの声がよく聞こえないと思います。",
+          "readingKana": "これだけひとのでいりがおおいと、りょうしんはおたがいのこえがよくきこえないとおもいます。"
+        },
+        {
+          "en": "We'd accept the room as long as you put a screen in front.",
+          "kind": "phrase",
+          "ja": "そのドアの前に屏風を置いていただけるという条件で、この個室でお願いします。",
+          "readingKana": "そのどあのまえにびょうぶをおいていただけるというじょうけんで、このこしつでおねがいします。"
+        },
+        {
+          "en": "My brother would give a speech, as long as there's a microphone.",
+          "kind": "phrase",
+          "ja": "マイクがあるのであれば、私の兄弟がスピーチをします。",
+          "readingKana": "まいくがあるのであれば、わたしのきょうだいがすぴーちをします。"
+        },
+        {
+          "en": "What would the room's maximum capacity be, according to the restaurant?",
+          "kind": "phrase",
+          "ja": "この個室の最大収容人数は、お店では何名としていますか。",
+          "readingKana": "このこしつのさいだいしゅうようにんずうは、おみせではなんめいとしていますか。"
+        },
+        {
+          "en": "If it weren't possible, we'd prefer another, smaller room.",
+          "kind": "phrase",
+          "ja": "もし難しいのであれば、もっと小さい別の個室のほうがいいです。",
+          "readingKana": "もしむずかしいのであれば、もっとちいさいべつのこしつのほうがいいです。"
+        },
+        {
+          "en": "Macarena, could you confirm everything by email today?",
+          "kind": "phrase",
+          "ja": "マカレナさん、今日中に、すべての内容について確認のメールを送っていただけますか。",
+          "readingKana": "まかれなさん、きょうじゅうに、すべてのないようについてかくにんのめーるをおくっていただけますか。"
+        }
+      ],
+      "reader": [
+        {
+          "en": "Laura visits the private room of a restaurant in Seville one day before the dinner for her parents' ruby wedding anniversary.",
+          "ja": "ラウラは、両親の結婚40周年（ルビー婚）を祝う夕食会の前日に、セビリアのレストランの個室を見に行きます。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Macarena, the event manager, shows her the long banquet table, already set up for 24 guests.",
+          "ja": "イベントマネージャーのマカレナが、24名分の準備が整った長い宴会用テーブルを案内します。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Laura notices that the table is right next to the service door, and the coming and going of waiters can be heard all over the room.",
+          "ja": "ラウラは、テーブルが従業員用のドアのすぐ横にあり、ウェイターの出入りの音が部屋中に聞こえることに気づきます。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Laura: With all this coming and going, my parents wouldn't hear each other well.",
+          "ja": "ラウラ：「これだけ人の出入りが多いと、両親はお互いの声がよく聞こえないと思います。」",
+          "speaker": "Laura"
+        },
+        {
+          "en": "Laura: Could we move the long table away from that door?",
+          "ja": "ラウラ：「長いテーブルを、そのドアから離すことはできますか。」",
+          "speaker": "Laura"
+        },
+        {
+          "en": "Macarena explains that the table layout can be changed, but the service door has to stay clear.",
+          "ja": "マカレナさんは、テーブルの配置は変えられるけれど、従業員用のドアの前はあけておく必要があると説明します。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Laura: We'd accept the room as long as you put a screen in front.",
+          "ja": "ラウラ：「そのドアの前に屏風を置いていただけるという条件で、この個室でお願いします。」",
+          "speaker": "Laura"
+        },
+        {
+          "en": "Macarena agrees and promises that the folding screen will be in place before 20:30.",
+          "ja": "マカレナさんは了承し、20時30分までに屏風を置くと約束します。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Laura: What would the room's maximum capacity be, according to the restaurant?",
+          "ja": "ラウラ：「この個室の最大収容人数は、お店では何名としていますか。」",
+          "speaker": "Laura"
+        },
+        {
+          "en": "Macarena: According to the venue's license, the maximum capacity is 30 people, so your 24 guests fit easily.",
+          "ja": "マカレナ：「店の営業許可では、最大収容人数は30名ですので、24名様でしたら十分に入れます。」",
+          "speaker": "Macarena"
+        },
+        {
+          "en": "Then they go over the menu, which starts with salmorejo at 21:00 and ends with the anniversary cake that the family is bringing.",
+          "ja": "そのあと二人はメニューを確認します。メニューは21時にサルモレホから始まり、家族が持ち込む記念のケーキで終わります。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Laura asks for a low centerpiece, so that her parents can see all the guests.",
+          "ja": "ラウラは、両親が招待客全員を見渡せるように、背の低いセンターピースを頼みます。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Laura: My brother would give a speech, as long as there's a microphone.",
+          "ja": "ラウラ：「マイクがあるのであれば、私の兄弟がスピーチをします。」",
+          "speaker": "Laura"
+        },
+        {
+          "en": "Macarena confirms that there is a microphone and also a projector to show old photos from the wedding.",
+          "ja": "マカレナさんは、マイクがあることと、結婚式の昔の写真を映すプロジェクターもあることを確認します。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Laura: We'd bring the cake out at the end, as long as the kitchen allows it.",
+          "ja": "ラウラ：「厨房の許可があれば、ケーキは最後に出したいです。」",
+          "speaker": "Laura"
+        },
+        {
+          "en": "Macarena: The kitchen would bring it out right after the speech, as long as it ends before 23:30.",
+          "ja": "マカレナ：「スピーチが23時30分までに終われば、そのすぐ後に厨房からケーキをお出しします。」",
+          "speaker": "Macarena"
+        },
+        {
+          "en": "Laura asks about the air conditioning, and Macarena promises to turn it on an hour early because it is still hot in Seville.",
+          "ja": "ラウラがエアコンについて尋ねると、マカレナさんは、セビリアではまだ暑いので、1時間早くエアコンを入れると約束します。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "Laura: Macarena, could you confirm everything by email today?",
+          "ja": "ラウラ：「マカレナさん、今日中に、すべての内容について確認のメールを送っていただけますか。」",
+          "speaker": "Laura"
+        }
+      ],
+      "modes": {
+        "see": {
+          "sourceCard": 17,
+          "cueEnglish": "Could we move the long table away from that door?",
+          "cueJapanese": "「長いテーブルを、そのドアから離すことはできますか。」を見て、こちら側がテーブルを動かせるか丁寧に尋ねる形を確認しましょう。",
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "sourceCard": 19,
+          "cueEnglish": "We'd accept the room as long as you put a screen in front.",
+          "cueJapanese": "「という条件で」を使い、前に屏風を置いてもらうことを条件に個室を受け入れる一文を思い出しましょう。",
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "sourceCard": 20,
+          "cueEnglish": "My brother would give a speech, as long as there's a microphone.",
+          "cueJapanese": "日本語の音声を聞き、マイクがあることを条件にスピーチをする話を聞き取りましょう。",
+          "responseKind": "fixed"
+        },
+        "type": {
+          "sourceCard": 1,
+          "cueEnglish": "the private room",
+          "cueJapanese": "英語の「the private room」に当たる日本語を入力しましょう。",
+          "responseKind": "fixed"
+        },
+        "say": {
+          "sourceCard": 18,
+          "cueEnglish": "With all this coming and going, my parents wouldn't hear each other well.",
+          "cueJapanese": "人の出入りが多く両親の声が聞こえにくいことを、丁寧に伝えましょう。",
+          "responseKind": "open"
+        },
+        "write": {
+          "sourceCard": 23,
+          "cueEnglish": "Macarena, could you confirm everything by email today?",
+          "cueJapanese": "「～していただけますか」を使い、マカレナさんに、今日中にすべての内容について確認のメールを送ってほしいと書きましょう。",
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "あなたはラウラです。両親の結婚40周年の夕食会のために、セビリアのレストランの個室、テーブル、メニュー、時間を確認し、条件をつけて希望を伝えます。",
+        "partnerRole": "AIはイベントマネージャーのマカレナを演じます。個室を案内し、条件への返事と時間の確認をします。",
+        "opening": "こんにちは、ラウラさん。イベントマネージャーのマカレナです。個室とテーブルの準備は整っています。まず、ご希望を聞かせてください。",
+        "objectives": [
+          "両親の結婚40周年の夕食会のため、24名分の長いテーブルとサービス用ドアの位置を確認し、テーブルを離せるか尋ねる。",
+          "ドアの前に屏風を置く条件を伝え、20時30分までの設置と個室の最大収容人数30名を確認する。",
+          "21時のサルモレホ、背の低いセンターピース、マイク、昔の結婚写真用プロジェクターについて依頼する。",
+          "兄弟のスピーチが23時30分までに終わる場合のケーキ提供、空調の一時間前の運転、今日中の確認メールを確かめる。"
+        ],
+        "closure": "ありがとうございます、マカレナさん。そのドアの前に屏風を置いていただけるという条件で、この個室でお願いします。今日中に、すべての内容について確認のメールを送っていただけますか。",
+        "goal": "マカレナさんに個室、テーブル、メニュー、時間を確認してもらい、条件つきの依頼を丁寧に伝える。",
+        "wordBank": [
+          "個室",
+          "イベントマネージャー",
+          "従業員用のドア",
+          "人の出入り",
+          "屏風",
+          "長い宴会用テーブル",
+          "テーブルの配置",
+          "ルビー婚",
+          "センターピース",
+          "記念のケーキ",
+          "スピーチ",
+          "マイク",
+          "プロジェクター",
+          "最大収容人数",
+          "エアコン",
+          "厨房の許可があれば、ケーキは最後に出したいです。",
+          "長いテーブルを、そのドアから離すことはできますか。",
+          "これだけ人の出入りが多いと、両親はお互いの声がよく聞こえないと思います。",
+          "そのドアの前に屏風を置いていただけるという条件で、この個室でお願いします。",
+          "マイクがあるのであれば、私の兄弟がスピーチをします。",
+          "この個室の最大収容人数は、お店では何名としていますか。",
+          "もし難しいのであれば、もっと小さい別の個室のほうがいいです。",
+          "マカレナさん、今日中に、すべての内容について確認のメールを送っていただけますか。"
+        ]
+      },
+      "reviewed": false
+    }
+  ]
+}

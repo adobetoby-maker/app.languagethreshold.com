@@ -14,7 +14,7 @@ The public entry point is `/exams?target=Spanish&native=English`. The welcome sc
 
 ## Source coverage
 
-`spanish-exam-coverage.json` records all 69 Spanish/English base modules, excluding duplicate Foundation/Master catalog entries. All 69 load both placement and a complete 30-lesson post-Core check. Medical Mission Logistics currently has a 30-lesson placement path; other audited paths contain 60 lessons. This is source and wiring evidence, not independent psychometric or linguistic approval of each generated question.
+`spanish-exam-coverage.json` records all 70 Spanish/English base modules, excluding duplicate Foundation/Master catalog entries. All 70 load both placement and a complete 30-lesson post-Core check. Medical Mission Logistics currently has a 30-lesson placement path; other audited paths contain 60 lessons. This is source and wiring evidence, not independent psychometric or linguistic approval of each generated question.
 
 Reproduce the count-only audit from the repository root:
 
@@ -37,4 +37,4 @@ Run the saved guest regression against a local app with public Supabase configur
 E2E_BASE_URL=http://127.0.0.1:3478 npx playwright test --config e2e/free-spanish-exams.config.ts
 ```
 
-Release status: implemented and verified locally; not deployed by this change.
+Release status: ships through main’s verified Vercel Git deployment. The release and verification record is tracked in PR #469.

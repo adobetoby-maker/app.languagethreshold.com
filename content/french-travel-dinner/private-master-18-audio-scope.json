@@ -1,0 +1,522 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "voices": [
+    "fr-FR-Chirp3-HD-Aoede",
+    "fr-FR-Chirp3-HD-Charon"
+  ],
+  "sourceSHA256": {
+    "master-18-private-draft.json": "3a233bebbe1dc6e3d6dc1ab9f87c05c80a4badd69c46c45d9f0de6d2f1ed0281"
+  },
+  "previousScopeSHA256": {
+    "foundation.json": "cdbee8c457ff9c9f0f400113d63347fb471506c22bb6bbd2eb089762fb77e9fe",
+    "core-1-3.json": "ab62ab86e0b9b51bfe5f4905a86cded44d046adb156f4cd194f79ec357599d10",
+    "core-4-9.json": "3d4aa7070a2d8bd67cac94208a11a43b813fcb3e4d6b1da8ffe99389e233c344",
+    "core-10-12.json": "ebc33851805ff0125eddab0a4836f3afd27fa1e2ea99d4eeed1434b6808531a6",
+    "private-owner-delta-audio-scope.json": "97484eaa2099e1820a68da85843f0e5a32ff9f9ac861b7d275dcc27620ba7206",
+    "private-core-13-audio-scope.json": "dab949203658a04cc91da3ef3094590048919296d4e2cb45e22dba47e969cf2e",
+    "private-core-14-audio-scope.json": "ce2fdbd2b5c41f23d8a51996c9f6245a38159bb8ce3593af35b0fa0e69f547b3",
+    "private-core-15-audio-scope.json": "3d8b7c021b39f809795def5b5b03837ce75617cc9ebece0e89fe24be77bec8d5",
+    "private-core-16-audio-scope.json": "33db9f45805dd8910425f1e5840943e7509f3c65cabdf1b4a7fa6fba41fc1e5b",
+    "private-core-17-audio-scope.json": "c5b9cd5c8aa0257f3104ad7ee7ae4d8270acd70db52bc36d9eea449fa63872df",
+    "private-core-18-audio-scope.json": "edd20f215e7720ab6f61aadb11fc7d86429adfd23baa8fee773e9d90690bebd4",
+    "private-core-19-audio-scope.json": "27b626c300ced17a3675a230899fa1ff123a4bd1443eda6d54b61de4f75308e4",
+    "private-core-20-audio-scope.json": "7e6badf17a000b50aed36910317708d30c37016b7b4b4b06ca35b7d584a8f7f0",
+    "private-core-21-audio-scope.json": "3a4ee65d6d3b7f38b166a516c88f303e09f910801e72a701165ca61ba9c9f2d1",
+    "private-core-22-audio-scope.json": "52ed5c65d71e8fbdb228ef8bc3a7a1cee8b0afc17b416097cdea36c171838e4e",
+    "private-core-23-audio-scope.json": "f742a6d201149062b199bbcb9cb6bf37bd070940c98377e28170da2c1f881ea7",
+    "private-core-24-audio-scope.json": "896cb33c0149fac4cfb3187dbe9ef82a72e093f070adaea916518f339e30bfa4",
+    "private-core-25-audio-scope.json": "3956c727ff300622929244baec1ce06c5ea371c06573cbe8b90b51a5c3db4d9b",
+    "private-core-26-audio-scope.json": "07b4608c082487ba5a55f47edcee07c95cd850dedfed11d160ea91529d0c3573",
+    "private-core-27-audio-scope.json": "5b31a3f11424d275eec7eac05356e4b95c42cbe86fd5c1322babf24fc31f9b5d",
+    "private-core-28-audio-scope.json": "10be69783b3b0e3be4817001a49fdc836469598655e5763ecb73c2cf8d32a43e",
+    "private-core-29-audio-scope.json": "12df60efddd5ee662977ca5aba6229b57dbb5c71b244cae99cfc578289540ba5",
+    "private-core-30-audio-scope.json": "68cc5151faaa5864f27b81c930b1e8412c0fc891609c7498699aac5f1990feda",
+    "private-master-1-audio-scope.json": "73974d1ea2fd2ef77baab624490efda93e4038e7470cd2083b0a4d4284b2984a",
+    "private-master-2-audio-scope.json": "f867fd31a1e7c7991d359a3e5f1248d936b14083f07717e74c21245af8960b98",
+    "private-master-3-audio-scope.json": "96f52df5299501275d4f6d7957737e9db27235d145946f084a3e21b4de986319",
+    "private-master-4-audio-scope.json": "ea7becf0ab92df7fc6d485ab97205efec6b0e530dfaa3ad0f53c28e43514d9e0",
+    "private-master-5-audio-scope.json": "312b1e136bac580f1d4eb73ee993ae9d42c13e131d5de3051d1363687cf57bc9",
+    "private-master-6-audio-scope.json": "94f3acbfa5634d54efb33042195f15877472a8010af1dbeaf933a219ec9a5e8c",
+    "private-master-7-audio-scope.json": "0cd9c4a0602d91e2f4abf883b38ddda60b87f8a3c41f836f201ae1a5e78040e6",
+    "private-master-8-audio-scope.json": "4fd81aa8cea629a7984168f394220b33b99f59cd00ad5a7865d7313b3965d358",
+    "private-master-9-audio-scope.json": "093d226253ca3c0c5bea852ee71a3492ebbc9d4dc3dbbf1e910912aebd707dd5",
+    "private-master-10-audio-scope.json": "5e476f4026157303b726864d2ec667c8bb6bb21e88433aac9c1884e33e42521b",
+    "private-master-11-audio-scope.json": "b8bf481ebb04a7628ef3eb96df412db658fbdc2aa30df2d0fef3756503ee74e4",
+    "private-master-12-audio-scope.json": "3d906ab2a93551156818bd69c16c165fa34ae920302ef7d62ca643602f803d07",
+    "private-master-13-audio-scope.json": "c80dbd95f47055fdc2e4d35b493490a1dfcba0fa93173787d662d0038149e031",
+    "private-master-14-audio-scope.json": "425ca2e56973613e62c72dfc9eb101e068fe844fe774bfdffb388ed1824d3e4e",
+    "private-master-15-audio-scope.json": "3fe2c4691ab7e9bd393aa372a7c2d500c7698e1f6d9e0042bb4c91b27e3922b9",
+    "private-master-16-audio-scope.json": "7cb36ad193476a0c99e56d2e1cff449f2a0096a7d6cd1b510f7cb4b53a838eea",
+    "private-master-17-audio-scope.json": "4b39031a548a57a92d125b2248256309a6755d4a6353db862d4b923d1329084c"
+  },
+  "lessonIds": [
+    "master-travel-dinner:18:fr-en"
+  ],
+  "placements": 42,
+  "uniqueTexts": 41,
+  "proposedClips": 82,
+  "submittedCharacters": 5532,
+  "texts": [
+    {
+      "spokenText": "Alors Sam laisse un message clair sur la messagerie vocale : Bonjour Yesenia, ici Sam Rivera ; notre vol est retardé.",
+      "textSHA256": "0d5cdcd37ad4116107c09b8f5c8c4081df277c235bad45f58db91b3e94ceab69",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "Auriez-vous encore de la place pour 10 personnes avant la fermeture de la cuisine ?",
+      "textSHA256": "a56edc2373beffdace9c076979661ed75feff8ec39635f52eacd231bbb49fb63",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "spokenText": "Bonjour Yesenia, ici Sam Rivera ; notre vol est retardé.",
+      "textSHA256": "2529fb364bf65fa10c4ed5a49adf40bb8de3935e66020511c876f36d6b398be2",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 21
+        }
+      ]
+    },
+    {
+      "spokenText": "Bonjour Yesenia, je vous écris au sujet de la réservation pour 10 personnes.",
+      "textSHA256": "6f1778fa45b0d49eb1736979a476ea39ea6b44ac4507850ffa219eb872b6e89e",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 16
+        },
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "spokenText": "Donc c'est réglé : 10 personnes, à 22 h, au nom de Rivera.",
+      "textSHA256": "f8e7c35275913dd2c2580f705470f6a314386d52a66c9728be1df70d763127f8",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 22
+        }
+      ]
+    },
+    {
+      "spokenText": "Enfin, Sam annonce à ses amis : Tout le monde, c’est réglé : on dîne à 22 h.",
+      "textSHA256": "fb731fee9a36c8010ce6cd6a1bb8f0cce77277e40327f6d7359701bb20337991",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "reader",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "spokenText": "Excusez-moi, votre message vocal est haché ; pourriez-vous me l'écrire, s'il vous plaît ?",
+      "textSHA256": "a9c7cd7393134d1d3a085c1e2a96d9f759a408ba6f6c80add0697ba9690a1589",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 20
+        }
+      ]
+    },
+    {
+      "spokenText": "Je vous saurais gré de me confirmer le changement par écrit.",
+      "textSHA256": "be9611b4a971a34d5667f63f5757af9209c5c0a3dfe3ebb61557ae2faf5fae5b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 19
+        }
+      ]
+    },
+    {
+      "spokenText": "La compagnie aérienne annonce que le vol retardé va partir avec deux heures de retard.",
+      "textSHA256": "e78f8263eace9c92d7d6fd9441172201a8c2f7ac00ad0028d887dd990992aaf0",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "L’heure d’arrivée estimée à Carthagène des Indes est désormais 20 h 45, tandis que la réservation du groupe est à 20 h.",
+      "textSHA256": "a2caa89c4e5ffabe8e85ba7de07b2412b4bbffee38b278b561e2274478f7228e",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "Merci beaucoup, Yesenia. Je vous souhaite une bonne soirée.",
+      "textSHA256": "b699cc4bb6945d0d22b2bf700fab13af26eaf27d0335d3306c01cb91ed730fe0",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "spokenText": "Pourriez-vous reporter notre réservation à 22 h, s'il vous plaît ?",
+      "textSHA256": "804d2fa5b121251440a40770d92326798ea77f3b91a873cbbb873f8fe73d3c48",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "spokenText": "Sam : Auriez-vous encore de la place pour 10 personnes avant la fermeture de la cuisine ?",
+      "textSHA256": "55f28fd7e20e816418361daa7f0608ee9db4e514b6f1ce740537c19e9e1d5bff",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "Sam : Donc c'est réglé : 10 personnes, à 22 h, au nom de Rivera.",
+      "textSHA256": "f68957de13dd86b4e55b1c43dede93b9f305c052e73fd5604b622422e6b8c9ef",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "reader",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "spokenText": "Sam : Excusez-moi, votre message vocal est haché ; pourriez-vous me l'écrire, s'il vous plaît ?",
+      "textSHA256": "110780527243e86b34424bf181f939ff6517a96af681cfd8a66fb63388b5fb4f",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "reader",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "spokenText": "Sam : Je vous saurais gré de me confirmer le changement par écrit.",
+      "textSHA256": "6669debdca7af178314a2f7f741bf410f3e451cbceae20a281feedb4cd5690ff",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "reader",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "spokenText": "Sam : Pourriez-vous reporter notre réservation à 22 h, s'il vous plaît ?",
+      "textSHA256": "c7e024b39c79e3bc756b9f8fad4f86c4800f85cfa8cdc898ef44ff9627b76769",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "Sam Rivera est à la porte d'embarquement de l'aéroport de Bogotá avec neuf amis et regarde l'écran avec inquiétude.",
+      "textSHA256": "4a84090187d11ae2072fc88156b5867316ce5fa13f36ab0ca24ae9c7385339b9",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "Sam appelle le restaurant, mais personne ne répond ; un appel manqué s’affiche sur le téléphone de Yesenia.",
+      "textSHA256": "e3f5b3cfd47f6e1dd47cf2f0e65562c21ce544227bc5a74d744c0ba7042960e9",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "Sam poursuit le message lentement : Nous sommes 10 personnes, la réservation est à mon nom, et je vous écris sur WhatsApp tout de suite.",
+      "textSHA256": "1b61d97930bd9b23d0fcf222b649f6b27abd624757948e87603ec292b5e9deba",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "Sam écrit ensuite dans la conversation WhatsApp du restaurant : Bonjour Yesenia, je vous écris au sujet de la réservation pour 10 personnes.",
+      "textSHA256": "ae0e4230a83af3bd7fe8b3101c88e2cbce7a6ed0ba61489c55fb9da5d3e274ce",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "Tout le monde, c’est réglé : on dîne à 22 h.",
+      "textSHA256": "ae30155cb4ebd1687fc0788401ecda2a6dc42f640ad34f8dc0ade8b0c64a3e28",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 23
+        }
+      ]
+    },
+    {
+      "spokenText": "Yesenia : J'ai seulement besoin que le titulaire de la réservation me confirme les détails.",
+      "textSHA256": "b541bb4bb2d41f59bffbffd7da14a83908df1a2cb0e55263428ef9700ef6dcec",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "reader",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "spokenText": "Yesenia : Oui, il reste des places, et l’acompte de 200 000 pesos colombiens que vous avez déjà versé reste valable pour le nouvel horaire.",
+      "textSHA256": "deee27c798ce480cdeb8836412c971186e0145b6264d5304f671fa24bb6fc973",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "reader",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "spokenText": "Yesenia confirme tous les détails par écrit dans la conversation, et Sam écrit à la société de transfert pour décaler l’heure de prise en charge à 21 h.",
+      "textSHA256": "f1be02f89c1eebb6de8a3c3d60cef87e04a0edcdc8de009604c9959fe92b17c0",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "reader",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "spokenText": "Yesenia répond par un message vocal rapide, mais près de la porte d’embarquement, le réseau capte très mal.",
+      "textSHA256": "67734a5093ee93271fca989de7232b7fc1ea86120cf8ac524d843bdf25ecdcdf",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "reader",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "Yesenia écrit que le dernier service commence à 22 h et que la cuisine ferme à 23 h.",
+      "textSHA256": "ee57586e411c29c272edc5e09b2f55929c96adc74613a953c5549471c3060f1b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "reader",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "spokenText": "l'appel manqué",
+      "textSHA256": "a92485c640f0c4b4c758f34672d49f62e61fad54a2e7de34ac3bc4a28dedf583",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "spokenText": "l'heure d'arrivée estimée",
+      "textSHA256": "ce9ca01e7c683b12d6af2874cf0291099665132d4b84541b85d9718dc45664c9",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "spokenText": "l'heure de fermeture de la cuisine",
+      "textSHA256": "55196b8cb8241b2ad1d508ee8be967a2fdfbd9e56671c31d024a640812baaf12",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "spokenText": "la compagnie aérienne",
+      "textSHA256": "454ae17ec849a140da94e641826870d7e0e2e19dc2b2cc185f62fab33749ecf5",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "spokenText": "la couverture réseau",
+      "textSHA256": "7b57761bdcb092f642ad4b0b619a34d0fcd9217d8ca10b5e54f331263c4a003b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "spokenText": "la messagerie vocale",
+      "textSHA256": "072a6ca9c227f6107feb7e5ef302aa87657d8209cdd04d7edad115354248c681",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "spokenText": "la porte d'embarquement",
+      "textSHA256": "8be3cfbfbcb2e99dffc2bf6601bc26c25f2cf33826a191c4cfaa8d3e98adc801",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "spokenText": "le dernier service",
+      "textSHA256": "760e2dbc8a8f71ccf33893e44e0000fbef3642a1354dd0ac8549cfb31993feab",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "spokenText": "le message vocal (sur WhatsApp)",
+      "textSHA256": "76b0e2ad40714a1c6d4618aeecea248c00644947138b2f3da597aca718814f13",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "spokenText": "le titulaire de la réservation",
+      "textSHA256": "659ca6d3d13829dcbc9619ff14463d5e9146e18c273bcaf2262be0f7acead00b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "spokenText": "le transfert (trajet depuis l’aéroport)",
+      "textSHA256": "9d3d0abffc3959f181d73a2ad343c5c4a244b7d70efa8bce9200478433709d9b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "spokenText": "le vol retardé",
+      "textSHA256": "72d30f1e35d3b3db4174ee1591da1f0205037ae3d98c83a70d0c06b87be79960",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "spokenText": "les places disponibles",
+      "textSHA256": "2060769bd06eeb766aa69ec499e8f695a15a35421bbd520379c3f8135b026211",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "spokenText": "par écrit",
+      "textSHA256": "af9ac8fb0405c3777f42d56b6adcea7d3febb6a20ae26c0cb0990d17729c79da",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:18:fr-en",
+          "surface": "card",
+          "index": 15
+        }
+      ]
+    }
+  ],
+  "recordingsBundled": false,
+  "listeningReviewed": false,
+  "registered": false
+}

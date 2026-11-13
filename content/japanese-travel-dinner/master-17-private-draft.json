@@ -1,0 +1,377 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "masterPath": "src/data/core60/es/master-travel-dinner.json",
+    "masterSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "contentPath": "public/lesson-content/es/master-travel-dinner.json",
+    "contentSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 17,
+      "stableId": "master-travel-dinner:17:ja-en",
+      "sourceTitleEnglish": "Write the Insurance Summary of Priya's Fall",
+      "sourceObjectiveEnglish": "Write a clear, ordered summary of an injury at dinner for a travel insurer, sharing only the details needed.",
+      "sourceSpeakingEnglish": "You are writing Priya's claim summary, and the AI is Lucía, the insurer's agent: read your summary aloud in order with en primer lugar, a continuación, según la nota del restaurante and por consiguiente, sharing only the details the claim needs.",
+      "title": "Write the Insurance Summary of Priya's Fall",
+      "objective": "Write a clear, ordered summary of an injury at dinner for a travel insurer, sharing only the details needed.",
+      "focus": "「まず」「続いて」「レストランのメモによりますと」「したがいまして」で事故の経過を時系列に沿ってまとめます。保険証券、請求書、医療報告書に記された事実を丁寧な文体で伝え、手首の捻挫という診断と医療費の払い戻しを明確に述べます。",
+      "scene": "グラナダのホテルに戻った語り手は、友人プリヤの夕食時の転倒について旅行保険会社に提出する概要を書きます。担当者ルシアは、時刻、レストランの署名入りメモ、145ユーロのクリニック請求書、医師の署名入り医療報告書を確認します。",
+      "forms": [
+        {
+          "base": "滑らせる（すべらせる）",
+          "polite": "滑らせます（すべらせます）",
+          "meaning": "to let slip or slide (as in 足を滑らせる)",
+          "example": "プリヤ様は22時15分に足を滑らせました。",
+          "question": "プリヤ様は22時15分に足を滑らせましたか。"
+        },
+        {
+          "base": "受ける（うける）",
+          "polite": "受けます（うけます）",
+          "meaning": "to receive or undergo (treatment, an examination)",
+          "example": "本人はクリニックで診察を受けました。",
+          "question": "本人はクリニックで診察を受けましたか。"
+        },
+        {
+          "base": "送る（おくる）",
+          "polite": "送ります（おくります）",
+          "meaning": "to send",
+          "example": "三つの書類を一つの添付ファイルにして保険会社に送ります。",
+          "question": "書類は保険会社に送りましたか。"
+        },
+        {
+          "base": "添付する（てんぷする）",
+          "polite": "添付します（てんぷします）",
+          "meaning": "to attach (a file to a message or document)",
+          "example": "医療報告書を添付します。",
+          "question": "医療報告書を添付しましたか。"
+        },
+        {
+          "base": "請求する（せいきゅうする）",
+          "polite": "請求します（せいきゅうします）",
+          "meaning": "to request or claim (payment or reimbursement)",
+          "example": "医療費の払い戻しを請求いたします。",
+          "question": "医療費の償還を請求しますか。"
+        }
+      ],
+      "cards": [
+        {
+          "en": "the insurance company",
+          "kind": "term",
+          "ja": "保険会社",
+          "readingKana": "ほけんがいしゃ"
+        },
+        {
+          "en": "the policy",
+          "kind": "term",
+          "ja": "保険証券",
+          "readingKana": "ほけんしょうけん"
+        },
+        {
+          "en": "the policy number",
+          "kind": "term",
+          "ja": "証券番号",
+          "readingKana": "しょうけんばんごう"
+        },
+        {
+          "en": "the insured person",
+          "kind": "term",
+          "ja": "被保険者",
+          "readingKana": "ひほけんしゃ"
+        },
+        {
+          "en": "the insured incident",
+          "kind": "term",
+          "ja": "保険事故",
+          "readingKana": "ほけんじこ"
+        },
+        {
+          "en": "the agent",
+          "kind": "term",
+          "ja": "担当者",
+          "readingKana": "たんとうしゃ"
+        },
+        {
+          "en": "the case file",
+          "kind": "term",
+          "ja": "案件ファイル",
+          "readingKana": "あんけんふぁいる"
+        },
+        {
+          "en": "the timeline",
+          "kind": "term",
+          "ja": "時系列",
+          "readingKana": "じけいれつ"
+        },
+        {
+          "en": "the restaurant's note",
+          "kind": "term",
+          "ja": "レストランのメモ",
+          "readingKana": "れすとらんのめも"
+        },
+        {
+          "en": "the clinic invoice",
+          "kind": "term",
+          "ja": "クリニックの請求書",
+          "readingKana": "くりにっくのせいきゅうしょ"
+        },
+        {
+          "en": "the medical report",
+          "kind": "term",
+          "ja": "医療報告書",
+          "readingKana": "いりょうほうこくしょ"
+        },
+        {
+          "en": "the diagnosis",
+          "kind": "term",
+          "ja": "診断",
+          "readingKana": "しんだん",
+          "note": "「診断」は医師による病名の判断そのものを指し、「診断書」はその内容を記した書類を指します。"
+        },
+        {
+          "en": "the medical expenses",
+          "kind": "term",
+          "ja": "医療費",
+          "readingKana": "いりょうひ"
+        },
+        {
+          "en": "the essential details",
+          "kind": "term",
+          "ja": "必要最小限の情報",
+          "readingKana": "ひつようさいしょうげんのじょうほう"
+        },
+        {
+          "en": "the attachment",
+          "kind": "term",
+          "ja": "添付ファイル",
+          "readingKana": "てんぷふぁいる"
+        },
+        {
+          "en": "First, Priya slipped at 22:15.",
+          "kind": "phrase",
+          "ja": "まず、プリヤ様は22時15分に足を滑らせました。",
+          "readingKana": "まず、ぷりやさまは、にじゅうにじじゅうごふんに、あしを すべらせました。"
+        },
+        {
+          "en": "Next, the staff offered her ice and helped her sit down.",
+          "kind": "phrase",
+          "ja": "続いて、スタッフがプリヤ様に氷を勧め、座るのを手伝いました。",
+          "readingKana": "つづいて、すたっふがぷりやさまに こおりを すすめ、すわるのを てつだいました。"
+        },
+        {
+          "en": "According to the restaurant's note, the floor had just been mopped.",
+          "kind": "phrase",
+          "ja": "レストランのメモによりますと、床はモップがけをされたばかりでした。",
+          "readingKana": "れすとらんのめもによりますと、ゆかはもっぷがけをされたばかりでした。"
+        },
+        {
+          "en": "Consequently, we request reimbursement of the medical expenses.",
+          "kind": "phrase",
+          "ja": "したがいまして、医療費の払い戻しを請求いたします。",
+          "readingKana": "したがいまして、いりょうひのはらいもどしをせいきゅういたします。",
+          "note": "「したがいまして」は文書向けの丁寧な接続表現です。会話では「ですので」「そのため」が自然です。"
+        },
+        {
+          "en": "Lucía, according to the invoice, she was seen at 23:10.",
+          "kind": "phrase",
+          "ja": "ルシア様、請求書によりますと、本人は23時10分に診察を受けております。",
+          "readingKana": "るしあさま、せいきゅうしょによりますと、ほんにんは にじゅうさんじじゅっぷんに しんさつを うけております。"
+        },
+        {
+          "en": "I'm only including the diagnosis that appears in the medical report.",
+          "kind": "phrase",
+          "ja": "医療報告書に記載されている診断のみを記載しております。",
+          "readingKana": "いりょうほうこくしょに きさいされている しんだんのみを きさいしております。"
+        },
+        {
+          "en": "Do you need any other document for the case file?",
+          "kind": "phrase",
+          "ja": "案件ファイルに、ほかに必要な書類はございますか。",
+          "readingKana": "あんけんふぁいるに、ほかに ひつようなしょるいは ございますか。"
+        }
+      ],
+      "reader": [
+        {
+          "en": "Back at the hotel in Granada, I open the laptop to write the summary of Priya's insured incident for the insurance company.",
+          "ja": "グラナダのホテルに戻り、保険会社に送るプリヤさんの保険事故の概要を書くために、ノートパソコンを開きます。",
+          "speaker": "You"
+        },
+        {
+          "en": "Priya is the insured person, and her travel policy covers accidents during her vacation in Spain.",
+          "ja": "プリヤさんは被保険者で、旅行保険はスペインでの休暇中の事故を補償しています。",
+          "speaker": "Narrator"
+        },
+        {
+          "en": "I copy the policy number onto the first line so that the agent, Lucía, finds it quickly.",
+          "ja": "担当者のルシアさんがすぐに見つけられるように、証券番号を最初の行に写します。",
+          "speaker": "You"
+        },
+        {
+          "en": "On the table I have the restaurant's note, which Rocío, the manager, signed.",
+          "ja": "テーブルの上には、店長のロシオさんが署名したレストランのメモがあります。",
+          "speaker": "You"
+        },
+        {
+          "en": "I also have the clinic invoice, which comes to 145 euros.",
+          "ja": "クリニックの請求書もあります。合計は145ユーロです。",
+          "speaker": "You"
+        },
+        {
+          "en": "In addition, the clinic gave me the medical report, with the doctor's signature.",
+          "ja": "さらに、クリニックから、医師の署名入りの医療報告書をもらいました。",
+          "speaker": "You"
+        },
+        {
+          "en": "I decide to include only the essential details, because the case file doesn't need personal details about the dinner.",
+          "ja": "案件ファイルには夕食に関する個人的な詳細は必要ないため、必要最小限の情報のみを記載することにします。",
+          "speaker": "You"
+        },
+        {
+          "en": "First I put the timeline in order with the times from the documents, and then I draft the text in a formal register.",
+          "ja": "まず、書類の時刻をもとに時系列を整理し、そのあとで丁寧な文体で文章の下書きをします。",
+          "speaker": "You"
+        },
+        {
+          "en": "I write: First, Priya slipped at 22:15.",
+          "ja": "「まず、プリヤ様は22時15分に足を滑らせました。」と書きます。",
+          "speaker": "You"
+        },
+        {
+          "en": "I write: According to the restaurant's note, the floor had just been mopped.",
+          "ja": "「レストランのメモによりますと、床はモップがけをされたばかりでした。」と書きます。",
+          "speaker": "You"
+        },
+        {
+          "en": "I write: Next, the staff offered her ice and helped her sit down.",
+          "ja": "「続いて、スタッフがプリヤ様に氷を勧め、座るのを手伝いました。」と書きます。",
+          "speaker": "You"
+        },
+        {
+          "en": "Lucía reads the draft and asks me: What time was the insured person seen at the clinic?",
+          "ja": "ルシアさんは下書きを読み、私に尋ねます。「被保険者はクリニックで何時に診察を受けましたか。」",
+          "speaker": "You"
+        },
+        {
+          "en": "I check the invoice and reply: Lucía, according to the invoice, she was seen at 23:10.",
+          "ja": "請求書を確認して答えます。「ルシア様、請求書によりますと、本人は23時10分に診察を受けております。」",
+          "speaker": "You"
+        },
+        {
+          "en": "I add a wrist sprain as the diagnosis and explain to Lucía: I'm only including the diagnosis that appears in the medical report.",
+          "ja": "診断として手首の捻挫を追記し、ルシアさんに説明します。「医療報告書に記載されている診断のみを記載しております。」",
+          "speaker": "You"
+        },
+        {
+          "en": "I write: Consequently, we request reimbursement of the medical expenses.",
+          "ja": "「したがいまして、医療費の払い戻しを請求いたします。」と書きます。",
+          "speaker": "You"
+        },
+        {
+          "en": "I scan the three documents and send them to the insurance company in a single attachment.",
+          "ja": "三つの書類をスキャンし、一つの添付ファイルにまとめて保険会社に送ります。",
+          "speaker": "You"
+        },
+        {
+          "en": "At the end, I ask Lucía: Do you need any other document for the case file?",
+          "ja": "最後に、ルシアさんに伺います。「案件ファイルに、ほかに必要な書類はございますか。」",
+          "speaker": "You"
+        },
+        {
+          "en": "Lucía: No, with this the case file is complete.",
+          "ja": "いいえ、これで案件ファイルは揃っております。",
+          "speaker": "Lucía"
+        }
+      ],
+      "modes": {
+        "see": {
+          "sourceCard": 16,
+          "cueEnglish": "First, Priya slipped at 22:15.",
+          "cueJapanese": "「まず、プリヤ様は22時15分に足を滑らせました。」を見て、事故の時刻を確認しましょう。",
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "sourceCard": 17,
+          "cueEnglish": "Next, the staff offered her ice and helped her sit down.",
+          "cueJapanese": "「続いて」を使い、スタッフが氷を勧めて座るのを手伝ったことを思い出しましょう。",
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "sourceCard": 20,
+          "cueEnglish": "Lucía, according to the invoice, she was seen at 23:10.",
+          "cueJapanese": "日本語の音声を聞き、請求書に記された診察時刻を確かめましょう。",
+          "responseKind": "fixed"
+        },
+        "type": {
+          "sourceCard": 12,
+          "cueEnglish": "the diagnosis",
+          "cueJapanese": "英語の「the diagnosis」に当たる日本語を入力しましょう。",
+          "responseKind": "fixed"
+        },
+        "say": {
+          "sourceCard": 18,
+          "cueEnglish": "According to the restaurant's note, the floor had just been mopped.",
+          "cueJapanese": "「レストランのメモによりますと」を使い、床が拭かれたばかりだったことを丁寧に伝えましょう。",
+          "responseKind": "open"
+        },
+        "write": {
+          "sourceCard": 19,
+          "cueEnglish": "Consequently, we request reimbursement of the medical expenses.",
+          "cueJapanese": "「したがいまして」を使い、医療費の払い戻しを請求する一文を書きましょう。",
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "あなたはプリヤの保険請求の概要を書いた同行者です。",
+        "partnerRole": "保険会社の担当者ルシアをAIが演じます。",
+        "opening": "お世話になっております。保険会社の担当者のルシアでございます。プリヤ様の事故の概要を、時系列に沿ってお読みいただけますか。",
+        "objectives": [
+          "「まず」「続いて」を使い、22時15分の転倒とスタッフが氷を勧めて座るのを手伝った経過を時系列で読む。",
+          "「レストランのメモによりますと」と述べ、床が拭かれたばかりだったことを伝える。",
+          "クリニックの請求書に基づき、診察時刻が23時10分だったと伝える。",
+          "医師の署名入り医療報告書に記された診断「手首の捻挫」だけを述べる。",
+          "「したがいまして」で医療費の払い戻しを請求する。",
+          "三つの書類を一つの添付ファイルで送ったことを伝え、追加書類が必要か尋ねる。"
+        ],
+        "closure": "いいえ、これで案件ファイルは揃っております。ありがとうございました。",
+        "goal": "保険会社の担当者に、資料に基づく事故の経過と請求内容を時系列で丁寧に伝える。",
+        "wordBank": [
+          "保険会社",
+          "保険証券",
+          "証券番号",
+          "被保険者",
+          "保険事故",
+          "担当者",
+          "案件ファイル",
+          "時系列",
+          "レストランのメモ",
+          "クリニックの請求書",
+          "医療報告書",
+          "診断",
+          "医療費",
+          "必要最小限の情報",
+          "添付ファイル",
+          "まず、プリヤ様は22時15分に足を滑らせました。",
+          "続いて、スタッフがプリヤ様に氷を勧め、座るのを手伝いました。",
+          "レストランのメモによりますと、床はモップがけをされたばかりでした。",
+          "したがいまして、医療費の払い戻しを請求いたします。",
+          "ルシア様、請求書によりますと、本人は23時10分に診察を受けております。",
+          "医療報告書に記載されている診断のみを記載しております。",
+          "案件ファイルに、ほかに必要な書類はございますか。"
+        ]
+      },
+      "reviewed": false
+    }
+  ]
+}

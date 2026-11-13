@@ -1,0 +1,443 @@
+{
+  "schema": 1,
+  "moduleId": "travel-lunch",
+  "stageId": "foundation-travel-lunch",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/foundation-travel-lunch.json",
+    "curriculumSha256": "980cd2974e3c4e023a1da2258ed9e32dc1e8e39e8ef87c6913bc0ed094a37dbc",
+    "sourceLessonNumbers": [
+      1,
+      2,
+      3
+    ]
+  },
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Greeting at a lunch counter",
+      "objective": "Greet staff politely at lunch, say your name, and recognize common lunch words in kana.",
+      "focus": "こんにちは is a daytime greeting. すみません gets a server’s attention politely. は is pronounced wa in わたしは; です closes a polite statement. Katakana marks loanwords such as メニュー and ジュース.",
+      "scene": "Sam enters a small lunch counter and asks for the menu.",
+      "cards": [
+        {
+          "ja": "こんにちは",
+          "en": "Hello / good afternoon",
+          "kind": "phrase"
+        },
+        {
+          "ja": "すみません",
+          "en": "Excuse me",
+          "kind": "phrase"
+        },
+        {
+          "ja": "メニュー",
+          "en": "menu",
+          "kind": "term"
+        },
+        {
+          "ja": "テーブル",
+          "en": "table",
+          "kind": "term"
+        },
+        {
+          "ja": "ごはん",
+          "en": "cooked rice / meal",
+          "kind": "term",
+          "note": "The same word can mean cooked rice or a meal in context."
+        },
+        {
+          "ja": "とりにく",
+          "en": "chicken meat",
+          "kind": "term",
+          "note": "Often written 鶏肉."
+        },
+        {
+          "ja": "みず",
+          "en": "water",
+          "kind": "term",
+          "note": "Often written 水."
+        },
+        {
+          "ja": "ジュース",
+          "en": "juice",
+          "kind": "term"
+        },
+        {
+          "ja": "おちゃ",
+          "en": "tea",
+          "kind": "term",
+          "note": "Often written お茶."
+        },
+        {
+          "ja": "わたしはサムです",
+          "en": "I am Sam",
+          "kind": "phrase"
+        },
+        {
+          "ja": "メニューをおねがいします",
+          "en": "The menu, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ありがとうございます",
+          "en": "Thank you very much",
+          "kind": "phrase"
+        },
+        {
+          "ja": "いただきます",
+          "en": "Said before eating",
+          "kind": "phrase",
+          "note": "A customary expression before a meal, not a literal equivalent of “enjoy your meal.”"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "こんにちは。",
+          "en": "Hello."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "いらっしゃいませ。",
+          "en": "Welcome."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "すみません。メニューをおねがいします。",
+          "en": "Excuse me. The menu, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、こちらです。",
+          "en": "Yes, here it is."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "わたしはサムです。",
+          "en": "I am Sam."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "サムさん、みずとおちゃがあります。",
+          "en": "Sam, we have water and tea."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ごはんととりにくはありますか。",
+          "en": "Do you have rice and chicken?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、あります。",
+          "en": "Yes, we do."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。",
+          "en": "Thank you very much."
+        }
+      ],
+      "speaking": {
+        "role": "Guest at a lunch counter",
+        "partnerRole": "Counter staff",
+        "opening": "こんにちは。いらっしゃいませ。",
+        "goal": "Greet the staff, say your name, and ask for a menu and water.",
+        "closure": "ありがとうございます。"
+      },
+      "stableId": "foundation-travel-lunch:1:ja-en",
+      "sourceEnglishObjective": "Pronounce common lunch words and greet a server or a local diner politely.",
+      "sourceObjectiveSha256": "4f17d3a5c0f14c557c80939bd639922b628972c6eb51325e1997ebe4c7e41c46"
+    },
+    {
+      "n": 2,
+      "title": "Numbers, yen, and portions",
+      "objective": "Count diners and portions, understand lunch times, and confirm a price in yen.",
+      "focus": "Japanese counts use counters: 二人 for two people and 五つ for five items. 円 follows a number for yen. 一時半 means 1:30. Use 〜をお願いします to order politely.",
+      "scene": "Sam orders at a counter for two people and checks the total.",
+      "cards": [
+        {
+          "ja": "一人",
+          "en": "one person",
+          "kind": "term"
+        },
+        {
+          "ja": "二人",
+          "en": "two people",
+          "kind": "term"
+        },
+        {
+          "ja": "五つ",
+          "en": "five items",
+          "kind": "term"
+        },
+        {
+          "ja": "一時半",
+          "en": "1:30",
+          "kind": "term"
+        },
+        {
+          "ja": "円",
+          "en": "yen",
+          "kind": "term"
+        },
+        {
+          "ja": "百円",
+          "en": "100 yen",
+          "kind": "term"
+        },
+        {
+          "ja": "千円",
+          "en": "1,000 yen",
+          "kind": "term"
+        },
+        {
+          "ja": "一皿",
+          "en": "one plate",
+          "kind": "term"
+        },
+        {
+          "ja": "一杯",
+          "en": "one cup / glass",
+          "kind": "term",
+          "note": "杯 counts cups or glasses; pronunciation changes with some numbers."
+        },
+        {
+          "ja": "からあげ",
+          "en": "Japanese fried chicken",
+          "kind": "term"
+        },
+        {
+          "ja": "二人です",
+          "en": "There are two of us",
+          "kind": "phrase"
+        },
+        {
+          "ja": "からあげを五つお願いします",
+          "en": "Five pieces of fried chicken, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "二百五十円ですか",
+          "en": "Is it 250 yen?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "一時半に行きます",
+          "en": "We will go at 1:30",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Staff",
+          "ja": "何名様ですか。",
+          "en": "How many people?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "二人です。",
+          "en": "Two people."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "ご注文は何になさいますか。",
+          "en": "What would you like to order?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "からあげを五つお願いします。",
+          "en": "Five pieces of fried chicken, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "お飲み物は。",
+          "en": "Anything to drink?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "おちゃを二杯お願いします。",
+          "en": "Two cups of tea, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "全部で千二百五十円です。",
+          "en": "The total is 1,250 yen."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "千二百五十円ですか。",
+          "en": "Is it 1,250 yen?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、そうです。",
+          "en": "Yes, that is right."
+        }
+      ],
+      "speaking": {
+        "role": "Guest ordering for two",
+        "partnerRole": "Counter staff",
+        "opening": "いらっしゃいませ。何名様ですか。",
+        "goal": "Say there are two diners, order five pieces of fried chicken, and confirm the total in yen.",
+        "closure": "千二百五十円ですね。ありがとうございます。"
+      },
+      "stableId": "foundation-travel-lunch:2:ja-en",
+      "sourceEnglishObjective": "Say numbers, prices in pesos, times and simple food quantities when ordering lunch.",
+      "sourceObjectiveSha256": "72afea8458c3dbe8a874a5227e45f5940ec6910ed4ce0e77eadaae3b2a4587dd"
+    },
+    {
+      "n": 3,
+      "title": "Describing food and finding a seat",
+      "objective": "Ask whether a seat is available, describe food temperature and taste, and say where a place is.",
+      "focus": "Japanese does not use a ser/estar split. おいしい and 辛い describe qualities; 熱い describes hot food. 空いています says a seat is available, and 近くです says a place is nearby.",
+      "scene": "Sam asks about a seat and the sauce before eating lunch.",
+      "cards": [
+        {
+          "ja": "この席",
+          "en": "this seat",
+          "kind": "term"
+        },
+        {
+          "ja": "空いています",
+          "en": "is available / unoccupied",
+          "kind": "phrase"
+        },
+        {
+          "ja": "空いていません",
+          "en": "is not available / is occupied",
+          "kind": "phrase"
+        },
+        {
+          "ja": "熱い",
+          "en": "hot (temperature)",
+          "kind": "term"
+        },
+        {
+          "ja": "冷たい",
+          "en": "cold to the touch",
+          "kind": "term"
+        },
+        {
+          "ja": "おいしい",
+          "en": "delicious",
+          "kind": "term"
+        },
+        {
+          "ja": "辛い",
+          "en": "spicy / hot (taste)",
+          "kind": "term"
+        },
+        {
+          "ja": "近く",
+          "en": "nearby",
+          "kind": "term"
+        },
+        {
+          "ja": "ソース",
+          "en": "sauce",
+          "kind": "term"
+        },
+        {
+          "ja": "スープ",
+          "en": "soup",
+          "kind": "term"
+        },
+        {
+          "ja": "この席は空いていますか",
+          "en": "Is this seat available?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "このソースは辛いですか",
+          "en": "Is this sauce spicy?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "スープはとても熱いです",
+          "en": "The soup is very hot",
+          "kind": "phrase"
+        },
+        {
+          "ja": "市場は近くです",
+          "en": "The market is nearby",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。この席は空いていますか。",
+          "en": "Excuse me. Is this seat available?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、空いています。",
+          "en": "Yes, it is available."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "このソースは辛いですか。",
+          "en": "Is this sauce spicy?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、少し辛いです。",
+          "en": "Yes, it is a little spicy."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "スープは熱いですか。",
+          "en": "Is the soup hot?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、とても熱いです。",
+          "en": "Yes, it is very hot."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "おいしいです。",
+          "en": "It is delicious."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "ありがとうございます。",
+          "en": "Thank you."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "市場は近くですか。",
+          "en": "Is the market nearby?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、近くです。",
+          "en": "Yes, it is nearby."
+        }
+      ],
+      "speaking": {
+        "role": "Guest choosing a seat",
+        "partnerRole": "Restaurant staff",
+        "opening": "いらっしゃいませ。お席をどうぞ。",
+        "goal": "Ask if a seat is available, whether the sauce is spicy, and whether the market is nearby; describe the soup.",
+        "closure": "おいしいです。ありがとうございます。"
+      },
+      "stableId": "foundation-travel-lunch:3:ja-en",
+      "sourceEnglishObjective": "Say what food and places are like and where they are, using ser and estar.",
+      "sourceObjectiveSha256": "23d5cadc451e080ac82834a4bc5983e73034f55f1f1308e31b08305005fce0b9"
+    }
+  ],
+  "reviewGates": [
+    "qualifiedJapaneseReview",
+    "domainAndContextReview",
+    "exactTextAudioAndListening",
+    "sixModeRuntimeAndOffline",
+    "browserPhoneNativeAcceptance"
+  ]
+}

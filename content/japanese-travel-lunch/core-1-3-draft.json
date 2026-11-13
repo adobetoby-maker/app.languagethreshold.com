@@ -1,0 +1,483 @@
+{
+  "schema": 1,
+  "moduleId": "travel-lunch",
+  "stageId": "travel-lunch",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "mapPath": "src/data/travel-zone.ts",
+    "mapSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "readerPath": "public/lesson-content/es/travel-lunch.json",
+    "readerSha256": "9c6104911c7c3fc2d8f0e1914edb5bd8e490f0d3961babfcece22238f995580d",
+    "sourceLessonNumbers": [
+      1,
+      2,
+      3
+    ]
+  },
+  "lessons": [
+    {
+      "n": 1,
+      "sourceEnglishTitle": "Choose a lunch place",
+      "sourceEnglishSkills": "ask about wait time, seating, local style, and whether a place is touristy",
+      "sourceEnglishScenario": "Ask a local which nearby lunch spot they genuinely use and why.",
+      "title": "Choosing a neighborhood lunch place",
+      "objective": "Ask a local where they usually eat lunch, then check wait time, available seats, and whether a place serves local food.",
+      "focus": "近く means nearby; いつも行きますか asks about a person’s usual choice. 待ち時間 asks the wait. 観光客が多い describes a place with many tourists, while 地元の人 describes locals.",
+      "scene": "Sam asks a local for a lunch recommendation near the station.",
+      "cards": [
+        {
+          "ja": "食堂",
+          "en": "casual restaurant / dining hall",
+          "kind": "term"
+        },
+        {
+          "ja": "定食屋",
+          "en": "set-meal restaurant",
+          "kind": "term"
+        },
+        {
+          "ja": "近く",
+          "en": "nearby",
+          "kind": "term"
+        },
+        {
+          "ja": "待ち時間",
+          "en": "wait time",
+          "kind": "term"
+        },
+        {
+          "ja": "空席",
+          "en": "available seat",
+          "kind": "term"
+        },
+        {
+          "ja": "地元の人",
+          "en": "local person",
+          "kind": "term"
+        },
+        {
+          "ja": "観光客",
+          "en": "tourist",
+          "kind": "term"
+        },
+        {
+          "ja": "観光客が多い",
+          "en": "has many tourists",
+          "kind": "phrase"
+        },
+        {
+          "ja": "駅の近く",
+          "en": "near the station",
+          "kind": "phrase"
+        },
+        {
+          "ja": "待ち時間はどのくらいですか",
+          "en": "How long is the wait?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "空席はありますか",
+          "en": "Are there any seats available?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "いつもここで食べますか",
+          "en": "Do you usually eat here?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "どの店がおすすめですか",
+          "en": "Which place do you recommend?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "地元の人がよく行きます",
+          "en": "Local people often go there",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この店は観光客が多いですか",
+          "en": "Does this place have many tourists?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。駅の近くで、どの店がおすすめですか。",
+          "en": "Excuse me. Which place near the station do you recommend?"
+        },
+        {
+          "speaker": "Local",
+          "ja": "角の定食屋がおすすめです。",
+          "en": "I recommend the set-meal restaurant on the corner."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "いつもここで食べますか。",
+          "en": "Do you usually eat here?"
+        },
+        {
+          "speaker": "Local",
+          "ja": "はい。地元の人がよく行きます。",
+          "en": "Yes. Local people often go there."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "この店は観光客が多いですか。",
+          "en": "Does this place have many tourists?"
+        },
+        {
+          "speaker": "Local",
+          "ja": "いいえ、あまり多くありません。",
+          "en": "No, not very many."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "待ち時間はどのくらいですか。",
+          "en": "How long is the wait?"
+        },
+        {
+          "speaker": "Local",
+          "ja": "今はほとんど待ちません。",
+          "en": "There is almost no wait now."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "空席はありますか。",
+          "en": "Are there any seats available?"
+        },
+        {
+          "speaker": "Local",
+          "ja": "はい、ありますよ。",
+          "en": "Yes, there are."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler choosing a lunch place",
+        "partnerRole": "Local diner",
+        "opening": "こんにちは。何かお探しですか。",
+        "goal": "Ask which nearby place the local genuinely uses, whether it is busy with tourists, how long the wait is, and if seats are available.",
+        "closure": "教えてくれてありがとうございます。"
+      },
+      "stableId": "travel-lunch:1:ja-en"
+    },
+    {
+      "n": 2,
+      "sourceEnglishTitle": "Understand the lunch menu",
+      "sourceEnglishSkills": "ask about courses, set menus, portions, and what is available today",
+      "sourceEnglishScenario": "Have a server explain the fixed-price lunch and what choices it includes.",
+      "title": "Understanding the lunch set",
+      "objective": "Ask what today’s lunch set includes, which main dishes are available, whether a drink comes with it, and how large the portion is.",
+      "focus": "〜には何が付いていますか asks what comes with a set. 含まれていますか asks whether a drink is included in the stated price. 主菜 means main dish, and 量 asks about portion size.",
+      "scene": "Sam asks a server to explain the choices in today’s fixed-price lunch.",
+      "cards": [
+        {
+          "ja": "ランチセット",
+          "en": "lunch set",
+          "kind": "term"
+        },
+        {
+          "ja": "前菜",
+          "en": "starter",
+          "kind": "term"
+        },
+        {
+          "ja": "主菜",
+          "en": "main dish",
+          "kind": "term"
+        },
+        {
+          "ja": "デザート",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "ja": "飲み物",
+          "en": "drink",
+          "kind": "term"
+        },
+        {
+          "ja": "スープ",
+          "en": "soup",
+          "kind": "term"
+        },
+        {
+          "ja": "鶏肉",
+          "en": "chicken",
+          "kind": "term"
+        },
+        {
+          "ja": "魚",
+          "en": "fish",
+          "kind": "term"
+        },
+        {
+          "ja": "量",
+          "en": "portion size / amount",
+          "kind": "term"
+        },
+        {
+          "ja": "大盛り",
+          "en": "large portion",
+          "kind": "term"
+        },
+        {
+          "ja": "何が付いていますか",
+          "en": "What comes with it?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "飲み物は含まれていますか",
+          "en": "Is a drink included?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "主菜は選べますか",
+          "en": "Can I choose the main dish?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "量は多いですか",
+          "en": "Is the portion large?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "今日のランチセットには何が付いていますか",
+          "en": "What comes with today’s lunch set?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "鶏肉のセットをお願いします",
+          "en": "The chicken set, please",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "今日のランチセットには何が付いていますか。",
+          "en": "What comes with today’s lunch set?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "スープと主菜とデザートが付きます。",
+          "en": "It comes with soup, a main dish, and dessert."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "飲み物は含まれていますか。",
+          "en": "Is a drink included?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、お茶か水が含まれています。",
+          "en": "Yes, tea or water is included."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "主菜は選べますか。",
+          "en": "Can I choose the main dish?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。鶏肉か魚を選べます。",
+          "en": "Yes. You can choose chicken or fish."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "量は多いですか。",
+          "en": "Is the portion large?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "普通の量です。",
+          "en": "It is a regular portion."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "では、鶏肉のセットをお願いします。",
+          "en": "Then the chicken set, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "かしこまりました。",
+          "en": "Certainly."
+        }
+      ],
+      "speaking": {
+        "role": "Guest reading the lunch set menu",
+        "partnerRole": "Server",
+        "opening": "本日のランチセットはいかがですか。",
+        "goal": "Have the server explain the set, ask what comes with it, whether a drink is included, the portion size, and choose a main dish.",
+        "closure": "鶏肉のセットをお願いします。"
+      },
+      "stableId": "travel-lunch:2:ja-en"
+    },
+    {
+      "n": 3,
+      "sourceEnglishTitle": "Order street food",
+      "sourceEnglishSkills": "identify fillings, sauces, spice, portion, and whether to eat there or walk",
+      "sourceEnglishScenario": "Order a regional street-food specialty from a busy counter.",
+      "title": "Ordering takoyaki at a street stall",
+      "objective": "Ask what takoyaki contains, choose a portion and sauce, check the spice level, and say whether it is to eat here or take away.",
+      "focus": "屋台 is a street stall. たこ焼き is an Osaka specialty with octopus inside. 〜が入っていますか asks about filling; ソースは辛いですか asks about heat. ここで食べます and 持ち帰りです distinguish eating here from taking it away.",
+      "scene": "Sam orders takoyaki from a busy street stall.",
+      "cards": [
+        {
+          "ja": "屋台",
+          "en": "street-food stall",
+          "kind": "term"
+        },
+        {
+          "ja": "カウンター",
+          "en": "counter",
+          "kind": "term"
+        },
+        {
+          "ja": "たこ焼き",
+          "en": "takoyaki / octopus balls",
+          "kind": "term",
+          "note": "A cooked Osaka street-food specialty with octopus pieces inside."
+        },
+        {
+          "ja": "たこ",
+          "en": "octopus",
+          "kind": "term"
+        },
+        {
+          "ja": "ねぎ",
+          "en": "green onion",
+          "kind": "term"
+        },
+        {
+          "ja": "ソース",
+          "en": "sauce",
+          "kind": "term"
+        },
+        {
+          "ja": "辛い",
+          "en": "spicy",
+          "kind": "term"
+        },
+        {
+          "ja": "小さいサイズ",
+          "en": "small size",
+          "kind": "term"
+        },
+        {
+          "ja": "一皿",
+          "en": "one plate / serving",
+          "kind": "term"
+        },
+        {
+          "ja": "持ち帰り",
+          "en": "takeout",
+          "kind": "term"
+        },
+        {
+          "ja": "何が入っていますか",
+          "en": "What is in it?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ソースは辛いですか",
+          "en": "Is the sauce spicy?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ねぎ抜きでお願いします",
+          "en": "No green onion, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "たこ焼きを一皿お願いします",
+          "en": "One serving of takoyaki, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ここで食べます",
+          "en": "I will eat here",
+          "kind": "phrase"
+        },
+        {
+          "ja": "持ち帰りです",
+          "en": "It is to go",
+          "kind": "phrase"
+        },
+        {
+          "ja": "もう一度お願いします",
+          "en": "One more time, please",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。たこ焼きには何が入っていますか。",
+          "en": "Excuse me. What is in the takoyaki?"
+        },
+        {
+          "speaker": "Vendor",
+          "ja": "たことねぎが入っています。",
+          "en": "It has octopus and green onion."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ソースは辛いですか。",
+          "en": "Is the sauce spicy?"
+        },
+        {
+          "speaker": "Vendor",
+          "ja": "いいえ、あまり辛くありません。",
+          "en": "No, it is not very spicy."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "小サイズを一つ、ねぎ抜きでお願いします。",
+          "en": "One small serving, without green onion, please."
+        },
+        {
+          "speaker": "Vendor",
+          "ja": "はい。ここで食べますか、持ち帰りですか。",
+          "en": "Certainly. Will you eat here or take it away?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "持ち帰りです。",
+          "en": "It is to go."
+        },
+        {
+          "speaker": "Vendor",
+          "ja": "少々お待ちください。",
+          "en": "Please wait a moment."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。",
+          "en": "Thank you very much."
+        }
+      ],
+      "speaking": {
+        "role": "Guest at an Osaka street-food stall",
+        "partnerRole": "Vendor",
+        "opening": "いらっしゃいませ。たこ焼きはいかがですか。",
+        "goal": "Ask about the filling and sauce, order a small serving without green onion, and say it is to go.",
+        "closure": "持ち帰りです。ありがとうございます。"
+      },
+      "stableId": "travel-lunch:3:ja-en"
+    }
+  ],
+  "reviewGates": [
+    "qualifiedJapaneseReview",
+    "domainAndContextReview",
+    "exactTextAudioAndListening",
+    "sixModeRuntimeAndOffline",
+    "browserPhoneNativeAcceptance"
+  ]
+}

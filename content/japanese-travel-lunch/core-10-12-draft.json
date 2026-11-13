@@ -1,0 +1,492 @@
+{
+  "schema": 1,
+  "moduleId": "travel-lunch",
+  "stageId": "travel-lunch",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "mapPath": "src/data/travel-zone.ts",
+    "mapSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "readerPath": "public/lesson-content/es/travel-lunch.json",
+    "readerSha256": "9c6104911c7c3fc2d8f0e1914edb5bd8e490f0d3961babfcece22238f995580d",
+    "sourceLessonNumbers": [
+      10,
+      11,
+      12
+    ]
+  },
+  "lessons": [
+    {
+      "n": 10,
+      "sourceEnglishTitle": "Order a fast lunch",
+      "sourceEnglishSkills": "state a time limit, ask what can arrive quickly, and decide",
+      "sourceEnglishScenario": "You have twenty minutes before museum entry; negotiate a realistic lunch plan.",
+      "title": "Lunch before the museum",
+      "objective": "State a twenty-minute time limit, ask what can be served quickly, compare wait times, and choose a lunch.",
+      "focus": "二十分しかありません states that only twenty minutes remain. 何分かかりますか asks how many minutes something takes. すぐに出せますか asks whether it can be served quickly; 先にお会計 can request paying first.",
+      "scene": "Sam has twenty minutes before a museum entry time.",
+      "cards": [
+        {
+          "ja": "二十分",
+          "en": "twenty minutes",
+          "kind": "term"
+        },
+        {
+          "ja": "博物館",
+          "en": "museum",
+          "kind": "term"
+        },
+        {
+          "ja": "入場時間",
+          "en": "entry time",
+          "kind": "term"
+        },
+        {
+          "ja": "日替わり定食",
+          "en": "daily set meal",
+          "kind": "term"
+        },
+        {
+          "ja": "スープ",
+          "en": "soup",
+          "kind": "term"
+        },
+        {
+          "ja": "サンドイッチ",
+          "en": "sandwich",
+          "kind": "term"
+        },
+        {
+          "ja": "サラダ",
+          "en": "salad",
+          "kind": "term"
+        },
+        {
+          "ja": "飲み物",
+          "en": "drink",
+          "kind": "term"
+        },
+        {
+          "ja": "お会計",
+          "en": "bill / payment",
+          "kind": "term"
+        },
+        {
+          "ja": "食べる時間が二十分しかありません",
+          "en": "I only have twenty minutes to eat",
+          "kind": "phrase"
+        },
+        {
+          "ja": "何が早く出せますか",
+          "en": "What can you serve quickly?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "日替わり定食は何分かかりますか",
+          "en": "How many minutes does the daily set take?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "サンドイッチをお願いします",
+          "en": "The sandwich, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "先にお会計できますか",
+          "en": "Can I pay first?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "すぐに出せますか",
+          "en": "Can it be served right away?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。食べる時間が二十分しかありません。",
+          "en": "Excuse me. I only have twenty minutes to eat."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "承知しました。何がよろしいですか。",
+          "en": "Understood. What would you like?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "何が早く出せますか。",
+          "en": "What can you serve quickly?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "スープとサンドイッチは五分ほどです。",
+          "en": "The soup and sandwich take about five minutes."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "日替わり定食は何分かかりますか。",
+          "en": "How many minutes does the daily set take?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "十五分ほどです。",
+          "en": "About fifteen minutes."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "では、サンドイッチと小さいサラダをお願いします。",
+          "en": "Then a sandwich and a small salad, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "かしこまりました。",
+          "en": "Certainly."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "先にお会計できますか。",
+          "en": "Can I pay first?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、こちらでどうぞ。",
+          "en": "Yes, please pay here."
+        }
+      ],
+      "speaking": {
+        "role": "Guest with limited time",
+        "partnerRole": "Restaurant staff",
+        "opening": "いらっしゃいませ。お時間はありますか。",
+        "goal": "Say you only have twenty minutes, ask what can come out quickly and how long the set lunch takes, then choose a faster meal and ask to pay first.",
+        "closure": "サンドイッチをお願いします。"
+      },
+      "stableId": "travel-lunch:10:ja-en"
+    },
+    {
+      "n": 11,
+      "sourceEnglishTitle": "Correct a lunch problem",
+      "sourceEnglishSkills": "report cold food, a missing item, or a long delay respectfully",
+      "sourceEnglishScenario": "One meal never arrived and the others are finished; ask for a fair solution.",
+      "title": "Correcting a missing lunch order",
+      "objective": "Report a forty-minute delay, a missing meal and drink, and cold soup respectfully, then ask for an order check and a fair bill correction.",
+      "focus": "まだ来ていません says an ordered item has not arrived. 四十分待っています states the wait. 注文を確認してもらえますか asks staff to check the order. 料金から外してもらえますか requests removal from the bill.",
+      "scene": "Sam’s friends have finished lunch, but Sam’s soup and one drink have not arrived.",
+      "cards": [
+        {
+          "ja": "注文",
+          "en": "order",
+          "kind": "term"
+        },
+        {
+          "ja": "四十分",
+          "en": "forty minutes",
+          "kind": "term"
+        },
+        {
+          "ja": "まだ来ていません",
+          "en": "has not arrived yet",
+          "kind": "phrase"
+        },
+        {
+          "ja": "冷たいスープ",
+          "en": "cold soup",
+          "kind": "term"
+        },
+        {
+          "ja": "飲み物",
+          "en": "drink",
+          "kind": "term"
+        },
+        {
+          "ja": "お会計",
+          "en": "bill / payment",
+          "kind": "term"
+        },
+        {
+          "ja": "確認します",
+          "en": "check / will check",
+          "kind": "phrase"
+        },
+        {
+          "ja": "友達はもう食べ終わりました",
+          "en": "My friends have already finished eating",
+          "kind": "phrase"
+        },
+        {
+          "ja": "四十分待っています",
+          "en": "We have been waiting forty minutes",
+          "kind": "phrase"
+        },
+        {
+          "ja": "私の料理がまだ来ていません",
+          "en": "My meal has not arrived yet",
+          "kind": "phrase"
+        },
+        {
+          "ja": "注文を確認してもらえますか",
+          "en": "Could you check the order?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "スープが冷たいです",
+          "en": "The soup is cold",
+          "kind": "phrase"
+        },
+        {
+          "ja": "飲み物が一つ足りません",
+          "en": "One drink is missing",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この料理を料金から外してもらえますか",
+          "en": "Could you remove this dish from the bill?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "どう対応できますか",
+          "en": "What can you do to resolve this?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。私の料理がまだ来ていません。",
+          "en": "Excuse me. My meal has not arrived yet."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "四十分待っています。友達はもう食べ終わりました。",
+          "en": "We have waited forty minutes. My friends have already finished eating."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "申し訳ありません。注文を確認します。",
+          "en": "I am sorry. I will check the order."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "お願いします。飲み物も一つ足りません。",
+          "en": "Please do. One drink is missing too."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "厨房で確認しました。スープが遅れています。",
+          "en": "I checked with the kitchen. The soup is delayed."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "今、スープをお持ちしました。",
+          "en": "I have brought the soup now."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "届いたスープも冷たいです。",
+          "en": "The soup that arrived is cold too."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "この料理を料金から外してもらえますか。",
+          "en": "Could you remove this dish from the bill?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。スープの料金を外し、飲み物をお持ちします。",
+          "en": "Yes. I will remove the soup charge and bring the drink."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。",
+          "en": "Thank you very much."
+        }
+      ],
+      "speaking": {
+        "role": "Guest resolving a lunch problem",
+        "partnerRole": "Server",
+        "opening": "すみません、お待たせしていますか。",
+        "goal": "Say your meal has not arrived after forty minutes, mention the missing drink and cold soup, ask staff to check, and request a fair bill correction.",
+        "closure": "対応ありがとうございます。"
+      },
+      "stableId": "travel-lunch:11:ja-en"
+    },
+    {
+      "n": 12,
+      "sourceEnglishTitle": "Split or combine the bill",
+      "sourceEnglishSkills": "ask to split by person or item and handle cash and card",
+      "sourceEnglishScenario": "Four travelers need two separate card payments and one cash payment.",
+      "title": "Three payments for four diners",
+      "objective": "Ask to split a four-person bill by person or item, arrange two card payments and one cash payment, and check the total and receipt.",
+      "focus": "別々に払えますか asks to pay separately. 人ごとに asks for a per-person split; 料理ごとに asks by item. カードで二件、現金で一件 specifies two card transactions and one cash transaction. 合計 means total.",
+      "scene": "Four travelers arrange three payments after a shared lunch.",
+      "cards": [
+        {
+          "ja": "お会計",
+          "en": "bill / payment",
+          "kind": "term"
+        },
+        {
+          "ja": "合計",
+          "en": "total",
+          "kind": "term"
+        },
+        {
+          "ja": "現金",
+          "en": "cash",
+          "kind": "term"
+        },
+        {
+          "ja": "カード",
+          "en": "card",
+          "kind": "term"
+        },
+        {
+          "ja": "おつり",
+          "en": "change (money back)",
+          "kind": "term"
+        },
+        {
+          "ja": "領収書",
+          "en": "receipt",
+          "kind": "term"
+        },
+        {
+          "ja": "サービス料",
+          "en": "service charge",
+          "kind": "term"
+        },
+        {
+          "ja": "チップ",
+          "en": "tip",
+          "kind": "term"
+        },
+        {
+          "ja": "人ごとに",
+          "en": "by person",
+          "kind": "term"
+        },
+        {
+          "ja": "料理ごとに",
+          "en": "by item / dish",
+          "kind": "term"
+        },
+        {
+          "ja": "お会計をお願いします",
+          "en": "The bill, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "別々に払えますか",
+          "en": "Can we pay separately?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "料理ごとに分けられますか",
+          "en": "Can you split it by dish?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "カードで二件、現金で一件お願いします",
+          "en": "Two card payments and one cash payment, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "サービス料は合計に含まれていますか",
+          "en": "Is the service charge included in the total?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "領収書をお願いします",
+          "en": "A receipt, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "カードでも払えますか",
+          "en": "Can we also pay by card?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "四人分のお会計をお願いします。",
+          "en": "The bill for four people, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、こちらです。",
+          "en": "Certainly, here it is."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "別々に払えますか。",
+          "en": "Can we pay separately?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。人ごとですか、料理ごとですか。",
+          "en": "Yes. By person or by dish?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "料理ごとに分けたいです。",
+          "en": "We would like to split it by dish."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "二人分は一枚のカードでまとめます。",
+          "en": "We will put two people’s meals on one card."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "カードで二件、現金で一件お願いします。",
+          "en": "Two card payments and one cash payment, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "分かりました。三回に分けます。",
+          "en": "Understood. I will split it into three transactions."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "サービス料は合計に含まれていますか。",
+          "en": "Is the service charge included in the total?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、含まれています。",
+          "en": "Yes, it is included."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "領収書をお願いします。",
+          "en": "A receipt, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、どうぞ。",
+          "en": "Certainly, here you are."
+        }
+      ],
+      "speaking": {
+        "role": "Guest settling a shared bill",
+        "partnerRole": "Cashier",
+        "opening": "お会計ですね。まとめてお支払いですか。",
+        "goal": "Ask to split a four-person bill by dish, explain that one card covers two people, make two card payments and one cash payment, check the service charge, and request a receipt.",
+        "closure": "領収書をお願いします。ありがとうございます。"
+      },
+      "stableId": "travel-lunch:12:ja-en"
+    }
+  ],
+  "reviewGates": [
+    "qualifiedJapaneseReview",
+    "domainAndContextReview",
+    "exactTextAudioAndListening",
+    "sixModeRuntimeAndOffline",
+    "browserPhoneNativeAcceptance"
+  ]
+}

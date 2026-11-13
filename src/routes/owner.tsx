@@ -361,6 +361,9 @@ function OwnedOwnerDashboard() {
             <a href="/owner-japanese-review" className={secondary}>
               Japanese draft review
             </a>
+            <a href="/owner-japanese-lunch-review" className={secondary}>
+              Japanese Lunch review
+            </a>
             <a href="/owner-french-review" className={secondary}>
               French draft review
             </a>

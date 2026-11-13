@@ -1,0 +1,530 @@
+{
+  "schema": 1,
+  "moduleId": "travel-lunch",
+  "stageId": "travel-lunch",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "mapPath": "src/data/travel-zone.ts",
+    "mapSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "readerPath": "public/lesson-content/es/travel-lunch.json",
+    "readerSha256": "9c6104911c7c3fc2d8f0e1914edb5bd8e490f0d3961babfcece22238f995580d",
+    "sourceLessonNumbers": [
+      22,
+      23,
+      24
+    ]
+  },
+  "lessons": [
+    {
+      "n": 22,
+      "sourceEnglishTitle": "Learn local lunch customs",
+      "sourceEnglishSkills": "ask when locals eat, how long lunch lasts, coffee after meals, and afternoon closures",
+      "sourceEnglishScenario": "Ask a local why restaurants close at 3 p.m. and what counts as normal at a weekday lunch.",
+      "title": "昼食の時間と店の休憩を聞く",
+      "objective": "Ask when people eat lunch, how long it lasts, whether coffee follows a meal, and why this restaurant closes between lunch and dinner.",
+      "focus": "昼食の時間 means lunchtime. 平日 means weekday. 営業時間 are opening hours, and 休憩時間 is the restaurant’s break. 食後 means after eating; 食後にコーヒーを頼みますか asks about coffee after the meal.",
+      "scene": "A traveler arrives just as a small restaurant closes its kitchen after lunch.",
+      "cards": [
+        {
+          "ja": "昼食の時間",
+          "en": "lunchtime",
+          "kind": "term"
+        },
+        {
+          "ja": "日替わり定食",
+          "en": "daily set meal",
+          "kind": "term"
+        },
+        {
+          "ja": "食後の会話",
+          "en": "after-meal conversation",
+          "kind": "term"
+        },
+        {
+          "ja": "営業時間",
+          "en": "opening hours",
+          "kind": "term"
+        },
+        {
+          "ja": "厨房",
+          "en": "kitchen",
+          "kind": "term"
+        },
+        {
+          "ja": "コーヒー",
+          "en": "coffee",
+          "kind": "term"
+        },
+        {
+          "ja": "デザート",
+          "en": "dessert",
+          "kind": "term"
+        },
+        {
+          "ja": "平日",
+          "en": "weekday",
+          "kind": "term"
+        },
+        {
+          "ja": "休憩時間",
+          "en": "break period",
+          "kind": "term"
+        },
+        {
+          "ja": "お会計",
+          "en": "check",
+          "kind": "term"
+        },
+        {
+          "ja": "この辺では何時ごろ昼食を食べますか。",
+          "en": "About what time do people eat lunch around here?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "昼食には普段どのくらい時間をかけますか。",
+          "en": "How long does lunch usually last?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "なぜ午後三時に閉まるのですか。",
+          "en": "Why do you close at three in the afternoon?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "食後にコーヒーを頼むことは多いですか。",
+          "en": "Do people often order coffee after eating?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "営業時間を教えていただけますか。",
+          "en": "Could you tell me the opening hours?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "午後五時に戻れば開いていますか。",
+          "en": "Will you be open if I come back at five?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "明日の正午に席を予約できますか。",
+          "en": "Can I reserve a table for noon tomorrow?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "火曜日の午後三時、旅行者が小さな食堂に入ります。",
+          "en": "At three on Tuesday afternoon, a traveler enters a small restaurant."
+        },
+        {
+          "speaker": "Owner",
+          "ja": "すみません。昼の厨房はもう閉まりました。",
+          "en": "I am sorry. The kitchen has closed for lunch."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "なぜ午後三時に閉まるのですか。",
+          "en": "Why do you close at three in the afternoon?"
+        },
+        {
+          "speaker": "Owner",
+          "ja": "この店は午後三時から五時まで休憩時間です。",
+          "en": "This restaurant takes a break from three until five."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "この辺では何時ごろ昼食を食べますか。",
+          "en": "About what time do people eat lunch around here?"
+        },
+        {
+          "speaker": "Owner",
+          "ja": "平日は正午ごろ日替わり定食を頼むお客さんが多いです。",
+          "en": "On weekdays, many customers order the daily set meal around noon."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "昼食には普段どのくらい時間をかけますか。",
+          "en": "How long does lunch usually last?"
+        },
+        {
+          "speaker": "Owner",
+          "ja": "この店では一時間ぐらいのお客さんが多いです。",
+          "en": "At this restaurant, many customers stay for about an hour."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "食後にコーヒーを頼んで、少し話してもいいですか。",
+          "en": "May we order coffee after eating and talk for a little while?"
+        },
+        {
+          "speaker": "Owner",
+          "ja": "はい。お会計の前でも大丈夫です。午後五時からまた営業します。",
+          "en": "Yes. That is fine before the check. We open again at five."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "ありがとうございます。明日の正午に席を予約できますか。",
+          "en": "Thank you. Can I reserve a table for noon tomorrow?"
+        }
+      ],
+      "speaking": {
+        "role": "Traveler asking about local lunch habits and restaurant hours",
+        "partnerRole": "Restaurant owner",
+        "opening": "すみません。昼の厨房はもう閉まりました。",
+        "goal": "Ask why the restaurant closes at three, when locals eat, how long lunch lasts, whether coffee comes after the meal, and when it reopens.",
+        "closure": "明日の正午に席を予約できますか。"
+      },
+      "stableId": "travel-lunch:22:ja-en"
+    },
+    {
+      "n": 23,
+      "sourceEnglishTitle": "Build a picnic at a deli",
+      "sourceEnglishSkills": "order sliced foods by quantity, ask for packing and utensils, and ask where picnics are allowed",
+      "sourceEnglishScenario": "Put together a picnic for four at a deli counter and ask where you're allowed to eat it in the park.",
+      "title": "惣菜店でピクニックをそろえる",
+      "objective": "Order ham and cheese by grams and slice thickness, ask for takeout packing and utensils for four, and ask where park picnics are allowed.",
+      "focus": "三百グラム and 二百グラム state quantities by weight. 薄切り means thin slices. 持ち帰り用に包んでください asks for takeout packing; ピクニックエリア names the designated picnic area.",
+      "scene": "Ana buys sliced foods at a deli counter for four people before visiting the park.",
+      "cards": [
+        {
+          "ja": "売り場",
+          "en": "counter",
+          "kind": "term"
+        },
+        {
+          "ja": "惣菜店",
+          "en": "deli",
+          "kind": "term"
+        },
+        {
+          "ja": "ハム",
+          "en": "ham",
+          "kind": "term"
+        },
+        {
+          "ja": "チーズ",
+          "en": "cheese",
+          "kind": "term"
+        },
+        {
+          "ja": "薄切り",
+          "en": "thin slices",
+          "kind": "term"
+        },
+        {
+          "ja": "グラム",
+          "en": "grams",
+          "kind": "term"
+        },
+        {
+          "ja": "容器",
+          "en": "container",
+          "kind": "term"
+        },
+        {
+          "ja": "袋",
+          "en": "bag",
+          "kind": "term"
+        },
+        {
+          "ja": "食器",
+          "en": "utensils",
+          "kind": "term"
+        },
+        {
+          "ja": "紙ナプキン",
+          "en": "napkins",
+          "kind": "term"
+        },
+        {
+          "ja": "ピクニックエリア",
+          "en": "picnic area",
+          "kind": "term"
+        },
+        {
+          "ja": "ハムを三百グラムください。",
+          "en": "Three hundred grams of ham, please.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "チーズを二百グラムください。",
+          "en": "Two hundred grams of cheese, please.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "サンドイッチ用なので、薄切りでお願いします。",
+          "en": "Thin slices, please, because they are for sandwiches.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "持ち帰り用に包んでいただけますか。",
+          "en": "Could you pack it to go?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "四人分の食器と紙ナプキンをください。",
+          "en": "Utensils and napkins for four people, please.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "公園のどこでピクニックができますか。",
+          "en": "Where are picnics allowed in the park?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "入口の案内板で確認します。",
+          "en": "I will check the sign at the entrance.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "アナは四人分のピクニックのために公園の近くの惣菜店に来ます。",
+          "en": "Ana comes to a deli near the park to prepare a picnic for four."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "ハムを三百グラム、チーズを二百グラムください。",
+          "en": "Three hundred grams of ham and two hundred grams of cheese, please."
+        },
+        {
+          "speaker": "Clerk",
+          "ja": "厚切りと薄切り、どちらにしますか。",
+          "en": "Would you like thick or thin slices?"
+        },
+        {
+          "speaker": "Ana",
+          "ja": "サンドイッチ用なので、薄切りでお願いします。",
+          "en": "Thin slices, please, because they are for sandwiches."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "持ち帰り用に包んでいただけますか。",
+          "en": "Could you pack it to go?"
+        },
+        {
+          "speaker": "Clerk",
+          "ja": "チーズは容器に入れて、ほかは袋に入れます。",
+          "en": "I will put the cheese in a container and the rest in a bag."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "四人分の食器と紙ナプキンをください。",
+          "en": "Utensils and napkins for four people, please."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "公園のどこでピクニックができますか。",
+          "en": "Where are picnics allowed in the park?"
+        },
+        {
+          "speaker": "Clerk",
+          "ja": "案内板では、池のそばがピクニックエリアになっています。",
+          "en": "The sign says the picnic area is beside the pond."
+        },
+        {
+          "speaker": "Clerk",
+          "ja": "入口の案内板でも確認してください。",
+          "en": "Please also check the sign at the entrance."
+        },
+        {
+          "speaker": "Ana",
+          "ja": "分かりました。ありがとうございます。",
+          "en": "I understand. Thank you."
+        }
+      ],
+      "speaking": {
+        "role": "Customer building a picnic for four at a deli",
+        "partnerRole": "Deli clerk",
+        "opening": "いらっしゃいませ。何グラムにしますか。",
+        "goal": "Order 300 grams of ham and 200 grams of cheese in thin slices, request takeout packing and utensils, and ask where a park picnic is allowed.",
+        "closure": "入口の案内板で確認します。"
+      },
+      "stableId": "travel-lunch:23:ja-en"
+    },
+    {
+      "n": 24,
+      "sourceEnglishTitle": "Respond to an allergic reaction",
+      "sourceEnglishSkills": "alert staff, ask someone to call emergency services, and say what was eaten",
+      "sourceEnglishScenario": "Your friend starts reacting after a bite of street food; alert the vendor, ask for emergency help, and say what was eaten.",
+      "title": "アレルギー反応を伝える",
+      "objective": "Alert a food vendor to a friend’s allergic reaction, ask someone to call 119, identify peanuts in the sauce, and report what and when the friend ate and which medicine she used.",
+      "focus": "アレルギー反応 means allergic reaction; ピーナッツアレルギー means peanut allergy. 喉が締め付けられる describes throat tightness. 救急車を呼んでください asks for an ambulance; in Japan the emergency number is 119.",
+      "scene": "After a bite of street food, Elena develops an allergic reaction. Her friend speaks to the vendor, a bystander, and paramedics.",
+      "cards": [
+        {
+          "ja": "屋台",
+          "en": "food stand",
+          "kind": "term"
+        },
+        {
+          "ja": "店員",
+          "en": "vendor",
+          "kind": "term"
+        },
+        {
+          "ja": "アレルギー反応",
+          "en": "allergic reaction",
+          "kind": "term"
+        },
+        {
+          "ja": "ピーナッツアレルギー",
+          "en": "peanut allergy",
+          "kind": "term"
+        },
+        {
+          "ja": "ピーナッツ",
+          "en": "peanuts",
+          "kind": "term"
+        },
+        {
+          "ja": "喉",
+          "en": "throat",
+          "kind": "term"
+        },
+        {
+          "ja": "ソース",
+          "en": "sauce",
+          "kind": "term"
+        },
+        {
+          "ja": "原材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "救急車",
+          "en": "ambulance",
+          "kind": "term"
+        },
+        {
+          "ja": "救急隊員",
+          "en": "paramedic",
+          "kind": "term"
+        },
+        {
+          "ja": "薬",
+          "en": "medicine",
+          "kind": "term"
+        },
+        {
+          "ja": "一口",
+          "en": "one bite",
+          "kind": "term"
+        },
+        {
+          "ja": "助けてください。友人にアレルギー反応が出ています。",
+          "en": "Help, please. My friend is having an allergic reaction.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "119番に電話して、救急車を呼んでください。",
+          "en": "Please call 119 for an ambulance.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "このソースにピーナッツは入っていますか。",
+          "en": "Does this sauce contain peanuts?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "彼女にはピーナッツアレルギーがあります。",
+          "en": "She has a peanut allergy.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "五分前にこの料理を一口食べました。",
+          "en": "She took one bite of this food five minutes ago.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "薬はかばんの中にあります。",
+          "en": "Her medicine is in the bag.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "彼女はその薬をもう使いました。",
+          "en": "She has already used that medicine.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "喉が締め付けられると言っています。",
+          "en": "She says her throat feels tight.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "私は屋台にいます。友人のエレナが料理を一口食べたあと、せきをし始めました。",
+          "en": "I am at a food stand. After one bite, my friend Elena starts coughing."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "助けてください。友人にアレルギー反応が出ています。",
+          "en": "Help, please. My friend is having an allergic reaction."
+        },
+        {
+          "speaker": "Elena",
+          "ja": "喉が締め付けられる感じがします。",
+          "en": "My throat feels tight."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "彼女にはピーナッツアレルギーがあります。",
+          "en": "She has a peanut allergy."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "薬はかばんの中にあります。必要ですか。",
+          "en": "Your medicine is in the bag. Do you need it?"
+        },
+        {
+          "speaker": "Friend",
+          "ja": "すみません。119番に電話して、救急車を呼んでください。",
+          "en": "Excuse me. Please call 119 for an ambulance."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "このソースにピーナッツは入っていますか。",
+          "en": "Does this sauce contain peanuts?"
+        },
+        {
+          "speaker": "Vendor",
+          "ja": "原材料を確認します。はい、このソースにはピーナッツが入っています。",
+          "en": "I will check the ingredients. Yes, this sauce contains peanuts."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "救急車が着き、救急隊員がエレナの様子を聞きます。",
+          "en": "The ambulance arrives, and a paramedic asks about Elena."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "五分前にこの料理を一口食べました。",
+          "en": "She took one bite of this food five minutes ago."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "彼女はかばんに入れていた薬をもう使いました。",
+          "en": "She has already used the medicine she carried in her bag."
+        }
+      ],
+      "speaking": {
+        "role": "Friend reporting a peanut-allergy reaction at a food stand",
+        "partnerRole": "Food vendor and arriving paramedic",
+        "opening": "どうしましたか。",
+        "goal": "State the allergic reaction and peanut allergy, ask for a 119 ambulance call, ask whether the sauce has peanuts, and report the bite, timing, throat tightness, and medicine already used.",
+        "closure": "五分前にこの料理を一口食べました。彼女は薬をもう使いました。"
+      },
+      "stableId": "travel-lunch:24:ja-en"
+    }
+  ]
+}

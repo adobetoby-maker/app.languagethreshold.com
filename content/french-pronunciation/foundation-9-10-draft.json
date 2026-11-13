@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "foundation",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "foundation-french-sound-like-a-native:9:fr-en",
+      "n": 9,
+      "sourceSpanishLesson": 9,
+      "title": "Hear ch /ʃ/ and gn /ɲ/ on a trail",
+      "objective": "Recognize French ch and gn as sound spellings in words for a trail, a chalet, and a mountain.",
+      "focus": "Compare chemin, chalet, and chaud with montagne, ligne, and signal. Say the sound of each letter group in the word instead of naming its letters.",
+      "words": [
+        { "fr": "chemin", "en": "path", "kind": "term" },
+        { "fr": "chalet", "en": "chalet", "kind": "term" },
+        { "fr": "chaud", "en": "warm; hot", "kind": "term" },
+        { "fr": "montagne", "en": "mountain", "kind": "term" },
+        { "fr": "ligne", "en": "line", "kind": "term" },
+        { "fr": "signal", "en": "signal", "kind": "term" },
+        { "fr": "Le chemin mène au chalet.", "en": "The path leads to the chalet.", "kind": "phrase" },
+        { "fr": "La montagne est derrière le chalet.", "en": "The mountain is behind the chalet.", "kind": "phrase" },
+        { "fr": "Une ligne rouge marque le chemin.", "en": "A red line marks the path.", "kind": "phrase" },
+        { "fr": "Il fait chaud près du chalet.", "en": "It is warm near the chalet.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Nous suivons une ligne rouge sur le chemin.", "en": "We follow a red line on the path." },
+        { "fr": "Un signal indique la direction du chalet.", "en": "A signal indicates the direction of the chalet." },
+        { "fr": "La montagne est derrière le chalet.", "en": "The mountain is behind the chalet." },
+        { "fr": "Il fait chaud, alors nous nous arrêtons près du chalet.", "en": "It is warm, so we stop near the chalet." }
+      ],
+      "speaking": { "scene": "Following a marked trail to a chalet", "roles": ["hiker", "companion"], "opening": "Le chemin mène au chalet.", "goals": ["Describe the red line marking the path.", "Say where the mountain is.", "Ask your companion to confirm the signal."], "closure": "Oui, nous suivons ce chemin." },
+      "practice": {
+        "see": { "prompt": "Sort chemin, chalet, chaud, montagne, ligne, and signal by ch or gn spelling.", "wordRefs": ["chemin", "chalet", "chaud", "montagne", "ligne", "signal"] },
+        "recall": { "prompt": "Recall the French word for mountain before revealing it.", "answerRef": "montagne" },
+        "hear": { "prompt": "Listen for chemin or chalet in the recorded trail sentence.", "choices": ["chemin", "chalet"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The path leads to the chalet.'", "answerRef": "Le chemin mène au chalet." },
+        "say": { "prompt": "Tell your companion where the mountain is.", "answerRef": "La montagne est derrière le chalet." },
+        "write": { "prompt": "Write two French sentences about the marked path and the mountain.", "requiredRefs": ["ligne", "chemin", "montagne"] }
+      }
+    },
+    {
+      "id": "foundation-french-sound-like-a-native:10:fr-en",
+      "n": 10,
+      "sourceSpanishLesson": 10,
+      "title": "Transfer sounds into a station passage",
+      "objective": "Read unfamiliar station words and a short passage using the French vowel, consonant, and spelling patterns from Foundation.",
+      "focus": "Read quai, guichet, billet, valise, départ, and sortie as whole words. Link words within each short phrase, then place the strongest beat near the phrase end.",
+      "words": [
+        { "fr": "quai", "en": "platform", "kind": "term" },
+        { "fr": "guichet", "en": "ticket window", "kind": "term" },
+        { "fr": "billet", "en": "ticket", "kind": "term" },
+        { "fr": "valise", "en": "suitcase", "kind": "term" },
+        { "fr": "départ", "en": "departure", "kind": "term" },
+        { "fr": "sortie", "en": "exit", "kind": "term" },
+        { "fr": "Où est le guichet ?", "en": "Where is the ticket window?", "kind": "phrase" },
+        { "fr": "Mon billet indique le quai quatre.", "en": "My ticket shows platform four.", "kind": "phrase" },
+        { "fr": "Le départ est à neuf heures.", "en": "Departure is at nine o'clock.", "kind": "phrase" },
+        { "fr": "La sortie est derrière le guichet.", "en": "The exit is behind the ticket window.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "J'entre dans la gare avec ma valise.", "en": "I enter the station with my suitcase." },
+        { "fr": "Au guichet, je demande un billet pour le départ de neuf heures.", "en": "At the ticket window, I ask for a ticket for the nine o'clock departure." },
+        { "fr": "Le billet indique le quai quatre.", "en": "The ticket shows platform four." },
+        { "fr": "Après le voyage, je suis les panneaux vers la sortie.", "en": "After the trip, I follow the signs toward the exit." }
+      ],
+      "speaking": { "scene": "Finding a train platform before departure", "roles": ["traveler", "station agent"], "opening": "Bonjour, où est le guichet ?", "goals": ["Ask for a ticket for the nine o'clock departure.", "Confirm the platform number.", "Ask where the exit is."], "closure": "Merci, je vais au quai quatre." },
+      "practice": {
+        "see": { "prompt": "Read the six new station words and identify a sound pattern learned earlier in each.", "wordRefs": ["quai", "guichet", "billet", "valise", "départ", "sortie"] },
+        "recall": { "prompt": "Recall the French word for platform before revealing it.", "answerRef": "quai" },
+        "hear": { "prompt": "Listen for guichet or quai in the recorded station question.", "choices": ["guichet", "quai"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'My ticket shows platform four.'", "answerRef": "Mon billet indique le quai quatre." },
+        "say": { "prompt": "Ask the station agent where the ticket window is, with a clear phrase ending.", "answerRef": "Où est le guichet ?" },
+        "write": { "prompt": "Write a short French station exchange asking for the ticket window, giving a departure time, and naming the platform.", "requiredRefs": ["guichet", "départ", "quai"] }
+      }
+    }
+  ]
+}

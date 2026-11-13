@@ -1,0 +1,130 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "master",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "master-french-sound-like-a-native:16:fr-en",
+      "n": 16,
+      "sourceSpanishLesson": 16,
+      "title": "Compare a word across regional voices",
+      "objective": "Identify the same French word in two voices and describe how each voice pronounces /ʁ/.",
+      "focus": "Listen for /ʁ/ in rue and croire. Identify the word before comparing the voices, describe the sound in each recording, and keep the message meaning clear.",
+      "words": [
+        { "fr": "voix", "en": "voice", "kind": "term" },
+        { "fr": "région", "en": "region", "kind": "term" },
+        { "fr": "mot", "en": "word", "kind": "term" },
+        { "fr": "rue", "en": "street", "kind": "term" },
+        { "fr": "croire", "en": "to believe", "kind": "term" },
+        { "fr": "modèle", "en": "model", "kind": "term" },
+        { "fr": "Deux voix prononcent le même mot.", "en": "Two voices pronounce the same word.", "kind": "phrase" },
+        { "fr": "Je vérifie le mot avant de comparer les voix.", "en": "I check the word before comparing the voices.", "kind": "phrase" },
+        { "fr": "Je décris seulement la consonne que j'entends.", "en": "I describe only the consonant I hear.", "kind": "phrase" },
+        { "fr": "Je garde un modèle clair pour ma propre prononciation.", "en": "I keep a clear model for my own pronunciation.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Camille prépare une courte visite de sa rue pour deux nouveaux voisins.", "en": "Camille prepares a short tour of her street for two new neighbors." },
+        { "fr": "Elle leur fait lire le même mot avant d'écouter leurs voix.", "en": "She has them read the same word before listening to their voices." },
+        { "fr": "Camille note d'abord ce que chaque personne a réellement dit.", "en": "Camille first notes what each person actually said." },
+        { "fr": "Puis elle compare la consonne sans deviner une région à partir d'une seule syllabe.", "en": "Then she compares the consonant without guessing a region from one syllable." }
+      ],
+      "grammar": {
+        "focus": "Avant de introduces the step that comes before comparison; seulement limits the claim to the sound actually heard.",
+        "examples": [
+          { "fr": "Je vérifie le mot avant de comparer les voix.", "en": "I check the word before comparing the voices." },
+          { "fr": "Je décris seulement la consonne que j'entends.", "en": "I describe only the consonant I hear." }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D",
+      "speaking": {
+        "scene": "Discussing two recordings of the same French word with a pronunciation tutor",
+        "roles": ["learner", "tutor"],
+        "opening": "J'ai vérifié que les deux voix prononcent le même mot.",
+        "goals": ["Name the word shared by the recordings.", "Identify each speaker by name before comparing the recordings.", "Describe how each voice pronounces /ʁ/ in the shared word."],
+        "complication": "The tutor plays the recordings in reverse order; identify each voice before comparing the consonant.",
+        "closure": "Je garde un modèle clair et je note seulement ce que j'entends."
+      },
+      "practice": {
+        "see": { "prompt": "Find the shared word, the listening order, and the limited claim in the model phrases.", "wordRefs": ["Deux voix prononcent le même mot.", "Je vérifie le mot avant de comparer les voix.", "Je décris seulement la consonne que j'entends."] },
+        "recall": { "prompt": "Recall the sentence that puts word identification before voice comparison.", "answerRef": "Je vérifie le mot avant de comparer les voix." },
+        "hear": { "prompt": "Identify croire in each recording and compare how each voice pronounces /ʁ/.", "choices": ["croire", "rue"], "audioRequired": true, "reviewedAudioRequired": true },
+        "type": { "prompt": "Type the French sentence about describing only the consonant you hear.", "answerRef": "Je décris seulement la consonne que j'entends." },
+        "say": { "prompt": "Tell the tutor that two voices pronounce the same word, without claiming a regional difference.", "answerRef": "Deux voix prononcent le même mot." },
+        "write": { "prompt": "Write the shared word, name both voices, and describe the /ʁ/ you hear in each recording.", "requiredRefs": ["voix", "région", "mot", "modèle"] }
+      },
+      "regionalAudioEvidence": {
+        "candidateWords": ["croire"],
+        "candidateSourceAudit": "docs/french-program/fr-001-regional-audio-source-audit-2026-11-10.md",
+        "speakerRegionProvenanceReviewed": false,
+        "phoneticContrastReviewed": false,
+        "hearPlayable": false
+      }
+    },
+    {
+      "id": "master-french-sound-like-a-native:17:fr-en",
+      "n": 17,
+      "sourceSpanishLesson": 17,
+      "title": "Recognize a word across vowel variants",
+      "objective": "Recognize pain in two voices and explain its meaning in a lunch message.",
+      "focus": "Use the lunch message to identify pain in both voices. Listen to the nasal vowel in each pronunciation, then confirm that both messages refer to bread.",
+      "words": [
+        { "fr": "pain", "en": "bread", "kind": "term" },
+        { "fr": "voyelle", "en": "vowel", "kind": "term" },
+        { "fr": "voix", "en": "voice", "kind": "term" },
+        { "fr": "message", "en": "message", "kind": "term" },
+        { "fr": "contexte", "en": "context", "kind": "term" },
+        { "fr": "heure", "en": "time; hour", "kind": "term" },
+        { "fr": "Mes amis parlent du pain pour le déjeuner.", "en": "My friends talk about bread for lunch.", "kind": "phrase" },
+        { "fr": "Je reconnais le mot même si la voix change.", "en": "I recognize the word even if the voice changes.", "kind": "phrase" },
+        { "fr": "Le contexte m'aide à comprendre le message.", "en": "The context helps me understand the message.", "kind": "phrase" },
+        { "fr": "Je compare la voyelle sans changer le sens du mot.", "en": "I compare the vowel without changing the meaning of the word.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "À la boulangerie, Malik reçoit deux messages au sujet du déjeuner.", "en": "At the bakery, Malik receives two messages about lunch." },
+        { "fr": "Dans le premier, une amie demande du pain pour midi.", "en": "In the first, a friend asks for bread for noon." },
+        { "fr": "Dans le second, un autre ami prononce le même mot et confirme l'heure.", "en": "In the second, another friend says the same word and confirms the time." },
+        { "fr": "Malik garde le lieu et l'heure en tête pendant qu'il compare les voix.", "en": "Malik keeps the place and time in mind while comparing the voices." }
+      ],
+      "grammar": {
+        "focus": "Même si introduces a change in speaker without changing word identity; sans marks the meaning that stays fixed.",
+        "examples": [
+          { "fr": "Je reconnais le mot même si la voix change.", "en": "I recognize the word even if the voice changes." },
+          { "fr": "Je compare la voyelle sans changer le sens du mot.", "en": "I compare the vowel without changing the meaning of the word." }
+        ]
+      },
+      "lessonType": "Capstone",
+      "block": "E",
+      "speaking": {
+        "scene": "Confirming a lunch message after hearing two voices say pain",
+        "roles": ["listener", "friend"],
+        "opening": "J'ai entendu le même mot dans les deux messages.",
+        "goals": ["Identify pain as the shared word.", "Confirm that both messages concern bread for lunch.", "Ask for the meeting time and confirm the lunch plan."],
+        "complication": "The friend changes the meeting time; repeat the new time and confirm who brings the bread.",
+        "closure": "J'ai compris le message : nous apportons du pain pour midi."
+      },
+      "practice": {
+        "see": { "prompt": "Find the shared food word, the context clue, and the unchanged meaning in the model phrases.", "wordRefs": ["Mes amis parlent du pain pour le déjeuner.", "Le contexte m'aide à comprendre le message.", "Je compare la voyelle sans changer le sens du mot."] },
+        "recall": { "prompt": "Recall the sentence about recognizing the word when the speaker changes.", "answerRef": "Je reconnais le mot même si la voix change." },
+        "hear": { "prompt": "Identify pain in each recording and compare how the nasal vowel sounds in the two voices.", "choices": ["pain", "voyelle"], "audioRequired": true, "reviewedAudioRequired": true },
+        "type": { "prompt": "Type the French sentence about using context to understand the message.", "answerRef": "Le contexte m'aide à comprendre le message." },
+        "say": { "prompt": "Explain that you recognize the same word even when the voice changes.", "answerRef": "Je reconnais le mot même si la voix change." },
+        "write": { "prompt": "Write the shared word, explain its meaning in the lunch message, and describe the vowel in each voice.", "requiredRefs": ["pain", "voyelle", "message", "contexte"] }
+      },
+      "regionalAudioEvidence": {
+        "candidateWords": ["pain"],
+        "candidateSourceAudit": "docs/french-program/fr-001-regional-audio-source-audit-2026-11-10.md",
+        "speakerRegionProvenanceReviewed": false,
+        "phoneticContrastReviewed": false,
+        "hearPlayable": false
+      }
+    }
+  ]
+}

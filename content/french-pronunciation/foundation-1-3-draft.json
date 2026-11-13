@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "foundation",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "foundation-french-sound-like-a-native:1:fr-en",
+      "n": 1,
+      "sourceSpanishLesson": 1,
+      "title": "Hear and form /i/, /y/, and /u/",
+      "objective": "Distinguish the three French high vowels in words and short requests, with /y/ made by rounding the lips while the tongue stays forward.",
+      "focus": "Compare si /si/, su /sy/, and sous /su/. Keep the tongue forward for /i/ and /y/; round the lips for /y/. Move the tongue back for /u/.",
+      "words": [
+        { "fr": "si", "en": "if", "kind": "term" },
+        { "fr": "su", "en": "known (past participle of savoir)", "kind": "term" },
+        { "fr": "sous", "en": "under", "kind": "term" },
+        { "fr": "rue", "en": "street", "kind": "term" },
+        { "fr": "roue", "en": "wheel", "kind": "term" },
+        { "fr": "lune", "en": "moon", "kind": "term" },
+        { "fr": "Si tu veux, on prend cette rue.", "en": "If you want, we'll take this street.", "kind": "phrase" },
+        { "fr": "La roue est sous la voiture.", "en": "The wheel is under the car.", "kind": "phrase" },
+        { "fr": "Tu as vu la lune ?", "en": "Did you see the moon?", "kind": "phrase" },
+        { "fr": "Je suis sûr de la rue.", "en": "I'm sure of the street.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Nous cherchons une rue près de la gare.", "en": "We are looking for a street near the station." },
+        { "fr": "Si tu veux, on prend cette rue.", "en": "If you want, we'll take this street." },
+        { "fr": "Une roue de la voiture est sous le pont.", "en": "One wheel of the car is under the bridge." },
+        { "fr": "Puis nous voyons la lune au-dessus des toits.", "en": "Then we see the moon above the roofs." }
+      ],
+      "speaking": { "scene": "Choosing a street near a station", "roles": ["traveler", "companion"], "opening": "Si tu veux, on prend cette rue.", "goals": ["Say rue and roue distinctly in context.", "Ask whether the companion has seen the moon.", "Confirm which street to take."], "closure": "D'accord, on prend cette rue." },
+      "practice": {
+        "see": { "prompt": "Compare the written forms and meanings of rue and roue.", "wordRefs": ["rue", "roue"] },
+        "recall": { "prompt": "Recall the French word for street before revealing it.", "answerRef": "rue" },
+        "hear": { "prompt": "Listen for rue or roue in the recorded sentence, then choose the word you heard.", "choices": ["rue", "roue"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'If you want, we'll take this street.'", "answerRef": "Si tu veux, on prend cette rue." },
+        "say": { "prompt": "Ask whether your companion saw the moon, keeping /y/ in tu and /y/ in vu distinct.", "answerRef": "Tu as vu la lune ?" },
+        "write": { "prompt": "Write one French sentence choosing a street and one describing the wheel under the car.", "requiredRefs": ["rue", "roue", "sous"] }
+      }
+    },
+    {
+      "id": "foundation-french-sound-like-a-native:2:fr-en",
+      "n": 2,
+      "sourceSpanishLesson": 2,
+      "title": "Keep /m/ steady as the vowel changes",
+      "objective": "Move from /mi/ through /my/ to /mu/ without replacing the French vowels with English ones.",
+      "focus": "Start each syllable with the same closed-lip /m/. Compare mie /mi/, mu /my/, and mou /mu/; the lip and tongue position changes after /m/.",
+      "words": [
+        { "fr": "mie", "en": "bread crumb", "kind": "term" },
+        { "fr": "mu", "en": "moved (past participle of mouvoir)", "kind": "term" },
+        { "fr": "mou", "en": "soft", "kind": "term" },
+        { "fr": "mur", "en": "wall", "kind": "term" },
+        { "fr": "mûr", "en": "ripe", "kind": "term" },
+        { "fr": "moule", "en": "mold", "kind": "term" },
+        { "fr": "La mie est encore molle.", "en": "The bread crumb is still soft.", "kind": "phrase" },
+        { "fr": "Le fruit est mûr.", "en": "The fruit is ripe.", "kind": "phrase" },
+        { "fr": "Le moule est contre le mur.", "en": "The mold is against the wall.", "kind": "phrase" },
+        { "fr": "Le tissu est mou.", "en": "The fabric is soft.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Dans la cuisine, un moule est posé contre le mur.", "en": "In the kitchen, a mold is set against the wall." },
+        { "fr": "Le fruit sur la table est mûr.", "en": "The fruit on the table is ripe." },
+        { "fr": "La mie du pain est encore molle.", "en": "The bread crumb is still soft." },
+        { "fr": "Je montre le moule, le mur et la mie à mon ami.", "en": "I show the mold, the wall, and the bread crumb to my friend." }
+      ],
+      "speaking": { "scene": "Describing items in a kitchen", "roles": ["host", "guest"], "opening": "Le fruit est mûr, et le moule est contre le mur.", "goals": ["Contrast mûr and mou in context.", "Ask where the mold is.", "Describe the bread crumb."], "closure": "Oui, le moule est contre le mur." },
+      "practice": {
+        "see": { "prompt": "Compare mur, mûr, and mou with their meanings.", "wordRefs": ["mur", "mûr", "mou"] },
+        "recall": { "prompt": "Recall the French word for ripe before revealing it.", "answerRef": "mûr" },
+        "hear": { "prompt": "Listen for mûr or mou in the recorded sentence.", "choices": ["mûr", "mou"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The fruit is ripe.'", "answerRef": "Le fruit est mûr." },
+        "say": { "prompt": "Tell a guest that the mold is against the wall.", "answerRef": "Le moule est contre le mur." },
+        "write": { "prompt": "Write two French sentences: one about the ripe fruit and one about the soft bread crumb.", "requiredRefs": ["mûr", "mie"] }
+      }
+    },
+    {
+      "id": "foundation-french-sound-like-a-native:3:fr-en",
+      "n": 3,
+      "sourceSpanishLesson": 3,
+      "title": "Release /p/ briefly in French words",
+      "objective": "Produce a brief French /p/ release in common words and requests, and keep the following vowel clear.",
+      "focus": "Compare pain, prix, porte, and pomme. Close both lips for /p/, then release into the next vowel without a strong English-style puff of air.",
+      "words": [
+        { "fr": "pain", "en": "bread", "kind": "term" },
+        { "fr": "prix", "en": "price", "kind": "term" },
+        { "fr": "porte", "en": "door", "kind": "term" },
+        { "fr": "pomme", "en": "apple", "kind": "term" },
+        { "fr": "petit", "en": "small", "kind": "term" },
+        { "fr": "payer", "en": "to pay", "kind": "term" },
+        { "fr": "Quel est le prix du pain ?", "en": "What is the price of the bread?", "kind": "phrase" },
+        { "fr": "Je prends une pomme et un petit pain.", "en": "I'll take an apple and a small bread roll.", "kind": "phrase" },
+        { "fr": "Puis-je payer ici ?", "en": "Can I pay here?", "kind": "phrase" },
+        { "fr": "La porte est près du comptoir.", "en": "The door is near the counter.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Je passe la porte de la boulangerie.", "en": "I go through the bakery door." },
+        { "fr": "Je demande le prix du pain.", "en": "I ask the price of the bread." },
+        { "fr": "Je prends une pomme et un petit pain.", "en": "I take an apple and a small bread roll." },
+        { "fr": "Puis je demande : « Puis-je payer ici ? »", "en": "Then I ask: 'Can I pay here?'" }
+      ],
+      "speaking": { "scene": "Buying bread and fruit at a bakery", "roles": ["customer", "clerk"], "opening": "Bonjour, quel est le prix du pain ?", "goals": ["Ask the bread price.", "Order an apple and a small bread roll.", "Ask where to pay."], "closure": "Merci, je vais payer ici." },
+      "practice": {
+        "see": { "prompt": "Read pain, prix, porte, and pomme while watching the /p/ at the start.", "wordRefs": ["pain", "prix", "porte", "pomme"] },
+        "recall": { "prompt": "Recall the French word for price before revealing it.", "answerRef": "prix" },
+        "hear": { "prompt": "Listen for pain or pomme in the recorded order.", "choices": ["pain", "pomme"], "audioRequired": true },
+        "type": { "prompt": "Type the French question for 'What is the price of the bread?'", "answerRef": "Quel est le prix du pain ?" },
+        "say": { "prompt": "Ask the clerk whether you can pay here.", "answerRef": "Puis-je payer ici ?" },
+        "write": { "prompt": "Write a short French bakery order with bread, an apple, and a question about payment.", "requiredRefs": ["pain", "pomme", "payer"] }
+      }
+    }
+  ]
+}

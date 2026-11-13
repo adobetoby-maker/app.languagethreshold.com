@@ -1,0 +1,61 @@
+# FR-001 Core and Master purpose map · planning evidence
+
+Exact pair: French target, English support. Source revision `fb00e8f76b865aa501f3f9ea97b0f0ebfae5e3fc`. Spanish Core source `src/data/sound-like-a-native-core.json`, SHA-256 `91220adbf69e5116c41c8837715793a7d92769b0d8550d00a11cad00f4681dd2`; Spanish Master source `src/data/core60/es/master-sound-like-a-native.json`, SHA-256 `e9f32a50e70c1570e7e97242426817d98449774020c0f0b1f6f1bdbfe458babb`. Each row preserves the Spanish lesson's teaching purpose while replacing its language-specific sound target. Core [1–3](../../content/french-pronunciation/core-1-3-draft.json), [4–6](../../content/french-pronunciation/core-4-6-draft.json), [7–10](../../content/french-pronunciation/core-7-10-draft.json), [11–12](../../content/french-pronunciation/core-11-12-draft.json), [13–15](../../content/french-pronunciation/core-13-15-draft.json), [16–18](../../content/french-pronunciation/core-16-18-draft.json), [19–20](../../content/french-pronunciation/core-19-20-draft.json), [21–23](../../content/french-pronunciation/core-21-23-draft.json), [24–26](../../content/french-pronunciation/core-24-26-draft.json), and [27–30](../../content/french-pronunciation/core-27-30-draft.json) have private authored drafts. Master [1–3](../../content/french-pronunciation/master-1-3-draft.json), [4–6](../../content/french-pronunciation/master-4-6-draft.json), [7–9](../../content/french-pronunciation/master-7-9-draft.json), [10–12](../../content/french-pronunciation/master-10-12-draft.json), [13–15](../../content/french-pronunciation/master-13-15-draft.json), [16–17](../../content/french-pronunciation/master-16-17-draft.json), and [18–20](../../content/french-pronunciation/master-18-20-draft.json) are also authored privately; Master 16–17 regional Hear activities remain gated by qualified recording and speaker review.
+
+| Core | Spanish lesson purpose | French target to author |
+| --- | --- | --- |
+| 1 | b/v relationship | Hear and produce distinct French /b/ and /v/ in contextual pairs (authored draft) |
+| 2 | t/d placement and voicing | French /t/ versus /d/ in requests and names (authored draft) |
+| 3 | d in connected speech | Maintain /d/ in French phrase linking without adding an extra vowel (authored draft) |
+| 4 | g in connected speech | Hard /g/ in French words and consonant-vowel transitions (authored draft) |
+| 5 | a short r gesture | French /ʁ/ onset and word-medial realization from one reference speaker (authored draft) |
+| 6 | word-initial r | French /ʁ/ at word start and in short clusters (authored draft) |
+| 7 | r contrast in meaning | French /ʁ/ versus /l/ in words and phrases (authored draft) |
+| 8 | s/c/z sound-spelling | French /s/ in `s`, `c`, and `ç` spellings, with voiced /z/ contrast (authored draft) |
+| 9 | j/g before e/i | French /ʒ/ in `j` and `g` before front vowels (authored draft) |
+| 10 | y/ll regional realization | French /j/ in `y` and `ill` spellings, with lexical exceptions reviewed (authored draft) |
+| 11 | silent h | French mute h, aspirated h, and their effect on elision and liaison (authored draft) |
+| 12 | when written u is heard | French `u` /y/, `ou` /u/, and silent `u` in ordinary `qu` words (authored draft) |
+| 13 | x and names | French `x` in common words and names; source-pinned variants (authored draft) |
+| 14 | closed syllables | Final consonants that are spoken or silent in French words (authored draft) |
+| 15 | initial es clusters | French word-initial /s/ clusters without inserted vowels (authored draft) |
+| 16 | nasal place change | Spoken /n/ and /m/ versus nasalized vowel spellings (authored draft) |
+| 17 | pr/br clusters | French /pʁ/ and /bʁ/ in contextual words (authored draft) |
+| 18 | tr/dr clusters | French /tʁ/ and /dʁ/ in contextual words (authored draft) |
+| 19 | cr/gr clusters | French /kʁ/ and /gʁ/ in contextual words (authored draft) |
+| 20 | clusters with l | French /pl bl fl kl gl/ in contextual words (authored draft) |
+| 21 | finding syllables | Spoken French syllables, elision, and resyllabification (authored draft) |
+| 22 | default stress | French phrase-final accent rather than Spanish word-stress rules (authored draft) |
+| 23 | written accents | French accent marks and vowel quality, including /e–ɛ/ (authored draft) |
+| 24 | stress can change meaning | French /e–ɛ/ contrasts that distinguish words and verb forms (authored draft) |
+| 25 | vowels in one syllable | French glides /j ɥ w/ in natural words (authored draft) |
+| 26 | vowels across syllables | French adjacent vowels in separate syllables (authored draft) |
+| 27 | vowel-to-vowel linking | French vowel-to-vowel continuity across word boundaries (authored draft) |
+| 28 | consonant-to-vowel linking | Required liaison versus blocked liaison before aspirated h (authored draft) |
+| 29 | meaning groups | French rhythmic groups and phrase-boundary pauses (authored draft) |
+| 30 | Core transfer check | New scene combining vowel, consonant, spelling, and rhythm targets (authored draft) |
+
+| Master | Spanish lesson purpose | French target to author |
+| --- | --- | --- |
+| 1 | natural statements | French phrase-final accent and statement contour (authored draft) |
+| 2 | questions in context | French yes/no and information-question contours (authored draft) |
+| 3 | focus and correction | Contrastive emphasis in a French correction (authored draft) |
+| 4 | lists and continuation | List contour and unfinished thought in French (authored draft) |
+| 5 | polite requests | Rhythm and intonation of French courteous requests (authored draft) |
+| 6 | emotion and clarity | Surprise, reassurance, and neutral delivery in French (authored draft) |
+| 7 | short shadowing | Shadow a reviewed French phrase for sound and rhythm (authored draft; recording absent) |
+| 8 | longer shadowing | Carry French rhythmic groups across a short paragraph (authored draft; recording absent) |
+| 9 | read-aloud transfer | Read an undrilled French passage (authored draft; recording absent) |
+| 10 | spontaneous retelling | Retell a French message with meaning and rhythm intact (authored draft) |
+| 11 | names and addresses | Clear French names, street terms, and address numbers (authored draft) |
+| 12 | numbers and times | French number contrasts in times and prices (authored draft) |
+| 13 | travel conversation | French station exchange with a changed platform (authored draft) |
+| 14 | work conversation | Clear French explanation of a routine work problem (authored draft) |
+| 15 | repair and clarification | Correct a misheard French appointment day (authored draft) |
+| 16 | regional consonant listening | Compare the same word across candidate /ʁ/ recordings (authored text draft; Hear gated) |
+| 17 | regional vowel listening | Compare the same word across candidate nasal-vowel recordings (authored text draft; Hear gated) |
+| 18 | personal sound priorities | Select two evidence-backed French pronunciation habits (authored draft) |
+| 19 | conversation complication | Preserve clarity when a French scene changes unexpectedly (authored draft) |
+| 20 | final transfer portfolio | Compare baseline and final French speech with a stable rubric (authored draft; no assessment claimed) |
+
+French-specific exceptions, register, and regional models need qualified French review during authoring. The [Master 16–17 regional audio source audit](fr-001-regional-audio-source-audit-2026-11-10.md) records candidates and reuse constraints without importing recordings. The map is not a claim that regional Hear, qualified review, or native/web runtime exists.

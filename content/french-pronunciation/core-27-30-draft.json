@@ -1,0 +1,178 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "core",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "core-french-sound-like-a-native:27:fr-en",
+      "n": 27,
+      "sourceSpanishLesson": 27,
+      "title": "Carry vowels across words",
+      "objective": "Keep adjacent vowels clear across French word boundaries while planning a museum visit.",
+      "focus": "In tu as, la sortie est, and le musée ouvre, keep the vowel at each word boundary audible in a careful model. Move through the phrase smoothly without inventing a linking consonant or treating the letters as isolated beats.",
+      "words": [
+        { "fr": "idée", "en": "idea", "kind": "term" },
+        { "fr": "entrée", "en": "entrance", "kind": "term" },
+        { "fr": "horaire", "en": "schedule; opening hours", "kind": "term" },
+        { "fr": "musée", "en": "museum", "kind": "term" },
+        { "fr": "sortie", "en": "exit", "kind": "term" },
+        { "fr": "ami", "en": "friend", "kind": "term" },
+        { "fr": "Tu as une idée pour la visite ?", "en": "Do you have an idea for the visit?", "kind": "phrase" },
+        { "fr": "La sortie est à gauche.", "en": "The exit is on the left.", "kind": "phrase" },
+        { "fr": "Le musée ouvre à huit heures.", "en": "The museum opens at eight o'clock.", "kind": "phrase" },
+        { "fr": "J'ai une autre idée pour l'entrée.", "en": "I have another idea for the entrance.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Léa et son ami consultent les horaires du musée.", "en": "Léa and her friend check the museum's opening hours." },
+        { "fr": "Le musée ouvre à huit heures, mais l'entrée du groupe est à droite.", "en": "The museum opens at eight, but the group entrance is on the right." },
+        { "fr": "Son ami a une idée pour commencer la visite plus tôt.", "en": "Her friend has an idea for starting the visit earlier." },
+        { "fr": "Après la visite, la sortie est à gauche du grand hall.", "en": "After the visit, the exit is to the left of the main hall." }
+      ],
+      "speaking": {
+        "scene": "Planning a museum visit with a friend",
+        "roles": ["visitor", "friend"],
+        "opening": "Bonjour, tu as une idée pour la visite ?",
+        "goals": ["Check the museum opening time.", "Find the entrance.", "Explain where the exit is."],
+        "closure": "Merci, nous avons une idée pour la visite."
+      },
+      "practice": {
+        "see": { "prompt": "Find the vowel-to-vowel word boundaries in tu as, la sortie est, and le musée ouvre.", "wordRefs": ["Tu as une idée pour la visite ?", "La sortie est à gauche.", "Le musée ouvre à huit heures."] },
+        "recall": { "prompt": "Recall the sentence locating the exit.", "answerRef": "La sortie est à gauche." },
+        "hear": { "prompt": "Listen for entrée or sortie in the recorded museum phrase.", "choices": ["entrée", "sortie"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The museum opens at eight o'clock.'", "answerRef": "Le musée ouvre à huit heures." },
+        "say": { "prompt": "Ask your friend whether they have an idea for the visit.", "answerRef": "Tu as une idée pour la visite ?" },
+        "write": { "prompt": "Write two French sentences about the museum opening time and the exit.", "requiredRefs": ["musée", "horaire", "sortie"] }
+      }
+    },
+    {
+      "id": "core-french-sound-like-a-native:28:fr-en",
+      "n": 28,
+      "sourceSpanishLesson": 28,
+      "title": "Link where liaison belongs",
+      "objective": "Distinguish required determiner liaison from blocked liaison before aspirated h in a school event.",
+      "focus": "Link the final consonant in les élèves, deux amis, and les horaires to the following vowel. In les héros, the aspirated h blocks that liaison even though h is not sounded. Use the noun and its article together when practicing.",
+      "words": [
+        { "fr": "élèves", "en": "pupils; students", "kind": "term" },
+        { "fr": "héros", "en": "heroes", "kind": "term" },
+        { "fr": "amis", "en": "friends", "kind": "term" },
+        { "fr": "atelier", "en": "workshop", "kind": "term" },
+        { "fr": "horaires", "en": "schedule; opening hours", "kind": "term" },
+        { "fr": "entrée", "en": "entrance", "kind": "term" },
+        { "fr": "Les élèves attendent devant l'atelier.", "en": "The students are waiting in front of the workshop.", "kind": "phrase" },
+        { "fr": "Les héros arrivent à la fête.", "en": "The heroes arrive at the celebration.", "kind": "phrase" },
+        { "fr": "Deux amis entrent dans la salle.", "en": "Two friends enter the room.", "kind": "phrase" },
+        { "fr": "Les horaires sont affichés à l'entrée.", "en": "The hours are posted at the entrance.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Les élèves préparent une fête dans l'atelier de l'école.", "en": "The students prepare a celebration in the school workshop." },
+        { "fr": "Deux amis placent les horaires à l'entrée.", "en": "Two friends put the schedule at the entrance." },
+        { "fr": "Les héros d'une pièce arrivent avec leurs costumes.", "en": "The heroes of a play arrive with their costumes." },
+        { "fr": "Les élèves accueillent leurs amis devant l'atelier.", "en": "The students welcome their friends in front of the workshop." }
+      ],
+      "speaking": {
+        "scene": "Welcoming guests to a school performance",
+        "roles": ["student host", "guest"],
+        "opening": "Bonjour, les horaires sont affichés à l'entrée.",
+        "goals": ["Say where the students are waiting.", "Tell the guest where two friends enter.", "Describe when the play's heroes arrive."],
+        "closure": "Merci, les élèves vous attendent devant l'atelier."
+      },
+      "practice": {
+        "see": { "prompt": "Mark the liaison in les élèves, deux amis, and les horaires; mark no liaison in les héros.", "wordRefs": ["élèves", "amis", "horaires", "héros"] },
+        "recall": { "prompt": "Recall the sentence about where the students wait.", "answerRef": "Les élèves attendent devant l'atelier." },
+        "hear": { "prompt": "Listen for élèves or héros in the recorded school-event phrase.", "choices": ["élèves", "héros"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The hours are posted at the entrance.'", "answerRef": "Les horaires sont affichés à l'entrée." },
+        "say": { "prompt": "Tell the guest that two friends enter the room.", "answerRef": "Deux amis entrent dans la salle." },
+        "write": { "prompt": "Write two French sentences describing the students, the heroes, and the entrance.", "requiredRefs": ["élèves", "héros", "entrée"] }
+      }
+    },
+    {
+      "id": "core-french-sound-like-a-native:29:fr-en",
+      "n": 29,
+      "sourceSpanishLesson": 29,
+      "title": "Pause between meaning groups",
+      "objective": "Group a French market plan into phrases rather than pausing after each written word.",
+      "focus": "Read Demain matin | nous allons au marché, then Avant de partir | j'envoie un message au groupe. Let each meaning group flow to its final syllable, and place a pause where the plan changes rather than between every word.",
+      "words": [
+        { "fr": "demain", "en": "tomorrow", "kind": "term" },
+        { "fr": "marché", "en": "market", "kind": "term" },
+        { "fr": "pause", "en": "pause", "kind": "term" },
+        { "fr": "message", "en": "message", "kind": "term" },
+        { "fr": "groupe", "en": "group", "kind": "term" },
+        { "fr": "rendez-vous", "en": "meeting; appointment", "kind": "term" },
+        { "fr": "Demain matin, nous allons au marché.", "en": "Tomorrow morning, we're going to the market.", "kind": "phrase" },
+        { "fr": "Avant de partir, j'envoie un message au groupe.", "en": "Before leaving, I send a message to the group.", "kind": "phrase" },
+        { "fr": "Le rendez-vous est devant le marché.", "en": "The meeting place is in front of the market.", "kind": "phrase" },
+        { "fr": "Je fais une pause avant d'annoncer l'heure du retour.", "en": "I pause before announcing the return time.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Demain matin, Zoé et son groupe vont au marché.", "en": "Tomorrow morning, Zoé and her group are going to the market." },
+        { "fr": "Avant de partir, elle envoie un message avec l'heure du rendez-vous.", "en": "Before leaving, she sends a message with the meeting time." },
+        { "fr": "Le groupe se retrouve devant le marché à neuf heures.", "en": "The group meets in front of the market at nine o'clock." },
+        { "fr": "Après une pause, Zoé annonce l'heure du retour.", "en": "After a pause, Zoé announces the return time." }
+      ],
+      "speaking": {
+        "scene": "Explaining tomorrow's market plan to a group",
+        "roles": ["organizer", "group member"],
+        "opening": "Bonjour, demain matin, nous allons au marché.",
+        "goals": ["Give the meeting place.", "Say when you send the message.", "Announce a pause before the return time."],
+        "closure": "Merci, le groupe a reçu mon message."
+      },
+      "practice": {
+        "see": { "prompt": "Mark the meaning-group break after demain matin and avant de partir in the model phrases.", "wordRefs": ["Demain matin, nous allons au marché.", "Avant de partir, j'envoie un message au groupe."] },
+        "recall": { "prompt": "Recall where the group is meeting.", "answerRef": "Le rendez-vous est devant le marché." },
+        "hear": { "prompt": "Listen for message or groupe in the recorded market-plan phrase.", "choices": ["message", "groupe"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'Tomorrow morning, we're going to the market.'", "answerRef": "Demain matin, nous allons au marché." },
+        "say": { "prompt": "Tell a group member when you send the message.", "answerRef": "Avant de partir, j'envoie un message au groupe." },
+        "write": { "prompt": "Write two French sentences giving the meeting place and the return-time announcement.", "requiredRefs": ["rendez-vous", "marché", "pause"] }
+      }
+    },
+    {
+      "id": "core-french-sound-like-a-native:30:fr-en",
+      "n": 30,
+      "sourceSpanishLesson": 30,
+      "title": "Core transfer: a changed meeting place",
+      "objective": "Read an unfamiliar French change-of-plans message and retell its place, time, and entrance clearly.",
+      "focus": "Read the new message once before using the card hints. Retell the change in French, then check one vowel or consonant contrast, one connected-word boundary, and one meaningful phrase break separately. A correct transcript alone does not verify the sound targets.",
+      "words": [
+        { "fr": "changement", "en": "change", "kind": "term" },
+        { "fr": "lieu", "en": "place; venue", "kind": "term" },
+        { "fr": "heure", "en": "time; hour", "kind": "term" },
+        { "fr": "groupe", "en": "group", "kind": "term" },
+        { "fr": "trajet", "en": "route; journey", "kind": "term" },
+        { "fr": "entrée", "en": "entrance", "kind": "term" },
+        { "fr": "Le lieu de la réunion a changé.", "en": "The meeting venue has changed.", "kind": "phrase" },
+        { "fr": "Je lis le message et vérifie le trajet.", "en": "I read the message and check the route.", "kind": "phrase" },
+        { "fr": "L'heure reste la même, mais l'entrée est différente.", "en": "The time is unchanged, but the entrance is different.", "kind": "phrase" },
+        { "fr": "J'appelle le groupe pour expliquer le changement.", "en": "I call the group to explain the change.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Le groupe reçoit un message : la réunion aura lieu dans une autre salle.", "en": "The group receives a message: the meeting will take place in another room." },
+        { "fr": "L'heure reste la même, mais l'entrée de la salle est au fond du bâtiment.", "en": "The time is unchanged, but the room entrance is at the back of the building." },
+        { "fr": "Mina vérifie le trajet sur le plan avant de partir.", "en": "Mina checks the route on the map before leaving." },
+        { "fr": "Elle appelle le groupe pour expliquer le changement de lieu.", "en": "She calls the group to explain the venue change." }
+      ],
+      "speaking": {
+        "scene": "Explaining a changed meeting room to the group",
+        "roles": ["organizer", "group member"],
+        "opening": "Bonjour, le lieu de la réunion a changé.",
+        "goals": ["State that the time is unchanged.", "Describe the new entrance.", "Explain how to check the route."],
+        "closure": "Merci, je vais appeler le groupe pour expliquer le changement."
+      },
+      "practice": {
+        "see": { "prompt": "Before seeing the translation, identify the change, unchanged time, and new entrance in the Reader message.", "wordRefs": ["changement", "lieu", "heure", "entrée"] },
+        "recall": { "prompt": "Recall what changed about the meeting.", "answerRef": "Le lieu de la réunion a changé." },
+        "hear": { "prompt": "Listen for heure or entrée in the recorded change-of-plans phrase.", "choices": ["heure", "entrée"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The time is unchanged, but the entrance is different.'", "answerRef": "L'heure reste la même, mais l'entrée est différente." },
+        "say": { "prompt": "Call a group member and explain the change.", "answerRef": "J'appelle le groupe pour expliquer le changement." },
+        "write": { "prompt": "Retell the new place, unchanged time, and route in two or three French sentences.", "requiredRefs": ["lieu", "heure", "trajet", "entrée"] }
+      }
+    }
+  ]
+}

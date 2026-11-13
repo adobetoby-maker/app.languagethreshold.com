@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "core",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "core-french-sound-like-a-native:7:fr-en",
+      "n": 7,
+      "sourceSpanishLesson": 7,
+      "title": "Distinguish /ʁ/ and /l/ when meaning changes",
+      "objective": "Hear and produce French /ʁ/ versus /l/ in riz and lit, then carry the contrast into a day-trip conversation.",
+      "focus": "Riz /ʁi/ means rice; lit /li/ means bed. Keep the initial consonant distinct, then compare route and rue with lac and ligne in a longer phrase.",
+      "words": [
+        { "fr": "route", "en": "road", "kind": "term" },
+        { "fr": "rue", "en": "street", "kind": "term" },
+        { "fr": "riz", "en": "rice", "kind": "term" },
+        { "fr": "lac", "en": "lake", "kind": "term" },
+        { "fr": "ligne", "en": "line", "kind": "term" },
+        { "fr": "lit", "en": "bed", "kind": "term" },
+        { "fr": "Le lac est au bout de la route.", "en": "The lake is at the end of the road.", "kind": "phrase" },
+        { "fr": "La ligne bleue mène au lac.", "en": "The blue line leads to the lake.", "kind": "phrase" },
+        { "fr": "Je mange du riz après la marche.", "en": "I eat rice after the walk.", "kind": "phrase" },
+        { "fr": "Je vais au lit après le repas.", "en": "I go to bed after the meal.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Nous suivons une route qui traverse une rue du village.", "en": "We follow a road that crosses a village street." },
+        { "fr": "Une ligne bleue sur la carte mène au lac.", "en": "A blue line on the map leads to the lake." },
+        { "fr": "Après la marche, je mange du riz avec mon ami.", "en": "After the walk, I eat rice with my friend." },
+        { "fr": "Le soir, je vais au lit en pensant au lac.", "en": "In the evening, I go to bed thinking about the lake." }
+      ],
+      "speaking": { "scene": "Planning a walk to a lake and the evening after", "roles": ["traveler", "companion"], "opening": "La ligne bleue mène au lac.", "goals": ["Confirm the road to the lake.", "Say what you will eat after the walk.", "Say when you will go to bed."], "closure": "Oui, le lac est au bout de la route." },
+      "practice": {
+        "see": { "prompt": "Contrast riz and lit, then sort route, rue, lac, and ligne by initial /ʁ/ or /l/.", "wordRefs": ["riz", "lit", "route", "rue", "lac", "ligne"] },
+        "recall": { "prompt": "Recall the French word for lake before revealing it.", "answerRef": "lac" },
+        "hear": { "prompt": "Listen for riz or lit in the recorded sentence.", "choices": ["riz", "lit"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The lake is at the end of the road.'", "answerRef": "Le lac est au bout de la route." },
+        "say": { "prompt": "Tell your companion that the blue line leads to the lake.", "answerRef": "La ligne bleue mène au lac." },
+        "write": { "prompt": "Write two French sentences about the route to the lake and the evening meal.", "requiredRefs": ["route", "lac", "riz"] }
+      }
+    },
+    {
+      "id": "core-french-sound-like-a-native:8:fr-en",
+      "n": 8,
+      "sourceSpanishLesson": 8,
+      "title": "Read /s/ spellings and hear /z/",
+      "objective": "Use French s, c, and ç for /s/ in context while distinguishing the voiced /z/ in nearby words.",
+      "focus": "Compare salle, cinéma, and façade for /s/ with zone, rose, and maison for /z/. The letter s may have a different sound between vowels; read the whole word.",
+      "words": [
+        { "fr": "salle", "en": "room; screening room", "kind": "term" },
+        { "fr": "cinéma", "en": "cinema", "kind": "term" },
+        { "fr": "façade", "en": "facade", "kind": "term" },
+        { "fr": "zone", "en": "area; zone", "kind": "term" },
+        { "fr": "rose", "en": "pink", "kind": "term" },
+        { "fr": "maison", "en": "house", "kind": "term" },
+        { "fr": "La salle est dans la zone B.", "en": "The screening room is in area B.", "kind": "phrase" },
+        { "fr": "Le cinéma est derrière la maison.", "en": "The cinema is behind the house.", "kind": "phrase" },
+        { "fr": "La façade est rose.", "en": "The facade is pink.", "kind": "phrase" },
+        { "fr": "Ça commence à six heures.", "en": "It starts at six o'clock.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Le cinéma se trouve derrière une maison à la façade rose.", "en": "The cinema is behind a house with a pink facade." },
+        { "fr": "Dans l'entrée, je lis que notre salle est dans la zone B.", "en": "In the entrance, I read that our screening room is in area B." },
+        { "fr": "Mon ami demande : « Ça commence à six heures ? »", "en": "My friend asks, 'Does it start at six o'clock?'" },
+        { "fr": "Je regarde le billet et je confirme l'heure.", "en": "I look at the ticket and confirm the time." }
+      ],
+      "speaking": { "scene": "Finding a cinema screening room", "roles": ["visitor", "cinema attendant"], "opening": "Bonjour, où est la salle dans la zone B ?", "goals": ["Ask where the screening room is.", "Confirm the six o'clock start.", "Describe the pink facade outside."], "closure": "Merci, j'ai trouvé la salle." },
+      "practice": {
+        "see": { "prompt": "Mark /s/ in salle, cinéma, façade and /z/ in zone, rose, maison.", "wordRefs": ["salle", "cinéma", "façade", "zone", "rose", "maison"] },
+        "recall": { "prompt": "Recall the French word for facade before revealing it.", "answerRef": "façade" },
+        "hear": { "prompt": "Listen for salle or zone in the recorded cinema sentence.", "choices": ["salle", "zone"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The facade is pink.'", "answerRef": "La façade est rose." },
+        "say": { "prompt": "Confirm that the film starts at six o'clock.", "answerRef": "Ça commence à six heures." },
+        "write": { "prompt": "Write two French sentences locating the cinema and its screening room.", "requiredRefs": ["cinéma", "salle", "zone"] }
+      }
+    },
+    {
+      "id": "core-french-sound-like-a-native:9:fr-en",
+      "n": 9,
+      "sourceSpanishLesson": 9,
+      "title": "Read /ʒ/ in j and soft g words",
+      "objective": "Recognize the French /ʒ/ sound in j and g-before-front-vowel spellings during a zoo visit.",
+      "focus": "Compare jour, joli, and journal with gens, girafe, and gilet. Keep /ʒ/ consistent while reading each word in a sentence.",
+      "words": [
+        { "fr": "jour", "en": "day", "kind": "term" },
+        { "fr": "joli", "en": "pretty (masculine singular)", "kind": "term" },
+        { "fr": "journal", "en": "newspaper", "kind": "term" },
+        { "fr": "gens", "en": "people", "kind": "term" },
+        { "fr": "girafe", "en": "giraffe", "kind": "term" },
+        { "fr": "gilet", "en": "vest", "kind": "term" },
+        { "fr": "Les gens regardent la girafe.", "en": "The people are looking at the giraffe.", "kind": "phrase" },
+        { "fr": "Le guide porte un gilet.", "en": "The guide is wearing a vest.", "kind": "phrase" },
+        { "fr": "C'est un joli jour pour visiter le zoo.", "en": "It's a lovely day to visit the zoo.", "kind": "phrase" },
+        { "fr": "Je lis le journal près de l'entrée.", "en": "I read the newspaper near the entrance.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Aujourd'hui, je vais au zoo avec un ami.", "en": "Today, I am going to the zoo with a friend." },
+        { "fr": "Un guide en gilet nous montre la girafe.", "en": "A guide wearing a vest shows us the giraffe." },
+        { "fr": "Les gens regardent la girafe pendant que je prends une photo.", "en": "People watch the giraffe while I take a photo." },
+        { "fr": "Plus tard, je lis un journal près de l'entrée.", "en": "Later, I read a newspaper near the entrance." }
+      ],
+      "speaking": { "scene": "Asking a zoo guide about the giraffe", "roles": ["visitor", "zoo guide"], "opening": "Bonjour, les gens regardent la girafe.", "goals": ["Ask about the giraffe.", "Describe the guide's vest.", "Say why it is a good day to visit."], "closure": "Merci, c'est un joli jour au zoo." },
+      "practice": {
+        "see": { "prompt": "Find /ʒ/ spelled j in jour, joli, journal and g in gens, girafe, gilet.", "wordRefs": ["jour", "joli", "journal", "gens", "girafe", "gilet"] },
+        "recall": { "prompt": "Recall the French word for giraffe before revealing it.", "answerRef": "girafe" },
+        "hear": { "prompt": "Listen for gens or girafe in the recorded zoo sentence.", "choices": ["gens", "girafe"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The people are looking at the giraffe.'", "answerRef": "Les gens regardent la girafe." },
+        "say": { "prompt": "Tell your friend that the guide is wearing a vest.", "answerRef": "Le guide porte un gilet." },
+        "write": { "prompt": "Write two French sentences about the guide and the giraffe.", "requiredRefs": ["gilet", "girafe", "gens"] }
+      }
+    },
+    {
+      "id": "core-french-sound-like-a-native:10:fr-en",
+      "n": 10,
+      "sourceSpanishLesson": 10,
+      "title": "Hear /j/ in y and ill, then check exceptions",
+      "objective": "Read French /j/ in famille, fille, payer, and yeux while recognizing that ville and tranquille retain /l/.",
+      "focus": "Compare famille and fille with ville and tranquille. The letters ill do not have one universal sound. Use reviewed word models, and also hear /j/ in payer and yeux.",
+      "words": [
+        { "fr": "famille", "en": "family", "kind": "term" },
+        { "fr": "fille", "en": "girl; daughter", "kind": "term" },
+        { "fr": "payer", "en": "to pay", "kind": "term" },
+        { "fr": "yeux", "en": "eyes", "kind": "term" },
+        { "fr": "ville", "en": "town; city", "kind": "term" },
+        { "fr": "tranquille", "en": "quiet; calm", "kind": "term" },
+        { "fr": "La famille visite la ville.", "en": "The family visits the city.", "kind": "phrase" },
+        { "fr": "La fille a les yeux ouverts.", "en": "The girl has her eyes open.", "kind": "phrase" },
+        { "fr": "Je vais payer les billets.", "en": "I am going to pay for the tickets.", "kind": "phrase" },
+        { "fr": "Le quartier est tranquille.", "en": "The neighborhood is quiet.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Une famille visite la ville un samedi matin.", "en": "A family visits the city on a Saturday morning." },
+        { "fr": "La fille regarde une vitrine avec les yeux grands ouverts.", "en": "The girl looks at a shop window with her eyes wide open." },
+        { "fr": "Son père va payer les billets pour le musée.", "en": "Her father is going to pay for the museum tickets." },
+        { "fr": "Après la visite, ils marchent dans un quartier tranquille.", "en": "After the visit, they walk through a quiet neighborhood." }
+      ],
+      "speaking": { "scene": "Planning a family museum visit", "roles": ["parent", "ticket clerk"], "opening": "Bonjour, je vais payer les billets pour ma famille.", "goals": ["Say how many family members need tickets.", "Explain that the daughter is visiting the city.", "Ask where the quiet area is."], "closure": "Merci, nous allons visiter la ville." },
+      "practice": {
+        "see": { "prompt": "Compare /j/ in famille and fille with /l/ in ville and tranquille; then find /j/ in payer and yeux.", "wordRefs": ["famille", "fille", "ville", "tranquille", "payer", "yeux"] },
+        "recall": { "prompt": "Recall the French word for family before revealing it.", "answerRef": "famille" },
+        "hear": { "prompt": "Listen for famille or ville in the recorded sentence.", "choices": ["famille", "ville"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The family visits the city.'", "answerRef": "La famille visite la ville." },
+        "say": { "prompt": "Tell the clerk that you will pay for the tickets.", "answerRef": "Je vais payer les billets." },
+        "write": { "prompt": "Write two French sentences about the family visiting the city and the quiet neighborhood.", "requiredRefs": ["famille", "ville", "tranquille"] }
+      }
+    }
+  ]
+}

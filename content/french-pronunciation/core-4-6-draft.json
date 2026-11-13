@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "core",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "core-french-sound-like-a-native:4:fr-en",
+      "n": 4,
+      "sourceSpanishLesson": 4,
+      "title": "Keep hard /g/ clear in connected phrases",
+      "objective": "Carry French /g/ through words and short phrases in a station meeting, including g and gu spellings.",
+      "focus": "Compare gare, garage, guide, and guitare. Keep /g/ clear at the start of each word and in bagage, without treating the written u in guide or guitare as a separate vowel.",
+      "words": [
+        { "fr": "gare", "en": "train station", "kind": "term" },
+        { "fr": "garage", "en": "garage", "kind": "term" },
+        { "fr": "guide", "en": "guide", "kind": "term" },
+        { "fr": "guitare", "en": "guitar", "kind": "term" },
+        { "fr": "bagage", "en": "piece of luggage", "kind": "term" },
+        { "fr": "gagner", "en": "to gain; to win", "kind": "term" },
+        { "fr": "Le guide attend devant la gare.", "en": "The guide is waiting in front of the station.", "kind": "phrase" },
+        { "fr": "Ma guitare est dans mon bagage.", "en": "My guitar is in my luggage.", "kind": "phrase" },
+        { "fr": "Le garage est près de la gare.", "en": "The garage is near the station.", "kind": "phrase" },
+        { "fr": "Nous allons gagner du temps.", "en": "We are going to save time.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Le guide m'attend devant la gare avec mon bagage.", "en": "The guide is waiting for me in front of the station with my luggage." },
+        { "fr": "Je lui dis que ma guitare est dans le bagage.", "en": "I tell him that my guitar is in the luggage." },
+        { "fr": "Sa voiture est dans un garage près de la gare.", "en": "His car is in a garage near the station." },
+        { "fr": "En partant tout de suite, nous allons gagner du temps.", "en": "By leaving right away, we are going to save time." }
+      ],
+      "speaking": { "scene": "Meeting a guide at a train station", "roles": ["traveler", "guide"], "opening": "Bonjour, ma guitare est dans mon bagage.", "goals": ["Confirm where the guide is waiting.", "Say where the guitar is.", "Ask whether the garage is near the station."], "closure": "Merci, nous allons gagner du temps." },
+      "practice": {
+        "see": { "prompt": "Locate the hard /g/ sound in gare, garage, guide, guitare, bagage, and gagner.", "wordRefs": ["gare", "garage", "guide", "guitare", "bagage", "gagner"] },
+        "recall": { "prompt": "Recall the French word for guide before revealing it.", "answerRef": "guide" },
+        "hear": { "prompt": "Listen for gare or garage in the recorded sentence.", "choices": ["gare", "garage"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The garage is near the station.'", "answerRef": "Le garage est près de la gare." },
+        "say": { "prompt": "Tell the guide that your guitar is in your luggage.", "answerRef": "Ma guitare est dans mon bagage." },
+        "write": { "prompt": "Write two French sentences about the guide, station, and your guitar.", "requiredRefs": ["guide", "gare", "guitare"] }
+      }
+    },
+    {
+      "id": "core-french-sound-like-a-native:5:fr-en",
+      "n": 5,
+      "sourceSpanishLesson": 5,
+      "title": "Use French /ʁ/ in a city walk",
+      "objective": "Recognize and produce a reference French /ʁ/ at the start and within useful direction words.",
+      "focus": "Listen to a chosen French speaker in rue, rouge, regarder, arrêt, carte, and parc. Keep one consistent /ʁ/ model across the short directions; it is different from English r.",
+      "words": [
+        { "fr": "rue", "en": "street", "kind": "term" },
+        { "fr": "rouge", "en": "red", "kind": "term" },
+        { "fr": "regarder", "en": "to look at", "kind": "term" },
+        { "fr": "arrêt", "en": "stop", "kind": "term" },
+        { "fr": "carte", "en": "map; menu", "kind": "term" },
+        { "fr": "parc", "en": "park", "kind": "term" },
+        { "fr": "Regardez la carte.", "en": "Look at the map.", "kind": "phrase" },
+        { "fr": "Le parc est au bout de cette rue.", "en": "The park is at the end of this street.", "kind": "phrase" },
+        { "fr": "L'arrêt est près du feu rouge.", "en": "The stop is near the red traffic light.", "kind": "phrase" },
+        { "fr": "Je prends la rue à droite.", "en": "I take the street on the right.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Je regarde une carte pour trouver le parc.", "en": "I look at a map to find the park." },
+        { "fr": "Le parc est dans la rue à droite.", "en": "The park is on the street to the right." },
+        { "fr": "Je passe près d'un feu rouge et de l'arrêt.", "en": "I pass near a red traffic light and the stop." },
+        { "fr": "Puis je marche jusqu'au parc avec la carte.", "en": "Then I walk to the park with the map." }
+      ],
+      "speaking": { "scene": "Explaining the route to a city park", "roles": ["visitor", "local"], "opening": "Bonjour, je cherche le parc.", "goals": ["Ask to look at the map.", "Confirm the street on the right.", "Locate the stop near the red traffic light."], "closure": "Merci, je prends la rue à droite." },
+      "practice": {
+        "see": { "prompt": "Find written r and the /ʁ/ sound in rue, rouge, regarder, arrêt, carte, and parc.", "wordRefs": ["rue", "rouge", "regarder", "arrêt", "carte", "parc"] },
+        "recall": { "prompt": "Recall the French word for park before revealing it.", "answerRef": "parc" },
+        "hear": { "prompt": "Listen for rue or rouge in the recorded directions.", "choices": ["rue", "rouge"], "audioRequired": true },
+        "type": { "prompt": "Type the French direction for 'Look at the map.'", "answerRef": "Regardez la carte." },
+        "say": { "prompt": "Tell the local person that the stop is near the red traffic light.", "answerRef": "L'arrêt est près du feu rouge." },
+        "write": { "prompt": "Write two French directions using the map, street, and park.", "requiredRefs": ["carte", "rue", "parc"] }
+      }
+    },
+    {
+      "id": "core-french-sound-like-a-native:6:fr-en",
+      "n": 6,
+      "sourceSpanishLesson": 6,
+      "title": "Keep /ʁ/ in French consonant clusters",
+      "objective": "Carry a French /ʁ/ immediately after a consonant in common travel and meeting words.",
+      "focus": "Compare prendre /pʁ/, train /tʁ/, frère /fʁ/, and grand /gʁ/. Keep the consonant and /ʁ/ in one cluster without inserting an extra vowel.",
+      "words": [
+        { "fr": "prendre", "en": "to take", "kind": "term" },
+        { "fr": "train", "en": "train", "kind": "term" },
+        { "fr": "frère", "en": "brother", "kind": "term" },
+        { "fr": "grand", "en": "big; tall (masculine singular)", "kind": "term" },
+        { "fr": "restaurant", "en": "restaurant", "kind": "term" },
+        { "fr": "trouver", "en": "to find", "kind": "term" },
+        { "fr": "Je prends le train avec mon frère.", "en": "I take the train with my brother.", "kind": "phrase" },
+        { "fr": "Nous trouvons le restaurant.", "en": "We find the restaurant.", "kind": "phrase" },
+        { "fr": "Le restaurant est près de la gare.", "en": "The restaurant is near the station.", "kind": "phrase" },
+        { "fr": "C'est un grand restaurant.", "en": "It's a big restaurant.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Je prends le train avec mon frère pour aller en ville.", "en": "I take the train with my brother to go into town." },
+        { "fr": "Nous cherchons un restaurant près de la gare.", "en": "We look for a restaurant near the station." },
+        { "fr": "Mon frère trouve un grand restaurant sur la place.", "en": "My brother finds a big restaurant on the square." },
+        { "fr": "Nous y entrons avant de reprendre le train.", "en": "We go in before taking the train again." }
+      ],
+      "speaking": { "scene": "Meeting a brother for a train trip and lunch", "roles": ["traveler", "brother"], "opening": "On prend le train ensemble.", "goals": ["Confirm the train trip.", "Find the restaurant near the station.", "Describe the size of the restaurant."], "closure": "Nous avons trouvé le restaurant." },
+      "practice": {
+        "see": { "prompt": "Mark the consonant-plus-/ʁ/ cluster in prendre, train, frère, and grand.", "wordRefs": ["prendre", "train", "frère", "grand"] },
+        "recall": { "prompt": "Recall the French word for brother before revealing it.", "answerRef": "frère" },
+        "hear": { "prompt": "Listen for train or frère in the recorded travel sentence.", "choices": ["train", "frère"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'I take the train with my brother.'", "answerRef": "Je prends le train avec mon frère." },
+        "say": { "prompt": "Tell your brother that the restaurant is near the station.", "answerRef": "Le restaurant est près de la gare." },
+        "write": { "prompt": "Write two French sentences about taking the train and finding a big restaurant.", "requiredRefs": ["train", "trouver", "grand", "restaurant"] }
+      }
+    }
+  ]
+}

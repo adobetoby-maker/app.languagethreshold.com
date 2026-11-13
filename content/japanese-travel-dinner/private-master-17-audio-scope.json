@@ -1,0 +1,569 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "voices": [
+    "ja-JP-Chirp3-HD-Aoede",
+    "ja-JP-Chirp3-HD-Charon"
+  ],
+  "sourceSHA256": {
+    "master-17-private-draft.json": "2aaa054aacc9ab21ddda95e42cf7b3890b2581ee615375c83a63c3f17f366b65"
+  },
+  "previousScopeSHA256": {
+    "private-foundation-audio-scope.json": "f4b48c046a13a344a996703523bdb8cfdff5bf69188c699fa02db544ccc0a28f",
+    "private-core-1-3-audio-scope.json": "ad72a64b46d08401ee572f63af5d88baafca0388afbd55161acd948dc8062e3d",
+    "private-core-4-6-audio-scope.json": "3925840b1b1bca92059fe07abc63aed981d43bcaaf87f0296f43114414264c89",
+    "private-core-7-9-audio-scope.json": "30a880bda09c371f1eb197a95ffa1237769bff18ac3a268ee55974e524306248",
+    "private-core-10-12-audio-scope.json": "73c8886aea6f96148763c77c5709585edc35503521cdb2dbf361927e547ed120",
+    "private-core-13-15-audio-scope.json": "3dbd18a0920c84e83194b9932d3e0e12f4d9dc0a995f1de249a664667ca10211",
+    "private-core-16-18-audio-scope.json": "4e1b20b7b56175cbcbad937032785ce4acad2e470bc1099135166b63ab34327c",
+    "private-core-19-audio-scope.json": "1e60d7da18055264c2141807b4a5b15232cc68825154bc026ba7f7307db01a1d",
+    "private-core-20-audio-scope.json": "7d3768994313e77e95e8c768e81db7fa3b45a7bf7d8658d8e19767b4ab650f2b",
+    "private-core-21-audio-scope.json": "88f089af289371ee21102f088328b3f04e455402a6442e7310c8cec5e4ff624c",
+    "private-core-22-audio-scope.json": "201a695bd0b7ff1c8f019f63c10dcf40f75824944c70d61fa92b802d44fe199d",
+    "private-core-23-audio-scope.json": "11604d8c9aec4ec38e69b1049450d0192a7b9b2d639fd862c6b1bf2e486f88f6",
+    "private-core-24-audio-scope.json": "50d24bcd803a4fa2da4129e82c27695abe5485ea012e2a6edacadfbbc78cc6a3",
+    "private-core-25-audio-scope.json": "5274f7c1a6e92f8bdcbb434bc4943cc5a0b5a5d0b4285a6d593390c4cd45da1f",
+    "private-core-26-audio-scope.json": "a97ec70fadef466979abbe39adac98f1ab4f88d7e7a5902de73eca2d5809103c",
+    "private-core-27-audio-scope.json": "20964e288176158ec6d3fb62983714c409dea1bf06f2bfa07a14f5ad3e7a7e3b",
+    "private-core-28-audio-scope.json": "65c655f8a73ecd312708b3cd902f4dd7d95643e592bb0825a4ec16d2c14c7f89",
+    "private-core-29-audio-scope.json": "8177aac28d7507d8d2b127c47d25a5517690e06f7d9dda831ac12713334b33a6",
+    "private-core-30-audio-scope.json": "3f489c4f091bd7f1f0bdec1315030b08a87786c9cfd56dfc17176a7568c23a11",
+    "private-master-1-audio-scope.json": "82a2bb3d90712e80e3752833c24c1768bc644c876a7cd475afe0d879ed1e2560",
+    "private-master-2-audio-scope.json": "e601980fa4d7801f5660523bf1725cfe2d75c6ced6019042da4abbbdd1a959f0",
+    "private-master-3-audio-scope.json": "6ba9530b51a30bd836f79e16d92cd7016bfeb002050afd8ab2d4f41a525c6c65",
+    "private-master-4-audio-scope.json": "3ec984da919228f9b5af8d40d67c4ac4da96a2397db7a4be076ae9f543639d09",
+    "private-master-5-audio-scope.json": "8724196f72c0a4507cb7ffa633dfd9d14cf758e2e1b66f736a96327e28dca4b4",
+    "private-master-6-audio-scope.json": "98ccb1546d8a509dd0fc7aad1c5b639e0a9a56d3aad551177cd0fe50e1323844",
+    "private-master-7-audio-scope.json": "2fc27f06a5bf20cb930aba8e0e754c0107ac876a3992bf1f29b74baa43ce9604",
+    "private-master-8-audio-scope.json": "f745103931c409b44414c71d3af4bf4adbf8dff4f32f7af400086a74180a2a3b",
+    "private-master-9-audio-scope.json": "326ab928eb2c26a2a7961127408d8cf4cc37c7f8200e7dcc4e4b4f7f8a5445eb",
+    "private-master-10-audio-scope.json": "646e20ae251cfe3ac3f3310a677062e623f0e17c2dcf9e847f42b6f89ad57885",
+    "private-master-11-audio-scope.json": "612870b0d7c11ae4f876776404d6e83fa5ce69d783a534bfaf1726a4df958e96",
+    "private-master-12-audio-scope.json": "445b7e736a8418f232390483cfe2474e82bdef9608ac87d324ecd99b8ff41e27",
+    "private-master-13-audio-scope.json": "3cb1968de3f47a934ca541a5e49bbb5125065c7bb74dde76c5617e9bf451558a",
+    "private-master-14-audio-scope.json": "e650aaae11d8778093be9d7b44023f3db065e05e05ee07d575165ae8099804b2",
+    "private-master-15-audio-scope.json": "f70f6f517f5493e4aac3d43f118f83ab86b5811008eb4a8ff37d274667567eb6",
+    "private-master-16-audio-scope.json": "8097cc33582e1bd0349ce356fd2ad69ee2156c5494ff15e1b06256dc5bf117b3"
+  },
+  "lessonIds": [
+    "master-travel-dinner:17:ja-en"
+  ],
+  "placements": 43,
+  "uniqueTexts": 42,
+  "proposedClips": 84,
+  "submittedCharacters": 2158,
+  "texts": [
+    {
+      "displayText": "「したがいまして、医療費の払い戻しを請求いたします。」と書きます。",
+      "spokenText": "「したがいまして、医療費の払い戻しを請求いたします。」と書きます。",
+      "textSHA256": "dc16a75b84a9d5f35a8eb70b41578ae157505e8c0fa8cc1aea27aff1ef5bd24a",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "reader",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "displayText": "「まず、プリヤ様は22時15分に足を滑らせました。」と書きます。",
+      "spokenText": "「まず、プリヤ様は22時15分に足を滑らせました。」と書きます。",
+      "textSHA256": "846f5fa355ce3719cb378c450f232117fdc38abf84de2ffb23845471143b72e4",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "displayText": "「レストランのメモによりますと、床はモップがけをされたばかりでした。」と書きます。",
+      "spokenText": "「レストランのメモによりますと、床はモップがけをされたばかりでした。」と書きます。",
+      "textSHA256": "bcefdb5ab8239d668eae6f5c851c06433f01b76eb0d10e5c88cc41ca6e144858",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "reader",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "displayText": "「続いて、スタッフがプリヤ様に氷を勧め、座るのを手伝いました。」と書きます。",
+      "spokenText": "「続いて、スタッフがプリヤ様に氷を勧め、座るのを手伝いました。」と書きます。",
+      "textSHA256": "c6bfd9af4b1bd4d74a442bc733a9f3e0bffc7e29f9450e43e14536d341c6a721",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "reader",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "displayText": "いいえ、これで案件ファイルは揃っております。",
+      "spokenText": "いいえ、これで案件ファイルは揃っております。",
+      "textSHA256": "8442f10e96a72f6c3ce6e906ca2088a2c4cb89e8db099382ac1cb81cc4287834",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "reader",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "displayText": "いいえ、これで案件ファイルは揃っております。ありがとうございました。",
+      "spokenText": "いいえ、これで案件ファイルは揃っております。ありがとうございました。",
+      "textSHA256": "d0b2d987f980fd43ff972c4ee9388556cdef516817743d449537b3b1c0e1b64b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "お世話になっております。保険会社の担当者のルシアでございます。プリヤ様の事故の概要を、時系列に沿ってお読みいただけますか。",
+      "spokenText": "お世話になっております。保険会社の担当者のルシアでございます。プリヤ様の事故の概要を、時系列に沿ってお読みいただけますか。",
+      "textSHA256": "e2c825e87eb53d0b82508aa4b79b9fa5ea3233e0cba40a77ac2771e038741eb6",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "さらに、クリニックから、医師の署名入りの医療報告書をもらいました。",
+      "spokenText": "さらに、クリニックから、医師の署名入りの医療報告書をもらいました。",
+      "textSHA256": "0993ebcc14cb31ff5132ede4600b0596d50db7aff8fde44f5ecba998226855e1",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "displayText": "したがいまして、医療費の払い戻しを請求いたします。",
+      "spokenText": "したがいまして、医療費の払い戻しを請求いたします。",
+      "textSHA256": "b3b6f17fbc7da870d520b0b68b017d75882bbcaa0f2d4193584528d1f01d66be",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 19
+        }
+      ]
+    },
+    {
+      "displayText": "まず、プリヤ様は22時15分に足を滑らせました。",
+      "spokenText": "まず、プリヤ様は22時15分に足を滑らせました。",
+      "textSHA256": "be20dcb82cff16725f1fe3a5a20dd63a1714e6160e8154ccdd81ef22962613c9",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "displayText": "まず、書類の時刻をもとに時系列を整理し、そのあとで丁寧な文体で文章の下書きをします。",
+      "spokenText": "まず、書類の時刻をもとに時系列を整理し、そのあとで丁寧な文体で文章の下書きをします。",
+      "textSHA256": "8f71eb532cb0a9a9fe54e59490297a2686ca45a7eeab68b2c93177cee1978cfb",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "displayText": "クリニックの請求書",
+      "spokenText": "クリニックの請求書",
+      "textSHA256": "f5856f0ae2a1891961df8f6922f0a25534ad2abd2b9c758224361d5145603ba2",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "displayText": "クリニックの請求書もあります。合計は145ユーロです。",
+      "spokenText": "クリニックの請求書もあります。合計は145ユーロです。",
+      "textSHA256": "b3a6a57cb11d27fcbf9a3731b42e42a8e7060443ee4cc89bbc2e192e61686a1e",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "displayText": "グラナダのホテルに戻り、保険会社に送るプリヤさんの保険事故の概要を書くために、ノートパソコンを開きます。",
+      "spokenText": "グラナダのホテルに戻り、保険会社に送るプリヤさんの保険事故の概要を書くために、ノートパソコンを開きます。",
+      "textSHA256": "73edc0f88a921e62c963da666f7a1d746987dd3c036375dcba5be88d1085c4c2",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "displayText": "テーブルの上には、店長のロシオさんが署名したレストランのメモがあります。",
+      "spokenText": "テーブルの上には、店長のロシオさんが署名したレストランのメモがあります。",
+      "textSHA256": "f633d425837d316cc0f5f7779243bf07294dca3744030b2123acf212a832a971",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "displayText": "プリヤさんは被保険者で、旅行保険はスペインでの休暇中の事故を補償しています。",
+      "spokenText": "プリヤさんは被保険者で、旅行保険はスペインでの休暇中の事故を補償しています。",
+      "textSHA256": "03e2790ed2ed14a3c901f3f30f2ac0f9cb6f86ac30d13e43a66bfb973cd57c71",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "displayText": "ルシアさんは下書きを読み、私に尋ねます。「被保険者はクリニックで何時に診察を受けましたか。」",
+      "spokenText": "ルシアさんは下書きを読み、私に尋ねます。「被保険者はクリニックで何時に診察を受けましたか。」",
+      "textSHA256": "197897f939bd9b9603bbc6c51b78f0d4aeac5758d973cdb2b89d8bddd4ca1d80",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "reader",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "displayText": "ルシア様、請求書によりますと、本人は23時10分に診察を受けております。",
+      "spokenText": "ルシア様、請求書によりますと、本人は23時10分に診察を受けております。",
+      "textSHA256": "65d27a629522520a555859a2817437840206c09ab2cffa4a1e4e4c0587b8d528",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 20
+        },
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "hear-mode-model"
+        }
+      ]
+    },
+    {
+      "displayText": "レストランのメモ",
+      "spokenText": "レストランのメモ",
+      "textSHA256": "0a31560e63f0ef164fee7fed355ec19f923c0467697b3b07a5b2b2056f56d9a4",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "displayText": "レストランのメモによりますと、床はモップがけをされたばかりでした。",
+      "spokenText": "レストランのメモによりますと、床はモップがけをされたばかりでした。",
+      "textSHA256": "2bf727541dcf33655fe4293b7bd51393a8f4be3e248ead94c7ce4f01a9d402fb",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "displayText": "三つの書類をスキャンし、一つの添付ファイルにまとめて保険会社に送ります。",
+      "spokenText": "三つの書類をスキャンし、一つの添付ファイルにまとめて保険会社に送ります。",
+      "textSHA256": "4d7f802da6ba5d25ab7dd14794496625886715bf63012fd2b4c44ad6dbb3cc1a",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "reader",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "displayText": "保険事故",
+      "spokenText": "保険事故",
+      "textSHA256": "0c25996504bddf69a0e07d1d5134eb606d854abaa163fc067c079918b0ae23c3",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "displayText": "保険会社",
+      "spokenText": "保険会社",
+      "textSHA256": "d42ca26d84506f9e6e43002284e5a5780fcea62316951aae58876affb8082833",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "displayText": "保険証券",
+      "spokenText": "保険証券",
+      "textSHA256": "cbc64d1d37f9298ff22e6f44a91e11ad1372f562ea16dc7ae96e21e24eef35a7",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "displayText": "医療報告書",
+      "spokenText": "医療報告書",
+      "textSHA256": "40c45ca65a47d0e18995dd4356030492693552f2710993e930f6544a6a65354d",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "displayText": "医療報告書に記載されている診断のみを記載しております。",
+      "spokenText": "医療報告書に記載されている診断のみを記載しております。",
+      "textSHA256": "b8949a7399b5352904058aad7a73fb244acad82cc714677374e64ed22bb1f422",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 21
+        }
+      ]
+    },
+    {
+      "displayText": "医療費",
+      "spokenText": "医療費",
+      "textSHA256": "cdcfcf6312c72341b58a17831a056c515435749eb744dc62f389d9da9fcf8653",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "displayText": "必要最小限の情報",
+      "spokenText": "必要最小限の情報",
+      "textSHA256": "e8ad83a67579e6333b38c32cbb7a3d3fd1eba77824face55c937b09aa0d1fcb6",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "displayText": "担当者",
+      "spokenText": "担当者",
+      "textSHA256": "8b0f423569d5be8eec00286a9986900ecfc99c554c8eafbbd457894cc416fe71",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "displayText": "担当者のルシアさんがすぐに見つけられるように、証券番号を最初の行に写します。",
+      "spokenText": "担当者のルシアさんがすぐに見つけられるように、証券番号を最初の行に写します。",
+      "textSHA256": "5952209891497c492cff150a3d7b7205c5d910e6afc7304e6488ab752cd95d82",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "displayText": "時系列",
+      "spokenText": "時系列",
+      "textSHA256": "540f989c93df1a60d8ee50f0734a4c8e9e9bc9036523ba6616a062de595539c8",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "displayText": "最後に、ルシアさんに伺います。「案件ファイルに、ほかに必要な書類はございますか。」",
+      "spokenText": "最後に、ルシアさんに伺います。「案件ファイルに、ほかに必要な書類はございますか。」",
+      "textSHA256": "fd6d3898ede48242f9e7081a22828d261b67f3b920bcd2f85097f36de4801ae9",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "reader",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "displayText": "案件ファイル",
+      "spokenText": "案件ファイル",
+      "textSHA256": "849403b3383bd14d8ef7c79603713c738c5929d066bf80a7fd7330685d154b8a",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "displayText": "案件ファイルに、ほかに必要な書類はございますか。",
+      "spokenText": "案件ファイルに、ほかに必要な書類はございますか。",
+      "textSHA256": "c002aa10bd9c58d4e7e396cec6b9968db701d8c8968df4fa0063b39a3cee0e6d",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 22
+        }
+      ]
+    },
+    {
+      "displayText": "案件ファイルには夕食に関する個人的な詳細は必要ないため、必要最小限の情報のみを記載することにします。",
+      "spokenText": "案件ファイルには夕食に関する個人的な詳細は必要ないため、必要最小限の情報のみを記載することにします。",
+      "textSHA256": "6bcd81f670d6bd4eb8a9e884e4c0f90f587ef466185ff1fd633231af02f99487",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "displayText": "添付ファイル",
+      "spokenText": "添付ファイル",
+      "textSHA256": "905dd5bcfdaa470b5a024851c3ad7f15312271321abaad68cf5e4deeff36cd38",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "displayText": "続いて、スタッフがプリヤ様に氷を勧め、座るのを手伝いました。",
+      "spokenText": "続いて、スタッフがプリヤ様に氷を勧め、座るのを手伝いました。",
+      "textSHA256": "a77da0944a109ca82126fbdceac6338695e549ae734cd3e207a18841a8920111",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "displayText": "被保険者",
+      "spokenText": "被保険者",
+      "textSHA256": "eb518f7e3149c57a173083df9712131c396815408f3be1c49949e22a172e2277",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "displayText": "診断",
+      "spokenText": "診断",
+      "textSHA256": "9ac6d0dd2c851ecf1fb3edb84ed5d3e94fd3569ac5a6737e7f45c3f13d2e6e01",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "displayText": "診断として手首の捻挫を追記し、ルシアさんに説明します。「医療報告書に記載されている診断のみを記載しております。」",
+      "spokenText": "診断として手首の捻挫を追記し、ルシアさんに説明します。「医療報告書に記載されている診断のみを記載しております。」",
+      "textSHA256": "9eee90bea2e5e4bb7326c987c9908438126ec9ac88c1864bb07a2712014897c8",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "reader",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "displayText": "証券番号",
+      "spokenText": "証券番号",
+      "textSHA256": "015640b46a5940e0a5f1af3c8eb4dd69a0b0dedf882efeec4d243964232776d3",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "card",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "displayText": "請求書を確認して答えます。「ルシア様、請求書によりますと、本人は23時10分に診察を受けております。」",
+      "spokenText": "請求書を確認して答えます。「ルシア様、請求書によりますと、本人は23時10分に診察を受けております。」",
+      "textSHA256": "6a246f3a5aeff69c013cc1bf0a1a2913f265db0dea536e59a8818543947f44aa",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:17:ja-en",
+          "surface": "reader",
+          "index": 13
+        }
+      ]
+    }
+  ],
+  "recordingsBundled": false,
+  "listeningReviewed": false,
+  "registered": false
+}

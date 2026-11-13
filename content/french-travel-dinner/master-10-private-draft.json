@@ -1,0 +1,357 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-dinner.json",
+    "curriculumSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "passagePath": "public/lesson-content/es/master-travel-dinner.json",
+    "passageSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 10,
+      "stableId": "master-travel-dinner:10:fr-en",
+      "sourceTitleEnglish": "Calm a Dispute with the Next Table",
+      "sourceObjectiveEnglish": "Report what each side said, explain the background calmly, and help your friend and a neighbor reach a truce.",
+      "sourceSpeakingEnglish": "You are a diner on a terrace in Montevideo, and the AI is Martín, the server: calmly report what Señora Graciela and Kofi each said (dijo que...), give the background in the imperfect (cuando llegamos, estaba...), and propose a truce both tables can accept.",
+      "title": "Calm a Dispute with the Next Table",
+      "objective": "Report what each side said, explain the background calmly, and help your friend and a neighbor reach a truce.",
+      "focus": "Discours rapporté (il a dit que…, elle a expliqué qu'elle était…) et imparfait de contexte (quand nous sommes arrivés, la terrasse était presque vide). Distinguer qui a dit quoi.",
+      "scene": "Samedi soir, sur une terrasse de la Ciudad Vieja, à Montevideo, Kofi et moi dînons. Martín, le serveur, s’approche parce qu’il a entendu une dispute avec la table d’à côté. Je lui raconte ce que chacun a dit, puis je propose une trêve à Madame Graciela.",
+      "forms": [
+        {
+          "infinitive": "dire",
+          "meaning": "to say",
+          "example": "Graciela a dit que nous faisions beaucoup de bruit.",
+          "question": "Qu’a dit Graciela à propos du bruit ?",
+          "politeRequest": "Pourriez-vous me dire ce qui s’est passé ?"
+        },
+        {
+          "infinitive": "expliquer",
+          "meaning": "to explain",
+          "example": "Elle a expliqué qu’elle était fatiguée.",
+          "question": "Qu’a expliqué Graciela ?",
+          "politeRequest": "Pourriez-vous m’expliquer le contexte ?"
+        },
+        {
+          "infinitive": "répondre",
+          "meaning": "to answer",
+          "example": "Kofi lui a répondu que nous étions dans un lieu public.",
+          "question": "Qu’a répondu Kofi à Graciela ?",
+          "politeRequest": "Pourriez-vous répondre à ma question ?"
+        },
+        {
+          "infinitive": "demander",
+          "meaning": "to ask",
+          "example": "J’ai demandé à Kofi de baisser la voix avec moi.",
+          "question": "Qu’avez-vous demandé à Kofi ?",
+          "politeRequest": "Pourriez-vous baisser un peu le volume de l’enceinte ?"
+        },
+        {
+          "infinitive": "se calmer",
+          "meaning": "to calm down",
+          "example": "Kofi, calme-toi un peu ; ce n’est pas la peine.",
+          "question": "Que dites-vous à Kofi pour qu’il se calme ?",
+          "politeRequest": "Pourriez-vous vous calmer un peu ?"
+        }
+      ],
+      "cards": [
+        {
+          "fr": "la table d'à côté",
+          "en": "the next table",
+          "kind": "term"
+        },
+        {
+          "fr": "la voisine de table",
+          "en": "the woman at the next table",
+          "kind": "term"
+        },
+        {
+          "fr": "la plainte",
+          "en": "the complaint",
+          "kind": "term"
+        },
+        {
+          "fr": "le volume",
+          "en": "the volume",
+          "kind": "term"
+        },
+        {
+          "fr": "les éclats de rire",
+          "en": "the loud laughter",
+          "kind": "term"
+        },
+        {
+          "fr": "la dispute",
+          "en": "the argument",
+          "kind": "term"
+        },
+        {
+          "fr": "le ton",
+          "en": "the tone",
+          "kind": "term"
+        },
+        {
+          "fr": "la trêve",
+          "en": "the truce",
+          "kind": "term"
+        },
+        {
+          "fr": "les excuses",
+          "en": "the apology",
+          "kind": "term"
+        },
+        {
+          "fr": "le serveur",
+          "en": "the waiter",
+          "kind": "term"
+        },
+        {
+          "fr": "l'enceinte",
+          "en": "the speaker (audio)",
+          "kind": "term"
+        },
+        {
+          "fr": "la version (des faits)",
+          "en": "the version (of events)",
+          "kind": "term"
+        },
+        {
+          "fr": "le contexte",
+          "en": "the context",
+          "kind": "term"
+        },
+        {
+          "fr": "à voix basse",
+          "en": "quietly, in a low voice",
+          "kind": "term"
+        },
+        {
+          "fr": "la patience",
+          "en": "the patience",
+          "kind": "term"
+        },
+        {
+          "fr": "Martín, laissez-moi vous expliquer : la dame a dit que nous la dérangions.",
+          "en": "Martín, let me explain: the lady said we were bothering her.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Quand nous sommes arrivés, la terrasse était presque vide.",
+          "en": "When we arrived, the terrace was almost empty.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Kofi lui a répondu que nous étions dans un lieu public.",
+          "en": "Kofi answered her that we were in a public place.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Elle a expliqué qu’elle était fatiguée et qu’elle voulait dîner au calme.",
+          "en": "She explained that she was tired and wanted to dine in peace.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Kofi, calme-toi un peu ; ce n'est pas la peine.",
+          "en": "Kofi, calm down a bit; it's not worth it.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Madame, je suis désolé ; nous n’avions pas réalisé que nous faisions autant de bruit.",
+          "en": "Ma'am, I'm sorry; we didn't realize how loud we were.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "J’ai demandé à Kofi de baisser la voix avec moi.",
+          "en": "I asked Kofi for us to speak more quietly.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Cela vous irait si nous baissions la voix et continuions à dîner en paix ?",
+          "en": "How about we lower our voices and keep eating in peace?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "fr": "Samedi soir, Kofi et moi dînons sur une terrasse de la Ciudad Vieja, à Montevideo.",
+          "en": "On Saturday night, Kofi and I are having dinner on a terrace in Montevideo's Ciudad Vieja."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Soudain, le serveur Martín s'approche, car il a entendu une dispute avec la table d'à côté.",
+          "en": "Suddenly, the waiter Martín comes over because he heard an argument with the next table."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Martín : Pouvez-vous me raconter votre version de ce qui s'est passé ?",
+          "en": "Martín: Can you tell me your version of what happened?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "D'abord, je lui donne le contexte calmement.",
+          "en": "First I calmly give him the context."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Quand nous sommes arrivés, la terrasse était presque vide.",
+          "en": "When we arrived, the terrace was almost empty."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Il y avait une enceinte près de notre table et la musique était assez forte.",
+          "en": "There was a speaker near our table and the music was quite loud."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Kofi racontait des histoires de son voyage, et nos éclats de rire s’entendaient sur toute la terrasse.",
+          "en": "Kofi was telling stories about his trip and our loud laughter could be heard across the whole terrace."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Plus tard, Madame Graciela, la voisine de table, s’est plainte auprès de nous sur un ton assez dur.",
+          "en": "Later, Señora Graciela, the woman at the next table, made a complaint to us in a fairly harsh tone."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Graciela a dit qu'elle ne pouvait pas entendre son mari et que nous faisions beaucoup de bruit.",
+          "en": "Graciela said she couldn't hear her husband and that we were making a lot of noise."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Kofi lui a répondu que nous étions dans un lieu public.",
+          "en": "Kofi answered her that we were in a public place."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Elle a expliqué qu’elle était fatiguée et qu’elle voulait dîner au calme.",
+          "en": "She explained that she was tired and wanted to dine in peace."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "J’ai demandé à Kofi de baisser la voix avec moi.",
+          "en": "I asked Kofi for us to speak more quietly."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "À ce moment-là, j'ai dit à mon ami : Kofi, calme-toi un peu ; ce n'est pas la peine.",
+          "en": "At that moment, I said to my friend: Kofi, calm down a bit; it's not worth it."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Martín m'écoute patiemment et baisse le volume de l'enceinte.",
+          "en": "Martín listens to me patiently and turns down the volume of the speaker."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Ensuite, je vais à la table de Graciela et lui dis à voix basse : « Madame, je suis désolé ; nous n’avions pas réalisé que nous faisions autant de bruit. »",
+          "en": "Then I go over to Graciela's table and tell her quietly: Ma'am, I'm sorry; we didn't realize how loud we were."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Kofi lui présente lui aussi des excuses sincères, cette fois sur un ton plus aimable.",
+          "en": "Kofi also offers her a sincere apology, now in a friendlier tone."
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Ensuite, je demande à Graciela : « Cela vous irait si nous baissions la voix et continuions à dîner en paix ? »",
+          "en": "Then I ask Graciela: How about we lower our voices and keep eating in peace?"
+        },
+        {
+          "speaker": "Narrator",
+          "fr": "Graciela sourit et accepte la trêve, et Martín apporte une carafe d'eau pour les deux tables.",
+          "en": "Graciela smiles and accepts the truce, and Martín brings a pitcher of water for both tables."
+        }
+      ],
+      "modes": {
+        "see": {
+          "sourceCard": 11,
+          "cueEnglish": "the speaker (audio)",
+          "cueFrench": "Reconnaissez le mot français pour le haut-parleur près de la table.",
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "sourceCard": 8,
+          "cueEnglish": "the truce",
+          "cueFrench": "Rappelez-vous le mot français pour l’accord temporaire entre les deux tables.",
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "sourceCard": 17,
+          "cueEnglish": "When we arrived, the terrace was almost empty.",
+          "cueFrench": "Écoutez la phrase sur l’état de la terrasse à votre arrivée.",
+          "responseKind": "fixed"
+        },
+        "type": {
+          "sourceCard": 14,
+          "cueEnglish": "quietly, in a low voice",
+          "cueFrench": "Écrivez l’expression française pour parler discrètement.",
+          "responseKind": "fixed"
+        },
+        "say": {
+          "sourceCard": 21,
+          "cueEnglish": "Ma'am, I'm sorry; we didn't realize how loud we were.",
+          "cueFrench": "Présentez vos excuses à Madame Graciela sans perdre le sens de la phrase.",
+          "responseKind": "open"
+        },
+        "write": {
+          "sourceCard": 18,
+          "cueEnglish": "Kofi answered her that we were in a public place.",
+          "cueFrench": "Rapportez par écrit ce que Kofi a répondu, avec « que » et l’imparfait.",
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "Vous dînez avec Kofi sur une terrasse de Montevideo. Racontez calmement à Martín ce que chacun a dit et le contexte, puis proposez une trêve à Madame Graciela.",
+        "partnerRole": "Martín, le serveur, joué par l’IA ; vouvoyez-le.",
+        "opening": "Martín : « Pouvez-vous me raconter votre version de ce qui s’est passé ? »",
+        "objectives": [
+          "Rapporter ce que Graciela a dit et ce que Kofi lui a répondu, avec « a dit que » et « a répondu que ».",
+          "Décrire le contexte à l’imparfait : la terrasse était presque vide et la musique était assez forte.",
+          "Expliquer que vous avez demandé à Kofi de baisser la voix.",
+          "Proposer poliment une trêve à Madame Graciela, en la vouvoyant."
+        ],
+        "closure": "Cela vous irait si nous baissions la voix et continuions à dîner en paix ?",
+        "wordBank": [
+          "la table d'à côté",
+          "la voisine de table",
+          "la plainte",
+          "le volume",
+          "les éclats de rire",
+          "la dispute",
+          "le ton",
+          "la trêve",
+          "les excuses",
+          "le serveur",
+          "l'enceinte",
+          "la version (des faits)",
+          "le contexte",
+          "à voix basse",
+          "la patience",
+          "Martín, laissez-moi vous expliquer : la dame a dit que nous la dérangions.",
+          "Quand nous sommes arrivés, la terrasse était presque vide.",
+          "Kofi lui a répondu que nous étions dans un lieu public.",
+          "Elle a expliqué qu’elle était fatiguée et qu’elle voulait dîner au calme.",
+          "Kofi, calme-toi un peu ; ce n'est pas la peine.",
+          "Madame, je suis désolé ; nous n’avions pas réalisé que nous faisions autant de bruit.",
+          "J’ai demandé à Kofi de baisser la voix avec moi.",
+          "Cela vous irait si nous baissions la voix et continuions à dîner en paix ?"
+        ],
+        "goal": "Calmly report what Graciela and Kofi each said, describe the earlier terrace setting in French past tense, then propose a courteous truce both tables can accept."
+      },
+      "reviewed": false
+    }
+  ]
+}

@@ -1,0 +1,545 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "voices": [
+    "ja-JP-Chirp3-HD-Aoede",
+    "ja-JP-Chirp3-HD-Charon"
+  ],
+  "sourceSHA256": {
+    "master-16-private-draft.json": "698a6004be5818197959957920e13ba98c38b151e641a9f8db2d094be1a252ea"
+  },
+  "previousScopeSHA256": {
+    "private-foundation-audio-scope.json": "f4b48c046a13a344a996703523bdb8cfdff5bf69188c699fa02db544ccc0a28f",
+    "private-core-1-3-audio-scope.json": "ad72a64b46d08401ee572f63af5d88baafca0388afbd55161acd948dc8062e3d",
+    "private-core-4-6-audio-scope.json": "3925840b1b1bca92059fe07abc63aed981d43bcaaf87f0296f43114414264c89",
+    "private-core-7-9-audio-scope.json": "30a880bda09c371f1eb197a95ffa1237769bff18ac3a268ee55974e524306248",
+    "private-core-10-12-audio-scope.json": "73c8886aea6f96148763c77c5709585edc35503521cdb2dbf361927e547ed120",
+    "private-core-13-15-audio-scope.json": "3dbd18a0920c84e83194b9932d3e0e12f4d9dc0a995f1de249a664667ca10211",
+    "private-core-16-18-audio-scope.json": "4e1b20b7b56175cbcbad937032785ce4acad2e470bc1099135166b63ab34327c",
+    "private-core-19-audio-scope.json": "1e60d7da18055264c2141807b4a5b15232cc68825154bc026ba7f7307db01a1d",
+    "private-core-20-audio-scope.json": "7d3768994313e77e95e8c768e81db7fa3b45a7bf7d8658d8e19767b4ab650f2b",
+    "private-core-21-audio-scope.json": "88f089af289371ee21102f088328b3f04e455402a6442e7310c8cec5e4ff624c",
+    "private-core-22-audio-scope.json": "201a695bd0b7ff1c8f019f63c10dcf40f75824944c70d61fa92b802d44fe199d",
+    "private-core-23-audio-scope.json": "11604d8c9aec4ec38e69b1049450d0192a7b9b2d639fd862c6b1bf2e486f88f6",
+    "private-core-24-audio-scope.json": "50d24bcd803a4fa2da4129e82c27695abe5485ea012e2a6edacadfbbc78cc6a3",
+    "private-core-25-audio-scope.json": "5274f7c1a6e92f8bdcbb434bc4943cc5a0b5a5d0b4285a6d593390c4cd45da1f",
+    "private-core-26-audio-scope.json": "a97ec70fadef466979abbe39adac98f1ab4f88d7e7a5902de73eca2d5809103c",
+    "private-core-27-audio-scope.json": "20964e288176158ec6d3fb62983714c409dea1bf06f2bfa07a14f5ad3e7a7e3b",
+    "private-core-28-audio-scope.json": "65c655f8a73ecd312708b3cd902f4dd7d95643e592bb0825a4ec16d2c14c7f89",
+    "private-core-29-audio-scope.json": "8177aac28d7507d8d2b127c47d25a5517690e06f7d9dda831ac12713334b33a6",
+    "private-core-30-audio-scope.json": "3f489c4f091bd7f1f0bdec1315030b08a87786c9cfd56dfc17176a7568c23a11",
+    "private-master-1-audio-scope.json": "82a2bb3d90712e80e3752833c24c1768bc644c876a7cd475afe0d879ed1e2560",
+    "private-master-2-audio-scope.json": "e601980fa4d7801f5660523bf1725cfe2d75c6ced6019042da4abbbdd1a959f0",
+    "private-master-3-audio-scope.json": "6ba9530b51a30bd836f79e16d92cd7016bfeb002050afd8ab2d4f41a525c6c65",
+    "private-master-4-audio-scope.json": "3ec984da919228f9b5af8d40d67c4ac4da96a2397db7a4be076ae9f543639d09",
+    "private-master-5-audio-scope.json": "8724196f72c0a4507cb7ffa633dfd9d14cf758e2e1b66f736a96327e28dca4b4",
+    "private-master-6-audio-scope.json": "98ccb1546d8a509dd0fc7aad1c5b639e0a9a56d3aad551177cd0fe50e1323844",
+    "private-master-7-audio-scope.json": "2fc27f06a5bf20cb930aba8e0e754c0107ac876a3992bf1f29b74baa43ce9604",
+    "private-master-8-audio-scope.json": "f745103931c409b44414c71d3af4bf4adbf8dff4f32f7af400086a74180a2a3b",
+    "private-master-9-audio-scope.json": "326ab928eb2c26a2a7961127408d8cf4cc37c7f8200e7dcc4e4b4f7f8a5445eb",
+    "private-master-10-audio-scope.json": "646e20ae251cfe3ac3f3310a677062e623f0e17c2dcf9e847f42b6f89ad57885",
+    "private-master-11-audio-scope.json": "612870b0d7c11ae4f876776404d6e83fa5ce69d783a534bfaf1726a4df958e96",
+    "private-master-12-audio-scope.json": "445b7e736a8418f232390483cfe2474e82bdef9608ac87d324ecd99b8ff41e27",
+    "private-master-13-audio-scope.json": "3cb1968de3f47a934ca541a5e49bbb5125065c7bb74dde76c5617e9bf451558a",
+    "private-master-14-audio-scope.json": "e650aaae11d8778093be9d7b44023f3db065e05e05ee07d575165ae8099804b2",
+    "private-master-15-audio-scope.json": "f70f6f517f5493e4aac3d43f118f83ab86b5811008eb4a8ff37d274667567eb6"
+  },
+  "lessonIds": [
+    "master-travel-dinner:16:ja-en"
+  ],
+  "placements": 44,
+  "uniqueTexts": 38,
+  "proposedClips": 76,
+  "submittedCharacters": 1894,
+  "texts": [
+    {
+      "displayText": "60ユーロの預かり金の全額の返金を請求いたします。",
+      "spokenText": "60ユーロの預かり金の全額の返金を請求いたします。",
+      "textSHA256": "4bcd49e6184bb7f8514f9b3568b90377cf8eea465c8d7853496ca986a8b573c2",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 20
+        },
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "hear-mode-model"
+        }
+      ]
+    },
+    {
+      "displayText": "その期限内に返金を受けられない場合、エマは自分の副本をマラガの消費者相談室へ持参します。",
+      "spokenText": "その期限内に返金を受けられない場合、エマは自分の副本をマラガの消費者相談室へ持参します。",
+      "textSHA256": "ded1634fabfed2d8e902981d90a53d48303040565768cf147c9c8dbd0ec9ee6b",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "reader",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "displayText": "また、取消しの連絡が金曜日にメールで届いたことと、レストランが別の日程を提示しなかったことも説明します。",
+      "spokenText": "また、取消しの連絡が金曜日にメールで届いたことと、レストランが別の日程を提示しなかったことも説明します。",
+      "textSHA256": "8a091398efdcf4ccafe31541499113c534b6e2da332bcb8d383ee2171aea72cd",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "reader",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "displayText": "エマは声に出して読みます。「用紙には、申立人と事業者の詳細が記入されます。」",
+      "spokenText": "エマは声に出して読みます。「用紙には、申立人と事業者の詳細が記入されます。」",
+      "textSHA256": "49acfd609b28e82d9401f86f12eb04b66fd1df5029dfe1907ab85ca5003a2695",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "reader",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "displayText": "エマ・コリンズは、スペインのマラガにあるラ・カレタというレストランへ戻り、支配人のオルテガさんと話します。",
+      "spokenText": "エマ・コリンズは、スペインのマラガにあるラ・カレタというレストランへ戻り、支配人のオルテガさんと話します。",
+      "textSHA256": "2f0da1476ddef707feaac3c9def62c9453a7280712e4ace7d11fe60e58228cfa",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "reader",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "displayText": "オルテガさんは、エマの副本に事業者の社印を押し、署名を入れます。",
+      "spokenText": "オルテガさんは、エマの副本に事業者の社印を押し、署名を入れます。",
+      "textSHA256": "cce5a17a39b063f49b3b33775f76e0a2b8a07ff4584fa0af6dc0195354f94587",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "reader",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "displayText": "オルテガさんは、三部の副本と印刷された説明書きがついた、公式の苦情用紙を彼女に手渡します。",
+      "spokenText": "オルテガさんは、三部の副本と印刷された説明書きがついた、公式の苦情用紙を彼女に手渡します。",
+      "textSHA256": "19ad17bc7b83e92bea01c0fd2d879a427ab7b6600761e02f0c46276e82d74c60",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "reader",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "displayText": "オルテガ支配人、ホハ・デ・レクラマシオネスをいただけますでしょうか。",
+      "spokenText": "オルテガ支配人、ホハ・デ・レクラマシオネスをいただけますでしょうか。",
+      "textSHA256": "e3ec531df5d7fbd392f14a6982927ff554a1e822151e0df6413bbac8bb7eed98",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 17
+        },
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "reader",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "displayText": "オルテガ支配人：「こちらがホハ・デ・レクラマシオネスです。三部の副本と説明書がついています。」",
+      "spokenText": "オルテガ支配人：「こちらがホハ・デ・レクラマシオネスです。三部の副本と説明書がついています。」",
+      "textSHA256": "6dce5df3afe6ec7cf061db97e9c7160427900a6b5406a4d649afcf8c0e6d372c",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "speaking-opening"
+        }
+      ]
+    },
+    {
+      "displayText": "パスポート番号",
+      "spokenText": "パスポート番号",
+      "textSHA256": "4bf00f3971f01b771f8dccb82baa6494cd9933e52276035789880c642e313399",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "displayText": "レストランは、彼女の土曜日の夕食の予約を取り消しましたが、予約時に彼女が支払った預かり金は返金していません。",
+      "spokenText": "レストランは、彼女の土曜日の夕食の予約を取り消しましたが、予約時に彼女が支払った預かり金は返金していません。",
+      "textSHA256": "745dd7ee1df5449664492f5b6325dfae2097caf139acf67f083279bfb427770f",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "reader",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "displayText": "一部はお客様の控えで、もう一部は、合意に至らなかった場合に行政機関へ提出されます。",
+      "spokenText": "一部はお客様の控えで、もう一部は、合意に至らなかった場合に行政機関へ提出されます。",
+      "textSHA256": "3c587ac0cd4c311e7ae3082f7c6f88df1d17f0d7d6d1b1595458181f88ef4c6f",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "reader",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "displayText": "予約の取消し",
+      "spokenText": "予約の取消し",
+      "textSHA256": "9d3d4f5273c12ef535724cd17ce0bed15e5417cb763ce3edf8e1ac8cb9cb3f23",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "displayText": "事実",
+      "spokenText": "事実",
+      "textSHA256": "2e5355aa6fa26e303c68781e696bb64dec29e71ac397fa19d6916a4d94b21e2e",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "displayText": "事実の欄に、彼女は次のように書きます。「私の予約は取り消されましたが、預かり金は返金されませんでした。」",
+      "spokenText": "事実の欄に、彼女は次のように書きます。「私の予約は取り消されましたが、預かり金は返金されませんでした。」",
+      "textSHA256": "dd8e3dce7c1f80f710e5d1d211c8e1a0d62aa0a1a103a572d26771da38f97ceb",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "reader",
+          "index": 8
+        }
+      ]
+    },
+    {
+      "displayText": "事業者",
+      "spokenText": "事業者",
+      "textSHA256": "0b0e42efe8cc1826a1059a5dcfd66b24f36cd40851e0ee47ba60478249edd826",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "displayText": "個人的な評価を含めず、事実のみを述べたいと存じます。",
+      "spokenText": "個人的な評価を含めず、事実のみを述べたいと存じます。",
+      "textSHA256": "749ff9bec63ee55df456c3a7fdb2fe0c2a3f702ee202a240fd16e89de71496b5",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 22
+        },
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "reader",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "displayText": "公式の苦情用紙（ホハ・デ・レクラマシオネス）",
+      "spokenText": "公式の苦情用紙（ホハ・デ・レクラマシオネス）",
+      "textSHA256": "97e4f7c7db8b2aa8d58f82f7fdaee98b258934d47f4e3c1f1c9e8fc9b8b24ae5",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "displayText": "副本",
+      "spokenText": "副本",
+      "textSHA256": "bfe958dea679971eb8a4904827f3a346c8621ae528b2fa1fcb0a0e7605da6a87",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "displayText": "印刷された説明書によりますと、事業者の回答期限は十営業日です。",
+      "spokenText": "印刷された説明書によりますと、事業者の回答期限は十営業日です。",
+      "textSHA256": "ac8c40e46bf1e915c2a58a075a19f8cb37cd26d0cd8fb1b7a015be4497101d4f",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "reader",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "displayText": "回答期限",
+      "spokenText": "回答期限",
+      "textSHA256": "a831032dae7efdf278d6e9626e91cc6ddc4048e7399631cad03d84dea8cbedba",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "displayText": "支払い証明書",
+      "spokenText": "支払い証明書",
+      "textSHA256": "6c640afb3df26c7deb0e79783378051c487ffc695419b4beffcc3d22baaa3bf4",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "displayText": "支払い証明書と予約取消しのメールを添付いたします。",
+      "spokenText": "支払い証明書と予約取消しのメールを添付いたします。",
+      "textSHA256": "a37432cea202c59c8e70bef52917954a1b21868375a9f9694760bbe89a5470cc",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 21
+        },
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "reader",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "displayText": "消費者相談室",
+      "spokenText": "消費者相談室",
+      "textSHA256": "df6a84f02b3d45f493f160c90c46801567867a2cb6c8f776e5d0c618cf2acc19",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "displayText": "申立人",
+      "spokenText": "申立人",
+      "textSHA256": "8e5ab339f002dc93331cae2da5d144300e43c63a5980fd92ee0899e519f815b9",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "displayText": "申立人の欄に、エマは自分のフルネームとパスポート番号を書きます。",
+      "spokenText": "申立人の欄に、エマは自分のフルネームとパスポート番号を書きます。",
+      "textSHA256": "ba7895c3c68c7c03f1259fd14aa739865fc42be87134803460bc3eefb7d40879",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "reader",
+          "index": 6
+        }
+      ]
+    },
+    {
+      "displayText": "社印",
+      "spokenText": "社印",
+      "textSHA256": "e0307ddaf5d4d01f438855bb70586724cfa69265e895427849428650d43b41e6",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "displayText": "私の予約は取り消されましたが、預かり金は返金されませんでした。",
+      "spokenText": "私の予約は取り消されましたが、預かり金は返金されませんでした。",
+      "textSHA256": "bdaed4c72f393256545fd15d8d741eb08411fa6e04e5f93a28e0e4da491ee2e5",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 19
+        }
+      ]
+    },
+    {
+      "displayText": "私の副本に社印を押し、署名していただけますでしょうか。",
+      "spokenText": "私の副本に社印を押し、署名していただけますでしょうか。",
+      "textSHA256": "e5e60fd69e87a9213b6745e847d7c55c950d835a3cd053199d7fe2dbdc9ed1b2",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 23
+        },
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "reader",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "displayText": "署名",
+      "spokenText": "署名",
+      "textSHA256": "5bdb7e3aacfed5235d38603842da86b595d1b30fd132b6a451f162b0e5667f40",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "displayText": "行政機関",
+      "spokenText": "行政機関",
+      "textSHA256": "fe111b70430449b8e8f42c15c2ea7136b5ab5c8bc6dfb2326d93bdf39e1123ca",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "displayText": "説明書によりますと、どの副本を事業者が保管することになっていますか。",
+      "spokenText": "説明書によりますと、どの副本を事業者が保管することになっていますか。",
+      "textSHA256": "209312fa80299af935a7c60c1df2ad521c857b2acf3eb0d0d4206c1dcc921102",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 18
+        },
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "reader",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "displayText": "説明書によりますと、一部は事業者に渡され、残り二部はお客様がお持ちになります。",
+      "spokenText": "説明書によりますと、一部は事業者に渡され、残り二部はお客様がお持ちになります。",
+      "textSHA256": "5f2a10887d0bd4f7d8ee489c3900395d1e0522c56ffbf2fab2c16cba2bd4e794",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "reader",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "displayText": "説明書によりますと、回答期限は十営業日です。期限内に返金がなければ、マラガの消費者相談室へ持参します。",
+      "spokenText": "説明書によりますと、回答期限は十営業日です。期限内に返金がなければ、マラガの消費者相談室へ持参します。",
+      "textSHA256": "00cd473ff075bfc361100fab92fc7b1875c808c8884a1502674cc1ce4759f0b7",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "speaking-closure"
+        }
+      ]
+    },
+    {
+      "displayText": "請求事項",
+      "spokenText": "請求事項",
+      "textSHA256": "b99bcaa174da44459b2d98382858fb73552d5d4583b4583c701d5966f2b3dc22",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "displayText": "請求事項の欄に、彼女は次のように書きます。「60ユーロの預かり金の全額の返金を請求いたします。」",
+      "spokenText": "請求事項の欄に、彼女は次のように書きます。「60ユーロの預かり金の全額の返金を請求いたします。」",
+      "textSHA256": "277de2ffac2c76c8b670dd392e0896b7673b3c436c686153a1210c9912ad8a66",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "reader",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "displayText": "返金",
+      "spokenText": "返金",
+      "textSHA256": "fa5fb1e2afff0c62186a87e284ddecc1273506c7fe74bdc7e7ad74d9006a3cb1",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "displayText": "預かり金（デポジット）",
+      "spokenText": "預かり金（デポジット）",
+      "textSHA256": "df83c2d08ee850c368fdf44996b66a8ae29d71b19a78b1204bf513c2f5236585",
+      "placements": [
+        {
+          "lessonId": "master-travel-dinner:16:ja-en",
+          "surface": "card",
+          "index": 8
+        }
+      ]
+    }
+  ],
+  "recordingsBundled": false,
+  "listeningReviewed": false,
+  "registered": false
+}

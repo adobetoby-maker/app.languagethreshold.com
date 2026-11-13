@@ -9,11 +9,11 @@ ROOT = Path(__file__).resolve().parents[2]
 DRAFT = Path(__file__).with_name('master-12-private-draft.json')
 doc = json.loads(DRAFT.read_text())
 source = doc['source']
-for path_key, hash_key in (('curriculumPath', 'curriculumSHA256'), ('passagePath', 'passageSHA256')):
+for path_key, hash_key in (('masterPath', 'masterSHA256'), ('contentPath', 'contentSHA256')):
     path = ROOT / source[path_key]
     assert hashlib.sha256(path.read_bytes()).hexdigest() == source[hash_key], path
-curriculum = json.loads((ROOT / source['curriculumPath']).read_text())['lessons'][11]
-passage = json.loads((ROOT / source['passagePath']).read_text())['lessons']['12']['passage']
+curriculum = json.loads((ROOT / source['masterPath']).read_text())['lessons'][11]
+passage = json.loads((ROOT / source['contentPath']).read_text())['lessons']['12']['passage']
 lesson = doc['lessons'][0]
 assert (doc['pairKey'], doc['locale'], lesson['stableId']) == (
     'Japanese:English', 'ja-JP', 'master-travel-dinner:12:ja-en')

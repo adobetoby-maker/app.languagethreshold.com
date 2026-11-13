@@ -1,0 +1,341 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "Japanese",
+  "nativeLanguage": "English",
+  "pairKey": "Japanese:English",
+  "locale": "ja-JP",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-dinner.json",
+    "curriculumSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "passagePath": "public/lesson-content/es/master-travel-dinner.json",
+    "passageSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 12,
+      "stableId": "master-travel-dinner:12:ja-en",
+      "sourceTitleEnglish": "Usted or Tú: One Table, Four Kinds of Listener",
+      "sourceObjectiveEnglish": "Switch between usted and tú as you thank an owner, ask a server for help, honor an elder, and chat with children.",
+      "sourceSpeakingEnglish": "You are Daniela's guest at a family celebration in Oaxaca, and the AI plays the owner, the server, the grandmother and the cousins in turn: thank, ask and chat with each, switching between usted (quisiera, ¿sería tan amable de...?) and tú (¿me pasas...?).",
+      "title": "Usted or Tú: One Table, Four Kinds of Listener",
+      "objective": "Switch between usted and tú as you thank an owner, ask a server for help, honor an elder, and chat with children.",
+      "focus": "店主・店員・年長者には「いただけますか」「お目にかかれて光栄です」など丁寧な言い方を使います。子どもや親しい友人には「取ってくれる？」のようにくだけた形を使います。スペイン語の usted と tú の使い分けを学びつつ、日本語では相手との関係に合わせて丁寧語・尊敬語・謙譲語を選びます。",
+      "scene": "At a family restaurant in Oaxaca, Daniela brings Alex to her grandmother Doña Socorro’s 90th birthday party. Alex speaks with owner and cook Doña Eufrosina, server Brayan, the grandmother, cousins Mateo and Sofi, and Daniela, choosing Japanese register for each listener.",
+      "forms": [
+        {
+          "base": "教える（おしえる）",
+          "polite": "教えます（おしえます）",
+          "meaning": "to teach",
+          "example": "ソコーロさんが料理を教えてくださったのですか。",
+          "question": "だれに料理を教えてもらいましたか。"
+        },
+        {
+          "base": "食べる（たべる）",
+          "polite": "食べます（たべます）",
+          "meaning": "to eat",
+          "example": "どうぞ、召し上がってください。",
+          "question": "もう食べましたか。"
+        },
+        {
+          "base": "持ってくる（もってくる）",
+          "polite": "持ってきます（もってきます）",
+          "meaning": "to bring",
+          "example": "すぐにトルティーヤを持ってきます。",
+          "question": "ハイビスカスウォーターを持ってきていただけますか。"
+        },
+        {
+          "base": "来る（くる）",
+          "polite": "来ます（きます）",
+          "meaning": "to come",
+          "example": "土曜日、おばあちゃんのパーティーに来ますか。",
+          "question": "いつ店に来られましたか。"
+        },
+        {
+          "base": "話す（はなす）",
+          "polite": "話します（はなします）",
+          "meaning": "to speak, to talk",
+          "example": "ドーニャ・エウフロシーナにレシピのことを話しました。",
+          "question": "このレシピについてお話しいただけますか。"
+        }
+      ],
+      "cards": [
+        {
+          "ja": "女性の店主",
+          "en": "the owner (woman)",
+          "kind": "term"
+        },
+        {
+          "ja": "伝統的な料理人（女性）",
+          "en": "the traditional cook (woman)",
+          "kind": "term"
+        },
+        {
+          "ja": "黒いモレ",
+          "en": "the black mole",
+          "kind": "term"
+        },
+        {
+          "ja": "トラユダ（オアハカの大きくパリッとしたトルティーヤ）",
+          "en": "the tlayudas (large crisp Oaxacan tortillas)",
+          "kind": "term"
+        },
+        {
+          "ja": "ケシージョ（オアハカのひも状チーズ）",
+          "en": "the Oaxaca string cheese",
+          "kind": "term"
+        },
+        {
+          "ja": "炒ったバッタ（チャプリネス）",
+          "en": "the toasted grasshoppers",
+          "kind": "term"
+        },
+        {
+          "ja": "テハテ（トウモロコシとカカオの飲み物）",
+          "en": "the tejate (maize and cacao drink)",
+          "kind": "term"
+        },
+        {
+          "ja": "コマル（鉄板）",
+          "en": "the griddle",
+          "kind": "term"
+        },
+        {
+          "ja": "家族のレシピ",
+          "en": "the family recipe",
+          "kind": "term"
+        },
+        {
+          "ja": "おばあちゃん",
+          "en": "the grandma",
+          "kind": "term"
+        },
+        {
+          "ja": "小さないとこたち",
+          "en": "the little cousins",
+          "kind": "term"
+        },
+        {
+          "ja": "ハイビスカスウォーター（アグア・デ・ハマイカ）",
+          "en": "the hibiscus water",
+          "kind": "term"
+        },
+        {
+          "ja": "メメラス（具をのせた厚いトルティーヤ）",
+          "en": "the memelas (thick tortillas with toppings)",
+          "kind": "term"
+        },
+        {
+          "ja": "手作りのトルティーヤ",
+          "en": "the handmade tortilla",
+          "kind": "term"
+        },
+        {
+          "ja": "ドーニャ・エウフロシーナ、この黒いモレ、本当にすばらしいです。ぜひお伝えしたくて。",
+          "en": "Doña Eufrosina, I'd like to congratulate you on this black mole.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "このレシピがどこから来たのか、教えていただけますか。",
+          "en": "Could you tell me where the recipe comes from?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ブライアンさん、恐れ入りますが、トルティーヤをもう少し持ってきていただけないでしょうか。",
+          "en": "Brayan, would you be so kind as to bring us more tortillas?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ドーニャ・ソコーロ、お目にかかれて光栄です。",
+          "en": "Doña Socorro, it's an honor to meet you.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ドーニャ・ソコーロ、ドーニャ・ソコーロが、ダニエラに料理を教えてくださったのですか。",
+          "en": "Doña Socorro, did you teach Daniela to cook?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ねえ、マテオ、ケシージョを取ってくれる？",
+          "en": "Hey, Mateo, can you pass me the string cheese?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "みんな、チャプリネスはもう食べてみた？すごくカリカリだよ！",
+          "en": "Have you tried the grasshoppers yet? They're really crunchy!",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ダニエラ、ハイビスカスウォーターを取ってくれる？お願い！",
+          "en": "Daniela, can you pass me the hibiscus water, please?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "土曜日、ダニエラは友だちのアレックスを、オアハカの家族経営のレストランで開かれるおばあちゃんのパーティーに誘います。",
+          "en": "On Saturday, Daniela invites her friend Alex to her grandma's party at a family restaurant in Oaxaca."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "レストランの店主であるドーニャ・エウフロシーナは、この店の伝統的な料理人でもあります。",
+          "en": "The restaurant's owner, Doña Eufrosina, is also the traditional cook of the house."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "彼女は長いテーブルのそばにあるとても大きなコマルで、トラユダを温めています。",
+          "en": "She heats the tlayudas on a huge griddle next to the long table."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "アレックスは黒いモレを味見し、彼女に話しかけるために立ち上がります：ドーニャ・エウフロシーナ、この黒いモレ、本当にすばらしいです。ぜひお伝えしたくて。",
+          "en": "Alex tastes the black mole and gets up to speak with her: Doña Eufrosina, I'd like to congratulate you on this black mole."
+        },
+        {
+          "speaker": "Alex",
+          "ja": "アレックス：このレシピがどこから来たのか、教えていただけますか。",
+          "en": "Alex: Could you tell me where the recipe comes from?"
+        },
+        {
+          "speaker": "Doña Eufrosina",
+          "ja": "ドーニャ・エウフロシーナ：これは私のひいおばあちゃんから受け継いだ家族のレシピで、今も同じやり方で作っています。",
+          "en": "Doña Eufrosina: It's my great-grandmother's family recipe, and I still make it the same way."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "トルティーヤがすぐになくなってしまったので、アレックスは店員を呼びます：ブライアンさん、恐れ入りますが、トルティーヤをもう少し持ってきていただけないでしょうか。",
+          "en": "The tortillas run out quickly, so Alex calls the server: Brayan, would you be so kind as to bring us more tortillas?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ブライアンが、手作りのトルティーヤのかごとハイビスカスウォーターのピッチャーを持って戻ってきます。",
+          "en": "Brayan comes back with a basket of handmade tortillas and a pitcher of hibiscus water."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "その後ダニエラは、90歳になるおばあちゃん、ドーニャ・ソコーロにアレックスを紹介します。",
+          "en": "Then Daniela introduces Alex to her grandma, Doña Socorro, who is turning 90."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "アレックスは敬意をもって彼女と握手します：ドーニャ・ソコーロ、お目にかかれて光栄です。",
+          "en": "Alex shakes her hand respectfully: Doña Socorro, it's an honor to meet you."
+        },
+        {
+          "speaker": "Alex",
+          "ja": "アレックス：ドーニャ・ソコーロ、ドーニャ・ソコーロが、ダニエラに料理を教えてくださったのですか。",
+          "en": "Alex: Doña Socorro, did you teach Daniela to cook?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "ドーニャ・ソコーロはテハテを一口飲み、ダニエラは8歳のころにはもうおばあちゃんのコマルでトルティーヤを焼いていたと話します。",
+          "en": "Doña Socorro takes a sip of tejate and says that Daniela was already making tortillas on her griddle at age 8."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "そのあと、アレックスは小さないとこのマテオとソフィのところに座ります。二人はフリホーレス（豆）をのせたメメラスを食べています。",
+          "en": "Later Alex sits with the little cousins, Mateo and Sofi, who are eating memelas with beans."
+        },
+        {
+          "speaker": "Alex",
+          "ja": "アレックス：ねえ、マテオ、ケシージョを取ってくれる？",
+          "en": "Alex: Hey, Mateo, can you pass me the string cheese?"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "マテオがケシージョを渡し、アレックスは子どもたちにチャプリネスの皿を勧めます。",
+          "en": "Mateo passes him the string cheese, and Alex offers the kids a plate of grasshoppers."
+        },
+        {
+          "speaker": "Alex",
+          "ja": "アレックス：みんな、チャプリネスはもう食べてみた？すごくカリカリだよ！",
+          "en": "Alex: Have you tried the grasshoppers yet? They're really crunchy!"
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "アレックスは友だちの方を向きます：ダニエラ、ハイビスカスウォーターを取ってくれる？お願い！",
+          "en": "Alex turns to his friend: Daniela, can you pass me the hibiscus water, please?"
+        }
+      ],
+      "modes": {
+        "see": {
+          "cueEnglish": "Doña Eufrosina, I'd like to congratulate you on this black mole.",
+          "sourceCard": 15,
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "cueEnglish": "Could you tell me where the recipe comes from?",
+          "sourceCard": 16,
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "cueEnglish": "Brayan, would you be so kind as to bring us more tortillas?",
+          "sourceCard": 17,
+          "responseKind": "fixed"
+        },
+        "type": {
+          "cueEnglish": "Doña Socorro, it's an honor to meet you.",
+          "sourceCard": 18,
+          "responseKind": "fixed"
+        },
+        "say": {
+          "cueEnglish": "Doña Socorro, did you teach Daniela to cook?",
+          "sourceCard": 19,
+          "responseKind": "open"
+        },
+        "write": {
+          "cueEnglish": "Hey, Mateo, can you pass me the string cheese?",
+          "sourceCard": 20,
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "You, Alex, Daniela’s guest at her grandmother’s celebration in an Oaxaca family restaurant.",
+        "partnerRole": "Doña Eufrosina the owner, Brayan the server, Doña Socorro the grandmother, and the cousins Mateo and Sofi, played by the AI in turn.",
+        "opening": "いらっしゃいませ。ダニエラさんのお客様ですね。店主のエウフロシーナです。今日はソコーロさんの90歳のお祝いです。黒いモレはいかがですか。",
+        "objectives": [
+          "Thank and compliment Doña Eufrosina in respectful language.",
+          "Ask Brayan politely to bring more tortillas.",
+          "Honor Doña Socorro and ask whether she taught Daniela to cook.",
+          "Chat casually with Mateo and Sofi about quesillo and chapulines.",
+          "Ask Daniela casually to pass the hibiscus water."
+        ],
+        "closure": "ねえ、アレックス、チャプリネス、もっと食べる？",
+        "wordBank": [
+          "女性の店主",
+          "伝統的な料理人（女性）",
+          "黒いモレ",
+          "トラユダ（オアハカの大きくパリッとしたトルティーヤ）",
+          "ケシージョ（オアハカのひも状チーズ）",
+          "炒ったバッタ（チャプリネス）",
+          "テハテ（トウモロコシとカカオの飲み物）",
+          "コマル（鉄板）",
+          "家族のレシピ",
+          "おばあちゃん",
+          "小さないとこたち",
+          "ハイビスカスウォーター（アグア・デ・ハマイカ）",
+          "メメラス（具をのせた厚いトルティーヤ）",
+          "手作りのトルティーヤ",
+          "ドーニャ・エウフロシーナ、この黒いモレ、本当にすばらしいです。ぜひお伝えしたくて。",
+          "このレシピがどこから来たのか、教えていただけますか。",
+          "ブライアンさん、恐れ入りますが、トルティーヤをもう少し持ってきていただけないでしょうか。",
+          "ドーニャ・ソコーロ、お目にかかれて光栄です。",
+          "ドーニャ・ソコーロ、ドーニャ・ソコーロが、ダニエラに料理を教えてくださったのですか。",
+          "ねえ、マテオ、ケシージョを取ってくれる？",
+          "みんな、チャプリネスはもう食べてみた？すごくカリカリだよ！",
+          "ダニエラ、ハイビスカスウォーターを取ってくれる？お願い！"
+        ],
+        "goal": "Switch between usted and tú as you thank an owner, ask a server for help, honor an elder, and chat with children."
+      },
+      "reviewed": false
+    }
+  ]
+}

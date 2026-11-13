@@ -18,9 +18,10 @@ type Lesson = {
   reviewed: false;
   cards: Card[];
   reader: { speaker: string; ja: string; en: string }[];
-  forms?: { base: string; polite: string; meaning: string; [key: string]: string }[];
+  forms: { label: string; japanese: string; english: string; explanation: string }[];
   modes: Record<string, { cueEnglish: string; sourceCard: number; responseKind: string }>;
-  speaking: { role: string; partnerRole: string; opening: string; goal: string; closure: string; wordBank: string[] };
+  speaking: { role: string; partnerRole: string; opening: string; goal: string; closure: string;
+    objectives: string[]; wordBank: string[]; wordBankAuthored: boolean };
 };
 type Packet = {
   pairKey: "Japanese:English";
@@ -110,7 +111,7 @@ function JapaneseReview() {
       </section> : error ? <p role="alert" className={panel}>{error}</p> : !packet ? <p role="status">Loading owner review…</p> : <>
         <section className={panel}>
           <p className="font-semibold">Foundation {packet.lessons.filter((entry) => entry.stage === "foundation").length}/10 · Core {packet.lessons.filter((entry) => entry.stage === "core").length}/30 · Master {packet.lessons.filter((entry) => entry.stage === "master").length}/20</p>
-          <p className="mt-1 text-sm text-muted-foreground">Partial owner-review draft · forms and speaking authoring pending · reviewed: false · learner registration: false · recorded audio: not yet registered</p>
+          <p className="mt-1 text-sm text-muted-foreground">Partial owner-review draft · Foundation 1–3 have draft forms and speaking support; the other 57 lessons still need them · reviewed: false · learner registration: false · recorded audio: not yet registered</p>
           <label className="mt-4 block font-semibold" htmlFor="japanese-draft-lesson">Choose a lesson</label>
           <select id="japanese-draft-lesson" className="mt-2 w-full rounded-lg border border-border bg-background p-3" value={selected} onChange={(event) => { setSelected(event.target.value); setRevealed(false); setNote(""); }}>
             {packet.lessons.map((entry) => <option key={entry.stableId} value={entry.stableId}>{entry.stage === "foundation" ? "Foundation" : entry.stage === "core" ? "Core" : "Master"} {entry.n}: {entry.title}</option>)}
@@ -123,7 +124,7 @@ function JapaneseReview() {
             <p className="mt-3 text-muted-foreground">{lesson.scene}</p>
             <h3 className="mt-5 font-semibold">Language focus</h3><p className="mt-1">{lesson.focus}</p>
             <p className="mt-4 rounded-lg border border-amber-500 p-3 text-sm">{lesson.reviewGaps.join(" · ")}. These fields need qualified review before learner release.</p>
-            {!!lesson.forms?.length && <div className="mt-4"><h3 className="font-semibold">Japanese forms</h3><ul className="mt-2 space-y-1">{lesson.forms.map((form, index) => <li key={index} lang="ja">{form.base} → {form.polite} · {form.meaning}</li>)}</ul></div>}
+            {!!lesson.forms.length && <div className="mt-4"><h3 className="font-semibold">Japanese forms</h3><ul className="mt-2 space-y-3">{lesson.forms.map((form, index) => <li key={index}><p className="font-semibold">{form.label}</p><p lang="ja">{form.japanese}</p><p>{form.english}</p><p className="text-sm text-muted-foreground">{form.explanation}</p></li>)}</ul></div>}
           </section>
           <section className={panel}>
             <h2 className="font-serif text-2xl">Six activity prompts</h2>
@@ -132,7 +133,7 @@ function JapaneseReview() {
           </section>
           <section className={panel}><h2 className="font-serif text-2xl">Cards</h2><ul className="mt-4 grid gap-3 sm:grid-cols-2">{lesson.cards.map((card, index) => <li key={`${index}-${card.ja}`} className="rounded-xl border border-border p-3"><p lang="ja" className="text-lg">{card.ja}</p>{card.readingKana && <p lang="ja" className="text-sm text-muted-foreground">{card.readingKana}</p>}<p className="mt-1">{card.en}</p></li>)}</ul></section>
           <section className={panel}><h2 className="font-serif text-2xl">Reader</h2><ol className="mt-4 space-y-3">{lesson.reader.map((turn, index) => <li key={index} className="border-l-2 border-gold/50 pl-4"><p className="text-sm font-semibold">{turn.speaker}</p><p lang="ja" className="text-lg">{turn.ja}</p><p>{turn.en}</p></li>)}</ol></section>
-          <section className={panel}><h2 className="font-serif text-2xl">Speaking scene</h2><p className="mt-2">{lesson.speaking.role} · {lesson.speaking.partnerRole}</p><p className="mt-2" lang="ja">Opening: {lesson.speaking.opening}</p><p className="mt-2">Goal: {lesson.speaking.goal}</p><p className="mt-2" lang="ja">Closure: {lesson.speaking.closure}</p><p className="mt-2">Candidate card vocabulary (authored speaking word bank pending): <span lang="ja">{lesson.speaking.wordBank.join(" · ")}</span></p></section>
+          <section className={panel}><h2 className="font-serif text-2xl">Speaking scene</h2><p className="mt-2">{lesson.speaking.role} · {lesson.speaking.partnerRole}</p><p className="mt-2" lang="ja">Opening: {lesson.speaking.opening}</p><p className="mt-2">Goal: {lesson.speaking.goal}</p>{!!lesson.speaking.objectives.length && <ol className="mt-2 list-decimal pl-5">{lesson.speaking.objectives.map((objective, index) => <li key={index}>{objective}</li>)}</ol>}<p className="mt-2" lang="ja">Closure: {lesson.speaking.closure}</p><p className="mt-2">{lesson.speaking.wordBankAuthored ? "Draft speaking word bank" : "Candidate card vocabulary (authored speaking word bank pending)"}: <span lang="ja">{lesson.speaking.wordBank.join(" · ")}</span></p></section>
           <section className={panel}><h2 className="font-serif text-2xl">Review note</h2><p className="mt-1 text-sm text-muted-foreground">Download a lesson-specific note for the authoring ledger. This does not mark the lesson approved.</p><textarea className="mt-3 min-h-28 w-full rounded-lg border border-border bg-background p-3" value={note} onChange={(event) => setNote(event.target.value)} aria-label="Review note" /><button className="mt-2 rounded-lg border border-border px-4 py-2 disabled:opacity-50" disabled={!note.trim()} onClick={downloadNote}>Download review note</button></section>
         </>}
       </>}

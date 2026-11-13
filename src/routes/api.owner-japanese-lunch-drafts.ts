@@ -43,10 +43,21 @@ type Draft = {
 type Sidecar = { pairKey: string; reviewed: boolean; registered: boolean; audioListeningReviewed: boolean; source: string; sourceSha256: string;
   activities: { lessonId: string; mode: string; cueEnglish: string; sourceRef: string; modelJapanese: string; modelEnglish: string; responseKind: string; readyForLearner: boolean }[];
 };
+type Enrichment = { pairKey: string; sourcePath: string; sourceSha256: string; reviewed: boolean; registered: boolean; readyForLearner: boolean;
+  lessons: { stableId: string; forms: { label: string; japanese: string; english: string; explanation: string }[];
+    speakingObjectives: string[]; wordBank: string[] }[];
+};
 function check(condition: unknown, message: string): asserts condition {
   if (!condition) throw new Error(message);
 }
 async function lunchDrafts() {
+  const enrichment = (await import("../../content/japanese-travel-lunch/private-foundation-1-3-enrichment.json")).default as Enrichment;
+  check(enrichment.pairKey === "Japanese:English" && enrichment.sourcePath === "content/japanese-travel-lunch/foundation-1-3-draft.json" &&
+    enrichment.sourceSha256 === "6b8577d0da33c2f84152cd8dac9724609c41df1f6d2de2fdd92a2d1837856017" &&
+    enrichment.reviewed === false && enrichment.registered === false && enrichment.readyForLearner === false &&
+    enrichment.lessons.map((lesson) => lesson.stableId).join() ===
+      "foundation-travel-lunch:1:ja-en,foundation-travel-lunch:2:ja-en,foundation-travel-lunch:3:ja-en",
+    "Japanese Lunch enrichment source or release gate changed");
   const packets = await Promise.all(stages.map(async ({ draft, modes, sourceSha256 }) => ({
     batch: (await draft()).default as Draft, sidecar: (await modes()).default as Sidecar, sourceSha256,
   })));
@@ -65,6 +76,11 @@ async function lunchDrafts() {
       check(Number.isInteger(lesson.n) && lesson.stableId === `${batch.stageId}:${lesson.n}:ja-en` &&
         lesson.cards.length > 0 && lesson.reader.length > 0, "Japanese Lunch lesson identity changed");
       const activities = sidecar.activities.filter((activity) => activity.lessonId === lesson.stableId);
+      const authored = enrichment.lessons.find((entry) => entry.stableId === lesson.stableId);
+      if (authored) check(stage === "foundation" && lesson.n <= 3 && authored.forms.length === 3 &&
+        authored.speakingObjectives.length >= 3 && authored.wordBank.length >= 4 &&
+        authored.wordBank.every((word) => lesson.cards.some((card) => card.ja === word)),
+        "Japanese Lunch authored enrichment scope changed");
       const modes = Object.fromEntries(modeNames.map((name) => {
         const activity = activities.find((entry) => entry.mode === name);
         check(activity && activity.readyForLearner === false, `Japanese Lunch ${name} activity missing or released`);
@@ -78,9 +94,11 @@ async function lunchDrafts() {
       }));
       return { stage, n: lesson.n, stableId: lesson.stableId, title: lesson.title, objective: lesson.objective,
         focus: lesson.focus, scene: lesson.scene, reviewed: false, cards: lesson.cards.map(({ ja, en, kind, readingKana }) => ({ ja, en, kind, readingKana })),
-        reader: lesson.reader, forms: [], modes,
-        speaking: { ...lesson.speaking, wordBank: lesson.cards.map(({ ja }) => ja) },
-        reviewGaps: ["Japanese forms pending", "Speaking objectives and authored word bank pending"] };
+        reader: lesson.reader, forms: authored?.forms ?? [], modes,
+        speaking: { ...lesson.speaking, objectives: authored?.speakingObjectives ?? [],
+          wordBank: authored?.wordBank ?? lesson.cards.map(({ ja }) => ja), wordBankAuthored: !!authored },
+        reviewGaps: authored ? ["Qualified Japanese and domain review pending"] :
+          ["Japanese forms pending", "Speaking objectives and authored word bank pending"] };
     });
   }).sort((a, b) => (stageRank[a.stage] ?? 9) - (stageRank[b.stage] ?? 9) || a.n - b.n);
   const expected = [

@@ -1,0 +1,356 @@
+{
+  "schema": 1,
+  "courseId": "travel-dinner",
+  "stageId": "master-travel-dinner",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "state": "partial-authored-draft",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-dinner.json",
+    "curriculumSHA256": "fb455608407244337f08a93e1fd393c8966358f13945cf3760c8b85c2be602be",
+    "passagePath": "public/lesson-content/es/master-travel-dinner.json",
+    "passageSHA256": "53f641f4fa66a2aa3b0adbdbbf4133fb7899858d1ea7737d2b52eee341fc0b80",
+    "revision": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e"
+  },
+  "lessons": [
+    {
+      "n": 18,
+      "stableId": "master-travel-dinner:18:fr-en",
+      "sourceTitleEnglish": "Flight Delayed: Move the Group Booking by WhatsApp",
+      "sourceObjectiveEnglish": "Text and phone a restaurant to move a group booking, confirm the new details, and leave a clear voice message.",
+      "sourceSpeakingEnglish": "You are the traveler at the airport gate, and the AI is Yesenia, the restaurant host: ask to move your booking for 10 to a later time with ¿podrían pasarnos…? and le agradecería que me confirmara…, confirm the new details, and leave a clear voice message.",
+      "title": "Flight Delayed: Move the Group Booking by WhatsApp",
+      "objective": "Text and phone a restaurant to move a group booking, confirm the new details, and leave a clear voice message.",
+      "focus": "Messages et appels au restaurant ; demandes polies au conditionnel (« Pourriez-vous reporter notre réservation à 22 h ? », « Je vous saurais gré de me confirmer le changement par écrit. »). Distinguer le message vocal WhatsApp de la messagerie vocale, et confirmer l'horaire par écrit.",
+      "scene": "À la porte d'embarquement de l'aéroport de Bogotá, Sam Rivera apprend que son vol partira avec deux heures de retard. La réservation pour 10 personnes à Carthagène des Indes doit passer de 20 h à 22 h ; Sam appelle, laisse un message, écrit à Yesenia et confirme le transfert depuis l'aéroport.",
+      "cards": [
+        {
+          "en": "the delayed flight",
+          "fr": "le vol retardé",
+          "kind": "term"
+        },
+        {
+          "en": "the boarding gate",
+          "fr": "la porte d'embarquement",
+          "kind": "term"
+        },
+        {
+          "en": "the airline",
+          "fr": "la compagnie aérienne",
+          "kind": "term"
+        },
+        {
+          "en": "the estimated arrival time",
+          "fr": "l'heure d'arrivée estimée",
+          "kind": "term"
+        },
+        {
+          "en": "the voice note",
+          "fr": "le message vocal (sur WhatsApp)",
+          "kind": "term"
+        },
+        {
+          "en": "the voicemail",
+          "fr": "la messagerie vocale",
+          "kind": "term"
+        },
+        {
+          "en": "the missed call",
+          "fr": "l'appel manqué",
+          "kind": "term"
+        },
+        {
+          "en": "the phone signal",
+          "fr": "la couverture réseau",
+          "kind": "term"
+        },
+        {
+          "en": "the room, availability",
+          "fr": "les places disponibles",
+          "kind": "term"
+        },
+        {
+          "en": "the last seating",
+          "fr": "le dernier service",
+          "kind": "term"
+        },
+        {
+          "en": "the kitchen closing time",
+          "fr": "l'heure de fermeture de la cuisine",
+          "kind": "term"
+        },
+        {
+          "en": "the advance payment",
+          "fr": "l'acompte",
+          "kind": "term"
+        },
+        {
+          "en": "the person the booking is under",
+          "fr": "le titulaire de la réservation",
+          "kind": "term"
+        },
+        {
+          "en": "the transfer (airport ride)",
+          "fr": "le transfert (trajet depuis l’aéroport)",
+          "kind": "term"
+        },
+        {
+          "en": "in writing",
+          "fr": "par écrit",
+          "kind": "term"
+        },
+        {
+          "en": "Good afternoon, Yesenia, I'm writing about the booking for 10 people.",
+          "fr": "Bonjour Yesenia, je vous écris au sujet de la réservation pour 10 personnes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you move us to 22:00, please?",
+          "fr": "Pourriez-vous reporter notre réservation à 22 h, s'il vous plaît ?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Would you still have room for 10 people before the kitchen closes?",
+          "fr": "Auriez-vous encore de la place pour 10 personnes avant la fermeture de la cuisine ?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'd appreciate it if you confirmed the change in writing.",
+          "fr": "Je vous saurais gré de me confirmer le changement par écrit.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sorry, the voice note is breaking up; could you write it to me, please?",
+          "fr": "Excusez-moi, votre message vocal est haché ; pourriez-vous me l'écrire, s'il vous plaît ?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Hello, Yesenia, this is Sam Rivera; our flight is delayed.",
+          "fr": "Bonjour Yesenia, ici Sam Rivera ; notre vol est retardé.",
+          "kind": "phrase"
+        },
+        {
+          "en": "So we're set: 10 people, at 22:00, under the name Rivera.",
+          "fr": "Donc c'est réglé : 10 personnes, à 22 h, au nom de Rivera.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Guys, it's done: we're having dinner at 22:00.",
+          "fr": "Tout le monde, c’est réglé : on dîne à 22 h.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "en": "Sam Rivera is at the boarding gate of the Bogotá airport with nine friends and looks at the screen with concern.",
+          "fr": "Sam Rivera est à la porte d'embarquement de l'aéroport de Bogotá avec neuf amis et regarde l'écran avec inquiétude."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "The airline announces that the delayed flight is going to leave two hours late.",
+          "fr": "La compagnie aérienne annonce que le vol retardé va partir avec deux heures de retard."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Now the estimated arrival time in Cartagena is 20:45, and the group's booking is at 20:00.",
+          "fr": "L’heure d’arrivée estimée à Carthagène des Indes est désormais 20 h 45, tandis que la réservation du groupe est à 20 h."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Sam calls the restaurant, but nobody answers, and a missed call is left on Yesenia's phone.",
+          "fr": "Sam appelle le restaurant, mais personne ne répond ; un appel manqué s’affiche sur le téléphone de Yesenia."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "So Sam leaves a clear message on the voicemail: Hello, Yesenia, this is Sam Rivera; our flight is delayed.",
+          "fr": "Alors Sam laisse un message clair sur la messagerie vocale : Bonjour Yesenia, ici Sam Rivera ; notre vol est retardé."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Sam continues the message slowly: We are 10 people, the booking is under my name, and I'm writing to you on WhatsApp right now.",
+          "fr": "Sam poursuit le message lentement : Nous sommes 10 personnes, la réservation est à mon nom, et je vous écris sur WhatsApp tout de suite."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Then Sam writes in the restaurant's chat: Good afternoon, Yesenia, I'm writing about the booking for 10 people.",
+          "fr": "Sam écrit ensuite dans la conversation WhatsApp du restaurant : Bonjour Yesenia, je vous écris au sujet de la réservation pour 10 personnes."
+        },
+        {
+          "speaker": "Sam",
+          "en": "Sam: Could you move us to 22:00, please?",
+          "fr": "Sam : Pourriez-vous reporter notre réservation à 22 h, s'il vous plaît ?"
+        },
+        {
+          "speaker": "Sam",
+          "en": "Sam: Would you still have room for 10 people before the kitchen closes?",
+          "fr": "Sam : Auriez-vous encore de la place pour 10 personnes avant la fermeture de la cuisine ?"
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Yesenia answers with a fast voice note, but the phone signal near the boarding gate is very bad.",
+          "fr": "Yesenia répond par un message vocal rapide, mais près de la porte d’embarquement, le réseau capte très mal."
+        },
+        {
+          "speaker": "Sam",
+          "en": "Sam: Sorry, the voice note is breaking up; could you write it to me, please?",
+          "fr": "Sam : Excusez-moi, votre message vocal est haché ; pourriez-vous me l'écrire, s'il vous plaît ?"
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Yesenia writes that the last seating starts at 22:00 and that the kitchen closes at 23:00.",
+          "fr": "Yesenia écrit que le dernier service commence à 22 h et que la cuisine ferme à 23 h."
+        },
+        {
+          "speaker": "Yesenia",
+          "en": "Yesenia: Yes, there is room, and the 200,000 pesos advance payment you already made counts for the new time.",
+          "fr": "Yesenia : Oui, il reste des places, et l’acompte de 200 000 pesos colombiens que vous avez déjà versé reste valable pour le nouvel horaire."
+        },
+        {
+          "speaker": "Yesenia",
+          "en": "Yesenia: I just need the person the booking is under to confirm the details for me.",
+          "fr": "Yesenia : J'ai seulement besoin que le titulaire de la réservation me confirme les détails."
+        },
+        {
+          "speaker": "Sam",
+          "en": "Sam: So we're set: 10 people, at 22:00, under the name Rivera.",
+          "fr": "Sam : Donc c'est réglé : 10 personnes, à 22 h, au nom de Rivera."
+        },
+        {
+          "speaker": "Sam",
+          "en": "Sam: I'd appreciate it if you confirmed the change in writing.",
+          "fr": "Sam : Je vous saurais gré de me confirmer le changement par écrit."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "Yesenia confirms everything in the chat, and Sam writes to the transfer company to change the pickup to 21:00.",
+          "fr": "Yesenia confirme tous les détails par écrit dans la conversation, et Sam écrit à la société de transfert pour décaler l’heure de prise en charge à 21 h."
+        },
+        {
+          "speaker": "Narrator",
+          "en": "In the end, Sam tells the friends: Guys, it's done: we're having dinner at 22:00.",
+          "fr": "Enfin, Sam annonce à ses amis : Tout le monde, c’est réglé : on dîne à 22 h."
+        }
+      ],
+      "forms": [
+        {
+          "infinitive": "pouvoir",
+          "meaning": "to be able to; can",
+          "example": "Nous pourrions arriver vers 22 h.",
+          "question": "Pourriez-vous nous donner une table à 22 h ?",
+          "politeRequest": "Pourriez-vous reporter notre réservation à 22 h, s'il vous plaît ?"
+        },
+        {
+          "infinitive": "confirmer",
+          "meaning": "to confirm",
+          "example": "Vous confirmez la réservation par écrit.",
+          "question": "Pouvez-vous confirmer le changement ?",
+          "politeRequest": "Je vous saurais gré de me confirmer le changement par écrit."
+        },
+        {
+          "infinitive": "laisser",
+          "meaning": "to leave (something, such as a message)",
+          "example": "Je laisse un message sur la messagerie vocale.",
+          "question": "Voulez-vous laisser un message ?",
+          "politeRequest": "Puis-je laisser un message sur votre messagerie vocale, s’il vous plaît ?"
+        },
+        {
+          "infinitive": "écrire",
+          "meaning": "to write",
+          "example": "Je vous écris par WhatsApp.",
+          "question": "Pouvez-vous me l'écrire ?",
+          "politeRequest": "Pourriez-vous me l'écrire, s'il vous plaît ?"
+        },
+        {
+          "infinitive": "avoir",
+          "meaning": "to have",
+          "example": "Nous avons une réservation à 20 h.",
+          "question": "Avez-vous encore de la place pour 10 personnes ?",
+          "politeRequest": "Auriez-vous encore de la place pour 10 personnes, s'il vous plaît ?"
+        }
+      ],
+      "modes": {
+        "see": {
+          "sourceCard": 2,
+          "cueEnglish": "the boarding gate",
+          "cueFrench": "la porte d'embarquement",
+          "responseKind": "fixed"
+        },
+        "recall": {
+          "sourceCard": 12,
+          "cueEnglish": "the advance payment",
+          "cueFrench": "l'acompte",
+          "responseKind": "fixed"
+        },
+        "hear": {
+          "sourceCard": 6,
+          "cueEnglish": "the voicemail",
+          "cueFrench": "la messagerie vocale",
+          "responseKind": "open"
+        },
+        "type": {
+          "sourceCard": 18,
+          "cueEnglish": "Would you still have room for 10 people before the kitchen closes?",
+          "cueFrench": "Auriez-vous encore de la place pour 10 personnes avant la fermeture de la cuisine ?",
+          "responseKind": "fixed"
+        },
+        "say": {
+          "sourceCard": 17,
+          "cueEnglish": "Could you move us to 22:00, please?",
+          "cueFrench": "Pourriez-vous reporter notre réservation à 22 h, s'il vous plaît ?",
+          "responseKind": "open"
+        },
+        "write": {
+          "sourceCard": 19,
+          "cueEnglish": "I'd appreciate it if you confirmed the change in writing.",
+          "cueFrench": "Je vous saurais gré de me confirmer le changement par écrit.",
+          "responseKind": "open"
+        }
+      },
+      "speaking": {
+        "role": "Vous êtes à la porte d’embarquement et devez modifier la réservation du groupe.",
+        "partnerRole": "Yesenia, à l’accueil du restaurant (vouvoiement).",
+        "opening": "Bonjour Yesenia, je vous écris au sujet de la réservation pour 10 personnes.",
+        "objectives": [
+          "Demander à reporter la réservation de 10 personnes à 22 h avec une formule conditionnelle polie.",
+          "Confirmer le nom Rivera, le nombre de personnes, le nouvel horaire, le maintien de l’acompte et demander une confirmation écrite.",
+          "Laisser sur la messagerie vocale un message clair annonçant le retard du vol, le nombre de personnes et le rappel par WhatsApp."
+        ],
+        "closure": "Merci beaucoup, Yesenia. Je vous souhaite une bonne soirée.",
+        "goal": "Reporter la réservation à 22 h, confirmer les détails par écrit et laisser un message clair sur la messagerie vocale.",
+        "wordBank": [
+          "le vol retardé",
+          "la porte d'embarquement",
+          "la compagnie aérienne",
+          "l'heure d'arrivée estimée",
+          "le message vocal (sur WhatsApp)",
+          "la messagerie vocale",
+          "l'appel manqué",
+          "la couverture réseau",
+          "les places disponibles",
+          "le dernier service",
+          "l'heure de fermeture de la cuisine",
+          "l'acompte",
+          "le titulaire de la réservation",
+          "le transfert (trajet depuis l’aéroport)",
+          "par écrit",
+          "Bonjour Yesenia, je vous écris au sujet de la réservation pour 10 personnes.",
+          "Pourriez-vous reporter notre réservation à 22 h, s'il vous plaît ?",
+          "Auriez-vous encore de la place pour 10 personnes avant la fermeture de la cuisine ?",
+          "Je vous saurais gré de me confirmer le changement par écrit.",
+          "Excusez-moi, votre message vocal est haché ; pourriez-vous me l'écrire, s'il vous plaît ?",
+          "Bonjour Yesenia, ici Sam Rivera ; notre vol est retardé.",
+          "Donc c'est réglé : 10 personnes, à 22 h, au nom de Rivera.",
+          "Tout le monde, c’est réglé : on dîne à 22 h."
+        ]
+      },
+      "reviewed": false
+    }
+  ]
+}

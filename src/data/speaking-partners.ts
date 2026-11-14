@@ -194,8 +194,8 @@ export const SPEAKING_PARTNERS = [
     "teacher",
     "Teacher",
     "Education",
-    "a teacher discussing a lesson or school situation",
-    "a learner or parent, as the module specifies",
+    "a language teacher guiding the chosen topic",
+    "a student",
   ],
   ["student", "Student", "Education", "a student asking about the lesson", "a teacher"],
   [

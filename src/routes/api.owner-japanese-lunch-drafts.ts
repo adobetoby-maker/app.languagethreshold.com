@@ -85,6 +85,16 @@ async function lunchDrafts() {
       "travel-lunch:1:ja-en,travel-lunch:2:ja-en,travel-lunch:3:ja-en",
     "Japanese Lunch Core 1–3 enrichment source or release gate changed");
   authoredLessons.push(...coreEnrichment.lessons);
+  const nextCoreEnrichment = (await import("../../content/japanese-travel-lunch/private-core-4-6-enrichment.json")).default as Enrichment;
+  check(nextCoreEnrichment.pairKey === "Japanese:English" &&
+    nextCoreEnrichment.sourcePath === "content/japanese-travel-lunch/core-4-6-draft.json" &&
+    nextCoreEnrichment.sourceSha256 === "5443a0b8ee74446056c6550a39e4944288f3b5b0962a1063191587b68f436341" &&
+    nextCoreEnrichment.reviewed === false && nextCoreEnrichment.registered === false &&
+    nextCoreEnrichment.readyForLearner === false &&
+    nextCoreEnrichment.lessons.map((lesson) => lesson.stableId).join() ===
+      "travel-lunch:4:ja-en,travel-lunch:5:ja-en,travel-lunch:6:ja-en",
+    "Japanese Lunch Core 4–6 enrichment source or release gate changed");
+  authoredLessons.push(...nextCoreEnrichment.lessons);
   const packets = await Promise.all(stages.map(async ({ draft, modes, sourceSha256 }) => ({
     batch: (await draft()).default as Draft, sidecar: (await modes()).default as Sidecar, sourceSha256,
   })));
@@ -104,7 +114,7 @@ async function lunchDrafts() {
         lesson.cards.length > 0 && lesson.reader.length > 0, "Japanese Lunch lesson identity changed");
       const activities = sidecar.activities.filter((activity) => activity.lessonId === lesson.stableId);
       const authored = authoredLessons.find((entry) => entry.stableId === lesson.stableId);
-      if (authored) check(((stage === "foundation" && lesson.n <= 10) || (stage === "core" && lesson.n <= 3)) && authored.forms.length === 3 &&
+      if (authored) check(((stage === "foundation" && lesson.n <= 10) || (stage === "core" && lesson.n <= 6)) && authored.forms.length === 3 &&
         authored.speakingObjectives.length >= 3 && authored.wordBank.length >= 4 &&
         authored.wordBank.every((word) => lesson.cards.some((card) => card.ja === word)),
         "Japanese Lunch authored enrichment scope changed");

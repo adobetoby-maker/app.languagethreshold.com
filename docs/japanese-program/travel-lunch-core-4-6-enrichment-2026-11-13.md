@@ -1,0 +1,7 @@
+# Japanese Lunch Core 4–6 owner review enrichment
+
+The private sidecar pins `core-4-6-draft.json` at SHA-256 `5443a0b8ee74446056c6550a39e4944288f3b5b0962a1063191587b68f436341`. Each of Core 4–6 now has three source-linked Japanese form explanations, scene-specific speaking objectives and a curated word bank drawn only from that lesson's cards. Stable IDs and release gates remain unchanged: `reviewed:false`, `registered:false`, `readyForLearner:false`. The owner-only projection exposes these drafts; it does not register learner runtime or audio.
+
+Direct `claude --safe-mode` calls returned `claude-haiku-5-5` metadata for candidate authoring and `claude-opus-5-5` metadata for read-only critique. Source-grounded self-check corrected the subject marker in `どちらがおすすめですか`, the sense of `変更できます`, the context of `多い`, and an opening/speaking mismatch. AI critique is not qualified Japanese approval.
+
+Internal source questions remain: Core 4 has adjacent guest turns and leaves the replacement cheese unspecified; Core 5's Reader introduces `たれ` before its card and omits `野菜` and `値段`; Core 6's local-dish answer is indirect and `鶏肉の丼` needs menu-usage review. These notes are separate from learner-facing explanations. Qualified Japanese and restaurant review, dictionary sense review, exact-pair learner runtime/offline/native work, and distinct listening decisions remain open. No audio was generated or approved for this enrichment.

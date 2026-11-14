@@ -206,10 +206,10 @@ test("platform owner can inspect partial Japanese Lunch drafts without releasing
     assert.ok(data.lessons.slice(0, 10).every((lesson) => lesson.forms.length === 3 &&
       lesson.speaking.objectives.length >= 3 && lesson.speaking.wordBankAuthored === true &&
       lesson.reviewGaps.length === 1));
-    assert.ok(data.lessons.slice(10, 31).every((lesson) => lesson.forms.length === 3 &&
+    assert.ok(data.lessons.slice(10, 34).every((lesson) => lesson.forms.length === 3 &&
       lesson.speaking.objectives.length >= 3 && lesson.speaking.wordBankAuthored === true &&
       lesson.reviewGaps.length === 1));
-    assert.ok(data.lessons.slice(31).every((lesson) => lesson.forms.length === 0 &&
+    assert.ok(data.lessons.slice(34).every((lesson) => lesson.forms.length === 0 &&
       lesson.speaking.objectives.length === 0 && lesson.speaking.wordBankAuthored === false &&
       lesson.reviewGaps.length === 2));
     assert.ok(data.lessons.every((lesson) => !Object.hasOwn(lesson, "internalReviewNote")));

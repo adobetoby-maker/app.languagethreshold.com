@@ -1,0 +1,128 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "sourcePath": "content/japanese-travel-lunch/core-13-15-draft.json",
+  "sourceSha256": "3c4c9f965ae84dac2658c4d594a2731228967778e063d48fe5c99e25a3638deb",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "lessons": [
+    {
+      "stableId": "travel-lunch:13:ja-en",
+      "speakingObjectives": [
+        "Answer the server’s opening question by saying that the finished meal was very delicious.",
+        "Name the sauce as a detail you especially liked and say the ingredients were fresh.",
+        "Explain that the homemade flavor reminded you of your grandmother’s cooking.",
+        "Close by asking the server to pass your thanks to the cook."
+      ],
+      "wordBank": [
+        "とてもおいしかったです",
+        "たれの味が特に好きでした",
+        "材料",
+        "新鮮",
+        "祖母の料理を思い出しました",
+        "料理人にお礼を伝えていただけますか",
+        "味",
+        "思い出"
+      ],
+      "forms": [
+        {
+          "label": "Past polite adjective",
+          "japanese": "とてもおいしかったです",
+          "english": "Everything was very delicious",
+          "explanation": "おいしい is an i-adjective. For the past polite form, drop the final い and add かったです, giving おいしかったです. とても means very."
+        },
+        {
+          "label": "Past polite na-adjective with が",
+          "japanese": "たれの味が特に好きでした",
+          "english": "I especially liked the sauce flavor",
+          "explanation": "好き is a na-adjective. Its past polite form is 好きでした. The thing that is liked is marked with が (たれの味が), not を, because 好き takes が. 特に means especially."
+        },
+        {
+          "label": "Linking a description to a memory",
+          "japanese": "手作りの味で、祖母の料理を思い出しました",
+          "english": "It tasted homemade and reminded me of my grandmother’s cooking",
+          "explanation": "で after 手作りの味 links the description to what follows and gives the reason. The speaker remembers the grandmother’s cooking; the flavor is not the subject of 思い出しました. 思い出しました is the past polite form of 思い出す."
+        }
+      ]
+    },
+    {
+      "stableId": "travel-lunch:14:ja-en",
+      "speakingObjectives": [
+        "Answer the acquaintance’s question about tomorrow, then invite them to lunch together without pressure.",
+        "Say that it is fine if the invitation does not suit them.",
+        "If they accept, agree on a time, accept the set-meal restaurant, and arrange to meet at the market entrance.",
+        "If they decline, respond warmly by suggesting another time, then thank them for letting you know."
+      ],
+      "wordBank": [
+        "一緒に昼ごはんを食べませんか",
+        "都合が悪ければ大丈夫です",
+        "何時がいいですか",
+        "どこで会いましょうか",
+        "市場の入口で会いましょう",
+        "その店でいいです",
+        "また今度にしましょう",
+        "教えてくれてありがとう"
+      ],
+      "forms": [
+        {
+          "label": "Polite invitation",
+          "japanese": "明日、一緒に昼ごはんを食べませんか",
+          "english": "Would you like to have lunch together tomorrow?",
+          "explanation": "食べませんか is the polite negative question form of 食べる (to eat), used to invite someone, like 'would you like to'. 一緒に means together, and 明日 means tomorrow."
+        },
+        {
+          "label": "Conditional of an adjective",
+          "japanese": "都合が悪ければ大丈夫です",
+          "english": "If it does not work for you, no problem",
+          "explanation": "悪い (bad, inconvenient) is an i-adjective. Its conditional is made from the stem 悪 plus ければ, meaning 'if it is bad.' 都合 means schedule or convenience. 大丈夫です means it is fine or no problem."
+        },
+        {
+          "label": "Asking for a preference",
+          "japanese": "何時がいいですか",
+          "english": "What time works for you?",
+          "explanation": "が marks 何時 as the subject of いい: literally, “what time is good?” In その店でいいです, で is the linking form of だ; 〜でいい means that a choice will do or is acceptable."
+        }
+      ]
+    },
+    {
+      "stableId": "travel-lunch:15:ja-en",
+      "speakingObjectives": [
+        "Ask for a table for two when you arrive, then order the set lunch.",
+        "State your nut allergy plainly, ask whether the dish contains nuts, ask staff to check with the kitchen, then order the soup.",
+        "Correct the mix-up by saying you ordered soup, not salad, and accept the staff's apology and fix.",
+        "Request the bill, then ask whether you can pay separately."
+      ],
+      "wordBank": [
+        "二人席はありますか",
+        "ランチセットをお願いします",
+        "ナッツアレルギーがあります",
+        "この料理にナッツは入っていますか",
+        "厨房に確認してもらえますか",
+        "注文したのはスープで、サラダではありません",
+        "別々に払えますか",
+        "お会計をお願いします"
+      ],
+      "forms": [
+        {
+          "label": "Asking if an ingredient is inside",
+          "japanese": "この料理にナッツは入っていますか",
+          "english": "Does this dish contain nuts?",
+          "explanation": "入っている describes the state of an ingredient being in a dish. この料理に marks where it is included, and は marks ナッツ as the topic. 入っています is the polite form, and か turns it into a question."
+        },
+        {
+          "label": "Correcting with X, not Y",
+          "japanese": "すみません。注文したのはスープで、サラダではありません",
+          "english": "Excuse me. I ordered soup, not salad.",
+          "explanation": "注文したの turns the clause 'I ordered' into a noun meaning 'the thing I ordered,' and は marks it as the topic. スープで uses で as the copula, and ではありません is its polite negative, so the sentence says it is soup, not salad."
+        },
+        {
+          "label": "Asking whether something is possible",
+          "japanese": "お会計をお願いします。別々に払えますか",
+          "english": "The bill, please. Can we pay separately?",
+          "explanation": "払えます is the polite potential form of 払う (“to pay”), meaning “can pay”; 別々に means “separately.” In お会計をお願いします, the polite prefix お attaches to 会計 (“bill”), and [noun] をお願いします makes a polite request."
+        }
+      ]
+    }
+  ]
+}

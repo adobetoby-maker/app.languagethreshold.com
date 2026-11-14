@@ -64,8 +64,8 @@ test("French 101 conflict API checks owner first and returns closed, source-exac
     const packet = await response.json();
     assert.deepEqual(packet.sourceHashes, sourceHashes);
     assert.deepEqual(packet.lessons.map((lesson) => lesson.stableId),
-      [22, 23, 24].map((n) => `french-basics:${n}:fr-en`));
-    assert.deepEqual(packet.lessons.map((lesson) => lesson.cards.length), [2, 2, 1]);
+      [22, 23, 24, 25, 26].map((n) => `french-basics:${n}:fr-en`));
+    assert.deepEqual(packet.lessons.map((lesson) => lesson.cards.length), [2, 2, 1, 2, 2]);
     const core = JSON.parse(readFileSync("src/data/spanish-basics-core.json", "utf8"));
     const practice = JSON.parse(readFileSync("src/data/spanish-basics-practice.json", "utf8"));
     for (const lesson of packet.lessons) {

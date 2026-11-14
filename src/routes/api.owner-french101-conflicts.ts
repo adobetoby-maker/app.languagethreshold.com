@@ -41,6 +41,24 @@ const specs: Record<number, { cards: ConflictSpec[]; reviewGaps: string[] }> = {
     ],
     reviewGaps: ["The six Reader-linked mode mappings are private proposals; Hear has no recording.", "Supplemental clitic contrasts are separate from the six source Reader turns and remain unscored."],
   },
+  25: {
+    cards: [
+      { number: 4, sourceSpanish: "en", exactEnglish: "in / on / at", kind: "term", frenchCandidate: "dans / sur / à",
+        semanticNote: "These French words depend on context: dans means inside, sur means on top of, and à can name a place. The grouped face is not one interchangeable translation.", status: "context-dependent-grouped-face" },
+      { number: 8, sourceSpanish: "mi", exactEnglish: "my (singular possession)", kind: "term", frenchCandidate: "mon / ma",
+        semanticNote: "Use mon with a masculine singular noun or a feminine noun beginning with a vowel sound; use ma with a feminine singular noun beginning with a consonant sound. The grouped face needs a noun context.", status: "context-dependent-grouped-face" },
+    ],
+    reviewGaps: ["The Spanish personal-a objective has no direct French equivalent; the draft needs qualified pedagogy review.", "Grouped card faces need contextual dictionary senses and answer rules before ordinary projection.", "Hear is script-only; no recorded clip or listening decision exists."],
+  },
+  26: {
+    cards: [
+      { number: 5, sourceSpanish: "en", exactEnglish: "in / on / at", kind: "term", frenchCandidate: "dans / sur / à",
+        semanticNote: "French dans, sur and à select different relations and cannot be scored as interchangeable translations. The Reader uses à la for library and cafeteria locations.", status: "context-dependent-grouped-face" },
+      { number: 6, sourceSpanish: "profesora", exactEnglish: "female teacher", kind: "term", frenchCandidate: "professeure",
+        semanticNote: "The card specifies a woman. Reader turn 5 says only ‘the teacher’ in English; its French feminine target needs the source Spanish context visible in any cue.", status: "source-gender-context" },
+    ],
+    reviewGaps: ["The private Hear cue targets isolated cahier with no recording; a Reader-6 binding is proposed but unapplied.", "Spanish completed-past regularity does not imply French participle regularity: écrit is irregular.", "Qualified French/dictionary review and answer-key policy remain open."],
+  },
 };
 
 const core24Modes = [
@@ -59,7 +77,7 @@ async function conflictDrafts() {
   ]);
   const core = coreModule.default as { lessons: SourceLesson[] };
   const practice = practiceModule.default as { "spanish-basics": Record<string, { reading: SourceReading }> };
-  return [22, 23, 24].map((n) => {
+  return [22, 23, 24, 25, 26].map((n) => {
     const source = core.lessons.find((lesson) => lesson.n === n);
     const reading = practice["spanish-basics"][String(n)]?.reading;
     if (!source || !reading || reading.target.length !== 6 || reading.native.length !== 6)

@@ -1,0 +1,71 @@
+{
+  "pairKey": "French:English",
+  "sourceFile": "content/french-basics/foundation-7-8-draft.json",
+  "sourceSha256": "2e6061a52d81394e005efec1703ae652617b4f8396c1ae336d1047a76dbb5a62",
+  "reviewed": false,
+  "registered": false,
+  "lessons": [
+    {
+      "lesson": 7,
+      "stableLessonKey": "foundation-french-basics:7",
+      "modes": {
+        "see": {
+          "prompt": "Read Léa’s full question stating that no computer is here.",
+          "targetText": "Léa : Il n’y a pas d’ordinateur ici, c’est ça ?"
+        },
+        "recall": {
+          "prompt": "Recall the short French expression ‘there is’ or ‘there are’.",
+          "targetText": "il y a"
+        },
+        "hear": {
+          "prompt": "In the device-voice exercise, identify the first place Léa asks about.",
+          "targetText": "une bibliothèque",
+          "recordedAudio": false
+        },
+        "type": {
+          "prompt": "Type ‘There is no computer here’, using d’ before ordinateur.",
+          "targetText": "Il n’y a pas d’ordinateur ici."
+        },
+        "say": {
+          "prompt": "Ask aloud whether there is a library here, using il y a.",
+          "targetText": "Il y a une bibliothèque ici ?"
+        },
+        "write": {
+          "prompt": "Write where the table is, using près de la and a full sentence.",
+          "targetText": "La table est près de la porte."
+        }
+      }
+    },
+    {
+      "lesson": 8,
+      "stableLessonKey": "foundation-french-basics:8",
+      "modes": {
+        "see": {
+          "prompt": "Read Sami’s complete reply giving his age with avoir.",
+          "targetText": "Sami : J’ai dix-huit ans. Et toi ?"
+        },
+        "recall": {
+          "prompt": "Recall the French number eighteen as it appears in the age sentence.",
+          "targetText": "dix-huit"
+        },
+        "hear": {
+          "prompt": "In the device-voice exercise, identify the total number of books Sami says.",
+          "targetText": "onze",
+          "recordedAudio": false
+        },
+        "type": {
+          "prompt": "Type ‘I am eighteen years old’ with avoir and the plural ans.",
+          "targetText": "J’ai dix-huit ans."
+        },
+        "say": {
+          "prompt": "Ask a familiar classmate their age aloud in the form used by Inès.",
+          "targetText": "Tu as quel âge ?"
+        },
+        "write": {
+          "prompt": "Write a full sentence saying there are ten students in the class.",
+          "targetText": "Il y a dix élèves dans la classe."
+        }
+      }
+    }
+  ]
+}

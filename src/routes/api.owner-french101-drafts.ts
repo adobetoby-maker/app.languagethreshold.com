@@ -18,11 +18,13 @@ const modeNames = ["see", "recall", "hear", "type", "say", "write"] as const;
 
 async function ownerDrafts() {
   // Import private candidate assets only after the owner check. No learner registry or progress write uses them.
-  const [firstSourceModule, firstModeModule, nextSourceModule, nextModeModule, formModule] = await Promise.all([
+  const [firstSourceModule, firstModeModule, nextSourceModule, nextModeModule, finalSourceModule, finalModeModule, formModule] = await Promise.all([
     import("../../content/french-basics/foundation-1-3-draft.json"),
     import("../../content/french-basics/private-foundation-1-3-mode-prompts-fr-en.json"),
     import("../../content/french-basics/foundation-4-6-draft.json"),
     import("../../content/french-basics/private-foundation-4-6-mode-prompts-fr-en.json"),
+    import("../../content/french-basics/foundation-7-8-draft.json"),
+    import("../../content/french-basics/private-foundation-7-8-mode-prompts-fr-en.json"),
     import("../../content/french-basics/private-form-practice-foundation-1-10-fr-en.json"),
   ]);
   const forms = formModule.default as Forms;
@@ -38,6 +40,9 @@ async function ownerDrafts() {
     { source: nextSourceModule.default as Source, modes: nextModeModule.default as Modes,
       range: [4, 5, 6], sourceFile: "content/french-basics/foundation-4-6-draft.json",
       sha256: "8f502483ff970e4c6324e5f54b29b80f4a81822f2abb3b6948cbb4a995f7fa12" },
+    { source: finalSourceModule.default as Source, modes: finalModeModule.default as Modes,
+      range: [7, 8], sourceFile: "content/french-basics/foundation-7-8-draft.json",
+      sha256: "2e6061a52d81394e005efec1703ae652617b4f8396c1ae336d1047a76dbb5a62" },
   ];
   return batches.flatMap(({ source, modes, range, sourceFile, sha256 }) => {
     if (source.target !== "French" || source.native !== "English" || source.moduleId !== "french-basics" ||

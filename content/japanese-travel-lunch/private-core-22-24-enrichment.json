@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "sourcePath": "content/japanese-travel-lunch/core-22-24-draft.json",
+  "sourceSha256": "494ae6e3991e1527e8eb0ebc1d08be9c781eb5bf3aa79155b319b10d26224486",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "lessons": [
+    {
+      "stableId": "travel-lunch:22:ja-en",
+      "speakingObjectives": [
+        "Ask about what time people eat lunch around here.",
+        "Ask how much time people usually spend on lunch.",
+        "Ask whether people often order coffee after eating and whether you may order coffee and talk for a while after the meal.",
+        "Ask why the restaurant closes at three, whether it reopens at five, and whether you can reserve a table for noon tomorrow."
+      ],
+      "wordBank": [
+        "昼食の時間",
+        "営業時間",
+        "休憩時間",
+        "平日",
+        "食後の会話",
+        "コーヒー",
+        "日替わり定食",
+        "厨房"
+      ],
+      "forms": [
+        {
+          "label": "Asking about lunch time",
+          "japanese": "この辺では何時ごろ昼食を食べますか",
+          "english": "About what time do people eat lunch around here?",
+          "explanation": "何時ごろ means “about what time.” この辺では uses で to mark where the action happens and は to frame the question as “around here.” 食べます is a polite non-past form; no subject is stated, so “people” is understood."
+        },
+        {
+          "label": "Asking about lunch duration",
+          "japanese": "昼食には普段どのくらい時間をかけますか",
+          "english": "How much time do people usually spend on lunch?",
+          "explanation": "In 昼食に時間をかける, に marks lunch as what the time is spent on; は makes it the topic. 普段 means “usually.” どのくらい asks “how much,” 時間を marks time as the object, and かけますか politely asks about the time spent."
+        },
+        {
+          "label": "Asking why the restaurant closes",
+          "japanese": "なぜ午後三時に閉まるのですか",
+          "english": "Why do you close at three in the afternoon?",
+          "explanation": "なぜ asks “why,” and に marks three in the afternoon as a time point. 閉まる is the intransitive verb “to close,” describing the restaurant closing. のですか asks for the reason behind the situation."
+        }
+      ]
+    },
+    {
+      "stableId": "travel-lunch:23:ja-en",
+      "speakingObjectives": [
+        "Order 300 grams of ham and 200 grams of cheese.",
+        "Ask for thin slices and ask for the food to be packed to go.",
+        "Ask for utensils and napkins for four people.",
+        "Ask where picnics are allowed in the park, and plan to check the sign at the entrance."
+      ],
+      "wordBank": [
+        "惣菜店",
+        "ハム",
+        "チーズ",
+        "薄切り",
+        "グラム",
+        "食器",
+        "紙ナプキン",
+        "ピクニックエリア"
+      ],
+      "forms": [
+        {
+          "label": "Ordering by weight",
+          "japanese": "ハムを三百グラムください",
+          "english": "Three hundred grams of ham, please.",
+          "explanation": "を marks ham as the requested item. 三百グラム is the quantity placed after the object without its own particle. ください politely asks for the item."
+        },
+        {
+          "label": "Asking for takeout packing",
+          "japanese": "持ち帰り用に包んでいただけますか",
+          "english": "Could you pack it to go?",
+          "explanation": "持ち帰り用 means “for takeout”; に marks the intended use. 包んで is the て-form of 包む (“wrap”), and いただけますか makes the request polite. The unstated object “it” is the order."
+        },
+        {
+          "label": "Asking for utensils for four",
+          "japanese": "四人分の食器と紙ナプキンをください",
+          "english": "Utensils and napkins for four people, please.",
+          "explanation": "人 counts people; 分 means a portion or share, so 四人分 means “enough for four people.” と joins tableware and paper napkins. を marks the requested items, followed by ください."
+        }
+      ]
+    },
+    {
+      "stableId": "travel-lunch:24:ja-en",
+      "speakingObjectives": [
+        "Tell the food vendor that your friend is having an allergic reaction.",
+        "Ask someone to call 119 for an ambulance.",
+        "Ask whether the sauce contains peanuts, and say that your friend has a peanut allergy.",
+        "Report that your friend took one bite of this food five minutes ago, says her throat feels tight, and has already used the medicine from her bag."
+      ],
+      "wordBank": [
+        "アレルギー反応",
+        "ピーナッツアレルギー",
+        "喉",
+        "ソース",
+        "原材料",
+        "救急車",
+        "救急隊員",
+        "薬"
+      ],
+      "forms": [
+        {
+          "label": "Alerting for an allergic reaction",
+          "japanese": "助けてください。友人にアレルギー反応が出ています",
+          "english": "Help, please. My friend is having an allergic reaction.",
+          "explanation": "助けてください asks for help. In 友人にアレルギー反応が出ています, に marks the affected person and が marks the allergic reaction as the subject. 出る describes a change; 出ています says the reaction has appeared and remains present."
+        },
+        {
+          "label": "Asking for an ambulance",
+          "japanese": "119番に電話して、救急車を呼んでください",
+          "english": "Please call 119 for an ambulance.",
+          "explanation": "119番に電話して means “call 119,” with に marking the number called. 電話して links that action to the request. 救急車を呼んでください uses the て-form of 呼ぶ (“summon”) to ask someone to call for an ambulance."
+        },
+        {
+          "label": "Reporting timing and food eaten",
+          "japanese": "五分前にこの料理を一口食べました",
+          "english": "She took one bite of this food five minutes ago.",
+          "explanation": "五分前に gives the time, and を marks this food as the object. 一口 is a quantity placed after the object without its own particle. 食べました is polite past; the unstated subject is “she” in context."
+        }
+      ],
+      "reviewerNote": "The three-form limit means this set teaches allergy, ambulance call, and timing directly. Peanut content of the sauce and the medicine report are covered in speakingObjectives and wordBank but not as forms. Owner may want to decide whether to swap a form to cover them."
+    }
+  ]
+}

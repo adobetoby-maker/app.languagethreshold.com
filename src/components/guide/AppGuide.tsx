@@ -1045,6 +1045,16 @@ function OwnedLessonRunner({
   useEffect(() => {
     window.dispatchEvent(new CustomEvent("lt:v6-mode-changed", { detail: section }));
   }, [section]);
+  useEffect(() => {
+    const frame = requestAnimationFrame(() =>
+      window.dispatchEvent(
+        new CustomEvent("lt:v4-lesson-context", {
+          detail: { moduleId, n: lesson.n, total: totalLessons },
+        }),
+      ),
+    );
+    return () => cancelAnimationFrame(frame);
+  }, [moduleId, lesson.n, totalLessons]);
 
   function onKitModeChange(mode: PracticeMode) {
     setKitMode(mode);

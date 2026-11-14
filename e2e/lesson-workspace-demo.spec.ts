@@ -13,6 +13,7 @@ test("public lesson workspace demo keeps practice temporary across all six modes
   });
   await page.goto("/demo/lesson-workspace");
   await expect(page.getByRole("button", { name: "Speaking menu", exact: true })).toBeVisible();
+  await expect(page.getByTestId("native-nav-study")).toBeInViewport();
   await page.getByRole("button", { name: "Back to Study", exact: true }).click();
   await expect(page.getByRole("article", { name: "Published lesson reading" })).toBeVisible();
   await expect(
@@ -24,6 +25,14 @@ test("public lesson workspace demo keeps practice temporary across all six modes
   );
   await expect(page.getByRole("navigation", { name: "Study and speak" })).toBeInViewport();
   await page.screenshot({ path: info.outputPath("demo-see.png"), animations: "disabled" });
+  const phrase = page
+    .getByRole("article", { name: "Published lesson reading" })
+    .locator(".lt-native-reading-target");
+  const firstPhrase = await phrase.innerText();
+  await page.getByRole("button", { name: "Next", exact: true }).click();
+  await expect(phrase).not.toHaveText(firstPhrase);
+  await page.getByRole("button", { name: "← Previous", exact: true }).click();
+  await expect(phrase).toHaveText(firstPhrase);
   await page.getByRole("button", { name: "Recall it", exact: true }).click();
   await page.getByRole("button", { name: "Reveal meaning", exact: true }).click();
   await expect(page.getByRole("button", { name: "Hide meaning", exact: true })).toHaveAttribute(

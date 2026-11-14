@@ -961,7 +961,9 @@ test.describe("Core 30 plan: pre-built static deck (Construction Foreman, French
   });
 });
 
-test("V6 app opens a simple speaking surface and keeps setup in menus", async ({ page }, info) => {
+test("V4 app opens Speak with a persistent Study switch and keeps setup in menus", async ({
+  page,
+}, info) => {
   await openCore30(page, STARTED_TODAY);
   await page.goto("/");
   await expect(
@@ -977,14 +979,22 @@ test("V6 app opens a simple speaking surface and keeps setup in menus", async ({
   await expect(page.getByText(/AI conversation is off/)).toHaveCount(0);
   await expect(page.getByTestId("speaking-partner-picker")).toHaveCount(0);
   const dock = await page.locator(".lt-native-reply-dock").boundingBox();
-  expect(Math.abs(dock!.y + dock!.height - page.viewportSize()!.height)).toBeLessThan(3);
+  const studySwitch = await page.locator(".lt-native-speak .lt-v4-study-speak").boundingBox();
+  expect(Math.abs(dock!.y + dock!.height - studySwitch!.y)).toBeLessThan(3);
+  expect(Math.abs(studySwitch!.y + studySwitch!.height - page.viewportSize()!.height)).toBeLessThan(
+    3,
+  );
   await page.screenshot({ path: info.outputPath("simple-speak.png"), animations: "disabled" });
   await page.getByRole("button", { name: "Speaking menu", exact: true }).click();
   await expect(page.getByRole("dialog")).toBeVisible();
   await page.getByRole("button", { name: "Reset conversation", exact: true }).click();
   await expect(page.getByRole("dialog")).toHaveCount(0);
-  await page.getByRole("button", { name: "Back to Study", exact: true }).click();
+  await page.getByTestId("native-nav-study").click();
   await expect(page.getByRole("navigation", { name: "Study and speak" })).toBeVisible();
+  await expect(
+    page.getByRole("navigation", { name: "Lesson practice modes" }).getByRole("button"),
+  ).toHaveCount(6);
+  await expect(page.getByLabel("Today's study activity", { exact: true })).toBeVisible();
   await page.getByTestId("v6-nav-type").click();
   await expect(page.getByTestId("lesson-section-kit")).toBeVisible();
   expect((await readLog(page))?.lessons["1"]?.masteredAt).toBeUndefined();

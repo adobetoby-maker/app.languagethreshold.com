@@ -1,5 +1,6 @@
 import { type ReactNode, useEffect, useRef, useState } from "react";
-import { ArrowLeft, ChevronDown, Ellipsis, GraduationCap } from "lucide-react";
+import { ChevronLeft, ChevronDown, CircleEllipsis, GraduationCap } from "lucide-react";
+import { V4StudySpeakBar } from "@/components/core30/V4StudyChrome";
 import { Sheet, SheetContent, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 
 /** Matches the owner's native speaking reference; existing web state owns every action. */
@@ -64,7 +65,7 @@ export function NativeSpeakSurface({
           aria-label="Back to Study"
           onClick={() => window.dispatchEvent(new Event("lt:v6-open-study"))}
         >
-          <ArrowLeft size={24} />
+          <ChevronLeft size={24} />
         </button>
         <h1>Speak</h1>
         <button
@@ -74,7 +75,7 @@ export function NativeSpeakSurface({
             setMenu(true);
           }}
         >
-          <Ellipsis size={26} />
+          <CircleEllipsis size={24} />
         </button>
       </header>
       <div className="lt-native-setup">
@@ -114,6 +115,11 @@ export function NativeSpeakSurface({
         </p>
         {controls}
       </div>
+      <V4StudySpeakBar
+        speaking
+        onStudy={() => window.dispatchEvent(new Event("lt:v6-open-study"))}
+        onSpeak={() => {}}
+      />
       <Sheet open={partners} onOpenChange={setPartners}>
         <SheetContent
           onCloseAutoFocus={(event) => {

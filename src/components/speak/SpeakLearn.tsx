@@ -23,7 +23,7 @@ import { bestAvailableSpeechTranscript } from "@/lib/speaking-transcript";
 import { SPEAKING_CONSENT_CHANGED } from "@/lib/speaking-consent-events";
 import { usePracticeViewport } from "@/hooks/use-practice-viewport";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Mic, Square, RotateCcw, Send } from "lucide-react";
+import { ArrowUp, Mic, Square, RotateCcw, Send } from "lucide-react";
 import { toast } from "sonner";
 import { useApp, type Language } from "@/state/app-state";
 import { useSpeak } from "@/state/speak-state";
@@ -1405,7 +1405,7 @@ export function SpeakLearn() {
                 ref={replyField}
                 rows={1}
                 aria-label={`Type an answer in ${language}`}
-                placeholder={`Write or speak ${language}…`}
+                placeholder={`Your ${language} reply…`}
                 value={typedTurn}
                 onChange={(event) => setTypedTurn(event.target.value)}
                 maxLength={2000}
@@ -1422,7 +1422,7 @@ export function SpeakLearn() {
                   !conversationAllowed
                 }
               >
-                Send
+                <ArrowUp size={18} aria-hidden /> Send
               </button>
             </form>
           }

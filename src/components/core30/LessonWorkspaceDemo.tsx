@@ -2,9 +2,10 @@ import { NativeSpeakSurface } from "@/components/speak/NativeSpeakSurface";
 import { SpeakingConversationControls } from "@/components/speak/SpeakingConversationControls";
 import { Sheet, SheetContent, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { V6Header, V6Dock } from "./V6AppChrome";
+import { V4StudyActivity } from "./V4StudyChrome";
 import { FOUNDATION_ROOFING_LESSONS } from "@/data/foundation-roofing-curriculum";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, Moon, Play, Sun } from "lucide-react";
+import { ArrowLeft, ArrowRight, Mic, Moon, Play, Sun, Turtle, Volume2 } from "lucide-react";
 import {
   LESSON_MODES,
   LessonModeBar,
@@ -125,7 +126,7 @@ export function LessonWorkspaceDemo() {
     setDark(next);
   }
   const word = lesson?.words[index];
-  function playWord() {
+  function playWord(rate = 1) {
     stopAudio();
     if (!word || !window.speechSynthesis || typeof SpeechSynthesisUtterance === "undefined") {
       setAudioStatus("Audio is unavailable here. Reveal the phrase below to continue.");
@@ -133,6 +134,7 @@ export function LessonWorkspaceDemo() {
     }
     const next = new SpeechSynthesisUtterance(word.es);
     next.lang = "es-ES";
+    next.rate = rate;
     next.voice =
       window.speechSynthesis.getVoices().find((voice) => voice.lang.startsWith("es")) ?? null;
     next.onend = () => {
@@ -157,6 +159,9 @@ export function LessonWorkspaceDemo() {
       <V6Header
         course="Roofing · Foundation"
         language="Spanish"
+        lessonNumber={1}
+        totalLessons={60}
+        dueCards={0}
         onCourses={() => {
           setShowSpeak(false);
           setLessonOpen(false);
@@ -171,6 +176,7 @@ export function LessonWorkspaceDemo() {
         }}
         onMenu={() => setMenuOpen(true)}
       />
+      {!showSpeak && <V4StudyActivity />}
       <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
         <SheetContent side="bottom" className="space-y-4 rounded-t-3xl">
           <SheetTitle>Explore</SheetTitle>
@@ -275,7 +281,7 @@ export function LessonWorkspaceDemo() {
                     window.location.href = "/?tab=speak";
                   }}
                 >
-                  Speak
+                  <Mic size={19} aria-hidden /> Speak
                 </button>
               </div>
             }
@@ -350,33 +356,67 @@ export function LessonWorkspaceDemo() {
                 <p role="status">Loading the published lesson…</p>
               ) : (
                 <>
-                  <div>
-                    <h2 className="font-serif text-2xl">
-                      {LESSON_MODES.find((mode) => mode.id === active)?.label}
-                    </h2>
-                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                      {LESSON_MODES.find((mode) => mode.id === active)?.why}
-                    </p>
-                  </div>
+                  {active !== "see" && (
+                    <div>
+                      <h2 className="font-serif text-2xl">
+                        {LESSON_MODES.find((mode) => mode.id === active)?.label}
+                      </h2>
+                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                        {LESSON_MODES.find((mode) => mode.id === active)?.why}
+                      </p>
+                    </div>
+                  )}
                   {active === "see" && (
-                    <article className="space-y-3" aria-label="Published lesson reading">
-                      {lesson.passage.target.map((line, i) => (
-                        <div
-                          key={`${i}:${line}`}
-                          className="rounded-2xl border border-border bg-card p-4"
-                        >
-                          <p lang="es" className="font-serif text-xl leading-relaxed">
-                            {line}
-                          </p>
-                          <p
-                            lang="en"
-                            className="mt-2 text-sm leading-relaxed text-muted-foreground"
-                          >
-                            {lesson.passage.native[i]}
-                          </p>
+                    <div className="lt-native-reading">
+                      <div className="lt-native-reading-progress">
+                        <span>See it</span>
+                        <span>
+                          {index + 1} / {lesson.words.length}
+                        </span>
+                      </div>
+                      <p className="lt-native-reading-hint">
+                        Connect the meaning. Listen, notice, and read aloud.
+                      </p>
+                      <article
+                        className="lt-native-reading-card"
+                        aria-label="Published lesson reading"
+                      >
+                        <p className="lt-native-reading-language">Spanish</p>
+                        <p lang="es" className="lt-native-reading-target">
+                          {word.es}
+                        </p>
+                        <p lang="en" className="lt-native-reading-translation">
+                          {word.en}
+                        </p>
+                        <div className="flex gap-2">
+                          <button onClick={() => playWord()}>
+                            <Volume2 size={20} aria-hidden />
+                            Listen
+                          </button>
+                          <button onClick={() => playWord(0.7)}>
+                            <Turtle size={20} aria-hidden />
+                            Slow
+                          </button>
                         </div>
-                      ))}
-                    </article>
+                      </article>
+                      <div className="lt-native-reading-actions">
+                        <button disabled={index === 0} onClick={() => changeWord(-1)}>
+                          ← Previous
+                        </button>
+                        <button
+                          onClick={() =>
+                            index + 1 < lesson.words.length ? changeWord(1) : selectMode("recall")
+                          }
+                        >
+                          {index + 1 < lesson.words.length ? "Next" : "Finish round"}
+                        </button>
+                      </div>
+                      {audioStatus && (
+                        <p role="status" className="text-sm text-muted-foreground">
+                          {audioStatus}
+                        </p>
+                      )}
+                    </div>
                   )}
                   {(["recall", "hear", "type"] as LessonModeId[]).includes(active) && (
                     <>
@@ -408,7 +448,7 @@ export function LessonWorkspaceDemo() {
                           <>
                             <button
                               type="button"
-                              onClick={playWord}
+                              onClick={() => playWord()}
                               className={`${buttonClass} flex w-full items-center justify-center gap-2`}
                             >
                               <Play aria-hidden="true" className="h-5 w-5" />
@@ -544,23 +584,24 @@ export function LessonWorkspaceDemo() {
                       </a>
                     </section>
                   )}
-                  {nextMode ? (
-                    <button
-                      type="button"
-                      className={`${buttonClass} w-full`}
-                      onClick={() => selectMode(nextMode.id)}
-                    >
-                      Continue to {nextMode.label}
-                      <ArrowRight aria-hidden="true" className="ml-2 inline h-4 w-4" />
-                    </button>
-                  ) : (
-                    <p className="rounded-xl border border-border p-4 text-sm text-muted-foreground">
-                      You’ve explored the layout. Your actual lesson progress is unchanged.
-                    </p>
-                  )}
+                  {active !== "see" &&
+                    (nextMode ? (
+                      <button
+                        type="button"
+                        className={`${buttonClass} w-full`}
+                        onClick={() => selectMode(nextMode.id)}
+                      >
+                        Continue to {nextMode.label}
+                        <ArrowRight aria-hidden="true" className="ml-2 inline h-4 w-4" />
+                      </button>
+                    ) : (
+                      <p className="rounded-xl border border-border p-4 text-sm text-muted-foreground">
+                        You’ve explored the layout. Your actual lesson progress is unchanged.
+                      </p>
+                    ))}
                   <a
                     href={LESSON_LINK}
-                    className="inline-flex min-h-11 items-center text-sm text-gold-ink underline"
+                    className="lt-demo-live-lesson inline-flex min-h-11 items-center text-sm text-gold-ink underline"
                   >
                     Open the actual lesson in the app
                   </a>

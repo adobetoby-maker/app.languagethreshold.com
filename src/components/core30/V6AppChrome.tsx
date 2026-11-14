@@ -1,5 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import { BookOpen, ChevronDown, Layers, Menu, MessageCircle, Sparkles } from "lucide-react";
+import { BookOpen, ChevronDown, Copy, CircleEllipsis, Sparkles } from "lucide-react";
+import { V4StudyActivity, V4StudySpeakBar } from "./V4StudyChrome";
+import { useFlashcards } from "@/state/flashcard-state";
+import { useSyncedStudyStreak } from "@/hooks/use-study-cloud";
+import {
+  useLessonsToday,
+  usePracticeSettings,
+  useTodayPracticeSeconds,
+} from "@/hooks/use-practice-time";
 import { LESSON_MODES, type LessonModeId } from "./LessonWorkspaceChrome";
 import { useApp } from "@/state/app-state";
 import { useAuth } from "@/state/auth-state";
@@ -15,6 +23,9 @@ const modes = ["see", "recall", "hear", "write", "type", "say"] as const;
 export function V6Header({
   course,
   language,
+  lessonNumber,
+  totalLessons = 60,
+  dueCards,
   onCourses,
   onTutor,
   onReview,
@@ -22,6 +33,9 @@ export function V6Header({
 }: {
   course: string;
   language: string;
+  lessonNumber?: number;
+  totalLessons?: number;
+  dueCards?: number;
   onCourses: () => void;
   onTutor: () => void;
   onReview: () => void;
@@ -41,12 +55,30 @@ export function V6Header({
         <span>{course}</span>
         <ChevronDown size={12} aria-hidden />
       </button>
-      <button disabled={!ready} onClick={onTutor} aria-label="Open tutor">
+      <button
+        className="lt-v4-header-tutor"
+        disabled={!ready}
+        onClick={onTutor}
+        aria-label="Open tutor"
+      >
         <Sparkles size={19} aria-hidden />
       </button>
-      <span className="lt-v6-language">{language}</span>
-      <button disabled={!ready} onClick={onReview} aria-label="Review cards">
-        <Layers size={20} aria-hidden />
+      <span
+        className="lt-v4-lesson-count"
+        aria-label={
+          lessonNumber ? `Lesson ${lessonNumber} of ${totalLessons}` : `${language} lessons`
+        }
+      >
+        {lessonNumber ? `${lessonNumber}/${totalLessons}` : ""}
+      </span>
+      <button
+        className="lt-v4-header-review"
+        disabled={!ready}
+        onClick={onReview}
+        aria-label="Review cards"
+      >
+        <Copy size={21} aria-hidden />
+        {dueCards !== undefined && <span>{dueCards}</span>}
       </button>
       <button
         disabled={!ready}
@@ -54,7 +86,7 @@ export function V6Header({
         aria-label="Navigation menu"
         data-lesson-workspace-menu
       >
-        <Menu size={21} aria-hidden />
+        <CircleEllipsis size={22} aria-hidden />
       </button>
     </header>
   );
@@ -91,37 +123,16 @@ export function V6Dock({
               </button>
             );
           })}
-          <button
-            disabled={!ready}
-            aria-label="Verbs"
-            aria-current={active === "verbs" ? "page" : undefined}
-            onClick={() => onSelect("verbs")}
-          >
-            <span className="text-xl">Abc</span>
-            <span>Verbs</span>
-          </button>
         </nav>
       )}
-      <nav className="lt-v6-dock" aria-label="Study and speak">
-        <button
-          disabled={!ready}
-          data-testid="v6-nav-study"
-          aria-current={studying ? "page" : undefined}
-          onClick={() => onSelect("study")}
-        >
-          <BookOpen size={23} fill="currentColor" aria-hidden />
-          <span>Study</span>
-        </button>
-        <button
-          disabled={!ready}
-          data-testid="v6-nav-speak"
-          aria-current={!studying ? "page" : undefined}
-          onClick={() => onSelect("speak")}
-        >
-          <MessageCircle size={23} fill="currentColor" aria-hidden />
-          <span>Speak</span>
-        </button>
-      </nav>
+      <div inert={!ready}>
+        <V4StudySpeakBar
+          speaking={!studying}
+          onStudy={() => onSelect("study")}
+          onSpeak={() => onSelect("speak")}
+          testPrefix="v6"
+        />
+      </div>
     </div>
   );
 }
@@ -131,11 +142,25 @@ export function V6AppNavigation() {
   const { state, dispatch, profileReadyUserId } = useApp();
   const { user, loading } = useAuth();
   const tutor = useTutor();
+  const { dueCardsForLanguage } = useFlashcards();
+  const [lessonContext, setLessonContext] = useState<{
+    moduleId: string;
+    n: number;
+    total: number;
+  } | null>(null);
   const [courses, setCourses] = useState(false);
   const [courseDestination, setCourseDestination] = useState<LessonModeId | null>(null);
   const [mode, setMode] = useState<LessonModeId>("see");
   const landedFor = useRef<string | null>(null);
   const entryQuery = useRef(typeof window === "undefined" ? "" : window.location.search);
+  useEffect(() => {
+    const update = (event: Event) =>
+      setLessonContext(
+        (event as CustomEvent<{ moduleId: string; n: number; total: number }>).detail,
+      );
+    window.addEventListener("lt:v4-lesson-context", update);
+    return () => window.removeEventListener("lt:v4-lesson-context", update);
+  }, []);
 
   useEffect(() => {
     if (!state.hydrated || loading || (user && profileReadyUserId !== user.id)) return;
@@ -218,6 +243,11 @@ export function V6AppNavigation() {
       <V6Header
         course={getModule(state.activeModuleId)?.name ?? "Core Basics"}
         language={state.selectedLanguage}
+        lessonNumber={
+          lessonContext?.moduleId === state.activeModuleId ? lessonContext.n : undefined
+        }
+        totalLessons={lessonContext?.total}
+        dueCards={dueCardsForLanguage(state.selectedLanguage).length}
         onCourses={() => {
           try {
             sessionStorage.removeItem(V6_PENDING_MODE);
@@ -230,6 +260,7 @@ export function V6AppNavigation() {
         onReview={() => dispatch({ type: "SET_TAB", payload: "flashcards" })}
         onMenu={() => window.dispatchEvent(new Event("lt:lesson-workspace-navigation"))}
       />
+      {state.currentTab === "core30" && <CurrentStudyActivity />}
       <V6Dock
         active={
           state.currentTab === "speak"
@@ -244,5 +275,20 @@ export function V6AppNavigation() {
       />
       <ModulePickerDialog open={courses} onClose={() => setCourses(false)} />
     </>
+  );
+}
+
+function CurrentStudyActivity() {
+  const { goalMinutes } = usePracticeSettings();
+  const seconds = useTodayPracticeSeconds();
+  const lessons = useLessonsToday();
+  const streak = useSyncedStudyStreak(goalMinutes);
+  return (
+    <V4StudyActivity
+      streak={streak}
+      seconds={seconds}
+      lessons={lessons ?? 0}
+      goalMinutes={goalMinutes}
+    />
   );
 }

@@ -5,7 +5,7 @@ import { spanishBasicsLesson } from "@/data/spanish-basics";
 import { japaneseBasicsLesson } from "@/data/japanese-basics";
 // Built by TAC — 2026-10-15
 import { useEffect, useMemo, useState } from "react";
-import { ExternalLink, Languages, Pause, Play, Volume2 } from "lucide-react";
+import { ExternalLink, Languages, Pause, Play, Turtle, Volume2 } from "lucide-react";
 import { ClickableText } from "@/components/reader/ClickableText";
 import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
 import { useApp, type Language } from "@/state/app-state";
@@ -279,7 +279,9 @@ export function LessonReader({
             <button onClick={() => play(1)}>
               <Volume2 size={20} /> Listen
             </button>
-            <button onClick={() => play(0.7)}>Slow</button>
+            <button onClick={() => play(0.7)}>
+              <Turtle size={20} aria-hidden /> Slow
+            </button>
           </div>
         </article>
         <div className="lt-native-reading-actions">

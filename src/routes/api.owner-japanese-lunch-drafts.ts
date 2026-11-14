@@ -12,7 +12,7 @@ const stages = [
   { draft: () => import("../../content/japanese-travel-lunch/core-25-27-draft.json"), modes: () => import("../../content/japanese-travel-lunch/private-mode-activities-core-25-27.json"), sourceSha256: "fa180eb341d972eeb199f0a14c52c1d6c97ed68a8a5321ad7daed3bb7314f0ab" },
   { draft: () => import("../../content/japanese-travel-lunch/core-28-30-draft.json"), modes: () => import("../../content/japanese-travel-lunch/private-mode-activities-core-28-30.json"), sourceSha256: "b2f531effe6fe76e00cf2121e2aa4cc9995e7bfb8d336ae3ebb03bd3863e715a" },
   { draft: () => import("../../content/japanese-travel-lunch/core-4-6-draft.json"), modes: () => import("../../content/japanese-travel-lunch/private-mode-activities-core-4-6.json"), sourceSha256: "5443a0b8ee74446056c6550a39e4944288f3b5b0962a1063191587b68f436341" },
-  { draft: () => import("../../content/japanese-travel-lunch/core-7-9-draft.json"), modes: () => import("../../content/japanese-travel-lunch/private-mode-activities-core-7-9.json"), sourceSha256: "9b9b33e8a9917fde3ab005fae700eba64a473cfb7b03fc9ec6ae32dc906f9823" },
+  { draft: () => import("../../content/japanese-travel-lunch/core-7-9-draft.json"), modes: () => import("../../content/japanese-travel-lunch/private-mode-activities-core-7-9.json"), sourceSha256: "4b9c3559c4a5b85129c76d1c7506fce9f6f7ea10b6df9f831ef6fb2505fc373c" },
   { draft: () => import("../../content/japanese-travel-lunch/foundation-1-3-draft.json"), modes: () => import("../../content/japanese-travel-lunch/private-mode-activities-foundation-1-3.json"), sourceSha256: "6b8577d0da33c2f84152cd8dac9724609c41df1f6d2de2fdd92a2d1837856017" },
   { draft: () => import("../../content/japanese-travel-lunch/foundation-4-6-draft.json"), modes: () => import("../../content/japanese-travel-lunch/private-mode-activities-foundation-4-6.json"), sourceSha256: "698f1004516b2fea5243c91ddc60aac9222b522c2b36189b8cf72446597818b5" },
   { draft: () => import("../../content/japanese-travel-lunch/foundation-7-10-draft.json"), modes: () => import("../../content/japanese-travel-lunch/private-mode-activities-foundation-7-10.json"), sourceSha256: "ba303cb272cf5d4b1073911e43eedeaed40dadf472d7800b579da21a5bd5c6bf" },
@@ -95,6 +95,16 @@ async function lunchDrafts() {
       "travel-lunch:4:ja-en,travel-lunch:5:ja-en,travel-lunch:6:ja-en",
     "Japanese Lunch Core 4–6 enrichment source or release gate changed");
   authoredLessons.push(...nextCoreEnrichment.lessons);
+  const finalCoreEnrichment = (await import("../../content/japanese-travel-lunch/private-core-7-9-enrichment.json")).default as Enrichment;
+  check(finalCoreEnrichment.pairKey === "Japanese:English" &&
+    finalCoreEnrichment.sourcePath === "content/japanese-travel-lunch/core-7-9-draft.json" &&
+    finalCoreEnrichment.sourceSha256 === "4b9c3559c4a5b85129c76d1c7506fce9f6f7ea10b6df9f831ef6fb2505fc373c" &&
+    finalCoreEnrichment.reviewed === false && finalCoreEnrichment.registered === false &&
+    finalCoreEnrichment.readyForLearner === false &&
+    finalCoreEnrichment.lessons.map((lesson) => lesson.stableId).join() ===
+      "travel-lunch:7:ja-en,travel-lunch:8:ja-en,travel-lunch:9:ja-en",
+    "Japanese Lunch Core 7–9 enrichment source or release gate changed");
+  authoredLessons.push(...finalCoreEnrichment.lessons);
   const packets = await Promise.all(stages.map(async ({ draft, modes, sourceSha256 }) => ({
     batch: (await draft()).default as Draft, sidecar: (await modes()).default as Sidecar, sourceSha256,
   })));
@@ -114,7 +124,7 @@ async function lunchDrafts() {
         lesson.cards.length > 0 && lesson.reader.length > 0, "Japanese Lunch lesson identity changed");
       const activities = sidecar.activities.filter((activity) => activity.lessonId === lesson.stableId);
       const authored = authoredLessons.find((entry) => entry.stableId === lesson.stableId);
-      if (authored) check(((stage === "foundation" && lesson.n <= 10) || (stage === "core" && lesson.n <= 6)) && authored.forms.length === 3 &&
+      if (authored) check(((stage === "foundation" && lesson.n <= 10) || (stage === "core" && lesson.n <= 9)) && authored.forms.length === 3 &&
         authored.speakingObjectives.length >= 3 && authored.wordBank.length >= 4 &&
         authored.wordBank.every((word) => lesson.cards.some((card) => card.ja === word)),
         "Japanese Lunch authored enrichment scope changed");

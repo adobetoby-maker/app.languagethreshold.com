@@ -143,3 +143,7 @@ The [Core 1–3 checkpoint](travel-lunch-core-1-3-enrichment-2026-11-13.md) adds
 ## November 13 Japanese Lunch Core 4–6 form and speaking enrichment
 
 The [Core 4–6 checkpoint](travel-lunch-core-4-6-enrichment-2026-11-13.md) pins three more owner-only lessons with authored Japanese forms, speaking objectives and card-only word banks. Foundation 10 and Core 1–6 have this draft support; 44 Lunch lessons still lack it. Safe-mode CLI metadata verified Haiku 5.5 candidate authoring and Opus 5.5 read-only critique, followed by self-correction. Source/ID/release gates remain closed. Qualified review, dictionary reconciliation, exact-pair learner/offline/native work and distinct audio listening remain open. No audio was generated or approved.
+
+## November 13 Japanese Lunch Core 7–9 form and speaking enrichment
+
+The [Core 7–9 checkpoint](travel-lunch-core-7-9-enrichment-2026-11-13.md) adds source-linked forms, authored speaking objectives and card-only word banks to three owner-only lessons. Foundation 10 and Core 1–9 now have this draft support; 41 Lunch lessons still lack it. Safe-mode CLI metadata verified Haiku 5.5 authoring and Opus 5.5 read-only critique, followed by source-grounded corrections to the owner draft's payment, cheese-omission and water/bread sequence. Source/ID/release gates remain closed. Changed Reader strings require new exact-text audio before any future playback; no new audio was generated or approved. Qualified review, dictionary reconciliation, exact-pair learner/offline/native work and distinct listening remain open.

@@ -1,0 +1,442 @@
+{
+  "schema": 1,
+  "state": "private-form-practice-draft",
+  "pairKey": "French:English",
+  "courseId": "french-basics:fr-en",
+  "registered": false,
+  "reviewed": false,
+  "sourceFile": "content/french-basics/private-runtime-core-1-30.json",
+  "sourceSha256": "6d200aae866bbd1561e9bc9b035a516641b555592561bb51168bbecae9f74af5",
+  "counts": {
+    "lessons": 3,
+    "alignedReaderPrompts": 18,
+    "newAuthoredContrasts": 6,
+    "totalPrompts": 24,
+    "grammarModels": 3
+  },
+  "lessons": [
+    {
+      "lesson": 13,
+      "stableLessonKey": "french-basics:13",
+      "grammarModel": {
+        "focus": "pouvoir + infinitif : je peux, tu peux, il/elle peut, nous pouvons, ils/elles peuvent; est-ce que je peux… ?",
+        "alignedReader": "Je peux étudier ici aujourd’hui.",
+        "authoredContrasts": [
+          "Est-ce que je peux étudier ici ?",
+          "Est-ce que vous pouvez répéter la question ?"
+        ]
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-1b137d0396c376f4",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "aligned-reader-1",
+          "frenchAnswer": "Je peux étudier ici aujourd’hui.",
+          "englishPrompt": "I can study here today.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Je peux étudier ici aujourd’hui."
+          ]
+        },
+        {
+          "id": "form-fr-en-3cc40845b5ad08bd",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "aligned-reader-2",
+          "frenchAnswer": "Est-ce que tu peux ouvrir la fenêtre ?",
+          "englishPrompt": "Can you open the window?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Est-ce que tu peux ouvrir la fenêtre ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-f1670b17832df9a3",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "aligned-reader-3",
+          "frenchAnswer": "Ana peut aider à faire les devoirs.",
+          "englishPrompt": "Ana can help with the homework.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ana peut aider à faire les devoirs."
+          ]
+        },
+        {
+          "id": "form-fr-en-bb9f5b608c351cec",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "focus": "aligned-reader-4",
+          "frenchAnswer": "Nous pouvons parler à voix basse.",
+          "englishPrompt": "We can speak quietly.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Nous pouvons parler à voix basse."
+          ]
+        },
+        {
+          "id": "form-fr-en-27a91803b96eec94",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "aligned-reader-5",
+          "frenchAnswer": "Ils ne peuvent pas manger dans cette salle.",
+          "englishPrompt": "They cannot eat in this room.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ils ne peuvent pas manger dans cette salle."
+          ]
+        },
+        {
+          "id": "form-fr-en-41b80ceb5276b10a",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "focus": "aligned-reader-6",
+          "frenchAnswer": "Pouvez-vous répéter la question, s’il vous plaît ?",
+          "englishPrompt": "Can you repeat the question, please?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Pouvez-vous répéter la question, s’il vous plaît ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-d5839dd64e969284",
+          "source": "authored-draft-contrast",
+          "focus": "permission-je-peux",
+          "frenchAnswer": "Est-ce que je peux étudier ici ?",
+          "englishPrompt": "May I study here?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Est-ce que je peux étudier ici ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-5c01e2dab1952659",
+          "source": "authored-draft-contrast",
+          "focus": "formal-vous-pouvez",
+          "frenchAnswer": "Est-ce que vous pouvez répéter la question ?",
+          "englishPrompt": "Can you (formal or plural) repeat the question?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Est-ce que vous pouvez répéter la question ?"
+          ]
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 14,
+      "stableLessonKey": "french-basics:14",
+      "grammarModel": {
+        "focus": "avoir besoin de + nom/infinitif; devoir + infinitif : je dois, tu dois, il/elle doit, nous devons",
+        "alignedReader": "J’ai besoin de réviser les verbes.",
+        "authoredContrasts": [
+          "J’ai besoin de cahiers.",
+          "Vous devez arriver à huit heures."
+        ]
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-7bf9d73ca1f4e7fc",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "aligned-reader-1",
+          "frenchAnswer": "J’ai besoin de réviser les verbes.",
+          "englishPrompt": "I need to review the verbs.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "J’ai besoin de réviser les verbes."
+          ]
+        },
+        {
+          "id": "form-fr-en-3d19266ed6a101f1",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "aligned-reader-2",
+          "frenchAnswer": "Je dois finir les devoirs.",
+          "englishPrompt": "I have to finish the homework.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Je dois finir les devoirs."
+          ]
+        },
+        {
+          "id": "form-fr-en-dcc45e2ee2726e44",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "aligned-reader-3",
+          "frenchAnswer": "Ana a besoin d’un cahier.",
+          "englishPrompt": "Ana needs a notebook.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ana a besoin d’un cahier."
+          ]
+        },
+        {
+          "id": "form-fr-en-eb4837c51116c21f",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "focus": "aligned-reader-4",
+          "frenchAnswer": "Nous devons arriver à huit heures.",
+          "englishPrompt": "We have to arrive at eight.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Nous devons arriver à huit heures."
+          ]
+        },
+        {
+          "id": "form-fr-en-7fb905ab900b429d",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "aligned-reader-5",
+          "frenchAnswer": "Luis doit lire deux pages.",
+          "englishPrompt": "Luis has to read two pages.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Luis doit lire deux pages."
+          ]
+        },
+        {
+          "id": "form-fr-en-60c473a4c9f70189",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "focus": "aligned-reader-6",
+          "frenchAnswer": "Est-ce que tu as besoin d’aide pour cette question ?",
+          "englishPrompt": "Do you need help with this question?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Est-ce que tu as besoin d’aide pour cette question ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-3cafd887c783bc90",
+          "source": "authored-draft-contrast",
+          "focus": "plural-need-de",
+          "frenchAnswer": "J’ai besoin de cahiers.",
+          "englishPrompt": "I need notebooks.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "J’ai besoin de cahiers."
+          ]
+        },
+        {
+          "id": "form-fr-en-b4b1f306ebbb1ad9",
+          "source": "authored-draft-contrast",
+          "focus": "formal-vous-devez",
+          "frenchAnswer": "Vous devez arriver à huit heures.",
+          "englishPrompt": "You (formal or plural) must arrive at eight.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Vous devez arriver à huit heures."
+          ]
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 15,
+      "stableLessonKey": "french-basics:15",
+      "grammarModel": {
+        "focus": "faire : je fais, tu fais, il/elle fait, nous faisons, ils/elles font; faire du sport, faire ses devoirs",
+        "alignedReader": "Je fais mes devoirs à la bibliothèque.",
+        "authoredContrasts": [
+          "Vous faites du sport ?",
+          "Ils font leurs devoirs."
+        ]
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-7a56c36edcadcc2d",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "aligned-reader-1",
+          "frenchAnswer": "Je fais mes devoirs à la bibliothèque.",
+          "englishPrompt": "I do homework in the library.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Je fais mes devoirs à la bibliothèque."
+          ]
+        },
+        {
+          "id": "form-fr-en-4b8b2734d6fdabb6",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "aligned-reader-2",
+          "frenchAnswer": "Ana fait une liste de courses.",
+          "englishPrompt": "Ana makes a shopping list.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ana fait une liste de courses."
+          ]
+        },
+        {
+          "id": "form-fr-en-eb494dc42e6327aa",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "aligned-reader-3",
+          "frenchAnswer": "Nous faisons du sport après le cours.",
+          "englishPrompt": "We exercise after class.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Nous faisons du sport après le cours."
+          ]
+        },
+        {
+          "id": "form-fr-en-9282c6546c55a710",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "focus": "aligned-reader-4",
+          "frenchAnswer": "Luis prépare le dîner à la maison.",
+          "englishPrompt": "Luis makes dinner at home.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Luis prépare le dîner à la maison."
+          ]
+        },
+        {
+          "id": "form-fr-en-4fe405d951ca1199",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "aligned-reader-5",
+          "frenchAnswer": "Mes amis posent des questions en français.",
+          "englishPrompt": "My friends ask questions in French.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Mes amis posent des questions en français."
+          ]
+        },
+        {
+          "id": "form-fr-en-e6d1cc110434bae8",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "focus": "aligned-reader-6",
+          "frenchAnswer": "Qu’est-ce que tu fais le dimanche ?",
+          "englishPrompt": "What do you do on Sundays?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Qu’est-ce que tu fais le dimanche ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-686d689e89b3692f",
+          "source": "authored-draft-contrast",
+          "focus": "formal-vous-faites",
+          "frenchAnswer": "Vous faites du sport ?",
+          "englishPrompt": "Do you (formal or plural) exercise?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Vous faites du sport ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-d7cea2975708b6c4",
+          "source": "authored-draft-contrast",
+          "focus": "plural-ils-font",
+          "frenchAnswer": "Ils font leurs devoirs.",
+          "englishPrompt": "They (men or a mixed group) do their homework.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ils font leurs devoirs."
+          ]
+        }
+      ],
+      "reviewed": false
+    }
+  ]
+}

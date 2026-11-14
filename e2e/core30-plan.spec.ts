@@ -981,6 +981,9 @@ test("V4 lesson workspace keeps the lesson focused and restores app navigation o
   await expect(page.getByText("Your lesson goal", { exact: true })).toBeVisible();
   await page.keyboard.press("Escape");
   await expect(page.getByRole("dialog")).toHaveCount(0);
+  await expect(
+    page.getByRole("button", { name: "Lesson details and goal", exact: true }),
+  ).toBeFocused();
   await expect(workspace).toBeVisible();
 
   await page.emulateMedia({ reducedMotion: "reduce" });
@@ -1009,9 +1012,34 @@ test("V4 lesson workspace keeps the lesson focused and restores app navigation o
   await expect(page.getByRole("dialog").filter({ hasText: "Explore" })).toBeVisible();
   await page.getByRole("button", { name: "Close", exact: true }).click();
   await expect(page.getByTestId("lesson-nav-type")).toHaveAttribute("aria-current", "step");
+  await expect(
+    page.getByRole("button", { name: "App navigation and settings", exact: true }),
+  ).toBeFocused();
   await page.getByText("✕ Exit", { exact: true }).click();
   await expect(workspace).toHaveCount(0);
   if (info.project.name === "iphone-pwa")
     await expect(page.locator(".lt-bottom-nav")).toBeVisible();
   else await expect(page.locator(".lt-app-shell > aside")).toBeVisible();
+});
+
+test("V4 lesson workspace lets the header scroll away on short screens", async ({ page }, info) => {
+  await openCore30(page, STARTED_TODAY);
+  await openLesson1(page);
+  await page.setViewportSize({ width: 852, height: 393 });
+  await expect(page.locator(".lt-lesson-workspace-header")).toHaveCSS("position", "static");
+  await page.getByTestId("lesson-nav-type").click();
+  await expect(page.getByTestId("lesson-nav-type")).toHaveAttribute("aria-current", "step");
+  await expect(page.getByTestId("lesson-section-nav")).toBeInViewport();
+  expect(
+    await page
+      .locator("main.lt-scroll-safe")
+      .evaluate((el) => parseFloat(getComputedStyle(el).scrollPaddingTop)),
+  ).toBeLessThan(25);
+  const section = await page.getByTestId("lesson-section-kit").boundingBox();
+  expect(section!.y).toBeGreaterThanOrEqual(0);
+  expect(section!.y).toBeLessThan(100);
+  await page.screenshot({
+    path: info.outputPath("workspace-landscape.png"),
+    animations: "disabled",
+  });
 });

@@ -2033,3 +2033,33 @@ body:has(.lt-lesson-workspace-active) .lt-speaking-navigation {
 body:has(.lt-lesson-workspace-active) .tool-purpose {
   display: none;
 }
+
+.lt-lesson-demo-panel {
+  animation: lt-lesson-enter 160ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lt-lesson-demo-panel {
+    animation: none;
+  }
+}
+
+/* Measured chrome leaves focused controls visible even when a title wraps. */
+main.lt-scroll-safe:has(.lt-lesson-workspace-active),
+.lt-lesson-demo-shell [data-demo-scroll] {
+  scroll-padding-top: calc(var(--lt-lesson-header-height, 0px) + 12px);
+}
+.lt-lesson-workspace-active section[data-testid^="lesson-section-"]:not([hidden]) {
+  scroll-margin-top: 12px;
+}
+.lt-lesson-demo-shell .lt-lesson-workspace-header {
+  max-width: 48rem;
+  margin-inline: auto;
+}
+.lt-lesson-demo-panel {
+  scroll-margin-top: 12px;
+}
+@media (max-height: 600px) {
+  .lt-lesson-workspace-header {
+    position: static;
+  }
+}

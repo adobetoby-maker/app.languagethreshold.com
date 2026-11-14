@@ -1,4 +1,4 @@
-import { useState, type ReactNode, type Ref } from "react";
+import { useEffect, useRef, useState, type ReactNode, type Ref } from "react";
 import {
   BookOpen,
   ChevronDown,
@@ -64,8 +64,34 @@ export function LessonWorkspaceHeader({
   navigation?: ReactNode;
 }) {
   const [detailsOpen, setDetailsOpen] = useState(false);
+  const headerRef = useRef<HTMLElement | null>(null);
+  const infoButtonRef = useRef<HTMLButtonElement | null>(null);
+  useEffect(() => {
+    const header = headerRef.current;
+    const scroller = header?.closest("main");
+    if (!header || !scroller) return;
+    const previous = scroller.style.getPropertyValue("--lt-lesson-header-height");
+    const measure = () => {
+      const height =
+        getComputedStyle(header).position === "sticky"
+          ? Math.ceil(header.getBoundingClientRect().height)
+          : 0;
+      scroller.style.setProperty("--lt-lesson-header-height", `${height}px`);
+    };
+    measure();
+    const observer = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(measure);
+    observer?.observe(header);
+    window.addEventListener("resize", measure);
+    return () => {
+      observer?.disconnect();
+      window.removeEventListener("resize", measure);
+      if (previous) scroller.style.setProperty("--lt-lesson-header-height", previous);
+      else scroller.style.removeProperty("--lt-lesson-header-height");
+    };
+  }, []);
+
   return (
-    <header className="lt-lesson-workspace-header">
+    <header ref={headerRef} className="lt-lesson-workspace-header">
       <div className="flex min-w-0 items-center justify-between gap-2">
         <button
           type="button"
@@ -83,6 +109,7 @@ export function LessonWorkspaceHeader({
               type="button"
               onClick={onMore}
               aria-label="App navigation and settings"
+              data-lesson-workspace-menu
               className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground"
             >
               <Menu aria-hidden="true" className="h-4 w-4" />
@@ -106,6 +133,7 @@ export function LessonWorkspaceHeader({
         </div>
         <button
           type="button"
+          ref={infoButtonRef}
           onClick={() => setDetailsOpen(true)}
           aria-label="Lesson details and goal"
           aria-haspopup="dialog"
@@ -133,6 +161,10 @@ export function LessonWorkspaceHeader({
       <Sheet open={detailsOpen} onOpenChange={setDetailsOpen}>
         <SheetContent
           side="bottom"
+          onCloseAutoFocus={(event) => {
+            event.preventDefault();
+            infoButtonRef.current?.focus();
+          }}
           scrollBody
           className="mx-auto max-h-[85dvh] max-w-2xl rounded-t-3xl"
         >

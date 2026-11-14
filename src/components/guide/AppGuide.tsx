@@ -708,8 +708,7 @@ function scrollStepBarIntoView(el: HTMLElement | null, behavior: ScrollBehavior)
       '.lt-core60-lesson-active section[data-testid^="lesson-section-"]:not([hidden])',
     );
     if (visibleStep) {
-      const header = document.querySelector<HTMLElement>(".lt-lesson-workspace-header");
-      visibleStep.style.scrollMarginTop = `${(header?.getBoundingClientRect().height ?? stickyTopOffset()) + 16}px`;
+      visibleStep.style.scrollMarginTop = `${el.classList.contains("lt-lesson-mode-bar") ? 12 : stickyTopOffset() + 8}px`;
       visibleStep.scrollIntoView({ behavior, block: "start" });
     }
     return;
@@ -1322,7 +1321,7 @@ function OwnedLessonRunner({
     return (
       <p
         data-testid="core30-step-opened"
-        className="mt-1.5 flex items-center gap-1 text-[11px] text-gold/80"
+        className="mt-1.5 flex items-center gap-1 text-xs text-gold-ink"
       >
         <CheckCircle2 className="h-3 w-3" strokeWidth={2} />
         Opened {formatOpenedDate(openedAt)}
@@ -1393,7 +1392,7 @@ function OwnedLessonRunner({
   ];
   const panelHeader = (def: SectionDef, n: number) => (
     <header>
-      <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+      <p className="text-xs font-medium text-muted-foreground">
         Step {n} of {SECTIONS.length}
       </p>
       <h4 className="mt-0.5 font-display text-lg font-semibold text-foreground">{def.label}</h4>

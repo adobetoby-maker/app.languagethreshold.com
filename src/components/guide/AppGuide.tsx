@@ -1,3 +1,9 @@
+import {
+  LessonWorkspaceHeader,
+  LessonModeBar,
+  LESSON_MODES,
+} from "@/components/core30/LessonWorkspaceChrome";
+import { getModule } from "@/data/modules";
 import { CoreVerbPracticeCard } from "@/components/verbs/CoreVerbPracticeCard";
 import { PlaceDirectionsGame } from "@/components/games/PlaceDirectionsGame";
 import { SoundPractice } from "@/components/sound-practice/SoundPractice";
@@ -650,34 +656,7 @@ interface SectionDef {
 }
 
 /** The six ways of learning, in the order the learner works through them. */
-const SECTIONS: SectionDef[] = [
-  {
-    id: "see",
-    label: "See it",
-    why: "Start with this lesson's reading or word list.",
-    Icon: Eye,
-  },
-  {
-    id: "recall",
-    label: "Recall it",
-    why: "Pull each word back from memory with cards and matching.",
-    Icon: Layers,
-  },
-  {
-    id: "hear",
-    label: "Hear it",
-    why: "Train your ear on how the words really sound.",
-    Icon: Headphones,
-  },
-  { id: "type", label: "Type it", why: "Spell the words from memory.", Icon: Keyboard },
-  { id: "say", label: "Say it", why: "Use the words out loud in a short role-play.", Icon: Mic },
-  {
-    id: "write",
-    label: "Write it",
-    why: "Copy the words, recall their spelling, then write a response.",
-    Icon: PenLine,
-  },
-];
+const SECTIONS: readonly SectionDef[] = LESSON_MODES;
 
 /** The sections that live in the one practice kit. */
 const KIT_SECTIONS: SectionId[] = ["recall", "hear", "type", "write"];
@@ -721,14 +700,16 @@ function stickyTopOffset(): number {
 function scrollStepBarIntoView(el: HTMLElement | null, behavior: ScrollBehavior) {
   if (!el) return;
   if (
-    window.matchMedia("(max-width: 767px)").matches &&
-    el.classList.contains("lt-core60-section-nav")
+    el.classList.contains("lt-lesson-mode-bar") ||
+    (window.matchMedia("(max-width: 767px)").matches &&
+      el.classList.contains("lt-core60-section-nav"))
   ) {
     const visibleStep = document.querySelector<HTMLElement>(
       '.lt-core60-lesson-active section[data-testid^="lesson-section-"]:not([hidden])',
     );
     if (visibleStep) {
-      visibleStep.style.scrollMarginTop = `${stickyTopOffset() + 8}px`;
+      const header = document.querySelector<HTMLElement>(".lt-lesson-workspace-header");
+      visibleStep.style.scrollMarginTop = `${(header?.getBoundingClientRect().height ?? stickyTopOffset()) + 16}px`;
       visibleStep.scrollIntoView({ behavior, block: "start" });
     }
     return;
@@ -1422,75 +1403,26 @@ function OwnedLessonRunner({
   );
 
   return (
-    <div className="space-y-4">
-      {/* Lesson header */}
-      <div className="lt-core60-lesson-header rounded-2xl border border-gold/20 bg-gold/[0.04] p-5">
-        <div className="flex items-start justify-between gap-3 mb-1">
-          <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
-              {core60StageName(moduleId) ? `${core60StageName(moduleId)} · ` : ""}Lesson {lesson.n}{" "}
-              · {totalMin} min
-            </p>
-            <h3 className="text-lg font-semibold text-white">{lesson.title}</h3>
-          </div>
-          <button
-            onClick={() => leaveLesson(onExit)}
-            className="min-h-11 shrink-0 px-1 text-[11px] text-white/50 transition-colors hover:text-white/80"
-          >
-            ✕ Exit
-          </button>
-        </div>
-        <p className="lt-core60-lesson-goal text-sm text-white/60 mt-1">
-          <span className="text-gold/80 mr-1">Goal:</span>
-          {lesson.objective}
-        </p>
-        <div className="mt-3">{lessonButtons("top")}</div>
-      </div>
-
-      {/* Six ways of learning, one lesson, one page */}
-      <nav
-        ref={navRef}
-        aria-label="Ways of learning this lesson"
-        data-testid="lesson-section-nav"
-        className="lt-core60-section-nav sticky top-0 z-20 -mx-1 scroll-mt-2 desktop:scroll-mt-44 grid grid-cols-6 gap-1 rounded-xl border border-border/50 bg-background/95 p-1 backdrop-blur desktop:static"
+    <div className="lt-lesson-workspace-active space-y-4" data-lesson-mode={section}>
+      <LessonWorkspaceHeader
+        courseTitle={getModule(moduleId)?.name ?? "Your course"}
+        lessonTitle={lesson.title}
+        lessonLabel={`${core60StageName(moduleId) ? `${core60StageName(moduleId)} · ` : ""}Lesson ${lesson.n} · ${totalMin} min`}
+        goal={lesson.objective}
+        active={section}
+        opened={SECTIONS.filter(({ id }) => Boolean(wayVisitAt(lessonLog, id))).map(({ id }) => id)}
+        onExit={() => leaveLesson(onExit)}
+        onMore={() => window.dispatchEvent(new Event("lt:lesson-workspace-navigation"))}
+        navigation={lessonButtons("top")}
+      />
+      <LessonModeBar
+        navRef={navRef}
+        active={section}
+        opened={SECTIONS.filter(({ id }) => Boolean(wayVisitAt(lessonLog, id))).map(({ id }) => id)}
+        onSelect={(id) => {
+          if (id !== "recall" || section !== "recall") selectSection(id, true);
+        }}
       >
-        {SECTIONS.map(({ id, label, Icon }) => {
-          const active = section === id;
-          const opened = Boolean(wayVisitAt(lessonLog, id));
-          return (
-            <button
-              key={id}
-              type="button"
-              data-testid={`lesson-nav-${id}`}
-              aria-current={active ? "step" : undefined}
-              aria-label={label}
-              onClick={() => {
-                if (id !== "recall" || section !== "recall") selectSection(id);
-              }}
-              aria-controls={
-                id === "recall" && section === "recall" ? "lesson-recall-menu" : undefined
-              }
-              className={cn(
-                "relative flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-lg px-0.5 text-[11px] font-bold transition-colors",
-                active
-                  ? "bg-gold text-background"
-                  : "text-muted-foreground hover:bg-gold/10 hover:text-foreground",
-              )}
-            >
-              <Icon className="h-4 w-4" aria-hidden="true" />
-              {label.replace(" it", "")}
-              {opened && (
-                <Check
-                  className={cn(
-                    "absolute right-0.5 top-0.5 h-3 w-3",
-                    active ? "text-background" : "text-gold",
-                  )}
-                  aria-hidden="true"
-                />
-              )}
-            </button>
-          );
-        })}
         {section === "recall" && (
           <div
             id="lesson-recall-menu"
@@ -1513,7 +1445,7 @@ function OwnedLessonRunner({
             ))}
           </div>
         )}
-      </nav>
+      </LessonModeBar>
 
       {/* 1 · See it */}
       <section
@@ -1540,20 +1472,7 @@ function OwnedLessonRunner({
               </ul>
             </div>
           )}
-          <details className="mb-4 rounded-xl border p-3">
-            <summary className="cursor-pointer py-2 font-semibold">
-              Picture & Action · scene practice
-            </summary>
-            <PlaceDirectionsGame
-              key={`${moduleId}:${lesson.n}:${state.selectedLanguage}:${state.nativeLanguage}`}
-              moduleId={moduleId}
-              targetLanguage={state.selectedLanguage}
-              nativeLanguage={state.nativeLanguage}
-              initialRound={
-                moduleId.startsWith("foundation-place-directions") && lesson.n === 9 ? 11 : 0
-              }
-            />
-          </details>
+
           {definition?.soundPractice && (
             <SoundPractice
               key={`${moduleId}:${lesson.n}:${state.selectedLanguage}:${state.nativeLanguage}`}
@@ -1563,7 +1482,6 @@ function OwnedLessonRunner({
               active={section === "see"}
             />
           )}
-          <CoreVerbPracticeCard compact />
           {basics?.pattern && <SpanishPatternModels pattern={basics.pattern} />}
           {basics && verbs.length > 0 && (
             <LessonVerbGames
@@ -1582,6 +1500,23 @@ function OwnedLessonRunner({
             onInteract={() => recordStepOpened(readerStep)}
             onOpenFullReader={openFullReader}
           />
+          <div className="mt-4 space-y-3">
+            <CoreVerbPracticeCard compact />
+            <details className="mb-4 rounded-xl border p-3">
+              <summary className="cursor-pointer py-2 font-semibold">
+                Picture & Action · scene practice
+              </summary>
+              <PlaceDirectionsGame
+                key={`${moduleId}:${lesson.n}:${state.selectedLanguage}:${state.nativeLanguage}`}
+                moduleId={moduleId}
+                targetLanguage={state.selectedLanguage}
+                nativeLanguage={state.nativeLanguage}
+                initialRound={
+                  moduleId.startsWith("foundation-place-directions") && lesson.n === 9 ? 11 : 0
+                }
+              />
+            </details>
+          </div>
         </div>
         {section === "see" && nextButton}
       </section>
@@ -2982,7 +2917,7 @@ export function Core30Tab() {
     getCurriculum(state.activeModuleId ?? "", state.selectedLanguage, state.nativeLanguage),
   );
   return (
-    <div className="mx-auto max-w-2xl space-y-8 pb-12">
+    <div className="lt-core60-tab mx-auto max-w-2xl space-y-8 pb-12">
       {state.activeModuleId &&
         !spanishBasicsLesson(state.activeModuleId, 1) &&
         state.selectedLanguage === "Spanish" &&

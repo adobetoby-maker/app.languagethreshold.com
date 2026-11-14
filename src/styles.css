@@ -1866,3 +1866,170 @@ body:has([data-speaking-session="active"]) .lt-learning-selectors {
     padding-bottom: calc(env(safe-area-inset-bottom) + 4px) !important;
   }
 }
+
+/* A focused lesson workspace: the curriculum and practice components stay intact. */
+.lt-app-shell:has(.lt-lesson-workspace-active) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+}
+.lt-app-shell:has(.lt-lesson-workspace-active) > aside,
+.lt-app-shell:has(.lt-lesson-workspace-active) .lt-main-column > header,
+body:has(.lt-lesson-workspace-active) .lt-bottom-nav,
+body:has(.lt-lesson-workspace-active) .lt-speaking-navigation {
+  display: none !important;
+}
+.lt-app-shell:has(.lt-lesson-workspace-active) > .lt-main-column {
+  min-height: 0;
+  overflow: hidden;
+}
+.lt-app-shell:has(.lt-lesson-workspace-active) > .lt-main-column > main.lt-scroll-safe {
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  padding-bottom: calc(116px + env(safe-area-inset-bottom)) !important;
+  scroll-padding-bottom: calc(116px + env(safe-area-inset-bottom));
+}
+.lt-app-shell:has(.lt-lesson-workspace-active):has(.lt-core60-recall-menu)
+  > .lt-main-column
+  > main.lt-scroll-safe {
+  padding-bottom: calc(176px + env(safe-area-inset-bottom)) !important;
+  scroll-padding-bottom: calc(176px + env(safe-area-inset-bottom));
+}
+.lt-lesson-workspace-active {
+  max-width: 48rem;
+  margin-inline: auto;
+}
+.lt-lesson-workspace-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  padding-block: 8px 12px;
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+}
+.lt-lesson-workspace-header [data-testid="lesson-nav-top"] {
+  gap: 8px;
+}
+.lt-lesson-workspace-header [data-testid="lesson-nav-top"] button {
+  min-height: 44px;
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+.lt-lesson-workspace-header [data-testid="lesson-nav-top"] button .block.text-xs {
+  display: none;
+}
+.lt-lesson-workspace-active section[data-testid^="lesson-section-"]:not([hidden]) {
+  animation: lt-lesson-enter 160ms ease-out;
+  scroll-margin-top: 200px;
+}
+.lt-lesson-mode-bar {
+  position: fixed;
+  inset: auto auto 0 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  width: min(100%, 52rem);
+  z-index: 46;
+  margin: 0;
+  padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
+  border: 0;
+  border-top: 1px solid var(--border);
+  border-radius: 16px 16px 0 0;
+  background: var(--background);
+  box-shadow: 0 -8px 24px color-mix(in srgb, var(--background) 85%, transparent);
+}
+.lt-lesson-mode-bar > button {
+  min-height: 56px;
+  padding-inline: 2px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted-foreground);
+}
+.lt-lesson-mode-bar > button[aria-current="step"] {
+  background: color-mix(in srgb, var(--gold) 10%, transparent);
+  color: var(--gold-ink);
+  box-shadow: inset 0 -3px var(--gold-ink);
+}
+.lt-lesson-mode-bar > button .absolute,
+.lt-lesson-mode-bar > button[aria-current="step"] .absolute {
+  color: var(--gold-ink);
+}
+.lt-lesson-workspace-active [data-testid="practice-recall-switch"] {
+  display: none;
+}
+.lt-lesson-mode-bar .lt-core60-recall-menu {
+  position: absolute;
+  inset: auto 0 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4px;
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 12px 12px 0 0;
+  background: var(--background);
+}
+.lt-lesson-mode-bar .lt-core60-recall-menu button {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--foreground);
+}
+.lt-lesson-mode-bar .lt-core60-recall-menu button[aria-current="true"] {
+  border-color: var(--gold-ink);
+  color: var(--gold-ink);
+}
+.lt-lesson-demo-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--background);
+  color: var(--foreground);
+}
+.lt-lesson-demo-shell [data-demo-scroll] {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  padding-bottom: calc(100px + env(safe-area-inset-bottom));
+  scroll-padding-bottom: calc(100px + env(safe-area-inset-bottom));
+}
+@keyframes lt-lesson-enter {
+  from {
+    opacity: 0.5;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lt-lesson-workspace-active *,
+  .lt-lesson-demo-shell * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.lt-core60-tab:has(.lt-lesson-workspace-active) > aside {
+  display: none;
+}
+.lt-core60-tab:has(.lt-lesson-workspace-active) > .lt-core60-lesson-active {
+  margin-top: 0;
+}
+body:has(.lt-lesson-workspace-active) .tool-purpose {
+  display: none;
+}

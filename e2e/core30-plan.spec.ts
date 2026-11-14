@@ -111,6 +111,15 @@ async function gotoCore30Tab(page: Page, isMobile: boolean) {
 
 /** Any tab the way a user reaches it: left rail on desktop, the More sheet on a phone. */
 async function gotoTab(page: Page, isMobile: boolean, label: RegExp) {
+  const lessonMenu = page.getByRole("button", { name: "App navigation and settings", exact: true });
+  if (await lessonMenu.isVisible()) {
+    await lessonMenu.click();
+    const sheet = page.getByRole("dialog").filter({ hasText: "Explore" });
+    const item = sheet.getByRole("button", { name: label }).first();
+    await item.scrollIntoViewIfNeeded();
+    await item.click();
+    return;
+  }
   if (isMobile) {
     await page.getByText("More", { exact: true }).filter({ visible: true }).last().tap();
     const sheet = page.getByRole("dialog").filter({ hasText: "Explore" });
@@ -801,7 +810,10 @@ test.describe("Core 30 plan: generated lesson words (Orthopedics in French, no a
     await openOrthopedicsLesson1(page);
 
     await expect(
-      page.getByRole("heading", { includeHidden: true, name: `Practice this lesson's words (${STUB_WORDS.length})` }),
+      page.getByRole("heading", {
+        includeHidden: true,
+        name: `Practice this lesson's words (${STUB_WORDS.length})`,
+      }),
     ).toBeAttached();
     const kit = page.getByTestId("practice-kit");
     await expect(kit).toBeVisible();
@@ -849,7 +861,10 @@ test.describe("Core 30 plan: generated lesson words (Orthopedics in French, no a
     await expect(page.getByText("✕ Exit")).toBeVisible();
     await goSection(page, "recall");
     await expect(
-      page.getByRole("heading", { includeHidden: true, name: `Practice this lesson's words (${STUB_WORDS.length})` }),
+      page.getByRole("heading", {
+        includeHidden: true,
+        name: `Practice this lesson's words (${STUB_WORDS.length})`,
+      }),
     ).toBeAttached();
     await expect(kit).toBeVisible();
     expect(requests).toHaveLength(1);
@@ -864,7 +879,10 @@ test.describe("Core 30 plan: generated lesson words (Orthopedics in French, no a
     await expect(page.getByTestId("practice-kit")).toHaveCount(0);
     await page.getByRole("button", { name: "Retry" }).click();
     await expect(
-      page.getByRole("heading", { includeHidden: true, name: `Practice this lesson's words (${STUB_WORDS.length})` }),
+      page.getByRole("heading", {
+        includeHidden: true,
+        name: `Practice this lesson's words (${STUB_WORDS.length})`,
+      }),
     ).toBeAttached();
     await expect(page.getByTestId("practice-kit")).toBeVisible();
     await expect(page.getByText("Couldn't build the word list")).toHaveCount(0);
@@ -941,4 +959,59 @@ test.describe("Core 30 plan: pre-built static deck (Construction Foreman, French
     expect(deckRequests.filter((url) => url.endsWith(`/fr/${DECK_MODULE}.json`))).toHaveLength(1);
     expect(serverFnRequests).toHaveLength(0);
   });
+});
+
+test("V4 lesson workspace keeps the lesson focused and restores app navigation on exit", async ({
+  page,
+}, info) => {
+  await openCore30(page, STARTED_TODAY);
+  await openLesson1(page);
+  const workspace = page.locator(".lt-lesson-workspace-active");
+  await expect(workspace).toBeVisible();
+  await expect(page.locator(".lt-app-shell > aside")).toBeHidden();
+  await expect(page.locator(".lt-bottom-nav")).toBeHidden();
+  await expect(page.getByRole("complementary", { name: "Beginner Spanish course" })).toBeHidden();
+  const modes = page.getByTestId("lesson-section-nav");
+  await expect(modes.locator(":scope > button")).toHaveCount(6);
+  await expect(modes).toBeInViewport();
+  expect((await readLog(page))?.lessons["1"]?.masteredAt).toBeUndefined();
+
+  await page.getByRole("button", { name: "Lesson details and goal", exact: true }).click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await expect(page.getByText("Your lesson goal", { exact: true })).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("dialog")).toHaveCount(0);
+  await expect(workspace).toBeVisible();
+
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  for (const theme of ["dark", "light"]) {
+    await page.evaluate(
+      (theme) => document.documentElement.classList.toggle("dark", theme === "dark"),
+      theme,
+    );
+    await page.screenshot({
+      path: info.outputPath(`workspace-${theme}.png`),
+      animations: "disabled",
+    });
+    expect(
+      await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
+    ).toBe(true);
+  }
+  await page.getByTestId("lesson-nav-type").click();
+  await expect(page.getByTestId("lesson-nav-type")).toHaveAttribute("aria-current", "step");
+  expect(
+    await page
+      .getByTestId("lesson-section-kit")
+      .evaluate((el) => getComputedStyle(el).animationName),
+  ).toBe("none");
+  expect((await readLog(page))?.lessons["1"]?.masteredAt).toBeUndefined();
+  await page.getByRole("button", { name: "App navigation and settings", exact: true }).click();
+  await expect(page.getByRole("dialog").filter({ hasText: "Explore" })).toBeVisible();
+  await page.getByRole("button", { name: "Close", exact: true }).click();
+  await expect(page.getByTestId("lesson-nav-type")).toHaveAttribute("aria-current", "step");
+  await page.getByText("✕ Exit", { exact: true }).click();
+  await expect(workspace).toHaveCount(0);
+  if (info.project.name === "iphone-pwa")
+    await expect(page.locator(".lt-bottom-nav")).toBeVisible();
+  else await expect(page.locator(".lt-app-shell > aside")).toBeVisible();
 });

@@ -3,7 +3,7 @@ import { writeFile } from "node:fs/promises";
 const result = await build({
   stdin: {
     contents:
-      'export {SPEAKING_PARTNERS, suggestedPartnerIds} from "./src/data/speaking-partners.ts";',
+      'export {SPEAKING_PARTNERS, suggestedPartnerIds, TEACHING_TOPICS} from "./src/data/speaking-partners.ts";',
     resolveDir: process.cwd(),
   },
   bundle: true,
@@ -11,7 +11,7 @@ const result = await build({
   format: "esm",
   platform: "node",
 });
-const { SPEAKING_PARTNERS, suggestedPartnerIds } = await import(
+const { SPEAKING_PARTNERS, suggestedPartnerIds, TEACHING_TOPICS } = await import(
   `data:text/javascript;base64,${Buffer.from(result.outputFiles[0].text).toString("base64")}`
 );
 await writeFile(
@@ -19,6 +19,8 @@ await writeFile(
   JSON.stringify(
     {
       version: 1,
+      teachingTopics: TEACHING_TOPICS,
+      teachingStyles: ["gentle", "standard"],
       roles: SPEAKING_PARTNERS.map(([id, label, group, partnerRole, learnerRole]) => ({
         id,
         label,

@@ -1,5 +1,15 @@
 {
   "version": 1,
+  "teachingTopics": [
+    "Culture & customs",
+    "Fantasy adventure",
+    "Sports",
+    "Space & science"
+  ],
+  "teachingStyles": [
+    "gentle",
+    "standard"
+  ],
   "roles": [
     {
       "id": "open",
@@ -243,8 +253,8 @@
       "id": "teacher",
       "label": "Teacher",
       "group": "Education",
-      "partnerRole": "a teacher discussing a lesson or school situation",
-      "learnerRole": "a learner or parent, as the module specifies"
+      "partnerRole": "a language teacher guiding the chosen topic",
+      "learnerRole": "a student"
     },
     {
       "id": "student",

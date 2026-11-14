@@ -1,6 +1,6 @@
 import { useChatFollow } from "@/hooks/use-chat-follow";
 import { SpeakingPartnerPicker } from "./SpeakingPartnerPicker";
-import { speakingPartner } from "@/data/speaking-partners";
+import { type TeacherSettings, speakingPartner } from "@/data/speaking-partners";
 import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import { SpeakingConversationControls } from "./SpeakingConversationControls";
 import { SpeakTutorDock, type SpeakTutorSelection } from "./SpeakTutorDock";
@@ -127,6 +127,24 @@ export function SpeakLearn() {
     `speaking-partner:${language}:${state.nativeLanguage}:${state.activeModuleId ?? "core"}`,
   );
   const [partnerId, setPartnerId] = useState("open");
+  const teacherStore = useLearnerDeviceStore(
+    `speaking-teacher:${language}:${state.nativeLanguage}:${state.activeModuleId ?? "core"}`,
+  );
+  const [teacher, setTeacher] = useState<TeacherSettings>({ topic: "", style: "gentle" });
+  useEffect(() => {
+    const saved = teacherStore.read() as Partial<TeacherSettings> | null;
+    setTeacher({
+      topic: typeof saved?.topic === "string" ? saved.topic.slice(0, 200) : "",
+      style: saved?.style === "standard" ? "standard" : "gentle",
+    });
+  }, [teacherStore]);
+  const changeTeacher = (settings: TeacherSettings) => {
+    cancel();
+    stopOwned();
+    clear();
+    setTeacher(settings);
+    teacherStore.write(settings);
+  };
   useEffect(() => {
     const saved = partnerStore.read();
     setPartnerId(speakingPartner(typeof saved === "string" ? saved : undefined)[0]);
@@ -210,6 +228,7 @@ export function SpeakLearn() {
       voiceURI,
       surface,
       partnerId,
+      partnerId === "teacher" ? teacher : null,
     ]),
     speakingAuth,
   );
@@ -300,12 +319,16 @@ export function SpeakLearn() {
     voiceSettings?.speakingGender ?? "woman",
   );
   const qualityVoiceURI = qualityVoice ? encodeGoogleVoicePreference(qualityVoice) : null;
+  const replyRate = useRef(1);
+  useEffect(() => {
+    replyRate.current = 1;
+  }, [lifecycleKey]);
   const currentQualityVoiceURI = useRef(qualityVoiceURI);
   currentQualityVoiceURI.current = qualityVoiceURI;
   const speakAloud = useCallback(
     (text: string): void => {
       if (!audioCaptureBusy)
-        speakOwned(text, accent, currentQualityVoiceURI.current, 1, {
+        speakOwned(text, accent, currentQualityVoiceURI.current, replyRate.current, {
           cloudOnly: true,
           onerror: () =>
             toast("Reply voice paused", {
@@ -359,6 +382,9 @@ export function SpeakLearn() {
   const streamReply = async (userText: string, startConversation = false) => {
     const lease = capture();
     if (!lease.isCurrent() || abortRef.current) return;
+    if (/slow down|slower|más despacio|mais devagar/i.test(userText)) replyRate.current = 0.75;
+    else if (/normal speed|velocidad normal|velocidade normal/i.test(userText))
+      replyRate.current = 1;
     setThinking(true);
     setConversationError(null);
     const ctrl = new AbortController();
@@ -406,6 +432,8 @@ export function SpeakLearn() {
         body: JSON.stringify({
           mode: "chat",
           partnerRoleId: partnerId,
+          teacherTopic: partnerId === "teacher" ? teacher.topic : undefined,
+          teacherStyle: partnerId === "teacher" ? teacher.style : undefined,
           moduleId: state.activeModuleId ?? undefined,
           startConversation,
           language,
@@ -905,6 +933,8 @@ export function SpeakLearn() {
                 <SpeakingPartnerPicker
                   value={partnerId}
                   onChange={changePartner}
+                  teacher={teacher}
+                  onTeacherChange={changeTeacher}
                   moduleId={state.activeModuleId ?? ""}
                   category={getModule(state.activeModuleId)?.category ?? ""}
                   disabled={thinking || micActive || audioCaptureBusy}
@@ -1073,6 +1103,8 @@ export function SpeakLearn() {
             <SpeakingPartnerPicker
               value={partnerId}
               onChange={changePartner}
+              teacher={teacher}
+              onTeacherChange={changeTeacher}
               moduleId={state.activeModuleId ?? ""}
               category={getModule(state.activeModuleId)?.category ?? ""}
               disabled={thinking || micActive || audioCaptureBusy}
@@ -1109,6 +1141,28 @@ export function SpeakLearn() {
               AI conversation is off. Sign in and enable it in Settings → Speaking privacy. Other
               lessons stay available.
             </p>
+          )}
+          {partnerId === "teacher" && !isEmpty && (
+            <div className="flex shrink-0 flex-wrap justify-center gap-2" aria-label="Teacher help">
+              {[`Explain in ${state.nativeLanguage}`, "Give me a hint", "Easier", "Slow down"].map(
+                (request) => (
+                  <button
+                    key={request}
+                    type="button"
+                    disabled={thinking || micActive || audioCaptureBusy || !conversationAllowed}
+                    onClick={() =>
+                      gated(() => {
+                        stopOwned();
+                        streamReply(request);
+                      })
+                    }
+                    className="min-h-9 rounded-full border border-border bg-card px-3 py-1 text-xs"
+                  >
+                    {request}
+                  </button>
+                ),
+              )}
+            </div>
           )}
           <SpeakTutorDock
             scope={`free:${language}:${state.nativeLanguage}:${state.activeModuleId}`}

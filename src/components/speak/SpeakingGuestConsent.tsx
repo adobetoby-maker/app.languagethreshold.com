@@ -1,3 +1,4 @@
+import { REPLY_AUDIO_CONSENT } from "@/lib/reply-audio";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/state/auth-state";
 import { isSpeakingTestHost } from "@/lib/speaking-test-access";
@@ -32,7 +33,8 @@ export function SpeakingGuestConsent({ startup = true }: { startup?: boolean }) 
           <DialogTitle>Try speaking without signing in</DialogTitle>
           <DialogDescription>
             This test uses AI services to process your replies. By starting, you confirm you are 18
-            or older. Test conversations are not saved to an account.
+            or older. Test conversations are not saved to an account. Your recording is sent to
+            ElevenLabs for transcription; you review the words before sending them to your partner.
           </DialogDescription>
         </DialogHeader>
         <button
@@ -41,6 +43,7 @@ export function SpeakingGuestConsent({ startup = true }: { startup?: boolean }) 
           onClick={() => {
             try {
               sessionStorage.setItem("lt.speaking-test.adult", "true");
+              sessionStorage.setItem("lt.speaking-test.audio-consent", REPLY_AUDIO_CONSENT);
             } catch {
               /* Current page can still start. */
             }

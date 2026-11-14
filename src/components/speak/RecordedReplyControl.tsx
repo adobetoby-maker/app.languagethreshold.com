@@ -1,3 +1,4 @@
+import { isSpeakingTestActor } from "@/lib/speaking-test-access";
 import { useSpeakingAuth } from "@/hooks/use-speaking-auth";
 import { useEffect, useRef, useState } from "react";
 import { Mic, Square } from "lucide-react";
@@ -36,6 +37,9 @@ export function RecordedReplyControl({
   const [available, setAvailable] = useState<boolean | null>(null);
   const [consentOpen, setConsentOpen] = useState(false);
   const consented = useRef(false);
+  useEffect(() => {
+    consented.current = false;
+  }, [actor]);
   const [level, setLevel] = useState<number | null>(0),
     [heard, setHeard] = useState(false);
   const [error, setError] = useState<string | null>(null),
@@ -194,6 +198,16 @@ export function RecordedReplyControl({
   };
   const begin = () => {
     if (disabled || !available || !actor) return;
+    if (!consented.current) {
+      try {
+        consented.current =
+          sessionStorage.getItem(`lt.recording-consent:${actor}`) === REPLY_AUDIO_CONSENT ||
+          (isSpeakingTestActor(actor) &&
+            sessionStorage.getItem("lt.speaking-test.audio-consent") === REPLY_AUDIO_CONSENT);
+      } catch {
+        /* Ask again if this tab cannot retain confirmation. */
+      }
+    }
     if (!consented.current) {
       setConsentOpen(true);
       return;
@@ -365,6 +379,12 @@ export function RecordedReplyControl({
             className="min-h-11 rounded-xl bg-primary px-4 text-primary-foreground"
             onClick={() => {
               consented.current = true;
+              try {
+                if (actor)
+                  sessionStorage.setItem(`lt.recording-consent:${actor}`, REPLY_AUDIO_CONSENT);
+              } catch {
+                /* Current recording can proceed. */
+              }
               setConsentOpen(false);
               begin();
             }}

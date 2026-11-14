@@ -1,0 +1,428 @@
+{
+  "schema": 1,
+  "state": "private-form-practice-draft",
+  "pairKey": "French:English",
+  "courseId": "french-basics:fr-en",
+  "registered": false,
+  "reviewed": false,
+  "sourceFile": "content/french-basics/private-runtime-core-1-30.json",
+  "sourceSha256": "6d200aae866bbd1561e9bc9b035a516641b555592561bb51168bbecae9f74af5",
+  "counts": {
+    "lessons": 3,
+    "alignedReaderPrompts": 18,
+    "newAuthoredContrasts": 3,
+    "totalPrompts": 22,
+    "grammarModels": 3
+  },
+  "lessons": [
+    {
+      "lesson": 19,
+      "stableLessonKey": "french-basics:19",
+      "grammarModel": {
+        "focus": "je vais, tu vas, il/elle va, nous allons, ils/elles vont + infinitif",
+        "alignedReader": "Demain, je vais étudier l’espagnol.",
+        "authoredContrasts": [
+          "Vous allez étudier l’espagnol demain ?"
+        ]
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-f11ee618df3d9867",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "reader-form-1",
+          "frenchAnswer": "Demain, je vais étudier l’espagnol.",
+          "englishPrompt": "Tomorrow I am going to study Spanish.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Demain, je vais étudier le français."
+          ]
+        },
+        {
+          "id": "form-fr-en-da65390679e91a5c",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "reader-form-2",
+          "frenchAnswer": "Ana va acheter un livre.",
+          "englishPrompt": "Ana is going to buy a book.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ana va acheter un livre."
+          ]
+        },
+        {
+          "id": "form-fr-en-b569d87f3d62554e",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "reader-form-3",
+          "frenchAnswer": "Nous allons manger à la maison.",
+          "englishPrompt": "We are going to eat at home.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Nous allons manger à la maison."
+          ]
+        },
+        {
+          "id": "form-fr-en-59366912bca958db",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "focus": "reader-form-4",
+          "frenchAnswer": "Luis va appeler son frère.",
+          "englishPrompt": "Luis is going to call his brother.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Luis va appeler son frère."
+          ]
+        },
+        {
+          "id": "form-fr-en-4cc79049243e9ce5",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "reader-form-5",
+          "frenchAnswer": "Mes amis vont visiter le musée.",
+          "englishPrompt": "My friends are going to visit the museum.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Mes amis vont visiter le musée."
+          ]
+        },
+        {
+          "id": "form-fr-en-afaac2e0560a60ee",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "focus": "reader-form-6",
+          "frenchAnswer": "Tu vas venir à la bibliothèque ?",
+          "englishPrompt": "Are you going to come to the library?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Tu vas venir à la bibliothèque ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-83f63695d625fec1",
+          "source": "authored-draft-contrast",
+          "focus": "formal-near-future",
+          "frenchAnswer": "Vous allez étudier l’espagnol demain ?",
+          "englishPrompt": "Are you (formal) going to study Spanish tomorrow?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Vous allez étudier l’espagnol demain ?"
+          ]
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 20,
+      "stableLessonKey": "french-basics:20",
+      "grammarModel": {
+        "I": "Je suis en train d’étudier à la bibliothèque.",
+        "Ana": "Ana est en train de parler avec Luis.",
+        "we": "Nous sommes en train d’écrire un message.",
+        "students": "Les élèves sont en train de manger."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-c09d50b164fae855",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "reader-form-1",
+          "frenchAnswer": "Je suis en train d’étudier à la bibliothèque.",
+          "englishPrompt": "I am studying in the library.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Je suis en train d’étudier à la bibliothèque.",
+            "J’étudie à la bibliothèque."
+          ]
+        },
+        {
+          "id": "form-fr-en-fc2e00f0614637dc",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "reader-form-2",
+          "frenchAnswer": "Ana est en train de parler avec Luis.",
+          "englishPrompt": "Ana is talking with Luis.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ana est en train de parler avec Luis.",
+            "Ana parle avec Luis."
+          ]
+        },
+        {
+          "id": "form-fr-en-4b07ba93aecfac27",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "reader-form-3",
+          "frenchAnswer": "Nous sommes en train d’écrire un message.",
+          "englishPrompt": "We are writing a message.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Nous sommes en train d’écrire un message.",
+            "Nous écrivons un message."
+          ]
+        },
+        {
+          "id": "form-fr-en-031015e8bcde0a95",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "focus": "reader-form-4",
+          "frenchAnswer": "La professeure est en train de lire un livre.",
+          "englishPrompt": "The teacher is reading a book.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "La professeure est en train de lire un livre.",
+            "La professeure lit un livre.",
+            "Le professeur est en train de lire un livre.",
+            "Le professeur lit un livre."
+          ]
+        },
+        {
+          "id": "form-fr-en-b09d0f4f338f49b4",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "reader-form-5",
+          "frenchAnswer": "Les élèves sont en train de manger.",
+          "englishPrompt": "The students are eating.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Les élèves sont en train de manger.",
+            "Les élèves mangent.",
+            "Les étudiants sont en train de manger.",
+            "Les étudiants mangent."
+          ]
+        },
+        {
+          "id": "form-fr-en-f49ee52eee8f7de3",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "focus": "reader-form-6",
+          "frenchAnswer": "Tu es en train d’écouter la question ?",
+          "englishPrompt": "Are you listening to the question?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Tu es en train d’écouter la question ?",
+            "Tu écoutes la question ?",
+            "Est-ce que tu es en train d’écouter la question ?",
+            "Es-tu en train d’écouter la question ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-9ba509c42a5e4edb",
+          "source": "authored-draft-contrast",
+          "focus": "plural-progressive",
+          "frenchAnswer": "Ils sont en train d’écrire un message.",
+          "englishPrompt": "They are writing a message.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ils sont en train d’écrire un message.",
+            "Ils écrivent un message.",
+            "Elles sont en train d’écrire un message.",
+            "Elles écrivent un message."
+          ]
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 21,
+      "stableLessonKey": "french-basics:21",
+      "grammarModel": {
+        "focus": "savoir + fait/question/infinitif; connaître + personne/lieu",
+        "alignedReader": "Je sais où est la bibliothèque."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-11ee1808dc407271",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "aligned-reader-1",
+          "frenchAnswer": "Je sais où est la bibliothèque.",
+          "englishPrompt": "I know where the library is.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Je sais où est la bibliothèque.",
+            "Je sais où se trouve la bibliothèque."
+          ]
+        },
+        {
+          "id": "form-fr-en-2eab869af9dd8964",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "aligned-reader-2",
+          "frenchAnswer": "Ana sait parler espagnol.",
+          "englishPrompt": "Ana knows how to speak Spanish.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Ana sait parler espagnol.",
+            "Ana sait parler l’espagnol."
+          ]
+        },
+        {
+          "id": "form-fr-en-7a1d257fccc99def",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "aligned-reader-3",
+          "frenchAnswer": "Je connais la professeure.",
+          "englishPrompt": "I know the teacher.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Je connais la professeure.",
+            "Je connais l’enseignante."
+          ]
+        },
+        {
+          "id": "form-fr-en-0bcdd8d4e5f0d05e",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "focus": "aligned-reader-4",
+          "frenchAnswer": "Nous ne connaissons pas cette ville.",
+          "englishPrompt": "We do not know this city.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Nous ne connaissons pas cette ville."
+          ]
+        },
+        {
+          "id": "form-fr-en-a094fbbe973bcfdd",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "aligned-reader-5",
+          "frenchAnswer": "Luis sait la réponse.",
+          "englishPrompt": "Luis knows the answer.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Luis sait la réponse.",
+            "Luis connaît la réponse."
+          ]
+        },
+        {
+          "id": "form-fr-en-6e77d779ab61f546",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "focus": "aligned-reader-6",
+          "frenchAnswer": "Tu connais le café de la place ?",
+          "englishPrompt": "Do you know the café in the square?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Tu connais le café de la place ?",
+            "Connais-tu le café de la place ?",
+            "Est-ce que tu connais le café de la place ?"
+          ]
+        },
+        {
+          "id": "form-fr-en-dfbf92f66e33d85c",
+          "source": "authored-contrast",
+          "focus": "savoir-plus-infinitive",
+          "frenchAnswer": "Je sais parler espagnol.",
+          "englishPrompt": "I know how to speak Spanish.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Je sais parler espagnol.",
+            "Je sais parler l’espagnol."
+          ]
+        },
+        {
+          "id": "form-fr-en-db4782b6be9568b3",
+          "source": "authored-contrast",
+          "focus": "connaitre-inverted-question",
+          "frenchAnswer": "Connais-tu la professeure ?",
+          "englishPrompt": "Do you know the teacher? (Use inversion; informal singular.)",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "knownFrenchVariants": [
+            "Connais-tu la professeure ?",
+            "Connais-tu l’enseignante ?"
+          ]
+        }
+      ],
+      "reviewed": false
+    }
+  ]
+}

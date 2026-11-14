@@ -1,0 +1,128 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "sourcePath": "content/japanese-travel-lunch/core-16-18-draft.json",
+  "sourceSha256": "238fac8b8b0cf20f1591d3c0e325ba873f0d46091e14872814d22ffed376b318",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "lessons": [
+    {
+      "stableId": "travel-lunch:16:ja-en",
+      "speakingObjectives": [
+        "Ask a worker where the canteen line starts and take a tray when directed.",
+        "Ask what comes with the daily set meal and understand the answer: soup, a main course, and a drink.",
+        "Choose soup for the first course and chicken stew for the main course, then ask whether you pay first at the register.",
+        "Ask whether a seat is open before sitting down."
+      ],
+      "wordBank": [
+        "列",
+        "トレー",
+        "日替わり定食",
+        "最初の料理",
+        "主菜",
+        "煮込み料理",
+        "レジ",
+        "空いている席"
+      ],
+      "forms": [
+        {
+          "label": "Asking where a line starts",
+          "japanese": "列はどこからですか",
+          "english": "Where does the line start?",
+          "explanation": "は marks 列 as the topic. どこから means \"from where,\" and ですか is the polite question ending. Literally: \"As for the line, from where is it?\""
+        },
+        {
+          "label": "Asking what a set meal includes",
+          "japanese": "定食には何が付きますか",
+          "english": "What comes with the set meal?",
+          "explanation": "に marks the set meal as the thing the items come with; は marks it as the topic. 何が asks which items are included. 付きます is the polite non-past form of 付く, here meaning “come with” or “be included.”"
+        },
+        {
+          "label": "Ordering a first course",
+          "japanese": "最初の料理はスープをお願いします",
+          "english": "Soup for the first course, please",
+          "explanation": "最初の料理は sets the topic (the first course). スープを marks the requested item as the object. お願いします is a polite request formula, literally \"I make a request,\" and here functions as \"please\" or \"I'd like.\""
+        }
+      ]
+    },
+    {
+      "stableId": "travel-lunch:17:ja-en",
+      "speakingObjectives": [
+        "Ask whether the restaurant has a high chair for a baby.",
+        "Ask about child-size portions and say that your six-year-old eats pasta without sauce.",
+        "Request just a little butter, then ask the price of the small pasta portion.",
+        "Explain that you will share your meal with the baby and request one extra plate."
+      ],
+      "wordBank": [
+        "ベビーチェア",
+        "子ども用の量",
+        "六歳",
+        "パスタ",
+        "ソースなし",
+        "バターを少し",
+        "小さめのパスタはいくらですか",
+        "取り皿"
+      ],
+      "forms": [
+        {
+          "label": "Asking for a high chair",
+          "japanese": "ベビーチェアはありますか",
+          "english": "Do you have a high chair?",
+          "explanation": "は marks ベビーチェア as the topic. ありますか is the polite question form of ある (“exist”). The high chair is stated; the restaurant where it might be available is left unstated."
+        },
+        {
+          "label": "Requesting plain pasta",
+          "japanese": "ソースなしのパスタを作れますか",
+          "english": "Can you make plain pasta without sauce?",
+          "explanation": "ソースなし is a noun phrase meaning \"without sauce.\" の links it to パスタ, forming \"pasta without sauce.\" 作れますか is the potential form of 作る (作れる), used in a polite question meaning \"Can you make?\""
+        },
+        {
+          "label": "Asking the price of a portion",
+          "japanese": "小さめのパスタはいくらですか",
+          "english": "How much is the small pasta portion?",
+          "explanation": "小さめ means \"somewhat small\" (the -め suffix indicates a degree). の links it to パスタ. いくら asks \"how much,\" and ですか makes the question polite."
+        }
+      ]
+    },
+    {
+      "stableId": "travel-lunch:18:ja-en",
+      "speakingObjectives": [
+        "Ask whether you can enter without steps and where the ramp is.",
+        "Ask whether there is a wheelchair-usable restroom.",
+        "Explain that your father uses a wheelchair and your mother uses a walker, then ask about wheelchair space and a quiet table.",
+        "Reserve a table for four at one o'clock."
+      ],
+      "wordBank": [
+        "段差",
+        "スロープ",
+        "正面玄関",
+        "車いすで使えるトイレはありますか",
+        "歩行器",
+        "席に車いすのスペースはありますか",
+        "静かな席はありますか",
+        "四人で一時に予約したいです"
+      ],
+      "forms": [
+        {
+          "label": "Asking about step-free entry",
+          "japanese": "段差なく入れますか",
+          "english": "Can we enter without steps?",
+          "explanation": "段差 means \"step\" or \"level difference.\" なく is the adverbial form of ない and means \"without.\" 入れますか is the potential form of 入る (入れる), used in a polite question meaning \"Can (we) enter?\""
+        },
+        {
+          "label": "Asking about a wheelchair-usable restroom",
+          "japanese": "車いすで使えるトイレはありますか",
+          "english": "Is there a wheelchair-usable restroom?",
+          "explanation": "で marks the means: 車いすで means “with a wheelchair.” 使える is the potential form of 使う (“can use”) and modifies トイレ. は marks the whole restroom phrase as the topic; ありますか politely asks whether such a restroom exists."
+        },
+        {
+          "label": "Asking about table space",
+          "japanese": "席に車いすのスペースはありますか",
+          "english": "Is there room for a wheelchair at the table?",
+          "explanation": "に after 席 marks the location (at the table). の links 車いす to スペース (“space for a wheelchair”). は marks 車いすのスペース as the topic; ありますか politely asks whether there is room."
+        }
+      ]
+    }
+  ]
+}

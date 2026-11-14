@@ -1,7 +1,12 @@
 import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   testDir: "e2e",
-  testMatch: ["speaking-roles-or-cleaning.spec.ts", "speaking-chat-follow.spec.ts"],
+  outputDir: "/tmp/lt-speaking-role-results",
+  testMatch: [
+    "speaking-roles-or-cleaning.spec.ts",
+    "speaking-chat-follow.spec.ts",
+    "speaking-teacher.spec.ts",
+  ],
   timeout: 180000,
   expect: { timeout: 25000 },
   workers: 2,

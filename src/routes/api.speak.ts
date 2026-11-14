@@ -43,6 +43,8 @@ const TranslationLineSchema = z.object({
 
 const BodySchema = z.object({
   partnerRoleId: z.string().max(60).optional(),
+  teacherTopic: z.string().trim().max(200).optional(),
+  teacherStyle: z.enum(["gentle", "standard"]).optional(),
   moduleId: z.string().max(100).optional(),
   startConversation: z.boolean().optional(),
   mode: z.enum(["chat", "tip", "challenge", "mission", "translate", "lookup"]),
@@ -963,7 +965,10 @@ export const Route = createFileRoute("/api/speak")({
                 max_tokens: 700,
                 thinking: { type: "disabled" },
                 system:
-                  speakingPartnerInstructions(payload.partnerRoleId, compatibleModule) +
+                  speakingPartnerInstructions(payload.partnerRoleId, compatibleModule, {
+                    topic: payload.teacherTopic,
+                    style: payload.teacherStyle,
+                  }) +
                   "\n" +
                   chatSystemPrompt(
                     payload.language,

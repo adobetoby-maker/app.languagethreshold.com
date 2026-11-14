@@ -1,0 +1,33 @@
+{
+  "pairKey": "French:English",
+  "sourceFile": "content/french-basics/foundation-9-10-draft.json",
+  "sourceSha256": "b04b3b3d66731da13a9422d921a517791a006df5024cf94d9cb9eff3627a8cca",
+  "reviewed": false,
+  "registered": false,
+  "lessons": [
+    {
+      "lesson": 9,
+      "stableLessonKey": "foundation-french-basics:9",
+      "modes": {
+        "see": {"prompt": "Read Marc’s reply about the teacher. Find ne…pas around the verb in his negative answer.", "targetText": "Marc\u00a0: Non, elle n’est pas ici. Elle est dans le bureau."},
+        "recall": {"prompt": "Recall the French question starter used before ‘la professeure est ici’.", "targetText": "est-ce que"},
+        "hear": {"prompt": "Listen for the time word meaning ‘today’ in Marc’s answer about the book.", "targetText": "aujourd’hui", "recordedAudio": false},
+        "type": {"prompt": "Type ‘I do not have a book today’ with n’ before ai and pas de before livre.", "targetText": "Je n’ai pas de livre aujourd’hui."},
+        "say": {"prompt": "Ask aloud whether the teacher is here, using est-ce que.", "targetText": "Est-ce que la professeure est ici ?"},
+        "write": {"prompt": "Write ‘No, she is not here’ as a full French sentence with n’est pas.", "targetText": "Non, elle n’est pas ici."}
+      }
+    },
+    {
+      "lesson": 10,
+      "stableLessonKey": "foundation-french-basics:10",
+      "modes": {
+        "see": {"prompt": "Read Léa’s line about the unfamiliar word. Identify the complete negative sentence.", "targetText": "Léa : Je ne comprends pas ce mot."},
+        "recall": {"prompt": "Recall the polite ‘please’ form you would use when asking the teacher.", "targetText": "s’il vous plaît"},
+        "hear": {"prompt": "Listen for the request to speak more slowly.", "targetText": "plus lentement", "recordedAudio": false},
+        "type": {"prompt": "Type Léa’s request to a classmate to repeat, with s’il te plaît and question mark.", "targetText": "Tu peux répéter, s’il te plaît ?"},
+        "say": {"prompt": "Ask a teacher to repeat aloud, keeping the polite vous form.", "targetText": "Vous pouvez répéter, s’il vous plaît ?"},
+        "write": {"prompt": "Write ‘I do not understand this word’ with ne…pas around the verb.", "targetText": "Je ne comprends pas ce mot."}
+      }
+    }
+  ]
+}

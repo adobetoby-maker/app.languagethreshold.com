@@ -8,6 +8,7 @@ const batches = [
   { start: 1, sourceBytes: read("./foundation-1-3-draft.json"), modes: JSON.parse(read("./private-foundation-1-3-mode-prompts-fr-en.json")) },
   { start: 4, sourceBytes: read("./foundation-4-6-draft.json"), modes: JSON.parse(read("./private-foundation-4-6-mode-prompts-fr-en.json")) },
   { start: 7, sourceBytes: read("./foundation-7-8-draft.json"), modes: JSON.parse(read("./private-foundation-7-8-mode-prompts-fr-en.json")) },
+  { start: 9, sourceBytes: read("./foundation-9-10-draft.json"), modes: JSON.parse(read("./private-foundation-9-10-mode-prompts-fr-en.json")) },
 ];
 const forms = JSON.parse(read("./private-form-practice-foundation-1-10-fr-en.json"));
 const spanishBytes = read("../../src/data/core60/es/foundation-spanish-basics.json");
@@ -25,7 +26,7 @@ for (const { start, sourceBytes, modes } of batches) {
   assert.equal(modes.reviewed, false);
   assert.equal(modes.registered, false);
   assert.equal(source.lessons.length, modes.lessons.length);
-  assert.equal(source.lessons.length, start === 7 ? 2 : 3);
+  assert.equal(source.lessons.length, start >= 7 ? 2 : 3);
   for (let i = 0; i < source.lessons.length; i++) {
     const lesson = source.lessons[i];
     const activity = modes.lessons[i];
@@ -59,4 +60,4 @@ for (const { start, sourceBytes, modes } of batches) {
     }
   }
 }
-console.log("French 101 Foundation 1–8 source, modes, forms, IDs and closed gates pass");
+console.log("French 101 Foundation 1–10 source, modes, forms, IDs and closed gates pass");

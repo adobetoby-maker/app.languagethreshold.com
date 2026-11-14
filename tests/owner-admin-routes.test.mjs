@@ -241,7 +241,7 @@ test("platform owner can inspect 60 unregistered French Lunch drafts without int
     assert.ok(data.lessons.every((lesson) => !("internalReviewNote" in lesson)));
   }));
 
-test("platform owner can inspect pinned French 101 Foundation 1–8 without learner release", () =>
+test("platform owner can inspect pinned French 101 Foundation 1–10 without learner release", () =>
   fixture(async (api, c, req) => {
     c.role = "owner";
     const response = await api.french101Drafts.server.handlers.GET({ request: req("/api/owner-french101-drafts") });
@@ -253,7 +253,7 @@ test("platform owner can inspect pinned French 101 Foundation 1–8 without lear
     assert.equal(data.reviewed, false);
     assert.equal(data.registered, false);
     assert.equal(data.audioRegistered, false);
-    assert.deepEqual(data.lessons.map((lesson) => lesson.stableId), [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `foundation-french-basics:${n}:fr-en`));
+    assert.deepEqual(data.lessons.map((lesson) => lesson.stableId), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => `foundation-french-basics:${n}:fr-en`));
     assert.ok(data.lessons.every((lesson) => lesson.reviewed === false && lesson.stage === "foundation" &&
       lesson.cards.length > 0 && lesson.reader.length > 0 && lesson.forms.length === 3 &&
       Object.keys(lesson.modes).length === 6 && lesson.modes.hear.recordedAudio === false &&

@@ -18,13 +18,15 @@ const modeNames = ["see", "recall", "hear", "type", "say", "write"] as const;
 
 async function ownerDrafts() {
   // Import private candidate assets only after the owner check. No learner registry or progress write uses them.
-  const [firstSourceModule, firstModeModule, nextSourceModule, nextModeModule, finalSourceModule, finalModeModule, formModule] = await Promise.all([
+  const [firstSourceModule, firstModeModule, nextSourceModule, nextModeModule, finalSourceModule, finalModeModule, capSourceModule, capModeModule, formModule] = await Promise.all([
     import("../../content/french-basics/foundation-1-3-draft.json"),
     import("../../content/french-basics/private-foundation-1-3-mode-prompts-fr-en.json"),
     import("../../content/french-basics/foundation-4-6-draft.json"),
     import("../../content/french-basics/private-foundation-4-6-mode-prompts-fr-en.json"),
     import("../../content/french-basics/foundation-7-8-draft.json"),
     import("../../content/french-basics/private-foundation-7-8-mode-prompts-fr-en.json"),
+    import("../../content/french-basics/foundation-9-10-draft.json"),
+    import("../../content/french-basics/private-foundation-9-10-mode-prompts-fr-en.json"),
     import("../../content/french-basics/private-form-practice-foundation-1-10-fr-en.json"),
   ]);
   const forms = formModule.default as Forms;
@@ -43,6 +45,9 @@ async function ownerDrafts() {
     { source: finalSourceModule.default as Source, modes: finalModeModule.default as Modes,
       range: [7, 8], sourceFile: "content/french-basics/foundation-7-8-draft.json",
       sha256: "2e6061a52d81394e005efec1703ae652617b4f8396c1ae336d1047a76dbb5a62" },
+    { source: capSourceModule.default as Source, modes: capModeModule.default as Modes,
+      range: [9, 10], sourceFile: "content/french-basics/foundation-9-10-draft.json",
+      sha256: "b04b3b3d66731da13a9422d921a517791a006df5024cf94d9cb9eff3627a8cca" },
   ];
   return batches.flatMap(({ source, modes, range, sourceFile, sha256 }) => {
     if (source.target !== "French" || source.native !== "English" || source.moduleId !== "french-basics" ||

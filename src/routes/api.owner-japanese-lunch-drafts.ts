@@ -175,6 +175,16 @@ async function lunchDrafts() {
       "travel-lunch:28:ja-en,travel-lunch:29:ja-en,travel-lunch:30:ja-en",
     "Japanese Lunch Core 28–30 enrichment source or release gate changed");
   authoredLessons.push(...coreTwentyEightEnrichment.lessons);
+  const masterOneEnrichment = (await import("../../content/japanese-travel-lunch/private-master-1-3-enrichment.json")).default as Enrichment;
+  check(masterOneEnrichment.pairKey === "Japanese:English" &&
+    masterOneEnrichment.sourcePath === "content/japanese-travel-lunch/master-1-3-draft.json" &&
+    masterOneEnrichment.sourceSha256 === "f81098d09721cb44af38e0eb312c90bffdea55f955b494977247bff1334ff965" &&
+    masterOneEnrichment.reviewed === false && masterOneEnrichment.registered === false &&
+    masterOneEnrichment.readyForLearner === false &&
+    masterOneEnrichment.lessons.map((lesson) => lesson.stableId).join() ===
+      "master-travel-lunch:1:ja-en,master-travel-lunch:2:ja-en,master-travel-lunch:3:ja-en",
+    "Japanese Lunch Master 1–3 enrichment source or release gate changed");
+  authoredLessons.push(...masterOneEnrichment.lessons);
   const packets = await Promise.all(stages.map(async ({ draft, modes, sourceSha256 }) => ({
     batch: (await draft()).default as Draft, sidecar: (await modes()).default as Sidecar, sourceSha256,
   })));
@@ -194,9 +204,12 @@ async function lunchDrafts() {
         lesson.cards.length > 0 && lesson.reader.length > 0, "Japanese Lunch lesson identity changed");
       const activities = sidecar.activities.filter((activity) => activity.lessonId === lesson.stableId);
       const authored = authoredLessons.find((entry) => entry.stableId === lesson.stableId);
-      if (authored) check(((stage === "foundation" && lesson.n <= 10) || (stage === "core" && lesson.n <= 30)) && authored.forms.length === 3 &&
+      if (authored) check(((stage === "foundation" && lesson.n <= 10) || (stage === "core" && lesson.n <= 30) ||
+        (stage === "master" && lesson.n <= 3)) && authored.forms.length === 3 &&
         authored.speakingObjectives.length >= 3 && authored.wordBank.length >= 4 &&
-        authored.wordBank.every((word) => lesson.cards.some((card) => card.ja === word)),
+        authored.wordBank.every((word) => lesson.cards.some((card) => card.ja === word)) &&
+        (stage !== "master" || authored.forms.every((form) => [...lesson.cards, ...lesson.reader].some((entry) =>
+          entry.ja === form.japanese && entry.en === form.english))),
         "Japanese Lunch authored enrichment scope changed");
       const modes = Object.fromEntries(modeNames.map((name) => {
         const activity = activities.find((entry) => entry.mode === name);

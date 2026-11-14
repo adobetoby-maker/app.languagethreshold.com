@@ -1,0 +1,558 @@
+{
+  "target": "French",
+  "native": "English",
+  "moduleId": "french-basics",
+  "stage": "core",
+  "reviewed": false,
+  "state": "authored-draft",
+  "source": {
+    "path": "content/french-basics/source-english-core-13-15.json",
+    "sourceSha256": "b468ebbd9924c0e29f4a52fa3f0684dde0eea6dcb1a209fbcbe4376c9ddfd348",
+    "sourcePaths": [
+      "src/data/spanish-basics-core.json",
+      "src/data/spanish-basics-practice.json"
+    ],
+    "sourceFileSha256": {
+      "src/data/spanish-basics-core.json": "d50c3e52a846331e9c0bcec19a5c91605585f4e285c62138941425390d160e38",
+      "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe"
+    },
+    "use": "Exact English objectives, word meanings, reading meanings and progression; French grammar and examples authored separately"
+  },
+  "draftModel": "Codex authored; independent Fable/Opus and human review pending",
+  "sourceNotes": [
+    "French pouvoir, avoir besoin de/devoir, and faire have different grammar from Spanish poder/necesitar/tener que/hacer.",
+    "Core 15 original English says the friends ask questions in Spanish. The learner-facing French course says in French; the original source meaning is retained in sourceMeaningEnglish and sourceNativeEnglish.",
+    "Core 14 source distinguishes masculine/feminine plural the/them, but French les covers both. The second source pair is marked merge-with-order-7 for one learner card."
+  ],
+  "lessons": [
+    {
+      "n": 13,
+      "title": "Pouvoir : possibilité et permission",
+      "sourceTitleEnglish": "Poder: ability and permission",
+      "sourceObjectiveEnglish": "Poder: ability and permission: Poder changes o to ue except in nosotros: puedo, puedes, puede, podemos, pueden.",
+      "objective": "Dites ce que vous pouvez faire et demandez poliment la permission dans une bibliothèque.",
+      "foundationTie": "Reuses Core 7 questions and Core 12 infinitives, now with pouvoir.",
+      "focus": "pouvoir + infinitif : je peux, tu peux, il/elle peut, nous pouvons, ils/elles peuvent; est-ce que je peux… ?",
+      "grammar": {
+        "explanation": "Pouvoir expresses ability, possibility or permission. Conjugate the subject, then keep the next verb in the infinitive: je peux étudier, nous pouvons parler. Je peux, tu peux and il peut are pronounced alike but spelled differently. Nous pouvons and ils peuvent have different stems. Ask Est-ce que je peux… ? for permission; Pourriez-vous… ? is a more formal request, outside this first pattern.",
+        "model": {
+          "I": "Je peux étudier ici aujourd’hui.",
+          "you": "Est-ce que tu peux ouvrir la fenêtre ?",
+          "we": "Nous pouvons parler à voix basse.",
+          "they": "Ils ne peuvent pas manger dans cette salle."
+        },
+        "caution": "French does not copy Spanish puedo/podemos spelling. Keep the infinitive after pouvoir and put ne…pas around the conjugated pouvoir."
+      },
+      "scene": "À la bibliothèque, des étudiants vérifient ce qui est permis et demandent de l’aide.",
+      "dialogue": [
+        "Je peux étudier ici aujourd’hui.|I can study here today.",
+        "Est-ce que tu peux ouvrir la fenêtre ?|Can you open the window?",
+        "Ana peut aider à faire les devoirs.|Ana can help with the homework.",
+        "Nous pouvons parler à voix basse.|We can speak quietly.",
+        "Ils ne peuvent pas manger dans cette salle.|They cannot eat in this room.",
+        "Pouvez-vous répéter la question, s’il vous plaît ?|Can you repeat the question, please?"
+      ],
+      "speaking": "At a library, ask a classmate to open the window, say what you can do here today, and ask a staff member to repeat a question. Explain that eating is not allowed in this room. Use tu with the classmate and vous with staff; confirm the permission before acting.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "la",
+          "en": "the / it / her (feminine)",
+          "kind": "term",
+          "note": "The feminine definite article; also a feminine direct-object pronoun."
+        },
+        {
+          "order": 2,
+          "fr": "ici",
+          "en": "here",
+          "kind": "term"
+        },
+        {
+          "order": 3,
+          "fr": "dans / sur / à",
+          "en": "in / on / at",
+          "kind": "term",
+          "note": "French uses different prepositions for in, on and at."
+        },
+        {
+          "order": 4,
+          "fr": "non / ne…pas",
+          "en": "no / not",
+          "kind": "term",
+          "note": "Non answers a question; ne…pas negates a verb."
+        },
+        {
+          "order": 5,
+          "fr": "aujourd’hui",
+          "en": "today",
+          "kind": "term"
+        },
+        {
+          "order": 6,
+          "fr": "cette",
+          "en": "this (feminine)",
+          "kind": "term",
+          "note": "Feminine singular demonstrative; masculine is ce or cet."
+        },
+        {
+          "order": 7,
+          "fr": "par / à cause de",
+          "en": "through / because of",
+          "kind": "term",
+          "note": "Par can mean through; à cause de means because of, often with a negative cause."
+        },
+        {
+          "order": 8,
+          "fr": "s’il vous plaît",
+          "en": "please",
+          "kind": "term",
+          "note": "Polite/formal please; s’il te plaît is informal."
+        },
+        {
+          "order": 9,
+          "fr": "Je peux étudier ici aujourd’hui.",
+          "en": "I can study here today.",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Est-ce que tu peux ouvrir la fenêtre ?",
+          "en": "Can you open the window?",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Ana peut aider à faire les devoirs.",
+          "en": "Ana can help with the homework.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Nous pouvons parler à voix basse.",
+          "en": "We can speak quietly.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Ils ne peuvent pas manger dans cette salle.",
+          "en": "They cannot eat in this room.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Pouvez-vous répéter la question, s’il vous plaît ?",
+          "en": "Can you repeat the question, please?",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "À la bibliothèque",
+        "sourceTitleEnglish": "En la biblioteca",
+        "target": [
+          "Je peux étudier ici aujourd’hui.",
+          "Est-ce que tu peux ouvrir la fenêtre ?",
+          "Ana peut aider à faire les devoirs.",
+          "Nous pouvons parler à voix basse.",
+          "Ils ne peuvent pas manger dans cette salle.",
+          "Pouvez-vous répéter la question, s’il vous plaît ?"
+        ],
+        "native": [
+          "I can study here today.",
+          "Can you open the window?",
+          "Ana can help with the homework.",
+          "We can speak quietly.",
+          "They cannot eat in this room.",
+          "Can you repeat the question, please?"
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete: Nous ___ parler à voix basse.",
+          "answer": "pouvons"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: They cannot eat in this room.",
+          "answer": "Ils ne peuvent pas manger dans cette salle."
+        },
+        {
+          "type": "listening",
+          "prompt": "Listen: what is being requested?",
+          "answer": "To repeat the question, please.",
+          "audioText": "Pouvez-vous répéter la question, s’il vous plaît ?",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "In À la bibliothèque, where are the students not allowed to eat?",
+          "answer": "In this room."
+        },
+        {
+          "type": "recall",
+          "prompt": "Ask a friend in French: Can you open the window?",
+          "answer": "Est-ce que tu peux ouvrir la fenêtre ?"
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 14,
+      "title": "Exprimer un besoin et une obligation",
+      "sourceTitleEnglish": "Necesitar and tener que",
+      "sourceObjectiveEnglish": "Necesitar and tener que: Necesitar + infinitive expresses a need.",
+      "objective": "Distinguez avoir besoin de pour un besoin et devoir pour une obligation avant un examen.",
+      "foundationTie": "Builds on Core 10 time and Core 13 infinitive constructions; adds need versus obligation.",
+      "focus": "avoir besoin de + nom/infinitif; devoir + infinitif : je dois, tu dois, il/elle doit, nous devons",
+      "grammar": {
+        "explanation": "Avoir besoin de names a need: J’ai besoin d’un cahier; J’ai besoin de réviser. De contracts to d’ before a vowel and to des only in some plural constructions; with indefinite plural objects, de is common: J’ai besoin de cahiers. Devoir + infinitive marks an obligation: je dois finir, nous devons arriver. French does not translate Spanish tener que word for word.",
+        "model": {
+          "need": "J’ai besoin de réviser les verbes.",
+          "must": "Je dois finir les devoirs.",
+          "Ana": "Ana a besoin d’un cahier.",
+          "we": "Nous devons arriver à huit heures."
+        },
+        "caution": "Say j’ai besoin de réviser, not je besoin réviser. After devoir, use the infinitive without de: nous devons arriver."
+      },
+      "scene": "Avant un examen, trois élèves organisent leurs révisions et leur heure d’arrivée.",
+      "dialogue": [
+        "J’ai besoin de réviser les verbes.|I need to review the verbs.",
+        "Je dois finir les devoirs.|I have to finish the homework.",
+        "Ana a besoin d’un cahier.|Ana needs a notebook.",
+        "Nous devons arriver à huit heures.|We have to arrive at eight.",
+        "Luis doit lire deux pages.|Luis has to read two pages.",
+        "Est-ce que tu as besoin d’aide pour cette question ?|Do you need help with this question?"
+      ],
+      "speaking": "Before an exam, tell a classmate what you need to review and what you must finish. Ask whether they need help with a question, mention Ana’s notebook and Luis’s two pages, then confirm that everyone must arrive at eight. Keep avoir besoin de and devoir distinct.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "cahier",
+          "en": "notebook",
+          "kind": "term",
+          "note": "Notebook for schoolwork."
+        },
+        {
+          "order": 2,
+          "fr": "la",
+          "en": "the / it / her (feminine)",
+          "kind": "term",
+          "note": "Feminine definite article or object pronoun; context determines use."
+        },
+        {
+          "order": 3,
+          "fr": "un",
+          "en": "a (masculine)",
+          "kind": "term",
+          "note": "Masculine indefinite article."
+        },
+        {
+          "order": 4,
+          "fr": "un cahier",
+          "en": "a notebook",
+          "kind": "term"
+        },
+        {
+          "order": 5,
+          "fr": "j’ai",
+          "en": "I have",
+          "kind": "term",
+          "note": "First-person singular of avoir; used in j’ai besoin de."
+        },
+        {
+          "order": 6,
+          "fr": "j’ai besoin de",
+          "en": "I need",
+          "kind": "term",
+          "note": "I need; followed by a noun or infinitive."
+        },
+        {
+          "order": 7,
+          "fr": "les",
+          "en": "the / them (masculine plural)",
+          "kind": "term",
+          "note": "Plural article or object pronoun; French does not distinguish masculine and feminine here."
+        },
+        {
+          "order": 8,
+          "fr": "les",
+          "en": "the / them (feminine plural)",
+          "kind": "term",
+          "note": "French les covers both masculine and feminine plural source glosses. Merge this source pair with order 7 into one learner card.",
+          "cardStatus": "merge-with-order-7"
+        },
+        {
+          "order": 9,
+          "fr": "J’ai besoin de réviser les verbes.",
+          "en": "I need to review the verbs.",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Je dois finir les devoirs.",
+          "en": "I have to finish the homework.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Ana a besoin d’un cahier.",
+          "en": "Ana needs a notebook.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Nous devons arriver à huit heures.",
+          "en": "We have to arrive at eight.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Luis doit lire deux pages.",
+          "en": "Luis has to read two pages.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Est-ce que tu as besoin d’aide pour cette question ?",
+          "en": "Do you need help with this question?",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "Avant l’examen",
+        "sourceTitleEnglish": "Antes del examen",
+        "target": [
+          "J’ai besoin de réviser les verbes.",
+          "Je dois finir les devoirs.",
+          "Ana a besoin d’un cahier.",
+          "Nous devons arriver à huit heures.",
+          "Luis doit lire deux pages.",
+          "Est-ce que tu as besoin d’aide pour cette question ?"
+        ],
+        "native": [
+          "I need to review the verbs.",
+          "I have to finish the homework.",
+          "Ana needs a notebook.",
+          "We have to arrive at eight.",
+          "Luis has to read two pages.",
+          "Do you need help with this question?"
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete: Nous ___ arriver à huit heures.",
+          "answer": "devons"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: Ana needs a notebook.",
+          "answer": "Ana a besoin d’un cahier."
+        },
+        {
+          "type": "listening",
+          "prompt": "Listen: what must Luis read?",
+          "answer": "Two pages.",
+          "audioText": "Luis doit lire deux pages.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "In Avant l’examen, what time must the students arrive?",
+          "answer": "At eight."
+        },
+        {
+          "type": "recall",
+          "prompt": "Complete: J’ai besoin ___ réviser les verbes.",
+          "answer": "de"
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 15,
+      "title": "Faire et les activités du quotidien",
+      "sourceTitleEnglish": "Hacer and daily activities",
+      "sourceObjectiveEnglish": "Hacer and daily activities: Hacer has the irregular yo form hago.",
+      "objective": "Décrivez des tâches et habitudes avec faire et des verbes précis quand le français les préfère.",
+      "foundationTie": "Reuses Core 10 schedules and Core 14 school tasks while adding faire in the present.",
+      "focus": "faire : je fais, tu fais, il/elle fait, nous faisons, ils/elles font; faire du sport, faire ses devoirs",
+      "grammar": {
+        "explanation": "Faire is irregular in the present: je fais, tu fais, il fait, nous faisons, vous faites, ils font. Use faire ses devoirs for homework and faire du sport for exercise. French often uses a more specific verb where English says make or do: préparer le dîner for making dinner, poser une question for asking a question. Je fais and tu fais have silent final s; nous faisons is pronounced roughly “feu-zon”.",
+        "model": {
+          "I": "Je fais mes devoirs à la bibliothèque.",
+          "Ana": "Ana fait une liste de courses.",
+          "we": "Nous faisons du sport après le cours.",
+          "friends": "Mes amis posent des questions en français."
+        },
+        "caution": "Do not use faire mechanically for every English make/do: poser une question and préparer le dîner are idiomatic here."
+      },
+      "scene": "Après les cours, des amis racontent les tâches de la journée et leurs habitudes du dimanche.",
+      "dialogue": [
+        "Je fais mes devoirs à la bibliothèque.|I do homework in the library.",
+        "Ana fait une liste de courses.|Ana makes a shopping list.",
+        "Nous faisons du sport après le cours.|We exercise after class.",
+        "Luis prépare le dîner à la maison.|Luis makes dinner at home.",
+        "Mes amis posent des questions en français.|My friends ask questions in French.",
+        "Qu’est-ce que tu fais le dimanche ?|What do you do on Sundays?"
+      ],
+      "speaking": "After class, tell a friend where you do homework and what Ana puts on a shopping list. Say how you exercise, what Luis prepares at home, and ask what your friend does on Sundays. Say the friends ask questions en français; use poser des questions rather than faire des questions.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "cours / salle de classe",
+          "en": "class / classroom",
+          "kind": "term",
+          "note": "Cours is a class; salle de classe is the room."
+        },
+        {
+          "order": 2,
+          "fr": "la",
+          "en": "the / it / her (feminine)",
+          "kind": "term",
+          "note": "Feminine article or direct-object pronoun."
+        },
+        {
+          "order": 3,
+          "fr": "une",
+          "en": "a (feminine)",
+          "kind": "term",
+          "note": "Feminine indefinite article."
+        },
+        {
+          "order": 4,
+          "fr": "dans / sur / à",
+          "en": "in / on / at",
+          "kind": "term",
+          "note": "Context decides in, on or at."
+        },
+        {
+          "order": 5,
+          "fr": "les",
+          "en": "the / them (masculine plural)",
+          "kind": "term",
+          "note": "Plural article or object pronoun; no French gender distinction."
+        },
+        {
+          "order": 6,
+          "fr": "pour",
+          "en": "for / in order to",
+          "kind": "term",
+          "note": "For / in order to; followed by an infinitive for purpose."
+        },
+        {
+          "order": 7,
+          "fr": "amis",
+          "en": "friends",
+          "kind": "term",
+          "note": "Male or mixed-gender friends; amies is all-female."
+        },
+        {
+          "order": 8,
+          "fr": "de",
+          "en": "of / from",
+          "kind": "term",
+          "note": "Of/from; contractions apply before articles."
+        },
+        {
+          "order": 9,
+          "fr": "Je fais mes devoirs à la bibliothèque.",
+          "en": "I do homework in the library.",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Ana fait une liste de courses.",
+          "en": "Ana makes a shopping list.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Nous faisons du sport après le cours.",
+          "en": "We exercise after class.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Luis prépare le dîner à la maison.",
+          "en": "Luis makes dinner at home.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Mes amis posent des questions en français.",
+          "en": "My friends ask questions in French.",
+          "kind": "phrase",
+          "sourceMeaningEnglish": "My friends ask questions in Spanish."
+        },
+        {
+          "order": 14,
+          "fr": "Qu’est-ce que tu fais le dimanche ?",
+          "en": "What do you do on Sundays?",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "Un après-midi bien rempli",
+        "sourceTitleEnglish": "Una tarde ocupada",
+        "target": [
+          "Je fais mes devoirs à la bibliothèque.",
+          "Ana fait une liste de courses.",
+          "Nous faisons du sport après le cours.",
+          "Luis prépare le dîner à la maison.",
+          "Mes amis posent des questions en français.",
+          "Qu’est-ce que tu fais le dimanche ?"
+        ],
+        "native": [
+          "I do homework in the library.",
+          "Ana makes a shopping list.",
+          "We exercise after class.",
+          "Luis makes dinner at home.",
+          "My friends ask questions in French.",
+          "What do you do on Sundays?"
+        ],
+        "sourceNativeEnglish": [
+          "I do homework in the library.",
+          "Ana makes a shopping list.",
+          "We exercise after class.",
+          "Luis makes dinner at home.",
+          "My friends ask questions in Spanish.",
+          "What do you do on Sundays?"
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete: Nous ___ du sport après le cours.",
+          "answer": "faisons"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: Ana makes a shopping list.",
+          "answer": "Ana fait une liste de courses."
+        },
+        {
+          "type": "listening",
+          "prompt": "Listen: what does Luis do at home?",
+          "answer": "He makes dinner.",
+          "audioText": "Luis prépare le dîner à la maison.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "In Un après-midi bien rempli, what do the friends ask?",
+          "answer": "Questions in French."
+        },
+        {
+          "type": "recall",
+          "prompt": "Write the idiomatic French phrase for “ask questions”.",
+          "answer": "poser des questions"
+        }
+      ],
+      "locale": "fr-FR"
+    }
+  ]
+}

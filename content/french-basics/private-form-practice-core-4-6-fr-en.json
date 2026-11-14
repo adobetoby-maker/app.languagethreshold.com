@@ -1,0 +1,263 @@
+{
+  "schema": 1,
+  "state": "private-form-practice-draft",
+  "pairKey": "French:English",
+  "courseId": "french-basics:fr-en",
+  "registered": false,
+  "reviewed": false,
+  "sourceFile": "content/french-basics/private-runtime-core-1-30.json",
+  "sourceSha256": "6d200aae866bbd1561e9bc9b035a516641b555592561bb51168bbecae9f74af5",
+  "counts": {
+    "lessons": 3,
+    "alignedReaderPrompts": 12,
+    "newAuthoredContrasts": 4,
+    "totalPrompts": 16,
+    "grammarModels": 3
+  },
+  "lessons": [
+    {
+      "lesson": 4,
+      "stableLessonKey": "french-basics:4",
+      "grammarModel": {
+        "masculine_singular": "un sac rouge",
+        "feminine_singular": "une trousse rouge",
+        "masculine_plural": "des sacs rouges",
+        "feminine_plural": "des trousses rouges"
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-714f98966622f115",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "masculine-singular-rouge",
+          "frenchAnswer": "Je cherche un sac à dos rouge.",
+          "englishPrompt": "I am looking for a red backpack.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-2ea69db0a5d190e0",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "masculine-plural-rouges",
+          "frenchAnswer": "Les sacs à dos rouges sont ici.",
+          "englishPrompt": "The red backpacks are here.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-aea791b03ec52aa1",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "masculine-petit",
+          "frenchAnswer": "Le cahier bleu est petit.",
+          "englishPrompt": "The blue notebook is small.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-50a6c065d554eb69",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "feminine-gentille",
+          "frenchAnswer": "La vendeuse est gentille.",
+          "englishPrompt": "The sales assistant is kind.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-592f13ccc74740d2",
+          "source": "authored-draft-contrast",
+          "focus": "feminine-bleue-petite",
+          "frenchAnswer": "La trousse bleue est petite.",
+          "englishPrompt": "The blue pencil case is small.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 5,
+      "stableLessonKey": "french-basics:5",
+      "grammarModel": {
+        "first_singular": "mon cahier / ma table / mes livres",
+        "second_singular": "ton cahier / ta table / tes crayons",
+        "third_singular": "son téléphone / sa table / ses livres"
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-56042e62f97a43c4",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "mon-sac",
+          "frenchAnswer": "Mon sac à dos est dans la salle de classe.",
+          "englishPrompt": "My backpack is in the classroom.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-5637ba43b5c652bd",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "mes-livres",
+          "frenchAnswer": "Mes livres sont dans mon sac à dos.",
+          "englishPrompt": "My books are in my backpack.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-abb15fb754530c9a",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "ton-cahier",
+          "frenchAnswer": "Où est ton cahier ?",
+          "englishPrompt": "Where is your notebook?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-1aff397280c362d8",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "son-telephone",
+          "frenchAnswer": "La professeure cherche son téléphone.",
+          "englishPrompt": "The teacher is looking for her phone.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-300d8aa275984845",
+          "source": "authored-draft-contrast",
+          "focus": "feminine-ma",
+          "frenchAnswer": "Ma table est ici.",
+          "englishPrompt": "My table is here.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-ede11be48a9f529c",
+          "source": "authored-draft-contrast",
+          "focus": "feminine-vowel-mon",
+          "frenchAnswer": "Mon amie est ici.",
+          "englishPrompt": "My female friend is here.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 6,
+      "stableLessonKey": "french-basics:6",
+      "grammarModel": {
+        "je": "j'ai",
+        "tu": "tu as",
+        "il_elle": "il/elle a",
+        "nous": "nous avons",
+        "vous": "vous avez",
+        "ils_elles": "ils/elles ont"
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-7aba031456ec0eb6",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "j-ai-faim",
+          "frenchAnswer": "J'ai faim après le cours.",
+          "englishPrompt": "I am hungry after class.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-404b8669fc658b82",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "nous-avons",
+          "frenchAnswer": "Nous avons de l'eau dans le sac à dos.",
+          "englishPrompt": "We have water in the backpack.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-57b5fac5a4d22269",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "plural-ont",
+          "frenchAnswer": "Mes amis ont le temps de manger.",
+          "englishPrompt": "My friends have time to eat.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-7047d840a4a3b9ac",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "focus": "tu-as",
+          "frenchAnswer": "Tu as un verre pour Ana ?",
+          "englishPrompt": "Do you have a glass for Ana?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-280e9d4c81cf1085",
+          "source": "authored-draft-contrast",
+          "focus": "formal-vous-avez",
+          "frenchAnswer": "Vous avez de l'eau ?",
+          "englishPrompt": "Do you (formal) have water?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    }
+  ]
+}

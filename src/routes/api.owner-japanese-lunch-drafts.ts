@@ -195,6 +195,16 @@ async function lunchDrafts() {
       "master-travel-lunch:4:ja-en,master-travel-lunch:5:ja-en,master-travel-lunch:6:ja-en",
     "Japanese Lunch Master 4–6 enrichment source or release gate changed");
   authoredLessons.push(...masterFourEnrichment.lessons);
+  const masterSevenEnrichment = (await import("../../content/japanese-travel-lunch/private-master-7-9-enrichment.json")).default as Enrichment;
+  check(masterSevenEnrichment.pairKey === "Japanese:English" &&
+    masterSevenEnrichment.sourcePath === "content/japanese-travel-lunch/master-7-9-draft.json" &&
+    masterSevenEnrichment.sourceSha256 === "ae8c909b55ed090563101827c632b4d679e31a7ba0d3ae56a0c74d9414a437f4" &&
+    masterSevenEnrichment.reviewed === false && masterSevenEnrichment.registered === false &&
+    masterSevenEnrichment.readyForLearner === false &&
+    masterSevenEnrichment.lessons.map((lesson) => lesson.stableId).join() ===
+      "master-travel-lunch:7:ja-en,master-travel-lunch:8:ja-en,master-travel-lunch:9:ja-en",
+    "Japanese Lunch Master 7–9 enrichment source or release gate changed");
+  authoredLessons.push(...masterSevenEnrichment.lessons);
   const packets = await Promise.all(stages.map(async ({ draft, modes, sourceSha256 }) => ({
     batch: (await draft()).default as Draft, sidecar: (await modes()).default as Sidecar, sourceSha256,
   })));
@@ -215,7 +225,7 @@ async function lunchDrafts() {
       const activities = sidecar.activities.filter((activity) => activity.lessonId === lesson.stableId);
       const authored = authoredLessons.find((entry) => entry.stableId === lesson.stableId);
       if (authored) check(((stage === "foundation" && lesson.n <= 10) || (stage === "core" && lesson.n <= 30) ||
-        (stage === "master" && lesson.n <= 6)) && authored.forms.length === 3 &&
+        (stage === "master" && lesson.n <= 9)) && authored.forms.length === 3 &&
         authored.speakingObjectives.length >= 3 && authored.wordBank.length >= 4 &&
         authored.wordBank.every((word) => lesson.cards.some((card) => card.ja === word)) &&
         (stage !== "master" || authored.forms.every((form) => [...lesson.cards, ...lesson.reader].some((entry) =>

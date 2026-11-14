@@ -1,0 +1,128 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "sourcePath": "content/japanese-travel-lunch/master-7-9-draft.json",
+  "sourceSha256": "ae8c909b55ed090563101827c632b4d679e31a7ba0d3ae56a0c74d9414a437f4",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "lessons": [
+    {
+      "stableId": "master-travel-lunch:7:ja-en",
+      "forms": [
+        {
+          "label": "Ordered quantities and extra bill item",
+          "japanese": "定食を四人分とジュースを三つ注文しましたが、定食が五人分付いています。",
+          "english": "We ordered four set lunches and three juices, but the bill lists five set lunches.",
+          "explanation": "注文しましたが is the polite past 注文しました followed by が, which here means 'but' (a contrast). 付いています is 付く in the ている form and literally means 'are attached/included'; in this context the English renders it as what the bill lists. 四人分 and 五人分 use 人分, 'portions for N people', so the contrast is four portions ordered against five portions shown on the bill in the source scene."
+        },
+        {
+          "label": "Posted price on the sign",
+          "japanese": "入口の看板には、定食が一人前千二百円と書いてありました。",
+          "english": "The entrance sign said the set lunch was 1,200 yen per person.",
+          "explanation": "書いてありました combines the te-form 書いて of 書く with ある, describing writing that remains on the sign; the polite past ありました reports what you saw. に in 看板には marks where the writing is, and は makes the sign the topic. と quotes what was written. 一人前 means 'one portion, per person'."
+        },
+        {
+          "label": "Price comparison question",
+          "japanese": "観光客向けの定食は、入口の定食と値段が違いますか。",
+          "english": "Is the tourist set menu priced differently from the one at the entrance?",
+          "explanation": "向け means 'aimed at, intended for', so 観光客向けの定食 is 'the set lunch intended for tourists'; は marks it as the topic. と with 違う marks what something is different from: 入口の定食と違う is 'different from the set lunch at the entrance'. 値段が違う means 'the price differs', and 違いますか is the polite present of 違う with か making a yes/no question."
+        }
+      ],
+      "speakingObjectives": [
+        "Respond to the owner's opening. The owner announces the total (お会計は九千五十円です); that is the owner's line and a figure to verify, not something you say. Answer by stating what you ordered and what the bill shows: 定食を四人分とジュースを三つ注文しましたが、定食が五人分付いています。",
+        "Confirm what the guide explained by asking the guide directly: ウィルマーさん、定食に飲み物が付くと説明しましたか。",
+        "Compare the posted price with the tourist price: 入口の看板には、定食が一人前千二百円と書いてありました。 / 観光客向けの定食は、入口の定食と値段が違いますか。",
+        "Check the arithmetic and close. Say the part that is yours: 定食四人分は千二百円ずつで、四千八百円です。 Ask for the breakdown: 明細付きの領収書をいただけますか。 The corrected total (5,850 yen, i.e. 4,800 + 1,050) is stated by the owner and the change from 10,000 yen (4,150 yen) is given by the narrator; listen for both and verify them against the itemized receipt rather than saying them. Then close with thanks: 確認してくださってありがとうございます。これで合っています。"
+      ],
+      "wordBank": [
+        "観光客向けの定食",
+        "入口の看板",
+        "印刷した領収書",
+        "明細",
+        "差額",
+        "店主",
+        "案内人",
+        "おつり"
+      ]
+    },
+    {
+      "stableId": "master-travel-lunch:8:ja-en",
+      "forms": [
+        {
+          "label": "Refusing and naming the missing ice",
+          "japanese": "ディエゴ、買わないで。あの屋台には氷がありません。",
+          "english": "Diego, do not buy it. That cart has no ice.",
+          "explanation": "買わないで is the negative request form of 買う (買わない + で), a casual 'please don't buy'. あの屋台には marks the stall as the place and topic, and 氷がありません is the polite negative of ある, 'there is no ice'. The reason for refusing is the missing cold storage: the source scene separately establishes no refrigeration. Review item: the first sentence is casual and the second is polite, so this line mixes registers when speaking to a friend. Notice it as it appears in the Reader; it is not a rule to generalize."
+        },
+        {
+          "label": "Lemon juice does not count as heating",
+          "japanese": "生魚です。レモン汁をかけても、火を通したことにはなりません。",
+          "english": "It is raw fish. Lemon juice does not cook it with heat.",
+          "explanation": "生魚 (なまざかな) is 生 'raw, uncooked' plus 魚 'fish': fish that has not been heated. かけても is the te-form of かける plus も, 'even if you pour it on'. 火を通す means to cook through with heat; 火を通したことにはなりません means 'it does not count as having been cooked through'. The point being taught is lemon juice versus heat: lemon juice has not cooked the fish with heat, so it remains 生魚 in this scene."
+        },
+        {
+          "label": "Cold storage and food poisoning worry",
+          "japanese": "冷蔵していない魚なら、食中毒やお腹をこわすことが心配です。",
+          "english": "With unrefrigerated fish, I worry about food poisoning or an upset stomach.",
+          "explanation": "冷蔵していない is 冷蔵する in the している state form, negated: 'not kept refrigerated'. なら sets the condition 'if it is / in the case of'. 食中毒 (しょくちゅうどく) is 食 'food' plus 中毒 'poisoning': illness caused by contaminated food. お腹をこわす is a verb phrase, 'to get an upset stomach'. や links the two worries, こと nominalizes the second, and 心配です states the concern. The risk named here comes from the fish not being kept cold."
+        }
+      ],
+      "speakingObjectives": [
+        "Respond to Diego's opening by quietly saying no and naming the missing ice: ディエゴ、買わないで。あの屋台には氷がありません。 ",
+        "Correct the lemon-juice belief and name the risk directly: 生魚です。レモン汁をかけても、火を通したことにはなりません。 / 冷蔵していない魚なら、食中毒やお腹をこわすことが心配です。 The reason is raw fish without refrigeration; lemon juice is not heat.",
+        "Shift to polite speech for the shopkeeper and ask for a fish restaurant: すみません。この近くでおすすめの魚料理の店はどこですか。 Treat the shopkeeper's answer as information about where and when people go, not as proof that raw fish is safe.",
+        "Return to casual speech with Diego, suggest a cooked alternative and close kindly: 代わりに、よく火を通した焼き鳥を食べない？ / 困らせたいわけじゃないよ。元気でいてほしいんだ。"
+      ],
+      "wordBank": [
+        "屋台",
+        "氷",
+        "冷蔵",
+        "生魚",
+        "食中毒",
+        "お腹をこわす",
+        "レモン汁",
+        "危険"
+      ]
+    },
+    {
+      "stableId": "master-travel-lunch:9:ja-en",
+      "forms": [
+        {
+          "label": "Specific praise",
+          "japanese": "焼きなすがおいしくて、パンがカリッとしています。",
+          "english": "The eggplant is delicious, and the bread is crispy.",
+          "explanation": "おいしくて is the て-form of the い-adjective おいしい: drop the final い and add くて. It links two descriptions, 'is delicious, and ...'. カリッとしています is the mimetic adverb カリッと plus している in its state sense, 'is crispy'. 焼きなす is 焼き (the stem of 焼く, 'to grill') plus なす 'eggplant', i.e. grilled eggplant."
+        },
+        {
+          "label": "Salt level for zucchini",
+          "japanese": "ズッキーニの塩加減だけ、少し強いと感じました。",
+          "english": "Only the zucchini tastes a little too salty to me.",
+          "explanation": "塩加減 is 塩 'salt' plus 加減 'degree, adjustment': the level of seasoning with salt. だけ means 'only', limiting the comment to the zucchini. 少し強い is literally 'a little strong'. と marks what you felt, and 感じました is the polite past of 感じる, literally 'I felt / I found'."
+        },
+        {
+          "label": "Tactful suggestion",
+          "japanese": "塩を少し控えると、もっとおいしくなると思います。",
+          "english": "I think a little less salt would make it even better.",
+          "explanation": "控える means to hold back or reduce; 控えると uses と for a natural result, 'if you reduce it, then ...'. おいしくなる is the い-adjective おいしい with い dropped and く added, followed by the verb なる 'to become': 'become more delicious'. The adjective itself does not turn into a verb; く is its adverbial form before なる. もっと means 'more', and と思います softens the statement into an opinion, 'I think'."
+        }
+      ],
+      "speakingObjectives": [
+        "Respond to the owner's opening. The owner asks for your honest impression of the new dish; that request is the owner's line, not yours. Answer with specific praise first: 焼きなすがおいしくて、パンがカリッとしています。",
+        "Add praise for texture and presentation: モッツァレラと卵の食感もよく、盛り付けもきれいです。",
+        "Give one suggestion only, about the salt on the zucchini, and keep it small: ズッキーニの塩加減だけ、少し強いと感じました。 / 塩を少し控えると、もっとおいしくなると思います。 / 小さな点だけです。ほかはとても気に入りました。",
+        "Answer the owner's follow-up about the dressing and say you would order it again: いいえ、そちらはちょうどいいです。 / メニューに残してほしいです。また注文します。"
+      ],
+      "wordBank": [
+        "ズッキーニ",
+        "塩加減",
+        "焼きなす",
+        "食感",
+        "盛り付け",
+        "カリッとした",
+        "ジューシー",
+        "野菜のホットサンド"
+      ]
+    }
+  ]
+}

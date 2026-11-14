@@ -354,6 +354,15 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   const [moreSheetOpen, setMoreSheetOpen] = useState(false);
   const [speakingNavOpen, setSpeakingNavOpen] = useState(false);
   useEffect(() => {
+    const open = () => {
+      setMoreView("tabs");
+      setMoreSheetOpen(true);
+    };
+    window.addEventListener("lt:lesson-workspace-navigation", open);
+    return () => window.removeEventListener("lt:lesson-workspace-navigation", open);
+  }, []);
+
+  useEffect(() => {
     setSpeakingNavOpen(false);
   }, [state.currentTab]);
   const [moreView, setMoreView] = useState<"tabs" | "settings">("tabs");
@@ -746,9 +755,16 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           covering the whole activity or changing the familiar bottom dock. */}
       <Sheet open={moreSheetOpen} onOpenChange={setMoreSheetOpen}>
         <SheetContent
+          onCloseAutoFocus={(event) => {
+            const menu = document.querySelector<HTMLElement>("[data-lesson-workspace-menu]");
+            if (menu) {
+              event.preventDefault();
+              menu.focus();
+            }
+          }}
           scrollBody
           side="left"
-          className="h-[100dvh] w-[min(85vw,24rem)] max-w-none border-border/60 bg-background/98 px-4 shadow-2xl [padding-top:env(safe-area-inset-top)] [padding-bottom:env(safe-area-inset-bottom)] desktop:hidden"
+          className="h-[100dvh] w-[min(85vw,24rem)] max-w-none border-border/60 bg-background/98 px-4 shadow-2xl [padding-top:env(safe-area-inset-top)] [padding-bottom:env(safe-area-inset-bottom)]"
         >
           <SheetTitle className="font-display text-xl text-foreground">
             Language Threshold

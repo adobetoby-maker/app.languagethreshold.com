@@ -100,6 +100,7 @@ import { Route as ApiTutorRouteImport } from './routes/api.tutor'
 import { Route as ApiVerifyCheckoutRouteImport } from './routes/api.verify-checkout'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as DemoLessonWorkspaceRouteImport } from './routes/demo.lesson-workspace'
 import { Route as SubscribeSuccessRouteImport } from './routes/subscribe/success'
 import { Route as TeamAcceptRouteImport } from './routes/team_.accept'
 import { Route as VsClinicalingoRouteImport } from './routes/vs.clinicalingo'
@@ -563,6 +564,11 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DemoLessonWorkspaceRoute = DemoLessonWorkspaceRouteImport.update({
+  id: '/demo/lesson-workspace',
+  path: '/demo/lesson-workspace',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SubscribeSuccessRoute = SubscribeSuccessRouteImport.update({
   id: '/subscribe/success',
   path: '/subscribe/success',
@@ -675,6 +681,7 @@ export interface FileRoutesByFullPath {
   '/api/tutor': typeof ApiTutorRoute
   '/api/verify-checkout': typeof ApiVerifyCheckoutRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/demo/lesson-workspace': typeof DemoLessonWorkspaceRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team/accept': typeof TeamAcceptRoute
   '/vs/clinicalingo': typeof VsClinicalingoRoute
@@ -772,6 +779,7 @@ export interface FileRoutesByTo {
   '/api/tutor': typeof ApiTutorRoute
   '/api/verify-checkout': typeof ApiVerifyCheckoutRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/demo/lesson-workspace': typeof DemoLessonWorkspaceRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team/accept': typeof TeamAcceptRoute
   '/vs/clinicalingo': typeof VsClinicalingoRoute
@@ -870,6 +878,7 @@ export interface FileRoutesById {
   '/api/tutor': typeof ApiTutorRoute
   '/api/verify-checkout': typeof ApiVerifyCheckoutRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/demo/lesson-workspace': typeof DemoLessonWorkspaceRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
   '/team_/accept': typeof TeamAcceptRoute
   '/vs/clinicalingo': typeof VsClinicalingoRoute
@@ -969,6 +978,7 @@ export interface FileRouteTypes {
     | '/api/tutor'
     | '/api/verify-checkout'
     | '/blog/$slug'
+    | '/demo/lesson-workspace'
     | '/subscribe/success'
     | '/team/accept'
     | '/vs/clinicalingo'
@@ -1066,6 +1076,7 @@ export interface FileRouteTypes {
     | '/api/tutor'
     | '/api/verify-checkout'
     | '/blog/$slug'
+    | '/demo/lesson-workspace'
     | '/subscribe/success'
     | '/team/accept'
     | '/vs/clinicalingo'
@@ -1163,6 +1174,7 @@ export interface FileRouteTypes {
     | '/api/tutor'
     | '/api/verify-checkout'
     | '/blog/$slug'
+    | '/demo/lesson-workspace'
     | '/subscribe/success'
     | '/team_/accept'
     | '/vs/clinicalingo'
@@ -1261,6 +1273,7 @@ export interface RootRouteChildren {
   ApiTutorRoute: typeof ApiTutorRoute
   ApiVerifyCheckoutRoute: typeof ApiVerifyCheckoutRoute
   BlogSlugRoute: typeof BlogSlugRoute
+  DemoLessonWorkspaceRoute: typeof DemoLessonWorkspaceRoute
   SubscribeSuccessRoute: typeof SubscribeSuccessRoute
   TeamAcceptRoute: typeof TeamAcceptRoute
   VsClinicalingoRoute: typeof VsClinicalingoRoute
@@ -1907,6 +1920,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/demo/lesson-workspace': {
+      id: '/demo/lesson-workspace'
+      path: '/demo/lesson-workspace'
+      fullPath: '/demo/lesson-workspace'
+      preLoaderRoute: typeof DemoLessonWorkspaceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/subscribe/success': {
       id: '/subscribe/success'
       path: '/subscribe/success'
@@ -2029,6 +2049,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiTutorRoute: ApiTutorRoute,
   ApiVerifyCheckoutRoute: ApiVerifyCheckoutRoute,
   BlogSlugRoute: BlogSlugRoute,
+  DemoLessonWorkspaceRoute: DemoLessonWorkspaceRoute,
   SubscribeSuccessRoute: SubscribeSuccessRoute,
   TeamAcceptRoute: TeamAcceptRoute,
   VsClinicalingoRoute: VsClinicalingoRoute,

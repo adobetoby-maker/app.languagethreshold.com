@@ -25,6 +25,7 @@ export function SpeakTutorDock(props: {
   sentence: string;
   disabled?: boolean;
   canAsk: boolean;
+  hideTrigger?: boolean;
   selection?: SpeakTutorSelection | null;
   children: ReactNode;
 }) {
@@ -79,6 +80,7 @@ function Pocket({
   sentence,
   disabled,
   canAsk,
+  hideTrigger,
   owner,
   isCurrentUser,
   state,
@@ -214,24 +216,26 @@ function Pocket({
   }
   return (
     <div className="contents" data-testid="speak-tutor-dock">
-      <button
-        type="button"
-        aria-expanded={open}
-        aria-controls={panelId}
-        disabled={disabled && !open}
-        onClick={() => {
-          cancel();
-          setOpen(!open);
-          input.current?.blur();
-          if (!open) setContext(sentence);
-        }}
-        className="flex min-h-11 w-full items-center justify-between gap-2 rounded-xl border border-border bg-card px-3 text-sm font-semibold"
-      >
-        <span>
-          Tutor <span className="font-normal text-muted-foreground">· word help</span>
-        </span>
-        {open ? <X className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
-      </button>
+      {(!hideTrigger || open) && (
+        <button
+          type="button"
+          aria-expanded={open}
+          aria-controls={panelId}
+          disabled={disabled && !open}
+          onClick={() => {
+            cancel();
+            setOpen(!open);
+            input.current?.blur();
+            if (!open) setContext(sentence);
+          }}
+          className="flex min-h-11 w-full items-center justify-between gap-2 rounded-xl border border-border bg-card px-3 text-sm font-semibold"
+        >
+          <span>
+            Tutor <span className="font-normal text-muted-foreground">· word help</span>
+          </span>
+          {open ? <X className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
+        </button>
+      )}
       {open && (
         <section
           id={panelId}

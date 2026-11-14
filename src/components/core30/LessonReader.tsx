@@ -48,6 +48,8 @@ export function LessonReader({
   onInteract,
   onOpenFullReader,
   initialTranslationVisible = false,
+  nativeCards = false,
+  onRoundFinished,
 }: {
   moduleId: string;
   /** Exact lesson identity for the authored passage. */
@@ -59,11 +61,23 @@ export function LessonReader({
   onInteract: () => void;
   onOpenFullReader: (passageId: string) => void;
   initialTranslationVisible?: boolean;
+  nativeCards?: boolean;
+  onRoundFinished?: () => void;
 }) {
   const { state, dispatch } = useApp();
   const { state: lib } = useLibrary();
-  const { speakSentence, speakSentences, stop, playing, activeSentenceIndex } = useSpeech();
+  const { speakSentence, speakSentences, stop, playing, activeSentenceIndex, rate, setRate } =
+    useSpeech();
   const language = state.selectedLanguage;
+  const [cardIndex, setCardIndex] = useState(0);
+  const [cardAudio, setCardAudio] = useState<{ text: string; index: number; rate: number } | null>(
+    null,
+  );
+  useEffect(() => {
+    if (!cardAudio || rate !== cardAudio.rate) return;
+    speakSentence(cardAudio.text, cardAudio.index);
+    setCardAudio(null);
+  }, [cardAudio, rate, speakSentence]);
   const [showEnglish, setShowEnglish] = useState(initialTranslationVisible);
   const [wordReq, setWordReq] = useState<WordCardRequest | null>(null);
   const [waited, setWaited] = useState(false);
@@ -227,6 +241,80 @@ export function LessonReader({
       return;
     }
     speakSentences(sentences.map((s, index) => ({ text: s.target, index })));
+  }
+
+  if (nativeCards && sentences.length) {
+    const index = Math.min(cardIndex, sentences.length - 1);
+    const line = sentences[index];
+    const play = (speed: number) => {
+      onInteract();
+      setRate(speed);
+      setCardAudio({ text: line.target, index, rate: speed });
+    };
+    return (
+      <div data-testid="lesson-reader" className="lt-native-reading">
+        <div className="lt-native-reading-progress">
+          <span>See it</span>
+          <span>
+            {index + 1} / {sentences.length}
+          </span>
+        </div>
+        <p className="lt-native-reading-hint">
+          Connect the meaning. Listen, notice, and read aloud.
+        </p>
+        <article className="lt-native-reading-card" aria-label="Lesson phrase">
+          <p className="lt-native-reading-language">{language}</p>
+          <p lang={lang} className="lt-native-reading-target">
+            {tappable ? (
+              <ClickableText
+                text={line.target}
+                onWordClick={(word, sentence, x, y) => onWordClick(word, sentence, index, x, y)}
+              />
+            ) : (
+              line.target
+            )}
+          </p>
+          {translationAvailable && <p className="lt-native-reading-translation">{line.en}</p>}
+          <div className="flex gap-2">
+            <button onClick={() => play(1)}>
+              <Volume2 size={20} /> Listen
+            </button>
+            <button onClick={() => play(0.7)}>Slow</button>
+          </div>
+        </article>
+        <div className="lt-native-reading-actions">
+          <button
+            disabled={index === 0}
+            onClick={() => {
+              stop();
+              setCardIndex(index - 1);
+              document.querySelector("main.lt-scroll-safe")?.scrollTo({ top: 0 });
+            }}
+          >
+            ← Previous
+          </button>
+          <button
+            onClick={() => {
+              stop();
+              onInteract();
+              if (index + 1 < sentences.length) {
+                setCardIndex(index + 1);
+                document.querySelector("main.lt-scroll-safe")?.scrollTo({ top: 0 });
+              } else onRoundFinished?.();
+            }}
+          >
+            {index + 1 < sentences.length ? "Next →" : "Finish round"}
+          </button>
+        </div>
+        {wordReq && (
+          <WordCard
+            request={wordReq}
+            onClose={() => setWordReq(null)}
+            onXp={(n) => dispatch({ type: "ADD_XP", payload: n })}
+          />
+        )}
+      </div>
+    );
   }
 
   return (

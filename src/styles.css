@@ -2718,4 +2718,19 @@ body:has(.lt-native-speak) .lt-speaking-navigation {
   align-items: center;
   gap: 4px;
 }
-.lt-v6-app:has(.lt-native-speak) .lt-main-column > .lt-safe-top-only { display:none; }
+.lt-v6-app:has(.lt-native-speak) .lt-main-column > .lt-safe-top-only {
+  display: none;
+}
+.lt-native-control-icon {
+  display: none;
+}
+.lt-native-reply-dock [aria-label="Conversation controls"] button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+.lt-native-reply-dock .lt-native-control-icon {
+  display: block;
+}

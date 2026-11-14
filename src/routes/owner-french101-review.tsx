@@ -65,7 +65,7 @@ function French101Review() {
     <header className="flex flex-wrap items-start justify-between gap-4"><div>
       <p className="font-semibold text-gold-ink dark:text-gold">Language Threshold · Owner review</p>
       <h1 className="mt-2 font-serif text-3xl">French 101 Foundation draft</h1>
-      <p className="mt-2 max-w-3xl text-muted-foreground">Inspect the first three source-pinned lessons. This preview does not save learner progress or approve content or audio.</p>
+      <p className="mt-2 max-w-3xl text-muted-foreground">Inspect the first six source-pinned lessons. This preview does not save learner progress or approve content or audio.</p>
     </div><div className="flex gap-3"><ThemeToggle /><a className="underline" href="/owner">Owner dashboard</a></div></header>
     {authLoading ? <p role="status">Checking sign-in…</p> : !user ? <section className={panel}>
       <p>Sign in with the platform owner account to inspect these drafts.</p>

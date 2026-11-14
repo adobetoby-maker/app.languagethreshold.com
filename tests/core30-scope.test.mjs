@@ -16,6 +16,18 @@ const planB = { ...es, enrollmentId: "plan-b" };
 const at = "2026-10-16T10:00:00.000Z";
 const earlier = "2026-10-15T10:00:00.000Z";
 const key = (context) => core30ScopeKey("roofing", context);
+
+test("French 101 candidate stage keys cannot inherit Spanish or other French course progress", () => {
+  const context = { targetLanguage: "French", instructionLanguage: "English" };
+  const candidate = ["foundation-french-basics", "french-basics", "master-french-basics"]
+    .map((moduleId) => core30ScopeKey(moduleId, context));
+  assert.equal(new Set(candidate).size, 3);
+  for (const value of candidate) {
+    assert.notEqual(value, core30ScopeKey("spanish-basics", { targetLanguage: "Spanish", instructionLanguage: "English" }));
+    assert.notEqual(value, core30ScopeKey("foundation-travel-lunch", context));
+    assert.notEqual(value, core30ScopeKey("foundation-french-basics", { ...context, enrollmentId: "another-plan" }));
+  }
+});
 const base = () => ({
   selectedLanguage: "Spanish",
   nativeLanguage: "English",

@@ -1,0 +1,317 @@
+{
+  "schema": 1,
+  "state": "private-form-practice-draft",
+  "pairKey": "French:English",
+  "courseId": "french-basics:fr-en",
+  "registered": false,
+  "reviewed": false,
+  "sourceFile": "content/french-basics/private-runtime-core-1-30.json",
+  "sourceSha256": "6d200aae866bbd1561e9bc9b035a516641b555592561bb51168bbecae9f74af5",
+  "counts": {
+    "lessons": 3,
+    "alignedReaderPrompts": 18,
+    "newAuthoredContrasts": 2,
+    "totalPrompts": 20,
+    "grammarModels": 3
+  },
+  "lessons": [
+    {
+      "lesson": 7,
+      "stableLessonKey": "french-basics:7",
+      "grammarModel": {
+        "je": "je vais au parc",
+        "tu": "tu vas au parc",
+        "il_elle": "elle va à la bibliothèque",
+        "nous": "nous allons au café",
+        "vous": "vous allez à l’école",
+        "ils_elles": "ils vont aux magasins"
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-9026d1389fbac9e5",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "Aller in the present; à + le = au, à + les = aux",
+          "frenchAnswer": "Je vais au parc après les cours.",
+          "englishPrompt": "I am going to the park after class.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-ac5998dcfcb46cb2",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "Aller in the present; à + le = au, à + les = aux",
+          "frenchAnswer": "Ana va à la bibliothèque.",
+          "englishPrompt": "Ana is going to the library.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-91f65740f1bc88b1",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "Aller in the present; à + le = au, à + les = aux",
+          "frenchAnswer": "Nous allons au café à quatre heures.",
+          "englishPrompt": "We are going to the café at four.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-e0aeb8949f741dfd",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "Aller in the present; à + le = au, à + les = aux",
+          "frenchAnswer": "Les amis vont au cinéma.",
+          "englishPrompt": "The friends are going to the cinema.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-159edd8c40792eb5",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "focus": "Aller in the present; à + le = au, à + les = aux",
+          "frenchAnswer": "Tu vas au parc avec nous ?",
+          "englishPrompt": "Are you going to the park with us?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-ef4a24a22070eaf8",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "focus": "source-reader-answer",
+          "frenchAnswer": "Luis va au magasin.",
+          "englishPrompt": "Luis is going to the store.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-1ef051e0b6756498",
+          "source": "authored-draft-contrast",
+          "focus": "aller-aux-plural",
+          "frenchAnswer": "Ils vont aux magasins.",
+          "englishPrompt": "They are going to the stores.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-d87866909934ba3d",
+          "source": "authored-draft-contrast",
+          "focus": "aller-a-l-vowel",
+          "frenchAnswer": "Vous allez à l’école.",
+          "englishPrompt": "You (plural) are going to school.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 8,
+      "stableLessonKey": "french-basics:8",
+      "grammarModel": {
+        "what_study": "Qu’est-ce que tu étudies ce semestre ?",
+        "which_class": "Quel est ton cours préféré ?",
+        "what_word": "Que signifie ce mot ?",
+        "which_one": "Lequel de ces livres préfères-tu ?"
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-33cad5d483f20644",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "Que/quoi for what; quel/quelle for which; lequel for which one",
+          "frenchAnswer": "Qu’est-ce que tu étudies ce semestre ?",
+          "englishPrompt": "What are you studying this semester?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-63bce301a8b11286",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "Que/quoi for what; quel/quelle for which; lequel for which one",
+          "frenchAnswer": "J’étudie le français et la musique.",
+          "englishPrompt": "I study French and music.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-27955e4118a60955",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "Que/quoi for what; quel/quelle for which; lequel for which one",
+          "frenchAnswer": "Quel est ton cours préféré ?",
+          "englishPrompt": "Which is your favorite class?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-6f9b560418d22a13",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "Que/quoi for what; quel/quelle for which; lequel for which one",
+          "frenchAnswer": "Que signifie ce mot ?",
+          "englishPrompt": "What does this word mean?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-7405c43e598a86f6",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "focus": "Que/quoi for what; quel/quelle for which; lequel for which one",
+          "frenchAnswer": "Lequel de ces livres préfères-tu ?",
+          "englishPrompt": "Which of these books do you prefer?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-023732aaa82db897",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "focus": "source-reader-answer",
+          "frenchAnswer": "Mon cours préféré est le français.",
+          "englishPrompt": "My favorite class is French.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 9,
+      "stableLessonKey": "french-basics:9",
+      "grammarModel": {
+        "where": "Où étudies-tu ? — J’étudie à la bibliothèque.",
+        "when": "Quand commence le cours ? — À neuf heures.",
+        "why": "Pourquoi étudies-tu le français ? — Parce que je veux parler avec mes amis."
+      },
+      "prompts": [
+        {
+          "id": "form-fr-en-9dae01b73fa0cff7",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 1,
+          "focus": "Où, quand, pourquoi; répondre avec parce que",
+          "frenchAnswer": "Où étudies-tu d’habitude ?",
+          "englishPrompt": "Where do you usually study?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-5eb06f907a5faf28",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 2,
+          "focus": "Où, quand, pourquoi; répondre avec parce que",
+          "frenchAnswer": "J’étudie à la bibliothèque.",
+          "englishPrompt": "I study in the library.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-259da10be18be187",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 3,
+          "focus": "Où, quand, pourquoi; répondre avec parce que",
+          "frenchAnswer": "Quand commence le cours ?",
+          "englishPrompt": "When does the class start?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-4e580492dd535e69",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 4,
+          "focus": "Où, quand, pourquoi; répondre avec parce que",
+          "frenchAnswer": "Le cours commence à neuf heures.",
+          "englishPrompt": "Class starts at nine.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-539adac135c3a9ec",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 5,
+          "focus": "Où, quand, pourquoi; répondre avec parce que",
+          "frenchAnswer": "Pourquoi étudies-tu le français ?",
+          "englishPrompt": "Why do you study French?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-a8249f0105a07ea0",
+          "source": "aligned-reader",
+          "sourceReaderTurn": 6,
+          "focus": "Où, quand, pourquoi; répondre avec parce que",
+          "frenchAnswer": "J’étudie le français parce que je veux parler avec mes amis.",
+          "englishPrompt": "I study French because I want to talk with my friends.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    }
+  ]
+}

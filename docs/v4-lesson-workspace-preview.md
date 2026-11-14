@@ -1,25 +1,13 @@
-# V4-style PWA lesson workspace
+# V6-style PWA
 
-An open Core 60 lesson becomes the main workspace. The course button returns to its overview; the header menu opens the existing app drawer; the information button opens the lesson goal. Six practice modes remain at the bottom across phone, tablet, and desktop widths. Normal app navigation returns when the learner exits.
+The PWA uses the native V6 main layout across the app, rather than only changing a lesson. The colors come from `LanguageThresholdV6/App/Theme.swift`: ink #09111a, panel #121b26, gold #e8bd69, and muted #9eb0c2. System body type, system serif headings, a compact course/tutor/review/menu header, and a simple bottom mode bar follow V6's sizing and spacing. The requested Speak button joins the six study modes at the bottom.
 
-The existing lesson reading, word list, practice components, speaking missions, lesson links, mastery confirmation, account gates, and progress scope are retained. Mode segments indicate visits, not correctness or mastery. Optional course promotion is hidden during a lesson, and supplementary scene/verb practice follows the reading. Mode changes animate the visible panel without changing its React identity; reduced-motion preference disables the animation.
+Opening the root starts in Speak / free conversation. Explicit lesson, course, tool, account, and return links retain their destination. First-run language selection remains; the extra marketing entry page is removed. Partner setup is available as a disclosure so the conversation controls have space.
 
-## Public preview
+The web app continues to supply lesson material, practice components, recorder/replay, AI replies, configured voices, authentication, and scoped progress. No native content or backend was copied into a second engine. Course selection and More use the existing website dialogs. Study buttons resume the course lesson and select the existing practice mode; visits are not mastery.
 
-`/demo/lesson-workspace` is a separate interactive preview using the shared lesson header and mode bar plus published Foundation Roofing lesson 1 material. Demo practice is temporary and does not write account progress. It does not simulate AI responses or bypass authentication. Follow the actual-lesson link to try the production activity components on the branch deployment.
+`/demo/lesson-workspace` is a public temporary preview sharing the same header and dock, opening in Speak. It uses published Foundation Roofing lesson material, with links to real speaking and study activities. It does not generate pretend AI replies or write account progress. Its sample pronunciation audio is labeled device voice; the actual app retains its configured voice service.
 
-## Verification
+Claude CLI Fable 5.2 at max effort reviewed navigation integration risks, especially pending study-mode handoff, account hydration, deep links, and compact screens. Browser checks exercise those behaviors at desktop and phone sizes. Physical iPhone Safari and installed-PWA acceptance remains for owner review.
 
-- Unit suite: 2,970 passed.
-- TypeScript and changed-file lint passed.
-- Ten existing lesson-flow browser cases passed across desktop and phone-sized Chrome: plan entry, inline reading, speaking mission entry, next-step scrolling, previous/next lesson navigation. The local runner logged worker-shutdown timeouts outside passing test cases.
-- Four focused reading/workspace cases passed cleanly after the final layout adjustment. These check details/menu controls, restoration on exit, no automatic mastery, reduced motion, and light/dark screenshots.
-- Fable 5.2 at max effort reviewed the shared chrome. Its findings led to a scrolling header on short screens, measured sticky-header scroll clearance, and explicit focus return after closing details or navigation.
-- Public demo browser coverage checks all six modes, retained temporary drafts, fetch recovery, theme changes, reduced motion, short landscape screens, and absence of account/progress requests.
-- Physical iPhone Safari and installed-PWA acceptance remains an owner review step. No native V4 project, lesson source data, subscription configuration, or production deployment was changed by this PR.
-
-Run the focused cases with the repository public-env helper and Playwright:
-
-```sh
-node scripts/with-supabase-public-env.mjs npx playwright test e2e/core30-plan.spec.ts --project desktop --project iphone-pwa --grep 'V4 lesson workspace'
-```
+This branch is for PR review and a preview deployment. It does not change production or the native V6 app.

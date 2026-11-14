@@ -1,3 +1,5 @@
+import { Sheet, SheetContent, SheetTitle, SheetDescription } from "@/components/ui/sheet";
+import { V6Header, V6Dock } from "./V6AppChrome";
 import { FOUNDATION_ROOFING_LESSONS } from "@/data/foundation-roofing-curriculum";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Moon, Play, Sun } from "lucide-react";
@@ -18,6 +20,8 @@ const buttonClass =
 
 /** A public, temporary layout preview. No account, progress store, or AI requests. */
 export function LessonWorkspaceDemo() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [showSpeak, setShowSpeak] = useState(true);
   const [lesson, setLesson] = useState<DemoLesson | null>(null);
   const [error, setError] = useState("");
   const [retry, setRetry] = useState(0);
@@ -136,7 +140,55 @@ export function LessonWorkspaceDemo() {
   }
   const nextMode = LESSON_MODES[LESSON_MODES.findIndex((mode) => mode.id === active) + 1];
   return (
-    <div className="lt-lesson-demo-shell">
+    <div className="lt-lesson-demo-shell lt-v6-demo">
+      <V6Header
+        course="Roofing · Foundation"
+        language="Spanish"
+        onCourses={() => {
+          setShowSpeak(false);
+          setLessonOpen(false);
+        }}
+        onTutor={() => {
+          window.location.href = "/?tab=speak";
+        }}
+        onReview={() => {
+          setShowSpeak(false);
+          setLessonOpen(true);
+          selectMode("recall");
+        }}
+        onMenu={() => setMenuOpen(true)}
+      />
+      <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+        <SheetContent side="bottom" className="space-y-4 rounded-t-3xl">
+          <SheetTitle>Explore</SheetTitle>
+          <SheetDescription>
+            This is a layout preview. Open the app for your account, tutor, and AI conversation.
+          </SheetDescription>
+          <a className={buttonClass + " flex items-center"} href="/?tab=speak">
+            Open the app
+          </a>
+          <a className={buttonClass + " flex items-center"} href="/?panel=settings">
+            Settings and account
+          </a>
+          <button
+            className={buttonClass}
+            onClick={() => {
+              toggleTheme();
+              setMenuOpen(false);
+            }}
+          >
+            Switch theme
+          </button>
+        </SheetContent>
+      </Sheet>
+      <V6Dock
+        active={showSpeak ? "speak" : active}
+        onSelect={(mode) => {
+          setLessonOpen(true);
+          setShowSpeak(mode === "speak");
+          if (mode !== "speak") selectMode(mode);
+        }}
+      />
       <div className="mx-auto flex w-full max-w-3xl shrink-0 items-center justify-between gap-2 px-4 pt-2">
         <p className="text-xs leading-relaxed text-muted-foreground">
           Layout preview · practice stays in this demo
@@ -154,7 +206,42 @@ export function LessonWorkspaceDemo() {
           )}
         </button>
       </div>
-      {!lessonOpen ? (
+      {showSpeak ? (
+        <main data-demo-scroll className="lt-v6-speak-preview">
+          <h1>Speak</h1>
+          <p className="lt-v6-subtitle">Sounds and Greetings</p>
+          <section className="lt-v6-panel">
+            <h2>Speaking card</h2>
+            <p>Greet a new coworker and introduce yourself.</p>
+            <p className="text-muted-foreground">
+              Practice the greetings from your lesson, then continue the conversation.
+            </p>
+          </section>
+          <section className="lt-v6-panel">
+            <p className="text-sm text-gold-ink">Model dialogue</p>
+            <p className="lt-v6-dialogue" lang="es">
+              {lesson?.passage.target[0] ?? "Buenos días, me llamo Luis y soy nuevo."}
+            </p>
+            <p className="text-muted-foreground">
+              {lesson?.passage.native[0] ?? "Good morning, my name is Luis and I'm new."}
+            </p>
+          </section>
+          <section className="lt-v6-panel">
+            <h2>Your turn</h2>
+            <p>
+              This layout preview uses your published lesson. Open Speak to record, listen back, and
+              talk with the AI partner.
+            </p>
+            <a
+              className="lt-v6-primary"
+              href="/?tab=speak&amp;module=foundation-roofing&amp;target=Spanish&amp;native=English"
+            >
+              Open Speak
+            </a>
+          </section>
+          <p className="text-sm text-muted-foreground">Layout preview · temporary study practice</p>
+        </main>
+      ) : !lessonOpen ? (
         <main data-demo-scroll className="px-4 py-8">
           <div className="mx-auto max-w-2xl space-y-5">
             <p className="text-sm text-gold-ink">Your course</p>

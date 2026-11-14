@@ -1025,6 +1025,27 @@ function OwnedLessonRunner({
     }
   }
 
+  const nativeSelect = useRef(selectSection);
+  nativeSelect.current = selectSection;
+  useEffect(() => {
+    const change = (event: Event) => {
+      const next = (event as CustomEvent<SectionId>).detail;
+      if (SECTIONS.some((item) => item.id === next)) {
+        try {
+          sessionStorage.removeItem("lt.v6.pending-mode");
+        } catch {
+          /* optional storage */
+        }
+        nativeSelect.current(next, true);
+      }
+    };
+    window.addEventListener("lt:v6-lesson-mode", change);
+    return () => window.removeEventListener("lt:v6-lesson-mode", change);
+  }, []);
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent("lt:v6-mode-changed", { detail: section }));
+  }, [section]);
+
   function onKitModeChange(mode: PracticeMode) {
     setKitMode(mode);
     setSection(sectionForMode(mode));
@@ -2304,6 +2325,37 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   }, [hasCurriculum, moduleId, state.selectedLanguage, state.nativeLanguage]);
   const cardReview = useLessonReview(moduleId, progressContext);
   const [cardReviewOpen, setCardReviewOpen] = useState(false);
+  const nativeOpen = useRef<(mode: SectionId) => void>(() => {});
+  nativeOpen.current = (mode) => {
+    if (!restoreView || openLessonN !== null || !getCurriculum(moduleId)) return;
+    const course = getCurriculum(moduleId)!;
+    const lesson =
+      (savedPosition && course.lessons.find((item) => item.n === savedPosition.lesson)) ??
+      getCurrentLesson(moduleId, state.lessonProgress, progressKey);
+    if (lesson) {
+      try {
+        sessionStorage.removeItem("lt.v6.pending-mode");
+      } catch {
+        /* optional storage */
+      }
+      openLessonFromPlan(lesson.n, mode);
+    }
+  };
+  useEffect(() => {
+    const open = (event: Event) => {
+      const mode = (event as CustomEvent<SectionId>).detail;
+      if (SECTIONS.some((item) => item.id === mode)) nativeOpen.current(mode);
+    };
+    window.addEventListener("lt:v6-lesson-mode", open);
+    try {
+      const pending = sessionStorage.getItem("lt.v6.pending-mode") as SectionId;
+      if (SECTIONS.some((item) => item.id === pending)) nativeOpen.current(pending);
+    } catch {
+      /* optional storage */
+    }
+    return () => window.removeEventListener("lt:v6-lesson-mode", open);
+  }, [moduleId, restoreView]);
+
   if (!curriculum) return null;
   const core30Log = state.core30Log[progressKey];
   const practiceLesson = curriculum.lessons.find(

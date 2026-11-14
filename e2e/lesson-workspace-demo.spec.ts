@@ -12,15 +12,17 @@ test("public lesson workspace demo keeps practice temporary across all six modes
       accountRequests.push(url.pathname);
   });
   await page.goto("/demo/lesson-workspace");
+  await expect(page.getByTestId("v6-nav-speak")).toHaveAttribute("aria-current", "page");
+  await page.getByTestId("v6-nav-see").click();
   await expect(page.getByRole("article", { name: "Published lesson reading" })).toBeVisible();
   await expect(
     page.getByRole("heading", { name: "Sounds and Greetings", exact: true }),
   ).toBeVisible();
   await expect(page.getByRole("button", { name: "See it", exact: true })).toHaveAttribute(
     "aria-current",
-    "step",
+    "page",
   );
-  await expect(page.getByTestId("lesson-section-nav")).toBeInViewport();
+  await expect(page.getByRole("navigation", { name: "Study and speak" })).toBeInViewport();
   await page.screenshot({ path: info.outputPath("demo-see.png"), animations: "disabled" });
   await page.getByRole("button", { name: "Recall it", exact: true }).click();
   await page.getByRole("button", { name: "Reveal meaning", exact: true }).click();
@@ -66,8 +68,9 @@ test("public lesson workspace demo keeps practice temporary across all six modes
   await expect(page.getByRole("dialog")).toBeVisible();
   await page.keyboard.press("Escape");
   await expect(page.getByRole("dialog")).toHaveCount(0);
-  const themeButton = page.getByRole("button", { name: /Switch to (light|dark) theme/ });
+  const themeButton = page.getByRole("button", { name: "Navigation menu", exact: true });
   await themeButton.click();
+  await page.getByRole("button", { name: "Switch theme", exact: true }).click();
   await page.screenshot({ path: info.outputPath("demo-other-theme.png"), animations: "disabled" });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.emulateMedia({ reducedMotion: "reduce" });
@@ -77,13 +80,13 @@ test("public lesson workspace demo keeps practice temporary across all six modes
       .locator(".lt-lesson-demo-panel")
       .evaluate((el) => getComputedStyle(el).animationName),
   ).toBe("none");
-  await page.getByText("✕ Exit", { exact: true }).click();
+  await page.getByRole("button", { name: /Choose course,/ }).click();
   await expect(
     page.getByRole("button", { name: "Return to preview lesson", exact: true }),
   ).toBeVisible();
-  await expect(page.getByTestId("lesson-section-nav")).toHaveCount(0);
+  await expect(page.getByRole("navigation", { name: "Study and speak" })).toBeVisible();
   await page.getByRole("button", { name: "Return to preview lesson", exact: true }).click();
-  await expect(page.getByTestId("lesson-section-nav")).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Study and speak" })).toBeVisible();
   expect(
     await page.evaluate(() =>
       Object.keys(localStorage).filter((key) => /profile-device|core30|lesson-review/.test(key)),
@@ -99,6 +102,8 @@ test("public lesson demo can retry a failed lesson fetch", async ({ page }) => {
     return route.continue();
   });
   await page.goto("/demo/lesson-workspace");
+  await expect(page.getByTestId("v6-nav-speak")).toHaveAttribute("aria-current", "page");
+  await page.getByTestId("v6-nav-see").click();
   await expect(page.getByRole("alert")).toBeVisible();
   await page.getByRole("button", { name: "Retry sample lesson", exact: true }).click();
   await expect(page.getByRole("article", { name: "Published lesson reading" })).toBeVisible();
@@ -108,11 +113,13 @@ test("public lesson demo can retry a failed lesson fetch", async ({ page }) => {
 test("demo keeps its activity visible on a short landscape screen", async ({ page }, info) => {
   await page.setViewportSize({ width: 852, height: 393 });
   await page.goto("/demo/lesson-workspace");
+  await expect(page.getByTestId("v6-nav-speak")).toHaveAttribute("aria-current", "page");
+  await page.getByTestId("v6-nav-see").click();
   await expect(page.getByRole("article", { name: "Published lesson reading" })).toBeVisible();
   await expect(page.locator(".lt-lesson-workspace-header")).toHaveCSS("position", "static");
   await page.getByRole("button", { name: "Type it", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Type it", exact: true })).toBeInViewport();
-  await expect(page.getByTestId("lesson-section-nav")).toBeInViewport();
+  await expect(page.getByRole("navigation", { name: "Study and speak" })).toBeInViewport();
   expect(
     await page
       .locator("main[data-demo-scroll]")

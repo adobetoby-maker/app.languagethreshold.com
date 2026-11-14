@@ -55,7 +55,7 @@ async function openCore30(
   language: string = "Spanish",
 ) {
   await page.goto("/");
-  await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
+  await expect(page.getByRole("button", { name: "Navigation menu", exact: true })).toBeVisible({
     timeout: 60_000,
   });
   const seeded = async () => {
@@ -111,7 +111,7 @@ async function gotoCore30Tab(page: Page, isMobile: boolean) {
 
 /** Any tab the way a user reaches it: left rail on desktop, the More sheet on a phone. */
 async function gotoTab(page: Page, isMobile: boolean, label: RegExp) {
-  const lessonMenu = page.getByRole("button", { name: "App navigation and settings", exact: true });
+  const lessonMenu = page.getByRole("button", { name: "Navigation menu", exact: true });
   if (await lessonMenu.isVisible()) {
     await lessonMenu.click();
     const sheet = page.getByRole("dialog").filter({ hasText: "Explore" });
@@ -961,85 +961,58 @@ test.describe("Core 30 plan: pre-built static deck (Construction Foreman, French
   });
 });
 
-test("V4 lesson workspace keeps the lesson focused and restores app navigation on exit", async ({
+test("V6 app opens Speak and keeps native navigation across lesson modes", async ({
   page,
 }, info) => {
   await openCore30(page, STARTED_TODAY);
-  await openLesson1(page);
-  const workspace = page.locator(".lt-lesson-workspace-active");
-  await expect(workspace).toBeVisible();
+  await page.goto("/");
+  await expect(page.getByTestId("v6-nav-speak")).toHaveAttribute("aria-current", "page");
+  await expect(
+    page.getByRole("region", { name: "Free conversation practice", exact: true }),
+  ).toBeVisible();
   await expect(page.locator(".lt-app-shell > aside")).toBeHidden();
   await expect(page.locator(".lt-bottom-nav")).toBeHidden();
-  await expect(page.getByRole("complementary", { name: "Beginner Spanish course" })).toBeHidden();
-  const modes = page.getByTestId("lesson-section-nav");
-  await expect(modes.locator(":scope > button")).toHaveCount(6);
-  await expect(modes).toBeInViewport();
+  await expect(page.getByRole("navigation", { name: "Study and speak" })).toBeInViewport();
+  expect(
+    await page.locator(".lt-v6-app").evaluate((el) => getComputedStyle(el).backgroundColor),
+  ).toBe("rgb(9, 17, 26)");
+  await page.screenshot({ path: info.outputPath("v6-speak.png"), animations: "disabled" });
+  await page.getByTestId("v6-nav-type").click();
+  await expect(page.getByTestId("lesson-section-kit")).toBeVisible();
+  await expect(page.getByTestId("v6-nav-type")).toHaveAttribute("aria-current", "page");
   expect((await readLog(page))?.lessons["1"]?.masteredAt).toBeUndefined();
-
   await page.getByRole("button", { name: "Lesson details and goal", exact: true }).click();
   await expect(page.getByRole("dialog")).toBeVisible();
-  await expect(page.getByText("Your lesson goal", { exact: true })).toBeVisible();
   await page.keyboard.press("Escape");
-  await expect(page.getByRole("dialog")).toHaveCount(0);
   await expect(
     page.getByRole("button", { name: "Lesson details and goal", exact: true }),
   ).toBeFocused();
-  await expect(workspace).toBeVisible();
-
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  for (const theme of ["dark", "light"]) {
-    await page.evaluate(
-      (theme) => document.documentElement.classList.toggle("dark", theme === "dark"),
-      theme,
-    );
-    await page.screenshot({
-      path: info.outputPath(`workspace-${theme}.png`),
-      animations: "disabled",
-    });
-    expect(
-      await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
-    ).toBe(true);
-  }
-  await page.getByTestId("lesson-nav-type").click();
-  await expect(page.getByTestId("lesson-nav-type")).toHaveAttribute("aria-current", "step");
-  expect(
-    await page
-      .getByTestId("lesson-section-kit")
-      .evaluate((el) => getComputedStyle(el).animationName),
-  ).toBe("none");
-  expect((await readLog(page))?.lessons["1"]?.masteredAt).toBeUndefined();
-  await page.getByRole("button", { name: "App navigation and settings", exact: true }).click();
+  await page.getByRole("button", { name: "Navigation menu", exact: true }).click();
   await expect(page.getByRole("dialog").filter({ hasText: "Explore" })).toBeVisible();
   await page.getByRole("button", { name: "Close", exact: true }).click();
-  await expect(page.getByTestId("lesson-nav-type")).toHaveAttribute("aria-current", "step");
+  await expect(page.getByRole("button", { name: "Navigation menu", exact: true })).toBeFocused();
+  await page.getByTestId("v6-nav-speak").click();
   await expect(
-    page.getByRole("button", { name: "App navigation and settings", exact: true }),
-  ).toBeFocused();
-  await page.getByText("✕ Exit", { exact: true }).click();
-  await expect(workspace).toHaveCount(0);
-  if (info.project.name === "iphone-pwa")
-    await expect(page.locator(".lt-bottom-nav")).toBeVisible();
-  else await expect(page.locator(".lt-app-shell > aside")).toBeVisible();
+    page.getByRole("region", { name: "Free conversation practice", exact: true }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: /Choose course,/ }).click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(page.getByTestId("v6-nav-speak")).toHaveAttribute("aria-current", "page");
 });
 
-test("V4 lesson workspace lets the header scroll away on short screens", async ({ page }, info) => {
+test("V6 lesson layout supports short screens and explicit lesson deep links", async ({
+  page,
+}, info) => {
   await openCore30(page, STARTED_TODAY);
-  await openLesson1(page);
+  await page.goto("/?tab=core30&module=roofing&target=Spanish&native=English&lesson=1&way=type");
+  await expect(page.getByTestId("lesson-section-kit")).toBeVisible();
   await page.setViewportSize({ width: 852, height: 393 });
   await expect(page.locator(".lt-lesson-workspace-header")).toHaveCSS("position", "static");
-  await page.getByTestId("lesson-nav-type").click();
-  await expect(page.getByTestId("lesson-nav-type")).toHaveAttribute("aria-current", "step");
-  await expect(page.getByTestId("lesson-section-nav")).toBeInViewport();
-  expect(
-    await page
-      .locator("main.lt-scroll-safe")
-      .evaluate((el) => parseFloat(getComputedStyle(el).scrollPaddingTop)),
-  ).toBeLessThan(25);
-  const section = await page.getByTestId("lesson-section-kit").boundingBox();
-  expect(section!.y).toBeGreaterThanOrEqual(0);
-  expect(section!.y).toBeLessThan(100);
-  await page.screenshot({
-    path: info.outputPath("workspace-landscape.png"),
-    animations: "disabled",
-  });
+  await page.getByTestId("v6-nav-hear").click();
+  await expect(page.getByTestId("v6-nav-hear")).toHaveAttribute("aria-current", "page");
+  await expect(page.getByRole("navigation", { name: "Study and speak" })).toBeInViewport();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.screenshot({ path: info.outputPath("v6-landscape.png"), animations: "disabled" });
 });

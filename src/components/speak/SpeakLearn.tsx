@@ -206,7 +206,7 @@ export function SpeakLearn() {
   const finishRecognitionRef = useRef<(() => void) | null>(null);
   const [challenge, setChallenge] = useState<SpeakChallenge | null>(null);
   const [missionFocused, setMissionFocused] = useState(false);
-  const [surface, setSurface] = useState<"missions" | "conversation">("missions");
+  const [surface, setSurface] = useState<"missions" | "conversation">("conversation");
   const conversationViewport = usePracticeViewport(surface);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
   const chatFollow = useChatFollow(turns);
@@ -881,6 +881,7 @@ export function SpeakLearn() {
     <div
       className={`fade-in mx-auto max-w-3xl ${surface === "conversation" ? "lt-free-conversation" : ""}`}
     >
+      <h1 className="lt-v6-speak-title">Speak</h1>
       <SpeakingGuestConsent />
       <LessonReturnPill kind="say" />
       <header
@@ -1100,15 +1101,20 @@ export function SpeakLearn() {
           aria-label="Free conversation practice"
         >
           {isEmpty && (
-            <SpeakingPartnerPicker
-              value={partnerId}
-              onChange={changePartner}
-              teacher={teacher}
-              onTeacherChange={changeTeacher}
-              moduleId={state.activeModuleId ?? ""}
-              category={getModule(state.activeModuleId)?.category ?? ""}
-              disabled={thinking || micActive || audioCaptureBusy}
-            />
+            <details className="lt-v6-partner-settings rounded-2xl border border-border bg-card px-4 py-2">
+              <summary className="min-h-11 cursor-pointer py-2 font-semibold">
+                Choose conversation partner
+              </summary>
+              <SpeakingPartnerPicker
+                value={partnerId}
+                onChange={changePartner}
+                teacher={teacher}
+                onTeacherChange={changeTeacher}
+                moduleId={state.activeModuleId ?? ""}
+                category={getModule(state.activeModuleId)?.category ?? ""}
+                disabled={thinking || micActive || audioCaptureBusy}
+              />
+            </details>
           )}
           {isEmpty && (
             <button

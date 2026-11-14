@@ -1,0 +1,762 @@
+{
+  "target": "French",
+  "native": "English",
+  "moduleId": "french-basics",
+  "stage": "foundation",
+  "reviewed": false,
+  "state": "authored-draft",
+  "source": {
+    "path": "src/data/core60/es/foundation-spanish-basics.json",
+    "sourceSha256": "820ed6fcd726180c3794027f4578de051666d973eb2e23373e086c94c6211eb0",
+    "sourceSubsetSha256": "11eaedbef44d8fb7a5272e99b44bd8fb0e672ad299d9c0019dd7dee9cbe09c6c",
+    "use": "learning architecture and English objectives only"
+  },
+  "draftModel": "Claude Haiku via CLI OAuth",
+  "lessons": [
+    {
+      "n": 4,
+      "title": "Who is speaking?",
+      "sourceObjectiveEnglish": "Who is speaking?: Yo means I, tú means informal you, and usted means formal you.",
+      "focus": "Use être for “am / is / are”: je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont. Peers often use tu right away; use vous with a teacher, staff member, or an adult stranger, and keep one register in a conversation. A mixed group uses ils, and masculine plural étudiants; an all-female group uses elles and étudiantes. In est the final t is usually silent, but it links before a vowel in il est ici; the t in êtes is pronounced.",
+      "scene": "Before class at a language school, Nadia meets Hugo, a classmate. They use tu with each other, and Hugo points out where the teacher is.",
+      "dialogue": [
+        "Hugo: Salut ! Tu es Nadia ?|Hi! Are you Nadia?",
+        "Nadia: Oui, je suis Nadia. Et toi, tu es Hugo ?|Yes, I am Nadia. And you, are you Hugo?",
+        "Hugo: Oui, je suis Hugo. Nous sommes étudiants ici.|Yes, I am Hugo. We are students here.",
+        "Nadia: Ah, d’accord ! Et le professeur, il est ici ?|Oh, okay! And the teacher, is he here?",
+        "Hugo: Oui, il est là. Il est très gentil.|Yes, he is there. He is very kind.",
+        "Nadia: Et Léa et Tom ?|And Léa and Tom?",
+        "Hugo: Ils sont étudiants aussi.|They are students too.",
+        "Nadia: Parfait. Merci, Hugo !|Perfect. Thanks, Hugo!",
+        "Hugo: De rien, Nadia. À demain !|You’re welcome, Nadia. See you tomorrow!"
+      ],
+      "speaking": "Role-play meeting a classmate before class, using tu throughout. Opening: say Salut ! and ask Tu es plus the classmate’s name. Task 1: say who you are with Je suis plus your name, then ask Et toi, tu es ... ?. Task 2: say that you are both students with Nous sommes étudiants ici. Task 3: point to a teacher or classmate and say Il est là or Elle est là, matching that person, then point to a mixed group and say Ils sont étudiants for a mixed group (or Elles sont étudiantes for a group of women). Closure: say Merci and close with À demain ! Your partner uses tu throughout, repeats any unclear word, and explains unfamiliar words in English when asked.",
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "How do you say “we are” in French?",
+          "answer": "Nous sommes",
+          "acceptedAnswers": [
+            "Nous sommes"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; keep accents and the space between words for learning feedback."
+        },
+        {
+          "type": "write",
+          "prompt": "Write “You (informal) are Hugo” in French.",
+          "answer": "Tu es Hugo.",
+          "acceptedAnswers": [
+            "Tu es Hugo.",
+            "Tu es Hugo"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; keep accents and the space between words for learning feedback."
+        },
+        {
+          "type": "listening",
+          "prompt": "Listen. Does the speaker use tu or vous?",
+          "audioText": "Vous êtes Marc ?",
+          "answer": "vous",
+          "acceptedAnswers": [
+            "vous",
+            "vous (polite)"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; accept the French word with or without the English gloss.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "Hugo says the teacher is there. What does he say about the teacher?",
+          "answer": "very kind",
+          "acceptedAnswers": [
+            "very kind",
+            "He is very kind.",
+            "Il est très gentil."
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; accept the English meaning or the French sentence."
+        }
+      ],
+      "objective": "Introduce yourself and a classmate with je suis, tu es, and nous sommes; identify a third person or group with il/elle est or ils/elles sont, keeping tu or vous consistent with the relationship.",
+      "words": [
+        {
+          "fr": "je",
+          "en": "I",
+          "kind": "term"
+        },
+        {
+          "fr": "tu",
+          "en": "you (informal)",
+          "kind": "term"
+        },
+        {
+          "fr": "vous",
+          "en": "you (polite or plural)",
+          "kind": "term"
+        },
+        {
+          "fr": "il",
+          "en": "he",
+          "kind": "term"
+        },
+        {
+          "fr": "elle",
+          "en": "she",
+          "kind": "term"
+        },
+        {
+          "fr": "nous",
+          "en": "we",
+          "kind": "term"
+        },
+        {
+          "fr": "être",
+          "en": "to be",
+          "kind": "term"
+        },
+        {
+          "fr": "je suis",
+          "en": "I am",
+          "kind": "term",
+          "lemma": "être",
+          "person": 1,
+          "number": "sg"
+        },
+        {
+          "fr": "tu es",
+          "en": "you are (informal)",
+          "kind": "term",
+          "lemma": "être",
+          "person": 2,
+          "number": "sg"
+        },
+        {
+          "fr": "vous êtes",
+          "en": "you are (polite or plural)",
+          "kind": "term",
+          "lemma": "être",
+          "person": 2,
+          "numberUsage": "singular polite or plural"
+        },
+        {
+          "fr": "il est",
+          "en": "he is",
+          "kind": "term",
+          "lemma": "être",
+          "person": 3,
+          "number": "sg"
+        },
+        {
+          "fr": "elle est",
+          "en": "she is",
+          "kind": "term",
+          "lemma": "être",
+          "person": 3,
+          "number": "sg"
+        },
+        {
+          "fr": "nous sommes",
+          "en": "we are",
+          "kind": "term",
+          "lemma": "être",
+          "person": 1,
+          "number": "pl"
+        },
+        {
+          "fr": "un étudiant",
+          "en": "a student (man)",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg",
+          "pairedForm": "des étudiants"
+        },
+        {
+          "fr": "une étudiante",
+          "en": "a student (woman)",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg",
+          "pairedForm": "des étudiantes"
+        },
+        {
+          "fr": "le professeur",
+          "en": "the teacher (man)",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg",
+          "pairedForm": "les professeurs"
+        },
+        {
+          "fr": "la professeure",
+          "en": "the teacher (woman)",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg",
+          "pairedForm": "les professeures"
+        },
+        {
+          "fr": "Salut !",
+          "en": "Hi! (informal)",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Et toi ?",
+          "en": "And you? (informal)",
+          "kind": "phrase"
+        },
+        {
+          "fr": "ici",
+          "en": "here",
+          "kind": "term"
+        },
+        {
+          "fr": "là",
+          "en": "there / here (present)",
+          "kind": "term"
+        },
+        {
+          "fr": "très",
+          "en": "very",
+          "kind": "term"
+        },
+        {
+          "fr": "De rien.",
+          "en": "You’re welcome.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "À demain !",
+          "en": "See you tomorrow!",
+          "kind": "phrase"
+        },
+        {
+          "fr": "ils sont",
+          "en": "they are (mixed group or men)",
+          "kind": "term",
+          "lemma": "être",
+          "person": 3,
+          "number": "pl"
+        },
+        {
+          "fr": "elles sont",
+          "en": "they are (women)",
+          "kind": "term",
+          "lemma": "être",
+          "person": 3,
+          "number": "pl"
+        },
+        {
+          "fr": "gentil",
+          "en": "kind (masculine)",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg",
+          "pairedForm": "gentille",
+          "pairType": "gender"
+        },
+        {
+          "fr": "gentille",
+          "en": "kind (feminine)",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg",
+          "pairedForm": "gentil",
+          "pairType": "gender"
+        },
+        {
+          "fr": "aussi",
+          "en": "too / also",
+          "kind": "term"
+        },
+        {
+          "fr": "et",
+          "en": "and",
+          "kind": "term",
+          "review": true
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 5,
+      "title": "Who am I? Identity and origin",
+      "sourceObjectiveEnglish": "Ser: identity and origin: Use ser for identity, origin and characteristics.",
+      "focus": "Use être for roles and traits: je suis étudiant or étudiante; il est gentil, elle est gentille. A role normally has no article after être: je suis étudiante. Learn the noun or adjective ending for the person described. Learn Je viens de as a fixed origin chunk for now: de France for a feminine country, d’Espagne before a vowel, du Canada for a masculine country, and des États-Unis for a plural country. Country articles matter; do not apply de to every country.",
+      "scene": "At the sign-in table of a language café, Claire and Marc, who met in Lesson 1, share who they are and where they come from.",
+      "dialogue": [
+        "Claire: Bonjour, Marc ! Vous êtes étudiant ici ?|Hello, Marc! Are you a student here?",
+        "Marc: Oui, je suis étudiant. Et vous, vous êtes étudiante ?|Yes, I am a student. And you, are you a student?",
+        "Claire: Oui, je suis étudiante. Je viens d’Espagne.|Yes, I am a student. I come from Spain.",
+        "Marc: Ah, je viens de France. Et la professeure ?|Oh, I come from France. And the teacher?",
+        "Claire: Elle est française. Elle est gentille.|She is French. She is kind.",
+        "Marc: Merci ! Au revoir, Claire.|Thank you! Goodbye, Claire.",
+        "Claire: Au revoir, Marc !|Goodbye, Marc!"
+      ],
+      "speaking": "Role-play meeting another adult learner at a language café using vous throughout. Open with Bonjour and ask Vous êtes étudiant(e) ici ? State your role with Je suis étudiant or étudiante. Say your origin using one taught chunk: de France, d’Espagne, du Canada, or des États-Unis. If your country is different, ask the partner in English for its French form rather than guessing. Ask about a teacher and describe that person with il/elle est gentil/gentille or français/française. Close with Merci and Au revoir. Your partner uses vous and explains unfamiliar words in English when asked.",
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "A woman says “I am a student.” Complete the sentence: Je suis ___.",
+          "answer": "étudiante",
+          "acceptedAnswers": [
+            "étudiante"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; keep the feminine ending -e for learning feedback."
+        },
+        {
+          "type": "write",
+          "prompt": "Write “I come from Spain” in French.",
+          "answer": "Je viens d’Espagne.",
+          "acceptedAnswers": [
+            "Je viens d’Espagne.",
+            "Je viens d’Espagne",
+            "Je viens d'Espagne."
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; treat straight and typographic apostrophes as equivalent, but show the typographic ’ and the d’ elision in feedback."
+        },
+        {
+          "type": "listening",
+          "prompt": "Listen to the adjective alone. Is this form for a man or a woman?",
+          "audioText": "gentille",
+          "answer": "a woman",
+          "acceptedAnswers": [
+            "a woman",
+            "woman",
+            "feminine"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; accept the English meaning in any listed form.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "Claire says where she comes from. Which country is it?",
+          "answer": "Spain",
+          "acceptedAnswers": [
+            "Spain",
+            "I come from Spain.",
+            "She comes from Spain.",
+            "Je viens d’Espagne."
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; accept the English answer or the French phrase."
+        }
+      ],
+      "objective": "Introduce a learner’s role and origin with être and the appropriate Je viens de country chunk, and describe a person with a correctly matched adjective.",
+      "words": [
+        {
+          "fr": "un étudiant",
+          "en": "a student (man)",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg",
+          "pairedForm": "des étudiants"
+        },
+        {
+          "fr": "une étudiante",
+          "en": "a student (woman)",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg",
+          "pairedForm": "des étudiantes"
+        },
+        {
+          "fr": "la France",
+          "en": "France",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg"
+        },
+        {
+          "fr": "l’Espagne",
+          "en": "Spain",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg"
+        },
+        {
+          "fr": "français",
+          "en": "French (man)",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg"
+        },
+        {
+          "fr": "française",
+          "en": "French (woman)",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg"
+        },
+        {
+          "fr": "gentil",
+          "en": "kind (man)",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg",
+          "pairedForm": "gentille",
+          "pairType": "gender"
+        },
+        {
+          "fr": "gentille",
+          "en": "kind (woman)",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg",
+          "pairedForm": "gentil",
+          "pairType": "gender"
+        },
+        {
+          "fr": "Je viens de",
+          "en": "I come from",
+          "kind": "term"
+        },
+        {
+          "fr": "Je viens d’Espagne.",
+          "en": "I come from Spain.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je suis étudiante.",
+          "en": "I am a student. (said by a woman)",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Vous êtes étudiant ?",
+          "en": "Are you a student? (said to a man)",
+          "kind": "phrase"
+        },
+        {
+          "fr": "et",
+          "en": "and",
+          "kind": "term"
+        },
+        {
+          "fr": "Merci !",
+          "en": "Thank you!",
+          "kind": "phrase"
+        },
+        {
+          "fr": "ici",
+          "en": "here",
+          "kind": "term"
+        },
+        {
+          "fr": "le Canada",
+          "en": "Canada",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg"
+        },
+        {
+          "fr": "les États-Unis",
+          "en": "the United States",
+          "kind": "term",
+          "number": "pl",
+          "gender": "m"
+        },
+        {
+          "fr": "Je viens de France.",
+          "en": "I come from France.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je viens du Canada.",
+          "en": "I come from Canada.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je viens des États-Unis.",
+          "en": "I come from the United States.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Elle est gentille.",
+          "en": "She is kind.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "étudiant",
+          "en": "student (man; after être)",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg",
+          "pairedForm": "étudiante",
+          "pairType": "gender"
+        },
+        {
+          "fr": "étudiante",
+          "en": "student (woman; after être)",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg",
+          "pairedForm": "étudiant",
+          "pairType": "gender"
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 6,
+      "title": "Where is it? Location and state",
+      "sourceObjectiveEnglish": "Estar: location and condition: Use estar for a person's or object's location and for conditions.",
+      "focus": "Use être for the locations and states in this lesson: Le livre est sur la table; La porte est ouverte. Some other everyday states use avoir (for example, j’ai faim); those come later. Sur means on, dans means in, and près de means near; before le, de + le becomes du (près du livre), and before les it becomes des (here meaning de + les, distinct from the indefinite article des). For a thing, il replaces a masculine noun and elle a feminine noun: le livre → il, la trousse → elle. Adjectives agree with the noun or person: le livre est ouvert, la porte est ouverte; Marc est fatigué, Claire est fatiguée.",
+      "scene": "At a shared classroom table, Claire and Marc look for a book and a pen, then decide whether they are ready to leave.",
+      "dialogue": [
+        "Claire: Marc, où est le livre ?|Marc, where is the book?",
+        "Marc: Il est sur la table.|It is on the table.",
+        "Claire: Et la trousse ?|And the pencil case?",
+        "Marc: Elle est sur la table.|It is on the table.",
+        "Claire: Et le stylo ? Il est dans la trousse ?|And the pen? Is it in the pencil case?",
+        "Marc: Non, il est près du livre.|No, it is near the book.",
+        "Claire: Ah, merci ! Et vous, vous êtes fatigué ?|Ah, thanks! And you, are you tired?",
+        "Marc: Oui, je suis fatigué. Et vous, vous êtes prête ?|Yes, I am tired. And you, are you ready?",
+        "Claire: Oui, je suis prête. La porte est ouverte !|Yes, I am ready. The door is open!"
+      ],
+      "speaking": "Role-play finding objects in a classroom with an adult learner you have just met; use vous throughout. Open with Où est le stylo ? Answer using sur la table, dans la trousse, or près du livre (de + le → du). Ask where the trousse is and answer with Elle est... because trousse is feminine. Say Je suis fatigué/fatiguée and ask Vous êtes prêt/prête ? matching the person; then describe La porte est ouverte. Close with Merci and Au revoir. Your partner repeats unclear words and explains unfamiliar words in English when asked.",
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete the sentence (the door is open): La porte est ___.",
+          "answer": "ouverte",
+          "acceptedAnswers": [
+            "ouverte"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; keep the feminine ending -e for learning feedback."
+        },
+        {
+          "type": "write",
+          "prompt": "Write “The book is on the table” in French.",
+          "answer": "Le livre est sur la table.",
+          "acceptedAnswers": [
+            "Le livre est sur la table.",
+            "Le livre est sur la table"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; keep accents and the space between words for learning feedback."
+        },
+        {
+          "type": "listening",
+          "prompt": "Listen. Where is the object: on the table, or near the book?",
+          "audioText": "Il est près du livre.",
+          "answer": "near the book",
+          "acceptedAnswers": [
+            "near the book",
+            "by the book",
+            "près du livre"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; accept the English meaning or the French phrase.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "After Marc says he is tired, what does he ask Claire?",
+          "answer": "Are you ready?",
+          "acceptedAnswers": [
+            "Are you ready?",
+            "Vous êtes prête ?",
+            "Vous êtes prête"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; accept the English question or the French phrase."
+        },
+        {
+          "type": "write",
+          "prompt": "Write “The pen is near the book” in French.",
+          "answer": "Le stylo est près du livre.",
+          "acceptedAnswers": [
+            "Le stylo est près du livre.",
+            "Le stylo est près du livre"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; keep the contraction du for learning feedback."
+        },
+        {
+          "type": "recall",
+          "prompt": "Complete: La trousse ? ___ est sur la table.",
+          "answer": "Elle",
+          "acceptedAnswers": [
+            "Elle",
+            "elle"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; keep the feminine pronoun elle for learning feedback."
+        }
+      ],
+      "objective": "Locate a person or object with être, sur, dans, or près de/du, and describe a state with an adjective that matches the noun or person.",
+      "words": [
+        {
+          "fr": "sur",
+          "en": "on (location)",
+          "kind": "term"
+        },
+        {
+          "fr": "dans",
+          "en": "in (location)",
+          "kind": "term"
+        },
+        {
+          "fr": "près de",
+          "en": "near",
+          "kind": "term"
+        },
+        {
+          "fr": "où",
+          "en": "where",
+          "kind": "term"
+        },
+        {
+          "fr": "le livre",
+          "en": "the book",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg",
+          "pairedForm": "les livres"
+        },
+        {
+          "fr": "la table",
+          "en": "the table",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg",
+          "pairedForm": "les tables"
+        },
+        {
+          "fr": "la porte",
+          "en": "the door",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg",
+          "pairedForm": "les portes"
+        },
+        {
+          "fr": "la trousse",
+          "en": "the pencil case",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg",
+          "pairedForm": "les trousses"
+        },
+        {
+          "fr": "ouvert",
+          "en": "open (masculine)",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg",
+          "pairedForm": "ouverte",
+          "pairType": "gender"
+        },
+        {
+          "fr": "ouverte",
+          "en": "open (feminine)",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg",
+          "pairedForm": "ouvert",
+          "pairType": "gender"
+        },
+        {
+          "fr": "fatigué",
+          "en": "tired (man)",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg",
+          "pairedForm": "fatiguée",
+          "pairType": "gender"
+        },
+        {
+          "fr": "fatiguée",
+          "en": "tired (woman)",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg",
+          "pairedForm": "fatigué",
+          "pairType": "gender"
+        },
+        {
+          "fr": "prêt",
+          "en": "ready (man)",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg",
+          "pairedForm": "prête",
+          "pairType": "gender"
+        },
+        {
+          "fr": "prête",
+          "en": "ready (woman)",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg",
+          "pairedForm": "prêt",
+          "pairType": "gender"
+        },
+        {
+          "fr": "Il est sur la table.",
+          "en": "It is on the table. (masculine noun)",
+          "kind": "phrase"
+        },
+        {
+          "fr": "La porte est ouverte.",
+          "en": "The door is open.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il est près du livre.",
+          "en": "It is near the book.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Où est le livre ?",
+          "en": "Where is the book?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Vous êtes prête ?",
+          "en": "Are you ready? (said to a woman)",
+          "kind": "phrase"
+        },
+        {
+          "fr": "et",
+          "en": "and",
+          "kind": "term"
+        },
+        {
+          "fr": "Merci !",
+          "en": "Thank you!",
+          "kind": "phrase"
+        },
+        {
+          "fr": "près du livre",
+          "en": "near the book",
+          "kind": "term"
+        },
+        {
+          "fr": "du",
+          "en": "of/from the (de + le)",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg"
+        },
+        {
+          "fr": "elle",
+          "en": "she / it (for a feminine noun)",
+          "kind": "term"
+        },
+        {
+          "fr": "Elle est sur la table.",
+          "en": "It is on the table. (feminine noun)",
+          "kind": "phrase"
+        },
+        {
+          "fr": "non",
+          "en": "no",
+          "kind": "term"
+        },
+        {
+          "fr": "il",
+          "en": "he / it (for a masculine noun)",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg"
+        }
+      ],
+      "locale": "fr-FR"
+    }
+  ]
+}

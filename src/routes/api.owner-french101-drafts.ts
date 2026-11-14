@@ -18,32 +18,42 @@ const modeNames = ["see", "recall", "hear", "type", "say", "write"] as const;
 
 async function ownerDrafts() {
   // Import private candidate assets only after the owner check. No learner registry or progress write uses them.
-  const [sourceModule, modeModule, formModule] = await Promise.all([
+  const [firstSourceModule, firstModeModule, nextSourceModule, nextModeModule, formModule] = await Promise.all([
     import("../../content/french-basics/foundation-1-3-draft.json"),
     import("../../content/french-basics/private-foundation-1-3-mode-prompts-fr-en.json"),
+    import("../../content/french-basics/foundation-4-6-draft.json"),
+    import("../../content/french-basics/private-foundation-4-6-mode-prompts-fr-en.json"),
     import("../../content/french-basics/private-form-practice-foundation-1-10-fr-en.json"),
   ]);
-  const source = sourceModule.default as Source;
-  const modes = modeModule.default as Modes;
   const forms = formModule.default as Forms;
-  if (source.target !== "French" || source.native !== "English" || source.moduleId !== "french-basics" ||
-    source.stage !== "foundation" || source.reviewed !== false ||
-    source.source.path !== "src/data/core60/es/foundation-spanish-basics.json" ||
-    source.source.sourceSha256 !== "820ed6fcd726180c3794027f4578de051666d973eb2e23373e086c94c6211eb0" ||
-    modes.pairKey !== "French:English" || modes.reviewed !== false || modes.registered !== false ||
-    modes.sourceFile !== "content/french-basics/foundation-1-3-draft.json" ||
-    modes.sourceSha256 !== "bb7c6a6bce9ec3447aead1750e650ef207610acade4d1b87f0fd1255c4cdf524" ||
-    forms.pairKey !== "French:English" || forms.reviewed !== false || forms.registered !== false ||
+  if (forms.pairKey !== "French:English" || forms.reviewed !== false || forms.registered !== false ||
     forms.courseId !== "foundation-french-basics:fr-en" ||
     forms.sourceFile !== "private-runtime-foundation-1-10.json" ||
     forms.sourceSha256 !== "6eca43a19dc9ed6090eef417d58be728e90ff91a26798555c14422b59f5261d3")
-    throw new Error("French 101 Foundation candidate source or release gate changed");
-  if (source.lessons.length !== 3 || modes.lessons.length !== 3) throw new Error("French 101 Foundation candidate inventory changed");
-  return source.lessons.map((lesson, index) => {
-    const stableKey = `foundation-french-basics:${index + 1}`;
-    const mode = modes.lessons[index];
-    const form = forms.lessons[index];
-    if (lesson.n !== index + 1 || lesson.locale !== "fr-FR" ||
+    throw new Error("French 101 Foundation form source or release gate changed");
+  const batches = [
+    { source: firstSourceModule.default as Source, modes: firstModeModule.default as Modes,
+      range: [1, 2, 3], sourceFile: "content/french-basics/foundation-1-3-draft.json",
+      sha256: "bb7c6a6bce9ec3447aead1750e650ef207610acade4d1b87f0fd1255c4cdf524" },
+    { source: nextSourceModule.default as Source, modes: nextModeModule.default as Modes,
+      range: [4, 5, 6], sourceFile: "content/french-basics/foundation-4-6-draft.json",
+      sha256: "8f502483ff970e4c6324e5f54b29b80f4a81822f2abb3b6948cbb4a995f7fa12" },
+  ];
+  return batches.flatMap(({ source, modes, range, sourceFile, sha256 }) => {
+    if (source.target !== "French" || source.native !== "English" || source.moduleId !== "french-basics" ||
+      source.stage !== "foundation" || source.reviewed !== false ||
+      source.source.path !== "src/data/core60/es/foundation-spanish-basics.json" ||
+      source.source.sourceSha256 !== "820ed6fcd726180c3794027f4578de051666d973eb2e23373e086c94c6211eb0" ||
+      modes.pairKey !== "French:English" || modes.reviewed !== false || modes.registered !== false ||
+      modes.sourceFile !== sourceFile || modes.sourceSha256 !== sha256 ||
+      source.lessons.map((lesson) => lesson.n).join() !== range.join() ||
+      modes.lessons.map((lesson) => lesson.lesson).join() !== range.join())
+      throw new Error("French 101 Foundation candidate source or release gate changed");
+    return source.lessons.map((lesson, index) => {
+      const stableKey = `foundation-french-basics:${lesson.n}`;
+      const mode = modes.lessons[index];
+      const form = forms.lessons[lesson.n - 1];
+      if (lesson.locale !== "fr-FR" ||
       mode.lesson !== lesson.n || mode.stableLessonKey !== stableKey ||
       form.lesson !== lesson.n || form.stableLessonKey !== stableKey || form.reviewed !== false ||
       !lesson.words.length || !lesson.dialogue.length || !form.prompts.length ||
@@ -53,8 +63,8 @@ async function ownerDrafts() {
       form.prompts.some((prompt) => prompt.reviewed !== false ||
         prompt.sourceReaderTarget !== lesson.dialogue[prompt.sourceReaderTurn - 1]?.split("|")[0] ||
         !prompt.sourceReaderTarget.includes(prompt.frenchAnswer)))
-      throw new Error("French 101 Foundation candidate lesson alignment changed");
-    return { stage: "foundation" as const, n: lesson.n, stableId: `${stableKey}:fr-en`,
+        throw new Error("French 101 Foundation candidate lesson alignment changed");
+      return { stage: "foundation" as const, n: lesson.n, stableId: `${stableKey}:fr-en`,
       title: lesson.title, objective: lesson.objective, focus: lesson.focus, scene: lesson.scene,
       reviewed: false as const, cards: lesson.words.map(({ fr, en, kind }) => ({ fr, en, kind })),
       reader: lesson.dialogue.map((line) => { const [fr, en] = line.split("|"); return { fr, en }; }),
@@ -65,7 +75,8 @@ async function ownerDrafts() {
       speaking: lesson.speaking,
       forms: form.prompts.map(({ id, englishPrompt, frenchAnswer }) => ({ id, englishPrompt, frenchAnswer })),
       reviewGaps: ["Qualified French and dictionary review pending", "Recorded audio and learner runtime pending"],
-    };
+      };
+    });
   });
 }
 

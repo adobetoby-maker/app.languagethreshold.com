@@ -155,6 +155,16 @@ async function lunchDrafts() {
       "travel-lunch:22:ja-en,travel-lunch:23:ja-en,travel-lunch:24:ja-en",
     "Japanese Lunch Core 22–24 enrichment source or release gate changed");
   authoredLessons.push(...coreTwentyTwoEnrichment.lessons);
+  const coreTwentyFiveEnrichment = (await import("../../content/japanese-travel-lunch/private-core-25-27-enrichment.json")).default as Enrichment;
+  check(coreTwentyFiveEnrichment.pairKey === "Japanese:English" &&
+    coreTwentyFiveEnrichment.sourcePath === "content/japanese-travel-lunch/core-25-27-draft.json" &&
+    coreTwentyFiveEnrichment.sourceSha256 === "fa180eb341d972eeb199f0a14c52c1d6c97ed68a8a5321ad7daed3bb7314f0ab" &&
+    coreTwentyFiveEnrichment.reviewed === false && coreTwentyFiveEnrichment.registered === false &&
+    coreTwentyFiveEnrichment.readyForLearner === false &&
+    coreTwentyFiveEnrichment.lessons.map((lesson) => lesson.stableId).join() ===
+      "travel-lunch:25:ja-en,travel-lunch:26:ja-en,travel-lunch:27:ja-en",
+    "Japanese Lunch Core 25–27 enrichment source or release gate changed");
+  authoredLessons.push(...coreTwentyFiveEnrichment.lessons);
   const packets = await Promise.all(stages.map(async ({ draft, modes, sourceSha256 }) => ({
     batch: (await draft()).default as Draft, sidecar: (await modes()).default as Sidecar, sourceSha256,
   })));
@@ -174,7 +184,7 @@ async function lunchDrafts() {
         lesson.cards.length > 0 && lesson.reader.length > 0, "Japanese Lunch lesson identity changed");
       const activities = sidecar.activities.filter((activity) => activity.lessonId === lesson.stableId);
       const authored = authoredLessons.find((entry) => entry.stableId === lesson.stableId);
-      if (authored) check(((stage === "foundation" && lesson.n <= 10) || (stage === "core" && lesson.n <= 24)) && authored.forms.length === 3 &&
+      if (authored) check(((stage === "foundation" && lesson.n <= 10) || (stage === "core" && lesson.n <= 27)) && authored.forms.length === 3 &&
         authored.speakingObjectives.length >= 3 && authored.wordBank.length >= 4 &&
         authored.wordBank.every((word) => lesson.cards.some((card) => card.ja === word)),
         "Japanese Lunch authored enrichment scope changed");

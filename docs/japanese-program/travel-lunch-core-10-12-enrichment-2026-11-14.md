@@ -1,0 +1,7 @@
+# Japanese Lunch Core 10–12 owner-review enrichment
+
+The owner-only sidecar pins `core-10-12-draft.json` at SHA-256 `0ae1686e21cc97ff0e4083ac02361076ddd0e97734fa64acc7b7bfc20d7c075a`. Each lesson has three source-linked Japanese forms with English explanations, four speaking objectives and a card-only curated word bank. Stage-local stable IDs are unchanged. `reviewed:false`, `registered:false` and `readyForLearner:false` remain closed; no learner registration or playback was added.
+
+Direct safe-mode Claude CLI metadata reported `claude-haiku-5-5` for candidate authoring and `claude-opus-5-5` for read-only critique. Opus identified Japanese-only grammar explanations, confusion between 早く and 速く, a potential-verb particle explanation, the state form 含まれています, a payment-count register note, and a speaking task that made the learner confirm the cashier's action. The source-grounded self-check rewrote all nine explanations in English, corrected these points, and selected useful exact-card phrases for the word banks. AI critique is not qualified review.
+
+The owner draft also corrects two staff openings and changes `届いたスープも冷たいです` to `届いたスープが冷たいです`, because the scene identifies no other cold item. These changed strings invalidate any older exact-text private audio for those lines. No new audio was synthesized, listened to, approved or bundled. Qualified Japanese and restaurant-service review, dictionary reconciliation, exact-pair learner runtime/offline/native work and per-clip listening decisions remain open.

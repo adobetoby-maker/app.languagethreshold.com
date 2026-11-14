@@ -25,7 +25,7 @@ async function fixture(run) {
   try {
     await build({
       stdin: {
-        contents: `export {Route as support} from '@/routes/api.owner-support';export {Route as analytics} from '@/routes/api.owner-analytics';export {Route as teams} from '@/routes/api.owner-teams';export {Route as activity} from '@/routes/api.owner-activity';export {Route as users} from '@/routes/api.owner-users';export {Route as platform} from '@/routes/api.platform';export {Route as japaneseDrafts} from '@/routes/api.owner-japanese-drafts';export {Route as japaneseLunchDrafts} from '@/routes/api.owner-japanese-lunch-drafts';export {Route as frenchDrafts} from '@/routes/api.owner-french-drafts';export {Route as frenchDinnerDrafts} from '@/routes/api.owner-french-dinner-drafts';`,
+        contents: `export {Route as support} from '@/routes/api.owner-support';export {Route as analytics} from '@/routes/api.owner-analytics';export {Route as teams} from '@/routes/api.owner-teams';export {Route as activity} from '@/routes/api.owner-activity';export {Route as users} from '@/routes/api.owner-users';export {Route as platform} from '@/routes/api.platform';export {Route as japaneseDrafts} from '@/routes/api.owner-japanese-drafts';export {Route as japaneseLunchDrafts} from '@/routes/api.owner-japanese-lunch-drafts';export {Route as frenchDrafts} from '@/routes/api.owner-french-drafts';export {Route as frenchDinnerDrafts} from '@/routes/api.owner-french-dinner-drafts';export {Route as french101Drafts} from '@/routes/api.owner-french101-drafts';`,
         resolveDir: process.cwd(),
       },
       outfile: join(dir, "api.mjs"),
@@ -104,6 +104,7 @@ const reads = [
   ["japaneseLunchDrafts", "/api/owner-japanese-lunch-drafts"],
   ["frenchDrafts", "/api/owner-french-drafts"],
   ["frenchDinnerDrafts", "/api/owner-french-dinner-drafts"],
+  ["french101Drafts", "/api/owner-french101-drafts"],
 ];
 const writes = [
   [
@@ -238,6 +239,25 @@ test("platform owner can inspect 60 unregistered French Lunch drafts without int
     );
     assert.ok(data.lessons.every((lesson) => lesson.reviewed === false));
     assert.ok(data.lessons.every((lesson) => !("internalReviewNote" in lesson)));
+  }));
+
+test("platform owner can inspect pinned French 101 Foundation 1–3 without learner release", () =>
+  fixture(async (api, c, req) => {
+    c.role = "owner";
+    const response = await api.french101Drafts.server.handlers.GET({ request: req("/api/owner-french101-drafts") });
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get("cache-control"), "private, no-store");
+    const data = await response.json();
+    assert.equal(data.pairKey, "French:English");
+    assert.equal(data.courseId, "french-basics");
+    assert.equal(data.reviewed, false);
+    assert.equal(data.registered, false);
+    assert.equal(data.audioRegistered, false);
+    assert.deepEqual(data.lessons.map((lesson) => lesson.stableId), [1, 2, 3].map((n) => `foundation-french-basics:${n}:fr-en`));
+    assert.ok(data.lessons.every((lesson) => lesson.reviewed === false && lesson.stage === "foundation" &&
+      lesson.cards.length > 0 && lesson.reader.length > 0 && lesson.forms.length === 3 &&
+      Object.keys(lesson.modes).length === 6 && lesson.modes.hear.recordedAudio === false &&
+      !Object.hasOwn(lesson, "sourceObjectiveEnglish") && !Object.hasOwn(lesson, "internalReviewNote")));
   }));
 
 test("platform owner can inspect 60 unregistered French Dinner drafts without internal notes", () =>

@@ -367,6 +367,9 @@ function OwnedOwnerDashboard() {
             <a href="/owner-french-review" className={secondary}>
               French draft review
             </a>
+            <a href="/owner-french101-review" className={secondary}>
+              French 101 Foundation review
+            </a>
             <a href="/exam-content" className={secondary}>
               Private exam content
             </a>

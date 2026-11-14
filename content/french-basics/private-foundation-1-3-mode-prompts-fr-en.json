@@ -1,0 +1,45 @@
+{
+  "pairKey": "French:English",
+  "sourceFile": "content/french-basics/foundation-1-3-draft.json",
+  "sourceSha256": "bb7c6a6bce9ec3447aead1750e650ef207610acade4d1b87f0fd1255c4cdf524",
+  "reviewed": false,
+  "registered": false,
+  "lessons": [
+    {
+      "lesson": 1,
+      "stableLessonKey": "foundation-french-basics:1",
+      "modes": {
+        "see": {"prompt": "Read Claire’s first line. Identify the greeting and the phrase she uses to introduce her name.", "targetText": "Claire: Bonjour ! Je m’appelle Claire."},
+        "recall": {"prompt": "A new classmate hands you a pen. Thank them in French before revealing the word.", "targetText": "merci"},
+        "hear": {"prompt": "Listen for the greeting whose ou sounds /u/ and on is nasal. Identify the word you heard.", "targetText": "bonjour", "recordedAudio": false},
+        "type": {"prompt": "Type the French phrase meaning ‘my name is’, keeping the apostrophe.", "targetText": "je m’appelle"},
+        "say": {"prompt": "Greet an adult learner politely. Say the greeting aloud and listen for its /ʒ/, /u/, and nasal /ɔ̃/ sounds.", "targetText": "bonjour"},
+        "write": {"prompt": "Write Claire’s answer to Marc’s ‘Et vous ?’ as a full French sentence, including punctuation.", "targetText": "Ça va bien, merci."}
+      }
+    },
+    {
+      "lesson": 2,
+      "stableLessonKey": "foundation-french-basics:2",
+      "modes": {
+        "see": {"prompt": "Read Paul’s answer and find the indefinite article that introduces one notebook.", "targetText": "Paul: C’est un cahier."},
+        "recall": {"prompt": "Recall how to say ‘a pencil case’, including its feminine article.", "targetText": "une trousse"},
+        "hear": {"prompt": "Listen for the article before trousse. Choose un or une.", "targetText": "une", "recordedAudio": false},
+        "type": {"prompt": "Type ‘the pen’ in French, including the masculine definite article.", "targetText": "le stylo"},
+        "say": {"prompt": "Point to an unfamiliar object and ask ‘What is it?’ aloud in French.", "targetText": "Qu’est-ce que c’est ?"},
+        "write": {"prompt": "Write ‘Here is the eraser’ in French with its definite article and final period.", "targetText": "Voilà la gomme."}
+      }
+    },
+    {
+      "lesson": 3,
+      "stableLessonKey": "foundation-french-basics:3",
+      "modes": {
+        "see": {"prompt": "Read Léa’s first line. Identify the article that tells you there is more than one pencil.", "targetText": "Léa: Voilà les crayons."},
+        "recall": {"prompt": "Recall ‘some pencils’ using the indefinite plural article.", "targetText": "des crayons"},
+        "hear": {"prompt": "Listen for the plural article before cahiers; the noun’s final s is normally silent.", "targetText": "les cahiers", "recordedAudio": false},
+        "type": {"prompt": "Type ‘some notebooks’ in French, including the indefinite plural article.", "targetText": "des cahiers"},
+        "say": {"prompt": "Point to several pens and say ‘These are pens’ aloud in French.", "targetText": "Ce sont des stylos."},
+        "write": {"prompt": "Write ‘Here are the books’ in French as a complete sentence.", "targetText": "Voilà les livres."}
+      }
+    }
+  ]
+}

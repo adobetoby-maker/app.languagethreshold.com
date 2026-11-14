@@ -1,0 +1,506 @@
+{
+  "schema": 1,
+  "state": "private-form-practice-draft",
+  "registered": false,
+  "reviewed": false,
+  "pairKey": "French:English",
+  "courseId": "foundation-french-basics:fr-en",
+  "practiceModel": "contextual-french-form",
+  "note": "Authoring inputs only; neither a live learner trainer nor qualified French review.",
+  "sourceFile": "private-runtime-foundation-1-10.json",
+  "sourceSha256": "6eca43a19dc9ed6090eef417d58be728e90ff91a26798555c14422b59f5261d3",
+  "counts": {
+    "lessons": 10,
+    "contextualPrompts": 30,
+    "verbReferences": 1
+  },
+  "lessons": [
+    {
+      "lesson": 1,
+      "stableLessonKey": "foundation-french-basics:1",
+      "grammarFocus": "Greet someone with bonjour and introduce yourself with je m’appelle. The j in je and bonjour sounds /ʒ/; ou in bonjour sounds /u/; on in bonjour is a nasal vowel /ɔ̃/ with no separate n sound. Some final consonants are silent (Paris, salut), but others are pronounced (Marc, Paul, bonjour). Use vous with an adult you have just met; save tu for familiar classmates once you agree to be informal. A woman writes enchantée with a final -e; it sounds the same as enchanté.",
+      "prompts": [
+        {
+          "id": "form-fr-en-b5493f986f4e914d",
+          "sourceReaderTurn": 1,
+          "focus": "je-m-appelle-introduction",
+          "englishPrompt": "Hello! My name is Claire.",
+          "frenchAnswer": "Bonjour ! Je m’appelle Claire.",
+          "sourceReaderTarget": "Claire: Bonjour ! Je m’appelle Claire.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-4529c15eeb75a10d",
+          "sourceReaderTurn": 2,
+          "focus": "formal-name-question",
+          "englishPrompt": "What is your name? (polite, to an adult you have just met)",
+          "frenchAnswer": "Comment vous appelez-vous ?",
+          "sourceReaderTarget": "Claire: Comment vous appelez-vous ?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-611e1710b66cda11",
+          "sourceReaderTurn": 3,
+          "focus": "je-m-appelle-reply",
+          "englishPrompt": "Hello, my name is Marc.",
+          "frenchAnswer": "Bonjour, je m’appelle Marc.",
+          "sourceReaderTarget": "Marc: Bonjour, je m’appelle Marc.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 2,
+      "stableLessonKey": "foundation-french-basics:2",
+      "grammarFocus": "French nouns are grammatically masculine or feminine. Learn each object with its article: un stylo, une trousse. Use un/une when naming or introducing one object (C’est un cahier); use le/la for a particular object already identified (Voilà la gomme). The noun ending is only a partial gender clue, so learn the article with the noun. Hear the difference between nasal un and pronounced n in une, and between le and la.",
+      "prompts": [
+        {
+          "id": "form-fr-en-c1a422711028f197",
+          "sourceReaderTurn": 2,
+          "focus": "masculine-un-cahier",
+          "englishPrompt": "It’s a notebook.",
+          "frenchAnswer": "C’est un cahier.",
+          "sourceReaderTarget": "Paul: C’est un cahier.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-fa7bb36754e08e8e",
+          "sourceReaderTurn": 3,
+          "focus": "feminine-une-trousse",
+          "englishPrompt": "And that one, is it a pencil case?",
+          "frenchAnswer": "Et ça, c’est une trousse ?",
+          "sourceReaderTarget": "Léa: Et ça, c’est une trousse ?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-4cbfe3e27accf64c",
+          "sourceReaderTurn": 6,
+          "focus": "definite-la-gomme",
+          "englishPrompt": "It’s a pen. And here is the eraser.",
+          "frenchAnswer": "C’est un stylo. Et voilà la gomme.",
+          "sourceReaderTarget": "Paul: C’est un stylo. Et voilà la gomme.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 3,
+      "stableLessonKey": "foundation-french-basics:3",
+      "grammarFocus": "Most French plurals are written with -s: un crayon → des crayons. The final -s is usually silent, so the article often tells you whether one or several are meant: le /lə/ versus les /le/, un or une versus des /de/. Un and une become des for unspecified plural objects; le and la become les for specific plural objects. Nouns already ending in -s, -x, or -z keep that ending in the plural. Other patterns come later; learn each new plural in context.",
+      "prompts": [
+        {
+          "id": "form-fr-en-16807c483f071801",
+          "sourceReaderTurn": 1,
+          "focus": "definite-plural-les",
+          "englishPrompt": "Here are the pencils.",
+          "frenchAnswer": "Voilà les crayons.",
+          "sourceReaderTarget": "Léa: Voilà les crayons.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-364cf10351bf3349",
+          "sourceReaderTurn": 2,
+          "focus": "indefinite-plural-des",
+          "englishPrompt": "Thank you! And these, are they pens?",
+          "frenchAnswer": "Merci ! Et ça, ce sont des stylos ?",
+          "sourceReaderTarget": "Paul: Merci ! Et ça, ce sont des stylos ?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-b9529e3c9167f0c5",
+          "sourceReaderTurn": 3,
+          "focus": "ce-sont-plural",
+          "englishPrompt": "Yes, they are pens. And here are the notebooks.",
+          "frenchAnswer": "Oui, ce sont des stylos. Et voilà les cahiers.",
+          "sourceReaderTarget": "Léa: Oui, ce sont des stylos. Et voilà les cahiers.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 4,
+      "stableLessonKey": "foundation-french-basics:4",
+      "grammarFocus": "Use être for “am / is / are”: je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont. Peers often use tu right away; use vous with a teacher, staff member, or an adult stranger, and keep one register in a conversation. A mixed group uses ils, and masculine plural étudiants; an all-female group uses elles and étudiantes. In est the final t is usually silent, but it links before a vowel in il est ici; the t in êtes is pronounced.",
+      "prompts": [
+        {
+          "id": "form-fr-en-4204230304c442ba",
+          "sourceReaderTurn": 1,
+          "focus": "tu-es-question",
+          "englishPrompt": "Hi! Are you Nadia?",
+          "frenchAnswer": "Salut ! Tu es Nadia ?",
+          "sourceReaderTarget": "Hugo: Salut ! Tu es Nadia ?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-b83ed93d346983f1",
+          "sourceReaderTurn": 3,
+          "focus": "nous-sommes",
+          "englishPrompt": "Yes, I am Hugo. We are students here.",
+          "frenchAnswer": "Oui, je suis Hugo. Nous sommes étudiants ici.",
+          "sourceReaderTarget": "Hugo: Oui, je suis Hugo. Nous sommes étudiants ici.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-3a1a9402f0f2ac1b",
+          "sourceReaderTurn": 7,
+          "focus": "ils-sont",
+          "englishPrompt": "They are students too.",
+          "frenchAnswer": "Ils sont étudiants aussi.",
+          "sourceReaderTarget": "Hugo: Ils sont étudiants aussi.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false,
+      "verbReference": {
+        "infinitive": "être",
+        "english": "to be",
+        "tense": "present",
+        "forms": {
+          "je": "suis",
+          "tu": "es",
+          "il_elle": "est",
+          "nous": "sommes",
+          "vous": "êtes",
+          "ils_elles": "sont"
+        },
+        "sourceReaderTurn": 3,
+        "exampleFrench": "Oui, je suis Hugo. Nous sommes étudiants ici.",
+        "exampleEnglish": "Yes, I am Hugo. We are students here.",
+        "reviewed": false
+      }
+    },
+    {
+      "lesson": 5,
+      "stableLessonKey": "foundation-french-basics:5",
+      "grammarFocus": "Use être for roles and traits: je suis étudiant or étudiante; il est gentil, elle est gentille. A role normally has no article after être: je suis étudiante. Learn the noun or adjective ending for the person described. Learn Je viens de as a fixed origin chunk for now: de France for a feminine country, d’Espagne before a vowel, du Canada for a masculine country, and des États-Unis for a plural country. Country articles matter; do not apply de to every country.",
+      "prompts": [
+        {
+          "id": "form-fr-en-3c683ae6344acd5a",
+          "sourceReaderTurn": 1,
+          "focus": "formal-vous-etes",
+          "englishPrompt": "Hello, Marc! Are you a student here?",
+          "frenchAnswer": "Bonjour, Marc ! Vous êtes étudiant ici ?",
+          "sourceReaderTarget": "Claire: Bonjour, Marc ! Vous êtes étudiant ici ?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-dccfe7a6e810ba2e",
+          "sourceReaderTurn": 3,
+          "focus": "je-viens-de",
+          "englishPrompt": "Yes, I am a student. I come from Spain.",
+          "frenchAnswer": "Oui, je suis étudiante. Je viens d’Espagne.",
+          "sourceReaderTarget": "Claire: Oui, je suis étudiante. Je viens d’Espagne.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-858402194a857d3f",
+          "sourceReaderTurn": 5,
+          "focus": "elle-est-feminine",
+          "englishPrompt": "She is French. She is kind.",
+          "frenchAnswer": "Elle est française. Elle est gentille.",
+          "sourceReaderTarget": "Claire: Elle est française. Elle est gentille.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 6,
+      "stableLessonKey": "foundation-french-basics:6",
+      "grammarFocus": "Use être for the locations and states in this lesson: Le livre est sur la table; La porte est ouverte. Some other everyday states use avoir (for example, j’ai faim); those come later. Sur means on, dans means in, and près de means near; before le, de + le becomes du (près du livre), and before les it becomes des (here meaning de + les, distinct from the indefinite article des). For a thing, il replaces a masculine noun and elle a feminine noun: le livre → il, la trousse → elle. Adjectives agree with the noun or person: le livre est ouvert, la porte est ouverte; Marc est fatigué, Claire est fatiguée.",
+      "prompts": [
+        {
+          "id": "form-fr-en-9b5c23fa2d237c1f",
+          "sourceReaderTurn": 1,
+          "focus": "ou-est-question",
+          "englishPrompt": "Marc, where is the book?",
+          "frenchAnswer": "Marc, où est le livre ?",
+          "sourceReaderTarget": "Claire: Marc, où est le livre ?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-1d5f4e316ab6038e",
+          "sourceReaderTurn": 2,
+          "focus": "il-est-sur",
+          "englishPrompt": "It is on the table.",
+          "frenchAnswer": "Il est sur la table.",
+          "sourceReaderTarget": "Marc: Il est sur la table.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-2db7bb5515fa9741",
+          "sourceReaderTurn": 8,
+          "focus": "je-suis-state",
+          "englishPrompt": "Yes, I am tired. And you, are you ready?",
+          "frenchAnswer": "Oui, je suis fatigué. Et vous, vous êtes prête ?",
+          "sourceReaderTarget": "Marc: Oui, je suis fatigué. Et vous, vous êtes prête ?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 7,
+      "stableLessonKey": "foundation-french-basics:7",
+      "grammarFocus": "Il y a means there is or there are and does not change for number. Use est, a form of être, for where a particular thing is. In il n’y a pas de + noun, de replaces un, une or des; write d’ before a vowel: il n’y a pas d’ordinateur. Review la/une/les with noun gender and number.",
+      "prompts": [
+        {
+          "id": "form-fr-en-ce5dbfb6902bd96f",
+          "sourceReaderTurn": 1,
+          "focus": "il-y-a-question",
+          "englishPrompt": "Is there a library here?",
+          "frenchAnswer": "Il y a une bibliothèque ici ?",
+          "sourceReaderTarget": "Léa : Il y a une bibliothèque ici ?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-21d3147fb600e4b0",
+          "sourceReaderTurn": 4,
+          "focus": "il-y-a-plural",
+          "englishPrompt": "Yes, there are tables and two windows.",
+          "frenchAnswer": "Oui, il y a des tables et deux fenêtres.",
+          "sourceReaderTarget": "Théo : Oui, il y a des tables et deux fenêtres.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-9b4ce399d9b33d31",
+          "sourceReaderTurn": 7,
+          "focus": "il-n-y-a-pas-de",
+          "englishPrompt": "There is no computer here, right?",
+          "frenchAnswer": "Il n’y a pas d’ordinateur ici, c’est ça ?",
+          "sourceReaderTarget": "Léa : Il n’y a pas d’ordinateur ici, c’est ça ?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 8,
+      "stableLessonKey": "foundation-french-basics:8",
+      "grammarFocus": "French uses avoir for age: j’ai dix-huit ans, literally “I have eighteen years,” never je suis. Learn j’ai, tu as, il/elle a, nous avons; Tu as quel âge ? asks “How old are you?” Use il y a for a count and avoir besoin de + number + noun for a need. Count 1–20, including dix-huit and vingt. Pronunciation: dix is /dis/ alone, /di/ before a consonant, /diz/ before a vowel; dix-huit is /dizɥit/ and vingt ans links the final t. There is no elision before onze: de onze livres.",
+      "prompts": [
+        {
+          "id": "form-fr-en-19cb730b3532ad17",
+          "sourceReaderTurn": 1,
+          "focus": "tu-as-age",
+          "englishPrompt": "Hello! How old are you?",
+          "frenchAnswer": "Bonjour ! Tu as quel âge ?",
+          "sourceReaderTarget": "Inès : Bonjour ! Tu as quel âge ?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-8d842486cfff3669",
+          "sourceReaderTurn": 2,
+          "focus": "j-ai-age",
+          "englishPrompt": "I am eighteen years old. And you?",
+          "frenchAnswer": "J’ai dix-huit ans. Et toi ?",
+          "sourceReaderTarget": "Sami : J’ai dix-huit ans. Et toi ?",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-6ad31dd990ccc5fa",
+          "sourceReaderTurn": 5,
+          "focus": "nous-avons-besoin-de",
+          "englishPrompt": "Yes. We need ten books for the students and one book for the teacher.",
+          "frenchAnswer": "Oui. Nous avons besoin de dix livres pour les élèves et d’un livre pour la professeure.",
+          "sourceReaderTarget": "Inès : Oui. Nous avons besoin de dix livres pour les élèves et d’un livre pour la professeure.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 9,
+      "stableLessonKey": "foundation-french-basics:9",
+      "grammarFocus": "Make a negative with ne before the verb and pas after it: je ne suis pas, je n’ai pas. Before a vowel or mute h, ne becomes n’: elle n’est pas, je n’ai pas. After a negated avoir, un/une/des usually become de: je n’ai pas de livre; after être, keep the article: ce n’est pas un livre. Ask yes/no questions with rising intonation (Tu as un livre ?) or est-ce que. In conversation ne is often dropped, but write the full ne…pas in this course. Être covers identity and location; avoir expresses possession. Je suis étudiant has no article before the role.",
+      "prompts": [
+        {
+          "id": "form-fr-en-c916b3416d677f2d",
+          "sourceReaderTurn": 2,
+          "focus": "je-suis-affirmative",
+          "englishPrompt": "Yes, I am a student.",
+          "frenchAnswer": "Oui, je suis étudiant.",
+          "sourceReaderTarget": "Marc : Oui, je suis étudiant.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-cfa3e865082c2251",
+          "sourceReaderTurn": 4,
+          "focus": "elle-n-est-pas",
+          "englishPrompt": "No, she is not here. She is in the office.",
+          "frenchAnswer": "Non, elle n’est pas ici. Elle est dans le bureau.",
+          "sourceReaderTarget": "Marc : Non, elle n’est pas ici. Elle est dans le bureau.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-0dfc15c18ddadbb0",
+          "sourceReaderTurn": 6,
+          "focus": "je-n-ai-pas-de",
+          "englishPrompt": "No, I do not have a book today.",
+          "frenchAnswer": "Non, je n’ai pas de livre aujourd’hui.",
+          "sourceReaderTarget": "Marc : Non, je n’ai pas de livre aujourd’hui.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "lesson": 10,
+      "stableLessonKey": "foundation-french-basics:10",
+      "grammarFocus": "New repair phrases: Je ne comprends pas (ce mot); Tu peux répéter, s’il te plaît ?; Plus lentement, s’il te plaît. Use Vous pouvez répéter, s’il vous plaît ? with a teacher. Comprendre means to understand; répéter means to repeat; plus lentement means more slowly. Review être, articles, noun/adjective agreement, il y a from Lesson 7, and full ne…pas. With a plain role, say je suis étudiante without an article; when the role noun has an adjective, the article returns: je suis une nouvelle étudiante or je suis un nouvel étudiant. The adjective comes before the noun: nouveau before a masculine consonant, nouvel before a masculine vowel sound (un nouvel étudiant), and nouvelle for feminine (une nouvelle étudiante). Plus has a silent s in plus lentement. Keep the pronoun/verb in the chosen tu or vous register. Pronunciation: un étudiant links the n to the vowel; est-ce que sounds roughly “es-kuh”; the final consonants of comprends and pas are silent; il y a is pronounced together as a short group.",
+      "prompts": [
+        {
+          "id": "form-fr-en-260a6d81326c1b66",
+          "sourceReaderTurn": 1,
+          "focus": "je-suis-introduction",
+          "englishPrompt": "Hello, I am a new student.",
+          "frenchAnswer": "Bonjour, je suis une nouvelle étudiante.",
+          "sourceReaderTarget": "Léa : Bonjour, je suis une nouvelle étudiante.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-6722efa146fe936f",
+          "sourceReaderTurn": 4,
+          "focus": "je-ne-comprends-pas",
+          "englishPrompt": "I do not understand this word.",
+          "frenchAnswer": "Je ne comprends pas ce mot.",
+          "sourceReaderTarget": "Léa : Je ne comprends pas ce mot.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        },
+        {
+          "id": "form-fr-en-a417947ce4992115",
+          "sourceReaderTurn": 6,
+          "focus": "tu-peux-repeter",
+          "englishPrompt": "Can you repeat, please? More slowly.",
+          "frenchAnswer": "Tu peux répéter, s’il te plaît ? Plus lentement.",
+          "sourceReaderTarget": "Léa : Tu peux répéter, s’il te plaît ? Plus lentement.",
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false
+        }
+      ],
+      "reviewed": false
+    }
+  ]
+}

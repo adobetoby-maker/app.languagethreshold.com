@@ -16,6 +16,7 @@ import {
 type Phase = "idle" | "permission" | "recording" | "finishing" | "uploading" | "ready" | "error";
 export function RecordedReplyControl({
   scope,
+  compact = false,
   locale,
   disabled,
   onBegin,
@@ -23,6 +24,7 @@ export function RecordedReplyControl({
   onBusyChange,
 }: {
   scope: string;
+  compact?: boolean;
   locale: string;
   disabled: boolean;
   onBegin(): void;
@@ -252,7 +254,12 @@ export function RecordedReplyControl({
     setPhase(take.current ? "ready" : "idle");
   };
   return (
-    <div className="flex w-full min-w-0 items-center justify-center gap-3">
+    <div
+      data-phase={phase}
+      className={
+        compact ? "lt-recorded-compact" : "flex w-full min-w-0 items-center justify-center gap-3"
+      }
+    >
       <button
         type="button"
         aria-label={
@@ -263,6 +270,7 @@ export function RecordedReplyControl({
         className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground disabled:opacity-40"
       >
         {busy ? <Square className="h-6 w-6" fill="currentColor" /> : <Mic className="h-7 w-7" />}
+        {compact && <span>{busy ? "Stop" : "Speak"}</span>}
       </button>
       <div className="min-w-0 text-left text-sm">
         <p role="status">

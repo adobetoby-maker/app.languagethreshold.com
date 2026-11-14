@@ -8,17 +8,23 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-export function SpeakingGuestConsent() {
+export function SpeakingGuestConsent({ startup = true }: { startup?: boolean }) {
   const { user } = useAuth();
   const [open, setOpen] = useState(false);
   useEffect(() => {
+    if (!startup) return;
     if (user || !isSpeakingTestHost(window.location?.hostname ?? "")) return;
     try {
       setOpen(sessionStorage.getItem("lt.speaking-test.adult") !== "true");
     } catch {
       setOpen(true);
     }
-  }, [user]);
+  }, [user, startup]);
+  useEffect(() => {
+    const show = () => setOpen(true);
+    window.addEventListener("lt:open-speaking-guest-consent", show);
+    return () => window.removeEventListener("lt:open-speaking-guest-consent", show);
+  }, []);
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent>

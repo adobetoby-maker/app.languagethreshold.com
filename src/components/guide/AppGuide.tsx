@@ -1493,25 +1493,9 @@ function OwnedLessonRunner({
             </div>
           )}
 
-          {definition?.soundPractice && (
-            <SoundPractice
-              key={`${moduleId}:${lesson.n}:${state.selectedLanguage}:${state.nativeLanguage}`}
-              lesson={definition.soundPractice}
-              moduleId={moduleId}
-              lessonNumber={lesson.n}
-              active={section === "see"}
-            />
-          )}
-          {basics?.pattern && <SpanishPatternModels pattern={basics.pattern} />}
-          {basics && verbs.length > 0 && (
-            <LessonVerbGames
-              key={`${moduleId}:${lesson.n}`}
-              verbs={verbs}
-              language={state.selectedLanguage}
-              pattern={basics?.pattern}
-            />
-          )}
           <LessonReader
+            nativeCards
+            onRoundFinished={() => selectSection("recall", true)}
             moduleId={moduleId}
             readingTemplate={lesson.readingTemplate}
             lessonNumber={lesson.n}
@@ -1520,6 +1504,27 @@ function OwnedLessonRunner({
             onInteract={() => recordStepOpened(readerStep)}
             onOpenFullReader={openFullReader}
           />
+          <details className="lt-native-extra">
+            <summary>More lesson practice</summary>
+            {definition?.soundPractice && (
+              <SoundPractice
+                key={`${moduleId}:${lesson.n}:${state.selectedLanguage}:${state.nativeLanguage}`}
+                lesson={definition.soundPractice}
+                moduleId={moduleId}
+                lessonNumber={lesson.n}
+                active={section === "see"}
+              />
+            )}
+            {basics?.pattern && <SpanishPatternModels pattern={basics.pattern} />}
+            {basics && verbs.length > 0 && (
+              <LessonVerbGames
+                key={`${moduleId}:${lesson.n}`}
+                verbs={verbs}
+                language={state.selectedLanguage}
+                pattern={basics?.pattern}
+              />
+            )}
+          </details>
           <div className="mt-4 space-y-3">
             <CoreVerbPracticeCard compact />
             <details className="mb-4 rounded-xl border p-3">
@@ -1716,7 +1721,11 @@ function OwnedLessonRunner({
       )}
 
       {/* Mastery: the learner's call. The app records the visits above; this records the verdict. */}
-      <section ref={masteryRef} className="rounded-2xl border border-gold/20 bg-gold/[0.04] p-4">
+      <section
+        data-native-lesson-progress
+        ref={masteryRef}
+        className="rounded-2xl border border-gold/20 bg-gold/[0.04] p-4"
+      >
         {coursePractice && (!masteredAt || needsPractice) && (
           <SpanishBasicsCheck
             topic={moduleId.includes("spanish-cognates") ? "Cognate" : "Grammar"}

@@ -1,3 +1,5 @@
+import { NativeSpeakSurface } from "@/components/speak/NativeSpeakSurface";
+import { SpeakingConversationControls } from "@/components/speak/SpeakingConversationControls";
 import { Sheet, SheetContent, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { V6Header, V6Dock } from "./V6AppChrome";
 import { FOUNDATION_ROOFING_LESSONS } from "@/data/foundation-roofing-curriculum";
@@ -20,6 +22,9 @@ const buttonClass =
 
 /** A public, temporary layout preview. No account, progress store, or AI requests. */
 export function LessonWorkspaceDemo() {
+  const [demoText, setDemoText] = useState(true);
+  const [demoFeedback, setDemoFeedback] = useState(true);
+  const [demoVoice, setDemoVoice] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [showSpeak, setShowSpeak] = useState(true);
   const [lesson, setLesson] = useState<DemoLesson | null>(null);
@@ -39,6 +44,14 @@ export function LessonWorkspaceDemo() {
   const utterance = useRef<SpeechSynthesisUtterance | null>(null);
   const scrollArea = useRef<HTMLElement | null>(null);
 
+  useEffect(() => {
+    const study = () => {
+      setShowSpeak(false);
+      setLessonOpen(true);
+    };
+    window.addEventListener("lt:v6-open-study", study);
+    return () => window.removeEventListener("lt:v6-open-study", study);
+  }, []);
   useEffect(() => {
     const root = document.documentElement;
     const originalDark = root.classList.contains("dark");
@@ -186,10 +199,13 @@ export function LessonWorkspaceDemo() {
         onSelect={(mode) => {
           setLessonOpen(true);
           setShowSpeak(mode === "speak");
-          if (mode !== "speak") selectMode(mode);
+          if (mode === "study") selectMode(active);
+          else if (mode === "verbs") {
+            window.location.href = "/?tab=verbs";
+          } else if (mode !== "speak") selectMode(mode);
         }}
       />
-      <div className="mx-auto flex w-full max-w-3xl shrink-0 items-center justify-between gap-2 px-4 pt-2">
+      <div className="lt-demo-legacy-banner mx-auto flex w-full max-w-3xl shrink-0 items-center justify-between gap-2 px-4 pt-2">
         <p className="text-xs leading-relaxed text-muted-foreground">
           Layout preview · practice stays in this demo
         </p>
@@ -207,39 +223,75 @@ export function LessonWorkspaceDemo() {
         </button>
       </div>
       {showSpeak ? (
-        <main data-demo-scroll className="lt-v6-speak-preview">
-          <h1>Speak</h1>
-          <p className="lt-v6-subtitle">Sounds and Greetings</p>
-          <section className="lt-v6-panel">
-            <h2>Speaking card</h2>
-            <p>Greet a new coworker and introduce yourself.</p>
-            <p className="text-muted-foreground">
-              Practice the greetings from your lesson, then continue the conversation.
-            </p>
-          </section>
-          <section className="lt-v6-panel">
-            <p className="text-sm text-gold-ink">Model dialogue</p>
-            <p className="lt-v6-dialogue" lang="es">
-              {lesson?.passage.target[0] ?? "Buenos días, me llamo Luis y soy nuevo."}
-            </p>
-            <p className="text-muted-foreground">
-              {lesson?.passage.native[0] ?? "Good morning, my name is Luis and I'm new."}
-            </p>
-          </section>
-          <section className="lt-v6-panel">
-            <h2>Your turn</h2>
-            <p>
-              This layout preview uses your published lesson. Open Speak to record, listen back, and
-              talk with the AI partner.
-            </p>
-            <a
-              className="lt-v6-primary"
-              href="/?tab=speak&amp;module=foundation-roofing&amp;target=Spanish&amp;native=English"
-            >
-              Open Speak
-            </a>
-          </section>
-          <p className="text-sm text-muted-foreground">Layout preview · temporary study practice</p>
+        <main data-demo-scroll className="lt-native-demo-main">
+          <NativeSpeakSurface
+            lesson="Sounds and Greetings"
+            language="Spanish"
+            partnerTitle="Teacher · learn a topic"
+            transcript={<div role="region" aria-label="Conversation replies" />}
+            partner={
+              <p>
+                This preview uses the default teacher.{" "}
+                <a href="/?tab=speak" className="underline">
+                  Open live Speak
+                </a>{" "}
+                to choose a partner and talk.
+              </p>
+            }
+            controls={
+              <SpeakingConversationControls
+                text={demoText}
+                feedback={demoFeedback}
+                voice={demoVoice}
+                onText={() => setDemoText((value) => !value)}
+                onFeedback={() => setDemoFeedback((value) => !value)}
+                onVoice={() => setDemoVoice((value) => !value)}
+                onRepeat={() => {}}
+                repeatDisabled
+              />
+            }
+            composer={
+              <form
+                className="lt-native-composer"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  window.location.href = "/?tab=speak";
+                }}
+              >
+                <textarea
+                  aria-label="Preview Spanish reply"
+                  placeholder="Your Spanish reply…"
+                  rows={2}
+                  value={response}
+                  onChange={(event) => setResponse(event.target.value)}
+                />
+                <button>↑ Send</button>
+              </form>
+            }
+            microphone={
+              <div className="lt-native-microphone">
+                <button
+                  onClick={() => {
+                    window.location.href = "/?tab=speak";
+                  }}
+                >
+                  Speak
+                </button>
+              </div>
+            }
+            voice={demoVoice}
+            onVoice={() => setDemoVoice((value) => !value)}
+            status="Ready"
+            onLatest={() => {}}
+            onReset={() => setResponse("")}
+            onScenarios={() => {
+              window.location.href = "/?tab=speak";
+            }}
+            onPartnerStart={() => {
+              window.location.href = "/?tab=speak";
+            }}
+            partnerStartDisabled={false}
+          />
         </main>
       ) : !lessonOpen ? (
         <main data-demo-scroll className="px-4 py-8">

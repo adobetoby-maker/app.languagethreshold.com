@@ -1,3 +1,6 @@
+import { NativeSpeakSurface } from "./NativeSpeakSurface";
+import { isSpeakingTestHost } from "@/lib/speaking-test-access";
+import { SPEAKING_CONSENT_MANUAL_OPEN } from "@/lib/speaking-consent-events";
 import { useChatFollow } from "@/hooks/use-chat-follow";
 import { SpeakingPartnerPicker } from "./SpeakingPartnerPicker";
 import { type TeacherSettings, speakingPartner } from "@/data/speaking-partners";
@@ -126,7 +129,7 @@ export function SpeakLearn() {
   const partnerStore = useLearnerDeviceStore(
     `speaking-partner:${language}:${state.nativeLanguage}:${state.activeModuleId ?? "core"}`,
   );
-  const [partnerId, setPartnerId] = useState("open");
+  const [partnerId, setPartnerId] = useState("teacher");
   const teacherStore = useLearnerDeviceStore(
     `speaking-teacher:${language}:${state.nativeLanguage}:${state.activeModuleId ?? "core"}`,
   );
@@ -147,7 +150,7 @@ export function SpeakLearn() {
   };
   useEffect(() => {
     const saved = partnerStore.read();
-    setPartnerId(speakingPartner(typeof saved === "string" ? saved : undefined)[0]);
+    setPartnerId(speakingPartner(typeof saved === "string" ? saved : "teacher")[0]);
   }, [partnerStore]);
   const changePartner = (id: string) => {
     if (id === partnerId) return;
@@ -771,7 +774,7 @@ export function SpeakLearn() {
           {isEmpty && !interim ? (
             <div className="flex h-full flex-col items-center justify-center text-center">
               <p className="px-2 py-2 text-sm text-muted-foreground">
-                Your partner’s reply will appear here.
+                Follow my topic. Let me change direction naturally.
               </p>
             </div>
           ) : (
@@ -877,7 +880,7 @@ export function SpeakLearn() {
     ],
   );
 
-  return (
+  const classicScreen = (
     <div
       className={`fade-in mx-auto max-w-3xl ${surface === "conversation" ? "lt-free-conversation" : ""}`}
     >
@@ -1309,5 +1312,173 @@ export function SpeakLearn() {
         </section>
       )}
     </div>
+  );
+  return surface !== "conversation" ? (
+    classicScreen
+  ) : (
+    <>
+      <SpeakingGuestConsent startup={false} />
+      <SpeakTutorDock
+        hideTrigger
+        scope={`free:${language}:${state.nativeLanguage}:${state.activeModuleId}`}
+        selection={tutorSelection}
+        sentence={turns.at(-1)?.text ?? ""}
+        disabled={micActive || audioCaptureBusy}
+        canAsk={conversationAllowed}
+      >
+        <NativeSpeakSurface
+          lesson={getModule(state.activeModuleId)?.name ?? `${language} conversation`}
+          language={language}
+          transcript={transcript}
+          partnerTitle={
+            partnerId === "teacher" ? "Teacher · learn a topic" : speakingPartner(partnerId)[1]
+          }
+          onPartnerStart={() => gated(() => streamReply("Begin the conversation.", true))}
+          partnerStartDisabled={thinking || !conversationAllowed}
+          partner={
+            <SpeakingPartnerPicker
+              value={partnerId}
+              onChange={changePartner}
+              teacher={teacher}
+              onTeacherChange={changeTeacher}
+              moduleId={state.activeModuleId ?? ""}
+              category={getModule(state.activeModuleId)?.category ?? ""}
+              disabled={thinking || micActive || audioCaptureBusy}
+            />
+          }
+          status={
+            thinking
+              ? "Partner is replying…"
+              : audioCaptureBusy
+                ? "Recording your reply…"
+                : micActive
+                  ? "Listening…"
+                  : interim.trim()
+                    ? "Words received — tap Stop to review"
+                    : typedTurn.trim()
+                      ? "Reply ready — review, then Send"
+                      : "Ready"
+          }
+          voice={automaticReplyAudio}
+          onVoice={() => {
+            stopOwned();
+            setAutomaticReplyAudio((value) => !value);
+          }}
+          onLatest={chatFollow.jumpToLatest}
+          onReset={() => {
+            stopPractice();
+            clear();
+            setTypedTurn("");
+            setConversationError(null);
+            sessionStartRef.current = null;
+          }}
+          onScenarios={() => setSurface("missions")}
+          controls={
+            <SpeakingConversationControls
+              text={!hideReplyText}
+              feedback={showFeedback}
+              voice={automaticReplyAudio}
+              onText={() => setHideReplyText((value) => !value)}
+              onFeedback={() => setShowFeedback((value) => !value)}
+              onVoice={() => {
+                stopOwned();
+                setAutomaticReplyAudio((value) => !value);
+              }}
+              repeatDisabled={!turns.some((turn) => turn.role === "ai" && turn.text.trim())}
+              onRepeat={() => {
+                const reply = [...turns]
+                  .reverse()
+                  .find((turn) => turn.role === "ai" && turn.text.trim());
+                if (reply) speakAloud(reply.text);
+              }}
+            />
+          }
+          composer={
+            <form
+              className="lt-native-composer"
+              onSubmit={(event) => {
+                event.preventDefault();
+                if (!thinking && !micActive && !audioCaptureBusy) submitTurn(typedTurn);
+              }}
+            >
+              <textarea
+                ref={replyField}
+                rows={1}
+                aria-label={`Type an answer in ${language}`}
+                placeholder={`Write or speak ${language}…`}
+                value={typedTurn}
+                onChange={(event) => setTypedTurn(event.target.value)}
+                maxLength={2000}
+                disabled={thinking || micActive || audioCaptureBusy || !conversationAllowed}
+              />
+              <button
+                type="submit"
+                aria-label="Send answer"
+                disabled={
+                  !typedTurn.trim() ||
+                  thinking ||
+                  micActive ||
+                  audioCaptureBusy ||
+                  !conversationAllowed
+                }
+              >
+                Send
+              </button>
+            </form>
+          }
+          microphone={
+            <div className="lt-native-microphone">
+              {!conversationAllowed ? (
+                <button
+                  className="lt-native-start"
+                  onClick={() => {
+                    if (isSpeakingTestHost(window.location.hostname) && !speakingAuth.user)
+                      window.dispatchEvent(new Event("lt:open-speaking-guest-consent"));
+                    else if (speakingAuth.user)
+                      window.dispatchEvent(new Event(SPEAKING_CONSENT_MANUAL_OPEN));
+                    else accountGated(() => {});
+                  }}
+                >
+                  <Mic size={20} /> Start speaking
+                </button>
+              ) : useRecordedAudio ? (
+                <RecordedReplyControl
+                  compact
+                  key={`${lifecycleKey}:${audioCaptureKey}:${conversationAllowed}`}
+                  scope={`${lifecycleKey}:${audioCaptureKey}`}
+                  locale={accent}
+                  disabled={thinking}
+                  onBegin={stopOwned}
+                  onBusyChange={setAudioCaptureBusy}
+                  onTranscript={(text) => {
+                    setTypedTurn(text);
+                    setConversationError(null);
+                  }}
+                />
+              ) : (
+                <button
+                  aria-label={
+                    startingMic
+                      ? "Cancel microphone"
+                      : listening
+                        ? "Stop listening"
+                        : "Start listening"
+                  }
+                  onClick={micActive ? stopListening : startListening}
+                  disabled={thinking}
+                >
+                  <Mic size={20} />
+                  {micActive ? "Stop listening" : "Tap to speak"}
+                </button>
+              )}
+              <button className="lt-native-stop" onClick={stopPractice}>
+                Stop
+              </button>
+              {conversationError && <p role="alert">{conversationError}</p>}
+            </div>
+          }
+        />
+      </SpeakTutorDock>
+    </>
   );
 }

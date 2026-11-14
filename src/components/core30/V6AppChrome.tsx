@@ -7,7 +7,7 @@ import { getModule } from "@/data/modules";
 import { ModulePickerDialog } from "@/components/ModulePickerDialog";
 import { useTutor } from "@/state/tutor-state";
 
-export type V6Destination = LessonModeId | "speak";
+export type V6Destination = LessonModeId | "speak" | "study" | "verbs";
 export const V6_MODE_EVENT = "lt:v6-lesson-mode";
 export const V6_PENDING_MODE = "lt.v6.pending-mode";
 const modes = ["see", "recall", "hear", "write", "type", "say"] as const;
@@ -69,36 +69,60 @@ export function V6Dock({
 }) {
   const [ready, setReady] = useState(false);
   useEffect(() => setReady(true), []);
+  const studying = active !== "speak";
   return (
-    <nav className="lt-v6-dock" aria-label="Study and speak">
-      {modes.map((id) => {
-        const mode = LESSON_MODES.find((item) => item.id === id)!;
-        return (
+    <div className="lt-v6-bottom">
+      {studying && (
+        <nav className="lt-v6-study-modes" aria-label="Lesson practice modes">
+          {modes.map((id) => {
+            const mode = LESSON_MODES.find((item) => item.id === id)!;
+            return (
+              <button
+                disabled={!ready}
+                key={id}
+                data-testid={`v6-nav-${id}`}
+                aria-label={mode.label}
+                aria-current={active === id ? "page" : undefined}
+                onClick={() => onSelect(id)}
+              >
+                <mode.Icon size={22} strokeWidth={1.6} aria-hidden />
+                <span>{mode.label}</span>
+                <i aria-hidden />
+              </button>
+            );
+          })}
           <button
             disabled={!ready}
-            key={id}
-            data-testid={`v6-nav-${id}`}
-            aria-label={mode.label}
-            aria-current={active === id ? "page" : undefined}
-            onClick={() => onSelect(id)}
+            aria-label="Verbs"
+            aria-current={active === "verbs" ? "page" : undefined}
+            onClick={() => onSelect("verbs")}
           >
-            <mode.Icon size={21} strokeWidth={1.6} aria-hidden />
-            <span>{id[0].toUpperCase() + id.slice(1)}</span>
-            <i aria-hidden />
+            <span className="text-xl">Abc</span>
+            <span>Verbs</span>
           </button>
-        );
-      })}
-      <button
-        disabled={!ready}
-        data-testid="v6-nav-speak"
-        aria-current={active === "speak" ? "page" : undefined}
-        onClick={() => onSelect("speak")}
-      >
-        <MessageCircle size={21} strokeWidth={1.6} aria-hidden />
-        <span>Speak</span>
-        <i aria-hidden />
-      </button>
-    </nav>
+        </nav>
+      )}
+      <nav className="lt-v6-dock" aria-label="Study and speak">
+        <button
+          disabled={!ready}
+          data-testid="v6-nav-study"
+          aria-current={studying ? "page" : undefined}
+          onClick={() => onSelect("study")}
+        >
+          <BookOpen size={23} fill="currentColor" aria-hidden />
+          <span>Study</span>
+        </button>
+        <button
+          disabled={!ready}
+          data-testid="v6-nav-speak"
+          aria-current={!studying ? "page" : undefined}
+          onClick={() => onSelect("speak")}
+        >
+          <MessageCircle size={23} fill="currentColor" aria-hidden />
+          <span>Speak</span>
+        </button>
+      </nav>
+    </div>
   );
 }
 
@@ -108,6 +132,7 @@ export function V6AppNavigation() {
   const { user, loading } = useAuth();
   const tutor = useTutor();
   const [courses, setCourses] = useState(false);
+  const [courseDestination, setCourseDestination] = useState<LessonModeId | null>(null);
   const [mode, setMode] = useState<LessonModeId>("see");
   const landedFor = useRef<string | null>(null);
   const entryQuery = useRef(typeof window === "undefined" ? "" : window.location.search);
@@ -116,6 +141,10 @@ export function V6AppNavigation() {
     if (!state.hydrated || loading || (user && profileReadyUserId !== user.id)) return;
     const identity = user?.id ?? "guest";
     if (landedFor.current === identity) return;
+    if (landedFor.current !== null) {
+      landedFor.current = identity;
+      return;
+    }
     landedFor.current = identity;
     const params = new URLSearchParams(entryQuery.current);
     // Assignments, login returns, and explicit tool links keep their intended destination.
@@ -142,7 +171,25 @@ export function V6AppNavigation() {
     window.addEventListener("lt:v6-mode-changed", update);
     return () => window.removeEventListener("lt:v6-mode-changed", update);
   }, []);
-  function select(next: V6Destination) {
+  const currentSelect = useRef<(destination: V6Destination) => void>(() => {});
+  currentSelect.current = select;
+  useEffect(() => {
+    if (courseDestination && !courses) {
+      setCourseDestination(null);
+      if (state.activeModuleId) currentSelect.current(courseDestination);
+    }
+  }, [courseDestination, courses, state.activeModuleId]);
+  useEffect(() => {
+    const open = () => currentSelect.current("study");
+    window.addEventListener("lt:v6-open-study", open);
+    return () => window.removeEventListener("lt:v6-open-study", open);
+  }, [dispatch]);
+  function select(destination: V6Destination) {
+    if (destination === "verbs") {
+      dispatch({ type: "SET_TAB", payload: "verbs" });
+      return;
+    }
+    const next = destination === "study" ? mode : destination;
     if (next === "speak") {
       try {
         sessionStorage.removeItem(V6_PENDING_MODE);
@@ -152,6 +199,7 @@ export function V6AppNavigation() {
       dispatch({ type: "SET_TAB", payload: "speak" });
     } else {
       if (!state.activeModuleId) {
+        setCourseDestination(next);
         setCourses(true);
         return;
       }
@@ -184,7 +232,13 @@ export function V6AppNavigation() {
       />
       <V6Dock
         active={
-          state.currentTab === "speak" ? "speak" : state.currentTab === "core30" ? mode : null
+          state.currentTab === "speak"
+            ? "speak"
+            : state.currentTab === "core30"
+              ? mode
+              : state.currentTab === "verbs"
+                ? "verbs"
+                : null
         }
         onSelect={select}
       />

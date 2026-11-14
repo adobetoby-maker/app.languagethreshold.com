@@ -4,6 +4,7 @@ import { build } from "esbuild";
 import { mkdtempSync, rmSync } from "node:fs";
 import { join, resolve } from "node:path";
 const tick = () => new Promise((r) => setImmediate(r));
+let renderCurrent;
 const changed = (a, b) => !a || a.some((v, i) => v !== b[i]);
 function nodes(n, out = []) {
   if (Array.isArray(n)) n.forEach((v) => nodes(v, out));
@@ -11,6 +12,9 @@ function nodes(n, out = []) {
     if (typeof n.type === "function" && n.type.name === "SpeakingConversationControls")
       return nodes(n.type(n.props), out);
     out.push(n);
+    if (n.type?.name === "NativeSpeakSurface") {
+      nodes([n.props.transcript, n.props.controls, n.props.composer, n.props.microphone], out);
+    }
     nodes(n.props?.children, out);
   }
   return out;
@@ -18,8 +22,30 @@ function nodes(n, out = []) {
 function text(n) {
   if (n == null || typeof n === "boolean") return "";
   if (Array.isArray(n)) return n.map(text).join("");
+  if (typeof n === "object" && n.type?.name === "NativeSpeakSurface")
+    return text([
+      n.props.transcript,
+      n.props.controls,
+      n.props.composer,
+      n.props.microphone,
+      n.props.status,
+    ]);
   if (typeof n === "object") return text(n.props?.children);
   return String(n);
+}
+function topic(tree) {
+  return {
+    props: {
+      onClick() {
+        nodes(tree)
+          .find((n) => n.type === "textarea")
+          .props.onChange({ target: { value: "Cuéntame sobre tu ciudad" } });
+        nodes(renderCurrent())
+          .find((n) => n.type === "form")
+          .props.onSubmit({ preventDefault() {} });
+      },
+    },
+  };
 }
 async function fixture(component, action) {
   const dir = mkdtempSync(resolve("node_modules/.cache/speak-picker-"));
@@ -58,7 +84,7 @@ async function fixture(component, action) {
             b.onResolve(
               {
                 filter:
-                  /^(@\/hooks\/use-chat-follow|\.\/(SpeakTutorDock|LongPressWordText|RecordedReplyControl|SpeakingGuestConsent)|fixture|react|lucide-react|sonner|@\/state\/(app|speak|speech|auth|ai-gate)-state|@\/lib\/(tts|voices|mission-tts|pwa-install|confetti|module-filter|speaking-client|speaking-privacy)|@\/data\/modules|@\/components\/(speak\/(ChallengePanel|SpeakingMissionsPreview)|modules\/ModuleMatchPanel|core30\/LessonReturnPill|ui\/dropdown-menu))$/,
+                  /^(@\/hooks\/use-chat-follow|\.\/(SpeakTutorDock|LongPressWordText|RecordedReplyControl|SpeakingGuestConsent|NativeSpeakSurface)|fixture|react|lucide-react|sonner|@\/state\/(app|speak|speech|auth|ai-gate)-state|@\/lib\/(tts|voices|mission-tts|pwa-install|confetti|module-filter|speaking-client|speaking-privacy)|@\/data\/modules|@\/components\/(speak\/(ChallengePanel|SpeakingMissionsPreview)|modules\/ModuleMatchPanel|core30\/LessonReturnPill|ui\/dropdown-menu))$/,
               },
               () => ({ path: "fixture", namespace: "fixture" }),
             );
@@ -67,7 +93,7 @@ async function fixture(component, action) {
               contents: `
  import {speakingRequestHeaders as realHeaders} from "./src/lib/speaking-client.ts";
  export const supabase={auth:{getSession:()=>new Promise(resolve=>c.sessions.push(resolve))}};
- export const SpeakTutorDock='section',LongPressWordText='span';
+ export const SpeakTutorDock='section',LongPressWordText='span'; export const NativeSpeakSurface=()=>null;
  export const c={consent:true,sessions:[],realHeaders:false,google:[],slots:[],cursor:0,effects:[],actor:'a',accent:'es-CR',voice:null,state:{selectedLanguage:'Spanish',nativeLanguage:'English',activeModuleId:'roofing',level:'A2',userVocab:[]},turns:[],audio:[],dispatches:[],tips:[],exchanges:0,seconds:[],writes:0,errors:[],headers:[],waitHeaders:false,capabilities:[],now:0};
  const changed=${changed.toString()};
  export const useRef=initial=>{const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];};
@@ -143,11 +169,18 @@ async function fixture(component, action) {
       for (const f of c.effects.splice(0)) f();
       return tree;
     };
+    renderCurrent = render;
     const unmount = () => {
       for (const s of c.slots) s?.cleanup?.();
     };
-    const button = (tree, label) =>
-      nodes(tree).find((n) => n.type === "button" && text(n).trim() === label);
+    const button = (tree, label) => {
+      const native = nodes(tree).find((n) => n.type?.name === "NativeSpeakSurface");
+      if (native && label === "Free conversation") return { props: { onClick() {} } };
+      if (native && label === "Reset") return { props: { onClick: native.props.onReset } };
+      if (native && label === "Scenario missions")
+        return { props: { onClick: native.props.onScenarios } };
+      return nodes(tree).find((n) => n.type === "button" && text(n).trim() === label);
+    };
     const finish = async (req) => {
       let i = 0;
       const chunks = [
@@ -190,7 +223,7 @@ test("actual SpeakLearn cancels chat/tips before and after headers, suppresses d
     assert.equal(audioMode.props["aria-pressed"], true);
 
     tree = render();
-    const chip = nodes(tree).find((n) => n.type === "button" && text(n).includes("ciudad"));
+    const chip = topic(tree);
     chip.props.onClick();
     chip.props.onClick();
     await tick();
@@ -222,9 +255,7 @@ test("actual SpeakLearn cancels chat/tips before and after headers, suppresses d
     assert.equal(c.turns.length, 0);
     assert.equal(c.tips.length, 0);
     assert.equal(c.exchanges, 0);
-    nodes(tree)
-      .find((n) => n.type === "button" && text(n).includes("ciudad"))
-      .props.onClick();
+    topic(tree).props.onClick();
     await tick();
     const activeChat = requests.at(-2),
       activeTip = requests.at(-1);
@@ -242,9 +273,7 @@ test("actual SpeakLearn cancels chat/tips before and after headers, suppresses d
     assert.equal(c.tips.length, 0);
     c.waitHeaders = true;
     tree = render();
-    nodes(tree)
-      .find((n) => n.type === "button" && text(n).includes("ciudad"))
-      .props.onClick();
+    topic(tree).props.onClick();
     await tick();
     assert.equal(c.headers.length, 2);
     tree = render();
@@ -334,9 +363,7 @@ test("actual SpeakLearn binds chat and tip credential lookup to the originating 
     render();
     await tick();
     const tree = render();
-    nodes(tree)
-      .find((n) => n.type === "button" && text(n).includes("ciudad"))
-      .props.onClick();
+    topic(tree).props.onClick();
     assert.equal(c.sessions.length, 2);
     for (const resolve of c.sessions.splice(0))
       resolve({ data: { session: { user: { id: "b" }, access_token: "synthetic-b" } } });
@@ -374,12 +401,12 @@ test("free conversation without saved consent cannot record or send a topic", ()
     render();
     await tick();
     const tree = render();
-    const mic = nodes(tree).find((n) => n.props?.["aria-label"] === "Start listening");
-    assert.equal(mic.props.disabled, true);
-    mic.props.onClick();
-    nodes(tree)
-      .find((n) => n.type === "button" && text(n).includes("ciudad"))
-      .props.onClick();
+    assert.equal(
+      nodes(tree).some((n) => n.props?.["aria-label"] === "Start listening"),
+      false,
+    );
+    assert.equal(nodes(tree).find((n) => n.type === "textarea").props.disabled, true);
+    topic(tree).props.onClick();
     await tick();
     assert.equal(recognitions.length, 0);
     assert.equal(requests.length, 0);
@@ -437,7 +464,11 @@ test("four spoken exchanges recover missing end events, reset cancels a pending 
       );
     }
     assert.equal(c.exchanges, 4);
-    assert.match(text(tree), /4 exchanges · Goal reached/);
+    assert.equal(
+      nodes(tree).find((n) => n.type === "textarea").props.disabled,
+      false,
+      "the fourth exchange keeps the composer available",
+    );
     const input = nodes(tree).find((n) => n.type === "textarea");
     input.props.onChange({ target: { value: "pending fifth" } });
     tree = render();
@@ -552,7 +583,7 @@ test("reply uses HD voices loaded during the AI request and respects Voice switc
     await tick();
     tree = render();
     const send = () => {
-      const chip = nodes(tree).find((n) => n.type === "button" && text(n).includes("ciudad"));
+      const chip = topic(tree);
       chip.props.onClick();
     };
     send();

@@ -12,8 +12,8 @@ test("public lesson workspace demo keeps practice temporary across all six modes
       accountRequests.push(url.pathname);
   });
   await page.goto("/demo/lesson-workspace");
-  await expect(page.getByTestId("v6-nav-speak")).toHaveAttribute("aria-current", "page");
-  await page.getByTestId("v6-nav-see").click();
+  await expect(page.getByRole("button", { name: "Speaking menu", exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Back to Study", exact: true }).click();
   await expect(page.getByRole("article", { name: "Published lesson reading" })).toBeVisible();
   await expect(
     page.getByRole("heading", { name: "Sounds and Greetings", exact: true }),
@@ -102,8 +102,8 @@ test("public lesson demo can retry a failed lesson fetch", async ({ page }) => {
     return route.continue();
   });
   await page.goto("/demo/lesson-workspace");
-  await expect(page.getByTestId("v6-nav-speak")).toHaveAttribute("aria-current", "page");
-  await page.getByTestId("v6-nav-see").click();
+  await expect(page.getByRole("button", { name: "Speaking menu", exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Back to Study", exact: true }).click();
   await expect(page.getByRole("alert")).toBeVisible();
   await page.getByRole("button", { name: "Retry sample lesson", exact: true }).click();
   await expect(page.getByRole("article", { name: "Published lesson reading" })).toBeVisible();
@@ -113,8 +113,8 @@ test("public lesson demo can retry a failed lesson fetch", async ({ page }) => {
 test("demo keeps its activity visible on a short landscape screen", async ({ page }, info) => {
   await page.setViewportSize({ width: 852, height: 393 });
   await page.goto("/demo/lesson-workspace");
-  await expect(page.getByTestId("v6-nav-speak")).toHaveAttribute("aria-current", "page");
-  await page.getByTestId("v6-nav-see").click();
+  await expect(page.getByRole("button", { name: "Speaking menu", exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Back to Study", exact: true }).click();
   await expect(page.getByRole("article", { name: "Published lesson reading" })).toBeVisible();
   await expect(page.locator(".lt-lesson-workspace-header")).toHaveCSS("position", "static");
   await page.getByRole("button", { name: "Type it", exact: true }).click();

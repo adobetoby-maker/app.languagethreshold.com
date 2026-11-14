@@ -264,6 +264,61 @@ async function ownerCoreSevenToNineDrafts() {
   });
 }
 
+async function ownerCoreTenToTwelveDrafts() {
+  const [candidateModule, modesModule, formsModule] = await Promise.all([
+    import("../../content/french-basics/private-core-10-12-owner-candidate-fr-en.json"),
+    import("../../content/french-basics/private-core-10-12-mode-prompts-fr-en.json"),
+    import("../../content/french-basics/private-form-practice-core-10-12-fr-en.json"),
+  ]);
+  const candidate = candidateModule.default as CoreCandidate;
+  const modes = modesModule.default as Modes;
+  const forms = formsModule.default as CoreForms;
+  const sourceFile = "content/french-basics/private-runtime-core-1-30.json";
+  const sourceSha256 = "6d200aae866bbd1561e9bc9b035a516641b555592561bb51168bbecae9f74af5";
+  if (candidate.target !== "French" || candidate.native !== "English" || candidate.reviewed !== false ||
+    candidate.registered !== false || candidate.sourceFile !== sourceFile || candidate.sourceSha256 !== sourceSha256 ||
+    candidate.draftFile !== "content/french-basics/core-10-12-draft.json" ||
+    candidate.draftSha256 !== "ce1f6aa6a1c23fe610e9ae433914b9a41f5e8af33d84a6014b57bc9394d860aa" ||
+    candidate.englishSourceFile !== "content/french-basics/source-english-core-10-12.json" ||
+    candidate.englishSourceSha256 !== "bd1b311dd81b9da2bbe5349166d1e61bfbe7b293b99db1bf67389a517ff4afa8" ||
+    candidate.sourceFileSha256["src/data/spanish-basics-core.json"] !== "d50c3e52a846331e9c0bcec19a5c91605585f4e285c62138941425390d160e38" ||
+    candidate.sourceFileSha256["src/data/spanish-basics-practice.json"] !== "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe" ||
+    modes.pairKey !== "French:English" || modes.reviewed !== false || modes.registered !== false ||
+    modes.sourceFile !== sourceFile || modes.sourceSha256 !== sourceSha256 ||
+    forms.pairKey !== "French:English" || forms.reviewed !== false || forms.registered !== false ||
+    forms.courseId !== "french-basics:fr-en" || forms.sourceFile !== sourceFile ||
+    forms.sourceSha256 !== sourceSha256 ||
+    candidate.lessons.map((lesson) => lesson.n).join() !== "10,11,12" ||
+    modes.lessons.map((lesson) => lesson.lesson).join() !== "10,11,12" ||
+    forms.lessons.map((lesson) => lesson.lesson).join() !== "10,11,12")
+    throw new Error("French 101 Core 10–12 candidate source or release gate changed");
+  return candidate.lessons.map((lesson, index) => {
+    const stableKey = `french-basics:${lesson.n}`;
+    const mode = modes.lessons[index];
+    const form = forms.lessons[index];
+    if (mode.stableLessonKey !== stableKey || form.stableLessonKey !== stableKey ||
+      lesson.words.length !== 14 || lesson.reader.length !== 6 || !lesson.speaking.trim() ||
+      lesson.words.some((word) => !word.fr?.trim() || !word.en?.trim() || !word.kind?.trim()) ||
+      lesson.reader.some((line) => !line.fr?.trim() || !line.en?.trim()) ||
+      modeNames.some((name) => !mode.modes[name]?.prompt?.trim() || !mode.modes[name]?.targetText?.trim()) ||
+      form.prompts.some((prompt) => prompt.reviewed !== false || !prompt.frenchAnswer?.trim() ||
+        !prompt.englishPrompt?.trim() || (prompt.source === "aligned-reader" &&
+          (lesson.reader[prompt.sourceReaderTurn! - 1]?.fr !== prompt.frenchAnswer ||
+           lesson.reader[prompt.sourceReaderTurn! - 1]?.en !== prompt.englishPrompt))))
+      throw new Error("French 101 Core 10–12 candidate lesson alignment changed");
+    return { stage: "core" as const, n: lesson.n, stableId: `${stableKey}:fr-en`,
+      title: lesson.title, objective: lesson.objective, focus: lesson.focus, scene: lesson.scene,
+      reviewed: false as const, cards: lesson.words, reader: lesson.reader,
+      modes: Object.fromEntries(modeNames.map((name) => [name, {
+        prompt: mode.modes[name].prompt, targetText: mode.modes[name].targetText, recordedAudio: false,
+      }])),
+      speaking: lesson.speaking,
+      forms: form.prompts.map(({ id, englishPrompt, frenchAnswer }) => ({ id, englishPrompt, frenchAnswer })),
+      reviewGaps: ["Qualified French and dictionary review pending", "Recorded audio and learner runtime pending"],
+    };
+  });
+}
+
 export const Route = createFileRoute("/api/owner-french101-drafts")({
   server: { handlers: { GET: async ({ request }) => {
     try {
@@ -272,7 +327,7 @@ export const Route = createFileRoute("/api/owner-french101-drafts")({
       await requirePlatformOwner(db, actor);
       return json({ pairKey: "French:English", courseId: "french-basics", status: "owner-review-draft",
         reviewed: false, registered: false, audioRegistered: false,
-        lessons: [...await ownerDrafts(), ...await ownerCoreDrafts(), ...await ownerCoreFourToSixDrafts(), ...await ownerCoreSevenToNineDrafts()] });
+        lessons: [...await ownerDrafts(), ...await ownerCoreDrafts(), ...await ownerCoreFourToSixDrafts(), ...await ownerCoreSevenToNineDrafts(), ...await ownerCoreTenToTwelveDrafts()] });
     } catch (error) { return scopedTeamError(error); }
   } } },
 });

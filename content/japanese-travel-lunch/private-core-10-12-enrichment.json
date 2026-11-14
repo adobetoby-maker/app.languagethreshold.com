@@ -1,0 +1,128 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "sourcePath": "content/japanese-travel-lunch/core-10-12-draft.json",
+  "sourceSha256": "0ae1686e21cc97ff0e4083ac02361076ddd0e97734fa64acc7b7bfc20d7c075a",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "lessons": [
+    {
+      "stableId": "travel-lunch:10:ja-en",
+      "speakingObjectives": [
+        "Tell staff you only have twenty minutes to eat, using 食べる時間が二十分しかありません.",
+        "Ask what can be served quickly, and ask how many minutes the daily set lunch takes.",
+        "Compare the soup and sandwich, which take about five minutes, with the daily set, which takes about fifteen minutes.",
+        "Order a sandwich and a small salad, then ask to pay first."
+      ],
+      "wordBank": [
+        "二十分",
+        "日替わり定食",
+        "サンドイッチ",
+        "食べる時間が二十分しかありません",
+        "何が早く出せますか",
+        "日替わり定食は何分かかりますか",
+        "サンドイッチをお願いします",
+        "先にお会計できますか"
+      ],
+      "forms": [
+        {
+          "label": "State a time limit",
+          "japanese": "食べる時間が二十分しかありません。",
+          "english": "I only have twenty minutes to eat.",
+          "explanation": "食べる ('to eat') directly modifies 時間 ('time'). After a quantity, しか pairs with a negative verb to mean 'only': 二十分しかありません means there are only twenty minutes."
+        },
+        {
+          "label": "Ask what is quick",
+          "japanese": "何が早く出せますか。",
+          "english": "What can you serve quickly?",
+          "explanation": "早く is the adverb of 早い ('early / soon'); here it means without much waiting. 出せます is the polite potential of 出す ('to bring out / serve'). With a potential verb, が can mark the thing that can be served, here 何 ('what')."
+        },
+        {
+          "label": "Ask how long it takes",
+          "japanese": "日替わり定食は何分かかりますか。",
+          "english": "How many minutes does the daily set meal take?",
+          "explanation": "は marks the daily set meal as the topic. 何分 asks how many minutes, and かかります is the polite form of かかる ('to take time'). か turns it into a question."
+        }
+      ]
+    },
+    {
+      "stableId": "travel-lunch:11:ja-en",
+      "speakingObjectives": [
+        "Say that your meal has not arrived yet after waiting forty minutes, and that your friends have already finished eating.",
+        "Mention that one drink is missing and that the soup that arrived is cold.",
+        "Ask staff to check the order.",
+        "Ask for the soup to be removed from the bill."
+      ],
+      "wordBank": [
+        "四十分",
+        "注文",
+        "飲み物",
+        "友達はもう食べ終わりました",
+        "私の料理がまだ来ていません",
+        "注文を確認してもらえますか",
+        "スープが冷たいです",
+        "この料理を料金から外してもらえますか"
+      ],
+      "forms": [
+        {
+          "label": "Report a missing meal",
+          "japanese": "私の料理がまだ来ていません。",
+          "english": "My meal has not arrived yet.",
+          "explanation": "私の料理 literally means 'my meal'; の links 私 ('I') to 料理 ('meal'). まだ with the negative 来ていません means 'has not arrived yet'. 来ていません is the negative polite ている form of 来る."
+        },
+        {
+          "label": "Ask for an order check",
+          "japanese": "注文を確認してもらえますか。",
+          "english": "Could you check the order?",
+          "explanation": "注文を means 'the order', with を marking the object. 確認して is the て-form of 確認する ('check'). 〜てもらえますか politely asks whether someone could do an action for you."
+        },
+        {
+          "label": "Ask to remove a dish from the bill",
+          "japanese": "この料理を料金から外してもらえますか。",
+          "english": "Could you remove this dish from the bill?",
+          "explanation": "この料理を marks this dish as the thing to remove; 料金から means 'from the charge'. 外してもらえますか politely requests removal. Staff may say スープの料金を外します ('remove the soup charge'), as in the Reader."
+        }
+      ]
+    },
+    {
+      "stableId": "travel-lunch:12:ja-en",
+      "speakingObjectives": [
+        "Ask whether you can pay separately, understand the choice by person or by dish, and choose by dish.",
+        "Explain that two people's meals will be put on one card.",
+        "Ask for two card payments and one cash payment, and understand when staff say they will split it into three transactions.",
+        "Check whether the service charge is included in the total, and ask for a receipt."
+      ],
+      "wordBank": [
+        "現金",
+        "カード",
+        "人ごとに",
+        "料理ごとに",
+        "別々に払えますか",
+        "カードで二件、現金で一件お願いします",
+        "サービス料は合計に含まれていますか",
+        "領収書をお願いします"
+      ],
+      "forms": [
+        {
+          "label": "Ask to pay separately",
+          "japanese": "別々に払えますか。",
+          "english": "Can we pay separately?",
+          "explanation": "別々に means 'separately'. 払えます is the polite potential of 払う ('can pay'); か makes it a question."
+        },
+        {
+          "label": "Set up card and cash payments",
+          "japanese": "カードで二件、現金で一件お願いします。",
+          "english": "Two card payments and one cash payment, please.",
+          "explanation": "で marks the payment method: カードで ('by card') and 現金で ('in cash'). 件 counts transactions, though it sounds somewhat formal; 回 ('times') is common in speech, as in the cashier's 三回に分けます. お願いします makes the request polite."
+        },
+        {
+          "label": "Check the service charge",
+          "japanese": "サービス料は合計に含まれていますか。",
+          "english": "Is the service charge included in the total?",
+          "explanation": "は marks the service charge as the topic. 含まれる is the passive of 含む ('include'); 含まれています is its polite ている form, describing the state 'is included'. 合計に means 'in the total', and か makes it a question."
+        }
+      ]
+    }
+  ]
+}

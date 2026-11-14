@@ -4,7 +4,7 @@ import { authenticatedTeamUser, json, requirePlatformOwner, scopedTeamError, tea
 
 const stages = [
   { draft: () => import("../../content/japanese-travel-lunch/core-1-3-draft.json"), modes: () => import("../../content/japanese-travel-lunch/private-mode-activities-core-1-3.json"), sourceSha256: "846d81b36fe1ffccadb8b4f269813dcb705f80f798a9a08320e4de3f2247d3bf" },
-  { draft: () => import("../../content/japanese-travel-lunch/core-10-12-draft.json"), modes: () => import("../../content/japanese-travel-lunch/private-mode-activities-core-10-12.json"), sourceSha256: "94517a51fc2127e1dfeaea116650d203e087ce1d20de6aa217c25e4543e3419a" },
+  { draft: () => import("../../content/japanese-travel-lunch/core-10-12-draft.json"), modes: () => import("../../content/japanese-travel-lunch/private-mode-activities-core-10-12.json"), sourceSha256: "0ae1686e21cc97ff0e4083ac02361076ddd0e97734fa64acc7b7bfc20d7c075a" },
   { draft: () => import("../../content/japanese-travel-lunch/core-13-15-draft.json"), modes: () => import("../../content/japanese-travel-lunch/private-mode-activities-core-13-15.json"), sourceSha256: "3c4c9f965ae84dac2658c4d594a2731228967778e063d48fe5c99e25a3638deb" },
   { draft: () => import("../../content/japanese-travel-lunch/core-16-18-draft.json"), modes: () => import("../../content/japanese-travel-lunch/private-mode-activities-core-16-18.json"), sourceSha256: "238fac8b8b0cf20f1591d3c0e325ba873f0d46091e14872814d22ffed376b318" },
   { draft: () => import("../../content/japanese-travel-lunch/core-19-21-draft.json"), modes: () => import("../../content/japanese-travel-lunch/private-mode-activities-core-19-21.json"), sourceSha256: "8c0cfa225d6505a4c5017b2063a5a260acc69fc87579089804e6d00c3be450a3" },
@@ -105,6 +105,16 @@ async function lunchDrafts() {
       "travel-lunch:7:ja-en,travel-lunch:8:ja-en,travel-lunch:9:ja-en",
     "Japanese Lunch Core 7–9 enrichment source or release gate changed");
   authoredLessons.push(...finalCoreEnrichment.lessons);
+  const coreTenEnrichment = (await import("../../content/japanese-travel-lunch/private-core-10-12-enrichment.json")).default as Enrichment;
+  check(coreTenEnrichment.pairKey === "Japanese:English" &&
+    coreTenEnrichment.sourcePath === "content/japanese-travel-lunch/core-10-12-draft.json" &&
+    coreTenEnrichment.sourceSha256 === "0ae1686e21cc97ff0e4083ac02361076ddd0e97734fa64acc7b7bfc20d7c075a" &&
+    coreTenEnrichment.reviewed === false && coreTenEnrichment.registered === false &&
+    coreTenEnrichment.readyForLearner === false &&
+    coreTenEnrichment.lessons.map((lesson) => lesson.stableId).join() ===
+      "travel-lunch:10:ja-en,travel-lunch:11:ja-en,travel-lunch:12:ja-en",
+    "Japanese Lunch Core 10–12 enrichment source or release gate changed");
+  authoredLessons.push(...coreTenEnrichment.lessons);
   const packets = await Promise.all(stages.map(async ({ draft, modes, sourceSha256 }) => ({
     batch: (await draft()).default as Draft, sidecar: (await modes()).default as Sidecar, sourceSha256,
   })));
@@ -124,7 +134,7 @@ async function lunchDrafts() {
         lesson.cards.length > 0 && lesson.reader.length > 0, "Japanese Lunch lesson identity changed");
       const activities = sidecar.activities.filter((activity) => activity.lessonId === lesson.stableId);
       const authored = authoredLessons.find((entry) => entry.stableId === lesson.stableId);
-      if (authored) check(((stage === "foundation" && lesson.n <= 10) || (stage === "core" && lesson.n <= 9)) && authored.forms.length === 3 &&
+      if (authored) check(((stage === "foundation" && lesson.n <= 10) || (stage === "core" && lesson.n <= 12)) && authored.forms.length === 3 &&
         authored.speakingObjectives.length >= 3 && authored.wordBank.length >= 4 &&
         authored.wordBank.every((word) => lesson.cards.some((card) => card.ja === word)),
         "Japanese Lunch authored enrichment scope changed");

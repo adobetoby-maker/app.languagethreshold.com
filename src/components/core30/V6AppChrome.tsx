@@ -102,9 +102,8 @@ export function V6Dock({
 }) {
   const [ready, setReady] = useState(false);
   useEffect(() => setReady(true), []);
-  // The conversation surface owns its bar so it follows the keyboard with the reply dock.
-  if (active === "speak") return null;
-  const studying = true;
+  // CSS hides this whole dock on NativeSpeakSurface. Keep the fallback for mission screens.
+  const studying = active !== "speak";
   return (
     <div className="lt-v6-bottom">
       {studying && (

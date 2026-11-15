@@ -989,6 +989,11 @@ test("V4 app opens Speak with a persistent Study switch and keeps setup in menus
   await expect(page.getByRole("dialog")).toBeVisible();
   await page.getByRole("button", { name: "Reset conversation", exact: true }).click();
   await expect(page.getByRole("dialog")).toHaveCount(0);
+  await page.getByRole("button", { name: "Speaking menu", exact: true }).click();
+  await page.getByRole("button", { name: "Scenario missions", exact: true }).click();
+  await expect(page.getByTestId("v6-nav-study")).toBeInViewport();
+  await page.getByRole("tab", { name: "Free conversation", exact: true }).click();
+  await expect(page.locator(".lt-v6-bottom")).toBeHidden();
   await page.getByTestId("native-nav-study").click();
   await expect(page.getByRole("navigation", { name: "Study and speak" })).toBeVisible();
   await expect(

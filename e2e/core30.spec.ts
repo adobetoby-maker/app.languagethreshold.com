@@ -24,6 +24,13 @@ test("the Study screen keeps other features in one deeper navigation menu", asyn
   const menu = await openExplore(page);
   await expect(menu.getByRole("button", { name: "Core 60", exact: true })).toHaveCount(1);
   await expect(menu.getByRole("button", { name: "Modules", exact: true })).toBeVisible();
+  await menu.getByRole("button", { name: "Games", exact: true }).click();
+  await expect(
+    page.getByRole("navigation", { name: "Lesson practice modes", exact: true }),
+  ).toHaveCount(0);
+  await expect(
+    page.getByRole("navigation", { name: "Study and speak", exact: true }),
+  ).toBeVisible();
 });
 
 test("the deeper Learn menu groups Core 60 before Modules", async ({ page }) => {

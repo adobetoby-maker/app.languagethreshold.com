@@ -1,0 +1,17 @@
+# French Breakfast Foundation 1 — private lesson-team checkpoint
+
+**Disposition:** source-aligned, structurally valid *candidate* for owner-only review, with qualified French/food/register review still required. Do not register for learners or audio. All review, registration, audio, and mode readiness gates are false.
+
+Source on current `origin/main` at audit (`a5609b01e18a25c2517c13d3f569a01b1efc0b1e`): `src/data/core60/es/foundation-travel-breakfast.json` SHA-256 `94621cca4158b76c69435f35eb1dfdc4893df553afaccb8a1963bdd9e6d80e79`; `public/lesson-content/es/foundation-travel-breakfast.json` SHA-256 `e11886cd3e030534ba8f8b8e92515c528e07c2875f20a58034faed2bc3d0f78a`. Private French source was #475 head `5cc469f5a54828c48238ccdf411238ed2e3e2c08`.
+
+The private draft changed Oaxaca to Lyon, tortillas to crêpes, churro to croissant, and other Reader foods. This candidate restores the exact 14 English card faces, kinds, 9 exact English Reader lines, Spanish source anchors, Oaxaca scene, tortilla and churro. It retains stable stage-local `foundation:1`; the six modes point to exact card or Reader pairs, five forms to Reader lines. The qualifier `mexicaine` is used on tortilla to prevent a French learner reading it as a Spanish omelette. This is a contextual clarification, for qualified review. The old exact-text draft audio, if any, is invalid for the corrected strings; no audio was made or approved here.
+
+CLI evidence: direct `claude --safe-mode --model haiku --tools '' -p --output-format json` returned canonical `claude-haiku-5-5`; `--model opus` returned `claude-opus-5-5`; `--model fable` returned `claude-fable-5-2`, all `is_error:false`. Haiku built, Opus gave read-only critique, Fable adjudicated. Self-check rejected Opus's informal `Salut, comment ça va ?` because Spanish `¿cómo está usted?` and the source note explicitly specify formal service register. It accepted missing article and prompt/target repairs. Self-check further restored the contextual tortilla qualifier after Fable omitted it. AI is not qualified review.
+
+Validator `python3 /Users/drive/lt-review/french-breakfast-teams-2026-11-14/foundation-1/validate_packet.py` passes exact current-main hashes, English/Spanish card and Reader strings, kinds, IDs, forms, six aligned modes, and closed gates. Packet: `/Users/drive/lt-review/french-breakfast-teams-2026-11-14/foundation-1/owner-review-packet.json`.
+
+Residuals: Sam's gender is unspecified, so `enchanté(e)` is a visible placeholder requiring an owner/qualified language decision and spelling policy before graded use or TTS; formal French `Bonjour, comment allez-vous ?` translates a source English “Hi” while preserving Spanish *usted*; `pain sucré` for pan dulce and `la tortilla mexicaine` need cultural review. The goodbye card has no source Reader occurrence and is practiced only through a card-linked mode. Foundation level/scope and French pronunciation notes need review. The hear mode is partner/script only; no recorded playback. Learner runtime, offline, progress and V4 acceptance have not been tested.
+
+The validator runs entirely from archived source snapshots; it does not require the original worktree. To recheck current `origin/main`, fetch the repository separately and compare the two SHA-256 values above.
+
+Archive audit 2026-11-14 17:11 UTC: normalized explicit `readyForLearner:false`, `learnerRuntimeEnabled:false`, `audioPlaybackEnabled:false`, and `progressEnabled:false` in this private packet. No route or learner registration changed. Validator and SHA-256 manifest refreshed.

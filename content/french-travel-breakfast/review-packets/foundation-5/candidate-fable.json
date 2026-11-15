@@ -1,0 +1,140 @@
+{
+  "frenchCards": [
+    "la boulangerie",
+    "le café",
+    "le marché",
+    "le comptoir",
+    "la terrasse",
+    "la caisse",
+    "les toilettes",
+    "à emporter",
+    "sur place",
+    "Je vais à la boulangerie.",
+    "Je vais commander les chilaquiles.",
+    "Nous allons prendre le petit-déjeuner ici.",
+    "Est-ce que je peux m'asseoir en terrasse ?",
+    "Est-ce que je peux payer par carte ?",
+    "Est-ce que vous faites des œufs au choix ?"
+  ],
+  "readerTitleFrench": "Petit-déjeuner à Oaxaca",
+  "frenchReader": [
+    "Emma va prendre le petit-déjeuner dans un café près du marché.",
+    "Au comptoir, Diego, le barista, fait du café.",
+    "Emma : Je vais commander les chilaquiles.",
+    "Emma : C'est pour manger sur place, pas à emporter.",
+    "Emma : Est-ce que je peux m'asseoir en terrasse ?",
+    "Diego : Oui, vous pouvez, et les toilettes sont au fond.",
+    "Emma : Est-ce que je peux payer par carte ?",
+    "Diego : Oui, vous pouvez payer à la caisse.",
+    "Ensuite, Emma va aller à la boulangerie pour acheter du pain."
+  ],
+  "forms": [
+    {
+      "french": "Emma va prendre le petit-déjeuner dans un café près du marché.",
+      "english": "Emma is going to have breakfast at a café near the market.",
+      "readerLine": "Emma is going to have breakfast at a café near the market."
+    },
+    {
+      "french": "Au comptoir, Diego, le barista, fait du café.",
+      "english": "At the counter, Diego the barista makes coffee.",
+      "readerLine": "At the counter, Diego the barista makes coffee."
+    },
+    {
+      "french": "Emma : Je vais commander les chilaquiles.",
+      "english": "Emma: I'm going to order the chilaquiles.",
+      "readerLine": "Emma: I'm going to order the chilaquiles."
+    },
+    {
+      "french": "Emma : Est-ce que je peux m'asseoir en terrasse ?",
+      "english": "Emma: Can I sit on the terrace?",
+      "readerLine": "Emma: Can I sit on the terrace?"
+    },
+    {
+      "french": "Diego : Oui, vous pouvez payer à la caisse.",
+      "english": "Diego: Yes, you can pay at the register.",
+      "readerLine": "Diego: Yes, you can pay at the register."
+    },
+    {
+      "french": "Ensuite, Emma va aller à la boulangerie pour acheter du pain.",
+      "english": "Afterward, Emma is going to go to the bakery for bread.",
+      "readerLine": "Afterward, Emma is going to go to the bakery for bread."
+    }
+  ],
+  "modes": [
+    {
+      "mode": "see",
+      "sourceType": "card",
+      "sourceIndex": 10,
+      "promptFrench": "Je vais à la boulangerie.",
+      "targetEnglish": "I'm going to the bakery."
+    },
+    {
+      "mode": "recall",
+      "sourceType": "card",
+      "sourceIndex": 12,
+      "promptFrench": "Nous allons prendre le petit-déjeuner ici.",
+      "targetEnglish": "We're going to have breakfast here."
+    },
+    {
+      "mode": "hear",
+      "sourceType": "reader",
+      "sourceIndex": 4,
+      "promptFrench": "Emma : C'est pour manger sur place, pas à emporter.",
+      "targetEnglish": "Emma: It's for here, not to go."
+    },
+    {
+      "mode": "type",
+      "sourceType": "card",
+      "sourceIndex": 14,
+      "promptFrench": "Est-ce que je peux payer par carte ?",
+      "targetEnglish": "Can I pay by card?"
+    },
+    {
+      "mode": "say",
+      "sourceType": "card",
+      "sourceIndex": 13,
+      "promptFrench": "Est-ce que je peux m'asseoir en terrasse ?",
+      "targetEnglish": "Can I sit on the terrace?"
+    },
+    {
+      "mode": "write",
+      "sourceType": "reader",
+      "sourceIndex": 6,
+      "promptFrench": "Diego : Oui, vous pouvez, et les toilettes sont au fond.",
+      "targetEnglish": "Diego: Yes, you can, and the restroom is in the back."
+    }
+  ],
+  "speakingObjectives": [
+    "Tell a barista that you are going to eat here, using Je vais manger sur place or an equivalent.",
+    "Ask if you can sit on the terrace, using Est-ce que je peux m'asseoir en terrasse ?",
+    "Ask if you can pay by card, using Est-ce que je peux payer par carte ?"
+  ],
+  "sourceNotes": [
+    "frenchCards holds one French face for each of the 15 source cards, in source order (cards 1-9 kind 'term', cards 10-15 kind 'phrase'). Source English and kinds are not restated or edited; they map by 1-based index.",
+    "frenchReader holds one French reading for each of the 9 Reader lines, in source order, with the Emma and Diego speaker labels kept. Reader English maps by 1-based index and is not edited.",
+    "readerTitleFrench renders the source passage title 'Desayuno en Oaxaca'. The source gives no English title. The title is the only place the Oaxaca setting is stated.",
+    "Card 15 was changed from 'Faites-vous les œufs à la commande ?' to 'Est-ce que vous faites des œufs au choix ?'. It follows the Spanish 'al gusto' and the source note ('eggs cooked the way you like'), keeps faire for the hacer focus, and matches the est-ce que pattern of cards 13-14. The Haiku notes defending 'à la commande' and rejecting 'à la demande' were removed as unsound.",
+    "Reader line 2 was changed from 'fait le café' to 'fait du café', because the Spanish 'hace café' and the English 'makes coffee' have no article. Faire is kept for the hacer focus.",
+    "Reader line 4 was changed to 'C'est pour manger sur place, pas à emporter.' to carry 'comer' from the Spanish 'para comer aquí'. Card 9 stays 'sur place', the standard counter term.",
+    "Reader line 9 keeps 'pour acheter du pain'. This adds a verb that 'por pan' and 'for bread' do not have; the Haiku note calling it more precise was removed.",
+    "Diego's 'vous pouvez' matches the Spanish usted form 'puede'. Emma's 'je peux' matches 'puedo'.",
+    "'le café' is both the place (card 2, Reader line 1) and the drink (Reader line 2).",
+    "forms holds six Reader-line pairs in Reader order (lines 1, 2, 3, 5, 8, 9), covering aller + infinitive, faire and pouvoir. The english and readerLine fields both hold the exact source Reader English, speaker labels included.",
+    "Card-only patterns are not in forms because forms is limited to Reader lines: plain aller à (card 10), nous allons + infinitive (card 12) and vous faites (card 15). Pedir is in the source verb list but outside the stated focus.",
+    "modes holds six entries with the unique labels see, recall, hear, type, say and write. Each targetEnglish is the exact source English at that sourceType and sourceIndex. Card 15 is kept out of modes while its source disagreement is open.",
+    "Speaking objective 1 has no verbatim card. 'Je vais manger sur place' is built from card 9, aller + infinitive and Reader line 4. Haiku's fourth speaking objective was removed because it is not in the source speaking task.",
+    "Haiku's notes about a prior draft were dropped because that draft is not in the supplied material and could not be checked."
+  ],
+  "residuals": [
+    "Source disagreement on card 15: the English 'eggs to order' means cooked when ordered, while the Spanish 'al gusto' means cooked the way you like. They are not exact equivalents. The French follows the Spanish sense, and the source English is left unedited.",
+    "'Est-ce que vous faites des œufs au choix ?' needs native review for naturalness as a spoken café question.",
+    "This is a private, unreviewed draft. No native French review has been done and no approval is claimed.",
+    "No audio is attached to this candidate. The hear and say modes have no audio asset in this candidate.",
+    "No learner-readiness claim is made.",
+    "'C'est pour manger sur place' (Reader line 4) and 'Oui, vous pouvez' (Reader line 6) mirror the source closely and need a native check for naturalness in service speech.",
+    "'à emporter' and 'sur place' follow France usage; Québec equivalents are not included.",
+    "'chilaquiles' stays as a loan word in French.",
+    "'?' and ':' are preceded by a plain space. Whether to use non-breaking spaces (U+202F or U+00A0) is undecided, and it affects exact-match checking in type and write modes.",
+    "The source English 'the register' (card 6) is left unedited; the French 'la caisse' follows the Spanish 'la caja'."
+  ]
+}

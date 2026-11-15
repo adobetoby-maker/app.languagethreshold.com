@@ -1,0 +1,234 @@
+{
+  "reviewType": "read-only critique; not a revision; not qualified French review or approval",
+  "findings": [
+    {
+      "severity": "high",
+      "location": "reader[core:14:line:2].targetFrench",
+      "issue": "The quoted speaker is explicitly masculine in the source (\"Un viajero\", \"Él dice\"), so \"pressé(e)\" inside his own quoted speech is wrong. The note's justification that \"the source Spanish has no gender marker\" is false for the passage. It applies only to the standalone card 13, the tener form example and the speaking learner.",
+      "suggestedCorrection": "Il dit : « Je suis pressé parce que mon excursion part dans douze minutes. » Keep pressé(e) only on card 13, the forms example and learner-facing speaking guidance. Correct note 2."
+    },
+    {
+      "severity": "high",
+      "location": "cards[core:14:word:7] + modes[Recall]",
+      "issue": "\"la hâte\" is a literary or formal noun and does not express the source sense of tener prisa (being in a hurry). The Recall prompt says \"hurry as in being in a hurry\" but expects \"la hâte\". This teaches the wrong item for the idiom and invites the false friend \"*J'ai hâte\", which means \"I can't wait / I'm looking forward\".",
+      "suggestedCorrection": "Keep the term only with a note such as: \"Being in a hurry = être pressé(e); avoid avoir hâte (= to look forward to).\" Alternatively, re-link Recall to card 13 or rewrite the prompt so it does not tie la hâte to \"being in a hurry\"."
+    },
+    {
+      "severity": "high",
+      "location": "modes[Type]",
+      "issue": "The prompt asks for \"the French phrase you would use to ask for breakfast to take away\", but targetFrench is only the term \"à emporter\". A learner who correctly types a full request would be marked wrong. The prompt also mixes \"take away\" with the source's \"to go\".",
+      "suggestedCorrection": "Prompt: \"Type the French term for 'to go', as used after the food or drink you order.\" Target: \"à emporter\"."
+    },
+    {
+      "severity": "medium",
+      "location": "cards[core:14:word:16].targetFrench",
+      "issue": "\"Est-ce possible à emporter, s'il vous plaît ?\" is stiff and slightly unidiomatic. It also drops the conditional politeness that the source note highlights (\"A polite request with podría\").",
+      "suggestedCorrection": "Ce serait possible à emporter, s'il vous plaît ? Carry over a note: \"A polite request with the conditional (serait).\""
+    },
+    {
+      "severity": "medium",
+      "location": "cards[core:14:word:4].targetFrench; reader line 4; forms[preparar]; speaking.closingFrench",
+      "issue": "In France, \"un café américain\" is often understood as filter or drip coffee, not an espresso-based americano. Copying the source wording literally risks a meaning shift.",
+      "suggestedCorrection": "Use \"un americano\" (as in the old draft), optionally glossed with café allongé. Apply it consistently across the card, reader line 4, the preparar example and the speaking closing."
+    },
+    {
+      "severity": "medium",
+      "location": "forms[tener]",
+      "issue": "The French example contains no form of avoir, so the entry teaches avoir with an example that cannot illustrate it. The explanation admits the gap but leaves the verb drill non-functional. The source context does contain direct tener→avoir mappings: card 17 \"Solo tengo 12 minutos\" → \"Je n'ai que douze minutes\", and line 7 \"no tiene tiempo\" → \"il n'a pas le temps\".",
+      "suggestedCorrection": "Keep the source-linked example and supportEnglish, and add a secondary avoir example from card 17 or line 7. Reword the explanation to say that tener prisa → être pressé(e) is an idiom contrast."
+    },
+    {
+      "severity": "medium",
+      "location": "forms[tardar].frenchExample / explanationEnglish",
+      "issue": "\"Le sandwich prend environ cinq minutes\" is understandable but slightly unnatural with a food item as subject. The explanation's claim that \"French uses prendre with a duration\" oversimplifies: mettre (+ temps) is the closer counterpart of tardar.",
+      "suggestedCorrection": "Le sandwich met environ cinq minutes à être prêt. Alternatively: La préparation du sandwich prend environ cinq minutes. Mention that mettre du temps (à) is the usual equivalent of tardar."
+    },
+    {
+      "severity": "medium",
+      "location": "modes[See]",
+      "issue": "The See prompt (\"Look at the English word… find its French equivalent\") is functionally an English→French production task, the same as Recall. Nothing is shown in French, so the two modes are not distinct.",
+      "suggestedCorrection": "Make See a recognition task. Show \"le comptoir\" with its English gloss and audio-free context, or offer a choice: \"Which French word means 'counter' (where you order at a café)?\""
+    },
+    {
+      "severity": "medium",
+      "location": "speaking (opening/closing/objectives)",
+      "issue": "The speaking task covers source lines 2, 3, 5, 7 and 8, but three source elements are missing. No waitress turn conveys line 4 (sandwich and americano come out quickly from the kitchen) or line 6 (about 5 minutes, according to the kitchen), so the 5-minute timing is absent. The source ends with the waitress (line 9, \"Con gusto, enseguida se lo preparo\"), but the candidate closes with the learner. The opening also inverts the source, where the traveler speaks first.",
+      "suggestedCorrection": "Add scripted waitress turns: « Un sandwich aux œufs et un americano, c'est rapide. » and « Environ cinq minutes, d'après la cuisine. » Set closingSpeaker to waitress with « Avec plaisir, je vous le prépare tout de suite. » Either let the learner open or flag the invented opening as a deliberate deviation."
+    },
+    {
+      "severity": "low",
+      "location": "speaking.objectivesEnglish[1]",
+      "issue": "\"Ask what the fastest thing you have for breakfast is\" uses the wrong person from the learner's point of view and is awkward English.",
+      "suggestedCorrection": "Ask what the fastest breakfast option is (source passage, line 3)."
+    },
+    {
+      "severity": "low",
+      "location": "speaking.objectivesEnglish[2]",
+      "issue": "This objective cites lines 5 to 7, but line 6 is the waitress's answer, not a learner action. It also omits the line 7 reason (no time to sit down).",
+      "suggestedCorrection": "Ask how long the sandwich takes (line 5); then ask for breakfast to go because you have no time to sit down (line 7)."
+    },
+    {
+      "severity": "low",
+      "location": "speaking.roles.learner",
+      "issue": "No guidance on pressé vs pressée for the learner's own utterance.",
+      "suggestedCorrection": "Add: \"Say je suis pressé (m) or je suis pressée (f) to match yourself.\""
+    },
+    {
+      "severity": "low",
+      "location": "cards[core:14:word:6], [core:14:word:9], [core:14:word:16]",
+      "issue": "The source notes are not carried over. Card 6: \"Used after the food or drink you order\". Card 9: \"Use mesero for a waiter\". Card 16: the podría politeness note.",
+      "suggestedCorrection": "Add French-adapted notes. Card 6: \"Placed after the item: un café à emporter.\" Card 9: \"Use le serveur for a waiter.\" Card 16: the conditional-politeness note."
+    },
+    {
+      "severity": "low",
+      "location": "cards[core:14:word:15].targetFrench",
+      "issue": "\"Combien de temps prend la préparation ?\" is grammatical but slightly stiff with its stylistic inversion. It is also inconsistent with reader line 5's more natural \"Combien de temps faut-il…\".",
+      "suggestedCorrection": "Combien de temps faut-il pour la préparation ? Then update modes[Write].targetFrench to match."
+    },
+    {
+      "severity": "low",
+      "location": "reader[core:14:line:1].targetFrench",
+      "issue": "\"parle à\" is acceptable, but \"habla con / talks with\" is closer to \"parle avec\". \"8h00\" is informal typography; standard French is \"8 h\" or \"8 h 00\".",
+      "suggestedCorrection": "Un voyageur entre dans un café à 8 h et parle avec la serveuse au comptoir."
+    },
+    {
+      "severity": "low",
+      "location": "reader[core:14:line:8] vs forms[pedir].frenchExample",
+      "issue": "\"ahora\" is rendered as \"tout de suite\" in line 8 but as \"maintenant\" in the pedir example. \"Para pagar / so he can pay\" is slightly closer as \"pour pouvoir payer\".",
+      "suggestedCorrection": "Il demande aussi l'addition maintenant pour pouvoir payer au comptoir. Alternatively, keep tout de suite and note the choice."
+    },
+    {
+      "severity": "low",
+      "location": "reader[core:14:line:7].targetFrench",
+      "issue": "\"il voudrait\" softens the source \"quiere / he wants\". The result is natural, but the shift is undocumented.",
+      "suggestedCorrection": "Keep it and add a note, or use \"il veut\" for strict faithfulness."
+    },
+    {
+      "severity": "low",
+      "location": "forms[pedir].explanationEnglish",
+      "issue": "The source gloss \"to ask for, to order\" includes an order sense (commander) that is not covered. Unlike the salir entry, this gap is not noted.",
+      "suggestedCorrection": "Add: \"The 'to order' sense is usually commander in French and is not covered here.\""
+    },
+    {
+      "severity": "low",
+      "location": "forms[*]",
+      "issue": "The forms carry no IDs, no French conjugation paradigm parallel to the source yo/tú/él/nosotros/ellos forms, and no source meaning gloss (e.g. \"to have\", \"to take (time)\").",
+      "suggestedCorrection": "Add an id (core:14:form:1–5), sourceNative, and French je/tu/il-elle/nous/ils-elles forms if the schema expects paradigms."
+    },
+    {
+      "severity": "low",
+      "location": "cards[core:14:word:1–5]",
+      "issue": "Article use is inconsistent: definite for cards 1–3 and indefinite for cards 4–5, while the source terms carry no articles.",
+      "suggestedCorrection": "Standardize on the definite article for term cards (le sandwich aux œufs, l'americano), or document the choice."
+    },
+    {
+      "severity": "medium",
+      "location": "notes[1] (gender), notes[2] (register), notes[12] (old-draft comparison)",
+      "issue": "Note 2 wrongly claims the source has no gender marker. Note 3 says vous matches \"plural ustedes forms\", but card 18 \"¿Me trae…?\" is singular usted. Vous covers both, but the rationale is inaccurate. Note 13 is factually wrong: old card 6 is identical (à emporter), the old draft has no speaking opening, and \"dans douze minutes\" is faithful to the source rather than a deviation.",
+      "suggestedCorrection": "Rewrite note 2 to scope pressé(e) to non-passage items. Note 3: \"vous covers both usted (card 18) and ustedes (card 14).\" Rewrite note 13 to list only the real divergences (americano term, car→parce que, line 9 wording)."
+    },
+    {
+      "severity": "low",
+      "location": "modes[Hear].promptEnglish",
+      "issue": "\"Listen to the script\" is contradictory wording for a listening mode. No audio exists, so the mode is non-functional until audio is approved; this is correctly flagged by audioPending.",
+      "suggestedCorrection": "Listen to the request for the bill and identify the French phrase. Keep audioPending true."
+    }
+  ],
+  "sourceIntegrity": {
+    "cardsCount": 18,
+    "cardsOrderMatchesSource": true,
+    "cardsEnglishBytesMatch": true,
+    "cardsSpanishBytesMatch": true,
+    "cardKindsMatch": true,
+    "readerLineCount": 9,
+    "readerEnglishBytesMatch": true,
+    "readerSpanishBytesMatch": true,
+    "readerOrderMatches": true,
+    "formsCount": 5,
+    "formsOrderMatchesSource": true,
+    "formsSupportEnglishMatchesSourceExamples": true,
+    "formsMissingSourceGlossesAndParadigms": true,
+    "idsSequentialAndUnique": true,
+    "idsNote": "core:14:word:1–18 and core:14:line:1–9 are sequential. Forms have no IDs.",
+    "sourceNotesCarried": false,
+    "sourceNotesMissing": [
+      "word:6 para llevar",
+      "word:9 mesera",
+      "word:16 podría"
+    ],
+    "timingPreserved": {
+      "8:00": "preserved as 8h00 (typography nonstandard)",
+      "12 minutes": "preserved as douze (lines 2, card 17, forms salir/tener)",
+      "5 minutes": "preserved as cinq in line 6 and forms tardar; absent from speaking"
+    },
+    "notesAccuracy": "Several notes are inaccurate (gender rationale, ustedes rationale, old-draft comparison)."
+  },
+  "languageQuality": {
+    "overall": "Mostly natural and grammatical French with a consistent vous register. Blocking issues: the pressé(e) gender error in reader line 2, the misleading la hâte item, and the café américain meaning risk.",
+    "tenerPrisaVsEtrePresse": "The idiom is correctly rendered as être pressé(e) in card 13, line 2 and the forms example. The la hâte term card undercuts it, and the gender is wrong in the masculine-speaker line.",
+    "register": "vous is used consistently and is appropriate for a café server and customer. Card 18 uses the conditional (Pourriez-vous) while card 16 lost its conditional.",
+    "tourDeparture": "partir/part dans douze minutes is correct and natural. l'excursion is acceptable for tour (visite guidée is an alternative).",
+    "kitchenItems": "sandwich aux œufs is natural. café américain is risky for americano. sont prêts rapidement for salen rápido is natural, but the come-out-of-the-kitchen nuance is softened.",
+    "waitressSpeaker": "la serveuse is correct. Line 9 « Avec plaisir, je vous le prépare tout de suite. » is natural and faithful to enseguida se lo preparo.",
+    "orderToGo": "à emporter is correct. The card 16 phrasing is stiff and loses its politeness marker.",
+    "immediateBill": "l'addition is correct. ahora is rendered inconsistently (tout de suite vs maintenant). At a counter, payer au comptoir is natural."
+  },
+  "modeDistinctness": {
+    "modeCount": 6,
+    "allIndividuallyAuthored": true,
+    "allSourceLinked": true,
+    "linkedCards": [
+      "core:14:word:2",
+      "core:14:word:7",
+      "core:14:word:18",
+      "core:14:word:6",
+      "core:14:word:17",
+      "core:14:word:15"
+    ],
+    "allLinkedIdsExist": true,
+    "promptTargetAlignment": {
+      "See": "aligned, but not a recognition task",
+      "Recall": "misaligned: prompt says 'being in a hurry', target is la hâte",
+      "Hear": "aligned; audio pending",
+      "Type": "misaligned: prompt asks for a phrase, target is a term",
+      "Say": "aligned; audio pending",
+      "Write": "aligned"
+    },
+    "distinct": false,
+    "reason": "See and Recall are both English→French production. Type and Write overlap in modality but differ in item type."
+  },
+  "speakingFaithfulness": {
+    "rolesMatchSource": true,
+    "openingSpeaker": "waitress (invented; the source traveler speaks first)",
+    "closingSpeaker": "learner (the source closes with the waitress, line 9)",
+    "sourceLinesCoveredByObjectives": [
+      2,
+      3,
+      5,
+      7,
+      8
+    ],
+    "sourceLinesNotRepresented": [
+      1,
+      4,
+      6,
+      9
+    ],
+    "twelveMinuteDeadline": "present",
+    "fiveMinuteKitchenEstimate": "absent",
+    "sandwichAmericanoFromKitchen": "appears only in the learner's closing, not as a waitress offer",
+    "orderToGo": "present",
+    "immediateBillPayment": "present in objective 4 and the closing",
+    "inventedContentFlagged": true,
+    "faithful": false
+  },
+  "releaseGates": {
+    "allGatesFalse": true,
+    "gateCount": 13,
+    "audioPendingConsistentWithGates": true,
+    "anyGateOpened": false,
+    "releasable": false,
+    "blockingFindingsCount": 3,
+    "statement": "No gate may be opened. This critique is not qualified French review and does not constitute approval, qualified or otherwise."
+  }
+}

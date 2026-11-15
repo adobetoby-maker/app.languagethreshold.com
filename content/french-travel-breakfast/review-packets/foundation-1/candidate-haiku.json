@@ -1,0 +1,108 @@
+{
+  "cardFrench": [
+    "le café",
+    "le jus",
+    "le lait",
+    "tortilla mexicaine",
+    "churro",
+    "les œufs",
+    "le sucre",
+    "la carte",
+    "le pain",
+    "Bonjour !",
+    "Bonjour, comment allez-vous ?",
+    "Je m'appelle Sam, enchanté.",
+    "Merci beaucoup, à demain !",
+    "Au revoir, bonne journée."
+  ],
+  "readerFrench": [
+    "Sam salue la barista Rosa à Oaxaca : Bonjour !",
+    "Rosa : Bonjour, comment allez-vous ?",
+    "Sam : Je m'appelle Sam, enchanté.",
+    "Sam lit la carte et commande un jus d'orange.",
+    "Sam commande aussi un café au lait.",
+    "Sam ne met pas de sucre dans le café.",
+    "Pour manger, Sam commande des œufs avec des tortillas mexicaines.",
+    "Rosa recommande un churro et du pain sucré.",
+    "Sam : Merci beaucoup, à demain !"
+  ],
+  "forms": [
+    {
+      "frenchAnswer": "Sam salue la barista Rosa à Oaxaca : Bonjour !",
+      "englishPrompt": "Sam greets the barista Rosa in Oaxaca: Good morning!",
+      "explanation": "Oaxaca is the place name; Bonjour is the French greeting."
+    },
+    {
+      "frenchAnswer": "Sam lit la carte et commande un jus d'orange.",
+      "englishPrompt": "Sam reads the menu and orders an orange juice.",
+      "explanation": "Carte means menu; jus means juice."
+    },
+    {
+      "frenchAnswer": "Pour manger, Sam commande des œufs avec des tortillas mexicaines.",
+      "englishPrompt": "To eat, Sam orders eggs with tortillas.",
+      "explanation": "Tortilla mexicaine is the Mexican tortilla, not a crêpe."
+    },
+    {
+      "frenchAnswer": "Rosa recommande un churro et du pain sucré.",
+      "englishPrompt": "Rosa recommends a churro and sweet bread.",
+      "explanation": "Churro is kept as a loan word; pain sucré means sweet bread."
+    },
+    {
+      "frenchAnswer": "Sam : Merci beaucoup, à demain !",
+      "englishPrompt": "Sam: Thank you very much, see you tomorrow!",
+      "explanation": "Closing line with a thank-you and a farewell for tomorrow."
+    }
+  ],
+  "modes": [
+    {
+      "mode": "see",
+      "prompt": "Find what Sam orders after reading the menu.",
+      "targetFrench": "Sam lit la carte et commande un jus d'orange.",
+      "targetEnglish": "Sam reads the menu and orders an orange juice."
+    },
+    {
+      "mode": "recall",
+      "prompt": "Without looking, name the menu in French.",
+      "targetFrench": "Sam lit la carte et commande un jus d'orange.",
+      "targetEnglish": "Sam reads the menu and orders an orange juice."
+    },
+    {
+      "mode": "hear",
+      "prompt": "Partner reads Rosa's line from the script; listen for the greeting and question.",
+      "targetFrench": "Rosa : Bonjour, comment allez-vous ?",
+      "targetEnglish": "Rosa: Hi, how are you?"
+    },
+    {
+      "mode": "type",
+      "prompt": "Type 'Thank you very much, see you tomorrow!' in French.",
+      "targetFrench": "Sam : Merci beaucoup, à demain !",
+      "targetEnglish": "Sam: Thank you very much, see you tomorrow!"
+    },
+    {
+      "mode": "say",
+      "prompt": "Introduce yourself to Rosa as Sam.",
+      "targetFrench": "Sam : Je m'appelle Sam, enchanté.",
+      "targetEnglish": "Sam: My name is Sam, nice to meet you."
+    },
+    {
+      "mode": "write",
+      "prompt": "Write what Sam orders to eat.",
+      "targetFrench": "Pour manger, Sam commande des œufs avec des tortillas mexicaines.",
+      "targetEnglish": "To eat, Sam orders eggs with tortillas."
+    }
+  ],
+  "speakingObjectives": [
+    "Greet the barista with Bonjour.",
+    "Say your name as Sam, using Je m'appelle Sam, enchanté.",
+    "Pronounce café, jus, lait and œufs clearly."
+  ],
+  "sourceNotes": [
+    "Tortilla is corrected to tortilla mexicaine, not crêpe.",
+    "Churro is kept as a loan word, not croissant.",
+    "Oaxaca is kept as the place name, not Lyon.",
+    "Eggs with tortillas and churro with sweet bread follow the source; sweet bread is rendered pain sucré.",
+    "Hear mode is partner/script only; no recorded audio is claimed.",
+    "Recall uses Reader line 4 to satisfy the exact-pair rule; the word-level cue stays in the prompt.",
+    "Unreviewed owner-review candidate; no approval or audio is claimed."
+  ]
+}

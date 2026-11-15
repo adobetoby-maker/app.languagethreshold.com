@@ -1,0 +1,319 @@
+READ-ONLY CRITIQUE. Do not rewrite the candidate. Audit French Breakfast Foundation 5 against exact immutable Spanish/English source. Identify every French false equivalence, scene/role/order issue, grammar unnaturalness, forms or modes mismatch, source English/kind issue, and missing speaking target. Focus on source food chilaquiles, eggs to order, near-future, French register. Be concise, cite card/Reader 1-based index and proposed correction. Do not claim qualified approval.
+SOURCE:
+{
+  "n": 5,
+  "title": "Go, Do and Can",
+  "objective": "Say where you are going for breakfast, what you will order, and what you can do at a café.",
+  "focus": "ir, ir a + infinitive for plans, hacer, and poder for asking permission",
+  "words": [
+    {
+      "en": "the bakery",
+      "es": "la panadería",
+      "kind": "term"
+    },
+    {
+      "en": "the café",
+      "es": "la cafetería",
+      "kind": "term"
+    },
+    {
+      "en": "the market",
+      "es": "el mercado",
+      "kind": "term"
+    },
+    {
+      "en": "the counter",
+      "es": "la barra",
+      "kind": "term",
+      "note": "Where you order or sit on a stool in a café."
+    },
+    {
+      "en": "the terrace",
+      "es": "la terraza",
+      "kind": "term"
+    },
+    {
+      "en": "the register",
+      "es": "la caja",
+      "kind": "term",
+      "note": "Where you pay; the person there is el cajero or la cajera."
+    },
+    {
+      "en": "the restroom",
+      "es": "el baño",
+      "kind": "term"
+    },
+    {
+      "en": "to go",
+      "es": "para llevar",
+      "kind": "term"
+    },
+    {
+      "en": "for here",
+      "es": "para comer aquí",
+      "kind": "term"
+    },
+    {
+      "en": "I'm going to the bakery.",
+      "es": "Voy a la panadería.",
+      "kind": "phrase"
+    },
+    {
+      "en": "I'm going to order the chilaquiles.",
+      "es": "Voy a pedir los chilaquiles.",
+      "kind": "phrase"
+    },
+    {
+      "en": "We're going to have breakfast here.",
+      "es": "Vamos a desayunar aquí.",
+      "kind": "phrase"
+    },
+    {
+      "en": "Can I sit on the terrace?",
+      "es": "¿Puedo sentarme en la terraza?",
+      "kind": "phrase"
+    },
+    {
+      "en": "Can I pay by card?",
+      "es": "¿Puedo pagar con tarjeta?",
+      "kind": "phrase"
+    },
+    {
+      "en": "Do you make eggs to order?",
+      "es": "¿Hacen huevos al gusto?",
+      "kind": "phrase",
+      "note": "Huevos al gusto: eggs cooked the way you like."
+    }
+  ],
+  "speaking": "Tell a barista you are going to eat here, ask if you can sit on the terrace, and ask if you can pay by card."
+}
+
+READER:
+{
+  "passage": {
+    "title": "Desayuno en Oaxaca",
+    "target": [
+      "Emma va a desayunar a una cafetería cerca del mercado.",
+      "En la barra, el barista Diego hace café.",
+      "Emma: Voy a pedir los chilaquiles.",
+      "Emma: Es para comer aquí, no para llevar.",
+      "Emma: ¿Puedo sentarme en la terraza?",
+      "Diego: Sí, puede, y el baño está atrás.",
+      "Emma: ¿Puedo pagar con tarjeta?",
+      "Diego: Sí, puede pagar en la caja.",
+      "Después, Emma va a ir a la panadería por pan."
+    ],
+    "native": [
+      "Emma is going to have breakfast at a café near the market.",
+      "At the counter, Diego the barista makes coffee.",
+      "Emma: I'm going to order the chilaquiles.",
+      "Emma: It's for here, not to go.",
+      "Emma: Can I sit on the terrace?",
+      "Diego: Yes, you can, and the restroom is in the back.",
+      "Emma: Can I pay by card?",
+      "Diego: Yes, you can pay at the register.",
+      "Afterward, Emma is going to go to the bakery for bread."
+    ]
+  },
+  "verbs": [
+    {
+      "infinitive": "ir",
+      "native": "to go",
+      "forms": {
+        "yo": "voy",
+        "tú": "vas",
+        "él_ella_usted": "va",
+        "nosotros": "vamos",
+        "ellos_ustedes": "van"
+      },
+      "example": {
+        "target": "Emma va a desayunar a una cafetería.",
+        "native": "Emma is going to have breakfast at a café."
+      },
+      "note": "Irregular. Use ir a + infinitive to talk about plans (voy a pedir = I'm going to order)."
+    },
+    {
+      "infinitive": "hacer",
+      "native": "to do, to make",
+      "forms": {
+        "yo": "hago",
+        "tú": "haces",
+        "él_ella_usted": "hace",
+        "nosotros": "hacemos",
+        "ellos_ustedes": "hacen"
+      },
+      "example": {
+        "target": "En la barra, el barista Diego hace café.",
+        "native": "At the counter, Diego the barista makes coffee."
+      },
+      "note": "Only the yo form is irregular: hago."
+    },
+    {
+      "infinitive": "poder",
+      "native": "can, to be able to",
+      "forms": {
+        "yo": "puedo",
+        "tú": "puedes",
+        "él_ella_usted": "puede",
+        "nosotros": "podemos",
+        "ellos_ustedes": "pueden"
+      },
+      "example": {
+        "target": "¿Puedo pagar con tarjeta?",
+        "native": "Can I pay by card?"
+      },
+      "note": "Stem change o to ue (puedo, puedes), except nosotros. ¿Puedo + infinitive? is a polite way to ask permission."
+    },
+    {
+      "infinitive": "pedir",
+      "native": "to order, to ask for",
+      "forms": {
+        "yo": "pido",
+        "tú": "pides",
+        "él_ella_usted": "pide",
+        "nosotros": "pedimos",
+        "ellos_ustedes": "piden"
+      },
+      "example": {
+        "target": "Emma pide los chilaquiles en la barra.",
+        "native": "Emma orders the chilaquiles at the counter."
+      },
+      "note": "Stem change e to i (pido, pides), except nosotros."
+    }
+  ]
+}
+
+HAIKU CANDIDATE:
+{
+  "frenchCards": [
+    "la boulangerie",
+    "le café",
+    "le marché",
+    "le comptoir",
+    "la terrasse",
+    "la caisse",
+    "les toilettes",
+    "à emporter",
+    "sur place",
+    "Je vais à la boulangerie.",
+    "Je vais commander les chilaquiles.",
+    "Nous allons prendre le petit-déjeuner ici.",
+    "Est-ce que je peux m'asseoir en terrasse ?",
+    "Est-ce que je peux payer par carte ?",
+    "Faites-vous les œufs à la commande ?"
+  ],
+  "frenchReader": [
+    "Emma va prendre le petit-déjeuner dans un café près du marché.",
+    "Au comptoir, Diego, le barista, fait le café.",
+    "Emma : Je vais commander les chilaquiles.",
+    "Emma : C'est sur place, pas à emporter.",
+    "Emma : Est-ce que je peux m'asseoir en terrasse ?",
+    "Diego : Oui, vous pouvez, et les toilettes sont au fond.",
+    "Emma : Est-ce que je peux payer par carte ?",
+    "Diego : Oui, vous pouvez payer à la caisse.",
+    "Ensuite, Emma va aller à la boulangerie pour acheter du pain."
+  ],
+  "forms": [
+    {
+      "french": "Je vais commander les chilaquiles.",
+      "english": "I'm going to order the chilaquiles.",
+      "readerLine": "Emma: I'm going to order the chilaquiles."
+    },
+    {
+      "french": "Ensuite, Emma va aller à la boulangerie pour acheter du pain.",
+      "english": "Afterward, Emma is going to go to the bakery for bread.",
+      "readerLine": "Afterward, Emma is going to go to the bakery for bread."
+    },
+    {
+      "french": "Emma va prendre le petit-déjeuner dans un café près du marché.",
+      "english": "Emma is going to have breakfast at a café near the market.",
+      "readerLine": "Emma is going to have breakfast at a café near the market."
+    },
+    {
+      "french": "Au comptoir, Diego, le barista, fait le café.",
+      "english": "At the counter, Diego the barista makes coffee.",
+      "readerLine": "At the counter, Diego the barista makes coffee."
+    },
+    {
+      "french": "Est-ce que je peux m'asseoir en terrasse ?",
+      "english": "Can I sit on the terrace?",
+      "readerLine": "Emma: Can I sit on the terrace?"
+    },
+    {
+      "french": "Diego : Oui, vous pouvez payer à la caisse.",
+      "english": "Yes, you can pay at the register.",
+      "readerLine": "Diego: Yes, you can pay at the register."
+    }
+  ],
+  "modes": [
+    {
+      "mode": "French card to English meaning",
+      "sourceType": "card",
+      "sourceIndex": 10,
+      "promptFrench": "Je vais à la boulangerie.",
+      "targetEnglish": "I'm going to the bakery."
+    },
+    {
+      "mode": "French card to English meaning",
+      "sourceType": "card",
+      "sourceIndex": 13,
+      "promptFrench": "Est-ce que je peux m'asseoir en terrasse ?",
+      "targetEnglish": "Can I sit on the terrace?"
+    },
+    {
+      "mode": "French card to English meaning",
+      "sourceType": "card",
+      "sourceIndex": 14,
+      "promptFrench": "Est-ce que je peux payer par carte ?",
+      "targetEnglish": "Can I pay by card?"
+    },
+    {
+      "mode": "French card to English meaning",
+      "sourceType": "card",
+      "sourceIndex": 15,
+      "promptFrench": "Faites-vous les œufs à la commande ?",
+      "targetEnglish": "Do you make eggs to order?"
+    },
+    {
+      "mode": "French reader line to English meaning",
+      "sourceType": "reader",
+      "sourceIndex": 6,
+      "promptFrench": "Diego : Oui, vous pouvez, et les toilettes sont au fond.",
+      "targetEnglish": "Diego: Yes, you can, and the restroom is in the back."
+    },
+    {
+      "mode": "French reader line to English meaning",
+      "sourceType": "reader",
+      "sourceIndex": 4,
+      "promptFrench": "Emma : C'est sur place, pas à emporter.",
+      "targetEnglish": "Emma: It's for here, not to go."
+    }
+  ],
+  "speakingObjectives": [
+    "Tell the barista that you are going to eat here, using Je vais manger sur place or an equivalent.",
+    "Ask the barista whether you can sit on the terrace, using Est-ce que je peux m'asseoir en terrasse ?",
+    "Ask the barista whether you can pay by card, using Est-ce que je peux payer par carte ?",
+    "Keep the speaking exchange within the lesson's café vocabulary: terrace, register, for here, to go, and restroom."
+  ],
+  "sourceNotes": [
+    "frenchCards keeps all 15 source cards in order: 9 terms followed by 6 phrases. Each card is rendered in polite French with the Mexican café context preserved through the chilaquiles and the Oaxaca-style café scene.",
+    "frenchReader keeps all 9 Reader lines in order and mirrors the English Reader sequence.",
+    "The prior draft's 'Je vais commander l'omelette' was corrected to 'Je vais commander les chilaquiles' to match the source food.",
+    "The prior draft's 'Je peux choisir la cuisson des œufs ?' was replaced because it did not mean 'Do you make eggs to order?'. The current 'Faites-vous les œufs à la commande ?' is the closest natural match.",
+    "'À la demande' was avoided because it means 'on request', not 'to order' in the sense of cooking eggs to order.",
+    "The prior draft's 'Oui, bien sûr' was replaced with 'Oui, vous pouvez' to match 'Yes, you can'.",
+    "'Diego fait le café' uses faire to match the source hacer focus, rather than the prior draft's 'prépare'.",
+    "'Pour acheter du pain' was used to preserve 'for bread' more precisely than 'chercher du pain'.",
+    "The readerLine field in forms holds the exact English Reader line that contains the form.",
+    "The source passage title 'Desayuno en Oaxaca' is not a Reader line and is not included in frenchReader.",
+    "Forms focus on aller and aller + infinitive, faire, and pouvoir, matching the source focus. Pedir appears in the source verb list but is not in the lesson focus, so it is not a form here."
+  ],
+  "residuals": [
+    "No native French review has been done. The reviewed flag remains false.",
+    "Audio has not been produced, checked, or approved.",
+    "This candidate has no qualified approval and no claim of learner readiness.",
+    "The phrase 'Faites-vous les œufs à la commande ?' needs native naturalness review for café use.",
+    "The 'to go' and 'for here' equivalents (à emporter, sur place) follow French usage; Québec equivalents are not included.",
+    "Chilaquiles stays as a loan word in French, and the Oaxaca setting is implied by the source title but not stated in the French Reader lines."
+  ]
+}

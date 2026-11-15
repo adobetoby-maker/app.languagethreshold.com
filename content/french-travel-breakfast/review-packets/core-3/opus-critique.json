@@ -1,0 +1,150 @@
+{
+  "blockingIssues": [
+    {
+      "path": "contextualForms[0].explanationEnglish (core:3:form:1)",
+      "issue": "This is a factual error in text the learner sees. It says French 'demander' has no stem change 'unlike Spanish preguntar', but 'preguntar' is regular too and has no stem change.",
+      "sourceEvidence": "source verbs[0] preguntar: pregunto, preguntas, pregunta, preguntamos, preguntan. It has no stem-change note, unlike recomendar, querer and probar.",
+      "proposedFix": "Drop the stem-change contrast. Example: \"'Demander' is a regular -er verb, like Spanish 'preguntar'. French uses 'demander' both to ask a question and to ask for something, where Spanish splits these into 'preguntar' and 'pedir'.\""
+    },
+    {
+      "path": "words[2].french, words[4].french, words[5].french, words[6].french (pan dulce, bolillo, concha, empanada)",
+      "issue": "The French answer fields carry explanatory text in parentheses, such as 'le bolillo (petit pain blanc croustillant mexicain)'. Any mode that checks the French field as an exact answer would expect the learner to produce the gloss too. The Reader lines and activity targets use the bare forms ('le pan dulce', 'un bolillo', 'une concha', 'l'empanada'), so the card answer and the Reader form don't match.",
+      "sourceEvidence": "In the source, the English cards hold the gloss ('bolillo (crusty white roll)') and the Spanish field is just 'bolillo'. Reader lines 4, 6, 8 and 9 use the bare names.",
+      "proposedFix": "Make the French fields 'le pan dulce', 'le bolillo', 'la concha' and 'l'empanada'. Move the French descriptions into the notes, e.g. note: \"In French: petit pain blanc croustillant (Mexique).\""
+    },
+    {
+      "path": "speaking.openingFrench / speaking.objectivesEnglish[0] / speaking.closureFrench",
+      "issue": "Roles are mixed up. The opening 'Bonjour ! Qu'est-ce qui est frais aujourd'hui ?' is the traveler's line, which is the learner's role. It already completes objective 1, so there is nothing left for the learner to do there. The closure 'Je prends une concha et un café, s'il vous plaît' is also a traveler line and completes objective 4 for the learner. Neither line is spoken by the employee, the partner role.",
+      "sourceEvidence": "Passage: the traveler asks 'What is fresh today?' (line 3) and orders a concha and coffee (line 9). The employee answers and recommends (lines 4, 6, 8).",
+      "proposedFix": "Give the opening to the employee, e.g. openingFrench 'Bonjour ! Je peux vous aider ?' / openingEnglish 'Hello! Can I help you?'. Give the closure to the employee, e.g. 'Voilà votre concha et votre café. Bonne journée !'. Keep the traveler's question and order as learner objectives."
+    }
+  ],
+  "minorIssues": [
+    {
+      "path": "words[3] (pastry / pastel → la pâtisserie)",
+      "issue": "'La pâtisserie' is ambiguous. It also means the pastry shop and the craft of pastry-making, which is easy to confuse in a bakery scene. In Mexico 'pastel' usually means a cake, but the source English is 'pastry', so the gloss works only with a clarifying note. The added note is useful, but it doesn't mention the shop meaning.",
+      "sourceEvidence": "source note: 'Can also mean cake, depending on the country.' English card: 'pastry'.",
+      "proposedFix": "Keep 'la pâtisserie' and add to the note: \"'Une pâtisserie' is one pastry; 'la pâtisserie' can also mean the pastry shop. For cake, French says 'le gâteau'.\""
+    },
+    {
+      "path": "words[2].french (pan dulce)",
+      "issue": "The gloss 'le pan dulce (viennoiseries sucrées mexicaines)' pairs a singular masculine article with a plural feminine description. 'Viennoiserie' is a loose fit for pan dulce in general.",
+      "sourceEvidence": "source note: 'Common Mexican term for sweet pastries in general.'",
+      "proposedFix": "French field: 'le pan dulce'. Note: \"Collective name for Mexican sweet breads (concha, etc.); roughly 'pains sucrés / viennoiseries mexicaines'.\""
+    },
+    {
+      "path": "words[5].french (concha)",
+      "issue": "'Brioche mexicaine sucrée en forme de coquille' is acceptable. A concha is a soft enriched bun, and the shell pattern comes from its sugar crust, so 'brioche' is a reasonable approximation. Once moved to a note, it would read better as 'petite brioche ronde à croûte sucrée en forme de coquillage'. 'Coquille' and 'coquillage' are both fine.",
+      "sourceEvidence": "English card: 'concha (sweet shell-shaped bread)'.",
+      "proposedFix": "Move the description to the note and keep 'la concha' as the answer."
+    },
+    {
+      "path": "words[6] (empanada → chausson fourré)",
+      "issue": "'Chausson' is the right French equivalent for a turnover-style filled pastry. 'Chausson fourré' is a bit redundant, since a chausson is filled by definition. The added note 'Savory here' matches line 6. Mexican bakery empanadas are often sweet (pineapple, pumpkin), but the source defines this one as savory, so the note is faithful.",
+      "sourceEvidence": "English card: 'empanada (filled pastry)'. Line 6: 'la empanada es salada'.",
+      "proposedFix": "Use 'l'empanada' with the note \"une sorte de chausson (ici salé)\"."
+    },
+    {
+      "path": "words[11].note (jam / confiture)",
+      "issue": "Overclaim: 'French marmelade means citrus marmalade only'. Only the regulatory sense is limited to citrus. In everyday French, 'marmelade' also covers fruit purées and compotes, e.g. 'marmelade de pommes'.",
+      "sourceEvidence": "source has no note for mermelada.",
+      "proposedFix": "\"'Confiture' is the everyday French word for jam. French 'marmelade' is a false friend: it usually means a marmalade or a fruit purée.\""
+    },
+    {
+      "path": "words[14].french (Is it filled? → Est-il fourré ?)",
+      "issue": "Inverted 'Est-il fourré ?' is correct but stiff in a bakery, and it needs a known masculine antecedent. 'C'est fourré ?' or 'Est-ce que c'est fourré ?' is more natural and avoids gender, which matches the generic English card.",
+      "sourceEvidence": "Spanish '¿Está relleno?', a neutral spoken question.",
+      "proposedFix": "Use 'C'est fourré ?' or 'Est-ce que c'est fourré ?', and keep the agreement note for 'Elle est fourrée ?'."
+    },
+    {
+      "path": "words[15].french (Est-ce sucré ou salé ?)",
+      "issue": "Correct but formal next to the spoken source. 'C'est sucré ou salé ?' is the natural register.",
+      "sourceEvidence": "'¿Es dulce o salado?'",
+      "proposedFix": "Make 'C'est sucré ou salé ?' the main answer, or accept both."
+    },
+    {
+      "path": "contextualForms[4] (core:3:form:5)",
+      "issue": "The explanation is incomplete. It says 'Lequel' agrees, then only changes 'fourré' to 'fourrée' for la concha. A learner could produce '*Lequel est fourrée ?'. The pronoun has to change too.",
+      "sourceEvidence": "Line 5: '¿Cuál está relleno?'. Line 6 refers to la concha and la empanada (both feminine).",
+      "proposedFix": "\"'Lequel est fourré ?' (masculine); for feminine items such as la concha or l'empanada: 'Laquelle est fourrée ?'\""
+    },
+    {
+      "path": "reader[3].french (le pan dulce est de ce matin)",
+      "issue": "This is acceptable colloquial French, but 'date de ce matin' or 'a été fait ce matin' is clearer for learners.",
+      "sourceEvidence": "'el pan dulce es de esta mañana'",
+      "proposedFix": "Keep it, or use 'L'employée dit que le pan dulce date de ce matin.'"
+    },
+    {
+      "path": "reader[8].french / activities.Write.targetFrench",
+      "issue": "In the narrative line 'Le voyageur commande ... , s'il vous plaît', a politeness formula sits in third-person narration without quotes. The source has the same oddity. It is a faithful rendering but reads strangely in French, and it becomes the Write target.",
+      "sourceEvidence": "'El viajero pide una concha y un café, por favor.' / 'The traveler orders a concha and a coffee, please.'",
+      "proposedFix": "Keep it for fidelity, but consider accepting 'Le voyageur commande une concha et un café.' as an alternative, or flag it for review."
+    },
+    {
+      "path": "words[*].note (concha, empanada, pastel, filling, jam, Is it filled?, What do you recommend?)",
+      "issue": "Source notes were extended, and notes were added where the source had none. The English card and Reader text match the source exactly (18/18 cards, 9/9 lines), but the note fields no longer match the source.",
+      "sourceEvidence": "Source notes: pan dulce, pastel, bolillo, ¿Qué me recomienda? only.",
+      "proposedFix": "Keep the source note text verbatim and put the French-specific additions in a separate field, e.g. 'frenchNote'."
+    },
+    {
+      "path": "activities.Type.promptEnglish",
+      "issue": "'(usted form)' names a Spanish register in a French cue.",
+      "sourceEvidence": "source note: 'Polite form with usted.'",
+      "proposedFix": "\"Type the polite French question for 'What do you recommend?' (vous form).\""
+    },
+    {
+      "path": "activities.Hear",
+      "issue": "The cue gives the full English sentence and asks the learner to 'identify the question', but the target is the whole line including 'Il demande :'. What the learner has to do doesn't match what gets checked, and the English cue gives the answer away for a listening task.",
+      "sourceEvidence": "line 3: 'He asks: What is fresh today?'",
+      "proposedFix": "Make the prompt \"Listen and write/choose what the traveler asks.\" with target 'Qu'est-ce qui est frais aujourd'hui ?', or have the learner transcribe the full line without the English cue."
+    },
+    {
+      "path": "activities.Say.sourceWordOrLineId",
+      "issue": "The target is only the quoted part of line 7, without 'Il dit : « ... »'. The line ID is acceptable, but the exact match is contextualForms core:3:form:3.",
+      "sourceEvidence": "line 7: 'He says: I want to try something typical from here.'",
+      "proposedFix": "Link to core:3:form:3, or state that the target is the quoted speech within line 7."
+    },
+    {
+      "path": "speaking.objectivesEnglish",
+      "issue": "The objectives leave out the core verb scene for querer/probar ('I want to try something typical from here') and don't use the bolillo recommendation. Objective 2 names 'pastry' generically instead of the concha and empanada.",
+      "sourceEvidence": "Lines 6–8 and the verb examples for querer and recomendar.",
+      "proposedFix": "Add: 'Say you want to try something typical from here (Je veux goûter quelque chose de typique d'ici).' and 'React to the employee's recommendation of a bolillo au fromage.' Make objective 2: 'Ask whether the concha or the empanada is filled, and whether each is sweet or savory.'"
+    },
+    {
+      "path": "contextualForms[1].explanationEnglish",
+      "issue": "'Au fromage' is correct, but the note doesn't say that French uses 'au' (à + le) for a flavour or filling where Spanish uses 'con'. A learner might write '*avec fromage'.",
+      "sourceEvidence": "'un bolillo con queso'",
+      "proposedFix": "Add: \"French uses 'au/à la' + ingredient for food descriptions where Spanish uses 'con'; 'avec du fromage' is also possible.\""
+    }
+  ],
+  "qualifiedReviewQuestions": [
+    {
+      "sourceId": "core:3:word:4",
+      "question": "For 'pastry' (Spanish 'pastel'), should the French answer be 'une pâtisserie' or 'une viennoiserie' in a Mexican panadería scene? And does the possible reading of 'la pâtisserie' as 'pastry shop' need to be noted?"
+    },
+    {
+      "sourceId": "core:3:word:5 / core:3:word:6 / core:3:word:7 / core:3:word:3",
+      "question": "Is it acceptable to keep the Spanish borrowings 'bolillo', 'concha', 'empanada' and 'pan dulce' unchanged in French, with the genders le/la/l'(f.)/le, and to give the French descriptions only in notes?"
+    },
+    {
+      "sourceId": "core:3:word:6",
+      "question": "Is 'brioche' an accurate enough French description of a concha, or should it be described as a 'petit pain sucré à croûte de sucre'?"
+    },
+    {
+      "sourceId": "core:3:word:15 / core:3:line:5",
+      "question": "Should the gender-neutral 'C'est fourré ?' be the default, with 'Laquelle est fourrée ?' taught for the feminine concha/empanada?"
+    },
+    {
+      "sourceId": "core:3:word:9",
+      "question": "Is 'la garniture' the best everyday word for a pastry 'filling' (relleno), or would 'la farce' (savory) or 'la crème' (sweet) fit better?"
+    },
+    {
+      "sourceId": "core:3:line:9",
+      "question": "Should the narrative 's'il vous plaît' in line 9 be kept for source fidelity, or put in quotes or dropped for natural French?"
+    },
+    {
+      "sourceId": "core:3:word:12",
+      "question": "Is the false-friend note on 'marmelade' accurate for general (non-regulatory) French usage?"
+    }
+  ]
+}

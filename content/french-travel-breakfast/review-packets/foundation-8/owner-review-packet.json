@@ -1,0 +1,512 @@
+{
+  "schema": 1,
+  "purpose": "private source-aligned owner-review candidate; unqualified",
+  "course": "travel-breakfast",
+  "pair": "fr-en",
+  "stage": "foundation",
+  "lessonNumber": 8,
+  "stableLessonKey": "foundation:8",
+  "sourceMainSha": "a9d3a834fcba4e0efb7a780fb52de51503d32b4e",
+  "sourceCourseSha256": "94621cca4158b76c69435f35eb1dfdc4893df553afaccb8a1963bdd9e6d80e79",
+  "sourceReaderSha256": "e11886cd3e030534ba8f8b8e92515c528e07c2875f20a58034faed2bc3d0f78a",
+  "sourcePr475Head": "5cc469f5a54828c48238ccdf411238ed2e3e2c08",
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false,
+  "audioListeningReviewed": false,
+  "readyForLearner": false,
+  "learnerRuntimeEnabled": false,
+  "audioPlaybackEnabled": false,
+  "progressEnabled": false,
+  "ownerOnlyCandidate": true,
+  "projectionStatus": "HOLD owner-only projection: source Reader lines 7–8 make unqualified ingredient/gluten claims; exact-source parity and safety/editorial decision required. All learner gates closed.",
+  "sourceVerbParadigms": [
+    {
+      "infinitive": "comer",
+      "native": "to eat",
+      "forms": {
+        "yo": "como",
+        "tú": "comes",
+        "él_ella_usted": "come",
+        "nosotros": "comemos",
+        "ellos_ustedes": "comen"
+      },
+      "example": {
+        "target": "No como carne.",
+        "native": "I don't eat meat."
+      },
+      "note": "Regular -er verb. Put no right before the verb to make it negative."
+    },
+    {
+      "infinitive": "estar",
+      "native": "to be (state, readiness)",
+      "forms": {
+        "yo": "estoy",
+        "tú": "estás",
+        "él_ella_usted": "está",
+        "nosotros": "estamos",
+        "ellos_ustedes": "están"
+      },
+      "example": {
+        "target": "Todavía no estamos listos.",
+        "native": "We're not ready yet."
+      },
+      "note": "Irregular yo form (estoy). Use estar with listo to say if you are ready."
+    },
+    {
+      "infinitive": "tener",
+      "native": "to have",
+      "forms": {
+        "yo": "tengo",
+        "tú": "tienes",
+        "él_ella_usted": "tiene",
+        "nosotros": "tenemos",
+        "ellos_ustedes": "tienen"
+      },
+      "example": {
+        "target": "Las tortillas de maíz no tienen gluten.",
+        "native": "The corn tortillas don't have gluten."
+      },
+      "note": "Irregular yo form (tengo). Stem change e to ie (tienes, tiene, tienen), except nosotros."
+    },
+    {
+      "infinitive": "usar",
+      "native": "to use",
+      "forms": {
+        "yo": "uso",
+        "tú": "usas",
+        "él_ella_usted": "usa",
+        "nosotros": "usamos",
+        "ellos_ustedes": "usan"
+      },
+      "example": {
+        "target": "Voy a preguntar en la cocina si usan nueces o cacahuate.",
+        "native": "I'm going to ask the kitchen if they use nuts or peanuts."
+      },
+      "note": "Regular -ar verb. Usan is the ellos/ustedes form: ¿Usan nueces en la cocina?"
+    }
+  ],
+  "frenchVerbParadigmsAuthored": true,
+  "frenchVerbParadigms": [
+    {
+      "sourceInfinitive": "comer",
+      "frenchInfinitive": "manger",
+      "forms": {
+        "je": "mange",
+        "tu": "manges",
+        "il": "mange",
+        "nous": "mangeons",
+        "vous": "mangez",
+        "ils": "mangent"
+      },
+      "explanation": "Source English 'to eat'; source example 'I don't eat meat.' = card 12 and Reader line 4. Slot alignment: yo→je, tú→tu, él_ella→il (also elle/on), nosotros→nous, ellos→ils (also elles). The source has no slot for French 'vous'; the usted and ustedes readings of the source's third-person slots correspond to 'vous' (mangez). Spelling: 'nous mangeons' keeps the e. The source note 'put no right before the verb' does not transfer: French negation wraps the verb (ne … pas), and du/de la/des become 'de' after negation (pas de viande)."
+    },
+    {
+      "sourceInfinitive": "estar",
+      "frenchInfinitive": "être",
+      "forms": {
+        "je": "suis",
+        "tu": "es",
+        "il": "est",
+        "nous": "sommes",
+        "vous": "êtes",
+        "ils": "sont"
+      },
+      "explanation": "Source English 'to be (state, readiness)'; source example 'We're not ready yet.' = card 14 and Reader line 3. Same slot alignment as manger; usted/ustedes correspond to 'vous êtes', as in Reader line 2. French has one verb 'être' for both Spanish ser and estar. 'Prêt' agrees in gender and number: prêt, prête, prêts, prêtes."
+    },
+    {
+      "sourceInfinitive": "tener",
+      "frenchInfinitive": "contenir",
+      "forms": {
+        "je": "contiens",
+        "tu": "contiens",
+        "il": "contient",
+        "nous": "contenons",
+        "vous": "contenez",
+        "ils": "contiennent"
+      },
+      "explanation": "Mapping note: the source glosses tener as 'to have', whose literal French counterpart is 'avoir'. The source example 'The corn tortillas don't have gluten.' is Reader line 8, which French renders with 'contiennent', so this slot gives 'contenir' to match the French the learner actually reads. Same slot alignment as manger; 'ils' form is the one used in Reader lines 7 and 8. 'Contenir' conjugates like 'tenir': stem 'contien-' except 'nous contenons' and 'vous contenez', which parallels the source note on tener's stem change. The example line is under owner hold (see residuals)."
+    },
+    {
+      "sourceInfinitive": "usar",
+      "frenchInfinitive": "utiliser",
+      "forms": {
+        "je": "utilise",
+        "tu": "utilises",
+        "il": "utilise",
+        "nous": "utilisons",
+        "vous": "utilisez",
+        "ils": "utilisent"
+      },
+      "explanation": "Source English 'to use'; source example 'I'm going to ask the kitchen if they use nuts or peanuts.' = Reader line 6. Regular -er verb; 'je' elides to 'j'utilise'. Same slot alignment as manger. The source 'usan' (ellos/ustedes) is 'ils utilisent' in Reader line 6, where 'they' means the kitchen staff; addressed to staff directly it would be 'vous utilisez'."
+    }
+  ],
+  "internalDomainNotes": [
+    "Internal only, not learner-facing. This is a language lesson and must not be presented as allergy or dietary guidance.",
+    "Lactose-free milk is cow's milk with the lactose broken down or removed. It still contains milk proteins (casein, whey), so it is a dairy product and is unsafe for someone with a milk-protein allergy. It suits lactose intolerance only.",
+    "The source does not say why Tom avoids dairy; his only stated allergy is peanuts. The lactose-free milk in line 9 is Emma's order. A learner could still infer that lactose-free milk suits someone avoiding dairy, which is false for milk allergy.",
+    "Reader line 7 (green chilaquiles without cream or cheese have no meat or dairy) is unverified and may be unsafe as stated. Salsa verde can be made with chicken stock, the tortilla chips can be fried in lard or shared oil, and garnishes or cross-contact can add dairy. Luis asserts it without checking with the kitchen.",
+    "Reader line 8 (corn tortillas don't have gluten) is unverified and may be unsafe as stated. Some tortillas are corn-wheat blends, and cross-contact can occur on shared surfaces, presses or fryers. This matters for coeliac disease and wheat allergy.",
+    "Peanuts are legumes, not tree nuts, and the two are separate allergens; a person may react to one, the other or both. EU labelling lists 'arachides' and 'fruits à coque' as separate categories. The French keeps them as separate terms.",
+    "In Mexican Spanish, 'nuez' often means pecan or walnut specifically, so 'nueces' in line 6 may be narrower than a full tree-nut question. 'Fruits à coque' follows the broader source English 'nuts'. In a real setting, the question would need to name the specific allergen.",
+    "In line 6 Luis says he will ask the kitchen; the source never gives the answer. The Reader does not establish that any dish is safe for Tom.",
+    "In any real setting, ingredients and cross-contact must be confirmed with staff."
+  ],
+  "readerTitleFrench": "Petit-déjeuner sans viande à Oaxaca",
+  "cards": [
+    {
+      "id": "foundation:8:word:1",
+      "kind": "term",
+      "english": "the meat",
+      "french": "la viande",
+      "spanishSource": "la carne"
+    },
+    {
+      "id": "foundation:8:word:2",
+      "kind": "term",
+      "english": "the nuts",
+      "french": "les fruits à coque",
+      "spanishSource": "las nueces",
+      "noteFrench": "Terme général employé pour les allergies. « Noix » seul désigne surtout la noix du noyer. La cacahuète est un mot à part (carte 3).",
+      "ownerVisibleIssue": "Source English “nuts” is broader than Spanish “nueces”; French “fruits à coque” follows the English allergy-context breadth. Qualified terminology review required."
+    },
+    {
+      "id": "foundation:8:word:3",
+      "kind": "term",
+      "english": "the peanut",
+      "french": "la cacahuète",
+      "spanishSource": "el cacahuate",
+      "noteFrench": "Sur les étiquettes, on lit aussi « arachide ». Ce mot ne fait pas partie des « fruits à coque » (carte 2)."
+    },
+    {
+      "id": "foundation:8:word:4",
+      "kind": "term",
+      "english": "the dairy products",
+      "french": "les produits laitiers",
+      "spanishSource": "los lácteos"
+    },
+    {
+      "id": "foundation:8:word:5",
+      "kind": "term",
+      "english": "the gluten",
+      "french": "le gluten",
+      "spanishSource": "el gluten"
+    },
+    {
+      "id": "foundation:8:word:6",
+      "kind": "term",
+      "english": "the lactose-free milk",
+      "french": "le lait sans lactose",
+      "spanishSource": "la leche deslactosada",
+      "noteFrench": "Le lait sans lactose reste un produit laitier. Dans le texte, c'est Emma qui le commande, pas Tom.",
+      "ownerVisibleIssue": "Lactose-free milk is still dairy; Emma orders this, while Tom avoids dairy. Do not present it as safe for a milk-protein allergy."
+    },
+    {
+      "id": "foundation:8:word:7",
+      "kind": "term",
+      "english": "nobody",
+      "french": "ne … personne",
+      "spanishSource": "nadie",
+      "noteFrench": "Sans « ne », « personne » se lit comme le nom « une personne ». En sujet : « Personne ne… ».",
+      "ownerVisibleIssue": "The French negation requires context: “ne … personne” or “Personne ne …”; the face is not a standalone utterance."
+    },
+    {
+      "id": "foundation:8:word:8",
+      "kind": "term",
+      "english": "not yet",
+      "french": "ne … pas encore",
+      "spanishSource": "todavía no",
+      "ownerVisibleIssue": "The French face is a sentence frame, not a standalone utterance."
+    },
+    {
+      "id": "foundation:8:word:9",
+      "kind": "term",
+      "english": "another",
+      "french": "un autre / une autre",
+      "spanishSource": "otro",
+      "noteFrench": "Le français garde l'article : un autre café, une autre tasse."
+    },
+    {
+      "id": "foundation:8:word:10",
+      "kind": "term",
+      "english": "more",
+      "french": "plus de / davantage de",
+      "spanishSource": "más",
+      "noteFrench": "Ici « plus de » veut dire « davantage de » (quantité plus grande), et non « ne … plus ».",
+      "ownerVisibleIssue": "“Plus de” can mean more or no more depending on pronunciation/context; “davantage de” disambiguates."
+    },
+    {
+      "id": "foundation:8:word:11",
+      "kind": "term",
+      "english": "less",
+      "french": "moins de",
+      "spanishSource": "menos"
+    },
+    {
+      "id": "foundation:8:word:12",
+      "kind": "phrase",
+      "english": "I don't eat meat.",
+      "french": "Je ne mange pas de viande.",
+      "spanishSource": "No como carne."
+    },
+    {
+      "id": "foundation:8:word:13",
+      "kind": "phrase",
+      "english": "I never eat peanuts, I'm allergic.",
+      "french": "Je ne mange jamais de cacahuètes, je suis allergique.",
+      "spanishSource": "Nunca como cacahuate, soy alérgico.",
+      "noteFrench": "« Allergique » ne change pas au féminin."
+    },
+    {
+      "id": "foundation:8:word:14",
+      "kind": "phrase",
+      "english": "We're not ready yet.",
+      "french": "Nous ne sommes pas encore prêts.",
+      "spanishSource": "Todavía no estamos listos.",
+      "noteFrench": "Pour un groupe entièrement féminin : « prêtes »."
+    },
+    {
+      "id": "foundation:8:word:15",
+      "kind": "phrase",
+      "english": "Another coffee, please.",
+      "french": "Un autre café, s'il vous plaît.",
+      "spanishSource": "Otro café, por favor."
+    },
+    {
+      "id": "foundation:8:word:16",
+      "kind": "phrase",
+      "english": "More milk and less sugar, please.",
+      "french": "Davantage de lait et moins de sucre, s'il vous plaît.",
+      "spanishSource": "Más leche y menos azúcar, por favor.",
+      "noteFrench": "« Davantage de » évite l'ambiguïté de « Plus de lait » en début de phrase.",
+      "ownerVisibleIssue": "“Davantage de” avoids a phrase-initial “plus de” ambiguity."
+    },
+    {
+      "id": "foundation:8:word:17",
+      "kind": "phrase",
+      "english": "I don't want anything else, thanks.",
+      "french": "Je ne veux rien d'autre, merci.",
+      "spanishSource": "No quiero nada más, gracias.",
+      "noteFrench": "Négation « ne … rien »."
+    }
+  ],
+  "reader": [
+    {
+      "id": "foundation:8:line:1",
+      "english": "Emma and Tom are having breakfast at a café in Oaxaca.",
+      "french": "Emma et Tom prennent le petit-déjeuner dans un café à Oaxaca.",
+      "spanishSource": "Emma y Tom desayunan en un café de Oaxaca."
+    },
+    {
+      "id": "foundation:8:line:2",
+      "english": "The server Luis asks: Are you ready?",
+      "french": "Le serveur Luis demande : Vous êtes prêts ?",
+      "spanishSource": "El mesero Luis pregunta: ¿Ya están listos?"
+    },
+    {
+      "id": "foundation:8:line:3",
+      "english": "Emma: We're not ready yet.",
+      "french": "Emma : Nous ne sommes pas encore prêts.",
+      "spanishSource": "Emma: Todavía no estamos listos."
+    },
+    {
+      "id": "foundation:8:line:4",
+      "english": "Emma: I don't eat meat and Tom doesn't eat dairy products.",
+      "french": "Emma : Je ne mange pas de viande et Tom ne mange pas de produits laitiers.",
+      "spanishSource": "Emma: No como carne y Tom no come lácteos."
+    },
+    {
+      "id": "foundation:8:line:5",
+      "english": "Tom: I never eat peanuts, I'm allergic.",
+      "french": "Tom : Je ne mange jamais de cacahuètes, je suis allergique.",
+      "spanishSource": "Tom: Nunca como cacahuate, soy alérgico."
+    },
+    {
+      "id": "foundation:8:line:6",
+      "english": "Luis: I'm going to ask the kitchen if they use nuts or peanuts.",
+      "french": "Luis : Je vais demander à la cuisine s'ils utilisent des fruits à coque ou des cacahuètes.",
+      "spanishSource": "Luis: Voy a preguntar en la cocina si usan nueces o cacahuate."
+    },
+    {
+      "id": "foundation:8:line:7",
+      "english": "Luis: The green chilaquiles without cream or cheese have no meat or dairy.",
+      "french": "Luis : Les chilaquiles verts sans crème ni fromage ne contiennent ni viande ni produits laitiers.",
+      "spanishSource": "Luis: Los chilaquiles verdes sin crema ni queso no tienen carne ni lácteos.",
+      "ownerVisibleIssue": "Source claim that green chilaquiles without cream or cheese have no meat or dairy is unverified. Ingredients and cross-contact must be checked; keep only as an exact source quotation pending source-editor decision."
+    },
+    {
+      "id": "foundation:8:line:8",
+      "english": "Luis: The corn tortillas don't have gluten.",
+      "french": "Luis : Les tortillas de maïs ne contiennent pas de gluten.",
+      "spanishSource": "Luis: Las tortillas de maíz no tienen gluten.",
+      "ownerVisibleIssue": "Source claim that corn tortillas have no gluten is unverified. Wheat blends and cross-contact are possible; keep only as an exact source quotation pending source-editor decision."
+    },
+    {
+      "id": "foundation:8:line:9",
+      "english": "Emma: Another coffee with more lactose-free milk and less sugar, please.",
+      "french": "Emma : Un autre café avec plus de lait sans lactose et moins de sucre, s'il vous plaît.",
+      "spanishSource": "Emma: Otro café con más leche deslactosada y menos azúcar, por favor.",
+      "ownerVisibleIssue": "Emma orders lactose-free milk. It remains dairy and does not serve as an allergy-safe substitute for Tom; exact source lines distinguish the speakers."
+    }
+  ],
+  "forms": [
+    {
+      "sourceRef": "foundation:8:line:1",
+      "readerIndex": 1,
+      "englishPrompt": "Emma and Tom are having breakfast at a café in Oaxaca.",
+      "frenchAnswer": "Emma et Tom prennent le petit-déjeuner dans un café à Oaxaca.",
+      "learnerCue": "Put Reader line 1 into French; preserve the exact meaning and speaker.",
+      "explanation": "Candidate form drawn from the exact Reader pair; qualified French review pending."
+    },
+    {
+      "sourceRef": "foundation:8:line:3",
+      "readerIndex": 3,
+      "englishPrompt": "Emma: We're not ready yet.",
+      "frenchAnswer": "Emma : Nous ne sommes pas encore prêts.",
+      "learnerCue": "Put Reader line 3 into French; preserve the exact meaning and speaker.",
+      "explanation": "Candidate form drawn from the exact Reader pair; qualified French review pending."
+    },
+    {
+      "sourceRef": "foundation:8:line:4",
+      "readerIndex": 4,
+      "englishPrompt": "Emma: I don't eat meat and Tom doesn't eat dairy products.",
+      "frenchAnswer": "Emma : Je ne mange pas de viande et Tom ne mange pas de produits laitiers.",
+      "learnerCue": "Put Reader line 4 into French; preserve the exact meaning and speaker.",
+      "explanation": "Candidate form drawn from the exact Reader pair; qualified French review pending."
+    },
+    {
+      "sourceRef": "foundation:8:line:5",
+      "readerIndex": 5,
+      "englishPrompt": "Tom: I never eat peanuts, I'm allergic.",
+      "frenchAnswer": "Tom : Je ne mange jamais de cacahuètes, je suis allergique.",
+      "learnerCue": "Put Reader line 5 into French; preserve the exact meaning and speaker.",
+      "explanation": "Candidate form drawn from the exact Reader pair; qualified French review pending."
+    },
+    {
+      "sourceRef": "foundation:8:line:6",
+      "readerIndex": 6,
+      "englishPrompt": "Luis: I'm going to ask the kitchen if they use nuts or peanuts.",
+      "frenchAnswer": "Luis : Je vais demander à la cuisine s'ils utilisent des fruits à coque ou des cacahuètes.",
+      "learnerCue": "Put Reader line 6 into French; preserve the exact meaning and speaker.",
+      "explanation": "Candidate form drawn from the exact Reader pair; qualified French review pending."
+    },
+    {
+      "sourceRef": "foundation:8:line:9",
+      "readerIndex": 9,
+      "englishPrompt": "Emma: Another coffee with more lactose-free milk and less sugar, please.",
+      "frenchAnswer": "Emma : Un autre café avec plus de lait sans lactose et moins de sucre, s'il vous plaît.",
+      "learnerCue": "Put Reader line 9 into French; preserve the exact meaning and speaker.",
+      "explanation": "Candidate form drawn from the exact Reader pair; qualified French review pending."
+    }
+  ],
+  "modes": [
+    {
+      "id": "foundation:8:see:candidate-1",
+      "lessonKey": "foundation:8",
+      "mode": "see",
+      "cueEnglish": "Practice the exact card pair.",
+      "modelEnglish": "the meat",
+      "modelFrench": "la viande",
+      "sourceRef": "foundation:8:word:1",
+      "delivery": "self-check",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    },
+    {
+      "id": "foundation:8:recall:candidate-1",
+      "lessonKey": "foundation:8",
+      "mode": "recall",
+      "cueEnglish": "Practice the exact card pair.",
+      "modelEnglish": "nobody",
+      "modelFrench": "ne … personne",
+      "sourceRef": "foundation:8:word:7",
+      "delivery": "self-check",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    },
+    {
+      "id": "foundation:8:hear:candidate-1",
+      "lessonKey": "foundation:8",
+      "mode": "hear",
+      "cueEnglish": "Practice the exact reader pair.",
+      "modelEnglish": "Emma: We're not ready yet.",
+      "modelFrench": "Emma : Nous ne sommes pas encore prêts.",
+      "sourceRef": "foundation:8:line:3",
+      "delivery": "self-check",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    },
+    {
+      "id": "foundation:8:type:candidate-1",
+      "lessonKey": "foundation:8",
+      "mode": "type",
+      "cueEnglish": "Practice the exact card pair.",
+      "modelEnglish": "another",
+      "modelFrench": "un autre / une autre",
+      "sourceRef": "foundation:8:word:9",
+      "delivery": "self-check",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    },
+    {
+      "id": "foundation:8:say:candidate-1",
+      "lessonKey": "foundation:8",
+      "mode": "say",
+      "cueEnglish": "Practice the exact reader pair.",
+      "modelEnglish": "Emma: I don't eat meat and Tom doesn't eat dairy products.",
+      "modelFrench": "Emma : Je ne mange pas de viande et Tom ne mange pas de produits laitiers.",
+      "sourceRef": "foundation:8:line:4",
+      "delivery": "self-check",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    },
+    {
+      "id": "foundation:8:write:candidate-1",
+      "lessonKey": "foundation:8",
+      "mode": "write",
+      "cueEnglish": "Practice the exact card pair.",
+      "modelEnglish": "I don't eat meat.",
+      "modelFrench": "Je ne mange pas de viande.",
+      "sourceRef": "foundation:8:word:12",
+      "delivery": "self-check",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    }
+  ],
+  "speakingSourceEnglish": "Tell a server you are not ready yet, then say you don't eat meat and ask for another coffee with less sugar.",
+  "speakingObjectives": [
+    "Tell a server you are not ready yet, then say you don't eat meat and ask for another coffee with less sugar."
+  ],
+  "sourceNotes": [
+    "Direction is French→English: French is the learner's native/input language and English is the target/output language. All six modes prompt in French and elicit the exact source English. The critique's proposal to invert the modes (prompt English, elicit French) is rejected.",
+    "The source is unchanged. The 17 English cards and 9 English Reader lines keep their source order and wording; forms and modes quote the source English exactly. Oaxaca, Luis, Emma and Tom are preserved, and all nine Reader claims appear in source sequence.",
+    "The speaking objective is the source task verbatim as a single item, restoring the sequence the earlier candidate had split into three paraphrases.",
+    "Card 2 and Reader line 6: source 'the nuts' / 'las nueces' is rendered 'les fruits à coque', the broad French term in an allergy context, instead of 'les noix', which mainly means walnuts. Caveat: Spanish 'nueces' may itself be narrower than English 'nuts' (see internalDomainNotes), so the French follows the source English.",
+    "Card 3: the source note says 'cacahuate' is the Mexican word ('maní' elsewhere). French uses 'cacahuète'; 'arachide' is the usual labelling term. Peanuts are kept separate from 'fruits à coque' throughout.",
+    "Card 6 and Reader lines 4 and 9: it is Emma who orders lactose-free milk in line 9, while Tom is the one who does not eat dairy in line 4. The card 6 note says this and adds that lactose-free milk is still a dairy product.",
+    "Cards 7 and 8 are given as 'ne … personne' and 'ne … pas encore', because bare 'personne' reads as the noun 'a person'.",
+    "Card 9: the source note warns against Spanish 'un otro'. French, unlike Spanish, keeps the article (un autre café, une autre tasse); the earlier gender-agreement framing is dropped.",
+    "Cards 10 and 16: phrase-initial 'Plus de lait' can be read as 'no more milk', so card 16 uses 'Davantage de lait' and card 10 lists both 'plus de' and 'davantage de'. Reader line 9 keeps 'avec plus de', which is unambiguous.",
+    "Card 13: the source note 'A woman says alérgica' has no French equivalent change; 'allergique' is the same for both genders.",
+    "Card 17: the source note on the Spanish double negative (no … nada) corresponds to French 'ne … rien'. This appears in card 17 only, not in the Reader.",
+    "Reader lines 7 and 8 are faithful, unqualified translations of the source claims. They are kept verbatim for parity and placed under owner hold (see residuals).",
+    "Verb paradigms follow the four source slots in order (comer, estar, tener, usar). The source has five person slots and French has six; the mapping is stated in each explanation. Tener is mapped to 'contenir', not 'avoir', to match Reader line 8.",
+    "The Reader has only a Spanish title, 'Desayuno sin carne en Oaxaca', which readerTitleFrench translates. The lesson title 'No, Never and How Much', objective and focus have no French rendering in this candidate.",
+    "Card notes are candidate French glosses, not source text."
+  ],
+  "qualifiedReviewResiduals": [
+    "Do not project this packet to the normal owner route unless the owner-visible source-safety issues render alongside the exact Reader text; the current route may ignore notes.",
+    "OWNER HOLD: Reader lines 7 and 8 state food-content claims as fact. They are kept verbatim in French for parity with the source, but may be unsafe without ingredient and cross-contact verification. The owner needs to decide whether the source itself should qualify or replace these lines. Paradigm 3 (contenir) depends on line 8.",
+    "Owner decision: tener is mapped to 'contenir' to match Reader line 8. The alternative is 'avoir' with a less idiomatic example ('n'ont pas de gluten').",
+    "Owner decision: 'fruits à coque' follows source English 'nuts'; source Spanish 'nueces' may be narrower.",
+    "Owner decision: whether the card 6 note (lactose-free milk is still dairy; Emma's order) is enough learner-facing clarification. The allergy detail is in internal notes only.",
+    "The lesson title, objective and focus have no French rendering.",
+    "No audio exists or is verified. The 'hear' mode cannot run until audio exists, and the 'plus de' pronunciation point is unsupported by audio.",
+    "Native French review is open, covering register (vous), the card notes, 'petit-déjeuner' hyphenation and 'davantage de'.",
+    "Gender and number variants are noted only for 'prêtes' on card 14; spoken 'on n'est pas encore prêts' is not represented.",
+    "No qualified approval exists. This correction does not approve the lesson, and all learner gates stay false.",
+    "All French is an unreviewed AI candidate; qualified French/domain review is required. The model triad is not approval.",
+    "No audio is attached to this candidate. Any earlier audio recorded for different exact text is invalid for these revised French strings.",
+    "Owner-only review is a candidate disposition, not learner registration or progress activation."
+  ]
+}

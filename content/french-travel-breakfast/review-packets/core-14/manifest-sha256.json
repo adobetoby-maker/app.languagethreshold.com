@@ -1,0 +1,54 @@
+{
+  "sourceRevision": "1de396fdf4ca35a146908a5647a98e6615803572",
+  "sourceFile": "public/lesson-content/es/travel-breakfast.json",
+  "sourceFileSHA256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+  "oldDraftRevision": "5cc469f5a54828c48238ccdf411238ed2e3e2c08",
+  "oldDraftFile": "content/french-travel-breakfast/core-13-15-draft.json",
+  "oldDraftFileSHA256": "cb6a621ebc192882625e19eeaf14c8b0ff7dbdb4108d1bd8fcaa434cb7c49662",
+  "modelRuns": {
+    "haiku": {
+      "canonicalModels": [
+        "claude-haiku-5-5"
+      ],
+      "isError": false,
+      "stopReason": "end_turn",
+      "durationMs": 54195,
+      "outputTokens": 14515
+    },
+    "opus": {
+      "canonicalModels": [
+        "claude-opus-5-5"
+      ],
+      "isError": false,
+      "stopReason": "end_turn",
+      "durationMs": 109860,
+      "outputTokens": 11935
+    },
+    "fable": {
+      "canonicalModels": [
+        "claude-fable-5-2"
+      ],
+      "isError": false,
+      "stopReason": "end_turn",
+      "durationMs": 105352,
+      "outputTokens": 13322
+    }
+  },
+  "artifactSHA256": {
+    "source.json": "490139614b311d60a871b8d479dc858de2193e787c5eb88d2d1875c2caa03f62",
+    "private-475-batch.json": "cb6a621ebc192882625e19eeaf14c8b0ff7dbdb4108d1bd8fcaa434cb7c49662",
+    "private-475-lesson.json": "21f0f2b7b2d365dd49b57facaef74e2047eb8dcd4869ef62e578c39b9f9bcb78",
+    "haiku-prompt.txt": "1a3b73c245620e230830aa96737db723f21913ae8189269dddea919ab70783f1",
+    "haiku-output.json": "526d07cfe3053ebf98c2fa30cc3347f72939c21af969fbd71e07777142c44c74",
+    "candidate-haiku.json": "82f70f44171c6edbe998d08e03694d8f00b200afb54fd42ef24420ec68dfd622",
+    "opus-prompt.txt": "7316f1b1b07b96ec24a87881a63104801c4bcbdded9e9d29fecfed3bd9a332ab",
+    "opus-output.json": "a00b967660d227589bac4fd1e2f1c1672fe693572b2c10d34218549a24eb8aeb",
+    "opus-critique.json": "3ad11d8803485d8fcd54616c024a1bc3215bcd3686a029cdb6233269376cb3a5",
+    "fable-prompt.txt": "324d7842cbadaa6c17800b52017377611eacaf0ee65d3a96fc22c97de432c1e1",
+    "fable-output.json": "15565214942fbcba3428c84434ed4c61c0fe16e0196cc2f185756316f0f9e4fa",
+    "candidate-fable.json": "afdeb0f7e27499bdb33fb808e964bae6ec86334891437152fd7f51f117c5399c",
+    "candidate.json": "afdeb0f7e27499bdb33fb808e964bae6ec86334891437152fd7f51f117c5399c",
+    "validate.py": "34bc1aa7a10105386ddbc5ed9f25173b055219d41793c4e2569c91b4fedcfb6f"
+  },
+  "status": "private authored draft; no qualified review; no audio; no learner registration; no release"
+}

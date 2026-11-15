@@ -1,0 +1,270 @@
+{
+  "cards": [
+    {
+      "id": "core:8:word:1",
+      "targetFrench": "le serveur",
+      "supportEnglish": "waiter",
+      "kind": "term"
+    },
+    {
+      "id": "core:8:word:2",
+      "targetFrench": "la commande",
+      "supportEnglish": "order",
+      "kind": "term"
+    },
+    {
+      "id": "core:8:word:3",
+      "targetFrench": "le café au lait",
+      "supportEnglish": "coffee with milk",
+      "kind": "term"
+    },
+    {
+      "id": "core:8:word:4",
+      "targetFrench": "les œufs brouillés",
+      "supportEnglish": "scrambled eggs",
+      "kind": "term"
+    },
+    {
+      "id": "core:8:word:5",
+      "targetFrench": "le jus d'orange",
+      "supportEnglish": "orange juice",
+      "kind": "term"
+    },
+    {
+      "id": "core:8:word:6",
+      "targetFrench": "un petit pain sucré",
+      "supportEnglish": "sweet roll",
+      "kind": "term"
+    },
+    {
+      "id": "core:8:word:7",
+      "targetFrench": "le pain grillé",
+      "supportEnglish": "toast",
+      "kind": "term"
+    },
+    {
+      "id": "core:8:word:8",
+      "targetFrench": "le beurre",
+      "supportEnglish": "butter",
+      "kind": "term"
+    },
+    {
+      "id": "core:8:word:9",
+      "targetFrench": "un café décaféiné",
+      "supportEnglish": "decaf",
+      "kind": "term"
+    },
+    {
+      "id": "core:8:word:10",
+      "targetFrench": "l'addition",
+      "supportEnglish": "check",
+      "kind": "term"
+    },
+    {
+      "id": "core:8:word:11",
+      "targetFrench": "la table",
+      "supportEnglish": "table",
+      "kind": "term"
+    },
+    {
+      "id": "core:8:word:12",
+      "targetFrench": "un sandwich au jambon",
+      "supportEnglish": "ham sandwich",
+      "kind": "term"
+    },
+    {
+      "id": "core:8:word:13",
+      "targetFrench": "Je veux commander pour tout le monde, s'il vous plaît.",
+      "supportEnglish": "I want to order for everyone, please.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:8:word:14",
+      "targetFrench": "La commande est-elle correcte ?",
+      "supportEnglish": "Is the order correct?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:8:word:15",
+      "targetFrench": "C'est pour elle, c'est bien ça ?",
+      "supportEnglish": "This is for her, right?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:8:word:16",
+      "targetFrench": "Sans fromage, s'il vous plaît.",
+      "supportEnglish": "Without cheese, please.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:8:word:17",
+      "targetFrench": "Pouvez-vous répéter la commande, s'il vous plaît ?",
+      "supportEnglish": "Can you repeat the order, please?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:8:word:18",
+      "targetFrench": "L'addition, s'il vous plaît.",
+      "supportEnglish": "The check, please.",
+      "kind": "phrase"
+    }
+  ],
+  "reader": [
+    {
+      "id": "core:8:line:1",
+      "targetFrench": "Je suis dans un café avec ma femme, mon fils et ma belle-mère.",
+      "supportEnglish": "I am in a café with my wife, my son, and my mother-in-law."
+    },
+    {
+      "id": "core:8:line:2",
+      "targetFrench": "Je dis d'abord au serveur : « Je veux commander pour tout le monde, s'il vous plaît. »",
+      "supportEnglish": "First, I say to the waiter: I want to order for everyone, please."
+    },
+    {
+      "id": "core:8:line:3",
+      "targetFrench": "Pour moi, un café au lait et des œufs brouillés.",
+      "supportEnglish": "For me, a coffee with milk and some scrambled eggs."
+    },
+    {
+      "id": "core:8:line:4",
+      "targetFrench": "Pour ma femme, un thé et un sandwich au jambon, sans fromage.",
+      "supportEnglish": "For my wife, a tea and a ham sandwich, without cheese."
+    },
+    {
+      "id": "core:8:line:5",
+      "targetFrench": "Mon fils va prendre un jus d'orange et un petit pain sucré.",
+      "supportEnglish": "My son is going to have orange juice and a sweet roll."
+    },
+    {
+      "id": "core:8:line:6",
+      "targetFrench": "Ma belle-mère veut un café décaféiné et du pain grillé avec du beurre.",
+      "supportEnglish": "My mother-in-law wants a decaf coffee and toast with butter."
+    },
+    {
+      "id": "core:8:line:7",
+      "targetFrench": "Puis je répète la commande : « C'est correct ? Le thé est pour elle, c'est bien ça ? »",
+      "supportEnglish": "Then, I repeat the order: Is that correct? The tea is for her, right?"
+    },
+    {
+      "id": "core:8:line:8",
+      "targetFrench": "Le serveur sourit et dit : « Tout est correct, je vous apporte ça tout de suite. »",
+      "supportEnglish": "The waiter smiles and says: Everything is right, I'll bring it right away."
+    },
+    {
+      "id": "core:8:line:9",
+      "targetFrench": "À la fin, je demande l'addition à la table.",
+      "supportEnglish": "At the end, I ask for the check at the table."
+    }
+  ],
+  "forms": [
+    {
+      "sourceVerb": "pedir",
+      "frenchVerb": "commander",
+      "exampleFrench": "Je veux commander pour tout le monde.",
+      "exampleEnglish": "I want to order for everyone.",
+      "explanationEnglish": "Commander is the usual French verb for ordering food. Pedir has a stem change (e to i) in Spanish; French commander is a regular -er verb, so no stem change applies. For asking for the check, the source sentence 'pido la cuenta' is rendered with demander: 'je demande l'addition'."
+    },
+    {
+      "sourceVerb": "querer",
+      "frenchVerb": "vouloir",
+      "exampleFrench": "Ma belle-mère veut un café décaféiné.",
+      "exampleEnglish": "My mother-in-law wants a decaf coffee.",
+      "explanationEnglish": "Vouloir is irregular (je veux, tu veux, il/elle veut, nous voulons, vous voulez, ils veulent). Here the third-person form veut means 'wants' literally, not a softened 'would like'. Querer's e-to-ie stem change in Spanish corresponds to the irregular French stem in veut."
+    },
+    {
+      "sourceVerb": "tomar",
+      "frenchVerb": "prendre",
+      "exampleFrench": "Mon fils va prendre un jus d'orange.",
+      "exampleEnglish": "My son is going to have orange juice.",
+      "explanationEnglish": "Prendre covers 'have (a drink)' and 'take' in the source sense. 'Va prendre' uses aller plus an infinitive for the near future, matching 'va a tomar'. Prendre is irregular: je prends, il prend, nous prenons, ils prennent."
+    },
+    {
+      "sourceVerb": "repetir",
+      "frenchVerb": "répéter",
+      "exampleFrench": "Je répète la commande pour confirmer.",
+      "exampleEnglish": "I repeat the order to confirm.",
+      "explanationEnglish": "Répéter is a regular -er verb with the accent on the é in the stem (je répète). Spanish repetir has an e-to-i stem change, which has no French counterpart here. Used for the confirmation step."
+    },
+    {
+      "sourceVerb": "traer",
+      "frenchVerb": "apporter",
+      "exampleFrench": "Je vous apporte ça tout de suite.",
+      "exampleEnglish": "I'll bring it right away.",
+      "explanationEnglish": "Apporter is a regular -er verb meaning 'to bring'. The Spanish irregular yo form traigo has no French irregularity here: j'apporte. Vous is the polite form the waiter uses with the customer."
+    }
+  ],
+  "modes": [
+    {
+      "mode": "See",
+      "promptEnglish": "Look at the French and say its English meaning.",
+      "targetFrench": "le serveur",
+      "sourceCardId": "core:8:word:1"
+    },
+    {
+      "mode": "Recall",
+      "promptEnglish": "Say the French for: order",
+      "targetFrench": "la commande",
+      "sourceCardId": "core:8:word:2"
+    },
+    {
+      "mode": "Hear",
+      "promptEnglish": "Read this French phrase aloud yourself, then check it against its English meaning.",
+      "targetFrench": "L'addition, s'il vous plaît.",
+      "sourceCardId": "core:8:word:18"
+    },
+    {
+      "mode": "Type",
+      "promptEnglish": "Type the French for: Without cheese, please.",
+      "targetFrench": "Sans fromage, s'il vous plaît.",
+      "sourceCardId": "core:8:word:16"
+    },
+    {
+      "mode": "Say",
+      "promptEnglish": "Say this line aloud, then repeat who gets what: Then, I repeat the order.",
+      "targetFrench": "Puis je répète la commande : « C'est correct ? Le thé est pour elle, c'est bien ça ? »",
+      "sourceLineId": "core:8:line:7"
+    },
+    {
+      "mode": "Write",
+      "promptEnglish": "Write the French for: For my wife, a tea and a ham sandwich, without cheese.",
+      "targetFrench": "Pour ma femme, un thé et un sandwich au jambon, sans fromage.",
+      "sourceLineId": "core:8:line:4"
+    }
+  ],
+  "speaking": {
+    "roles": [
+      {
+        "role": "customer",
+        "englishDescription": "You, ordering breakfast for a group of three people plus yourself, then confirming who gets what."
+      },
+      {
+        "role": "waiter",
+        "frenchTitle": "le serveur",
+        "englishDescription": "The server who takes the order, repeats it when asked, and brings the check at the end."
+      }
+    ],
+    "openingFrench": "Bonjour ! Je veux commander pour tout le monde. Pour ma femme, un thé et un sandwich au jambon, sans fromage. C'est bien ça ?",
+    "objectivesEnglish": [
+      "Open the order by saying you want to order for everyone.",
+      "Assign items to each person with pour moi and pour elle (or pour ma femme, pour mon fils, pour ma belle-mère).",
+      "Say 'without cheese' with sans for an exclusion.",
+      "Confirm who gets what by repeating the order before the server leaves.",
+      "Ask for the check at the end."
+    ]
+  },
+  "notes": [
+    "Literal fidelity: 'I want' is rendered as 'Je veux' (not 'Je voudrais'), and 'wants' as 'veut' (not 'voudrait'). 'Je voudrais' is a softer, more polite form and is not used in this packet. The earlier French packet's 'Je voudrais' and 'Ma belle-mère voudrait' were changed for this reason. Flag for the reviewer: 'Je veux' may sound blunt in a real café; this is the literal source meaning.",
+    "'Mother-in-law' is rendered as 'belle-mère' (literal sense of the source). 'Family assignments' are rendered with pour moi, pour ma femme, pour mon fils, pour ma belle-mère, and pour elle, matching the source's assignment pattern.",
+    "'Sweet roll' is rendered as 'petit pain sucré', the closest equivalent of the source sense. A local French pastry (viennoiserie such as a croissant or pain au chocolat) is a different item and is not used. Uncertainty: the Spanish source notes pan dulce as a regional item, so the French equivalent is a judgment call.",
+    "'Ham sandwich' is rendered as 'sandwich au jambon'. 'Jambon-beurre' is a specific French sandwich and is not used, to avoid changing the item.",
+    "'Decaf' is rendered as 'décaféiné' (the full form). Flag: in everyday French, 'déca' is common informal speech; the full word is used for literal fidelity.",
+    "'Check' is rendered as 'l'addition' (not 'la note', which is used for a different sense in some regions). 'Check' appears both as a card (l'addition) and as a phrase (L'addition, s'il vous plaît.).",
+    "Pedir is rendered as 'commander' for ordering food and as 'demander' for asking for the check. Flag: the verb choice for 'ask for' is context-dependent and a reviewer may prefer one form consistently.",
+    "Tomar (to have a drink) is rendered as 'prendre', which covers 'have' and 'take'. 'Boire' would be too narrow for food.",
+    "Traer ('to bring') is rendered as 'apporter'. The waiter uses 'vous' (polite form), matching the source's usted register.",
+    "Waiter gender: the source notes 'mesera' for a woman. The French feminine is 'serveuse'. The card uses 'le serveur' (masculine) as the default, matching the source's 'mesero'. Flag for a reviewer if a feminine card is wanted.",
+    "'Is that correct?' is rendered as 'C'est correct ?' in the reader and 'La commande est-elle correcte ?' on the card. Both are literal. 'Tout est correct' is used for 'Everything is right' (literal 'correct'); a more idiomatic 'Tout est bien' is possible but changes the English meaning.",
+    "Stage-local IDs core:8:word:1 to core:8:word:18 and core:8:line:1 to core:8:line:9 are preserved, with 18 cards and 9 reader turns, in source order.",
+    "The French target text was authored from the English meanings; the Spanish source was used only for verb examples and item context. No audio is provided or implied."
+  ]
+}

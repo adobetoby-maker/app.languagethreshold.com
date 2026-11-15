@@ -1,0 +1,559 @@
+{
+  "draftLessonKey": "core:1",
+  "lessonKey": "core:1",
+  "stage": "core",
+  "n": 1,
+  "status": "PRIVATE owner-review candidate (corrected pass); not reviewed, not registered, not qualified-approved; no learner or audio registration",
+  "titleEnglish": "Entrer dans un café fréquenté",
+  "titleEnglishProposal": "Entering a busy café",
+  "titleEnglishNote": "Prior value retained verbatim. It is French in an English field (prior-draft defect). The proposal is unreviewed and not applied.",
+  "objectiveEnglish": "Ask where to order, greet staff politely, and find a seat in French.",
+  "focusFrench": "Poser des questions avec est-ce que et y a-t-il ; vouvoyer le personnel ; distinguer sur place et à emporter.",
+  "focusEnglish": "Questions with est-ce que and y a-t-il; polite vous; café seating and ordering.",
+  "requiresQualifiedReview": true,
+  "requiresQualifiedReviewNote": "Prior draft value was false. Set to true because every French string here is an unreviewed proposal.",
+  "reviewed": false,
+  "registered": false,
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "audio": false,
+    "progress": false,
+    "learnerRegistration": false,
+    "qualifiedApproval": false
+  },
+  "sourceFidelity": {
+    "sourcePath": "public/lesson-content/es/travel-breakfast.json",
+    "pinnedSourceSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "verificationStatus": "NOT VERIFIED. The pinned Spanish file is not in this workspace, so the pinned hash could not be checked. This pass worked from the sourceLesson object embedded in source.json and ran no hash.",
+    "englishParity": "All 15 sourceEnglish/supportEnglish strings are copied from sourceLesson.words[].en in source order, and all 9 Reader supportEnglish strings from sourceLesson.passage.native. The Opus pass reported exact parity for the previous candidate; no mechanical comparison was re-run on this output.",
+    "schemaNote": "Field names follow the prior private draft (words, reader, readerTitleFrench, speaking, candidateModeInputs) so nothing from it is dropped. Added fields: gates, sourceFidelity, contextualForms, activities, answerNormalizationProposal, unresolvedQualifiedReviewQuestions, ownerStructuralQuestions, notes."
+  },
+  "linguisticStatus": "Every targetFrench string, French note, form explanation and speaking line is an unreviewed AI proposal. Nothing here is qualified approval.",
+  "words": [
+    {
+      "id": "core:1:word:1",
+      "kind": "term",
+      "sourceEnglish": "café; coffee shop",
+      "supportEnglish": "café; coffee shop",
+      "targetFrench": "le café",
+      "changed": false,
+      "sourceNote": "Also means coffee, the drink.",
+      "proposalNote": "Unreviewed: 'le café' is also used for the drink in Reader line 9."
+    },
+    {
+      "id": "core:1:word:2",
+      "kind": "term",
+      "sourceEnglish": "counter",
+      "supportEnglish": "counter",
+      "targetFrench": "le comptoir",
+      "changed": false
+    },
+    {
+      "id": "core:1:word:3",
+      "kind": "term",
+      "sourceEnglish": "table",
+      "supportEnglish": "table",
+      "targetFrench": "la table",
+      "changed": false
+    },
+    {
+      "id": "core:1:word:4",
+      "kind": "term",
+      "sourceEnglish": "free table",
+      "supportEnglish": "free table",
+      "targetFrench": "une table libre",
+      "changed": false
+    },
+    {
+      "id": "core:1:word:5",
+      "kind": "term",
+      "sourceEnglish": "waiter",
+      "supportEnglish": "waiter",
+      "targetFrench": "le serveur",
+      "changed": false,
+      "sourceNote": "Use mesera for a woman.",
+      "genderNote": "Use 'la serveuse' for a woman. Reader lines 4, 5 and 7 use 'la serveuse'.",
+      "proposalNote": "Unreviewed: the single canonical target is the masculine form, matching the source card 'waiter'. The slash target from the previous candidate is withdrawn because it cannot be graded."
+    },
+    {
+      "id": "core:1:word:6",
+      "kind": "term",
+      "sourceEnglish": "menu",
+      "supportEnglish": "menu",
+      "targetFrench": "la carte",
+      "changed": false,
+      "proposalNote": "Unreviewed: 'la carte' is proposed for the full menu. 'Le menu' often means a fixed-price formula but is also used loosely for the menu."
+    },
+    {
+      "id": "core:1:word:7",
+      "kind": "term",
+      "sourceEnglish": "line; queue",
+      "supportEnglish": "line; queue",
+      "targetFrench": "la file d'attente",
+      "changed": false,
+      "sourceNote": "In some places people also say cola.",
+      "proposalNote": "Unreviewed: Reader lines 2 and 8 use the short form 'la file'. 'La queue' / 'faire la queue' is a standard alternative, not a colloquial one."
+    },
+    {
+      "id": "core:1:word:8",
+      "kind": "term",
+      "sourceEnglish": "patio; outdoor seating",
+      "supportEnglish": "patio; outdoor seating",
+      "targetFrench": "la terrasse",
+      "changed": false
+    },
+    {
+      "id": "core:1:word:9",
+      "kind": "term",
+      "sourceEnglish": "sweet pastry",
+      "supportEnglish": "sweet pastry",
+      "targetFrench": "une viennoiserie",
+      "changed": false,
+      "sourceNote": "Common in Mexican and US Spanish.",
+      "proposalNote": "Unreviewed: 'viennoiserie' may be narrower than the source 'pan dulce' / 'sweet pastry'. Kept pending qualified review."
+    },
+    {
+      "id": "core:1:word:10",
+      "kind": "term",
+      "sourceEnglish": "chair",
+      "supportEnglish": "chair",
+      "targetFrench": "la chaise",
+      "changed": false,
+      "proposalNote": "Source fact: 'silla' does not appear in the source passage, so this card has no Reader line."
+    },
+    {
+      "id": "core:1:word:11",
+      "kind": "phrase",
+      "sourceEnglish": "Good morning, do I order here at the counter?",
+      "supportEnglish": "Good morning, do I order here at the counter?",
+      "targetFrench": "Bonjour, est-ce que je commande ici, au comptoir ?",
+      "changed": false
+    },
+    {
+      "id": "core:1:word:12",
+      "kind": "phrase",
+      "sourceEnglish": "Is there a free table?",
+      "supportEnglish": "Is there a free table?",
+      "targetFrench": "Y a-t-il une table libre ?",
+      "changed": false,
+      "proposalNote": "Unreviewed: inversion 'Y a-t-il' is kept because focusFrench names it. It may read as formal in a café; 'Est-ce qu'il y a une table libre ?' is the alternative."
+    },
+    {
+      "id": "core:1:word:13",
+      "kind": "phrase",
+      "sourceEnglish": "Do I sit wherever I want?",
+      "supportEnglish": "Do I sit wherever I want?",
+      "targetFrench": "Est-ce que je m'assois où je veux ?",
+      "priorTargetFrench": "Est-ce que je peux m'asseoir où je veux ?",
+      "changed": true,
+      "proposalNote": "Unreviewed change. The prior target added 'peux' ('Can I sit...'), which is not in the source English 'Do I sit...' or the source Spanish '¿Me siento donde quiero?'. The new target drops the modal. The variant 'je m'assieds' and the prior 'peux' wording both remain open for the reviewer."
+    },
+    {
+      "id": "core:1:word:14",
+      "kind": "phrase",
+      "sourceEnglish": "Sorry, I don't understand. Can you repeat, please?",
+      "supportEnglish": "Sorry, I don't understand. Can you repeat, please?",
+      "targetFrench": "Excusez-moi, je ne comprends pas. Vous pouvez répéter, s'il vous plaît ?",
+      "changed": false,
+      "proposalNote": "Unreviewed: the source opens with 'Perdón' / 'Sorry'. 'Pardon' may be the closer opener; 'Excusez-moi' is kept from the prior draft."
+    },
+    {
+      "id": "core:1:word:15",
+      "kind": "phrase",
+      "sourceEnglish": "Is it to go or to eat here?",
+      "supportEnglish": "Is it to go or to eat here?",
+      "targetFrench": "C'est à emporter ou sur place ?",
+      "changed": false,
+      "sourceNote": "Staff often ask this; you can also say it to check."
+    }
+  ],
+  "readerTitleFrench": "Un café très fréquenté",
+  "readerTitleSourceSpanish": "Un café muy lleno",
+  "readerTitleNote": "Unreviewed: 'très fréquenté' may mean popular in general rather than crowded now. Alternatives for the title and line 1 are 'plein de monde' or 'bondé'. Not applied.",
+  "reader": [
+    {
+      "id": "core:1:line:1",
+      "sourceSpanish": "Un viajero entra en un café muy lleno.",
+      "targetFrench": "Un voyageur entre dans un café très fréquenté.",
+      "supportEnglish": "A traveler enters a very busy café.",
+      "changed": false
+    },
+    {
+      "id": "core:1:line:2",
+      "sourceSpanish": "Hay una fila larga frente al mostrador.",
+      "targetFrench": "Il y a une longue file devant le comptoir.",
+      "supportEnglish": "There is a long line in front of the counter.",
+      "changed": false
+    },
+    {
+      "id": "core:1:line:3",
+      "sourceSpanish": "El viajero dice: Buenos días.",
+      "targetFrench": "Le voyageur dit : « Bonjour. »",
+      "supportEnglish": "The traveler says: Good morning.",
+      "changed": false
+    },
+    {
+      "id": "core:1:line:4",
+      "sourceSpanish": "Pregunta a la mesera: ¿Pido aquí en el mostrador?",
+      "targetFrench": "Il demande à la serveuse : « Est-ce que je commande ici, au comptoir ? »",
+      "supportEnglish": "He asks the waitress: Do I order here at the counter?",
+      "changed": false
+    },
+    {
+      "id": "core:1:line:5",
+      "sourceSpanish": "La mesera contesta: Sí, pida aquí, por favor.",
+      "targetFrench": "La serveuse répond : « Oui, commandez ici, s'il vous plaît. »",
+      "supportEnglish": "The waitress answers: Yes, order here, please.",
+      "changed": false
+    },
+    {
+      "id": "core:1:line:6",
+      "sourceSpanish": "Él pregunta: ¿Hay una mesa libre?",
+      "targetFrench": "Il demande : « Y a-t-il une table libre ? »",
+      "supportEnglish": "He asks: Is there a free table?",
+      "changed": false
+    },
+    {
+      "id": "core:1:line:7",
+      "sourceSpanish": "La mesera dice: Hay una mesa en la terraza.",
+      "targetFrench": "La serveuse dit : « Il y a une table sur la terrasse. »",
+      "supportEnglish": "The waitress says: There is a table on the patio.",
+      "changed": false
+    },
+    {
+      "id": "core:1:line:8",
+      "sourceSpanish": "Él espera en la fila y mira el menú.",
+      "targetFrench": "Il attend dans la file et regarde la carte.",
+      "supportEnglish": "He waits in line and looks at the menu.",
+      "changed": false
+    },
+    {
+      "id": "core:1:line:9",
+      "sourceSpanish": "Después pide un café y pan dulce.",
+      "targetFrench": "Ensuite, il commande un café et une viennoiserie.",
+      "supportEnglish": "Then he orders a coffee and a sweet pastry.",
+      "changed": false
+    }
+  ],
+  "contextualForms": [
+    {
+      "id": "core:1:form:1",
+      "french": "je commande",
+      "linkedWordIds": [
+        "core:1:word:11"
+      ],
+      "linkedLineIds": [
+        "core:1:line:4"
+      ],
+      "sourceBasis": "Source verb list: pedir, 'to order; to ask for', yo form 'pido', note 'Stem change: e to i.'",
+      "explanationEnglish": "'Je commande' is the 'I' form used for 'do I order' in this lesson. The Spanish source verb has a stem change; the lesson makes no such claim about the French form. The Reader uses a different verb, 'demande', for 'asks' (lines 4 and 6).",
+      "status": "unreviewed proposal"
+    },
+    {
+      "id": "core:1:form:2",
+      "french": "commandez",
+      "linkedWordIds": [],
+      "linkedLineIds": [
+        "core:1:line:5"
+      ],
+      "sourceBasis": "Passage-derived: 'pida' in source passage line 5, English 'order here, please'. 'Pida' is not in the source verb table.",
+      "explanationEnglish": "'Commandez' is the polite 'vous' instruction the server gives the customer: 'order'. It matches the lesson focus on polite 'vous' with staff.",
+      "status": "unreviewed proposal"
+    },
+    {
+      "id": "core:1:form:3",
+      "french": "y a-t-il",
+      "linkedWordIds": [
+        "core:1:word:12"
+      ],
+      "linkedLineIds": [
+        "core:1:line:6"
+      ],
+      "relatedLineIds": [
+        "core:1:line:2",
+        "core:1:line:7"
+      ],
+      "sourceBasis": "Passage-derived: 'hay' in source passage lines 2, 6 and 7, English 'There is' / 'Is there'. Not in the source verb list.",
+      "explanationEnglish": "'Il y a' means 'there is' (lines 2 and 7). 'Y a-t-il ... ?' is its question form, 'Is there ... ?' (line 6).",
+      "status": "unreviewed proposal"
+    },
+    {
+      "id": "core:1:form:4",
+      "french": "je m'assois",
+      "linkedWordIds": [
+        "core:1:word:13"
+      ],
+      "linkedLineIds": [],
+      "sourceBasis": "Source verb list: sentarse, 'to sit down', yo form 'me siento', note 'Reflexive verb. Stem change: e to ie, except nosotros.' Source example: 'Me siento en la terraza.' / 'I sit on the patio.'",
+      "explanationEnglish": "'Je m'assois' is the 'I' form for 'I sit (down)'. Like the Spanish source verb, it carries a reflexive pronoun ('m''). It appears only on the phrase card, not in the Reader.",
+      "status": "unreviewed proposal; the variant 'je m'assieds' is an open review question"
+    }
+  ],
+  "activities": [
+    {
+      "id": "core:1:activity:1",
+      "mode": "see",
+      "direction": "French shown -> learner recognises the English meaning",
+      "promptFrench": "le comptoir",
+      "answerEnglish": "counter",
+      "linkedIds": [
+        "core:1:word:2"
+      ],
+      "audioRequired": false,
+      "blockedByGate": null
+    },
+    {
+      "id": "core:1:activity:2",
+      "mode": "recall",
+      "direction": "English prompt -> learner recalls the French",
+      "promptEnglish": "Is there a free table?",
+      "answerFrench": "Y a-t-il une table libre ?",
+      "linkedIds": [
+        "core:1:word:12"
+      ],
+      "audioRequired": false,
+      "blockedByGate": null
+    },
+    {
+      "id": "core:1:activity:3",
+      "mode": "hear",
+      "direction": "French audio only -> learner gives the English meaning; no English or French text shown before answering",
+      "promptFrenchAudioText": "C'est à emporter ou sur place ?",
+      "answerEnglish": "Is it to go or to eat here?",
+      "linkedIds": [
+        "core:1:word:15"
+      ],
+      "audioRequired": true,
+      "blockedByGate": "audio",
+      "audioStatus": "BLOCKED. gates.audio is false; no audio generated, referenced or registered."
+    },
+    {
+      "id": "core:1:activity:4",
+      "mode": "type",
+      "direction": "English prompt -> learner types the exact French",
+      "promptEnglish": "Good morning, do I order here at the counter?",
+      "answerFrench": "Bonjour, est-ce que je commande ici, au comptoir ?",
+      "linkedIds": [
+        "core:1:word:11"
+      ],
+      "audioRequired": false,
+      "blockedByGate": null
+    },
+    {
+      "id": "core:1:activity:5",
+      "mode": "say",
+      "direction": "English prompt -> learner says the French aloud",
+      "promptEnglish": "Sorry, I don't understand. Can you repeat, please?",
+      "answerFrench": "Excusez-moi, je ne comprends pas. Vous pouvez répéter, s'il vous plaît ?",
+      "linkedIds": [
+        "core:1:word:14"
+      ],
+      "audioRequired": false,
+      "blockedByGate": null,
+      "note": "No model audio is used. If the owner wants model-audio playback for Say, it falls under gates.audio and is blocked. There is no separate speech gate."
+    },
+    {
+      "id": "core:1:activity:6",
+      "mode": "write",
+      "direction": "English prompt -> learner writes the French sentence unaided",
+      "promptEnglish": "Do I sit wherever I want?",
+      "answerFrench": "Est-ce que je m'assois où je veux ?",
+      "linkedIds": [
+        "core:1:word:13"
+      ],
+      "audioRequired": false,
+      "blockedByGate": null,
+      "note": "The answer depends on the unreviewed word:13 change."
+    }
+  ],
+  "activitiesNote": "Six authored samples, one per mode. All link to word IDs that are in candidateModeInputs. None is learner-registered; gates.learnerRegistration and gates.progress are false.",
+  "answerNormalizationProposal": {
+    "status": "unreviewed proposal; applies to type, write and say",
+    "rules": [
+      "Accept a plain space, a no-break space or a narrow no-break space before ? ! and :",
+      "Accept a straight or a curly apostrophe (s'il, d'attente, m'assois)",
+      "Treat « » quotation marks as optional",
+      "Ignore differences in capitalisation of the first letter and in final punctuation for say"
+    ]
+  },
+  "speaking": {
+    "role": "The server speaks first; the learner is the customer.",
+    "openingFrench": "Bonjour ! C'est à emporter ou sur place ?",
+    "openingLinkedIds": [
+      "core:1:word:15"
+    ],
+    "openingNote": "Unreviewed proposal. It reuses card word:15, which the source notes staff often ask. It replaces the prior opening, which was the learner's own questions.",
+    "priorOpeningFrench": "Bonjour ! Est-ce que je commande ici, au comptoir ? Y a-t-il une table libre ?",
+    "instructionEnglish": "Ask a busy café server where to order, whether a table is free, and whether seating is assigned.",
+    "objectiveEnglish": "Respond to the server's to-go or eat-here question, then ask where to order, whether a table is free, and whether you sit wherever you want.",
+    "objectives": [
+      {
+        "objective": "Understand the server's to-go or eat-here question",
+        "linkedIds": [
+          "core:1:word:15"
+        ]
+      },
+      {
+        "objective": "Ask where to order",
+        "linkedIds": [
+          "core:1:word:11"
+        ]
+      },
+      {
+        "objective": "Ask whether a table is free",
+        "linkedIds": [
+          "core:1:word:12"
+        ]
+      },
+      {
+        "objective": "Ask whether you sit wherever you want",
+        "linkedIds": [
+          "core:1:word:13"
+        ]
+      }
+    ],
+    "repairPhrase": {
+      "targetFrench": "Excusez-moi, je ne comprends pas. Vous pouvez répéter, s'il vous plaît ?",
+      "supportEnglish": "Sorry, I don't understand. Can you repeat, please?",
+      "linkedIds": [
+        "core:1:word:14"
+      ],
+      "useEnglish": "Say this whenever you do not understand the server."
+    }
+  },
+  "candidateModeInputs": {
+    "see": [
+      "core:1:word:1",
+      "core:1:word:2",
+      "core:1:word:3",
+      "core:1:word:4",
+      "core:1:word:5",
+      "core:1:word:6",
+      "core:1:word:7",
+      "core:1:word:8",
+      "core:1:word:9",
+      "core:1:word:10",
+      "core:1:word:11",
+      "core:1:word:12",
+      "core:1:word:13",
+      "core:1:word:14",
+      "core:1:word:15"
+    ],
+    "recall": [
+      "core:1:word:1",
+      "core:1:word:2",
+      "core:1:word:3",
+      "core:1:word:4",
+      "core:1:word:5",
+      "core:1:word:6",
+      "core:1:word:7",
+      "core:1:word:8",
+      "core:1:word:9",
+      "core:1:word:10",
+      "core:1:word:11",
+      "core:1:word:12",
+      "core:1:word:13",
+      "core:1:word:14",
+      "core:1:word:15"
+    ],
+    "hear": [
+      "core:1:word:1",
+      "core:1:word:2",
+      "core:1:word:3",
+      "core:1:word:4",
+      "core:1:word:5",
+      "core:1:word:6",
+      "core:1:word:7",
+      "core:1:word:8",
+      "core:1:word:9",
+      "core:1:word:10",
+      "core:1:word:11",
+      "core:1:word:12",
+      "core:1:word:13",
+      "core:1:word:14",
+      "core:1:word:15"
+    ],
+    "type": [
+      "core:1:word:1",
+      "core:1:word:2",
+      "core:1:word:3",
+      "core:1:word:4",
+      "core:1:word:5",
+      "core:1:word:6",
+      "core:1:word:7",
+      "core:1:word:8",
+      "core:1:word:9",
+      "core:1:word:10",
+      "core:1:word:11",
+      "core:1:word:12",
+      "core:1:word:13",
+      "core:1:word:14",
+      "core:1:word:15"
+    ],
+    "say": [
+      "core:1:word:1",
+      "core:1:word:2",
+      "core:1:word:3",
+      "core:1:word:4",
+      "core:1:word:5",
+      "core:1:word:6",
+      "core:1:word:7",
+      "core:1:word:8",
+      "core:1:word:9",
+      "core:1:word:10",
+      "core:1:word:11",
+      "core:1:word:12",
+      "core:1:word:13",
+      "core:1:word:14",
+      "core:1:word:15"
+    ],
+    "write": [
+      "core:1:word:1",
+      "core:1:word:2",
+      "core:1:word:3",
+      "core:1:word:4",
+      "core:1:word:5",
+      "core:1:word:6",
+      "core:1:word:7",
+      "core:1:word:8",
+      "core:1:word:9",
+      "core:1:word:10",
+      "core:1:word:11",
+      "core:1:word:12",
+      "core:1:word:13",
+      "core:1:word:14",
+      "core:1:word:15"
+    ]
+  },
+  "unresolvedQualifiedReviewQuestions": [
+    "word:13: is 'Est-ce que je m'assois où je veux ?' acceptable for 'Do I sit wherever I want?', or should it be 'je m'assieds', or the prior 'Est-ce que je peux m'asseoir où je veux ?' as a deliberate idiomatic change?",
+    "form:4: which pattern of 's'asseoir' should the lesson teach, 'je m'assois' or 'je m'assieds'?",
+    "word:5: is 'le serveur' with a note for 'la serveuse' the right canonical card, given that the Reader uses only 'la serveuse'?",
+    "Reader title and line 1: should 'très fréquenté' become 'plein de monde' or 'bondé' to match 'muy lleno' / 'very busy'?",
+    "word:9 and line 9: is 'une viennoiserie' acceptable for 'sweet pastry' (pan dulce), or should it be 'une pâtisserie' or another term?",
+    "word:12 and line 6: is 'Y a-t-il' the right register for a café, or should it be 'Est-ce qu'il y a une table libre ?'",
+    "word:14: should the repair phrase open with 'Pardon' (closer to 'Perdón' / 'Sorry') rather than 'Excusez-moi'?",
+    "word:6: is 'la carte' the right card for 'menu' in a café, and is the note on 'le menu' accurate?",
+    "word:7 and line 8: keep 'la file d'attente' / 'Il attend dans la file', or use 'la queue' / 'Il fait la queue'? A change to line 8 would stop it reusing card word:7.",
+    "line 7: 'sur la terrasse' or 'en terrasse'?",
+    "form:1: 'pedir' ('to order; to ask for') is rendered 'commander' while 'preguntar' is rendered 'demander'. Does the overlap of 'demander' with 'ask for' need a learner-facing note?",
+    "Speaking: is the server opening 'Bonjour ! C'est à emporter ou sur place ?' natural, and should a learner answer phrase (none exists in the source cards) be added?",
+    "Are the four contextual-form explanations accurate and suitable for learners?",
+    "Are the answer normalisation rules (spacing before ? ! :, apostrophes, optional « ») correct for French typography?"
+  ],
+  "ownerStructuralQuestions": [
+    "titleEnglish holds a French string from the prior draft. Apply the proposal 'Entering a busy café'?",
+    "speaking.instructionEnglish is retained from the prior draft and says 'whether seating is assigned', which does not match source card 13. Reword it to match speaking.objectiveEnglish?",
+    "Does Say need model-audio playback? If so it is blocked by gates.audio like Hear.",
+    "Should Hear expect the English meaning (as authored) or a French transcription?",
+    "The source verbs entrar, esperar and preguntar (French 'entre', 'attend', 'demande' in the Reader) have no contextual form. Is four forms the intended limit?",
+    "The pinned source hash is still unverified because the Spanish file is not in this workspace."
+  ],
+  "notes": {
+    "sourceFacts": "sourceEnglish and supportEnglish strings, Reader supportEnglish and sourceSpanish lines, sourceNote fields, and the sourceBasis of each contextual form come from the sourceLesson object in source.json.",
+    "unreviewedProposals": "All French targets, the word:13 change, the gender note, all proposalNote fields, the form explanations, the six activities, the normalisation rules and the speaking opening.",
+    "changesFromPreviousCandidate": "Restored prior metadata, supportEnglish, candidateModeInputs and requiresQualifiedReview (now true). word:5 back to one canonical target with a gender note. word:13 target changed. Fourth contextual form added and form links split into word and line IDs. Activities given explicit directions, relinked to word IDs, Hear reversed and blocked by the audio gate. Speaking reopened with a server line, with objectives for word:15 and a repair phrase from word:14.",
+    "noActionsTaken": "No files edited. No qualified approval, learner registration or audio registration."
+  }
+}

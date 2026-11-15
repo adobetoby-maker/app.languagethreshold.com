@@ -1,0 +1,306 @@
+{
+  "cards": [
+    {
+      "id": "core:5:word:1",
+      "targetFrench": "le petit-déjeuner",
+      "supportEnglish": "breakfast",
+      "kind": "term"
+    },
+    {
+      "id": "core:5:word:2",
+      "targetFrench": "la salle du petit-déjeuner",
+      "supportEnglish": "dining room",
+      "kind": "term"
+    },
+    {
+      "id": "core:5:word:3",
+      "targetFrench": "les horaires",
+      "supportEnglish": "hours, schedule",
+      "kind": "term"
+    },
+    {
+      "id": "core:5:word:4",
+      "targetFrench": "le numéro de chambre",
+      "supportEnglish": "room number",
+      "kind": "term"
+    },
+    {
+      "id": "core:5:word:5",
+      "targetFrench": "le buffet",
+      "supportEnglish": "buffet",
+      "kind": "term"
+    },
+    {
+      "id": "core:5:word:6",
+      "targetFrench": "la réceptionniste",
+      "supportEnglish": "receptionist",
+      "kind": "term"
+    },
+    {
+      "id": "core:5:word:7",
+      "targetFrench": "la table",
+      "supportEnglish": "table",
+      "kind": "term"
+    },
+    {
+      "id": "core:5:word:8",
+      "targetFrench": "l'assiette",
+      "supportEnglish": "plate",
+      "kind": "term"
+    },
+    {
+      "id": "core:5:word:9",
+      "targetFrench": "le café",
+      "supportEnglish": "coffee",
+      "kind": "term"
+    },
+    {
+      "id": "core:5:word:10",
+      "targetFrench": "les consignes",
+      "supportEnglish": "rules",
+      "kind": "term"
+    },
+    {
+      "id": "core:5:word:11",
+      "targetFrench": "Le petit-déjeuner est-il compris ?",
+      "supportEnglish": "Is breakfast included?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:5:word:12",
+      "targetFrench": "Quels sont les horaires du petit-déjeuner ?",
+      "supportEnglish": "What are the breakfast hours?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:5:word:13",
+      "targetFrench": "Ma chambre porte le numéro 214.",
+      "supportEnglish": "My room is 214.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:5:word:14",
+      "targetFrench": "Puis-je m'asseoir à n'importe quelle table ?",
+      "supportEnglish": "Can I sit at any table?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:5:word:15",
+      "targetFrench": "Excusez-moi, quelles sont les consignes du buffet ?",
+      "supportEnglish": "Excuse me, what are the buffet rules?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:5:word:16",
+      "targetFrench": "Vous pouvez répéter, s'il vous plaît ?",
+      "supportEnglish": "Can you repeat that, please?",
+      "kind": "phrase"
+    }
+  ],
+  "reader": {
+    "titleFrench": "Le petit-déjeuner à l'hôtel",
+    "turns": [
+      {
+        "id": "core:5:line:1",
+        "targetFrench": "Un voyageur arrive dans la salle du petit-déjeuner de l'hôtel le matin.",
+        "supportEnglish": "A traveler arrives at the hotel dining room in the morning."
+      },
+      {
+        "id": "core:5:line:2",
+        "targetFrench": "Il s'adresse à la réceptionniste : « Le petit-déjeuner est-il compris ? »",
+        "supportEnglish": "He talks to the receptionist: Is breakfast included?"
+      },
+      {
+        "id": "core:5:line:3",
+        "targetFrench": "Elle répond : « Oui, il est compris avec votre chambre. »",
+        "supportEnglish": "She says: Yes, it is included with your room."
+      },
+      {
+        "id": "core:5:line:4",
+        "targetFrench": "Il demande : « Quels sont les horaires du petit-déjeuner ? »",
+        "supportEnglish": "He asks: What are the breakfast hours?"
+      },
+      {
+        "id": "core:5:line:5",
+        "targetFrench": "Elle dit que, dans cet hôtel, le service va de 6 h 30 à 10 h.",
+        "supportEnglish": "She answers that the hours are from 6:30 to 10:00, according to the hotel."
+      },
+      {
+        "id": "core:5:line:6",
+        "targetFrench": "Le voyageur donne son numéro de chambre : 214.",
+        "supportEnglish": "The traveler gives his room number: 214."
+      },
+      {
+        "id": "core:5:line:7",
+        "targetFrench": "Puis il demande : « Est-ce un buffet ou un service à la carte ? »",
+        "supportEnglish": "Then he asks: Is it a buffet or a menu?"
+      },
+      {
+        "id": "core:5:line:8",
+        "targetFrench": "Elle explique les consignes de ce buffet : prendre une assiette propre et ne pas emporter de nourriture.",
+        "supportEnglish": "She explains the buffet rules: take a clean plate and do not take food with you."
+      },
+      {
+        "id": "core:5:line:9",
+        "targetFrench": "Il cherche une table libre et prend un café.",
+        "supportEnglish": "He looks for a free table and gets coffee."
+      }
+    ]
+  },
+  "forms": [
+    {
+      "id": "core:5:form:1",
+      "form": "puis-je",
+      "infinitive": "pouvoir",
+      "explanation": "Puis-je is the inverted question form of je peux (pouvoir), used in polite questions: 'Can I...?'. The form 'peux-je' is not used. Context: card core:5:word:14.",
+      "contextIds": [
+        "core:5:word:14"
+      ]
+    },
+    {
+      "id": "core:5:form:2",
+      "form": "est-il",
+      "infinitive": "être",
+      "explanation": "Inverted third-person singular of être, 'is it?', used in yes/no questions. Here 'il' repeats the subject 'le petit-déjeuner'. Context: card core:5:word:11.",
+      "contextIds": [
+        "core:5:word:11"
+      ]
+    },
+    {
+      "id": "core:5:form:3",
+      "form": "donne",
+      "infinitive": "donner",
+      "explanation": "Third-person singular present of donner, 'gives'. Regular -er verb (je donne, il donne, nous donnons). Context: reader line core:5:line:6.",
+      "contextIds": [
+        "core:5:line:6"
+      ]
+    },
+    {
+      "id": "core:5:form:4",
+      "form": "prend",
+      "infinitive": "prendre",
+      "explanation": "Third-person singular present of prendre, 'takes; gets (a drink)'. Irregular verb: il prend, nous prenons. Context: reader line core:5:line:9.",
+      "contextIds": [
+        "core:5:line:9"
+      ]
+    },
+    {
+      "id": "core:5:form:5",
+      "form": "porte",
+      "infinitive": "porter",
+      "explanation": "Third-person singular present of porter, a regular -er verb. Here it means 'bears' a number: 'My room bears the number 214', which the card gives as 'My room is 214'. Context: card core:5:word:13.",
+      "contextIds": [
+        "core:5:word:13"
+      ]
+    }
+  ],
+  "modes": [
+    {
+      "mode": "See",
+      "prompt": "Recognition, no production. Read the three French questions and pick the one that means 'Is breakfast included?': (a) Quels sont les horaires du petit-déjeuner ? (b) Le petit-déjeuner est-il compris ? (c) Puis-je m'asseoir à n'importe quelle table ?",
+      "answer": "Le petit-déjeuner est-il compris ?",
+      "cardId": "core:5:word:11",
+      "audio": false
+    },
+    {
+      "mode": "Recall",
+      "prompt": "From memory, with no options shown: in the story the traveler gives the receptionist one piece of information about his room. Give the French term for it, with its article.",
+      "answer": "le numéro de chambre",
+      "cardId": "core:5:word:4",
+      "audio": false
+    },
+    {
+      "mode": "Hear",
+      "prompt": "Text only, no audio is played. Read this transcript of the receptionist speaking fast: « Le service va de… [not understood] ». You did not catch the hours. Give the French question that asks her to say it again.",
+      "answer": "Vous pouvez répéter, s'il vous plaît ?",
+      "cardId": "core:5:word:16",
+      "audio": false,
+      "playbackEnabled": false
+    },
+    {
+      "mode": "Type",
+      "prompt": "Keyboard accuracy. Type this question character by character, with the hyphen, both apostrophes, the accent and the space before the question mark: Can I sit at any table?",
+      "answer": "Puis-je m'asseoir à n'importe quelle table ?",
+      "cardId": "core:5:word:14",
+      "audio": false
+    },
+    {
+      "mode": "Say",
+      "prompt": "Speak aloud, nothing is recorded or played. You are at the buffet and the stack in front of you is empty. Say the one French word, with its article, for the thing you need before you can serve yourself.",
+      "answer": "l'assiette",
+      "cardId": "core:5:word:8",
+      "audio": false
+    },
+    {
+      "mode": "Write",
+      "prompt": "Compose a full sentence by hand. You are unsure what is allowed at the buffet. Write one polite French question to a staff member: begin by excusing yourself, then ask what the buffet rules are.",
+      "answer": "Excusez-moi, quelles sont les consignes du buffet ?",
+      "cardId": "core:5:word:15",
+      "audio": false
+    }
+  ],
+  "speaking": {
+    "id": "core:5:speaking:1",
+    "scenario": "A hotel dining room in the morning. You are the guest. The receptionist greets you, and you ask her about breakfast.",
+    "openingFrench": "Bonjour ! Bienvenue dans la salle du petit-déjeuner. Je peux vous aider ?",
+    "openingEnglish": "Hello! Welcome to the dining room. Can I help you?",
+    "instructionEnglish": "At a hotel, confirm whether breakfast is included, its hours and where to sit; give your room number.",
+    "objectives": [
+      {
+        "id": "core:5:objective:1",
+        "englishGoal": "Confirm whether breakfast is included.",
+        "cardIds": [
+          "core:5:word:11"
+        ]
+      },
+      {
+        "id": "core:5:objective:2",
+        "englishGoal": "Ask for the breakfast hours.",
+        "cardIds": [
+          "core:5:word:12"
+        ]
+      },
+      {
+        "id": "core:5:objective:3",
+        "englishGoal": "Give your room number and ask whether you can sit at any table.",
+        "cardIds": [
+          "core:5:word:13",
+          "core:5:word:14"
+        ]
+      }
+    ]
+  },
+  "notes": {
+    "frenchCorrections": [
+      "core:5:line:2: draft 'Il demande à la réceptionniste' changed to 'Il s'adresse à la réceptionniste' to match the English support 'He talks to the receptionist' and the Spanish 'Habla con'. Reviewer should confirm.",
+      "core:5:line:7: the private draft French 'Est-ce un buffet ou un service à la carte ?' is restored. The earlier candidate had changed it to 'un menu', which in French usually means a fixed-price set meal. This restoration is not a confirmed rendering; see sourceConflicts.",
+      "speaking.openingFrench: the draft opening ('Bonjour ! Le petit-déjeuner est-il compris ? Quels sont les horaires ? Ma chambre porte le numéro 214.') was the guest's own lines and already completed all three objectives. It is replaced by a receptionist greeting. The new French line and its English are newly authored and unreviewed; reviewer may prefer to restore the draft opening.",
+      "forms core:5:form:1 and core:5:form:3: explanations rewritten. The earlier candidate carried over the Spanish notes for poder (o to ue) and dar (irregular yo form), which are false for French pouvoir and donner.",
+      "modes: the six prompts were re-authored so each is a different task (recognition among options, free recall, text-only repair request, exact typing, spoken situational word, composed sentence). Answers remain the exact French of the linked cards. No audio is used in any mode."
+    ],
+    "sourceConflicts": [
+      "core:5:line:7 (menu / à la carte): the Spanish 'menú' and the English 'menu' agree with each other. What is open is the French rendering. 'Service à la carte' (ordering from a menu) is kept from the private draft; 'un menu' would suggest a set meal. No source states which kind of service the hotel offers, so the English support still reads 'menu' and the French is not asserted as final. Reviewer must decide.",
+      "core:5:line:5 (time format): the source gives '6:30 a 10:00' / 'from 6:30 to 10:00'. The French keeps the draft's 'de 6 h 30 à 10 h'. Open points for the reviewer: '10 h' versus '10 h 00', whether the spaces around 'h' should be non-breaking, and whether the product prefers '6h30' or '6:30'. The times themselves are unchanged.",
+      "core:5:line:5 (según el hotel): the Spanish 'según el hotel' and the English 'according to the hotel' can mean 'as the hotel states' or 'depending on the hotel'. The draft French 'dans cet hôtel' picks a third wording ('in this hotel'). Kept as drafted, not confirmed.",
+      "core:5:word:2 and core:5:line:1: the source term is 'comedor' / 'dining room'. The draft French 'la salle du petit-déjeuner' is narrower (breakfast room). Kept as drafted with the exact English label; the speaking openingEnglish uses 'dining room' for the same French to stay consistent. Reviewer should confirm.",
+      "core:5:word:10, core:5:word:15 and core:5:line:8: the source says 'reglas' / 'rules'. The draft French uses 'les consignes' (instructions) and not 'les règles'. Kept as drafted; reviewer should confirm.",
+      "core:5:word:6: the source notes that 'recepcionista' has the same form for men and women. The French card shows only the feminine article 'la réceptionniste'; the noun is the same with 'le'. Kept as drafted because the story's receptionist is a woman.",
+      "core:5:word:13: 'Ma chambre porte le numéro 214' is more formal than the source 'Mi habitación es la 214' / 'My room is 214'. Kept as drafted. The number 214 is an example from the story (core:5:line:6), not a fact about the learner.",
+      "core:5:line:8: the Spanish gives the rules as formal commands ('tome', 'no se lleve'); the draft French uses infinitives ('prendre', 'ne pas emporter'). The meaning is the same. Kept as drafted.",
+      "This candidate is private and unreviewed. No learner registration, audio or playback is enabled, and no human or qualified approval is asserted.",
+      "Qualified French/source/dictionary review is required before any owner projection or learner use."
+    ]
+  },
+  "draftLessonKey": "core:5",
+  "stage": "core",
+  "n": 5,
+  "gates": {
+    "reviewed": false,
+    "requiresQualifiedReview": true,
+    "registered": false,
+    "playbackEnabled": false,
+    "audioEnabled": false,
+    "progressGate": false,
+    "qualifiedApprovalAsserted": false
+  }
+}

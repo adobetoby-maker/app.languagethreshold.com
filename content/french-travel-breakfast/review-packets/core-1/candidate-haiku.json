@@ -1,0 +1,324 @@
+{
+  "lessonKey": "core:1",
+  "stage": "core",
+  "status": "owner-review candidate; private; not reviewed, not registered, not qualified-approved",
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "audio": false,
+    "progress": false,
+    "learnerRegistration": false,
+    "qualifiedApproval": false
+  },
+  "sourceFidelity": {
+    "sourcePath": "public/lesson-content/es/travel-breakfast.json",
+    "pinnedSourceSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "verificationStatus": "NOT VERIFIED. The pinned Spanish file is not present in this workspace, so I could not hash it. I worked from the sourceLesson object embedded in source.json. The hash of source.json itself is 55ba4ed49da08ce227cec2f34550c99ef20617043f31f663531b193a4837ca58, which is not the pinned value.",
+    "englishByteCheck": "All 15 sourceEnglish strings in the prior draft equal the source en fields byte-for-byte and in the same order. All 9 reader supportEnglish strings equal the source passage.native lines byte-for-byte. Both are source facts."
+  },
+  "cards": [
+    {
+      "id": "core:1:word:1",
+      "kind": "term",
+      "sourceEnglish": "café; coffee shop",
+      "targetFrench": "le café",
+      "changed": false,
+      "note": "Source fact: the es term also covers the drink. The French 'le café' covers both."
+    },
+    {
+      "id": "core:1:word:2",
+      "kind": "term",
+      "sourceEnglish": "counter",
+      "targetFrench": "le comptoir",
+      "changed": false
+    },
+    {
+      "id": "core:1:word:3",
+      "kind": "term",
+      "sourceEnglish": "table",
+      "targetFrench": "la table",
+      "changed": false
+    },
+    {
+      "id": "core:1:word:4",
+      "kind": "term",
+      "sourceEnglish": "free table",
+      "targetFrench": "une table libre",
+      "changed": false
+    },
+    {
+      "id": "core:1:word:5",
+      "kind": "term",
+      "sourceEnglish": "waiter",
+      "targetFrench": "le serveur / la serveuse",
+      "changed": "suggested",
+      "note": "Source fact: the es note says 'Use mesera for a woman.' The draft gave only the masculine form, but Reader lines 4-5 use 'la serveuse'. Linguistic suggestion: show both genders on the card."
+    },
+    {
+      "id": "core:1:word:6",
+      "kind": "term",
+      "sourceEnglish": "menu",
+      "targetFrench": "la carte",
+      "changed": false,
+      "note": "Linguistic note: 'la carte' is the restaurant menu. 'le menu' would be a set meal."
+    },
+    {
+      "id": "core:1:word:7",
+      "kind": "term",
+      "sourceEnglish": "line; queue",
+      "targetFrench": "la file d'attente",
+      "changed": false,
+      "note": "Linguistic note: 'la queue' is a more colloquial alternative."
+    },
+    {
+      "id": "core:1:word:8",
+      "kind": "term",
+      "sourceEnglish": "patio; outdoor seating",
+      "targetFrench": "la terrasse",
+      "changed": false
+    },
+    {
+      "id": "core:1:word:9",
+      "kind": "term",
+      "sourceEnglish": "sweet pastry",
+      "targetFrench": "une viennoiserie",
+      "changed": false,
+      "note": "Linguistic suggestion, unresolved: 'viennoiserie' is narrower than 'pan dulce' (buttery pastries such as croissants). Alternatives include 'une pâtisserie' or 'une brioche'. Kept pending owner decision."
+    },
+    {
+      "id": "core:1:word:10",
+      "kind": "term",
+      "sourceEnglish": "chair",
+      "targetFrench": "la chaise",
+      "changed": false,
+      "note": "Source silla does not appear in the passage."
+    },
+    {
+      "id": "core:1:word:11",
+      "kind": "phrase",
+      "sourceEnglish": "Good morning, do I order here at the counter?",
+      "targetFrench": "Bonjour, est-ce que je commande ici, au comptoir ?",
+      "changed": false
+    },
+    {
+      "id": "core:1:word:12",
+      "kind": "phrase",
+      "sourceEnglish": "Is there a free table?",
+      "targetFrench": "Y a-t-il une table libre ?",
+      "changed": false
+    },
+    {
+      "id": "core:1:word:13",
+      "kind": "phrase",
+      "sourceEnglish": "Do I sit wherever I want?",
+      "targetFrench": "Est-ce que je peux m'asseoir où je veux ?",
+      "changed": false
+    },
+    {
+      "id": "core:1:word:14",
+      "kind": "phrase",
+      "sourceEnglish": "Sorry, I don't understand. Can you repeat, please?",
+      "targetFrench": "Excusez-moi, je ne comprends pas. Vous pouvez répéter, s'il vous plaît ?",
+      "changed": false,
+      "note": "Linguistic note: 'Pardon' is a shorter alternative to 'Excusez-moi'."
+    },
+    {
+      "id": "core:1:word:15",
+      "kind": "phrase",
+      "sourceEnglish": "Is it to go or to eat here?",
+      "targetFrench": "C'est à emporter ou sur place ?",
+      "changed": false
+    }
+  ],
+  "reader": {
+    "titleFrench": "Un café très fréquenté",
+    "titleSourceFact": "Source title: 'Un café muy lleno' (a very full café).",
+    "titleNote": "Linguistic suggestion, unresolved: 'très plein' or 'bondé' would be closer to 'lleno'. 'très fréquenté' matches the English 'busy'.",
+    "lines": [
+      {
+        "id": "core:1:line:1",
+        "es": "Un viajero entra en un café muy lleno.",
+        "targetFrench": "Un voyageur entre dans un café très fréquenté.",
+        "supportEnglish": "A traveler enters a very busy café."
+      },
+      {
+        "id": "core:1:line:2",
+        "es": "Hay una fila larga frente al mostrador.",
+        "targetFrench": "Il y a une longue file devant le comptoir.",
+        "supportEnglish": "There is a long line in front of the counter."
+      },
+      {
+        "id": "core:1:line:3",
+        "es": "El viajero dice: Buenos días.",
+        "targetFrench": "Le voyageur dit : « Bonjour. »",
+        "supportEnglish": "The traveler says: Good morning."
+      },
+      {
+        "id": "core:1:line:4",
+        "es": "Pregunta a la mesera: ¿Pido aquí en el mostrador?",
+        "targetFrench": "Il demande à la serveuse : « Est-ce que je commande ici, au comptoir ? »",
+        "supportEnglish": "He asks the waitress: Do I order here at the counter?"
+      },
+      {
+        "id": "core:1:line:5",
+        "es": "La mesera contesta: Sí, pida aquí, por favor.",
+        "targetFrench": "La serveuse répond : « Oui, commandez ici, s'il vous plaît. »",
+        "supportEnglish": "The waitress answers: Yes, order here, please."
+      },
+      {
+        "id": "core:1:line:6",
+        "es": "Él pregunta: ¿Hay una mesa libre?",
+        "targetFrench": "Il demande : « Y a-t-il une table libre ? »",
+        "supportEnglish": "He asks: Is there a free table?"
+      },
+      {
+        "id": "core:1:line:7",
+        "es": "La mesera dice: Hay una mesa en la terraza.",
+        "targetFrench": "La serveuse dit : « Il y a une table sur la terrasse. »",
+        "supportEnglish": "The waitress says: There is a table on the patio."
+      },
+      {
+        "id": "core:1:line:8",
+        "es": "Él espera en la fila y mira el menú.",
+        "targetFrench": "Il attend dans la file et regarde la carte.",
+        "supportEnglish": "He waits in line and looks at the menu."
+      },
+      {
+        "id": "core:1:line:9",
+        "es": "Después pide un café y pan dulce.",
+        "targetFrench": "Ensuite, il commande un café et une viennoiserie.",
+        "supportEnglish": "Then he orders a coffee and a sweet pastry."
+      }
+    ]
+  },
+  "contextualForms": [
+    {
+      "id": "form:1",
+      "french": "je commande",
+      "lineIds": [
+        "core:1:line:4",
+        "core:1:word:11"
+      ],
+      "sourceVerb": "pedir (to order; to ask for), yo form 'pido'",
+      "explanation": "1st person singular present of 'commander' (to order). Source fact: pedir has an e→i stem change, which French does not show here. The French form is regular."
+    },
+    {
+      "id": "form:2",
+      "french": "commandez",
+      "lineIds": [
+        "core:1:line:5"
+      ],
+      "sourceVerb": "pedir, usted command 'pida'",
+      "explanation": "'vous' imperative of 'commander'. Used by staff to tell a customer to order. Matches the polite 'pida' in the source line."
+    },
+    {
+      "id": "form:3",
+      "french": "y a-t-il",
+      "lineIds": [
+        "core:1:line:6",
+        "core:1:word:12"
+      ],
+      "sourceVerb": "haber/hay (there is)",
+      "explanation": "Question form of 'il y a' (there is) with subject-verb inversion. 'Y a-t-il ...?' asks 'Is there ...?' and matches the source 'Hay ...?'."
+    }
+  ],
+  "activities": [
+    {
+      "id": "activity:1",
+      "mode": "See",
+      "promptEnglish": "counter",
+      "targetFrench": "le comptoir",
+      "linkedIds": [
+        "core:1:word:2"
+      ],
+      "audioRequired": false
+    },
+    {
+      "id": "activity:2",
+      "mode": "Recall",
+      "promptEnglish": "Is there a free table?",
+      "targetFrench": "Y a-t-il une table libre ?",
+      "linkedIds": [
+        "core:1:word:12"
+      ],
+      "audioRequired": false
+    },
+    {
+      "id": "activity:3",
+      "mode": "Hear",
+      "promptEnglish": "The waitress answers: Yes, order here, please.",
+      "targetFrench": "La serveuse répond : « Oui, commandez ici, s'il vous plaît. »",
+      "linkedIds": [
+        "core:1:line:5"
+      ],
+      "audioRequired": true,
+      "audioStatus": "not generated; no audio invented"
+    },
+    {
+      "id": "activity:4",
+      "mode": "Type",
+      "promptEnglish": "Good morning, do I order here at the counter?",
+      "targetFrench": "Bonjour, est-ce que je commande ici, au comptoir ?",
+      "linkedIds": [
+        "core:1:word:11"
+      ],
+      "audioRequired": false
+    },
+    {
+      "id": "activity:5",
+      "mode": "Say",
+      "promptEnglish": "Sorry, I don't understand. Can you repeat, please?",
+      "targetFrench": "Excusez-moi, je ne comprends pas. Vous pouvez répéter, s'il vous plaît ?",
+      "linkedIds": [
+        "core:1:word:14"
+      ],
+      "audioRequired": true,
+      "audioStatus": "not generated; speech gate false"
+    },
+    {
+      "id": "activity:6",
+      "mode": "Write",
+      "promptEnglish": "Then he orders a coffee and a sweet pastry.",
+      "targetFrench": "Ensuite, il commande un café et une viennoiserie.",
+      "linkedIds": [
+        "core:1:line:9"
+      ],
+      "audioRequired": false
+    }
+  ],
+  "speaking": {
+    "openingFrench": "Bonjour ! Est-ce que je commande ici, au comptoir ? Y a-t-il une table libre ?",
+    "instructionEnglish": "Ask a busy café server where to order, whether a table is free, and whether seating is assigned.",
+    "objectives": [
+      {
+        "objective": "Ask where to order",
+        "linkedIds": [
+          "core:1:word:11"
+        ]
+      },
+      {
+        "objective": "Ask whether a table is free",
+        "linkedIds": [
+          "core:1:word:12"
+        ]
+      },
+      {
+        "objective": "Ask whether you may sit anywhere",
+        "linkedIds": [
+          "core:1:word:13"
+        ]
+      }
+    ]
+  },
+  "unresolvedQualifiedReviewQuestions": [
+    "Is 'une viennoiserie' acceptable for 'sweet pastry' (pan dulce), or should it be 'une pâtisserie' or 'une brioche'?",
+    "Should the waiter card show 'le serveur / la serveuse' as the source note implies?",
+    "Should the title and Reader line 1 use 'très fréquenté' (busy) or 'très plein' / 'bondé' (closer to 'muy lleno')?",
+    "Is 'la carte' (menu) and 'la file d'attente' (line) the preferred register, or should 'la queue' be used?",
+    "The prior draft has requiresQualifiedReview: false. Should a qualified reviewer decide that? It is left unchanged here, and no approval is claimed."
+  ],
+  "notes": {
+    "sourceFacts": "sourceEnglish strings, reader native lines, the source word list, the verb forms, the notes on mesero/mesera and pan dulce, and the 9-line passage alignment.",
+    "linguisticSuggestions": "viennoiserie alternatives, serveur/serveuse card form, title and line 1 wording, la queue, Pardon, and the three contextual form explanations."
+  }
+}

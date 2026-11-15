@@ -1,0 +1,84 @@
+{
+  "issues": [
+    {
+      "severity": "high",
+      "location": "frenchCards[11] (card 12, 1-based), paired with source words[11]",
+      "problem": "The French and English on this card say different things. The French \"Comment est-ce qu'on dit ça en français ?\" means \"How do you say this in French?\", but the card's English is still \"How do you say this in Spanish?\". A learner who sees one side will learn the wrong meaning for the other. The candidate raises this in its residuals, but the card itself still goes out mismatched.",
+      "proposedCorrection": "For source parity, use \"Comment dit-on ça en espagnol ?\" (or \"Comment est-ce qu'on dit ça en espagnol ?\"). If you want the French-course adaptation, keep \"…en français ?\" only after the owner changes the English to \"How do you say this in French?\". Don't ship the card with the two sides disagreeing."
+    },
+    {
+      "severity": "medium",
+      "location": "frenchReader[6] / forms[6] / modes[5] (write, reader 7)",
+      "problem": "\"Sauce verte\" is the wrong term for Mexican green salsa. In French it names a classic French herb sauce, often based on mayonnaise or vinaigrette. A French reader would picture the wrong condiment, and the Mexican scene detail gets lost. Chilaquiles use a tomatillo-based salsa verde.",
+      "proposedCorrection": "\"de la salsa verde\" (an accepted loanword in French food writing, ideally in italics), or \"de la salsa verde (sauce aux tomatillos)\". Make the same change in forms[6].french and modes[5].promptFrench."
+    },
+    {
+      "severity": "medium",
+      "location": "frenchVerbParadigms[4].frenchForms.je (avoir)",
+      "problem": "The table lists \"je\": \"ai\". In French, je elides before a vowel, so any template that joins pronoun and form will show \"je ai\", which is ungrammatical.",
+      "proposedCorrection": "Display it as \"j'ai\", either by storing the elided form or adding an elision rule to the renderer. Check that the other je forms don't need the same rule (comprends, peux, parle, suis are fine)."
+    },
+    {
+      "severity": "medium",
+      "location": "frenchVerbParadigms[0].englishExplanation (comprendre)",
+      "problem": "The note says the stem \"does not change\". That is false: comprendre loses the nasal and doubles the n in comprenons, comprenez and comprennent.",
+      "proposedCorrection": "\"Irregular. Singular forms are comprends/comprend; the plural stem changes to compren-/comprenn- (nous comprenons, ils comprennent). 'Je ne comprends pas' = 'I don't understand.'\""
+    },
+    {
+      "severity": "medium",
+      "location": "frenchVerbParadigms[4].englishExplanation (avoir)",
+      "problem": "The note says French uses il y a \"not avoir\". That is misleading, because il y a is built from avoir (il + y + a).",
+      "proposedCorrection": "\"…French uses the fixed expression il y a (there is/are), built from avoir (il y a), as in 'Il y a des informations'.\""
+    },
+    {
+      "severity": "medium",
+      "location": "frenchCards[10], frenchReader[4], forms[4], modes[2]; frenchVerbParadigms[1]",
+      "problem": "\"Pourriez-vous\" is conditional (\"Could you\"), but the source uses the present puede and the English is \"Can you\". The paradigm table only shows vous pouvez, so learners never see the form they are drilled on. The note's claim that both forms mean \"Can you…?\" is also inaccurate.",
+      "proposedCorrection": "Use \"Pouvez-vous parler plus lentement, s'il vous plaît ?\" everywhere, which matches the source tense and the table. Alternatively, keep pourriez and rewrite the note: \"pourriez-vous = could you (more polite conditional); pouvez-vous = can you\"."
+    },
+    {
+      "severity": "medium",
+      "location": "speakingObjectives[2], speakingObjectives[3]",
+      "problem": "The source speaking task covers only three things: say you don't understand, ask the server to speak more slowly, and ask about the specialty's ingredients. The candidate adds a vegetarian-option task and an emergency task, plus emergency-number advice (\"look up the local number\") that isn't in the source. Objective 3 also says \"answer Rosa's reply\" when the learner only needs to understand it.",
+      "proposedCorrection": "Limit speakingObjectives to objectives 0–1. If the owner wants the extra tasks, mark them optional and change \"answer\" to \"understand\". Move the emergency-number guidance to internal notes."
+    },
+    {
+      "severity": "low",
+      "location": "speakingObjectives[0]",
+      "problem": "The English is awkward: \"Emma is having her 9 o'clock reservation\".",
+      "proposedCorrection": "\"Emma arrives for her 9 o'clock reservation at Café Luna.\""
+    },
+    {
+      "severity": "low",
+      "location": "frenchReader[0] / forms[0]",
+      "problem": "\"une réservation à 9 heures\" is understandable but not the usual collocation.",
+      "proposedCorrection": "\"Emma a une réservation pour 9 heures au Café Luna.\""
+    },
+    {
+      "severity": "low",
+      "location": "frenchCards[11]",
+      "problem": "The register is mixed. Informal \"est-ce qu'on… ça\" sits next to vous-register phrases spoken to the same server. It's acceptable, but inconsistent.",
+      "proposedCorrection": "\"Comment dit-on ça en … ?\" (neutral and polite)"
+    },
+    {
+      "severity": "low",
+      "location": "all French lines with ' :', ' ?', ' !'",
+      "problem": "A regular space before French punctuation can wrap, leaving the \"?\" or \":\" alone at the start of a line.",
+      "proposedCorrection": "Use U+202F (narrow no-break space) or U+00A0 before : ? !"
+    },
+    {
+      "severity": "low",
+      "location": "modes[2] (hear, reader 5)",
+      "problem": "The prompt includes the speaker label \"Emma :\". Text-to-speech would read the name aloud as part of the sentence.",
+      "proposedCorrection": "Strip the speaker label from audio prompts, or store it in a separate field."
+    }
+  ],
+  "residuals": [
+    "Index check: forms.readerLine and modes.sourceIndex are consistent with 1-based indexing (card 1 = la réservation, 13 = Quels sont…, 14 = végétarienne, 15 = urgence; reader 5 = plus lentement, 7 = ingrédients). The owner still needs to confirm the indexing convention.",
+    "Mode direction: recall, type and write prompt in French and target English. If those modes are meant to make learners produce French, the direction is reversed. The owner needs to confirm.",
+    "The lesson objective and focus are about spotting Spanish cognates. A French course needs an owner-approved restatement (French -tion/-té/-ent cognates). As it stands, the learner-facing objective is outside a French course's scope.",
+    "The wall line correctly keeps 'anglais et espagnol' for source fidelity. Any change to it is the owner's decision.",
+    "Translation choices that are fine: l'urgence / 'Au secours, c'est une urgence !', 'des chilaquiles au poulet' (the Mexican term is kept), 'tortillas', 'fromage', 'excellente' and 'différente' agreement, 'Quels sont', 'Est-ce qu'il y a'.",
+    "This is a read-only linguistic critique, not a qualified native-French review. No audio or learner testing was done, and the candidate remains unreviewed."
+  ]
+}

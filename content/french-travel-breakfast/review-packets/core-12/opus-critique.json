@@ -1,0 +1,123 @@
+{
+  "issues": [
+    {
+      "severity": "high",
+      "path": "(root)",
+      "issue": "The candidate has no top-level lesson ID (for example \"core:12\") and no pinned source link, commit, hash or path. The audit asked for the exact ID and source link to be checked, and neither can be verified because neither exists. The card and line IDs (core:12:word:1–18, core:12:line:1–9) are present and correctly sequenced.",
+      "correction": "Add a top-level id (\"core:12\") and a sourceRef field that points to the pinned Spanish source, such as its file path, commit SHA or content hash. Also add a separate priorDraftRef for #475. Keep the existing card and line IDs unchanged."
+    },
+    {
+      "severity": "high",
+      "path": "forms[3].explanationEnglish; notes[4]",
+      "issue": "The draft claims that comprendre is 'not a correct translation' of 'to include'. This is wrong. Être compris is the standard French idiom for 'included' with prices and service (service compris, tout compris, TVA comprise). The candidate itself uses 'compris' in card 15 and Reader lines 5 and 6, so the explanation contradicts the content. Inclure is the direct cognate of incluir, but comprendre (in the passive) is the more idiomatic choice in bills and menus. The explanation also exposes editorial history ('the prior draft') to learners.",
+      "correction": "Rewrite the explanation along these lines: 'Inclure means to include (l'addition inclut…). With prices and service, French more often says être compris: Le service est compris, Le pourboire est-il compris ? Both are correct; compris is the everyday bill/menu idiom.' Delete notes[4], or reword it so it records that both verbs are valid and that inclure was chosen to mirror incluir in the form drill."
+    },
+    {
+      "severity": "high",
+      "path": "modes[0] (See)",
+      "issue": "The direction is reversed. The prompt shows English ('card terminal') and asks for the French term, which is production or recall. See should be recognition: the learner is shown French and identifies its meaning. As written, it overlaps with the Recall mode.",
+      "correction": "Prompt: \"Look at the French term 'le terminal de paiement' and choose or say its English meaning (the device the waitress brings for card payment).\" Keep frenchTarget, sourceCardId core:12:word:12, scriptOnly false and audioPending false."
+    },
+    {
+      "severity": "medium",
+      "path": "cards[3].targetFrench; reader[5].targetFrench",
+      "issue": "Card 4 renders servicio as 'les frais de service', but Reader line 6 uses 'le service' (n'est pas compris). These are inconsistent, and 'frais de service' suggests a separate added fee (for example a booking or platform fee) rather than the service component of the price.",
+      "correction": "Change card 4 to 'le service', with a note: 'As in service compris / service non compris.' Alternatively, keep 'les frais de service' only if the scenario means an itemised surcharge. In that case, make line 6 match."
+    },
+    {
+      "severity": "medium",
+      "path": "reader[5]; cards[3].noteEnglish; cards[2].noteEnglish; notes[0-1]; speaking.objectivesEnglish[2]",
+      "issue": "Regional implication: in France, menu prices are legally required to be service compris (prix nets). 'Le service n'est pas compris' and a separate couvert charge would be atypical or improper there. The candidate's scenario-only framing is correct in principle. However, the notes only say practice 'varies by country and establishment' and never tell learners that France is the opposite case. A France-focused course could therefore leave a misleading impression. Line 6 also adds 'dans cet établissement', which has no equivalent in the Spanish or English source.",
+      "correction": "Leave the café's location unspecified, and add a cultural note: 'In France, service is normally included in menu prices (service compris); tipping is optional and small. This dialogue is a fictional café scenario, not a description of French practice.' Either remove 'dans cet établissement' to keep fidelity with the source, or add the matching words to supportEnglish line 6 and record the addition as a deliberate deviation."
+    },
+    {
+      "severity": "medium",
+      "path": "cards[16]; forms[4].explanationEnglish; notes[3]",
+      "issue": "Customer register: 'Je veux payer en espèces' is grammatical and faithful to 'Quiero', but said to a server it can sound blunt or demanding. Card 17 has no note warning learners about this, and the forms explanation calls the choice merely 'a separate editorial choice' without saying what the practical effect is.",
+      "correction": "Keep 'Je veux payer en espèces.' as the source-faithful target. Add this cardNote: 'To a server, Je voudrais payer en espèces or Je vais payer en espèces sounds more natural and polite; je veux can sound abrupt.' Accept these alternates in the Type, Write and Say modes, and in the speaking practice."
+    },
+    {
+      "severity": "medium",
+      "path": "forms[2] (traer → apporter)",
+      "issue": "The explanation says the pronoun appears 'before the infinitive-style verb'. Apporter is an actual infinitive here (pouvoir + infinitive), and the pronoun attaches before the infinitive it depends on. The example uses pourriez + infinitive, so it never shows a conjugated form of apporter, whereas the Spanish example shows 'trae'. The explanation also misses the useful contrast between apporter (bring a thing) and amener (bring a person) / emporter (take away).",
+      "correction": "Explanation: 'Apporter means to bring something to someone. In Pourriez-vous m'apporter…, apporter is an infinitive after pourriez, and the object pronoun m' goes directly before it. Use apporter for things; amener for people.' Consider adding a conjugated example: 'La serveuse apporte le terminal de paiement.'"
+    },
+    {
+      "severity": "medium",
+      "path": "forms[1].explanationEnglish (pedir → demander)",
+      "issue": "The guidance 'for requesting items keep the object directly after the verb' is muddled. Asking a question also takes a direct object, so this does not distinguish the two senses. The useful points are missing: the structure demander quelque chose à quelqu'un, the learner error *demander pour, and the false friend demander ≠ 'demand'.",
+      "correction": "Explanation: 'Demander means to ask for (demander le reçu) or to ask (demander si…). The structure is demander quelque chose à quelqu'un: il lui demande le reçu. Do not add pour. Demander is not as strong as English demand.'"
+    },
+    {
+      "severity": "medium",
+      "path": "forms[*]",
+      "issue": "The source gives five person forms per verb (yo, tú, él/ella/usted, nosotros, ellos/ustedes) and notes on irregularities. The candidate forms have no French conjugation tables. If the 'five forms' requirement means person forms rather than five verb entries, all five entries are incomplete. The French irregularities are also never explained: payer has the paie/paye spelling alternation, inclure has inclut, vouloir has veux/voulons/veulent.",
+      "correction": "Add forms {je, tu, il_elle_on, nous, ils_elles} for each verb:\n- payer: paie/paye, paies, paie, payons, paient\n- demander: demande, demandes, demande, demandons, demandent\n- apporter: apporte, apportes, apporte, apportons, apportent\n- inclure: inclus, inclus, inclut, incluons, incluent\n- vouloir: veux, veux, veut, voulons, veulent\nAdd short irregularity notes (paie/paye; inclut with a -t; vouloir stem changes)."
+    },
+    {
+      "severity": "low",
+      "path": "modes[3] (Type)",
+      "issue": "Requiring an 'exact' answer 'including the space before the question mark' penalises typography rather than French. French typesetting uses a narrow no-break space, which learners cannot reliably type. The equally correct and more colloquial 'Je peux payer par carte ?' would also be rejected.",
+      "correction": "Normalise spaces before ? and accept U+0020, U+00A0 and U+202F. Accept the alternates 'Je peux payer par carte ?' and 'Est-ce que je peux payer par carte ?'. Drop the word 'exactly' from the prompt."
+    },
+    {
+      "severity": "low",
+      "path": "modes[5] (Write)",
+      "issue": "The prompt asks for an open, free-form 'one polite French sentence', but there is a single frenchTarget. This implies exact-match scoring, which does not suit open production.",
+      "correction": "Mark frenchTarget as the model answer only, and list acceptable alternates: 'Pouvez-vous me donner le reçu, s'il vous plaît ?', 'Je pourrais avoir le reçu, s'il vous plaît ?', 'Vous pouvez me donner le ticket, s'il vous plaît ?'. Scoring stays disabled per the gates."
+    },
+    {
+      "severity": "low",
+      "path": "modes[1] (Recall).prompt",
+      "issue": "The prompt defines a tip as 'the optional amount given to staff'. This bakes the scenario-specific claim that the tip is optional into the definition of the word, which runs against the candidate's own scenario-only framing.",
+      "correction": "Prompt: 'Without a French hint, recall the French word for a tip — money left for staff in addition to the bill.'"
+    },
+    {
+      "severity": "low",
+      "path": "speaking.openingFrench; speaking.roles[1].description",
+      "issue": "In the source, the traveler opens the scene by raising a hand and asking for the bill. The candidate has the waitress open with an invented line, and 'Bonjour !' is odd after she has already served breakfast. The waitress description also omits her line 2 role of offering payment at the register or at the table.",
+      "correction": "Either set openingSpeaker to learner, with the learner's expected first turn 'Excusez-moi, pourriez-vous m'apporter l'addition, s'il vous plaît ?', or keep the waitress but use 'Tout s'est bien passé ? Je vous apporte l'addition ?'. Add 'offers payment at the register or at the table' to the waitress description."
+    },
+    {
+      "severity": "low",
+      "path": "cards[0].noteEnglish",
+      "issue": "The source note's regional content (la cuenta in Mexico and the US; la nota in parts of Spain) is reduced to 'other usages'. The note also gives no French regional information, for example that 'la note' is common in Belgium and Switzerland and for hotels.",
+      "correction": "'Spanish: la cuenta (Mexico, US); la nota in parts of Spain. French: l'addition in restaurants and cafés; la note is used for hotels and is also common in Belgium and Switzerland. Not the receipt (le reçu / le ticket).'"
+    },
+    {
+      "severity": "low",
+      "path": "cards[1].noteEnglish; cards[2-3].noteEnglish",
+      "issue": "These learner-facing notes contain editor instructions ('Verify local billing practice before giving advice about it').",
+      "correction": "Move the verification instructions to notes[] (editorial), and keep the card notes learner-facing: 'In this scenario the café adds a cover charge; this is not standard in France.'"
+    },
+    {
+      "severity": "low",
+      "path": "reader[0].targetFrench; reader[8].targetFrench",
+      "issue": "Minor style points. Both 'petit-déjeuner' and 'petit déjeuner' are accepted spellings, but the lesson should pick one consistently (the opening also uses the hyphen). 'Dit merci' is correct but plainer than the idiomatic 'remercie la serveuse'.",
+      "correction": "Choose one spelling for the whole lesson. 'Dit merci' may stay for transparency with 'da las gracias'; optionally offer 'remercie' as a gloss."
+    },
+    {
+      "severity": "info",
+      "path": "notes[5]; (audit scope)",
+      "issue": "The older #475 draft was not supplied in this request, so the comparison with it and the claim that 'items were rebuilt from the source' cannot be verified. This is an AI critique only. It is not qualified approval by a native or expert reviewer, and it does not justify changing any gate.",
+      "correction": "Attach the #475 content or reference for a diff. Obtain human review by a qualified French reviewer before flipping reviewApproved or reviewed."
+    }
+  ],
+  "passed": [
+    "All 18 cards are in the source order, with the supportEnglish and sourceSpanish strings matching the pinned source exactly (including ¿ and the phrase punctuation).",
+    "Card kinds (12 terms, 6 phrases) match the source; card notes for cards 13 and 14 preserve the source wording.",
+    "All 9 Reader lines are in order, with English and Spanish matching the source exactly; the French is faithful and grammatical (line 6's added qualifier is noted separately).",
+    "Card IDs core:12:word:1–18 and line IDs core:12:line:1–9 are sequential and unique.",
+    "Lexical choices: l'addition, le pourboire, un supplément, les espèces, la carte bancaire / par carte, le reçu (+ le ticket), la caisse, la serveuse / le serveur, le total, le terminal de paiement, and la carte (not le menu) for the menu are all correct.",
+    "Bill and receipt are clearly distinguished in the card 1 and card 8 notes and in notes[2].",
+    "Phrase cards 13–16 and 18 are idiomatic and appropriately polite; card 14 'À quoi correspond ce supplément ?' is natural.",
+    "Gender agreement is consistent (le voyageur / il, la serveuse / elle); the serveur note is present.",
+    "Five verb entries are present, in source order with source-aligned examples; the vouloir explanation correctly separates je veux from je voudrais.",
+    "The cover charge, service and tip are framed as scenario-specific rather than as a French rule (the France-specific clarification is noted separately).",
+    "There are six modes, each linked to a distinct, valid card (12, 3, 15, 16, 14, 18) and each with a differentiated task.",
+    "Hear is script-only: scriptOnly true, audioPending true, and the prompt states no audio exists.",
+    "Say is marked audioPending true, with scriptOnly false.",
+    "Speaking has two roles (learner and waitress) matching the source characters; the objectives cover all source beats in order, with the tip framed per scenario.",
+    "All 13 gates are false; notes[7] confirms nothing is released, registered or enabled."
+  ]
+}

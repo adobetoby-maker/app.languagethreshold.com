@@ -1,0 +1,251 @@
+{
+  "status": "private-unreviewed-owner-review-candidate",
+  "unit": "Breakfast Foundation 3: Ser and Estar",
+  "sourceFidelity": {
+    "cardFacesAndKindsImmutable": true,
+    "readerEnglishImmutable": true,
+    "restoredFromSource": [
+      "Oaxaca",
+      "sweet bread",
+      "chilaquiles with salsa",
+      "Is the bread from today?"
+    ],
+    "discardedFromPrivateDraft": [
+      "Lyon",
+      "brioche",
+      "eggs",
+      "chili sauce",
+      "altered English meanings such as 'Is the bread fresh today?' and 'The chili sauce is very spicy.'"
+    ]
+  },
+  "genderPolicy": "Rosa is a woman per source (la mesera), so feminine forms are used for Rosa. Daniel's gender is not stated in source, so first-person forms use prêt(e) and no masculine or feminine default is assumed for Daniel.",
+  "readerIndexBase": 0,
+  "cardFrench": [
+    {
+      "en": "hot",
+      "kind": "term",
+      "french": "chaud",
+      "note": "Feminine: chaude. Used for food and drink. Spanish caliente maps to chaud, not to a verb change."
+    },
+    {
+      "en": "cold",
+      "kind": "term",
+      "french": "froid",
+      "note": "Feminine: froide, as in la boisson est froide. Source note: Spanish fría with feminine nouns maps to froide with feminine nouns."
+    },
+    {
+      "en": "fresh",
+      "kind": "term",
+      "french": "frais",
+      "note": "Feminine: fraîche. Use frais with masculine nouns like le pain and fraîche with feminine nouns like la brioche."
+    },
+    {
+      "en": "sweet",
+      "kind": "term",
+      "french": "sucré",
+      "note": "Sucré is the safe word for sweet to taste. Doux means mild or soft and may mean sweet for wine or cider, so avoid it here."
+    },
+    {
+      "en": "spicy",
+      "kind": "term",
+      "french": "piquant",
+      "note": "Feminine: piquante. Use piquant for chili heat. Épicé means spiced and is not the same as hot-spicy."
+    },
+    {
+      "en": "delicious",
+      "kind": "term",
+      "french": "délicieux",
+      "note": "Feminine: délicieuse. Agrees with the noun or pronoun it describes."
+    },
+    {
+      "en": "taken",
+      "kind": "term",
+      "french": "occupé",
+      "note": "Feminine: occupée. Used for tables that are not free."
+    },
+    {
+      "en": "free, available",
+      "kind": "term",
+      "french": "libre",
+      "note": "The same form for masculine and feminine: libre. Spanish libre maps directly to libre."
+    },
+    {
+      "en": "the server (woman)",
+      "kind": "term",
+      "french": "la serveuse",
+      "note": "Masculine: le serveur. Source gives Rosa as a woman, so la serveuse is used for Rosa."
+    },
+    {
+      "en": "The coffee is very hot.",
+      "kind": "phrase",
+      "french": "Le café est très chaud.",
+      "note": "French uses être for both the Spanish ser and estar. Separate condition from characteristic by context and adverbs such as très, not by changing the verb."
+    },
+    {
+      "en": "Is this table free?",
+      "kind": "phrase",
+      "french": "Cette table est libre ?",
+      "note": "Spoken question with rising intonation. Est-ce que cette table est libre ? is a neutral alternative; inversion is more formal."
+    },
+    {
+      "en": "Is the bread from today?",
+      "kind": "phrase",
+      "french": "Le pain est-il d'aujourd'hui ?",
+      "note": "Origin or date from: être + de, here d'aujourd'hui (from today). Keeps source meaning about origin, not freshness."
+    },
+    {
+      "en": "The salsa is very spicy.",
+      "kind": "phrase",
+      "french": "La salsa est très piquante.",
+      "note": "Characteristic of the salsa. Piquante is feminine to agree with la salsa. Keeps the source word salsa."
+    },
+    {
+      "en": "I'm ready to order.",
+      "kind": "phrase",
+      "french": "Je suis prêt(e) à commander.",
+      "note": "Source note: a woman says lista. The French form prêt(e) is left open to avoid assuming the speaker's gender."
+    }
+  ],
+  "readerFrench": [
+    {
+      "english": "Daniel is at a café in Oaxaca, and many tables are taken.",
+      "french": "Daniel est dans un café à Oaxaca, et beaucoup de tables sont occupées."
+    },
+    {
+      "english": "Daniel asks the server: Is this table free?",
+      "french": "Daniel demande à la serveuse : Cette table est libre ?"
+    },
+    {
+      "english": "The server, Rosa, says: Yes, it is free.",
+      "french": "La serveuse, Rosa, dit : Oui, elle est libre."
+    },
+    {
+      "english": "Daniel: Is the bread from today?",
+      "french": "Daniel : Le pain est-il d'aujourd'hui ?"
+    },
+    {
+      "english": "Rosa: Yes, the sweet bread is fresh.",
+      "french": "Rosa : Oui, le pain sucré est frais."
+    },
+    {
+      "english": "Daniel: I'm ready to order.",
+      "french": "Daniel : Je suis prêt(e) à commander."
+    },
+    {
+      "english": "Rosa brings coffee, orange juice and chilaquiles with salsa.",
+      "french": "Rosa apporte du café, du jus d'orange et des chilaquiles avec de la salsa."
+    },
+    {
+      "english": "Daniel: The coffee is very hot, but the juice is cold.",
+      "french": "Daniel : Le café est très chaud, mais le jus est froid."
+    },
+    {
+      "english": "Daniel: The salsa is very spicy, but it is delicious.",
+      "french": "Daniel : La salsa est très piquante, mais elle est délicieuse."
+    }
+  ],
+  "forms": [
+    {
+      "readerIndex": 1,
+      "promptEnglish": "Translate: Is this table free?",
+      "frenchAnswer": "Cette table est libre ?",
+      "explanation": "Libre has one form for both genders. Cette and table are feminine, so the demonstrative is cette."
+    },
+    {
+      "readerIndex": 3,
+      "promptEnglish": "Translate: Is the bread from today?",
+      "frenchAnswer": "Le pain est-il d'aujourd'hui ?",
+      "explanation": "Use être with de for origin or date. D'aujourd'hui means from today. Inversion with -il is the formal question form."
+    },
+    {
+      "readerIndex": 4,
+      "promptEnglish": "Translate: Yes, the sweet bread is fresh.",
+      "frenchAnswer": "Oui, le pain sucré est frais.",
+      "explanation": "Pain is masculine, so frais has no extra e. Compare la brioche est fraîche, where the feminine noun requires fraîche."
+    },
+    {
+      "readerIndex": 7,
+      "promptEnglish": "Translate: The coffee is very hot, but the juice is cold.",
+      "frenchAnswer": "Le café est très chaud, mais le jus est froid.",
+      "explanation": "Café and jus are both masculine, so chaud and froid take no feminine ending. For a feminine drink, say la boisson est froide."
+    },
+    {
+      "readerIndex": 8,
+      "promptEnglish": "Translate: The salsa is very spicy, but it is delicious.",
+      "frenchAnswer": "La salsa est très piquante, mais elle est délicieuse.",
+      "explanation": "Salsa is feminine, so piquante and délicieuse take the feminine ending. Elle refers back to la salsa."
+    }
+  ],
+  "modes": [
+    {
+      "mode": "see",
+      "target": "card",
+      "targetEnglish": "The coffee is very hot.",
+      "frenchTarget": "Le café est très chaud.",
+      "prompt": "Look at the English card The coffee is very hot. Say the French target."
+    },
+    {
+      "mode": "recall",
+      "target": "card",
+      "targetEnglish": "free, available",
+      "frenchTarget": "libre",
+      "prompt": "Recall the French card target for the English free, available."
+    },
+    {
+      "mode": "hear",
+      "target": "reader",
+      "targetEnglish": "Rosa brings coffee, orange juice and chilaquiles with salsa.",
+      "frenchTarget": "Rosa apporte du café, du jus d'orange et des chilaquiles avec de la salsa.",
+      "prompt": "Listen to the French, then say the English Reader line exactly."
+    },
+    {
+      "mode": "type",
+      "target": "card",
+      "targetEnglish": "the server (woman)",
+      "frenchTarget": "la serveuse",
+      "prompt": "Type the French card target for the English the server (woman)."
+    },
+    {
+      "mode": "say",
+      "target": "card",
+      "targetEnglish": "Is this table free?",
+      "frenchTarget": "Cette table est libre ?",
+      "prompt": "Say the French card target aloud for the English Is this table free?"
+    },
+    {
+      "mode": "write",
+      "target": "reader",
+      "targetEnglish": "Daniel: Is the bread from today?",
+      "frenchTarget": "Daniel : Le pain est-il d'aujourd'hui ?",
+      "prompt": "Write the French Reader line for the English line Daniel: Is the bread from today?"
+    }
+  ],
+  "speakingObjectives": {
+    "english": "Ask a server if a table is free, then say whether your coffee is hot or cold and whether the salsa is spicy.",
+    "french": "Demander à une serveuse si une table est libre, puis dire si votre café est chaud ou froid et si la salsa est piquante."
+  },
+  "sourceNotes": [
+    "Source focus: ser for what food is like or where it is from; estar for its condition or a table's status.",
+    "French uses être for both. The distinction is taught through context and adverbs (très, d'aujourd'hui), not through the verb.",
+    "Adjective agreement is taught explicitly: masculine and feminine endings for chaud/chaude, froid/froide, frais/fraîche, piquant/piquante, délicieux/délicieuse, occupé/occupée, prêt/prête.",
+    "Libre has one form for both genders.",
+    "Reader indices are 0-based. The five forms use indices 1, 3, 4, 7 and 8.",
+    "Spanish card faces and kinds and the nine Reader English lines are unchanged from source."
+  ],
+  "residuals": [
+    "Gender of the speaker in I'm ready to order is unresolved; prêt(e) is used.",
+    "La salsa is a borrowed word in French; the source keeps salsa, so the French target does not translate it to sauce.",
+    "Sucré versus doux for sweet is a judgment call; sucré is chosen for taste.",
+    "Owner review of the French wording, the Reader French pairs and the form explanations is still pending.",
+    "No tool checks were run, so accent and spelling are unverified."
+  ],
+  "gates": {
+    "ownerReviewed": false,
+    "publishable": false,
+    "audioVerified": false,
+    "nativeSpeakerReviewed": false,
+    "learnerTested": false,
+    "sourceParityApproved": false,
+    "productionReady": false
+  }
+}

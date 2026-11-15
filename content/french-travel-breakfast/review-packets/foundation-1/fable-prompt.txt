@@ -1,0 +1,113 @@
+You are the correction adjudicator for an unreviewed French→English Breakfast Foundation 1 owner-only draft. READ ONLY; no tools. Return strict JSON, no code fence, with corrected candidate object (same arrays as Haiku), acceptedChanges, rejectedSuggestions, residuals. Preserve exact source English card/Reader strings; do not invent Reader content. Spanish source is source of context, especially formal usted. Explain why any Opus advice is rejected. Keep review, audio, learner gates closed. Pay attention to card articles, source Oaxaca/tortilla/churro, prompt-target exactness, formal Rosa greeting, unknown Sam gender, gender-safe speaking targets, and all six modes. Do not call this qualified approval.
+SOURCE CARDS: [{"en": "the coffee", "es": "el café", "kind": "term", "note": "The accent mark puts the stress on the last syllable: ca-FÉ."}, {"en": "the juice", "es": "el jugo", "kind": "term", "note": "j sounds like a strong English h: HOO-go."}, {"en": "the milk", "es": "la leche", "kind": "term", "note": "ch sounds like in church: LEH-cheh."}, {"en": "the tortilla", "es": "la tortilla", "kind": "term", "note": "ll sounds like English y: tor-TEE-ya."}, {"en": "the churro", "es": "el churro", "kind": "term", "note": "rr is a rolled r: tap your tongue several times."}, {"en": "the eggs", "es": "los huevos", "kind": "term", "note": "h is always silent: WEH-vos."}, {"en": "the sugar", "es": "el azúcar", "kind": "term", "note": "The accent marks the stressed syllable: a-SU-car."}, {"en": "the menu", "es": "el menú", "kind": "term", "note": "Stress the last syllable: meh-NOO."}, {"en": "the bread", "es": "el pan", "kind": "term", "note": "Spanish a is always 'ah', as in father."}, {"en": "Good morning!", "es": "¡Buenos días!", "kind": "phrase", "note": "Use until about noon; after that say buenas tardes."}, {"en": "Hi, how are you?", "es": "Hola, ¿cómo está usted?", "kind": "phrase", "note": "Formal: use usted with staff and people you don't know."}, {"en": "My name is Sam, nice to meet you.", "es": "Me llamo Sam, mucho gusto.", "kind": "phrase"}, {"en": "Thank you very much, see you tomorrow!", "es": "Muchas gracias, ¡hasta mañana!", "kind": "phrase"}, {"en": "Goodbye, have a good day.", "es": "Adiós, que le vaya bien.", "kind": "phrase", "note": "Polite goodbye to one person you address as usted."}]
+SOURCE READER: {"title": "Un desayuno en Oaxaca", "target": ["Sam saluda a la barista Rosa en Oaxaca: ¡Buenos días!", "Rosa: Hola, ¿cómo está usted?", "Sam: Me llamo Sam, mucho gusto.", "Sam lee el menú y pide un jugo de naranja.", "Sam también pide un café con leche.", "Sam no le pone azúcar al café.", "Para comer, Sam pide huevos con tortillas.", "Rosa recomienda un churro y pan dulce.", "Sam: Muchas gracias, ¡hasta mañana!"], "native": ["Sam greets the barista Rosa in Oaxaca: Good morning!", "Rosa: Hi, how are you?", "Sam: My name is Sam, nice to meet you.", "Sam reads the menu and orders an orange juice.", "Sam also orders a coffee with milk.", "Sam doesn't put sugar in the coffee.", "To eat, Sam orders eggs with tortillas.", "Rosa recommends a churro and sweet bread.", "Sam: Thank you very much, see you tomorrow!"]}
+HAIKU CANDIDATE: {"cardFrench": ["le café", "le jus", "le lait", "tortilla mexicaine", "churro", "les œufs", "le sucre", "la carte", "le pain", "Bonjour !", "Bonjour, comment allez-vous ?", "Je m'appelle Sam, enchanté.", "Merci beaucoup, à demain !", "Au revoir, bonne journée."], "readerFrench": ["Sam salue la barista Rosa à Oaxaca : Bonjour !", "Rosa : Bonjour, comment allez-vous ?", "Sam : Je m'appelle Sam, enchanté.", "Sam lit la carte et commande un jus d'orange.", "Sam commande aussi un café au lait.", "Sam ne met pas de sucre dans le café.", "Pour manger, Sam commande des œufs avec des tortillas mexicaines.", "Rosa recommande un churro et du pain sucré.", "Sam : Merci beaucoup, à demain !"], "forms": [{"frenchAnswer": "Sam salue la barista Rosa à Oaxaca : Bonjour !", "englishPrompt": "Sam greets the barista Rosa in Oaxaca: Good morning!", "explanation": "Oaxaca is the place name; Bonjour is the French greeting."}, {"frenchAnswer": "Sam lit la carte et commande un jus d'orange.", "englishPrompt": "Sam reads the menu and orders an orange juice.", "explanation": "Carte means menu; jus means juice."}, {"frenchAnswer": "Pour manger, Sam commande des œufs avec des tortillas mexicaines.", "englishPrompt": "To eat, Sam orders eggs with tortillas.", "explanation": "Tortilla mexicaine is the Mexican tortilla, not a crêpe."}, {"frenchAnswer": "Rosa recommande un churro et du pain sucré.", "englishPrompt": "Rosa recommends a churro and sweet bread.", "explanation": "Churro is kept as a loan word; pain sucré means sweet bread."}, {"frenchAnswer": "Sam : Merci beaucoup, à demain !", "englishPrompt": "Sam: Thank you very much, see you tomorrow!", "explanation": "Closing line with a thank-you and a farewell for tomorrow."}], "modes": [{"mode": "see", "prompt": "Find what Sam orders after reading the menu.", "targetFrench": "Sam lit la carte et commande un jus d'orange.", "targetEnglish": "Sam reads the menu and orders an orange juice."}, {"mode": "recall", "prompt": "Without looking, name the menu in French.", "targetFrench": "Sam lit la carte et commande un jus d'orange.", "targetEnglish": "Sam reads the menu and orders an orange juice."}, {"mode": "hear", "prompt": "Partner reads Rosa's line from the script; listen for the greeting and question.", "targetFrench": "Rosa : Bonjour, comment allez-vous ?", "targetEnglish": "Rosa: Hi, how are you?"}, {"mode": "type", "prompt": "Type 'Thank you very much, see you tomorrow!' in French.", "targetFrench": "Sam : Merci beaucoup, à demain !", "targetEnglish": "Sam: Thank you very much, see you tomorrow!"}, {"mode": "say", "prompt": "Introduce yourself to Rosa as Sam.", "targetFrench": "Sam : Je m'appelle Sam, enchanté.", "targetEnglish": "Sam: My name is Sam, nice to meet you."}, {"mode": "write", "prompt": "Write what Sam orders to eat.", "targetFrench": "Pour manger, Sam commande des œufs avec des tortillas mexicaines.", "targetEnglish": "To eat, Sam orders eggs with tortillas."}], "speakingObjectives": ["Greet the barista with Bonjour.", "Say your name as Sam, using Je m'appelle Sam, enchanté.", "Pronounce café, jus, lait and œufs clearly."], "sourceNotes": ["Tortilla is corrected to tortilla mexicaine, not crêpe.", "Churro is kept as a loan word, not croissant.", "Oaxaca is kept as the place name, not Lyon.", "Eggs with tortillas and churro with sweet bread follow the source; sweet bread is rendered pain sucré.", "Hear mode is partner/script only; no recorded audio is claimed.", "Recall uses Reader line 4 to satisfy the exact-pair rule; the word-level cue stays in the prompt.", "Unreviewed owner-review candidate; no approval or audio is claimed."]}
+OPUS READ-ONLY CRITIQUE: ```json
+{
+  "issues": [
+    {
+      "severity": "high",
+      "location": "cardFrench[3] (\"the tortilla\")",
+      "problem": "Missing definite article. Every other noun card keeps the English 'the' as le/la/les, but this one is bare 'tortilla mexicaine', so card parity with 'the tortilla' breaks.",
+      "sourceGroundedFix": "Use 'la tortilla mexicaine' (or 'la tortilla de maïs'). Keep the qualifier, because bare 'tortilla' in French usually means the Spanish omelette."
+    },
+    {
+      "severity": "high",
+      "location": "cardFrench[4] (\"the churro\")",
+      "problem": "Missing definite article. Bare 'churro' does not match 'the churro'.",
+      "sourceGroundedFix": "Use 'le churro'."
+    },
+    {
+      "severity": "high",
+      "location": "cardFrench[10] / readerFrench[1] (\"Hi, how are you?\")",
+      "problem": "'Hi' is informal, but it is rendered as 'Bonjour', which is already the answer for the 'Good morning!' card. Two distinct English cards now share the same French opener, so recall and type grading become ambiguous. The register is also mixed: informal 'Hi' sits beside formal 'comment allez-vous'.",
+      "sourceGroundedFix": "Use 'Salut, comment ça va ?' on both the card and the Reader line. If the owner wants Rosa to address a customer formally, change the English source rather than the French so parity holds."
+    },
+    {
+      "severity": "medium",
+      "location": "cardFrench[11] / readerFrench[2] / modes[4] ('enchanté')",
+      "problem": "Masculine 'enchanté' assumes a gender for Sam that the source never states.",
+      "sourceGroundedFix": "Confirm with the source owner. Until then, use 'enchanté(e)' or add a form note that the ending agrees with the speaker."
+    },
+    {
+      "severity": "low",
+      "location": "readerFrench[0] ('la barista')",
+      "problem": "Feminine 'la barista' assumes a gender for Rosa that the English source never states.",
+      "sourceGroundedFix": "Confirm with the source owner, or add a note that the French article must reflect the character's stated gender."
+    },
+    {
+      "severity": "medium",
+      "location": "readerFrench[4] (\"Sam also orders a coffee with milk.\")",
+      "problem": "'café au lait' names a specific drink. It is not the literal 'a coffee with milk' and it drops the article/structure parity with the source.",
+      "sourceGroundedFix": "Use 'Sam commande aussi un café avec du lait.' or add a form note explaining café au lait."
+    },
+    {
+      "severity": "low",
+      "location": "readerFrench[7] ('du pain sucré')",
+      "problem": "This is acceptable as a literal rendering. In an Oaxaca setting, though, 'sweet bread' is pan dulce, and 'pain sucré' alone may read as generic sugared bread. No explanation supports the choice.",
+      "sourceGroundedFix": "Keep 'du pain sucré' for parity, and add a form note that it stands for Mexican pan dulce."
+    },
+    {
+      "severity": "medium",
+      "location": "forms[2].explanation",
+      "problem": "The note contrasts the tortilla with 'crêpe', which has no basis in the source. It misses the real reason for 'mexicaine': bare 'tortilla' in French means Spanish omelette. It also does not explain the partitive 'des' or 'pour manger'.",
+      "sourceGroundedFix": "Replace with: 'In French, tortilla alone often means a Spanish omelette, so mexicaine marks the flatbread. Des is the plural of un/une (some).'"
+    },
+    {
+      "severity": "low",
+      "location": "forms[0].explanation, forms[1].explanation, forms[3].explanation",
+      "problem": "The explanations skip the learnable forms in these lines: 'salue' (greets), 'lit/commande' (reads/orders), and the partitive 'du' in 'du pain sucré'. Form 1 also gives no reason for preferring 'la carte' over 'le menu', which in French usually means a set menu.",
+      "sourceGroundedFix": "Add: salue = greets; lit = reads, commande = orders; la carte = the menu (le menu usually means a fixed-price menu); du = some (masculine partitive)."
+    },
+    {
+      "severity": "high",
+      "location": "modes[1] (recall)",
+      "problem": "Prompt and target do not match. The prompt asks the learner to 'name the menu in French', a single-word answer ('la carte'), but the target is the full Reader line. The sourceNote openly admits this workaround, which does not resolve the mismatch.",
+      "sourceGroundedFix": "Change the prompt to: 'Without looking, say in French: Sam reads the menu and orders an orange juice.'"
+    },
+    {
+      "severity": "medium",
+      "location": "modes[3] (type)",
+      "problem": "The prompt asks the learner to type the phrase only, but targetFrench includes the speaker label 'Sam : '. A correct learner answer would fail an exact match.",
+      "sourceGroundedFix": "Change targetFrench to 'Merci beaucoup, à demain !', or change the prompt to: 'Type Sam's line in French: Thank you very much, see you tomorrow!'"
+    },
+    {
+      "severity": "medium",
+      "location": "modes[4] (say)",
+      "problem": "The target includes the speaker label 'Sam : ', which a learner will not speak. The prompt 'Introduce yourself to Rosa as Sam' also does not cue 'nice to meet you', so 'enchanté' is unprompted.",
+      "sourceGroundedFix": "Change targetFrench to 'Je m'appelle Sam, enchanté(e).' and change the prompt to: 'Say: My name is Sam, nice to meet you.'"
+    },
+    {
+      "severity": "low",
+      "location": "modes[0] (see)",
+      "problem": "The prompt 'Find what Sam orders after reading the menu' points to the answer 'un jus d'orange', but the target is the whole line.",
+      "sourceGroundedFix": "Change the prompt to: 'Find the line where Sam reads the menu and orders an orange juice.'"
+    },
+    {
+      "severity": "medium",
+      "location": "modes[2] (hear)",
+      "problem": "The hear target inherits the duplicate 'Bonjour' from Rosa's line, so the learner cannot tell it apart from Sam's greeting by ear.",
+      "sourceGroundedFix": "Update together with the card/Reader fix: 'Rosa : Salut, comment ça va ?'"
+    },
+    {
+      "severity": "low",
+      "location": "cardFrench[13] (\"Goodbye, have a good day.\")",
+      "problem": "This card has no Reader occurrence and no mode, so it gets no contextual practice. The source Reader also omits it, so this is a coverage gap rather than a mistranslation.",
+      "sourceGroundedFix": "Flag it to the owner as a card with no Reader context. Do not add Reader text that is absent from the source."
+    },
+    {
+      "severity": "medium",
+      "location": "candidate (stage level)",
+      "problem": "No stage or level field is present, so Foundation 1 suitability cannot be verified. The content includes formal 'vous', the partitives du/des, and the negation 'ne… pas de', and these need explicit level confirmation.",
+      "sourceGroundedFix": "Add an explicit stage field ('Foundation 1'). Have the owner confirm that partitives and 'ne… pas de' are in scope, or add form notes for them."
+    },
+    {
+      "severity": "high",
+      "location": "gate",
+      "problem": "This is an unreviewed candidate with several card/Reader parity failures (missing articles, duplicate Bonjour) and prompt/target mismatches. Learner approval must not be claimed or inferred, and the candidate must not pass the gate. The sourceNotes correctly disclaim approval and audio, and that disclaimer must stay.",
+      "sourceGroundedFix": "Hold at owner review. Apply the fixes above, re-run the exact-pair check between card English and Reader English, then resubmit for owner review. Do not record any learner approval."
+    }
+  ],
+  "verdict": "REVISE — not gate-ready. The French semantics are mostly sound. The tortilla, churro and Oaxaca corrections are correctly preserved, but the tortilla explanation is mis-grounded. Exact card parity fails on 'the tortilla' and 'the churro', the 'Hi' card collides with 'Good morning', and the recall, type and say modes have prompt/target mismatches. The stage level is unstated. The candidate remains unreviewed with no learner approval."
+}
+```

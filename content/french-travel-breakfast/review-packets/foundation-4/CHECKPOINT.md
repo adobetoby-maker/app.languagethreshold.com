@@ -1,0 +1,15 @@
+# French Breakfast Foundation 4 — private lesson-team checkpoint
+
+**Disposition:** source-aligned, structurally valid *candidate* for owner-only review; qualified French and pedagogy review remains. Review, registration, audio and learner gates are false. No approval is claimed.
+
+Current-main source at audit (`a5609b01e18a25c2517c13d3f569a01b1efc0b1e`): `src/data/core60/es/foundation-travel-breakfast.json` SHA-256 `94621cca4158b76c69435f35eb1dfdc4893df553afaccb8a1963bdd9e6d80e79`; `public/lesson-content/es/foundation-travel-breakfast.json` SHA-256 `e11886cd3e030534ba8f8b8e92515c528e07c2875f20a58034faed2bc3d0f78a`. Private #475 head `5cc469f5a54828c48238ccdf411238ed2e3e2c08` supplied the prior draft. Exact source snapshots in this archive make the validator self-contained.
+
+The prior private French Reader moved Oaxaca to Lyon, despite an internal note claiming Oaxaca was retained. This candidate restores Oaxaca, 15 exact English card faces/kinds, eight exact English Reader lines, all Spanish anchors and the original food/service sequence. It retains stable stage-local `foundation:4`, six full-Reader forms and six source-linked modes. The French `je voudrais` follows the exact English “I'd like,” while the Spanish `quiero` is literally closer to `je veux`; the source itself notes the softer `quisiera` alternative. That contrast stays in a form explanation. Previously recorded audio, if any, is invalid for changed strings; no audio is attached or approved here.
+
+Direct safe-mode CLI evidence: `--model haiku` returned canonical `claude-haiku-5-5` authoring, `--model opus` returned `claude-opus-5-5` read-only critique, `--model fable` returned `claude-fable-5-2` correction, all `is_error:false`. Self-check preserved the English-facing `je voudrais` choice and removed any claim that this candidate proves production or audio readiness. AI is not qualified review.
+
+Validator `python3 /Users/drive/lt-review/french-breakfast-teams-2026-11-14/foundation-4/validate_packet.py` passes archived source SHA-256, exact English/Spanish card and Reader strings, kinds, stable IDs, six Reader-linked forms, six exact-pair modes and closed gates. Packet: `/Users/drive/lt-review/french-breakfast-teams-2026-11-14/foundation-4/owner-review-packet.json`.
+
+Residuals: `les fruits` for generic English “the fruit” and `du jus d'orange pressé` for source *natural* need qualified French review; the latter is intended to mean freshly squeezed. `est servi avec` paraphrases “comes with.” The source *querer* focus does not map one-to-one to English “I'd like,” so the lesson progression must explain it. Typed answer normalization and presentation of hidden form hints remain design questions. Hear is partner-read only; no recorded playback or speech recognition is attached. Learner runtime/offline/progress and V4 acceptance remain untested.
+
+Archive audit 2026-11-14 17:11 UTC: normalized explicit `readyForLearner:false`, `learnerRuntimeEnabled:false`, `audioPlaybackEnabled:false`, and `progressEnabled:false` in this private packet. No route or learner registration changed. Validator and SHA-256 manifest refreshed.

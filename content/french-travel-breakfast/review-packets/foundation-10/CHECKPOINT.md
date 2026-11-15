@@ -1,0 +1,9 @@
+# French Breakfast Foundation 10 — private owner candidate
+
+Source: exact origin/main `a51867cd94f6404299d6317d1dd4a5234634a91c`; source JSON SHA-256 `94621cca4158b76c69435f35eb1dfdc4893df553afaccb8a1963bdd9e6d80e79` and Reader SHA-256 `e11886cd3e030534ba8f8b8e92515c528e07c2875f20a58034faed2bc3d0f78a` rechecked against that commit. Private #475 `5cc469f5a54828c48238ccdf411238ed2e3e2c08` supplied context but its Lyon/quiche rewrite was rejected for this source-aligned packet.
+
+The [packet](owner-review-packet.json) has 15 exact-English cards and nine exact-English Reader lines in source order, nine aligned forms, five source-to-French verb paradigms, six distinct script/self-check mode cues, and three source speaking tasks. Stable candidate IDs use `foundation:10`; legacy account progress identity still needs audit before any route or learner registration. The validator passes. The source card “How do you say this in Spanish?” is mapped to French “Comment dit-on ça en espagnol ?” to keep bilingual meaning; adapting it to “in French” needs an owner source decision. Source wall signage stays English and Spanish, Café Luna, chilaquiles and the exact ingredient list remain.
+
+Claude CLI `--safe-mode` metadata: Haiku `['claude-haiku-5-5']`, Opus read-only critique `['claude-opus-5-5']`, Fable correction `['claude-fable-5-2']`. Raw tool JSON and prompts are stored here. After the Fable pass, a source-grounded self-check changed the Say cue from the emergency card to the source speaking-task “I don't understand” card. AI checks are not qualified French, food/domain or safety approval.
+
+`reviewed:false`, registration, audio, playback, scoring and progress gates remain closed; no audio was generated or approved. Owner projection is held for the card12 source/adaptation decision, progress mapping, qualified linguistic/domain review and mode-direction/runtime decisions. No repository/main change.

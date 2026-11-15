@@ -1,0 +1,101 @@
+{
+  "issues": [
+    {
+      "severity": "high",
+      "field": "speaking.openingFrench",
+      "problem": "The opening line belongs to the customer: it orders the coffee to go and asks for a lid and napkins. If the partner speaks it, the learner ends up playing the server. That contradicts the objectives, which have the learner make these requests, and it uses up the lid and napkin requests before the learner can make them. No roles are stated.",
+      "correction": "Have the server open, e.g. « Bonjour, qu'est-ce que je vous sers ? » or « Sur place ou à emporter ? ». Add explicit roles: learner = traveler/customer, partner = serveuse."
+    },
+    {
+      "severity": "medium",
+      "field": "cards[core:9:word:15].note",
+      "problem": "The note refers to the Spanish pronoun 'Lo', but the French target uses 'le'.",
+      "correction": "\"Le means the item you just mentioned (here, the croissant).\""
+    },
+    {
+      "severity": "medium",
+      "field": "cards[core:9:word:3].note",
+      "problem": "The Spanish-only note about 'mostrador' was copied onto a French card, where it means nothing to a French learner.",
+      "correction": "Drop it, or keep it only as source metadata. A French equivalent could be: \"Also heard: le zinc (informal, bar counter).\""
+    },
+    {
+      "severity": "medium",
+      "field": "forms[commander].englishMeaning",
+      "problem": "'to order, to ask for' overstates commander, which means only 'to order (food or goods)'. 'Ask for' is demander.",
+      "correction": "\"to order\". Add a note that pedir's 'ask for' sense is demander in French."
+    },
+    {
+      "severity": "medium",
+      "field": "forms[emporter].englishMeaning",
+      "problem": "Emporter means 'to take away / take along'. It does not mean 'to carry' (that is porter). The explanation also calls emporter the 'root' of à emporter, when it is the same verb.",
+      "correction": "englishMeaning: \"to take (away, along)\". Explanation: \"Regular -er verb, used in the phrase à emporter (to go / takeaway).\""
+    },
+    {
+      "severity": "medium",
+      "field": "notes[0]",
+      "problem": "The question asks for the 'eat here' phrase (sur place), but no card or reader line teaches it.",
+      "correction": "Add a sur place card, or reword the question: \"Which phrase means to go?\""
+    },
+    {
+      "severity": "low",
+      "field": "cards[core:9:word:16].targetFrench",
+      "problem": "« Est-ce que ça vient avec un couvercle ? » is a calque of 'come with' and sounds unidiomatic in standard French.",
+      "correction": "« Il y a un couvercle ? » or « C'est avec un couvercle ? »"
+    },
+    {
+      "severity": "low",
+      "field": "forms[mettre].explanationEnglish",
+      "problem": "It says mets 'does not follow a pattern', but mets/met follow the regular -ttre pattern (see battre).",
+      "correction": "\"Irregular -ttre verb: the singular forms (mets, mets, met) drop one t; the plural forms keep tt.\""
+    },
+    {
+      "severity": "low",
+      "field": "reader[core:9:line:7].targetFrench",
+      "problem": "'Il demande' (he asks) does not match the Spanish 'Dice' or the English 'He says'.",
+      "correction": "« Il dit : « Pouvez-vous me le mettre dans un sac en papier ? » »"
+    },
+    {
+      "severity": "low",
+      "field": "reader[core:9:line:1].targetFrench",
+      "problem": "'regarde l'heure' means 'checks the time', while the source says 'mira el reloj' / 'looks at the clock'.",
+      "correction": "« regarde l'horloge », or accept it as idiomatic and note the drift."
+    },
+    {
+      "severity": "low",
+      "field": "reader[core:9:line:5] vs forms[avoir besoin de]",
+      "problem": "The reader says 'Il me faut' where the source uses necesito. The drilled form « j'ai besoin de » therefore never appears in the reader, and the line is split into two sentences where the source has one.",
+      "correction": "« Oui, s'il vous plaît, et j'ai aussi besoin de serviettes et d'une cuillère. »"
+    },
+    {
+      "severity": "low",
+      "field": "cards[core:9:word:6] / cards[core:9:word:14]",
+      "problem": "'Serviette' alone is ambiguous (napkin or towel). Card 6 says 'serviettes en papier' but card 14 and the reader say 'serviettes', so the term is inconsistent.",
+      "correction": "Add a note: \"serviette = napkin (also towel); en papier specifies paper napkins.\""
+    },
+    {
+      "severity": "low",
+      "field": "cards[core:9:word:13].targetFrench",
+      "problem": "'Je voudrais' means 'I would like', which is softer than the source's 'I want' (Quiero).",
+      "correction": "Keep it for politeness but say so in a note, or use « Je veux ceci à emporter » to match the source exactly."
+    },
+    {
+      "severity": "low",
+      "field": "cards[core:9:word:9] / cards[core:9:word:10]",
+      "problem": "Card 9 uses an indefinite article while the other cards use definite ones. 'l'addition' hides its gender, and 'bill' is ambiguous in English (US 'bill' can mean a banknote).",
+      "correction": "\"le gobelet à emporter\"; \"l'addition (f.)\"; and possibly the English support 'the bill (check)'."
+    },
+    {
+      "severity": "low",
+      "field": "speaking.objectivesEnglish[1]",
+      "problem": "In the source, the waitress offers the lid and bag and the traveler asks for napkins and a spoon. The objective leaves out the spoon and gives the server's offers to the customer.",
+      "correction": "\"Accept a lid and bag, and ask for napkins and a spoon.\""
+    },
+    {
+      "severity": "low",
+      "field": "forms[*].forms.vous",
+      "problem": "Spanish usted maps to the French vous form, not il/elle. The il_elle label could mislead learners who know the source's él_ella_usted slot.",
+      "correction": "Add a note: \"Spanish usted → French vous (formal).\""
+    }
+  ],
+  "overall": "Structure is sound. The 17 cards and 9 reader lines are in source order, and their supportEnglish and sourceSpanish fields match the source exactly. All 5 French paradigms are conjugated correctly. All 6 modes point to the right card, and each prompt and target matches that card. There are no safety details, and the counter, waitress, bag and train-departure details match the source. The main defect is the speaking opening, which puts the customer's line in the partner's mouth. After that come notes carried over from Spanish (Lo, mostrador), overstated verb meanings (commander, emporter), and a note question about content that is never taught (sur place). All gates are false, which is right. This is only a read-only critique, not a qualified review, so the candidate should stay PRIVATE and unreviewed."
+}

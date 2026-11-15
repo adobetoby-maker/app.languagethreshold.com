@@ -1,0 +1,448 @@
+PRIVATE CORRECTION ADJUDICATION for French Breakfast Foundation 7. Output strict JSON only, keys frenchCards (array of 16 French strings), frenchReader (array of 9 French strings), readerTitleFrench, forms (5–6 full exact Reader pairs with readerLine 1-based int, french, english), modes (six unique see/recall/hear/type/say/write with sourceType card/reader, sourceIndex 1-based, promptFrench, targetEnglish exact source English), speakingObjectives (English task instructions anchored to source), frenchVerbParadigms (five source-linked entries with frenchInfinitive, sourceInfinitive, forms object je/tu/il/nous/vous/ils, note), sourceNotes, internalDomainNotes, residuals. Use source original English/Spanish as immutable. Preserve café de olla, pan dulce, concha, 11, hotel roles and question sequence. French question-word card faces must not mis-teach qué/cuál. Correct Haiku forms: do not place Spanish under french. The six modes retain both exact English and French model faces; ignore Opus's claim that an English gloss makes the mode direction invalid. Hear/say are candidate prompts with no audio attached, not runtime. No qualified approval, all gates false. Keep domain facts in internalDomainNotes, not learner cards. Be concise but complete.
+SOURCE:
+{
+  "n": 7,
+  "title": "Questions",
+  "objective": "Ask a server or hotel host the basic questions you need at breakfast.",
+  "focus": "Question words: qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+  "words": [
+    {
+      "en": "what?",
+      "es": "¿qué?",
+      "kind": "term"
+    },
+    {
+      "en": "who?",
+      "es": "¿quién?",
+      "kind": "term"
+    },
+    {
+      "en": "where?",
+      "es": "¿dónde?",
+      "kind": "term"
+    },
+    {
+      "en": "when?",
+      "es": "¿cuándo?",
+      "kind": "term"
+    },
+    {
+      "en": "how much?",
+      "es": "¿cuánto?",
+      "kind": "term"
+    },
+    {
+      "en": "how?",
+      "es": "¿cómo?",
+      "kind": "term"
+    },
+    {
+      "en": "why?",
+      "es": "¿por qué?",
+      "kind": "term",
+      "note": "Two words with an accent asks why; porque (one word) means because."
+    },
+    {
+      "en": "which?",
+      "es": "¿cuál?",
+      "kind": "term",
+      "note": "Use cuál to choose from options: ¿Cuál es...?"
+    },
+    {
+      "en": "the included breakfast",
+      "es": "el desayuno incluido",
+      "kind": "term"
+    },
+    {
+      "en": "the sweet bread",
+      "es": "el pan dulce",
+      "kind": "term",
+      "note": "Mexican sweet rolls, like the shell-shaped concha."
+    },
+    {
+      "en": "What do you recommend?",
+      "es": "¿Qué me recomienda?",
+      "kind": "phrase"
+    },
+    {
+      "en": "Where is the restroom?",
+      "es": "¿Dónde está el baño?",
+      "kind": "phrase"
+    },
+    {
+      "en": "How much is the breakfast?",
+      "es": "¿Cuánto cuesta el desayuno?",
+      "kind": "phrase"
+    },
+    {
+      "en": "What is this bread called?",
+      "es": "¿Cómo se llama este pan?",
+      "kind": "phrase"
+    },
+    {
+      "en": "Which is the house coffee?",
+      "es": "¿Cuál es el café de la casa?",
+      "kind": "phrase"
+    },
+    {
+      "en": "Who is serving us?",
+      "es": "¿Quién nos atiende?",
+      "kind": "phrase"
+    }
+  ],
+  "speaking": "Ask a hotel host what breakfast costs, where the restroom is, and what this bread is called."
+}
+
+READER:
+{
+  "passage": {
+    "title": "Preguntas en el desayuno",
+    "target": [
+      "En el hotel, Emma y Tom preguntan: ¿Quién nos atiende?",
+      "Rosa: Yo los atiendo, ¿qué café quieren?",
+      "Tom: ¿Cuál es el café de la casa?",
+      "Rosa: Es el café de olla, ¿por qué no lo prueban?",
+      "Emma: ¿Cuánto cuesta el desayuno y cuándo termina?",
+      "Rosa: Es el desayuno incluido y termina a las 11.",
+      "Tom señala el pan dulce: ¿Cómo se llama este pan?",
+      "Emma: ¿Dónde está el baño?",
+      "Rosa: Se llama concha, y el baño está a la derecha."
+    ],
+    "native": [
+      "At the hotel, Emma and Tom ask: Who is serving us?",
+      "Rosa: I am serving you, what coffee do you want?",
+      "Tom: Which is the house coffee?",
+      "Rosa: It is the café de olla, why don't you try it?",
+      "Emma: How much is the breakfast and when does it end?",
+      "Rosa: It is the included breakfast and it ends at 11.",
+      "Tom points at the sweet bread: What is this bread called?",
+      "Emma: Where is the restroom?",
+      "Rosa: It is called a concha, and the restroom is on the right."
+    ]
+  },
+  "verbs": [
+    {
+      "infinitive": "costar",
+      "native": "to cost",
+      "forms": {
+        "yo": "cuesto",
+        "tú": "cuestas",
+        "él_ella_usted": "cuesta",
+        "nosotros": "costamos",
+        "ellos_ustedes": "cuestan"
+      },
+      "example": {
+        "target": "¿Cuánto cuesta el desayuno?",
+        "native": "How much is the breakfast?"
+      },
+      "note": "Stem change o to ue, except nosotros. Use cuesta for one thing and cuestan for several."
+    },
+    {
+      "infinitive": "llamarse",
+      "native": "to be called",
+      "forms": {
+        "yo": "me llamo",
+        "tú": "te llamas",
+        "él_ella_usted": "se llama",
+        "nosotros": "nos llamamos",
+        "ellos_ustedes": "se llaman"
+      },
+      "example": {
+        "target": "¿Cómo se llama este pan?",
+        "native": "What is this bread called?"
+      },
+      "note": "Reflexive verb. Use it for names of people and things."
+    },
+    {
+      "infinitive": "estar",
+      "native": "to be (location)",
+      "forms": {
+        "yo": "estoy",
+        "tú": "estás",
+        "él_ella_usted": "está",
+        "nosotros": "estamos",
+        "ellos_ustedes": "están"
+      },
+      "example": {
+        "target": "¿Dónde está el baño?",
+        "native": "Where is the restroom?"
+      },
+      "note": "Irregular yo form (estoy). Use estar to say where something is."
+    },
+    {
+      "infinitive": "atender",
+      "native": "to serve, to wait on",
+      "forms": {
+        "yo": "atiendo",
+        "tú": "atiendes",
+        "él_ella_usted": "atiende",
+        "nosotros": "atendemos",
+        "ellos_ustedes": "atienden"
+      },
+      "example": {
+        "target": "Yo los atiendo.",
+        "native": "I am serving you."
+      },
+      "note": "Stem change e to ie, except nosotros."
+    },
+    {
+      "infinitive": "querer",
+      "native": "to want",
+      "forms": {
+        "yo": "quiero",
+        "tú": "quieres",
+        "él_ella_usted": "quiere",
+        "nosotros": "queremos",
+        "ellos_ustedes": "quieren"
+      },
+      "example": {
+        "target": "¿Qué café quieren?",
+        "native": "What coffee do you want?"
+      },
+      "note": "Stem change e to ie, except nosotros. Quieren is the ustedes form, used when speaking to a group."
+    }
+  ]
+}
+
+HAIKU:
+{
+  "frenchCards": [
+    "quoi ?",
+    "qui ?",
+    "où ?",
+    "quand ?",
+    "combien ?",
+    "comment ?",
+    "pourquoi ?",
+    "quel ? / lequel ?",
+    "le petit-déjeuner inclus",
+    "le pan dulce (pain sucré)",
+    "Qu'est-ce que vous me recommandez ?",
+    "Où sont les toilettes ?",
+    "Combien coûte le petit-déjeuner ?",
+    "Comment s'appelle ce pain ?",
+    "Quel est le café de la maison ?",
+    "Qui nous sert ?"
+  ],
+  "frenchReader": [
+    "À l'hôtel, Emma et Tom demandent : Qui nous sert ?",
+    "Rosa : Je vous sers. Quel café voulez-vous ?",
+    "Tom : Quel est le café de la maison ?",
+    "Rosa : C'est le café de olla, pourquoi ne pas l'essayer ?",
+    "Emma : Combien coûte le petit-déjeuner, et quand se termine-t-il ?",
+    "Rosa : C'est le petit-déjeuner inclus, et il se termine à 11 heures.",
+    "Tom montre le pan dulce : Comment s'appelle ce pain ?",
+    "Emma : Où sont les toilettes ?",
+    "Rosa : Ça s'appelle une concha, et les toilettes sont à droite."
+  ],
+  "readerTitleFrench": "Questions au petit-déjeuner",
+  "forms": [
+    {
+      "french": "cuesta",
+      "english": "costs (one thing)",
+      "readerLine": "Emma: How much is the breakfast and when does it end?"
+    },
+    {
+      "french": "se llama",
+      "english": "is called",
+      "readerLine": "Tom points at the sweet bread: What is this bread called?"
+    },
+    {
+      "french": "está",
+      "english": "is (location)",
+      "readerLine": "Emma: Where is the restroom?"
+    },
+    {
+      "french": "atiendo",
+      "english": "I am serving (you)",
+      "readerLine": "Rosa: I am serving you, what coffee do you want?"
+    },
+    {
+      "french": "quieren",
+      "english": "do you want (group)",
+      "readerLine": "Rosa: I am serving you, what coffee do you want?"
+    }
+  ],
+  "modes": [
+    {
+      "mode": "see",
+      "sourceType": "card",
+      "sourceIndex": 3,
+      "promptFrench": "Regardez la carte 3. Lisez le mot en anglais.",
+      "targetEnglish": "where?"
+    },
+    {
+      "mode": "recall",
+      "sourceType": "card",
+      "sourceIndex": 10,
+      "promptFrench": "Rappelez-vous la carte 10 : quel est le nom anglais de « le pan dulce » ?",
+      "targetEnglish": "the sweet bread"
+    },
+    {
+      "mode": "hear",
+      "sourceType": "reader",
+      "sourceIndex": 7,
+      "promptFrench": "Écoutez la ligne 7 et répétez la phrase en anglais.",
+      "targetEnglish": "Tom points at the sweet bread: What is this bread called?"
+    },
+    {
+      "mode": "type",
+      "sourceType": "card",
+      "sourceIndex": 12,
+      "promptFrench": "Tapez la phrase anglaise de la carte 12.",
+      "targetEnglish": "Where is the restroom?"
+    },
+    {
+      "mode": "say",
+      "sourceType": "card",
+      "sourceIndex": 13,
+      "promptFrench": "Dites à voix haute la phrase anglaise de la carte 13.",
+      "targetEnglish": "How much is the breakfast?"
+    },
+    {
+      "mode": "write",
+      "sourceType": "card",
+      "sourceIndex": 16,
+      "promptFrench": "Écrivez la phrase anglaise de la carte 16.",
+      "targetEnglish": "Who is serving us?"
+    }
+  ],
+  "speakingObjectives": [
+    "Ask a hotel host what breakfast costs, where the restroom is, and what this bread is called."
+  ],
+  "sourceNotes": [
+    "The 16 source word cards map one-to-one by index to frenchCards. Indexes 1 to 10 are kind term and indexes 11 to 16 are kind phrase.",
+    "The 9 reader lines map one-to-one by index to frenchReader, in source order.",
+    "The Spanish setting is kept: café de olla, concha, pan dulce, desayuno incluido, 11 heures, à droite. France-specific substitutions from the prior draft (viennoiserie, pain au chocolat, café filtre maison, notre) are removed.",
+    "The prior draft's Spanish-to-French word substitutions are not carried over beyond the French question words and their meanings.",
+    "Source reader line 2 uses singular 'you' in English, while the source verb example 'quieren' is the ustedes form."
+  ],
+  "residuals": [
+    "All gates remain closed. No approval is granted, reviewed remains false, and no audio is claimed.",
+    "Native French review is still required. This is an unreviewed candidate.",
+    "The forms 'cuesta' and 'quieren' map to reader English lines that say 'is' and 'you' rather than 'costs' and 'you all', so those mappings are approximate.",
+    "'Le pan dulce' is kept as a source-anchored loan term, and 'pain' is used for generic bread. A reviewer should decide whether a clearer French gloss is better for a café menu.",
+    "'Les toilettes' is used for restroom as the French equivalent. The source Spanish 'baño' is not rendered. A reviewer should confirm this choice."
+  ]
+}
+
+OPUS READ-ONLY CRITIQUE:
+# Audit: French Breakfast Foundation 7 ("Questions")
+
+**Status: not approved.** This is a read-only critique. Indices are 1-based. Nothing was rewritten; the corrections below are proposals.
+
+---
+
+## 0. Blocking structural issues
+
+| # | Location | Issue | Proposed correction |
+|---|---|---|---|
+| B1 | `forms[1–5].french` | **False labelling.** These fields hold *Spanish* forms (`cuesta`, `se llama`, `está`, `atiendo`, `quieren`) under a `french` key. | Put the French Reader forms here: `coûte` (R5), `s'appelle` (R7/R9), `sont` (R8/R9), `sers` (R2), `voulez` (R2). If the Spanish forms must be kept, use a separate `sourceForm` key. |
+| B2 | Whole candidate | **The source Reader's five verb paradigms are missing.** The candidate has no French paradigm for any of the five verbs. | See §6. |
+| B3 | `modes[1–6]`, `speakingObjectives[1]` | **Direction is inconsistent.** Cards and Reader are rendered into French, but every mode targets English, and the speaking objective is the source English copied verbatim. If French is the target language, the modes are inverted. If French is the support language, `frenchCards` and `frenchReader` are mislabelled as targets. | Decide the direction explicitly. For a French-target course, set `targetFrench` to the French card or line, and localise the speaking objective (§5). |
+| B4 | `forms[*].readerLine` | Each form cites the English `native` text, not a Reader index or the French line. | Use `readerIndex: 5` and similar, plus the French line. |
+
+---
+
+## 1. French false meanings and register
+
+| Idx | Candidate | Issue | Proposal |
+|---|---|---|---|
+| Card 1 | `quoi ?` | On its own, *quoi ?* is informal, close to "huh?/what?". It is also not the form used in the deck's own questions (card 11 uses *qu'est-ce que*, R2 uses *quel*). This is a false-friend risk for the "what?" concept. | `que ? / qu'est-ce que ?` with a note: *quoi* is used alone or after a preposition. |
+| Card 6 | `comment ?` | On its own, this also means "pardon?". That is a minor ambiguity. | Keep it, but add a note that *comment* = how, and that *Comment s'appelle…* is the idiom for "what is it called". |
+| Card 7 | `pourquoi ?` | The source note (por qué vs porque) is dropped and not adapted. | Add a note: *pourquoi* (why) vs *parce que* (because). |
+| Card 8 | `quel ? / lequel ?` | This face has two answers (adjective vs pronoun), and gender agreement is not shown. | `quel(le) ? / lequel (laquelle) ?` with a note: *quel* + noun or *être*; *lequel* stands alone. |
+| Card 16 / R1 | `Qui nous sert ?` | This is understandable. *Qui s'occupe de nous ?* is the more natural phrase in hospitality. | Reviewer's choice. Whichever is chosen, keep card 16, R1 and R2 consistent. |
+| R2 | `Je vous sers.` | It can read as "I'm serving you (food)", which is acceptable. *Je m'occupe de vous* is more idiomatic. | Mirror the R1 choice. |
+| R4 | `pourquoi ne pas l'essayer ?` | *Essayer* is generic "try". For food, *goûter* is the better fit. The impersonal infinitive also drops the source's *ustedes* address. | `pourquoi ne le goûtez-vous pas ?` |
+| Card 9 / R6 | `petit-déjeuner inclus` | This is correct. *compris* is equally common on hotel rate cards. | Optional: `inclus (compris)`. |
+
+There are no outright mistranslations in cards 2–5 and 11–15, or in R3, R5–R9.
+
+---
+
+## 2. Mexican fidelity: café de olla, pan dulce, concha
+
+| Idx | Issue | Proposal |
+|---|---|---|
+| Card 10 | The gloss `(pain sucré)` is weak. It suggests sugared bread, not Mexican sweet rolls. The source note about the shell-shaped concha is dropped. | `le pan dulce (viennoiseries mexicaines)` with a note: *ex. la concha, brioche en forme de coquillage.* |
+| R7 | `Tom montre le pan dulce` | The `(pain sucré)` gloss from card 10 is missing here, so card and Reader are inconsistent. | Either gloss both or gloss neither; align with card 10. |
+| R4 | `le café de olla` | This is kept, which is good, but it has no gloss anywhere. French learners have no anchor for it. | Add a card or Reader note: *café préparé en pot de terre, à la cannelle et au piloncillo.* |
+| R9 | `une concha` | The feminine article is correct and the term is kept. There is no gloss. | Covered if the card 10 note is added. |
+| sourceNotes 3 | This note lists `11 heures, à droite` as "Spanish setting". They are neutral details, not Mexican. | Relabel the note. |
+
+The Mexican setting is preserved, and no France-specific substitutions remain.
+
+---
+
+## 3. Question-word face ambiguity (qué vs cuál)
+
+French collapses the qué/cuál distinction, and the candidate never says so.
+
+- **Card 1** (qué) is shown as `quoi ?`, but its Reader instance (**R2**, *¿qué café?*) is rendered `Quel café`.
+- **Card 8** (cuál) is shown as `quel ?`, and its Reader instance (**R3**, card 15) is also `Quel`.
+- As a result, R2 and R3 both show *quel*, while the cards show two different faces. A learner cannot tell from the face alone which source word is meant.
+
+**Proposal:** add a note to card 1 and card 8: *Devant un nom, ¿qué? et ¿cuál? se traduisent tous deux par « quel ».* Also tag R2 → card 1 and R3 → card 8 in the alignment notes.
+
+---
+
+## 4. Scene, roles, order, and card/Reader alignment
+
+These are preserved:
+- 9 lines in source order.
+- Speakers match: Emma, Tom and Rosa, with Rosa as host.
+- The title is apt.
+- The 16 cards are in source order, with terms at 1–10 and phrases at 11–16.
+
+Alignment checks:
+- **Matching:** card 16 = R1, card 15 = R3, card 13 ⊂ R5, card 9 ⊂ R6, card 14 = R7, card 12 = R8. Card 4 *quand* and card 7 *pourquoi* appear in R5 and R4.
+- **Mismatch:** card 1 → R2 (see §3) and card 10 → R7 (gloss, see §2).
+
+Problems with the notes and residuals:
+- **sourceNotes 5 is false.** English "you" is number-neutral, not singular. Remove the note, or say that the English is ambiguous while *quieren* and *voulez* are plural or formal.
+- **residuals 5 is inaccurate.** *les toilettes* does render *baño*. The real change is singular → plural (*está* → *sont*, R8/R9), which affects the `está` form mapping.
+- **sourceNotes 4** is unclear. Rephrase it or drop it.
+
+---
+
+## 5. Modes and speaking
+
+All six modes are present, and their indices are correct: card 3, card 10, R7, card 12, card 13, card 16.
+
+| Mode | Issue | Proposal |
+|---|---|---|
+| All | They target English (see B3). | Set `targetFrench` if French is the target. |
+| 1 `see` | "Lisez le mot en anglais" reads the answer off the card, so it tests nothing. | Show the face and ask for its meaning, or vice versa. |
+| 3 `hear` | Residuals say no audio exists, so a hear mode has no asset. "Répétez" also makes it a say task. | Mark it as audio-pending, and make it a listen-and-identify task. |
+| 4 `type` / 6 `write` | These are functionally identical. | Make one of them Reader-based, e.g. R5 or R8. |
+| Coverage | No mode exercises the qué/cuál or pourquoi/parce que distinctions. | Point one mode at card 8 or card 7. |
+| Speaking | The objective is copied in English. | `Demandez à l'hôte combien coûte le petit-déjeuner, où sont les toilettes et comment s'appelle ce pain.` |
+
+---
+
+## 6. Missing verb paradigms
+
+The source has five paradigms with five slots each. French needs six persons, because *vous* is distinct from *ils*. The mapping of the source slot `ellos_ustedes` has to be decided: ustedes → vous, ellos → ils.
+
+| Source | French | je / tu / il / nous / vous / ils | Note to adapt |
+|---|---|---|---|
+| costar | coûter | coûte / coûtes / coûte / coûtons / coûtez / coûtent | Regular. The source's o→ue note does not transfer. Keep the one vs several (coûte/coûtent) point. |
+| llamarse | s'appeler | m'appelle / t'appelles / s'appelle / nous appelons / vous appelez / s'appellent | Pronominal. Note the *ll* doubling, which is not a stem change. |
+| estar | être | suis / es / est / sommes / êtes / sont | French has no ser/estar split, so the "location" note needs rewording. R8 uses *sont*. |
+| atender | servir (or s'occuper de) | sers / sers / sert / servons / servez / servent | This depends on the choice made for card 16 and R1. |
+| querer | vouloir | veux / veux / veut / voulons / voulez / veulent | Irregular. Replace the "quieren = ustedes" note with "voulez = vous (formal or plural)". |
+
+The examples should reuse the French card or Reader lines: card 13, card 14, card 12, R2a and R2b.
+
+---
+
+## Summary of required changes before review
+
+1. B1–B4: fix the form labels, add the paradigms, settle the direction, and use indexed references.
+2. Card 1 face and the qué/cuál note (cards 1, 8; R2, R3).
+3. Gloss pan dulce, concha and café de olla (card 10, R4, R7, R9).
+4. Correct sourceNotes 5 and residuals 5.
+5. Rework the see, hear and type/write modes, and localise the speaking objective.
+
+A native French review is still required. Nothing here constitutes approval.

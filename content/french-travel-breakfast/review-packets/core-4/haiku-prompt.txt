@@ -1,0 +1,190 @@
+Read-only candidate authoring for French→English Breakfast Core 4. Source is the exact Spanish-English lesson below. Prior private French draft also below. Return ONLY JSON with keys words (18 entries with exact source English/Spanish, proposed French, id core:4:word:N, notes), reader (9 entries exact source English/Spanish, proposed French, id core:4:line:N), contextualForms (at least four entries with French form, English explanation, exact source link), modes (six See/Recall/Hear/Type/Say/Write objects with exact card or line ID, authored English instruction/prompt and French target; Hear script-only and blocked), speaking (English objective, roles, opening French, goals), issues. Keep stage-local IDs and exact English/Spanish order. All gates false. Do not assert approval. Source-fidelity over France-specific assumptions. Distinguish source hotel/cafe facts from general facts. No file edits. SOURCE:
+{
+  "verbs": [
+    {
+      "infinitive": "querer",
+      "native": "to want",
+      "forms": {
+        "yo": "quiero",
+        "tú": "quieres",
+        "él_ella_usted": "quiere",
+        "nosotros": "queremos",
+        "ellos_ustedes": "quieren"
+      },
+      "example": {
+        "target": "Quiero dos huevos revueltos, por favor.",
+        "native": "I want two scrambled eggs, please."
+      },
+      "note": "Stem change: e to ie (except nosotros)."
+    },
+    {
+      "infinitive": "pedir",
+      "native": "to order, to ask for",
+      "forms": {
+        "yo": "pido",
+        "tú": "pides",
+        "él_ella_usted": "pide",
+        "nosotros": "pedimos",
+        "ellos_ustedes": "piden"
+      },
+      "example": {
+        "target": "También pide tocino, pan tostado y fruta.",
+        "native": "He also orders bacon, toast, and fruit."
+      },
+      "note": "Stem change: e to i (except nosotros)."
+    },
+    {
+      "infinitive": "traer",
+      "native": "to bring",
+      "forms": {
+        "yo": "traigo",
+        "tú": "traes",
+        "él_ella_usted": "trae",
+        "nosotros": "traemos",
+        "ellos_ustedes": "traen"
+      },
+      "example": {
+        "target": "¿Me puede traer pan tostado?",
+        "native": "Can you bring me toast?"
+      },
+      "note": "Irregular yo form: traigo."
+    },
+    {
+      "infinitive": "sentarse",
+      "native": "to sit down",
+      "forms": {
+        "yo": "me siento",
+        "tú": "te sientas",
+        "él_ella_usted": "se sienta",
+        "nosotros": "nos sentamos",
+        "ellos_ustedes": "se sientan"
+      },
+      "example": {
+        "target": "Se sienta en una mesa y mira el menú.",
+        "native": "He sits at a table and looks at the menu."
+      },
+      "note": "Reflexive verb with stem change: e to ie (except nosotros)."
+    }
+  ],
+  "passage": {
+    "title": "Un desayuno completo",
+    "target": [
+      "Un viajero entra a un café en la mañana.",
+      "Se sienta en una mesa y mira el menú.",
+      "La mesera pregunta: ¿Qué desea usted?",
+      "Él dice: Quiero dos huevos revueltos, por favor.",
+      "También pide tocino, pan tostado y fruta.",
+      "La mesera pregunta: ¿Cómo quiere los huevos?",
+      "Él responde: Los quiero bien cocidos, sin sal.",
+      "Luego pregunta: ¿El café está incluido?",
+      "La mesera dice: Sí, el café está incluido."
+    ],
+    "native": [
+      "A traveler walks into a café in the morning.",
+      "He sits at a table and looks at the menu.",
+      "The waitress asks: What would you like?",
+      "He says: I want two scrambled eggs, please.",
+      "He also orders bacon, toast, and fruit.",
+      "The waitress asks: How do you want the eggs?",
+      "He answers: I want them well done, without salt.",
+      "Then he asks: Is the coffee included?",
+      "The waitress says: Yes, the coffee is included."
+    ]
+  },
+  "words": [
+    {
+      "en": "scrambled eggs",
+      "es": "huevos revueltos",
+      "kind": "term"
+    },
+    {
+      "en": "fried eggs",
+      "es": "huevos fritos",
+      "kind": "term"
+    },
+    {
+      "en": "bacon",
+      "es": "tocino",
+      "kind": "term"
+    },
+    {
+      "en": "toast",
+      "es": "pan tostado",
+      "kind": "term"
+    },
+    {
+      "en": "fruit",
+      "es": "fruta",
+      "kind": "term"
+    },
+    {
+      "en": "orange juice",
+      "es": "jugo de naranja",
+      "kind": "term"
+    },
+    {
+      "en": "sausage",
+      "es": "salchicha",
+      "kind": "term"
+    },
+    {
+      "en": "potatoes",
+      "es": "papas",
+      "kind": "term",
+      "note": "In Mexico and the US, papas fritas or papas hash browns are common breakfast sides."
+    },
+    {
+      "en": "butter",
+      "es": "mantequilla",
+      "kind": "term"
+    },
+    {
+      "en": "table",
+      "es": "mesa",
+      "kind": "term"
+    },
+    {
+      "en": "menu",
+      "es": "menú",
+      "kind": "term"
+    },
+    {
+      "en": "without salt",
+      "es": "sin sal",
+      "kind": "term"
+    },
+    {
+      "en": "I want two scrambled eggs, please.",
+      "es": "Quiero dos huevos revueltos, por favor.",
+      "kind": "phrase"
+    },
+    {
+      "en": "Can you bring me toast?",
+      "es": "¿Me puede traer pan tostado?",
+      "kind": "phrase",
+      "note": "Polite way to ask a server."
+    },
+    {
+      "en": "I want them well done.",
+      "es": "Los quiero bien cocidos.",
+      "kind": "phrase"
+    },
+    {
+      "en": "Does it come with fruit?",
+      "es": "¿Viene con fruta?",
+      "kind": "phrase"
+    },
+    {
+      "en": "Is the coffee included?",
+      "es": "¿El café está incluido?",
+      "kind": "phrase"
+    },
+    {
+      "en": "What comes with the breakfast?",
+      "es": "¿Qué viene con el desayuno?",
+      "kind": "phrase"
+    }
+  ]
+}
+PRIOR FRENCH:
+{"n": 4, "titleEnglish": "Order eggs and a full breakfast", "objectiveEnglish": "request eggs, sides, toast, fruit, and cooking preferences", "scenarioEnglishSource": "Build a complete hot breakfast order and confirm what is included.", "titleFrenchCourseEnglish": "Commander un petit-déjeuner complet", "objectiveFrenchCourseEnglish": "Order eggs, sides and drinks, and confirm what is included in French.", "focusEnglish": "Requesting politely with je voudrais; pronoun les for eggs; asking what is included.", "focusFrench": "Commander poliment avec je voudrais ; remplacer les œufs par les ; demander ce qui est compris.", "teachingNotesEnglish": "Je voudrais is a polite way to order. The pronoun les replaces plural œufs in Je les voudrais bien cuits. Bien cuits means well cooked. Compris means included in the price; ask separately about each drink or side instead of assuming.", "words": [{"en": "scrambled eggs", "kind": "term", "fr": "les œufs brouillés"}, {"en": "fried eggs", "kind": "term", "fr": "les œufs au plat"}, {"en": "bacon", "kind": "term", "fr": "le bacon", "noteEnglish": "Bacon is used in French, but the cut and preparation may vary by region; confirm the item locally."}, {"en": "toast", "kind": "term", "fr": "le pain grillé"}, {"en": "fruit", "kind": "term", "fr": "les fruits"}, {"en": "orange juice", "kind": "term", "fr": "le jus d'orange"}, {"en": "sausage", "kind": "term", "fr": "la saucisse"}, {"en": "potatoes", "kind": "term", "fr": "les pommes de terre"}, {"en": "butter", "kind": "term", "fr": "le beurre"}, {"en": "table", "kind": "term", "fr": "la table"}, {"en": "menu", "kind": "term", "fr": "la carte"}, {"en": "without salt", "kind": "term", "fr": "sans sel"}, {"en": "I want two scrambled eggs, please.", "kind": "phrase", "fr": "Je voudrais deux œufs brouillés, s'il vous plaît."}, {"en": "Can you bring me toast?", "kind": "phrase", "fr": "Vous pouvez m'apporter du pain grillé ?"}, {"en": "I want them well done.", "kind": "phrase", "fr": "Je les voudrais bien cuits."}, {"en": "Does it come with fruit?", "kind": "phrase", "fr": "Est-ce que des fruits sont compris ?"}, {"en": "Is the coffee included?", "kind": "phrase", "fr": "Le café est-il compris ?"}, {"en": "What comes with the breakfast?", "kind": "phrase", "fr": "Qu'est-ce qui est compris dans le petit-déjeuner ?"}], "passage": {"titleFrench": "Un petit-déjeuner complet", "english": ["A traveler walks into a café in the morning.", "He sits at a table and looks at the menu.", "The waitress asks: What would you like?", "He says: I want two scrambled eggs, please.", "He also orders bacon, toast, and fruit.", "The waitress asks: How do you want the eggs?", "He answers: I want them well done, without salt.", "Then he asks: Is the coffee included?", "The waitress says: Yes, the coffee is included."], "french": ["Un voyageur entre dans un café le matin.", "Il s'assied à une table et regarde la carte.", "La serveuse demande : « Qu'est-ce que vous désirez ? »", "Il dit : « Je voudrais deux œufs brouillés, s'il vous plaît. »", "Il commande aussi du bacon, du pain grillé et des fruits.", "La serveuse demande : « Comment voulez-vous vos œufs ? »", "Il répond : « Je les voudrais bien cuits, sans sel. »", "Puis il demande : « Le café est-il compris ? »", "La serveuse dit : « Oui, le café est compris. »"]}, "verbs": [{"infinitiveFrench": "vouloir", "meaningEnglish": "to want", "exampleFrench": "Je voudrais deux œufs brouillés, s'il vous plaît.", "exampleEnglish": "I want two scrambled eggs, please.", "sourceInfinitiveSpanish": "querer"}, {"infinitiveFrench": "commander", "meaningEnglish": "to order, to ask for", "exampleFrench": "Il commande aussi du bacon, du pain grillé et des fruits.", "exampleEnglish": "He also orders bacon, toast, and fruit.", "sourceInfinitiveSpanish": "pedir"}, {"infinitiveFrench": "apporter", "meaningEnglish": "to bring", "exampleFrench": "Vous pouvez m'apporter du pain grillé ?", "exampleEnglish": "Can you bring me toast?", "sourceInfinitiveSpanish": "traer"}, {"infinitiveFrench": "s'asseoir", "meaningEnglish": "to sit down", "exampleFrench": "Il s'assied à une table et regarde la carte.", "exampleEnglish": "He sits at a table and looks at the menu.", "sourceInfinitiveSpanish": "sentarse"}], "speakingInstructionEnglish": "Order eggs with a cooking preference, sides and a drink; ask the server what the breakfast includes.", "speakingFrench": "Bonjour ! Je voudrais deux œufs brouillés, s'il vous plaît. Je les voudrais bien cuits. Le café est-il compris ?", "regionalNotesEnglish": ["Breakfast combinations and the meaning of bacon vary by region and café. Treat the included items as this café's offer, not a general rule."], "reviewed": false}

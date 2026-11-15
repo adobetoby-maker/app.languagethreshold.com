@@ -1,0 +1,218 @@
+{
+  "frenchCards": [
+    "quoi ? / que… ?",
+    "qui ?",
+    "où ?",
+    "quand ?",
+    "combien ?",
+    "comment ?",
+    "pourquoi ?",
+    "lequel ? / quel… ?",
+    "le petit-déjeuner inclus",
+    "le pan dulce (le pain sucré)",
+    "Qu'est-ce que vous me recommandez ?",
+    "Où sont les toilettes ?",
+    "Combien coûte le petit-déjeuner ?",
+    "Comment s'appelle ce pain ?",
+    "Quel est le café de la maison ?",
+    "Qui nous sert ?"
+  ],
+  "frenchReader": [
+    "À l'hôtel, Emma et Tom demandent : Qui nous sert ?",
+    "Rosa : Je vous sers, quel café voulez-vous ?",
+    "Tom : Quel est le café de la maison ?",
+    "Rosa : C'est le café de olla, pourquoi ne le goûtez-vous pas ?",
+    "Emma : Combien coûte le petit-déjeuner et quand se termine-t-il ?",
+    "Rosa : C'est le petit-déjeuner inclus et il se termine à 11 heures.",
+    "Tom montre le pan dulce : Comment s'appelle ce pain ?",
+    "Emma : Où sont les toilettes ?",
+    "Rosa : Ça s'appelle une concha, et les toilettes sont à droite."
+  ],
+  "readerTitleFrench": "Questions au petit-déjeuner",
+  "forms": [
+    {
+      "readerLine": 1,
+      "french": "À l'hôtel, Emma et Tom demandent : Qui nous sert ?",
+      "english": "At the hotel, Emma and Tom ask: Who is serving us?"
+    },
+    {
+      "readerLine": 2,
+      "french": "Rosa : Je vous sers, quel café voulez-vous ?",
+      "english": "Rosa: I am serving you, what coffee do you want?"
+    },
+    {
+      "readerLine": 5,
+      "french": "Emma : Combien coûte le petit-déjeuner et quand se termine-t-il ?",
+      "english": "Emma: How much is the breakfast and when does it end?"
+    },
+    {
+      "readerLine": 7,
+      "french": "Tom montre le pan dulce : Comment s'appelle ce pain ?",
+      "english": "Tom points at the sweet bread: What is this bread called?"
+    },
+    {
+      "readerLine": 8,
+      "french": "Emma : Où sont les toilettes ?",
+      "english": "Emma: Where is the restroom?"
+    },
+    {
+      "readerLine": 9,
+      "french": "Rosa : Ça s'appelle une concha, et les toilettes sont à droite.",
+      "english": "Rosa: It is called a concha, and the restroom is on the right."
+    }
+  ],
+  "modes": [
+    {
+      "mode": "see",
+      "sourceType": "card",
+      "sourceIndex": 3,
+      "promptFrench": "où ?",
+      "targetEnglish": "where?"
+    },
+    {
+      "mode": "recall",
+      "sourceType": "card",
+      "sourceIndex": 15,
+      "promptFrench": "Quel est le café de la maison ?",
+      "targetEnglish": "Which is the house coffee?"
+    },
+    {
+      "mode": "hear",
+      "sourceType": "reader",
+      "sourceIndex": 7,
+      "promptFrench": "Tom montre le pan dulce : Comment s'appelle ce pain ?",
+      "targetEnglish": "Tom points at the sweet bread: What is this bread called?"
+    },
+    {
+      "mode": "type",
+      "sourceType": "card",
+      "sourceIndex": 12,
+      "promptFrench": "Où sont les toilettes ?",
+      "targetEnglish": "Where is the restroom?"
+    },
+    {
+      "mode": "say",
+      "sourceType": "card",
+      "sourceIndex": 13,
+      "promptFrench": "Combien coûte le petit-déjeuner ?",
+      "targetEnglish": "How much is the breakfast?"
+    },
+    {
+      "mode": "write",
+      "sourceType": "reader",
+      "sourceIndex": 5,
+      "promptFrench": "Emma : Combien coûte le petit-déjeuner et quand se termine-t-il ?",
+      "targetEnglish": "Emma: How much is the breakfast and when does it end?"
+    }
+  ],
+  "speakingObjectives": [
+    "Ask a hotel host what breakfast costs, where the restroom is, and what this bread is called.",
+    "Ask the hotel host how much the breakfast is, using the French of card 13.",
+    "Ask the hotel host where the restroom is, using the French of card 12.",
+    "Point at the sweet bread and ask the hotel host what this bread is called, using the French of card 14."
+  ],
+  "frenchVerbParadigms": [
+    {
+      "frenchInfinitive": "coûter",
+      "sourceInfinitive": "costar",
+      "forms": {
+        "je": "coûte",
+        "tu": "coûtes",
+        "il": "coûte",
+        "nous": "coûtons",
+        "vous": "coûtez",
+        "ils": "coûtent"
+      },
+      "note": "Source example: card 13 and Reader line 5, \"Combien coûte le petit-déjeuner ?\" = \"How much is the breakfast?\". Regular -er verb; the source o-to-ue stem-change note does not transfer. Use coûte for one thing and coûtent for several."
+    },
+    {
+      "frenchInfinitive": "s'appeler",
+      "sourceInfinitive": "llamarse",
+      "forms": {
+        "je": "m'appelle",
+        "tu": "t'appelles",
+        "il": "s'appelle",
+        "nous": "nous appelons",
+        "vous": "vous appelez",
+        "ils": "s'appellent"
+      },
+      "note": "Source example: card 14 and Reader line 7, \"Comment s'appelle ce pain ?\" = \"What is this bread called?\". Pronominal verb, used for names of people and things. Spelling has ll in all forms except nous and vous."
+    },
+    {
+      "frenchInfinitive": "être",
+      "sourceInfinitive": "estar",
+      "forms": {
+        "je": "suis",
+        "tu": "es",
+        "il": "est",
+        "nous": "sommes",
+        "vous": "êtes",
+        "ils": "sont"
+      },
+      "note": "Source example: card 12 and Reader line 8, \"Où sont les toilettes ?\" = \"Where is the restroom?\". Irregular. French uses être to say where something is. The Reader uses sont because les toilettes is plural."
+    },
+    {
+      "frenchInfinitive": "servir",
+      "sourceInfinitive": "atender",
+      "forms": {
+        "je": "sers",
+        "tu": "sers",
+        "il": "sert",
+        "nous": "servons",
+        "vous": "servez",
+        "ils": "servent"
+      },
+      "note": "Source example: Reader line 2, \"Je vous sers\" = \"I am serving you.\"; also card 16 and Reader line 1, \"Qui nous sert ?\". Irregular singular stem ser-; the source e-to-ie stem-change note does not transfer."
+    },
+    {
+      "frenchInfinitive": "vouloir",
+      "sourceInfinitive": "querer",
+      "forms": {
+        "je": "veux",
+        "tu": "veux",
+        "il": "veut",
+        "nous": "voulons",
+        "vous": "voulez",
+        "ils": "veulent"
+      },
+      "note": "Source example: Reader line 2, \"Quel café voulez-vous ?\" = \"What coffee do you want?\". Irregular. Voulez is the vous form, used when speaking to a group or formally; it stands for the source ustedes form quieren."
+    }
+  ],
+  "sourceNotes": [
+    "Source English and Spanish are treated as immutable; no source text is altered.",
+    "The 16 source word cards map one-to-one by index to frenchCards (1–10 terms, 11–16 phrases). The 9 Reader lines map one-to-one by index to frenchReader, in source order, with the same speakers (Emma, Tom, Rosa as hotel host) and the same question sequence.",
+    "Preserved unchanged: café de olla, pan dulce, concha, 11, the included breakfast, and the restroom on the right.",
+    "Correction to Haiku forms: Spanish forms (cuesta, se llama, está, atiendo, quieren) were under the french key. forms now holds full exact Reader pairs: the French Reader line, the exact source English line, and a 1-based readerLine integer.",
+    "Correction: five French verb paradigms were missing and are added, each linked to its source infinitive and a source example. The source has five person slots; French has six. The source ellos_ustedes slot is split: ustedes maps to vous, ellos to ils.",
+    "Modes: each of the six modes keeps both model faces. promptFrench is the exact French card or Reader face and targetEnglish is the exact source English. Opus's claim (B3) that an English gloss makes the mode direction invalid is rejected.",
+    "Modes type and write now use different sources (card 12 and Reader line 5). Hear and say are candidate prompts only, with no audio attached and no runtime behaviour.",
+    "Opus items accepted: forms relabelling (B1), paradigms (B2), integer Reader references (B4), card 1 and card 8 faces, Reader line 4 using goûter with vous address, removal of Haiku's false note that English 'you' is singular, and correction of Haiku's residual that baño is not rendered.",
+    "Opus items not adopted: French-localised speaking objective (objectives stay English task instructions), putting domain glosses or notes on learner cards, and replacing servir with s'occuper de (left to reviewer).",
+    "English 'you' in Reader line 2 is number-neutral; the source Spanish quieren and the French voulez are plural or formal.",
+    "Card 10 keeps the source loan term with a plain literal French gloss of the source English 'the sweet bread'. Reader line 7 uses the loan term alone."
+  ],
+  "internalDomainNotes": [
+    "qué/cuál: the Spanish split (source note: use cuál to choose from options) does not map one-to-one onto French. French quel covers both ¿qué café? (Reader line 2) and ¿cuál es…? (Reader line 3, card 15). Card faces 1 and 8 therefore teach the English senses what? and which? and make no claim about the Spanish distinction.",
+    "Card 1: quoi stands alone or after a preposition; que or qu'est-ce que opens a clause. Before a noun, 'what' is quel (Reader line 2).",
+    "Card 8: lequel stands alone as a pronoun; quel goes before a noun or with être. Both agree in gender and number (quelle, laquelle, quels, lesquels).",
+    "Source note on por qué (why) versus porque (because): the French counterpart is pourquoi versus parce que. Kept off the card face.",
+    "Comment s'appelle… is the French idiom for 'What is … called?'; comment otherwise means how.",
+    "Pan dulce: Mexican sweet rolls, like the shell-shaped concha (source note). Concha is treated as feminine in French: une concha.",
+    "Café de olla: Mexican coffee traditionally brewed in a clay pot, typically with cinnamon and piloncillo. Kept as an unelided loan term (le café de olla, not d'olla).",
+    "Restroom: source el baño is singular; French les toilettes is plural, so está becomes sont in card 12 and Reader lines 8 and 9.",
+    "Hotel roles: Emma and Tom are guests; Rosa is the host or server. Rosa addresses both guests, so vous is plural here.",
+    "French has no ser/estar split; être covers the source estar (location).",
+    "'11 heures' and 'à droite' are neutral details, not Mexico-specific."
+  ],
+  "residuals": [
+    "No approval and no qualified approval is granted. All gates are false: approved false, reviewed false, nativeReviewed false, audioAttached false, runtimeReady false, publishable false.",
+    "Native French review is still required; this is an unreviewed candidate.",
+    "Hear and say modes have no audio asset and are untested candidate prompts.",
+    "Reviewer to decide: 'Qui nous sert ?' / 'Je vous sers' (servir) versus the more hospitality-idiomatic 'Qui s'occupe de nous ?' / 'Je m'occupe de vous'. Card 16, Reader lines 1 and 2, and the servir paradigm must stay consistent with whichever is chosen.",
+    "Reviewer to decide: the card 10 face 'le pan dulce (le pain sucré)'. The literal gloss is a translation of the source English, not a description of the item.",
+    "Reviewer to decide: card 1 and card 8 dual faces ('quoi ? / que… ?', 'lequel ? / quel… ?'). Reader line 2 renders 'what coffee' with quel, so card 1 does not match its own Reader instance on the surface.",
+    "Reviewer to decide: 'inclus' versus 'compris' for card 9 and Reader line 6.",
+    "Number mismatch remains between English 'the restroom is' and French 'les toilettes sont'.",
+    "Reader line 6 writes '11 heures' where the source English says only '11'; the numeral is preserved."
+  ]
+}

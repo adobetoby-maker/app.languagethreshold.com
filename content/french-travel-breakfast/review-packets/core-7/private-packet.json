@@ -1,0 +1,382 @@
+{
+  "lessonId": "core:7",
+  "stage": "core",
+  "lessonNumber": 7,
+  "titleEnglish": "Ask what locals eat",
+  "objectiveEnglish": "Ask what people here eat for breakfast, request a typical dish, and understand an explanation of what a dish contains.",
+  "source": "core-7/source.json (sha256: 1e99a2af81cae399d10fda0aa4cdd0148d2a5ec76659dd2f438ccee604a3c468), the authoritative Spanish lesson source. old.json is not authoritative and was consulted only to detect drift and wording overlap.",
+  "cards": [
+    {
+      "en": "table",
+      "es": "mesa",
+      "fr": "la table",
+      "kind": "term",
+      "id": "core:7:word:1"
+    },
+    {
+      "en": "server (male)",
+      "es": "mesero",
+      "fr": "le serveur",
+      "kind": "term",
+      "notes": "For a woman, use la serveuse. (Source note: Spanish mesera for a woman; mesero/mesera is common in Mexico.)",
+      "id": "core:7:word:2"
+    },
+    {
+      "en": "typical dish",
+      "es": "platillo típico",
+      "fr": "le plat typique",
+      "kind": "term",
+      "acceptedFrench": [
+        "le plat typique",
+        "un plat typique"
+      ],
+      "id": "core:7:word:3"
+    },
+    {
+      "en": "chilaquiles (fried tortilla pieces in salsa)",
+      "es": "chilaquiles",
+      "fr": "les chilaquiles",
+      "kind": "term",
+      "glossFrench": "morceaux de tortilla frits, puis nappés de salsa",
+      "notes": "Loanword kept in French; masculine plural. The gloss is an explanation, not part of the answer.",
+      "id": "core:7:word:4"
+    },
+    {
+      "en": "salsa, sauce",
+      "es": "salsa",
+      "fr": "la salsa",
+      "kind": "term",
+      "acceptedFrench": [
+        "la salsa",
+        "la sauce"
+      ],
+      "notes": "La salsa is used in French for Mexican-style sauce; la sauce is the general word.",
+      "id": "core:7:word:5"
+    },
+    {
+      "en": "beans",
+      "es": "frijoles",
+      "fr": "les haricots",
+      "kind": "term",
+      "id": "core:7:word:6"
+    },
+    {
+      "en": "spiced clay-pot coffee",
+      "es": "café de olla",
+      "fr": "le café de olla",
+      "kind": "term",
+      "glossFrench": "café préparé avec de la cannelle dans un pot en terre cuite",
+      "notes": "Loanword kept in French. A traditional Mexican coffee, usually made with cinnamon. The gloss is an explanation, not part of the answer.",
+      "id": "core:7:word:7"
+    },
+    {
+      "en": "sweet bread, pastry",
+      "es": "pan dulce",
+      "fr": "le pan dulce",
+      "kind": "term",
+      "glossFrench": "pain sucré mexicain",
+      "notes": "Loanword kept in French. The gloss is an explanation, not part of the answer.",
+      "id": "core:7:word:8"
+    },
+    {
+      "en": "counter",
+      "es": "mostrador",
+      "fr": "le comptoir",
+      "kind": "term",
+      "id": "core:7:word:9"
+    },
+    {
+      "en": "breakfast",
+      "es": "desayuno",
+      "fr": "le petit-déjeuner",
+      "kind": "term",
+      "id": "core:7:word:10"
+    },
+    {
+      "en": "What do people here eat for breakfast?",
+      "es": "¿Qué desayuna la gente de aquí?",
+      "fr": "Qu'est-ce que les gens d'ici mangent au petit-déjeuner ?",
+      "kind": "phrase",
+      "acceptedFrench": [
+        "Qu'est-ce que les gens d'ici mangent au petit-déjeuner ?",
+        "Qu'est-ce que les gens d'ici prennent au petit-déjeuner ?",
+        "Que mangent les gens d'ici au petit-déjeuner ?"
+      ],
+      "id": "core:7:word:11"
+    },
+    {
+      "en": "I want the breakfast that locals order.",
+      "es": "Quiero el desayuno que piden los locales.",
+      "fr": "Je voudrais le petit-déjeuner que commandent les habitants.",
+      "kind": "phrase",
+      "acceptedFrench": [
+        "Je voudrais le petit-déjeuner que commandent les habitants.",
+        "Je veux le petit-déjeuner que commandent les habitants.",
+        "Je voudrais le petit-déjeuner que commandent les gens d'ici."
+      ],
+      "notes": "Je voudrais is the usual polite way to say what you want when ordering; Je veux is the literal, more direct form.",
+      "id": "core:7:word:12"
+    },
+    {
+      "en": "I don't want something just for tourists.",
+      "es": "No quiero algo solo para turistas.",
+      "fr": "Je ne veux pas d'un plat juste pour les touristes.",
+      "kind": "phrase",
+      "acceptedFrench": [
+        "Je ne veux pas d'un plat juste pour les touristes.",
+        "Je ne veux pas d'un plat pour touristes.",
+        "Je ne veux pas quelque chose de fait juste pour les touristes."
+      ],
+      "notes": "Ne pas vouloir de + noun expresses refusing something. French names the thing (un plat) where Spanish and English say 'something'.",
+      "id": "core:7:word:13"
+    },
+    {
+      "en": "Can you recommend a typical dish to me?",
+      "es": "¿Me puede recomendar un platillo típico?",
+      "fr": "Pouvez-vous me recommander un plat typique ?",
+      "kind": "phrase",
+      "id": "core:7:word:14"
+    },
+    {
+      "en": "Can you explain to me what it has in it?",
+      "es": "¿Puede explicarme qué lleva?",
+      "fr": "Pouvez-vous m'expliquer ce qu'il y a dans ce plat ?",
+      "kind": "phrase",
+      "acceptedFrench": [
+        "Pouvez-vous m'expliquer ce qu'il y a dans ce plat ?",
+        "Pouvez-vous m'expliquer ce qu'il y a dedans ?"
+      ],
+      "notes": "Use vous with a server you don't know (source: usted). French names the dish (ce plat) so the question is clear on its own.",
+      "id": "core:7:word:15"
+    },
+    {
+      "en": "Can you repeat that more slowly, please?",
+      "es": "¿Puede repetir más despacio, por favor?",
+      "fr": "Pouvez-vous répéter plus lentement, s'il vous plaît ?",
+      "kind": "phrase",
+      "id": "core:7:word:16"
+    }
+  ],
+  "reader": [
+    {
+      "id": "core:7:line:1",
+      "english": "Ana sits at a table in a small café in Puebla.",
+      "spanish": "Ana se sienta en una mesa de un café pequeño en Puebla.",
+      "french": "Ana s'assied à une table dans un petit café de Puebla."
+    },
+    {
+      "id": "core:7:line:2",
+      "english": "First she asks the server: What do people here eat for breakfast?",
+      "spanish": "Primero le pregunta al mesero: ¿Qué desayuna la gente de aquí?",
+      "french": "Elle demande d'abord au serveur : « Qu'est-ce que les gens d'ici mangent au petit-déjeuner ? »"
+    },
+    {
+      "id": "core:7:line:3",
+      "english": "Then she says: I want the breakfast that locals order.",
+      "spanish": "Después dice: Quiero el desayuno que piden los locales.",
+      "french": "Puis elle dit : « Je voudrais le petit-déjeuner que commandent les habitants. »"
+    },
+    {
+      "id": "core:7:line:4",
+      "english": "The server smiles and says that chilaquiles are a typical morning dish.",
+      "spanish": "El mesero sonríe y dice que los chilaquiles son un platillo típico de la mañana.",
+      "french": "Le serveur sourit et dit que les chilaquiles sont un plat typique du matin."
+    },
+    {
+      "id": "core:7:line:5",
+      "english": "According to him, they are going to serve the chilaquiles with green salsa and beans.",
+      "spanish": "Según él, van a servir los chilaquiles con salsa verde y frijoles.",
+      "french": "Selon lui, on va servir les chilaquiles avec de la salsa verte et des haricots."
+    },
+    {
+      "id": "core:7:line:6",
+      "english": "Ana asks: Can you explain to me what it has in it?",
+      "spanish": "Ana pregunta: ¿Puede explicarme qué lleva?",
+      "french": "Ana demande : « Pouvez-vous m'expliquer ce qu'il y a dans ce plat ? »"
+    },
+    {
+      "id": "core:7:line:7",
+      "english": "The server explains that café de olla comes with cinnamon and that the sweet bread is for afterward.",
+      "spanish": "El mesero explica que el café de olla va con canela y que el pan dulce es para después.",
+      "french": "Le serveur explique que le café de olla est préparé avec de la cannelle et que le pan dulce est pour après."
+    },
+    {
+      "id": "core:7:line:8",
+      "english": "Ana orders the chilaquiles, a café de olla, and a sweet bread.",
+      "spanish": "Ana pide los chilaquiles, un café de olla y un pan dulce.",
+      "french": "Ana commande les chilaquiles, un café de olla et un pan dulce."
+    },
+    {
+      "id": "core:7:line:9",
+      "english": "At the end, she is going to pay at the counter.",
+      "spanish": "Al final, ella va a pagar en el mostrador.",
+      "french": "À la fin, elle va payer au comptoir."
+    }
+  ],
+  "forms": [
+    {
+      "sourceInfinitiveSpanish": "pedir",
+      "infinitiveFrench": "commander",
+      "meaningEnglish": "to order (food or drink)",
+      "exampleFrench": "Les habitants commandent des chilaquiles le matin.",
+      "exampleEnglish": "The locals order chilaquiles in the morning.",
+      "notes": "Spanish pedir also means 'to ask for'; in French that sense is demander. Commander covers only 'to order'.",
+      "id": "core:7:form:pedir"
+    },
+    {
+      "sourceInfinitiveSpanish": "recomendar",
+      "infinitiveFrench": "recommander",
+      "meaningEnglish": "to recommend",
+      "exampleFrench": "Qu'est-ce que vous me recommandez pour le petit-déjeuner ?",
+      "exampleEnglish": "What do you recommend to me for breakfast?",
+      "id": "core:7:form:recomendar"
+    },
+    {
+      "sourceInfinitiveSpanish": "explicar",
+      "infinitiveFrench": "expliquer",
+      "meaningEnglish": "to explain",
+      "exampleFrench": "Le serveur explique ce qu'il y a dans le plat.",
+      "exampleEnglish": "The server explains what the dish has in it.",
+      "id": "core:7:form:explicar"
+    },
+    {
+      "sourceInfinitiveSpanish": "desayunar",
+      "infinitiveFrench": "prendre le petit-déjeuner",
+      "meaningEnglish": "to eat breakfast",
+      "exampleFrench": "Qu'est-ce que les gens d'ici mangent au petit-déjeuner ?",
+      "exampleEnglish": "What do people here eat for breakfast?",
+      "notes": "French has no single everyday verb matching desayunar here. 'To eat breakfast' is prendre le petit-déjeuner; to say what someone eats for breakfast, use manger (or prendre) + au petit-déjeuner, as in the example.",
+      "id": "core:7:form:desayunar"
+    }
+  ],
+  "modes": [
+    {
+      "mode": "See",
+      "cueLanguage": "French",
+      "answerLanguage": "English",
+      "instructionEnglish": "Recognition: look at the French card face and give its English meaning. The French gloss may be shown as a hint; it is not part of the answer.",
+      "targetFrench": "le café de olla",
+      "sourceCardIndex": 6,
+      "sourceEnglish": "spiced clay-pot coffee",
+      "scriptOnly": false,
+      "id": "core:7:mode:see",
+      "sourceCardId": "core:7:word:7"
+    },
+    {
+      "mode": "Recall",
+      "cueLanguage": "English",
+      "answerLanguage": "French",
+      "instructionEnglish": "Memory check: read the English question, recall the French from memory with the French hidden, then reveal the card to compare. Nothing is typed or spoken.",
+      "targetFrench": "Qu'est-ce que les gens d'ici mangent au petit-déjeuner ?",
+      "sourceCardIndex": 10,
+      "sourceEnglish": "What do people here eat for breakfast?",
+      "scriptOnly": false,
+      "id": "core:7:mode:recall",
+      "sourceCardId": "core:7:word:11"
+    },
+    {
+      "mode": "Hear",
+      "cueLanguage": "French",
+      "answerLanguage": "English",
+      "instructionEnglish": "Script only; there is no audio. Read the French script line, which a customer says to a server, and write what it means in English.",
+      "scriptFrench": "Pouvez-vous me recommander un plat typique ?",
+      "targetFrench": "Pouvez-vous me recommander un plat typique ?",
+      "sourceCardIndex": 13,
+      "sourceEnglish": "Can you recommend a typical dish to me?",
+      "scriptOnly": true,
+      "id": "core:7:mode:hear",
+      "sourceCardId": "core:7:word:14"
+    },
+    {
+      "mode": "Type",
+      "cueLanguage": "English",
+      "answerLanguage": "French",
+      "instructionEnglish": "Type the short French term, with its article, for this English term.",
+      "targetFrench": "la salsa",
+      "sourceCardIndex": 4,
+      "sourceEnglish": "salsa, sauce",
+      "scriptOnly": false,
+      "id": "core:7:mode:type",
+      "sourceCardId": "core:7:word:5"
+    },
+    {
+      "mode": "Say",
+      "cueLanguage": "English",
+      "answerLanguage": "French",
+      "instructionEnglish": "Script only; there is no audio or recording. Read the English cue and say the French aloud with the French hidden, then reveal the French script line to check yourself.",
+      "scriptFrench": "Pouvez-vous m'expliquer ce qu'il y a dans ce plat ?",
+      "targetFrench": "Pouvez-vous m'expliquer ce qu'il y a dans ce plat ?",
+      "sourceCardIndex": 14,
+      "sourceEnglish": "Can you explain to me what it has in it?",
+      "scriptOnly": true,
+      "id": "core:7:mode:say",
+      "sourceCardId": "core:7:word:15"
+    },
+    {
+      "mode": "Write",
+      "cueLanguage": "English",
+      "answerLanguage": "French",
+      "instructionEnglish": "Write the complete French sentence for this polite request, including punctuation and s'il vous plaît.",
+      "targetFrench": "Pouvez-vous répéter plus lentement, s'il vous plaît ?",
+      "sourceCardIndex": 15,
+      "sourceEnglish": "Can you repeat that more slowly, please?",
+      "scriptOnly": false,
+      "id": "core:7:mode:write",
+      "sourceCardId": "core:7:word:16"
+    }
+  ],
+  "speaking": {
+    "partnerRoleEnglish": "The server (le serveur) in a small café in Puebla; speaks first.",
+    "learnerRoleEnglish": "The customer (Ana's role).",
+    "instructionEnglish": "The server greets you first. As the customer, ask what people here eat for breakfast, say you want the breakfast locals order and not something just for tourists, ask the server to recommend a typical dish, ask what the dish has in it, and ask the server to repeat more slowly.",
+    "openingFrench": "Bonjour ! Qu'est-ce que je vous sers ce matin ?",
+    "objectivesEnglish": [
+      "Ask what people here eat for breakfast.",
+      "Say that you want the breakfast locals order, not something just for tourists.",
+      "Ask for a recommendation of a typical dish.",
+      "Ask what a dish contains.",
+      "Ask the server to repeat more slowly."
+    ]
+  },
+  "internalReviewNotesEnglish": [
+    "PRIVATE, UNREVIEWED candidate. Not qualified-reviewed, not approved, not registered, not enabled for learners. This revision responds to an automated critique, which is itself not a qualified French review.",
+    "Source parity: the 16 card en/es/kind values and the 9 English and 9 Spanish Reader lines are copied exactly from source.json, in source order. The source passage title is carried as reader.titleSpanish; titleEnglish and titleFrench are new, unreviewed translations.",
+    "The scenario is Puebla, Mexico (chilaquiles, green salsa, beans, café de olla, pan dulce, paying at the counter). French is only the learner's target language; this is not presented as a French regional breakfast. The old draft's French-café adaptation is not used.",
+    "Provenance correction: the earlier note that the French form examples were 'written fresh' and not copied from the old draft was false and has been removed. Checked against old.json: forms[1].exampleFrench is still word-for-word identical to old.json, kept because it translates the unchanged source example directly. forms[0], forms[2] and forms[3] examples now differ from old.json. Several card faces (cards 0, 1, 8, 9, 10, 11, 13) also match old.json wording because they translate unchanged source items. All of these still need qualified review.",
+    "Changes in this revision: cards[12] reworded as a natural refusal; chilaquiles, café de olla and pan dulce faces are bare loanwords with glosses moved to glossFrench; 'cruche' replaced by 'pot en terre cuite'; chilaquiles gloss now says fried, then coated in salsa; cards[4] face is 'la salsa' with 'la sauce' accepted; cards[14], reader.french[5] and forms[2] name the dish instead of an unanchored 'il'; reader.french[6] says the coffee is prepared with cinnamon; cards[2] uses the definite article like the other term cards; forms[0] meaning narrowed to 'to order'; forms[3] example aligned with card 10.",
+    "Modes: See is French-to-English recognition; Recall is silent recall with self-check; Hear is script-only comprehension (French script line to English meaning) with the line in scriptFrench; Type is a short typed term; Say is English-cued speaking with a script reveal for self-check; Write is full-sentence written production. Hear and Say are script-only; no audio, recording, playback or scoring exists. Each targetFrench equals its indexed card's fr and each sourceEnglish equals that card's en. The cueLanguage, answerLanguage and scriptFrench fields are additions inside mode entries; confirm the consumer accepts them.",
+    "Speaking: the opening line now belongs to the server, and the learner performs all five objectives. partnerRoleEnglish and learnerRoleEnglish are added fields. The instruction now covers the same five tasks as the objectives.",
+    "Not done: stable IDs for cards, Reader lines, forms and modes (suggested by the critique) were not added, because the brief asked for the same top-level schema. Modes still link by sourceCardIndex only. validate.py in this folder expects a different packet shape (private-packet.json with IDs and a per-line reader) and was not run against this candidate.",
+    "Qualified-review question 1 (cards[12]): is 'Je ne veux pas d'un plat juste pour les touristes.' natural and faithful to 'No quiero algo solo para turistas'? It narrows 'algo/something' to 'un plat'. Would 'Je ne veux pas quelque chose de fait juste pour les touristes' or 'Je ne veux rien qui soit juste pour les touristes' be better, and is 'juste' or 'seulement' preferred?",
+    "Qualified-review question 2 (cards[11]): is 'Je voudrais' acceptable for source 'Quiero / I want', or should the face be the literal 'Je veux'? For 'los locales', which is best: 'les habitants', 'les gens du coin' or 'les gens d'ici' (the last would merge with card 10's 'la gente de aquí')?",
+    "Qualified-review question 3 (cards[14], reader.french[5]): is 'ce qu'il y a dans ce plat' the best rendering of the null-subject 'qué lleva', or is 'ce qu'il y a dedans' preferable on the card? In the Reader, does 'ce plat' read naturally after the plural 'les chilaquiles'?",
+    "Qualified-review question 4 (cards[3], cards[6], cards[7]): are the glosses accurate and natural: 'morceaux de tortilla frits, puis nappés de salsa'; 'café préparé avec de la cannelle dans un pot en terre cuite' (should piloncillo/unrefined cane sugar be mentioned?); 'pain sucré mexicain' versus 'viennoiserie mexicaine'? Are the genders and articles right for the loanwords (les chilaquiles, le café de olla, le/un pan dulce)?",
+    "Qualified-review question 5 (cards[4], cards[5], reader.french[4]): is 'la salsa' the right face with 'la sauce' accepted, or the reverse? Is 'salsa verte' or 'sauce verte' preferred in the Reader? Should frijoles be 'les haricots', 'les haricots noirs' or the loan 'les frijoles'?",
+    "Qualified-review question 6 (reader.french): does 'Selon lui, on va servir les chilaquiles…' read naturally for impersonal 'van a servir', or is 'on va vous servir' or 'les chilaquiles seront servis' better? 'S'assied' or 's'assoit' in line 1? Is 'est préparé avec de la cannelle' the right reading of 'va con canela', or 'à la cannelle'? Is titleFrench 'Un petit-déjeuner comme ici' natural, or 'Un petit-déjeuner comme on le prend ici'?",
+    "Qualified-review question 7 (forms): is 'prendre le petit-déjeuner' the right headword for desayunar when the example uses 'manger … au petit-déjeuner'? Should regional 'déjeuner' (Québec, Belgium, Switzerland) be mentioned to learners? Is narrowing pedir's meaning to 'to order (food or drink)' acceptable when the source says 'to order, to ask for'?",
+    "Qualified-review question 8 (cards[2], speaking, modes): 'le plat typique' or 'un plat typique' as the term face? Is the server opening 'Bonjour ! Qu'est-ce que je vous sers ce matin ?' natural for this café? Should Say remain a non-scored, script-only speaking prompt?",
+    "Possible source issue for the source owner, not a candidate defect: in the source passage, Ana asks what 'it' has in it right after the chilaquiles, but the server's answer in the next line is about café de olla and pan dulce. Confirm this is intended.",
+    "Stage-local ID core:7 is preserved. All eight gates are false. Do not treat this file as reviewed, approved, enabled, scored or registered."
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "learnerEnabled": false,
+    "scoringEnabled": false,
+    "playbackEnabled": false,
+    "progressEnabled": false
+  },
+  "sourcePath": "public/lesson-content/es/travel-breakfast.json",
+  "sourceSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "readerTitles": {
+    "titleSpanish": "Un desayuno como el de aquí",
+    "titleEnglish": "A breakfast like the one here",
+    "titleFrench": "Un petit-déjeuner comme ici"
+  }
+}

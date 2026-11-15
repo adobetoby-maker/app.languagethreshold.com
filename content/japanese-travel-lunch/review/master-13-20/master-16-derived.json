@@ -1,0 +1,148 @@
+{
+  "schema": 1,
+  "state": "private-derived-candidate",
+  "pairKey": "Japanese:English",
+  "lessonId": "master-travel-lunch:16:ja-en",
+  "sourcePacket": "source-packet.json",
+  "candidatePacket": "selfcheck-candidate.json",
+  "reviewed": false,
+  "registered": false,
+  "audioListeningReviewed": false,
+  "readyForLearner": false,
+  "activities": [
+    {
+      "id": "master-travel-lunch:16:ja-en:see:private-1",
+      "lessonId": "master-travel-lunch:16:ja-en",
+      "mode": "see",
+      "cueEnglish": "Find the receipt-backed service time.",
+      "sourceRef": "master-travel-lunch:16:ja-en:card:16",
+      "modelJapanese": "領収書によると、サラダは13時45分に出されました。",
+      "modelEnglish": "The salad was served at 13:45, according to the receipt.",
+      "responseKind": "fixed",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    },
+    {
+      "id": "master-travel-lunch:16:ja-en:recall:private-1",
+      "lessonId": "master-travel-lunch:16:ja-en",
+      "mode": "recall",
+      "cueEnglish": "Recall how the chicken was served.",
+      "sourceRef": "master-travel-lunch:16:ja-en:card:17",
+      "modelJapanese": "鶏肉は冷たくなく、ぬるい状態で出されました。",
+      "modelEnglish": "The chicken was served lukewarm, not cold.",
+      "responseKind": "fixed",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    },
+    {
+      "id": "master-travel-lunch:16:ja-en:hear:private-1",
+      "lessonId": "master-travel-lunch:16:ja-en",
+      "mode": "hear",
+      "cueEnglish": "Listen for the direct symptom term: nausea.",
+      "sourceRef": "master-travel-lunch:16:ja-en:card:7",
+      "modelJapanese": "吐き気",
+      "modelEnglish": "nausea",
+      "responseKind": "fixed",
+      "recordedAudioRequired": true,
+      "readyForLearner": false
+    },
+    {
+      "id": "master-travel-lunch:16:ja-en:type:private-1",
+      "lessonId": "master-travel-lunch:16:ja-en",
+      "mode": "type",
+      "cueEnglish": "Type what happened to the sauce.",
+      "sourceRef": "master-travel-lunch:16:ja-en:card:18",
+      "modelJapanese": "ソースは私たちの目の前で電子レンジで温め直されました。",
+      "modelEnglish": "The sauce was reheated in the microwave in front of us.",
+      "responseKind": "fixed",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    },
+    {
+      "id": "master-travel-lunch:16:ja-en:say:private-1",
+      "lessonId": "master-travel-lunch:16:ja-en",
+      "mode": "say",
+      "cueEnglish": "State precisely what Owen authorised Daniel to share.",
+      "sourceRef": "master-travel-lunch:16:ja-en:card:21",
+      "modelJapanese": "友人から、症状だけをお伝えする許可を得ています。",
+      "modelEnglish": "My friend authorised me to share only his symptoms.",
+      "responseKind": "open",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    },
+    {
+      "id": "master-travel-lunch:16:ja-en:write:private-1",
+      "lessonId": "master-travel-lunch:16:ja-en",
+      "mode": "write",
+      "cueEnglish": "Write Daniel’s question about notifying the establishment.",
+      "sourceRef": "master-travel-lunch:16:ja-en:card:23",
+      "modelJapanese": "私たちの申立ては店舗に通知されるのでしょうか。",
+      "modelEnglish": "Will the establishment be informed of our complaint?",
+      "responseKind": "open",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    }
+  ],
+  "forms": [
+    {
+      "label": "Receipt-backed event time with ～によると",
+      "sourceRef": "master-travel-lunch:16:ja-en:card:16",
+      "japanese": "領収書によると、サラダは13時45分に出されました。",
+      "english": "The salad was served at 13:45, according to the receipt.",
+      "explanation": "領収書によると attributes the service time to the receipt. サラダは marks the salad as the topic; 出されました is the polite passive past of 出す, reporting that it was served. The time stays 13:45, as in the pinned source."
+    },
+    {
+      "label": "Observed service condition with passive 出されました",
+      "sourceRef": "master-travel-lunch:16:ja-en:card:17",
+      "japanese": "鶏肉は冷たくなく、ぬるい状態で出されました。",
+      "english": "The chicken was served lukewarm, not cold.",
+      "explanation": "冷たくなく is the negative て-form of 冷たい and links the contrast to ぬるい状態で, “in a lukewarm state.” 出されました reports the service event without asserting who served it."
+    },
+    {
+      "label": "Observed reheating with ～されました",
+      "sourceRef": "master-travel-lunch:16:ja-en:card:18",
+      "japanese": "ソースは私たちの目の前で電子レンジで温め直されました。",
+      "english": "The sauce was reheated in the microwave in front of us.",
+      "explanation": "私たちの目の前で locates the observation “in front of us.” 電子レンジで marks the microwave as the means. 温め直されました is a polite passive past form, reporting that the sauce was reheated."
+    },
+    {
+      "label": "Scope of authorised disclosure with だけ",
+      "sourceRef": "master-travel-lunch:16:ja-en:card:21",
+      "japanese": "友人から、症状だけをお伝えする許可を得ています。",
+      "english": "My friend authorised me to share only his symptoms.",
+      "explanation": "友人から identifies the person giving authorisation. 症状だけ limits the authorised disclosure to symptoms; お伝えする is a polite way to say “tell” in this formal conversation. 得ています reports that Daniel has received permission."
+    },
+    {
+      "label": "Polite preference to withhold with ～たいと存じます",
+      "sourceRef": "master-travel-lunch:16:ja-en:card:22",
+      "japanese": "本人の同意なしに、その情報の提供は控えたいと存じます。",
+      "english": "I'd rather not give that information without his consent.",
+      "explanation": "本人の同意なしに means “without his consent.” 提供は控えたい expresses a preference to refrain from providing the information, and と存じます gives it formal, deferential register. It does not state that disclosure is impossible."
+    }
+  ],
+  "speakingObjectives": [
+    "In Daniel’s role, introduce the Madrid municipal health-office complaint to inspector Carmen Herrero and identify the chicken salad Daniel and Owen ate, without changing their names or location.",
+    "Report the receipt-backed 13:45 service time, the lukewarm chicken, and the sauce reheated in a microwave in front of them as observations; use the source-linked passive forms without assigning an unmentioned actor.",
+    "State that the complaint form was filed at the café itself, and distinguish the proof of payment from the medical report.",
+    "Report Owen’s symptoms and the next-morning health-centre visit while preserving the source’s unresolved fever-timing conflict: card 20 says slight fever that night, Reader 12 says fever started the next morning. Do not harmonise the two claims.",
+    "State that Owen authorised disclosure of symptoms only; politely withhold his name and medical report without consent, then ask whether the establishment will be informed of their complaint."
+  ],
+  "wordBank": [
+    "正式な申立書",
+    "女性の食品衛生監視員",
+    "鶏肉のサラダ",
+    "コールドチェーン（低温管理の流れ）",
+    "ぬるい",
+    "症状",
+    "吐き気",
+    "嘔吐",
+    "発熱",
+    "領収書",
+    "診断書",
+    "診療所",
+    "同意",
+    "個人情報",
+    "事案記録"
+  ],
+  "sourceConflict": "Pinned card 20 says slight fever that night; pinned Reader 12 says fever started the next morning. Preserve both pending qualified source/domain decision."
+}

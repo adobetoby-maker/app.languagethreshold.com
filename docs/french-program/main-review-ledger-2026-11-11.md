@@ -227,3 +227,7 @@ Separate read-only audits found Breakfast Core 30's current source Reader line 4
 ### 2026-11-14 — French 101 Core 25–26 conflict review surface
 
 The [Core 25–26 checkpoint](french101-core25-26-conflict-review-2026-11-14.md) extends the separate owner-only conflict view with four source-pinned disputed card faces. Context-dependent prepositions and possessives, source gender, and Core 26's text-only Hear binding remain visible review gaps. Ordinary French 101 owner lessons remain Foundation 10/Core 21; this projection adds no scored card, learner registration, audio or progress write. Qualified French/dictionary and exact-pair runtime review remain open.
+
+### 2026-11-15 — French 101 Core 27–30 conflict annotations
+
+The [Core 27–30 checkpoint](french101-core27-30-conflict-review-2026-11-15.md) adds ten exact-source annotated card faces to the separate platform-owner conflict view. Spanish `los` versus French `les`, grouped possessives/prepositions, `es`/`está` versus French `est`, and Core 30's treatment/payment scene remain explicit qualified-review decisions. No Core 27–30 mode proposal, ordinary owner lesson, learner registration, audio, scoring or progress write was added. All release gates remain false; existing French 101 ordinary owner coverage stays Foundation 10/Core 21.

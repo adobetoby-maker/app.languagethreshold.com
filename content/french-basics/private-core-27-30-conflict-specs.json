@@ -1,0 +1,146 @@
+{
+  "schema": "french101-core27-30-owner-conflicts-v1",
+  "pairKey": "French:English",
+  "sourceHashes": {
+    "src/data/spanish-basics-core.json": "d50c3e52a846331e9c0bcec19a5c91605585f4e285c62138941425390d160e38",
+    "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe"
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "scoringEnabled": false,
+  "progressEnabled": false,
+  "lessons": [
+    {
+      "n": 27,
+      "cards": [
+        {
+          "number": 3,
+          "sourceSpanish": "los",
+          "exactEnglish": "the / them (masculine plural)",
+          "kind": "term",
+          "frenchCandidate": "les",
+          "semanticNote": "Spanish los is masculine plural. French les is plural for both genders as article or direct object pronoun; the masculine qualifier describes only the source Spanish card.",
+          "status": "source-versus-french-gender"
+        },
+        {
+          "number": 8,
+          "sourceSpanish": "su",
+          "exactEnglish": "his / her / your formal / their",
+          "kind": "term",
+          "frenchCandidate": "son / sa / ses ; votre / vos ; leur / leurs",
+          "semanticNote": "Spanish su covers his, her, formal your, and their. The French alternatives depend on possessor, possession and noun agreement; this scene uses sa for Ana’s sister. This grouped face is not a single interchangeable answer.",
+          "status": "context-dependent-grouped-face"
+        }
+      ],
+      "reviewGaps": [
+        "Core 27 six private mode labels are not six authored prompt/target pairs; normalized private packet has distinct candidate modes, but no learner release.",
+        "Qualified French/dictionary review must resolve grouped possessive scoring, source-gender notes, and passé composé teaching."
+      ]
+    },
+    {
+      "n": 28,
+      "cards": [
+        {
+          "number": 5,
+          "sourceSpanish": "en",
+          "exactEnglish": "in / on / at",
+          "kind": "term",
+          "frenchCandidate": "dans / sur / à",
+          "semanticNote": "French dans, sur and à express different relations and cannot be scored as interchangeable meanings of Spanish en. The Reader uses à la bibliothèque for destination and dans une autre ville for location.",
+          "status": "context-dependent-grouped-face"
+        },
+        {
+          "number": 6,
+          "sourceSpanish": "azul",
+          "exactEnglish": "blue",
+          "kind": "term",
+          "frenchCandidate": "bleu / bleue",
+          "semanticNote": "French bleu and bleue agree with the noun; the source English blue does not specify noun gender. The Reader’s masculine sac à dos uses bleu.",
+          "status": "agreement-context"
+        },
+        {
+          "number": 7,
+          "sourceSpanish": "los",
+          "exactEnglish": "the / them (masculine plural)",
+          "kind": "term",
+          "frenchCandidate": "les",
+          "semanticNote": "Spanish los is masculine plural. French les is plural for both genders as article or object pronoun; the source-English masculine qualifier must not be taught as a French restriction.",
+          "status": "source-versus-french-gender"
+        }
+      ],
+      "reviewGaps": [
+        "Normal owner cards hide source-versus-French gender and contextual preposition notes.",
+        "Qualified French/dictionary review must decide grouped headwords and scored answer normalization.",
+        "The normalized private packet fixes the Spanish-study Reader line and its form ID; retire the old private form ID only after reference/progress audit."
+      ]
+    },
+    {
+      "n": 29,
+      "cards": [
+        {
+          "number": 2,
+          "sourceSpanish": "es",
+          "exactEnglish": "is (identity)",
+          "kind": "term",
+          "frenchCandidate": "est",
+          "semanticNote": "Spanish es marks identity here. French est also expresses condition and location, so this French face cannot uniquely teach or score the Spanish es/está contrast.",
+          "status": "duplicate-french-face"
+        },
+        {
+          "number": 3,
+          "sourceSpanish": "está",
+          "exactEnglish": "is (condition/location)",
+          "kind": "term",
+          "frenchCandidate": "est",
+          "semanticNote": "Spanish está marks condition or location here. French est also expresses identity; the English qualifier names the Spanish source sense, not a restriction on French est.",
+          "status": "duplicate-french-face"
+        },
+        {
+          "number": 8,
+          "sourceSpanish": "por",
+          "exactEnglish": "through / because of",
+          "kind": "term",
+          "frenchCandidate": "par / à cause de",
+          "semanticNote": "The French expressions are contextual, not interchangeable: par conveys the route in Reader 3, à cause de conveys the cause in Reader 6, and Spanish por in Reader 4 maps to French pour for thanks.",
+          "status": "context-dependent-grouped-face"
+        }
+      ],
+      "reviewGaps": [
+        "Do not score es and está as two distinct French est faces.",
+        "Do not present par and à cause de as universal synonyms or as a one-to-one Spanish por/para contrast.",
+        "All modes remain private text proposals; Hear has no recording or listening decision."
+      ]
+    },
+    {
+      "n": 30,
+      "cards": [
+        {
+          "number": 2,
+          "sourceSpanish": "está",
+          "exactEnglish": "is (condition/location)",
+          "kind": "term",
+          "frenchCandidate": "est",
+          "semanticNote": "Spanish está carries the pinned condition/location sense here. French est also expresses identity; the source English qualifier cannot be taught as a French-only restriction.",
+          "status": "source-versus-french-sense"
+        },
+        {
+          "number": 12,
+          "sourceSpanish": "Luis no tiene dinero, entonces Ana lo invita.",
+          "exactEnglish": "Luis has no money, so Ana treats him.",
+          "kind": "phrase",
+          "frenchCandidate": "Luis n’a pas d’argent, alors Ana l’invite.",
+          "semanticNote": "In the no-money café context, Spanish lo invita and pinned English treats him imply that Ana pays. French l’invite can carry that sense contextually but is also an ordinary invitation; the alternative Ana paie pour lui makes payment explicit. Qualified review must choose one rendering and align card, Reader 4, Say, and the content-derived form ID.",
+          "status": "treat-versus-invite-sense"
+        }
+      ],
+      "reviewGaps": [
+        "Qualified review must decide invite-versus-pay wording and update card 12, Reader 4, Say, and the content-derived form ID together.",
+        "The prior private form-fr-en-1cfe60dfa0382f81 and alternative form-fr-en-89215d94d697c1f0 must not silently migrate or mix.",
+        "Reader 5 French puis may omit pinned English and; review et ensuite.",
+        "Hear remains script-only with no recording or listening decision."
+      ]
+    }
+  ]
+}

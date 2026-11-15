@@ -57,7 +57,7 @@ function French101Conflicts() {
     <header className="flex flex-wrap items-start justify-between gap-4"><div>
       <p className="font-semibold text-gold-ink dark:text-gold">Language Threshold · Owner review</p>
       <h1 className="mt-2 font-serif text-3xl">French 101 Core conflicts</h1>
-      <p className="mt-2 max-w-3xl text-muted-foreground">Core 22–26 source and French candidate comparisons. These flagged entries are separate from ordinary cards and cannot be scored, heard or saved as learner progress.</p>
+      <p className="mt-2 max-w-3xl text-muted-foreground">Core 22–30 source and French candidate comparisons. These flagged entries are separate from ordinary cards and cannot be scored, heard or saved as learner progress.</p>
     </div><div className="flex gap-3"><ThemeToggle /><a className="underline" href="/owner-french101-review">French 101 drafts</a></div></header>
     {authLoading ? <p role="status">Checking sign-in…</p> : !user ? <section className={panel}>
       <p>Sign in with the platform owner account to inspect these conflicts.</p>
@@ -65,7 +65,7 @@ function French101Conflicts() {
       <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
     </section> : error ? <p role="alert" className={panel}>{error}</p> : !packet ? <p role="status">Loading owner conflict review…</p> : <>
       <section className={panel}>
-        <p className="font-semibold">Five Core lessons · owner-only conflict draft</p>
+        <p className="font-semibold">{packet.lessons.length} Core lessons · owner-only conflict draft</p>
         <p className="mt-1 text-sm text-muted-foreground">Reviewed: false · learner, audio, scoring and progress gates: closed</p>
         <label className="mt-4 block font-semibold" htmlFor="core-conflict-lesson">Choose a lesson</label>
         <select id="core-conflict-lesson" className="mt-2 w-full rounded-lg border border-border bg-background p-3"

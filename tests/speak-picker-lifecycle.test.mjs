@@ -222,6 +222,12 @@ test("lesson handoff reaches actual chat requests, reset keeps it, and changing 
     await tick();
     tree = render();
     let surface = nodes(tree).find((n) => n.type?.name === "NativeSpeakSurface");
+    const lesson = c.lesson;
+    surface.props.partner.props.onChange("friend");
+    render();
+    c.lesson = lesson;
+    tree = render();
+    surface = nodes(tree).find((n) => n.type?.name === "NativeSpeakSurface");
     assert.match(surface.props.lesson, /Lesson 1 · Name the Roof System/);
     surface.props.onPartnerStart();
     await tick();
@@ -230,6 +236,7 @@ test("lesson handoff reaches actual chat requests, reset keeps it, and changing 
     assert.equal(sent.lessonNumber, 1);
     assert.equal(sent.moduleId, "roofing");
     assert.equal(sent.partnerRoleId, "teacher");
+    assert.equal(sent.teacherStyle, "gentle");
     await finish(first);
     tree = render();
     surface = nodes(tree).find((n) => n.type?.name === "NativeSpeakSurface");

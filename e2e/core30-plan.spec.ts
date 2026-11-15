@@ -508,10 +508,41 @@ test.describe("Core 30 plan: Roofing", () => {
     await expect.poll(() => visitKeys(page, "1")).toContain("2");
     expect(await visitKeys(page, "1")).toContain("way:say");
     expect((await readLog(page))?.lessons["1"]?.masteredAt).toBeUndefined();
+    // Resume a saved conversation after consulting the lesson's word bank.
+    await page.evaluate(() => {
+      const key = "lt.learner-device.v1.speak.guest";
+      const saved = JSON.parse(localStorage.getItem(key) ?? "null");
+      if (!saved?.data?.Spanish?.lesson) throw new Error("Lesson binding was not saved");
+      Object.assign(saved.data.Spanish, {
+        turns: [
+          {
+            id: "lesson-resume-turn",
+            role: "ai",
+            text: "¿Qué equipo usas para subir?",
+            createdAt: Date.now(),
+          },
+        ],
+        exchanges: 1,
+        totalSeconds: 40,
+      });
+      localStorage.setItem(key, JSON.stringify(saved));
+    });
+    await page.reload();
+    await expect(page.locator(".lt-native-speak")).toContainText("¿Qué equipo usas para subir?");
     await page.getByTestId("native-nav-study").click();
     await expect(page.getByTestId("lesson-section-say")).toBeVisible();
     await expect(page.getByTestId("v6-nav-say")).toHaveAttribute("aria-current", "page");
     expect(await currentTabOf(page)).toBe("core30");
+    await page.getByTestId("v6-nav-speak").click();
+    await expect(page.locator(".lt-native-speak")).toContainText("¿Qué equipo usas para subir?");
+    await page.getByRole("button", { name: "Speaking menu", exact: true }).click();
+    await page.getByRole("button", { name: "Reset conversation", exact: true }).click();
+    await expect(page.locator(".lt-native-speak")).not.toContainText(
+      "¿Qué equipo usas para subir?",
+    );
+    await expect(
+      page.getByRole("button", { name: /Lesson 1 · Name the Roof System/ }),
+    ).toBeVisible();
   });
 
   test("6b. The bottom Speak button uses the lesson and reset keeps its setup", async ({
@@ -555,7 +586,9 @@ test.describe("Core 30 plan: Roofing", () => {
     expect((await readLog(page, "rock-climbing"))?.lessons["1"]?.masteredAt).toBeUndefined();
     await page.getByRole("button", { name: "Speaking menu", exact: true }).click();
     await page.getByRole("button", { name: "Free conversation", exact: true }).click();
-    await expect(page.getByRole("button", { name: "Open conversation", exact: true })).toBeVisible();
+    await expect(
+      page.getByRole("button", { name: "Open conversation", exact: true }),
+    ).toBeVisible();
   });
 
   test("7. Recall it opens Study and returns to Study after another mode", async ({ page }) => {

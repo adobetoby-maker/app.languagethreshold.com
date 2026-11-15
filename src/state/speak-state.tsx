@@ -176,7 +176,16 @@ export function SpeakProvider({ children, language }: { children: ReactNode; lan
 
   const startLesson = useCallback(
     (lesson: SpeakingLesson) => {
-      setStore((s) => ({ ...s, [language]: { ...emptyLang(), lesson } }));
+      setStore((s) => {
+        const current = s[language]?.lesson;
+        if (
+          current?.moduleId === lesson.moduleId &&
+          current.lessonNumber === lesson.lessonNumber &&
+          current.nativeLanguage === lesson.nativeLanguage
+        )
+          return s;
+        return { ...s, [language]: { ...emptyLang(), lesson } };
+      });
     },
     [language],
   );

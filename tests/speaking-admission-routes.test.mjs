@@ -24,6 +24,7 @@ test("lesson chat resolves authored goals and words, rejects invalid bindings, a
       nativeLanguage: "English",
       level: "A1",
       moduleId: "rock-climbing",
+      partnerRoleId: "teacher",
       lessonNumber: 1,
       messages: [{ role: "user", content: "Hola" }],
     };

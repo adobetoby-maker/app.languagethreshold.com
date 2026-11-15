@@ -146,7 +146,7 @@ export function NativeSpeakSurface({
         <SheetContent
           onCloseAutoFocus={(event) => {
             event.preventDefault();
-            partnerTrigger.current?.focus();
+            (partnerTrigger.current ?? menuTrigger.current)?.focus();
           }}
           side="bottom"
           scrollBody

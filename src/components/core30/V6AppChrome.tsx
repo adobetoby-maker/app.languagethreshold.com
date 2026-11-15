@@ -106,7 +106,7 @@ export function V6Dock({
   const studying = active !== "speak";
   return (
     <div className="lt-v6-bottom">
-      {studying && active !== null && (
+      {modes.some((id) => id === active) && (
         <nav className="lt-v6-study-modes" aria-label="Lesson practice modes">
           {modes.map((id) => {
             const mode = LESSON_MODES.find((item) => item.id === id)!;

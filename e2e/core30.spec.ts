@@ -31,6 +31,12 @@ test("the Study screen keeps other features in one deeper navigation menu", asyn
   await expect(
     page.getByRole("navigation", { name: "Study and speak", exact: true }),
   ).toBeVisible();
+  await page.getByRole("button", { name: "Navigation menu", exact: true }).click();
+  await page.getByRole("dialog").getByRole("button", { name: "Verbs", exact: true }).click();
+  await expect.poll(() => currentTab(page)).toBe("verbs");
+  await expect(
+    page.getByRole("navigation", { name: "Lesson practice modes", exact: true }),
+  ).toHaveCount(0);
 });
 
 test("the deeper Learn menu groups Core 60 before Modules", async ({ page }) => {

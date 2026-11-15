@@ -255,6 +255,10 @@ async function lunchDrafts() {
       return { stage, n: lesson.n, stableId: lesson.stableId, title: lesson.title, objective: lesson.objective,
         focus: lesson.focus, scene: lesson.scene, reviewed: false, cards: lesson.cards.map(({ ja, en, kind, readingKana }) => ({ ja, en, kind, readingKana })),
         reader: lesson.reader, forms: authored?.forms ?? [], modes,
+        sourceParityWarning: stage === "master" && lesson.n >= 13 ?
+          (lesson.n === 15 ?
+            "Source conflict: the pinned Costa Rica scene says to call 911; this older Japanese draft says 119. Its card and Reader positions also differ from the source. Hold this draft for correction and qualified locale review." :
+            "Source conflict: this older owner draft's cards and Reader differ from the pinned Spanish lesson. A source-reconciled replacement is private; recheck every linked form, activity and progress position before using this draft.") : null,
         speaking: { ...lesson.speaking, objectives: authored?.speakingObjectives ?? [],
           wordBank: authored?.wordBank ?? lesson.cards.map(({ ja }) => ja), wordBankAuthored: !!authored },
         reviewGaps: authored ? ["Qualified Japanese and domain review pending"] :

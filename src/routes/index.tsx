@@ -25,6 +25,7 @@ import { TopNav } from "@/components/TopNav";
 import { AppDemo } from "@/components/onboarding/AppTour";
 import { AppSidebar } from "@/components/AppSidebar";
 import { SaveProgressBanner } from "@/components/SaveProgressBanner";
+import { MobilePwaPrompt } from "@/components/MobilePwaPrompt";
 import { SubscriptionGate } from "@/components/SubscriptionGate";
 import { SubscriptionProvider } from "@/state/subscription-state";
 import { AiGateProvider } from "@/state/ai-gate-state";
@@ -313,6 +314,7 @@ function Index() {
                                     <TopNav />
                                     <V6AppNavigation />
                                     <SaveProgressBanner />
+                                    <MobilePwaPrompt />
                                     {/* Shared bottom-strip budget reserves the nav,
                                               Tutor action, and Reader mini-player together. */}
                                     <main

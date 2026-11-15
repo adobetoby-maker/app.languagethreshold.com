@@ -1,5 +1,5 @@
 import { useState, useSyncExternalStore } from "react";
-import { CheckCircle2, Download, ExternalLink, Share, Smartphone } from "lucide-react";
+import { CheckCircle2, Download, ExternalLink, Share, Smartphone, X } from "lucide-react";
 import {
   getPwaInstallServerSnapshot,
   getPwaInstallSnapshot,
@@ -17,7 +17,13 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 
-export function PwaInstallControl({ variant = "row" }: { variant?: "row" | "card" }) {
+export function PwaInstallControl({
+  variant = "row",
+  onDismiss,
+}: {
+  variant?: "row" | "card" | "banner";
+  onDismiss?: () => void;
+}) {
   const install = useSyncExternalStore(
     subscribePwaInstall,
     getPwaInstallSnapshot,
@@ -46,9 +52,36 @@ export function PwaInstallControl({ variant = "row" }: { variant?: "row" | "card
         ? "Install on iPhone"
         : "Install app";
 
+  if (variant === "banner" && install.installed) return null;
+
   return (
     <>
-      {variant === "card" ? (
+      {variant === "banner" ? (
+        <aside
+          aria-label="Install mobile app"
+          className="flex shrink-0 items-center gap-2 border-b border-gold/30 bg-card px-4 py-2"
+        >
+          <p className="min-w-0 flex-1 text-sm leading-snug text-foreground">
+            Use the PWA for the best mobile experience.
+          </p>
+          <button
+            type="button"
+            onClick={() => void startInstall()}
+            disabled={installing}
+            className="min-h-11 shrink-0 rounded-xl bg-gold px-3 text-sm font-semibold text-midnight disabled:cursor-wait"
+          >
+            {installing ? "Opening…" : "Install app"}
+          </button>
+          <button
+            type="button"
+            onClick={onDismiss}
+            aria-label="Dismiss install suggestion"
+            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-muted-foreground hover:bg-muted"
+          >
+            <X className="h-5 w-5" aria-hidden />
+          </button>
+        </aside>
+      ) : variant === "card" ? (
         <section className="mb-4 overflow-hidden rounded-2xl border border-gold/30 bg-gold/5">
           <div className="flex items-center gap-2 border-b border-gold/20 px-5 py-4">
             <Smartphone className="h-4 w-4 text-gold" />

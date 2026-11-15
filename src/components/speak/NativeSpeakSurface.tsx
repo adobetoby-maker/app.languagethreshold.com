@@ -80,7 +80,7 @@ export function NativeSpeakSurface({
       data-compact={viewportHeight !== undefined && viewportHeight < 450}
       data-keyboard={keyboardOpen}
       style={{ height: viewportHeight ?? "100dvh" }}
-      className="lt-native-speak"
+      className="lt-native-speak max-h-full"
       aria-label="Free conversation practice"
     >
       <header className="lt-native-speak-header">

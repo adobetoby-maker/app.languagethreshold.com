@@ -493,58 +493,67 @@ test.describe("Core 30 plan: Roofing", () => {
     await expect(page.getByTestId("core30-mastered-status")).toContainText("Mastered on");
   });
 
-  test("6. Say it opens the lesson mission inline on Core 30, with no trip to the Speak tab", async ({
-    page,
-  }) => {
+  test("6. Say it prepares the lesson on Speak and returns to the same step", async ({ page }) => {
     await openCore30(page, STARTED_TODAY);
     await openLesson1(page);
     await goSection(page, "say");
-    const urlBefore = page.url();
     await page.getByTestId("lesson-say-go").click();
-    // The practice panel opens inside the Say it section (LessonSpeakingPractice.tsx), not on Speak.
-    const panel = page.getByTestId("lesson-speaking-practice");
-    const mission = panel.getByRole("heading", { name: /^Lesson 1:/ });
-    await expect(mission).toBeVisible({ timeout: 60_000 });
-    await expect(mission).toContainText("Name the Roof System");
-    await expect(panel.getByRole("button", { name: "Close practice" })).toBeVisible();
-    await expect(page.getByTestId("lesson-say-go")).toHaveCount(0);
-    expect(await currentTabOf(page)).toBe("core30");
-    expect(page.url()).toBe(urlBefore);
+    await expect(page.getByRole("button", { name: "Speaking menu", exact: true })).toBeVisible();
     await expect(
-      page.getByRole("button", { name: "Lesson details and goal", exact: true }),
+      page.getByRole("button", { name: /Lesson 1 · Name the Roof System/ }),
     ).toBeVisible();
-    await expect(page.getByTestId("v6-nav-say")).toHaveAttribute("aria-current", "page");
-    // Opening the practice records the Speak step (index 2) and the Say it way.
+    expect(await currentTabOf(page)).toBe("speak");
     await expect.poll(() => visitKeys(page, "1")).toContain("2");
     expect(await visitKeys(page, "1")).toContain("way:say");
-    // No Reader/Speak round trip exists any more, so there is no return marker or pill.
-    expect(await page.evaluate(() => sessionStorage.getItem("lt.core30.returnTo"))).toBeNull();
-    await expect(page.getByTestId("lesson-return-pill")).toHaveCount(0);
+    expect((await readLog(page))?.lessons["1"]?.masteredAt).toBeUndefined();
+    await page.getByTestId("native-nav-study").click();
+    await expect(page.getByTestId("lesson-section-say")).toBeVisible();
+    await expect(page.getByTestId("v6-nav-say")).toHaveAttribute("aria-current", "page");
+    expect(await currentTabOf(page)).toBe("core30");
   });
 
-  test("6b. Close practice ends the mission and leaves the lesson open on Say it", async ({
+  test("6b. The bottom Speak button uses the lesson and reset keeps its setup", async ({
     page,
   }) => {
     await openCore30(page, STARTED_TODAY);
     await openLesson1(page);
     await goSection(page, "say");
-    await page.getByTestId("lesson-say-go").click();
-    const panel = page.getByTestId("lesson-speaking-practice");
-    await expect(panel.getByRole("heading", { name: /^Lesson 1:/ })).toBeVisible({
-      timeout: 60_000,
-    });
-    // The embedded mission has no All missions list; Close practice is the way back to the lesson.
-    await expect(page.getByRole("button", { name: /All missions/ })).toHaveCount(0);
-    await panel.getByRole("button", { name: "Close practice" }).click();
-    await expect(panel.getByRole("heading", { name: /^Lesson 1:/ })).toHaveCount(0);
-    await expect(page.getByTestId("lesson-say-go")).toBeVisible();
-    expect(await currentTabOf(page)).toBe("core30");
-    await expect(page.getByTestId("v6-nav-say")).toHaveAttribute("aria-current", "page");
+    await page.getByTestId("v6-nav-speak").click();
+    const topic = page.getByRole("button", { name: /Lesson 1 · Name the Roof System/ });
+    await expect(topic).toBeVisible();
+    await page.getByRole("button", { name: "Speaking menu", exact: true }).click();
+    await page.getByRole("button", { name: "Reset conversation", exact: true }).click();
+    await expect(topic).toBeVisible();
+    await page.reload();
+    await expect(topic).toBeVisible();
+    expect((await readLog(page))?.lessons["1"]?.masteredAt).toBeUndefined();
+    await page.getByRole("button", { name: "Back to Study", exact: true }).click();
     await expect(page.getByTestId("lesson-section-say")).toBeVisible();
+  });
+
+  test("6c. Climbing Say it sets up the pictured lesson on Speak", async ({ page }, testInfo) => {
+    await openCore30(page, STARTED_TODAY, "rock-climbing");
+    await openLesson1(page);
+    await goSection(page, "say");
+    await testInfo.attach("lesson-ready-for-speak", {
+      body: await page.screenshot(),
+      contentType: "image/png",
+    });
+    await page.getByTestId("lesson-say-go").click();
     await expect(
-      page.getByRole("button", { name: "Lesson details and goal", exact: true }),
+      page.getByRole("button", { name: /Lesson 1 · Gear Names & What They Do/ }),
     ).toBeVisible();
-    await expect(page.getByTestId("lesson-return-pill")).toHaveCount(0);
+    await expect(
+      page.getByRole("button", { name: "Let partner start", exact: true }),
+    ).toBeVisible();
+    await testInfo.attach("speak-prepared-for-lesson", {
+      body: await page.screenshot(),
+      contentType: "image/png",
+    });
+    expect((await readLog(page, "rock-climbing"))?.lessons["1"]?.masteredAt).toBeUndefined();
+    await page.getByRole("button", { name: "Speaking menu", exact: true }).click();
+    await page.getByRole("button", { name: "Free conversation", exact: true }).click();
+    await expect(page.getByRole("button", { name: "Open conversation", exact: true })).toBeVisible();
   });
 
   test("7. Recall it opens Study and returns to Study after another mode", async ({ page }) => {

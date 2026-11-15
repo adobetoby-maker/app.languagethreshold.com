@@ -9,6 +9,7 @@ import {
   type ReactNode,
 } from "react";
 import type { Language } from "./app-state";
+import { parseSpeakingLesson, type SpeakingLesson } from "@/lib/lesson-speaking";
 
 export type SpeakRole = "user" | "ai";
 
@@ -21,6 +22,8 @@ export interface SpeakTurn {
 }
 
 interface SpeakCtx {
+  lesson: SpeakingLesson | null;
+  startLesson: (lesson: SpeakingLesson) => void;
   turns: SpeakTurn[];
   exchanges: number;
   totalSeconds: number;
@@ -29,12 +32,13 @@ interface SpeakCtx {
   setTipFor: (id: string, tip: string | null) => void;
   incrementExchanges: () => void;
   addSeconds: (n: number) => void;
-  clear: () => void;
+  clear: (keepLesson?: boolean) => void;
 }
 
 const Ctx = createContext<SpeakCtx | null>(null);
 
 interface LangStore {
+  lesson?: SpeakingLesson | null;
   turns: SpeakTurn[];
   exchanges: number;
   totalSeconds: number;
@@ -63,6 +67,7 @@ export function SpeakProvider({ children, language }: { children: ReactNode; lan
             next[k] = { turns: v, exchanges: 0, totalSeconds: 0 };
           } else if (v && typeof v === "object") {
             next[k] = {
+              lesson: parseSpeakingLesson(v.lesson),
               turns: Array.isArray(v.turns) ? v.turns : [],
               exchanges: Number(v.exchanges) || 0,
               totalSeconds: Number(v.totalSeconds) || 0,
@@ -159,12 +164,27 @@ export function SpeakProvider({ children, language }: { children: ReactNode; lan
     [language],
   );
 
-  const clear = useCallback(() => {
-    setStore((s) => ({ ...s, [language]: emptyLang() }));
-  }, [language]);
+  const clear = useCallback(
+    (keepLesson = false) => {
+      setStore((s) => ({
+        ...s,
+        [language]: { ...emptyLang(), lesson: keepLesson ? s[language]?.lesson : null },
+      }));
+    },
+    [language],
+  );
+
+  const startLesson = useCallback(
+    (lesson: SpeakingLesson) => {
+      setStore((s) => ({ ...s, [language]: { ...emptyLang(), lesson } }));
+    },
+    [language],
+  );
 
   const value = useMemo(
     () => ({
+      lesson: lang.lesson ?? null,
+      startLesson,
       turns: lang.turns,
       exchanges: lang.exchanges,
       totalSeconds: lang.totalSeconds,
@@ -176,6 +196,8 @@ export function SpeakProvider({ children, language }: { children: ReactNode; lan
       clear,
     }),
     [
+      lang.lesson,
+      startLesson,
       lang.turns,
       lang.exchanges,
       lang.totalSeconds,

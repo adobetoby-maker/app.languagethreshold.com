@@ -41,6 +41,7 @@ import { useAiGate } from "@/state/ai-gate-state";
 import { getSpeakingAgeAttestation, speakingRequestHeaders } from "@/lib/speaking-client";
 import { setSpeakingPrivacyMode } from "@/lib/speaking-privacy";
 import { LessonReturnPill } from "@/components/core30/LessonReturnPill";
+import { browserReturnStorage, clearLessonReturn } from "@/lib/lesson-return";
 
 const TOPIC_CHIPS: Record<Language, string[]> = {
   Spanish: [
@@ -116,6 +117,7 @@ export function SpeakLearn() {
       }
     : accountGated;
   const {
+    lesson: storedLesson,
     turns,
     exchanges,
     addTurn,
@@ -126,6 +128,14 @@ export function SpeakLearn() {
     clear,
   } = useSpeak();
   const language = state.selectedLanguage;
+  const lesson =
+    storedLesson?.moduleId === state.activeModuleId &&
+    storedLesson.nativeLanguage === state.nativeLanguage
+      ? storedLesson
+      : null;
+  useEffect(() => {
+    if (storedLesson && !lesson) clear();
+  }, [storedLesson, lesson, clear]);
   const partnerStore = useLearnerDeviceStore(
     `speaking-partner:${language}:${state.nativeLanguage}:${state.activeModuleId ?? "core"}`,
   );
@@ -153,7 +163,7 @@ export function SpeakLearn() {
     setPartnerId(speakingPartner(typeof saved === "string" ? saved : "teacher")[0]);
   }, [partnerStore]);
   const changePartner = (id: string) => {
-    if (id === partnerId) return;
+    if (id === partnerId && !lesson) return;
     cancel();
     stopOwned();
     clear();
@@ -232,6 +242,7 @@ export function SpeakLearn() {
       surface,
       partnerId,
       partnerId === "teacher" ? teacher : null,
+      lesson,
     ]),
     speakingAuth,
   );
@@ -434,10 +445,11 @@ export function SpeakLearn() {
         headers,
         body: JSON.stringify({
           mode: "chat",
-          partnerRoleId: partnerId,
-          teacherTopic: partnerId === "teacher" ? teacher.topic : undefined,
+          partnerRoleId: lesson ? "teacher" : partnerId,
+          teacherTopic: !lesson && partnerId === "teacher" ? teacher.topic : undefined,
           teacherStyle: partnerId === "teacher" ? teacher.style : undefined,
           moduleId: state.activeModuleId ?? undefined,
+          lessonNumber: lesson?.lessonNumber,
           startConversation,
           language,
           level: state.level,
@@ -1327,18 +1339,22 @@ export function SpeakLearn() {
         canAsk={conversationAllowed}
       >
         <NativeSpeakSurface
-          lesson={getModule(state.activeModuleId)?.name ?? `${language} conversation`}
+          lesson={lesson ? `Lesson ${lesson.lessonNumber} · ${lesson.title}` : "Open conversation"}
           language={language}
           transcript={transcript}
           conversationStarted={turns.length > 0 || thinking}
           partnerTitle={
-            partnerId === "teacher" ? "Teacher · learn a topic" : speakingPartner(partnerId)[1]
+            lesson
+              ? "Teacher · practise this lesson"
+              : partnerId === "teacher"
+                ? "Teacher · learn a topic"
+                : speakingPartner(partnerId)[1]
           }
           onPartnerStart={() => gated(() => streamReply("Begin the conversation.", true))}
           partnerStartDisabled={thinking || !conversationAllowed}
           partner={
             <SpeakingPartnerPicker
-              value={partnerId}
+              value={lesson ? "teacher" : partnerId}
               onChange={changePartner}
               teacher={teacher}
               onTeacherChange={changeTeacher}
@@ -1368,12 +1384,24 @@ export function SpeakLearn() {
           onLatest={chatFollow.jumpToLatest}
           onReset={() => {
             stopPractice();
-            clear();
+            clear(true);
             setTypedTurn("");
             setConversationError(null);
             sessionStartRef.current = null;
           }}
           onScenarios={() => setSurface("missions")}
+          onFreeConversation={
+            lesson
+              ? () => {
+                  stopPractice();
+                  clear();
+                  clearLessonReturn(browserReturnStorage());
+                  setTypedTurn("");
+                  setConversationError(null);
+                  sessionStartRef.current = null;
+                }
+              : undefined
+          }
           controls={
             <SpeakingConversationControls
               text={!hideReplyText}

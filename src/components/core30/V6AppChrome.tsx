@@ -14,6 +14,10 @@ import { useAuth } from "@/state/auth-state";
 import { getModule } from "@/data/modules";
 import { ModulePickerDialog } from "@/components/ModulePickerDialog";
 import { useTutor } from "@/state/tutor-state";
+import { OPEN_LESSON_SPEAK } from "@/lib/lesson-speaking";
+import { browserReturnStorage, readLessonReturn, writeLessonReturn } from "@/lib/lesson-return";
+import { pointAddressAtLessonReturn } from "@/lib/learning-link";
+import { useSpeak } from "@/state/speak-state";
 
 export type V6Destination = LessonModeId | "speak" | "study" | "verbs";
 export const V6_MODE_EVENT = "lt:v6-lesson-mode";
@@ -143,6 +147,7 @@ export function V6Dock({
 export function V6AppNavigation() {
   const { state, dispatch, profileReadyUserId } = useApp();
   const { user, loading } = useAuth();
+  const { lesson: speakingLesson } = useSpeak();
   const tutor = useTutor();
   const { dueCardsForLanguage } = useFlashcards();
   const [lessonContext, setLessonContext] = useState<{
@@ -227,8 +232,12 @@ export function V6AppNavigation() {
       dispatch({ type: "SET_TAB", payload: "verbs" });
       return;
     }
-    const next = destination === "study" ? mode : destination;
+    let next = destination === "study" ? mode : destination;
     if (next === "speak") {
+      if (currentLesson && mode === "say") {
+        const open = new Event(OPEN_LESSON_SPEAK, { cancelable: true });
+        if (!window.dispatchEvent(open)) return;
+      }
       try {
         sessionStorage.removeItem(V6_PENDING_MODE);
       } catch {
@@ -236,6 +245,28 @@ export function V6AppNavigation() {
       }
       dispatch({ type: "SET_TAB", payload: "speak" });
     } else {
+      if (destination === "study") {
+        const storage = browserReturnStorage();
+        const marker =
+          state.currentTab === "speak" &&
+          speakingLesson?.moduleId === state.activeModuleId &&
+          speakingLesson.nativeLanguage === state.nativeLanguage
+            ? {
+                moduleId: speakingLesson.moduleId,
+                lesson: speakingLesson.lessonNumber,
+                section: "say" as const,
+                at: Date.now(),
+              }
+            : readLessonReturn(storage, Date.now());
+        if (marker?.section === "say" && marker.moduleId === state.activeModuleId) {
+          next = marker.section;
+          writeLessonReturn(storage, marker);
+          pointAddressAtLessonReturn(marker, {
+            target: state.selectedLanguage,
+            native: state.nativeLanguage,
+          });
+        }
+      }
       if (!state.activeModuleId) {
         setCourseDestination(next);
         setCourses(true);

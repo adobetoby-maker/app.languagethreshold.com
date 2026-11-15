@@ -104,8 +104,8 @@ async function fixture(component, action) {
  export const useEffect=(fn,deps)=>{const i=c.cursor++,old=c.slots[i];if(!old||!deps||changed(old.deps,deps))c.effects.push(()=>{old?.cleanup?.();c.slots[i]={deps,cleanup:fn()};});};
  const dispatch=a=>c.dispatches.push(a),isCurrentUser=id=>c.actor===id;
  export const useApp=()=>({state:c.state,dispatch}),useAuth=()=>({user:c.actor?{id:c.actor}:null,session:c.actor?{user:{id:c.actor}}:null,isCurrentUser}),useAiGate=()=>({gated:fn=>fn()});
- const addTurn=(role,text)=>{const t={id:'turn-'+c.turns.length,role,text};c.turns=[...c.turns,t];return t;},appendToTurn=(id,delta)=>{c.turns=c.turns.map(t=>t.id===id?{...t,text:t.text+delta}:t);},setTipFor=(id,tip)=>c.tips.push({id,tip}),incrementExchanges=()=>c.exchanges++,addSeconds=s=>c.seconds.push(s),clear=()=>{c.turns=[];c.exchanges=0;};
- export const useSpeak=()=>({turns:c.turns,exchanges:c.exchanges,addTurn,appendToTurn,setTipFor,incrementExchanges,addSeconds,clear});
+ const addTurn=(role,text)=>{const t={id:'turn-'+c.turns.length,role,text};c.turns=[...c.turns,t];return t;},appendToTurn=(id,delta)=>{c.turns=c.turns.map(t=>t.id===id?{...t,text:t.text+delta}:t);},setTipFor=(id,tip)=>c.tips.push({id,tip}),incrementExchanges=()=>c.exchanges++,addSeconds=s=>c.seconds.push(s),clear=(keepLesson=false)=>{c.turns=[];c.exchanges=0;if(!keepLesson)c.lesson=null;};
+ export const useSpeak=()=>({lesson:c.lesson,turns:c.turns,exchanges:c.exchanges,addTurn,appendToTurn,setTipFor,incrementExchanges,addSeconds,clear});
  export const ACCENTS_BY_LANGUAGE={Spanish:[{code:'es-CR'}]},useSpeech=()=>({accent:c.accent,voiceURI:c.voice,rate:1,setVoiceURI:v=>c.voice=v,setAccent:v=>c.accent=v,accentsForLanguage:[{code:'es-CR',label:'QA accent'}],settingsHydrated:true});
  export const speakRemote=(text,locale,opts)=>{c.audio.push({text,locale,opts});return new Promise(resolve=>opts.signal.addEventListener('abort',resolve,{once:true}));},speakMissionTts=opts=>new Promise(resolve=>{c.google.push({opts,resolve});opts.signal?.addEventListener("abort",resolve,{once:true});});
  export const getSpeakingAgeAttestation=async()=>c.consent;
@@ -210,6 +210,43 @@ async function fixture(component, action) {
     rmSync(dir, { recursive: true, force: true });
   }
 }
+test("lesson handoff reaches actual chat requests, reset keeps it, and changing course drops it", () =>
+  fixture("SpeakLearn", async ({ c, render, requests, finish }) => {
+    c.lesson = {
+      moduleId: "roofing",
+      lessonNumber: 1,
+      title: "Name the Roof System",
+      nativeLanguage: "English",
+    };
+    let tree = render();
+    await tick();
+    tree = render();
+    let surface = nodes(tree).find((n) => n.type?.name === "NativeSpeakSurface");
+    assert.match(surface.props.lesson, /Lesson 1 · Name the Roof System/);
+    surface.props.onPartnerStart();
+    await tick();
+    const first = requests.find((r) => r.mode === "chat");
+    const sent = JSON.parse(first.opts.body);
+    assert.equal(sent.lessonNumber, 1);
+    assert.equal(sent.moduleId, "roofing");
+    assert.equal(sent.partnerRoleId, "teacher");
+    await finish(first);
+    tree = render();
+    surface = nodes(tree).find((n) => n.type?.name === "NativeSpeakSurface");
+    surface.props.onReset();
+    tree = render();
+    assert.equal(c.lesson.lessonNumber, 1);
+    assert.equal(c.turns.length, 0);
+    c.state = { ...c.state, activeModuleId: "rock-climbing" };
+    render();
+    tree = render();
+    assert.equal(c.lesson, null);
+    assert.equal(
+      nodes(tree).find((n) => n.type?.name === "NativeSpeakSurface").props.lesson,
+      "Open conversation",
+    );
+  }));
+
 test("actual SpeakLearn cancels chat/tips before and after headers, suppresses duplicate/late microphone work and avoids foreign elapsed credit", () =>
   fixture("SpeakLearn", async ({ c, render, unmount, button, requests, recognitions, finish }) => {
     let tree = render();

@@ -15,6 +15,41 @@ const body = {
   level: "A1",
   concepts: ["synthetic-private-concept"],
 };
+
+test("lesson chat resolves authored goals and words, rejects invalid bindings, and leaves free talk available", () =>
+  fixture(async (h, c) => {
+    const value = {
+      mode: "chat",
+      language: "Spanish",
+      nativeLanguage: "English",
+      level: "A1",
+      moduleId: "rock-climbing",
+      lessonNumber: 1,
+      messages: [{ role: "user", content: "Hola" }],
+    };
+    const reply = await h.speak.POST(request("speak", value));
+    assert.equal(reply.status, 200);
+    await reply.text();
+    assert.match(c.models.at(-1).system, /Gear Names & What They Do/);
+    assert.match(c.models.at(-1).system, /arnés/);
+    assert.match(c.models.at(-1).system, /Lesson goal:/);
+    const before = c.models.length;
+    for (const invalid of [
+      { lessonNumber: 999 },
+      { moduleId: "missing-module" },
+      { lessonNumber: 0 },
+      { lessonNumber: 1.5 },
+    ]) {
+      const rejected = await h.speak.POST(request("speak", { ...value, ...invalid }));
+      assert.equal(rejected.status, 400);
+    }
+    assert.equal(c.models.length, before);
+    const { lessonNumber: _lesson, ...free } = value;
+    const freeReply = await h.speak.POST(request("speak", free));
+    assert.equal(freeReply.status, 200);
+    await freeReply.text();
+    assert.doesNotMatch(c.models.at(-1).system, /This conversation practises lesson/);
+  }));
 function request(path = "speak", value = body, signal) {
   return new Request(`https://fixture.invalid/api/${path}`, {
     method: "POST",

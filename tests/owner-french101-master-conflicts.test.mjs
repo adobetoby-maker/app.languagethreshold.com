@@ -68,10 +68,10 @@ test("French 101 Master conflict API authorizes before returning source-exact, c
     assert.equal(packet.courseId, "french-basics");
     assert.equal(packet.stage, "master");
     assert.deepEqual(packet.sourceHashes, sourceHashes);
-    assert.deepEqual(packet.lessons.map((lesson) => lesson.n), [1, 2, 3, 4, 5, 6, 7, 8, 9]);
-    assert.equal(new Set(packet.lessons.map((lesson) => lesson.stableId)).size, 9);
+    assert.deepEqual(packet.lessons.map((lesson) => lesson.n), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+    assert.equal(new Set(packet.lessons.map((lesson) => lesson.stableId)).size, 12);
     assert.deepEqual(packet.lessons.map((lesson) => lesson.stableId),
-      [1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => `master-french-basics:${n}:fr-en`));
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => `master-french-basics:${n}:fr-en`));
 
     const master = JSON.parse(readFileSync("src/data/core60/es/master-spanish-basics.json", "utf8"));
     const practice = JSON.parse(readFileSync("src/data/spanish-basics-practice.json", "utf8"));

@@ -1,5 +1,5 @@
 {
-  "schema": "french101-master1-9-owner-conflicts-v1",
+  "schema": "french101-master1-12-owner-conflicts-v1",
   "pairKey": "French:English",
   "courseId": "french-basics",
   "stage": "master",
@@ -1243,6 +1243,342 @@
         "The sales assistant is kind.",
         "I want two small notebooks."
       ]
+    },
+    {
+      "n": 10,
+      "stableId": "master-french-basics:10:fr-en",
+      "sourceTitleEnglish": "Return the right belongings",
+      "sourceObjectiveEnglish": "Return the right belongings: Possessives agree with what is possessed, not the owner: mi libro, mis libros; tu mesa, tus mesas.",
+      "sourceReaderTitleSpanish": "Al final de la clase",
+      "sourceReaderSpanish": [
+        "Mi teléfono está en tu mesa.",
+        "Tu libro está en mi mochila.",
+        "Mis cuadernos están en la biblioteca.",
+        "Tus lápices están aquí.",
+        "Ana busca su mochila.",
+        "La mochila de Ana está cerca de la puerta.",
+        "Mi mochila está en la clase.",
+        "Mis libros están en mi mochila.",
+        "¿Dónde está tu cuaderno?",
+        "Tus lápices están aquí.",
+        "La profesora busca su teléfono.",
+        "El teléfono de la profesora está en la mesa."
+      ],
+      "sourceReaderEnglish": [
+        "My phone is on your table.",
+        "Your book is in my backpack.",
+        "My notebooks are in the library.",
+        "Your pencils are here.",
+        "Ana is looking for her backpack.",
+        "Ana's backpack is near the door.",
+        "My backpack is in the classroom.",
+        "My books are in my backpack.",
+        "Where is your notebook?",
+        "Your pencils are here.",
+        "The teacher is looking for her phone.",
+        "The teacher's phone is on the table."
+      ],
+      "cards": [
+        {
+          "id": "master-french-basics:10:card:6",
+          "number": 6,
+          "kind": "term",
+          "sourceSpanish": "está",
+          "sourceEnglish": "is (condition/location)",
+          "frenchCandidate": "est",
+          "semanticNote": "The source Spanish está is explicitly a condition/location form, while French est also serves identity. The French face cannot teach an exclusive one-to-one condition/location rule. Approve a contextual French est sense with a visible note that être also expresses identity; decide dictionary sense and answer acceptance before scoring.",
+          "status": "qualified-review-needed",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        },
+        {
+          "id": "master-french-basics:10:card:8",
+          "number": 8,
+          "kind": "term",
+          "sourceSpanish": "la",
+          "sourceEnglish": "the / it / her (feminine)",
+          "frenchCandidate": "la",
+          "semanticNote": "The source groups article and feminine object-pronoun meanings under la. French la can serve those roles, but this Reader shows article uses only; an unqualified face implies all three senses are practiced here. Decide whether the review face should be split into contextual senses or retain the exact English with an explicit unpracticed-pronoun note.",
+          "status": "qualified-review-needed",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        },
+        {
+          "id": "master-french-basics:10:card:10",
+          "number": 10,
+          "kind": "term",
+          "sourceSpanish": "en",
+          "sourceEnglish": "in / on / at",
+          "frenchCandidate": "dans / sur / à",
+          "semanticNote": "Source en covers in/on/at by context. The candidate groups three different French prepositions dans / sur / à; no single French target answers all three meanings in every context. Approve contextual examples and multiple accepted French targets tied to each source sentence; do not score the slash-group as one spoken answer.",
+          "status": "qualified-review-needed",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        },
+        {
+          "id": "master-french-basics:10:card:11",
+          "number": 11,
+          "kind": "term",
+          "sourceSpanish": "están",
+          "sourceEnglish": "are (condition/location)",
+          "frenchCandidate": "sont",
+          "semanticNote": "The source Spanish están is explicitly condition/location plural. French sont also expresses plural identity, so the visible gloss needs contextual qualification. Approve contextual French sont with an identity-use note and dictionary/scoring decision.",
+          "status": "qualified-review-needed",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        }
+      ],
+      "reviewGaps": [
+        "The existing private activity keys are not six authored See/Recall/Hear/Type/Say/Write prompts and answers. Hear remains script-only pending exact-text audio review.",
+        "Decide context-dependent French location prepositions, la as article/object pronoun, and est/sont dictionary senses before normal cards or scoring."
+      ],
+      "reviewed": false,
+      "registered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "progressEnabled": false,
+      "normalCardProjectionAllowed": false
+    },
+    {
+      "n": 11,
+      "stableId": "master-french-basics:11:fr-en",
+      "sourceTitleEnglish": "Order around different preferences",
+      "sourceObjectiveEnglish": "Order around different preferences: With gustar, the liked thing controls the verb: me gusta el libro; me gustan los libros.",
+      "sourceReaderTitleSpanish": "Una merienda juntos",
+      "sourceReaderSpanish": [
+        "A mí me gusta el café.",
+        "A Julia le gusta el té.",
+        "Nos gustan los bocadillos pequeños.",
+        "A Diego no le gustan las aceitunas.",
+        "Nos gusta comer en la plaza.",
+        "¿Te gusta este café tranquilo?",
+        "Me gusta la música.",
+        "A Ana le gustan los libros.",
+        "Nos gusta estudiar juntos.",
+        "A Luis no le gusta el café.",
+        "¿Te gustan estas canciones?",
+        "Sí, me gusta escuchar música en casa."
+      ],
+      "sourceReaderEnglish": [
+        "I like coffee.",
+        "Julia likes tea.",
+        "We like small sandwiches.",
+        "Diego does not like olives.",
+        "We like eating in the square.",
+        "Do you like this quiet café?",
+        "I like music.",
+        "Ana likes books.",
+        "We like studying together.",
+        "Luis does not like coffee.",
+        "Do you like these songs?",
+        "Yes, I like listening to music at home."
+      ],
+      "cards": [
+        {
+          "id": "master-french-basics:11:card:1",
+          "number": 1,
+          "kind": "term",
+          "sourceSpanish": "me",
+          "sourceEnglish": "me / myself",
+          "frenchCandidate": "me",
+          "semanticNote": "Spanish me marks the experiencer in gustar; French me is an object/reflexive pronoun. The Reader uses j’aime. Decide whether this term belongs in a parallel card or needs a separate French-specific ID.",
+          "status": "qualified-review-needed",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        },
+        {
+          "id": "master-french-basics:11:card:2",
+          "number": 2,
+          "kind": "term",
+          "sourceSpanish": "te",
+          "sourceEnglish": "you / yourself",
+          "frenchCandidate": "te",
+          "semanticNote": "Spanish te marks the experiencer in gustar; French te is an object/reflexive pronoun. The Reader uses tu aimes. Decide how this contrast is taught and scored.",
+          "status": "qualified-review-needed",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        },
+        {
+          "id": "master-french-basics:11:card:5",
+          "number": 5,
+          "kind": "term",
+          "sourceSpanish": "en",
+          "sourceEnglish": "in / on / at",
+          "frenchCandidate": "en / sur / à (selon le contexte)",
+          "semanticNote": "Spanish en has context-dependent in/on/at uses. The French face lists en, sur and à rather than a single answer. Approve scene-specific senses and accepted answers.",
+          "status": "qualified-review-needed",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        },
+        {
+          "id": "master-french-basics:11:card:6",
+          "number": 6,
+          "kind": "term",
+          "sourceSpanish": "los",
+          "sourceEnglish": "the / them (masculine plural)",
+          "frenchCandidate": "les (livres)",
+          "semanticNote": "Spanish los explicitly marks masculine plural. French les covers both genders; the parenthetical livres is a context cue, not part of the lexical answer. Preserve the source gender distinction visibly.",
+          "status": "qualified-review-needed",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        },
+        {
+          "id": "master-french-basics:11:card:7",
+          "number": 7,
+          "kind": "term",
+          "sourceSpanish": "las",
+          "sourceEnglish": "the / them (feminine plural)",
+          "frenchCandidate": "les (olives)",
+          "semanticNote": "Spanish las explicitly marks feminine plural. French les covers both genders; the parenthetical olives is a context cue. Decide whether two source cards share a French answer or use separate explanatory items.",
+          "status": "qualified-review-needed",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        },
+        {
+          "id": "master-french-basics:11:card:9",
+          "number": 9,
+          "kind": "term",
+          "sourceSpanish": "no",
+          "sourceEnglish": "no / not",
+          "frenchCandidate": "non / ne … pas",
+          "semanticNote": "Spanish no covers no/not. French non answers no, while ne … pas negates a verb. The grouped face requires separate answer rules and examples.",
+          "status": "qualified-review-needed",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        },
+        {
+          "id": "master-french-basics:11:card:11",
+          "number": 11,
+          "kind": "term",
+          "sourceSpanish": "casa",
+          "sourceEnglish": "house",
+          "frenchCandidate": "maison",
+          "semanticNote": "Source house is maison, while Reader at home is à la maison. Decide whether home/house senses and article/preposition are explicit enough for a standalone card.",
+          "status": "qualified-review-needed",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        },
+        {
+          "id": "master-french-basics:11:card:12",
+          "number": 12,
+          "kind": "term",
+          "sourceSpanish": "café",
+          "sourceEnglish": "coffee / café",
+          "frenchCandidate": "café",
+          "semanticNote": "Café is a drink and venue in both source and French. Reader 1 means the drink; Reader 6 means the venue. Require context-aware scoring, not a single default sense.",
+          "status": "qualified-review-needed",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        },
+        {
+          "id": "master-french-basics:11:card:17",
+          "number": 17,
+          "kind": "phrase",
+          "sourceSpanish": "Nos gusta comer en la plaza.",
+          "sourceEnglish": "We like eating in the square.",
+          "frenchCandidate": "Nous aimons manger sur la place.",
+          "semanticNote": "Source en la plaza means in the square. Candidate sur la place can mean on/in a square in context; review locale/register and answer acceptance before scoring.",
+          "status": "qualified-review-needed",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        },
+        {
+          "id": "master-french-basics:11:card:18",
+          "number": 18,
+          "kind": "phrase",
+          "sourceSpanish": "¿Te gusta este café tranquilo?",
+          "sourceEnglish": "Do you like this quiet café?",
+          "frenchCandidate": "Tu aimes ce café calme ?",
+          "semanticNote": "Source este café tranquilo is a quiet café venue, while earlier café means coffee. Keep the venue sense and French demonstrative ce visible in context.",
+          "status": "qualified-review-needed",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        }
+      ],
+      "reviewGaps": [
+        "The Spanish source objective is ordering around preferences, but its Reader describes preferences without an order or server turn; qualified curriculum decision required.",
+        "Decide gustar experiencer contrasts, les gender-neutral French sense, no/not forms, café drink/venue, preposition and context-aware scoring. Six authored modes and audio are not approved."
+      ],
+      "reviewed": false,
+      "registered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "progressEnabled": false,
+      "normalCardProjectionAllowed": false
+    },
+    {
+      "n": 12,
+      "stableId": "master-french-basics:12:fr-en",
+      "sourceTitleEnglish": "Make a plan everyone can do",
+      "sourceObjectiveEnglish": "Make a plan everyone can do: Poder changes o to ue except in nosotros: puedo, puedes, puede, podemos, pueden.",
+      "sourceReaderTitleSpanish": "Un sábado libre",
+      "sourceReaderSpanish": [
+        "Quiero ir al museo.",
+        "Julia puede venir por la mañana.",
+        "Diego no puede salir antes de las diez.",
+        "Podemos comer después de la visita.",
+        "Queremos caminar por el parque.",
+        "¿Puedes reservar una mesa para tres?",
+        "Puedo estudiar aquí hoy.",
+        "¿Puedes abrir la ventana?",
+        "Ana puede ayudar con la tarea.",
+        "Podemos hablar en voz baja.",
+        "No pueden comer en esta sala.",
+        "¿Puede repetir la pregunta, por favor?"
+      ],
+      "sourceReaderEnglish": [
+        "I want to go to the museum.",
+        "Julia can come in the morning.",
+        "Diego cannot go out before ten.",
+        "We can eat after the visit.",
+        "We want to walk through the park.",
+        "Can you reserve a table for three?",
+        "I can study here today.",
+        "Can you open the window?",
+        "Ana can help with the homework.",
+        "We can speak quietly.",
+        "They cannot eat in this room.",
+        "Can you repeat the question, please?"
+      ],
+      "cards": [
+        {
+          "id": "master-french-basics:12:card:8",
+          "number": 8,
+          "kind": "term",
+          "sourceSpanish": "las",
+          "sourceEnglish": "the / them (feminine plural)",
+          "frenchCandidate": "les",
+          "semanticNote": "The pinned English label describes Spanish las. French les is the plural article or direct-object pronoun for both masculine and feminine referents; teaching it as feminine-only would be false. Approve a French-specific visible gloss and dictionary sense while preserving this exact source-English anchor, or choose a separately sourced teaching card. Decide how article versus object-pronoun uses are introduced and scored.",
+          "status": "qualified-review-needed",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        },
+        {
+          "id": "master-french-basics:12:card:12",
+          "number": 12,
+          "kind": "term",
+          "sourceSpanish": "no",
+          "sourceEnglish": "no / not",
+          "frenchCandidate": "non / ne … pas",
+          "semanticNote": "The proposed French face combines a standalone answer, non, and a two-part verbal negation, ne … pas. They have different use and cannot be one context-free scored answer. Decide whether this remains a visibly split editorial card or becomes separate, source-justified French teaching entries. Define context-sensitive grading for non and ne … pas; the Reader supplies no standalone non example.",
+          "status": "qualified-review-needed",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        }
+      ],
+      "reviewGaps": [
+        "French les is gender-neutral plural while exact source English explicitly says feminine plural; decide a French-specific label and dictionary entry.",
+        "Standalone non and verbal ne … pas need distinct contexts and scoring rules. Full lesson modes, speaking and audio remain unapproved."
+      ],
+      "reviewed": false,
+      "registered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "progressEnabled": false,
+      "normalCardProjectionAllowed": false
     }
   ]
 }

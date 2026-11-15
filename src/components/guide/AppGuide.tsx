@@ -1692,7 +1692,7 @@ function OwnedLessonRunner({
       {/* 5 · Say it */}
 
       <section data-testid="lesson-section-say" hidden={section !== "say"} className={panelClass}>
-        {panelHeader(SECTIONS[4], 5)}
+        {panelHeader(SECTIONS[5], 6)}
         {section === "say" && (
           <LessonSpeakingPractice
             key={`${moduleId}:${lesson.n}:${state.selectedLanguage}:${state.nativeLanguage}`}

@@ -497,6 +497,8 @@ test.describe("Core 30 plan: Roofing", () => {
     await openCore30(page, STARTED_TODAY);
     await openLesson1(page);
     await goSection(page, "say");
+    await expect(page.getByTestId("lesson-section-say")).toContainText("Step 6 of 6");
+    await expect(page.getByRole("button", { name: /Next: Write it/ })).toHaveCount(0);
     await page.getByTestId("lesson-say-go").click();
     await expect(page.getByRole("button", { name: "Speaking menu", exact: true })).toBeVisible();
     await expect(

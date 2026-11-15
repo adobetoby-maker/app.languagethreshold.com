@@ -31,14 +31,14 @@ export const LESSON_MODES = [
     Icon: Headphones,
     why: "Train your ear on how the words really sound.",
   },
-  { id: "type", label: "Type it", Icon: Keyboard, why: "Spell the words from memory." },
-  { id: "say", label: "Say it", Icon: Mic, why: "Use the words out loud in a short role-play." },
   {
     id: "write",
     label: "Write it",
     Icon: PenLine,
     why: "Copy the words, recall their spelling, then write a response.",
   },
+  { id: "type", label: "Type it", Icon: Keyboard, why: "Spell the words from memory." },
+  { id: "say", label: "Say it", Icon: Mic, why: "Use the words out loud in a short role-play." },
 ] as const;
 
 /** Shared by real lessons and the public layout preview. No curriculum or progress writes. */

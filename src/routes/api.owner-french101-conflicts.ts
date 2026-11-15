@@ -71,18 +71,30 @@ const core24Modes = [
 ] as const;
 
 async function conflictDrafts() {
-  const [coreModule, practiceModule] = await Promise.all([
+  const [coreModule, practiceModule, extensionModule] = await Promise.all([
     import("../data/spanish-basics-core.json"),
     import("../data/spanish-basics-practice.json"),
+    import("../../content/french-basics/private-core-27-30-conflict-specs.json"),
   ]);
   const core = coreModule.default as { lessons: SourceLesson[] };
   const practice = practiceModule.default as { "spanish-basics": Record<string, { reading: SourceReading }> };
-  return [22, 23, 24, 25, 26].map((n) => {
+  const extension = extensionModule.default;
+  if (extension.schema !== "french101-core27-30-owner-conflicts-v1" ||
+    extension.pairKey !== "French:English" ||
+    JSON.stringify(extension.sourceHashes) !== JSON.stringify(sourceHashes) ||
+    extension.reviewed !== false || extension.registered !== false ||
+    extension.audioRegistered !== false || extension.listeningReviewed !== false ||
+    extension.scoringEnabled !== false || extension.progressEnabled !== false ||
+    JSON.stringify(extension.lessons.map((lesson) => lesson.n)) !== JSON.stringify([27, 28, 29, 30]))
+    throw new Error("French 101 Core 27–30 conflict spec changed");
+  const allSpecs: Record<number, { cards: ConflictSpec[]; reviewGaps: string[] }> = { ...specs };
+  for (const lesson of extension.lessons) allSpecs[lesson.n] = lesson;
+  return [22, 23, 24, 25, 26, 27, 28, 29, 30].map((n) => {
     const source = core.lessons.find((lesson) => lesson.n === n);
     const reading = practice["spanish-basics"][String(n)]?.reading;
     if (!source || !reading || reading.target.length !== 6 || reading.native.length !== 6)
       throw new Error(`French 101 Core ${n} conflict source missing`);
-    const cards = specs[n].cards.map((spec) => {
+    const cards = allSpecs[n].cards.map((spec) => {
       const pinned = source.words[spec.number - 1];
       if (!pinned || pinned.es !== spec.sourceSpanish || pinned.en !== spec.exactEnglish || pinned.kind !== spec.kind)
         throw new Error(`French 101 Core ${n} conflict card source changed`);
@@ -102,7 +114,7 @@ async function conflictDrafts() {
     })) : [];
     return { n, stableId: `french-basics:${n}:fr-en`, sourceTitleEnglish: source.title,
       sourceObjectiveEnglish: source.objective, sourceReaderTitleSpanish: reading.title,
-      cards, modes, reviewGaps: specs[n].reviewGaps,
+      cards, modes, reviewGaps: allSpecs[n].reviewGaps,
       reviewed: false, registered: false, audioRegistered: false, listeningReviewed: false,
       scoringEnabled: false, progressEnabled: false, normalCardProjectionAllowed: false };
   });

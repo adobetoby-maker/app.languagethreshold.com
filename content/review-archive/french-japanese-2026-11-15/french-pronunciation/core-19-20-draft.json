@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "core",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "core-french-sound-like-a-native:19:fr-en",
+      "n": 19,
+      "sourceSpanishLesson": 19,
+      "title": "Keep /kʁ/ and /gʁ/ together",
+      "objective": "Hear and produce French /kʁ/ and /gʁ/ in a guided-visit exchange without inserting a vowel inside the cluster.",
+      "focus": "Begin croix, crayon, and crème with /kʁ/; begin groupe, grand, and grille with /gʁ/. Keep the consonants together as you move into the following vowel and then a complete phrase.",
+      "words": [
+        { "fr": "croix", "en": "cross", "kind": "term" },
+        { "fr": "crayon", "en": "pencil", "kind": "term" },
+        { "fr": "crème", "en": "cream", "kind": "term" },
+        { "fr": "groupe", "en": "group", "kind": "term" },
+        { "fr": "grand", "en": "large; tall (masculine singular)", "kind": "term" },
+        { "fr": "grille", "en": "gate; grille", "kind": "term" },
+        { "fr": "Le groupe attend devant la grille.", "en": "The group is waiting in front of the gate.", "kind": "phrase" },
+        { "fr": "Une croix est au-dessus de la porte.", "en": "A cross is above the door.", "kind": "phrase" },
+        { "fr": "Le guide marque le plan avec un crayon.", "en": "The guide marks the map with a pencil.", "kind": "phrase" },
+        { "fr": "Je prends un café avec de la crème.", "en": "I'll have a coffee with cream.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Un grand groupe attend devant la grille d'une église.", "en": "A large group waits in front of a church gate." },
+        { "fr": "Le guide montre une croix au-dessus de la porte et trace le trajet avec un crayon.", "en": "The guide points out a cross above the door and marks the route with a pencil." },
+        { "fr": "Après la visite, le groupe entre dans un petit café.", "en": "After the visit, the group enters a small café." },
+        { "fr": "Je commande un café avec de la crème avant de rentrer.", "en": "I order a coffee with cream before heading home." }
+      ],
+      "speaking": {
+        "scene": "Joining a guided visit at a church gate",
+        "roles": ["visitor", "tour guide"],
+        "opening": "Bonjour, le groupe attend-il devant la grille ?",
+        "goals": ["Confirm where the large group meets.", "Ask about the cross above the door.", "Ask the guide to mark the route with a pencil."],
+        "closure": "Merci, j'ai trouvé le groupe devant la grille."
+      },
+      "practice": {
+        "see": { "prompt": "Mark /kʁ/ in croix, crayon, crème and /gʁ/ in groupe, grand, grille.", "wordRefs": ["croix", "crayon", "crème", "groupe", "grand", "grille"] },
+        "recall": { "prompt": "Recall the French sentence locating the group at the gate before revealing it.", "answerRef": "Le groupe attend devant la grille." },
+        "hear": { "prompt": "Listen for croix or groupe in the recorded visit phrase.", "choices": ["croix", "groupe"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'A cross is above the door.'", "answerRef": "Une croix est au-dessus de la porte." },
+        "say": { "prompt": "Tell the guide where the group is waiting.", "answerRef": "Le groupe attend devant la grille." },
+        "write": { "prompt": "Write two French sentences about the group at the gate and the cross above the door.", "requiredRefs": ["groupe", "grille", "croix"] }
+      }
+    },
+    {
+      "id": "core-french-sound-like-a-native:20:fr-en",
+      "n": 20,
+      "sourceSpanishLesson": 20,
+      "title": "Read clusters ending in /l/",
+      "objective": "Keep French /pl/, /bl/, /fl/, /kl/, and /gl/ together while describing a classroom celebration.",
+      "focus": "Compare /pl/ in place and plan, /bl/ in blanche, /fl/ in fleur, /kl/ in classe, and /gl/ in globe. Keep /l/ joined to the first consonant before continuing into the vowel.",
+      "words": [
+        { "fr": "place", "en": "place; spot", "kind": "term" },
+        { "fr": "plan", "en": "plan; layout", "kind": "term" },
+        { "fr": "blanche", "en": "white (feminine singular)", "kind": "term" },
+        { "fr": "fleur", "en": "flower", "kind": "term" },
+        { "fr": "classe", "en": "classroom; class", "kind": "term" },
+        { "fr": "globe", "en": "globe", "kind": "term" },
+        { "fr": "Le plan de la classe est sur la table.", "en": "The classroom layout is on the table.", "kind": "phrase" },
+        { "fr": "Une fleur blanche est près du globe.", "en": "A white flower is near the globe.", "kind": "phrase" },
+        { "fr": "Nous cherchons une place pour la fête.", "en": "We are looking for a place for the celebration.", "kind": "phrase" },
+        { "fr": "Le globe est dans la classe.", "en": "The globe is in the classroom.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Dans la classe, Clara prépare une petite fête avec ses amis.", "en": "In the classroom, Clara prepares a small celebration with her friends." },
+        { "fr": "Elle place un globe et une fleur blanche près de la fenêtre.", "en": "She places a globe and a white flower near the window." },
+        { "fr": "Un plan posé sur la table indique la place de chaque invité.", "en": "A layout on the table shows each guest's place." },
+        { "fr": "Avant l'arrivée des amis, Clara vérifie que le globe et la fleur sont bien placés.", "en": "Before her friends arrive, Clara checks that the globe and flower are well placed." }
+      ],
+      "speaking": {
+        "scene": "Arranging a classroom celebration",
+        "roles": ["host", "classmate"],
+        "opening": "Bonjour, le plan de la classe est sur la table.",
+        "goals": ["Find a place for the celebration.", "Describe where the white flower should go.", "Confirm where the globe is."],
+        "closure": "Merci, le globe et la fleur ont leur place."
+      },
+      "practice": {
+        "see": { "prompt": "Find /pl/ in place and plan, /bl/ in blanche, /fl/ in fleur, /kl/ in classe, and /gl/ in globe.", "wordRefs": ["place", "plan", "blanche", "fleur", "classe", "globe"] },
+        "recall": { "prompt": "Recall the French sentence locating the white flower before revealing it.", "answerRef": "Une fleur blanche est près du globe." },
+        "hear": { "prompt": "Listen for fleur or globe in the recorded classroom phrase.", "choices": ["fleur", "globe"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The classroom layout is on the table.'", "answerRef": "Le plan de la classe est sur la table." },
+        "say": { "prompt": "Tell your classmate that the globe is in the classroom.", "answerRef": "Le globe est dans la classe." },
+        "write": { "prompt": "Write two French sentences placing the white flower and globe using the classroom plan.", "requiredRefs": ["blanche", "fleur", "plan", "globe"] }
+      }
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # French and Japanese lesson source gap matrix — 2026-11-15
 
+November 15 follow-up: [114 additional draft JSON snapshots](../content/review-archive/french-japanese-2026-11-15/README.md) from French 101, French Breakfast, French Roofing, French Pronunciation, Japanese Breakfast and Japanese Roofing are now preserved as inert main review material. Their individual source commits and hashes are in the archive manifest. This changes the location of review material, not the lesson, source-fidelity, qualified-review or audio gaps below.
+
 Read-only baseline: `origin/main` at `1de396fdf4ca35a146908a5647a98e6615803572` (November 15). This inventory describes the exact French→English and Japanese→English pairs. A complete numbered source draft is distinct from qualified review, approved recordings, learner registration, and V4 delivery. The requested main integration can consist of inert content and review evidence; no owner route is needed. Keep `reviewed:false`, learner registration, scoring, playback, offline and progress gates closed.
 
 | Pair / track | Main source state | Missing lesson work | Audio state and next source batch |

@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "foundation",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "foundation-french-sound-like-a-native:4:fr-en",
+      "n": 4,
+      "sourceSpanishLesson": 4,
+      "title": "A brief /t/ in café words",
+      "objective": "Place the tongue near the upper front teeth for French /t/ and move into the following vowel without a strong puff of air.",
+      "focus": "Compare tasse, table, tarte, and tôt. Keep the /t/ release brief, then sustain the following vowel without turning it into an English glide.",
+      "words": [
+        { "fr": "tasse", "en": "cup", "kind": "term" },
+        { "fr": "table", "en": "table", "kind": "term" },
+        { "fr": "tarte", "en": "tart", "kind": "term" },
+        { "fr": "thé", "en": "tea", "kind": "term" },
+        { "fr": "tôt", "en": "early", "kind": "term" },
+        { "fr": "ticket", "en": "ticket; receipt", "kind": "term" },
+        { "fr": "Je voudrais une tasse de thé.", "en": "I would like a cup of tea.", "kind": "phrase" },
+        { "fr": "La tarte est sur la table.", "en": "The tart is on the table.", "kind": "phrase" },
+        { "fr": "On arrive tôt.", "en": "We arrive early.", "kind": "phrase" },
+        { "fr": "Puis-je avoir le ticket de caisse ?", "en": "May I have the receipt?", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "J'arrive tôt au café et je m'assieds à une table.", "en": "I arrive at the café early and sit at a table." },
+        { "fr": "Je demande une tasse de thé et une part de tarte.", "en": "I ask for a cup of tea and a slice of tart." },
+        { "fr": "La tarte est sur la table à côté de ma tasse.", "en": "The tart is on the table next to my cup." },
+        { "fr": "Avant de partir, je demande le ticket.", "en": "Before leaving, I ask for the receipt." }
+      ],
+      "speaking": { "scene": "Ordering tea and tart at a café", "roles": ["customer", "server"], "opening": "Bonjour, je voudrais une tasse de thé.", "goals": ["Order tea and tart.", "Ask whether the tart is on the table.", "Ask for the receipt."], "closure": "Merci, j'ai le ticket de caisse." },
+      "practice": {
+        "see": { "prompt": "Read tasse, table, tarte, and thé while locating the initial /t/ sound.", "wordRefs": ["tasse", "table", "tarte", "thé"] },
+        "recall": { "prompt": "Recall the French word for tart before revealing it.", "answerRef": "tarte" },
+        "hear": { "prompt": "Listen for tasse or tarte in the recorded café order.", "choices": ["tasse", "tarte"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'I would like a cup of tea.'", "answerRef": "Je voudrais une tasse de thé." },
+        "say": { "prompt": "Ask the server for the receipt using a brief /t/ in ticket.", "answerRef": "Puis-je avoir le ticket de caisse ?" },
+        "write": { "prompt": "Write two French sentences ordering tea and tart and asking for the receipt.", "requiredRefs": ["thé", "tarte", "ticket"] }
+      }
+    },
+    {
+      "id": "foundation-french-sound-like-a-native:5:fr-en",
+      "n": 5,
+      "sourceSpanishLesson": 5,
+      "title": "Keep /n/ and /l/ distinct",
+      "objective": "Begin French words with a clear /n/ or /l/ and carry the distinction into a short library conversation.",
+      "focus": "For /n/, touch the tongue near the upper front teeth and let air pass through the nose; for /l/, let air flow around the tongue. Compare note and livre before joining them in a phrase.",
+      "words": [
+        { "fr": "note", "en": "note", "kind": "term" },
+        { "fr": "nom", "en": "name", "kind": "term" },
+        { "fr": "nouveau", "en": "new", "kind": "term" },
+        { "fr": "livre", "en": "book", "kind": "term" },
+        { "fr": "lampe", "en": "lamp", "kind": "term" },
+        { "fr": "lundi", "en": "Monday", "kind": "term" },
+        { "fr": "Je lis un nouveau livre.", "en": "I am reading a new book.", "kind": "phrase" },
+        { "fr": "Je note le nom du livre.", "en": "I write down the name of the book.", "kind": "phrase" },
+        { "fr": "La lampe est près du livre.", "en": "The lamp is near the book.", "kind": "phrase" },
+        { "fr": "Je le rends lundi.", "en": "I am returning it Monday.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Lundi, je cherche un nouveau livre à la bibliothèque.", "en": "On Monday, I look for a new book at the library." },
+        { "fr": "Une lampe éclaire la table des nouveautés.", "en": "A lamp lights the new-arrivals table." },
+        { "fr": "Je note le nom du livre que je choisis.", "en": "I write down the name of the book I choose." },
+        { "fr": "Je le lis chez moi et je le rends lundi prochain.", "en": "I read it at home and return it next Monday." }
+      ],
+      "speaking": { "scene": "Finding and borrowing a book at a library", "roles": ["reader", "librarian"], "opening": "Bonjour, je cherche un nouveau livre.", "goals": ["Ask for a new book.", "Repeat its name and write a note.", "Confirm a Monday return."], "closure": "Merci, je le rends lundi." },
+      "practice": {
+        "see": { "prompt": "Sort note, nom, nouveau, livre, lampe, and lundi by their initial consonant.", "wordRefs": ["note", "nom", "nouveau", "livre", "lampe", "lundi"] },
+        "recall": { "prompt": "Recall the French word for book before revealing it.", "answerRef": "livre" },
+        "hear": { "prompt": "Listen for note or livre in the recorded library sentence.", "choices": ["note", "livre"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'I write down the name of the book.'", "answerRef": "Je note le nom du livre." },
+        "say": { "prompt": "Tell the librarian that you are reading a new book.", "answerRef": "Je lis un nouveau livre." },
+        "write": { "prompt": "Write two French sentences naming the book and stating when you will return it.", "requiredRefs": ["nom", "livre", "lundi"] }
+      }
+    }
+  ]
+}

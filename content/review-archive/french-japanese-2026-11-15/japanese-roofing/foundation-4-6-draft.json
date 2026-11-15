@@ -1,0 +1,140 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stageId": "foundation-roofing",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/foundation-roofing-curriculum.ts",
+    "curriculumSha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b",
+    "readerPath": "public/lesson-content/es/foundation-roofing.json",
+    "readerSha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8",
+    "role": "English objectives, meanings and progression are anchors; Japanese grammar and scenes are authored for this pair"
+  },
+  "lessons": [
+    {
+      "n": 4,
+      "stableId": "foundation-roofing:4:ja-en",
+      "sourceEnglishObjective": "Say what you have, what is there, what you need and what you want",
+      "title": "What we have and need",
+      "objective": "Report what is available on the jobsite and ask for missing supplies.",
+      "focus": "あります reports the presence of things; 持っています reports what someone has. 必要です states a need, and 欲しいです expresses a want. Use ～がありません to say an item is missing.",
+      "cards": [
+        {"ja": "水", "en": "water"},
+        {"ja": "道具", "en": "tool"},
+        {"ja": "手袋", "en": "gloves"},
+        {"ja": "ヘルメット", "en": "hard hat"},
+        {"ja": "資材", "en": "material"},
+        {"ja": "ごみや破片", "en": "trash and debris"},
+        {"ja": "ブルーシート", "en": "tarp"},
+        {"ja": "ほうき", "en": "broom"},
+        {"ja": "問題があります。", "en": "There's a problem."},
+        {"ja": "釘がもっと必要です。", "en": "I need more nails."},
+        {"ja": "のどが渇きました。", "en": "I'm thirsty."},
+        {"ja": "フルハーネスを着ける必要があります。", "en": "You have to wear the full-body harness."}
+      ],
+      "reader": [
+        {"ja": "現場で問題があります。", "en": "There's a problem on the jobsite."},
+        {"ja": "水がありません。とても暑いです。", "en": "There's no water. It's very hot."},
+        {"ja": "のどが渇きました。冷たい水が欲しいです。", "en": "I'm thirsty and I want cold water."},
+        {"ja": "ヘルメットと手袋は持っていますが、道具が必要です。", "en": "I have the hard hat and gloves, but I need a tool."},
+        {"ja": "シングル材用の釘がもっと必要です。", "en": "I need more nails for the shingles."},
+        {"ja": "資材はトラックにあります。地面にはごみや破片があります。", "en": "There's material on the truck and debris on the ground."},
+        {"ja": "ほうきで掃いて、屋根をブルーシートで覆う必要があります。", "en": "We have to sweep with the broom and cover the roof with the tarp."}
+      ],
+      "forms": [
+        {"base": "ある", "contextJa": "現場で問題があります。", "contextEn": "There's a problem on the jobsite."},
+        {"base": "必要", "contextJa": "シングル材用の釘がもっと必要です。", "contextEn": "I need more nails for the shingles."}
+      ],
+      "speaking": {"role": "crew member requesting supplies", "opening": "ヘルメットと手袋は持っていますが、釘がもっと必要です。", "goal": "Tell the lead what you have, what is missing, and what you need."},
+      "modes": {"see": "Find what is missing and what the worker already has.", "recall": "Recall the Japanese expressions for water, gloves, and nails.", "hear": "Distinguish あります from ありません when spoken.", "type": "Type 'I need more nails.' in Japanese.", "say": "Tell the crew lead which supplies you have and need.", "write": "Write two sentences about available and missing supplies."}
+    },
+    {
+      "n": 5,
+      "stableId": "foundation-roofing:5:ja-en",
+      "sourceEnglishObjective": "Talk about plans, actions and what you can do",
+      "title": "Plans for the day",
+      "objective": "Explain today's and tomorrow's plans and ask a coworker for help.",
+      "focus": "The Japanese non-past ～ます form can describe a planned action. ～ましょう invites someone to begin; ～てもらえますか is a polite way to ask for help. 今日, 今, あとで, and 明日 order the plan.",
+      "cards": [
+        {"ja": "今日", "en": "today"},
+        {"ja": "明日", "en": "tomorrow"},
+        {"ja": "今", "en": "now"},
+        {"ja": "あとで", "en": "after, later"},
+        {"ja": "現場", "en": "jobsite"},
+        {"ja": "トラック", "en": "truck"},
+        {"ja": "家", "en": "house"},
+        {"ja": "早く", "en": "early"},
+        {"ja": "屋根に上がります。", "en": "I'm going to go up on the roof."},
+        {"ja": "手伝ってもらえますか。", "en": "Can you help me?"},
+        {"ja": "暑いです。", "en": "It's hot (weather)."},
+        {"ja": "始めましょう。", "en": "Let's start."}
+      ],
+      "reader": [
+        {"ja": "今日は新しい家に行きます。", "en": "Today we're going to a new house."},
+        {"ja": "トラックで現場に早く着きます。", "en": "We get to the jobsite early in the truck."},
+        {"ja": "今、屋根に上がります。", "en": "Now I'm going to go up on the roof."},
+        {"ja": "暑いので、作業を手早く進めます。", "en": "It's hot, so we work quickly."},
+        {"ja": "はしごを運ぶのを手伝ってもらえますか。", "en": "Can you help me carry the ladder?"},
+        {"ja": "そのあとで片づけをします。", "en": "After that we do the cleanup."},
+        {"ja": "明日は別の屋根の仕事を始めます。", "en": "Tomorrow we're going to start another roof job."}
+      ],
+      "forms": [
+        {"base": "行く", "contextJa": "今日は新しい家に行きます。", "contextEn": "Today we're going to a new house."},
+        {"base": "始める", "contextJa": "明日は別の屋根の仕事を始めます。", "contextEn": "Tomorrow we're going to start another roof job."}
+      ],
+      "speaking": {"role": "worker explaining a daily plan", "opening": "今日は新しい家に行きます。はしごを運ぶのを手伝ってもらえますか。", "goal": "Explain today's plan, ask for help, and say what comes next."},
+      "modes": {"see": "Find today's destination and tomorrow's plan.", "recall": "Recall how to say today, now, later, and tomorrow.", "hear": "Distinguish 今日 from 明日 in spoken Japanese.", "type": "Type 'Can you help me?' in Japanese.", "say": "Tell a coworker your plan and ask for help with the ladder.", "write": "Write one sentence about today and another about tomorrow."}
+    },
+    {
+      "n": 6,
+      "stableId": "foundation-roofing:6:ja-en",
+      "sourceEnglishObjective": "Say what you and the crew do every day with regular verbs",
+      "title": "A normal workday",
+      "objective": "Describe a crew's habitual workday with times and present-form verbs.",
+      "focus": "The ～ます form expresses repeated or scheduled actions. ～ています can describe an ongoing job or work habit. Mark a specific time with に; use 毎週 and 週に to talk about weekly routines.",
+      "cards": [
+        {"ja": "仕事", "en": "work, job"},
+        {"ja": "朝", "en": "morning"},
+        {"ja": "午後", "en": "afternoon"},
+        {"ja": "作業班", "en": "crew"},
+        {"ja": "同僚", "en": "coworker"},
+        {"ja": "一日", "en": "day"},
+        {"ja": "一週間", "en": "week"},
+        {"ja": "昼食", "en": "lunch"},
+        {"ja": "屋根の仕事をしています。", "en": "I work on roofs."},
+        {"ja": "七時に屋根に上がります。", "en": "We go up at seven."},
+        {"ja": "どこに住んでいますか。", "en": "Where do you live?"},
+        {"ja": "最後に片づけます。", "en": "We clean up at the end."}
+      ],
+      "reader": [
+        {"ja": "週に五日、屋根の仕事をしています。", "en": "I work on roofs five days a week."},
+        {"ja": "作業班は朝六時に現場に着きます。", "en": "The crew gets to the jobsite at six in the morning."},
+        {"ja": "七時に屋根に上がります。", "en": "We go up at seven."},
+        {"ja": "同僚はシングル材を切り、私は釘を打ちます。", "en": "My coworker cuts the shingles and I drive nails."},
+        {"ja": "正午に昼食を食べます。", "en": "We eat lunch at twelve."},
+        {"ja": "午後、作業班は古い資材を下ろします。", "en": "In the afternoon, the crew brings down the old material."},
+        {"ja": "一日の最後に片づけます。", "en": "We clean up at the end of the day."}
+      ],
+      "forms": [
+        {"base": "着く", "contextJa": "作業班は朝六時に現場に着きます。", "contextEn": "The crew gets to the jobsite at six in the morning."},
+        {"base": "打つ", "contextJa": "同僚はシングル材を切り、私は釘を打ちます。", "contextEn": "My coworker cuts the shingles and I drive nails."}
+      ],
+      "speaking": {"role": "worker describing a routine", "opening": "作業班は朝六時に現場に着きます。七時に屋根に上がります。", "goal": "Describe arrival, morning work, lunch, afternoon work, and cleanup."},
+      "modes": {"see": "Find the crew's morning and afternoon actions in the reading.", "recall": "Recall how to say crew, coworker, and lunch.", "hear": "Distinguish 六時 and 七時 when spoken.", "type": "Type 'We clean up at the end.' in Japanese.", "say": "Describe a normal workday from arrival to cleanup.", "write": "Write three sentences about the crew's usual workday."}
+    }
+  ],
+  "reviewGates": {
+    "independentJapaneseReview": false,
+    "qualifiedRoofingReview": false,
+    "sixModeRuntime": false,
+    "dictionarySenses": false,
+    "offlineVerified": false,
+    "recordedAudioListening": false,
+    "phoneAndNativeAcceptance": false
+  }
+}

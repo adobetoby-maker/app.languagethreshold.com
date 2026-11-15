@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "core",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "core-french-sound-like-a-native:24:fr-en",
+      "n": 24,
+      "sourceSpanishLesson": 24,
+      "title": "Hear a vowel change the form",
+      "objective": "Distinguish /e/ and /ɛ/ in French words and verb forms while planning a walk.",
+      "focus": "Compare pré /pʁe/ (meadow) with prêt /pʁɛ/ (ready), and parlé /paʁle/ (spoken) with parlais /paʁlɛ/ (I was speaking). Listen to the final vowel and use the sentence to recover the intended meaning.",
+      "words": [
+        { "fr": "pré", "en": "meadow", "kind": "term" },
+        { "fr": "prêt", "en": "ready (masculine singular)", "kind": "term" },
+        { "fr": "été", "en": "summer", "kind": "term" },
+        { "fr": "étais", "en": "was; were (imperfect form of être)", "kind": "term" },
+        { "fr": "parlé", "en": "spoken (past participle of parler)", "kind": "term" },
+        { "fr": "parlais", "en": "was speaking (first-person imperfect of parler)", "kind": "term" },
+        { "fr": "Je suis prêt pour la promenade.", "en": "I'm ready for the walk.", "kind": "phrase" },
+        { "fr": "Nous traversons le pré en été.", "en": "We cross the meadow in summer.", "kind": "phrase" },
+        { "fr": "J'ai parlé du trajet avec Léa.", "en": "I spoke about the route with Léa.", "kind": "phrase" },
+        { "fr": "Je parlais du sentier, pas du pré.", "en": "I was talking about the path, not the meadow.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "En été, Marc prépare une promenade avec Léa.", "en": "In summer, Marc plans a walk with Léa." },
+        { "fr": "Il est prêt à traverser le pré derrière la maison.", "en": "He is ready to cross the meadow behind the house." },
+        { "fr": "Hier, il a parlé du trajet avec Léa.", "en": "Yesterday, he spoke about the route with Léa." },
+        { "fr": "Quand il parlait du sentier, Léa regardait la carte du pré.", "en": "When he was talking about the path, Léa was looking at the map of the meadow." }
+      ],
+      "speaking": {
+        "scene": "Clarifying a walking route near a meadow",
+        "roles": ["walker", "friend"],
+        "opening": "Bonjour, je suis prêt pour la promenade.",
+        "goals": ["Say when you cross the meadow.", "Explain that you spoke with Léa about the route.", "Clarify that you meant the path, not the meadow."],
+        "closure": "Merci, nous sommes prêts à partir."
+      },
+      "practice": {
+        "see": { "prompt": "Locate /e/ and /ɛ/ in pré, prêt, parlé, and parlais, then match each form to its meaning.", "wordRefs": ["pré", "prêt", "parlé", "parlais"] },
+        "recall": { "prompt": "Recall the French sentence saying you are ready for the walk.", "answerRef": "Je suis prêt pour la promenade." },
+        "hear": { "prompt": "Listen for pré or prêt in the recorded walking phrase.", "choices": ["pré", "prêt"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'We cross the meadow in summer.'", "answerRef": "Nous traversons le pré en été." },
+        "say": { "prompt": "Clarify that you were talking about the path rather than the meadow.", "answerRef": "Je parlais du sentier, pas du pré." },
+        "write": { "prompt": "Write two French sentences contrasting being ready with crossing the meadow and explaining what you discussed.", "requiredRefs": ["prêt", "pré", "parlé"] }
+      }
+    },
+    {
+      "id": "core-french-sound-like-a-native:25:fr-en",
+      "n": 25,
+      "sourceSpanishLesson": 25,
+      "title": "Join vowels with French glides",
+      "objective": "Hear /j/, /ɥ/, and /w/ in common French words during a train exchange.",
+      "focus": "Hear /j/ in hier and billet, /ɥ/ in huit and nuit, and /w/ in moi and trois. Move smoothly from the glide into the following vowel instead of giving the written vowel letters separate beats in these words.",
+      "words": [
+        { "fr": "hier", "en": "yesterday", "kind": "term" },
+        { "fr": "huit", "en": "eight", "kind": "term" },
+        { "fr": "moi", "en": "me", "kind": "term" },
+        { "fr": "billet", "en": "ticket", "kind": "term" },
+        { "fr": "nuit", "en": "night", "kind": "term" },
+        { "fr": "trois", "en": "three", "kind": "term" },
+        { "fr": "J'ai trois billets pour le train de nuit.", "en": "I have three tickets for the night train.", "kind": "phrase" },
+        { "fr": "Le train part à huit heures.", "en": "The train leaves at eight o'clock.", "kind": "phrase" },
+        { "fr": "Hier, j'ai acheté les billets.", "en": "Yesterday, I bought the tickets.", "kind": "phrase" },
+        { "fr": "Et moi, je pars demain.", "en": "And I'm leaving tomorrow.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Hier, Ana a acheté trois billets pour le train de nuit.", "en": "Yesterday, Ana bought three tickets for the night train." },
+        { "fr": "Le train part à huit heures de la gare centrale.", "en": "The train leaves the central station at eight o'clock." },
+        { "fr": "Ana donne un billet à chacun de ses amis.", "en": "Ana gives a ticket to each of her friends." },
+        { "fr": "Son frère lui dit : « Et moi, je pars demain. »", "en": "Her brother tells her, 'And I'm leaving tomorrow.'" }
+      ],
+      "speaking": {
+        "scene": "Checking night-train tickets at a station",
+        "roles": ["traveler", "station clerk"],
+        "opening": "Bonjour, j'ai trois billets pour le train de nuit.",
+        "goals": ["Confirm the departure time.", "Say when you bought the tickets.", "Explain that another traveler leaves tomorrow."],
+        "closure": "Merci, le train part bien à huit heures."
+      },
+      "practice": {
+        "see": { "prompt": "Group hier and billet under /j/, huit and nuit under /ɥ/, and moi and trois under /w/.", "wordRefs": ["hier", "billet", "huit", "nuit", "moi", "trois"] },
+        "recall": { "prompt": "Recall how many night-train tickets the traveler has.", "answerRef": "J'ai trois billets pour le train de nuit." },
+        "hear": { "prompt": "Listen for huit or nuit in the recorded train phrase.", "choices": ["huit", "nuit"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'Yesterday, I bought the tickets.'", "answerRef": "Hier, j'ai acheté les billets." },
+        "say": { "prompt": "Tell the clerk when the train leaves.", "answerRef": "Le train part à huit heures." },
+        "write": { "prompt": "Write two French sentences giving the ticket count and the departure time.", "requiredRefs": ["trois", "billet", "huit"] }
+      }
+    },
+    {
+      "id": "core-french-sound-like-a-native:26:fr-en",
+      "n": 26,
+      "sourceSpanishLesson": 26,
+      "title": "Keep adjacent vowels distinct",
+      "objective": "Hear adjacent vowels in separate syllables in French words from a poetry-event exchange.",
+      "focus": "In Noël, poète, poésie, théâtre, réunion, and aéroport, listen for neighboring vowel sounds across a syllable boundary. The tréma in Noël helps show that ë is pronounced separately; do not turn these sequences into the glides practiced in the previous lesson.",
+      "words": [
+        { "fr": "Noël", "en": "Christmas", "kind": "term" },
+        { "fr": "poète", "en": "poet", "kind": "term" },
+        { "fr": "poésie", "en": "poetry", "kind": "term" },
+        { "fr": "théâtre", "en": "theater", "kind": "term" },
+        { "fr": "réunion", "en": "meeting", "kind": "term" },
+        { "fr": "aéroport", "en": "airport", "kind": "term" },
+        { "fr": "Le poète arrive à l'aéroport.", "en": "The poet arrives at the airport.", "kind": "phrase" },
+        { "fr": "La réunion a lieu au théâtre.", "en": "The meeting takes place at the theater.", "kind": "phrase" },
+        { "fr": "Nous lisons de la poésie à Noël.", "en": "We read poetry at Christmas.", "kind": "phrase" },
+        { "fr": "J'attends le poète après la réunion.", "en": "I'm waiting for the poet after the meeting.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "À Noël, le théâtre organise une soirée de poésie.", "en": "At Christmas, the theater organizes a poetry evening." },
+        { "fr": "Un poète arrive de l'aéroport pour lire ses textes.", "en": "A poet arrives from the airport to read his work." },
+        { "fr": "La réunion avec l'équipe du théâtre commence à dix heures.", "en": "The meeting with the theater team starts at ten o'clock." },
+        { "fr": "Après la réunion, le poète prépare sa lecture de Noël.", "en": "After the meeting, the poet prepares his Christmas reading." }
+      ],
+      "speaking": {
+        "scene": "Organizing a Christmas poetry evening",
+        "roles": ["organizer", "theater colleague"],
+        "opening": "Bonjour, la réunion a lieu au théâtre.",
+        "goals": ["Say when the poetry event takes place.", "Confirm where the poet arrives.", "Explain when you will meet the poet."],
+        "closure": "Merci, j'attends le poète après la réunion."
+      },
+      "practice": {
+        "see": { "prompt": "Find the neighboring written vowels that are spoken separately in Noël, poète, poésie, théâtre, réunion, and aéroport.", "wordRefs": ["Noël", "poète", "poésie", "théâtre", "réunion", "aéroport"] },
+        "recall": { "prompt": "Recall where the meeting takes place.", "answerRef": "La réunion a lieu au théâtre." },
+        "hear": { "prompt": "Listen for poète or poésie in the recorded event phrase.", "choices": ["poète", "poésie"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The poet arrives at the airport.'", "answerRef": "Le poète arrive à l'aéroport." },
+        "say": { "prompt": "Tell your colleague when you will wait for the poet.", "answerRef": "J'attends le poète après la réunion." },
+        "write": { "prompt": "Write two French sentences placing the poet's arrival and the meeting at the theater.", "requiredRefs": ["poète", "aéroport", "réunion", "théâtre"] }
+      }
+    }
+  ]
+}

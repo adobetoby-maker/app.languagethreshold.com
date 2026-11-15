@@ -1,0 +1,141 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stageId": "foundation-roofing",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/foundation-roofing-curriculum.ts",
+    "curriculumSha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b",
+    "readerPath": "public/lesson-content/es/foundation-roofing.json",
+    "readerSha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8",
+    "role": "English objectives, meanings and progression are anchors; Japanese grammar and scenes are authored for this pair"
+  },
+  "lessons": [
+    {
+      "n": 1,
+      "stableId": "foundation-roofing:1:ja-en",
+      "sourceEnglishObjective": "Say Spanish vowels and the sounds English speakers miss, and greet the crew",
+      "title": "First greeting on the roof",
+      "objective": "Greet a crew member, introduce yourself, and ask for a roofing tool by name.",
+      "focus": "おはようございます is a polite morning greeting. です marks a polite statement; ください makes a request. Katakana writes loanwords such as ハンマー and フルハーネス. Practice the long vowel in ロープ and the small っ in ゆっくり.",
+      "cards": [
+        {"ja": "屋根", "en": "the roof"},
+        {"ja": "シングル材", "en": "the roof shingle material"},
+        {"ja": "釘", "en": "the nail"},
+        {"ja": "ハンマー", "en": "the hammer"},
+        {"ja": "はしご", "en": "the ladder"},
+        {"ja": "手押し車", "en": "the wheelbarrow"},
+        {"ja": "フルハーネス", "en": "the full-body harness"},
+        {"ja": "ロープ", "en": "the rope"},
+        {"ja": "おはようございます。", "en": "Good morning."},
+        {"ja": "日本語で何と言いますか。", "en": "How do you say it in Japanese?"},
+        {"ja": "もう少しゆっくりお願いします。", "en": "A little slower, please."},
+        {"ja": "もう一度お願いします。", "en": "One more time, please."}
+      ],
+      "reader": [
+        {"ja": "おはようございます。ルイスです。新人です。", "en": "Good morning. I'm Luis. I'm new."},
+        {"ja": "今日は、はしごを使って屋根に上がります。", "en": "Today I go up to the roof using the ladder."},
+        {"ja": "フルハーネスとロープとハンマーが必要です。", "en": "I need the full-body harness, the rope, and the hammer."},
+        {"ja": "シングル材と釘は手押し車にあります。", "en": "The shingle material and nails are in the wheelbarrow."},
+        {"ja": "英語の「ladder」は日本語で何と言いますか。", "en": "How do you say 'ladder' in Japanese?"},
+        {"ja": "同僚の話す速さについていけません。", "en": "I cannot keep up with how fast my coworker speaks."},
+        {"ja": "もう少しゆっくりお願いします。", "en": "A little slower, please."}
+      ],
+      "forms": [
+        {"base": "言う", "contextJa": "英語の「ladder」は日本語で何と言いますか。", "contextEn": "How do you say 'ladder' in Japanese?"},
+        {"base": "お願いする", "contextJa": "もう少しゆっくりお願いします。", "contextEn": "A little slower, please."}
+      ],
+      "speaking": {"role": "new crew member", "opening": "おはようございます。ルイスです。はしごは日本語で何と言いますか。", "goal": "Introduce yourself and ask for two tool names."},
+      "modes": {"see": "Find the greeting and the request to speak more slowly in the dialogue.", "recall": "Recall the Japanese words for ladder, hammer, and rope.", "hear": "Distinguish はしご from ハンマー when spoken.", "type": "Type the polite request for someone to repeat.", "say": "Introduce yourself to a crew member and ask how to name a tool.", "write": "Write two sentences: introduce yourself, then ask someone to speak more slowly."}
+    },
+    {
+      "n": 2,
+      "stableId": "foundation-roofing:2:ja-en",
+      "sourceEnglishObjective": "Count, tell time, and give measurements and quantities on the job",
+      "title": "Bundles, time, and measurements",
+      "objective": "Ask for a quantity, state a start time, and report feet, inches, pounds, and metric equivalents.",
+      "focus": "時 marks clock time; 分 marks minutes. 束 counts bundles. フィート, インチ, and ポンド are loanwords for U.S. measurements; メートル is metric. Use 何束 for 'how many bundles?' and ～です for a polite report.",
+      "cards": [
+        {"ja": "数", "en": "the number"},
+        {"ja": "時間", "en": "the time"},
+        {"ja": "フィート", "en": "the foot (measurement)"},
+        {"ja": "インチ", "en": "the inch"},
+        {"ja": "ポンド", "en": "the pound (weight)"},
+        {"ja": "一束", "en": "one bundle"},
+        {"ja": "メートル", "en": "the meter"},
+        {"ja": "分", "en": "the minute"},
+        {"ja": "何束必要ですか。", "en": "How many bundles do we need?"},
+        {"ja": "七時です。", "en": "It's seven o'clock."},
+        {"ja": "十フィートです。", "en": "It measures ten feet."},
+        {"ja": "六時に始めます。", "en": "We start at six."}
+      ],
+      "reader": [
+        {"ja": "朝六時に始めます。", "en": "We start at six in the morning."},
+        {"ja": "トラックは二十分後に来ます。", "en": "The truck arrives in twenty minutes."},
+        {"ja": "今日はシングル材が何束必要ですか。", "en": "How many bundles of shingles do we need today?"},
+        {"ja": "三十束必要です。", "en": "We need thirty bundles."},
+        {"ja": "一束は約七十ポンドです。", "en": "Each bundle weighs about seventy pounds."},
+        {"ja": "壁は十フィート、約三メートルです。", "en": "The wall measures ten feet, about three meters."},
+        {"ja": "釘の長さは一インチ半です。", "en": "The nail is one and a half inches long."},
+        {"ja": "数と時間を紙に書きます。", "en": "I write the number and time on paper."}
+      ],
+      "forms": [
+        {"base": "始める", "contextJa": "朝六時に始めます。", "contextEn": "We start at six in the morning."},
+        {"base": "必要", "contextJa": "今日はシングル材が何束必要ですか。", "contextEn": "How many bundles of shingles do we need today?"}
+      ],
+      "speaking": {"role": "crew member reporting quantities", "opening": "朝六時に始めます。今日はシングル材が何束必要ですか。", "goal": "Give a start time, a bundle count, and one measurement."},
+      "modes": {"see": "Find the start time, bundle count, and nail length in the reading.", "recall": "Recall how to ask how many bundles are needed.", "hear": "Distinguish 二十分 from 三十束 in spoken Japanese.", "type": "Type the Japanese sentence 'We start at six.'", "say": "Tell a colleague the start time and bundle count.", "write": "Write a short job note with a time, quantity, and measurement."}
+    },
+    {
+      "n": 3,
+      "stableId": "foundation-roofing:3:ja-en",
+      "sourceEnglishObjective": "Use the two verbs for 'to be' to describe people, conditions and safety",
+      "title": "People and roof conditions",
+      "objective": "Identify a crew lead and describe the roof and equipment conditions in Japanese.",
+      "focus": "Japanese expresses identity and current conditions with different constructions. Use ～です for a polite identity statement, ～ています for a current condition, and adjectives such as 滑りやすい and 暑い to describe what you observe.",
+      "cards": [
+        {"ja": "準備ができています", "en": "ready"},
+        {"ja": "安全です", "en": "safe"},
+        {"ja": "危険です", "en": "dangerous"},
+        {"ja": "ぬれています", "en": "wet"},
+        {"ja": "滑りやすいです", "en": "slippery"},
+        {"ja": "暑いです", "en": "hot (weather/air)"},
+        {"ja": "寒いです", "en": "cold (weather/air)"},
+        {"ja": "班長", "en": "the crew lead"},
+        {"ja": "屋根はぬれています。", "en": "The roof is wet."},
+        {"ja": "危険です。", "en": "It's dangerous."},
+        {"ja": "準備はできていますか。", "en": "Is it ready?"},
+        {"ja": "ここにいます。", "en": "I'm here."}
+      ],
+      "reader": [
+        {"ja": "ペドロです。私は班長です。", "en": "I'm Pedro. I'm the crew lead."},
+        {"ja": "今日は屋根がぬれています。", "en": "Today the roof is wet."},
+        {"ja": "ぬれた屋根は滑りやすくて危険です。", "en": "A wet roof is slippery and dangerous."},
+        {"ja": "朝は空気が冷たいです。", "en": "The air is cold in the morning."},
+        {"ja": "午後二時には屋根が熱くなります。", "en": "At two in the afternoon the roof becomes hot."},
+        {"ja": "道具の準備はできていますか。", "en": "Is the equipment ready?"},
+        {"ja": "はい、フルハーネスは準備できています。", "en": "Yes, the full-body harness is ready."}
+      ],
+      "forms": [
+        {"base": "ぬれる", "contextJa": "今日は屋根がぬれています。", "contextEn": "Today the roof is wet."},
+        {"base": "なる", "contextJa": "午後二時には屋根が熱くなります。", "contextEn": "At two in the afternoon the roof becomes hot."}
+      ],
+      "speaking": {"role": "crew member reporting roof conditions", "opening": "ペドロさん、今日は屋根がぬれています。道具の準備はできていますか。", "goal": "Identify the crew lead and describe the roof's current condition."},
+      "modes": {"see": "Find who the crew lead is and how the roof is described.", "recall": "Recall the Japanese expressions for wet, slippery, and ready.", "hear": "Distinguish ぬれています from 準備ができています when spoken.", "type": "Type 'The roof is wet.' in Japanese.", "say": "Tell the crew lead the roof's current condition.", "write": "Write two sentences: identify the crew lead and describe the roof."}
+    }
+  ],
+  "reviewGates": {
+    "independentJapaneseReview": false,
+    "qualifiedRoofingReview": false,
+    "sixModeRuntime": false,
+    "dictionarySenses": false,
+    "offlineVerified": false,
+    "recordedAudioListening": false,
+    "phoneAndNativeAcceptance": false
+  }
+}

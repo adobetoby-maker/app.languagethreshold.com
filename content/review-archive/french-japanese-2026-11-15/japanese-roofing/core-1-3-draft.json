@@ -1,0 +1,536 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "core",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "englishSourceSubsetSHA256": "4b9c71b1b052de840d50eb945d9d68cdeef55525cd0a6ef6b6e4b9ef453956db",
+  "sourceFileSHA256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+  },
+  "lessons": [
+    {
+      "n": 1,
+      "stableId": "roofing:1:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Name the Roof System",
+      "sourceEnglishObjective": "Identify the job's roof system and main materials",
+      "sourceEnglishSpeaking": "Tell a crew member which roof system and materials today's job uses.",
+      "title": "屋根の構成と材料",
+      "objective": "現場の屋根構成と主な材料を日本語で確認する。",
+      "focus": "この屋根は～です names the system; ～を使います names the material. 陸屋根 and 勾配屋根 distinguish flat and sloped roofs. ～ですか forms a polite question.",
+      "cards": [
+        {
+          "ja": "シングル材",
+          "en": "shingle",
+          "kind": "term"
+        },
+        {
+          "ja": "屋根瓦",
+          "en": "tile",
+          "kind": "term"
+        },
+        {
+          "ja": "金属屋根パネル",
+          "en": "metal panel",
+          "kind": "term"
+        },
+        {
+          "ja": "屋根下地",
+          "en": "roof deck",
+          "kind": "term"
+        },
+        {
+          "ja": "屋根",
+          "en": "roof",
+          "kind": "term"
+        },
+        {
+          "ja": "屋根構成",
+          "en": "roof system",
+          "kind": "term"
+        },
+        {
+          "ja": "陸屋根",
+          "en": "flat roof",
+          "kind": "term"
+        },
+        {
+          "ja": "勾配屋根",
+          "en": "sloped roof",
+          "kind": "term"
+        },
+        {
+          "ja": "屋根勾配",
+          "en": "roof pitch",
+          "kind": "term"
+        },
+        {
+          "ja": "天窓",
+          "en": "skylight",
+          "kind": "term"
+        },
+        {
+          "ja": "この屋根には何の材料を使いますか。",
+          "en": "What material does this roof have?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "今日はアスファルトシングルを施工します。",
+          "en": "Today we are installing asphalt shingles.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この屋根は金属屋根パネルです。",
+          "en": "This roof is metal panel.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この屋根は陸屋根ですか、勾配屋根ですか。",
+          "en": "Is the roof flat or sloped?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "始める前に屋根勾配を確認してください。",
+          "en": "Check the roof pitch before we start.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "今日は新しい現場での初日です。",
+          "en": "Today is the first day at the new job site."
+        },
+        {
+          "ja": "職長は作業員と一緒に屋根を見て回ります。",
+          "en": "The foreman walks the roof with the crew."
+        },
+        {
+          "ja": "この屋根は陸屋根ではなく、勾配屋根です。",
+          "en": "This roof is sloped, not flat."
+        },
+        {
+          "ja": "屋根構成にはアスファルトシングルを使います。",
+          "en": "It is a roof system with asphalt shingles."
+        },
+        {
+          "ja": "職長は「この屋根には何の材料を使いますか」と聞きます。",
+          "en": "The foreman asks: What material does this roof have?"
+        },
+        {
+          "ja": "作業員は屋根を見て、アスファルトシングルだと答えます。",
+          "en": "A worker looks at the roof and answers that they are asphalt shingles."
+        },
+        {
+          "ja": "裏側には天窓もあります。",
+          "en": "There is also a skylight at the back."
+        },
+        {
+          "ja": "始める前に屋根勾配を確認してください。",
+          "en": "Check the roof pitch before we start."
+        }
+      ],
+      "forms": [
+        {
+          "base": "確認する",
+          "exampleJa": "始める前に屋根勾配を確認してください。",
+          "meaningEnglish": "to check",
+          "exampleEnglish": "Check the roof pitch before we start.",
+          "sourceInfinitiveSpanish": "revisar"
+        },
+        {
+          "base": "使う",
+          "exampleJa": "この屋根には何の材料を使いますか。",
+          "meaningEnglish": "to have",
+          "exampleEnglish": "What material does this roof have?",
+          "sourceInfinitiveSpanish": "tener"
+        },
+        {
+          "base": "施工する",
+          "exampleJa": "今日はアスファルトシングルを施工します。",
+          "meaningEnglish": "to install",
+          "exampleEnglish": "Today we install asphalt shingles.",
+          "sourceInfinitiveSpanish": "instalar"
+        },
+        {
+          "base": "見る",
+          "exampleJa": "作業員は屋根を見ます。",
+          "meaningEnglish": "to look at",
+          "exampleEnglish": "A worker looks at the roof.",
+          "sourceInfinitiveSpanish": "mirar"
+        },
+        {
+          "base": "歩く",
+          "exampleJa": "職長は屋根の上を歩きます。",
+          "meaningEnglish": "to walk",
+          "exampleEnglish": "The foreman walks on the roof.",
+          "sourceInfinitiveSpanish": "caminar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "この屋根は勾配屋根です。今日はアスファルトシングルを施工します。",
+        "goal": "Tell a crew member which roof system and materials today's job uses."
+      },
+      "modes": {
+        "see": "Find the roof type and material in the scene.",
+        "recall": "Recall the terms for roof deck, pitch, and skylight.",
+        "hear": "Distinguish 陸屋根 from 勾配屋根 when spoken.",
+        "type": "Type 'Is the roof flat or sloped?' in Japanese.",
+        "say": "Tell a crew member the roof type and covering material.",
+        "write": "Write two sentences identifying the roof type and its material."
+      }
+    },
+    {
+      "n": 2,
+      "stableId": "roofing:2:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Deck, Underlayment & Edges",
+      "sourceEnglishObjective": "Name the layers beneath the finished roof",
+      "sourceEnglishSpeaking": "Point out the deck, underlayment, and edge on a roof plan.",
+      "title": "下地、防水層、端部",
+      "objective": "仕上げ材の下にある屋根下地、防水層、端部の名称を言う。",
+      "focus": "～の上に marks a layer above another; ～の前に marks sequence. 軒先 is the lower eave edge, while けらば is the sloped gable edge. ～はどこに付きますか asks placement.",
+      "cards": [
+        {
+          "ja": "屋根下地",
+          "en": "roof deck",
+          "kind": "term"
+        },
+        {
+          "ja": "ルーフィング",
+          "en": "underlayment",
+          "kind": "term"
+        },
+        {
+          "ja": "フェルトルーフィング",
+          "en": "felt paper",
+          "kind": "term"
+        },
+        {
+          "ja": "水切り金物",
+          "en": "drip edge",
+          "kind": "term"
+        },
+        {
+          "ja": "下地板",
+          "en": "sheathing",
+          "kind": "term"
+        },
+        {
+          "ja": "軒先",
+          "en": "eave",
+          "kind": "term"
+        },
+        {
+          "ja": "けらば",
+          "en": "rake",
+          "kind": "term"
+        },
+        {
+          "ja": "合板",
+          "en": "plywood",
+          "kind": "term"
+        },
+        {
+          "ja": "合成ルーフィング",
+          "en": "synthetic underlayment",
+          "kind": "term"
+        },
+        {
+          "ja": "まず水切り金物を取り付けてください。",
+          "en": "Install the drip edge first.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ルーフィングの前に屋根下地を掃いてください。",
+          "en": "Sweep the deck before underlayment.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "屋根下地は乾いていて、きれいでなければなりません。",
+          "en": "The deck must be dry and clean.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ルーフィングを広げてください。",
+          "en": "Roll out the underlayment.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "水切り金物はどこに付きますか。",
+          "en": "Where does the drip edge go?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "作業員はシングル材の下にある層を見ます。",
+          "en": "The crew looks at the layers under the shingles."
+        },
+        {
+          "ja": "一番下には合板の屋根下地があります。",
+          "en": "At the bottom is the roof deck, which is plywood."
+        },
+        {
+          "ja": "屋根下地は乾いていて、きれいでなければなりません。",
+          "en": "The deck has to be dry and clean."
+        },
+        {
+          "ja": "その上に、たとえばフェルトルーフィングを敷きます。",
+          "en": "The underlayment goes on top, for example felt paper."
+        },
+        {
+          "ja": "職長は「水切り金物はどこに付きますか」と聞きます。",
+          "en": "The foreman asks: Where does the drip edge go?"
+        },
+        {
+          "ja": "作業員は軒先とけらばの端を指します。",
+          "en": "A worker points to the eave edge and the rake edge."
+        },
+        {
+          "ja": "それから職長は「ルーフィングを広げてください」と指示します。",
+          "en": "Then the foreman orders: unroll the underlayment."
+        }
+      ],
+      "forms": [
+        {
+          "base": "取り付ける",
+          "exampleJa": "まず水切り金物を取り付けてください。",
+          "meaningEnglish": "to install",
+          "exampleEnglish": "Install the drip edge first.",
+          "sourceInfinitiveSpanish": "instalar"
+        },
+        {
+          "base": "掃く",
+          "exampleJa": "ルーフィングの前に屋根下地を掃いてください。",
+          "meaningEnglish": "to sweep",
+          "exampleEnglish": "Sweep the deck before the underlayment.",
+          "sourceInfinitiveSpanish": "barrer"
+        },
+        {
+          "base": "広げる",
+          "exampleJa": "それから職長は「ルーフィングを広げてください」と指示します。",
+          "meaningEnglish": "to unroll",
+          "exampleEnglish": "Then the foreman orders: unroll the underlayment.",
+          "sourceInfinitiveSpanish": "desenrollar"
+        },
+        {
+          "base": "指す",
+          "exampleJa": "作業員は軒先を指します。",
+          "meaningEnglish": "to point out",
+          "exampleEnglish": "A worker points to the eave edge.",
+          "sourceInfinitiveSpanish": "señalar"
+        },
+        {
+          "base": "聞く",
+          "exampleJa": "職長は「水切り金物はどこに付きますか」と聞きます。",
+          "meaningEnglish": "to ask",
+          "exampleEnglish": "The foreman asks: Where does the drip edge go?",
+          "sourceInfinitiveSpanish": "preguntar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "屋根下地はここです。その上にルーフィングを敷きます。",
+        "goal": "Point out the deck, underlayment, and edge on a roof plan."
+      },
+      "modes": {
+        "see": "Find the deck and the layer above it.",
+        "recall": "Recall the terms for underlayment, eave, and rake.",
+        "hear": "Distinguish 軒先 from けらば when spoken.",
+        "type": "Type 'Where does the drip edge go?' in Japanese.",
+        "say": "Point out the deck, underlayment, and roof edge on a plan.",
+        "write": "Describe the deck and the layer placed above it."
+      }
+    },
+    {
+      "n": 3,
+      "stableId": "roofing:3:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Flashing & Valleys",
+      "sourceEnglishObjective": "Identify common water-entry details",
+      "sourceEnglishSpeaking": "Ask the lead to show you each flashing and valley location.",
+      "title": "水切りと谷部",
+      "objective": "雨水が入りやすい屋根の接合部と水切りを特定する。",
+      "focus": "～のそばに locates flashing beside a wall; ～に沿って follows a valley. ～を見せてください requests a location, and ～がないか確認する asks to check for leaks.",
+      "cards": [
+        {
+          "ja": "水切り板金",
+          "en": "flashing",
+          "kind": "term"
+        },
+        {
+          "ja": "段状水切り板金",
+          "en": "step flashing",
+          "kind": "term"
+        },
+        {
+          "ja": "谷部",
+          "en": "valley",
+          "kind": "term"
+        },
+        {
+          "ja": "自己粘着防水シート",
+          "en": "ice and water shield",
+          "kind": "term"
+        },
+        {
+          "ja": "煙突",
+          "en": "chimney",
+          "kind": "term"
+        },
+        {
+          "ja": "壁",
+          "en": "wall",
+          "kind": "term"
+        },
+        {
+          "ja": "雨漏り",
+          "en": "leak",
+          "kind": "term"
+        },
+        {
+          "ja": "シーリング材",
+          "en": "sealant",
+          "kind": "term"
+        },
+        {
+          "ja": "屋根用アスファルトセメント",
+          "en": "roofing cement",
+          "kind": "term"
+        },
+        {
+          "ja": "シングル材の各段の下に段状水切り板金を入れてください。",
+          "en": "Step flashing under each shingle course.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "谷部に沿って自己粘着防水シートを敷いてください。",
+          "en": "Run ice and water shield up the valley.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "水切り板金をどこに取り付けるか見せてください。",
+          "en": "Show me where the flashing goes.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この屋根の谷部はどこですか。",
+          "en": "Where are the valleys on this roof?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "煙突の周囲をシーリングしてください。",
+          "en": "Seal around the chimney.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "谷部に雨漏りがないか確認してください。",
+          "en": "Check for leaks at the valley.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "雨水は屋根の接合部から入り込むことがあります。",
+          "en": "Water often gets in at the joints of the roof."
+        },
+        {
+          "ja": "その接合部は谷部や煙突、壁のそばにあります。",
+          "en": "Those joints are at the valleys, the chimneys, and the walls."
+        },
+        {
+          "ja": "水切り板金は雨水の侵入を防ぐのに役立ちます。",
+          "en": "Flashing helps keep the water out."
+        },
+        {
+          "ja": "ここでは壁のそばに段状水切り板金があります。",
+          "en": "Here there is step flashing next to the wall."
+        },
+        {
+          "ja": "職長は「この屋根の谷部はどこですか」と聞きます。",
+          "en": "The foreman asks: Where are the valleys on this roof?"
+        },
+        {
+          "ja": "作業員は手前の谷部を指します。",
+          "en": "A worker points to the valley at the front."
+        },
+        {
+          "ja": "水切り板金をどこに取り付けるか見せてください。",
+          "en": "Show me where the flashing goes."
+        },
+        {
+          "ja": "谷部に雨漏りがないか確認してください。",
+          "en": "Check for leaks at the valley."
+        }
+      ],
+      "forms": [
+        {
+          "base": "確認する",
+          "exampleJa": "谷部に雨漏りがないか確認します。",
+          "meaningEnglish": "to check",
+          "exampleEnglish": "We check for leaks at the valley.",
+          "sourceInfinitiveSpanish": "revisar"
+        },
+        {
+          "base": "見せる",
+          "exampleJa": "作業員は水切り板金をどこに取り付けるか見せます。",
+          "meaningEnglish": "to show",
+          "exampleEnglish": "The worker shows where the flashing goes.",
+          "sourceInfinitiveSpanish": "mostrar"
+        },
+        {
+          "base": "シーリングする",
+          "exampleJa": "作業員は煙突の周囲をシーリングします。",
+          "meaningEnglish": "to seal",
+          "exampleEnglish": "They seal around the chimney.",
+          "sourceInfinitiveSpanish": "sellar"
+        },
+        {
+          "base": "敷く",
+          "exampleJa": "作業員は谷部に沿って自己粘着防水シートを敷きます。",
+          "meaningEnglish": "to put, to place",
+          "exampleEnglish": "They run ice and water shield up the valley.",
+          "sourceInfinitiveSpanish": "poner"
+        },
+        {
+          "base": "聞く",
+          "exampleJa": "職長は谷部がどこにあるか聞きます。",
+          "meaningEnglish": "to ask",
+          "exampleEnglish": "The foreman asks where the valleys are.",
+          "sourceInfinitiveSpanish": "preguntar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "この屋根の谷部はどこですか。水切り板金を見せてください。",
+        "goal": "Ask the lead to show you each flashing and valley location."
+      },
+      "modes": {
+        "see": "Find the valley and sidewall flashing in the reading.",
+        "recall": "Recall the terms for flashing, valley, and leak.",
+        "hear": "Distinguish 谷部 from 雨漏り when spoken.",
+        "type": "Type 'Show me where the flashing goes.' in Japanese.",
+        "say": "Ask the crew lead to show each valley and flashing location.",
+        "write": "Write where the flashing is and what it helps prevent."
+      }
+    }
+  ],
+  "reviewGates": {
+    "independentJapaneseReview": false,
+    "qualifiedRoofingReview": false,
+    "sixModeRuntime": false,
+    "dictionarySenses": false,
+    "offlineVerified": false,
+    "recordedAudioListening": false,
+    "phoneAndNativeAcceptance": false
+  }
+}

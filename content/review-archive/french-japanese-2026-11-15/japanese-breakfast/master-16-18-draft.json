@@ -1,0 +1,687 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "stageId": "master-travel-breakfast",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "role": "Exact English objectives, speaking roles, grammar examples, word anchors and Reader lines retained as provenance; Japanese learner scenes are original contextual teach-back dialogues"
+  },
+  "lessons": [
+    {
+      "n": 16,
+      "stableId": "master-travel-breakfast:16:ja-en",
+      "sourceEnglish": {
+        "n": 16,
+        "title": "Answer the Health Inspector About Lucía's Breakfast",
+        "objective": "Answer formal questions about the breakfast incident and correct any errors in the written statement.",
+        "speaking": "You are Lucía's friend, and the AI is food-safety inspector Amparo Ferrer: answer her formal questions about the breakfast using usted, and go through your written statement line by line to confirm or correct it, using passive se such as se sirvió and ¿cómo se comunica…?",
+        "lessonType": "Document",
+        "block": "D",
+        "englishWordAnchors": [
+          "the health inspector",
+          "the inspection report",
+          "the written statement",
+          "the typo",
+          "the section",
+          "the signature",
+          "the copy",
+          "the traceability",
+          "the allergen record",
+          "the batch",
+          "the protocol",
+          "the dining-room staff",
+          "the training",
+          "the serving time",
+          "in agreement",
+          "Excuse me, there's a wrong time in the second section.",
+          "Where it says 8:30, it should say 8:10.",
+          "How is allergen information communicated to customers?",
+          "Could it be corrected before I sign?",
+          "With that correction, I agree with the statement.",
+          "Could you provide me with a copy of the report, please?",
+          "I'd rather not state anything I didn't see myself.",
+          "Is the allergen record checked every morning?"
+        ],
+        "englishGrammarExamples": [
+          "The sponge cake was served at the buffet at 8:00, according to the hotel's schedule.",
+          "How is allergen information communicated to the dining-room staff?"
+        ],
+        "englishReading": [
+          "Two days later, the health inspector Amparo Ferrer meets with Emma and the manager Vicente at the hotel.",
+          "Amparo brings Emma's written statement about her friend Lucía's allergic reaction to the almond sponge cake.",
+          "Amparo: We are going to review your statement section by section before closing the inspection report.",
+          "Emma: The first section is correct, because Lucía mentioned her almond allergy when she arrived at the buffet.",
+          "Emma: Excuse me, there's a wrong time in the second section.",
+          "Emma: Where it says 8:30, it should say 8:10.",
+          "Vicente: According to the hotel's schedule, the sponge cake was served at 8:00, which is its usual serving time.",
+          "Emma: Could it be corrected before I sign?",
+          "Amparo: Of course, it's a typo and it gets corrected right now.",
+          "Amparo: How is allergen information communicated to customers?",
+          "Vicente: A card listing the allergens is placed next to each dish at the buffet.",
+          "Vicente: In addition, the dining-room staff receives monthly training on our allergen protocol.",
+          "Amparo: Did you see the card next to the sponge cake that morning?",
+          "Emma: I'd rather not state anything I didn't see myself.",
+          "Amparo: Is the allergen record checked every morning?",
+          "Vicente: Yes, the head chef checks it and writes down the batch of the almond flour to maintain traceability.",
+          "Emma: With that correction, I agree with the statement.",
+          "Emma puts her signature at the end and then asks: Could you provide me with a copy of the report, please?"
+        ],
+        "englishSourceSha256": "59c858d5bf832047d83d59172c6610231f856844dae37b723ff6bbe93896fbb3"
+      },
+      "title": "Review a written statement with an inspector",
+      "objective": "Answer formal questions about a breakfast incident, distinguish what you witnessed from what others reported, and request corrections before confirming a written statement.",
+      "focus": "私が見た範囲では limits a statement to firsthand observation; ～と聞きました marks information received from another person. アレルギー反応 and アレルゲン記録 are the clinical and inspection terms in the source; 署名する前に修正してください requests a correction.",
+      "scene": "A witness reads a hotel incident statement line by line with an inspector and corrects a mistaken time.",
+      "cards": [
+        {
+          "ja": "衛生担当者",
+          "en": "health inspector",
+          "kind": "term"
+        },
+        {
+          "ja": "報告書",
+          "en": "report",
+          "kind": "term"
+        },
+        {
+          "ja": "供述書",
+          "en": "written statement",
+          "kind": "term"
+        },
+        {
+          "ja": "誤記",
+          "en": "writing error",
+          "kind": "term"
+        },
+        {
+          "ja": "記載",
+          "en": "written entry",
+          "kind": "term"
+        },
+        {
+          "ja": "署名",
+          "en": "signature",
+          "kind": "term"
+        },
+        {
+          "ja": "写し",
+          "en": "copy",
+          "kind": "term"
+        },
+        {
+          "ja": "提供時刻",
+          "en": "serving time",
+          "kind": "term"
+        },
+        {
+          "ja": "原材料記録",
+          "en": "ingredient record",
+          "kind": "term"
+        },
+        {
+          "ja": "確認する",
+          "en": "to verify",
+          "kind": "term"
+        },
+        {
+          "ja": "修正する",
+          "en": "to correct",
+          "kind": "term"
+        },
+        {
+          "ja": "私が見た範囲では",
+          "en": "as far as I observed",
+          "kind": "term"
+        },
+        {
+          "ja": "～と聞きました",
+          "en": "I heard that ...",
+          "kind": "term"
+        },
+        {
+          "ja": "署名する前に",
+          "en": "before signing",
+          "kind": "term"
+        },
+        {
+          "ja": "アレルギー反応",
+          "en": "allergic reaction",
+          "kind": "term"
+        },
+        {
+          "ja": "アレルゲン記録",
+          "en": "allergen record",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Inspector",
+          "ja": "報告書の記載を、署名する前に一緒に確認しましょう。",
+          "en": "Let us check the report entries together before you sign."
+        },
+        {
+          "speaker": "Witness",
+          "ja": "二つ目の欄の時刻に誤記があります。八時半ではなく、八時十分ごろです。",
+          "en": "There is an error in the time in the second section. It was about 8:10, not 8:30."
+        },
+        {
+          "speaker": "Inspector",
+          "ja": "正確な時刻は記録で確認できますか。",
+          "en": "Can the exact time be checked against a record?"
+        },
+        {
+          "speaker": "Witness",
+          "ja": "私のメッセージの時刻を確認できます。記録を見せます。",
+          "en": "I can check the time of my message. I will show the record."
+        },
+        {
+          "speaker": "Inspector",
+          "ja": "朝食の原材料表示を見ましたか。",
+          "en": "Did you see the ingredient information for the breakfast item?"
+        },
+        {
+          "speaker": "Witness",
+          "ja": "私が見た範囲では、表示の有無を確認できませんでした。",
+          "en": "As far as I observed, I could not confirm whether the information was displayed."
+        },
+        {
+          "speaker": "Inspector",
+          "ja": "では、見ていないことを断定する記載は削除します。",
+          "en": "Then we will remove the entry that asserts something you did not see."
+        },
+        {
+          "speaker": "Witness",
+          "ja": "ありがとうございます。修正後の文をもう一度読ませてください。",
+          "en": "Thank you. Please let me read the corrected wording once more."
+        },
+        {
+          "speaker": "Inspector",
+          "ja": "こちらが修正版です。未確認の原因は書いていません。",
+          "en": "Here is the revised version. It does not state an unverified cause."
+        },
+        {
+          "speaker": "Witness",
+          "ja": "確認しました。署名する場合は、写しもいただけますか。",
+          "en": "I have reviewed it. If I sign, could I have a copy too?"
+        }
+      ],
+      "speaking": {
+        "role": "Witness reviewing an incident statement",
+        "partnerRole": "Inspector",
+        "opening": "署名する前に、記載された時刻と私が見たことを確認したいです。",
+        "goal": "Answer formal questions, identify one time error, distinguish firsthand from secondhand information, and request a corrected copy before deciding whether to sign.",
+        "closure": "Read the corrected statement and ask for a copy if signing.",
+        "wordBank": [
+          "報告書",
+          "誤記",
+          "八時十分ごろ",
+          "私が見た範囲では",
+          "修正",
+          "写し"
+        ]
+      },
+      "modes": {
+        "see": "Read a line-by-line statement review with English support.",
+        "recall": "Recall which claims are observed and which require correction.",
+        "hear": "Hear formal requests and uncertainty markers.",
+        "type": "Type a polite correction request with kana support.",
+        "say": "Review a report without confirming unobserved claims.",
+        "write": "Write a concise correction note with an evidence source."
+      }
+    },
+    {
+      "n": 17,
+      "stableId": "master-travel-breakfast:17:ja-en",
+      "sourceEnglish": {
+        "n": 17,
+        "title": "Email the Hotel a Written Incident Summary",
+        "objective": "Write a clear, formal summary of the incident and your requests, sharing only the health details Lucía approved.",
+        "speaking": "You are drafting the email to Inés Soler, and the AI is Lucía, your friend: read your summary aloud, check which health details she approves, and organize it with en primer lugar, a continuación, sin embargo, por lo tanto and por último.",
+        "lessonType": "Document",
+        "block": "E",
+        "englishWordAnchors": [
+          "the subject line",
+          "the attachment",
+          "the sign-off",
+          "the summary",
+          "the stay",
+          "customer service",
+          "the medical report",
+          "the consent",
+          "the health information",
+          "confidentiality",
+          "the official complaint form",
+          "the allergen menu",
+          "the written reply",
+          "the time frame",
+          "the apology",
+          "sincerely",
+          "Dear Ms. Soler: I am writing regarding what happened on Tuesday.",
+          "First of all, I would like to thank your staff for their quick response.",
+          "Below, I briefly summarize what happened during breakfast.",
+          "However, the allergen menu was not on display.",
+          "Therefore, I request a written reply about what happened.",
+          "Finally, I look forward to your reply.",
+          "Lucía, is it OK if I mention that you went to the ER?",
+          "I won't include anything from the medical report without your permission."
+        ],
+        "englishGrammarExamples": [
+          "First, my friend had an allergic reaction during breakfast.",
+          "However, no one told us the ingredients; therefore, we request a review."
+        ],
+        "englishReading": [
+          "In her room at the hotel in Valencia, Emma writes the summary of the incident for Inés Soler, the customer service manager.",
+          "In the subject line she puts: Allergic reaction at breakfast on Tuesday, October 13.",
+          "Lucía, her friend, is sitting on the bed and decides which health information she wants to share with the hotel.",
+          "Emma: Lucía, is it OK if I mention that you went to the ER?",
+          "Lucía: Yes, but don't mention the diagnosis or the medications, please.",
+          "Emma: I won't include anything from the medical report without your permission.",
+          "For Lucía, confidentiality is important, so her consent only covers the almond allergy and the visit to the ER.",
+          "Dear Ms. Soler: I am writing regarding what happened on Tuesday.",
+          "First of all, I would like to thank your staff for their quick response.",
+          "Below, I briefly summarize what happened during breakfast.",
+          "During our stay, my friend ate a sponge cake with almond, had an allergic reaction and went to the ER.",
+          "However, the allergen menu was not on display.",
+          "Therefore, I request a written reply about what happened.",
+          "I also ask for an apology and a review of the allergen menu within a time frame of 15 days.",
+          "I am attaching a copy of the official complaint form that we filled out at the front desk.",
+          "Finally, I look forward to your reply.",
+          "Before sending the email, Emma checks the attachment and confirms that it does not include the medical report.",
+          "For the sign-off, Emma writes: Sincerely, Emma Clarke."
+        ],
+        "englishSourceSha256": "edd8a589f3bbf3257b3c9184f978566e806cb13825b5aac408a18dc21cbad715"
+      },
+      "title": "Email a consent-limited incident summary",
+      "objective": "Draft a clear hotel email about a breakfast incident, first asking the affected friend which health details they authorize sharing.",
+      "focus": "まず・次に・一方で・最後に structure a formal summary. 本人の同意 and 健康情報 name consent and health information; 救急外来 is the emergency department. Ask the affected friend which details they agree to include before sending the revised message.",
+      "scene": "A traveler reads a draft incident email aloud to the affected friend and revises it to match the friend's disclosure choices.",
+      "cards": [
+        {
+          "ja": "件名",
+          "en": "subject line",
+          "kind": "term"
+        },
+        {
+          "ja": "宛先",
+          "en": "recipient",
+          "kind": "term"
+        },
+        {
+          "ja": "添付ファイル",
+          "en": "attachment",
+          "kind": "term"
+        },
+        {
+          "ja": "概要",
+          "en": "summary",
+          "kind": "term"
+        },
+        {
+          "ja": "本人の同意",
+          "en": "the person's consent",
+          "kind": "term"
+        },
+        {
+          "ja": "健康情報",
+          "en": "health information",
+          "kind": "term"
+        },
+        {
+          "ja": "個人情報",
+          "en": "personal information",
+          "kind": "term"
+        },
+        {
+          "ja": "書面での回答",
+          "en": "written reply",
+          "kind": "term"
+        },
+        {
+          "ja": "問い合わせ",
+          "en": "inquiry",
+          "kind": "term"
+        },
+        {
+          "ja": "まず",
+          "en": "first",
+          "kind": "term"
+        },
+        {
+          "ja": "次に",
+          "en": "next",
+          "kind": "term"
+        },
+        {
+          "ja": "一方で",
+          "en": "on the other hand",
+          "kind": "term"
+        },
+        {
+          "ja": "最後に",
+          "en": "finally",
+          "kind": "term"
+        },
+        {
+          "ja": "送信前に確認する",
+          "en": "check before sending",
+          "kind": "term"
+        },
+        {
+          "ja": "救急外来",
+          "en": "emergency department",
+          "kind": "term"
+        },
+        {
+          "ja": "アレルギー反応",
+          "en": "allergic reaction",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Writer",
+          "ja": "ホテルへのメールの下書きを読みます。健康情報はどこまで書いてもいいですか。",
+          "en": "I will read my draft email to the hotel. How much health information may I include?"
+        },
+        {
+          "speaker": "Friend",
+          "ja": "救急隊が来たことは書いていいですが、診断や薬のことは書かないでください。",
+          "en": "You may say responders came, but please do not include a diagnosis or medication details."
+        },
+        {
+          "speaker": "Writer",
+          "ja": "分かりました。医療書類も添付しません。",
+          "en": "Understood. I will not attach medical documents either."
+        },
+        {
+          "speaker": "Writer",
+          "ja": "件名は『朝食時の出来事について』にします。",
+          "en": "I will use 'About the breakfast incident' as the subject."
+        },
+        {
+          "speaker": "Writer",
+          "ja": "まず、対応してくれた係員へのお礼を書きます。",
+          "en": "First, I will thank the staff who responded."
+        },
+        {
+          "speaker": "Writer",
+          "ja": "次に、私が確認した時系列を簡潔にまとめます。",
+          "en": "Next, I will briefly summarize the timeline I verified."
+        },
+        {
+          "speaker": "Writer",
+          "ja": "一方で、食品の情報について確認したい点があります。",
+          "en": "On the other hand, there are questions I would like answered about the food information."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "その聞き方なら大丈夫です。私の病名は書かないでください。",
+          "en": "That wording is fine. Please do not include my diagnosis."
+        },
+        {
+          "speaker": "Writer",
+          "ja": "最後に、書面での回答をお願いします。送信前に宛先と添付を確認します。",
+          "en": "Finally, I will ask for a written reply. Before sending, I will check the recipient and attachments."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "修正版をもう一度見せてください。確認してから送ってください。",
+          "en": "Please show me the revised version once more. Send it only after I check it."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler drafting a hotel email",
+        "partnerRole": "Affected friend reviewing disclosure",
+        "opening": "ホテルへのメールに、どの情報を書いてよいか先に確認したいです。",
+        "goal": "Ask the friend which details may be shared, read a concise ordered draft, and revise the disclosure and attachments before sending.",
+        "closure": "Read the revised email and attachment list to the friend before sending.",
+        "wordBank": [
+          "件名",
+          "本人の同意",
+          "健康情報",
+          "まず",
+          "次に",
+          "書面での回答"
+        ]
+      },
+      "modes": {
+        "see": "Read a consent-aware email drafting scene with aligned English.",
+        "recall": "Recall which details the friend approved and excluded.",
+        "hear": "Hear formal sequencing language in the draft.",
+        "type": "Type a consent question with kana support.",
+        "say": "Read and revise a draft with the affected friend.",
+        "write": "Write a short email with only approved details and a reply request."
+      }
+    },
+    {
+      "n": 18,
+      "stableId": "master-travel-breakfast:18:ja-en",
+      "sourceEnglish": {
+        "n": 18,
+        "title": "Text a Casa Rural Host When the Train Runs Late",
+        "objective": "Text and then call a host to explain a delay, change the group size and ask politely about breakfast times.",
+        "speaking": "You are on a delayed train to Asturias, and the AI is Begoña, the casa rural host: text her that the group grew from 3 to 5, then call to ask about breakfast times with le escribo porque…, ¿le vendría bien…? and ¿podría guardarnos el desayuno?",
+        "lessonType": "People",
+        "block": "E",
+        "englishWordAnchors": [
+          "the delay",
+          "the rural guesthouse",
+          "the owner (woman)",
+          "the voice message",
+          "the cell signal",
+          "the tunnel",
+          "the missed call",
+          "the arrival time",
+          "the extra bed",
+          "the key lockbox",
+          "the ticket inspector",
+          "the connection (change of train or bus)",
+          "the taxi stand",
+          "breaking up",
+          "the change of plans",
+          "Good afternoon, Begoña, I'm writing because the train is running late.",
+          "In the end we'll be 5 instead of 3, would that work for you?",
+          "Could you save breakfast for us until 10:30, if it's no trouble?",
+          "Sorry, it's cutting out; we're going through a tunnel.",
+          "I'll call you back as soon as I have signal.",
+          "Would you mind leaving the keys in the lockbox for us?",
+          "Would it be possible to have breakfast a little later tomorrow?",
+          "Guys, Begoña is saving breakfast for us until 10:30."
+        ],
+        "englishGrammarExamples": [
+          "I'm writing because the train is 1 hour late.",
+          "Would it suit you if we arrived around 22:00?"
+        ],
+        "englishReading": [
+          "Daniel is traveling by train to Asturias with his friends to spend the weekend at a rural guesthouse in Cangas de Onís.",
+          "The ticket inspector walks through the car and announces that the train is 1 hour late because of a breakdown.",
+          "With this delay they are going to miss the train change in Oviedo, so the arrival time in Cangas de Onís changes quite a bit.",
+          "Also, there is a change of plans, because Lucía and her brother Pablo joined the trip this morning and now there are 5 of them.",
+          "Daniel writes a message to Begoña, the owner of the house: Good afternoon, Begoña, I'm writing because the train is running late.",
+          "In the same message he adds: In the end we'll be 5 instead of 3, would that work for you?",
+          "Begoña answers with a voice message: no problem, because she can put an extra bed in each room.",
+          "Half an hour later, Daniel sees a missed call from Begoña and calls her right away.",
+          "Daniel: Would it suit you if we arrived around 23:00?",
+          "Begoña: That works for me, but at that time I won't be at the house anymore.",
+          "Daniel: Would you mind leaving the keys in the lockbox for us?",
+          "Begoña explains to him that the key lockbox is next to the door and that, since Cangas de Onís has no train station, from the Arriondas station they can take the ALSA bus, about 15 minutes, or a taxi from the stand out front.",
+          "Daniel politely asks her what time she serves breakfast, and Begoña answers that it is usually from 8:00 to 10:00.",
+          "Daniel: Could you save breakfast for us until 10:30, if it's no trouble?",
+          "Suddenly, Begoña's voice sounds broken up because the train goes into a tunnel.",
+          "Daniel: Sorry, it's cutting out; we're going through a tunnel.",
+          "When he has signal again, Daniel calls her once more and Begoña confirms that she will save breakfast for them.",
+          "Daniel: Guys, Begoña is saving breakfast for us until 10:30."
+        ],
+        "englishSourceSha256": "e1195c14efbfb33c6408302cd4ae981680f4c4291c15e85fc7ee80c7cea5f7e2"
+      },
+      "title": "Update a guesthouse host about a delayed arrival",
+      "objective": "Text a guesthouse host about a train delay and larger group, then call to confirm arrival, room capacity, key pickup and breakfast timing.",
+      "focus": "電車が遅れているため explains the reason; 三人から五人に変わりました reports a changed group size; ～していただけますか makes requests without assuming acceptance. The English source's Asturias connections, lockbox and 10:30 breakfast are provenance, not automatic Japanese lodging arrangements. Confirm each change with the host before telling the group it is settled.",
+      "scene": "A traveler on a delayed train texts a guesthouse, then calls when signal returns to clarify a larger booking and next morning's breakfast.",
+      "cards": [
+        {
+          "ja": "遅延",
+          "en": "delay",
+          "kind": "term"
+        },
+        {
+          "ja": "宿の方",
+          "en": "guesthouse host",
+          "kind": "term"
+        },
+        {
+          "ja": "到着予定時刻",
+          "en": "expected arrival time",
+          "kind": "term"
+        },
+        {
+          "ja": "人数変更",
+          "en": "change in group size",
+          "kind": "term"
+        },
+        {
+          "ja": "追加の寝具",
+          "en": "extra bedding",
+          "kind": "term"
+        },
+        {
+          "ja": "鍵の受け取り",
+          "en": "key pickup",
+          "kind": "term"
+        },
+        {
+          "ja": "朝食時間",
+          "en": "breakfast time",
+          "kind": "term"
+        },
+        {
+          "ja": "電波",
+          "en": "signal",
+          "kind": "term"
+        },
+        {
+          "ja": "トンネル",
+          "en": "tunnel",
+          "kind": "term"
+        },
+        {
+          "ja": "折り返す",
+          "en": "to call back",
+          "kind": "term"
+        },
+        {
+          "ja": "確認する",
+          "en": "to confirm",
+          "kind": "term"
+        },
+        {
+          "ja": "～のため",
+          "en": "because of",
+          "kind": "term"
+        },
+        {
+          "ja": "三人から五人に",
+          "en": "from three to five people",
+          "kind": "term"
+        },
+        {
+          "ja": "可能でしょうか",
+          "en": "would it be possible?",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Traveler",
+          "ja": "電車が遅れているため、到着が予定より遅くなりそうです。",
+          "en": "Because the train is delayed, we are likely to arrive later than planned."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "また、人数が三人から五人に変わりました。受け入れ可能か確認できますか。",
+          "en": "Also, our group has changed from three to five. Could you confirm whether that is possible?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "ご連絡ありがとうございます。部屋と寝具を確認して返信します。",
+          "en": "Thank you for letting me know. I will check the rooms and bedding and reply."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "到着予定時刻は二十二時ごろです。鍵の受け取り方法も教えていただけますか。",
+          "en": "Our expected arrival is about ten in the evening. Could you tell us how to collect the keys?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "詳しく確認するため、お電話できますか。",
+          "en": "Could we speak by phone to confirm the details?"
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "今はトンネルで電波が切れそうです。出たら折り返します。",
+          "en": "We are in a tunnel and may lose signal. I will call back when we come out."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "お電話ありがとうございます。五人の宿泊は可能でしょうか。",
+          "en": "Thank you for taking my call. Can you accommodate five guests?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "はい、五人分の寝具を用意できます。鍵の受け取りは到着前に説明します。",
+          "en": "Yes, we can prepare bedding for five. I will explain key pickup before you arrive."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "明日の朝食時間を教えてください。少し遅い時間は可能でしょうか。",
+          "en": "Could you tell me tomorrow's breakfast hours? Is a slightly later time possible?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "朝食は八時から十時です。遅い時間については確認して連絡します。",
+          "en": "Breakfast is from eight to ten. I will check the later time and get back to you."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler updating a guesthouse booking",
+        "partnerRole": "Guesthouse host",
+        "opening": "電車が遅れているため、到着時刻と宿泊人数の変更についてご相談したいです。",
+        "goal": "Report the delay and group-size change, ask for confirmation of room capacity and key pickup, then ask about breakfast hours.",
+        "closure": "Tell companions only what the host has actually confirmed; do not assume a late breakfast, room change or lockbox access.",
+        "wordBank": [
+          "遅延",
+          "到着予定時刻",
+          "人数変更",
+          "五人",
+          "鍵の受け取り",
+          "朝食時間"
+        ]
+      },
+      "modes": {
+        "see": "Read a text-and-call booking update with aligned English.",
+        "recall": "Recall which changes are confirmed and which remain pending.",
+        "hear": "Hear delay explanations and polite requests.",
+        "type": "Type a group-size update with kana support.",
+        "say": "Call the host to confirm arrival, rooms and breakfast.",
+        "write": "Write a concise text with delay, group size and requested confirmation."
+      }
+    }
+  ],
+  "reviewGates": [
+    "Qualified Japanese language, register and pedagogy review",
+    "Qualified incident documentation and food-allergy inspection review for Master 16",
+    "Qualified privacy, consent and consumer-communications review for Master 17",
+    "Qualified lodging, transport and regional breakfast service review for Master 18",
+    "Recorded Japanese audio plus phone/offline/native checks"
+  ]
+}

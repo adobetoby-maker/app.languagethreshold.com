@@ -1,0 +1,176 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "master",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "master-french-sound-like-a-native:7:fr-en",
+      "n": 7,
+      "sourceSpanishLesson": 7,
+      "title": "Shadow one travel phrase",
+      "objective": "Echo one short French travel phrase with a selected consonant and rhythm target.",
+      "focus": "Listen to Je prends le train demain matin as one message. Echo it after a reviewed model, attending first to the /ʁ/ in prends and train, then to the end of the full rhythmic group. Keep the departure meaning intact while comparing your recording with the model.",
+      "words": [
+        { "fr": "train", "en": "train", "kind": "term" },
+        { "fr": "demain", "en": "tomorrow", "kind": "term" },
+        { "fr": "matin", "en": "morning", "kind": "term" },
+        { "fr": "départ", "en": "departure", "kind": "term" },
+        { "fr": "gare", "en": "station", "kind": "term" },
+        { "fr": "phrase", "en": "phrase; sentence", "kind": "term" },
+        { "fr": "Je prends le train demain matin.", "en": "I'm taking the train tomorrow morning.", "kind": "phrase" },
+        { "fr": "Le départ est prévu à la gare du Nord.", "en": "Departure is scheduled at the Gare du Nord.", "kind": "phrase" },
+        { "fr": "Écoutez la phrase, puis répétez-la.", "en": "Listen to the sentence, then repeat it.", "kind": "phrase" },
+        { "fr": "Je compare ma voix au modèle.", "en": "I compare my voice with the model.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Yasmine annonce à son ami qu'elle prendra le train demain matin.", "en": "Yasmine tells her friend that she will take the train tomorrow morning." },
+        { "fr": "Elle écoute d'abord la phrase enregistrée : « Je prends le train demain matin. »", "en": "She first listens to the recorded sentence: 'I'm taking the train tomorrow morning.'" },
+        { "fr": "Elle répète la phrase après le modèle, puis écoute sa propre voix.", "en": "She repeats the sentence after the model, then listens to her own voice." },
+        { "fr": "Son ami confirme que le départ est prévu à la gare du Nord.", "en": "Her friend confirms that departure is scheduled at the Gare du Nord." }
+      ],
+      "grammar": {
+        "focus": "Je prends describes the speaker's planned travel; le départ est prévu gives the scheduled departure.",
+        "examples": [
+          { "fr": "Je prends le train demain matin.", "en": "I'm taking the train tomorrow morning." },
+          { "fr": "Le départ est prévu à la gare du Nord.", "en": "Departure is scheduled at the Gare du Nord." }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B",
+      "speaking": {
+        "scene": "Practising a train-departure message before calling a friend",
+        "roles": ["traveler", "friend"],
+        "opening": "Je prends le train demain matin.",
+        "goals": ["Listen to the whole departure phrase before echoing it.", "Repeat it with a clear /ʁ/ in prends and train.", "Tell the friend the departure place."],
+        "complication": "Your friend hears that you are travelling today; repeat the same phrase and make demain clear.",
+        "closure": "Oui, je prends le train demain matin."
+      },
+      "practice": {
+        "see": { "prompt": "Find the two /ʁ/ words and the final time expression in the travel phrase.", "wordRefs": ["Je prends le train demain matin.", "train"] },
+        "recall": { "prompt": "Recall the full phrase for travelling by train tomorrow morning.", "answerRef": "Je prends le train demain matin." },
+        "hear": { "prompt": "After the reviewed model plays, distinguish train from gare in the short travel message.", "choices": ["train", "gare"], "audioRequired": true },
+        "type": { "prompt": "Type the French instruction to listen and then repeat the phrase.", "answerRef": "Écoutez la phrase, puis répétez-la." },
+        "say": { "prompt": "Echo the recorded travel phrase after a pause, then compare your rhythm.", "answerRef": "Je prends le train demain matin." },
+        "write": { "prompt": "Write the travel phrase and a sentence giving the departure place.", "requiredRefs": ["train", "demain", "matin", "gare"] }
+      }
+    },
+    {
+      "id": "master-french-sound-like-a-native:8:fr-en",
+      "n": 8,
+      "sourceSpanishLesson": 8,
+      "title": "Shadow a short paragraph",
+      "objective": "Carry French rhythmic groups across a four-sentence museum message without losing its meaning.",
+      "focus": "Listen to the whole museum message for its day, entrance, and meeting point. Echo one sentence at a time, then join adjacent sentences while keeping their phrasing and details. Increase the chunk length only after the shorter recorded model is clear.",
+      "words": [
+        { "fr": "musée", "en": "museum", "kind": "term" },
+        { "fr": "entrée", "en": "entrance", "kind": "term" },
+        { "fr": "groupe", "en": "group", "kind": "term" },
+        { "fr": "samedi", "en": "Saturday", "kind": "term" },
+        { "fr": "guide", "en": "guide", "kind": "term" },
+        { "fr": "cour", "en": "courtyard", "kind": "term" },
+        { "fr": "Le musée ouvre samedi à neuf heures.", "en": "The museum opens Saturday at nine o'clock.", "kind": "phrase" },
+        { "fr": "Le groupe attend près de l'entrée.", "en": "The group waits near the entrance.", "kind": "phrase" },
+        { "fr": "La guide rejoint le groupe dans la cour.", "en": "The guide joins the group in the courtyard.", "kind": "phrase" },
+        { "fr": "Nous répétons le message par petits groupes de mots.", "en": "We repeat the message in small groups of words.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Le musée ouvre samedi à neuf heures.", "en": "The museum opens Saturday at nine o'clock." },
+        { "fr": "Le groupe attend près de l'entrée.", "en": "The group waits near the entrance." },
+        { "fr": "La guide rejoint le groupe dans la cour.", "en": "The guide joins the group in the courtyard." },
+        { "fr": "Elle explique le parcours avant que la visite commence.", "en": "She explains the route before the visit begins." }
+      ],
+      "grammar": {
+        "focus": "Près de locates the group near the entrance; dans locates the guide and group inside the courtyard.",
+        "examples": [
+          { "fr": "Le groupe attend près de l'entrée.", "en": "The group waits near the entrance." },
+          { "fr": "La guide rejoint le groupe dans la cour.", "en": "The guide joins the group in the courtyard." }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B",
+      "speaking": {
+        "scene": "Relaying a museum visit plan to a group member",
+        "roles": ["visit organizer", "group member"],
+        "opening": "Le musée ouvre samedi à neuf heures.",
+        "goals": ["Give the museum's day and opening time.", "Say where the group waits.", "Explain where the guide joins the group."],
+        "complication": "The member confuses the entrance with the courtyard; repeat the two locations as separate rhythmic groups.",
+        "closure": "Le groupe attend à l'entrée, puis retrouve la guide dans la cour."
+      },
+      "practice": {
+        "see": { "prompt": "Mark the time, waiting place, and guide's meeting place in the four-sentence message.", "wordRefs": ["Le musée ouvre samedi à neuf heures.", "Le groupe attend près de l'entrée.", "La guide rejoint le groupe dans la cour."] },
+        "recall": { "prompt": "Recall where the group waits before the visit.", "answerRef": "Le groupe attend près de l'entrée." },
+        "hear": { "prompt": "After the reviewed paragraph model plays, distinguish entrée from cour.", "choices": ["entrée", "cour"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence saying where the guide joins the group.", "answerRef": "La guide rejoint le groupe dans la cour." },
+        "say": {
+          "prompt": "Echo the four-sentence museum message in two-sentence chunks.",
+          "answerRef": "Le musée ouvre samedi à neuf heures.",
+          "passage": [
+            "Le musée ouvre samedi à neuf heures.",
+            "Le groupe attend près de l'entrée.",
+            "La guide rejoint le groupe dans la cour.",
+            "Elle explique le parcours avant que la visite commence."
+          ]
+        },
+        "write": { "prompt": "Write the opening time, waiting place, and meeting place as a short visit message.", "requiredRefs": ["musée", "samedi", "entrée", "cour"] }
+      }
+    },
+    {
+      "id": "master-french-sound-like-a-native:9:fr-en",
+      "n": 9,
+      "sourceSpanishLesson": 9,
+      "title": "Read a new notice aloud",
+      "objective": "Transfer French sound and rhythmic-group habits to a first-encounter library notice.",
+      "focus": "Read the notice once for its meaning before hearing a model: La bibliothèque ferme à dix-huit heures. Les livres empruntés peuvent être rendus demain matin. Then read it aloud in complete groups. Check the /bl/ cluster in bibliothèque and the silent written endings only against a reviewed French model; this passage is not one of the earlier shadowing drills.",
+      "words": [
+        { "fr": "bibliothèque", "en": "library", "kind": "term" },
+        { "fr": "livres", "en": "books", "kind": "term" },
+        { "fr": "empruntés", "en": "borrowed", "kind": "term" },
+        { "fr": "demain", "en": "tomorrow", "kind": "term" },
+        { "fr": "matin", "en": "morning", "kind": "term" },
+        { "fr": "avis", "en": "notice", "kind": "term" },
+        { "fr": "La bibliothèque ferme à dix-huit heures.", "en": "The library closes at six o'clock in the evening.", "kind": "phrase" },
+        { "fr": "Les livres empruntés peuvent être rendus demain matin.", "en": "Borrowed books can be returned tomorrow morning.", "kind": "phrase" },
+        { "fr": "Je lis l'avis avant d'écouter le modèle.", "en": "I read the notice before listening to the model.", "kind": "phrase" },
+        { "fr": "Je vérifie l'heure et le jour de retour.", "en": "I check the time and the return day.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "La bibliothèque ferme à dix-huit heures.", "en": "The library closes at six o'clock in the evening." },
+        { "fr": "Les livres empruntés peuvent être rendus demain matin.", "en": "Borrowed books can be returned tomorrow morning." },
+        { "fr": "Un avis à l'entrée précise que la boîte de retour reste accessible.", "en": "A notice at the entrance says that the return box remains accessible." },
+        { "fr": "Nadia lit l'avis à haute voix, puis vérifie l'heure avec son ami.", "en": "Nadia reads the notice aloud, then checks the time with her friend." }
+      ],
+      "grammar": {
+        "focus": "Peuvent être rendus uses a passive infinitive after peuvent to say that borrowed books may be returned.",
+        "examples": [
+          { "fr": "La bibliothèque ferme à dix-huit heures.", "en": "The library closes at six o'clock in the evening." },
+          { "fr": "Les livres empruntés peuvent être rendus demain matin.", "en": "Borrowed books can be returned tomorrow morning." }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C",
+      "speaking": {
+        "scene": "Reading a library notice to a friend",
+        "roles": ["notice reader", "friend"],
+        "opening": "Je lis l'avis affiché à l'entrée de la bibliothèque.",
+        "goals": ["Read the closing time accurately.", "Read when borrowed books can be returned.", "Answer the friend's question about the next morning."],
+        "complication": "Your friend hears the closing time but misses the return day; repeat the second sentence without changing its meaning.",
+        "closure": "Les livres peuvent être rendus demain matin."
+      },
+      "practice": {
+        "see": { "prompt": "Find the closing time and return window in the previously undrilled notice.", "wordRefs": ["La bibliothèque ferme à dix-huit heures.", "Les livres empruntés peuvent être rendus demain matin."] },
+        "recall": { "prompt": "Recall the notice's sentence about returning borrowed books.", "answerRef": "Les livres empruntés peuvent être rendus demain matin." },
+        "hear": { "prompt": "After the first read-aloud attempt, compare the reviewed notice recording for bibliothèque and demain.", "choices": ["bibliothèque", "demain"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence giving the library's closing time.", "answerRef": "La bibliothèque ferme à dix-huit heures." },
+        "say": { "prompt": "Read the new closing-time sentence aloud before hearing the model.", "answerRef": "La bibliothèque ferme à dix-huit heures." },
+        "write": { "prompt": "Write a short notice giving the closing time and next return period.", "requiredRefs": ["bibliothèque", "livres", "demain", "matin"] }
+      }
+    }
+  ]
+}

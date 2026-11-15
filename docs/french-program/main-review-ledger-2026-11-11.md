@@ -254,3 +254,6 @@ The [Master 19–20 checkpoint](french101-master19-20-conflict-review-2026-11-15
 ### 2026-11-15 — Source-only Breakfast lesson archive
 
 The [French Breakfast review archive](../../content/french-travel-breakfast/README.md) places Foundation 1–10 and Core 1–14 source-pinned private lesson-team packets on main for repository review, without a new owner page or learner registration. The [gap matrix](../french-japanese-main-gap-matrix-2026-11-15.md) records remaining lessons, audio and release gates. Foundation 5 source meaning, Foundation 5–6 verb paradigms, Core 2 locale and Core 12–14 French/domain decisions remain open. All review, scoring, audio/listening, progress and release gates remain false; no existing runtime consumes the archive. Qualified review and exact-text listening decisions remain distinct from this source/structural validation.
+## November 15 source snapshot transfer
+
+The [inert main archive](../../content/review-archive/french-japanese-2026-11-15/README.md) now contains pinned French 101, Breakfast, Roofing and Pronunciation draft JSON from private PR heads. It adds no owner page or learner import. The gap matrix and tickets retain stale Breakfast source references, Core 30 allergy conflict, Roofing identity/Core 21 safety issues, French 101 face/mode gaps, and exact-text audio/listening work. Review and release gates remain false.

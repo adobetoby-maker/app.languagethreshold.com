@@ -235,3 +235,7 @@ The [Core 27–30 checkpoint](french101-core27-30-conflict-review-2026-11-15.md)
 ### 2026-11-15 — French 101 Master 1–9 conflict review
 
 The [Master 1–9 checkpoint](french101-master1-9-conflict-review-2026-11-15.md) adds a separate platform-owner review page for 65 disputed source-pinned faces across nine Master lessons, with their twelve Spanish/English Reader lines for context. The API authenticates before loading private data. These are unscored annotations, not ordinary owner lessons; `reviewed:false` and learner, audio, listening and progress gates remain closed. Qualified French/dictionary/curriculum decisions and full lesson assets remain open.
+
+### 2026-11-15 — French 101 Master 10–12 conflict review
+
+The [Master 10–12 checkpoint](french101-master10-12-conflict-review-2026-11-15.md) extends the separate platform-owner conflict page by 16 disputed exact-source faces to 81 across Master 1–12. Pinned Spanish/English Reader context and semantic decisions remain visible; all scoring, audio, learner and progress gates stay closed with `reviewed:false`. Ordinary owner French 101 remains Foundation 10/Core 1–21. Qualified French/dictionary/curriculum decisions, full six-mode assets, audio and independent V4 acceptance remain open.

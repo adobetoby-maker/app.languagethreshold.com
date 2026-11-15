@@ -31,19 +31,19 @@ async function ownerConflictDrafts() {
   // Only called after platform-owner authentication. This content never enters the
   // learner course registry, scoring, audio manifest, or progress store.
   const [dataModule, masterModule, practiceModule] = await Promise.all([
-    import("../../content/french-basics/private-master-1-9-conflict-specs.json"),
+    import("../../content/french-basics/private-master-1-12-conflict-specs.json"),
     import("../data/core60/es/master-spanish-basics.json"),
     import("../data/spanish-basics-practice.json"),
   ]);
   const data = dataModule.default as ConflictData;
   const master = masterModule.default as { lessons: SourceLesson[] };
   const practice = practiceModule.default as { "master-spanish-basics": Record<string, { reading: SourceReading }> };
-  if (data.schema !== "french101-master1-9-owner-conflicts-v1" ||
+  if (data.schema !== "french101-master1-12-owner-conflicts-v1" ||
     data.pairKey !== "French:English" || data.courseId !== "french-basics" ||
     data.stage !== "master" || data.status !== "owner-conflict-review-draft" ||
     JSON.stringify(data.sourceHashes) !== JSON.stringify(sourceHashes) ||
     gates.some((gate) => data[gate] !== false) ||
-    data.lessons.map((lesson) => lesson.n).join() !== "1,2,3,4,5,6,7,8,9")
+    data.lessons.map((lesson) => lesson.n).join() !== "1,2,3,4,5,6,7,8,9,10,11,12")
     throw new Error("French 101 Master conflict spec source or release gate changed");
   for (const lesson of data.lessons) {
     const pinned = master.lessons.find((item) => item.n === lesson.n);

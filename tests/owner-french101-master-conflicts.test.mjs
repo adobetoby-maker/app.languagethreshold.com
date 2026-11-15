@@ -68,10 +68,13 @@ test("French 101 Master conflict API authorizes before returning source-exact, c
     assert.equal(packet.courseId, "french-basics");
     assert.equal(packet.stage, "master");
     assert.deepEqual(packet.sourceHashes, sourceHashes);
-    assert.deepEqual(packet.lessons.map((lesson) => lesson.n), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]);
-    assert.equal(new Set(packet.lessons.map((lesson) => lesson.stableId)).size, 18);
+    assert.deepEqual(packet.lessons.map((lesson) => lesson.n), Array.from({ length: 20 }, (_, i) => i + 1));
+    assert.equal(new Set(packet.lessons.map((lesson) => lesson.stableId)).size, 20);
     assert.deepEqual(packet.lessons.map((lesson) => lesson.stableId),
-      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18].map((n) => `master-french-basics:${n}:fr-en`));
+      Array.from({ length: 20 }, (_, i) => i + 1).map((n) => `master-french-basics:${n}:fr-en`));
+    assert.equal(packet.lessons.reduce((count, lesson) => count + lesson.cards.length, 0), 131);
+    assert.deepEqual(packet.lessons.find((lesson) => lesson.n === 19).cards.map((card) => card.number), [5, 7, 12, 16]);
+    assert.deepEqual(packet.lessons.find((lesson) => lesson.n === 20).cards.map((card) => card.number), [2, 4, 8, 10]);
 
     const master = JSON.parse(readFileSync("src/data/core60/es/master-spanish-basics.json", "utf8"));
     const practice = JSON.parse(readFileSync("src/data/spanish-basics-practice.json", "utf8"));

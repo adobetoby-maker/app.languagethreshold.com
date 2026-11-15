@@ -1,0 +1,11 @@
+# French 101 Master 19–20 owner conflict review — 2026-11-15
+
+The separate platform-owner conflict page now shows 131 disputed, source-pinned faces across Master 1–20. This batch adds four faces from Master 19 and four from Master 20, with each lesson's 12 exact Spanish/English Reader turns for context. It does not add ordinary owner lessons, scored cards, learner registration, audio, or progress writes. `reviewed:false` and every learner, audio/listening, scoring and progress gate stay false.
+
+Master 19 flags grouped `dans / sur / à`, French `les` beside Spanish masculine-only `los`, `près (de)` against near/nearby, and the `allé`/`allée` speaker-gender alternative. Its private activity labels do not supply the six required authored modes. The source-aligned six-mode correction stays private and unscored; Hear has no approved recording. Forms, speaking closure and card-only word bank need review.
+
+Master 20 flags `je suis`/`est` against the source's identity versus condition/location distinction, grouped prepositions, and `les` gender scope. Reader 10's `Ana l'invite` for “Ana treats him” needs an explicit payment/treatment meaning decision, coupled to Say and any derived form. Its six-mode proposal remains script-only with no approved Hear clip.
+
+The source hashes and exact English card/Reader anchors match the pinned Spanish files on current main. Stage-local review IDs remain `master-french-basics:19:fr-en` and `master-french-basics:20:fr-en`; no learner progress identity changed. Independent private reports are in `/Users/drive/lt-review/french101-master19-integration-2026-11-15/` and `/Users/drive/lt-review/french101-master20-audit-2026-11-15/`. Master 19's direct bounded safe-mode Claude CLI metadata verified Haiku 5.5 candidate, Opus 5.5 read-only critique and Fable 5.2 correction. Master 20 reused prior verified direct safe-mode metadata and completed a fresh source-grounded self-check; no new model call is claimed. AI review is not qualified French, dictionary or curriculum approval.
+
+Qualified decisions on French meanings, dictionary senses, six modes and speaking precede any ordinary owner projection. Exact-pair learner/offline, Reader/cards/dictionary/speaking/progress, per-clip listening, browser/phone and independent V4 acceptance remain open.

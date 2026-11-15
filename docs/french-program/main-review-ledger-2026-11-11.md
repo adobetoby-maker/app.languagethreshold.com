@@ -231,3 +231,7 @@ The [Core 25–26 checkpoint](french101-core25-26-conflict-review-2026-11-14.md)
 ### 2026-11-15 — French 101 Core 27–30 conflict annotations
 
 The [Core 27–30 checkpoint](french101-core27-30-conflict-review-2026-11-15.md) adds ten exact-source annotated card faces to the separate platform-owner conflict view. Spanish `los` versus French `les`, grouped possessives/prepositions, `es`/`está` versus French `est`, and Core 30's treatment/payment scene remain explicit qualified-review decisions. No Core 27–30 mode proposal, ordinary owner lesson, learner registration, audio, scoring or progress write was added. All release gates remain false; existing French 101 ordinary owner coverage stays Foundation 10/Core 21.
+
+### 2026-11-15 — French 101 Master 1–9 conflict review
+
+The [Master 1–9 checkpoint](french101-master1-9-conflict-review-2026-11-15.md) adds a separate platform-owner review page for 65 disputed source-pinned faces across nine Master lessons, with their twelve Spanish/English Reader lines for context. The API authenticates before loading private data. These are unscored annotations, not ordinary owner lessons; `reviewed:false` and learner, audio, listening and progress gates remain closed. Qualified French/dictionary/curriculum decisions and full lesson assets remain open.

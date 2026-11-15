@@ -28,6 +28,7 @@ import { Route as OwnerRouteImport } from './routes/owner'
 import { Route as OwnerFrenchDinnerReviewRouteImport } from './routes/owner-french-dinner-review'
 import { Route as OwnerFrenchReviewRouteImport } from './routes/owner-french-review'
 import { Route as OwnerFrench101ConflictsRouteImport } from './routes/owner-french101-conflicts'
+import { Route as OwnerFrench101MasterConflictsRouteImport } from './routes/owner-french101-master-conflicts'
 import { Route as OwnerFrench101ReviewRouteImport } from './routes/owner-french101-review'
 import { Route as OwnerJapaneseLunchReviewRouteImport } from './routes/owner-japanese-lunch-review'
 import { Route as OwnerJapaneseReviewRouteImport } from './routes/owner-japanese-review'
@@ -74,6 +75,7 @@ import { Route as ApiOwnerFrenchDinnerDraftsRouteImport } from './routes/api.own
 import { Route as ApiOwnerFrenchDraftsRouteImport } from './routes/api.owner-french-drafts'
 import { Route as ApiOwnerFrench101ConflictsRouteImport } from './routes/api.owner-french101-conflicts'
 import { Route as ApiOwnerFrench101DraftsRouteImport } from './routes/api.owner-french101-drafts'
+import { Route as ApiOwnerFrench101MasterConflictsRouteImport } from './routes/api.owner-french101-master-conflicts'
 import { Route as ApiOwnerJapaneseDraftsRouteImport } from './routes/api.owner-japanese-drafts'
 import { Route as ApiOwnerJapaneseLunchDraftsRouteImport } from './routes/api.owner-japanese-lunch-drafts'
 import { Route as ApiOwnerRedditRouteImport } from './routes/api.owner-reddit'
@@ -203,6 +205,12 @@ const OwnerFrench101ConflictsRoute = OwnerFrench101ConflictsRouteImport.update({
   path: '/owner-french101-conflicts',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OwnerFrench101MasterConflictsRoute =
+  OwnerFrench101MasterConflictsRouteImport.update({
+    id: '/owner-french101-master-conflicts',
+    path: '/owner-french101-master-conflicts',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const OwnerFrench101ReviewRoute = OwnerFrench101ReviewRouteImport.update({
   id: '/owner-french101-review',
   path: '/owner-french101-review',
@@ -436,6 +444,12 @@ const ApiOwnerFrench101DraftsRoute = ApiOwnerFrench101DraftsRouteImport.update({
   path: '/api/owner-french101-drafts',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiOwnerFrench101MasterConflictsRoute =
+  ApiOwnerFrench101MasterConflictsRouteImport.update({
+    id: '/api/owner-french101-master-conflicts',
+    path: '/api/owner-french101-master-conflicts',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiOwnerJapaneseDraftsRoute = ApiOwnerJapaneseDraftsRouteImport.update({
   id: '/api/owner-japanese-drafts',
   path: '/api/owner-japanese-drafts',
@@ -623,6 +637,7 @@ export interface FileRoutesByFullPath {
   '/owner-french-dinner-review': typeof OwnerFrenchDinnerReviewRoute
   '/owner-french-review': typeof OwnerFrenchReviewRoute
   '/owner-french101-conflicts': typeof OwnerFrench101ConflictsRoute
+  '/owner-french101-master-conflicts': typeof OwnerFrench101MasterConflictsRoute
   '/owner-french101-review': typeof OwnerFrench101ReviewRoute
   '/owner-japanese-lunch-review': typeof OwnerJapaneseLunchReviewRoute
   '/owner-japanese-review': typeof OwnerJapaneseReviewRoute
@@ -669,6 +684,7 @@ export interface FileRoutesByFullPath {
   '/api/owner-french-drafts': typeof ApiOwnerFrenchDraftsRoute
   '/api/owner-french101-conflicts': typeof ApiOwnerFrench101ConflictsRoute
   '/api/owner-french101-drafts': typeof ApiOwnerFrench101DraftsRoute
+  '/api/owner-french101-master-conflicts': typeof ApiOwnerFrench101MasterConflictsRoute
   '/api/owner-japanese-drafts': typeof ApiOwnerJapaneseDraftsRoute
   '/api/owner-japanese-lunch-drafts': typeof ApiOwnerJapaneseLunchDraftsRoute
   '/api/owner-reddit': typeof ApiOwnerRedditRoute
@@ -723,6 +739,7 @@ export interface FileRoutesByTo {
   '/owner-french-dinner-review': typeof OwnerFrenchDinnerReviewRoute
   '/owner-french-review': typeof OwnerFrenchReviewRoute
   '/owner-french101-conflicts': typeof OwnerFrench101ConflictsRoute
+  '/owner-french101-master-conflicts': typeof OwnerFrench101MasterConflictsRoute
   '/owner-french101-review': typeof OwnerFrench101ReviewRoute
   '/owner-japanese-lunch-review': typeof OwnerJapaneseLunchReviewRoute
   '/owner-japanese-review': typeof OwnerJapaneseReviewRoute
@@ -769,6 +786,7 @@ export interface FileRoutesByTo {
   '/api/owner-french-drafts': typeof ApiOwnerFrenchDraftsRoute
   '/api/owner-french101-conflicts': typeof ApiOwnerFrench101ConflictsRoute
   '/api/owner-french101-drafts': typeof ApiOwnerFrench101DraftsRoute
+  '/api/owner-french101-master-conflicts': typeof ApiOwnerFrench101MasterConflictsRoute
   '/api/owner-japanese-drafts': typeof ApiOwnerJapaneseDraftsRoute
   '/api/owner-japanese-lunch-drafts': typeof ApiOwnerJapaneseLunchDraftsRoute
   '/api/owner-reddit': typeof ApiOwnerRedditRoute
@@ -824,6 +842,7 @@ export interface FileRoutesById {
   '/owner-french-dinner-review': typeof OwnerFrenchDinnerReviewRoute
   '/owner-french-review': typeof OwnerFrenchReviewRoute
   '/owner-french101-conflicts': typeof OwnerFrench101ConflictsRoute
+  '/owner-french101-master-conflicts': typeof OwnerFrench101MasterConflictsRoute
   '/owner-french101-review': typeof OwnerFrench101ReviewRoute
   '/owner-japanese-lunch-review': typeof OwnerJapaneseLunchReviewRoute
   '/owner-japanese-review': typeof OwnerJapaneseReviewRoute
@@ -870,6 +889,7 @@ export interface FileRoutesById {
   '/api/owner-french-drafts': typeof ApiOwnerFrenchDraftsRoute
   '/api/owner-french101-conflicts': typeof ApiOwnerFrench101ConflictsRoute
   '/api/owner-french101-drafts': typeof ApiOwnerFrench101DraftsRoute
+  '/api/owner-french101-master-conflicts': typeof ApiOwnerFrench101MasterConflictsRoute
   '/api/owner-japanese-drafts': typeof ApiOwnerJapaneseDraftsRoute
   '/api/owner-japanese-lunch-drafts': typeof ApiOwnerJapaneseLunchDraftsRoute
   '/api/owner-reddit': typeof ApiOwnerRedditRoute
@@ -926,6 +946,7 @@ export interface FileRouteTypes {
     | '/owner-french-dinner-review'
     | '/owner-french-review'
     | '/owner-french101-conflicts'
+    | '/owner-french101-master-conflicts'
     | '/owner-french101-review'
     | '/owner-japanese-lunch-review'
     | '/owner-japanese-review'
@@ -972,6 +993,7 @@ export interface FileRouteTypes {
     | '/api/owner-french-drafts'
     | '/api/owner-french101-conflicts'
     | '/api/owner-french101-drafts'
+    | '/api/owner-french101-master-conflicts'
     | '/api/owner-japanese-drafts'
     | '/api/owner-japanese-lunch-drafts'
     | '/api/owner-reddit'
@@ -1026,6 +1048,7 @@ export interface FileRouteTypes {
     | '/owner-french-dinner-review'
     | '/owner-french-review'
     | '/owner-french101-conflicts'
+    | '/owner-french101-master-conflicts'
     | '/owner-french101-review'
     | '/owner-japanese-lunch-review'
     | '/owner-japanese-review'
@@ -1072,6 +1095,7 @@ export interface FileRouteTypes {
     | '/api/owner-french-drafts'
     | '/api/owner-french101-conflicts'
     | '/api/owner-french101-drafts'
+    | '/api/owner-french101-master-conflicts'
     | '/api/owner-japanese-drafts'
     | '/api/owner-japanese-lunch-drafts'
     | '/api/owner-reddit'
@@ -1126,6 +1150,7 @@ export interface FileRouteTypes {
     | '/owner-french-dinner-review'
     | '/owner-french-review'
     | '/owner-french101-conflicts'
+    | '/owner-french101-master-conflicts'
     | '/owner-french101-review'
     | '/owner-japanese-lunch-review'
     | '/owner-japanese-review'
@@ -1172,6 +1197,7 @@ export interface FileRouteTypes {
     | '/api/owner-french-drafts'
     | '/api/owner-french101-conflicts'
     | '/api/owner-french101-drafts'
+    | '/api/owner-french101-master-conflicts'
     | '/api/owner-japanese-drafts'
     | '/api/owner-japanese-lunch-drafts'
     | '/api/owner-reddit'
@@ -1227,6 +1253,7 @@ export interface RootRouteChildren {
   OwnerFrenchDinnerReviewRoute: typeof OwnerFrenchDinnerReviewRoute
   OwnerFrenchReviewRoute: typeof OwnerFrenchReviewRoute
   OwnerFrench101ConflictsRoute: typeof OwnerFrench101ConflictsRoute
+  OwnerFrench101MasterConflictsRoute: typeof OwnerFrench101MasterConflictsRoute
   OwnerFrench101ReviewRoute: typeof OwnerFrench101ReviewRoute
   OwnerJapaneseLunchReviewRoute: typeof OwnerJapaneseLunchReviewRoute
   OwnerJapaneseReviewRoute: typeof OwnerJapaneseReviewRoute
@@ -1273,6 +1300,7 @@ export interface RootRouteChildren {
   ApiOwnerFrenchDraftsRoute: typeof ApiOwnerFrenchDraftsRoute
   ApiOwnerFrench101ConflictsRoute: typeof ApiOwnerFrench101ConflictsRoute
   ApiOwnerFrench101DraftsRoute: typeof ApiOwnerFrench101DraftsRoute
+  ApiOwnerFrench101MasterConflictsRoute: typeof ApiOwnerFrench101MasterConflictsRoute
   ApiOwnerJapaneseDraftsRoute: typeof ApiOwnerJapaneseDraftsRoute
   ApiOwnerJapaneseLunchDraftsRoute: typeof ApiOwnerJapaneseLunchDraftsRoute
   ApiOwnerRedditRoute: typeof ApiOwnerRedditRoute
@@ -1441,6 +1469,13 @@ declare module '@tanstack/react-router' {
       path: '/owner-french101-conflicts'
       fullPath: '/owner-french101-conflicts'
       preLoaderRoute: typeof OwnerFrench101ConflictsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/owner-french101-master-conflicts': {
+      id: '/owner-french101-master-conflicts'
+      path: '/owner-french101-master-conflicts'
+      fullPath: '/owner-french101-master-conflicts'
+      preLoaderRoute: typeof OwnerFrench101MasterConflictsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/owner-french101-review': {
@@ -1765,6 +1800,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiOwnerFrench101DraftsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/owner-french101-master-conflicts': {
+      id: '/api/owner-french101-master-conflicts'
+      path: '/api/owner-french101-master-conflicts'
+      fullPath: '/api/owner-french101-master-conflicts'
+      preLoaderRoute: typeof ApiOwnerFrench101MasterConflictsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/owner-japanese-drafts': {
       id: '/api/owner-japanese-drafts'
       path: '/api/owner-japanese-drafts'
@@ -2019,6 +2061,7 @@ const rootRouteChildren: RootRouteChildren = {
   OwnerFrenchDinnerReviewRoute: OwnerFrenchDinnerReviewRoute,
   OwnerFrenchReviewRoute: OwnerFrenchReviewRoute,
   OwnerFrench101ConflictsRoute: OwnerFrench101ConflictsRoute,
+  OwnerFrench101MasterConflictsRoute: OwnerFrench101MasterConflictsRoute,
   OwnerFrench101ReviewRoute: OwnerFrench101ReviewRoute,
   OwnerJapaneseLunchReviewRoute: OwnerJapaneseLunchReviewRoute,
   OwnerJapaneseReviewRoute: OwnerJapaneseReviewRoute,
@@ -2065,6 +2108,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiOwnerFrenchDraftsRoute: ApiOwnerFrenchDraftsRoute,
   ApiOwnerFrench101ConflictsRoute: ApiOwnerFrench101ConflictsRoute,
   ApiOwnerFrench101DraftsRoute: ApiOwnerFrench101DraftsRoute,
+  ApiOwnerFrench101MasterConflictsRoute: ApiOwnerFrench101MasterConflictsRoute,
   ApiOwnerJapaneseDraftsRoute: ApiOwnerJapaneseDraftsRoute,
   ApiOwnerJapaneseLunchDraftsRoute: ApiOwnerJapaneseLunchDraftsRoute,
   ApiOwnerRedditRoute: ApiOwnerRedditRoute,

@@ -215,6 +215,12 @@ test("platform owner can inspect partial Japanese Lunch drafts without releasing
     assert.ok(data.lessons.slice(52).every((lesson) => lesson.forms.length === 0 &&
       lesson.speaking.objectives.length === 0 && lesson.speaking.wordBankAuthored === false &&
       lesson.reviewGaps.length === 2));
+    assert.ok(data.lessons.filter((lesson) => lesson.stage === "master" && lesson.n >= 13)
+      .every((lesson) => lesson.sourceParityWarning?.includes("Source conflict:")));
+    assert.ok(data.lessons.find((lesson) => lesson.stableId === "master-travel-lunch:15:ja-en")
+      .sourceParityWarning.includes("911"));
+    assert.ok(data.lessons.filter((lesson) => lesson.stage !== "master" || lesson.n < 13)
+      .every((lesson) => lesson.sourceParityWarning === null));
     assert.ok(data.lessons.every((lesson) => !Object.hasOwn(lesson, "internalReviewNote")));
   }));
 

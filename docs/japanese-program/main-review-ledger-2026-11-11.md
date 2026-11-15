@@ -191,3 +191,7 @@ The [Master 7–9 checkpoint](travel-lunch-master-7-9-enrichment-2026-11-14.md) 
 ## November 14 Japanese Lunch Master 10–12 form and speaking enrichment
 
 The [Master 10–12 checkpoint](travel-lunch-master-10-12-enrichment-2026-11-14.md) adds exact card/Reader-linked forms, English explanations, speaking objectives and card-only word banks to three more owner-only lessons. Foundation 10, Core 30 and Master 1–12 now have this draft support; Master 13–20 still visibly lacks it. Three separate lesson teams used direct safe-mode Claude CLI with verified Haiku 5.5 candidate authoring, Opus 5.5 read-only critique and Fable 5.2 correction, followed by source-grounded self-check. Temporal wording, title/locale and politeness/source-gloss questions remain for qualified review. Stable IDs and learner gates remain closed; no audio was generated or approved. Dictionary, exact-pair learner/offline/native and distinct listening gates remain open.
+
+## November 15 Japanese Lunch Master 13–20 owner source warnings
+
+The [source-warning checkpoint](travel-lunch-master13-20-owner-source-warning-2026-11-15.md) makes the private source/index audit's material mismatch visible on the owner-only Lunch page. Master 15 explicitly flags pinned Costa Rica 911 versus the older Japanese draft's 119. The page summary now counts current form/speaking support dynamically. Existing source-reconciled packets remain private pending qualified review and atomic card/Reader/mode/form/speaking/progress remapping; no learner, audio or V4 gate changed.

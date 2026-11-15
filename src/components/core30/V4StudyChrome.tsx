@@ -49,15 +49,15 @@ export function V4StudyActivity({
   const goal = Math.max(1, goalMinutes);
   const elapsed = `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, "0")}`;
   return (
-    <div className="lt-v4-study-activity" aria-label="Today's study activity">
-      <img src="/icons/icon-192.png" alt="Language Threshold" width="28" height="28" />
+    <div role="group" className="lt-v4-study-activity" aria-label="Today's study activity">
+      <img src="/icons/icon-192.png" alt="" width="28" height="28" />
       <span className="lt-v4-streak">
         <Flame size={16} fill="currentColor" aria-hidden />
         {streak} {streak === 1 ? "day" : "days"}
       </span>
       <div className="lt-v4-study-goal">
         <span>
-          {lessons} lessons · {elapsed} / {goal} min
+          {lessons} {lessons === 1 ? "lesson" : "lessons"} · {elapsed} / {goal} min
         </span>
         <progress
           aria-label="Daily study goal"

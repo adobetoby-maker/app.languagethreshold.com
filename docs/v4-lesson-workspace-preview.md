@@ -1,8 +1,8 @@
 # V4 PWA and website-wrapper preview
 
-The current native V4 Swift source, version 2.0 build 29, is the visual reference. Its checkpoint is `/Volumes/Drive 2/lt-v4-build29-2026-11-14/v4-build29-source-checkpoint.zip`. The source's `App/SpeakHubView.swift` SHA-256 is `eb16410c61f44948211b236db313518a17bc866333485856f35ee6100034e542`, matching the release evidence and current integrated source. `RootView.swift`, `PracticeSessionView.swift` and `Theme.swift` were also inspected. The independent native V4 source was not modified or released by this work.
+The current native V4 Swift source, version 2.0 build 29, is the visual reference. Its checkpoint is `/Volumes/Drive 2/lt-v4-build29-2026-11-14/v4-build29-source-checkpoint.zip`. The source's `App/SpeakHubView.swift` SHA-256 is `eb16410c61f44948211b236db313518a17bc866333485856f35ee6100034e542`, matching the release evidence and current integrated source. `RootView.swift`, `PracticeSessionView.swift` and `Theme.swift` were also inspected. The independent native V4 source was not modified or released by this work. A local simulator build from that checkpoint succeeded, and fresh build 29 Study/Speak captures were saved.
 
-Speak opens directly, retaining the owner's quick-start requirement. It follows V4's conversation screen, with partner/topic selection, a large transcript area, a bottom reply composer, Speak/Send, Text/Feedback/Voice/Repeat, and a persistent Study/Speak bar. Reset, scenarios, partner settings, courses and account/settings remain in deeper menus. The native V4's initial conversation-choices page remains a reference capture; the PWA does not insert that additional page before speaking.
+Speak opens directly, retaining the owner's quick-start requirement. It follows V4's conversation screen, with partner/topic selection, a large transcript area, a bottom reply composer, Speak/Send, Text/Feedback/Voice/Repeat, and a persistent Study/Speak bar. Reset, scenarios, partner settings, courses and account/settings remain in deeper menus. The opening partner setup disappears after the conversation starts, giving the transcript that space; reset restores it. The native V4's initial conversation-choices page remains a reference capture; the PWA does not insert that additional page before speaking.
 
 Study follows V4's compact course/tutor/lesson fraction/review/more header, existing study-activity clock, six practice modes, Study/Speak bar, and one bilingual card with Listen, Slow and Previous/Next. The former seventh Verbs tab stays in deeper navigation. The actual app retains its authored lesson content, progress and audio provider. Finishing a phrase round opens Recall and does not mark mastery. The public demo shows the published Foundation Roofing vocabulary in the same card presentation; practice there remains temporary.
 
@@ -14,7 +14,7 @@ Preview: https://language-threshold-v6-preview.vercel.app/demo/lesson-workspace 
 
 ## Validation
 
-- 68 focused unit checks: speech lifecycle, phone dictation, locale selection, preview access, study timing and Core 30 progress.
+- 2,971 full unit checks pass locally, including the 68 focused checks for speech lifecycle, phone dictation, locale selection, preview access, study timing and Core 30 progress.
 - 11 desktop/phone browser cases including first-run language-to-Speak, persistent Study/Speak, menu/reset, one-card navigation, all six practice modes, no demo account/progress writes, failed-fetch retry, short screens and explicit lesson links.
 - TypeScript and changed-file lint; iOS wrapper simulator build.
 - Native V4 reference captures and PWA phone captures are stored in the session's `v4-reference-2026-11-14` artifact folder with source hashes.

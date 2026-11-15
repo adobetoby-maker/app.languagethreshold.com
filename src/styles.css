@@ -2087,7 +2087,6 @@ main.lt-scroll-safe:has(.lt-lesson-workspace-active),
   background: #09111a;
   color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 17px;
   line-height: 1.45;
 }
 .lt-v6-app h1,
@@ -2737,13 +2736,11 @@ body:has(.lt-native-speak) .lt-speaking-navigation {
 
 /* V4 build 29: Theme.swift, RootView.swift and SpeakHubView.swift are the reference.
    Explicit point sizes avoid scaling native controls through Tailwind rem units. */
-:root:has(.lt-v6-app, .lt-v6-demo) {
-  font-size: 16px;
-}
 .lt-v6-app,
 .lt-v6-demo {
   font-size: 17px;
-  line-height: 22px;
+  line-height: 1.29411765;
+  color-scheme: dark;
 }
 .lt-v4-study-speak {
   display: flex;
@@ -2782,6 +2779,7 @@ body:has(.lt-native-speak) .lt-speaking-navigation {
   margin: 0 auto;
   padding: 6px 20px;
   background: #09111a;
+  color: #ffffff;
   font-size: 12px;
   line-height: 16px;
 }
@@ -2992,8 +2990,9 @@ body:has(.lt-native-speak) .lt-speaking-navigation {
 .lt-demo-live-lesson {
   margin-top: 24px;
 }
-@media (max-height: 450px) {
-  .lt-native-speak .lt-v4-study-speak {
-    display: none;
-  }
+.lt-native-speak[data-keyboard="true"] .lt-v4-study-speak {
+  display: none;
+}
+.lt-native-speak[data-keyboard="true"] .lt-native-reply-dock {
+  padding-bottom: calc(5px + env(safe-area-inset-bottom));
 }

@@ -117,7 +117,7 @@ async function fixture(component, action) {
  export const Mic='span',Square='span',Trash2='span',AlertTriangle='span',AudioLines='span',ChevronDown='span',Cloud='span',Smartphone='span',X='span';
  export const SpeakingGuestConsent=()=>null,RecordedReplyControl=()=>null;
  export const ChallengePanel='section',SpeakingMissionsPreview='section',ModuleMatchPanel='section',LessonReturnPill='section';
- export const RotateCcw='span',Send='span';
+ export const RotateCcw='span',Send='span',ArrowUp='span';
  export const DropdownMenu='menu',DropdownMenuContent='menucontent',DropdownMenuItem='menuitem',DropdownMenuLabel='label',DropdownMenuSeparator='hr',DropdownMenuTrigger='button';
  `,
             }));

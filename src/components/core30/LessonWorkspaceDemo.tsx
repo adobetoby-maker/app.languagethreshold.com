@@ -160,7 +160,7 @@ export function LessonWorkspaceDemo() {
         course="Roofing · Foundation"
         language="Spanish"
         lessonNumber={1}
-        totalLessons={60}
+        totalLessons={FOUNDATION_ROOFING_LESSONS.length}
         dueCards={0}
         onCourses={() => {
           setShowSpeak(false);

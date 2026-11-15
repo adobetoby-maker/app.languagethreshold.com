@@ -17,6 +17,7 @@ export function NativeSpeakSurface({
   onPartnerStart,
   partnerStartDisabled,
   partnerTitle,
+  conversationStarted = false,
 }: {
   lesson: string;
   language: string;
@@ -34,16 +35,34 @@ export function NativeSpeakSurface({
   onPartnerStart: () => void;
   partnerStartDisabled: boolean;
   partnerTitle: string;
+  conversationStarted?: boolean;
 }) {
   const [viewportHeight, setViewportHeight] = useState<number>();
+  const [keyboardOpen, setKeyboardOpen] = useState(false);
   useEffect(() => {
-    const measure = () => setViewportHeight(window.visualViewport?.height ?? window.innerHeight);
+    let fullHeight = window.innerHeight;
+    let width = window.innerWidth;
+    const measure = () => {
+      const height = window.visualViewport?.height ?? window.innerHeight;
+      if (width !== window.innerWidth) {
+        width = window.innerWidth;
+        fullHeight = window.innerHeight;
+      }
+      fullHeight = Math.max(fullHeight, window.innerHeight, height);
+      const editing = document.activeElement?.matches("input, textarea, [contenteditable='true']");
+      setKeyboardOpen(Boolean(editing && fullHeight - height > 120));
+      setViewportHeight(height);
+    };
     measure();
     window.visualViewport?.addEventListener("resize", measure);
     window.addEventListener("resize", measure);
+    document.addEventListener("focusin", measure);
+    document.addEventListener("focusout", measure);
     return () => {
       window.visualViewport?.removeEventListener("resize", measure);
       window.removeEventListener("resize", measure);
+      document.removeEventListener("focusin", measure);
+      document.removeEventListener("focusout", measure);
     };
   }, []);
   const [ready, setReady] = useState(false);
@@ -56,6 +75,7 @@ export function NativeSpeakSurface({
     <section
       inert={!ready}
       data-compact={viewportHeight !== undefined && viewportHeight < 450}
+      data-keyboard={keyboardOpen}
       style={{ height: viewportHeight ?? "100dvh" }}
       className="lt-native-speak"
       aria-label="Free conversation practice"
@@ -78,34 +98,36 @@ export function NativeSpeakSurface({
           <CircleEllipsis size={24} />
         </button>
       </header>
-      <div className="lt-native-setup">
-        <button
-          ref={partnerTrigger}
-          className="lt-native-partner"
-          onClick={() => setPartners(true)}
-        >
-          <GraduationCap size={23} />
-          {partnerTitle}
-        </button>
-        <button
-          className="lt-native-topic"
-          onClick={(event) => {
-            menuTrigger.current = event.currentTarget;
-            setMenu(true);
-          }}
-        >
-          Open conversation <ChevronDown size={14} aria-hidden />
-        </button>
-        <p>Your role: a language learner.</p>
-        <p>Changing partner starts a new conversation.</p>
-        <button
-          className="lt-native-opening"
-          disabled={partnerStartDisabled}
-          onClick={onPartnerStart}
-        >
-          Let partner start
-        </button>
-      </div>
+      {!conversationStarted && (
+        <div className="lt-native-setup">
+          <button
+            ref={partnerTrigger}
+            className="lt-native-partner"
+            onClick={() => setPartners(true)}
+          >
+            <GraduationCap size={23} />
+            {partnerTitle}
+          </button>
+          <button
+            className="lt-native-topic"
+            onClick={(event) => {
+              menuTrigger.current = event.currentTarget;
+              setMenu(true);
+            }}
+          >
+            Open conversation <ChevronDown size={14} aria-hidden />
+          </button>
+          <p>Your role: a language learner.</p>
+          <p>Changing partner starts a new conversation.</p>
+          <button
+            className="lt-native-opening"
+            disabled={partnerStartDisabled}
+            onClick={onPartnerStart}
+          >
+            Let partner start
+          </button>
+        </div>
+      )}
       {transcript}
       <div role="group" className="lt-native-reply-dock" aria-label={`${language} reply controls`}>
         {composer}

@@ -1330,6 +1330,7 @@ export function SpeakLearn() {
           lesson={getModule(state.activeModuleId)?.name ?? `${language} conversation`}
           language={language}
           transcript={transcript}
+          conversationStarted={turns.length > 0 || thinking}
           partnerTitle={
             partnerId === "teacher" ? "Teacher · learn a topic" : speakingPartner(partnerId)[1]
           }

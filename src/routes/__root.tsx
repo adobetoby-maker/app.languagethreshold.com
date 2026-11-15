@@ -105,7 +105,7 @@ export const Route = createRootRoute({
       { name: "apple-mobile-web-app-title", content: "Language Threshold" },
       { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
       { name: "mobile-web-app-capable", content: "yes" },
-      { name: "theme-color", content: "#0b0d12" },
+      { name: "theme-color", content: "#09111a" },
       { title: "Language Threshold — AI Language Training" },
       {
         name: "description",

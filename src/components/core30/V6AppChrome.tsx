@@ -64,6 +64,7 @@ export function V6Header({
         <Sparkles size={19} aria-hidden />
       </button>
       <span
+        role="group"
         className="lt-v4-lesson-count"
         aria-label={
           lessonNumber ? `Lesson ${lessonNumber} of ${totalLessons}` : `${language} lessons`
@@ -75,7 +76,7 @@ export function V6Header({
         className="lt-v4-header-review"
         disabled={!ready}
         onClick={onReview}
-        aria-label="Review cards"
+        aria-label={dueCards === undefined ? "Review cards" : `Review cards, ${dueCards} due`}
       >
         <Copy size={21} aria-hidden />
         {dueCards !== undefined && <span>{dueCards}</span>}
@@ -101,7 +102,9 @@ export function V6Dock({
 }) {
   const [ready, setReady] = useState(false);
   useEffect(() => setReady(true), []);
-  const studying = active !== "speak";
+  // The conversation surface owns its bar so it follows the keyboard with the reply dock.
+  if (active === "speak") return null;
+  const studying = true;
   return (
     <div className="lt-v6-bottom">
       {studying && (
@@ -147,7 +150,20 @@ export function V6AppNavigation() {
     moduleId: string;
     n: number;
     total: number;
+    owner: string | null;
+    targetLanguage: string;
+    nativeLanguage: string;
   } | null>(null);
+  const profileReady = state.hydrated && !loading && profileReadyUserId === (user?.id ?? null);
+  const currentLesson =
+    profileReady &&
+    state.currentTab === "core30" &&
+    lessonContext?.moduleId === state.activeModuleId &&
+    lessonContext.owner === (user?.id ?? null) &&
+    lessonContext.targetLanguage === state.selectedLanguage &&
+    lessonContext.nativeLanguage === state.nativeLanguage
+      ? lessonContext
+      : null;
   const [courses, setCourses] = useState(false);
   const [courseDestination, setCourseDestination] = useState<LessonModeId | null>(null);
   const [mode, setMode] = useState<LessonModeId>("see");
@@ -155,9 +171,7 @@ export function V6AppNavigation() {
   const entryQuery = useRef(typeof window === "undefined" ? "" : window.location.search);
   useEffect(() => {
     const update = (event: Event) =>
-      setLessonContext(
-        (event as CustomEvent<{ moduleId: string; n: number; total: number }>).detail,
-      );
+      setLessonContext((event as CustomEvent<NonNullable<typeof lessonContext> | null>).detail);
     window.addEventListener("lt:v4-lesson-context", update);
     return () => window.removeEventListener("lt:v4-lesson-context", update);
   }, []);
@@ -243,11 +257,9 @@ export function V6AppNavigation() {
       <V6Header
         course={getModule(state.activeModuleId)?.name ?? "Core Basics"}
         language={state.selectedLanguage}
-        lessonNumber={
-          lessonContext?.moduleId === state.activeModuleId ? lessonContext.n : undefined
-        }
-        totalLessons={lessonContext?.total}
-        dueCards={dueCardsForLanguage(state.selectedLanguage).length}
+        lessonNumber={currentLesson?.n}
+        totalLessons={currentLesson?.total}
+        dueCards={profileReady ? dueCardsForLanguage(state.selectedLanguage).length : undefined}
         onCourses={() => {
           try {
             sessionStorage.removeItem(V6_PENDING_MODE);
@@ -260,7 +272,7 @@ export function V6AppNavigation() {
         onReview={() => dispatch({ type: "SET_TAB", payload: "flashcards" })}
         onMenu={() => window.dispatchEvent(new Event("lt:lesson-workspace-navigation"))}
       />
-      {state.currentTab === "core30" && <CurrentStudyActivity />}
+      {profileReady && state.currentTab === "core30" && <CurrentStudyActivity />}
       <V6Dock
         active={
           state.currentTab === "speak"

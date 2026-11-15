@@ -1049,12 +1049,22 @@ function OwnedLessonRunner({
     const frame = requestAnimationFrame(() =>
       window.dispatchEvent(
         new CustomEvent("lt:v4-lesson-context", {
-          detail: { moduleId, n: lesson.n, total: totalLessons },
+          detail: {
+            moduleId,
+            n: lesson.n,
+            total: totalLessons,
+            owner: userId ?? null,
+            targetLanguage: state.selectedLanguage,
+            nativeLanguage: state.nativeLanguage,
+          },
         }),
       ),
     );
-    return () => cancelAnimationFrame(frame);
-  }, [moduleId, lesson.n, totalLessons]);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.dispatchEvent(new CustomEvent("lt:v4-lesson-context", { detail: null }));
+    };
+  }, [moduleId, lesson.n, totalLessons, userId, state.selectedLanguage, state.nativeLanguage]);
 
   function onKitModeChange(mode: PracticeMode) {
     setKitMode(mode);

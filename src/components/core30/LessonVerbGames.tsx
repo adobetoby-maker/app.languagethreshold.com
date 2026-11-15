@@ -78,12 +78,14 @@ export function GameRound({
   source,
   replay,
   onComplete,
+  onSkip,
 }: {
   game: Game;
   language: string;
   source: LessonGameItem[];
   replay: () => void;
   onComplete?: () => void;
+  onSkip?: () => void;
 }) {
   const { speakSentence } = useSpeech();
   const items = useMemo(() => gameRoundItems(shuffle(source)), [source]);
@@ -331,6 +333,15 @@ export function GameRound({
       <p role="status" className="min-h-6">
         {feedback}
       </p>
+      {!finished && onSkip && (
+        <button
+          type="button"
+          className="min-h-11 text-sm text-muted-foreground underline"
+          onClick={onSkip}
+        >
+          Skip this activity
+        </button>
+      )}
     </div>
   );
 }

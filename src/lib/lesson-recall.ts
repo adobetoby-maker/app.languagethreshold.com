@@ -32,6 +32,7 @@ export function buildLessonRecall(
   verbs: readonly LessonVerb[],
   language: string,
   pattern?: SpanishPattern,
+  nativeLanguage = "English",
 ): RecallItem[] {
   const bank = lessonGameBank(verbs, language, pattern);
   const byPair = new Map<string, RecallCard>();
@@ -49,14 +50,22 @@ export function buildLessonRecall(
   }
   for (const verb of bank.meanings) {
     if (!verb.answer.trim() || !verb.meaning.trim()) continue;
-    const id = `card:${JSON.stringify([key(verb.answer), key(verb.meaning)])}`;
+    const gloss = (text: string) =>
+      nativeLanguage === "English" ? key(text).replace(/^to\s+/, "") : key(text);
+    const existing = [...byPair.values()].find(
+      (card) =>
+        card.word.kind === "term" &&
+        key(card.word.es) === key(verb.answer) &&
+        gloss(card.word.en) === gloss(verb.meaning),
+    );
+    const id = existing?.id ?? `card:${JSON.stringify([key(verb.answer), key(verb.meaning)])}`;
     byPair.set(id, {
       id,
       kind: "card",
       label: "Verb",
       word: {
         es: verb.answer,
-        en: verb.meaning,
+        en: existing?.word.en ?? verb.meaning,
         kind: "term",
         note:
           byPair.get(id)?.word.note ?? verbs.find((item) => item.infinitive === verb.answer)?.note,

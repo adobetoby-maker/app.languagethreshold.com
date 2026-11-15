@@ -82,3 +82,19 @@ test("duplicate vocabulary becomes one verb card with its authored forms", () =>
   assert.ok(deck[0].forms.length);
   assert.equal(deck[0].word.note, word.note);
 });
+
+test("English infinitive gloss variants merge without erasing notes or different meanings", () => {
+  const verb = { ...verbs[0], infinitive: "hablar", native: "to speak" };
+  const word = { es: "hablar", en: "speak", kind: "term", note: "Authored note" };
+  const deck = buildLessonRecall([word], [verb], "Spanish");
+  assert.equal(deck.length, 1);
+  assert.equal(deck[0].word.en, "speak");
+  assert.equal(deck[0].word.note, word.note);
+  assert.equal(
+    buildLessonRecall([{ ...word, en: "speech" }], [verb], "Spanish").filter(
+      (item) => item.kind === "card",
+    ).length,
+    2,
+  );
+  assert.deepEqual(buildLessonRecall([{ es: " ", en: "word", kind: "term" }], [], "Spanish"), []);
+});

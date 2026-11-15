@@ -413,31 +413,46 @@ function RecallSequence({
   const { target, native } = useKitLanguages();
   const speak = useTargetSpeaker();
   const sequence = useMemo(
-    () => buildLessonRecall(words, verbs, target, pattern),
-    [words, verbs, target, pattern],
+    () => buildLessonRecall(words, verbs, target, pattern, native),
+    [words, verbs, target, pattern, native],
   );
   const [queue, setQueue] = useState(() => sequence);
   const [revealed, setRevealed] = useState(false);
   const [skipped, setSkipped] = useState(0);
+  const [transitioning, setTransitioning] = useState(false);
+  const transitionTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(
+    () => () => {
+      if (transitionTimer.current) clearTimeout(transitionTimer.current);
+    },
+    [],
+  );
+  const pauseGrading = () => {
+    if (transitionTimer.current) clearTimeout(transitionTimer.current);
+    setTransitioning(true);
+    transitionTimer.current = setTimeout(() => setTransitioning(false), 300);
+  };
   const [direction, setDirection] = useState<LessonCardDirection>("native-to-target");
   const reported = useRef(false);
   const current = queue[0];
   const totalCards = sequence.filter((item) => item.kind === "card").length;
   const remainingCards = queue.filter((item) => item.kind === "card").length;
   useEffect(() => {
-    if (!queue.length && !reported.current) {
+    if (sequence.length && !queue.length && !reported.current) {
       reported.current = true;
       onComplete();
     }
-  }, [queue.length, onComplete]);
+  }, [sequence.length, queue.length, onComplete]);
   const advance = (again = false) => {
     if (!current) return;
     if (current.kind === "card" && !again) void playFlashcardSuccess();
     setQueue((pending) => advanceLessonRecall(pending, current.id, again));
     setRevealed(false);
+    pauseGrading();
   };
   const faces = current?.kind === "card" ? lessonCardFaces(current.word, direction) : null;
   const face = revealed ? faces?.back : faces?.front;
+  if (!sequence.length) return <p role="status">No lesson cards are available yet.</p>;
   return (
     <section
       data-testid="lesson-recall-deck"
@@ -473,18 +488,21 @@ function RecallSequence({
           </button>
         </>
       ) : current.kind === "card" ? (
-        <div key={current.id} data-testid="recall-step" data-kind="card" className="space-y-3">
+        <div key="recall-card" data-testid="recall-step" data-kind="card" className="space-y-3">
           <div className="flex items-center justify-between gap-2">
             <p className="text-sm font-semibold text-gold">{current.label}</p>
             <button
               type="button"
               className="min-h-11 text-sm text-muted-foreground"
               aria-label="Reverse card direction"
+              aria-disabled={transitioning}
               onClick={() => {
+                if (transitioning) return;
                 setDirection((value) =>
                   value === "native-to-target" ? "target-to-native" : "native-to-target",
                 );
                 setRevealed(false);
+                pauseGrading();
               }}
             >
               {direction === "native-to-target" ? `${native} → ${target}` : `${target} → ${native}`}
@@ -493,8 +511,13 @@ function RecallSequence({
           <button
             type="button"
             data-testid="flashcard"
+            aria-disabled={transitioning}
             aria-label={revealed ? "Show the front of the card" : "Flip the card"}
-            onClick={() => setRevealed((value) => !value)}
+            onClick={() => {
+              if (transitioning) return;
+              setRevealed((value) => !value);
+              pauseGrading();
+            }}
             className="flex min-h-64 max-h-[55dvh] w-full flex-col items-center gap-5 overflow-y-auto rounded-3xl border border-border bg-card px-5 py-8 text-center"
           >
             <span className="text-sm text-muted-foreground">
@@ -523,13 +546,28 @@ function RecallSequence({
           </button>
           <div data-testid="lesson-cards-grading" className="flex items-center gap-2">
             <SpeakButton text={current.word.es} speak={speak} />
-            <button type="button" className={cn(ghostBtn, "flex-1")} onClick={() => advance(true)}>
+            <button
+              type="button"
+              aria-disabled={transitioning}
+              className={cn(ghostBtn, "flex-1")}
+              onClick={() => {
+                if (!transitioning) advance(true);
+              }}
+            >
               Again
             </button>
             <button
               type="button"
               className={cn(primaryBtn, "flex-1")}
-              onClick={() => (revealed ? advance() : setRevealed(true))}
+              aria-disabled={transitioning}
+              onClick={() => {
+                if (transitioning) return;
+                if (revealed) advance();
+                else {
+                  setRevealed(true);
+                  pauseGrading();
+                }
+              }}
             >
               {revealed ? "Got it" : `Reveal ${direction === "native-to-target" ? target : native}`}
             </button>
@@ -555,10 +593,14 @@ function RecallSequence({
             source={current.source}
             replay={() => {}}
             onComplete={() => advance()}
+            onSkip={() => {
+              setSkipped((count) => count + 1);
+              advance();
+            }}
           />
         </div>
       )}
-      {current && current.kind !== "card" && (
+      {current?.kind === "match" && (
         <button
           type="button"
           className="min-h-11 text-sm text-muted-foreground underline"

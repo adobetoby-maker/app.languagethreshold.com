@@ -135,6 +135,28 @@ test.describe("Lesson content: Plumber lesson 1", () => {
     await expect(deck).toContainText("skipped");
   });
 
+  test("Recall ignores rapid grading taps across reveal and card changes", async ({ page }) => {
+    await openModuleCore30(page);
+    await openLesson1(page);
+    await goSection(page, "recall");
+    const deck = page.getByTestId("lesson-recall-deck");
+    await expect(deck).toBeVisible();
+    await page.clock.install();
+    await page.clock.pauseAt(Date.now() + 1000);
+    await deck.getByRole("button", { name: "Reveal Spanish", exact: true }).click();
+    const got = deck.getByRole("button", { name: "Got it", exact: true });
+    await expect(got).toBeDisabled();
+    await got.evaluate((element) => (element as HTMLButtonElement).click());
+    await expect(deck.getByTestId("recall-progress")).toHaveText(/^0 \/ /);
+    await page.clock.runFor(301);
+    await got.click();
+    const again = deck.getByRole("button", { name: "Again", exact: true });
+    await expect(again).toBeDisabled();
+    await again.evaluate((element) => (element as HTMLButtonElement).click());
+    await expect(deck.getByTestId("recall-progress")).toHaveText(/^1 \/ /);
+    await page.clock.resume();
+  });
+
   test("Recall matching and verb rounds return to the combined cards", async ({ page }) => {
     await openModuleCore30(page);
     await openLesson1(page);
@@ -183,6 +205,9 @@ test.describe("Lesson content: Plumber lesson 1", () => {
       await expect(game.getByText(/^Correct\./)).toBeVisible();
       await game.getByRole("button", { name: /^(Next question|See score)$/ }).click();
     }
+    await expect(deck.getByRole("button", { name: "Skip this activity", exact: true })).toHaveCount(
+      0,
+    );
     await game.getByRole("button", { name: "Continue cards", exact: true }).click();
     await expect(deck.getByTestId("recall-step")).toHaveAttribute("data-kind", "card");
   });

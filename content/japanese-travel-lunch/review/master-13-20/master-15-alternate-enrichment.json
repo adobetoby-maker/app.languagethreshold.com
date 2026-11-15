@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "stableId": "master-travel-lunch:15:ja-en",
+  "sourceLesson": "corrected-master15-lesson-private.json",
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false,
+  "readyForLearner": false,
+  "forms": [
+    {
+      "label": "Safe conditional and sequential request",
+      "japanese": "安全なら元栓を閉め、火を消してください。どのスイッチにも触らないでください。",
+      "english": "If it's safe, close the valve and put out the flame; don't touch any switch.",
+      "explanation": "安全なら states “if it is safe.” 閉め is the connective stem of 閉める, linking the valve action to 消してください, a polite request. どのスイッチにも pairs with the negative 触らないでください to mean “do not touch any switch.”",
+      "sourceRef": "card:17"
+    },
+    {
+      "label": "Negative requests",
+      "japanese": "たばこを吸わないでください。ライターも使わないでください。",
+      "english": "Don't smoke or use lighters!",
+      "explanation": "吸う→吸わない and 使う→使わない precede でください to form polite negative requests. も after ライター adds “either” to the second prohibition.",
+      "sourceRef": "card:19"
+    },
+    {
+      "label": "Conditional danger",
+      "japanese": "だれかが何かに火をつけたら、危険になります。",
+      "english": "If anyone lights anything, there will be danger.",
+      "explanation": "つけたら is the たら conditional of つける, expressing an if-clause, not past time here. だれかが何かに supplies “anyone” and “anything”; 危険になります states the resulting danger.",
+      "sourceRef": "card:20"
+    },
+    {
+      "label": "Possible gas leak report",
+      "japanese": "屋台広場でガス漏れの可能性があります。",
+      "english": "There's a possible gas leak at a food truck park.",
+      "explanation": "ガス漏れの可能性があります reports a possibility, not a confirmed leak. で locates the possible leak at the food-truck park.",
+      "sourceRef": "card:21"
+    },
+    {
+      "label": "Location report",
+      "japanese": "正面入口の前で、駐車場の隣です。",
+      "english": "We're in front of the main entrance, next to the parking lot.",
+      "explanation": "正面入口の前で and 駐車場の隣です give two location descriptions. The で is the connective form of です joining them, not a locative で particle.",
+      "sourceRef": "card:22"
+    },
+    {
+      "label": "Identifying clothing and waiting",
+      "japanese": "赤いTシャツを着て、正面入口でお待ちします。",
+      "english": "I'll wait for you at the main entrance in a red T-shirt.",
+      "explanation": "着て is the te-form of 着る, describing the red T-shirt the speaker will be wearing while waiting. お待ちします is the humble form of 待ちます used by the speaker.",
+      "sourceRef": "card:23"
+    },
+    {
+      "label": "Arrival, inspection and confirmation",
+      "japanese": "10分後、消防隊員が到着し、ホースを調べてガス漏れを確認します。",
+      "english": "Ten minutes later, the firefighters arrive, check the hose and confirm the leak.",
+      "explanation": "到着し and 調べて connect the arrival and hose inspection to 確認します, confirmation of the leak. 10分後 (じゅっぷんご) means ten minutes later.",
+      "sourceRef": "reader:18"
+    }
+  ],
+  "speakingObjectives": [
+    "Warn Mauricio about the strong gas smell near his cylinder (card 16).",
+    "Give the source-conditional instruction to close the valve and put out the flame only if safe, and prohibit touching any switch (card 17).",
+    "Move nearby people away from the food truck and prohibit smoking or lighter use (cards 18–19).",
+    "State the conditional danger if someone lights anything (card 20).",
+    "In the San José scene, call 911 and report a possible gas leak at the food-truck park (card 21; Reader 12–13).",
+    "Give the exact location in front of the main entrance beside the parking lot (card 22).",
+    "Identify yourself by the red T-shirt and say you will wait at the main entrance (card 23)."
+  ],
+  "wordBank": [
+    "ガスのにおい",
+    "ガス漏れ",
+    "ガスボンベ",
+    "元栓",
+    "ホース",
+    "火",
+    "火花",
+    "ライター",
+    "屋台",
+    "911番",
+    "女性オペレーター",
+    "消防隊員",
+    "正確な場所",
+    "正面入口",
+    "駐車場"
+  ],
+  "reviewGaps": [
+    "Qualified Japanese/locale review of Costa Rica 911番 pronunciation and use in a Japanese rendering of the San José scene.",
+    "Qualified review of 屋台 glossed as food truck and the service/emergency register.",
+    "Confirm Reader 18 index, source anchor and progress effects before owner-only projection.",
+    "Rebuild any exact-text audio scope after final text; old recordings for changed strings are invalid.",
+    "Pinned exact English card faces are preserved even where an English idiom differs from a literal Japanese gloss; qualified source/French-style review must decide before promotion."
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "issues": [
+    {
+      "severity": "high",
+      "location": "verbs (absent)",
+      "problem": "The source has four verb paradigms and the candidate has none. The candidate lists this as a residual, but the lesson is not structurally complete. Also, the tener example is not served by avoir, because the French Reader line 8 uses 'contiennent' (contenir), not 'ont'.",
+      "sourceEvidence": "verbs: comer, estar, tener (example 'Las tortillas de maíz no tienen gluten.'), usar",
+      "correction": "Add paradigms for manger (je mange, tu manges, il/elle/on mange, nous mangeons [-geons spelling], vous mangez, ils/elles mangent), être, and utiliser. For the third slot, either use contenir (contiens/contient/contenons/contenez/contiennent) with the example 'Les tortillas de maïs ne contiennent pas de gluten.', or keep avoir and accept a less idiomatic example ('n'ont pas de gluten'). Map the source slots él_ella_usted and ellos_ustedes onto il/elle/on, vous and ils/elles explicitly, since French formal and plural address both use vous. Rewrite the comer note: French negation wraps the verb (ne…pas), and du/de la/des become de after negation."
+    },
+    {
+      "severity": "high",
+      "location": "safety: card 6 'le lait sans lactose' and Reader 9 vs Reader 4",
+      "problem": "Lactose-free milk is still cow's milk and still contains milk proteins. It is unsafe for a milk allergy and is not dairy-free. In the Reader, Tom 'doesn't eat dairy' and Emma orders lactose-free milk, so learners may conflate the two. internalDomainNotes does not mention this.",
+      "sourceEvidence": "'Tom doesn't eat dairy products.' / 'Another coffee with more lactose-free milk…' (spoken by Emma)",
+      "correction": "Keep the source English exact. Add an internal or learner note: 'lait sans lactose = produit laitier; ne convient pas en cas d'allergie aux protéines de lait.' Confirm the milk is Emma's order, not Tom's."
+    },
+    {
+      "severity": "high",
+      "location": "safety: Reader 7 and 8",
+      "problem": "The claims are stated without qualification. Corn tortillas can contain wheat in blends or pick up cross-contact. Salsa verde or chilaquiles can contain chicken stock or lard, and garnishes can add dairy. Luis checks with the kitchen about nuts but asserts the dairy and gluten facts with no check. The French faithfully reproduces this certainty with 'ne contiennent'.",
+      "sourceEvidence": "'The green chilaquiles without cream or cheese have no meat or dairy.' / 'The corn tortillas don't have gluten.'",
+      "correction": "Keep the English and French at parity. Flag the claims as unsafe if presented unqualified, and add a domain note on meat stock, lard, wheat blends and cross-contact. Owner decision: whether the source itself should qualify these lines (e.g. 'normalement')."
+    },
+    {
+      "severity": "medium",
+      "location": "card 2 'les noix'; Reader 6",
+      "problem": "In French, 'noix' primarily means walnuts. The generic allergen term is 'fruits à coque' (EU INCO labelling). In an allergy context, 'des noix ou des cacahuètes' narrows the question.",
+      "sourceEvidence": "'the nuts' / 'las nueces'; 'if they use nuts or peanuts'",
+      "correction": "Use 'les fruits à coque' for the card and Reader 6 ('s'ils utilisent des fruits à coque ou des cacahuètes'), or keep 'les noix' with a note that it means walnut and nuts generically."
+    },
+    {
+      "severity": "medium",
+      "location": "card 16 'Plus de lait et moins de sucre, s'il vous plaît.'",
+      "problem": "At the start of a sentence, 'Plus de lait' is ambiguous in writing. It can mean 'no more milk' (the colloquial elision of ne…plus, pronounced [ply]). The intended meaning 'more milk' needs [plys]. Reader 9 is clear because 'avec plus de' disambiguates it.",
+      "sourceEvidence": "'More milk and less sugar, please.'",
+      "correction": "Use 'Un peu plus de lait et moins de sucre…' or 'Davantage de lait…', or keep the line with an audio and pronunciation note [plys]. Apply the same note to card 10 'plus de'."
+    },
+    {
+      "severity": "medium",
+      "location": "card 9 note (sourceNotes)",
+      "problem": "The note misses the key contrast with Spanish. French requires the article ('un autre café'), while Spanish forbids it ('un otro'). Calling it a gender-agreement issue misstates the point.",
+      "sourceEvidence": "'Never say un otro: just otro café, otra taza.'",
+      "correction": "Note: 'Contrairement à l'espagnol, le français garde l'article : un autre café, une autre tasse.'"
+    },
+    {
+      "severity": "medium",
+      "location": "modes (direction)",
+      "problem": "The language direction is inconsistent. Every mode prompts in French and targets English, including say, write and type, so the learner produces English. The residuals treat French paradigms as the progression, which implies French is the target language. Both cannot hold.",
+      "sourceEvidence": "Source: native=English, target=Spanish; productive modes elicit the target language",
+      "correction": "The owner should confirm the direction. If French is the target, the recall, type, say and write modes should prompt in English and elicit French."
+    },
+    {
+      "severity": "medium",
+      "location": "speakingObjectives",
+      "problem": "The single source speaking task is split into three paraphrased objectives. This breaks exact-English parity and drops the combined sequence: not ready, then no meat, then another coffee with less sugar.",
+      "sourceEvidence": "'Tell a server you are not ready yet, then say you don't eat meat and ask for another coffee with less sugar.'",
+      "correction": "Keep the source sentence verbatim as a single objective. Optionally add a French model answer: 'Nous ne sommes pas encore prêts. Je ne mange pas de viande. Un autre café avec moins de sucre, s'il vous plaît.'"
+    },
+    {
+      "severity": "low",
+      "location": "card 7 'personne'; mode recall index 7",
+      "problem": "Without ne, bare 'personne' reads as the noun 'une personne' (a person), which is the opposite meaning.",
+      "sourceEvidence": "'nobody' / 'nadie'",
+      "correction": "Write the card as 'ne … personne' (or 'personne (ne…)'). Do the same for card 8: 'ne … pas encore'."
+    },
+    {
+      "severity": "low",
+      "location": "card 13 note (missing)",
+      "problem": "The source gender note ('A woman says alérgica') is not addressed. French 'allergique' does not change with gender, and learners should be told that.",
+      "sourceEvidence": "note: 'A woman says alérgica.'",
+      "correction": "Note: 'allergique est invariable en genre (un homme / une femme allergique).' Optionally mention 'allergique à l'arachide', the usual medical and labelling term. The candidate's claim that arachide is 'for the plant' is inaccurate: it is standard for the allergen."
+    },
+    {
+      "severity": "low",
+      "location": "sourceNotes (card 17 entry)",
+      "problem": "The phrase 'used in frenchCards and the Reader-independent card' is garbled. ne…rien appears only in card 17, not in the Reader.",
+      "sourceEvidence": "card 17 note: 'Spanish uses a double negative: no... nada.'",
+      "correction": "Say: 'French equivalent: ne … rien (Je ne veux rien d'autre); card 17 only.'"
+    },
+    {
+      "severity": "low",
+      "location": "lesson metadata",
+      "problem": "The candidate has no French rendering of the lesson title, objective or focus. The sourceNote that the source has no English title is true only of the Reader; the lesson has the title 'No, Never and How Much'.",
+      "sourceEvidence": "title / objective / focus fields",
+      "correction": "Add French equivalents, or record their absence as a residual. Map the focus to ne…pas, ne…jamais, ne…personne, ne…rien, ne…pas encore, plus de / moins de / un(e) autre."
+    }
+  ],
+  "accepted": [
+    "Card count, order and kinds (17) match the source. Reader has 9 lines in source sequence, and Oaxaca, Luis, Emma and Tom are preserved. Rejecting the Lyon substitution and the invented draft lines is correct.",
+    "Reader lines 1–9 are faithful and idiomatic: 'prennent le petit-déjeuner', 'demander à la cuisine s'ils utilisent', 'sans crème ni fromage … ni viande ni produits laitiers', partitive 'de' after negation.",
+    "'Vous êtes prêts ?' for '¿Ya están listos?' (English 'Are you ready?') is an acceptable server register.",
+    "Cards 1, 3–6, 11, 12, 14, 15 and 17 are accurate. 'Je ne veux rien d'autre' correctly renders 'nothing else'.",
+    "Forms: all 6 English and readerLine values exactly match the source Reader lines.",
+    "Mode sourceIndex values (1-based) resolve correctly: card1=meat, card7=nobody, reader3, card9=another, reader4, card12.",
+    "Reader title 'Petit-déjeuner sans viande à Oaxaca' is faithful to 'Desayuno sin carne en Oaxaca'.",
+    "Learner gates are all false, and the candidate makes no approval claim."
+  ],
+  "residuals": [
+    "Owner decision needed: should the source food-safety lines be qualified? Parity is kept here, but the claims are unsafe if read as fact.",
+    "The lactose-free vs dairy-free/milk-allergy distinction needs a note.",
+    "The language direction of the modes is unresolved.",
+    "French verb paradigms are missing, and the tener→contenir/avoir mismatch is undecided.",
+    "Gender and number variants (prêtes; spoken 'on n'est pas encore prêts') are not represented.",
+    "Native fr-FR review and audio are still outstanding. This review does not approve the lesson."
+  ]
+}

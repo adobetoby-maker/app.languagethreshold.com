@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "candidatePath": "/Users/drive/lt-review/japanese-lunch-master18-team-2026-11-15/candidate.json",
+  "candidateSha256": "b75931d2fe44032c191ea5d407c17aaff420dca4e9105f7c2c00788e6c897fc1",
+  "stableId": "master-travel-lunch:18:ja-en",
+  "reviewed": false,
+  "registered": false,
+  "audioListeningReviewed": false,
+  "audioRegistered": false,
+  "readyForLearner": false,
+  "forms": [
+    {
+      "label": "Polite possibility question",
+      "japanese": "8人ではなく5人に変更することはできますか。",
+      "english": "Would it be possible to change it to 5 people instead of 8?",
+      "explanation": "〜ことはできますか asks whether changing the booking is possible. 8人ではなく5人に makes the original and replacement group sizes explicit."
+    },
+    {
+      "label": "Polite arrival-time request",
+      "japanese": "13時ではなく14時に伺ってもよろしいでしょうか。",
+      "english": "Could we arrive at 14:00 instead of 13:00?",
+      "explanation": "〜ていただけますか would ask a favor, but this exact sentence uses 伺ってもよろしいでしょうか to ask permission politely. 13時ではなく14時に contrasts the old and requested time."
+    },
+    {
+      "label": "Confirming deposit coverage",
+      "japanese": "前払い金は新しい予約に使えるか、ご確認いただけますか。",
+      "english": "Can you confirm whether the deposit covers the new booking?",
+      "explanation": "ご確認いただけますか politely asks the recipient to check. 前払い金は新しい予約に使えるか is the embedded question about whether the deposit applies."
+    }
+  ],
+  "speakingObjectives": [
+    "Ask whether the booking can change from 8 people to 5, using a polite possibility question.",
+    "Ask whether the arrival can move from 13:00 to 14:00, then handle a dropped signal.",
+    "Send a voice note and a written WhatsApp confirmation for 5 people at 14:00.",
+    "Ask whether the deposit covers the changed booking, and request 2 stuffed hot peppers and a shrimp chowder."
+  ],
+  "wordBank": [
+    "予約",
+    "人数",
+    "ターミナル・テレストレ（長距離バスの発着所）",
+    "音声メッセージ",
+    "到着時間",
+    "前払い金",
+    "甥",
+    "携帯電話番号"
+  ],
+  "activityIds": [
+    "master-travel-lunch:18:ja-en:see:private-1",
+    "master-travel-lunch:18:ja-en:recall:private-1",
+    "master-travel-lunch:18:ja-en:hear:private-1",
+    "master-travel-lunch:18:ja-en:type:private-1",
+    "master-travel-lunch:18:ja-en:say:private-1",
+    "master-travel-lunch:18:ja-en:write:private-1"
+  ],
+  "note": "Private derived-asset proposal only; qualified Japanese, food and locale review pending."
+}

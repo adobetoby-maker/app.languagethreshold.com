@@ -1,0 +1,505 @@
+Correct the Haiku French→English Breakfast Foundation 10 candidate below against the pinned source and Opus read-only critique. Output JSON only, same keys/schema as Haiku. Do not edit files. Preserve exactly 15 cards and nine Reader lines in source order; forms and modes must quote your final exact French/English strings. Fix card12 so English “How do you say this in Spanish?” maps to French “Comment dit-on ça en espagnol ?”, flag the French-course adaptation en français as an owner decision, never silently change source English. Use Mexican salsa verde (not French sauce verte), present pouvez-vous for source “Can you”, accurate avoir j'ai and comprendre paradigms, and only three source speaking tasks. Keep emergency number out of learner-facing objectives. Maintain Café Luna, English/Spanish wall, chilaquiles, all exact ingredient list. Five French paradigms corresponding to source, six distinct modes. No human review, audio or learner gates. You are a correction assistant, not an approver.
+SOURCE LESSON:
+{
+  "n": 10,
+  "title": "Words You Already Know and Getting Help",
+  "objective": "Spot Spanish words you already know and use survival phrases when you don't understand.",
+  "focus": "Cognates ending in -ción, -dad and -ente, plus survival phrases for getting help",
+  "words": [
+    {
+      "en": "the reservation",
+      "es": "la reservación",
+      "kind": "term"
+    },
+    {
+      "en": "the vegetarian option",
+      "es": "la opción vegetariana",
+      "kind": "term"
+    },
+    {
+      "en": "the information",
+      "es": "la información",
+      "kind": "term"
+    },
+    {
+      "en": "the specialty",
+      "es": "la especialidad",
+      "kind": "term"
+    },
+    {
+      "en": "the variety",
+      "es": "la variedad",
+      "kind": "term"
+    },
+    {
+      "en": "the ingredients",
+      "es": "los ingredientes",
+      "kind": "term"
+    },
+    {
+      "en": "different",
+      "es": "diferente",
+      "kind": "term"
+    },
+    {
+      "en": "excellent",
+      "es": "excelente",
+      "kind": "term"
+    },
+    {
+      "en": "the emergency",
+      "es": "la emergencia",
+      "kind": "term"
+    },
+    {
+      "en": "Excuse me, I don't understand.",
+      "es": "Disculpe, no entiendo.",
+      "kind": "phrase"
+    },
+    {
+      "en": "Can you speak more slowly, please?",
+      "es": "¿Puede hablar más despacio, por favor?",
+      "kind": "phrase"
+    },
+    {
+      "en": "How do you say this in Spanish?",
+      "es": "¿Cómo se dice esto en español?",
+      "kind": "phrase"
+    },
+    {
+      "en": "What are the ingredients?",
+      "es": "¿Cuáles son los ingredientes?",
+      "kind": "phrase"
+    },
+    {
+      "en": "Is there a vegetarian option?",
+      "es": "¿Hay una opción vegetariana?",
+      "kind": "phrase"
+    },
+    {
+      "en": "Help, it's an emergency!",
+      "es": "¡Ayuda, es una emergencia!",
+      "kind": "phrase"
+    }
+  ],
+  "speaking": "Tell a server you don't understand, ask them to speak more slowly, and ask what the ingredients of the specialty are."
+}
+
+SOURCE READER:
+{
+  "passage": {
+    "title": "Desayuno en el Café Luna",
+    "target": [
+      "Emma tiene una reservación a las 9 en el Café Luna.",
+      "En la pared hay información de emergencia en inglés y español.",
+      "Rosa: La especialidad de hoy es diferente: chilaquiles con pollo.",
+      "Emma: Disculpe, no entiendo.",
+      "Emma: ¿Puede hablar más despacio, por favor?",
+      "Emma: ¿Cuáles son los ingredientes?",
+      "Rosa: Los ingredientes son tortillas, salsa verde, pollo y queso.",
+      "Emma: ¿Hay una opción vegetariana?",
+      "Rosa: Sí, la opción vegetariana es excelente y tiene una variedad de verduras."
+    ],
+    "native": [
+      "Emma has a reservation at 9 at Café Luna.",
+      "On the wall there is emergency information in English and Spanish.",
+      "Rosa: Today's specialty is different: chilaquiles with chicken.",
+      "Emma: Excuse me, I don't understand.",
+      "Emma: Can you speak more slowly, please?",
+      "Emma: What are the ingredients?",
+      "Rosa: The ingredients are tortillas, green salsa, chicken and cheese.",
+      "Emma: Is there a vegetarian option?",
+      "Rosa: Yes, the vegetarian option is excellent and has a variety of vegetables."
+    ]
+  },
+  "verbs": [
+    {
+      "infinitive": "entender",
+      "native": "to understand",
+      "forms": {
+        "yo": "entiendo",
+        "tú": "entiendes",
+        "él_ella_usted": "entiende",
+        "nosotros": "entendemos",
+        "ellos_ustedes": "entienden"
+      },
+      "example": {
+        "target": "Disculpe, no entiendo.",
+        "native": "Excuse me, I don't understand."
+      },
+      "note": "Stem change e to ie (entiendo, entiendes), except nosotros."
+    },
+    {
+      "infinitive": "poder",
+      "native": "can, to be able to",
+      "forms": {
+        "yo": "puedo",
+        "tú": "puedes",
+        "él_ella_usted": "puede",
+        "nosotros": "podemos",
+        "ellos_ustedes": "pueden"
+      },
+      "example": {
+        "target": "¿Puede hablar más despacio, por favor?",
+        "native": "Can you speak more slowly, please?"
+      },
+      "note": "Stem change o to ue (puedo, puedes), except nosotros. Use puede (usted) to ask a server politely."
+    },
+    {
+      "infinitive": "hablar",
+      "native": "to speak",
+      "forms": {
+        "yo": "hablo",
+        "tú": "hablas",
+        "él_ella_usted": "habla",
+        "nosotros": "hablamos",
+        "ellos_ustedes": "hablan"
+      },
+      "example": {
+        "target": "Rosa habla muy rápido.",
+        "native": "Rosa speaks very fast."
+      },
+      "note": "Regular -ar verb."
+    },
+    {
+      "infinitive": "ser",
+      "native": "to be",
+      "forms": {
+        "yo": "soy",
+        "tú": "eres",
+        "él_ella_usted": "es",
+        "nosotros": "somos",
+        "ellos_ustedes": "son"
+      },
+      "example": {
+        "target": "Los ingredientes son tortillas, salsa verde, pollo y queso.",
+        "native": "The ingredients are tortillas, green salsa, chicken and cheese."
+      },
+      "note": "Irregular. Use it to say what something is or what it is made of."
+    },
+    {
+      "infinitive": "tener",
+      "native": "to have",
+      "forms": {
+        "yo": "tengo",
+        "tú": "tienes",
+        "él_ella_usted": "tiene",
+        "nosotros": "tenemos",
+        "ellos_ustedes": "tienen"
+      },
+      "example": {
+        "target": "Emma tiene una reservación a las 9.",
+        "native": "Emma has a reservation at 9."
+      },
+      "note": "Irregular yo form (tengo). Stem change e to ie (tienes, tiene, tienen), except nosotros."
+    }
+  ]
+}
+
+HAIKU CANDIDATE:
+{
+  "frenchCards": [
+    "la réservation",
+    "l'option végétarienne",
+    "l'information",
+    "la spécialité",
+    "la variété",
+    "les ingrédients",
+    "différent",
+    "excellent",
+    "l'urgence",
+    "Excusez-moi, je ne comprends pas.",
+    "Pourriez-vous parler plus lentement, s'il vous plaît ?",
+    "Comment est-ce qu'on dit ça en français ?",
+    "Quels sont les ingrédients ?",
+    "Est-ce qu'il y a une option végétarienne ?",
+    "Au secours, c'est une urgence !"
+  ],
+  "frenchReader": [
+    "Emma a une réservation à 9 heures au Café Luna.",
+    "Sur le mur, il y a des informations d'urgence en anglais et en espagnol.",
+    "Rosa : La spécialité du jour est différente : des chilaquiles au poulet.",
+    "Emma : Excusez-moi, je ne comprends pas.",
+    "Emma : Pourriez-vous parler plus lentement, s'il vous plaît ?",
+    "Emma : Quels sont les ingrédients ?",
+    "Rosa : Les ingrédients sont des tortillas, de la sauce verte, du poulet et du fromage.",
+    "Emma : Est-ce qu'il y a une option végétarienne ?",
+    "Rosa : Oui, l'option végétarienne est excellente et elle contient une variété de légumes."
+  ],
+  "readerTitleFrench": "Petit-déjeuner au Café Luna",
+  "forms": [
+    {
+      "french": "Emma a une réservation à 9 heures au Café Luna.",
+      "english": "Emma has a reservation at 9 at Café Luna.",
+      "readerLine": 1
+    },
+    {
+      "french": "Sur le mur, il y a des informations d'urgence en anglais et en espagnol.",
+      "english": "On the wall there is emergency information in English and Spanish.",
+      "readerLine": 2
+    },
+    {
+      "french": "Rosa : La spécialité du jour est différente : des chilaquiles au poulet.",
+      "english": "Rosa: Today's specialty is different: chilaquiles with chicken.",
+      "readerLine": 3
+    },
+    {
+      "french": "Emma : Excusez-moi, je ne comprends pas.",
+      "english": "Emma: Excuse me, I don't understand.",
+      "readerLine": 4
+    },
+    {
+      "french": "Emma : Pourriez-vous parler plus lentement, s'il vous plaît ?",
+      "english": "Emma: Can you speak more slowly, please?",
+      "readerLine": 5
+    },
+    {
+      "french": "Emma : Quels sont les ingrédients ?",
+      "english": "Emma: What are the ingredients?",
+      "readerLine": 6
+    },
+    {
+      "french": "Rosa : Les ingrédients sont des tortillas, de la sauce verte, du poulet et du fromage.",
+      "english": "Rosa: The ingredients are tortillas, green salsa, chicken and cheese.",
+      "readerLine": 7
+    },
+    {
+      "french": "Emma : Est-ce qu'il y a une option végétarienne ?",
+      "english": "Emma: Is there a vegetarian option?",
+      "readerLine": 8
+    },
+    {
+      "french": "Rosa : Oui, l'option végétarienne est excellente et elle contient une variété de légumes.",
+      "english": "Rosa: Yes, the vegetarian option is excellent and has a variety of vegetables.",
+      "readerLine": 9
+    }
+  ],
+  "modes": [
+    {
+      "mode": "see",
+      "sourceType": "card",
+      "sourceIndex": 1,
+      "promptFrench": "la réservation",
+      "targetEnglish": "the reservation"
+    },
+    {
+      "mode": "recall",
+      "sourceType": "card",
+      "sourceIndex": 13,
+      "promptFrench": "Quels sont les ingrédients ?",
+      "targetEnglish": "What are the ingredients?"
+    },
+    {
+      "mode": "hear",
+      "sourceType": "reader",
+      "sourceIndex": 5,
+      "promptFrench": "Emma : Pourriez-vous parler plus lentement, s'il vous plaît ?",
+      "targetEnglish": "Emma: Can you speak more slowly, please?"
+    },
+    {
+      "mode": "type",
+      "sourceType": "card",
+      "sourceIndex": 14,
+      "promptFrench": "Est-ce qu'il y a une option végétarienne ?",
+      "targetEnglish": "Is there a vegetarian option?"
+    },
+    {
+      "mode": "say",
+      "sourceType": "card",
+      "sourceIndex": 15,
+      "promptFrench": "Au secours, c'est une urgence !",
+      "targetEnglish": "Help, it's an emergency!"
+    },
+    {
+      "mode": "write",
+      "sourceType": "reader",
+      "sourceIndex": 7,
+      "promptFrench": "Rosa : Les ingrédients sont des tortillas, de la sauce verte, du poulet et du fromage.",
+      "targetEnglish": "Rosa: The ingredients are tortillas, green salsa, chicken and cheese."
+    }
+  ],
+  "speakingObjectives": [
+    "Scene: Emma is having her 9 o'clock reservation at Café Luna. Roles: Emma is the learner, Rosa is the server. Task: Emma tells Rosa 'Excusez-moi, je ne comprends pas.' when a word is unclear, then asks 'Pourriez-vous parler plus lentement, s'il vous plaît ?' so Rosa slows down.",
+    "Task: Emma asks 'Quels sont les ingrédients ?' about today's specialty (the chilaquiles with chicken) and listens for tortillas, green salsa, chicken and cheese.",
+    "Task: Emma asks 'Est-ce qu'il y a une option végétarienne ?' and can answer Rosa's reply that the vegetarian option is excellent and has a variety of vegetables.",
+    "Emergency task: Emma says 'Au secours, c'est une urgence !' only in a real emergency. The lesson gives no emergency number; the learner should look up the local number for the place they are in."
+  ],
+  "frenchVerbParadigms": [
+    {
+      "sourceInfinitive": "entender",
+      "frenchInfinitive": "comprendre",
+      "nativeEnglish": "to understand",
+      "frenchForms": {
+        "je": "comprends",
+        "tu": "comprends",
+        "il_elle_on": "comprend",
+        "nous": "comprenons",
+        "vous": "comprenez",
+        "ils_elles": "comprennent"
+      },
+      "englishExplanation": "Irregular in French. 'Je ne comprends pas' = 'I don't understand'; the stem does not change the way Spanish entiendo does, so learn the forms as a set."
+    },
+    {
+      "sourceInfinitive": "poder",
+      "frenchInfinitive": "pouvoir",
+      "nativeEnglish": "can, to be able to",
+      "frenchForms": {
+        "je": "peux",
+        "tu": "peux",
+        "il_elle_on": "peut",
+        "nous": "pouvons",
+        "vous": "pouvez",
+        "ils_elles": "peuvent"
+      },
+      "englishExplanation": "'Pourriez-vous' is the polite conditional of pouvoir, used to ask a server for something politely. 'Pouvez-vous' (present) is also polite; both mean 'Can you...?'"
+    },
+    {
+      "sourceInfinitive": "hablar",
+      "frenchInfinitive": "parler",
+      "nativeEnglish": "to speak",
+      "frenchForms": {
+        "je": "parle",
+        "tu": "parles",
+        "il_elle_on": "parle",
+        "nous": "parlons",
+        "vous": "parlez",
+        "ils_elles": "parlent"
+      },
+      "englishExplanation": "Regular -er verb. 'Parler plus lentement' = 'to speak more slowly', with plus lentement as the adverb phrase."
+    },
+    {
+      "sourceInfinitive": "ser",
+      "frenchInfinitive": "être",
+      "nativeEnglish": "to be",
+      "frenchForms": {
+        "je": "suis",
+        "tu": "es",
+        "il_elle_on": "est",
+        "nous": "sommes",
+        "vous": "êtes",
+        "ils_elles": "sont"
+      },
+      "englishExplanation": "Irregular. Used for what something is or is made of: 'Les ingrédients sont des tortillas...' ('The ingredients are tortillas...'). 'Quels sont' also uses sont, because the subject is plural."
+    },
+    {
+      "sourceInfinitive": "tener",
+      "frenchInfinitive": "avoir",
+      "nativeEnglish": "to have",
+      "frenchForms": {
+        "je": "ai",
+        "tu": "as",
+        "il_elle_on": "a",
+        "nous": "avons",
+        "vous": "avez",
+        "ils_elles": "ont"
+      },
+      "englishExplanation": "Irregular. 'Emma a une réservation' = 'Emma has a reservation.' French uses il y a (there is/are) for existence, as in 'Il y a des informations', not avoir."
+    }
+  ],
+  "internalDomainNotes": [
+    "Source authority: the English source text is the parity anchor. The French candidate translates it; it does not replace it. Any English change must come from the owner.",
+    "Place facts kept from the source: Café Luna, a 9 o'clock reservation, emergency information on the wall in English and Spanish, chilaquiles with chicken, tortillas, green salsa, chicken and cheese, and a vegetarian option with a variety of vegetables. No city is given in the source, so none is added.",
+    "Drift not used: Lyon, Café Lumière, French signage, ham quiche, tartine, pastry and eggs are not in this candidate. The wall line keeps 'anglais et espagnol' because the source says English and Spanish.",
+    "Cognate endings: the Spanish focus (-ción, -dad, -ente) becomes French -tion (réservation, information), -té (spécialité, variété) and -ent (ingrédients, différent, excellent). Note that ingrédient is masculine (les ingrédients) and différent agrees: spécialité is feminine, so the reader line uses 'est différente'.",
+    "Gender lessons: la réservation, l'information, la spécialité, la variété are feminine. les ingrédients is plural masculine. l'option végétarienne is feminine, so the adjective is excellente, not excellent. l'urgence is feminine, so it is une urgence.",
+    "Polite register: Rosa is addressed with vous ('Pourriez-vous', 'Excusez-moi'). Use vous with any server, and tu only with friends.",
+    "Quels versus quel: 'Quels sont les ingrédients ?' takes quels because ingrédients is masculine plural. 'Est-ce qu'il y a' turns the statement into a question without changing il y a.",
+    "Emergency content: the source states no emergency number, so this candidate gives none. 'Au secours' is the help phrase for a real emergency; the number is a local fact the learner must look up for the place they are in.",
+    "Reader formatting: French reader lines use 'Emma :' and 'Rosa :' with a space before the colon (French typography). The English source uses 'Emma:' with no space, which is why forms keep the English exactly as in the source."
+  ],
+  "qualifiedReviewResiduals": [
+    "OWNER DECISION REQUIRED (source parity): the source card 'How do you say this in Spanish?' / '¿Cómo se dice esto en español?' is Spanish-target. The French candidate card uses 'Comment est-ce qu'on dit ça en français ?' as a French-learner version. The English source is NOT altered in this candidate; it is still the exact source text. The owner must decide whether to keep the Spanish-source English, change the English for a French course, or keep both.",
+    "The reader's wall line says emergency information is in English and Spanish. The French candidate keeps that fact (anglais et espagnol). If the course is a French course, the owner must decide whether the English source should say French and English. Not changed here.",
+    "readerLine in forms is interpreted as a one-based index into frenchReader. The owner should confirm this field meaning.",
+    "The speaking objectives use only phrases already in the card list. The source objective 'ask what the ingredients of the specialty are' has no exact French card; the candidate uses 'Quels sont les ingrédients ?' from card 13. A specialty-specific phrase would be a new sentence and needs owner approval.",
+    "No native French review, audio, or learner testing has been done. Reviewed status: unreviewed. Private draft only; no human approval, audio, or learner gate has passed.",
+    "Emergency number: none is stated in the source and none is supplied. Any emergency-number guidance needs a verified local source before publication.",
+    "Old private draft drift (Lyon, Café Lumière, French signage, ham quiche, tartine, pastry, eggs) was excluded. Confirm that no old wording has entered the course materials."
+  ]
+}
+
+OPUS CRITIQUE:
+{
+  "issues": [
+    {
+      "severity": "high",
+      "location": "frenchCards[11] (card 12, 1-based), paired with source words[11]",
+      "problem": "The French and English on this card say different things. The French \"Comment est-ce qu'on dit ça en français ?\" means \"How do you say this in French?\", but the card's English is still \"How do you say this in Spanish?\". A learner who sees one side will learn the wrong meaning for the other. The candidate raises this in its residuals, but the card itself still goes out mismatched.",
+      "proposedCorrection": "For source parity, use \"Comment dit-on ça en espagnol ?\" (or \"Comment est-ce qu'on dit ça en espagnol ?\"). If you want the French-course adaptation, keep \"…en français ?\" only after the owner changes the English to \"How do you say this in French?\". Don't ship the card with the two sides disagreeing."
+    },
+    {
+      "severity": "medium",
+      "location": "frenchReader[6] / forms[6] / modes[5] (write, reader 7)",
+      "problem": "\"Sauce verte\" is the wrong term for Mexican green salsa. In French it names a classic French herb sauce, often based on mayonnaise or vinaigrette. A French reader would picture the wrong condiment, and the Mexican scene detail gets lost. Chilaquiles use a tomatillo-based salsa verde.",
+      "proposedCorrection": "\"de la salsa verde\" (an accepted loanword in French food writing, ideally in italics), or \"de la salsa verde (sauce aux tomatillos)\". Make the same change in forms[6].french and modes[5].promptFrench."
+    },
+    {
+      "severity": "medium",
+      "location": "frenchVerbParadigms[4].frenchForms.je (avoir)",
+      "problem": "The table lists \"je\": \"ai\". In French, je elides before a vowel, so any template that joins pronoun and form will show \"je ai\", which is ungrammatical.",
+      "proposedCorrection": "Display it as \"j'ai\", either by storing the elided form or adding an elision rule to the renderer. Check that the other je forms don't need the same rule (comprends, peux, parle, suis are fine)."
+    },
+    {
+      "severity": "medium",
+      "location": "frenchVerbParadigms[0].englishExplanation (comprendre)",
+      "problem": "The note says the stem \"does not change\". That is false: comprendre loses the nasal and doubles the n in comprenons, comprenez and comprennent.",
+      "proposedCorrection": "\"Irregular. Singular forms are comprends/comprend; the plural stem changes to compren-/comprenn- (nous comprenons, ils comprennent). 'Je ne comprends pas' = 'I don't understand.'\""
+    },
+    {
+      "severity": "medium",
+      "location": "frenchVerbParadigms[4].englishExplanation (avoir)",
+      "problem": "The note says French uses il y a \"not avoir\". That is misleading, because il y a is built from avoir (il + y + a).",
+      "proposedCorrection": "\"…French uses the fixed expression il y a (there is/are), built from avoir (il y a), as in 'Il y a des informations'.\""
+    },
+    {
+      "severity": "medium",
+      "location": "frenchCards[10], frenchReader[4], forms[4], modes[2]; frenchVerbParadigms[1]",
+      "problem": "\"Pourriez-vous\" is conditional (\"Could you\"), but the source uses the present puede and the English is \"Can you\". The paradigm table only shows vous pouvez, so learners never see the form they are drilled on. The note's claim that both forms mean \"Can you…?\" is also inaccurate.",
+      "proposedCorrection": "Use \"Pouvez-vous parler plus lentement, s'il vous plaît ?\" everywhere, which matches the source tense and the table. Alternatively, keep pourriez and rewrite the note: \"pourriez-vous = could you (more polite conditional); pouvez-vous = can you\"."
+    },
+    {
+      "severity": "medium",
+      "location": "speakingObjectives[2], speakingObjectives[3]",
+      "problem": "The source speaking task covers only three things: say you don't understand, ask the server to speak more slowly, and ask about the specialty's ingredients. The candidate adds a vegetarian-option task and an emergency task, plus emergency-number advice (\"look up the local number\") that isn't in the source. Objective 3 also says \"answer Rosa's reply\" when the learner only needs to understand it.",
+      "proposedCorrection": "Limit speakingObjectives to objectives 0–1. If the owner wants the extra tasks, mark them optional and change \"answer\" to \"understand\". Move the emergency-number guidance to internal notes."
+    },
+    {
+      "severity": "low",
+      "location": "speakingObjectives[0]",
+      "problem": "The English is awkward: \"Emma is having her 9 o'clock reservation\".",
+      "proposedCorrection": "\"Emma arrives for her 9 o'clock reservation at Café Luna.\""
+    },
+    {
+      "severity": "low",
+      "location": "frenchReader[0] / forms[0]",
+      "problem": "\"une réservation à 9 heures\" is understandable but not the usual collocation.",
+      "proposedCorrection": "\"Emma a une réservation pour 9 heures au Café Luna.\""
+    },
+    {
+      "severity": "low",
+      "location": "frenchCards[11]",
+      "problem": "The register is mixed. Informal \"est-ce qu'on… ça\" sits next to vous-register phrases spoken to the same server. It's acceptable, but inconsistent.",
+      "proposedCorrection": "\"Comment dit-on ça en … ?\" (neutral and polite)"
+    },
+    {
+      "severity": "low",
+      "location": "all French lines with ' :', ' ?', ' !'",
+      "problem": "A regular space before French punctuation can wrap, leaving the \"?\" or \":\" alone at the start of a line.",
+      "proposedCorrection": "Use U+202F (narrow no-break space) or U+00A0 before : ? !"
+    },
+    {
+      "severity": "low",
+      "location": "modes[2] (hear, reader 5)",
+      "problem": "The prompt includes the speaker label \"Emma :\". Text-to-speech would read the name aloud as part of the sentence.",
+      "proposedCorrection": "Strip the speaker label from audio prompts, or store it in a separate field."
+    }
+  ],
+  "residuals": [
+    "Index check: forms.readerLine and modes.sourceIndex are consistent with 1-based indexing (card 1 = la réservation, 13 = Quels sont…, 14 = végétarienne, 15 = urgence; reader 5 = plus lentement, 7 = ingrédients). The owner still needs to confirm the indexing convention.",
+    "Mode direction: recall, type and write prompt in French and target English. If those modes are meant to make learners produce French, the direction is reversed. The owner needs to confirm.",
+    "The lesson objective and focus are about spotting Spanish cognates. A French course needs an owner-approved restatement (French -tion/-té/-ent cognates). As it stands, the learner-facing objective is outside a French course's scope.",
+    "The wall line correctly keeps 'anglais et espagnol' for source fidelity. Any change to it is the owner's decision.",
+    "Translation choices that are fine: l'urgence / 'Au secours, c'est une urgence !', 'des chilaquiles au poulet' (the Mexican term is kept), 'tortillas', 'fromage', 'excellente' and 'différente' agreement, 'Quels sont', 'Est-ce qu'il y a'.",
+    "This is a read-only linguistic critique, not a qualified native-French review. No audio or learner testing was done, and the candidate remains unreviewed."
+  ]
+}

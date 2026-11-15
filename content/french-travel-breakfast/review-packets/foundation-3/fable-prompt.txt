@@ -1,0 +1,127 @@
+Adjudicate French Breakfast Foundation 3 UNREVIEWED owner-only candidate. Read-only, no tools. Return strict JSON with correctedCandidate (same cardFrench/readerFrench/forms/modes/speakingObjectives/sourceNotes/gates), acceptedChanges, rejectedSuggestions, residuals. Preserve exact source English card faces/kinds and Reader native English; Spanish sets context. Daniel says masculine "Estoy listo" in Reader, so use speakable "prêt" for his line and card, with feminine prête in note. Remove false teaching that très distinguishes ser/estar: both Spanish clauses use muy; French être covers both by context. Restore casual café question for bread date, preserve Oaxaca, pan dulce, chilaquiles and salsa, avoid reintroducing brioche. Make forms exact full Reader pairs with source refs, six modes source refs and per-mode closed gates. Hear partner-read only, no audio. No qualified approval. SOURCE {"n": 3, "title": "Ser and Estar", "objective": "Describe food, drinks and tables at a café with ser and estar.", "focus": "ser for what food is like or where it is from; estar for its condition or a table's status", "words": [{"en": "hot", "es": "caliente", "kind": "term"}, {"en": "cold", "es": "frío", "kind": "term", "note": "Use fría with feminine nouns: la leche está fría."}, {"en": "fresh", "es": "fresco", "kind": "term"}, {"en": "sweet", "es": "dulce", "kind": "term"}, {"en": "spicy", "es": "picante", "kind": "term"}, {"en": "delicious", "es": "delicioso", "kind": "term"}, {"en": "taken", "es": "ocupado", "kind": "term"}, {"en": "free, available", "es": "libre", "kind": "term"}, {"en": "the server (woman)", "es": "la mesera", "kind": "term", "note": "A man is el mesero."}, {"en": "The coffee is very hot.", "es": "El café está muy caliente.", "kind": "phrase", "note": "estar: a condition that can change."}, {"en": "Is this table free?", "es": "¿Esta mesa está libre?", "kind": "phrase"}, {"en": "Is the bread from today?", "es": "¿El pan es de hoy?", "kind": "phrase", "note": "ser + de for origin: where or when something is from."}, {"en": "The salsa is very spicy.", "es": "La salsa es muy picante.", "kind": "phrase", "note": "ser: what something is like."}, {"en": "I'm ready to order.", "es": "Estoy listo para ordenar.", "kind": "phrase", "note": "A woman says lista."}], "speaking": "Ask a server if a table is free, then say whether your coffee is hot or cold and whether the salsa is spicy."} READER {"title": "Desayuno en Oaxaca", "target": ["Daniel está en un café de Oaxaca y muchas mesas están ocupadas.", "Daniel le pregunta a la mesera: ¿Esta mesa está libre?", "La mesera, Rosa, dice: Sí, está libre.", "Daniel: ¿El pan es de hoy?", "Rosa: Sí, el pan dulce es fresco.", "Daniel: Estoy listo para ordenar.", "Rosa trae café, jugo de naranja y chilaquiles con salsa.", "Daniel: El café está muy caliente, pero el jugo está frío.", "Daniel: La salsa es muy picante, pero es deliciosa."], "native": ["Daniel is at a café in Oaxaca, and many tables are taken.", "Daniel asks the server: Is this table free?", "The server, Rosa, says: Yes, it is free.", "Daniel: Is the bread from today?", "Rosa: Yes, the sweet bread is fresh.", "Daniel: I'm ready to order.", "Rosa brings coffee, orange juice and chilaquiles with salsa.", "Daniel: The coffee is very hot, but the juice is cold.", "Daniel: The salsa is very spicy, but it is delicious."]} HAIKU {"status": "private-unreviewed-owner-review-candidate", "unit": "Breakfast Foundation 3: Ser and Estar", "sourceFidelity": {"cardFacesAndKindsImmutable": true, "readerEnglishImmutable": true, "restoredFromSource": ["Oaxaca", "sweet bread", "chilaquiles with salsa", "Is the bread from today?"], "discardedFromPrivateDraft": ["Lyon", "brioche", "eggs", "chili sauce", "altered English meanings such as 'Is the bread fresh today?' and 'The chili sauce is very spicy.'"]}, "genderPolicy": "Rosa is a woman per source (la mesera), so feminine forms are used for Rosa. Daniel's gender is not stated in source, so first-person forms use prêt(e) and no masculine or feminine default is assumed for Daniel.", "readerIndexBase": 0, "cardFrench": [{"en": "hot", "kind": "term", "french": "chaud", "note": "Feminine: chaude. Used for food and drink. Spanish caliente maps to chaud, not to a verb change."}, {"en": "cold", "kind": "term", "french": "froid", "note": "Feminine: froide, as in la boisson est froide. Source note: Spanish fría with feminine nouns maps to froide with feminine nouns."}, {"en": "fresh", "kind": "term", "french": "frais", "note": "Feminine: fraîche. Use frais with masculine nouns like le pain and fraîche with feminine nouns like la brioche."}, {"en": "sweet", "kind": "term", "french": "sucré", "note": "Sucré is the safe word for sweet to taste. Doux means mild or soft and may mean sweet for wine or cider, so avoid it here."}, {"en": "spicy", "kind": "term", "french": "piquant", "note": "Feminine: piquante. Use piquant for chili heat. Épicé means spiced and is not the same as hot-spicy."}, {"en": "delicious", "kind": "term", "french": "délicieux", "note": "Feminine: délicieuse. Agrees with the noun or pronoun it describes."}, {"en": "taken", "kind": "term", "french": "occupé", "note": "Feminine: occupée. Used for tables that are not free."}, {"en": "free, available", "kind": "term", "french": "libre", "note": "The same form for masculine and feminine: libre. Spanish libre maps directly to libre."}, {"en": "the server (woman)", "kind": "term", "french": "la serveuse", "note": "Masculine: le serveur. Source gives Rosa as a woman, so la serveuse is used for Rosa."}, {"en": "The coffee is very hot.", "kind": "phrase", "french": "Le café est très chaud.", "note": "French uses être for both the Spanish ser and estar. Separate condition from characteristic by context and adverbs such as très, not by changing the verb."}, {"en": "Is this table free?", "kind": "phrase", "french": "Cette table est libre ?", "note": "Spoken question with rising intonation. Est-ce que cette table est libre ? is a neutral alternative; inversion is more formal."}, {"en": "Is the bread from today?", "kind": "phrase", "french": "Le pain est-il d'aujourd'hui ?", "note": "Origin or date from: être + de, here d'aujourd'hui (from today). Keeps source meaning about origin, not freshness."}, {"en": "The salsa is very spicy.", "kind": "phrase", "french": "La salsa est très piquante.", "note": "Characteristic of the salsa. Piquante is feminine to agree with la salsa. Keeps the source word salsa."}, {"en": "I'm ready to order.", "kind": "phrase", "french": "Je suis prêt(e) à commander.", "note": "Source note: a woman says lista. The French form prêt(e) is left open to avoid assuming the speaker's gender."}], "readerFrench": [{"english": "Daniel is at a café in Oaxaca, and many tables are taken.", "french": "Daniel est dans un café à Oaxaca, et beaucoup de tables sont occupées."}, {"english": "Daniel asks the server: Is this table free?", "french": "Daniel demande à la serveuse : Cette table est libre ?"}, {"english": "The server, Rosa, says: Yes, it is free.", "french": "La serveuse, Rosa, dit : Oui, elle est libre."}, {"english": "Daniel: Is the bread from today?", "french": "Daniel : Le pain est-il d'aujourd'hui ?"}, {"english": "Rosa: Yes, the sweet bread is fresh.", "french": "Rosa : Oui, le pain sucré est frais."}, {"english": "Daniel: I'm ready to order.", "french": "Daniel : Je suis prêt(e) à commander."}, {"english": "Rosa brings coffee, orange juice and chilaquiles with salsa.", "french": "Rosa apporte du café, du jus d'orange et des chilaquiles avec de la salsa."}, {"english": "Daniel: The coffee is very hot, but the juice is cold.", "french": "Daniel : Le café est très chaud, mais le jus est froid."}, {"english": "Daniel: The salsa is very spicy, but it is delicious.", "french": "Daniel : La salsa est très piquante, mais elle est délicieuse."}], "forms": [{"readerIndex": 1, "promptEnglish": "Translate: Is this table free?", "frenchAnswer": "Cette table est libre ?", "explanation": "Libre has one form for both genders. Cette and table are feminine, so the demonstrative is cette."}, {"readerIndex": 3, "promptEnglish": "Translate: Is the bread from today?", "frenchAnswer": "Le pain est-il d'aujourd'hui ?", "explanation": "Use être with de for origin or date. D'aujourd'hui means from today. Inversion with -il is the formal question form."}, {"readerIndex": 4, "promptEnglish": "Translate: Yes, the sweet bread is fresh.", "frenchAnswer": "Oui, le pain sucré est frais.", "explanation": "Pain is masculine, so frais has no extra e. Compare la brioche est fraîche, where the feminine noun requires fraîche."}, {"readerIndex": 7, "promptEnglish": "Translate: The coffee is very hot, but the juice is cold.", "frenchAnswer": "Le café est très chaud, mais le jus est froid.", "explanation": "Café and jus are both masculine, so chaud and froid take no feminine ending. For a feminine drink, say la boisson est froide."}, {"readerIndex": 8, "promptEnglish": "Translate: The salsa is very spicy, but it is delicious.", "frenchAnswer": "La salsa est très piquante, mais elle est délicieuse.", "explanation": "Salsa is feminine, so piquante and délicieuse take the feminine ending. Elle refers back to la salsa."}], "modes": [{"mode": "see", "target": "card", "targetEnglish": "The coffee is very hot.", "frenchTarget": "Le café est très chaud.", "prompt": "Look at the English card The coffee is very hot. Say the French target."}, {"mode": "recall", "target": "card", "targetEnglish": "free, available", "frenchTarget": "libre", "prompt": "Recall the French card target for the English free, available."}, {"mode": "hear", "target": "reader", "targetEnglish": "Rosa brings coffee, orange juice and chilaquiles with salsa.", "frenchTarget": "Rosa apporte du café, du jus d'orange et des chilaquiles avec de la salsa.", "prompt": "Listen to the French, then say the English Reader line exactly."}, {"mode": "type", "target": "card", "targetEnglish": "the server (woman)", "frenchTarget": "la serveuse", "prompt": "Type the French card target for the English the server (woman)."}, {"mode": "say", "target": "card", "targetEnglish": "Is this table free?", "frenchTarget": "Cette table est libre ?", "prompt": "Say the French card target aloud for the English Is this table free?"}, {"mode": "write", "target": "reader", "targetEnglish": "Daniel: Is the bread from today?", "frenchTarget": "Daniel : Le pain est-il d'aujourd'hui ?", "prompt": "Write the French Reader line for the English line Daniel: Is the bread from today?"}], "speakingObjectives": {"english": "Ask a server if a table is free, then say whether your coffee is hot or cold and whether the salsa is spicy.", "french": "Demander à une serveuse si une table est libre, puis dire si votre café est chaud ou froid et si la salsa est piquante."}, "sourceNotes": ["Source focus: ser for what food is like or where it is from; estar for its condition or a table's status.", "French uses être for both. The distinction is taught through context and adverbs (très, d'aujourd'hui), not through the verb.", "Adjective agreement is taught explicitly: masculine and feminine endings for chaud/chaude, froid/froide, frais/fraîche, piquant/piquante, délicieux/délicieuse, occupé/occupée, prêt/prête.", "Libre has one form for both genders.", "Reader indices are 0-based. The five forms use indices 1, 3, 4, 7 and 8.", "Spanish card faces and kinds and the nine Reader English lines are unchanged from source."], "residuals": ["Gender of the speaker in I'm ready to order is unresolved; prêt(e) is used.", "La salsa is a borrowed word in French; the source keeps salsa, so the French target does not translate it to sauce.", "Sucré versus doux for sweet is a judgment call; sucré is chosen for taste.", "Owner review of the French wording, the Reader French pairs and the form explanations is still pending.", "No tool checks were run, so accent and spelling are unverified."], "gates": {"ownerReviewed": false, "publishable": false, "audioVerified": false, "nativeSpeakerReviewed": false, "learnerTested": false, "sourceParityApproved": false, "productionReady": false}} OPUS ```json
+{
+  "artifact": "Breakfast Foundation 3: Ser and Estar (French, private-unreviewed-owner-review-candidate)",
+  "reviewType": "AI read-only critique. This is not owner, native-speaker, audio or source-parity approval.",
+  "indexConvention": "Cards 0–13 in source order (hot=0 … I'm ready to order=13); Reader lines 0–8, matching the candidate's readerIndexBase 0.",
+  "issues": [
+    {
+      "id": "G1",
+      "severity": "high",
+      "area": "gender / source context missed",
+      "evidence": "genderPolicy says 'Daniel's gender is not stated in source' and uses 'Je suis prêt(e) à commander.' on card 13 and Reader 5. The source does fix the gender in two places. Reader 5 has Daniel say 'Estoy listo para ordenar.', which is masculine. Card 13's Spanish face is masculine 'listo', and its note 'A woman says lista.' marks lista as the variant.",
+      "correction": "Card 13 should read 'Je suis prêt à commander.' with the note 'A woman says prête.', mirroring the source. Reader 5 should read 'Daniel : Je suis prêt à commander.' Rewrite genderPolicy to say that Daniel is masculine per the source (listo) and Rosa is feminine per the source (la mesera). Remove the prêt(e) residual."
+    },
+    {
+      "id": "G2",
+      "severity": "high",
+      "area": "audio / speakability",
+      "evidence": "'prêt(e)' cannot be spoken. TTS will either read the parenthesis or pick one form at random. A say-mode or ASR check also cannot accept both forms unless it is told to.",
+      "correction": "Resolved by G1: put a single form on every audio-bearing surface. If a card ever needs both forms, list them as separate accepted answers rather than using parenthetical notation."
+    },
+    {
+      "id": "P1",
+      "severity": "medium",
+      "area": "false pedagogical claim",
+      "evidence": "The card 9 note says to 'Separate condition from characteristic by context and adverbs such as très'. sourceNotes says the distinction is 'taught through context and adverbs (très, d'aujourd'hui)'. But très appears in both the estar line ('Le café est très chaud' ← está muy caliente) and the ser line ('La salsa est très piquante' ← es muy picante), so it cannot signal the difference. Also, d'aujourd'hui is a prepositional phrase, not an adverb.",
+      "correction": "State it plainly: French uses être for both Spanish ser and estar, and the verb does not mark the difference. Card 9 note: 'Spanish uses estar here because temperature can change. French still uses être.' Card 12 note: 'Spanish uses ser for what the salsa is like. French uses être.' Remove the claim about adverbs."
+    },
+    {
+      "id": "R1",
+      "severity": "medium",
+      "area": "register inconsistency / unnatural French",
+      "evidence": "Card 11, Reader 3, form 3 and write mode all use the formal inversion 'Le pain est-il d'aujourd'hui ?'. The neighbouring café dialogue uses spoken intonation ('Cette table est libre ?'). The card 10 note even calls inversion 'more formal'. The source register is casual café speech ('¿El pan es de hoy?').",
+      "correction": "Use 'Le pain est d'aujourd'hui ?' (the colloquial 'Il est d'aujourd'hui, le pain ?' is also possible). Note that Est-ce que… and inversion are alternatives. In type/write checking, accept the intonation, est-ce que and inversion variants."
+    },
+    {
+      "id": "S1",
+      "severity": "medium",
+      "area": "source context missed / ambiguous French",
+      "evidence": "Reader 4 has 'le pain sucré' for Mexican 'pan dulce', a named category of sweet breads (conchas and similar). 'Pain sucré' is a literal rendering that French speakers read as 'sugared bread', and nothing flags the cultural item. This contrasts with the candidate keeping 'salsa' and 'chilaquiles' as cultural loans.",
+      "correction": "Keep the immutable English 'the sweet bread'. For the French, either use 'le pain sucré' with a note ('pan dulce: Mexican sweet breads'), or use 'le pan dulce' as a loan, matching the salsa policy. Choose one and record it in residuals for owner decision."
+    },
+    {
+      "id": "S2",
+      "severity": "medium",
+      "area": "discarded content reintroduced",
+      "evidence": "sourceFidelity lists 'brioche' under discardedFromPrivateDraft. Yet the card 2 note ('fraîche with feminine nouns like la brioche') and the form 4 explanation ('Compare la brioche est fraîche') bring it back.",
+      "correction": "Use a feminine noun from the source instead, for example 'la salsa est fraîche' or 'la mesa → la table est libre/occupée'."
+    },
+    {
+      "id": "S3",
+      "severity": "low",
+      "area": "gender transfer trap not flagged",
+      "evidence": "The card 1 source note's example is 'la leche está fría', which is feminine in Spanish. Its French equivalent 'le lait' is masculine, so 'le lait est froid'. The candidate swapped in 'la boisson' without warning about this.",
+      "correction": "Add to the card 1 note: 'Careful: la leche is feminine, but le lait is masculine, so le lait est froid. A feminine example is la boisson est froide.'"
+    },
+    {
+      "id": "F1",
+      "severity": "medium",
+      "area": "form English-answer mismatch / source refs",
+      "evidence": "All five forms cite a readerIndex but translate only part of the line. Form at index 1 uses 'Is this table free?' while the Reader line is 'Daniel asks the server: Is this table free?'. Index 3 drops 'Daniel:', index 4 drops 'Rosa:', and indices 7 and 8 drop 'Daniel:'. The index-1 form is really card 10.",
+      "correction": "Either point each form at its true source with an excerpt marker (e.g. {readerIndex:1, span:'quoted speech'}, or cardIndex:10 for the table question), or make each prompt and answer the full Reader line including the speaker label, e.g. 'Daniel : Le pain est d'aujourd'hui ?'."
+    },
+    {
+      "id": "F2",
+      "severity": "low",
+      "area": "form explanations / focus",
+      "evidence": "The form 1 explanation 'Cette and table are feminine, so the demonstrative is cette' is circular, since cette is itself the feminine demonstrative. No form addresses the unit focus, which is that Spanish ser/estar both become French être. No form uses Reader 5 (prêt) for the masculine/feminine first-person agreement that the source note highlights.",
+      "correction": "Rewrite form 1: 'Table is feminine, so this table is cette table. Spanish uses estar for a table's status; French uses être.' Consider swapping a form for Reader 5: 'Daniel : Je suis prêt à commander.' with the explanation 'Daniel says prêt (source: listo); a woman says prête (source: lista).'"
+    },
+    {
+      "id": "M1",
+      "severity": "medium",
+      "area": "mode source refs",
+      "evidence": "None of the six modes has a structured source ref. They link only by copied English strings. Hear (Reader 6) and write (Reader 3) have no readerIndex, and see/recall/type/say (cards 9, 7, 8, 10) have no cardIndex. If any string drifts, parity cannot be checked.",
+      "correction": "Add explicit refs: see→cardIndex 9, recall→cardIndex 7, hear→readerIndex 6, type→cardIndex 8, say→cardIndex 10, write→readerIndex 3."
+    },
+    {
+      "id": "M2",
+      "severity": "medium",
+      "area": "audio gates",
+      "evidence": "Hear needs French audio, and say (and see, whose prompt also asks the learner to 'Say the French target') needs speech capture or ASR. gates.audioVerified is false, but the modes carry no per-mode audio flag. A downstream build could expose unverified audio.",
+      "correction": "Add per-mode fields such as requiresAudioOut:true (hear) and requiresSpeechIn:true (say, see if it stays spoken), each set to audioVerified:false and blocked:true until verified. Make sure no prêt(e) string reaches any audio mode (see G2)."
+    },
+    {
+      "id": "M3",
+      "severity": "low",
+      "area": "mode design ambiguity",
+      "evidence": "The see prompt asks the learner to speak, which overlaps with say mode. The hear prompt demands the English line 'exactly', which is brittle for a 10-word sentence with list commas. Type 'la serveuse' does not say whether the article is required. Write expects French spacing before ':' and '?', which typed answers rarely match.",
+      "correction": "Make see a recognition or display task, or explicitly a spoken self-check. Change 'exactly' to 'the English meaning' or apply normalised matching. State that the article is required for type. Normalise whitespace and NNBSP before ':' and '?' when grading."
+    },
+    {
+      "id": "C1",
+      "severity": "low",
+      "area": "learner trap (speaking)",
+      "evidence": "In the speaking task, learners describe whether something is hot or cold. A common mistake is transferring 'estoy caliente/frío' to 'je suis chaud/froid' about oneself, which is wrong and, for 'chaud', has a sexual or 'eager' slang reading. The card 0 note does not warn about this.",
+      "correction": "Add to the card 0 note: 'For things: le café est chaud. For how you feel: j'ai chaud / j'ai froid. Don't say je suis chaud.'"
+    },
+    {
+      "id": "SP1",
+      "severity": "low",
+      "area": "speaking source alignment",
+      "evidence": "The French objective reads 'Demander à une serveuse…', but the source says 'Ask a server', which is gender-neutral. The objective also gives no source refs for its three sub-tasks.",
+      "correction": "Use 'Demander au serveur ou à la serveuse si une table est libre…', or explicitly tie it to Rosa. Add refs: table free → card 10 / Reader 1; coffee hot/cold → card 9 / Reader 7; salsa spicy → card 12 / Reader 8."
+    },
+    {
+      "id": "V1",
+      "severity": "low",
+      "area": "unverifiable fidelity claim",
+      "evidence": "cardFacesAndKindsImmutable:true is asserted, but cardFrench leaves out the Spanish 'es' face and the source notes. The en and kind values do match the source in order, and all nine Reader English lines match the source exactly.",
+      "correction": "Carry 'es' (and the source note) on each card entry so a reviewer or script can verify parity."
+    }
+  ],
+  "confirmedCorrect": [
+    "Reader English lines 0–8 match the source verbatim.",
+    "Agreement is right on the Reader lines: occupées, libre, frais (pain), chaud/froid (café/jus), piquante/délicieuse and elle (salsa).",
+    "piquant over épicé for chili heat, sucré over doux for taste, la serveuse/le serveur, and commander for Mexican 'ordenar' are all sound.",
+    "Reader 6 'du café, du jus d'orange et des chilaquiles avec de la salsa' is natural, and keeping salsa and chilaquiles respects the source.",
+    "Diacritics as written look correct: fraîche, délicieux, d'aujourd'hui, prêt."
+  ],
+  "verdict": {
+    "status": "revise-before-owner-review",
+    "blocking": ["G1", "G2"],
+    "shouldFix": ["P1", "R1", "S1", "S2", "F1", "M1", "M2"],
+    "summary": "The Reader English and the core French are mostly sound. However, the candidate misses that the source makes Daniel masculine ('listo'), so card 13 and Reader 5 carry an unspeakable 'prêt(e)'. It also teaches a false 'très' cue for ser/estar, mixes formal inversion into casual dialogue, reintroduces discarded 'brioche', and has forms and modes without true source refs or audio gating. All gates should stay false. This AI critique does not count as approval."
+  }
+}
+```

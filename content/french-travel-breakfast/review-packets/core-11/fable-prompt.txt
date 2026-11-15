@@ -1,0 +1,218 @@
+You are Claude Fable 5.2 correcting a PRIVATE French→English Breakfast Core 11 candidate. Return strict full JSON same keys and counts as input, no prose. Make the correction grounded in source and Opus critique, while retaining exact source English/Spanish strings. Crucial: convert card, Reader and mode-linked IDs to 1-based core:11:word:1..17 and core:11:line:1..9; preserve stable sequence. Correct sleepiness to everyday le sommeil with avoir sommeil note, add third customer role, fix source speaker attribution, make See recognition, Type exact transcription, Write composition with fully cued target, clarify audioPending on Hear and Say, correct faire explanation, French Reader indirect object, and remove unsourced prescription. Do not invent source facts or qualify for release. Keep all gates false.
+SOURCE {
+  "verbs": [
+    {
+      "infinitive": "hacer",
+      "native": "to do, to make",
+      "forms": {
+        "yo": "hago",
+        "tú": "haces",
+        "él_ella_usted": "hace",
+        "nosotros": "hacemos",
+        "ellos_ustedes": "hacen"
+      },
+      "example": {
+        "target": "Hoy hace frío en la cafetería.",
+        "native": "Today it is cold at the café."
+      },
+      "note": "Irregular yo form. Used for weather: hace frío, hace calor."
+    },
+    {
+      "infinitive": "esperar",
+      "native": "to wait",
+      "forms": {
+        "yo": "espero",
+        "tú": "esperas",
+        "él_ella_usted": "espera",
+        "nosotros": "esperamos",
+        "ellos_ustedes": "esperan"
+      },
+      "example": {
+        "target": "Espero mi café en el mostrador.",
+        "native": "I wait for my coffee at the counter."
+      }
+    },
+    {
+      "infinitive": "recomendar",
+      "native": "to recommend",
+      "forms": {
+        "yo": "recomiendo",
+        "tú": "recomiendas",
+        "él_ella_usted": "recomienda",
+        "nosotros": "recomendamos",
+        "ellos_ustedes": "recomiendan"
+      },
+      "example": {
+        "target": "Él me recomienda llevar un abrigo.",
+        "native": "He recommends that I bring a coat."
+      },
+      "note": "Stem change: e to ie (except nosotros)."
+    },
+    {
+      "infinitive": "visitar",
+      "native": "to visit",
+      "forms": {
+        "yo": "visito",
+        "tú": "visitas",
+        "él_ella_usted": "visita",
+        "nosotros": "visitamos",
+        "ellos_ustedes": "visitan"
+      },
+      "example": {
+        "target": "Hoy visito el centro con mi amigo.",
+        "native": "Today I visit downtown with my friend."
+      }
+    },
+    {
+      "infinitive": "preguntar",
+      "native": "to ask",
+      "forms": {
+        "yo": "pregunto",
+        "tú": "preguntas",
+        "él_ella_usted": "pregunta",
+        "nosotros": "preguntamos",
+        "ellos_ustedes": "preguntan"
+      },
+      "example": {
+        "target": "Un señor me pregunta por mis planes.",
+        "native": "A man asks me about my plans."
+      }
+    }
+  ],
+  "passage": {
+    "title": "Charla en la cafetería",
+    "target": [
+      "Es temprano y estoy en una cafetería pequeña, esperando mi café con leche en el mostrador.",
+      "La barista me sonríe y dice: Buenos días, ¿cómo amaneció?",
+      "Yo respondo: Muy bien, gracias, pero todavía tengo un poco de sueño.",
+      "Ella comenta que hoy hace frío porque anoche llovió, y yo le digo que el clima está muy distinto en mi país.",
+      "Un señor cerca de mí pregunta: ¿Qué planes tiene para hoy?",
+      "Le explico que voy a visitar el centro si no llueve otra vez.",
+      "Él me recomienda llevar un abrigo, porque según el pronóstico la tarde va a estar fresca.",
+      "Cuando mi pedido está listo, la barista me dice: ¡Que le vaya muy bien!",
+      "Le contesto con una sonrisa: ¡Igualmente, que tenga un buen día!"
+    ],
+    "native": [
+      "It is early and I am in a small café, waiting for my coffee with milk at the counter.",
+      "The barista smiles at me and says: Good morning, how are you this morning?",
+      "I answer: Very well, thanks, but I am still a little sleepy.",
+      "She comments that it is cold today because it rained last night, and I tell her the weather is very different in my country.",
+      "A man near me asks: What plans do you have for today?",
+      "I explain that I am going to visit downtown if it does not rain again.",
+      "He recommends that I bring a coat, because according to the forecast the afternoon is going to be cool.",
+      "When my order is ready, the barista tells me: Have a great day!",
+      "I answer with a smile: You too, have a good day!"
+    ]
+  },
+  "words": [
+    {
+      "en": "coffee with milk",
+      "es": "café con leche",
+      "kind": "term"
+    },
+    {
+      "en": "counter",
+      "es": "mostrador",
+      "kind": "term"
+    },
+    {
+      "en": "barista",
+      "es": "barista",
+      "kind": "term",
+      "note": "Same word for men and women: el barista, la barista."
+    },
+    {
+      "en": "weather",
+      "es": "clima",
+      "kind": "term"
+    },
+    {
+      "en": "forecast",
+      "es": "pronóstico",
+      "kind": "term"
+    },
+    {
+      "en": "coat",
+      "es": "abrigo",
+      "kind": "term"
+    },
+    {
+      "en": "plans",
+      "es": "planes",
+      "kind": "term"
+    },
+    {
+      "en": "morning",
+      "es": "mañana",
+      "kind": "term"
+    },
+    {
+      "en": "downtown",
+      "es": "centro",
+      "kind": "term"
+    },
+    {
+      "en": "order",
+      "es": "pedido",
+      "kind": "term"
+    },
+    {
+      "en": "sleepiness",
+      "es": "sueño",
+      "kind": "term",
+      "note": "Tener sueño means to feel sleepy."
+    },
+    {
+      "en": "Good morning, how are you this morning?",
+      "es": "Buenos días, ¿cómo amaneció?",
+      "kind": "phrase",
+      "note": "Polite form with usted; with a friend say ¿cómo amaneciste?"
+    },
+    {
+      "en": "It is very cold today, isn't it?",
+      "es": "Hoy hace mucho frío, ¿verdad?",
+      "kind": "phrase"
+    },
+    {
+      "en": "I am still a little sleepy.",
+      "es": "Todavía tengo un poco de sueño.",
+      "kind": "phrase"
+    },
+    {
+      "en": "I am going to visit downtown if it does not rain.",
+      "es": "Voy a visitar el centro si no llueve.",
+      "kind": "phrase"
+    },
+    {
+      "en": "Sorry, can you repeat that more slowly, please?",
+      "es": "Perdón, ¿puede repetir más despacio, por favor?",
+      "kind": "phrase"
+    },
+    {
+      "en": "You too, have a good day!",
+      "es": "¡Igualmente, que tenga un buen día!",
+      "kind": "phrase"
+    }
+  ]
+}
+
+CANDIDATE {"cards": [{"id": "core:11:word:0", "supportEnglish": "coffee with milk", "sourceSpanish": "café con leche", "targetFrench": "un café au lait", "kind": "term"}, {"id": "core:11:word:1", "supportEnglish": "counter", "sourceSpanish": "mostrador", "targetFrench": "le comptoir", "kind": "term"}, {"id": "core:11:word:2", "supportEnglish": "barista", "sourceSpanish": "barista", "targetFrench": "la barista", "kind": "term"}, {"id": "core:11:word:3", "supportEnglish": "weather", "sourceSpanish": "clima", "targetFrench": "le temps", "kind": "term"}, {"id": "core:11:word:4", "supportEnglish": "forecast", "sourceSpanish": "pronóstico", "targetFrench": "les prévisions météo", "kind": "term"}, {"id": "core:11:word:5", "supportEnglish": "coat", "sourceSpanish": "abrigo", "targetFrench": "un manteau", "kind": "term"}, {"id": "core:11:word:6", "supportEnglish": "plans", "sourceSpanish": "planes", "targetFrench": "les projets", "kind": "term"}, {"id": "core:11:word:7", "supportEnglish": "morning", "sourceSpanish": "mañana", "targetFrench": "le matin", "kind": "term"}, {"id": "core:11:word:8", "supportEnglish": "downtown", "sourceSpanish": "centro", "targetFrench": "le centre-ville", "kind": "term"}, {"id": "core:11:word:9", "supportEnglish": "order", "sourceSpanish": "pedido", "targetFrench": "la commande", "kind": "term"}, {"id": "core:11:word:10", "supportEnglish": "sleepiness", "sourceSpanish": "sueño", "targetFrench": "la somnolence", "kind": "term"}, {"id": "core:11:word:11", "supportEnglish": "Good morning, how are you this morning?", "sourceSpanish": "Buenos días, ¿cómo amaneció?", "targetFrench": "Bonjour, comment allez-vous ce matin ?", "kind": "phrase"}, {"id": "core:11:word:12", "supportEnglish": "It is very cold today, isn't it?", "sourceSpanish": "Hoy hace mucho frío, ¿verdad?", "targetFrench": "Il fait très froid aujourd'hui, n'est-ce pas ?", "kind": "phrase"}, {"id": "core:11:word:13", "supportEnglish": "I am still a little sleepy.", "sourceSpanish": "Todavía tengo un poco de sueño.", "targetFrench": "J'ai encore un peu sommeil.", "kind": "phrase"}, {"id": "core:11:word:14", "supportEnglish": "I am going to visit downtown if it does not rain.", "sourceSpanish": "Voy a visitar el centro si no llueve.", "targetFrench": "Je vais visiter le centre-ville s'il ne pleut pas.", "kind": "phrase"}, {"id": "core:11:word:15", "supportEnglish": "Sorry, can you repeat that more slowly, please?", "sourceSpanish": "Perdón, ¿puede repetir más despacio, por favor?", "targetFrench": "Pardon, pouvez-vous répéter plus lentement, s'il vous plaît ?", "kind": "phrase"}, {"id": "core:11:word:16", "supportEnglish": "You too, have a good day!", "sourceSpanish": "¡Igualmente, que tenga un buen día!", "targetFrench": "Vous aussi, bonne journée !", "kind": "phrase"}], "reader": [{"id": "core:11:line:0", "supportEnglish": "It is early and I am in a small café, waiting for my coffee with milk at the counter.", "sourceSpanish": "Es temprano y estoy en una cafetería pequeña, esperando mi café con leche en el mostrador.", "targetFrench": "Il est tôt et je suis dans un petit café, où j'attends mon café au lait au comptoir."}, {"id": "core:11:line:1", "supportEnglish": "The barista smiles at me and says: Good morning, how are you this morning?", "sourceSpanish": "La barista me sonríe y dice: Buenos días, ¿cómo amaneció?", "targetFrench": "La barista me sourit et dit : « Bonjour, comment allez-vous ce matin ? »"}, {"id": "core:11:line:2", "supportEnglish": "I answer: Very well, thanks, but I am still a little sleepy.", "sourceSpanish": "Yo respondo: Muy bien, gracias, pero todavía tengo un poco de sueño.", "targetFrench": "Je réponds : « Très bien, merci, mais j'ai encore un peu sommeil. »"}, {"id": "core:11:line:3", "supportEnglish": "She comments that it is cold today because it rained last night, and I tell her the weather is very different in my country.", "sourceSpanish": "Ella comenta que hoy hace frío porque anoche llovió, y yo le digo que el clima está muy distinto en mi país.", "targetFrench": "Elle fait remarquer qu'il fait froid aujourd'hui parce qu'il a plu hier soir, et je lui dis que le temps est très différent dans mon pays."}, {"id": "core:11:line:4", "supportEnglish": "A man near me asks: What plans do you have for today?", "sourceSpanish": "Un señor cerca de mí pregunta: ¿Qué planes tiene para hoy?", "targetFrench": "Un monsieur près de moi demande : « Quels projets avez-vous pour aujourd'hui ? »"}, {"id": "core:11:line:5", "supportEnglish": "I explain that I am going to visit downtown if it does not rain again.", "sourceSpanish": "Le explico que voy a visitar el centro si no llueve otra vez.", "targetFrench": "J'explique que je vais visiter le centre-ville s'il ne pleut pas de nouveau."}, {"id": "core:11:line:6", "supportEnglish": "He recommends that I bring a coat, because according to the forecast the afternoon is going to be cool.", "sourceSpanish": "Él me recomienda llevar un abrigo, porque según el pronóstico la tarde va a estar fresca.", "targetFrench": "Il me recommande de prendre un manteau, car, selon les prévisions, l'après-midi sera frais."}, {"id": "core:11:line:7", "supportEnglish": "When my order is ready, the barista tells me: Have a great day!", "sourceSpanish": "Cuando mi pedido está listo, la barista me dice: ¡Que le vaya muy bien!", "targetFrench": "Quand ma commande est prête, la barista me dit : « Passez une excellente journée ! »"}, {"id": "core:11:line:8", "supportEnglish": "I answer with a smile: You too, have a good day!", "sourceSpanish": "Le contesto con una sonrisa: ¡Igualmente, que tenga un buen día!", "targetFrench": "Je lui réponds avec un sourire : « Vous aussi, bonne journée ! »"}], "forms": [{"sourceSpanishInfinitive": "hacer", "frenchInfinitive": "faire", "frenchExample": "Il fait froid aujourd'hui au café.", "supportEnglish": "Today it is cold at the café.", "explanationEnglish": "French faire is irregular, so the weather expression is il fait with no separate verb for cold. Use it for weather: il fait froid, il fait chaud. The Spanish note mentions an irregular yo form (hago); French je fais is also irregular."}, {"sourceSpanishInfinitive": "esperar", "frenchInfinitive": "attendre", "frenchExample": "J'attends mon café au comptoir.", "supportEnglish": "I wait for my coffee at the counter.", "explanationEnglish": "Attendre takes a direct object with no preposition: attendre mon café. Spanish esperar here maps to French attendre, not espérer (which means to hope)."}, {"sourceSpanishInfinitive": "recomendar", "frenchInfinitive": "recommander", "frenchExample": "Il me recommande de prendre un manteau.", "supportEnglish": "He recommends that I bring a coat.", "explanationEnglish": "French recommander is a regular -er verb with no stem change. The Spanish e-to-ie stem change does not carry over. Use de plus an infinitive for the advice: recommander de prendre."}, {"sourceSpanishInfinitive": "visitar", "frenchInfinitive": "visiter", "frenchExample": "Aujourd'hui, je visite le centre-ville avec mon ami.", "supportEnglish": "Today I visit downtown with my friend.", "explanationEnglish": "Visiter is a regular -er verb and takes a direct object with no preposition: visiter le centre-ville. The source example is in the present tense, so the same present form is used here."}, {"sourceSpanishInfinitive": "preguntar", "frenchInfinitive": "demander", "frenchExample": "Un homme me demande quels sont mes projets.", "supportEnglish": "A man asks me about my plans.", "explanationEnglish": "Demander means to ask. It takes an indirect object (me) and a question word or clause, here quels sont mes projets. Do not use the verb questionner for this everyday sense."}], "modes": [{"mode": "See", "prompt": "Look at the English word \"counter\" and give the French you would use at a café.", "frenchTarget": "le comptoir", "sourceCardId": "core:11:word:1", "audioPending": false}, {"mode": "Recall", "prompt": "Ask a barista whether it is very cold today, expecting them to agree.", "frenchTarget": "Il fait très froid aujourd'hui, n'est-ce pas ?", "sourceCardId": "core:11:word:12", "audioPending": false}, {"mode": "Hear", "prompt": "Listen to the barista's greeting and note it. Script only; no audio is provided.", "frenchTarget": "Bonjour, comment allez-vous ce matin ?", "sourceCardId": "core:11:word:11", "audioPending": true, "scriptOnly": true}, {"mode": "Type", "prompt": "Type how you would say you are going to visit downtown if it does not rain.", "frenchTarget": "Je vais visiter le centre-ville s'il ne pleut pas.", "sourceCardId": "core:11:word:14", "audioPending": false}, {"mode": "Say", "prompt": "Say to a barista, with a smile, \"You too, have a good day!\"", "frenchTarget": "Vous aussi, bonne journée !", "sourceCardId": "core:11:word:16", "audioPending": false}, {"mode": "Write", "prompt": "Write a polite request asking someone to repeat more slowly, please.", "frenchTarget": "Pardon, pouvez-vous répéter plus lentement, s'il vous plaît ?", "sourceCardId": "core:11:word:15", "audioPending": false}], "speaking": {"roles": ["learner", "barista"], "openingFrench": "Bonjour, comment allez-vous ce matin ?", "openingSpeaker": "barista", "objectivesEnglish": ["Greet the barista and answer how you are this morning, saying you are still a little sleepy.", "Comment on the weather, saying it is very cold today because it rained last night.", "Answer when asked about your plans by saying you will visit downtown if it does not rain.", "Accept the advice to bring a coat when the afternoon is going to be cool.", "Close the exchange by replying \"You too, have a good day!\" when your order is ready."]}, "gates": {"learnerVisible": false, "audioApproved": false, "progressTracking": false, "reviewApproved": false, "released": false}, "notes": ["Private editorial draft only; not qualified approval, not released, and no learner, audio, progress, or review gate is open.", "Card 10 (sueño/sleepiness) uses la somnolence as the precise gloss. Everyday French uses avoir sommeil, as in reader line 2. Confirm which target the reviewer wants.", "Card 2 (barista): French usage varies between le barista and la barista. La barista is used to match the female barista in the source passage. Confirm the convention.", "Reader line 3: Spanish anoche and English last night are rendered as hier soir. Confirm this matches the intended register and time reference.", "Reader lines use vous (usted in the source) for the barista and the man, matching the source's formal register. Lines 4 and 7 keep the formal register.", "Source spelling of the verb is recomendar; the Spanish infinitive is copied as given in the source, not corrected to recommendar.", "Forms 'explanationEnglish' notes on faire and recommander are grammar notes drawn from source notes; the French irregularity is stated from general knowledge and should be checked by a reviewer.", "Hear mode is script-only with audioPending true. No audio was generated or assumed.", "Old draft differences: it used avec un ami where the source says my friend (mi amigo); this draft uses mon ami. The old speaking draft included Et vous ? and an extra greeting not in the source; those are omitted.", "English cool in the source is rendered as frais; no weather facts beyond the source were added. No medical caveat was added.", "Speaking objectives are drawn from source lines only; no additional approvals or release state is implied."]}
+CRITIQUE [
+  {"severity":"medium","path":"cards[10].targetFrench","issue":"'la somnolence' is clinical or medical register (drowsiness as a symptom) and does not match the everyday sense of sueño in 'tener sueño'. It is also inconsistent with cards[13] and reader[2], which use 'avoir sommeil'. The source note (tener sueño = to feel sleepy) is not carried over.","correction":"targetFrench: \"le sommeil\". Add the note: \"Avoir sommeil means to feel sleepy.\""},
+  {"severity":"medium","path":"speaking.roles / speaking.objectivesEnglish[2..3]","issue":"In the source, the question about plans and the coat advice come from 'un señor' (another customer), not the barista. Roles list only learner and barista, so objectives 3 and 4 have no speaker, or would be attributed to the barista.","correction":"Add a third role (for example 'customer' / 'un monsieur'), or rewrite objectives 3 and 4 to state that another customer asks and advises."},
+  {"severity":"medium","path":"speaking.objectivesEnglish[1]","issue":"Misattribution. In source line 3 the barista says it is cold because it rained last night, and the learner says the weather is very different in their country. The objective has the learner say the barista's line, and it adds 'very' from card 12.","correction":"\"React to the barista's remark that it is cold because it rained last night, and say the weather is very different in your country (you may use: Il fait très froid aujourd'hui, n'est-ce pas ?).\""},
+  {"severity":"medium","path":"modes[*].audioPending","issue":"Only Hear has audioPending true. Say (and any mode that plays the target) is false while gates.audioApproved is false and no audio exists, so the flags imply audio is ready.","correction":"Set audioPending true on every mode that depends on audio, or define audioPending false as 'no audio needed' and document it. Keep Hear scriptOnly."},
+  {"severity":"low","path":"modes[0] (See), modes[3] (Type), modes[5] (Write)","issue":"The modes are not clearly distinct. 'See' asks for production from English, which is the same as Recall. Type and Write are both free typed production. They are not individually differentiated by task type.","correction":"See: show 'le comptoir' in context and ask for its meaning or picture match. Type: dictation or exact typing of the shown or heard target. Write: a short composed sentence using word:15. Links can stay as they are."},
+  {"severity":"low","path":"modes[5].prompt","issue":"The prompt does not cue 'Sorry'/'Pardon', but the exact target includes it. Valid answers such as 'Pouvez-vous répéter plus lentement, s'il vous plaît ?' would fail.","correction":"\"Write: Sorry, can you repeat that more slowly, please?\" Alternatively, accept a variant without Pardon."},
+  {"severity":"low","path":"forms[0].explanationEnglish","issue":"Confused causality. Faire's irregularity is not the reason weather uses 'il fait'. 'No separate verb for cold' is unclear.","correction":"\"Faire is irregular (je fais, tu fais, il fait, nous faisons, ils font). Weather uses impersonal il fait + adjective: il fait froid, il fait chaud, like Spanish hace frío.\""},
+  {"severity":"low","path":"forms[0].frenchExample","issue":"Word order is slightly unnatural.","correction":"\"Aujourd'hui, il fait froid au café.\""},
+  {"severity":"low","path":"forms[4].frenchExample","issue":"'Un homme' is inconsistent with reader[4] 'Un monsieur', which matches the politeness of señor better.","correction":"\"Un monsieur me demande quels sont mes projets.\""},
+  {"severity":"low","path":"forms[4].explanationEnglish","issue":"'Do not use questionner' is an unsourced prescription. The construction could be stated more precisely.","correction":"\"Demander takes à + person (me = à moi) plus the thing asked: demander quelque chose à quelqu'un.\" Drop the questionner line, or mark it for the reviewer."},
+  {"severity":"low","path":"reader[5].targetFrench","issue":"Drops the indirect object of 'Le explico'.","correction":"\"Je lui explique que je vais visiter le centre-ville s'il ne pleut pas de nouveau.\""},
+  {"severity":"low","path":"reader[0].targetFrench","issue":"'où j'attends' is acceptable but heavier than the source gerund 'esperando'.","correction":"\"Il est tôt et je suis dans un petit café, en attendant mon café au lait au comptoir.\" (Optional.)"},
+  {"severity":"low","path":"reader[3].targetFrench","issue":"'hier soir' is fine for anoche. 'cette nuit' is the alternative if the rain was overnight. The register is fine. Reviewer choice; no error.","correction":"Keep 'hier soir', or use 'cette nuit'. Resolve note[3]."},
+  {"severity":"low","path":"cards[2].targetFrench","issue":"The source note says the word is the same for both genders. The card fixes 'la' and loses that information.","correction":"targetFrench \"le / la barista\", with a note that it is epicene. Keep 'la barista' in the reader."},
+  {"severity":"low","path":"cards[0].targetFrench","issue":"The article is inconsistent: indefinite 'un' here, definite articles on the other term cards. 'café au lait' is fine as a gloss. In a French café, 'un (café) crème' is the usual order.","correction":"\"le café au lait\". Optionally add a note: \"In a café you usually order un crème.\""},
+  {"severity":"low","path":"cards[11]","issue":"The source note on the informal variant (¿cómo amaneciste?) is not adapted.","correction":"Add a note: \"Polite vous form. With a friend: Salut, ça va ce matin ?\""},
+  {"severity":"low","path":"notes[5]","issue":"Implies that the source spelling 'recomendar' is non-standard. It is correct Spanish, and 'recommendar' is not a word.","correction":"Delete the note, or reword it: \"Spanish recomendar (one m) vs French recommander (two m's).\""}
+]

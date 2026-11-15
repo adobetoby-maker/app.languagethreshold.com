@@ -1,0 +1,142 @@
+You are Fable 5.2 correcting a private French Breakfast Core 8 candidate after Opus read-only critique. Return strict JSON same candidate keys only. Preserve exact English source cards/Reader and stable IDs. Correct French verb explanation: répéter has é/è alternation; no false Spanish/French parallel. Restore all five contextual French verb form paradigms with English explanations/source example. Give speaking waiter opening (learner orders), source role logic. Retain pan dulce as literal small sweet roll with cultural note (brioche is not exact generic pan dulce). Prefer natural « Tout est bon » for waiter. Hear mode must be authored but audioPending:true and no fake playback/reading task; promptEnglish « Listen and give the English meaning. » Correct Say exact line. Add source card cultural/register notes without changing card meanings. Maintain literal direct 'I want' / 'wants' in primary text, register alternatives in internal note. Apply critique where sound; flag unresolved. SOURCE:
+{"verbs": [{"infinitive": "pedir", "native": "to order", "forms": {"yo": "pido", "tú": "pides", "él_ella_usted": "pide", "nosotros": "pedimos", "ellos_ustedes": "piden"}, "example": {"target": "Al final, pido la cuenta.", "native": "At the end, I ask for the check."}, "note": "Stem change e to i."}, {"infinitive": "querer", "native": "to want", "forms": {"yo": "quiero", "tú": "quieres", "él_ella_usted": "quiere", "nosotros": "queremos", "ellos_ustedes": "quieren"}, "example": {"target": "Mi suegra quiere un café descafeinado.", "native": "My mother-in-law wants a decaf coffee."}, "note": "Stem change e to ie. Quiero is direct; Quisiera is softer."}, {"infinitive": "tomar", "native": "to have (a drink); to take", "forms": {"yo": "tomo", "tú": "tomas", "él_ella_usted": "toma", "nosotros": "tomamos", "ellos_ustedes": "toman"}, "example": {"target": "Mi hijo va a tomar jugo de naranja.", "native": "My son is going to have orange juice."}}, {"infinitive": "repetir", "native": "to repeat", "forms": {"yo": "repito", "tú": "repites", "él_ella_usted": "repite", "nosotros": "repetimos", "ellos_ustedes": "repiten"}, "example": {"target": "Repito el pedido para confirmar.", "native": "I repeat the order to confirm."}, "note": "Stem change e to i."}, {"infinitive": "traer", "native": "to bring", "forms": {"yo": "traigo", "tú": "traes", "él_ella_usted": "trae", "nosotros": "traemos", "ellos_ustedes": "traen"}, "example": {"target": "Enseguida lo traigo.", "native": "I'll bring it right away."}, "note": "Irregular yo form: traigo."}], "passage": {"title": "Desayuno para toda la familia", "target": ["Estoy en un café con mi esposa, mi hijo y mi suegra.", "Primero, le digo al mesero: Quiero pedir para todos, por favor.", "Para mí, un café con leche y unos huevos revueltos.", "Para mi esposa, un té y una torta de jamón, sin queso.", "Mi hijo va a tomar jugo de naranja y un pan dulce.", "Mi suegra quiere un café descafeinado y pan tostado con mantequilla.", "Después, repito el pedido: ¿Es correcto? El té es para ella, ¿verdad?", "El mesero sonríe y dice: Todo está bien, enseguida lo traigo.", "Al final, pido la cuenta en la mesa."], "native": ["I am in a café with my wife, my son, and my mother-in-law.", "First, I say to the waiter: I want to order for everyone, please.", "For me, a coffee with milk and some scrambled eggs.", "For my wife, a tea and a ham sandwich, without cheese.", "My son is going to have orange juice and a sweet roll.", "My mother-in-law wants a decaf coffee and toast with butter.", "Then, I repeat the order: Is that correct? The tea is for her, right?", "The waiter smiles and says: Everything is right, I'll bring it right away.", "At the end, I ask for the check at the table."]}, "words": [{"en": "waiter", "es": "mesero", "kind": "term", "note": "For a woman, say mesera."}, {"en": "order", "es": "pedido", "kind": "term"}, {"en": "coffee with milk", "es": "café con leche", "kind": "term"}, {"en": "scrambled eggs", "es": "huevos revueltos", "kind": "term"}, {"en": "orange juice", "es": "jugo de naranja", "kind": "term"}, {"en": "sweet roll", "es": "pan dulce", "kind": "term", "note": "Common in Mexico and the US; pastry is also pan dulce."}, {"en": "toast", "es": "pan tostado", "kind": "term"}, {"en": "butter", "es": "mantequilla", "kind": "term"}, {"en": "decaf", "es": "descafeinado", "kind": "term"}, {"en": "check", "es": "cuenta", "kind": "term"}, {"en": "table", "es": "mesa", "kind": "term"}, {"en": "ham sandwich", "es": "torta de jamón", "kind": "term", "note": "A torta is a sandwich on a roll."}, {"en": "I want to order for everyone, please.", "es": "Quiero pedir para todos, por favor.", "kind": "phrase"}, {"en": "Is the order correct?", "es": "¿Es correcto el pedido?", "kind": "phrase"}, {"en": "This is for her, right?", "es": "Esto es para ella, ¿verdad?", "kind": "phrase"}, {"en": "Without cheese, please.", "es": "Sin queso, por favor.", "kind": "phrase", "note": "Use sin to remove an ingredient."}, {"en": "Can you repeat the order, please?", "es": "¿Puede repetir el pedido, por favor?", "kind": "phrase", "note": "Puede is the polite usted form."}, {"en": "The check, please.", "es": "La cuenta, por favor.", "kind": "phrase"}]}
+CANDIDATE:
+{"cards": [{"id": "core:8:word:1", "targetFrench": "le serveur", "supportEnglish": "waiter", "kind": "term"}, {"id": "core:8:word:2", "targetFrench": "la commande", "supportEnglish": "order", "kind": "term"}, {"id": "core:8:word:3", "targetFrench": "le café au lait", "supportEnglish": "coffee with milk", "kind": "term"}, {"id": "core:8:word:4", "targetFrench": "les œufs brouillés", "supportEnglish": "scrambled eggs", "kind": "term"}, {"id": "core:8:word:5", "targetFrench": "le jus d'orange", "supportEnglish": "orange juice", "kind": "term"}, {"id": "core:8:word:6", "targetFrench": "un petit pain sucré", "supportEnglish": "sweet roll", "kind": "term"}, {"id": "core:8:word:7", "targetFrench": "le pain grillé", "supportEnglish": "toast", "kind": "term"}, {"id": "core:8:word:8", "targetFrench": "le beurre", "supportEnglish": "butter", "kind": "term"}, {"id": "core:8:word:9", "targetFrench": "un café décaféiné", "supportEnglish": "decaf", "kind": "term"}, {"id": "core:8:word:10", "targetFrench": "l'addition", "supportEnglish": "check", "kind": "term"}, {"id": "core:8:word:11", "targetFrench": "la table", "supportEnglish": "table", "kind": "term"}, {"id": "core:8:word:12", "targetFrench": "un sandwich au jambon", "supportEnglish": "ham sandwich", "kind": "term"}, {"id": "core:8:word:13", "targetFrench": "Je veux commander pour tout le monde, s'il vous plaît.", "supportEnglish": "I want to order for everyone, please.", "kind": "phrase"}, {"id": "core:8:word:14", "targetFrench": "La commande est-elle correcte ?", "supportEnglish": "Is the order correct?", "kind": "phrase"}, {"id": "core:8:word:15", "targetFrench": "C'est pour elle, c'est bien ça ?", "supportEnglish": "This is for her, right?", "kind": "phrase"}, {"id": "core:8:word:16", "targetFrench": "Sans fromage, s'il vous plaît.", "supportEnglish": "Without cheese, please.", "kind": "phrase"}, {"id": "core:8:word:17", "targetFrench": "Pouvez-vous répéter la commande, s'il vous plaît ?", "supportEnglish": "Can you repeat the order, please?", "kind": "phrase"}, {"id": "core:8:word:18", "targetFrench": "L'addition, s'il vous plaît.", "supportEnglish": "The check, please.", "kind": "phrase"}], "reader": [{"id": "core:8:line:1", "targetFrench": "Je suis dans un café avec ma femme, mon fils et ma belle-mère.", "supportEnglish": "I am in a café with my wife, my son, and my mother-in-law."}, {"id": "core:8:line:2", "targetFrench": "Je dis d'abord au serveur : « Je veux commander pour tout le monde, s'il vous plaît. »", "supportEnglish": "First, I say to the waiter: I want to order for everyone, please."}, {"id": "core:8:line:3", "targetFrench": "Pour moi, un café au lait et des œufs brouillés.", "supportEnglish": "For me, a coffee with milk and some scrambled eggs."}, {"id": "core:8:line:4", "targetFrench": "Pour ma femme, un thé et un sandwich au jambon, sans fromage.", "supportEnglish": "For my wife, a tea and a ham sandwich, without cheese."}, {"id": "core:8:line:5", "targetFrench": "Mon fils va prendre un jus d'orange et un petit pain sucré.", "supportEnglish": "My son is going to have orange juice and a sweet roll."}, {"id": "core:8:line:6", "targetFrench": "Ma belle-mère veut un café décaféiné et du pain grillé avec du beurre.", "supportEnglish": "My mother-in-law wants a decaf coffee and toast with butter."}, {"id": "core:8:line:7", "targetFrench": "Puis je répète la commande : « C'est correct ? Le thé est pour elle, c'est bien ça ? »", "supportEnglish": "Then, I repeat the order: Is that correct? The tea is for her, right?"}, {"id": "core:8:line:8", "targetFrench": "Le serveur sourit et dit : « Tout est correct, je vous apporte ça tout de suite. »", "supportEnglish": "The waiter smiles and says: Everything is right, I'll bring it right away."}, {"id": "core:8:line:9", "targetFrench": "À la fin, je demande l'addition à la table.", "supportEnglish": "At the end, I ask for the check at the table."}], "forms": [{"sourceVerb": "pedir", "frenchVerb": "commander", "exampleFrench": "Je veux commander pour tout le monde.", "exampleEnglish": "I want to order for everyone.", "explanationEnglish": "Commander is the usual French verb for ordering food. Pedir has a stem change (e to i) in Spanish; French commander is a regular -er verb, so no stem change applies. For asking for the check, the source sentence 'pido la cuenta' is rendered with demander: 'je demande l'addition'."}, {"sourceVerb": "querer", "frenchVerb": "vouloir", "exampleFrench": "Ma belle-mère veut un café décaféiné.", "exampleEnglish": "My mother-in-law wants a decaf coffee.", "explanationEnglish": "Vouloir is irregular (je veux, tu veux, il/elle veut, nous voulons, vous voulez, ils veulent). Here the third-person form veut means 'wants' literally, not a softened 'would like'. Querer's e-to-ie stem change in Spanish corresponds to the irregular French stem in veut."}, {"sourceVerb": "tomar", "frenchVerb": "prendre", "exampleFrench": "Mon fils va prendre un jus d'orange.", "exampleEnglish": "My son is going to have orange juice.", "explanationEnglish": "Prendre covers 'have (a drink)' and 'take' in the source sense. 'Va prendre' uses aller plus an infinitive for the near future, matching 'va a tomar'. Prendre is irregular: je prends, il prend, nous prenons, ils prennent."}, {"sourceVerb": "repetir", "frenchVerb": "répéter", "exampleFrench": "Je répète la commande pour confirmer.", "exampleEnglish": "I repeat the order to confirm.", "explanationEnglish": "Répéter is a regular -er verb with the accent on the é in the stem (je répète). Spanish repetir has an e-to-i stem change, which has no French counterpart here. Used for the confirmation step."}, {"sourceVerb": "traer", "frenchVerb": "apporter", "exampleFrench": "Je vous apporte ça tout de suite.", "exampleEnglish": "I'll bring it right away.", "explanationEnglish": "Apporter is a regular -er verb meaning 'to bring'. The Spanish irregular yo form traigo has no French irregularity here: j'apporte. Vous is the polite form the waiter uses with the customer."}], "modes": [{"mode": "See", "promptEnglish": "Look at the French and say its English meaning.", "targetFrench": "le serveur", "sourceCardId": "core:8:word:1"}, {"mode": "Recall", "promptEnglish": "Say the French for: order", "targetFrench": "la commande", "sourceCardId": "core:8:word:2"}, {"mode": "Hear", "promptEnglish": "Read this French phrase aloud yourself, then check it against its English meaning.", "targetFrench": "L'addition, s'il vous plaît.", "sourceCardId": "core:8:word:18"}, {"mode": "Type", "promptEnglish": "Type the French for: Without cheese, please.", "targetFrench": "Sans fromage, s'il vous plaît.", "sourceCardId": "core:8:word:16"}, {"mode": "Say", "promptEnglish": "Say this line aloud, then repeat who gets what: Then, I repeat the order.", "targetFrench": "Puis je répète la commande : « C'est correct ? Le thé est pour elle, c'est bien ça ? »", "sourceLineId": "core:8:line:7"}, {"mode": "Write", "promptEnglish": "Write the French for: For my wife, a tea and a ham sandwich, without cheese.", "targetFrench": "Pour ma femme, un thé et un sandwich au jambon, sans fromage.", "sourceLineId": "core:8:line:4"}], "speaking": {"roles": [{"role": "customer", "englishDescription": "You, ordering breakfast for a group of three people plus yourself, then confirming who gets what."}, {"role": "waiter", "frenchTitle": "le serveur", "englishDescription": "The server who takes the order, repeats it when asked, and brings the check at the end."}], "openingFrench": "Bonjour ! Je veux commander pour tout le monde. Pour ma femme, un thé et un sandwich au jambon, sans fromage. C'est bien ça ?", "objectivesEnglish": ["Open the order by saying you want to order for everyone.", "Assign items to each person with pour moi and pour elle (or pour ma femme, pour mon fils, pour ma belle-mère).", "Say 'without cheese' with sans for an exclusion.", "Confirm who gets what by repeating the order before the server leaves.", "Ask for the check at the end."]}, "notes": ["Literal fidelity: 'I want' is rendered as 'Je veux' (not 'Je voudrais'), and 'wants' as 'veut' (not 'voudrait'). 'Je voudrais' is a softer, more polite form and is not used in this packet. The earlier French packet's 'Je voudrais' and 'Ma belle-mère voudrait' were changed for this reason. Flag for the reviewer: 'Je veux' may sound blunt in a real café; this is the literal source meaning.", "'Mother-in-law' is rendered as 'belle-mère' (literal sense of the source). 'Family assignments' are rendered with pour moi, pour ma femme, pour mon fils, pour ma belle-mère, and pour elle, matching the source's assignment pattern.", "'Sweet roll' is rendered as 'petit pain sucré', the closest equivalent of the source sense. A local French pastry (viennoiserie such as a croissant or pain au chocolat) is a different item and is not used. Uncertainty: the Spanish source notes pan dulce as a regional item, so the French equivalent is a judgment call.", "'Ham sandwich' is rendered as 'sandwich au jambon'. 'Jambon-beurre' is a specific French sandwich and is not used, to avoid changing the item.", "'Decaf' is rendered as 'décaféiné' (the full form). Flag: in everyday French, 'déca' is common informal speech; the full word is used for literal fidelity.", "'Check' is rendered as 'l'addition' (not 'la note', which is used for a different sense in some regions). 'Check' appears both as a card (l'addition) and as a phrase (L'addition, s'il vous plaît.).", "Pedir is rendered as 'commander' for ordering food and as 'demander' for asking for the check. Flag: the verb choice for 'ask for' is context-dependent and a reviewer may prefer one form consistently.", "Tomar (to have a drink) is rendered as 'prendre', which covers 'have' and 'take'. 'Boire' would be too narrow for food.", "Traer ('to bring') is rendered as 'apporter'. The waiter uses 'vous' (polite form), matching the source's usted register.", "Waiter gender: the source notes 'mesera' for a woman. The French feminine is 'serveuse'. The card uses 'le serveur' (masculine) as the default, matching the source's 'mesero'. Flag for a reviewer if a feminine card is wanted.", "'Is that correct?' is rendered as 'C'est correct ?' in the reader and 'La commande est-elle correcte ?' on the card. Both are literal. 'Tout est correct' is used for 'Everything is right' (literal 'correct'); a more idiomatic 'Tout est bien' is possible but changes the English meaning.", "Stage-local IDs core:8:word:1 to core:8:word:18 and core:8:line:1 to core:8:line:9 are preserved, with 18 cards and 9 reader turns, in source order.", "The French target text was authored from the English meanings; the Spanish source was used only for verb examples and item context. No audio is provided or implied."]}
+CRITIQUE:
+```json
+[
+  {
+    "severity": "high",
+    "field": "forms[repetir].explanationEnglish",
+    "issue": "This is factually wrong. Répéter is not a plain regular -er verb: its stem changes é to è in the stressed forms. So saying the Spanish stem change 'has no French counterpart' is also wrong.",
+    "proposedCorrection": "Répéter changes é to è when the ending is silent: je répète, tu répètes, il/elle répète, ils/elles répètent, but nous répétons, vous répétez. Spanish repetir changes e to i in the same forms (yo, tú, él, ellos).",
+    "residualReview": "Check whether the notes or the Say mode describe répéter as regular anywhere else."
+  },
+  {
+    "severity": "high",
+    "field": "speaking.openingFrench",
+    "issue": "The opening is a customer line, and it already does objectives 1–3 (order for everyone, assign the wife's items, 'sans fromage'). It also asks 'C'est bien ça ?' before anything has been repeated back. That leaves the learner nothing to do.",
+    "proposedCorrection": "Give the opening to the waiter: \"Bonjour ! Qu'est-ce que je vous sers ?\"",
+    "residualReview": "Confirm which role the app treats as the speaker of openingFrench."
+  },
+  {
+    "severity": "medium",
+    "field": "speaking.roles[waiter].englishDescription",
+    "issue": "In the source the customer repeats the order and the waiter confirms it. The candidate says the waiter 'repeats it when asked', which swaps the roles away from the Reader and the objectives.",
+    "proposedCorrection": "The server who takes the order, listens while you repeat it, confirms it, brings the food and, at the end, the check.",
+    "residualReview": "The customer role has no frenchTitle. Consider 'le client / la cliente'."
+  },
+  {
+    "severity": "medium",
+    "field": "forms[pedir].exampleFrench/exampleEnglish",
+    "issue": "The source example for pedir is 'Al final, pido la cuenta' ('At the end, I ask for the check'). The candidate swaps in a different sentence, which breaks the link to the source example.",
+    "proposedCorrection": "exampleFrench: \"À la fin, je demande l'addition.\" exampleEnglish: \"At the end, I ask for the check.\" Keep commander as a second sense in the explanation.",
+    "residualReview": "frenchVerb could read 'commander / demander' to show the two senses."
+  },
+  {
+    "severity": "medium",
+    "field": "forms[querer].explanationEnglish",
+    "issue": "Two problems. (1) It drops the source's register note ('Quiero is direct; Quisiera is softer'). (2) It links querer's e→ie stem change to the irregular stem in veut, which is a false parallel.",
+    "proposedCorrection": "Replace the stem-change sentence with: \"Je veux is direct, like quiero; je voudrais is softer, like quisiera.\"",
+    "residualReview": "Mentioning voudrais as a register note fits the 'no voudrais in packet text' policy."
+  },
+  {
+    "severity": "medium",
+    "field": "forms[*]",
+    "issue": "The source gives five person forms for every verb. The candidate gives full forms only for vouloir, partial forms for prendre, and none for commander, répéter or apporter.",
+    "proposedCorrection": "Add je/tu/il-elle/nous/ils-elles forms for each verb, e.g. commander: commande, commandes, commande, commandons, commandent. apporter: apporte, apportes, apporte, apportons, apportent. prendre: add tu prends, vous prenez.",
+    "residualReview": "Decide whether to add vous as a sixth person or keep the source's five slots."
+  },
+  {
+    "severity": "medium",
+    "field": "cards[word:6].targetFrench / reader[line:5]",
+    "issue": "'Petit pain sucré' is a description, not a real item you would order in a French café. The note also wrongly treats every viennoiserie as a different item. A brioche is a sweet enriched roll, the nearest natural match for pan dulce.",
+    "proposedCorrection": "\"une brioche\" (Reader: \"…un jus d'orange et une brioche.\"). If you keep the literal version, add a card note explaining that pan dulce is a Mexican sweet bread.",
+    "residualReview": "This is a cultural call. A native reviewer should choose between brioche and the literal description."
+  },
+  {
+    "severity": "medium",
+    "field": "reader[line:8].targetFrench + notes[11]",
+    "issue": "'Tout est correct' sounds stiff coming from a waiter. The note says 'tout est bon' would change the English meaning, but it doesn't: 'Everything is right' is exactly 'Tout est bon'.",
+    "proposedCorrection": "\"Le serveur sourit et dit : « Tout est bon, je vous apporte ça tout de suite. »\" Fix the note to match.",
+    "residualReview": "None."
+  },
+  {
+    "severity": "medium",
+    "field": "modes[Hear].promptEnglish",
+    "issue": "The prompt asks the learner to read the line aloud themselves, which is speaking, not hearing. That breaks what Hear mode means. The notes say no audio is provided.",
+    "proposedCorrection": "Either attach audio and use \"Listen and give the English meaning.\", or flag the mode as audio-pending. Don't turn Hear into a reading task.",
+    "residualReview": "This is a product decision on how Hear mode works without audio."
+  },
+  {
+    "severity": "low",
+    "field": "modes[Say].promptEnglish",
+    "issue": "The English is cut short ('Then, I repeat the order.'), so it no longer matches line 7. 'Repeat who gets what' adds a task the line doesn't ask for.",
+    "proposedCorrection": "\"Say this line aloud: Then, I repeat the order: Is that correct? The tea is for her, right?\"",
+    "residualReview": "None."
+  },
+  {
+    "severity": "medium",
+    "field": "cards[*] (notes dropped)",
+    "issue": "The source card notes are missing: mesera, pan dulce, torta as a sandwich on a roll, sin for removing an ingredient, and Puede as the polite form.",
+    "proposedCorrection": "Add notes. waiter: \"For a woman, say la serveuse.\" ham sandwich: \"Source torta = sandwich on a roll; sandwich au jambon is the everyday French equivalent.\" Without cheese: \"Use sans to remove an ingredient.\" Repeat: \"Pouvez-vous is the polite vous form.\"",
+    "residualReview": "Check that the card schema supports a note field."
+  },
+  {
+    "severity": "low",
+    "field": "cards[word:14].targetFrench",
+    "issue": "The inversion 'La commande est-elle correcte ?' is correct but bookish for café speech.",
+    "proposedCorrection": "\"Est-ce que la commande est correcte ?\"",
+    "residualReview": "Optional. Check against the register policy for phrase cards."
+  },
+  {
+    "severity": "low",
+    "field": "reader[line:9].targetFrench",
+    "issue": "'À la table' sounds awkward. 'At the table' here means while still seated.",
+    "proposedCorrection": "\"À la fin, je demande l'addition à table.\"",
+    "residualReview": "None."
+  },
+  {
+    "severity": "low",
+    "field": "cards[word:9].targetFrench",
+    "issue": "The English card is 'decaf' (source: descafeinado), but the French adds 'café', giving 'a decaf coffee'. The card also uses 'un' while most other cards use 'le'.",
+    "proposedCorrection": "\"le décaféiné\", with a note: \"Everyday: un déca.\"",
+    "residualReview": "Decide one article policy for all the term cards (le vs un)."
+  },
+  {
+    "severity": "low",
+    "field": "cards[word:3]",
+    "issue": "'Café au lait' is a fair literal match. French cafés usually call this drink 'un café crème' or 'un crème'.",
+    "proposedCorrection": "Keep 'le café au lait'. Optionally add a note: \"In cafés: un (café) crème.\"",
+    "residualReview": "Optional."
+  },
+  {
+    "severity": "low",
+    "field": "cards[word:12] / notes[4]",
+    "issue": "The meaning holds. A torta is a sandwich on a roll, and 'sandwich au jambon' (usually on baguette) is the right everyday match. Correctly avoiding 'jambon-beurre' keeps the item the same.",
+    "proposedCorrection": "No change to the text. Add the source note about the torta to the card.",
+    "residualReview": "None."
+  },
+  {
+    "severity": "low",
+    "field": "cards/reader 'belle-mère'",
+    "issue": "'Belle-mère' also means stepmother. Here the family context makes the mother-in-law meaning clear.",
+    "proposedCorrection": "Keep it. Optionally add a note: \"belle-mère = mother-in-law (also stepmother).\"",
+    "residualReview": "None."
+  },
+  {
+    "severity": "low",
+    "field": "forms[traer].explanationEnglish",
+    "issue": "In 'je vous apporte ça', vous is the indirect object ('to you'), not a subject register marker. Also, the source 'lo traigo' has no 'to you'.",
+    "proposedCorrection": "\"Vous here means 'to you' (polite), added for naturalness; ça stands for lo ('it').\"",
+    "residualReview": "None."
+  },
+  {
+    "severity": "low",
+    "field": "reader[line:7].targetFrench",
+    "issue": "'C'est correct ?' is acceptable but sounds Québécois or stiff in France.",
+    "proposedCorrection": "\"Puis je répète la commande : « C'est exact ? Le thé est pour elle, c'est bien ça ? »\"",
+    "residualReview": "Optional. Pick one regional standard for the packet."
+  }
+]
+```

@@ -1,0 +1,188 @@
+{
+  "verdict": "NEEDS_REVISION — not release-ready. Structure, IDs, ordering, gender roles and gates are sound. Revisions are needed for the pan dulce rendering, the dialogue punctuation in lines 2–5, two mode prompts that will not elicit their exact card targets, and several unjustified explanatory claims. Qualified human review is absent, so nothing here can be treated as reviewed or approved.",
+  "criticalIssues": [
+    {
+      "id": "C1",
+      "location": "core:13:word:3; core:13:line:4; core:13:line:6; core:13:line:7",
+      "issue": "Pan dulce is rendered as 'une brioche'. This replaces the Mexican cultural item with a specific French enriched bread. The card still carries the note 'Common word for Mexican-style pastries.', which now contradicts its own target. Line 4 also calls the brioche 'croustillante à l’extérieur', which is atypical for brioche. The source's crunchy exterior fits pan dulce such as conchas, not brioche. This undermines source meaning and the Mexican context."
+    },
+    {
+      "id": "C2",
+      "location": "core:13:line:2 through core:13:line:5",
+      "issue": "Line 2 closes its guillemets after the first sentence. Lines 3–5 continue the traveler's first-person speech ('comme je l’aime', 'J’ai aussi adoré') with no quotation marks. In French they therefore read as narrator speech. Lines 7 and 9 are quoted, so the dialogue punctuation is inconsistent and the speaker attribution is broken."
+    },
+    {
+      "id": "C3",
+      "location": "modes[Write] -> core:13:word:18",
+      "issue": "The prompt 'Write a sentence saying you will come back tomorrow and order another one' drops the conditional 'If'. It will elicit something like 'Je reviendrai demain et j’en prendrai un autre', not the exact target 'Si je reviens demain, j’en prendrai un autre.'"
+    },
+    {
+      "id": "C4",
+      "location": "modes[Type] -> core:13:word:17",
+      "issue": "The prompt asks for 'thank you very much for your hospitality, addressing the staff formally'. The card's support English is 'Thank you very much for the service.' 'Hospitality' invites 'hospitalité', and the prompt does not match the card it targets."
+    }
+  ],
+  "suggestedCorrections": [
+    {
+      "target": "core:13:word:3",
+      "suggestion": "Keep the cultural term with a gloss, e.g. targetFrench 'le pan dulce'. Add a French-side note such as 'viennoiserie sucrée mexicaine (p. ex. la concha)'. Use the definite article to match the other term cards. A French editor should confirm the choice."
+    },
+    {
+      "target": "core:13:line:4, line:6, line:7",
+      "suggestion": "Propagate the C1 fix: 'Le pan dulce était moelleux à l’intérieur et croustillant à l’extérieur, et il n’était pas trop sucré.' / 'que le pan dulce est une recette de sa grand-mère' / 'j’en prendrai un autre' (masculine, which also aligns with card 18)."
+    },
+    {
+      "target": "core:13:line:2–5",
+      "suggestion": "Make the dialogue punctuation consistent. One option: leave line 2's « open, end line 5 with », and do not close the quote mid-speech. Another option: quote each of lines 3–5 as a continuation of the speech."
+    },
+    {
+      "target": "modes[Write]",
+      "suggestion": "Rewrite the prompt to match the card: 'Write: If I come back tomorrow, I’m going to order another one.'"
+    },
+    {
+      "target": "modes[Type]",
+      "suggestion": "Rewrite the prompt to match the card: 'Type the French for: Thank you very much for the service (addressing the staff formally).'"
+    },
+    {
+      "target": "modes[Say]",
+      "suggestion": "Make the prompt elicit the exact target: 'Say aloud: The coffee was delicious, just the way I like it.'"
+    },
+    {
+      "target": "core:13:word:16",
+      "suggestion": "Consider the more idiomatic 'C’est une recette maison ?' in place of 'une recette de la maison'."
+    },
+    {
+      "target": "core:13:word:18 / line:7",
+      "suggestion": "Optional, for closer parity with 'voy a pedir': 'je vais en reprendre un autre'. The futur simple is acceptable, but the editor should decide."
+    },
+    {
+      "target": "forms[regresar].explanationEnglish",
+      "suggestion": "Remove 'Spanish regresar has no direct French stem-change equivalent here'. Regresar is regular and has no stem change."
+    },
+    {
+      "target": "forms[encantar].explanationEnglish",
+      "suggestion": "Remove 'informal-leaning'. Adorer is everyday and register-neutral, but emphatic. Say instead that it is stronger than 'aimer' and fits the source's enthusiasm."
+    },
+    {
+      "target": "forms[felicitar].explanationEnglish",
+      "suggestion": "Drop 'the French verb has no stem change'. Spanish felicitar has none either, so the contrast is misleading."
+    },
+    {
+      "target": "notes[tipping]",
+      "suggestion": "Correct the claim that the speaking objectives present the tip as the traveler's action. The objectives do not mention the tip at all."
+    },
+    {
+      "target": "core:13:word:7 noteEnglish",
+      "suggestion": "If the schema expects verbatim source notes, move the French addition to a separate field. Consider noting that 'la cuisinière' also means 'stove'."
+    },
+    {
+      "target": "speaking",
+      "suggestion": "State which role the learner plays (presumably traveler). Consider 'Tout s’est bien passé ?' for the cook's opening; 'Vous avez fini votre petit-déjeuner ?' can sound like clearing the table."
+    }
+  ],
+  "sourceParityFindings": [
+    {
+      "area": "cards",
+      "finding": "There are 18 cards in exact source order. supportEnglish, sourceSpanish and kind match the source verbatim for all 18. The source notes on cards 3, 7 and 13 are preserved verbatim at the start of noteEnglish. Cards 7 and 13 append French-specific text; this is acceptable unless the schema requires notes to be unmodified."
+    },
+    {
+      "area": "ids",
+      "finding": "IDs core:13:word:1–18 and core:13:line:1–9 are 1-based, sequential and stable. No gaps or duplicates."
+    },
+    {
+      "area": "reader",
+      "finding": "There are 9 lines in source order. supportEnglish and sourceSpanish are verbatim for all 9."
+    },
+    {
+      "area": "meaning",
+      "finding": "Meaning is preserved except: pan dulce → brioche (C1); 'Quiero' → 'Je voudrais' (a defensible politeness shift, disclosed in notes); 'quiere hablar' → 'souhaite parler' (slightly elevated); 'voy a pedir' → 'j’en prendrai' (futur simple rather than futur proche, acceptable). 'otro de esos' is rendered by 'en … un(e) autre', which keeps the singular and the partitive sense of 'of those'."
+    },
+    {
+      "area": "forms",
+      "finding": "Five verb entries in source order (felicitar, encantar, agradecer, recomendar, regresar). Each French example matches the source example's English. Note that no French conjugation paradigm (je/tu/il/nous/ils) is supplied to parallel the source's five forms per verb; flag this if the schema expects paradigms."
+    },
+    {
+      "area": "modes",
+      "finding": "Six modes (See, Recall, Hear, Type, Say, Write). Each has a distinct, individually written prompt. Every frenchTarget exactly matches its sourceCardId's targetFrench (word:1, 2, 13, 17, 14, 18). The Type, Say and Write prompts do not reliably elicit their exact targets (C3, C4, and the Say correction)."
+    },
+    {
+      "area": "speaking",
+      "finding": "Roles are traveler and cook, consistent with the scene. The opening speaker is the cook, which reverses the source's initiative: the traveler approaches the cook. This is acceptable for a role-play but should be a deliberate choice. The objectives cover compliment, return/order another one, and thanks; they omit the recipe question (card 16), which is optional."
+    }
+  ],
+  "linguisticFindings": [
+    {
+      "location": "line:9",
+      "finding": "'nous sommes ravis que cela vous ait plu' is correct: subjunctive after 'ravis que', and vous matches usted. Idiomatic."
+    },
+    {
+      "location": "line:3 / card:14",
+      "finding": "'exactement comme je l’aime' is idiomatic and avoids the calque 'juste comme'."
+    },
+    {
+      "location": "line:5",
+      "finding": "'crémeux', 'bien assaisonnés', and the plural agreement with 'œufs' are all correct."
+    },
+    {
+      "location": "card:15",
+      "finding": "'J’ai adoré parce que c’était très moelleux' is natural spoken French. A comma before 'parce que' is optional. 'moelleux' is a good choice for 'suave' when describing bread."
+    },
+    {
+      "location": "card:16",
+      "finding": "'recette de la maison' is understandable, but 'recette maison' is the standard idiom."
+    },
+    {
+      "location": "card:17 / line:8",
+      "finding": "'accueil' for 'atención' is idiomatic in hospitality contexts, but it shifts toward 'welcome'. 'service' is closer to the card's English. Either is defensible; the Type prompt must match whichever is chosen."
+    },
+    {
+      "location": "modes[See]",
+      "finding": "The prompt highlights 'the hyphenated spelling' as if it were the rule. Both 'petit-déjeuner' and 'petit déjeuner' are attested; the Académie française has traditionally written it without a hyphen. This is an unjustified prescriptive emphasis; soften it or remove it."
+    },
+    {
+      "location": "line:2 / card:13",
+      "finding": "'Je voudrais vous féliciter pour' is polite and idiomatic. 'féliciter de' is also possible. The note's claim that vous is gender-neutral here is correct: there is no participle agreement."
+    },
+    {
+      "location": "forms[revenir]",
+      "finding": "The rule 'si + present → main-clause future' is correct for real conditionals."
+    },
+    {
+      "location": "notes",
+      "finding": "The note calling 'otro' 'neutral' is imprecise. It is grammatically masculine; it is only generic in card 18 because there is no antecedent."
+    }
+  ],
+  "culturalFindings": [
+    {
+      "topic": "Mexican pan dulce",
+      "finding": "The brioche rendering erases the Mexican setting and conflicts with the crunchy-exterior description (C1). Keeping 'pan dulce' with a French gloss preserves the cultural context. 'viennoiserie' alone is too generic and still French-coded."
+    },
+    {
+      "topic": "Female traveler / male cook",
+      "finding": "Correct throughout: 'Une voyageuse', 'Elle', 'La voyageuse'; 'le cuisinier', 'le', 'lui', 'Le cuisinier'. 'sa grand-mère' is grammatically unmarked for possessor gender in French, but context makes it the cook's grandmother, so this is fine."
+    },
+    {
+      "topic": "Grandmother recipe",
+      "finding": "Line 6 preserves 'une recette de sa grand-mère' accurately."
+    },
+    {
+      "topic": "Tip",
+      "finding": "Line 8 presents the tip as a narrative fact, which is appropriate. Speaking objective 3 explicitly avoids prescribing a custom, which is good. The note's claim that the speaking objectives present the tip is inaccurate, because they do not mention it. No unjustified cultural mandate appears in the learner-facing content."
+    },
+    {
+      "topic": "Register",
+      "finding": "Vous is used consistently between the traveler and the cook/staff, matching the source's lo/le/usted. 'souhaite' (line 1) is slightly more formal than 'quiere' but acceptable in narration."
+    }
+  ],
+  "gateFindings": [
+    {
+      "finding": "All 13 gate flags are false: learnerVisible, audioApproved, progressTracking, reviewApproved, released, reviewed, registered, learnerRegistered, audioRegistered, listeningReviewed, playbackEnabled, scoringEnabled, progressWritesEnabled. No flag falsely claims review, learner, audio or progress status."
+    },
+    {
+      "finding": "Hear and Say set audioPending:true and scriptOnly:true. The other modes set audioPending:false and imply no audio asset. This is consistent with having no audio approval."
+    },
+    {
+      "finding": "The notes correctly state that the draft is for private editorial review only and include no review or release evidence. The prior #475 draft is disclosed as reference-only. Qualified human review is absent, so no part of this critique constitutes approval."
+    }
+  ]
+}

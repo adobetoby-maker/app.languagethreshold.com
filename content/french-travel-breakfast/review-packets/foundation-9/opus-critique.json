@@ -1,0 +1,130 @@
+{
+  "issues": [
+    {
+      "severity": "high",
+      "location": "frenchCards[11], frenchReader[4], forms[2]",
+      "problem": "Tráigame is an usted imperative and is the lesson's named focus. The French turns it into a question (Pourriez-vous m'apporter…?). For fr→en learners, a French question prompt will produce 'Could you bring me…?', not the target 'Please bring me more cream.'",
+      "sourceEvidence": "focus: 'usted commands like tráigame'; card 11 es 'Tráigame más crema, por favor.' note 'Usted command of traer'; en 'Please bring me more cream.'",
+      "correction": "Apportez-moi encore de la crème, s'il vous plaît. Use the same in reader[4]. A vous imperative with s'il vous plaît is fully polite in French."
+    },
+    {
+      "severity": "high",
+      "location": "frenchCards[12]",
+      "problem": "An imperative was converted to a question. The French back-translates as 'Could you wait a moment, please?', but the target is 'Wait a moment, please.'",
+      "sourceEvidence": "card 12 es 'Espere un momento, por favor.' en 'Wait a moment, please.'",
+      "correction": "Attendez un instant, s'il vous plaît. (Patientez un instant is also acceptable.)"
+    },
+    {
+      "severity": "high",
+      "location": "frenchCards[13], frenchReader[8], forms[5], modes[5]",
+      "problem": "Je vous laisse la monnaie literally means 'I'm leaving you the change', a statement rather than the command Quédese. The fr→en mode then grades 'Keep the change.' as the answer, which a learner cannot derive from the prompt. The note's claim that Gardez la monnaie is less polite is unsupported; it is standard and courteous. This choice also leaves the garder paradigm unused.",
+      "sourceEvidence": "card 13 es 'Quédese con el cambio.' en 'Keep the change.'; verbs[quedarse] note 'Quédese is the formal usted command'",
+      "correction": "Card: Gardez la monnaie. Reader[8]: Gardez la monnaie comme pourboire. Forms: 'Gardez la monnaie' = 'Keep the change'. Mode prompt: Traduisez en anglais : Gardez la monnaie. Keep Je vous laisse la monnaie as a note alternative only."
+    },
+    {
+      "severity": "medium",
+      "location": "frenchReader[1] vs frenchCards[10]; forms[0]",
+      "problem": "The Spanish card and reader line are identical, but the French uses Pouvez-vous on the card and Pourriez-vous in the reader. The form gloss 'Could you give me' also contradicts the English reader line 'Can you give me'.",
+      "sourceEvidence": "card 10 and reader[1] are both '¿Me puede dar un vaso de agua?' / 'Can you give me a glass of water?'",
+      "correction": "Reader[1]: Anna : Pouvez-vous me donner un verre d'eau ? Forms[0]: 'Pouvez-vous me donner' = 'Can you give me'. Remove the note 'Pourriez-vous… is used elsewhere'."
+    },
+    {
+      "severity": "medium",
+      "location": "frenchReader[3], forms[1]",
+      "problem": "The source uses present tense ('Can you bring me the salt'), but the French uses the conditional. The gloss 'Could you bring me' mismatches the English reader. This also erases the source contrast between Can (lines 1 and 3) and Could (line 5).",
+      "sourceEvidence": "reader[3] es '¿Me puede traer la sal, por favor?' en 'Can you bring me the salt, please?'",
+      "correction": "Anna : Pouvez-vous m'apporter le sel, s'il vous plaît ? Forms: 'Pouvez-vous m'apporter' = 'Can you bring me'. Keep Pourriez-vous only for card 9 and reader[5] ('Could')."
+    },
+    {
+      "severity": "medium",
+      "location": "forms[4]",
+      "problem": "'payer en espèces' is not a contiguous substring of the linked reader line, so it is not source-linked verbatim.",
+      "sourceEvidence": "frenchReader[6] 'Vous allez payer par carte ou en espèces ?'",
+      "correction": "Use 'en espèces' = 'in cash', or 'payer par carte' = 'pay by card'."
+    },
+    {
+      "severity": "medium",
+      "location": "modes",
+      "problem": "No mode exercises a command (cards 11, 12, 13 in imperative form), even though commands are the lesson's focus and objective. The mode set tests requests only.",
+      "sourceEvidence": "objective '…give simple usted commands'",
+      "correction": "Add a phrase-translation mode for card 11 (Apportez-moi encore de la crème, s'il vous plaît. → Please bring me more cream.) or card 12, alongside the corrected card 13."
+    },
+    {
+      "severity": "medium",
+      "location": "frenchVerbParadigms (all), especially pouvoir, apporter, garder",
+      "problem": "The paradigms do not state that Spanish usted forms (puede, traiga, quédese) correspond to French vous, not il. This is the core vouvoiement mapping. The paradigms also omit the vous imperatives the lesson needs (apportez-moi, attendez, gardez) and the rule that me becomes moi after an affirmative imperative.",
+      "sourceEvidence": "verbs[traer] note 'The usted command is traiga; add me to get tráigame'; verbs[quedarse] note 'Quédese is the formal usted command'",
+      "correction": "Add to explanations: usted = vous (vous pouvez / vous apportez / vous gardez). Imperatives: Apportez-moi…, Gardez la monnaie. Use m' before a verb in a question, but -moi after an affirmative imperative."
+    },
+    {
+      "severity": "medium",
+      "location": "frenchVerbParadigms[quedarse→garder].explanation; internalDomainNotes[2]; residuals[1]",
+      "problem": "These state that the lesson uses laisser instead of garder, so the paradigm is disconnected from the content. That contradiction resolves once Gardez la monnaie is adopted.",
+      "sourceEvidence": "verbs[quedarse] example 'Quédese con el cambio de propina.'",
+      "correction": "Explanation: 'Quedarse con (to keep) is reflexive; garder is transitive: Gardez la monnaie.' Delete the laisser inequivalence or move it to an alternatives note."
+    },
+    {
+      "severity": "medium",
+      "location": "speakingObjectives[1]; internalDomainNotes[6]",
+      "problem": "This is a fr→en lesson, so speaking output is English. Telling a French-speaking English learner to 'give simple usted commands' is a Spanish-specific framing. The note 'French speaking practice uses polite requests' contradicts the fr→en direction.",
+      "sourceEvidence": "objective text; modes are all promptFrench → targetEnglish",
+      "correction": "Keep the source objective in sourceNotes. Learner-facing gloss: 'give polite commands with please (Please bring me…, Keep the change)'. Change the note to say English speaking practice."
+    },
+    {
+      "severity": "low",
+      "location": "frenchVerbParadigms[poder→pouvoir].explanation",
+      "problem": "Pouvoir is not suppletive. It is an irregular verb with stem alternation (peu-/pouv-/peuv-), which is actually parallel to the Spanish o→ue change.",
+      "sourceEvidence": "verbs[poder] note 'Stem change o to ue… except nosotros'",
+      "correction": "Say: 'Irregular with stem alternation (peux/peut/peuvent vs pouvons/pouvez), loosely parallel to puedo/podemos.'"
+    },
+    {
+      "severity": "low",
+      "location": "frenchReader[0]",
+      "problem": "'un café… dans un café' repeats the same word with two senses, which is awkward. 'Prend… au petit-déjeuner' is acceptable but stiff.",
+      "sourceEvidence": "'Anna desayuna huevos y café en una cafetería de Oaxaca.'",
+      "correction": "Au petit-déjeuner, Anna mange des œufs et boit un café dans un petit restaurant d'Oaxaca. (Avoid cafétéria, which means a canteen or self-service in French.)"
+    },
+    {
+      "severity": "low",
+      "location": "frenchCards[2].note",
+      "problem": "The note overstates the menu ambiguity. In a payment context, 'par carte' alone is unambiguous, and the reader itself uses 'par carte'.",
+      "sourceEvidence": "reader[6] 'con tarjeta' → 'par carte'",
+      "correction": "Note: 'Carte bancaire on the card; par carte is enough when paying. La carte can also mean the menu.'"
+    },
+    {
+      "severity": "low",
+      "location": "frenchCards[1].note",
+      "problem": "'Le service est-il inclus ?' asks about the service charge, not literally the tip. It is fine in France, but it drifts from the source question.",
+      "sourceEvidence": "'¿La propina está incluida?'",
+      "correction": "Le pourboire est-il compris ? (Mention Le service est compris ? as the France-typical variant.)"
+    },
+    {
+      "severity": "low",
+      "location": "modes[2] and answer acceptance",
+      "problem": "The objective uses both 'bill' and 'check'. The English target should accept 'check' as a variant so US-English answers are not marked wrong.",
+      "sourceEvidence": "objective 'the bill, water or the check'",
+      "correction": "Accept 'Could you bring me the check, please?' as a variant."
+    }
+  ],
+  "accepted": [
+    "Oaxaca, Anna, Luis (le serveur), 200 pesos preserved; no euro or France redesign.",
+    "Payment and tip sequence preserved: water → salt → cream → bill → card or cash → cash, 200 pesos → change as tip.",
+    "Cash, change and card distinctions are sound: en espèces / la monnaie (not le change) / par carte, carte bancaire.",
+    "Luis's line 'Vous allez payer par carte ou en espèces ?' mirrors ¿Va a pagar…? in register and structure.",
+    "Vouvoiement is consistent throughout.",
+    "Card 9 'Pourriez-vous m'apporter l'addition…' correctly matches 'Could you…'.",
+    "le pourboire, le sel, la paille, la crème, l'addition, encore de la crème are correct senses.",
+    "les glaçons is defensible for agua con hielo.",
+    "Paradigm forms for pouvoir, apporter, donner, payer (paie/paye), garder are all correctly conjugated.",
+    "sourceNotes cardSource and readerSource match the English/Spanish source verbatim; indexing is consistent with modes.",
+    "Mode direction is fr→en throughout, with French prompts and English targets; term → phrase → reader progression holds.",
+    "speakingObjectives[0] is source-verbatim."
+  ],
+  "residuals": [
+    "Gardez la monnaie vs Je vous laisse la monnaie: native review is still useful for which to present as primary versus alternative.",
+    "les glaçons (plural, cubes) vs 'the ice' (mass noun): term-meaning grading should accept 'ice'/'the ice' if this card is ever tested.",
+    "popote → la paille: regional Mexican source term with no French regional counterpart; note only.",
+    "Source objective's Spanish-specific 'usted' wording needs a learner-facing English gloss for the fr→en audience.",
+    "Not approved. learnerGates (approval, audio, learnerRegistration) remain false pending fixes to the high and medium issues."
+  ]
+}

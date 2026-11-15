@@ -1,0 +1,839 @@
+You are Claude Fable 5.2 correcting a PRIVATE French Breakfast Core 12 candidate after read-only Opus critique. Return ONLY valid JSON object, no markdown. Do not use tools. Keep all exact English/Spanish cards and Reader lines, order, IDs, all false gates, 6 linked modes. Fix substantive critique: top id core:12 + pinned sourceRef path/revision/SHA 8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc + priorDraftRef #475 commit 5cc469f5a54828c48238ccdf411238ed2e3e2c08; See must show French and request English recognition; clarify comprendre/être compris is valid for included, inclure direct equivalent; change service charge card to le service or les frais de service with distinction to Reader; remove invented dans cet établissement from Reader line 6 while retaining scenario-only caveat in notes. Keep English/Spanish source lines exact. Improve customer register: phrase card should mean 'I want to pay in cash' but can use Je voudrais payer en espèces with a note that polite conditional softens literal Quiero; forms example may remain Je veux as literal mapping if explained. Correct apporter explanation; make verbs useful with French five-person forms where possible and accurate irregularity notes. Type prompt must not require exact typographical spacing, and accepted variants remain pending scoring gate. Write prompt needs an adequately cued model, not imply unique scoring. Recall definition should not globally say tip is optional. Speaking should let learner open by requesting bill; set openingSpeaker learner and openingFrench exact card 13; waitress responds register/table in objective. Remove editor instructions from learner notes; retain editorial flags in top notes. Do not invent a France blanket legal claim or other locale facts without independent source; mark France practice for qualified review. Reject any critique that conflicts with source/exactness. Do not claim review/audio/learner approval.
+SOURCE:
+{
+  "verbs": [
+    {
+      "infinitive": "pagar",
+      "native": "to pay",
+      "forms": {
+        "yo": "pago",
+        "tú": "pagas",
+        "él_ella_usted": "paga",
+        "nosotros": "pagamos",
+        "ellos_ustedes": "pagan"
+      },
+      "example": {
+        "target": "Como no tengo efectivo, pago con tarjeta.",
+        "native": "Since I have no cash, I pay by card."
+      }
+    },
+    {
+      "infinitive": "pedir",
+      "native": "to ask for",
+      "forms": {
+        "yo": "pido",
+        "tú": "pides",
+        "él_ella_usted": "pide",
+        "nosotros": "pedimos",
+        "ellos_ustedes": "piden"
+      },
+      "example": {
+        "target": "Pido el recibo antes de salir.",
+        "native": "I ask for the receipt before leaving."
+      },
+      "note": "Stem change: e to i. Use pedir for asking for things."
+    },
+    {
+      "infinitive": "traer",
+      "native": "to bring",
+      "forms": {
+        "yo": "traigo",
+        "tú": "traes",
+        "él_ella_usted": "trae",
+        "nosotros": "traemos",
+        "ellos_ustedes": "traen"
+      },
+      "example": {
+        "target": "¿Me trae la cuenta, por favor?",
+        "native": "Could you bring me the bill, please?"
+      },
+      "note": "Irregular yo form: traigo."
+    },
+    {
+      "infinitive": "incluir",
+      "native": "to include",
+      "forms": {
+        "yo": "incluyo",
+        "tú": "incluyes",
+        "él_ella_usted": "incluye",
+        "nosotros": "incluimos",
+        "ellos_ustedes": "incluyen"
+      },
+      "example": {
+        "target": "El menú dice que la cuenta incluye el cubierto.",
+        "native": "The menu says the bill includes the cover charge."
+      },
+      "note": "Adds y before o, e and en endings, except nosotros."
+    },
+    {
+      "infinitive": "querer",
+      "native": "to want",
+      "forms": {
+        "yo": "quiero",
+        "tú": "quieres",
+        "él_ella_usted": "quiere",
+        "nosotros": "queremos",
+        "ellos_ustedes": "quieren"
+      },
+      "example": {
+        "target": "Quiero pagar en efectivo.",
+        "native": "I want to pay in cash."
+      },
+      "note": "Stem change: e to ie."
+    }
+  ],
+  "passage": {
+    "title": "Pagar el desayuno en el café",
+    "target": [
+      "Después de desayunar, el viajero levanta la mano y dice: Disculpe, ¿me trae la cuenta, por favor?",
+      "La mesera responde que puede pagar en la caja o en la mesa, como prefiera.",
+      "Cuando llega la cuenta, el viajero ve un cargo extra y pregunta: ¿Qué es este cargo?",
+      "La mesera explica que es el cubierto, y que el menú lo indica en la última página.",
+      "El viajero dice que entiende, pero quiere saber si la propina está incluida.",
+      "Ella contesta que el servicio no está incluido, así que la propina es opcional.",
+      "Como no tiene efectivo, el viajero pregunta: ¿Puedo pagar con tarjeta?",
+      "La mesera trae la terminal, él paga y le pide el recibo.",
+      "Antes de salir, el viajero revisa el total y da las gracias."
+    ],
+    "native": [
+      "After eating breakfast, the traveler raises his hand and says: Excuse me, could you bring me the bill, please?",
+      "The waitress answers that he can pay at the register or at the table, as he prefers.",
+      "When the bill arrives, the traveler sees an extra charge and asks: What is this charge?",
+      "The waitress explains that it is the cover charge, and that the menu states it on the last page.",
+      "The traveler says he understands, but he wants to know if the tip is included.",
+      "She answers that service is not included, so the tip is optional.",
+      "Since he has no cash, the traveler asks: Can I pay by card?",
+      "The waitress brings the card terminal, he pays, and he asks her for the receipt.",
+      "Before leaving, the traveler checks the total and says thank you."
+    ]
+  },
+  "words": [
+    {
+      "en": "bill",
+      "es": "cuenta",
+      "kind": "term",
+      "note": "In Mexico and the US, people say la cuenta; in Spain also la nota in some places."
+    },
+    {
+      "en": "cover charge",
+      "es": "cubierto",
+      "kind": "term"
+    },
+    {
+      "en": "tip",
+      "es": "propina",
+      "kind": "term"
+    },
+    {
+      "en": "service charge",
+      "es": "servicio",
+      "kind": "term"
+    },
+    {
+      "en": "extra charge",
+      "es": "cargo extra",
+      "kind": "term"
+    },
+    {
+      "en": "cash",
+      "es": "efectivo",
+      "kind": "term"
+    },
+    {
+      "en": "card",
+      "es": "tarjeta",
+      "kind": "term"
+    },
+    {
+      "en": "receipt",
+      "es": "recibo",
+      "kind": "term",
+      "note": "You may also hear ticket or comprobante."
+    },
+    {
+      "en": "register",
+      "es": "caja",
+      "kind": "term"
+    },
+    {
+      "en": "waitress",
+      "es": "mesera",
+      "kind": "term",
+      "note": "Use mesero for a man."
+    },
+    {
+      "en": "total",
+      "es": "total",
+      "kind": "term"
+    },
+    {
+      "en": "card terminal",
+      "es": "terminal",
+      "kind": "term"
+    },
+    {
+      "en": "Could you bring me the bill, please?",
+      "es": "¿Me trae la cuenta, por favor?",
+      "kind": "phrase",
+      "note": "Polite request."
+    },
+    {
+      "en": "What is this charge?",
+      "es": "¿Qué es este cargo?",
+      "kind": "phrase",
+      "note": "Use it to clarify something unfamiliar."
+    },
+    {
+      "en": "Is the tip included?",
+      "es": "¿La propina está incluida?",
+      "kind": "phrase"
+    },
+    {
+      "en": "Can I pay by card?",
+      "es": "¿Puedo pagar con tarjeta?",
+      "kind": "phrase"
+    },
+    {
+      "en": "I want to pay in cash.",
+      "es": "Quiero pagar en efectivo.",
+      "kind": "phrase"
+    },
+    {
+      "en": "Could you give me the receipt, please?",
+      "es": "¿Me da el recibo, por favor?",
+      "kind": "phrase"
+    }
+  ]
+}
+
+CANDIDATE:
+{
+  "cards": [
+    {
+      "id": "core:12:word:1",
+      "supportEnglish": "bill",
+      "sourceSpanish": "cuenta",
+      "targetFrench": "l'addition",
+      "kind": "term",
+      "noteEnglish": "The source Spanish note mentions other usages such as la nota in some places. The French target here is l'addition, which is the bill, not the receipt."
+    },
+    {
+      "id": "core:12:word:2",
+      "supportEnglish": "cover charge",
+      "sourceSpanish": "cubierto",
+      "targetFrench": "les frais de couvert",
+      "kind": "term",
+      "noteEnglish": "This charge is specific to this scenario and is not a general French café rule. Verify local billing practice before giving advice about it."
+    },
+    {
+      "id": "core:12:word:3",
+      "supportEnglish": "tip",
+      "sourceSpanish": "propina",
+      "targetFrench": "le pourboire",
+      "kind": "term",
+      "noteEnglish": "Whether a tip is expected, and how much, varies by country and establishment. The scenario presents the tip as optional only for this café."
+    },
+    {
+      "id": "core:12:word:4",
+      "supportEnglish": "service charge",
+      "sourceSpanish": "servicio",
+      "targetFrench": "les frais de service",
+      "kind": "term",
+      "noteEnglish": "Whether a service charge applies varies by establishment and country. The scenario says service is not included here, which is specific to this café."
+    },
+    {
+      "id": "core:12:word:5",
+      "supportEnglish": "extra charge",
+      "sourceSpanish": "cargo extra",
+      "targetFrench": "un supplément",
+      "kind": "term"
+    },
+    {
+      "id": "core:12:word:6",
+      "supportEnglish": "cash",
+      "sourceSpanish": "efectivo",
+      "targetFrench": "les espèces",
+      "kind": "term"
+    },
+    {
+      "id": "core:12:word:7",
+      "supportEnglish": "card",
+      "sourceSpanish": "tarjeta",
+      "targetFrench": "la carte bancaire",
+      "kind": "term"
+    },
+    {
+      "id": "core:12:word:8",
+      "supportEnglish": "receipt",
+      "sourceSpanish": "recibo",
+      "targetFrench": "le reçu",
+      "kind": "term",
+      "noteEnglish": "The receipt is the proof of payment, distinct from the bill (l'addition). You may also hear le ticket in French."
+    },
+    {
+      "id": "core:12:word:9",
+      "supportEnglish": "register",
+      "sourceSpanish": "caja",
+      "targetFrench": "la caisse",
+      "kind": "term"
+    },
+    {
+      "id": "core:12:word:10",
+      "supportEnglish": "waitress",
+      "sourceSpanish": "mesera",
+      "targetFrench": "la serveuse",
+      "kind": "term",
+      "noteEnglish": "The source note says mesero is used for a man. The French masculine equivalent is le serveur."
+    },
+    {
+      "id": "core:12:word:11",
+      "supportEnglish": "total",
+      "sourceSpanish": "total",
+      "targetFrench": "le total",
+      "kind": "term"
+    },
+    {
+      "id": "core:12:word:12",
+      "supportEnglish": "card terminal",
+      "sourceSpanish": "terminal",
+      "targetFrench": "le terminal de paiement",
+      "kind": "term"
+    },
+    {
+      "id": "core:12:word:13",
+      "supportEnglish": "Could you bring me the bill, please?",
+      "sourceSpanish": "¿Me trae la cuenta, por favor?",
+      "targetFrench": "Pourriez-vous m'apporter l'addition, s'il vous plaît ?",
+      "kind": "phrase",
+      "noteEnglish": "Polite request."
+    },
+    {
+      "id": "core:12:word:14",
+      "supportEnglish": "What is this charge?",
+      "sourceSpanish": "¿Qué es este cargo?",
+      "targetFrench": "À quoi correspond ce supplément ?",
+      "kind": "phrase",
+      "noteEnglish": "Use it to clarify something unfamiliar."
+    },
+    {
+      "id": "core:12:word:15",
+      "supportEnglish": "Is the tip included?",
+      "sourceSpanish": "¿La propina está incluida?",
+      "targetFrench": "Le pourboire est-il compris ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:12:word:16",
+      "supportEnglish": "Can I pay by card?",
+      "sourceSpanish": "¿Puedo pagar con tarjeta?",
+      "targetFrench": "Puis-je payer par carte ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:12:word:17",
+      "supportEnglish": "I want to pay in cash.",
+      "sourceSpanish": "Quiero pagar en efectivo.",
+      "targetFrench": "Je veux payer en espèces.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:12:word:18",
+      "supportEnglish": "Could you give me the receipt, please?",
+      "sourceSpanish": "¿Me da el recibo, por favor?",
+      "targetFrench": "Pourriez-vous me donner le reçu, s'il vous plaît ?",
+      "kind": "phrase"
+    }
+  ],
+  "reader": [
+    {
+      "id": "core:12:line:1",
+      "supportEnglish": "After eating breakfast, the traveler raises his hand and says: Excuse me, could you bring me the bill, please?",
+      "sourceSpanish": "Después de desayunar, el viajero levanta la mano y dice: Disculpe, ¿me trae la cuenta, por favor?",
+      "targetFrench": "Après son petit-déjeuner, le voyageur lève la main et dit : « Excusez-moi, pourriez-vous m'apporter l'addition, s'il vous plaît ? »"
+    },
+    {
+      "id": "core:12:line:2",
+      "supportEnglish": "The waitress answers that he can pay at the register or at the table, as he prefers.",
+      "sourceSpanish": "La mesera responde que puede pagar en la caja o en la mesa, como prefiera.",
+      "targetFrench": "La serveuse répond qu'il peut payer à la caisse ou à la table, comme il préfère."
+    },
+    {
+      "id": "core:12:line:3",
+      "supportEnglish": "When the bill arrives, the traveler sees an extra charge and asks: What is this charge?",
+      "sourceSpanish": "Cuando llega la cuenta, el viajero ve un cargo extra y pregunta: ¿Qué es este cargo?",
+      "targetFrench": "Quand l'addition arrive, le voyageur voit un supplément et demande : « À quoi correspond ce supplément ? »"
+    },
+    {
+      "id": "core:12:line:4",
+      "supportEnglish": "The waitress explains that it is the cover charge, and that the menu states it on the last page.",
+      "sourceSpanish": "La mesera explica que es el cubierto, y que el menú lo indica en la última página.",
+      "targetFrench": "La serveuse explique qu'il s'agit de frais de couvert, indiqués à la dernière page de la carte."
+    },
+    {
+      "id": "core:12:line:5",
+      "supportEnglish": "The traveler says he understands, but he wants to know if the tip is included.",
+      "sourceSpanish": "El viajero dice que entiende, pero quiere saber si la propina está incluida.",
+      "targetFrench": "Le voyageur dit qu'il comprend, mais il veut savoir si le pourboire est compris."
+    },
+    {
+      "id": "core:12:line:6",
+      "supportEnglish": "She answers that service is not included, so the tip is optional.",
+      "sourceSpanish": "Ella contesta que el servicio no está incluido, así que la propina es opcional.",
+      "targetFrench": "Elle répond que, dans cet établissement, le service n'est pas compris ; le pourboire est donc facultatif."
+    },
+    {
+      "id": "core:12:line:7",
+      "supportEnglish": "Since he has no cash, the traveler asks: Can I pay by card?",
+      "sourceSpanish": "Como no tiene efectivo, el viajero pregunta: ¿Puedo pagar con tarjeta?",
+      "targetFrench": "Comme il n'a pas d'espèces, le voyageur demande : « Puis-je payer par carte ? »"
+    },
+    {
+      "id": "core:12:line:8",
+      "supportEnglish": "The waitress brings the card terminal, he pays, and he asks her for the receipt.",
+      "sourceSpanish": "La mesera trae la terminal, él paga y le pide el recibo.",
+      "targetFrench": "La serveuse apporte le terminal de paiement ; il paie et lui demande le reçu."
+    },
+    {
+      "id": "core:12:line:9",
+      "supportEnglish": "Before leaving, the traveler checks the total and says thank you.",
+      "sourceSpanish": "Antes de salir, el viajero revisa el total y da las gracias.",
+      "targetFrench": "Avant de partir, le voyageur vérifie le total et dit merci."
+    }
+  ],
+  "forms": [
+    {
+      "sourceSpanishInfinitive": "pagar",
+      "frenchInfinitive": "payer",
+      "frenchExample": "Comme je n'ai pas d'espèces, je paie par carte.",
+      "supportEnglish": "Since I have no cash, I pay by card.",
+      "explanationEnglish": "Payer is the everyday French verb for paying. Paying by card is expressed with par carte."
+    },
+    {
+      "sourceSpanishInfinitive": "pedir",
+      "frenchInfinitive": "demander",
+      "frenchExample": "Je demande le reçu avant de partir.",
+      "supportEnglish": "I ask for the receipt before leaving.",
+      "explanationEnglish": "Demander here means to request something, such as a receipt. It also means to ask a question, so for requesting items keep the object directly after the verb."
+    },
+    {
+      "sourceSpanishInfinitive": "traer",
+      "frenchInfinitive": "apporter",
+      "frenchExample": "Pourriez-vous m'apporter l'addition, s'il vous plaît ?",
+      "supportEnglish": "Could you bring me the bill, please?",
+      "explanationEnglish": "Apporter means to bring something to someone. The indirect object m' (me) appears before the infinitive-style verb in this polite request."
+    },
+    {
+      "sourceSpanishInfinitive": "incluir",
+      "frenchInfinitive": "inclure",
+      "frenchExample": "La carte indique que l'addition inclut les frais de couvert.",
+      "supportEnglish": "The menu says the bill includes the cover charge.",
+      "explanationEnglish": "Inclure means to include. The prior draft's comprendre is not a correct translation of this verb, so it is replaced here. The example is specific to this scenario's menu."
+    },
+    {
+      "sourceSpanishInfinitive": "querer",
+      "frenchInfinitive": "vouloir",
+      "frenchExample": "Je veux payer en espèces.",
+      "supportEnglish": "I want to pay in cash.",
+      "explanationEnglish": "Vouloir means to want. The present je veux matches the source's direct meaning. Je voudrais is a more polite conditional form that is often used in requests, and it is a separate editorial choice."
+    }
+  ],
+  "modes": [
+    {
+      "mode": "See",
+      "prompt": "Look at the English phrase 'card terminal' and recognize the French term for the device the waitress brings to take a card payment.",
+      "frenchTarget": "le terminal de paiement",
+      "sourceCardId": "core:12:word:12",
+      "scriptOnly": false,
+      "audioPending": false
+    },
+    {
+      "mode": "Recall",
+      "prompt": "Without a French hint, recall the French word for the optional amount given to staff on top of the bill (tip).",
+      "frenchTarget": "le pourboire",
+      "sourceCardId": "core:12:word:3",
+      "scriptOnly": false,
+      "audioPending": false
+    },
+    {
+      "mode": "Hear",
+      "prompt": "Read the scripted French question about whether the tip is included, then give its English meaning. Script only; no audio is generated for this item yet.",
+      "frenchTarget": "Le pourboire est-il compris ?",
+      "sourceCardId": "core:12:word:15",
+      "scriptOnly": true,
+      "audioPending": true
+    },
+    {
+      "mode": "Type",
+      "prompt": "Type the French question that means 'Can I pay by card?' exactly, including the space before the question mark.",
+      "frenchTarget": "Puis-je payer par carte ?",
+      "sourceCardId": "core:12:word:16",
+      "scriptOnly": false,
+      "audioPending": false
+    },
+    {
+      "mode": "Say",
+      "prompt": "Say aloud the French question that asks what an unfamiliar extra charge is for.",
+      "frenchTarget": "À quoi correspond ce supplément ?",
+      "sourceCardId": "core:12:word:14",
+      "scriptOnly": false,
+      "audioPending": true
+    },
+    {
+      "mode": "Write",
+      "prompt": "Write one polite French sentence asking the waitress for the receipt after you have paid by card.",
+      "frenchTarget": "Pourriez-vous me donner le reçu, s'il vous plaît ?",
+      "sourceCardId": "core:12:word:18",
+      "scriptOnly": false,
+      "audioPending": false
+    }
+  ],
+  "speaking": {
+    "roles": [
+      {
+        "id": "learner",
+        "name": "learner",
+        "description": "The traveler at the café after breakfast, who asks for the bill, asks about a charge and the tip, pays by card, and requests a receipt."
+      },
+      {
+        "id": "waitress",
+        "name": "waitress",
+        "description": "The café waitress who brings the bill, explains the cover charge, says the tip is optional, and brings the card terminal."
+      }
+    ],
+    "openingSpeaker": "waitress",
+    "openingFrench": "Bonjour ! Vous avez fini votre petit-déjeuner ?",
+    "objectivesEnglish": [
+      "Ask the waitress for the bill using a polite request.",
+      "Ask what an unfamiliar extra charge is for, and understand the cover charge explanation.",
+      "Ask whether the tip is included, and understand that the service is not included in this café.",
+      "Choose a payment method, asking whether you can pay by card if you have no cash.",
+      "Ask for the receipt after paying.",
+      "Check the total before leaving and say thank you."
+    ]
+  },
+  "gates": {
+    "learnerVisible": false,
+    "audioApproved": false,
+    "progressTracking": false,
+    "reviewApproved": false,
+    "released": false,
+    "reviewed": false,
+    "registered": false,
+    "learnerRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "playbackEnabled": false,
+    "scoringEnabled": false,
+    "progressWritesEnabled": false
+  },
+  "notes": [
+    "Cover charge (cubierto / les frais de couvert): the scenario is specific to this café. Do not present a cover charge as a general French café rule. Verify local billing practice before giving advice.",
+    "Service and tip (servicio, propina / les frais de service, le pourboire): whether service is included and whether a tip is optional varies by establishment and country. The scenario says the tip is optional only in this case. Do not state it as French convention.",
+    "Receipt vs bill: l'addition is the bill, which lists what is owed. le reçu (or le ticket) is the receipt, which proves payment. Do not use them interchangeably.",
+    "Conditional: the source uses present-tense querer ('Quiero pagar'). Je voudrais is a polite conditional that is common in requests, but the target here uses present je veux to match the source. Whether to use the conditional for politeness is an editorial choice to review.",
+    "Prior draft correction: the prior draft used comprendre for 'to include'. This draft uses inclure, which is the correct French equivalent of incluir.",
+    "Prior #475 was used only as a translation reference and may be stale. Items were rebuilt from the source for all 18 cards and 9 reader lines.",
+    "Gendered terms: mesera is rendered as serveuse. A man in this role would be serveur. Check this against the scenario's gender cues if the speaker changes.",
+    "Audio: the Hear and Say modes are marked audioPending. No audio is generated or approved. All gates are false, so nothing is released, reviewed, registered, or enabled for progress tracking."
+  ]
+}
+
+CRITIQUE:
+{
+  "issues": [
+    {
+      "severity": "high",
+      "path": "(root)",
+      "issue": "The candidate has no top-level lesson ID (for example \"core:12\") and no pinned source link, commit, hash or path. The audit asked for the exact ID and source link to be checked, and neither can be verified because neither exists. The card and line IDs (core:12:word:1–18, core:12:line:1–9) are present and correctly sequenced.",
+      "correction": "Add a top-level id (\"core:12\") and a sourceRef field that points to the pinned Spanish source, such as its file path, commit SHA or content hash. Also add a separate priorDraftRef for #475. Keep the existing card and line IDs unchanged."
+    },
+    {
+      "severity": "high",
+      "path": "forms[3].explanationEnglish; notes[4]",
+      "issue": "The draft claims that comprendre is 'not a correct translation' of 'to include'. This is wrong. Être compris is the standard French idiom for 'included' with prices and service (service compris, tout compris, TVA comprise). The candidate itself uses 'compris' in card 15 and Reader lines 5 and 6, so the explanation contradicts the content. Inclure is the direct cognate of incluir, but comprendre (in the passive) is the more idiomatic choice in bills and menus. The explanation also exposes editorial history ('the prior draft') to learners.",
+      "correction": "Rewrite the explanation along these lines: 'Inclure means to include (l'addition inclut…). With prices and service, French more often says être compris: Le service est compris, Le pourboire est-il compris ? Both are correct; compris is the everyday bill/menu idiom.' Delete notes[4], or reword it so it records that both verbs are valid and that inclure was chosen to mirror incluir in the form drill."
+    },
+    {
+      "severity": "high",
+      "path": "modes[0] (See)",
+      "issue": "The direction is reversed. The prompt shows English ('card terminal') and asks for the French term, which is production or recall. See should be recognition: the learner is shown French and identifies its meaning. As written, it overlaps with the Recall mode.",
+      "correction": "Prompt: \"Look at the French term 'le terminal de paiement' and choose or say its English meaning (the device the waitress brings for card payment).\" Keep frenchTarget, sourceCardId core:12:word:12, scriptOnly false and audioPending false."
+    },
+    {
+      "severity": "medium",
+      "path": "cards[3].targetFrench; reader[5].targetFrench",
+      "issue": "Card 4 renders servicio as 'les frais de service', but Reader line 6 uses 'le service' (n'est pas compris). These are inconsistent, and 'frais de service' suggests a separate added fee (for example a booking or platform fee) rather than the service component of the price.",
+      "correction": "Change card 4 to 'le service', with a note: 'As in service compris / service non compris.' Alternatively, keep 'les frais de service' only if the scenario means an itemised surcharge. In that case, make line 6 match."
+    },
+    {
+      "severity": "medium",
+      "path": "reader[5]; cards[3].noteEnglish; cards[2].noteEnglish; notes[0-1]; speaking.objectivesEnglish[2]",
+      "issue": "Regional implication: in France, menu prices are legally required to be service compris (prix nets). 'Le service n'est pas compris' and a separate couvert charge would be atypical or improper there. The candidate's scenario-only framing is correct in principle. However, the notes only say practice 'varies by country and establishment' and never tell learners that France is the opposite case. A France-focused course could therefore leave a misleading impression. Line 6 also adds 'dans cet établissement', which has no equivalent in the Spanish or English source.",
+      "correction": "Leave the café's location unspecified, and add a cultural note: 'In France, service is normally included in menu prices (service compris); tipping is optional and small. This dialogue is a fictional café scenario, not a description of French practice.' Either remove 'dans cet établissement' to keep fidelity with the source, or add the matching words to supportEnglish line 6 and record the addition as a deliberate deviation."
+    },
+    {
+      "severity": "medium",
+      "path": "cards[16]; forms[4].explanationEnglish; notes[3]",
+      "issue": "Customer register: 'Je veux payer en espèces' is grammatical and faithful to 'Quiero', but said to a server it can sound blunt or demanding. Card 17 has no note warning learners about this, and the forms explanation calls the choice merely 'a separate editorial choice' without saying what the practical effect is.",
+      "correction": "Keep 'Je veux payer en espèces.' as the source-faithful target. Add this cardNote: 'To a server, Je voudrais payer en espèces or Je vais payer en espèces sounds more natural and polite; je veux can sound abrupt.' Accept these alternates in the Type, Write and Say modes, and in the speaking practice."
+    },
+    {
+      "severity": "medium",
+      "path": "forms[2] (traer → apporter)",
+      "issue": "The explanation says the pronoun appears 'before the infinitive-style verb'. Apporter is an actual infinitive here (pouvoir + infinitive), and the pronoun attaches before the infinitive it depends on. The example uses pourriez + infinitive, so it never shows a conjugated form of apporter, whereas the Spanish example shows 'trae'. The explanation also misses the useful contrast between apporter (bring a thing) and amener (bring a person) / emporter (take away).",
+      "correction": "Explanation: 'Apporter means to bring something to someone. In Pourriez-vous m'apporter…, apporter is an infinitive after pourriez, and the object pronoun m' goes directly before it. Use apporter for things; amener for people.' Consider adding a conjugated example: 'La serveuse apporte le terminal de paiement.'"
+    },
+    {
+      "severity": "medium",
+      "path": "forms[1].explanationEnglish (pedir → demander)",
+      "issue": "The guidance 'for requesting items keep the object directly after the verb' is muddled. Asking a question also takes a direct object, so this does not distinguish the two senses. The useful points are missing: the structure demander quelque chose à quelqu'un, the learner error *demander pour, and the false friend demander ≠ 'demand'.",
+      "correction": "Explanation: 'Demander means to ask for (demander le reçu) or to ask (demander si…). The structure is demander quelque chose à quelqu'un: il lui demande le reçu. Do not add pour. Demander is not as strong as English demand.'"
+    },
+    {
+      "severity": "medium",
+      "path": "forms[*]",
+      "issue": "The source gives five person forms per verb (yo, tú, él/ella/usted, nosotros, ellos/ustedes) and notes on irregularities. The candidate forms have no French conjugation tables. If the 'five forms' requirement means person forms rather than five verb entries, all five entries are incomplete. The French irregularities are also never explained: payer has the paie/paye spelling alternation, inclure has inclut, vouloir has veux/voulons/veulent.",
+      "correction": "Add forms {je, tu, il_elle_on, nous, ils_elles} for each verb:\n- payer: paie/paye, paies, paie, payons, paient\n- demander: demande, demandes, demande, demandons, demandent\n- apporter: apporte, apportes, apporte, apportons, apportent\n- inclure: inclus, inclus, inclut, incluons, incluent\n- vouloir: veux, veux, veut, voulons, veulent\nAdd short irregularity notes (paie/paye; inclut with a -t; vouloir stem changes)."
+    },
+    {
+      "severity": "low",
+      "path": "modes[3] (Type)",
+      "issue": "Requiring an 'exact' answer 'including the space before the question mark' penalises typography rather than French. French typesetting uses a narrow no-break space, which learners cannot reliably type. The equally correct and more colloquial 'Je peux payer par carte ?' would also be rejected.",
+      "correction": "Normalise spaces before ? and accept U+0020, U+00A0 and U+202F. Accept the alternates 'Je peux payer par carte ?' and 'Est-ce que je peux payer par carte ?'. Drop the word 'exactly' from the prompt."
+    },
+    {
+      "severity": "low",
+      "path": "modes[5] (Write)",
+      "issue": "The prompt asks for an open, free-form 'one polite French sentence', but there is a single frenchTarget. This implies exact-match scoring, which does not suit open production.",
+      "correction": "Mark frenchTarget as the model answer only, and list acceptable alternates: 'Pouvez-vous me donner le reçu, s'il vous plaît ?', 'Je pourrais avoir le reçu, s'il vous plaît ?', 'Vous pouvez me donner le ticket, s'il vous plaît ?'. Scoring stays disabled per the gates."
+    },
+    {
+      "severity": "low",
+      "path": "modes[1] (Recall).prompt",
+      "issue": "The prompt defines a tip as 'the optional amount given to staff'. This bakes the scenario-specific claim that the tip is optional into the definition of the word, which runs against the candidate's own scenario-only framing.",
+      "correction": "Prompt: 'Without a French hint, recall the French word for a tip — money left for staff in addition to the bill.'"
+    },
+    {
+      "severity": "low",
+      "path": "speaking.openingFrench; speaking.roles[1].description",
+      "issue": "In the source, the traveler opens the scene by raising a hand and asking for the bill. The candidate has the waitress open with an invented line, and 'Bonjour !' is odd after she has already served breakfast. The waitress description also omits her line 2 role of offering payment at the register or at the table.",
+      "correction": "Either set openingSpeaker to learner, with the learner's expected first turn 'Excusez-moi, pourriez-vous m'apporter l'addition, s'il vous plaît ?', or keep the waitress but use 'Tout s'est bien passé ? Je vous apporte l'addition ?'. Add 'offers payment at the register or at the table' to the waitress description."
+    },
+    {
+      "severity": "low",
+      "path": "cards[0].noteEnglish",
+      "issue": "The source note's regional content (la cuenta in Mexico and the US; la nota in parts of Spain) is reduced to 'other usages'. The note also gives no French regional information, for example that 'la note' is common in Belgium and Switzerland and for hotels.",
+      "correction": "'Spanish: la cuenta (Mexico, US); la nota in parts of Spain. French: l'addition in restaurants and cafés; la note is used for hotels and is also common in Belgium and Switzerland. Not the receipt (le reçu / le ticket).'"
+    },
+    {
+      "severity": "low",
+      "path": "cards[1].noteEnglish; cards[2-3].noteEnglish",
+      "issue": "These learner-facing notes contain editor instructions ('Verify local billing practice before giving advice about it').",
+      "correction": "Move the verification instructions to notes[] (editorial), and keep the card notes learner-facing: 'In this scenario the café adds a cover charge; this is not standard in France.'"
+    },
+    {
+      "severity": "low",
+      "path": "reader[0].targetFrench; reader[8].targetFrench",
+      "issue": "Minor style points. Both 'petit-déjeuner' and 'petit déjeuner' are accepted spellings, but the lesson should pick one consistently (the opening also uses the hyphen). 'Dit merci' is correct but plainer than the idiomatic 'remercie la serveuse'.",
+      "correction": "Choose one spelling for the whole lesson. 'Dit merci' may stay for transparency with 'da las gracias'; optionally offer 'remercie' as a gloss."
+    },
+    {
+      "severity": "info",
+      "path": "notes[5]; (audit scope)",
+      "issue": "The older #475 draft was not supplied in this request, so the comparison with it and the claim that 'items were rebuilt from the source' cannot be verified. This is an AI critique only. It is not qualified approval by a native or expert reviewer, and it does not justify changing any gate.",
+      "correction": "Attach the #475 content or reference for a diff. Obtain human review by a qualified French reviewer before flipping reviewApproved or reviewed."
+    }
+  ],
+  "passed": [
+    "All 18 cards are in the source order, with the supportEnglish and sourceSpanish strings matching the pinned source exactly (including ¿ and the phrase punctuation).",
+    "Card kinds (12 terms, 6 phrases) match the source; card notes for cards 13 and 14 preserve the source wording.",
+    "All 9 Reader lines are in order, with English and Spanish matching the source exactly; the French is faithful and grammatical (line 6's added qualifier is noted separately).",
+    "Card IDs core:12:word:1–18 and line IDs core:12:line:1–9 are sequential and unique.",
+    "Lexical choices: l'addition, le pourboire, un supplément, les espèces, la carte bancaire / par carte, le reçu (+ le ticket), la caisse, la serveuse / le serveur, le total, le terminal de paiement, and la carte (not le menu) for the menu are all correct.",
+    "Bill and receipt are clearly distinguished in the card 1 and card 8 notes and in notes[2].",
+    "Phrase cards 13–16 and 18 are idiomatic and appropriately polite; card 14 'À quoi correspond ce supplément ?' is natural.",
+    "Gender agreement is consistent (le voyageur / il, la serveuse / elle); the serveur note is present.",
+    "Five verb entries are present, in source order with source-aligned examples; the vouloir explanation correctly separates je veux from je voudrais.",
+    "The cover charge, service and tip are framed as scenario-specific rather than as a French rule (the France-specific clarification is noted separately).",
+    "There are six modes, each linked to a distinct, valid card (12, 3, 15, 16, 14, 18) and each with a differentiated task.",
+    "Hear is script-only: scriptOnly true, audioPending true, and the prompt states no audio exists.",
+    "Say is marked audioPending true, with scriptOnly false.",
+    "Speaking has two roles (learner and waitress) matching the source characters; the objectives cover all source beats in order, with the tip framed per scenario.",
+    "All 13 gates are false; notes[7] confirms nothing is released, registered or enabled."
+  ]
+}
+
+PRIOR #475:
+{
+  "n": 12,
+  "titleEnglish": "Ask for the bill",
+  "objectiveEnglish": "request the bill, understand cover or service charges, and choose a payment method",
+  "scenarioEnglishSource": "Pay for breakfast, clarify one unfamiliar charge, and request a receipt.",
+  "titleFrenchCourseEnglish": "Demander l'addition",
+  "objectiveFrenchCourseEnglish": "Ask about an unfamiliar charge, choose a payment method, and request a receipt in French.",
+  "focusEnglish": "Use à quoi correspond for a charge question, puis-je for payment, and compris for included amounts.",
+  "focusFrench": "Demander l'addition ; clarifier un supplément ; distinguer carte bancaire et espèces.",
+  "teachingNotesEnglish": "Pourriez-vous m'apporter l'addition ? politely requests the bill. À quoi correspond ce supplément ? asks what an extra charge is for. Puis-je payer par carte ? asks about card payment; en espèces means cash. Check the itemized total and request a reçu if needed.",
+  "words": [
+    {
+      "en": "bill",
+      "kind": "term",
+      "fr": "l'addition"
+    },
+    {
+      "en": "cover charge",
+      "kind": "term",
+      "fr": "les frais de couvert",
+      "noteEnglish": "A cover charge is source-specific and not a general French café rule. Verify local billing practice before using this as advice."
+    },
+    {
+      "en": "tip",
+      "kind": "term",
+      "fr": "le pourboire"
+    },
+    {
+      "en": "service charge",
+      "kind": "term",
+      "fr": "les frais de service",
+      "noteEnglish": "Service and tip rules vary by country; the source scenario needs locale review."
+    },
+    {
+      "en": "extra charge",
+      "kind": "term",
+      "fr": "un supplément"
+    },
+    {
+      "en": "cash",
+      "kind": "term",
+      "fr": "les espèces"
+    },
+    {
+      "en": "card",
+      "kind": "term",
+      "fr": "la carte bancaire"
+    },
+    {
+      "en": "receipt",
+      "kind": "term",
+      "fr": "le reçu"
+    },
+    {
+      "en": "register",
+      "kind": "term",
+      "fr": "la caisse"
+    },
+    {
+      "en": "waitress",
+      "kind": "term",
+      "fr": "la serveuse"
+    },
+    {
+      "en": "total",
+      "kind": "term",
+      "fr": "le total"
+    },
+    {
+      "en": "card terminal",
+      "kind": "term",
+      "fr": "le terminal de paiement"
+    },
+    {
+      "en": "Could you bring me the bill, please?",
+      "kind": "phrase",
+      "fr": "Pourriez-vous m'apporter l'addition, s'il vous plaît ?"
+    },
+    {
+      "en": "What is this charge?",
+      "kind": "phrase",
+      "fr": "À quoi correspond ce supplément ?"
+    },
+    {
+      "en": "Is the tip included?",
+      "kind": "phrase",
+      "fr": "Le pourboire est-il compris ?"
+    },
+    {
+      "en": "Can I pay by card?",
+      "kind": "phrase",
+      "fr": "Puis-je payer par carte ?"
+    },
+    {
+      "en": "I want to pay in cash.",
+      "kind": "phrase",
+      "fr": "Je voudrais payer en espèces."
+    },
+    {
+      "en": "Could you give me the receipt, please?",
+      "kind": "phrase",
+      "fr": "Pourriez-vous me donner le reçu, s'il vous plaît ?"
+    }
+  ],
+  "passage": {
+    "titleFrench": "Comprendre l'addition",
+    "english": [
+      "After eating breakfast, the traveler raises his hand and says: Excuse me, could you bring me the bill, please?",
+      "The waitress answers that he can pay at the register or at the table, as he prefers.",
+      "When the bill arrives, the traveler sees an extra charge and asks: What is this charge?",
+      "The waitress explains that it is the cover charge, and that the menu states it on the last page.",
+      "The traveler says he understands, but he wants to know if the tip is included.",
+      "She answers that service is not included, so the tip is optional.",
+      "Since he has no cash, the traveler asks: Can I pay by card?",
+      "The waitress brings the card terminal, he pays, and he asks her for the receipt.",
+      "Before leaving, the traveler checks the total and says thank you."
+    ],
+    "french": [
+      "Après son petit-déjeuner, le voyageur lève la main et dit : « Excusez-moi, pourriez-vous m'apporter l'addition, s'il vous plaît ? »",
+      "La serveuse répond qu'il peut payer à la caisse ou à la table, comme il préfère.",
+      "Quand l'addition arrive, le voyageur voit un supplément et demande : « À quoi correspond ce supplément ? »",
+      "La serveuse explique qu'il s'agit de frais de couvert indiqués à la dernière page de la carte.",
+      "Le voyageur dit qu'il comprend, mais il veut savoir si le pourboire est compris.",
+      "Elle répond que, dans cet établissement, le service n'est pas compris ; le pourboire est donc facultatif.",
+      "Comme il n'a pas d'espèces, le voyageur demande : « Puis-je payer par carte ? »",
+      "La serveuse apporte le terminal de paiement ; il paie et demande un reçu.",
+      "Avant de partir, le voyageur vérifie le total et dit merci."
+    ]
+  },
+  "verbs": [
+    {
+      "infinitiveFrench": "payer",
+      "meaningEnglish": "to pay",
+      "exampleFrench": "Comme je n'ai pas d'espèces, je paie par carte.",
+      "exampleEnglish": "Since I have no cash, I pay by card.",
+      "sourceInfinitiveSpanish": "pagar"
+    },
+    {
+      "infinitiveFrench": "demander",
+      "meaningEnglish": "to ask for",
+      "exampleFrench": "Je demande un reçu avant de partir.",
+      "exampleEnglish": "I ask for the receipt before leaving.",
+      "sourceInfinitiveSpanish": "pedir"
+    },
+    {
+      "infinitiveFrench": "apporter",
+      "meaningEnglish": "to bring",
+      "exampleFrench": "Pourriez-vous m'apporter l'addition, s'il vous plaît ?",
+      "exampleEnglish": "Could you bring me the bill, please?",
+      "sourceInfinitiveSpanish": "traer"
+    },
+    {
+      "infinitiveFrench": "comprendre",
+      "meaningEnglish": "to include",
+      "exampleFrench": "La carte indique que l'addition comprend les frais de couvert.",
+      "exampleEnglish": "The menu says the bill includes the cover charge.",
+      "sourceInfinitiveSpanish": "incluir"
+    },
+    {
+      "infinitiveFrench": "vouloir",
+      "meaningEnglish": "to want",
+      "exampleFrench": "Je voudrais payer en espèces.",
+      "exampleEnglish": "I want to pay in cash.",
+      "sourceInfinitiveSpanish": "querer"
+    }
+  ],
+  "speakingInstructionEnglish": "Ask for the bill, identify one unfamiliar charge, ask whether the tip is included, pay by card and request a receipt.",
+  "speakingFrench": "Excusez-moi, pourriez-vous m'apporter l'addition ? À quoi correspond ce supplément ? Puis-je payer par carte ?",
+  "regionalNotesEnglish": [
+    "Service and tipping language varies by region; this dialogue describes one café bill."
+  ],
+  "reviewed": false
+}

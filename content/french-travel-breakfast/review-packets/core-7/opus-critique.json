@@ -1,0 +1,123 @@
+{
+  "issues": [
+    {
+      "severity": "high",
+      "path": "cards[12].fr (also speaking.openingFrench)",
+      "problem": "\"Je ne veux pas quelque chose seulement pour les touristes.\" is ungrammatical or at best clumsy French. Standard French doesn't put \"quelque chose\" after a negation; it uses \"rien\" or \"pas de\". \"Seulement pour\" also sounds stilted for \"just for\". The same sentence is repeated in the speaking opener, so learners would rehearse the error.",
+      "suggestedFix": "Use \"Je ne veux pas un plat pour touristes.\" or \"Je ne veux rien de spécial pour les touristes.\" (closest to the neutral \"algo\": \"Je ne veux pas de truc juste pour les touristes.\" if a casual register is acceptable). Put the same wording in speaking.openingFrench."
+    },
+    {
+      "severity": "high",
+      "path": "speaking.openingFrench",
+      "problem": "The roles are inverted. The opener is the learner's own lines: the question about local breakfast plus the line refusing tourist food. If it is the partner's opening turn, the server is asking the learner's questions. Either way, objectives 1 and 2 are already done before the learner speaks.",
+      "suggestedFix": "Give the opening to the server, e.g. \"Bonjour ! Qu'est-ce que je vous sers ce matin ?\". Have the learner then do objectives 1–5. If the schema allows, add an explicit role field (partnerRole: \"le serveur\", learnerRole: \"Ana / la cliente\")."
+    },
+    {
+      "severity": "high",
+      "path": "internalReviewNotesEnglish[6]",
+      "problem": "This note is false. It says the French form examples \"were written fresh … and are not copied from the old draft\". In fact forms[1].exampleFrench, forms[2].exampleFrench and forms[3].exampleFrench match old.json verbs[1..3].exampleFrench word for word. Only forms[0] changed. This is a gate-honesty and provenance problem.",
+      "suggestedFix": "Rewrite the note: \"forms[0] example rewritten for the Mexican scenario; forms[1–3] French examples match old.json and were kept because they translate the source examples directly; they still need qualified review.\""
+    },
+    {
+      "severity": "high",
+      "path": "modes[0].targetFrench (See) / cards[6].fr",
+      "problem": "The See answer is the whole card face including the parenthetical gloss: \"le café de olla (café à la cannelle, préparé dans une cruche en terre)\". No learner can reproduce that gloss exactly, so answer-checking fails. \"Cruche\" is also the wrong word: it means a jug or pitcher, while an olla is a clay pot.",
+      "suggestedFix": "Set cards[6].fr to \"le café de olla\". Move the gloss to a separate note or glossFrench field: \"café préparé à la cannelle (et souvent au piloncillo) dans un pot en terre cuite\". Set modes[0].targetFrench to \"le café de olla\"."
+    },
+    {
+      "severity": "high",
+      "path": "modes[3].targetFrench (Type) / cards[4].fr",
+      "problem": "The Type answer \"la salsa (la sauce)\" puts parentheses inside a string the learner must type. Exact-match checking will reject correct answers.",
+      "suggestedFix": "Set cards[4].fr to \"la salsa\" and add \"la sauce\" as an accepted alternative (acceptedFrench: [\"la salsa\", \"la sauce\"]). Set modes[3].targetFrench to \"la salsa\"."
+    },
+    {
+      "severity": "medium",
+      "path": "modes[2] (Hear)",
+      "problem": "The cue asks the learner to \"Read the script line: a server asks if you want a recommendation\", but the mode has no script line. The flow is also illogical: if the server offers a recommendation, the learner answering \"Pouvez-vous me recommander un plat typique ?\" makes little sense. And the activity is English→French production, so it doesn't test hearing at all.",
+      "suggestedFix": "Add a scriptFrench field holding the source-linked French line (\"Pouvez-vous me recommander un plat typique ?\"). Make Hear a comprehension task: read or hear the script, then pick or write the English (\"Can you recommend a typical dish to me?\"). Keep scriptOnly: true and sourceCardIndex 13."
+    },
+    {
+      "severity": "medium",
+      "path": "modes[0], modes[3], modes[5] (See/Type/Write); modes[1] vs modes[4] (Recall/Say)",
+      "problem": "The modes aren't really different from each other. See, Type and Write are all \"English → produce French\". Recall (\"say the French\") is a speaking task, while Say is reading French aloud. So the answer is shown in the cue, and the speaking behaviour sits in Recall, not in Say.",
+      "suggestedFix": "See: show the French card face and ask for the English meaning (recognition). Recall: English cue → produce French from memory (written). Type: English → typed French term. Say: English cue → say the French (script-only, with targetFrench hidden from the cue). Write: full-sentence production. Update the instructionEnglish strings to match."
+    },
+    {
+      "severity": "medium",
+      "path": "cards[14].fr and reader.french[5]",
+      "problem": "\"ce qu'il contient\" has no antecedent on a standalone card. In the Reader, the line before mentions \"les chilaquiles\" (plural), so a singular \"il\" reads as an agreement error. Spanish \"qué lleva\" has a null subject. \"Contenir\" is also more formal than a spoken restaurant question.",
+      "suggestedFix": "Use \"Pouvez-vous m'expliquer ce qu'il y a dedans ?\" in both cards[14].fr and reader.french[5] (and modes[4].targetFrench). Alternative: \"…ce que contient ce plat ?\"."
+    },
+    {
+      "severity": "medium",
+      "path": "speaking.instructionEnglish vs speaking.objectivesEnglish",
+      "problem": "The instruction lists four tasks. The objectives list five, adding \"Ask the server to repeat more slowly\", and objective 2 adds \"want the breakfast locals order\", which the instruction leaves out.",
+      "suggestedFix": "Rewrite the instruction to cover all five: \"…say you want the breakfast locals order (not something just for tourists), ask for a typical-dish recommendation, ask what it has in it, and ask the server to repeat more slowly.\""
+    },
+    {
+      "severity": "medium",
+      "path": "cards[3].fr",
+      "problem": "\"morceaux de tortilla frits dans la salsa\" says the tortilla pieces are fried in the salsa, which is wrong: they are fried first, then simmered or coated in salsa. The gloss also makes the answer face too long to recall.",
+      "suggestedFix": "Use \"les chilaquiles\" as the face, with the gloss moved to a note: \"morceaux de tortilla frits, nappés de salsa\"."
+    },
+    {
+      "severity": "medium",
+      "path": "reader.french[6]",
+      "problem": "\"le café de olla est servi avec de la cannelle\" suggests cinnamon on the side. Spanish \"va con canela\" here means it is made with cinnamon (brewed in).",
+      "suggestedFix": "Use \"Le serveur explique que le café de olla est préparé à la cannelle et que le pan dulce est pour après.\""
+    },
+    {
+      "severity": "medium",
+      "path": "cards (all) / modes[*].sourceCardIndex",
+      "problem": "Cards have no stable IDs. Modes link to cards only by array index, so any reorder silently breaks the links. Reader lines and forms have no IDs either.",
+      "suggestedFix": "Add stable IDs, e.g. cards[i].id = \"core:7:card:00\"…\"core:7:card:15\", reader line IDs \"core:7:reader:0\"…, forms \"core:7:form:pedir\". Add modes[*].sourceCardId next to the index."
+    },
+    {
+      "severity": "low",
+      "path": "forms[3]",
+      "problem": "infinitiveFrench is \"prendre le petit-déjeuner\" but the example uses a different construction (\"prennent [qch] au petit-déjeuner\"). The same English sentence is also rendered \"mangent au petit-déjeuner\" in cards[10] and reader.french[1], so learners see two answers for one English cue.",
+      "suggestedFix": "Either set infinitiveFrench to \"prendre (au petit-déjeuner)\" with a note that it means \"to have for breakfast\", or make the example \"Qu'est-ce que les gens d'ici mangent au petit-déjeuner ?\" so it matches card 10. Say in a note that \"déjeuner\" means breakfast in Québec, Belgium and Switzerland."
+    },
+    {
+      "severity": "low",
+      "path": "forms[0].meaningEnglish",
+      "problem": "The meaning \"to order, to ask for\" is copied from pedir, but \"commander\" covers only \"to order\". \"To ask for\" would be \"demander\".",
+      "suggestedFix": "Set it to \"to order (food)\", or add a note: \"pedir = to ask for → demander in other contexts\"."
+    },
+    {
+      "severity": "low",
+      "path": "reader (missing title)",
+      "problem": "The source passage title \"Un desayuno como el de aquí\" is dropped. Nothing in the Reader carries it in Spanish, English or French.",
+      "suggestedFix": "Add reader.titleSpanish \"Un desayuno como el de aquí\", titleEnglish \"A breakfast like the one here\", and titleFrench \"Un petit-déjeuner comme ici\" (or \"…comme on le prend ici\")."
+    },
+    {
+      "severity": "low",
+      "path": "cards[1], cards[6], cards[14] (source notes)",
+      "problem": "The source notes are lost at card level: the mesera/female form and Mexico usage, café de olla usually made with cinnamon, and using usted with a server you don't know. Some of this survives only in the internal notes.",
+      "suggestedFix": "Add per-card notes: cards[1] \"la serveuse for a woman\"; cards[6] the domain note; cards[14] \"vous with a server you don't know (source: usted)\"."
+    },
+    {
+      "severity": "low",
+      "path": "cards[2].fr",
+      "problem": "Articles are inconsistent: \"un plat typique\" is indefinite while every other term card uses a definite article.",
+      "suggestedFix": "Use \"le plat typique\" for consistency, or document the indefinite choice."
+    },
+    {
+      "severity": "low",
+      "path": "source",
+      "problem": "The provenance string says old.json was used \"as a reference for structure\", which contradicts the brief (old.json is only for spotting drift). It also says \"pinned\" but gives no hash or version.",
+      "suggestedFix": "Replace with \"core-7/source.json (sha256: <hash>); old.json consulted only to detect drift recurrence\"."
+    }
+  ],
+  "qualifiedReviewQuestions": [
+    "cards[11]: is \"Je voudrais\" acceptable for source \"Quiero\" / \"I want\", or should the card keep the plainer \"Je veux\" so it matches the source register exactly? (\"Je voudrais\" is more natural French when ordering.)",
+    "cards[11]: for \"los locales\", which fits best: \"les habitants\", \"les gens du coin\" or \"les gens d'ici\"?",
+    "cards[5]: should frijoles be \"les haricots\" alone, \"les haricots noirs\" (common in Puebla), or \"les frijoles (haricots)\"?",
+    "cards[7] / reader.french[6–7]: should pan dulce stay as the loan \"le pan dulce\" with the gloss \"pain sucré mexicain\", or be glossed as \"viennoiserie mexicaine\"? Is \"un pan dulce\" natural with a French article?",
+    "reader.french[4]: does \"Selon lui, on va servir…\" read naturally for impersonal \"van a servir\", or is \"on va vous servir…\" or \"les chilaquiles seront servis…\" better? Is \"salsa verte\" preferred over \"sauce verte\"?",
+    "reader.french[0]: \"s'assied\" or \"s'assoit\"?",
+    "Possible source issue, not a candidate defect: in the source, the server's explanation in passage line 7 is about café de olla and pan dulce, not the chilaquiles Ana asked about in line 6. Should the source owner confirm this is intended?",
+    "modes[4]: should Say be script-only reading aloud at all, given there is no recording or scoring, or should it become a non-scored English-cue speaking prompt?"
+  ],
+  "verdict": "NOT READY. Mechanical parity passes: 16 cards with exact en/es/kind in order, 9 English and 9 Spanish Reader lines identical to the source, all six modes' sourceEnglish and targetFrench match their indexed cards, the four forms align with the source verbs and English examples, lessonId core:7 is kept, all eight gates are false, and the old.json Lyon/tartines drift has not come back. Blocking problems: an ungrammatical French card that is reused in the speaking opener; a speaking opener with inverted roles; a false 'written fresh' provenance note; and mode answers with parenthetical glosses that can't be checked. Mode design and the gloss accuracy (cruche, frits dans la salsa, servi avec de la cannelle) also need fixes. This is an unqualified automated critique only. It is not a qualified French review and does not approve anything."
+}

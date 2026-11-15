@@ -1,0 +1,396 @@
+{
+  "frenchCards": [
+    {
+      "french": "l'addition",
+      "note": "Source 'the bill' (la cuenta). The objective's 'the check' is the US variant of the same item and also maps here; no separate card."
+    },
+    {
+      "french": "le pourboire",
+      "note": "The tip. If unsure, ask: Le pourboire est-il compris ? (France-typical variant: Le service est compris ?)"
+    },
+    {
+      "french": "la carte bancaire",
+      "note": "Payment card (la tarjeta). Carte bancaire on the card for clarity; when paying, par carte is enough, as in the Reader. La carte alone can also mean the menu."
+    },
+    {
+      "french": "les espèces",
+      "note": "The cash (el efectivo). En espèces = in cash. L'argent liquide is a common synonym."
+    },
+    {
+      "french": "la monnaie",
+      "note": "The change you get back (el cambio). Not le change, which means currency exchange."
+    },
+    {
+      "french": "la glace",
+      "note": "Generic 'the ice' (el hielo). La glace can also mean ice cream. For ice in a drink, French says des glaçons (ice cubes), as in the Reader."
+    },
+    {
+      "french": "le sel",
+      "note": "The salt (la sal)."
+    },
+    {
+      "french": "la paille",
+      "note": "The drinking straw. Source popote is a Mexican regional word; French has one standard term."
+    },
+    {
+      "french": "la crème",
+      "note": "The cream (la crema), kept as cream. Not replaced by crème fraîche."
+    },
+    {
+      "french": "Pourriez-vous m'apporter l'addition, s'il vous plaît ?",
+      "note": "Source English 'Could you...' = conditional Pourriez-vous. Me becomes m' before a vowel. Vous matches Spanish usted."
+    },
+    {
+      "french": "Pouvez-vous me donner un verre d'eau ?",
+      "note": "Source English 'Can you...' = present-tense Pouvez-vous. Identical to Reader line 1."
+    },
+    {
+      "french": "Apportez-moi encore de la crème, s'il vous plaît.",
+      "note": "Vous imperative, matching the usted command Tráigame and English 'Please bring me...'. After an affirmative imperative, me becomes -moi. S'il vous plaît keeps it polite. Encore de = more."
+    },
+    {
+      "french": "Attendez un moment, s'il vous plaît.",
+      "note": "Vous imperative of attendre, matching Espere and English 'Wait a moment, please.' Un instant is an equally natural alternative."
+    },
+    {
+      "french": "Gardez la monnaie.",
+      "note": "Vous imperative of garder, matching Quédese con el cambio. Said when leaving the change as the tip. Alternative only: Je vous laisse la monnaie (a statement, not a command)."
+    }
+  ],
+  "frenchReader": [
+    "Anna prend des œufs et du café au petit-déjeuner dans un café à Oaxaca.",
+    "Anna : Pouvez-vous me donner un verre d'eau ?",
+    "Luis, le serveur, apporte de l'eau avec des glaçons et une paille.",
+    "Anna : Pouvez-vous m'apporter le sel, s'il vous plaît ?",
+    "Anna : Apportez-moi encore de la crème, s'il vous plaît.",
+    "Anna : Pourriez-vous m'apporter l'addition, s'il vous plaît ?",
+    "Luis : Vous allez payer par carte ou en espèces ?",
+    "Anna : En espèces, voici 200 pesos.",
+    "Anna : Gardez la monnaie comme pourboire."
+  ],
+  "readerTitleFrench": "L'addition à Oaxaca",
+  "forms": [
+    {
+      "readerLine": "Anna : Pouvez-vous me donner un verre d'eau ?",
+      "french": "Pouvez-vous me donner",
+      "english": "Can you give me"
+    },
+    {
+      "readerLine": "Anna : Pouvez-vous m'apporter le sel, s'il vous plaît ?",
+      "french": "Pouvez-vous m'apporter",
+      "english": "Can you bring me"
+    },
+    {
+      "readerLine": "Anna : Apportez-moi encore de la crème, s'il vous plaît.",
+      "french": "Apportez-moi",
+      "english": "Bring me"
+    },
+    {
+      "readerLine": "Anna : Pourriez-vous m'apporter l'addition, s'il vous plaît ?",
+      "french": "Pourriez-vous m'apporter",
+      "english": "Could you bring me"
+    },
+    {
+      "readerLine": "Luis : Vous allez payer par carte ou en espèces ?",
+      "french": "payer par carte",
+      "english": "pay by card"
+    },
+    {
+      "readerLine": "Anna : Gardez la monnaie comme pourboire.",
+      "french": "Gardez la monnaie",
+      "english": "Keep the change"
+    }
+  ],
+  "modes": [
+    {
+      "mode": "see",
+      "sourceType": "card",
+      "sourceIndex": 4,
+      "promptFrench": "Que veut dire « la monnaie » en anglais ?",
+      "targetEnglish": "the change"
+    },
+    {
+      "mode": "recall",
+      "sourceType": "card",
+      "sourceIndex": 9,
+      "promptFrench": "Rappelez-vous l'anglais : Pourriez-vous m'apporter l'addition, s'il vous plaît ?",
+      "targetEnglish": "Could you bring me the bill, please?"
+    },
+    {
+      "mode": "hear",
+      "sourceType": "card",
+      "sourceIndex": 10,
+      "promptFrench": "Écoutez, puis donnez l'anglais : Pouvez-vous me donner un verre d'eau ?",
+      "targetEnglish": "Can you give me a glass of water?"
+    },
+    {
+      "mode": "type",
+      "sourceType": "card",
+      "sourceIndex": 11,
+      "promptFrench": "Tapez en anglais : Apportez-moi encore de la crème, s'il vous plaît.",
+      "targetEnglish": "Please bring me more cream."
+    },
+    {
+      "mode": "say",
+      "sourceType": "card",
+      "sourceIndex": 13,
+      "promptFrench": "Dites en anglais : Gardez la monnaie.",
+      "targetEnglish": "Keep the change."
+    },
+    {
+      "mode": "write",
+      "sourceType": "reader",
+      "sourceIndex": 7,
+      "promptFrench": "Écrivez en anglais : Anna : En espèces, voici 200 pesos.",
+      "targetEnglish": "Anna: In cash, here are 200 pesos."
+    }
+  ],
+  "speakingObjectives": [
+    "Ask a server for a glass of water and the bill, pay in cash, and tell them to keep the change.",
+    "Complément pour francophones (séparé de la tâche source) : en anglais, « you » sert à la fois pour tu et pour vous ; la politesse passe par « Can you… ? », « Could you… ? » et « please ». Pour un ordre poli, dites en anglais : « Please bring me… », « Wait a moment, please. », « Keep the change. »"
+  ],
+  "frenchVerbParadigms": [
+    {
+      "sourceInfinitive": "poder",
+      "frenchInfinitive": "pouvoir",
+      "forms": {
+        "je": "je peux",
+        "tu": "tu peux",
+        "il": "il peut",
+        "nous": "nous pouvons",
+        "vous": "vous pouvez",
+        "ils": "ils peuvent"
+      },
+      "explanation": "Irregular with stem alternation (peux/peut/peuvent vs pouvons/pouvez), loosely parallel to Spanish puedo/podemos. Spanish usted puede maps to French vous pouvez, not il peut. Pouvez-vous...? = English 'Can you...?'; the conditional Pourriez-vous...? = English 'Could you...?'. Pouvoir has no imperative."
+    },
+    {
+      "sourceInfinitive": "traer",
+      "frenchInfinitive": "apporter",
+      "forms": {
+        "je": "j'apporte",
+        "tu": "tu apportes",
+        "il": "il apporte",
+        "nous": "nous apportons",
+        "vous": "vous apportez",
+        "ils": "ils apportent"
+      },
+      "explanation": "Regular -er verb, 'to bring'; the Spanish irregular yo form traigo has no French counterpart. Usted trae = vous apportez. The usted command tráigame = vous imperative Apportez-moi (English 'Please bring me...' with s'il vous plaît). Pronoun rule: m' before the verb in a question (Pouvez-vous m'apporter...?), but -moi after an affirmative imperative (Apportez-moi...)."
+    },
+    {
+      "sourceInfinitive": "dar",
+      "frenchInfinitive": "donner",
+      "forms": {
+        "je": "je donne",
+        "tu": "tu donnes",
+        "il": "il donne",
+        "nous": "nous donnons",
+        "vous": "vous donnez",
+        "ils": "ils donnent"
+      },
+      "explanation": "Regular -er verb, 'to give'; Spanish irregular doy does not carry over. Usted da = vous donnez. In the lesson it appears as an infinitive after pouvoir: Pouvez-vous me donner un verre d'eau ? = 'Can you give me a glass of water?'. Vous imperative: Donnez-moi..."
+    },
+    {
+      "sourceInfinitive": "pagar",
+      "frenchInfinitive": "payer",
+      "forms": {
+        "je": "je paie",
+        "tu": "tu paies",
+        "il": "il paie",
+        "nous": "nous payons",
+        "vous": "vous payez",
+        "ils": "ils paient"
+      },
+      "explanation": "Spelling change y to i in the singular and ils forms (paie/paient); the variants je paye, ils payent also exist. Usted paga = vous payez; ¿Va a pagar...? = Vous allez payer...? Payer par carte / en espèces mirrors pagar con tarjeta / en efectivo (English: pay by card / in cash). Vous imperative: Payez."
+    },
+    {
+      "sourceInfinitive": "quedarse",
+      "frenchInfinitive": "garder",
+      "forms": {
+        "je": "je garde",
+        "tu": "tu gardes",
+        "il": "il garde",
+        "nous": "nous gardons",
+        "vous": "vous gardez",
+        "ils": "ils gardent"
+      },
+      "explanation": "Quedarse con (to keep) is reflexive in Spanish; French garder is a plain transitive -er verb. Usted se queda con = vous gardez. The formal usted command Quédese con el cambio = vous imperative Gardez la monnaie ('Keep the change.'). The other sense of quedarse, 'to stay', would be rester and is not used here."
+    }
+  ],
+  "sourceNotes": {
+    "lesson": 9,
+    "titleEnglish": "Polite Requests and Commands",
+    "titleSpanishReaderSource": "La cuenta en Oaxaca",
+    "objectiveEnglish": "Ask a server politely for the bill, water or the check, and give simple usted commands.",
+    "speakingEnglish": "Ask a server for a glass of water and the bill, pay in cash, and tell them to keep the change.",
+    "focusEnglish": "Polite requests with ¿Puede...? and ¿Me puede...?, and usted commands like tráigame",
+    "direction": "French is the input (prompt) language; English is the output (target) language.",
+    "indexing": "modes sourceIndex is 0-based: sourceType card indexes frenchCards/cardSource (0-8 terms, 9-13 phrases); sourceType reader indexes frenchReader/readerSource (0-8).",
+    "forceMapping": "Source English 'Can you...' = Pouvez-vous...? ; 'Could you...' = Pourriez-vous...? ; 'Please bring...' = Apportez-moi ... s'il vous plaît ; 'Wait...' = Attendez... ; 'Keep the change.' = Gardez la monnaie. Spanish usted = French vous throughout.",
+    "cardSource": [
+      {
+        "index": 0,
+        "kind": "term",
+        "en": "the bill",
+        "es": "la cuenta"
+      },
+      {
+        "index": 1,
+        "kind": "term",
+        "en": "the tip",
+        "es": "la propina",
+        "esNote": "If unsure, ask: ¿La propina está incluida?"
+      },
+      {
+        "index": 2,
+        "kind": "term",
+        "en": "the card",
+        "es": "la tarjeta"
+      },
+      {
+        "index": 3,
+        "kind": "term",
+        "en": "the cash",
+        "es": "el efectivo"
+      },
+      {
+        "index": 4,
+        "kind": "term",
+        "en": "the change",
+        "es": "el cambio"
+      },
+      {
+        "index": 5,
+        "kind": "term",
+        "en": "the ice",
+        "es": "el hielo"
+      },
+      {
+        "index": 6,
+        "kind": "term",
+        "en": "the salt",
+        "es": "la sal"
+      },
+      {
+        "index": 7,
+        "kind": "term",
+        "en": "the straw",
+        "es": "el popote",
+        "esNote": "Mexican word; in other countries it is el pitillo or la pajilla."
+      },
+      {
+        "index": 8,
+        "kind": "term",
+        "en": "the cream",
+        "es": "la crema"
+      },
+      {
+        "index": 9,
+        "kind": "phrase",
+        "en": "Could you bring me the bill, please?",
+        "es": "¿Puede traerme la cuenta, por favor?"
+      },
+      {
+        "index": 10,
+        "kind": "phrase",
+        "en": "Can you give me a glass of water?",
+        "es": "¿Me puede dar un vaso de agua?"
+      },
+      {
+        "index": 11,
+        "kind": "phrase",
+        "en": "Please bring me more cream.",
+        "es": "Tráigame más crema, por favor.",
+        "esNote": "Usted command of traer; add por favor to keep it polite."
+      },
+      {
+        "index": 12,
+        "kind": "phrase",
+        "en": "Wait a moment, please.",
+        "es": "Espere un momento, por favor."
+      },
+      {
+        "index": 13,
+        "kind": "phrase",
+        "en": "Keep the change.",
+        "es": "Quédese con el cambio.",
+        "esNote": "Say it when you leave the change as the tip."
+      }
+    ],
+    "readerSource": [
+      {
+        "index": 0,
+        "en": "Anna eats eggs and coffee for breakfast at a café in Oaxaca.",
+        "es": "Anna desayuna huevos y café en una cafetería de Oaxaca."
+      },
+      {
+        "index": 1,
+        "en": "Anna: Can you give me a glass of water?",
+        "es": "Anna: ¿Me puede dar un vaso de agua?"
+      },
+      {
+        "index": 2,
+        "en": "Luis, the server, brings water with ice and a straw.",
+        "es": "Luis, el mesero, trae agua con hielo y un popote."
+      },
+      {
+        "index": 3,
+        "en": "Anna: Can you bring me the salt, please?",
+        "es": "Anna: ¿Me puede traer la sal, por favor?"
+      },
+      {
+        "index": 4,
+        "en": "Anna: Please bring me more cream.",
+        "es": "Anna: Tráigame más crema, por favor."
+      },
+      {
+        "index": 5,
+        "en": "Anna: Could you bring me the bill, please?",
+        "es": "Anna: ¿Puede traerme la cuenta, por favor?"
+      },
+      {
+        "index": 6,
+        "en": "Luis: Are you going to pay by card or in cash?",
+        "es": "Luis: ¿Va a pagar con tarjeta o en efectivo?"
+      },
+      {
+        "index": 7,
+        "en": "Anna: In cash, here are 200 pesos.",
+        "es": "Anna: En efectivo, aquí tiene 200 pesos."
+      },
+      {
+        "index": 8,
+        "en": "Anna: Keep the change as a tip.",
+        "es": "Anna: Quédese con el cambio de propina."
+      }
+    ]
+  },
+  "internalDomainNotes": [
+    "Setting kept as Oaxaca with Anna, Luis and 200 pesos; no euro conversion and no Lyon/France redesign.",
+    "Question vs imperative force now follows the source English line by line: Can you = Pouvez-vous (card 10, reader 1 and 3); Could you = Pourriez-vous (card 9, reader 5); commands = vous imperatives (cards 11-13, reader 4 and 8).",
+    "Card 10 and reader 1 are identical in the source and are now identical in French.",
+    "Gardez la monnaie is the primary rendering of 'Keep the change.'; Je vous laisse la monnaie is kept only as a note alternative, so the garder paradigm is used by the content.",
+    "Card 5 is generic la glace per instruction; the Reader uses contextual des glaçons for water with ice. Grading should accept 'ice' / 'the ice' for both.",
+    "Card 2 is la carte bancaire with a note; the Reader uses par carte, which is unambiguous when paying.",
+    "Modes: see (term) -> recall (Could-request) -> hear (Can-request) -> type (command, card 11) -> say (command, card 13) -> write (reader line, cash and 200 pesos). Every prompt contains the exact French source item and every target is the exact source English.",
+    "Answer acceptance: 'Could you bring me the check, please?' should be accepted as a US variant for card 9 / reader 5, since the source objective uses both 'bill' and 'check'.",
+    "Speaking output is English. The source speaking task is kept verbatim; the source objective's Spanish-specific 'usted commands' wording stays in sourceNotes only and is not presented as an English speaking objective. The learner-facing supplement glosses it as polite commands with please.",
+    "All five source verb slots are kept (poder, traer, dar, pagar, quedarse) with French mappings pouvoir, apporter, donner, payer, garder; each explanation states usted = vous and gives the relevant vous imperative.",
+    "Reader 0 keeps 'un café' for the venue so it maps to source English 'a café'; 'prend ... du café' covers the source's single verb for eggs and coffee. Cafétéria was avoided because it suggests a canteen."
+  ],
+  "residuals": [
+    "Native French review still open, in particular: Gardez la monnaie (primary) vs Je vous laisse la monnaie (alternative); 'Gardez la monnaie comme pourboire' vs 'en pourboire'; 'un moment' vs 'un instant' on card 12.",
+    "Reader 0 repeats café in two senses (du café / un café). This was kept for fidelity to 'at a café' rather than adopting the critique's 'petit restaurant'; it needs a reviewer decision.",
+    "Card 'la glace' is ambiguous out of context (ice / ice cream) and differs from the Reader's 'des glaçons'; this follows the instruction and is noted on the card.",
+    "popote -> la paille: Mexican regional source term with no French regional counterpart; note only.",
+    "'the cash' -> les espèces (plural, slightly formal); l'argent liquide is an alternative for review.",
+    "The modes schema has no field for accepted variants; the 'check' variant is recorded in internalDomainNotes only.",
+    "The hear mode is specified as text only; no audio exists or was produced because the audio gate is false.",
+    "Source English 'eats eggs and coffee' is kept verbatim as given.",
+    "Not approved. learnerGates (approval, audio, learnerRegistration) all remain false."
+  ],
+  "learnerGates": {
+    "approval": false,
+    "audio": false,
+    "learnerRegistration": false
+  }
+}

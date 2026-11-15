@@ -1,0 +1,336 @@
+{
+  "cards": [
+    {
+      "id": "core:9:word:1",
+      "targetFrench": "le café au lait",
+      "supportEnglish": "coffee with milk",
+      "sourceSpanish": "café con leche",
+      "kind": "term"
+    },
+    {
+      "id": "core:9:word:2",
+      "targetFrench": "le croissant",
+      "supportEnglish": "croissant",
+      "sourceSpanish": "croissant",
+      "kind": "term"
+    },
+    {
+      "id": "core:9:word:3",
+      "targetFrench": "le comptoir",
+      "supportEnglish": "counter",
+      "sourceSpanish": "barra",
+      "kind": "term"
+    },
+    {
+      "id": "core:9:word:4",
+      "targetFrench": "le couvercle",
+      "supportEnglish": "lid",
+      "sourceSpanish": "tapa",
+      "kind": "term"
+    },
+    {
+      "id": "core:9:word:5",
+      "targetFrench": "le sac en papier",
+      "supportEnglish": "paper bag",
+      "sourceSpanish": "bolsa de papel",
+      "kind": "term"
+    },
+    {
+      "id": "core:9:word:6",
+      "targetFrench": "les serviettes en papier",
+      "supportEnglish": "napkins",
+      "sourceSpanish": "servilletas",
+      "kind": "term"
+    },
+    {
+      "id": "core:9:word:7",
+      "targetFrench": "la cuillère",
+      "supportEnglish": "spoon",
+      "sourceSpanish": "cuchara",
+      "kind": "term"
+    },
+    {
+      "id": "core:9:word:8",
+      "targetFrench": "la fourchette",
+      "supportEnglish": "fork",
+      "sourceSpanish": "tenedor",
+      "kind": "term"
+    },
+    {
+      "id": "core:9:word:9",
+      "targetFrench": "le gobelet à emporter",
+      "supportEnglish": "to-go cup",
+      "sourceSpanish": "vaso para llevar",
+      "kind": "term"
+    },
+    {
+      "id": "core:9:word:10",
+      "targetFrench": "l'addition",
+      "supportEnglish": "bill",
+      "sourceSpanish": "cuenta",
+      "kind": "term"
+    },
+    {
+      "id": "core:9:word:11",
+      "targetFrench": "la commande",
+      "supportEnglish": "order",
+      "sourceSpanish": "pedido",
+      "kind": "term"
+    },
+    {
+      "id": "core:9:word:12",
+      "targetFrench": "Est-ce que je peux commander le café à emporter ?",
+      "supportEnglish": "Can I order the coffee to go?",
+      "sourceSpanish": "¿Puedo pedir el café para llevar?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:9:word:13",
+      "targetFrench": "Je veux ceci à emporter, s'il vous plaît.",
+      "supportEnglish": "I want this to go, please.",
+      "sourceSpanish": "Quiero esto para llevar, por favor.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:9:word:14",
+      "targetFrench": "Pouvez-vous me donner des serviettes et une cuillère ?",
+      "supportEnglish": "Can you give me napkins and a spoon?",
+      "sourceSpanish": "¿Me puede dar servilletas y una cuchara?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:9:word:15",
+      "targetFrench": "Pouvez-vous me le mettre dans un sac ?",
+      "supportEnglish": "Can you put it in a bag for me?",
+      "sourceSpanish": "¿Me lo puede poner en una bolsa?",
+      "kind": "phrase",
+      "note": "French le refers back to the item just mentioned (here, the croissant)."
+    },
+    {
+      "id": "core:9:word:16",
+      "targetFrench": "Est-ce qu'il y a un couvercle ?",
+      "supportEnglish": "Does it come with a lid?",
+      "sourceSpanish": "¿Viene con tapa?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:9:word:17",
+      "targetFrench": "Mon train part bientôt.",
+      "supportEnglish": "My train leaves soon.",
+      "sourceSpanish": "Mi tren sale pronto.",
+      "kind": "phrase"
+    }
+  ],
+  "reader": [
+    {
+      "id": "core:9:line:1",
+      "targetFrench": "Un voyageur est dans un café et regarde l'horloge.",
+      "supportEnglish": "A traveler is in a café and looks at the clock.",
+      "sourceSpanish": "Un viajero está en un café y mira el reloj."
+    },
+    {
+      "id": "core:9:line:2",
+      "targetFrench": "Il commande d'abord un café au lait et un croissant au comptoir.",
+      "supportEnglish": "First he orders a coffee with milk and a croissant at the counter.",
+      "sourceSpanish": "Primero pide un café con leche y un croissant en la barra."
+    },
+    {
+      "id": "core:9:line:3",
+      "targetFrench": "Puis il dit : « Excusez-moi, est-ce que je peux commander le café à emporter ? »",
+      "supportEnglish": "Then he says: Excuse me, can I order the coffee to go?",
+      "sourceSpanish": "Luego dice: Disculpe, ¿puedo pedir el café para llevar?"
+    },
+    {
+      "id": "core:9:line:4",
+      "targetFrench": "La serveuse demande : « Voulez-vous un couvercle et un sac ? »",
+      "supportEnglish": "The waitress asks: Do you want a lid and a bag?",
+      "sourceSpanish": "La camarera pregunta: ¿Quiere una tapa y una bolsa?"
+    },
+    {
+      "id": "core:9:line:5",
+      "targetFrench": "Le voyageur répond : « Oui, s'il vous plaît, et j'ai aussi besoin de serviettes et d'une cuillère. »",
+      "supportEnglish": "The traveler answers: Yes, please, and I also need napkins and a spoon.",
+      "sourceSpanish": "El viajero contesta: Sí, por favor, y también necesito servilletas y una cuchara."
+    },
+    {
+      "id": "core:9:line:6",
+      "targetFrench": "Ensuite, il modifie sa commande de croissant, car il va manger dans le train.",
+      "supportEnglish": "After that he changes the croissant order, because he is going to eat on the train.",
+      "sourceSpanish": "Después cambia el croissant, porque va a comer en el tren."
+    },
+    {
+      "id": "core:9:line:7",
+      "targetFrench": "Il dit : « Pouvez-vous me le mettre dans un sac en papier ? »",
+      "supportEnglish": "He says: Can you put it in a paper bag for me?",
+      "sourceSpanish": "Dice: ¿Me lo puede poner en una bolsa de papel?"
+    },
+    {
+      "id": "core:9:line:8",
+      "targetFrench": "Finalement, il paie l'addition et dit merci.",
+      "supportEnglish": "In the end he pays the bill and says thank you.",
+      "sourceSpanish": "Al final paga la cuenta y da las gracias."
+    },
+    {
+      "id": "core:9:line:9",
+      "targetFrench": "Sa commande à la main, il part vite vers la gare.",
+      "supportEnglish": "With his order in hand, he quickly heads out to the station.",
+      "sourceSpanish": "Con su pedido en la mano, sale rápido hacia la estación."
+    }
+  ],
+  "forms": [
+    {
+      "sourceVerb": "pedir",
+      "infinitiveFrench": "commander",
+      "englishMeaning": "to order",
+      "forms": {
+        "je": "commande",
+        "tu": "commandes",
+        "il_elle": "commande",
+        "nous": "commandons",
+        "vous": "commandez",
+        "ils_elles": "commandent"
+      },
+      "exampleFrench": "Il commande d'abord un café au lait au comptoir.",
+      "exampleEnglish": "First he orders a coffee with milk at the counter.",
+      "explanationEnglish": "Regular -er verb. Commander covers only the 'to order (food or goods)' sense of the source verb pedir; its 'to ask for' sense is demander in French. The Spanish e-to-i stem change does not carry over. Spanish usted corresponds to the French vous form (formal), not to il/elle."
+    },
+    {
+      "sourceVerb": "llevar",
+      "infinitiveFrench": "emporter",
+      "englishMeaning": "to take (away, along)",
+      "forms": {
+        "je": "j'emporte",
+        "tu": "emportes",
+        "il_elle": "emporte",
+        "nous": "emportons",
+        "vous": "emportez",
+        "ils_elles": "emportent"
+      },
+      "exampleFrench": "J'emporte la commande dans le train.",
+      "exampleEnglish": "I take the order to the train.",
+      "explanationEnglish": "Regular -er verb, used in the phrase à emporter (to go / takeaway). Je becomes j' before the vowel: j'emporte. Emporter covers the 'take away, take along' sense of the source verb llevar; plain 'to carry' is porter. Spanish usted corresponds to the French vous form (formal)."
+    },
+    {
+      "sourceVerb": "necesitar",
+      "infinitiveFrench": "avoir besoin de",
+      "englishMeaning": "to need",
+      "forms": {
+        "je": "j'ai besoin de",
+        "tu": "as besoin de",
+        "il_elle": "a besoin de",
+        "nous": "avons besoin de",
+        "vous": "avez besoin de",
+        "ils_elles": "ont besoin de"
+      },
+      "exampleFrench": "J'ai besoin de serviettes et d'une cuillère.",
+      "exampleEnglish": "I need napkins and a spoon.",
+      "explanationEnglish": "A fixed expression built on avoir, not a single verb. Je becomes j' before ai: j'ai besoin de. Use de before the noun; de becomes d' before a vowel sound. Il me faut is an alternative impersonal way to say I need. Spanish usted corresponds to the French vous form (formal)."
+    },
+    {
+      "sourceVerb": "poner",
+      "infinitiveFrench": "mettre",
+      "englishMeaning": "to put",
+      "forms": {
+        "je": "mets",
+        "tu": "mets",
+        "il_elle": "met",
+        "nous": "mettons",
+        "vous": "mettez",
+        "ils_elles": "mettent"
+      },
+      "exampleFrench": "Pouvez-vous me le mettre dans un sac en papier ?",
+      "exampleEnglish": "Can you put it in a paper bag for me?",
+      "explanationEnglish": "Irregular -ttre verb: the singular forms (mets, mets, met) have one t; the plural forms keep tt. Unlike Spanish pongo, there is no special je-only irregularity. Spanish usted corresponds to the French vous form (formal)."
+    },
+    {
+      "sourceVerb": "pagar",
+      "infinitiveFrench": "payer",
+      "englishMeaning": "to pay",
+      "forms": {
+        "je": "paie",
+        "tu": "paies",
+        "il_elle": "paie",
+        "nous": "payons",
+        "vous": "payez",
+        "ils_elles": "paient"
+      },
+      "exampleFrench": "Finalement, il paie l'addition.",
+      "exampleEnglish": "In the end he pays the bill.",
+      "explanationEnglish": "The y changes to i before a silent e, so je paie. Je paye is also seen in writing. Spanish usted corresponds to the French vous form (formal)."
+    }
+  ],
+  "modes": [
+    {
+      "mode": "See",
+      "sourceCardId": "core:9:word:9",
+      "promptEnglish": "to-go cup",
+      "targetFrench": "le gobelet à emporter"
+    },
+    {
+      "mode": "Recall",
+      "sourceCardId": "core:9:word:4",
+      "promptEnglish": "lid",
+      "targetFrench": "le couvercle"
+    },
+    {
+      "mode": "Hear",
+      "sourceCardId": "core:9:word:14",
+      "promptEnglish": "Listen, then recall the English meaning.",
+      "targetFrench": "Pouvez-vous me donner des serviettes et une cuillère ?",
+      "audioPending": true
+    },
+    {
+      "mode": "Type",
+      "sourceCardId": "core:9:word:12",
+      "promptEnglish": "Can I order the coffee to go?",
+      "targetFrench": "Est-ce que je peux commander le café à emporter ?"
+    },
+    {
+      "mode": "Say",
+      "sourceCardId": "core:9:word:17",
+      "promptEnglish": "My train leaves soon.",
+      "targetFrench": "Mon train part bientôt."
+    },
+    {
+      "mode": "Write",
+      "sourceCardId": "core:9:word:5",
+      "promptEnglish": "paper bag",
+      "targetFrench": "le sac en papier"
+    }
+  ],
+  "speaking": {
+    "openingFrench": "Bonjour ! Qu'est-ce que je vous sers ?",
+    "objectivesEnglish": [
+      "Roles: you (the learner) are the traveler, a customer at the café counter. Your partner is the server (la serveuse) and speaks first with the opening line.",
+      "Order a coffee with milk and a croissant, then ask to have the order to go.",
+      "Accept the server's offer of a lid and a bag, and ask for napkins and a spoon.",
+      "Use à emporter for takeaway and le to refer back to an item, then pay and say thank you."
+    ]
+  },
+  "notes": [
+    "Which phrase means to go (takeaway)?",
+    "In the reader, why does the traveler change his croissant order?",
+    "What does le refer to in Pouvez-vous me le mettre dans un sac en papier ?",
+    "Why is je paie spelled with i rather than y?",
+    "Before paying, how would you confirm which part of a mixed order is being packed?",
+    "Status: PRIVATE, unreviewed candidate. The French below was revised from a read-only critique, not a qualified review; the choices flagged in these notes remain open for a qualified French reviewer.",
+    "Regional uncertainty (counter): le comptoir is the neutral term. Le zinc is also heard informally for a bar counter in France; its currency and regional spread are not verified here.",
+    "Regional uncertainty (coffee with milk): café au lait is used as the direct equivalent of café con leche. In French cafés the drink is often ordered as un café crème or un crème, and usage differs between France, Belgium, Switzerland and Québec; not verified here.",
+    "Regional uncertainty (takeaway): à emporter is standard in France. Other French-speaking regions may prefer other wording (for example pour emporter in Québec); not verified here. The eat-in counterpart, sur place, is not taught in this lesson.",
+    "Regional uncertainty (to-go cup): le gobelet à emporter is one plausible rendering of vaso para llevar; everyday wording varies (for example un gobelet en carton, une tasse pour emporter) and is not verified here.",
+    "Serviette alone can mean napkin or towel; en papier specifies paper napkins. Card 6 uses the full form; card 14 and the reader use the short form, as a customer would at a café counter.",
+    "L'addition is feminine (une addition). It is the usual word for a restaurant or café bill; at a counter one often simply pays without asking for it. English bill here means the check, not a banknote.",
+    "Card 16: Est-ce qu'il y a un couvercle ? replaces a literal 'come with' rendering (ça vient avec), which may sound calqued in France though it is heard in some regions; reviewer to confirm.",
+    "Reader line 1 uses l'horloge to match the source clock; regarde l'heure (checks the time) would be more idiomatic but drifts from the source.",
+    "Spanish usted corresponds to French vous (formal), so the source él_ella_usted slot maps to both il_elle and vous in the French tables.",
+    "Card 13 preserves source 'I want' as Je veux. In a café, Je voudrais is a more courteous alternative; teach this as a separate register contrast after qualified review."
+  ],
+  "gates": {
+    "reviewed": false,
+    "learnerRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "playbackEnabled": false,
+    "progressEnabled": false
+  }
+}

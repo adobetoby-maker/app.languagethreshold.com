@@ -1,0 +1,14 @@
+# French Breakfast Foundation 7 — private source-aligned team packet
+
+Disposition: **hold normal owner projection** until question-word caveats are visible. The private #475 draft replaced the Mexican `café de olla`, `pan dulce`, and `concha` with French café filter, generic pastry, and pain au chocolat. This packet restores original setting, names, sequence and exact source English/Spanish. It has 16 source-exact cards with kinds, nine exact-English Reader lines, six Reader-linked forms, six draft modes, source speaking task, and five candidate French verb paradigms corresponding to the pinned Spanish Reader paradigms. Stable key `foundation:7`; all review, runtime, audio and progress gates false.
+
+Card 1 (`what?`) has `quoi ? / que… ?`; card 8 (`which?`) has `lequel ? / quel… ?`. These are contextual alternatives, not interchangeable single answers, and the owner route must show `ownerVisibleIssue` before projection. Card 10's literal `pan dulce (pain sucré)` gloss also needs qualified food-language review. Candidate French paradigms have six-person structures and source links, but are AI-authored and unqualified. Hear/say modes have no attached audio. Prior private audio for changed exact text is invalid. Food/domain notes remain separate under `internalDomainNotes`.
+
+Source at origin/main `a9d3a834fcba4e0efb7a780fb52de51503d32b4e`: course SHA-256 `94621cca4158b76c69435f35eb1dfdc4893df553afaccb8a1963bdd9e6d80e79`, Reader SHA-256 `e11886cd3e030534ba8f8b8e92515c528e07c2875f20a58034faed2bc3d0f78a`. Private baseline PR #475 `5cc469f5a54828c48238ccdf411238ed2e3e2c08`. Full source snapshots and validator are archived here and require no worktree: `python3 /Users/drive/lt-review/french-breakfast-teams-2026-11-14/foundation-7/validate_packet.py`.
+
+Actual direct Claude CLI --safe-mode metadata:
+- haiku: `claude-haiku-5-5`, is_error=False, raw=/Users/drive/lt-review/french-breakfast-teams-2026-11-14/foundation-7/haiku-output.json
+- opus: `claude-opus-5-5`, is_error=False, raw=/Users/drive/lt-review/french-breakfast-teams-2026-11-14/foundation-7/opus-output.json
+- fable: `claude-fable-5-2`, is_error=False, raw=/Users/drive/lt-review/french-breakfast-teams-2026-11-14/foundation-7/fable-output.json
+
+Self-check: source hashes match current origin/main, exact English/Spanish card/Reader and verb source are validated, French question faces and paradigm forms inspected, and all gates checked false. Opus's read-only critique was adopted for mislabeled Spanish forms, food fidelity and verb coverage; its objection to carrying both English and French faces in a gated draft mode was rejected because the packet explicitly stores both exact model faces and enables no runtime. This is not qualified French/Mexican-food approval, audio listening or learner release. No tracked repository edits, push, synthesis or registration.

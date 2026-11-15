@@ -1,0 +1,353 @@
+Build an UNREVIEWED private French→English owner-review candidate for French Breakfast Foundation 10. Do not edit any files. Output JSON only with keys frenchCards (15 French strings in exact source card order), frenchReader (9 French strings in exact source Reader order), readerTitleFrench, forms (5 or more objects with french, english, readerLine; each French exactly a Reader string and English exactly its aligned source English), modes (six objects see/recall/hear/type/say/write with sourceType card/reader, sourceIndex ONE-BASED, promptFrench exact French string and targetEnglish exact source English string), speakingObjectives (specific scene/roles/task), frenchVerbParadigms (5 source verb mappings with French forms and concise English explanation), internalDomainNotes, qualifiedReviewResiduals. Preserve the exact English source and all its real facts: Café Luna, 9, wall English AND Spanish, chilaquiles with chicken, tortillas/green salsa/chicken/cheese, vegetarian option. Do not move to Lyon, French signage, ham quiche or tartine. The one phrase card explicitly says “How do you say this in Spanish?” This is a Spanish-source task, while a French learner would ask “How do you say this in French?” Explicitly flag it for owner source/parity decision; use en français for French candidate but do not pretend the English source matches or silently alter it. Keep emergency information factual, no invented emergency number. Teach directly, no generic caution. This is a draft; no human approval, audio or learner gate. Historical private draft below is context ONLY and contains known source drift. Avoid copying its drift.
+SOURCE LESSON:
+{
+  "n": 10,
+  "title": "Words You Already Know and Getting Help",
+  "objective": "Spot Spanish words you already know and use survival phrases when you don't understand.",
+  "focus": "Cognates ending in -ción, -dad and -ente, plus survival phrases for getting help",
+  "words": [
+    {
+      "en": "the reservation",
+      "es": "la reservación",
+      "kind": "term"
+    },
+    {
+      "en": "the vegetarian option",
+      "es": "la opción vegetariana",
+      "kind": "term"
+    },
+    {
+      "en": "the information",
+      "es": "la información",
+      "kind": "term"
+    },
+    {
+      "en": "the specialty",
+      "es": "la especialidad",
+      "kind": "term"
+    },
+    {
+      "en": "the variety",
+      "es": "la variedad",
+      "kind": "term"
+    },
+    {
+      "en": "the ingredients",
+      "es": "los ingredientes",
+      "kind": "term"
+    },
+    {
+      "en": "different",
+      "es": "diferente",
+      "kind": "term"
+    },
+    {
+      "en": "excellent",
+      "es": "excelente",
+      "kind": "term"
+    },
+    {
+      "en": "the emergency",
+      "es": "la emergencia",
+      "kind": "term"
+    },
+    {
+      "en": "Excuse me, I don't understand.",
+      "es": "Disculpe, no entiendo.",
+      "kind": "phrase"
+    },
+    {
+      "en": "Can you speak more slowly, please?",
+      "es": "¿Puede hablar más despacio, por favor?",
+      "kind": "phrase"
+    },
+    {
+      "en": "How do you say this in Spanish?",
+      "es": "¿Cómo se dice esto en español?",
+      "kind": "phrase"
+    },
+    {
+      "en": "What are the ingredients?",
+      "es": "¿Cuáles son los ingredientes?",
+      "kind": "phrase"
+    },
+    {
+      "en": "Is there a vegetarian option?",
+      "es": "¿Hay una opción vegetariana?",
+      "kind": "phrase"
+    },
+    {
+      "en": "Help, it's an emergency!",
+      "es": "¡Ayuda, es una emergencia!",
+      "kind": "phrase"
+    }
+  ],
+  "speaking": "Tell a server you don't understand, ask them to speak more slowly, and ask what the ingredients of the specialty are."
+}
+
+SOURCE READER:
+{
+  "passage": {
+    "title": "Desayuno en el Café Luna",
+    "target": [
+      "Emma tiene una reservación a las 9 en el Café Luna.",
+      "En la pared hay información de emergencia en inglés y español.",
+      "Rosa: La especialidad de hoy es diferente: chilaquiles con pollo.",
+      "Emma: Disculpe, no entiendo.",
+      "Emma: ¿Puede hablar más despacio, por favor?",
+      "Emma: ¿Cuáles son los ingredientes?",
+      "Rosa: Los ingredientes son tortillas, salsa verde, pollo y queso.",
+      "Emma: ¿Hay una opción vegetariana?",
+      "Rosa: Sí, la opción vegetariana es excelente y tiene una variedad de verduras."
+    ],
+    "native": [
+      "Emma has a reservation at 9 at Café Luna.",
+      "On the wall there is emergency information in English and Spanish.",
+      "Rosa: Today's specialty is different: chilaquiles with chicken.",
+      "Emma: Excuse me, I don't understand.",
+      "Emma: Can you speak more slowly, please?",
+      "Emma: What are the ingredients?",
+      "Rosa: The ingredients are tortillas, green salsa, chicken and cheese.",
+      "Emma: Is there a vegetarian option?",
+      "Rosa: Yes, the vegetarian option is excellent and has a variety of vegetables."
+    ]
+  },
+  "verbs": [
+    {
+      "infinitive": "entender",
+      "native": "to understand",
+      "forms": {
+        "yo": "entiendo",
+        "tú": "entiendes",
+        "él_ella_usted": "entiende",
+        "nosotros": "entendemos",
+        "ellos_ustedes": "entienden"
+      },
+      "example": {
+        "target": "Disculpe, no entiendo.",
+        "native": "Excuse me, I don't understand."
+      },
+      "note": "Stem change e to ie (entiendo, entiendes), except nosotros."
+    },
+    {
+      "infinitive": "poder",
+      "native": "can, to be able to",
+      "forms": {
+        "yo": "puedo",
+        "tú": "puedes",
+        "él_ella_usted": "puede",
+        "nosotros": "podemos",
+        "ellos_ustedes": "pueden"
+      },
+      "example": {
+        "target": "¿Puede hablar más despacio, por favor?",
+        "native": "Can you speak more slowly, please?"
+      },
+      "note": "Stem change o to ue (puedo, puedes), except nosotros. Use puede (usted) to ask a server politely."
+    },
+    {
+      "infinitive": "hablar",
+      "native": "to speak",
+      "forms": {
+        "yo": "hablo",
+        "tú": "hablas",
+        "él_ella_usted": "habla",
+        "nosotros": "hablamos",
+        "ellos_ustedes": "hablan"
+      },
+      "example": {
+        "target": "Rosa habla muy rápido.",
+        "native": "Rosa speaks very fast."
+      },
+      "note": "Regular -ar verb."
+    },
+    {
+      "infinitive": "ser",
+      "native": "to be",
+      "forms": {
+        "yo": "soy",
+        "tú": "eres",
+        "él_ella_usted": "es",
+        "nosotros": "somos",
+        "ellos_ustedes": "son"
+      },
+      "example": {
+        "target": "Los ingredientes son tortillas, salsa verde, pollo y queso.",
+        "native": "The ingredients are tortillas, green salsa, chicken and cheese."
+      },
+      "note": "Irregular. Use it to say what something is or what it is made of."
+    },
+    {
+      "infinitive": "tener",
+      "native": "to have",
+      "forms": {
+        "yo": "tengo",
+        "tú": "tienes",
+        "él_ella_usted": "tiene",
+        "nosotros": "tenemos",
+        "ellos_ustedes": "tienen"
+      },
+      "example": {
+        "target": "Emma tiene una reservación a las 9.",
+        "native": "Emma has a reservation at 9."
+      },
+      "note": "Irregular yo form (tengo). Stem change e to ie (tienes, tiene, tienen), except nosotros."
+    }
+  ]
+}
+
+OLD PRIVATE DRAFT (known drift):
+{
+  "n": 10,
+  "titleEnglish": "Words You Already Know and Getting Help",
+  "objectiveEnglish": "Spot Spanish words you already know and use survival phrases when you don't understand.",
+  "titleFrenchCourseEnglish": "Words You Already Know and Getting Help",
+  "objectiveFrenchCourseEnglish": "Spot French words that look like English and use survival phrases when you don't understand.",
+  "focusEnglish": "Cognates ending in -tion, -té and -ent, plus survival phrases for getting help: I don't understand, speak more slowly, what are the ingredients, and emergency.",
+  "focusFrench": "Mots apparentés en -tion, -té et -ent ; phrases de survie : je ne comprends pas, parler plus lentement, quels sont les ingrédients, Au secours.",
+  "words": [
+    {
+      "en": "the reservation",
+      "kind": "term",
+      "fr": "la réservation",
+      "noteEnglish": "Réservation is close to English reservation. The verb is réserver: J'ai réservé."
+    },
+    {
+      "en": "the vegetarian option",
+      "kind": "term",
+      "fr": "l'option végétarienne",
+      "noteEnglish": "Option is close to English. Végétarien agrees with the noun: végétarienne for feminine words."
+    },
+    {
+      "en": "the information",
+      "kind": "term",
+      "fr": "l'information",
+      "noteEnglish": "Information is feminine. Des informations is also common for several pieces of information."
+    },
+    {
+      "en": "the specialty",
+      "kind": "term",
+      "fr": "la spécialité",
+      "noteEnglish": "Spécialité is a close cognate. La spécialité du jour means today's specialty."
+    },
+    {
+      "en": "the variety",
+      "kind": "term",
+      "fr": "la variété",
+      "noteEnglish": "Variété is close to English variety. Une variété de means a variety of."
+    },
+    {
+      "en": "the ingredients",
+      "kind": "term",
+      "fr": "les ingrédients",
+      "noteEnglish": "Ingrédient is a close cognate, and the word is plural in both languages."
+    },
+    {
+      "en": "different",
+      "kind": "term",
+      "fr": "différent",
+      "noteEnglish": "Différent agrees with the noun: différent for masculine, différente for feminine."
+    },
+    {
+      "en": "excellent",
+      "kind": "term",
+      "fr": "excellent",
+      "noteEnglish": "Excellent has the same spelling. For feminine nouns, use excellente."
+    },
+    {
+      "en": "the emergency",
+      "kind": "term",
+      "fr": "l'urgence",
+      "noteEnglish": "Une urgence means an emergency. Learn and verify the local emergency number before travel."
+    },
+    {
+      "en": "Excuse me, I don't understand.",
+      "kind": "phrase",
+      "fr": "Excusez-moi, je ne comprends pas.",
+      "noteEnglish": "Excusez-moi is the polite form with staff. Comprendre means to understand."
+    },
+    {
+      "en": "Can you speak more slowly, please?",
+      "kind": "phrase",
+      "fr": "Pourriez-vous parler plus lentement, s'il vous plaît ?",
+      "noteEnglish": "Plus lentement means more slowly. Parler means to speak."
+    },
+    {
+      "en": "How do you say this in Spanish?",
+      "kind": "phrase",
+      "fr": "Comment est-ce qu'on dit ça en français ?",
+      "noteEnglish": "On dit means one says; use en français to ask how to say something in French.",
+      "enFrenchCourse": "How do you say this in French?"
+    },
+    {
+      "en": "What are the ingredients?",
+      "kind": "phrase",
+      "fr": "Quels sont les ingrédients ?",
+      "noteEnglish": "Quels is the plural of quel. Sont is the plural of être (to be)."
+    },
+    {
+      "en": "Is there a vegetarian option?",
+      "kind": "phrase",
+      "fr": "Est-ce qu'il y a une option végétarienne ?",
+      "noteEnglish": "Il y a means there is or there are. Est-ce que puts it in question form."
+    },
+    {
+      "en": "Help, it's an emergency!",
+      "kind": "phrase",
+      "fr": "Au secours, c'est une urgence !",
+      "noteEnglish": "Au secours means help! Use it in a real emergency and call the local emergency number."
+    }
+  ],
+  "speakingInstructionEnglish": "Tell a server you don't understand, ask them to speak more slowly, and ask what the ingredients of the specialty are.",
+  "speakingFrench": "Excusez-moi, je ne comprends pas. Pourriez-vous parler plus lentement, s'il vous plaît ? Quels sont les ingrédients de la spécialité ?",
+  "passage": {
+    "titleFrench": "Demander de l’aide au Café Lumière",
+    "english": [
+      "Emma has a reservation at 9 at Café Luna.",
+      "On the wall there is emergency information in English and Spanish.",
+      "Rosa: Today's specialty is different: chilaquiles with chicken.",
+      "Emma: Excuse me, I don't understand.",
+      "Emma: Can you speak more slowly, please?",
+      "Emma: What are the ingredients?",
+      "Rosa: The ingredients are tortillas, green salsa, chicken and cheese.",
+      "Emma: Is there a vegetarian option?",
+      "Rosa: Yes, the vegetarian option is excellent and has a variety of vegetables."
+    ],
+    "french": [
+      "Emma a une réservation à neuf heures au Café Lumière, à Lyon.",
+      "Sur le mur, il y a des informations d’urgence en français et en anglais.",
+      "Rosa : La spécialité du jour est différente : une quiche au jambon.",
+      "Emma : Excusez-moi, je ne comprends pas.",
+      "Emma : Pourriez-vous parler plus lentement, s'il vous plaît ?",
+      "Emma : Quels sont les ingrédients ?",
+      "Rosa : La carte indique des œufs, du jambon, du fromage et de la pâte ; je peux vérifier la liste complète avec la cuisine.",
+      "Emma : Est-ce qu'il y a une option végétarienne ?",
+      "Rosa : Oui, notre tartine aux légumes est excellente et contient plusieurs légumes."
+    ],
+    "englishFrenchCourse": [
+      "Emma has a nine o’clock reservation at Café Lumière in Lyon.",
+      "On the wall there is emergency information in French and English.",
+      "Rosa: Today's specialty is different: a ham quiche.",
+      "Emma: Excuse me, I don't understand.",
+      "Emma: Can you speak more slowly, please?",
+      "Emma: What are the ingredients?",
+      "Rosa: The menu lists eggs, ham, cheese and pastry; I can check the complete list with the kitchen.",
+      "Emma: Is there a vegetarian option?",
+      "Rosa: Yes, our vegetable tartine is excellent and contains several vegetables."
+    ]
+  },
+  "teachingNotesEnglish": [
+    "Many French words look like English: -tion (information, réservation), -té (variété), -ent (différent, excellent). Check the gender before you use them.",
+    "Survival phrases: Excusez-moi, je ne comprends pas. Pourriez-vous parler plus lentement ? Comment est-ce qu'on dit ça en français ?",
+    "Each survival phrase uses vous with staff.",
+    "Au secours is for a real emergency. Learn the local emergency number before travel."
+  ],
+  "authoringNotesEnglish": [
+    "The source focus cognate endings (-ción, -dad, -ente) are Spanish spelling patterns, so they are replaced with French patterns (-tion, -té, -ent). The source word list is preserved.",
+    "The English anchor How do you say this in Spanish? remains exact source provenance. Use enFrenchCourse as its learner-facing English display text; runtime wiring is still pending.",
+    "No emergency number is stated as fact. Verify local emergency contacts before any travel or safety guidance.",
+    "The source reading names Café Luna and says the wall has emergency information in English and Spanish. Its precise location is unspecified; the French passage preserves those facts. A Francophone variant needs different context.",
+    "Native French review is open. reviewed:false."
+  ],
+  "reviewed": false
+}

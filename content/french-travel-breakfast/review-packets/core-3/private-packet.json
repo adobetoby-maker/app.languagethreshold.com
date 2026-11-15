@@ -1,0 +1,356 @@
+{
+  "lessonKey": "core:3",
+  "moduleId": "travel-breakfast",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "status": "private unreviewed owner-review candidate",
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "gates": {
+    "learnerRegistration": false,
+    "playback": false,
+    "progress": false,
+    "scoring": false,
+    "qualifiedApproval": false
+  },
+  "sourceFidelity": {
+    "sourcePath": "public/lesson-content/es/travel-breakfast.json",
+    "sourceSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "sourceRevision": "a51867cd94f6404299d6317d1dd4a5234634a91c"
+  },
+  "modelMetadata": {
+    "haiku": "claude-haiku-5-5",
+    "opus": "claude-opus-5-5",
+    "fable": "claude-fable-5-2"
+  },
+  "words": [
+    {
+      "id": "core:3:word:1",
+      "english": "bakery",
+      "spanish": "panadería",
+      "french": "la boulangerie",
+      "kind": "term"
+    },
+    {
+      "id": "core:3:word:2",
+      "english": "counter",
+      "spanish": "mostrador",
+      "french": "le comptoir",
+      "kind": "term"
+    },
+    {
+      "id": "core:3:word:3",
+      "english": "sweet bread",
+      "spanish": "pan dulce",
+      "french": "le pan dulce",
+      "kind": "term",
+      "note": "Common Mexican term for sweet pastries in general. French keeps the Mexican name; it corresponds roughly to 'pains sucrés / viennoiseries mexicaines'."
+    },
+    {
+      "id": "core:3:word:4",
+      "english": "pastry",
+      "spanish": "pastel",
+      "french": "la pâtisserie",
+      "kind": "term",
+      "note": "Can also mean cake, depending on the country. Gender differs: Spanish 'el pastel' is masculine, French 'la pâtisserie' is feminine. 'Une pâtisserie' is one pastry; 'la pâtisserie' can also mean the pastry shop. For cake, French says 'le gâteau'."
+    },
+    {
+      "id": "core:3:word:5",
+      "english": "bolillo (crusty white roll)",
+      "spanish": "bolillo",
+      "french": "le bolillo",
+      "kind": "term",
+      "note": "Common in Mexico. French keeps the Mexican name; in French it can be described as 'petit pain blanc croustillant'."
+    },
+    {
+      "id": "core:3:word:6",
+      "english": "concha (sweet shell-shaped bread)",
+      "spanish": "concha",
+      "french": "la concha",
+      "kind": "term",
+      "note": "Keep the Mexican name 'concha' in French; it is feminine, as in Spanish. In French it can be described as 'petite brioche ronde à croûte sucrée en forme de coquillage'."
+    },
+    {
+      "id": "core:3:word:7",
+      "english": "empanada (filled pastry)",
+      "spanish": "empanada",
+      "french": "l'empanada",
+      "kind": "term",
+      "note": "Feminine in both languages. In French it can be described as 'une sorte de chausson'. Savory ('salée') in this lesson's Reader."
+    },
+    {
+      "id": "core:3:word:8",
+      "english": "cheese",
+      "spanish": "queso",
+      "french": "le fromage",
+      "kind": "term"
+    },
+    {
+      "id": "core:3:word:9",
+      "english": "filling",
+      "spanish": "relleno",
+      "french": "la garniture",
+      "kind": "term",
+      "note": "Spanish 'el relleno' is masculine; French 'la garniture' is feminine. The adjective 'filled' is 'fourré' or 'garni'."
+    },
+    {
+      "id": "core:3:word:10",
+      "english": "oven",
+      "spanish": "horno",
+      "french": "le four",
+      "kind": "term"
+    },
+    {
+      "id": "core:3:word:11",
+      "english": "croissant",
+      "spanish": "croissant",
+      "french": "le croissant",
+      "kind": "term"
+    },
+    {
+      "id": "core:3:word:12",
+      "english": "jam",
+      "spanish": "mermelada",
+      "french": "la confiture",
+      "kind": "term",
+      "note": "'Confiture' is the everyday French word for jam. French 'marmelade' is a false friend: it usually means a marmalade or a fruit purée."
+    },
+    {
+      "id": "core:3:word:13",
+      "english": "What is fresh today?",
+      "spanish": "¿Qué está fresco hoy?",
+      "french": "Qu'est-ce qui est frais aujourd'hui ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:3:word:14",
+      "english": "Which one is the most typical?",
+      "spanish": "¿Cuál es el más típico?",
+      "french": "Lequel est le plus typique ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:3:word:15",
+      "english": "Is it filled?",
+      "spanish": "¿Está relleno?",
+      "french": "Est-il fourré ?",
+      "kind": "phrase",
+      "note": "Masculine default. For a concha, use 'Est-elle fourrée ?'. Spanish 'relleno' agrees with the noun, and so does the French participle. In everyday speech, 'C'est fourré ?' is also common and avoids gender."
+    },
+    {
+      "id": "core:3:word:16",
+      "english": "Is it sweet or savory?",
+      "spanish": "¿Es dulce o salado?",
+      "french": "Est-ce sucré ou salé ?",
+      "kind": "phrase",
+      "note": "In everyday speech, 'C'est sucré ou salé ?' is also common."
+    },
+    {
+      "id": "core:3:word:17",
+      "english": "What do you recommend?",
+      "spanish": "¿Qué me recomienda?",
+      "french": "Qu'est-ce que vous me recommandez ?",
+      "kind": "phrase",
+      "note": "Polite form with usted. Use French 'vous' for the polite form."
+    },
+    {
+      "id": "core:3:word:18",
+      "english": "Which one came out of the oven today?",
+      "spanish": "¿Cuál salió del horno hoy?",
+      "french": "Lequel est sorti du four aujourd'hui ?",
+      "kind": "phrase"
+    }
+  ],
+  "reader": [
+    {
+      "id": "core:3:line:1",
+      "english": "A traveler walks into a bakery in the morning.",
+      "spanish": "Un viajero entra a una panadería en la mañana.",
+      "french": "Un voyageur entre dans une boulangerie le matin."
+    },
+    {
+      "id": "core:3:line:2",
+      "english": "There are many breads and pastries on the counter.",
+      "spanish": "Hay muchos panes y pasteles en el mostrador.",
+      "french": "Il y a beaucoup de pains et de pâtisseries sur le comptoir."
+    },
+    {
+      "id": "core:3:line:3",
+      "english": "He asks: What is fresh today?",
+      "spanish": "Él pregunta: ¿Qué está fresco hoy?",
+      "french": "Il demande : « Qu'est-ce qui est frais aujourd'hui ? »"
+    },
+    {
+      "id": "core:3:line:4",
+      "english": "The employee says the sweet bread is from this morning.",
+      "spanish": "La empleada dice que el pan dulce es de esta mañana.",
+      "french": "L'employée dit que le pan dulce est de ce matin."
+    },
+    {
+      "id": "core:3:line:5",
+      "english": "The traveler asks: Which one is filled?",
+      "spanish": "El viajero pregunta: ¿Cuál está relleno?",
+      "french": "Le voyageur demande : « Lequel est fourré ? »"
+    },
+    {
+      "id": "core:3:line:6",
+      "english": "She explains that the concha is sweet and the empanada is savory.",
+      "spanish": "Ella explica que la concha es dulce y la empanada es salada.",
+      "french": "Elle explique que la concha est sucrée et que l'empanada est salée."
+    },
+    {
+      "id": "core:3:line:7",
+      "english": "He says: I want to try something typical from here.",
+      "spanish": "Él dice: Quiero probar algo típico de aquí.",
+      "french": "Il dit : « Je veux goûter quelque chose de typique d'ici. »"
+    },
+    {
+      "id": "core:3:line:8",
+      "english": "The employee recommends a bolillo with cheese.",
+      "spanish": "La empleada recomienda un bolillo con queso.",
+      "french": "L'employée recommande un bolillo au fromage."
+    },
+    {
+      "id": "core:3:line:9",
+      "english": "The traveler orders a concha and a coffee, please.",
+      "spanish": "El viajero pide una concha y un café, por favor.",
+      "french": "Le voyageur commande une concha et un café, s'il vous plaît."
+    }
+  ],
+  "contextualForms": [
+    {
+      "id": "core:3:form:1",
+      "sourceEnglish": "He asks what is fresh today.",
+      "french": "Il demande ce qui est frais aujourd'hui.",
+      "explanationEnglish": "'Demander' is a regular -er verb, like Spanish 'preguntar', which is also regular. French uses 'demander' both to ask a question and to ask for something, where Spanish splits these into 'preguntar' and 'pedir'."
+    },
+    {
+      "id": "core:3:form:2",
+      "sourceEnglish": "The employee recommends a bolillo with cheese.",
+      "french": "L'employée recommande un bolillo au fromage.",
+      "explanationEnglish": "Spanish 'recomendar' has an e-to-ie stem change; French 'recommander' does not. 'Au fromage' is the contraction of à + le: French uses 'au/à la' + ingredient for food descriptions where Spanish uses 'con'; 'avec du fromage' is also possible."
+    },
+    {
+      "id": "core:3:form:3",
+      "sourceEnglish": "I want to try something typical from here.",
+      "french": "Je veux goûter quelque chose de typique d'ici.",
+      "explanationEnglish": "'Je veux' is the irregular French form of vouloir. For food, 'goûter' is the natural equivalent of Spanish 'probar', and 'quelque chose de' + adjective is the French pattern."
+    },
+    {
+      "id": "core:3:form:4",
+      "sourceEnglish": "Today we try a concha.",
+      "french": "Aujourd'hui, nous goûtons une concha.",
+      "explanationEnglish": "'Nous goûtons' is the regular French nous form. Spanish 'probar' has an o-to-ue stem change except in the nosotros form ('probamos'); French 'goûter' is regular throughout."
+    },
+    {
+      "id": "core:3:form:5",
+      "sourceEnglish": "Which one is filled?",
+      "french": "Lequel est fourré ?",
+      "explanationEnglish": "Both the pronoun and the participle agree with the noun. 'Lequel est fourré ?' is masculine; for feminine items such as 'la concha' or 'l'empanada', say 'Laquelle est fourrée ?'."
+    }
+  ],
+  "activities": {
+    "See": {
+      "id": "core:3:mode:see",
+      "promptEnglish": "See the French word for 'bakery' (Spanish 'panadería').",
+      "targetFrench": "la boulangerie",
+      "sourceWordOrLineId": "core:3:word:1"
+    },
+    "Recall": {
+      "id": "core:3:mode:recall",
+      "promptEnglish": "Recall the French word for 'oven' (Spanish 'horno').",
+      "targetFrench": "le four",
+      "sourceWordOrLineId": "core:3:word:10"
+    },
+    "Hear": {
+      "id": "core:3:mode:hear",
+      "promptEnglish": "Listen to the French sentence from the Reader in which the traveler asks his first question, and write the whole line you hear.",
+      "targetFrench": "Il demande : « Qu'est-ce qui est frais aujourd'hui ? »",
+      "sourceWordOrLineId": "core:3:line:3"
+    },
+    "Type": {
+      "id": "core:3:mode:type",
+      "promptEnglish": "Type the polite French question for 'What do you recommend?' (vous form).",
+      "targetFrench": "Qu'est-ce que vous me recommandez ?",
+      "sourceWordOrLineId": "core:3:word:17"
+    },
+    "Say": {
+      "id": "core:3:mode:say",
+      "promptEnglish": "Say in French the traveler's quoted words from this Reader line: 'I want to try something typical from here.'",
+      "targetFrench": "Je veux goûter quelque chose de typique d'ici.",
+      "sourceWordOrLineId": "core:3:line:7"
+    },
+    "Write": {
+      "id": "core:3:mode:write",
+      "promptEnglish": "Write the French sentence for 'The traveler orders a concha and a coffee, please.'",
+      "targetFrench": "Le voyageur commande une concha et un café, s'il vous plaît.",
+      "sourceWordOrLineId": "core:3:line:9"
+    }
+  },
+  "speaking": {
+    "roles": [
+      {
+        "english": "traveler",
+        "french": "le voyageur"
+      },
+      {
+        "english": "employee",
+        "french": "l'employée"
+      }
+    ],
+    "openingFrench": "Bonjour ! Je peux vous aider ?",
+    "openingEnglish": "Hello! Can I help you?",
+    "objectivesEnglish": [
+      "As the traveler, ask the employee what is fresh today.",
+      "Ask whether the concha or the empanada is filled, and whether each is sweet or savory.",
+      "Say you want to try something typical from here.",
+      "Ask for a recommendation using the polite 'vous' form, and react to the employee's recommendation of a bolillo with cheese.",
+      "Order a concha and a coffee politely."
+    ],
+    "closureFrench": "Voilà votre concha et votre café. Bonne journée !"
+  },
+  "qualifiedReviewQuestions": [
+    {
+      "id": "core:3:review:1",
+      "sourceId": "core:3:word:4",
+      "questionEnglish": "For 'pastry' (Spanish 'pastel'), should the French answer be 'la pâtisserie' or 'la viennoiserie' in a Mexican panadería scene, given that 'pastel' can mean cake in some countries and 'la pâtisserie' can also mean the pastry shop?"
+    },
+    {
+      "id": "core:3:review:2",
+      "sourceId": "core:3:word:12",
+      "questionEnglish": "Is 'la confiture' the right French gloss for Mexican Spanish 'mermelada' in this lesson's context, and is the false-friend note on 'marmelade' accurate for general (non-regulatory) French usage?"
+    },
+    {
+      "id": "core:3:review:3",
+      "sourceId": "core:3:line:5",
+      "questionEnglish": "Should masculine 'Lequel est fourré ?' and 'Est-il fourré ?' be kept, or should gender-neutral 'C'est fourré ?' be the default, with 'Laquelle est fourrée ?' taught for the feminine concha and empanada?"
+    },
+    {
+      "id": "core:3:review:4",
+      "sourceId": "core:3:word:5",
+      "questionEnglish": "Is it acceptable to keep the Spanish borrowings 'bolillo', 'concha', 'empanada' and 'pan dulce' unchanged in French, with the genders le / la / l' (feminine) / le, and to give the French descriptions only in notes?"
+    },
+    {
+      "id": "core:3:review:5",
+      "sourceId": "core:3:word:6",
+      "questionEnglish": "Is 'brioche' an accurate enough French description of a concha, or should it be described as a 'petit pain sucré à croûte de sucre'?"
+    },
+    {
+      "id": "core:3:review:6",
+      "sourceId": "core:3:word:9",
+      "questionEnglish": "Is 'la garniture' the best everyday word for a pastry 'filling' (relleno), or would 'la farce' (savory) or 'la crème' (sweet) fit better?"
+    },
+    {
+      "id": "core:3:review:7",
+      "sourceId": "core:3:line:9",
+      "questionEnglish": "Should the narrative 's'il vous plaît' in line 9 (also the Write target) be kept for source fidelity, or put in quotes or dropped for natural French?"
+    },
+    {
+      "id": "core:3:review:8",
+      "sourceId": "core:3:word:16",
+      "questionEnglish": "Should the more formal 'Est-ce sucré ou salé ?' stay as the main answer, or should spoken 'C'est sucré ou salé ?' replace it or be accepted alongside it?"
+    }
+  ]
+}

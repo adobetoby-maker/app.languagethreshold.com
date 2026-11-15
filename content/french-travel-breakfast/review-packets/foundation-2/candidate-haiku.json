@@ -1,0 +1,279 @@
+{
+  "candidate": {
+    "id": "breakfast-foundation-2-owner-candidate",
+    "status": "unreviewed",
+    "sourceLesson": {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "titleFrench": "Nombres, heure et mesures",
+      "objective": "Use numbers, prices in pesos, clock times and café quantities to order and check a total.",
+      "focus": "Numbers 0 to 1,000, prices in pesos, clock time, and café quantities like cups and pieces"
+    },
+    "readerTitleFrench": "Petit-déjeuner au Café Luna"
+  },
+  "cardFrench": [
+    {
+      "order": 1,
+      "en": "the pesos",
+      "fr": "les pesos",
+      "kind": "term",
+      "note": null
+    },
+    {
+      "order": 2,
+      "en": "the time",
+      "fr": "l'heure",
+      "kind": "term",
+      "note": "Quelle heure est-il ? signifie what time is it?"
+    },
+    {
+      "order": 3,
+      "en": "the morning",
+      "fr": "le matin",
+      "kind": "term",
+      "note": null
+    },
+    {
+      "order": 4,
+      "en": "noon",
+      "fr": "midi",
+      "kind": "term",
+      "note": null
+    },
+    {
+      "order": 5,
+      "en": "the cup",
+      "fr": "la tasse",
+      "kind": "term",
+      "note": null
+    },
+    {
+      "order": 6,
+      "en": "the glass",
+      "fr": "le verre",
+      "kind": "term",
+      "note": null
+    },
+    {
+      "order": 7,
+      "en": "the piece",
+      "fr": "la pièce",
+      "kind": "term",
+      "note": "Les boulangeries mexicaines comptent le pan dulce à la pièce."
+    },
+    {
+      "order": 8,
+      "en": "the serving",
+      "fr": "la portion",
+      "kind": "term",
+      "note": "Au Mexique, une orden de chilaquiles est une assiette ou une portion."
+    },
+    {
+      "order": 9,
+      "en": "the dozen",
+      "fr": "la douzaine",
+      "kind": "term",
+      "note": null
+    },
+    {
+      "order": 10,
+      "en": "the slice",
+      "fr": "la part",
+      "kind": "term",
+      "note": "Une part de gâteau."
+    },
+    {
+      "order": 11,
+      "en": "2 americanos, please.",
+      "fr": "2 cafés americanos, s'il vous plaît.",
+      "kind": "phrase",
+      "note": null
+    },
+    {
+      "order": 12,
+      "en": "A table for 4, please.",
+      "fr": "Une table pour 4, s'il vous plaît.",
+      "kind": "phrase",
+      "note": null
+    },
+    {
+      "order": 13,
+      "en": "3 pieces of sweet bread, please.",
+      "fr": "3 pièces de pan dulce, s'il vous plaît.",
+      "kind": "phrase",
+      "note": null
+    },
+    {
+      "order": 14,
+      "en": "Is it 120 pesos?",
+      "fr": "Ça fait 120 pesos ?",
+      "kind": "phrase",
+      "note": null
+    },
+    {
+      "order": 15,
+      "en": "It's half past 8.",
+      "fr": "Il est huit heures et demie.",
+      "kind": "phrase",
+      "note": "Il est une heure pour une heure ; il est huit heures et demie pour 8 h 30."
+    },
+    {
+      "order": 16,
+      "en": "Is breakfast from 7 to 11?",
+      "fr": "Le petit-déjeuner est-il de 7 h à 11 h ?",
+      "kind": "phrase",
+      "note": null
+    }
+  ],
+  "readerFrench": [
+    {
+      "index": 1,
+      "english": "Emma walks into Café Luna in the morning.",
+      "french": "Emma entre au Café Luna le matin."
+    },
+    {
+      "index": 2,
+      "english": "Emma looks at the time: It's half past 8.",
+      "french": "Emma regarde l'heure : il est huit heures et demie."
+    },
+    {
+      "index": 3,
+      "english": "Luis: There are servings of chilaquiles until noon.",
+      "french": "Luis : Il y a des portions de chilaquiles jusqu'à midi."
+    },
+    {
+      "index": 4,
+      "english": "Emma: 2 americanos, please.",
+      "french": "Emma : 2 cafés americanos, s'il vous plaît."
+    },
+    {
+      "index": 5,
+      "english": "Luis: The cup costs 30 pesos and the glass 35.",
+      "french": "Luis : La tasse coûte 30 pesos et le verre 35."
+    },
+    {
+      "index": 6,
+      "english": "Emma: In a cup, and 3 pieces of sweet bread.",
+      "french": "Emma : En tasse, et 3 pièces de pan dulce."
+    },
+    {
+      "index": 7,
+      "english": "Luis: The piece costs 20 pesos and the dozen 200.",
+      "french": "Luis : La pièce coûte 20 pesos et la douzaine 200."
+    },
+    {
+      "index": 8,
+      "english": "Emma: Is it 120 pesos?",
+      "french": "Emma : Ça fait 120 pesos ?"
+    },
+    {
+      "index": 9,
+      "english": "Luis: Yes, and the slice of cake costs 45.",
+      "french": "Luis : Oui, et la part de gâteau coûte 45."
+    }
+  ],
+  "forms": [
+    {
+      "form": 1,
+      "readerLine": 2,
+      "sourceLine": "Emma mira la hora: Son las 8 y media.",
+      "englishPrompt": "Emma looks at the time: It's half past 8.",
+      "frenchAnswer": "Emma regarde l'heure : il est huit heures et demie.",
+      "explanation": "Son las 8 y media is rendered as il est huit heures et demie, keeping the time literal."
+    },
+    {
+      "form": 2,
+      "readerLine": 3,
+      "sourceLine": "Luis: Hay órdenes de chilaquiles hasta el mediodía.",
+      "englishPrompt": "Luis: There are servings of chilaquiles until noon.",
+      "frenchAnswer": "Luis : Il y a des portions de chilaquiles jusqu'à midi.",
+      "explanation": "Hay órdenes becomes il y a des portions; chilaquiles stays as the loan word; hasta el mediodía becomes jusqu'à midi."
+    },
+    {
+      "form": 3,
+      "readerLine": 5,
+      "sourceLine": "Luis: La taza cuesta 30 pesos y el vaso 35.",
+      "englishPrompt": "Luis: The cup costs 30 pesos and the glass 35.",
+      "frenchAnswer": "Luis : La tasse coûte 30 pesos et le verre 35.",
+      "explanation": "Cuesta maps to coûte; the unit prices 30 and 35 stay literal with pesos unchanged."
+    },
+    {
+      "form": 4,
+      "readerLine": 7,
+      "sourceLine": "Luis: La pieza cuesta 20 pesos y la docena 200.",
+      "englishPrompt": "Luis: The piece costs 20 pesos and the dozen 200.",
+      "frenchAnswer": "Luis : La pièce coûte 20 pesos et la douzaine 200.",
+      "explanation": "La pièce is the unit-price term for the piece; la douzaine is the dozen; figures stay literal."
+    },
+    {
+      "form": 5,
+      "readerLine": 8,
+      "sourceLine": "Emma: ¿Son 120 pesos?",
+      "englishPrompt": "Emma: Is it 120 pesos?",
+      "frenchAnswer": "Emma : Ça fait 120 pesos ?",
+      "explanation": "Ça fait is the French total-check phrase, parallel to the Spanish ¿Son 120 pesos?"
+    }
+  ],
+  "modes": [
+    {
+      "mode": "see",
+      "prompt": "Look at the English card 'the cup' and identify its French card.",
+      "targetEnglish": "the cup",
+      "targetFrench": "la tasse"
+    },
+    {
+      "mode": "recall",
+      "prompt": "Without looking, give the French card for: What time is it?",
+      "targetEnglish": "What time is it?",
+      "targetFrench": "Quelle heure est-il ?"
+    },
+    {
+      "mode": "hear",
+      "prompt": "Listen to the French phrase 'Ça fait 120 pesos ?' and give the English card.",
+      "targetEnglish": "Is it 120 pesos?",
+      "targetFrench": "Ça fait 120 pesos ?"
+    },
+    {
+      "mode": "type",
+      "prompt": "Type the French card for 'the glass'.",
+      "targetEnglish": "the glass",
+      "targetFrench": "le verre"
+    },
+    {
+      "mode": "say",
+      "prompt": "Say aloud the French for: 2 americanos, please.",
+      "targetEnglish": "2 americanos, please.",
+      "targetFrench": "2 cafés americanos, s'il vous plaît."
+    },
+    {
+      "mode": "write",
+      "prompt": "Write the French for: 3 pieces of sweet bread, please.",
+      "targetEnglish": "3 pieces of sweet bread, please.",
+      "targetFrench": "3 pièces de pan dulce, s'il vous plaît."
+    }
+  ],
+  "speakingObjectives": [
+    "Order 2 coffees (2 cafés americanos, s'il vous plaît) from a barista.",
+    "Order 3 pieces of pan dulce (3 pièces de pan dulce, s'il vous plaît).",
+    "Repeat the total in pesos to check it: Ça fait 120 pesos ?"
+  ],
+  "sourceNotes": [
+    "Restored the Spanish source scene: Café Luna, Mexico, pesos, chilaquiles, pan dulce, and the 120-pesos total.",
+    "English card and Reader faces are copied exactly from the source word list and native Reader lines.",
+    "Adaptations from the private draft (euros, Lyon, fruit bowls, pastries, Café Lumière, changed prices) were not used.",
+    "Spanish note 'es la 1' for one o'clock is not on the card; French equivalent il est une heure is noted for the time card."
+  ],
+  "residuals": [
+    "Source gives 45 and 200 without a currency unit; French keeps them literal and does not add pesos.",
+    "la part is the French slice-of-cake term; owner should confirm it fits the candidate's register.",
+    "chilaquiles, americanos and pan dulce are kept as loan words; plural forms follow the source.",
+    "Model-side checks only; no human review has been performed."
+  ],
+  "gates": {
+    "modelReviewPassed": false,
+    "humanReviewPassed": false,
+    "ownerApproved": false,
+    "audioVerified": false,
+    "releaseReady": false
+  }
+}

@@ -1,0 +1,232 @@
+{
+  "frenchCards": [
+    "la réservation",
+    "l'option végétarienne",
+    "l'information",
+    "la spécialité",
+    "la variété",
+    "les ingrédients",
+    "différent",
+    "excellent",
+    "l'urgence",
+    "Excusez-moi, je ne comprends pas.",
+    "Pouvez-vous parler plus lentement, s'il vous plaît ?",
+    "Comment dit-on ça en espagnol ?",
+    "Quels sont les ingrédients ?",
+    "Est-ce qu'il y a une option végétarienne ?",
+    "Au secours, c'est une urgence !"
+  ],
+  "frenchReader": [
+    "Emma a une réservation pour 9 heures au Café Luna.",
+    "Sur le mur, il y a des informations d'urgence en anglais et en espagnol.",
+    "Rosa : La spécialité du jour est différente : des chilaquiles au poulet.",
+    "Emma : Excusez-moi, je ne comprends pas.",
+    "Emma : Pouvez-vous parler plus lentement, s'il vous plaît ?",
+    "Emma : Quels sont les ingrédients ?",
+    "Rosa : Les ingrédients sont des tortillas, de la salsa verde, du poulet et du fromage.",
+    "Emma : Est-ce qu'il y a une option végétarienne ?",
+    "Rosa : Oui, l'option végétarienne est excellente et elle contient une variété de légumes."
+  ],
+  "readerTitleFrench": "Petit-déjeuner au Café Luna",
+  "forms": [
+    {
+      "french": "Emma a une réservation pour 9 heures au Café Luna.",
+      "english": "Emma has a reservation at 9 at Café Luna.",
+      "readerLine": 1
+    },
+    {
+      "french": "Sur le mur, il y a des informations d'urgence en anglais et en espagnol.",
+      "english": "On the wall there is emergency information in English and Spanish.",
+      "readerLine": 2
+    },
+    {
+      "french": "Rosa : La spécialité du jour est différente : des chilaquiles au poulet.",
+      "english": "Rosa: Today's specialty is different: chilaquiles with chicken.",
+      "readerLine": 3
+    },
+    {
+      "french": "Emma : Excusez-moi, je ne comprends pas.",
+      "english": "Emma: Excuse me, I don't understand.",
+      "readerLine": 4
+    },
+    {
+      "french": "Emma : Pouvez-vous parler plus lentement, s'il vous plaît ?",
+      "english": "Emma: Can you speak more slowly, please?",
+      "readerLine": 5
+    },
+    {
+      "french": "Emma : Quels sont les ingrédients ?",
+      "english": "Emma: What are the ingredients?",
+      "readerLine": 6
+    },
+    {
+      "french": "Rosa : Les ingrédients sont des tortillas, de la salsa verde, du poulet et du fromage.",
+      "english": "Rosa: The ingredients are tortillas, green salsa, chicken and cheese.",
+      "readerLine": 7
+    },
+    {
+      "french": "Emma : Est-ce qu'il y a une option végétarienne ?",
+      "english": "Emma: Is there a vegetarian option?",
+      "readerLine": 8
+    },
+    {
+      "french": "Rosa : Oui, l'option végétarienne est excellente et elle contient une variété de légumes.",
+      "english": "Rosa: Yes, the vegetarian option is excellent and has a variety of vegetables.",
+      "readerLine": 9
+    }
+  ],
+  "modes": [
+    {
+      "mode": "see",
+      "sourceType": "card",
+      "sourceIndex": 1,
+      "promptFrench": "la réservation",
+      "targetEnglish": "the reservation"
+    },
+    {
+      "mode": "recall",
+      "sourceType": "card",
+      "sourceIndex": 13,
+      "promptFrench": "Quels sont les ingrédients ?",
+      "targetEnglish": "What are the ingredients?"
+    },
+    {
+      "mode": "hear",
+      "sourceType": "card",
+      "sourceIndex": 11,
+      "promptFrench": "Pouvez-vous parler plus lentement, s'il vous plaît ?",
+      "targetEnglish": "Can you speak more slowly, please?"
+    },
+    {
+      "mode": "type",
+      "sourceType": "card",
+      "sourceIndex": 14,
+      "promptFrench": "Est-ce qu'il y a une option végétarienne ?",
+      "targetEnglish": "Is there a vegetarian option?"
+    },
+    {
+      "mode": "say",
+      "sourceType": "card",
+      "sourceIndex": 15,
+      "promptFrench": "Au secours, c'est une urgence !",
+      "targetEnglish": "Help, it's an emergency!"
+    },
+    {
+      "mode": "write",
+      "sourceType": "reader",
+      "sourceIndex": 7,
+      "promptFrench": "Rosa : Les ingrédients sont des tortillas, de la salsa verde, du poulet et du fromage.",
+      "targetEnglish": "Rosa: The ingredients are tortillas, green salsa, chicken and cheese."
+    }
+  ],
+  "speakingObjectives": [
+    "Scene: Emma arrives for her 9 o'clock reservation at Café Luna. Roles: the learner is Emma, Rosa is the server. Task 1: Tell Rosa you don't understand: 'Excusez-moi, je ne comprends pas.'",
+    "Task 2: Ask Rosa to speak more slowly: 'Pouvez-vous parler plus lentement, s'il vous plaît ?'",
+    "Task 3: Ask what the ingredients of today's specialty (the chilaquiles with chicken) are: 'Quels sont les ingrédients ?'"
+  ],
+  "frenchVerbParadigms": [
+    {
+      "sourceInfinitive": "entender",
+      "frenchInfinitive": "comprendre",
+      "nativeEnglish": "to understand",
+      "frenchForms": {
+        "je": "comprends",
+        "tu": "comprends",
+        "il_elle_on": "comprend",
+        "nous": "comprenons",
+        "vous": "comprenez",
+        "ils_elles": "comprennent"
+      },
+      "englishExplanation": "Irregular. The singular forms are comprends, comprends, comprend. The plural stem changes: compren- in nous comprenons and vous comprenez, and comprenn- in ils/elles comprennent. 'Je ne comprends pas' = 'I don't understand.'"
+    },
+    {
+      "sourceInfinitive": "poder",
+      "frenchInfinitive": "pouvoir",
+      "nativeEnglish": "can, to be able to",
+      "frenchForms": {
+        "je": "peux",
+        "tu": "peux",
+        "il_elle_on": "peut",
+        "nous": "pouvons",
+        "vous": "pouvez",
+        "ils_elles": "peuvent"
+      },
+      "englishExplanation": "Irregular. The stem is peu- in the singular (peux, peux, peut), pouv- for nous and vous (pouvons, pouvez), and peuv- in ils/elles peuvent. 'Pouvez-vous...?' is the present tense with vous and means 'Can you...?'; use it to ask a server politely, as in 'Pouvez-vous parler plus lentement, s'il vous plaît ?'"
+    },
+    {
+      "sourceInfinitive": "hablar",
+      "frenchInfinitive": "parler",
+      "nativeEnglish": "to speak",
+      "frenchForms": {
+        "je": "parle",
+        "tu": "parles",
+        "il_elle_on": "parle",
+        "nous": "parlons",
+        "vous": "parlez",
+        "ils_elles": "parlent"
+      },
+      "englishExplanation": "Regular -er verb. 'Parler plus lentement' = 'to speak more slowly'. After pouvez-vous, the verb stays in the infinitive: 'Pouvez-vous parler...?'"
+    },
+    {
+      "sourceInfinitive": "ser",
+      "frenchInfinitive": "être",
+      "nativeEnglish": "to be",
+      "frenchForms": {
+        "je": "suis",
+        "tu": "es",
+        "il_elle_on": "est",
+        "nous": "sommes",
+        "vous": "êtes",
+        "ils_elles": "sont"
+      },
+      "englishExplanation": "Irregular. Use it to say what something is or what it is made of: 'Les ingrédients sont des tortillas, de la salsa verde, du poulet et du fromage.' ('The ingredients are tortillas, green salsa, chicken and cheese.'). 'Quels sont les ingrédients ?' also uses sont, because the subject is plural."
+    },
+    {
+      "sourceInfinitive": "tener",
+      "frenchInfinitive": "avoir",
+      "nativeEnglish": "to have",
+      "frenchForms": {
+        "je": "j'ai",
+        "tu": "as",
+        "il_elle_on": "a",
+        "nous": "avons",
+        "vous": "avez",
+        "ils_elles": "ont"
+      },
+      "englishExplanation": "Irregular. Je shortens to j' before a vowel, so the first form is j'ai, never 'je ai'. 'Emma a une réservation' = 'Emma has a reservation.' The fixed expression il y a ('there is / there are') is built from avoir (il + y + a), as in 'il y a des informations d'urgence'."
+    }
+  ],
+  "internalDomainNotes": [
+    "Source authority: the English source text is the parity anchor. The French translates it and does not replace it. Every English string in forms and modes is the exact source English; any English change must come from the owner.",
+    "Place facts kept from the source: Café Luna, a reservation at 9, emergency information on the wall in English and Spanish, chilaquiles with chicken, the ingredient list (tortillas, green salsa, chicken and cheese), and a vegetarian option with a variety of vegetables. The source gives no city, so none is added.",
+    "Drift not used: Lyon, Café Lumière, French signage, ham quiche, tartine, pastry and eggs are not in this candidate.",
+    "Card 12: the source English is 'How do you say this in Spanish?', so the French is 'Comment dit-on ça en espagnol ?'. Both sides of the card now say the same thing. The 'en français' adaptation is not applied; it is an owner decision (see residuals).",
+    "Salsa verde: the source 'green salsa' is the Mexican tomatillo-based salsa served with chilaquiles. The French keeps the loanword 'salsa verde'. 'Sauce verte' is not used, because in French it names a different sauce (a French herb sauce).",
+    "Can you: the source uses present 'puede' and English 'Can you', so the French is present 'Pouvez-vous'. This matches the vous form in the pouvoir paradigm. The conditional 'Pourriez-vous' ('Could you') is not used.",
+    "Cognate endings: the Spanish focus (-ción, -dad, -ente) corresponds to French -tion (réservation, information, option), -té (spécialité, variété) and -ent (ingrédient, différent, excellent).",
+    "Gender and agreement: la réservation, l'information, la spécialité, la variété, l'option and l'urgence are feminine; les ingrédients is masculine plural. So the reader has 'est différente' (spécialité), 'est excellente' (option), 'une urgence' and 'Quels sont les ingrédients ?'.",
+    "Register: Emma addresses Rosa with vous ('Excusez-moi', 'Pouvez-vous'). 'Comment dit-on' is neutral and fits the same register.",
+    "Speaking: the source speaking line has exactly three tasks (say you don't understand, ask the server to speak more slowly, ask what the ingredients of the specialty are). The speaking objectives contain only these three. The vegetarian-option and emergency phrases remain as cards and reader lines but are not speaking tasks.",
+    "Emergency content: the source states no emergency number, so none is given anywhere in this candidate and none appears in learner-facing objectives. 'Au secours, c'est une urgence !' is kept only as the translation of source card 15.",
+    "Hear mode: the hear item now uses card 11 instead of reader line 5, so the audio prompt has no 'Emma :' speaker label for text-to-speech to read aloud.",
+    "Formatting: French lines use a regular space before ':', '?' and '!'. The English keeps the source 'Emma:' and 'Rosa:' with no space. forms and modes quote the French and English strings exactly as they appear in frenchCards, frenchReader and the source."
+  ],
+  "qualifiedReviewResiduals": [
+    "OWNER DECISION REQUIRED (card 12): the source card is 'How do you say this in Spanish?' / '¿Cómo se dice esto en español?'. This candidate keeps parity with 'Comment dit-on ça en espagnol ?'. For a French course the owner may prefer 'Comment dit-on ça en français ?', but that needs the owner to change the source English to 'How do you say this in French?' first. The source English is not changed here.",
+    "OWNER DECISION REQUIRED (wall line): the reader says the emergency information is in English and Spanish, and the French keeps 'en anglais et en espagnol'. Whether a French course should say English and French is the owner's call. Not changed here.",
+    "OWNER DECISION REQUIRED (lesson objective and focus): the source objective and focus are about spotting Spanish cognates (-ción, -dad, -ente). A French course needs an owner-approved restatement (French -tion, -té, -ent). No restated objective is supplied here.",
+    "Avoir 'je' form: the value is stored as the elided 'j'ai', while the other 'je' values are bare verb forms. A renderer that prepends 'je' would show 'je j'ai'; the owner or developer must confirm how this field is displayed.",
+    "Schema: frenchForms has six persons including vous, where the source paradigms have five. Vous is kept from the Haiku candidate because the lesson drills 'Pouvez-vous'. The owner should confirm.",
+    "Indexing: forms.readerLine and modes.sourceIndex are treated as one-based. The owner should confirm this convention.",
+    "Mode direction: all six modes prompt in French and target English, as in the Haiku candidate. If recall, type, say or write are meant to make the learner produce French, the direction is reversed. The owner should confirm.",
+    "Say mode uses card 15 ('Au secours, c'est une urgence !'), kept from the Haiku candidate. It is not one of the three source speaking tasks; the owner may prefer card 10 or 11 for this mode.",
+    "Speaking task 3: the source asks for 'the ingredients of the specialty'. The candidate uses card 13, 'Quels sont les ingrédients ?', with the specialty named in the task framing. A specialty-specific sentence such as 'Quels sont les ingrédients de la spécialité ?' would be a new sentence and needs owner approval.",
+    "Reader line 1: 'at 9' is rendered 'pour 9 heures' (the usual wording for a reservation time), following the Opus critique. 'à 9 heures' is the more literal alternative. A qualified reviewer should confirm.",
+    "Reader line 9: source 'has a variety of vegetables' is rendered 'elle contient une variété de légumes' (kept from the Haiku candidate) rather than a literal avoir form. A qualified reviewer should confirm.",
+    "Salsa verde: the loanword is unitalicised here. Whether to italicise it or add a gloss (for example 'sauce aux tomatillos') is a style decision for the owner.",
+    "Typography: the spaces before ':', '?' and '!' are regular spaces and can wrap at line ends. Switching to no-break spaces (U+202F or U+00A0) is a renderer or owner decision and would have to be applied identically in cards, reader, forms and modes.",
+    "Speaker labels: the write mode item (reader line 7) still includes 'Rosa :'. The owner should decide whether speaker labels belong in mode prompts.",
+    "Emergency number: none is stated in the source and none is supplied. Any emergency-number guidance needs a verified local source and an owner decision before it reaches learners.",
+    "Status: unreviewed private draft. This is a corrected candidate from a correction assistant, not an approval. No human or native-French review, no audio check and no learner testing has been done, and no review, audio or learner gate has passed."
+  ]
+}

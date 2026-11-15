@@ -1,0 +1,9 @@
+# French Travel Breakfast Core 5 — private lesson-team checkpoint
+
+Current main: `a51867cd94f6404299d6317d1dd4a5234634a91c`. Source: `public/lesson-content/es/travel-breakfast.json`, SHA-256 `8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc`. Existing #475 draft kept `core:5` identity. This packet remains private; no repository, owner route, V4, audio, or progress change.
+
+Candidate has 16 source-exact English card faces in order, 9 sentence-aligned source-exact English Reader turns, 5 contextual French forms, six distinct authored mode prompts with exact card-linked answers, and a hotel receptionist speaking scenario with three objectives. The Hear activity is text-only. All learner/registration/audio/playback/progress gates are false, `reviewed:false`; `requiresQualifiedReview:true`. Independent `python3 validate.py` passes source SHA, anchors, IDs, forms, modes, speaking, and gates.
+
+Direct CLI `--safe-mode` metadata: Haiku `['claude-haiku-5-5']` candidate; Opus `['claude-opus-5-5']` read-only critique; Fable `['claude-fable-5-2']` correction. Raw outputs are in this folder. Opus caught incorrect French grammar explanations copied from Spanish *poder* and *dar*, a menu/à la carte false-friend risk, non-distinct mode prompts and a speaking opening that had the receptionist speak the guest's lines. Fable corrected those, followed by source-grounded validation. These AI passes are not qualified review.
+
+Qualified French/source review remains for `menú/menu` versus French `service à la carte`, `comedor/dining room` versus `salle du petit-déjeuner`, and `reglas/rules` versus `consignes`. The source's `según el hotel / according to the hotel` also needs a choice: the draft French `dans cet hôtel` narrows the meaning. Check 6:30–10:00 typography and the example room 214. The older Breakfast fixture has unrelated stale source references and an allergy conflict; this one packet does not clear that course.

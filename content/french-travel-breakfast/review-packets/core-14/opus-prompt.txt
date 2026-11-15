@@ -1,0 +1,692 @@
+Read-only critique of PRIVATE French→English Breakfast Core 14 candidate. Do not revise; return strict JSON with findings array (severity, location, issue, suggestedCorrection), sourceIntegrity, languageQuality, modeDistinctness, speakingFaithfulness, releaseGates. Check against SOURCE bytes: all 18 English and Spanish cards in order, nine Reader lines, five forms, IDs, each six individually authored and source-linked modes, gate booleans. Examine natural French, register, subtle meaning: source tener prisa vs être pressé, tour departure, 12-minute/5-minute timing, sandwich/americano from kitchen, waitress speaker, order-to-go, immediate bill/payment. Do not claim qualified approval. SOURCE:
+{
+  "verbs": [
+    {
+      "infinitive": "tener",
+      "native": "to have",
+      "forms": {
+        "yo": "tengo",
+        "tú": "tienes",
+        "él_ella_usted": "tiene",
+        "nosotros": "tenemos",
+        "ellos_ustedes": "tienen"
+      },
+      "example": {
+        "target": "Tengo prisa porque mi tour sale en 12 minutos.",
+        "native": "I'm in a hurry because my tour leaves in 12 minutes."
+      },
+      "note": "Irregular yo form (tengo); stem change e to ie. Tener prisa means to be in a hurry."
+    },
+    {
+      "infinitive": "tardar",
+      "native": "to take (time)",
+      "forms": {
+        "yo": "tardo",
+        "tú": "tardas",
+        "él_ella_usted": "tarda",
+        "nosotros": "tardamos",
+        "ellos_ustedes": "tardan"
+      },
+      "example": {
+        "target": "El sándwich tarda unos 5 minutos.",
+        "native": "The sandwich takes about 5 minutes."
+      }
+    },
+    {
+      "infinitive": "pedir",
+      "native": "to ask for, to order",
+      "forms": {
+        "yo": "pido",
+        "tú": "pides",
+        "él_ella_usted": "pide",
+        "nosotros": "pedimos",
+        "ellos_ustedes": "piden"
+      },
+      "example": {
+        "target": "Él pide la cuenta ahora.",
+        "native": "He asks for the bill now."
+      },
+      "note": "Stem change e to i."
+    },
+    {
+      "infinitive": "salir",
+      "native": "to leave, to come out",
+      "forms": {
+        "yo": "salgo",
+        "tú": "sales",
+        "él_ella_usted": "sale",
+        "nosotros": "salimos",
+        "ellos_ustedes": "salen"
+      },
+      "example": {
+        "target": "Mi tour sale en 12 minutos.",
+        "native": "My tour leaves in 12 minutes."
+      },
+      "note": "Irregular yo form (salgo)."
+    },
+    {
+      "infinitive": "preparar",
+      "native": "to prepare",
+      "forms": {
+        "yo": "preparo",
+        "tú": "preparas",
+        "él_ella_usted": "prepara",
+        "nosotros": "preparamos",
+        "ellos_ustedes": "preparan"
+      },
+      "example": {
+        "target": "La cocina prepara el café americano rápido.",
+        "native": "The kitchen prepares the americano coffee quickly."
+      }
+    }
+  ],
+  "passage": {
+    "title": "Una mañana con prisa",
+    "target": [
+      "Un viajero entra a un café a las 8:00 y habla con la mesera en el mostrador.",
+      "Él dice: Tengo prisa porque mi tour sale en 12 minutos.",
+      "Pregunta: ¿Qué es lo más rápido que tienen para el desayuno?",
+      "La mesera responde que un sándwich de huevo y un café americano salen rápido.",
+      "El viajero pregunta: ¿Cuánto tiempo tarda la preparación del sándwich?",
+      "Ella dice que tarda unos 5 minutos, según la cocina.",
+      "Si es posible, él quiere el desayuno para llevar, porque no tiene tiempo para sentarse.",
+      "También pide la cuenta ahora para pagar en el mostrador.",
+      "La mesera sonríe y dice: Con gusto, enseguida se lo preparo."
+    ],
+    "native": [
+      "A traveler walks into a café at 8:00 and talks with the waitress at the counter.",
+      "He says: I'm in a hurry because my tour leaves in 12 minutes.",
+      "He asks: What is the fastest thing you have for breakfast?",
+      "The waitress answers that an egg sandwich and an americano come out quickly.",
+      "The traveler asks: How long does the sandwich take to prepare?",
+      "She says it takes about 5 minutes, according to the kitchen.",
+      "If it is possible, he wants breakfast to go, because he has no time to sit down.",
+      "He also asks for the bill now so he can pay at the counter.",
+      "The waitress smiles and says: My pleasure, I'll get it ready for you right away."
+    ]
+  },
+  "words": [
+    {
+      "en": "breakfast",
+      "es": "desayuno",
+      "kind": "term"
+    },
+    {
+      "en": "counter",
+      "es": "mostrador",
+      "kind": "term"
+    },
+    {
+      "en": "bill",
+      "es": "cuenta",
+      "kind": "term"
+    },
+    {
+      "en": "americano coffee",
+      "es": "café americano",
+      "kind": "term"
+    },
+    {
+      "en": "egg sandwich",
+      "es": "sándwich de huevo",
+      "kind": "term"
+    },
+    {
+      "en": "to go",
+      "es": "para llevar",
+      "kind": "term",
+      "note": "Used after the food or drink you order."
+    },
+    {
+      "en": "hurry",
+      "es": "prisa",
+      "kind": "term"
+    },
+    {
+      "en": "tour",
+      "es": "tour",
+      "kind": "term"
+    },
+    {
+      "en": "waitress",
+      "es": "mesera",
+      "kind": "term",
+      "note": "Use mesero for a waiter."
+    },
+    {
+      "en": "preparation",
+      "es": "preparación",
+      "kind": "term"
+    },
+    {
+      "en": "minutes",
+      "es": "minutos",
+      "kind": "term"
+    },
+    {
+      "en": "kitchen",
+      "es": "cocina",
+      "kind": "term"
+    },
+    {
+      "en": "I'm in a hurry because my tour leaves soon.",
+      "es": "Tengo prisa porque mi tour sale pronto.",
+      "kind": "phrase"
+    },
+    {
+      "en": "What is the fastest thing you have?",
+      "es": "¿Qué es lo más rápido que tienen?",
+      "kind": "phrase"
+    },
+    {
+      "en": "How long does the preparation take?",
+      "es": "¿Cuánto tiempo tarda la preparación?",
+      "kind": "phrase"
+    },
+    {
+      "en": "Could it be to go, please?",
+      "es": "¿Podría ser para llevar, por favor?",
+      "kind": "phrase",
+      "note": "A polite request with podría."
+    },
+    {
+      "en": "I only have 12 minutes.",
+      "es": "Solo tengo 12 minutos.",
+      "kind": "phrase"
+    },
+    {
+      "en": "Could you bring me the bill now, please?",
+      "es": "¿Me trae la cuenta ahora, por favor?",
+      "kind": "phrase"
+    }
+  ]
+}
+
+CANDIDATE:
+{
+  "cards": [
+    {
+      "id": "core:14:word:1",
+      "supportEnglish": "breakfast",
+      "sourceSpanish": "desayuno",
+      "targetFrench": "le petit-déjeuner",
+      "kind": "term"
+    },
+    {
+      "id": "core:14:word:2",
+      "supportEnglish": "counter",
+      "sourceSpanish": "mostrador",
+      "targetFrench": "le comptoir",
+      "kind": "term"
+    },
+    {
+      "id": "core:14:word:3",
+      "supportEnglish": "bill",
+      "sourceSpanish": "cuenta",
+      "targetFrench": "l’addition",
+      "kind": "term"
+    },
+    {
+      "id": "core:14:word:4",
+      "supportEnglish": "americano coffee",
+      "sourceSpanish": "café americano",
+      "targetFrench": "un café américain",
+      "kind": "term"
+    },
+    {
+      "id": "core:14:word:5",
+      "supportEnglish": "egg sandwich",
+      "sourceSpanish": "sándwich de huevo",
+      "targetFrench": "un sandwich aux œufs",
+      "kind": "term"
+    },
+    {
+      "id": "core:14:word:6",
+      "supportEnglish": "to go",
+      "sourceSpanish": "para llevar",
+      "targetFrench": "à emporter",
+      "kind": "term"
+    },
+    {
+      "id": "core:14:word:7",
+      "supportEnglish": "hurry",
+      "sourceSpanish": "prisa",
+      "targetFrench": "la hâte",
+      "kind": "term"
+    },
+    {
+      "id": "core:14:word:8",
+      "supportEnglish": "tour",
+      "sourceSpanish": "tour",
+      "targetFrench": "l’excursion",
+      "kind": "term"
+    },
+    {
+      "id": "core:14:word:9",
+      "supportEnglish": "waitress",
+      "sourceSpanish": "mesera",
+      "targetFrench": "la serveuse",
+      "kind": "term"
+    },
+    {
+      "id": "core:14:word:10",
+      "supportEnglish": "preparation",
+      "sourceSpanish": "preparación",
+      "targetFrench": "la préparation",
+      "kind": "term"
+    },
+    {
+      "id": "core:14:word:11",
+      "supportEnglish": "minutes",
+      "sourceSpanish": "minutos",
+      "targetFrench": "les minutes",
+      "kind": "term"
+    },
+    {
+      "id": "core:14:word:12",
+      "supportEnglish": "kitchen",
+      "sourceSpanish": "cocina",
+      "targetFrench": "la cuisine",
+      "kind": "term"
+    },
+    {
+      "id": "core:14:word:13",
+      "supportEnglish": "I'm in a hurry because my tour leaves soon.",
+      "sourceSpanish": "Tengo prisa porque mi tour sale pronto.",
+      "targetFrench": "Je suis pressé(e) parce que mon excursion part bientôt.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:14:word:14",
+      "supportEnglish": "What is the fastest thing you have?",
+      "sourceSpanish": "¿Qué es lo más rápido que tienen?",
+      "targetFrench": "Qu’avez-vous de plus rapide ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:14:word:15",
+      "supportEnglish": "How long does the preparation take?",
+      "sourceSpanish": "¿Cuánto tiempo tarda la preparación?",
+      "targetFrench": "Combien de temps prend la préparation ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:14:word:16",
+      "supportEnglish": "Could it be to go, please?",
+      "sourceSpanish": "¿Podría ser para llevar, por favor?",
+      "targetFrench": "Est-ce possible à emporter, s’il vous plaît ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:14:word:17",
+      "supportEnglish": "I only have 12 minutes.",
+      "sourceSpanish": "Solo tengo 12 minutos.",
+      "targetFrench": "Je n’ai que douze minutes.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:14:word:18",
+      "supportEnglish": "Could you bring me the bill now, please?",
+      "sourceSpanish": "¿Me trae la cuenta ahora, por favor?",
+      "targetFrench": "Pourriez-vous m’apporter l’addition tout de suite, s’il vous plaît ?",
+      "kind": "phrase"
+    }
+  ],
+  "reader": [
+    {
+      "id": "core:14:line:1",
+      "supportEnglish": "A traveler walks into a café at 8:00 and talks with the waitress at the counter.",
+      "sourceSpanish": "Un viajero entra a un café a las 8:00 y habla con la mesera en el mostrador.",
+      "targetFrench": "Un voyageur entre dans un café à 8h00 et parle à la serveuse au comptoir."
+    },
+    {
+      "id": "core:14:line:2",
+      "supportEnglish": "He says: I'm in a hurry because my tour leaves in 12 minutes.",
+      "sourceSpanish": "Él dice: Tengo prisa porque mi tour sale en 12 minutos.",
+      "targetFrench": "Il dit : « Je suis pressé(e) parce que mon excursion part dans douze minutes. »"
+    },
+    {
+      "id": "core:14:line:3",
+      "supportEnglish": "He asks: What is the fastest thing you have for breakfast?",
+      "sourceSpanish": "Pregunta: ¿Qué es lo más rápido que tienen para el desayuno?",
+      "targetFrench": "Il demande : « Qu’avez-vous de plus rapide pour le petit-déjeuner ? »"
+    },
+    {
+      "id": "core:14:line:4",
+      "supportEnglish": "The waitress answers that an egg sandwich and an americano come out quickly.",
+      "sourceSpanish": "La mesera responde que un sándwich de huevo y un café americano salen rápido.",
+      "targetFrench": "La serveuse répond qu’un sandwich aux œufs et un café américain sont prêts rapidement."
+    },
+    {
+      "id": "core:14:line:5",
+      "supportEnglish": "The traveler asks: How long does the sandwich take to prepare?",
+      "sourceSpanish": "El viajero pregunta: ¿Cuánto tiempo tarda la preparación del sándwich?",
+      "targetFrench": "Le voyageur demande : « Combien de temps faut-il pour préparer le sandwich ? »"
+    },
+    {
+      "id": "core:14:line:6",
+      "supportEnglish": "She says it takes about 5 minutes, according to the kitchen.",
+      "sourceSpanish": "Ella dice que tarda unos 5 minutos, según la cocina.",
+      "targetFrench": "Elle dit que cela prend environ cinq minutes, d’après la cuisine."
+    },
+    {
+      "id": "core:14:line:7",
+      "supportEnglish": "If it is possible, he wants breakfast to go, because he has no time to sit down.",
+      "sourceSpanish": "Si es posible, él quiere el desayuno para llevar, porque no tiene tiempo para sentarse.",
+      "targetFrench": "Si c’est possible, il voudrait son petit-déjeuner à emporter, parce qu’il n’a pas le temps de s’asseoir."
+    },
+    {
+      "id": "core:14:line:8",
+      "supportEnglish": "He also asks for the bill now so he can pay at the counter.",
+      "sourceSpanish": "También pide la cuenta ahora para pagar en el mostrador.",
+      "targetFrench": "Il demande aussi l’addition tout de suite pour payer au comptoir."
+    },
+    {
+      "id": "core:14:line:9",
+      "supportEnglish": "The waitress smiles and says: My pleasure, I'll get it ready for you right away.",
+      "sourceSpanish": "La mesera sonríe y dice: Con gusto, enseguida se lo preparo.",
+      "targetFrench": "La serveuse sourit et dit : « Avec plaisir, je vous le prépare tout de suite. »"
+    }
+  ],
+  "forms": [
+    {
+      "sourceSpanishInfinitive": "tener",
+      "frenchInfinitive": "avoir",
+      "frenchExample": "Je suis pressé(e) parce que mon excursion part dans douze minutes.",
+      "supportEnglish": "I'm in a hurry because my tour leaves in 12 minutes.",
+      "explanationEnglish": "The source example uses tener in the idiom tener prisa (to be in a hurry). French expresses this idiom with être pressé(e), not avoir, so the example does not show the mapping directly. The entry gives tener's general French infinitive. The irregular yo form (tengo) and the e-to-ie stem change are not shown in this example."
+    },
+    {
+      "sourceSpanishInfinitive": "tardar",
+      "frenchInfinitive": "prendre",
+      "frenchExample": "Le sandwich prend environ cinq minutes.",
+      "supportEnglish": "The sandwich takes about 5 minutes.",
+      "explanationEnglish": "With a time expression, tardar means to take (time). French uses prendre with a duration, as in Le sandwich prend environ cinq minutes."
+    },
+    {
+      "sourceSpanishInfinitive": "pedir",
+      "frenchInfinitive": "demander",
+      "frenchExample": "Il demande l’addition maintenant.",
+      "supportEnglish": "He asks for the bill now.",
+      "explanationEnglish": "Here pedir means to ask for. French demander takes the requested item directly, as in demander l’addition. The source note on the e-to-i stem change has no visible counterpart in this French form."
+    },
+    {
+      "sourceSpanishInfinitive": "salir",
+      "frenchInfinitive": "partir",
+      "frenchExample": "Mon excursion part dans douze minutes.",
+      "supportEnglish": "My tour leaves in 12 minutes.",
+      "explanationEnglish": "Here salir means to leave, as a tour departs. French partir is used for this sense. The source note on the irregular yo form (salgo) is not shown in this example. The source's come out sense is not covered by this mapping."
+    },
+    {
+      "sourceSpanishInfinitive": "preparar",
+      "frenchInfinitive": "préparer",
+      "frenchExample": "La cuisine prépare le café américain rapidement.",
+      "supportEnglish": "The kitchen prepares the americano coffee quickly.",
+      "explanationEnglish": "Preparar means to prepare. French préparer is a close cognate. The source's rápido corresponds to rapidement in this example."
+    }
+  ],
+  "modes": [
+    {
+      "mode": "See",
+      "promptEnglish": "Look at the English word counter for the place where you order at a café, and find its French equivalent.",
+      "targetFrench": "le comptoir",
+      "sourceCardId": "core:14:word:2",
+      "audioPending": false
+    },
+    {
+      "mode": "Recall",
+      "promptEnglish": "Without looking, recall the French word for hurry as in being in a hurry.",
+      "targetFrench": "la hâte",
+      "sourceCardId": "core:14:word:7",
+      "audioPending": false
+    },
+    {
+      "mode": "Hear",
+      "promptEnglish": "Listen to the script for a polite request for the bill, then identify the French phrase.",
+      "targetFrench": "Pourriez-vous m’apporter l’addition tout de suite, s’il vous plaît ?",
+      "sourceCardId": "core:14:word:18",
+      "audioPending": true
+    },
+    {
+      "mode": "Type",
+      "promptEnglish": "Type the French phrase you would use to ask for breakfast to take away, using the term for to go.",
+      "targetFrench": "à emporter",
+      "sourceCardId": "core:14:word:6",
+      "audioPending": false
+    },
+    {
+      "mode": "Say",
+      "promptEnglish": "Say aloud, in French, that you only have twelve minutes.",
+      "targetFrench": "Je n’ai que douze minutes.",
+      "sourceCardId": "core:14:word:17",
+      "audioPending": true
+    },
+    {
+      "mode": "Write",
+      "promptEnglish": "Write the French question for how long the preparation takes.",
+      "targetFrench": "Combien de temps prend la préparation ?",
+      "sourceCardId": "core:14:word:15",
+      "audioPending": false
+    }
+  ],
+  "speaking": {
+    "roles": {
+      "learner": "A traveler in a hurry, ordering breakfast at the counter.",
+      "waitress": "The waitress at the café counter."
+    },
+    "openingSpeaker": "waitress",
+    "openingFrench": "Bonjour, vous désirez quelque chose pour le petit-déjeuner ?",
+    "objectivesEnglish": [
+      "Say that you are in a hurry because your tour leaves in 12 minutes (source passage, line 2).",
+      "Ask what the fastest thing you have for breakfast is (source passage, line 3).",
+      "Ask how long the preparation takes, then request breakfast to go (source passage, lines 5 to 7).",
+      "Ask for the bill now so you can pay at the counter (source passage, line 8)."
+    ],
+    "closingSpeaker": "learner",
+    "closingFrench": "Parfait, un sandwich aux œufs et un café américain à emporter, et l’addition, s’il vous plaît.",
+    "closingEnglish": "Perfect, an egg sandwich and an americano to go, and the bill, please."
+  },
+  "gates": {
+    "learnerVisible": false,
+    "audioApproved": false,
+    "progressTracking": false,
+    "reviewApproved": false,
+    "released": false,
+    "reviewed": false,
+    "registered": false,
+    "learnerRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "playbackEnabled": false,
+    "scoringEnabled": false,
+    "progressWritesEnabled": false
+  },
+  "notes": [
+    "Draft only. This is not qualified French review or approval, and no gate has been opened.",
+    "Gender of pressé is unresolved. The source Spanish has no gender marker, so the draft uses pressé(e). A reviewer should choose between pressé(e) and a gender-neutral phrasing.",
+    "Register is unresolved. The draft uses vous, matching the plural ustedes forms in the source, and the old draft's register.",
+    "Americano: the draft uses un café américain to match source wording café americano. The old draft used un americano. A reviewer should confirm which is the preferred café term.",
+    "Source line 4 says salen rápido, rendered as sont prêts rapidement. Literal sortent rapidement was rejected as less natural for a café context.",
+    "Times: 8:00 is rendered as 8h00. The source's 12 and 5 minutes are spelled out in French prose as douze and cinq. The values are preserved, but the numeral style differs from the source.",
+    "Card 13 (source 'tour sale pronto') differs from passage line 2 (source 'sale en 12 minutos'). Both are kept as in the source, and the draft does not reconcile them.",
+    "The forms entry for tener does not map cleanly. The source example uses the idiom tener prisa, which French renders as être pressé(e). The frenchInfinitive avoir is a general mapping, and a reviewer should decide whether to keep it or replace it with a more direct example.",
+    "The source's come out sense of salir is not covered. The draft uses partir for the tour sense only.",
+    "The speaking opening (Bonjour, vous désirez quelque chose pour le petit-déjeuner ?) and closing are drafted beyond the source text. They are not in the pinned Spanish source and need review.",
+    "Hear and Say are marked audioPending true. No audio has been generated, recorded, or approved. The Hear entry is script-only.",
+    "Mode prompts are English drafts written for this lesson and are not in the source. They need editorial review.",
+    "Old draft is used only as reference. Its phrasing of card 4 (un americano), card 6 (word 6 targetFrench), and speaking opening (dans douze minutes) differs from the source and was not carried over where the source was more specific."
+  ]
+}
+
+OLD #475 REFERENCE:
+{
+  "n": 14,
+  "titleEnglish": "Handle a rushed morning",
+  "objectiveEnglish": "explain time pressure, ask what is fastest, and confirm preparation time",
+  "scenarioEnglishSource": "You have twelve minutes before a tour; ask for a realistic fast option.",
+  "titleFrenchCourseEnglish": "Commander quand on est pressé",
+  "objectiveFrenchCourseEnglish": "Explain a tight schedule, ask for a fast option and confirm timing.",
+  "focusEnglish": "Use je suis pressé(e) for time pressure; dans douze minutes for a future departure; combien de temps for preparation time.",
+  "focusFrench": "Dire que l’on est pressé ; demander le délai de préparation ; commander à emporter.",
+  "teachingNotesEnglish": "Je suis pressé(e) means I am in a hurry. Mon excursion part dans douze minutes gives the deadline. Combien de temps faut-il ? asks how long it takes; à emporter means to go.",
+  "words": [
+    {
+      "en": "breakfast",
+      "kind": "term",
+      "fr": "le petit-déjeuner"
+    },
+    {
+      "en": "counter",
+      "kind": "term",
+      "fr": "le comptoir"
+    },
+    {
+      "en": "bill",
+      "kind": "term",
+      "fr": "l’addition"
+    },
+    {
+      "en": "americano coffee",
+      "kind": "term",
+      "fr": "un americano"
+    },
+    {
+      "en": "egg sandwich",
+      "kind": "term",
+      "fr": "un sandwich aux œufs"
+    },
+    {
+      "en": "to go",
+      "kind": "term",
+      "fr": "à emporter"
+    },
+    {
+      "en": "hurry",
+      "kind": "term",
+      "fr": "la hâte"
+    },
+    {
+      "en": "tour",
+      "kind": "term",
+      "fr": "l’excursion"
+    },
+    {
+      "en": "waitress",
+      "kind": "term",
+      "fr": "la serveuse"
+    },
+    {
+      "en": "preparation",
+      "kind": "term",
+      "fr": "la préparation"
+    },
+    {
+      "en": "minutes",
+      "kind": "term",
+      "fr": "les minutes"
+    },
+    {
+      "en": "kitchen",
+      "kind": "term",
+      "fr": "la cuisine"
+    },
+    {
+      "en": "I'm in a hurry because my tour leaves soon.",
+      "kind": "phrase",
+      "fr": "Je suis pressé parce que mon excursion part bientôt."
+    },
+    {
+      "en": "What is the fastest thing you have?",
+      "kind": "phrase",
+      "fr": "Qu’avez-vous de plus rapide ?"
+    },
+    {
+      "en": "How long does the preparation take?",
+      "kind": "phrase",
+      "fr": "Combien de temps prend la préparation ?"
+    },
+    {
+      "en": "Could it be to go, please?",
+      "kind": "phrase",
+      "fr": "Est-ce possible à emporter, s’il vous plaît ?"
+    },
+    {
+      "en": "I only have 12 minutes.",
+      "kind": "phrase",
+      "fr": "Je n’ai que douze minutes."
+    },
+    {
+      "en": "Could you bring me the bill now, please?",
+      "kind": "phrase",
+      "fr": "Pourriez-vous m’apporter l’addition tout de suite, s’il vous plaît ?"
+    }
+  ],
+  "passage": {
+    "titleFrench": "Commander quand on est pressé",
+    "english": [
+      "A traveler walks into a café at 8:00 and talks with the waitress at the counter.",
+      "He says: I'm in a hurry because my tour leaves in 12 minutes.",
+      "He asks: What is the fastest thing you have for breakfast?",
+      "The waitress answers that an egg sandwich and an americano come out quickly.",
+      "The traveler asks: How long does the sandwich take to prepare?",
+      "She says it takes about 5 minutes, according to the kitchen.",
+      "If it is possible, he wants breakfast to go, because he has no time to sit down.",
+      "He also asks for the bill now so he can pay at the counter.",
+      "The waitress smiles and says: My pleasure, I'll get it ready for you right away."
+    ],
+    "french": [
+      "Un voyageur entre dans un café à huit heures et parle à la serveuse au comptoir.",
+      "Il dit : « Je suis pressé, car mon excursion part dans douze minutes. »",
+      "Il demande : « Qu’avez-vous de plus rapide pour le petit-déjeuner ? »",
+      "La serveuse répond qu’un sandwich aux œufs et un americano peuvent être prêts rapidement.",
+      "Le voyageur demande : « Combien de temps faut-il pour préparer le sandwich ? »",
+      "Elle répond que cela prend environ cinq minutes, d’après la cuisine.",
+      "Si c’est possible, il voudrait son petit-déjeuner à emporter, car il n’a pas le temps de s’asseoir.",
+      "Il demande aussi l’addition tout de suite pour pouvoir payer au comptoir.",
+      "La serveuse sourit et dit : « Avec plaisir, je vous prépare cela immédiatement. »"
+    ]
+  },
+  "verbs": [
+    {
+      "infinitiveFrench": "avoir",
+      "meaningEnglish": "to have",
+      "exampleFrench": "Je suis pressé, car mon excursion part dans douze minutes.",
+      "exampleEnglish": "I'm in a hurry because my tour leaves in 12 minutes.",
+      "sourceInfinitiveSpanish": "tener"
+    },
+    {
+      "infinitiveFrench": "prendre",
+      "meaningEnglish": "to take (time)",
+      "exampleFrench": "Le sandwich prend environ cinq minutes.",
+      "exampleEnglish": "The sandwich takes about 5 minutes.",
+      "sourceInfinitiveSpanish": "tardar"
+    },
+    {
+      "infinitiveFrench": "demander",
+      "meaningEnglish": "to ask for, to order",
+      "exampleFrench": "Il demande l’addition tout de suite.",
+      "exampleEnglish": "He asks for the bill now.",
+      "sourceInfinitiveSpanish": "pedir"
+    },
+    {
+      "infinitiveFrench": "partir",
+      "meaningEnglish": "to leave, to come out",
+      "exampleFrench": "Mon excursion part dans douze minutes.",
+      "exampleEnglish": "My tour leaves in 12 minutes.",
+      "sourceInfinitiveSpanish": "salir"
+    },
+    {
+      "infinitiveFrench": "préparer",
+      "meaningEnglish": "to prepare",
+      "exampleFrench": "La cuisine prépare rapidement l’americano.",
+      "exampleEnglish": "The kitchen prepares the americano coffee quickly.",
+      "sourceInfinitiveSpanish": "preparar"
+    }
+  ],
+  "speakingInstructionEnglish": "Tell the server your tour leaves in twelve minutes; ask what is actually ready soon and request takeaway.",
+  "speakingFrench": "Je suis pressé : mon excursion part dans douze minutes. Qu’avez-vous de plus rapide, à emporter ?",
+  "regionalNotesEnglish": [
+    "Americano and egg-sandwich availability vary by café. The time estimate belongs to this fictional kitchen, not a general promise."
+  ],
+  "reviewed": false
+}

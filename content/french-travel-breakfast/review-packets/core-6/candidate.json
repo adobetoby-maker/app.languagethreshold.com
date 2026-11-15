@@ -1,0 +1,329 @@
+{
+  "cards": [
+    {
+      "id": "core:6:word:1",
+      "label": "allergy",
+      "sourceEnglish": "allergy",
+      "targetFrench": "une allergie",
+      "kind": "term"
+    },
+    {
+      "id": "core:6:word:2",
+      "label": "nuts",
+      "sourceEnglish": "nuts",
+      "targetFrench": "les fruits à coque",
+      "kind": "term"
+    },
+    {
+      "id": "core:6:word:3",
+      "label": "peanuts",
+      "sourceEnglish": "peanuts",
+      "targetFrench": "les arachides",
+      "kind": "term"
+    },
+    {
+      "id": "core:6:word:4",
+      "label": "dairy",
+      "sourceEnglish": "dairy",
+      "targetFrench": "les produits laitiers",
+      "kind": "term"
+    },
+    {
+      "id": "core:6:word:5",
+      "label": "gluten",
+      "sourceEnglish": "gluten",
+      "targetFrench": "le gluten",
+      "kind": "term"
+    },
+    {
+      "id": "core:6:word:6",
+      "label": "meat",
+      "sourceEnglish": "meat",
+      "targetFrench": "la viande",
+      "kind": "term"
+    },
+    {
+      "id": "core:6:word:7",
+      "label": "ingredients",
+      "sourceEnglish": "ingredients",
+      "targetFrench": "les ingrédients",
+      "kind": "term"
+    },
+    {
+      "id": "core:6:word:8",
+      "label": "bread",
+      "sourceEnglish": "bread",
+      "targetFrench": "le pain",
+      "kind": "term"
+    },
+    {
+      "id": "core:6:word:9",
+      "label": "butter",
+      "sourceEnglish": "butter",
+      "targetFrench": "le beurre",
+      "kind": "term"
+    },
+    {
+      "id": "core:6:word:10",
+      "label": "server",
+      "sourceEnglish": "server",
+      "targetFrench": "le serveur",
+      "kind": "term"
+    },
+    {
+      "id": "core:6:word:11",
+      "label": "I have an allergy to nuts.",
+      "sourceEnglish": "I have an allergy to nuts.",
+      "targetFrench": "Je suis allergique aux fruits à coque.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:6:word:12",
+      "label": "What ingredients does it have?",
+      "sourceEnglish": "What ingredients does it have?",
+      "targetFrench": "Quels ingrédients contient ce plat ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:6:word:13",
+      "label": "I don't eat meat.",
+      "sourceEnglish": "I don't eat meat.",
+      "targetFrench": "Je ne mange pas de viande.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:6:word:14",
+      "label": "Can you check with the kitchen, please?",
+      "sourceEnglish": "Can you check with the kitchen, please?",
+      "targetFrench": "Pouvez-vous vérifier auprès de la cuisine, s'il vous plaît ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:6:word:15",
+      "label": "I prefer to avoid dairy.",
+      "sourceEnglish": "I prefer to avoid dairy.",
+      "targetFrench": "Je préfère éviter les produits laitiers.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:6:word:16",
+      "label": "Does this bread have gluten?",
+      "sourceEnglish": "Does this bread have gluten?",
+      "targetFrench": "Est-ce que ce pain contient du gluten ?",
+      "kind": "phrase"
+    }
+  ],
+  "reader": {
+    "titleFrench": "Vérifier les ingrédients",
+    "turns": [
+      {
+        "id": "core:6:line:1",
+        "targetFrench": "Je suis dans un café et je parle au serveur avant de commander.",
+        "supportEnglish": "I am in a café and I talk to the server before ordering."
+      },
+      {
+        "id": "core:6:line:2",
+        "targetFrench": "Je commence par dire : « Je suis allergique aux fruits à coque. »",
+        "supportEnglish": "First I say: I have an allergy to nuts."
+      },
+      {
+        "id": "core:6:line:3",
+        "targetFrench": "Puis je demande : « Quels ingrédients contient ce plat ? »",
+        "supportEnglish": "Then I ask: What ingredients does it have?"
+      },
+      {
+        "id": "core:6:line:4",
+        "targetFrench": "Le serveur n'est pas sûr ; il va donc vérifier auprès de la cuisine.",
+        "supportEnglish": "The server is not sure, so he is going to check with the kitchen."
+      },
+      {
+        "id": "core:6:line:5",
+        "targetFrench": "Ensuite, il me dit que, d'après la cuisine, le pain ne contient pas de fruits à coque.",
+        "supportEnglish": "Afterward he tells me that, according to the kitchen, the bread has no nuts."
+      },
+      {
+        "id": "core:6:line:6",
+        "targetFrench": "Je dis aussi : « Je ne mange pas de viande », et je demande si la garniture en contient.",
+        "supportEnglish": "I also say: I don't eat meat, and I ask if the filling has meat in it."
+      },
+      {
+        "id": "core:6:line:7",
+        "targetFrench": "Si la cuisine n'est pas sûre, je commande autre chose.",
+        "supportEnglish": "If the kitchen is not sure, I order something else."
+      },
+      {
+        "id": "core:6:line:8",
+        "targetFrench": "Je confirme seulement les ingrédients et je ne demande pas de conseil médical.",
+        "supportEnglish": "I only confirm the ingredients and I do not ask for medical advice."
+      }
+    ]
+  },
+  "forms": [
+    {
+      "id": "core:6:form:1",
+      "french": "Je suis allergique aux fruits à coque.",
+      "form": "être + allergique à (à + les → aux)",
+      "englishExplanation": "'Allergique' takes à. Before a plural noun, à + les contracts to aux, giving 'aux fruits à coque'.",
+      "cardIds": [
+        "core:6:word:11"
+      ]
+    },
+    {
+      "id": "core:6:form:2",
+      "french": "Quels ingrédients contient ce plat ?",
+      "form": "contenir, 3rd person singular (il/elle contient)",
+      "englishExplanation": "'Contient' is the present tense of 'contenir' ('to contain') for one thing or person. Here it asks what the dish contains.",
+      "cardIds": [
+        "core:6:word:12"
+      ]
+    },
+    {
+      "id": "core:6:form:3",
+      "french": "Pouvez-vous vérifier auprès de la cuisine, s'il vous plaît ?",
+      "form": "pouvoir, vous form with inversion",
+      "englishExplanation": "Inverting 'pouvez' and 'vous' makes a polite request, using vous for the server.",
+      "cardIds": [
+        "core:6:word:14"
+      ]
+    },
+    {
+      "id": "core:6:form:4",
+      "french": "Je ne mange pas de viande.",
+      "form": "ne ... pas de (negation of a partitive or indefinite article)",
+      "englishExplanation": "After 'ne ... pas', 'de' replaces the partitive articles (du, de la, de l') and the indefinite articles (un, une, des) before the noun: 'de la viande' becomes 'pas de viande'.",
+      "cardIds": [
+        "core:6:word:13"
+      ]
+    },
+    {
+      "id": "core:6:form:5",
+      "french": "Est-ce que ce pain contient du gluten ?",
+      "form": "est-ce que question + du (partitive article)",
+      "englishExplanation": "'Est-ce que' opens a yes/no question. 'Du' is the partitive article before a masculine singular noun: 'du gluten'.",
+      "cardIds": [
+        "core:6:word:16"
+      ]
+    }
+  ],
+  "modes": {
+    "see": {
+      "id": "core:6:mode:see",
+      "cardId": "core:6:word:2",
+      "prompt": "See the English card 'nuts'. Identify the French term this lesson teaches for it.",
+      "answerFrench": "les fruits à coque"
+    },
+    "recall": {
+      "id": "core:6:mode:recall",
+      "cardId": "core:6:word:12",
+      "prompt": "Recall from memory the French question for 'What ingredients does it have?'",
+      "answerFrench": "Quels ingrédients contient ce plat ?"
+    },
+    "hear": {
+      "id": "core:6:mode:hear",
+      "cardId": "core:6:word:14",
+      "prompt": "Text-only stand-in; no audio is played. The server says, « Je ne sais pas. » Ask in French for a kitchen check, politely.",
+      "answerFrench": "Pouvez-vous vérifier auprès de la cuisine, s'il vous plaît ?",
+      "playable": false
+    },
+    "type": {
+      "id": "core:6:mode:type",
+      "cardId": "core:6:word:16",
+      "prompt": "Type the French for 'Does this bread have gluten?'",
+      "answerFrench": "Est-ce que ce pain contient du gluten ?"
+    },
+    "say": {
+      "id": "core:6:mode:say",
+      "cardId": "core:6:word:11",
+      "prompt": "Say aloud to the server, in French: 'I have an allergy to nuts.'",
+      "answerFrench": "Je suis allergique aux fruits à coque."
+    },
+    "write": {
+      "id": "core:6:mode:write",
+      "cardId": "core:6:word:13",
+      "prompt": "Write the French for 'I don't eat meat.'",
+      "answerFrench": "Je ne mange pas de viande."
+    }
+  },
+  "speaking": {
+    "scenario": "Café, before ordering. The learner states a restriction, asks about ingredients, and asks for a kitchen check.",
+    "staffOpening": {
+      "french": "Bonjour ! Vous avez choisi ?",
+      "english": "Hello! Have you chosen?"
+    },
+    "learnerOpeningFrench": "Bonjour. Je suis allergique aux fruits à coque. Pouvez-vous vérifier les ingrédients auprès de la cuisine ?",
+    "instructionEnglish": "Before ordering, tell the server about a restriction, ask for ingredient confirmation, and choose another item if the kitchen is unsure.",
+    "objectives": [
+      {
+        "id": "core:6:objective:1",
+        "english": "State the allergy using the card sentence 'I have an allergy to nuts.'",
+        "targetFrench": "Je suis allergique aux fruits à coque.",
+        "cardId": "core:6:word:11"
+      },
+      {
+        "id": "core:6:objective:2",
+        "english": "Ask what ingredients the dish contains.",
+        "targetFrench": "Quels ingrédients contient ce plat ?",
+        "cardId": "core:6:word:12"
+      },
+      {
+        "id": "core:6:objective:3",
+        "english": "Ask the server to check with the kitchen.",
+        "targetFrench": "Pouvez-vous vérifier auprès de la cuisine, s'il vous plaît ?",
+        "cardId": "core:6:word:14"
+      }
+    ]
+  },
+  "notes": {
+    "stageLocalIds": "All IDs use core:6 (cards, reader lines, forms, modes, objectives). Card and reader order matches privateDraft.",
+    "sourceFile": "public/lesson-content/es/travel-breakfast.json",
+    "sourceSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "gates": {
+      "reviewed": false,
+      "registered": false,
+      "playbackEnabled": false,
+      "audioEnabled": false,
+      "progressGate": false,
+      "requiresQualifiedReview": true
+    },
+    "qualifiedApprovalAsserted": false,
+    "frenchCorrections": [
+      "Cards 1 to 16, reader lines 1 to 7 and the learner speaking opening are unchanged from privateDraft. English card labels and the supportEnglish of reader lines 1 to 7 are kept exactly as supplied.",
+      "Reader line 8 was replaced in both languages. The privateDraft line ('Je répète les ingrédients que j'évite, et le serveur vérifie ma commande.' / 'I repeat the ingredients I avoid, and the server checks my order.') did not match the source passage. The French is now 'Je confirme seulement les ingrédients et je ne demande pas de conseil médical.' and the supportEnglish is the source native line 8 verbatim: 'I only confirm the ingredients and I do not ask for medical advice.'",
+      "Forms 4 and 5 now say 'partitive article' instead of 'partial article'. Form 4 also lists 'un' and 'de l'' among the articles that 'de' replaces after a negation."
+    ],
+    "dictionaryDecisions": [
+      "DECISION NEEDED: the English card 'nuts' is mapped to 'les fruits à coque' (core:6:word:2, core:6:word:11, core:6:line:2, core:6:line:5, learner speaking opening). This mapping comes from privateDraft and is unreviewed. The source note on 'frutos secos' says only: 'Means nuts in general. Nueces are specifically walnuts.' This draft does not assert that 'nuts' and 'les fruits à coque' cover the same foods. A qualified reviewer must confirm or replace the mapping.",
+      "'peanuts' maps to 'les arachides' on its own card (core:6:word:3), separate from core:6:word:2, as in the source, where 'cacahuates' is a separate entry. The source note's regional variant 'maní' was not carried over. Whether a regional French alternative should be added is left to review.",
+      "'noix' was not used for 'nuts'. On its own it usually means walnut, in line with the source note on 'nueces'.",
+      "'server' maps to 'le serveur' (masculine). The source notes 'mesera' for a woman. A feminine 'la serveuse' (with 'elle' in reader lines 4 and 5) is not in this draft: DECISION NEEDED on whether to add it.",
+      "Clinical terms: 'une allergie' and 'allergique à' are kept as allergy and allergic to. 'Intolérance' is not used."
+    ],
+    "semanticConflicts": [
+      "The source file is Spanish (es/travel-breakfast.json), but the lesson is French. Source verbs, passage and words were read for their English meaning only, and no Spanish forms were imported.",
+      "The scope of 'Je suis allergique aux fruits à coque.' relative to the English card 'I have an allergy to nuts.' is unverified (see the dictionary decision above). The See prompt and speaking objective 1 refer to the English card wording only and make no claim about which foods the French term covers.",
+      "Reader line 5 is a statement reported by the kitchen. The attribution 'd'après la cuisine' is preserved, and the draft does not turn it into an independent or certified claim about the bread.",
+      "Reader line 8 directly teaches the exact source sentence that the speaker only confirms ingredients and does not ask for medical advice. No separate advice or warning was added.",
+      "privateDraft focusEnglish mentions 'contient-il', but it is on no card. Form 2 covers contenir with 'ce plat'.",
+      "The speaking instructionEnglish is kept from privateDraft and includes 'choose another item if the kitchen is unsure'. No card carries a French target for that step, so no objective claims one. Objective 3 covers only the kitchen-check request (core:6:word:14). Reader line 7 ('je commande autre chose') is the only French in this draft that models it.",
+      "The speaking staffOpening ('Bonjour ! Vous avez choisi ?') is authored for this draft and is not in the source or privateDraft. It is unreviewed."
+    ],
+    "unverifiedOrOpen": [
+      "No qualified review has been performed. This draft is unreviewed and unregistered, and all gates are closed.",
+      "Hear mode is script-only, with no playable audio and no audio file reference. Its script and answer are both the exact French of core:6:word:14.",
+      "Each of the six mode answers equals the targetFrench of its linked card exactly.",
+      "The 'nuts' → 'les fruits à coque' mapping and the gendered server form need sign-off before review."
+    ]
+  },
+  "draftLessonKey": "core:6",
+  "stage": "core",
+  "n": 6,
+  "gates": {
+    "reviewed": false,
+    "requiresQualifiedReview": true,
+    "registered": false,
+    "playbackEnabled": false,
+    "audioEnabled": false,
+    "progressGate": false,
+    "qualifiedApprovalAsserted": false
+  }
+}

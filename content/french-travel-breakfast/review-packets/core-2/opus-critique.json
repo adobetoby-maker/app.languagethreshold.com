@@ -1,0 +1,157 @@
+{
+  "scope": "Read-only critique of the Haiku candidate against the supplied source, draft and activities. No files were read or edited. This is not a qualified-reviewer approval; reviewed and readyForLearner stay false.",
+  "verdict": "Not acceptable as-is. 4 high, 8 medium, 6 low.",
+  "issues": [
+    {
+      "index": 1,
+      "severity": "high",
+      "location": "correctedFrenchReader[3]; verbs[0].exampleFrench; modeCorrections write",
+      "sourceEvidence": "\"Ella quiere un café con leche mediano.\" / \"She wants a medium coffee with milk.\"",
+      "problem": "Narrative 'voudrait' means 'would like', not 'wants'. The vouloir example also fails to show the plain present. The candidate's write correction tells the reviewer to 'keep the conditional voudrait', which goes against English parity.",
+      "correction": "Elle veut un café au lait de taille moyenne. Use this in Reader line 4, the vouloir example and the write modelFrench. Keep 'je voudrais' only in the first-person polite-order card and form."
+    },
+    {
+      "index": 2,
+      "severity": "high",
+      "location": "forms",
+      "sourceEvidence": "Every source verb carries a full 5-slot paradigm (yo/tú/él_ella_usted/nosotros/ellos_ustedes) plus a note.",
+      "problem": "The candidate gives 3 phrase-level 'forms' and no conjugations for vouloir, demander, boire/prendre, commander or avoir. The vouloir explanation imports the Spanish 'stem change e to ie', which is irrelevant to French.",
+      "correction": "Supply a French paradigm for each verb, for example: veux/veux/veut/voulons/veulent (+ je voudrais); demande/demandes/demande/demandons/demandent; bois/bois/boit/buvons/boivent or prends/prends/prend/prenons/prennent; commande…; ai/as/a/avons/ont. Decide and document how ellos_ustedes maps, since French splits ils/elles from vous and usted→vous is also the avez-vous form. Remove the Spanish stem-change note."
+    },
+    {
+      "index": 3,
+      "severity": "high",
+      "location": "verbs[3] (pedir→commander) and Reader line 7",
+      "sourceEvidence": "\"Ella pide el café caliente.\" / \"She asks for the coffee hot.\"",
+      "problem": "The commander entry's example uses 'demande', not commander. 'un café chaud' (a hot coffee) does not match 'the coffee hot'. demander now covers both preguntar and pedir with no note. The candidate left all of this unaddressed.",
+      "correction": "Verb example: \"Elle commande le café chaud.\" Reader line 7: \"Elle demande le café chaud, puis demande : « … »\" or \"Elle le commande chaud…\". Add a note that French demander covers both 'ask (a question)' and 'ask for', and commander means 'order'."
+    },
+    {
+      "index": 4,
+      "severity": "high",
+      "location": "speakingFrench (unchanged) vs speakingObjectives / speakingInstructionEnglish",
+      "sourceEvidence": "Draft instruction: \"ask whether oat milk and size options are available, then confirm hot and on-site or takeaway service.\"",
+      "problem": "The model speech has no size question and no sur place / à emporter, and it orders 'un café chaud' rather than a café au lait. The candidate added objectives but no matching French model. It also rewrote 'confirm hot' as 'Answer hot or cold'.",
+      "correction": "Model: \"Bonjour ! Quelles sortes de café y a-t-il ? Je voudrais un café au lait, s'il vous plaît. Quelles tailles proposez-vous ? Avez-vous du lait d'avoine ? Chaud, s'il vous plaît, et sur place.\" Make the 4th objective 'Confirm hot, then choose sur place or à emporter.'"
+    },
+    {
+      "index": 5,
+      "severity": "medium",
+      "location": "card 1 (black coffee) / Reader line 3 / sourceNotes",
+      "sourceEvidence": "es \"café americano\", note \"Usually espresso with hot water; the name can vary by place.\"",
+      "problem": "The candidate keeps 'un café noir' and moves the issue to residuals. In France 'café noir' normally means espresso, so it loses the source's 'espresso + hot water' specificity.",
+      "correction": "Keep the English 'black coffee'. Use 'un café allongé', or 'un café noir' with a regional note saying an americano-style drink is usually called café allongé (sometimes café américain, often filter coffee). Flag this for reviewer decision but propose it concretely."
+    },
+    {
+      "index": 6,
+      "severity": "medium",
+      "location": "regionalNotesEnglish / residuals (café crème)",
+      "sourceEvidence": "The supplied source contains no Rome/Roman setting. The source title and lines are setting-neutral, and the only regional cue is the americano note 'name can vary by place'.",
+      "problem": "The Roman setting cannot be verified from these inputs. Both draft and candidate assume a café in France ('In France…', café crème). If the course frames the scene in Rome, those notes are mislocated, and caffè americano and caffè latte are distinct Italian usages.",
+      "correction": "Confirm the intended setting against the full source file (pinned SHA 8c00629a…). If it is Roman, rewrite the regional note for a French speaker ordering in Rome, or mark the France framing as a deliberate localisation."
+    },
+    {
+      "index": 7,
+      "severity": "medium",
+      "location": "card 13 / Reader line 2",
+      "sourceEvidence": "\"¿Qué tipos de café hay?\" / \"What types of coffee are there?\"",
+      "problem": "'avez-vous' means 'do you have', which breaks parity with 'are there' / hay. The candidate claims exact English parity without checking this.",
+      "correction": "Quelles sortes de café y a-t-il ? (or Qu'est-ce que vous avez comme cafés ? if a reviewer prefers spoken register, but then parity drifts)."
+    },
+    {
+      "index": 8,
+      "severity": "medium",
+      "location": "correctedFrenchReader[7]; verbs[2] (tomar→boire)",
+      "sourceEvidence": "\"Ella toma una mesa y bebe su café.\" / \"She takes a table…\"; tomar = \"to drink / to take\"",
+      "problem": "Changing to 's'installe à une table' drops 'takes' and now diverges from the verb example, which still says 'prend une table'. 'Prendre une table' is idiomatic, so the candidate's justification is weak. boire also does not cover 'to take'.",
+      "correction": "Restore \"Elle prend une table et boit son café.\" Consider mapping tomar→prendre (prendre un café = to have a coffee), which covers both glosses. If boire is kept, note that it only covers 'to drink'."
+    },
+    {
+      "index": 9,
+      "severity": "medium",
+      "location": "Reader line 7 vs card 17",
+      "sourceEvidence": "Same Spanish string in both: \"¿Es para tomar aquí o para llevar?\"",
+      "problem": "The card uses 'C'est sur place ou à emporter ?' and the Reader uses 'C'est pour boire ici ou à emporter ?'. The candidate lists this as a residual instead of fixing it. 'Pour boire ici' is less idiomatic.",
+      "correction": "Use 'C'est sur place ou à emporter ?' in both places."
+    },
+    {
+      "index": 10,
+      "severity": "medium",
+      "location": "Reader line 6",
+      "sourceEvidence": "\"El barista responde que sí…\"",
+      "problem": "'répond oui' is stilted; the idiom is 'répond que oui'.",
+      "correction": "Le barista répond que oui et lui demande si elle le veut chaud ou froid."
+    },
+    {
+      "index": 11,
+      "severity": "medium",
+      "location": "objectiveFrenchCourseEnglish (not flagged by candidate)",
+      "sourceEvidence": "objectiveEnglish: \"…styles, size, milk, temperature, and where to drink it\"",
+      "problem": "The course objective omits size and says 'service options' in place of 'where to drink it'.",
+      "correction": "Ask about coffee styles, size, milk, temperature, and whether to drink it on site or take it away, in French."
+    },
+    {
+      "index": 12,
+      "severity": "medium",
+      "location": "focusEnglish vs forms / focusFrench",
+      "sourceEvidence": "Draft focus: \"Partitive du/de la\"",
+      "problem": "'de la' is never used or taught. The partitive in Reader line 3 ('du café noir et du café au lait'), which contrasts with the card 'un café noir', is not used as an example. focusFrench omits the partitive entirely.",
+      "correction": "Either drop 'de la' from focus or add one example. Add the line-3 du/un contrast to the partitive form. Add the partitive to focusFrench."
+    },
+    {
+      "index": 13,
+      "severity": "low",
+      "location": "card 3 (medium)",
+      "sourceEvidence": "en \"medium\", es \"mediano\" (adjective)",
+      "problem": "Changing 'moyen' to 'taille moyenne' turns an adjective into a noun phrase and overlaps card 10 'la taille'. It is defensible but undocumented.",
+      "correction": "Either keep 'moyen' with the note 'café au lait de taille moyenne', or keep 'taille moyenne' and record the rationale."
+    },
+    {
+      "index": 14,
+      "severity": "low",
+      "location": "card 18",
+      "sourceEvidence": "\"¿Puede ser caliente, por favor?\" / \"Can it be hot, please?\"",
+      "problem": "'Pouvez-vous le servir chaud' means 'can you serve it hot', which is a different structure. The 'le' has no antecedent on a standalone card.",
+      "correction": "Acceptable as an idiomatic adaptation. Alternative: 'Je peux l'avoir chaud, s'il vous plaît ?' Note the deviation either way."
+    },
+    {
+      "index": 15,
+      "severity": "low",
+      "location": "card 15",
+      "sourceEvidence": "\"Quiero…\" / \"I want a coffee with milk, please.\"",
+      "problem": "'Je voudrais' means 'I would like', so this is a parity drift, even though it is pedagogically sound.",
+      "correction": "Keep it, and add a card note: literal 'Je veux…' is possible but can sound blunt, and 'je voudrais' is the standard polite order."
+    },
+    {
+      "index": 16,
+      "severity": "low",
+      "location": "activity type (fixed)",
+      "sourceEvidence": "core:2:word:15",
+      "problem": "A fixed-response typed sentence without normalisation rules will reject valid typography variants (' vs ’, spacing before '?' and '»').",
+      "correction": "Specify apostrophe, NBSP and punctuation normalisation for fixed matching."
+    },
+    {
+      "index": 17,
+      "severity": "low",
+      "location": "activity hear",
+      "sourceEvidence": "recordedAudioRequired: true",
+      "problem": "The candidate correctly blocks this on missing audio. The cue 'Listen for…' implies a longer clip containing the target, but only the bare phrase is modelled.",
+      "correction": "Either change the cue to 'Listen and identify the question about sizes', or specify the clip context."
+    },
+    {
+      "index": 18,
+      "severity": "low",
+      "location": "sourceNotes[0]",
+      "sourceEvidence": "Draft English strings match source natives verbatim (checked: 18 words, 8 lines, 5 verb meanings and examples).",
+      "problem": "English parity holds. The note overstates the result, though: the French in issues 1, 3 and 7 does not match the English it is aligned with.",
+      "correction": "Reword to: 'English strings unchanged; French-to-English alignment exceptions listed.'"
+    }
+  ],
+  "verifiedOk": [
+    "All sourceRefs resolve under 1-based indexing (line:3, line:4, word:4, word:14, word:15, word:16).",
+    "see, recall, type and say cue-to-target alignment is correct.",
+    "Lines 1, 3, 5 and card 16 are idiomatic and at parity.",
+    "readyForLearner and reviewed are false throughout."
+  ],
+  "approval": "none"
+}

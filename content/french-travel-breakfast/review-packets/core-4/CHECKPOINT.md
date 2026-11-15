@@ -1,0 +1,9 @@
+# French Breakfast Core 4 — private lesson team
+
+Current `origin/main` at source audit: `a51867cd94f6404299d6317d1dd4a5234634a91c`. Exact source `public/lesson-content/es/travel-breakfast.json` SHA-256 `8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc`, verified against `origin/main` bytes. The prior private #475 Core 4 packet was compared; it is not an approval.
+
+`candidate.json` has 18 exact source English/Spanish cards and nine exact aligned Reader pairs in order, with stage-local `core:4` IDs, seven contextual French forms, six authored linked mode proposals and a speaking scenario. Local `validate.py` passes. The Hear and Say activities are script-only and blocked. Review, learner registration, audio and progress gates are false. No repo, owner-route, V4, audio or ticket change was made.
+
+Direct `claude --safe-mode -p` CLI output metadata records Haiku 5.5 candidate authoring, Opus 5.5 read-only critique and Fable 5.2 correction. Raw outputs and prompts are in this folder. Opus identified mode direction/answer ambiguity, a false statement about `s'asseoir`, missing `commander` form coverage, malformed fruit note and an unsupported claim about breakfast contents. Fable corrected these; source-grounded self-check added explicit English answers, accepted French variants, server lines and closed-gate metadata. AI critique is not qualified French/domain review.
+
+Qualified review remains for `je veux` versus polite `je voudrais` against source “I want,” `inclus` versus `compris`, singular source `fruta` versus French plural `fruits`, `la carte`/`menu`, the eggs' cooking-preference idiom, and whether the speaking task should ask what the breakfast includes when the passage only confirms coffee. Runtime answer normalization, dictionary, exact-pair Reader/offline, account progress, browser/phone/V4 and per-clip listening remain unverified. Keep this private until source, ID/progress and qualified review decisions.

@@ -1,0 +1,321 @@
+{
+  "schema": 1,
+  "status": "private-source-reconciliation-candidate",
+  "reviewed": false,
+  "registered": false,
+  "readyForLearner": false,
+  "audioListeningReviewed": false,
+  "source": {
+    "japanesePath": "content/japanese-travel-lunch/master-13-15-draft.json",
+    "japaneseSha256": "4a954fa7e31d285a4c932c109dffe59ad91bf8053c02f3a6ce12e6cb0f35f0c7",
+    "spanishReaderPath": "public/lesson-content/es/master-travel-lunch.json",
+    "spanishReaderSha256": "602b0a9b0c29ae6942275ad44734c36267364af6ebe5685e48dabe5da7f94539",
+    "spanishCurriculumPath": "src/data/core60/es/master-travel-lunch.json",
+    "spanishCurriculumSha256": "bce5c0799e9d8d038450599ab839a7d48d6f69533968c94f1d3f2ae3808f4bfa"
+  },
+  "lesson": {
+    "n": 14,
+    "sourceEnglishTitle": "Near Miss: The Peanut Sauce Nobody Mentioned",
+    "sourceEnglishObjective": "Talk through an allergen near miss with the server without blame and agree what both sides will check next time.",
+    "title": "表示されていなかったピーナッツソースを確認する",
+    "objective": "Explain a peanut-allergen near miss without blame, name the epinephrine auto-injector and possible serious reaction directly, and agree on concrete checks for the next order.",
+    "focus": "もう少しで…ところでした describes the near miss; もし聞かなかったら…かもしれません describes a possible serious reaction that did not occur. ～と伝えました reports Grace’s prior disclosure; 次回は…ます assigns a future check without blame.",
+    "scene": "At a small lunch restaurant in downtown Quito, Grace spots an unlisted peanut sauce beside her llapingachos before tasting it and speaks with the manager.",
+    "cards": [
+      {
+        "ja": "ピーナッツ",
+        "en": "the peanut",
+        "kind": "term"
+      },
+      {
+        "ja": "ピーナッツソース",
+        "en": "the peanut sauce",
+        "kind": "term"
+      },
+      {
+        "ja": "ヤピンガチョス（じゃがいものお焼き）",
+        "en": "the potato patties (llapingachos)",
+        "kind": "term"
+      },
+      {
+        "ja": "ひやりとした出来事",
+        "en": "the scare",
+        "kind": "term"
+      },
+      {
+        "ja": "エピネフリン自己注射器",
+        "en": "the epinephrine auto-injector",
+        "kind": "term"
+      },
+      {
+        "ja": "注文票の書き込み",
+        "en": "the note (on the order)",
+        "kind": "term"
+      },
+      {
+        "ja": "女性店長",
+        "en": "the manager (woman)",
+        "kind": "term"
+      },
+      {
+        "ja": "手順",
+        "en": "the procedure",
+        "kind": "term"
+      },
+      {
+        "ja": "隠れた材料",
+        "en": "the hidden ingredient",
+        "kind": "term"
+      },
+      {
+        "ja": "アレルギーカード",
+        "en": "the allergy card",
+        "kind": "term"
+      },
+      {
+        "ja": "確認",
+        "en": "the confirmation",
+        "kind": "term"
+      },
+      {
+        "ja": "二重確認",
+        "en": "the double check",
+        "kind": "term"
+      },
+      {
+        "ja": "代わりの料理",
+        "en": "the replacement dish",
+        "kind": "term"
+      },
+      {
+        "ja": "重大な",
+        "en": "serious",
+        "kind": "term"
+      },
+      {
+        "ja": "間に合って",
+        "en": "in time",
+        "kind": "term"
+      },
+      {
+        "ja": "次回",
+        "en": "next time",
+        "kind": "term"
+      },
+      {
+        "ja": "グレースは危うくピーナッツソースを食べるところでした。",
+        "en": "She very nearly ate the peanut sauce.",
+        "kind": "phrase"
+      },
+      {
+        "ja": "もう少しで重大な事態になるところでしたが、グレースが食べる前に尋ねたので、それを避けられました。",
+        "en": "Something serious almost happened, but Grace asked in time.",
+        "kind": "phrase"
+      },
+      {
+        "ja": "もしグレースが聞いていなかったら、重いアレルギー反応が起きていたかもしれません。",
+        "en": "If she hadn't asked, she could have had a serious reaction.",
+        "kind": "phrase"
+      },
+      {
+        "ja": "誰かを責めたいのではありません。また同じことが起きないようにしたいんです。",
+        "en": "We're not here to blame anyone; we want it not to happen again.",
+        "kind": "phrase"
+      },
+      {
+        "ja": "アンドレスさん、アレルギーは注文票に書かれていましたか。",
+        "en": "Andrés, was the allergy written down on the order?",
+        "kind": "phrase"
+      },
+      {
+        "ja": "次回は注文するときにアレルギーカードをお見せします。",
+        "en": "Next time, we'll show you the allergy card when we order.",
+        "kind": "phrase"
+      },
+      {
+        "ja": "出す前に、料理ごとに厨房に確認していただけますか。",
+        "en": "Could you confirm each dish with the kitchen before serving it?",
+        "kind": "phrase"
+      },
+      {
+        "ja": "ベロニカさん、こんなに真剣に受け止めてくださって、ありがとうございます。",
+        "en": "Thank you, Verónica, for taking it so seriously.",
+        "kind": "phrase"
+      }
+    ],
+    "reader": [
+      {
+        "speaker": "Narrator",
+        "ja": "正午、グレースと友人のトマスはキトの中心部にある小さな食堂で昼食を食べています。",
+        "en": "At noon, Grace and her friend Tomás are having lunch at a small restaurant in downtown Quito."
+      },
+      {
+        "speaker": "Narrator",
+        "ja": "グレースにはピーナッツアレルギーがあり、ヤピンガチョス（じゃがいものお焼き）を注文するとき、店員のアンドレスに伝えました。",
+        "en": "Grace is allergic to peanuts, and she told the server Andrés when she ordered the llapingachos."
+      },
+      {
+        "speaker": "Narrator",
+        "ja": "料理が届くと、グレースは横にある茶色いソースに気づき、食べる前に何のソースか尋ねました。",
+        "en": "When the dish arrived, Grace saw a brown sauce on the side and asked what it was before tasting it."
+      },
+      {
+        "speaker": "Narrator",
+        "ja": "それはピーナッツソースで、メニューに書かれていない隠れた材料でした。",
+        "en": "It was peanut sauce, a hidden ingredient that the menu didn't mention."
+      },
+      {
+        "speaker": "Tomás",
+        "ja": "グレースは危うくピーナッツソースを食べるところでした。",
+        "en": "Tomás: She very nearly ate the peanut sauce."
+      },
+      {
+        "speaker": "Narrator",
+        "ja": "グレースは何も口にしませんでした。医師の指示どおり、エピネフリン自己注射器をかばんに入れています。",
+        "en": "Grace didn't taste anything, and she had her epinephrine auto-injector in her bag, as her doctor told her."
+      },
+      {
+        "speaker": "Narrator",
+        "ja": "ひやりとしたあと、トマスは店長のベロニカと話したいと頼みます。",
+        "en": "After the scare, Tomás asks to speak with the manager, Verónica."
+      },
+      {
+        "speaker": "Tomás",
+        "ja": "誰かを責めたいのではありません。次に同じことが起きないようにしたいんです。",
+        "en": "Tomás: We're not here to blame anyone; we want it not to happen again."
+      },
+      {
+        "speaker": "Tomás",
+        "ja": "もう少しで重大な事態になるところでしたが、グレースが食べる前に尋ねたので、それを避けられました。",
+        "en": "Tomás: Something serious almost happened, but Grace asked in time."
+      },
+      {
+        "speaker": "Tomás",
+        "ja": "もしグレースが聞いていなかったら、重いアレルギー反応が起きていたかもしれません。",
+        "en": "Tomás: If she hadn't asked, she could have had a serious reaction."
+      },
+      {
+        "speaker": "Verónica",
+        "ja": "アンドレス、アレルギーは注文票に書かれていましたか。",
+        "en": "Verónica: Andrés, was the allergy written down on the order?"
+      },
+      {
+        "speaker": "Narrator",
+        "ja": "アンドレスはアレルギーのメモを注文票に書きましたが、一番下にあったため、厨房では気づかなかったと説明します。",
+        "en": "Andrés explains that he wrote the note, but the kitchen didn't see it because it was at the bottom of the order."
+      },
+      {
+        "speaker": "Verónica",
+        "ja": "今日から、店員と調理人が二重に確認する手順にいたします。",
+        "en": "Verónica: Starting today, our procedure is going to have a double check between the server and the cook."
+      },
+      {
+        "speaker": "Tomás",
+        "ja": "出す前に、料理ごとに厨房に確認していただけますか。",
+        "en": "Tomás: Could you confirm each dish with the kitchen before serving it?"
+      },
+      {
+        "speaker": "Narrator",
+        "ja": "ベロニカは、アレルギーのあるお客様の料理は、調理人の確認なしには出さないと約束します。",
+        "en": "Verónica promises that nobody is going to serve a dish to a customer with an allergy without the cook's confirmation."
+      },
+      {
+        "speaker": "Narrator",
+        "ja": "その間、厨房では、清潔な調理器具でヤピンガチョス、アボカド、卵を使った代わりの料理を作ります。調理人は、その料理にピーナッツが入っていないと確認します。",
+        "en": "Meanwhile, the kitchen prepares a replacement dish with llapingachos, avocado and egg using clean utensils, and the cook confirms that it has no peanuts."
+      },
+      {
+        "speaker": "Tomás",
+        "ja": "次回は注文するときにアレルギーカードをお見せします。",
+        "en": "Tomás: Next time, we'll show you the allergy card when we order."
+      },
+      {
+        "speaker": "Tomás",
+        "ja": "ベロニカさん、こんなに真剣に受け止めてくださって、ありがとうございます。",
+        "en": "Tomás: Thank you, Verónica, for taking it so seriously."
+      }
+    ],
+    "speaking": {
+      "role": "Friend discussing an allergen near miss",
+      "partnerRole": "Server and restaurant manager",
+      "opening": "グレースは、ヤピンガチョスを注文するとき、アンドレスさんにピーナッツアレルギーを伝えました。",
+      "goal": "As Tomás, report Grace’s prior peanut-allergy disclosure and the unlisted peanut sauce before she tasted anything; name the epinephrine auto-injector and possible serious reaction without implying one occurred; hear Verónica ask Andrés whether the allergy was on the order ticket and listen to his explanation; agree on the restaurant’s double check and your allergy-card step, then thank her for taking the near miss seriously.",
+      "closure": "ベロニカさん、こんなに真剣に受け止めてくださって、ありがとうございます。"
+    },
+    "stableId": "master-travel-lunch:14:ja-en"
+  },
+  "modeActivities": [
+    {
+      "id": "master-travel-lunch:14:ja-en:see:private-1",
+      "lessonId": "master-travel-lunch:14:ja-en",
+      "mode": "see",
+      "cueEnglish": "Find the exact term for the hidden ingredient that the menu did not mention.",
+      "sourceRef": "master-travel-lunch:14:ja-en:card:9",
+      "modelJapanese": "隠れた材料",
+      "modelEnglish": "the hidden ingredient",
+      "responseKind": "fixed",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    },
+    {
+      "id": "master-travel-lunch:14:ja-en:recall:private-1",
+      "lessonId": "master-travel-lunch:14:ja-en",
+      "mode": "recall",
+      "cueEnglish": "Recall Tomás’s near-miss line about Grace very nearly eating the peanut sauce.",
+      "sourceRef": "master-travel-lunch:14:ja-en:card:17",
+      "modelJapanese": "グレースは危うくピーナッツソースを食べるところでした。",
+      "modelEnglish": "She very nearly ate the peanut sauce.",
+      "responseKind": "fixed",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    },
+    {
+      "id": "master-travel-lunch:14:ja-en:hear:private-1",
+      "lessonId": "master-travel-lunch:14:ja-en",
+      "mode": "hear",
+      "cueEnglish": "Listen for epinephrine auto-injector; Grace carried it as her doctor instructed and did not use it.",
+      "sourceRef": "master-travel-lunch:14:ja-en:card:5",
+      "modelJapanese": "エピネフリン自己注射器",
+      "modelEnglish": "the epinephrine auto-injector",
+      "responseKind": "fixed",
+      "recordedAudioRequired": true,
+      "readyForLearner": false
+    },
+    {
+      "id": "master-travel-lunch:14:ja-en:type:private-1",
+      "lessonId": "master-travel-lunch:14:ja-en",
+      "mode": "type",
+      "cueEnglish": "Type the conditional sentence about the serious reaction that could have happened if Grace had not asked.",
+      "sourceRef": "master-travel-lunch:14:ja-en:card:19",
+      "modelJapanese": "もしグレースが聞いていなかったら、重いアレルギー反応が起きていたかもしれません。",
+      "modelEnglish": "If she hadn't asked, she could have had a serious reaction.",
+      "responseKind": "fixed",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    },
+    {
+      "id": "master-travel-lunch:14:ja-en:say:private-1",
+      "lessonId": "master-travel-lunch:14:ja-en",
+      "mode": "say",
+      "cueEnglish": "Explain aloud that you are not blaming anyone and want to prevent this happening again.",
+      "sourceRef": "master-travel-lunch:14:ja-en:card:20",
+      "modelJapanese": "誰かを責めたいのではありません。また同じことが起きないようにしたいんです。",
+      "modelEnglish": "We're not here to blame anyone; we want it not to happen again.",
+      "responseKind": "open",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    },
+    {
+      "id": "master-travel-lunch:14:ja-en:write:private-1",
+      "lessonId": "master-travel-lunch:14:ja-en",
+      "mode": "write",
+      "cueEnglish": "Write what you will do with the allergy card next time when ordering.",
+      "sourceRef": "master-travel-lunch:14:ja-en:card:22",
+      "modelJapanese": "次回は注文するときにアレルギーカードをお見せします。",
+      "modelEnglish": "Next time, we'll show you the allergy card when we order.",
+      "responseKind": "open",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    }
+  ]
+}

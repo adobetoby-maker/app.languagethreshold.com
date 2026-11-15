@@ -1,0 +1,478 @@
+You are drafting a PRIVATE French→English Breakfast Core 10 lesson candidate. Source is pinned Spanish/English. Never change exact English card meanings or Reader lines, source order, or stable IDs. Adapt French wording naturally and precisely, maintain the Café/order correction scene. Do not call this qualified approval. Output only one JSON object, no markdown. Schema illustrated below (one item per list only). Produce all source cards, all Reader lines, contextual French forms for every source verb, exactly six individually authored See/Recall/Hear/Type/Say/Write mode prompts/targets linked to a card or Reader ID, speaking opening and >=3 objectives. Hear must be audioPending true. Gates all false. For cards include id, targetFrench, supportEnglish EXACT source en, sourceSpanish EXACT source es, kind EXACT source kind and optional note. Reader include id, targetFrench, supportEnglish EXACT source native, sourceSpanish EXACT source target. Forms sourceVerb in source order, frenchVerb, forms, exampleFrench, exampleEnglish, explanationEnglish. The targetFrench in every mode must exactly match linked card/Reader targetFrench. Do not silently import the old draft's drift. Preserve source's pan dulce setting with an internal note on cultural translation. Source first-person 'I' in Reader; no role substitution.
+Schema: {"cards": {"id": "core:8:word:1", "targetFrench": "le serveur", "supportEnglish": "waiter", "kind": "term", "note": "For a woman, say la serveuse.", "sourceSpanish": "mesero"}, "reader": {"id": "core:8:line:1", "targetFrench": "Je suis dans un café avec ma femme, mon fils et ma belle-mère.", "supportEnglish": "I am in a café with my wife, my son, and my mother-in-law.", "sourceSpanish": "Estoy en un café con mi esposa, mi hijo y mi suegra."}, "forms": {"sourceVerb": "pedir", "frenchVerb": "commander", "forms": {"je": "je commande", "tu": "tu commandes", "il_elle": "il/elle commande", "nous": "nous commandons", "ils_elles": "ils/elles commandent"}, "exampleFrench": "À la fin, je demande l'addition.", "exampleEnglish": "At the end, I ask for the check.", "explanationEnglish": "French splits pedir into two verbs. Commander means to order food or drink (Je veux commander pour tout le monde). Demander means to ask for something, so the source example 'pido la cuenta' becomes 'je demande l'addition'. Both are regular -er verbs with no stem change, so the Spanish e-to-i change does not carry over. Demander follows the same pattern as commander: je demande, tu demandes, il/elle demande, nous demandons, ils/elles demandent. Polite vous forms: vous commandez, vous demandez."}, "modes": {"mode": "See", "promptEnglish": "Look at the French and say its English meaning.", "targetFrench": "le serveur", "sourceCardId": "core:8:word:1"}, "speaking": {"roles": [{"role": "customer", "frenchTitle": "le client / la cliente", "englishDescription": "You, the learner. You order breakfast for yourself, your wife, your son, and your mother-in-law, then repeat the order yourself to confirm who gets what, and ask for the check at the end."}, {"role": "waiter", "frenchTitle": "le serveur", "englishDescription": "The server who opens the exchange, takes your order, listens while you repeat it, confirms that everything is right, brings the food and, at the end, the check."}], "openingFrench": "Bonjour ! Qu'est-ce que je vous sers ?", "objectivesEnglish": ["Open the order by saying you want to order for everyone.", "Assign items to each person with pour moi, pour ma femme, pour mon fils, pour ma belle-mère, or pour elle.", "Say 'without cheese' with sans for an exclusion.", "Repeat the order yourself and ask the waiter to confirm who gets what.", "Ask for the check at the end."]}, "gates": {"reviewed": false, "learnerRegistered": false, "audioRegistered": false, "listeningReviewed": false, "playbackEnabled": false, "progressEnabled": false}}
+Pinned source:
+{
+  "verbs": [
+    {
+      "infinitive": "pedir",
+      "native": "to order, to ask for",
+      "forms": {
+        "yo": "pido",
+        "tú": "pides",
+        "él_ella_usted": "pide",
+        "nosotros": "pedimos",
+        "ellos_ustedes": "piden"
+      },
+      "example": {
+        "target": "Pido un café americano y un pan dulce.",
+        "native": "I order an americano and a pastry."
+      },
+      "note": "Stem change e to i. Pedir means to ask for something, so it is also the verb for ordering."
+    },
+    {
+      "infinitive": "revisar",
+      "native": "to check",
+      "forms": {
+        "yo": "reviso",
+        "tú": "revisas",
+        "él_ella_usted": "revisa",
+        "nosotros": "revisamos",
+        "ellos_ustedes": "revisan"
+      },
+      "example": {
+        "target": "Reviso mi bolsa y no hay pan dulce.",
+        "native": "I check my bag and there is no pastry."
+      }
+    },
+    {
+      "infinitive": "cambiar",
+      "native": "to change, to exchange",
+      "forms": {
+        "yo": "cambio",
+        "tú": "cambias",
+        "él_ella_usted": "cambia",
+        "nosotros": "cambiamos",
+        "ellos_ustedes": "cambian"
+      },
+      "example": {
+        "target": "¿Usted me cambia el café, por favor?",
+        "native": "Can you change the coffee for me, please?"
+      }
+    },
+    {
+      "infinitive": "traer",
+      "native": "to bring",
+      "forms": {
+        "yo": "traigo",
+        "tú": "traes",
+        "él_ella_usted": "trae",
+        "nosotros": "traemos",
+        "ellos_ustedes": "traen"
+      },
+      "example": {
+        "target": "Ahora le traigo el café y el pan dulce.",
+        "native": "I will bring you the coffee and the pastry now."
+      },
+      "note": "The yo form is irregular: traigo."
+    },
+    {
+      "infinitive": "decir",
+      "native": "to say, to tell",
+      "forms": {
+        "yo": "digo",
+        "tú": "dices",
+        "él_ella_usted": "dice",
+        "nosotros": "decimos",
+        "ellos_ustedes": "dicen"
+      },
+      "example": {
+        "target": "Primero sonrío y digo: Disculpe.",
+        "native": "First I smile and say: Excuse me."
+      },
+      "note": "Stem change e to i, and yo is irregular: digo."
+    }
+  ],
+  "passage": {
+    "title": "Un pedido equivocado",
+    "target": [
+      "Llego al mostrador y pido un café americano y un pan dulce.",
+      "Después, el mesero me da una taza de café con leche.",
+      "Reviso mi bolsa y veo que no hay pan dulce.",
+      "Primero, sonrío y digo: Disculpe, creo que hay un error con mi pedido.",
+      "Luego explico: Pedí un café americano, no un café con leche.",
+      "También digo: Me falta un pan dulce, y aquí está mi recibo.",
+      "Pregunto: ¿Me lo puede cambiar, por favor?",
+      "El mesero dice: Claro, ahora le traigo el café y el pan dulce."
+    ],
+    "native": [
+      "I get to the counter and order an americano and a pastry.",
+      "Then the server gives me a cup of coffee with milk.",
+      "I check my bag and see that there is no pastry in it.",
+      "First, I smile and say: Excuse me, I think there is a mistake with my order.",
+      "Then I explain: I ordered an americano, not a coffee with milk.",
+      "I also say: I am missing a pastry, and here is my receipt.",
+      "I ask: Can you change it for me, please?",
+      "The server says: Of course, I will bring you the coffee and the pastry now."
+    ]
+  },
+  "words": [
+    {
+      "en": "order",
+      "es": "pedido",
+      "kind": "term"
+    },
+    {
+      "en": "counter",
+      "es": "mostrador",
+      "kind": "term"
+    },
+    {
+      "en": "receipt",
+      "es": "recibo",
+      "kind": "term"
+    },
+    {
+      "en": "americano (black coffee)",
+      "es": "café americano",
+      "kind": "term"
+    },
+    {
+      "en": "coffee with milk",
+      "es": "café con leche",
+      "kind": "term"
+    },
+    {
+      "en": "pastry",
+      "es": "pan dulce",
+      "kind": "term",
+      "note": "Common word for sweet pastries in Mexican and US Spanish."
+    },
+    {
+      "en": "cup",
+      "es": "taza",
+      "kind": "term"
+    },
+    {
+      "en": "server (male)",
+      "es": "mesero",
+      "kind": "term",
+      "note": "Say mesera for a woman."
+    },
+    {
+      "en": "table",
+      "es": "mesa",
+      "kind": "term"
+    },
+    {
+      "en": "decaf",
+      "es": "descafeinado",
+      "kind": "term"
+    },
+    {
+      "en": "Excuse me, I think there is a mistake with my order.",
+      "es": "Disculpe, creo que hay un error con mi pedido.",
+      "kind": "phrase",
+      "note": "Use usted with one staff member."
+    },
+    {
+      "en": "I ordered an americano, not a coffee with milk.",
+      "es": "Pedí un café americano, no un café con leche.",
+      "kind": "phrase"
+    },
+    {
+      "en": "I am missing a pastry.",
+      "es": "Me falta un pan dulce.",
+      "kind": "phrase"
+    },
+    {
+      "en": "Can you change it for me, please?",
+      "es": "¿Me lo puede cambiar, por favor?",
+      "kind": "phrase"
+    },
+    {
+      "en": "Here is my receipt.",
+      "es": "Aquí está mi recibo.",
+      "kind": "phrase"
+    },
+    {
+      "en": "Can you check my order, please?",
+      "es": "¿Puede revisar mi pedido, por favor?",
+      "kind": "phrase"
+    }
+  ]
+}
+
+Old draft for critique only:
+{
+  "draftLessonKey": "core:10",
+  "stage": "core",
+  "n": 10,
+  "titleEnglish": "Corriger une commande",
+  "objectiveEnglish": "Explain a wrong coffee and missing pastry politely in French.",
+  "focusFrench": "Signaler une erreur avec je crois que ; opposer deux boissons avec pas ; dire qu'il manque un article.",
+  "focusEnglish": "Use je crois que to soften a correction, pas to contrast items, and il manque for a missing item.",
+  "words": [
+    {
+      "id": "core:10:word:1",
+      "targetFrench": "la commande",
+      "supportEnglish": "order",
+      "sourceEnglish": "order",
+      "kind": "term"
+    },
+    {
+      "id": "core:10:word:2",
+      "targetFrench": "le comptoir",
+      "supportEnglish": "counter",
+      "sourceEnglish": "counter",
+      "kind": "term"
+    },
+    {
+      "id": "core:10:word:3",
+      "targetFrench": "le reçu",
+      "supportEnglish": "receipt",
+      "sourceEnglish": "receipt",
+      "kind": "term"
+    },
+    {
+      "id": "core:10:word:4",
+      "targetFrench": "un americano",
+      "supportEnglish": "americano (black coffee)",
+      "sourceEnglish": "americano (black coffee)",
+      "kind": "term"
+    },
+    {
+      "id": "core:10:word:5",
+      "targetFrench": "un café au lait",
+      "supportEnglish": "coffee with milk",
+      "sourceEnglish": "coffee with milk",
+      "kind": "term"
+    },
+    {
+      "id": "core:10:word:6",
+      "targetFrench": "une viennoiserie",
+      "supportEnglish": "pastry",
+      "sourceEnglish": "pastry",
+      "kind": "term"
+    },
+    {
+      "id": "core:10:word:7",
+      "targetFrench": "la tasse",
+      "supportEnglish": "cup",
+      "sourceEnglish": "cup",
+      "kind": "term"
+    },
+    {
+      "id": "core:10:word:8",
+      "targetFrench": "le serveur",
+      "supportEnglish": "server (male)",
+      "sourceEnglish": "server (male)",
+      "kind": "term"
+    },
+    {
+      "id": "core:10:word:9",
+      "targetFrench": "la table",
+      "supportEnglish": "table",
+      "sourceEnglish": "table",
+      "kind": "term"
+    },
+    {
+      "id": "core:10:word:10",
+      "targetFrench": "un café décaféiné",
+      "supportEnglish": "decaf",
+      "sourceEnglish": "decaf",
+      "kind": "term"
+    },
+    {
+      "id": "core:10:word:11",
+      "targetFrench": "Excusez-moi, je crois qu'il y a une erreur dans ma commande.",
+      "supportEnglish": "Excuse me, I think there is a mistake with my order.",
+      "sourceEnglish": "Excuse me, I think there is a mistake with my order.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:10:word:12",
+      "targetFrench": "J'ai commandé un americano, pas un café au lait.",
+      "supportEnglish": "I ordered an americano, not a coffee with milk.",
+      "sourceEnglish": "I ordered an americano, not a coffee with milk.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:10:word:13",
+      "targetFrench": "Il manque une viennoiserie.",
+      "supportEnglish": "I am missing a pastry.",
+      "sourceEnglish": "I am missing a pastry.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:10:word:14",
+      "targetFrench": "Pourriez-vous me l'échanger, s'il vous plaît ?",
+      "supportEnglish": "Can you change it for me, please?",
+      "sourceEnglish": "Can you change it for me, please?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:10:word:15",
+      "targetFrench": "Voici mon reçu.",
+      "supportEnglish": "Here is my receipt.",
+      "sourceEnglish": "Here is my receipt.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:10:word:16",
+      "targetFrench": "Pouvez-vous vérifier ma commande, s'il vous plaît ?",
+      "supportEnglish": "Can you check my order, please?",
+      "sourceEnglish": "Can you check my order, please?",
+      "kind": "phrase"
+    }
+  ],
+  "readerTitleFrench": "Une erreur de commande",
+  "reader": [
+    {
+      "id": "core:10:line:1",
+      "targetFrench": "J'arrive au comptoir et je commande un americano et une viennoiserie.",
+      "supportEnglish": "I get to the counter and order an americano and a pastry."
+    },
+    {
+      "id": "core:10:line:2",
+      "targetFrench": "Puis le serveur me donne une tasse de café au lait.",
+      "supportEnglish": "Then the server gives me a cup of coffee with milk."
+    },
+    {
+      "id": "core:10:line:3",
+      "targetFrench": "Je regarde dans mon sac et je vois qu'il n'y a pas de viennoiserie.",
+      "supportEnglish": "I check my bag and see that there is no pastry in it."
+    },
+    {
+      "id": "core:10:line:4",
+      "targetFrench": "Je souris d'abord et je dis : « Excusez-moi, je crois qu'il y a une erreur dans ma commande. »",
+      "supportEnglish": "First, I smile and say: Excuse me, I think there is a mistake with my order."
+    },
+    {
+      "id": "core:10:line:5",
+      "targetFrench": "Puis j'explique : « J'ai commandé un americano, pas un café au lait. »",
+      "supportEnglish": "Then I explain: I ordered an americano, not a coffee with milk."
+    },
+    {
+      "id": "core:10:line:6",
+      "targetFrench": "J'ajoute : « Il manque une viennoiserie, et voici mon reçu. »",
+      "supportEnglish": "I also say: I am missing a pastry, and here is my receipt."
+    },
+    {
+      "id": "core:10:line:7",
+      "targetFrench": "Je demande : « Pourriez-vous me l'échanger, s'il vous plaît ? »",
+      "supportEnglish": "I ask: Can you change it for me, please?"
+    },
+    {
+      "id": "core:10:line:8",
+      "targetFrench": "Le serveur répond : « Bien sûr, je vous apporte le café et la viennoiserie tout de suite. »",
+      "supportEnglish": "The server says: Of course, I will bring you the coffee and the pastry now."
+    }
+  ],
+  "speaking": {
+    "openingFrench": "Excusez-moi, je crois qu'il y a une erreur. J'ai commandé un americano, pas un café au lait, et il manque une viennoiserie.",
+    "instructionEnglish": "Tell the server that the coffee is wrong and a pastry is missing; show the receipt and ask for a correction."
+  },
+  "candidateModeInputs": {
+    "see": [
+      "core:10:word:1",
+      "core:10:word:2",
+      "core:10:word:3",
+      "core:10:word:4",
+      "core:10:word:5",
+      "core:10:word:6",
+      "core:10:word:7",
+      "core:10:word:8",
+      "core:10:word:9",
+      "core:10:word:10",
+      "core:10:word:11",
+      "core:10:word:12",
+      "core:10:word:13",
+      "core:10:word:14",
+      "core:10:word:15",
+      "core:10:word:16"
+    ],
+    "recall": [
+      "core:10:word:1",
+      "core:10:word:2",
+      "core:10:word:3",
+      "core:10:word:4",
+      "core:10:word:5",
+      "core:10:word:6",
+      "core:10:word:7",
+      "core:10:word:8",
+      "core:10:word:9",
+      "core:10:word:10",
+      "core:10:word:11",
+      "core:10:word:12",
+      "core:10:word:13",
+      "core:10:word:14",
+      "core:10:word:15",
+      "core:10:word:16"
+    ],
+    "hear": [
+      "core:10:word:1",
+      "core:10:word:2",
+      "core:10:word:3",
+      "core:10:word:4",
+      "core:10:word:5",
+      "core:10:word:6",
+      "core:10:word:7",
+      "core:10:word:8",
+      "core:10:word:9",
+      "core:10:word:10",
+      "core:10:word:11",
+      "core:10:word:12",
+      "core:10:word:13",
+      "core:10:word:14",
+      "core:10:word:15",
+      "core:10:word:16"
+    ],
+    "type": [
+      "core:10:word:1",
+      "core:10:word:2",
+      "core:10:word:3",
+      "core:10:word:4",
+      "core:10:word:5",
+      "core:10:word:6",
+      "core:10:word:7",
+      "core:10:word:8",
+      "core:10:word:9",
+      "core:10:word:10",
+      "core:10:word:11",
+      "core:10:word:12",
+      "core:10:word:13",
+      "core:10:word:14",
+      "core:10:word:15",
+      "core:10:word:16"
+    ],
+    "say": [
+      "core:10:word:1",
+      "core:10:word:2",
+      "core:10:word:3",
+      "core:10:word:4",
+      "core:10:word:5",
+      "core:10:word:6",
+      "core:10:word:7",
+      "core:10:word:8",
+      "core:10:word:9",
+      "core:10:word:10",
+      "core:10:word:11",
+      "core:10:word:12",
+      "core:10:word:13",
+      "core:10:word:14",
+      "core:10:word:15",
+      "core:10:word:16"
+    ],
+    "write": [
+      "core:10:word:1",
+      "core:10:word:2",
+      "core:10:word:3",
+      "core:10:word:4",
+      "core:10:word:5",
+      "core:10:word:6",
+      "core:10:word:7",
+      "core:10:word:8",
+      "core:10:word:9",
+      "core:10:word:10",
+      "core:10:word:11",
+      "core:10:word:12",
+      "core:10:word:13",
+      "core:10:word:14",
+      "core:10:word:15",
+      "core:10:word:16"
+    ]
+  },
+  "requiresQualifiedReview": false,
+  "reviewed": false,
+  "registered": false
+}

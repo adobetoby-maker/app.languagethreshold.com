@@ -1,0 +1,644 @@
+Correct the private candidate based on Opus read-only critique. Return ONLY complete corrected JSON with same schema. Keep exact source English/Spanish cards and Reader in source order and stable IDs. Correct mode direction, ambiguous target acceptance and grammar errors. Do not change source English. Keep all gates false, especially Hear and Say blocked. Keep unresolved human decisions in issues, not learner content. Do not edit files or claim qualified approval. SOURCE:
+{
+  "verbs": [
+    {
+      "infinitive": "querer",
+      "native": "to want",
+      "forms": {
+        "yo": "quiero",
+        "tú": "quieres",
+        "él_ella_usted": "quiere",
+        "nosotros": "queremos",
+        "ellos_ustedes": "quieren"
+      },
+      "example": {
+        "target": "Quiero dos huevos revueltos, por favor.",
+        "native": "I want two scrambled eggs, please."
+      },
+      "note": "Stem change: e to ie (except nosotros)."
+    },
+    {
+      "infinitive": "pedir",
+      "native": "to order, to ask for",
+      "forms": {
+        "yo": "pido",
+        "tú": "pides",
+        "él_ella_usted": "pide",
+        "nosotros": "pedimos",
+        "ellos_ustedes": "piden"
+      },
+      "example": {
+        "target": "También pide tocino, pan tostado y fruta.",
+        "native": "He also orders bacon, toast, and fruit."
+      },
+      "note": "Stem change: e to i (except nosotros)."
+    },
+    {
+      "infinitive": "traer",
+      "native": "to bring",
+      "forms": {
+        "yo": "traigo",
+        "tú": "traes",
+        "él_ella_usted": "trae",
+        "nosotros": "traemos",
+        "ellos_ustedes": "traen"
+      },
+      "example": {
+        "target": "¿Me puede traer pan tostado?",
+        "native": "Can you bring me toast?"
+      },
+      "note": "Irregular yo form: traigo."
+    },
+    {
+      "infinitive": "sentarse",
+      "native": "to sit down",
+      "forms": {
+        "yo": "me siento",
+        "tú": "te sientas",
+        "él_ella_usted": "se sienta",
+        "nosotros": "nos sentamos",
+        "ellos_ustedes": "se sientan"
+      },
+      "example": {
+        "target": "Se sienta en una mesa y mira el menú.",
+        "native": "He sits at a table and looks at the menu."
+      },
+      "note": "Reflexive verb with stem change: e to ie (except nosotros)."
+    }
+  ],
+  "passage": {
+    "title": "Un desayuno completo",
+    "target": [
+      "Un viajero entra a un café en la mañana.",
+      "Se sienta en una mesa y mira el menú.",
+      "La mesera pregunta: ¿Qué desea usted?",
+      "Él dice: Quiero dos huevos revueltos, por favor.",
+      "También pide tocino, pan tostado y fruta.",
+      "La mesera pregunta: ¿Cómo quiere los huevos?",
+      "Él responde: Los quiero bien cocidos, sin sal.",
+      "Luego pregunta: ¿El café está incluido?",
+      "La mesera dice: Sí, el café está incluido."
+    ],
+    "native": [
+      "A traveler walks into a café in the morning.",
+      "He sits at a table and looks at the menu.",
+      "The waitress asks: What would you like?",
+      "He says: I want two scrambled eggs, please.",
+      "He also orders bacon, toast, and fruit.",
+      "The waitress asks: How do you want the eggs?",
+      "He answers: I want them well done, without salt.",
+      "Then he asks: Is the coffee included?",
+      "The waitress says: Yes, the coffee is included."
+    ]
+  },
+  "words": [
+    {
+      "en": "scrambled eggs",
+      "es": "huevos revueltos",
+      "kind": "term"
+    },
+    {
+      "en": "fried eggs",
+      "es": "huevos fritos",
+      "kind": "term"
+    },
+    {
+      "en": "bacon",
+      "es": "tocino",
+      "kind": "term"
+    },
+    {
+      "en": "toast",
+      "es": "pan tostado",
+      "kind": "term"
+    },
+    {
+      "en": "fruit",
+      "es": "fruta",
+      "kind": "term"
+    },
+    {
+      "en": "orange juice",
+      "es": "jugo de naranja",
+      "kind": "term"
+    },
+    {
+      "en": "sausage",
+      "es": "salchicha",
+      "kind": "term"
+    },
+    {
+      "en": "potatoes",
+      "es": "papas",
+      "kind": "term",
+      "note": "In Mexico and the US, papas fritas or papas hash browns are common breakfast sides."
+    },
+    {
+      "en": "butter",
+      "es": "mantequilla",
+      "kind": "term"
+    },
+    {
+      "en": "table",
+      "es": "mesa",
+      "kind": "term"
+    },
+    {
+      "en": "menu",
+      "es": "menú",
+      "kind": "term"
+    },
+    {
+      "en": "without salt",
+      "es": "sin sal",
+      "kind": "term"
+    },
+    {
+      "en": "I want two scrambled eggs, please.",
+      "es": "Quiero dos huevos revueltos, por favor.",
+      "kind": "phrase"
+    },
+    {
+      "en": "Can you bring me toast?",
+      "es": "¿Me puede traer pan tostado?",
+      "kind": "phrase",
+      "note": "Polite way to ask a server."
+    },
+    {
+      "en": "I want them well done.",
+      "es": "Los quiero bien cocidos.",
+      "kind": "phrase"
+    },
+    {
+      "en": "Does it come with fruit?",
+      "es": "¿Viene con fruta?",
+      "kind": "phrase"
+    },
+    {
+      "en": "Is the coffee included?",
+      "es": "¿El café está incluido?",
+      "kind": "phrase"
+    },
+    {
+      "en": "What comes with the breakfast?",
+      "es": "¿Qué viene con el desayuno?",
+      "kind": "phrase"
+    }
+  ]
+}
+CANDIDATE:
+{
+  "gates": {
+    "sourceReviewed": false,
+    "frenchReviewed": false,
+    "modesReady": false,
+    "audioApproved": false,
+    "speakingReady": false,
+    "ownerApproved": false
+  },
+  "words": [
+    {
+      "id": "core:4:word:1",
+      "en": "scrambled eggs",
+      "es": "huevos revueltos",
+      "fr": "les œufs brouillés",
+      "kind": "term",
+      "notes": "Source term. Plural form matches the source's plural eggs."
+    },
+    {
+      "id": "core:4:word:2",
+      "en": "fried eggs",
+      "es": "huevos fritos",
+      "fr": "les œufs au plat",
+      "kind": "term",
+      "notes": "Source term. General French term; not shown in the source passage."
+    },
+    {
+      "id": "core:4:word:3",
+      "en": "bacon",
+      "es": "tocino",
+      "fr": "le bacon",
+      "kind": "term",
+      "notes": "General: cut and preparation vary by region and café. The source café's bacon is not described."
+    },
+    {
+      "id": "core:4:word:4",
+      "en": "toast",
+      "es": "pan tostado",
+      "fr": "le pain grillé",
+      "kind": "term",
+      "notes": "Source term. Literal match to pan tostado."
+    },
+    {
+      "id": "core:4:word:5",
+      "en": "fruit",
+      "es": "fruta",
+      "fr": "les fruits",
+      "kind": "term",
+      "notes": "Source is singular fruta (mass sense). Plural les fruits is a general French choice, not a source fact. Alternative: la fruit is not used; consider 'les fruits' only as a French convention."
+    },
+    {
+      "id": "core:4:word:6",
+      "en": "orange juice",
+      "es": "jugo de naranja",
+      "fr": "le jus d'orange",
+      "kind": "term",
+      "notes": "Source term. Not used in the passage."
+    },
+    {
+      "id": "core:4:word:7",
+      "en": "sausage",
+      "es": "salchicha",
+      "fr": "la saucisse",
+      "kind": "term",
+      "notes": "Source term. General French term; regional variation exists."
+    },
+    {
+      "id": "core:4:word:8",
+      "en": "potatoes",
+      "es": "papas",
+      "fr": "les pommes de terre",
+      "kind": "term",
+      "notes": "Source term. The source's note about papas fritas and hash browns is general (Mexico/US usage), not a fact about the source café."
+    },
+    {
+      "id": "core:4:word:9",
+      "en": "butter",
+      "es": "mantequilla",
+      "fr": "le beurre",
+      "kind": "term",
+      "notes": "Source term. Literal match."
+    },
+    {
+      "id": "core:4:word:10",
+      "en": "table",
+      "es": "mesa",
+      "fr": "la table",
+      "kind": "term",
+      "notes": "Source term. Literal match."
+    },
+    {
+      "id": "core:4:word:11",
+      "en": "menu",
+      "es": "menú",
+      "fr": "la carte",
+      "kind": "term",
+      "notes": "Source term. La carte is the common French word for a restaurant menu; this is a general French convention."
+    },
+    {
+      "id": "core:4:word:12",
+      "en": "without salt",
+      "es": "sin sal",
+      "fr": "sans sel",
+      "kind": "term",
+      "notes": "Source term. Literal match."
+    },
+    {
+      "id": "core:4:word:13",
+      "en": "I want two scrambled eggs, please.",
+      "es": "Quiero dos huevos revueltos, por favor.",
+      "fr": "Je voudrais deux œufs brouillés, s'il vous plaît.",
+      "kind": "phrase",
+      "notes": "Source quiero is present tense 'want'. Je voudrais is conditional, a polite ordering register. Literal alternative: Je veux deux œufs brouillés, s'il vous plaît. Choice is a pragmatic judgment, not a source fact."
+    },
+    {
+      "id": "core:4:word:14",
+      "en": "Can you bring me toast?",
+      "es": "¿Me puede traer pan tostado?",
+      "fr": "Vous pouvez m'apporter du pain grillé ?",
+      "kind": "phrase",
+      "notes": "Source note: polite way to ask a server. Vous matches the source's polite usted register."
+    },
+    {
+      "id": "core:4:word:15",
+      "en": "I want them well done.",
+      "es": "Los quiero bien cocidos.",
+      "fr": "Je les voudrais bien cuits.",
+      "kind": "phrase",
+      "notes": "Les refers back to œufs (eggs). Source quiero is present; voudrais is conditional (see word 13)."
+    },
+    {
+      "id": "core:4:word:16",
+      "en": "Does it come with fruit?",
+      "es": "¿Viene con fruta?",
+      "fr": "Est-ce que ça vient avec des fruits ?",
+      "kind": "phrase",
+      "notes": "Literal rendering of viene con. Prior draft 'Est-ce que des fruits sont compris ?' is an idiomatic rewording; it shifts the verb from 'come with' to 'included'. Prefer the literal form for source fidelity."
+    },
+    {
+      "id": "core:4:word:17",
+      "en": "Is the coffee included?",
+      "es": "¿El café está incluido?",
+      "fr": "Le café est-il inclus ?",
+      "kind": "phrase",
+      "notes": "Inclus is the literal match for incluido. Prior draft 'compris' (included in price) is an idiomatic alternative and a France-specific assumption."
+    },
+    {
+      "id": "core:4:word:18",
+      "en": "What comes with the breakfast?",
+      "es": "¿Qué viene con el desayuno?",
+      "fr": "Qu'est-ce qui vient avec le petit-déjeuner ?",
+      "kind": "phrase",
+      "notes": "Literal rendering of viene con. Prior draft 'Qu'est-ce qui est compris dans le petit-déjeuner ?' is an alternative. Breakfast contents are this café's offer per the source, not a general rule."
+    }
+  ],
+  "reader": [
+    {
+      "id": "core:4:line:1",
+      "en": "A traveler walks into a café in the morning.",
+      "es": "Un viajero entra a un café en la mañana.",
+      "fr": "Un voyageur entre dans un café le matin.",
+      "notes": "Source describes a café. No hotel setting appears in the source."
+    },
+    {
+      "id": "core:4:line:2",
+      "en": "He sits at a table and looks at the menu.",
+      "es": "Se sienta en una mesa y mira el menú.",
+      "fr": "Il s'assied à une table et regarde la carte.",
+      "notes": "Se sienta is reflexive stem-change verb (sentarse). Carte is a general French convention for menu."
+    },
+    {
+      "id": "core:4:line:3",
+      "en": "The waitress asks: What would you like?",
+      "es": "La mesera pregunta: ¿Qué desea usted?",
+      "fr": "La serveuse demande : « Qu'est-ce que vous désirez ? »",
+      "notes": "Usted register maps to vous. Désirez is a formal French equivalent of desea."
+    },
+    {
+      "id": "core:4:line:4",
+      "en": "He says: I want two scrambled eggs, please.",
+      "es": "Él dice: Quiero dos huevos revueltos, por favor.",
+      "fr": "Il dit : « Je voudrais deux œufs brouillés, s'il vous plaît. »",
+      "notes": "See word 13 for the conditional-versus-present choice."
+    },
+    {
+      "id": "core:4:line:5",
+      "en": "He also orders bacon, toast, and fruit.",
+      "es": "También pide tocino, pan tostado y fruta.",
+      "fr": "Il commande aussi du bacon, du pain grillé et des fruits.",
+      "notes": "Pide maps to commander. Fruta is singular in source; des fruits is a general French plural choice."
+    },
+    {
+      "id": "core:4:line:6",
+      "en": "The waitress asks: How do you want the eggs?",
+      "es": "La mesera pregunta: ¿Cómo quiere los huevos?",
+      "fr": "La serveuse demande : « Comment voulez-vous vos œufs ? »",
+      "notes": "Source uses usted; vous is the matching French form. Vos is possessive; source's los is definite article."
+    },
+    {
+      "id": "core:4:line:7",
+      "en": "He answers: I want them well done, without salt.",
+      "es": "Él responde: Los quiero bien cocidos, sin sal.",
+      "fr": "Il répond : « Je les voudrais bien cuits, sans sel. »",
+      "notes": "Les replaces œufs. See word 15."
+    },
+    {
+      "id": "core:4:line:8",
+      "en": "Then he asks: Is the coffee included?",
+      "es": "Luego pregunta: ¿El café está incluido?",
+      "fr": "Puis il demande : « Le café est-il inclus ? »",
+      "notes": "Prior draft used 'compris'. Inclus is the literal match for incluido."
+    },
+    {
+      "id": "core:4:line:9",
+      "en": "The waitress says: Yes, the coffee is included.",
+      "es": "La mesera dice: Sí, el café está incluido.",
+      "fr": "La serveuse dit : « Oui, le café est inclus. »",
+      "notes": "Source fact about this café: coffee is included. Not a general rule."
+    }
+  ],
+  "contextualForms": [
+    {
+      "frenchForm": "je voudrais",
+      "englishExplanation": "Conditional of vouloir, used as a polite request ('I would like'). Matches the source's quiero in an ordering context, but the tense differs.",
+      "sourceLink": {
+        "id": "core:4:word:13",
+        "es": "Quiero dos huevos revueltos, por favor."
+      }
+    },
+    {
+      "frenchForm": "vous pouvez m'apporter",
+      "englishExplanation": "Polite request to a server: 'Can you bring me...'. M' is the pronoun 'me' before a vowel, and the verb is apporter (to bring).",
+      "sourceLink": {
+        "id": "core:4:word:14",
+        "es": "¿Me puede traer pan tostado?"
+      }
+    },
+    {
+      "frenchForm": "les (pronoun for œufs)",
+      "englishExplanation": "Direct object pronoun replacing plural œufs ('eggs'), placed before the verb: 'I want them well done.'",
+      "sourceLink": {
+        "id": "core:4:word:15",
+        "es": "Los quiero bien cocidos."
+      }
+    },
+    {
+      "frenchForm": "il s'assied",
+      "englishExplanation": "Reflexive form of s'asseoir ('to sit down'). French has no stem change here; the source's e-to-ie stem change in sentarse has no direct French analog.",
+      "sourceLink": {
+        "id": "core:4:line:2",
+        "es": "Se sienta en una mesa y mira el menú."
+      }
+    },
+    {
+      "frenchForm": "est-il inclus ?",
+      "englishExplanation": "Question inversion with il: 'Is it included?' Inclus is an adjective agreeing with le café (masculine singular).",
+      "sourceLink": {
+        "id": "core:4:word:17",
+        "es": "¿El café está incluido?"
+      }
+    }
+  ],
+  "modes": [
+    {
+      "mode": "See",
+      "cardId": "core:4:word:1",
+      "promptEnglish": "Look at the card. Write or say the French for 'scrambled eggs'.",
+      "targetFrench": "les œufs brouillés",
+      "notes": "Card shows English term; source Spanish huevos revueltos is not shown to learners in this mode."
+    },
+    {
+      "mode": "Recall",
+      "cardId": "core:4:word:14",
+      "promptEnglish": "Recall how to politely ask a server to bring you toast.",
+      "targetFrench": "Vous pouvez m'apporter du pain grillé ?",
+      "notes": "Polite register matches source usted/puede."
+    },
+    {
+      "mode": "Hear",
+      "lineId": "core:4:line:4",
+      "scriptOnly": true,
+      "blocked": true,
+      "blockReason": "No audio has been produced or approved. Script-only candidate.",
+      "promptEnglish": "Listen and identify what the customer says about the eggs.",
+      "targetFrench": "Je voudrais deux œufs brouillés, s'il vous plaît.",
+      "notes": "Do not treat as live. Blocked until audio is approved."
+    },
+    {
+      "mode": "Type",
+      "cardId": "core:4:word:15",
+      "promptEnglish": "Type the French for: 'I want them well done.'",
+      "targetFrench": "Je les voudrais bien cuits.",
+      "notes": "Requires les for eggs; accept only with correct pronoun placement."
+    },
+    {
+      "mode": "Say",
+      "lineId": "core:4:line:4",
+      "promptEnglish": "Say the French for: 'He says: I want two scrambled eggs, please.'",
+      "targetFrench": "Je voudrais deux œufs brouillés, s'il vous plaît.",
+      "notes": "Pronunciation check on œufs and voudrais."
+    },
+    {
+      "mode": "Write",
+      "lineId": "core:4:line:7",
+      "promptEnglish": "Write the French for: 'He answers: I want them well done, without salt.'",
+      "targetFrench": "Il répond : « Je les voudrais bien cuits, sans sel. »",
+      "notes": "Checks pronoun les, adjective agreement with sans sel, and guillemets."
+    }
+  ],
+  "speaking": {
+    "objectiveEnglish": "Order two scrambled eggs with a cooking preference, add sides and a drink, and ask the server what the breakfast includes.",
+    "roles": [
+      "customer (learner)",
+      "server (partner or prompt)"
+    ],
+    "openingFrench": "Bonjour ! Je voudrais deux œufs brouillés, s'il vous plaît.",
+    "goals": [
+      "Request eggs using je voudrais (see word 13).",
+      "State a cooking preference with je les voudrais bien cuits.",
+      "Ask whether the coffee is included: Le café est-il inclus ?",
+      "Ask what comes with the breakfast: Qu'est-ce qui vient avec le petit-déjeuner ?",
+      "Source note: inclusions describe this café's offer, not a general rule."
+    ]
+  },
+  "issues": [
+    "Source is a café lesson. No hotel facts appear in the source; the request mentioning a hotel was not reflected in the source text.",
+    "Prior French draft uses 'compris' for 'included'. The source uses incluido; 'inclus' is the literal match. 'Compris' is kept as an alternative only.",
+    "Je voudrais (conditional) vs. quiero (present): the polite form is a pragmatic choice, not a literal translation. Je veux is the literal alternative. Decision needs owner review.",
+    "Fruit: source is singular fruta (mass sense); prior draft uses les fruits. Plural is a general French convention, not a source fact.",
+    "'Does it come with fruit?' and 'What comes with the breakfast?' are rendered literally here (viene con). Prior draft used idiomatic 'compris'. Owner should choose.",
+    "Potatoes note in the source (papas fritas, hash browns) is general Mexico/US usage, not a fact about the source café. Not carried into learner-facing text as a café fact.",
+    "Bacon, sausage, and menu/carte are general French conventions or vary by region; the source café's offerings for these items are not described.",
+    "Hear mode is script-only and blocked: no audio exists or is approved.",
+    "Speaking objective assumes learners can use je les voudrais; this relies on word 15 and line 7 being reviewed first.",
+    "Prior draft's teachingNotes call compris 'included in the price'. 'Included in the price' is an interpretation not in the source; flagged as France-specific assumption.",
+    "All gates are false. No approval is asserted. No files were edited."
+  ]
+}
+CRITIQUE:
+```json
+{
+  "scope": "Read-only critique. Nothing edited. No approval implied; all gates stay false.",
+  "sourceOrder": "All 18 word cards and all 9 Reader lines match the source en/es text and order exactly. Source notes for words 8 and 14 are carried over. Gender and roles are consistent: él→il/voyageur, mesera→serveuse. No speaker-gender agreement is needed, because 'cuits' agrees with œufs.",
+  "critical": [],
+  "major": [
+    {
+      "id": "modes[Type] core:4:word:15",
+      "issue": "The prompt says 'I want them well done.' but the only target is 'Je les voudrais bien cuits.' A correct literal answer, 'Je les veux bien cuits.', would be marked wrong. The prompt also has no antecedent for 'them'.",
+      "fix": "Change the prompt to \"Type the French for: 'I'd like them well done.' (the eggs)\". Alternatively, accept both 'Je les veux bien cuits.' and 'Je les voudrais bien cuits.'"
+    },
+    {
+      "id": "modes[Write] core:4:line:7",
+      "issue": "The prompt has the same tense mismatch ('I want' vs voudrais). The guillemets requirement is stricter than the source, which has no quotes.",
+      "fix": "Accept both 'veux' and 'voudrais'. Accept straight quotes or no quotes as well as « »."
+    },
+    {
+      "id": "modes[Say] core:4:line:4",
+      "issue": "The prompt includes 'He says:' but the target leaves out 'Il dit :'. Say is also not blocked even though speakingReady=false and audioApproved=false.",
+      "fix": "Change the prompt to \"Say the customer's line: 'I want two scrambled eggs, please.'\" Add blocked:true with a reason until speaking and audio are approved. Accept 'Je veux…' as well as 'Je voudrais…'."
+    },
+    {
+      "id": "modes[See] core:4:word:1",
+      "issue": "Wrong direction. The mode is EN→FR production ('Write or say the French'), which duplicates Type/Say. It also mixes write and say.",
+      "fix": "Make it recognition: prompt shows 'les œufs brouillés', target is 'scrambled eggs'. Drop 'Write or say'."
+    },
+    {
+      "id": "modes[Hear] core:4:line:4",
+      "issue": "Wrong direction. The prompt asks for comprehension ('identify what the customer says'), but the target is the French script.",
+      "fix": "Keep the French as the audio script. Set the target to English: 'two scrambled eggs' or 'I want two scrambled eggs, please.' Keep blocked:true."
+    },
+    {
+      "id": "contextualForms[il s'assied] core:4:line:2",
+      "issue": "'French has no stem change here' is false. s'asseoir is irregular with a stem alternation: je m'assieds/m'assois, il s'assied/s'assoit, nous nous asseyons.",
+      "fix": "Say: 's'asseoir is irregular, with stem alternation assied-/assey- (or assoi-/assoy-). Like sentarse, nosotros/nous differs from the other forms. il s'assoit is an accepted variant.'"
+    },
+    {
+      "id": "contextualForms (missing) core:4:line:5",
+      "issue": "The source verb pedir has no form entry, so verb coverage is 3 of 4. 'vous voulez' (line 6) is also not covered.",
+      "fix": "Add {frenchForm:'il commande', englishExplanation:'commander = to order (food); pedir here. Regular -er verb.', sourceLink:{id:'core:4:line:5'}}. Optionally add 'voulez-vous' as the present tense of vouloir for usted quiere."
+    },
+    {
+      "id": "core:4:word:5 notes",
+      "issue": "The note contains wrong French ('la fruit'; fruit is masculine) and a garbled final sentence.",
+      "fix": "Replace with: 'Source is singular fruta (mass sense). French uses partitive plural des fruits; le fruit is masculine; un fruit = one piece of fruit. Plural is a French convention, not a source fact.'"
+    },
+    {
+      "id": "core:4:word:18 notes",
+      "issue": "This is a source-causality overstatement. The source never says what comes with breakfast. The only inclusion fact is the coffee (line 9).",
+      "fix": "Replace with: 'Source does not state breakfast contents; only coffee is stated as included (core:4:line:9).'"
+    },
+    {
+      "id": "speaking.objectiveEnglish / goals",
+      "issue": "The objective asks the learner to 'add sides and a drink', but no goal covers either. The source has no drink order: coffee is only asked about, and orange juice is a term only. The 'sans sel' preference from line 7 is also missing.",
+      "fix": "Change the objective to: 'Order two scrambled eggs, add sides, state a cooking preference, and ask whether coffee is included and what comes with breakfast.' Add a goal: 'Add sides: Je voudrais aussi du bacon, du pain grillé et des fruits.' Change the preference goal to 'Je les voudrais bien cuits, sans sel.'"
+    }
+  ],
+  "minor": [
+    {
+      "id": "core:4:line:3",
+      "issue": "'Qu'est-ce que vous désirez ?' mixes a neutral est-ce que with formal désirer.",
+      "fix": "Use 'Que désirez-vous ?' or 'Vous désirez ?'."
+    },
+    {
+      "id": "core:4:line:6",
+      "issue": "'vos œufs' replaces the source's definite article los. The note is accurate but gives no accepted alternative.",
+      "fix": "Keep 'vos' as idiomatic. List 'Comment voulez-vous les œufs ?' as the literal accepted alternative."
+    },
+    {
+      "id": "core:4:word:13 / line:4 / line:7",
+      "issue": "Tense asymmetry: the server says 'voulez' (present) and the customer says 'voudrais' (conditional). The source uses present for both. The English 'I want' also disagrees with 'voudrais'.",
+      "fix": "Either change the en glosses in the mode prompts to 'I'd like' (do not change the source cards), or make 'je veux' an accepted answer everywhere."
+    },
+    {
+      "id": "core:4:word:16",
+      "issue": "'Est-ce que ça vient avec des fruits ?' is understandable but a calque.",
+      "fix": "Keep it for fidelity. List 'C'est servi avec des fruits ?' as the idiomatic accepted alternative."
+    },
+    {
+      "id": "core:4:word:11",
+      "issue": "The note does not warn about the false friend.",
+      "fix": "Add: 'le menu in French usually means a fixed-price set menu; la carte = the menu list.'"
+    },
+    {
+      "id": "modes[Write] notes",
+      "issue": "'adjective agreement with sans sel' is wrong. 'sans sel' has no agreement.",
+      "fix": "Change to: 'cuits agrees with les/œufs (masc. plural).'"
+    },
+    {
+      "id": "modes[Recall] core:4:word:14",
+      "issue": "Only one accepted answer is listed.",
+      "fix": "Also accept 'Pouvez-vous m'apporter du pain grillé ?' and 'Pourriez-vous m'apporter du pain grillé ?'."
+    },
+    {
+      "id": "issues[1], issues[9]",
+      "issue": "Calling 'compris' a 'France-specific assumption' is inaccurate. 'compris' is standard pan-French for 'included' (e.g. 'service compris').",
+      "fix": "Say instead: 'compris is a common idiomatic synonym; inclus chosen as closer to incluido.'"
+    },
+    {
+      "id": "speaking.openingFrench / roles",
+      "issue": "The opening is the learner's own line, and there are no French server prompts.",
+      "fix": "Add server lines: 'Bonjour, vous désirez ?', 'Comment voulez-vous vos œufs ?', 'Oui, le café est inclus.' Optionally label the role as serveur/serveuse."
+    },
+    {
+      "id": "all French lines with « » ? :",
+      "issue": "The spaces before ?, : and inside « » should be non-breaking so they don't wrap.",
+      "fix": "Use U+202F or U+00A0 for these spaces, and verify in the data."
+    },
+    {
+      "id": "issues[0], issues[10]",
+      "issue": "Process meta (hotel request, 'No files were edited') has leaked into the content artifact.",
+      "fix": "Move this to the review log, not the candidate issues list."
+    }
+  ]
+}
+```

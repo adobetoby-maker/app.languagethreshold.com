@@ -1,0 +1,190 @@
+{
+  "stableId": "master-travel-lunch:17:ja-en",
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "activities": [
+    {
+      "id": "master-travel-lunch:17:ja-en:see:private-1",
+      "mode": "see",
+      "sourceRef": "master-travel-lunch:17:ja-en:card:17",
+      "cueEnglish": "Identify the fried tilapia and its seasoning.",
+      "modelJapanese": "まず、ティラピアのフライはとても新鮮で、味付けもよかったです。",
+      "modelEnglish": "First of all, the fried tilapia was very fresh and well seasoned.",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    },
+    {
+      "id": "master-travel-lunch:17:ja-en:recall:private-1",
+      "mode": "recall",
+      "sourceRef": "master-travel-lunch:17:ja-en:card:18",
+      "cueEnglish": "Recall the almost-hour wait.",
+      "modelJapanese": "しかし、主菜が出るまでほぼ一時間待ちました。",
+      "modelEnglish": "However, we waited almost an hour for the main dishes.",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    },
+    {
+      "id": "master-travel-lunch:17:ja-en:hear:private-1",
+      "mode": "hear",
+      "sourceRef": "master-travel-lunch:17:ja-en:card:19",
+      "cueEnglish": "Listen for the apology and complimentary lemonades.",
+      "modelJapanese": "また、スタッフは謝り、レモネードを無料にしてくれました。",
+      "modelEnglish": "Also, the staff apologized and gave us the lemonades for free.",
+      "recordedAudioRequired": true,
+      "readyForLearner": false
+    },
+    {
+      "id": "master-travel-lunch:17:ja-en:type:private-1",
+      "mode": "type",
+      "sourceRef": "master-travel-lunch:17:ja-en:card:20",
+      "cueEnglish": "Type the balanced service critique.",
+      "modelJapanese": "接客は親切でしたが、あれだけ多くのテーブルに対してスタッフは少なかったです。",
+      "modelEnglish": "The service was friendly, although there were few staff for so many tables.",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    },
+    {
+      "id": "master-travel-lunch:17:ja-en:say:private-1",
+      "mode": "say",
+      "sourceRef": "master-travel-lunch:17:ja-en:card:22",
+      "cueEnglish": "Give the four-star rating aloud.",
+      "modelJapanese": "料理と親切な心遣いを考えて、星四つをつけます。",
+      "modelEnglish": "I give it 4 stars for the food and the kind gesture.",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    },
+    {
+      "id": "master-travel-lunch:17:ja-en:write:private-1",
+      "mode": "write",
+      "sourceRef": "master-travel-lunch:17:ja-en:card:24",
+      "cueEnglish": "Write a polite reply to owner Kelly.",
+      "modelJapanese": "ケリーさん、ご返信ありがとうございます。喜んでまた伺います。",
+      "modelEnglish": "Thank you for your reply, Kelly; we'll gladly come back.",
+      "recordedAudioRequired": false,
+      "readyForLearner": false
+    }
+  ],
+  "forms": [
+    {
+      "readerIndex": 3,
+      "ja": "ダニエルは書きます。「まず、ティラピアのフライはとても新鮮で、味付けもよかったです。」",
+      "en": "Daniel writes: First of all, the fried tilapia was very fresh and well seasoned.",
+      "focus": "まず marks the first specific praise in a written review."
+    },
+    {
+      "readerIndex": 6,
+      "ja": "ダニエルは続けます。「しかし、主菜が出るまでほぼ一時間待ちました。」",
+      "en": "Daniel continues: However, we waited almost an hour for the main dishes.",
+      "focus": "しかし turns from praise to the long wait without erasing either fact."
+    },
+    {
+      "readerIndex": 10,
+      "ja": "ダニエルは明確にします。「名前は挙げたくありません。問題は店の運営にありました。」",
+      "en": "Daniel clarifies: I'd rather not mention names; the problem was organization.",
+      "focus": "名前は挙げたくありません keeps the worker unnamed while identifying the organizational problem."
+    },
+    {
+      "readerIndex": 11,
+      "ja": "さらに書きます。「また、スタッフは謝り、レモネードを無料にしてくれました。」",
+      "en": "Daniel adds: Also, the staff apologized and gave us the lemonades for free.",
+      "focus": "また adds the staff apology and complimentary drinks."
+    },
+    {
+      "readerIndex": 15,
+      "ja": "ダニエルは締めくくります。「まとめると、料理を食べにまた行きたいですが、時間に余裕があるときにします。」",
+      "en": "Daniel finishes: In short, I would go back for the food, but with time to spare.",
+      "focus": "まとめると closes the balanced review with a conditional return."
+    },
+    {
+      "readerIndex": 18,
+      "ja": "ダニエルは答えます。「ケリーさん、ご返信ありがとうございます。喜んでまた伺います。」",
+      "en": "Daniel answers: Thank you for your reply, Kelly; we'll gladly come back.",
+      "focus": "ご返信ありがとうございます uses polite public-reply register with the named owner."
+    }
+  ],
+  "speaking": {
+    "role": "Daniel, composing and reading a fair review",
+    "partnerRole": "Kelly, the restaurant owner",
+    "opening": "まず、ティラピアのフライはとても新鮮で、味付けもよかったです。",
+    "goal": "Describe the fried tilapia, coconut rice and patacones, almost-hour delay, staff apology and free coconut lemonades; give four stars without naming the waiter, then reply to Kelly.",
+    "closure": "ケリーさん、ご返信ありがとうございます。喜んでまた伺います。",
+    "readyForLearner": false
+  },
+  "schema": 1,
+  "state": "private-derived-proposal",
+  "readyForLearner": false,
+  "cardOnlyWordBank": [
+    {
+      "sourceRef": "master-travel-lunch:17:ja-en:card:3",
+      "ja": "ティラピアのフライ（モハーラ・フリータ）",
+      "en": "the fried tilapia"
+    },
+    {
+      "sourceRef": "master-travel-lunch:17:ja-en:card:4",
+      "ja": "ココナッツライス",
+      "en": "the coconut rice"
+    },
+    {
+      "sourceRef": "master-travel-lunch:17:ja-en:card:5",
+      "ja": "揚げたプランテンのスライス（パタコン）",
+      "en": "the fried plantain slices"
+    },
+    {
+      "sourceRef": "master-travel-lunch:17:ja-en:card:6",
+      "ja": "ココナッツレモネード",
+      "en": "the coconut lemonade"
+    },
+    {
+      "sourceRef": "master-travel-lunch:17:ja-en:card:7",
+      "ja": "遅れ",
+      "en": "the delay"
+    },
+    {
+      "sourceRef": "master-travel-lunch:17:ja-en:card:8",
+      "ja": "接客",
+      "en": "the service"
+    },
+    {
+      "sourceRef": "master-travel-lunch:17:ja-en:card:9",
+      "ja": "スタッフ",
+      "en": "the staff"
+    },
+    {
+      "sourceRef": "master-travel-lunch:17:ja-en:card:13",
+      "ja": "心遣い",
+      "en": "the gesture"
+    },
+    {
+      "sourceRef": "master-travel-lunch:17:ja-en:card:17",
+      "ja": "まず、ティラピアのフライはとても新鮮で、味付けもよかったです。",
+      "en": "First of all, the fried tilapia was very fresh and well seasoned."
+    },
+    {
+      "sourceRef": "master-travel-lunch:17:ja-en:card:18",
+      "ja": "しかし、主菜が出るまでほぼ一時間待ちました。",
+      "en": "However, we waited almost an hour for the main dishes."
+    },
+    {
+      "sourceRef": "master-travel-lunch:17:ja-en:card:19",
+      "ja": "また、スタッフは謝り、レモネードを無料にしてくれました。",
+      "en": "Also, the staff apologized and gave us the lemonades for free."
+    },
+    {
+      "sourceRef": "master-travel-lunch:17:ja-en:card:20",
+      "ja": "接客は親切でしたが、あれだけ多くのテーブルに対してスタッフは少なかったです。",
+      "en": "The service was friendly, although there were few staff for so many tables."
+    },
+    {
+      "sourceRef": "master-travel-lunch:17:ja-en:card:22",
+      "ja": "料理と親切な心遣いを考えて、星四つをつけます。",
+      "en": "I give it 4 stars for the food and the kind gesture."
+    },
+    {
+      "sourceRef": "master-travel-lunch:17:ja-en:card:24",
+      "ja": "ケリーさん、ご返信ありがとうございます。喜んでまた伺います。",
+      "en": "Thank you for your reply, Kelly; we'll gladly come back."
+    }
+  ]
+}

@@ -269,6 +269,11 @@
     scroll-padding-bottom: calc(var(--lt-bottom-strip-budget) + env(safe-area-inset-bottom));
   }
 
+  /* Speak supplies its own bottom dock, so it needs no legacy navigation reserve. */
+  .lt-v6-app:has(.lt-native-speak) .lt-main-column > main.lt-scroll-safe {
+    padding-bottom: 0 !important;
+  }
+
   /* iOS PWA uses apple-mobile-web-app-status-bar-style: black-translucent, so web
      content renders UNDER the status bar and Dynamic Island. Any surface sitting at
      the top of the viewport must supply the inset itself. On desktop and Android,

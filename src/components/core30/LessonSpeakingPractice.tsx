@@ -1,30 +1,21 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import type { LessonWord } from "@/data/curriculum";
 import type { LessonDefinition } from "@/lib/lesson-definition";
 import { languageTag } from "@/lib/lesson-words-core";
 
-const SpeakingMission = lazy(() =>
-  import("@/components/speak/SpeakingMissionsPreview").then((module) => ({
-    default: module.SpeakingMissionsPreview,
-  })),
-);
-
 export function LessonSpeakingPractice({
-  missionPrefix,
   instruction,
   definition,
   words,
   language,
   onOpen,
 }: {
-  missionPrefix: string;
   instruction: string;
   definition: LessonDefinition | null;
   words: LessonWord[];
   language: string;
   onOpen: () => void;
 }) {
-  const [missionOpen, setMissionOpen] = useState(false);
   const [online, setOnline] = useState(() => typeof navigator === "undefined" || navigator.onLine);
   useEffect(() => {
     const update = () => setOnline(navigator.onLine);
@@ -42,23 +33,18 @@ export function LessonSpeakingPractice({
         {definition?.teaching?.speaking.context ?? instruction}
       </p>
       <p className="text-xs leading-relaxed text-muted-foreground">
-        Say a response aloud, then try again from memory. Ask for clarification and use this
-        lesson’s words. Rehearsal does not record your voice or create a score.
+        Speak is ready for this lesson. Your partner will help you use these words and work toward
+        the lesson goal.
       </p>
-      {!missionOpen && (
-        <button
-          type="button"
-          data-testid="lesson-say-go"
-          disabled={!online}
-          onClick={() => {
-            onOpen();
-            setMissionOpen(true);
-          }}
-          className="min-h-12 w-full rounded-xl border border-gold/50 bg-gold/10 px-4 text-sm font-semibold text-gold disabled:opacity-50"
-        >
-          Practise with AI here
-        </button>
-      )}
+      <button
+        type="button"
+        data-testid="lesson-say-go"
+        disabled={!online}
+        onClick={onOpen}
+        className="min-h-12 w-full rounded-xl border border-gold/50 bg-gold/10 px-4 text-sm font-semibold text-gold disabled:opacity-50"
+      >
+        Start lesson conversation
+      </button>
       {!online && (
         <p role="status" className="text-xs text-muted-foreground">
           You are offline. Rehearse the task and use the word bank here. AI conversation needs a
@@ -66,10 +52,7 @@ export function LessonSpeakingPractice({
         </p>
       )}
       {words.length > 0 && (
-        <details
-          open={bank === "visible" && !missionOpen}
-          className="rounded-xl border border-border/50 p-3"
-        >
+        <details open={bank === "visible"} className="rounded-xl border border-border/50 p-3">
           <summary className="min-h-11 cursor-pointer text-sm font-semibold">
             {bank === "on-request" ? "Need the lesson word bank?" : "Lesson word bank"}
           </summary>
@@ -82,20 +65,6 @@ export function LessonSpeakingPractice({
             ))}
           </dl>
         </details>
-      )}
-      {missionOpen && online && (
-        <Suspense fallback={<p role="status">Loading this lesson’s speaking mission…</p>}>
-          <SpeakingMission
-            embeddedMissionPrefix={missionPrefix}
-            onEmbeddedClose={() => setMissionOpen(false)}
-          />
-        </Suspense>
-      )}
-      {missionOpen && (
-        <p className="text-xs text-muted-foreground">
-          Closing practice or switching lesson steps ends this practice session. Your lesson stays
-          open.
-        </p>
       )}
     </div>
   );

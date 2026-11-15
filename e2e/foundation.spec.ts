@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
 import { readAppState } from "./app-state";
+import { collectRecallCards } from "./recall-deck";
 
 // The free Roofing Foundation (module foundation-roofing): ten beginner lessons in front of the
 // Roofing Core 30. Free with an account: a guest sees a sign-in prompt (never the paid trial),
@@ -231,12 +232,11 @@ test.describe("fmg Foundation (English target): lesson 1 word list", () => {
     await expect(page.getByTestId("lesson-words-error")).toHaveCount(0);
     const section = page.getByTestId("lesson-practice-section");
     await expect(section).toContainText(`Practice this lesson's words (${lessonWords.length})`);
-    await expect(page.getByRole("tab", { name: "Study", exact: true })).toHaveAttribute(
-      "aria-selected",
-      "true",
+    await expect(page.getByTestId("lesson-recall-deck")).toBeVisible();
+    const cards = await collectRecallCards(page);
+    expect(cards.map((card) => card.target)).toEqual(
+      expect.arrayContaining(lessonWords.map((word: { es: string }) => word.es)),
     );
-    const studyWords = section.getByRole("tabpanel").locator('li p[lang="en"]');
-    await expect(studyWords).toHaveText(lessonWords.map((word: { es: string }) => word.es));
   });
 });
 

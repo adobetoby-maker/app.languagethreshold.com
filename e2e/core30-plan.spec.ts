@@ -1,3 +1,4 @@
+import { collectRecallCards, openRecallTools } from "./recall-deck";
 import { expect, test, type Page } from "@playwright/test";
 import { ROOFING_LESSON_WORDS } from "../src/data/roofing-lesson-words.ts";
 import { appUrl, core30Key, currentTab, readAppState, seedAppState } from "./app-state.ts";
@@ -180,6 +181,7 @@ async function goSection(page: Page, section: Section) {
 }
 
 async function chooseRecallPractice(page: Page, mode: "study" | "flashcards" | "match" | "verbs") {
+  await openRecallTools(page);
   await page.getByTestId(`practice-mode-${mode}`).click();
 }
 
@@ -349,14 +351,10 @@ test.describe("Core 30 plan: Roofing", () => {
     // Recall opens on Study before the learner chooses Cards or Match.
     await expect(kit.getByTestId("practice-mode-study")).toHaveAttribute("aria-selected", "true");
 
-    // Study: every lesson-1 word is listed, and the list length equals the heading count.
-    const panel = kit.getByRole("tabpanel");
-    const studyEs = panel.locator('li p[lang="es"]');
-    await expect(studyEs).toHaveCount(total);
-    expect((await studyEs.allInnerTexts()).sort()).toEqual(LESSON_1_WORDS.map((w) => w.es).sort());
-    for (const word of LESSON_1_WORDS) {
-      await expect(panel.locator("li").filter({ hasText: word.en }).first()).toBeVisible();
-    }
+    const cards = await collectRecallCards(page);
+    for (const word of LESSON_1_WORDS)
+      expect(cards.some((card) => card.target === word.es)).toBe(true);
+    await expect(kit).toContainText("Round complete.");
 
     // Memory match: pair every Spanish tile with its English tile.
     await chooseRecallPractice(page, "match");
@@ -493,58 +491,102 @@ test.describe("Core 30 plan: Roofing", () => {
     await expect(page.getByTestId("core30-mastered-status")).toContainText("Mastered on");
   });
 
-  test("6. Say it opens the lesson mission inline on Core 30, with no trip to the Speak tab", async ({
-    page,
-  }) => {
+  test("6. Say it prepares the lesson on Speak and returns to the same step", async ({ page }) => {
     await openCore30(page, STARTED_TODAY);
     await openLesson1(page);
     await goSection(page, "say");
-    const urlBefore = page.url();
+    await expect(page.getByTestId("lesson-section-say")).toContainText("Step 6 of 6");
+    await expect(page.getByRole("button", { name: /Next: Write it/ })).toHaveCount(0);
     await page.getByTestId("lesson-say-go").click();
-    // The practice panel opens inside the Say it section (LessonSpeakingPractice.tsx), not on Speak.
-    const panel = page.getByTestId("lesson-speaking-practice");
-    const mission = panel.getByRole("heading", { name: /^Lesson 1:/ });
-    await expect(mission).toBeVisible({ timeout: 60_000 });
-    await expect(mission).toContainText("Name the Roof System");
-    await expect(panel.getByRole("button", { name: "Close practice" })).toBeVisible();
-    await expect(page.getByTestId("lesson-say-go")).toHaveCount(0);
-    expect(await currentTabOf(page)).toBe("core30");
-    expect(page.url()).toBe(urlBefore);
+    await expect(page.getByRole("button", { name: "Speaking menu", exact: true })).toBeVisible();
     await expect(
-      page.getByRole("button", { name: "Lesson details and goal", exact: true }),
+      page.getByRole("button", { name: /Lesson 1 · Name the Roof System/ }),
     ).toBeVisible();
-    await expect(page.getByTestId("v6-nav-say")).toHaveAttribute("aria-current", "page");
-    // Opening the practice records the Speak step (index 2) and the Say it way.
+    expect(await currentTabOf(page)).toBe("speak");
     await expect.poll(() => visitKeys(page, "1")).toContain("2");
     expect(await visitKeys(page, "1")).toContain("way:say");
-    // No Reader/Speak round trip exists any more, so there is no return marker or pill.
-    expect(await page.evaluate(() => sessionStorage.getItem("lt.core30.returnTo"))).toBeNull();
-    await expect(page.getByTestId("lesson-return-pill")).toHaveCount(0);
+    expect((await readLog(page))?.lessons["1"]?.masteredAt).toBeUndefined();
+    // Resume a saved conversation after consulting the lesson's word bank.
+    await page.evaluate(() => {
+      const key = "lt.learner-device.v1.speak.guest";
+      const saved = JSON.parse(localStorage.getItem(key) ?? "null");
+      if (!saved?.data?.Spanish?.lesson) throw new Error("Lesson binding was not saved");
+      Object.assign(saved.data.Spanish, {
+        turns: [
+          {
+            id: "lesson-resume-turn",
+            role: "ai",
+            text: "¿Qué equipo usas para subir?",
+            createdAt: Date.now(),
+          },
+        ],
+        exchanges: 1,
+        totalSeconds: 40,
+      });
+      localStorage.setItem(key, JSON.stringify(saved));
+    });
+    await page.reload();
+    await expect(page.locator(".lt-native-speak")).toContainText("¿Qué equipo usas para subir?");
+    await page.getByTestId("native-nav-study").click();
+    await expect(page.getByTestId("lesson-section-say")).toBeVisible();
+    await expect(page.getByTestId("v6-nav-say")).toHaveAttribute("aria-current", "page");
+    expect(await currentTabOf(page)).toBe("core30");
+    await page.getByTestId("v6-nav-speak").click();
+    await expect(page.locator(".lt-native-speak")).toContainText("¿Qué equipo usas para subir?");
+    await page.getByRole("button", { name: "Speaking menu", exact: true }).click();
+    await page.getByRole("button", { name: "Reset conversation", exact: true }).click();
+    await expect(page.locator(".lt-native-speak")).not.toContainText(
+      "¿Qué equipo usas para subir?",
+    );
+    await expect(
+      page.getByRole("button", { name: /Lesson 1 · Name the Roof System/ }),
+    ).toBeVisible();
   });
 
-  test("6b. Close practice ends the mission and leaves the lesson open on Say it", async ({
+  test("6b. The bottom Speak button uses the lesson and reset keeps its setup", async ({
     page,
   }) => {
     await openCore30(page, STARTED_TODAY);
     await openLesson1(page);
     await goSection(page, "say");
-    await page.getByTestId("lesson-say-go").click();
-    const panel = page.getByTestId("lesson-speaking-practice");
-    await expect(panel.getByRole("heading", { name: /^Lesson 1:/ })).toBeVisible({
-      timeout: 60_000,
-    });
-    // The embedded mission has no All missions list; Close practice is the way back to the lesson.
-    await expect(page.getByRole("button", { name: /All missions/ })).toHaveCount(0);
-    await panel.getByRole("button", { name: "Close practice" }).click();
-    await expect(panel.getByRole("heading", { name: /^Lesson 1:/ })).toHaveCount(0);
-    await expect(page.getByTestId("lesson-say-go")).toBeVisible();
-    expect(await currentTabOf(page)).toBe("core30");
-    await expect(page.getByTestId("v6-nav-say")).toHaveAttribute("aria-current", "page");
+    await page.getByTestId("v6-nav-speak").click();
+    const topic = page.getByRole("button", { name: /Lesson 1 · Name the Roof System/ });
+    await expect(topic).toBeVisible();
+    await page.getByRole("button", { name: "Speaking menu", exact: true }).click();
+    await page.getByRole("button", { name: "Reset conversation", exact: true }).click();
+    await expect(topic).toBeVisible();
+    await page.reload();
+    await expect(topic).toBeVisible();
+    expect((await readLog(page))?.lessons["1"]?.masteredAt).toBeUndefined();
+    await page.getByRole("button", { name: "Back to Study", exact: true }).click();
     await expect(page.getByTestId("lesson-section-say")).toBeVisible();
+  });
+
+  test("6c. Climbing Say it sets up the pictured lesson on Speak", async ({ page }, testInfo) => {
+    await openCore30(page, STARTED_TODAY, "rock-climbing");
+    await openLesson1(page);
+    await goSection(page, "say");
+    await testInfo.attach("lesson-ready-for-speak", {
+      body: await page.screenshot(),
+      contentType: "image/png",
+    });
+    await page.getByTestId("lesson-say-go").click();
     await expect(
-      page.getByRole("button", { name: "Lesson details and goal", exact: true }),
+      page.getByRole("button", { name: /Lesson 1 · Gear Names & What They Do/ }),
     ).toBeVisible();
-    await expect(page.getByTestId("lesson-return-pill")).toHaveCount(0);
+    await expect(
+      page.getByRole("button", { name: "Let partner start", exact: true }),
+    ).toBeVisible();
+    await testInfo.attach("speak-prepared-for-lesson", {
+      body: await page.screenshot(),
+      contentType: "image/png",
+    });
+    expect((await readLog(page, "rock-climbing"))?.lessons["1"]?.masteredAt).toBeUndefined();
+    await page.getByRole("button", { name: "Speaking menu", exact: true }).click();
+    await page.getByRole("button", { name: "Free conversation", exact: true }).click();
+    await expect(
+      page.getByRole("button", { name: "Open conversation", exact: true }),
+    ).toBeVisible();
   });
 
   test("7. Recall it opens Study and returns to Study after another mode", async ({ page }) => {
@@ -600,7 +642,7 @@ test.describe("Core 30 plan: Roofing", () => {
     await expect(page.getByRole("tablist", { name: "Practice mode" })).toHaveCount(0);
     await expect(page.getByTestId("practice-recall-switch")).toHaveCount(0);
     await goSection(page, "recall");
-    await expect(page.getByTestId("practice-recall-switch")).toBeVisible();
+    await expect(page.getByTestId("lesson-recall-deck")).toBeVisible();
     await expect(page.getByTestId("practice-mode-study")).toHaveAttribute("aria-selected", "true");
     await expect(page.getByTestId("practice-mode-type")).toHaveCount(0);
   });
@@ -817,13 +859,8 @@ test.describe("Core 30 plan: generated lesson words (Orthopedics in French, no a
     ).toBeAttached();
     const kit = page.getByTestId("practice-kit");
     await expect(kit).toBeVisible();
-    // Recall opens directly on the Study list.
-    await chooseRecallPractice(page, "study");
-    const panel = kit.getByRole("tabpanel");
-    await expect(panel.locator('li p[lang="fr"]')).toHaveCount(STUB_WORDS.length);
-    expect((await panel.locator('li p[lang="fr"]').allInnerTexts()).sort()).toEqual(
-      STUB_WORDS.map((w) => w.es).sort(),
-    );
+    const recalled = await collectRecallCards(page);
+    expect(recalled.map((card) => card.target).sort()).toEqual(STUB_WORDS.map((w) => w.es).sort());
     expect(requests).toHaveLength(1);
     expect(requests[0]).toContain("orthopedics");
 
@@ -953,9 +990,8 @@ test.describe("Core 30 plan: pre-built static deck (Construction Foreman, French
     ).toBeAttached();
     await expect(page.getByTestId("practice-kit")).toBeVisible();
     await chooseRecallPractice(page, "study");
-    const panel = page.getByTestId("practice-kit").getByRole("tabpanel");
-    await expect(panel.locator('li p[lang="fr"]')).toHaveCount(12);
-    expect((await panel.locator('li p[lang="fr"]').allInnerTexts()).sort()).toEqual(
+    const recalled = await collectRecallCards(page);
+    expect(recalled.map((card) => card.target).sort()).toEqual(
       deck.lessons["1"].map((w) => w.es).sort(),
     );
 

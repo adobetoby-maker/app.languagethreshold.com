@@ -1,4 +1,5 @@
 import { speakingPartnerInstructions } from "../data/speaking-partners";
+import { lessonSpeakingContext } from "../lib/lesson-speaking-context";
 import { getModule, moduleSupportsLearningPair } from "../data/modules";
 import { anthropicTextStream } from "@/lib/anthropic-text-stream";
 import { PocketTutorCardSchema, pocketTutorPrompt } from "@/lib/speak-pocket-tutor";
@@ -46,6 +47,7 @@ const BodySchema = z.object({
   teacherTopic: z.string().trim().max(200).optional(),
   teacherStyle: z.enum(["gentle", "standard"]).optional(),
   moduleId: z.string().max(100).optional(),
+  lessonNumber: z.number().int().min(1).max(1000).optional(),
   startConversation: z.boolean().optional(),
   mode: z.enum(["chat", "tip", "challenge", "mission", "translate", "lookup"]),
   word: z.string().trim().min(1).max(80).optional(),
@@ -949,6 +951,23 @@ export const Route = createFileRoute("/api/speak")({
           )
             ? selectedModule
             : undefined;
+        let lessonContext: string | null = null;
+        if (payload.lessonNumber !== undefined) {
+          if (compatibleModule) {
+            await ensureStageCurriculum(compatibleModule.id);
+            lessonContext = lessonSpeakingContext(
+              compatibleModule.id,
+              payload.lessonNumber,
+              payload.language,
+              nativeLanguage,
+            );
+          }
+          if (!lessonContext)
+            return Response.json(
+              { error: "This lesson is not available for the selected course and languages." },
+              { status: 400 },
+            );
+        }
         const chatMessages = payload.startConversation
           ? [
               {
@@ -975,7 +994,8 @@ export const Route = createFileRoute("/api/speak")({
                     payload.level,
                     nativeLanguage,
                     payload.userVocabWords,
-                  ),
+                  ) +
+                  (lessonContext ? `\n\n${lessonContext}` : ""),
                 messages: chatMessages,
                 stream: true,
               },

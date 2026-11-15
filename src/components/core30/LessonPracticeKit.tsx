@@ -33,6 +33,9 @@ import { AnswerFeedback } from "@/components/core30/AnswerFeedback";
 import { HandwritingPad, type HandwritingPadHandle } from "@/components/core30/HandwritingPad";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { VerbPractice } from "@/components/core30/VerbPractice";
+import { GameRound } from "@/components/core30/LessonVerbGames";
+import { advanceLessonRecall, buildLessonRecall } from "@/lib/lesson-recall";
+import type { SpanishPattern } from "@/data/spanish-basics";
 import { compareAnswer } from "@/lib/answer-feedback";
 import { checkHandwritten } from "@/lib/handwriting-check";
 import { useApp, type Language } from "@/state/app-state";
@@ -83,11 +86,12 @@ export interface LessonPracticeKitProps {
   matchingBatchSize?: number;
   listeningItems?: LessonWord[];
   /**
-   * The lesson's verbs (authored lesson content). When present, Recall it gains a Verbs tab
-   * (verb cards) and Type it gains a Words | Verbs switch (conjugation drill). Inside a lesson
-   * only; the standalone six-tab kit ignores them.
+   * The lesson's authored verbs join the combined Recall deck. Optional verb-reference
+   * cards remain under More recall tools; Type it keeps its conjugation drill.
+   * The standalone six-tab kit ignores them.
    */
   verbs?: LessonVerb[];
+  verbPattern?: SpanishPattern;
   writingResponse?: ReactNode;
 }
 
@@ -113,7 +117,7 @@ const MODES: { id: PracticeMode; label: string; Icon: typeof BookOpen }[] = [
   { id: "write", label: "Write", Icon: PenLine },
 ];
 
-/** The modes Recall it covers; inside a lesson they get a small switch of their own. */
+/** Optional drills beneath the primary combined Recall deck. */
 const RECALL_MODES = MODES.filter(
   ({ id }) => id === "study" || id === "flashcards" || id === "match",
 );
@@ -391,6 +395,224 @@ function FlashcardsMode({ words, onComplete }: { words: LessonWord[]; onComplete
         </>
       )}
     </div>
+  );
+}
+
+/** The lesson's primary Recall flow: one deck with short practice breaks. */
+function RecallSequence({
+  words,
+  verbs,
+  pattern,
+  onComplete,
+}: {
+  words: LessonWord[];
+  verbs: LessonVerb[];
+  pattern?: SpanishPattern;
+  onComplete: () => void;
+}) {
+  const { target, native } = useKitLanguages();
+  const speak = useTargetSpeaker();
+  const sequence = useMemo(
+    () => buildLessonRecall(words, verbs, target, pattern, native),
+    [words, verbs, target, pattern, native],
+  );
+  const [queue, setQueue] = useState(() => sequence);
+  const [revealed, setRevealed] = useState(false);
+  const [skipped, setSkipped] = useState(0);
+  const [transitioning, setTransitioning] = useState(false);
+  const transitionTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(
+    () => () => {
+      if (transitionTimer.current) clearTimeout(transitionTimer.current);
+    },
+    [],
+  );
+  const pauseGrading = () => {
+    if (transitionTimer.current) clearTimeout(transitionTimer.current);
+    setTransitioning(true);
+    transitionTimer.current = setTimeout(() => setTransitioning(false), 300);
+  };
+  const [direction, setDirection] = useState<LessonCardDirection>("native-to-target");
+  const reported = useRef(false);
+  const current = queue[0];
+  const totalCards = sequence.filter((item) => item.kind === "card").length;
+  const remainingCards = queue.filter((item) => item.kind === "card").length;
+  useEffect(() => {
+    if (sequence.length && !queue.length && !reported.current) {
+      reported.current = true;
+      onComplete();
+    }
+  }, [sequence.length, queue.length, onComplete]);
+  const advance = (again = false) => {
+    if (!current) return;
+    if (current.kind === "card" && !again) void playFlashcardSuccess();
+    setQueue((pending) => advanceLessonRecall(pending, current.id, again));
+    setRevealed(false);
+    pauseGrading();
+  };
+  const faces = current?.kind === "card" ? lessonCardFaces(current.word, direction) : null;
+  const face = revealed ? faces?.back : faces?.front;
+  if (!sequence.length) return <p role="status">No lesson cards are available yet.</p>;
+  return (
+    <section
+      data-testid="lesson-recall-deck"
+      data-current-id={current?.id}
+      className="space-y-4"
+      aria-label="Lesson recall deck"
+    >
+      <div className="flex items-center justify-between gap-3 text-sm text-muted-foreground">
+        <span data-testid="recall-progress">
+          {totalCards - remainingCards} / {totalCards} cards
+        </span>
+        <span>{sequence.length - totalCards} practice breaks</span>
+      </div>
+      <ProgressBar value={sequence.length - queue.length} total={sequence.length} />
+      {!current ? (
+        <>
+          <DoneNotice>
+            Round complete. All {totalCards} cards recalled.{" "}
+            {sequence.length - totalCards - skipped} practice breaks completed
+            {skipped ? `; ${skipped} skipped` : ""}.
+          </DoneNotice>
+          <button
+            type="button"
+            className={ghostBtn}
+            onClick={() => {
+              setQueue(sequence);
+              setRevealed(false);
+              setSkipped(0);
+              reported.current = false;
+            }}
+          >
+            Start another round
+          </button>
+        </>
+      ) : current.kind === "card" ? (
+        <div key="recall-card" data-testid="recall-step" data-kind="card" className="space-y-3">
+          <div className="flex items-center justify-between gap-2">
+            <p className="text-sm font-semibold text-gold">{current.label}</p>
+            <button
+              type="button"
+              className="min-h-11 text-sm text-muted-foreground"
+              aria-label="Reverse card direction"
+              aria-disabled={transitioning}
+              onClick={() => {
+                if (transitioning) return;
+                setDirection((value) =>
+                  value === "native-to-target" ? "target-to-native" : "native-to-target",
+                );
+                setRevealed(false);
+                pauseGrading();
+              }}
+            >
+              {direction === "native-to-target" ? `${native} → ${target}` : `${target} → ${native}`}
+            </button>
+          </div>
+          <button
+            type="button"
+            data-testid="flashcard"
+            aria-disabled={transitioning}
+            aria-label={revealed ? "Show the front of the card" : "Flip the card"}
+            onClick={() => {
+              if (transitioning) return;
+              setRevealed((value) => !value);
+              pauseGrading();
+            }}
+            className="flex min-h-64 max-h-[55dvh] w-full flex-col items-center gap-5 overflow-y-auto rounded-3xl border border-border bg-card px-5 py-8 text-center"
+          >
+            <span className="text-sm text-muted-foreground">
+              {face?.role === "target" ? target : native}
+            </span>
+            <span
+              data-testid="recall-card-text"
+              lang={languageTag(face?.role === "target" ? target : native)}
+              className="my-auto break-words font-serif text-3xl leading-snug"
+            >
+              {face?.text}
+            </span>
+            {revealed && current.word.note && (
+              <span className="text-sm text-muted-foreground">{current.word.note}</span>
+            )}
+            {revealed && current.forms.length > 0 && (
+              <span className="grid w-full gap-2 border-t border-border pt-4 text-left text-base">
+                {current.forms.map((form) => (
+                  <span key={form.id} className="flex flex-wrap justify-between gap-x-4 gap-y-1">
+                    <span className="text-muted-foreground">{form.prompt.split(" · ")[0]}</span>
+                    <span lang={languageTag(target)}>{form.answer}</span>
+                  </span>
+                ))}
+              </span>
+            )}
+          </button>
+          <div data-testid="lesson-cards-grading" className="flex items-center gap-2">
+            <SpeakButton text={current.word.es} speak={speak} />
+            <button
+              type="button"
+              aria-disabled={transitioning}
+              className={cn(ghostBtn, "flex-1")}
+              onClick={() => {
+                if (!transitioning) advance(true);
+              }}
+            >
+              Again
+            </button>
+            <button
+              type="button"
+              className={cn(primaryBtn, "flex-1")}
+              aria-disabled={transitioning}
+              onClick={() => {
+                if (transitioning) return;
+                if (revealed) advance();
+                else {
+                  setRevealed(true);
+                  pauseGrading();
+                }
+              }}
+            >
+              {revealed ? "Got it" : `Reveal ${direction === "native-to-target" ? target : native}`}
+            </button>
+          </div>
+        </div>
+      ) : current.kind === "match" ? (
+        <div key={current.id} data-testid="recall-step" data-kind="match" className="space-y-3">
+          <h4 className="font-serif text-2xl">Match the cards</h4>
+          <MatchMode words={current.words} maxPairs={4} onComplete={() => advance()} />
+        </div>
+      ) : (
+        <div key={current.id} data-testid="recall-step" data-kind="verb-game" className="space-y-3">
+          <h4 className="font-serif text-2xl">
+            {current.game === "choice"
+              ? "Choose the verb form"
+              : current.game === "matching"
+                ? "Match the verb forms"
+                : "Type the verb form"}
+          </h4>
+          <GameRound
+            game={current.game}
+            language={target}
+            source={current.source}
+            replay={() => {}}
+            onComplete={() => advance()}
+            onSkip={() => {
+              setSkipped((count) => count + 1);
+              advance();
+            }}
+          />
+        </div>
+      )}
+      {current?.kind === "match" && (
+        <button
+          type="button"
+          className="min-h-11 text-sm text-muted-foreground underline"
+          onClick={() => {
+            setSkipped((count) => count + 1);
+            advance();
+          }}
+        >
+          Skip this activity
+        </button>
+      )}
+    </section>
   );
 }
 
@@ -1516,6 +1738,7 @@ export function LessonPracticeKit({
   matchingBatchSize,
   listeningItems,
   verbs,
+  verbPattern,
   writingResponse,
 }: LessonPracticeKitProps) {
   const { state, dispatch } = useApp();
@@ -1590,6 +1813,35 @@ export function LessonPracticeKit({
     setAddedCount(fresh.length);
   };
 
+  const addWords =
+    words.length > 0 ? (
+      <div className="border-t border-border/40 pt-3">
+        <button
+          type="button"
+          onClick={addAll}
+          disabled={addedCount !== null}
+          className={cn(ghostBtn, "w-full")}
+        >
+          {addedCount === null ? (
+            <>
+              <Layers className="h-4 w-4" aria-hidden="true" />
+              Add these words to my flashcards
+            </>
+          ) : addedCount > 0 ? (
+            <>
+              <Check className="h-4 w-4 text-gold" aria-hidden="true" />
+              Added {addedCount}
+            </>
+          ) : (
+            <>
+              <Check className="h-4 w-4 text-gold" aria-hidden="true" />
+              Added 0 (already in your flashcards)
+            </>
+          )}
+        </button>
+      </div>
+    ) : null;
+
   const modeTabShown = controlledMode === undefined || recallTabs.some((m) => m.id === mode);
 
   return (
@@ -1655,44 +1907,6 @@ export function LessonPracticeKit({
               })}
             </div>
           </>
-        ) : recallTabs.some((m) => m.id === mode) ? (
-          <div
-            role="tablist"
-            aria-label="Recall practice"
-            data-testid="practice-recall-switch"
-            className={cn(
-              "grid gap-1 rounded-xl border border-border/50 bg-card/30 p-1",
-              recallTabs.length > 3 ? "grid-cols-4" : "grid-cols-3",
-            )}
-          >
-            {recallTabs.map(({ id, label, Icon }) => {
-              const active = mode === id;
-              return (
-                <button
-                  key={id}
-                  type="button"
-                  role="tab"
-                  id={`practice-tab-${id}`}
-                  aria-selected={active}
-                  aria-controls={`practice-panel-${id}`}
-                  data-testid={`practice-mode-${id}`}
-                  onClick={() => setMode(id)}
-                  className={cn(
-                    "relative flex min-h-11 cursor-pointer items-center justify-center gap-1.5 rounded-lg px-2 text-xs font-bold transition-all duration-200",
-                    active
-                      ? "bg-gold text-background"
-                      : "text-muted-foreground hover:bg-gold/10 hover:text-foreground",
-                  )}
-                >
-                  <Icon className="h-4 w-4" aria-hidden="true" />
-                  {label}
-                  {completed.has(id) && (
-                    <Check className="h-3 w-3 text-gold" aria-label="completed" />
-                  )}
-                </button>
-              );
-            })}
-          </div>
         ) : null}
 
         <div
@@ -1709,7 +1923,19 @@ export function LessonPracticeKit({
             </div>
           ) : (
             <>
-              {mode === "study" && <StudyMode words={words} onComplete={() => complete("study")} />}
+              {controlledMode !== undefined && (
+                <div hidden={mode !== "study"}>
+                  <RecallSequence
+                    words={words}
+                    verbs={verbs ?? []}
+                    pattern={verbPattern}
+                    onComplete={() => complete("study")}
+                  />
+                </div>
+              )}
+              {mode === "study" && controlledMode === undefined && (
+                <StudyMode words={words} onComplete={() => complete("study")} />
+              )}
               {mode === "flashcards" && (
                 <FlashcardsMode words={words} onComplete={() => complete("flashcards")} />
               )}
@@ -1758,33 +1984,55 @@ export function LessonPracticeKit({
           )}
         </div>
 
-        {words.length > 0 && (
-          <div className="border-t border-border/40 pt-3">
-            <button
-              type="button"
-              onClick={addAll}
-              disabled={addedCount !== null}
-              className={cn(ghostBtn, "w-full")}
-            >
-              {addedCount === null ? (
-                <>
-                  <Layers className="h-4 w-4" aria-hidden="true" />
-                  Add these words to my flashcards
-                </>
-              ) : addedCount > 0 ? (
-                <>
-                  <Check className="h-4 w-4 text-gold" aria-hidden="true" />
-                  Added {addedCount}
-                </>
-              ) : (
-                <>
-                  <Check className="h-4 w-4 text-gold" aria-hidden="true" />
-                  Added 0 (already in your flashcards)
-                </>
+        {controlledMode !== undefined && recallTabs.some((item) => item.id === mode) && (
+          <details data-testid="recall-tools" className="rounded-xl border border-border/50 px-3">
+            <summary className="min-h-11 cursor-pointer py-3 text-sm text-muted-foreground">
+              More recall tools
+            </summary>
+            <div
+              role="tablist"
+              aria-label="Recall practice"
+              data-testid="practice-recall-switch"
+              className={cn(
+                "grid gap-1 rounded-xl border border-border/50 bg-card/30 p-1",
+                recallTabs.length > 3 ? "grid-cols-4" : "grid-cols-3",
               )}
-            </button>
-          </div>
+            >
+              {recallTabs.map(({ id, label, Icon }) => {
+                const active = mode === id;
+                return (
+                  <button
+                    key={id}
+                    type="button"
+                    role="tab"
+                    id={`practice-tab-${id}`}
+                    aria-selected={active}
+                    aria-controls={`practice-panel-${id}`}
+                    data-testid={`practice-mode-${id}`}
+                    onClick={() => setMode(id)}
+                    className={cn(
+                      "relative flex min-h-11 cursor-pointer items-center justify-center gap-1.5 rounded-lg px-2 text-xs font-bold transition-all duration-200",
+                      active
+                        ? "bg-gold text-background"
+                        : "text-muted-foreground hover:bg-gold/10 hover:text-foreground",
+                    )}
+                  >
+                    <Icon className="h-4 w-4" aria-hidden="true" />
+                    {label}
+                    {completed.has(id) && (
+                      <Check className="h-3 w-3 text-gold" aria-label="completed" />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+            {addWords}
+          </details>
         )}
+
+        {controlledMode === undefined || !recallTabs.some((item) => item.id === mode)
+          ? addWords
+          : null}
       </section>
     </KitLanguageContext.Provider>
   );

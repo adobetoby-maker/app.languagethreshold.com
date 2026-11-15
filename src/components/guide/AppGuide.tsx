@@ -72,6 +72,8 @@ import {
   Loader2,
 } from "lucide-react";
 import { useApp, type TabKey } from "@/state/app-state";
+import { useSpeak } from "@/state/speak-state";
+import { OPEN_LESSON_SPEAK } from "@/lib/lesson-speaking";
 import {
   createTeamCompletionJournal,
   browserTeamCompletionStorage,
@@ -98,7 +100,6 @@ import { LessonResponsePractice } from "@/components/core30/LessonResponsePracti
 import {
   browserReturnStorage,
   clearLessonReturn,
-  lessonMissionPrefix,
   readLessonReturn,
   writeLessonReturn,
 } from "@/lib/lesson-return";
@@ -784,6 +785,7 @@ function OwnedLessonRunner({
   const [teamRecovery, setTeamRecovery] = useState("");
   const [hasTeamRecovery, setHasTeamRecovery] = useState(false);
   const { dispatch: libDispatch } = useLibrary();
+  const { startLesson } = useSpeak();
 
   const basics = spanishBasicsLesson(
     moduleId,
@@ -1076,10 +1078,37 @@ function OwnedLessonRunner({
     requestAnimationFrame(() => scrollStepBarIntoView(navRef.current, scrollBehavior()));
   }
 
-  /** Record the opened practice without leaving the lesson. */
+  /** Hand the actual lesson to Speak; opening it is practice, never mastery. */
   function goSay() {
-    recordStepOpened(speakStep);
+    leaveLesson(() => {
+      recordStepOpened(speakStep);
+      startLesson({
+        moduleId,
+        lessonNumber: lesson.n,
+        title: lesson.title,
+        nativeLanguage: state.nativeLanguage,
+      });
+      writeLessonReturn(browserReturnStorage(), {
+        moduleId,
+        lesson: lesson.n,
+        section: "say",
+        at: Date.now(),
+      });
+      dispatch({ type: "SET_TAB", payload: "speak" });
+    });
   }
+
+  const openSpeakRef = useRef(goSay);
+  openSpeakRef.current = goSay;
+  useEffect(() => {
+    if (section !== "say") return;
+    const open = (event: Event) => {
+      event.preventDefault();
+      openSpeakRef.current();
+    };
+    window.addEventListener(OPEN_LESSON_SPEAK, open);
+    return () => window.removeEventListener(OPEN_LESSON_SPEAK, open);
+  }, [section]);
 
   /** See it, full size: the whole Reader, with a way straight back to this lesson. */
   function openFullReader(passageId: string) {
@@ -1578,39 +1607,48 @@ function OwnedLessonRunner({
               Practice this lesson's words ({words.length})
             </h5>
             <div className="mt-3">
-              <LessonPracticeKit
-                // Reset card and round state when the lesson or its word list changes, even
-                // when the replacement list has the same number of words.
-                key={JSON.stringify([
-                  moduleId,
-                  lesson.n,
-                  state.selectedLanguage,
-                  state.nativeLanguage,
-                  words.map(({ es, en, kind }) => [es, en, kind]),
-                ])}
-                words={words}
-                moduleId={moduleId}
-                lessonNumber={lesson.n}
-                matchingBatchSize={definition?.teaching?.matchingBatchSize}
-                listeningItems={
-                  definition?.teaching && definition.teaching.stage !== "supported"
-                    ? definition.listeningItems
-                    : undefined
-                }
-                language={state.selectedLanguage}
-                // Authored words are served only to the pair they were written for (English native
-                // for Spanish, Spanish native for the English-for-work stages), so this matches.
-                nativeLanguage={state.nativeLanguage}
-                verbs={verbs}
-                writingResponse={
-                  definition?.teaching ? (
-                    <LessonResponsePractice definition={definition} mode="write" />
-                  ) : undefined
-                }
-                mode={kitMode}
-                onModeChange={onKitModeChange}
-                onActivity={() => recordStepOpened(wordDrillStep)}
-              />
+              {section === "recall" && lessonContent.status === "loading" ? (
+                <p role="status" className="py-8 text-center text-muted-foreground">
+                  Preparing the lesson’s words, phrases, and verbs…
+                </p>
+              ) : (
+                <LessonPracticeKit
+                  // Reset card and round state when the lesson or its word list changes, even
+                  // when the replacement list has the same number of words.
+                  key={JSON.stringify([
+                    moduleId,
+                    lesson.n,
+                    state.selectedLanguage,
+                    state.nativeLanguage,
+                    words.map(({ es, en, kind }) => [es, en, kind]),
+                    verbs,
+                    basics?.pattern,
+                  ])}
+                  words={words}
+                  moduleId={moduleId}
+                  lessonNumber={lesson.n}
+                  matchingBatchSize={definition?.teaching?.matchingBatchSize}
+                  listeningItems={
+                    definition?.teaching && definition.teaching.stage !== "supported"
+                      ? definition.listeningItems
+                      : undefined
+                  }
+                  language={state.selectedLanguage}
+                  // Authored words are served only to the pair they were written for (English native
+                  // for Spanish, Spanish native for the English-for-work stages), so this matches.
+                  nativeLanguage={state.nativeLanguage}
+                  verbs={verbs}
+                  verbPattern={basics?.pattern}
+                  writingResponse={
+                    definition?.teaching ? (
+                      <LessonResponsePractice definition={definition} mode="write" />
+                    ) : undefined
+                  }
+                  mode={kitMode}
+                  onModeChange={onKitModeChange}
+                  onActivity={() => recordStepOpened(wordDrillStep)}
+                />
+              )}
             </div>
           </div>
         )}
@@ -1663,11 +1701,10 @@ function OwnedLessonRunner({
       {/* 5 · Say it */}
 
       <section data-testid="lesson-section-say" hidden={section !== "say"} className={panelClass}>
-        {panelHeader(SECTIONS[4], 5)}
+        {panelHeader(SECTIONS[5], 6)}
         {section === "say" && (
           <LessonSpeakingPractice
             key={`${moduleId}:${lesson.n}:${state.selectedLanguage}:${state.nativeLanguage}`}
-            missionPrefix={lessonMissionPrefix(moduleId, lesson.n)}
             instruction={speakInstruction}
             definition={definition}
             words={words}

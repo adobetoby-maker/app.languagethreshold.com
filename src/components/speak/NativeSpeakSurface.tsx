@@ -5,6 +5,7 @@ import { Sheet, SheetContent, SheetTitle, SheetDescription } from "@/components/
 
 /** Matches the owner's native speaking reference; existing web state owns every action. */
 export function NativeSpeakSurface({
+  lesson,
   language,
   transcript,
   partner,
@@ -13,6 +14,7 @@ export function NativeSpeakSurface({
   microphone,
   status,
   onReset,
+  onFreeConversation,
   onScenarios,
   onPartnerStart,
   partnerStartDisabled,
@@ -31,6 +33,7 @@ export function NativeSpeakSurface({
   status: string;
   onLatest: () => void;
   onReset: () => void;
+  onFreeConversation?: () => void;
   onScenarios: () => void;
   onPartnerStart: () => void;
   partnerStartDisabled: boolean;
@@ -77,7 +80,7 @@ export function NativeSpeakSurface({
       data-compact={viewportHeight !== undefined && viewportHeight < 450}
       data-keyboard={keyboardOpen}
       style={{ height: viewportHeight ?? "100dvh" }}
-      className="lt-native-speak"
+      className="lt-native-speak max-h-full"
       aria-label="Free conversation practice"
     >
       <header className="lt-native-speak-header">
@@ -115,7 +118,7 @@ export function NativeSpeakSurface({
               setMenu(true);
             }}
           >
-            Open conversation <ChevronDown size={14} aria-hidden />
+            {lesson} <ChevronDown size={14} aria-hidden />
           </button>
           <p>Your role: a language learner.</p>
           <p>Changing partner starts a new conversation.</p>
@@ -194,6 +197,17 @@ export function NativeSpeakSurface({
           >
             Reset conversation
           </button>
+          {onFreeConversation && (
+            <button
+              className="min-h-11 w-full text-left"
+              onClick={() => {
+                onFreeConversation();
+                setMenu(false);
+              }}
+            >
+              Free conversation
+            </button>
+          )}
           <button
             className="min-h-11 w-full text-left"
             onClick={() => {

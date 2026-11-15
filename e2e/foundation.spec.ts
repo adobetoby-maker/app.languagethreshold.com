@@ -74,7 +74,9 @@ async function openCore30(
     await page.waitForLoadState("load");
     await page.waitForTimeout(4000);
   } else {
-    await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
+    await expect(
+      page.getByRole("button", { name: "Speaking menu", exact: true }).first(),
+    ).toBeVisible({
       timeout: 60_000,
     });
   }
@@ -158,13 +160,21 @@ test.describe("Roofing Foundation: signed in", () => {
       .getByRole("button", { name: /Today: Foundation Lesson 1|Start Foundation Lesson 1/ })
       .first()
       .click();
-    await expect(page.getByText("✕ Exit")).toBeVisible();
     await expect(
-      page.getByTestId("lesson-nav-top").getByRole("button", { name: "Next lesson: Foundation 2" }),
+      page.getByRole("button", { name: "Lesson details and goal", exact: true }),
     ).toBeVisible();
-    await expect(page.getByTestId("lesson-section-nav")).toBeVisible();
+    await expect(
+      page
+        .getByTestId("lesson-nav-bottom")
+        .getByRole("button", { name: "Next lesson: Foundation 2" }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("navigation", { name: "Lesson practice modes", exact: true }),
+    ).toBeVisible();
     await expect(page.getByTestId("lesson-reader")).toBeVisible({ timeout: 60_000 });
-    await expect(page.getByTestId("lesson-reader")).toContainText("First Day on the Roof");
+    await expect(
+      page.getByTestId("lesson-reader").getByRole("article", { name: "Lesson phrase" }),
+    ).toBeVisible();
   });
 
   test("an unstarted plan offers the 14-day plan", async ({ page }) => {
@@ -217,7 +227,7 @@ test.describe("fmg Foundation (English target): lesson 1 word list", () => {
       .first()
       .click();
     await expect(page.getByTestId("lesson-reader")).toBeVisible({ timeout: 60_000 });
-    await page.getByTestId("lesson-nav-recall").click();
+    await page.getByTestId("v6-nav-recall").click();
     await expect(page.getByTestId("lesson-words-error")).toHaveCount(0);
     const section = page.getByTestId("lesson-practice-section");
     await expect(section).toContainText(`Practice this lesson's words (${lessonWords.length})`);

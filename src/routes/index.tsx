@@ -1,3 +1,4 @@
+import { V6AppNavigation } from "@/components/core30/V6AppChrome";
 import { VerbExitReminder } from "@/components/verbs/VerbExitReminder";
 import { TutorSiteGuide } from "@/components/tutor/TutorSiteGuide";
 import { SpeakingPrivacyPrompt } from "@/components/speak/SpeakingPrivacyPrompt";
@@ -90,6 +91,7 @@ function GatedTabShell() {
         startup
         ready={state.hydrated && state.onboardingComplete}
         skipStartup={
+          state.currentTab === "speak" ||
           state.currentTab === "core30" ||
           (typeof window !== "undefined" &&
             (new URLSearchParams(window.location.search).has("lesson") ||
@@ -302,13 +304,14 @@ function Index() {
                           <SpeakBridge>
                             <TutorProvider>
                               <DailyChallengeProvider>
-                                <div className="lt-app-shell bg-background text-foreground">
+                                <div className="lt-app-shell lt-v6-app bg-background text-foreground">
                                   {/* Left sidebar (desktop) + bottom nav (mobile) */}
                                   <AppSidebar onOpenMatch={() => setMatchOpen(true)} />
 
                                   {/* Main column */}
                                   <div className="lt-main-column flex min-h-0 min-w-0 flex-1 flex-col">
                                     <TopNav />
+                                    <V6AppNavigation />
                                     <SaveProgressBanner />
                                     {/* Shared bottom-strip budget reserves the nav,
                                               Tutor action, and Reader mini-player together. */}

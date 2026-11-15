@@ -126,8 +126,21 @@ final class NativeSpeechPlugin: CAPPlugin, CAPBridgedPlugin, AVSpeechSynthesizer
 }
 
 final class LanguageThresholdBridgeViewController: CAPBridgeViewController {
+    // V4 Theme.swift ink. Keep launch, the web surface and the keyboard surround continuous.
+    private let appInk = UIColor(red: 0.035, green: 0.065, blue: 0.10, alpha: 1)
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = appInk
+        webView?.isOpaque = false
+        webView?.backgroundColor = appInk
+        webView?.scrollView.backgroundColor = appInk
+        webView?.scrollView.bounces = false
+        webView?.scrollView.keyboardDismissMode = .interactive
     }
 
     override func capacitorDidLoad() {
@@ -145,6 +158,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
 
         window = UIWindow(windowScene: windowScene)
+        window?.backgroundColor = UIColor(red: 0.035, green: 0.065, blue: 0.10, alpha: 1)
         window?.rootViewController = LanguageThresholdBridgeViewController()
         window?.makeKeyAndVisible()
 

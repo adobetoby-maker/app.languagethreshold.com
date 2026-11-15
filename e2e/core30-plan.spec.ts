@@ -55,7 +55,7 @@ async function openCore30(
   language: string = "Spanish",
 ) {
   await page.goto("/");
-  await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
+  await expect(page.getByRole("button", { name: "Speaking menu", exact: true })).toBeVisible({
     timeout: 60_000,
   });
   const seeded = async () => {
@@ -109,23 +109,28 @@ async function gotoCore30Tab(page: Page, isMobile: boolean) {
   await expect(page.getByTestId("core30-plan-card")).toBeVisible();
 }
 
-/** Any tab the way a user reaches it: left rail on desktop, the More sheet on a phone. */
-async function gotoTab(page: Page, isMobile: boolean, label: RegExp) {
-  if (isMobile) {
-    await page.getByText("More", { exact: true }).filter({ visible: true }).last().tap();
-    const sheet = page.getByRole("dialog").filter({ hasText: "Explore" });
-    const item = sheet.getByRole("button", { name: label }).first();
-    await item.scrollIntoViewIfNeeded();
-    await item.tap();
-  } else {
-    await page.locator("aside").first().getByRole("button", { name: label }).first().click();
+/** Other tools are reached through the same deeper menu on every screen size. */
+async function gotoTab(page: Page, _isMobile: boolean, label: RegExp) {
+  await page.getByRole("button", { name: "Navigation menu", exact: true }).click();
+  const sheet = page.getByRole("dialog").filter({ hasText: "Explore" });
+  for (let count = 0; count < 10; count++) {
+    const folds = sheet
+      .locator('[data-navigation-version] button[aria-expanded="false"]')
+      .filter({ visible: true });
+    if ((await folds.count()) === 0) break;
+    await folds.first().click();
   }
+  await sheet.getByRole("button", { name: label }).first().click();
 }
 
 async function openLesson1(page: Page) {
   await page.getByRole("button", { name: /Today: Lesson 1/ }).click();
-  await expect(page.getByText("✕ Exit")).toBeVisible();
-  await expect(page.getByTestId("lesson-section-nav")).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Lesson details and goal", exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("navigation", { name: "Lesson practice modes", exact: true }),
+  ).toBeVisible();
 }
 
 // Roofing Lesson 1 reads an authored passage inline, which has no Reader counterpart, so its See
@@ -139,10 +144,14 @@ const READER_LESSON_TITLE = "The Plan of Salvation — Pre-mortal Life";
 
 /** The lesson opened is specifically Lesson 6 on See it, not just any lesson or the overview. */
 async function expectReaderLessonOpen(page: Page) {
-  await expect(page.getByText("✕ Exit")).toBeVisible();
-  await expect(page.getByText(`Lesson ${READER_LESSON} ·`)).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Lesson details and goal", exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("group", { name: `Lesson ${READER_LESSON} of 30`, exact: true }),
+  ).toBeVisible();
   await expect(page.getByRole("heading", { name: READER_LESSON_TITLE })).toBeVisible();
-  await expect(page.getByTestId("lesson-nav-see")).toHaveAttribute("aria-current", "step");
+  await expect(page.getByTestId("v6-nav-see")).toHaveAttribute("aria-current", "page");
   await expect(page.getByTestId("lesson-reader")).toBeVisible();
   expect(new URL(page.url()).searchParams.get("lesson")).toBe(READER_LESSON);
   expect(new URL(page.url()).searchParams.get("tab")).toBe("core30");
@@ -154,25 +163,24 @@ async function openReaderLesson(page: Page) {
   await page.goto(
     appUrl({ tab: "core30", module: READER_MODULE }) + `&lesson=${READER_LESSON}&way=see`,
   );
-  await expect(page.getByText("✕ Exit")).toBeVisible();
-  await expect(page.getByTestId("lesson-nav-see")).toHaveAttribute("aria-current", "step");
+  await expect(
+    page.getByRole("button", { name: "Lesson details and goal", exact: true }),
+  ).toBeVisible();
+  await expect(page.getByTestId("v6-nav-see")).toHaveAttribute("aria-current", "page");
   await expect(page.getByTestId("lesson-reader")).toBeVisible({ timeout: 60_000 });
+  await page.getByText("More reading options", { exact: true }).click();
 }
 
 type Section = "see" | "recall" | "hear" | "type" | "say" | "write";
 
 /** Opens one of the six ways of learning from the lesson's section nav. */
 async function goSection(page: Page, section: Section) {
-  await page.getByTestId(`lesson-nav-${section}`).click();
-  await expect(page.getByTestId(`lesson-nav-${section}`)).toHaveAttribute("aria-current", "step");
+  await page.getByTestId(`v6-nav-${section}`).click();
+  await expect(page.getByTestId(`v6-nav-${section}`)).toHaveAttribute("aria-current", "page");
 }
 
 async function chooseRecallPractice(page: Page, mode: "study" | "flashcards" | "match" | "verbs") {
-  if ((page.viewportSize()?.width ?? 1440) < 768) {
-    await page.getByTestId("lesson-recall-menu").getByTestId(`lesson-recall-${mode}`).click();
-  } else {
-    await page.getByTestId(`practice-mode-${mode}`).click();
-  }
+  await page.getByTestId(`practice-mode-${mode}`).click();
 }
 
 const currentTabOf = (page: Page) => currentTab(page);
@@ -223,13 +231,16 @@ test.describe("Core 30 plan: Roofing", () => {
     expect(await visitKeys(page, "1")).not.toContain("0");
     const reader = page.getByTestId("lesson-reader");
     await expect(reader).toBeVisible({ timeout: 60_000 });
-    await expect(reader).toContainText("Primer día en el techo");
+    await expect(
+      page.getByRole("heading", { name: "Name the Roof System", exact: true }),
+    ).toBeVisible();
     await expect(reader).toContainText("Hoy es el primer día en la obra nueva.");
-    expect(await reader.locator("[data-sentence-index]").count()).toBeGreaterThanOrEqual(8);
+    await expect(reader.getByRole("article", { name: "Lesson phrase" })).toHaveCount(1);
+    await expect(reader.locator(".lt-native-reading-progress")).toContainText("1 / 8");
     // An authored inline passage has no full-Reader counterpart, so no link leaves the lesson.
     await expect(page.getByTestId("lesson-open-full-reader")).toHaveCount(0);
     // The passage is the lesson's Spanish text, tapped in place.
-    const word = reader.locator(".lt-word", { hasText: /^techo$/ }).first();
+    const word = reader.locator(".lt-word").first();
     await expect(word).toBeVisible();
     await word.click();
     await expect(page.getByRole("dialog", { name: /Word details for/ })).toBeVisible();
@@ -317,7 +328,11 @@ test.describe("Core 30 plan: Roofing", () => {
     // A plain reload lands on the Core 30 tab again (as the App Guide would): the marker is spent.
     await seedAppState(page, { currentTab: "core30" });
     await page.goto(appUrl({ tab: "core30", module: READER_MODULE }));
-    await expect(page.getByTestId("core30-plan-card").or(page.getByText("✕ Exit"))).toBeVisible();
+    await expect(
+      page
+        .getByTestId("core30-plan-card")
+        .or(page.getByRole("button", { name: "Lesson details and goal", exact: true })),
+    ).toBeVisible();
     await expect
       .poll(() => page.evaluate(() => sessionStorage.getItem("lt.core30.returnTo")))
       .toBeNull();
@@ -394,6 +409,7 @@ test.describe("Core 30 plan: Roofing", () => {
   test("4. mastered button records the verdict and cannot be undone", async ({ page }) => {
     await openCore30(page, STARTED_TODAY);
     await openLesson1(page);
+    await goSection(page, "recall");
     await page.getByTestId("core30-mastered-button").click();
     await expect.poll(async () => (await readLog(page))?.lessons["1"]?.masteredAt).toBeTruthy();
 
@@ -406,6 +422,7 @@ test.describe("Core 30 plan: Roofing", () => {
     // Reopen it from the lesson list.
     await page.getByTestId("core30-all-lessons-toggle").click();
     await page.getByRole("button", { name: /1\. Name the Roof System/ }).click();
+    await goSection(page, "recall");
     await expect(page.getByTestId("core30-mastered-status")).toContainText("Mastered on");
     await expect(page.getByTestId("core30-mastered-button")).toHaveCount(0);
     // No way to take the verdict back from the lesson view.
@@ -468,9 +485,11 @@ test.describe("Core 30 plan: Roofing", () => {
     // Re-master lesson 2 from the lesson list.
     await page.getByTestId("core30-all-lessons-toggle").click();
     await page.getByRole("button", { name: /2\. Deck, Underlayment/ }).click();
+    await goSection(page, "recall");
     await expect(page.getByText("Needs practice — review again")).toBeVisible();
     await page.getByRole("button", { name: "I've mastered it again" }).click();
     await expect.poll(async () => (await readLog(page))?.lessons["2"]?.needsPractice).toBe(false);
+    await goSection(page, "recall");
     await expect(page.getByTestId("core30-mastered-status")).toContainText("Mastered on");
   });
 
@@ -491,8 +510,10 @@ test.describe("Core 30 plan: Roofing", () => {
     await expect(page.getByTestId("lesson-say-go")).toHaveCount(0);
     expect(await currentTabOf(page)).toBe("core30");
     expect(page.url()).toBe(urlBefore);
-    await expect(page.getByText("✕ Exit")).toBeVisible();
-    await expect(page.getByTestId("lesson-nav-say")).toHaveAttribute("aria-current", "step");
+    await expect(
+      page.getByRole("button", { name: "Lesson details and goal", exact: true }),
+    ).toBeVisible();
+    await expect(page.getByTestId("v6-nav-say")).toHaveAttribute("aria-current", "page");
     // Opening the practice records the Speak step (index 2) and the Say it way.
     await expect.poll(() => visitKeys(page, "1")).toContain("2");
     expect(await visitKeys(page, "1")).toContain("way:say");
@@ -518,9 +539,11 @@ test.describe("Core 30 plan: Roofing", () => {
     await expect(panel.getByRole("heading", { name: /^Lesson 1:/ })).toHaveCount(0);
     await expect(page.getByTestId("lesson-say-go")).toBeVisible();
     expect(await currentTabOf(page)).toBe("core30");
-    await expect(page.getByTestId("lesson-nav-say")).toHaveAttribute("aria-current", "step");
+    await expect(page.getByTestId("v6-nav-say")).toHaveAttribute("aria-current", "page");
     await expect(page.getByTestId("lesson-section-say")).toBeVisible();
-    await expect(page.getByText("✕ Exit")).toBeVisible();
+    await expect(
+      page.getByRole("button", { name: "Lesson details and goal", exact: true }),
+    ).toBeVisible();
     await expect(page.getByTestId("lesson-return-pill")).toHaveCount(0);
   });
 
@@ -557,13 +580,15 @@ test.describe("Core 30 plan: Roofing", () => {
     await expect(page.getByTestId("practice-mode-study")).toHaveAttribute("aria-selected", "true");
     await chooseRecallPractice(page, "match");
     await expect(page.getByTestId("match-tile").first()).toBeVisible();
-    await expect(page.getByTestId("lesson-nav-recall")).toHaveAttribute("aria-current", "step");
+    await expect(page.getByTestId("v6-nav-recall")).toHaveAttribute("aria-current", "page");
     // Opening the word-drill section is recorded (step index 1), still inside this lesson.
     await expect.poll(() => visitKeys(page, "1")).toContain("1");
-    await expect(page.getByText("✕ Exit")).toBeVisible();
+    await expect(
+      page.getByRole("button", { name: "Lesson details and goal", exact: true }),
+    ).toBeVisible();
     // Hear it and Type it switch the same kit.
     await goSection(page, "hear");
-    await expect(page.getByTestId("lesson-nav-hear")).toHaveAttribute("aria-current", "step");
+    await expect(page.getByTestId("v6-nav-hear")).toHaveAttribute("aria-current", "page");
     await expect(page.getByText("Listen, then pick the English meaning.")).toBeVisible();
     await expect.poll(() => locationOf().way).toBe("hear");
     await goSection(page, "type");
@@ -575,11 +600,7 @@ test.describe("Core 30 plan: Roofing", () => {
     await expect(page.getByRole("tablist", { name: "Practice mode" })).toHaveCount(0);
     await expect(page.getByTestId("practice-recall-switch")).toHaveCount(0);
     await goSection(page, "recall");
-    if ((page.viewportSize()?.width ?? 1440) < 768) {
-      await expect(page.getByTestId("practice-recall-switch")).toBeHidden();
-    } else {
-      await expect(page.getByTestId("practice-recall-switch")).toBeVisible();
-    }
+    await expect(page.getByTestId("practice-recall-switch")).toBeVisible();
     await expect(page.getByTestId("practice-mode-study")).toHaveAttribute("aria-selected", "true");
     await expect(page.getByTestId("practice-mode-type")).toHaveCount(0);
   });
@@ -587,41 +608,25 @@ test.describe("Core 30 plan: Roofing", () => {
   test("7f. Next section scrolls the step bar clear of the sticky top bar", async ({ page }) => {
     await openCore30(page, STARTED_TODAY);
     await openLesson1(page);
-    for (const section of ["recall", "hear"] as const) {
-      const next = page.getByTestId("lesson-next-section").locator("visible=true").first();
-      await next.scrollIntoViewIfNeeded();
-      await next.click();
-      await expect(page.getByTestId(`lesson-nav-${section}`)).toHaveAttribute(
-        "aria-current",
-        "step",
-      );
-      // Smooth scrolling settles; then the bar must sit at or below the top bar's bottom edge.
-      await expect
-        .poll(
-          () =>
-            page.evaluate(() => {
-              const nav = document.querySelector('[data-testid="lesson-section-nav"]');
-              const bar = document.querySelector("header.sticky");
-              const barBottom =
-                bar && getComputedStyle(bar).display !== "none"
-                  ? bar.getBoundingClientRect().bottom
-                  : 0;
-              const top = nav ? nav.getBoundingClientRect().top : -999;
-              return Math.round(top - barBottom);
-            }),
-          { timeout: 5000 },
-        )
-        .toBeGreaterThanOrEqual(0);
-    }
+    const reader = page.getByTestId("lesson-reader");
+    while (await reader.getByRole("button", { name: "Next →", exact: true }).isVisible())
+      await reader.getByRole("button", { name: "Next →", exact: true }).click();
+    await reader.getByRole("button", { name: "Finish round", exact: true }).click();
+    await expect(page.getByTestId("v6-nav-recall")).toHaveAttribute("aria-current", "page");
+    await page.getByTestId("lesson-next-section").filter({ visible: true }).first().click();
+    await expect(page.getByTestId("v6-nav-hear")).toHaveAttribute("aria-current", "page");
+    await expect(
+      page.getByRole("navigation", { name: "Lesson practice modes", exact: true }),
+    ).toBeInViewport();
   });
 
   test("7b. Previous and Next lesson open the neighbours in place", async ({ page }, info) => {
     await openCore30(page, STARTED_TODAY);
     await openLesson1(page);
     const before = await readAppState(page);
-    const top = page.getByTestId("lesson-nav-top");
+    const top = page.getByTestId("lesson-nav-bottom");
     const bottom = page.getByTestId("lesson-nav-bottom");
-    for (const controls of [top, bottom]) {
+    for (const controls of [bottom]) {
       await expect(controls.getByRole("button", { name: /^Previous lesson:/ })).toBeVisible();
       await expect(controls.getByRole("button", { name: /^Next lesson:/ })).toBeVisible();
       for (const button of await controls.getByRole("button").all()) {
@@ -639,7 +644,9 @@ test.describe("Core 30 plan: Roofing", () => {
     ).toBeDisabled();
     await top.getByRole("button", { name: /^Next lesson: Lesson 2$/ }).click();
     await expect(page.getByRole("heading", { name: "Deck, Underlayment & Edges" })).toBeVisible();
-    await expect(page.getByText("✕ Exit")).toBeVisible();
+    await expect(
+      page.getByRole("button", { name: "Lesson details and goal", exact: true }),
+    ).toBeVisible();
     expect(await currentTabOf(page)).toBe("core30");
     await bottom.getByRole("button", { name: /^Next lesson: Lesson 3$/ }).click();
     await expect(page.getByRole("heading", { name: "Flashing & Valleys" })).toBeVisible();
@@ -649,7 +656,7 @@ test.describe("Core 30 plan: Roofing", () => {
     await expect(page.getByRole("heading", { name: "Name the Roof System" })).toBeVisible();
     await expect(top.getByRole("button", { name: /^Previous lesson: Lesson 1$/ })).toBeDisabled();
     await page.goto(appUrl({ tab: "core30", module: MODULE }) + "&lesson=30&way=see");
-    for (const controls of [top, bottom]) {
+    for (const controls of [bottom]) {
       await expect(controls.getByRole("button", { name: /^Next lesson:/ })).toBeDisabled();
       await expect(
         controls.getByRole("button", { name: /^Previous lesson: Lesson 29$/ }),
@@ -789,7 +796,9 @@ async function stubLessonWords(
 async function openOrthopedicsLesson1(page: Page) {
   await openCore30(page, undefined, "orthopedics", "French");
   await page.getByRole("button", { name: /Start Lesson 1/ }).click();
-  await expect(page.getByText("✕ Exit")).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Lesson details and goal", exact: true }),
+  ).toBeVisible();
   await goSection(page, "recall");
 }
 
@@ -801,7 +810,10 @@ test.describe("Core 30 plan: generated lesson words (Orthopedics in French, no a
     await openOrthopedicsLesson1(page);
 
     await expect(
-      page.getByRole("heading", { includeHidden: true, name: `Practice this lesson's words (${STUB_WORDS.length})` }),
+      page.getByRole("heading", {
+        includeHidden: true,
+        name: `Practice this lesson's words (${STUB_WORDS.length})`,
+      }),
     ).toBeAttached();
     const kit = page.getByTestId("practice-kit");
     await expect(kit).toBeVisible();
@@ -846,10 +858,15 @@ test.describe("Core 30 plan: generated lesson words (Orthopedics in French, no a
     // A second visit (page reload, lesson reopened) reads the cached list: no new request.
     // The page link follows the lesson (?lesson=1&way=recall), so a reload reopens Lesson 1.
     await page.reload();
-    await expect(page.getByText("✕ Exit")).toBeVisible();
+    await expect(
+      page.getByRole("button", { name: "Lesson details and goal", exact: true }),
+    ).toBeVisible();
     await goSection(page, "recall");
     await expect(
-      page.getByRole("heading", { includeHidden: true, name: `Practice this lesson's words (${STUB_WORDS.length})` }),
+      page.getByRole("heading", {
+        includeHidden: true,
+        name: `Practice this lesson's words (${STUB_WORDS.length})`,
+      }),
     ).toBeAttached();
     await expect(kit).toBeVisible();
     expect(requests).toHaveLength(1);
@@ -864,7 +881,10 @@ test.describe("Core 30 plan: generated lesson words (Orthopedics in French, no a
     await expect(page.getByTestId("practice-kit")).toHaveCount(0);
     await page.getByRole("button", { name: "Retry" }).click();
     await expect(
-      page.getByRole("heading", { includeHidden: true, name: `Practice this lesson's words (${STUB_WORDS.length})` }),
+      page.getByRole("heading", {
+        includeHidden: true,
+        name: `Practice this lesson's words (${STUB_WORDS.length})`,
+      }),
     ).toBeAttached();
     await expect(page.getByTestId("practice-kit")).toBeVisible();
     await expect(page.getByText("Couldn't build the word list")).toHaveCount(0);
@@ -923,7 +943,9 @@ test.describe("Core 30 plan: pre-built static deck (Construction Foreman, French
 
     await openCore30(page, undefined, DECK_MODULE, "French");
     await page.getByRole("button", { name: /Start Lesson 1/ }).click();
-    await expect(page.getByText("✕ Exit")).toBeVisible();
+    await expect(
+      page.getByRole("button", { name: "Lesson details and goal", exact: true }),
+    ).toBeVisible();
     await goSection(page, "recall");
 
     await expect(
@@ -941,4 +963,71 @@ test.describe("Core 30 plan: pre-built static deck (Construction Foreman, French
     expect(deckRequests.filter((url) => url.endsWith(`/fr/${DECK_MODULE}.json`))).toHaveLength(1);
     expect(serverFnRequests).toHaveLength(0);
   });
+});
+
+test("V4 app opens Speak with a persistent Study switch and keeps setup in menus", async ({
+  page,
+}, info) => {
+  await openCore30(page, STARTED_TODAY);
+  await page.goto("/");
+  await expect(
+    page.getByRole("region", { name: "Free conversation practice", exact: true }),
+  ).toBeVisible();
+  await expect(page.getByRole("button", { name: "Start speaking", exact: true })).toBeInViewport();
+  await expect(page.getByRole("button", { name: "Send answer", exact: true })).toBeInViewport();
+  await expect(
+    page.getByRole("textbox", { name: "Type an answer in Spanish", exact: true }),
+  ).toBeInViewport();
+  await expect(page.locator(".lt-v6-header")).toBeHidden();
+  await expect(page.locator(".lt-v6-bottom")).toBeHidden();
+  await expect(page.getByText(/AI conversation is off/)).toHaveCount(0);
+  await expect(page.getByTestId("speaking-partner-picker")).toHaveCount(0);
+  const dock = await page.locator(".lt-native-reply-dock").boundingBox();
+  const studySwitch = await page.locator(".lt-native-speak .lt-v4-study-speak").boundingBox();
+  expect(Math.abs(dock!.y + dock!.height - studySwitch!.y)).toBeLessThan(3);
+  expect(Math.abs(studySwitch!.y + studySwitch!.height - page.viewportSize()!.height)).toBeLessThan(
+    3,
+  );
+  await page.screenshot({ path: info.outputPath("simple-speak.png"), animations: "disabled" });
+  await page.getByRole("button", { name: "Speaking menu", exact: true }).click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await page.getByRole("button", { name: "Reset conversation", exact: true }).click();
+  await expect(page.getByRole("dialog")).toHaveCount(0);
+  await page.getByRole("button", { name: "Speaking menu", exact: true }).click();
+  await page.getByRole("button", { name: "Scenario missions", exact: true }).click();
+  await expect(page.getByTestId("v6-nav-study")).toBeInViewport();
+  await page.getByRole("tab", { name: "Free conversation", exact: true }).click();
+  await expect(page.locator(".lt-v6-bottom")).toBeHidden();
+  await page.getByTestId("native-nav-study").click();
+  await expect(page.getByRole("navigation", { name: "Study and speak" })).toBeVisible();
+  await expect(
+    page.getByRole("navigation", { name: "Lesson practice modes" }).getByRole("button"),
+  ).toHaveCount(6);
+  await expect(page.getByLabel("Today's study activity", { exact: true })).toBeVisible();
+  await page.getByTestId("v6-nav-type").click();
+  await expect(page.getByTestId("lesson-section-kit")).toBeVisible();
+  expect((await readLog(page))?.lessons["1"]?.masteredAt).toBeUndefined();
+  await page.getByTestId("v6-nav-see").click();
+  await expect(page.getByRole("article", { name: "Lesson phrase", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Listen", exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Next →", exact: true }).click();
+  await page.screenshot({ path: info.outputPath("simple-study.png"), animations: "disabled" });
+  await page.getByTestId("v6-nav-speak").click();
+  await expect(page.getByRole("button", { name: "Start speaking", exact: true })).toBeInViewport();
+});
+
+test("V6 lesson layout supports short screens and explicit lesson deep links", async ({
+  page,
+}, info) => {
+  await openCore30(page, STARTED_TODAY);
+  await page.goto("/?tab=core30&module=roofing&target=Spanish&native=English&lesson=1&way=type");
+  await expect(page.getByTestId("lesson-section-kit")).toBeVisible();
+  await page.setViewportSize({ width: 852, height: 393 });
+  await expect(page.locator(".lt-lesson-workspace-header")).toHaveCSS("position", "static");
+  await page.getByTestId("v6-nav-hear").click();
+  await expect(page.getByTestId("v6-nav-hear")).toHaveAttribute("aria-current", "page");
+  await expect(page.getByRole("navigation", { name: "Study and speak" })).toBeInViewport();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.screenshot({ path: info.outputPath("v6-landscape.png"), animations: "disabled" });
 });

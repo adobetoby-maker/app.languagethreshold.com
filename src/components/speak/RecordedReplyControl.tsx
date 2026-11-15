@@ -1,3 +1,4 @@
+import { isSpeakingTestActor } from "@/lib/speaking-test-access";
 import { useSpeakingAuth } from "@/hooks/use-speaking-auth";
 import { useEffect, useRef, useState } from "react";
 import { Mic, Square } from "lucide-react";
@@ -16,6 +17,7 @@ import {
 type Phase = "idle" | "permission" | "recording" | "finishing" | "uploading" | "ready" | "error";
 export function RecordedReplyControl({
   scope,
+  compact = false,
   locale,
   disabled,
   onBegin,
@@ -23,6 +25,7 @@ export function RecordedReplyControl({
   onBusyChange,
 }: {
   scope: string;
+  compact?: boolean;
   locale: string;
   disabled: boolean;
   onBegin(): void;
@@ -34,6 +37,9 @@ export function RecordedReplyControl({
   const [available, setAvailable] = useState<boolean | null>(null);
   const [consentOpen, setConsentOpen] = useState(false);
   const consented = useRef(false);
+  useEffect(() => {
+    consented.current = false;
+  }, [actor]);
   const [level, setLevel] = useState<number | null>(0),
     [heard, setHeard] = useState(false);
   const [error, setError] = useState<string | null>(null),
@@ -193,6 +199,16 @@ export function RecordedReplyControl({
   const begin = () => {
     if (disabled || !available || !actor) return;
     if (!consented.current) {
+      try {
+        consented.current =
+          sessionStorage.getItem(`lt.recording-consent:${actor}`) === REPLY_AUDIO_CONSENT ||
+          (isSpeakingTestActor(actor) &&
+            sessionStorage.getItem("lt.speaking-test.audio-consent") === REPLY_AUDIO_CONSENT);
+      } catch {
+        /* Ask again if this tab cannot retain confirmation. */
+      }
+    }
+    if (!consented.current) {
       setConsentOpen(true);
       return;
     }
@@ -252,7 +268,12 @@ export function RecordedReplyControl({
     setPhase(take.current ? "ready" : "idle");
   };
   return (
-    <div className="flex w-full min-w-0 items-center justify-center gap-3">
+    <div
+      data-phase={phase}
+      className={
+        compact ? "lt-recorded-compact" : "flex w-full min-w-0 items-center justify-center gap-3"
+      }
+    >
       <button
         type="button"
         aria-label={
@@ -263,6 +284,7 @@ export function RecordedReplyControl({
         className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground disabled:opacity-40"
       >
         {busy ? <Square className="h-6 w-6" fill="currentColor" /> : <Mic className="h-7 w-7" />}
+        {compact && <span>{busy ? "Stop" : "Speak"}</span>}
       </button>
       <div className="min-w-0 text-left text-sm">
         <p role="status">
@@ -357,6 +379,12 @@ export function RecordedReplyControl({
             className="min-h-11 rounded-xl bg-primary px-4 text-primary-foreground"
             onClick={() => {
               consented.current = true;
+              try {
+                if (actor)
+                  sessionStorage.setItem(`lt.recording-consent:${actor}`, REPLY_AUDIO_CONSENT);
+              } catch {
+                /* Current recording can proceed. */
+              }
               setConsentOpen(false);
               begin();
             }}

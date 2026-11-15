@@ -36,6 +36,28 @@ export function SpeakingConversationControls({
           onClick={item.action}
           className={`min-h-11 rounded-xl px-1 text-sm font-medium ${item.active ? "bg-primary/15 text-foreground" : "text-muted-foreground"}`}
         >
+          <svg
+            aria-hidden="true"
+            width="21"
+            height="21"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            className="lt-native-control-icon"
+          >
+            {item.label === "Text" ? (
+              <path d="M4 5h16M4 10h10M4 15h16M4 20h10" />
+            ) : item.label === "Feedback" ? (
+              <>
+                <path d="M9 18h6M10 21h4M8 14c-4-5-2-11 4-11s8 6 4 11l-1 3H9z" />
+              </>
+            ) : (
+              <>
+                <path d="M4 9h4l5-4v14l-5-4H4zM17 8c3 2 3 6 0 8M20 5c5 4 5 10 0 14" />
+              </>
+            )}
+          </svg>
           {item.label}
           <span
             aria-hidden="true"
@@ -50,6 +72,18 @@ export function SpeakingConversationControls({
         onClick={onRepeat}
         className="min-h-11 rounded-xl border-l border-border px-1 text-sm font-medium text-foreground disabled:opacity-40"
       >
+        <svg
+          aria-hidden="true"
+          width="21"
+          height="21"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          className="lt-native-control-icon"
+        >
+          <path d="M7 4H3v-4M3 4a9 9 0 1 1-1 10" transform="translate(2 3)" />
+        </svg>
         Repeat
       </button>
     </div>

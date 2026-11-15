@@ -2,7 +2,7 @@
 export const SPEAKING_TEST_HOST = "language-threshold-speaking-test.vercel.app";
 export const SPEAKING_TEST_ACTOR_PREFIX = "speaking-test:";
 export function isSpeakingTestHost(host: string) {
-  return host === SPEAKING_TEST_HOST;
+  return host === SPEAKING_TEST_HOST || host === "language-threshold-v6-preview.vercel.app";
 }
 export function speakingTestPrincipal(request: Request): { userId: string } | null {
   const url = new URL(request.url);

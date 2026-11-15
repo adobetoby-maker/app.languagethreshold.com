@@ -354,6 +354,15 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   const [moreSheetOpen, setMoreSheetOpen] = useState(false);
   const [speakingNavOpen, setSpeakingNavOpen] = useState(false);
   useEffect(() => {
+    const open = () => {
+      setMoreView("tabs");
+      setMoreSheetOpen(true);
+    };
+    window.addEventListener("lt:lesson-workspace-navigation", open);
+    return () => window.removeEventListener("lt:lesson-workspace-navigation", open);
+  }, []);
+
+  useEffect(() => {
     setSpeakingNavOpen(false);
   }, [state.currentTab]);
   const [moreView, setMoreView] = useState<"tabs" | "settings">("tabs");
@@ -746,9 +755,16 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           covering the whole activity or changing the familiar bottom dock. */}
       <Sheet open={moreSheetOpen} onOpenChange={setMoreSheetOpen}>
         <SheetContent
+          onCloseAutoFocus={(event) => {
+            const menu = document.querySelector<HTMLElement>("[data-lesson-workspace-menu]");
+            if (menu) {
+              event.preventDefault();
+              menu.focus();
+            }
+          }}
           scrollBody
           side="left"
-          className="h-[100dvh] w-[min(85vw,24rem)] max-w-none border-border/60 bg-background/98 px-4 shadow-2xl [padding-top:env(safe-area-inset-top)] [padding-bottom:env(safe-area-inset-bottom)] desktop:hidden"
+          className="h-[100dvh] w-[min(85vw,24rem)] max-w-none border-border/60 bg-background/98 px-4 shadow-2xl [padding-top:env(safe-area-inset-top)] [padding-bottom:env(safe-area-inset-bottom)]"
         >
           <SheetTitle className="font-display text-xl text-foreground">
             Language Threshold
@@ -838,6 +854,18 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           </details>
 
           <div hidden={moreView === "settings"}>
+            <button
+              type="button"
+              aria-label="Add a word to My Vocab from this page"
+              onClick={() => {
+                setMoreSheetOpen(false);
+                requestAnimationFrame(openAddWord);
+              }}
+              className="flex min-h-11 w-full items-center gap-3 rounded-xl px-3 py-2 text-left text-sm text-foreground hover:bg-card/80"
+            >
+              <BookmarkPlus className="h-[18px] w-[18px] text-gold-ink" aria-hidden="true" />
+              Add a word
+            </button>
             <div className="mt-2 space-y-5">
               <NavigationMenu
                 items={navigationItems}

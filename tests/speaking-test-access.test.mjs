@@ -41,3 +41,14 @@ test("temporary speech guest access is limited to exact test host, matching orig
     null,
   );
 });
+
+test("V6 preview guest access stays limited to its exact alias and approved speech routes", () => {
+  const preview = "https://language-threshold-v6-preview.vercel.app";
+  assert.deepEqual(speakingTestPrincipal(request("/api/speak", preview, preview)), {
+    userId: "speaking-test:" + id,
+  });
+  assert.equal(speakingTestPrincipal(request("/api/tutor", preview, preview)), null);
+  assert.equal(speakingTestPrincipal(request("/api/speak", host, preview)), null);
+  const other = "https://language-threshold-other-preview.vercel.app";
+  assert.equal(speakingTestPrincipal(request("/api/speak", other, other)), null);
+});

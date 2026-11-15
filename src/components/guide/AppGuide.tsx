@@ -1607,39 +1607,48 @@ function OwnedLessonRunner({
               Practice this lesson's words ({words.length})
             </h5>
             <div className="mt-3">
-              <LessonPracticeKit
-                // Reset card and round state when the lesson or its word list changes, even
-                // when the replacement list has the same number of words.
-                key={JSON.stringify([
-                  moduleId,
-                  lesson.n,
-                  state.selectedLanguage,
-                  state.nativeLanguage,
-                  words.map(({ es, en, kind }) => [es, en, kind]),
-                ])}
-                words={words}
-                moduleId={moduleId}
-                lessonNumber={lesson.n}
-                matchingBatchSize={definition?.teaching?.matchingBatchSize}
-                listeningItems={
-                  definition?.teaching && definition.teaching.stage !== "supported"
-                    ? definition.listeningItems
-                    : undefined
-                }
-                language={state.selectedLanguage}
-                // Authored words are served only to the pair they were written for (English native
-                // for Spanish, Spanish native for the English-for-work stages), so this matches.
-                nativeLanguage={state.nativeLanguage}
-                verbs={verbs}
-                writingResponse={
-                  definition?.teaching ? (
-                    <LessonResponsePractice definition={definition} mode="write" />
-                  ) : undefined
-                }
-                mode={kitMode}
-                onModeChange={onKitModeChange}
-                onActivity={() => recordStepOpened(wordDrillStep)}
-              />
+              {section === "recall" && lessonContent.status === "loading" ? (
+                <p role="status" className="py-8 text-center text-muted-foreground">
+                  Preparing the lesson’s words, phrases, and verbs…
+                </p>
+              ) : (
+                <LessonPracticeKit
+                  // Reset card and round state when the lesson or its word list changes, even
+                  // when the replacement list has the same number of words.
+                  key={JSON.stringify([
+                    moduleId,
+                    lesson.n,
+                    state.selectedLanguage,
+                    state.nativeLanguage,
+                    words.map(({ es, en, kind }) => [es, en, kind]),
+                    verbs,
+                    basics?.pattern,
+                  ])}
+                  words={words}
+                  moduleId={moduleId}
+                  lessonNumber={lesson.n}
+                  matchingBatchSize={definition?.teaching?.matchingBatchSize}
+                  listeningItems={
+                    definition?.teaching && definition.teaching.stage !== "supported"
+                      ? definition.listeningItems
+                      : undefined
+                  }
+                  language={state.selectedLanguage}
+                  // Authored words are served only to the pair they were written for (English native
+                  // for Spanish, Spanish native for the English-for-work stages), so this matches.
+                  nativeLanguage={state.nativeLanguage}
+                  verbs={verbs}
+                  verbPattern={basics?.pattern}
+                  writingResponse={
+                    definition?.teaching ? (
+                      <LessonResponsePractice definition={definition} mode="write" />
+                    ) : undefined
+                  }
+                  mode={kitMode}
+                  onModeChange={onKitModeChange}
+                  onActivity={() => recordStepOpened(wordDrillStep)}
+                />
+              )}
             </div>
           </div>
         )}

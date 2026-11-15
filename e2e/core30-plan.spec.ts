@@ -1,3 +1,4 @@
+import { collectRecallCards, openRecallTools } from "./recall-deck";
 import { expect, test, type Page } from "@playwright/test";
 import { ROOFING_LESSON_WORDS } from "../src/data/roofing-lesson-words.ts";
 import { appUrl, core30Key, currentTab, readAppState, seedAppState } from "./app-state.ts";
@@ -180,6 +181,7 @@ async function goSection(page: Page, section: Section) {
 }
 
 async function chooseRecallPractice(page: Page, mode: "study" | "flashcards" | "match" | "verbs") {
+  await openRecallTools(page);
   await page.getByTestId(`practice-mode-${mode}`).click();
 }
 
@@ -349,14 +351,10 @@ test.describe("Core 30 plan: Roofing", () => {
     // Recall opens on Study before the learner chooses Cards or Match.
     await expect(kit.getByTestId("practice-mode-study")).toHaveAttribute("aria-selected", "true");
 
-    // Study: every lesson-1 word is listed, and the list length equals the heading count.
-    const panel = kit.getByRole("tabpanel");
-    const studyEs = panel.locator('li p[lang="es"]');
-    await expect(studyEs).toHaveCount(total);
-    expect((await studyEs.allInnerTexts()).sort()).toEqual(LESSON_1_WORDS.map((w) => w.es).sort());
-    for (const word of LESSON_1_WORDS) {
-      await expect(panel.locator("li").filter({ hasText: word.en }).first()).toBeVisible();
-    }
+    const cards = await collectRecallCards(page);
+    for (const word of LESSON_1_WORDS)
+      expect(cards.some((card) => card.target === word.es)).toBe(true);
+    await expect(kit).toContainText("Round complete.");
 
     // Memory match: pair every Spanish tile with its English tile.
     await chooseRecallPractice(page, "match");
@@ -644,7 +642,7 @@ test.describe("Core 30 plan: Roofing", () => {
     await expect(page.getByRole("tablist", { name: "Practice mode" })).toHaveCount(0);
     await expect(page.getByTestId("practice-recall-switch")).toHaveCount(0);
     await goSection(page, "recall");
-    await expect(page.getByTestId("practice-recall-switch")).toBeVisible();
+    await expect(page.getByTestId("lesson-recall-deck")).toBeVisible();
     await expect(page.getByTestId("practice-mode-study")).toHaveAttribute("aria-selected", "true");
     await expect(page.getByTestId("practice-mode-type")).toHaveCount(0);
   });
@@ -861,13 +859,8 @@ test.describe("Core 30 plan: generated lesson words (Orthopedics in French, no a
     ).toBeAttached();
     const kit = page.getByTestId("practice-kit");
     await expect(kit).toBeVisible();
-    // Recall opens directly on the Study list.
-    await chooseRecallPractice(page, "study");
-    const panel = kit.getByRole("tabpanel");
-    await expect(panel.locator('li p[lang="fr"]')).toHaveCount(STUB_WORDS.length);
-    expect((await panel.locator('li p[lang="fr"]').allInnerTexts()).sort()).toEqual(
-      STUB_WORDS.map((w) => w.es).sort(),
-    );
+    const recalled = await collectRecallCards(page);
+    expect(recalled.map((card) => card.target).sort()).toEqual(STUB_WORDS.map((w) => w.es).sort());
     expect(requests).toHaveLength(1);
     expect(requests[0]).toContain("orthopedics");
 
@@ -997,9 +990,8 @@ test.describe("Core 30 plan: pre-built static deck (Construction Foreman, French
     ).toBeAttached();
     await expect(page.getByTestId("practice-kit")).toBeVisible();
     await chooseRecallPractice(page, "study");
-    const panel = page.getByTestId("practice-kit").getByRole("tabpanel");
-    await expect(panel.locator('li p[lang="fr"]')).toHaveCount(12);
-    expect((await panel.locator('li p[lang="fr"]').allInnerTexts()).sort()).toEqual(
+    const recalled = await collectRecallCards(page);
+    expect(recalled.map((card) => card.target).sort()).toEqual(
       deck.lessons["1"].map((w) => w.es).sort(),
     );
 

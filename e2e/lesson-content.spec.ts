@@ -1,3 +1,4 @@
+import { collectRecallCards, openRecallTools } from "./recall-deck";
 import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
 import { core30Key, readAppState, seedAppState } from "./app-state.ts";
@@ -117,11 +118,81 @@ test.describe("Lesson content: Plumber lesson 1", () => {
     await expect(reader.getByRole("button", { name: "Finish round", exact: true })).toBeVisible();
   });
 
-  test("Recall it has a Verbs tab with the lesson's verb cards", async ({ page }) => {
+  test("Recall combines word, phrase and verb cards with practice breaks", async ({ page }) => {
     await openModuleCore30(page);
     await openLesson1(page);
     await goSection(page, "recall");
-    await expect(page.getByTestId("practice-recall-switch")).toBeVisible({ timeout: 60_000 });
+    const deck = page.getByTestId("lesson-recall-deck");
+    await expect(deck).toBeVisible();
+    await expect(page.getByTestId("practice-recall-switch")).not.toBeVisible();
+    const recalled = await collectRecallCards(page);
+    for (const verb of LESSON_1.verbs)
+      expect(recalled.some((card) => card.target === verb.infinitive && card.kind === "Verb")).toBe(
+        true,
+      );
+    expect(recalled.some((card) => card.kind === "Word")).toBe(true);
+    expect(recalled.some((card) => card.kind === "Phrase")).toBe(true);
+    await expect(deck).toContainText("skipped");
+  });
+
+  test("Recall matching and verb rounds return to the combined cards", async ({ page }) => {
+    await openModuleCore30(page);
+    await openLesson1(page);
+    await goSection(page, "recall");
+    const deck = page.getByTestId("lesson-recall-deck");
+    const seen = new Map<string, string>();
+    for (let step = 0; step < 30; step++) {
+      const current = deck.getByTestId("recall-step");
+      if ((await current.getAttribute("data-kind")) !== "card") break;
+      const native = await current.getByTestId("recall-card-text").innerText();
+      await current.getByRole("button", { name: "Flip the card", exact: true }).click();
+      seen.set(await current.getByTestId("recall-card-text").innerText(), native);
+      await current.getByRole("button", { name: "Got it", exact: true }).click();
+    }
+    await expect(deck.getByTestId("recall-step")).toHaveAttribute("data-kind", "match");
+    const targets = deck.locator('[data-testid="match-tile"][lang="es"]');
+    const meanings = deck.locator('[data-testid="match-tile"][lang="en"]');
+    const texts = await targets.allInnerTexts();
+    const nativeTexts = await meanings.allInnerTexts();
+    for (let i = 0; i < texts.length; i++) {
+      const at = nativeTexts.indexOf(seen.get(texts[i])!);
+      expect(at).toBeGreaterThanOrEqual(0);
+      await targets.nth(i).click();
+      await meanings.nth(at).click();
+    }
+    await expect(deck.getByTestId("recall-step")).toHaveAttribute("data-kind", "card");
+    for (let step = 0; step < 30; step++) {
+      const current = deck.getByTestId("recall-step");
+      const kind = await current.getAttribute("data-kind");
+      if (kind === "verb-game") break;
+      if (kind === "card") {
+        await current.getByRole("button", { name: "Flip the card", exact: true }).click();
+        await current.getByRole("button", { name: "Got it", exact: true }).click();
+      } else await deck.getByRole("button", { name: "Skip this activity", exact: true }).click();
+    }
+    await expect(deck.getByTestId("recall-step")).toHaveAttribute("data-kind", "verb-game");
+    const game = deck.getByTestId("lesson-verb-game-round");
+    for (let question = 0; question < 4; question++) {
+      const options = game.locator("div.grid > button");
+      const count = await options.count();
+      expect(count).toBeGreaterThan(1);
+      for (let option = 0; option < count; option++) {
+        await options.nth(option).click();
+        if (await game.getByText(/^Correct\./).isVisible()) break;
+      }
+      await expect(game.getByText(/^Correct\./)).toBeVisible();
+      await game.getByRole("button", { name: /^(Next question|See score)$/ }).click();
+    }
+    await game.getByRole("button", { name: "Continue cards", exact: true }).click();
+    await expect(deck.getByTestId("recall-step")).toHaveAttribute("data-kind", "card");
+  });
+
+  test("Recall tools retain the lesson's verb reference cards", async ({ page }) => {
+    await openModuleCore30(page);
+    await openLesson1(page);
+    await goSection(page, "recall");
+    await expect(page.getByTestId("lesson-recall-deck")).toBeVisible({ timeout: 60_000 });
+    await openRecallTools(page);
     await page.getByTestId("practice-mode-verbs").click();
     const study = page.getByTestId("verb-practice-study");
     await expect(study).toBeVisible();

@@ -72,16 +72,18 @@ export function LessonVerbGames({
     </section>
   );
 }
-function GameRound({
+export function GameRound({
   game,
   language,
   source,
   replay,
+  onComplete,
 }: {
   game: Game;
   language: string;
   source: LessonGameItem[];
   replay: () => void;
+  onComplete?: () => void;
 }) {
   const { speakSentence } = useSpeech();
   const items = useMemo(() => gameRoundItems(shuffle(source)), [source]);
@@ -152,14 +154,14 @@ function GameRound({
               : `${score} of ${items.length} correct on the first try`}
             .
           </p>
-          <button type="button" className={button} onClick={replay}>
-            Play again
+          <button type="button" className={button} onClick={onComplete ?? replay}>
+            {onComplete ? "Continue cards" : "Play again"}
           </button>
         </>
       ) : matching ? (
         <>
           <p>
-            Match each prompt to its Spanish answer. {matched.length} of {items.length} matched.
+            Match each prompt to its {language} answer. {matched.length} of {items.length} matched.
           </p>
           <div className="grid min-w-0 grid-cols-2 gap-2 sm:gap-3">
             <div className="grid min-w-0 gap-2">
@@ -266,9 +268,9 @@ function GameRound({
               className="flex flex-wrap gap-2"
             >
               <label className="w-full">
-                Spanish form
+                {language} form
                 <input
-                  aria-label="Game Spanish form"
+                  aria-label={`Game ${language} form`}
                   autoCapitalize="none"
                   autoCorrect="off"
                   spellCheck={false}

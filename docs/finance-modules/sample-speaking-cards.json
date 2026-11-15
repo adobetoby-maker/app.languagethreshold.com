@@ -1,0 +1,119 @@
+[
+  {
+    "module": "accounting",
+    "stage": "foundation",
+    "title": "Ask for a missing receipt",
+    "roles": "Accountant ↔ client",
+    "es": "Me falta el recibo de esta compra. ¿Me lo puede enviar?",
+    "en": "I am missing the receipt for this purchase. Could you send it to me?",
+    "goals": [
+      "Identify the exact missing record.",
+      "Confirm the date and amount.",
+      "Agree how and when it will be sent."
+    ]
+  },
+  {
+    "module": "accounting",
+    "stage": "core",
+    "title": "Explain a cash-flow difference",
+    "roles": "Accountant ↔ business owner",
+    "es": "La factura está registrada como ingreso, pero todavía no hemos recibido el pago.",
+    "en": "The invoice is recorded as revenue, but we have not received the payment yet.",
+    "goals": [
+      "Distinguish revenue recorded from cash received.",
+      "Ask when the customer expects to pay.",
+      "Summarize the effect on the example cash forecast."
+    ]
+  },
+  {
+    "module": "accounting",
+    "stage": "master",
+    "title": "Correct an unsupported entry",
+    "roles": "Tax professional ↔ client",
+    "es": "Ese gasto no aparece en los documentos que recibí. Necesito comprobarlo antes de cambiar el informe.",
+    "en": "That expense does not appear in the documents I received. I need to verify it before changing the report.",
+    "goals": [
+      "Explain what is missing without accusing the client.",
+      "Ask for supporting records.",
+      "Confirm the documented next step and who owns it."
+    ]
+  },
+  {
+    "module": "personal-money",
+    "stage": "foundation",
+    "title": "Check available money",
+    "roles": "Account holder ↔ bank teller",
+    "es": "¿Cuál es mi saldo disponible? ¿Este pago todavía está pendiente?",
+    "en": "What is my available balance? Is this payment still pending?",
+    "goals": [
+      "Ask about the available balance.",
+      "Identify the pending transaction.",
+      "Repeat the amount and currency back."
+    ]
+  },
+  {
+    "module": "personal-money",
+    "stage": "core",
+    "title": "Ask about an investment fund",
+    "roles": "Customer ↔ financial professional",
+    "es": "¿Qué comisiones cobra este fondo? ¿Puedo perder parte del dinero invertido?",
+    "en": "What fees does this fund charge? Could I lose some of the money I invest?",
+    "goals": [
+      "Ask what the fund holds.",
+      "Ask about fees, access to money and possible losses.",
+      "Explain the questions in your own words."
+    ]
+  },
+  {
+    "module": "personal-money",
+    "stage": "master",
+    "title": "Question a duplicate settled charge",
+    "roles": "Account holder ↔ bank support",
+    "es": "Veo 2 cargos por la misma compra y los 2 están completados. Tengo el recibo de un solo pago.",
+    "en": "I see 2 charges for the same purchase, and both have settled. I have the receipt for only one payment.",
+    "goals": [
+      "Identify the transactions and their status.",
+      "Distinguish a hold from a settled charge.",
+      "Ask what evidence and follow-up the bank requires."
+    ]
+  },
+  {
+    "module": "travel-money",
+    "stage": "foundation",
+    "title": "Ask for a better price",
+    "roles": "Traveler ↔ market seller",
+    "es": "¿Cuánto cuesta? Si compro 2, ¿me puede hacer un mejor precio?",
+    "en": "How much does it cost? If I buy 2, could you give me a better price?",
+    "goals": [
+      "Confirm the price and currency.",
+      "Ask politely about a quantity discount.",
+      "Repeat the agreed total before paying."
+    ]
+  },
+  {
+    "module": "travel-money",
+    "stage": "core",
+    "title": "Confirm an exchange quote",
+    "roles": "Traveler ↔ exchange-counter clerk",
+    "es": "Si cambio 100 dólares, ¿cuántos pesos recibo después de la comisión?",
+    "en": "If I exchange 100 dollars, how many pesos will I receive after the fee?",
+    "goals": [
+      "State the starting amount and both currencies.",
+      "Ask which rate and fee apply.",
+      "Confirm the final amount received, not just the advertised rate."
+    ]
+  },
+  {
+    "module": "travel-money",
+    "stage": "master",
+    "title": "Clarify a hotel card hold",
+    "roles": "Traveler ↔ hotel receptionist",
+    "es": "¿Es un cargo o una retención temporal? ¿Ya liberaron la retención de mi tarjeta?",
+    "en": "Is this a charge or a temporary hold? Have you released the hold on my card yet?",
+    "goals": [
+      "Separate the room payment from the security hold.",
+      "Ask about release status and confirmation.",
+      "Agree whom to contact if the amount remains unavailable."
+    ]
+  }
+]

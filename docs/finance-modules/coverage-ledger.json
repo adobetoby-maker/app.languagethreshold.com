@@ -1,0 +1,205 @@
+{
+  "date": "2026-11-15",
+  "sourceRevision": "42d440204c8396e965e4dae099eb99129535dd2c",
+  "scope": "Curriculum design for the owner request to look at adding three finance modules; not a completed app implementation.",
+  "tracks": [
+    {
+      "module": "accounting",
+      "target": "Spanish",
+      "native": "English",
+      "state": "planned-not-registered",
+      "plannedStages": {
+        "foundation": 10,
+        "core": 30,
+        "master": 20
+      },
+      "authoredStages": {
+        "foundation": 0,
+        "core": 0,
+        "master": 0
+      },
+      "alignedReadings": 0,
+      "verbSets": 0,
+      "mappedLessons": 0,
+      "fullReaderLinks": 0,
+      "authoredDecks": 0,
+      "recordedAudio": 0,
+      "downloadRegistration": false,
+      "humanReview": "pending",
+      "productionReleased": false
+    },
+    {
+      "module": "accounting",
+      "target": "English",
+      "native": "Spanish",
+      "state": "planned-not-registered",
+      "plannedStages": {
+        "foundation": 10,
+        "core": 30,
+        "master": 20
+      },
+      "authoredStages": {
+        "foundation": 0,
+        "core": 0,
+        "master": 0
+      },
+      "alignedReadings": 0,
+      "verbSets": 0,
+      "mappedLessons": 0,
+      "fullReaderLinks": 0,
+      "authoredDecks": 0,
+      "recordedAudio": 0,
+      "downloadRegistration": false,
+      "humanReview": "pending",
+      "productionReleased": false
+    },
+    {
+      "module": "personal-money",
+      "target": "Spanish",
+      "native": "English",
+      "state": "planned-not-registered",
+      "plannedStages": {
+        "foundation": 10,
+        "core": 30,
+        "master": 20
+      },
+      "authoredStages": {
+        "foundation": 0,
+        "core": 0,
+        "master": 0
+      },
+      "alignedReadings": 0,
+      "verbSets": 0,
+      "mappedLessons": 0,
+      "fullReaderLinks": 0,
+      "authoredDecks": 0,
+      "recordedAudio": 0,
+      "downloadRegistration": false,
+      "humanReview": "pending",
+      "productionReleased": false
+    },
+    {
+      "module": "personal-money",
+      "target": "English",
+      "native": "Spanish",
+      "state": "planned-not-registered",
+      "plannedStages": {
+        "foundation": 10,
+        "core": 30,
+        "master": 20
+      },
+      "authoredStages": {
+        "foundation": 0,
+        "core": 0,
+        "master": 0
+      },
+      "alignedReadings": 0,
+      "verbSets": 0,
+      "mappedLessons": 0,
+      "fullReaderLinks": 0,
+      "authoredDecks": 0,
+      "recordedAudio": 0,
+      "downloadRegistration": false,
+      "humanReview": "pending",
+      "productionReleased": false
+    },
+    {
+      "module": "travel-money",
+      "target": "Spanish",
+      "native": "English",
+      "state": "planned-not-registered",
+      "plannedStages": {
+        "foundation": 10,
+        "core": 30,
+        "master": 20
+      },
+      "authoredStages": {
+        "foundation": 0,
+        "core": 0,
+        "master": 0
+      },
+      "alignedReadings": 0,
+      "verbSets": 0,
+      "mappedLessons": 0,
+      "fullReaderLinks": 0,
+      "authoredDecks": 0,
+      "recordedAudio": 0,
+      "downloadRegistration": false,
+      "humanReview": "pending",
+      "productionReleased": false
+    },
+    {
+      "module": "travel-money",
+      "target": "English",
+      "native": "Spanish",
+      "state": "planned-not-registered",
+      "plannedStages": {
+        "foundation": 10,
+        "core": 30,
+        "master": 20
+      },
+      "authoredStages": {
+        "foundation": 0,
+        "core": 0,
+        "master": 0
+      },
+      "alignedReadings": 0,
+      "verbSets": 0,
+      "mappedLessons": 0,
+      "fullReaderLinks": 0,
+      "authoredDecks": 0,
+      "recordedAudio": 0,
+      "downloadRegistration": false,
+      "humanReview": "pending",
+      "productionReleased": false
+    }
+  ],
+  "examples": {
+    "bilingualSpeakingCards": 9,
+    "countsAsCompletedLesson": false
+  },
+  "implementationOrder": [
+    "Accounting & Financial Services",
+    "Personal Money & Banking",
+    "Travel Money & Payments"
+  ],
+  "runtimeDesign": {
+    "category": "Finance for professional and personal courses; Travel for travel payments",
+    "pairIsolation": "Follow exact authoredPair gates. Use separate stable language-track identities where current curriculum registration requires one authored pair per module.",
+    "stages": "Preserve Foundation 1–10, Core 1–30, Master 1–20.",
+    "source": "Author scenario-specific aligned readings, terms, phrases, verb examples and speaking context; derive public lesson JSON, curricula, Reader seeds and vocabulary index from one maintained source.",
+    "practice": "Map all six lesson modes, full Reader, cards, objective-linked speaking missions and saved progress.",
+    "audio": "HD recordings only as requested in this conversation. Inventory exact matches; no device-voice fallback presented as recordings.",
+    "release": "Validate source and runtime for each exact pair, then review/preview before any production claim."
+  },
+  "references": [
+    {
+      "title": "CFPB adult financial education tools and resources",
+      "url": "https://www.consumerfinance.gov/consumer-tools/educator-tools/adult-financial-education/tools-and-resources/",
+      "usedFor": "Topic coverage and a source shelf for personal finance terminology."
+    },
+    {
+      "title": "IRS Publication 850 English–Spanish Glossary of Tax Words and Phrases",
+      "edition": "September 2023",
+      "url": "https://www.irs.gov/publications/p850",
+      "usedFor": "US-specific bilingual tax terminology; no tax rates, filing rules or universal jurisdiction claims copied."
+    }
+  ],
+  "baselineAudits": {
+    "military": "60 mapped English/Spanish draft lessons in the source audit",
+    "roofing": "Reference audited in both supported directions; audit evidence stored with this proposal"
+  },
+  "remaining": [
+    "Full 360-lesson bilingual authoring and linguistic review",
+    "Runtime registration and exact-pair integration",
+    "Practice/Reader/card/speaking integration",
+    "HD audio inventory and production",
+    "Actual browser, phone and release validation for the completed courses"
+  ],
+  "previewRegeneration": "node scripts/preview-finance-modules.mjs",
+  "validation": {
+    "proposal": "Each of the three paths has unique numbered 10/30/20 lesson situations. All nine bilingual sample cards map to a valid module/stage.",
+    "browser": "Chrome at 390px and 1440px: all module/stage filters, 60/10/30/20 counts, English/Spanish examples, search, empty state and no horizontal overflow pass.",
+    "appChecks": "No runtime app changes; course authoring, runtime integration and app release tests remain outstanding."
+  }
+}

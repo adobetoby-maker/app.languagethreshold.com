@@ -1,0 +1,363 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "core",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "englishSourceSubsetSHA256": "18cca02eb095cca4c1d693151129c1b49781a27d38d0618f446222c33f31cf19",
+  "sourceFileSHA256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+  },
+  "lessons": [
+    {
+      "n": 19,
+      "stableId": "roofing:19:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Step Flashing",
+      "sourceEnglishObjective": "Coordinate sidewall flashing one course at a time",
+      "sourceEnglishSpeaking": "Ask the installer to describe the sidewall flashing sequence.",
+      "title": "外壁際の段差水切り",
+      "objective": "外壁際の段差水切りを、シングル材の段ごとに施工する手順を伝える。",
+      "focus": "～ごとに marks each shingle course. ～の下に and ～に沿って identify placement, while ～てから orders checking each piece before the next course.",
+      "cards": [
+        {
+          "ja": "段差水切り",
+          "en": "step flashing",
+          "kind": "term"
+        },
+        {
+          "ja": "壁",
+          "en": "wall",
+          "kind": "term"
+        },
+        {
+          "ja": "シングル材の段",
+          "en": "shingle course",
+          "kind": "term"
+        },
+        {
+          "ja": "外壁際",
+          "en": "sidewall",
+          "kind": "term"
+        },
+        {
+          "ja": "水切り板金",
+          "en": "flashing",
+          "kind": "term"
+        },
+        {
+          "ja": "外壁材",
+          "en": "siding",
+          "kind": "term"
+        },
+        {
+          "ja": "シーリング材",
+          "en": "sealant",
+          "kind": "term"
+        },
+        {
+          "ja": "曲げる",
+          "en": "bend",
+          "kind": "term"
+        },
+        {
+          "ja": "重なり",
+          "en": "overlap",
+          "kind": "term"
+        },
+        {
+          "ja": "各段のシングル材の下に段差水切りを入れてください。",
+          "en": "Step flashing under each shingle course.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "一段につき一枚取り付けてください。",
+          "en": "Install one piece per course.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "水切り板金を壁に沿って曲げてください。",
+          "en": "Bend the flashing against the wall.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "外壁際の水切り板金の施工順序を説明してください。",
+          "en": "Describe the sidewall flashing sequence.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "水切り板金がどのように重なるか見せてください。",
+          "en": "Show me how the flashing overlaps.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "今日、作業班は家の外壁際で作業しています。",
+          "en": "Today the crew is working on the sidewall of the house."
+        },
+        {
+          "ja": "ここでは屋根が壁に接しています。",
+          "en": "Here the roof meets the wall."
+        },
+        {
+          "ja": "職長は施工担当者に「外壁際の水切り板金の施工順序を説明してください」と尋ねます。",
+          "en": "The foreman asks the installers: Explain the sidewall flashing sequence."
+        },
+        {
+          "ja": "担当者は「各段のシングル材の下に段差水切りを入れます」と答えます。",
+          "en": "They answer: step flashing under each course."
+        },
+        {
+          "ja": "一段につき一枚取り付けてください。",
+          "en": "Install one piece per course."
+        },
+        {
+          "ja": "水切り板金を壁に沿って曲げてください。",
+          "en": "Bend the flashing against the wall."
+        },
+        {
+          "ja": "水切り板金がどのように重なるか見せてください。",
+          "en": "Show me how the flashing overlaps."
+        },
+        {
+          "ja": "職長は次の段のシングル材を敷く前に、一枚ずつ確認します。",
+          "en": "The foreman checks each piece before placing the next course of shingles."
+        }
+      ],
+      "forms": [
+        {
+          "base": "取り付ける",
+          "exampleJa": "一段につき一枚取り付けてください。",
+          "meaningEnglish": "to install",
+          "exampleEnglish": "Install one piece per course.",
+          "sourceInfinitiveSpanish": "instalar"
+        },
+        {
+          "base": "曲げる",
+          "exampleJa": "水切り板金を壁に沿って曲げてください。",
+          "meaningEnglish": "to bend",
+          "exampleEnglish": "Bend the flashing against the wall.",
+          "sourceInfinitiveSpanish": "doblar"
+        },
+        {
+          "base": "説明する",
+          "exampleJa": "施工担当者は水切り板金の施工順序を説明します。",
+          "meaningEnglish": "to explain",
+          "exampleEnglish": "The installer explains the flashing sequence.",
+          "sourceInfinitiveSpanish": "explicar"
+        },
+        {
+          "base": "見せる",
+          "exampleJa": "施工担当者は水切り板金の重なり方を見せます。",
+          "meaningEnglish": "to show",
+          "exampleEnglish": "The installer shows how the flashing overlaps.",
+          "sourceInfinitiveSpanish": "mostrar"
+        },
+        {
+          "base": "確認する",
+          "exampleJa": "職長は次の段を敷く前に各部材を確認します。",
+          "meaningEnglish": "to check",
+          "exampleEnglish": "The foreman checks each piece before placing the next course.",
+          "sourceInfinitiveSpanish": "revisar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "各段のシングル材の下に段差水切りを入れます。一段につき一枚取り付け、重なり方を見せてください。",
+        "goal": "Ask the installer to describe the sidewall flashing sequence."
+      },
+      "modes": {
+        "see": "Find the step-flashing piece at the sidewall.",
+        "recall": "Recall step flashing, sidewall, and shingle course.",
+        "hear": "Distinguish 段差水切り from 水切り板金 when spoken.",
+        "type": "Type 'Install one piece per course' in Japanese.",
+        "say": "Explain the sidewall flashing sequence one course at a time.",
+        "write": "Write what the foreman checks before the next shingle course."
+      }
+    },
+    {
+      "n": 20,
+      "stableId": "roofing:20:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Ridge Caps & Finish",
+      "sourceEnglishObjective": "Discuss ridge-cap preparation and finish work",
+      "sourceEnglishSpeaking": "Give the guide's ridge-cap instruction and verify the chosen product's method.",
+      "title": "棟包み材と仕上げ",
+      "objective": "棟包み材の準備、取り付け、仕上げについて話す。",
+      "focus": "～に沿って marks the ridge installation path. ～なら gives the product condition for cutting caps from starter shingles; ～たら orders cleanup after finishing.",
+      "cards": [
+        {
+          "ja": "棟包み材",
+          "en": "ridge cap",
+          "kind": "term"
+        },
+        {
+          "ja": "スターターシングル材",
+          "en": "starter shingle",
+          "kind": "term"
+        },
+        {
+          "ja": "棟",
+          "en": "ridge",
+          "kind": "term"
+        },
+        {
+          "ja": "隅棟",
+          "en": "hip",
+          "kind": "term"
+        },
+        {
+          "ja": "棟換気材",
+          "en": "ridge vent",
+          "kind": "term"
+        },
+        {
+          "ja": "切る",
+          "en": "cut",
+          "kind": "term"
+        },
+        {
+          "ja": "仕上げる",
+          "en": "finish",
+          "kind": "term"
+        },
+        {
+          "ja": "シーリング材",
+          "en": "sealant",
+          "kind": "term"
+        },
+        {
+          "ja": "釘",
+          "en": "nail",
+          "kind": "term"
+        },
+        {
+          "ja": "スターターシングル材から棟包み材を切り出してください。",
+          "en": "Cut the ridge caps from a starter shingle.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "棟に沿って棟包み材を取り付けてください。",
+          "en": "Install the ridge caps along the ridge.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "棟包み材の製品説明書を確認してください。",
+          "en": "Check the product instructions for the ridge cap.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "最後の棟包み材をシーリングしてください。",
+          "en": "Seal the last cap.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "作業が終わったら屋根を清掃してください。",
+          "en": "Clean the roof when you finish.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "作業班の屋根工事はもうすぐ終わります。",
+          "en": "The crew is almost done with the roof."
+        },
+        {
+          "ja": "棟と隅棟の施工がまだ残っています。",
+          "en": "The ridge and the hip are still missing."
+        },
+        {
+          "ja": "まず、棟包み材の製品説明書を確認してください。",
+          "en": "First, check the product instructions for the ridge cap."
+        },
+        {
+          "ja": "製品が認めているなら、スターターシングル材から棟包み材を切り出してください。",
+          "en": "Cut the ridge caps from a starter shingle, if the product allows it."
+        },
+        {
+          "ja": "棟に沿って棟包み材を取り付けてください。",
+          "en": "Install the ridge caps along the ridge."
+        },
+        {
+          "ja": "職長は棟換気材も確認します。",
+          "en": "The foreman also checks the ridge vent."
+        },
+        {
+          "ja": "最後の棟包み材をシーリングしてください。",
+          "en": "Seal the last cap."
+        },
+        {
+          "ja": "作業が終わったら屋根を清掃してください。",
+          "en": "When you finish, clean the roof."
+        }
+      ],
+      "forms": [
+        {
+          "base": "切る",
+          "exampleJa": "製品が認めているなら、スターターシングル材から棟包み材を切り出してください。",
+          "meaningEnglish": "to cut",
+          "exampleEnglish": "Cut the ridge caps from a starter shingle, if the product allows it.",
+          "sourceInfinitiveSpanish": "cortar"
+        },
+        {
+          "base": "確認する",
+          "exampleJa": "職長は棟換気材も確認します。",
+          "meaningEnglish": "to check",
+          "exampleEnglish": "The foreman also checks the ridge vent.",
+          "sourceInfinitiveSpanish": "revisar"
+        },
+        {
+          "base": "取り付ける",
+          "exampleJa": "棟に沿って棟包み材を取り付けてください。",
+          "meaningEnglish": "to install",
+          "exampleEnglish": "Install the ridge caps along the ridge.",
+          "sourceInfinitiveSpanish": "instalar"
+        },
+        {
+          "base": "シーリングする",
+          "exampleJa": "最後の棟包み材をシーリングしてください。",
+          "meaningEnglish": "to seal",
+          "exampleEnglish": "Seal the last cap.",
+          "sourceInfinitiveSpanish": "sellar"
+        },
+        {
+          "base": "清掃する",
+          "exampleJa": "作業が終わったら屋根を清掃してください。",
+          "meaningEnglish": "to clean",
+          "exampleEnglish": "When you finish, clean the roof.",
+          "sourceInfinitiveSpanish": "limpiar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "まず棟包み材の製品説明書を確認します。その後、棟に沿って取り付け、最後の一枚をシーリングします。",
+        "goal": "Give the guide's ridge-cap instruction and verify the chosen product's method."
+      },
+      "modes": {
+        "see": "Find the ridge and hip still awaiting finish work.",
+        "recall": "Recall ridge cap, starter shingle, ridge vent, and hip.",
+        "hear": "Distinguish 棟 from 隅棟 when spoken.",
+        "type": "Type 'Check the product instructions for the ridge cap' in Japanese.",
+        "say": "Discuss the ridge-cap preparation and installation sequence.",
+        "write": "Write the final steps after installing the ridge caps."
+      }
+    }
+  ],
+  "reviewGates": {
+    "independentJapaneseReview": false,
+    "qualifiedRoofingReview": false,
+    "sixModeRuntime": false,
+    "dictionarySenses": false,
+    "offlineVerified": false,
+    "recordedAudioListening": false,
+    "phoneAndNativeAcceptance": false
+  }
+}

@@ -1,0 +1,5553 @@
+{
+  "schema": 1,
+  "moduleId": "travel-breakfast",
+  "stageId": "travel-breakfast",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/travel-zone.ts",
+    "curriculumSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "readerPath": "public/lesson-content/es/travel-breakfast.json",
+    "readerSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "role": "Exact English curriculum objectives, roleplays, terms and Reader lines retained as provenance; Japanese learner scenes use original contextual wording and aligned English support"
+  },
+  "lessons": [
+    {
+      "n": 1,
+      "stableId": "travel-breakfast:1:ja-en",
+      "sourceEnglish": {
+        "objective": "greet staff, learn whether to order at the counter, and find a place",
+        "roleplay": "Walk into a crowded Roman café and work out how ordering and seating operate.",
+        "englishWordAnchors": [
+          "café; coffee shop",
+          "counter",
+          "table",
+          "free table",
+          "waiter",
+          "menu",
+          "line; queue",
+          "patio; outdoor seating",
+          "sweet pastry",
+          "chair",
+          "Good morning, do I order here at the counter?",
+          "Is there a free table?",
+          "Do I sit wherever I want?",
+          "Sorry, I don't understand. Can you repeat, please?",
+          "Is it to go or to eat here?"
+        ],
+        "englishReading": [
+          "A traveler enters a very busy café.",
+          "There is a long line in front of the counter.",
+          "The traveler says: Good morning.",
+          "He asks the waitress: Do I order here at the counter?",
+          "The waitress answers: Yes, order here, please.",
+          "He asks: Is there a free table?",
+          "The waitress says: There is a table on the patio.",
+          "He waits in line and looks at the menu.",
+          "Then he orders a coffee and a sweet pastry."
+        ],
+        "englishSourceSha256": "5e1b0f321d4b5519793ff63fe1bfa716087134af93493de2dee065764c0600f5"
+      },
+      "title": "Entering a busy café",
+      "objective": "Greet staff, ask whether to order at the counter, and find out if a seat is available.",
+      "focus": "In a Japanese café, counter and seating practices vary. 注文はここでいいですか asks where to order. 空いていますか asks whether a seat is free. Check with staff rather than sitting or assuming a universal rule.",
+      "scene": "Sam enters a busy café near a station and asks the staff how to order.",
+      "cards": [
+        {
+          "ja": "カフェ",
+          "en": "café",
+          "kind": "term"
+        },
+        {
+          "ja": "混んでいます",
+          "en": "is crowded",
+          "kind": "term"
+        },
+        {
+          "ja": "列",
+          "en": "line; queue",
+          "kind": "term"
+        },
+        {
+          "ja": "カウンター",
+          "en": "counter",
+          "kind": "term"
+        },
+        {
+          "ja": "席",
+          "en": "seat",
+          "kind": "term"
+        },
+        {
+          "ja": "空いています",
+          "en": "is available",
+          "kind": "term"
+        },
+        {
+          "ja": "メニュー",
+          "en": "menu",
+          "kind": "term"
+        },
+        {
+          "ja": "注文",
+          "en": "order",
+          "kind": "term"
+        },
+        {
+          "ja": "ここで注文しますか",
+          "en": "Do I order here?",
+          "kind": "term"
+        },
+        {
+          "ja": "席は空いていますか",
+          "en": "Is a seat available?",
+          "kind": "term"
+        },
+        {
+          "ja": "少し待ちます",
+          "en": "I will wait a moment",
+          "kind": "term"
+        },
+        {
+          "ja": "持ち帰り",
+          "en": "takeaway",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "駅の近くのカフェは混んでいます。",
+          "en": "The café near the station is busy."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "カウンターの前に列があります。",
+          "en": "There is a line in front of the counter."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "おはようございます。注文はここでいいですか。",
+          "en": "Good morning. Should I order here?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、こちらでご注文ください。",
+          "en": "Yes, please order here."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "席は空いていますか。",
+          "en": "Is a seat available?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "窓の近くに一つ空いています。",
+          "en": "One seat near the window is available."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "わかりました。少し待ちます。",
+          "en": "I understand. I will wait a moment."
+        },
+        {
+          "speaker": "Narrator",
+          "ja": "サムはメニューを見て、列で待ちます。",
+          "en": "Sam looks at the menu and waits in line."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "コーヒーを一杯ください。",
+          "en": "One coffee, please."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler entering a busy café",
+        "partnerRole": "Café staff",
+        "opening": "いらっしゃいませ。ご注文ですか。",
+        "goal": "Greet staff, ask where to order, then ask whether a seat is available.",
+        "closure": "Follow the staff’s actual instructions; do not assume counter service everywhere.",
+        "wordBank": [
+          "おはようございます",
+          "注文はここでいいですか",
+          "席は空いていますか",
+          "少し待ちます"
+        ]
+      },
+      "modes": {
+        "see": "Read the busy-café scene with aligned English after reveal.",
+        "recall": "Recall where-to-order and seat-availability questions.",
+        "hear": "Hear the distinction between 注文 and 席.",
+        "type": "Type a short counter question with kana help.",
+        "say": "Ask staff where to order and whether there is a seat.",
+        "write": "Write two questions and a polite acknowledgement."
+      }
+    },
+    {
+      "n": 2,
+      "stableId": "travel-breakfast:2:ja-en",
+      "sourceEnglish": {
+        "objective": "ask about coffee styles, size, milk, temperature, and where to drink it",
+        "roleplay": "Order a local coffee without assuming the names or customs are the same as at home.",
+        "englishWordAnchors": [
+          "black coffee",
+          "coffee with milk",
+          "medium",
+          "oat milk",
+          "hot",
+          "cold",
+          "counter",
+          "table",
+          "barista",
+          "size",
+          "milk",
+          "to go",
+          "What types of coffee are there?",
+          "What sizes do you have?",
+          "I want a coffee with milk, please.",
+          "Do you have oat milk?",
+          "Is it to drink here or to go?",
+          "Can it be hot, please?"
+        ],
+        "englishReading": [
+          "A traveler arrives at the counter of a café.",
+          "She asks: What types of coffee are there?",
+          "The barista says there is black coffee and coffee with milk.",
+          "She wants a medium coffee with milk.",
+          "She asks: Do you have oat milk?",
+          "The barista answers yes, and asks if she wants it hot or cold.",
+          "She asks for the coffee hot and asks: Is it to drink here or to go?",
+          "She takes a table and drinks her coffee."
+        ],
+        "englishSourceSha256": "b93dffc58b3ad7ccfe916d6bbc8521b7ff8e7c4294ce4b33cf40c959e33befb7"
+      },
+      "title": "Choosing a coffee",
+      "objective": "Ask what coffee is offered, check milk and size options, then state whether you will drink it there.",
+      "focus": "ブレンド and アメリカン are café menu labels; 牛乳 is milk and オーツミルク is oat milk. ～にできますか asks whether a drink can be changed to another option.",
+      "scene": "Sam studies a café menu and checks which milk and size are available.",
+      "cards": [
+        {
+          "ja": "コーヒー",
+          "en": "coffee",
+          "kind": "term"
+        },
+        {
+          "ja": "ブレンド",
+          "en": "blend coffee",
+          "kind": "term"
+        },
+        {
+          "ja": "アメリカン",
+          "en": "American-style coffee (menu label)",
+          "kind": "term"
+        },
+        {
+          "ja": "カフェオレ",
+          "en": "coffee with milk (menu label)",
+          "kind": "term"
+        },
+        {
+          "ja": "牛乳",
+          "en": "milk",
+          "kind": "term"
+        },
+        {
+          "ja": "オーツミルク",
+          "en": "oat milk",
+          "kind": "term"
+        },
+        {
+          "ja": "サイズ",
+          "en": "size",
+          "kind": "term"
+        },
+        {
+          "ja": "小さい",
+          "en": "small",
+          "kind": "term"
+        },
+        {
+          "ja": "温かい",
+          "en": "hot; warm",
+          "kind": "term"
+        },
+        {
+          "ja": "冷たい",
+          "en": "cold",
+          "kind": "term"
+        },
+        {
+          "ja": "店内",
+          "en": "inside the café",
+          "kind": "term"
+        },
+        {
+          "ja": "持ち帰り",
+          "en": "takeaway",
+          "kind": "term"
+        },
+        {
+          "ja": "どんなコーヒーがありますか",
+          "en": "What coffees do you have?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "オーツミルクはありますか",
+          "en": "Do you have oat milk?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "温かいものをお願いします",
+          "en": "A hot one, please",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "どんなコーヒーがありますか。",
+          "en": "What coffees do you have?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "ブレンドとカフェオレがあります。",
+          "en": "We have blend coffee and café au lait."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "カフェオレは小さいサイズがありますか。",
+          "en": "Is there a small café au lait?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、あります。",
+          "en": "Yes, there is."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "オーツミルクはありますか。",
+          "en": "Do you have oat milk?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "今日はありません。牛乳ならあります。",
+          "en": "We do not have it today. We have milk."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "では、小さいブレンドを温かいものでお願いします。",
+          "en": "Then a small hot blend coffee, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "店内でお召し上がりですか。",
+          "en": "Will you drink it here?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "はい、店内で飲みます。",
+          "en": "Yes, I will drink it here."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler ordering coffee",
+        "partnerRole": "Barista",
+        "opening": "ご注文は何になさいますか。",
+        "goal": "Ask about coffee choices, size and milk availability; order a hot drink for here.",
+        "closure": "Repeat the drink and milk option the barista confirmed.",
+        "wordBank": [
+          "どんなコーヒーがありますか",
+          "サイズ",
+          "オーツミルク",
+          "温かい",
+          "店内で飲みます"
+        ]
+      },
+      "modes": {
+        "see": "Read a coffee-choice scene and reveal accurate English support.",
+        "recall": "Recall milk, size and temperature terms.",
+        "hear": "Hear 温かい versus 冷たい.",
+        "type": "Type an availability question with kana support.",
+        "say": "Ask about coffee and milk, then place an order.",
+        "write": "Write a short order with confirmed size and temperature."
+      }
+    },
+    {
+      "n": 3,
+      "stableId": "travel-breakfast:3:ja-en",
+      "sourceEnglish": {
+        "objective": "ask what is fresh, filled, sweet, savory, or typical",
+        "roleplay": "Ask the server to explain three pastries and recommend one made that morning.",
+        "englishWordAnchors": [
+          "bakery",
+          "counter",
+          "sweet bread",
+          "pastry",
+          "bolillo (crusty white roll)",
+          "concha (sweet shell-shaped bread)",
+          "empanada (filled pastry)",
+          "cheese",
+          "filling",
+          "oven",
+          "croissant",
+          "jam",
+          "What is fresh today?",
+          "Which one is the most typical?",
+          "Is it filled?",
+          "Is it sweet or savory?",
+          "What do you recommend?",
+          "Which one came out of the oven today?"
+        ],
+        "englishReading": [
+          "A traveler walks into a bakery in the morning.",
+          "There are many breads and pastries on the counter.",
+          "He asks: What is fresh today?",
+          "The employee says the sweet bread is from this morning.",
+          "The traveler asks: Which one is filled?",
+          "She explains that the concha is sweet and the empanada is savory.",
+          "He says: I want to try something typical from here.",
+          "The employee recommends a bolillo with cheese.",
+          "The traveler orders a concha and a coffee, please."
+        ],
+        "englishSourceSha256": "002abf4f38f433af5df1f4568bb19f44ab5bc14e71a00521fdefd0a9ebd62564"
+      },
+      "title": "Choosing a pastry",
+      "objective": "Ask what was baked this morning, whether an item is filled, and which pastry the staff recommends.",
+      "focus": "今朝焼いたもの asks what was baked this morning; 甘い and 塩味のある distinguish sweet and savory; 中身 asks about a pastry's filling. Use the item names shown on the café's menu.",
+      "scene": "At a bakery café, Sam asks about three pastries without inventing what they contain.",
+      "cards": [
+        {
+          "ja": "パン屋",
+          "en": "bakery",
+          "kind": "term"
+        },
+        {
+          "ja": "焼き菓子",
+          "en": "baked pastry",
+          "kind": "term"
+        },
+        {
+          "ja": "今朝",
+          "en": "this morning",
+          "kind": "term"
+        },
+        {
+          "ja": "焼きました",
+          "en": "baked",
+          "kind": "term"
+        },
+        {
+          "ja": "甘い",
+          "en": "sweet",
+          "kind": "term"
+        },
+        {
+          "ja": "塩味のある",
+          "en": "savory; salty",
+          "kind": "term"
+        },
+        {
+          "ja": "中身",
+          "en": "filling",
+          "kind": "term"
+        },
+        {
+          "ja": "あんパン",
+          "en": "sweet bean bun",
+          "kind": "term"
+        },
+        {
+          "ja": "クロワッサン",
+          "en": "croissant",
+          "kind": "term"
+        },
+        {
+          "ja": "チーズ",
+          "en": "cheese",
+          "kind": "term"
+        },
+        {
+          "ja": "おすすめ",
+          "en": "recommendation",
+          "kind": "term"
+        },
+        {
+          "ja": "今朝焼いたものはどれですか",
+          "en": "Which were baked this morning?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "中身は何ですか",
+          "en": "What is inside?",
+          "kind": "term"
+        },
+        {
+          "ja": "どれをおすすめしますか",
+          "en": "Which do you recommend?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Narrator",
+          "ja": "サムはパン屋のカウンターを見ます。",
+          "en": "Sam looks at the bakery counter."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "今朝焼いたものはどれですか。",
+          "en": "Which items were baked this morning?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "このクロワッサンとあんパンです。",
+          "en": "This croissant and anpan were."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "あんパンの中身は何ですか。",
+          "en": "What is inside the anpan?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "あんこです。甘いですよ。",
+          "en": "Sweet bean paste. It is sweet."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "塩味のあるものはありますか。",
+          "en": "Do you have something savory?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "このチーズパンがあります。",
+          "en": "We have this cheese bread."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "どれをおすすめしますか。",
+          "en": "Which do you recommend?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "今朝焼いたクロワッサンをおすすめします。",
+          "en": "I recommend the croissant baked this morning."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler at a bakery café",
+        "partnerRole": "Bakery staff",
+        "opening": "いらっしゃいませ。何かお探しですか。",
+        "goal": "Ask which items were baked this morning, ask about a filling, and request a recommendation.",
+        "closure": "Confirm the pastry name and filling with staff.",
+        "wordBank": [
+          "今朝焼いたもの",
+          "中身",
+          "甘い",
+          "塩味のある",
+          "おすすめ"
+        ]
+      },
+      "modes": {
+        "see": "Read a bakery counter scene with aligned English support.",
+        "recall": "Recall baked-today, filling, sweet and savory forms.",
+        "hear": "Hear 甘い versus 塩味のある.",
+        "type": "Type a short filling question with kana help.",
+        "say": "Ask about three pastries and request a recommendation.",
+        "write": "Write a question about baking time and a recommendation request."
+      }
+    },
+    {
+      "n": 4,
+      "stableId": "travel-breakfast:4:ja-en",
+      "sourceEnglish": {
+        "objective": "request eggs, sides, toast, fruit, and cooking preferences",
+        "roleplay": "Build a complete hot breakfast order and confirm what is included.",
+        "englishWordAnchors": [
+          "scrambled eggs",
+          "fried eggs",
+          "bacon",
+          "toast",
+          "fruit",
+          "orange juice",
+          "sausage",
+          "potatoes",
+          "butter",
+          "table",
+          "menu",
+          "without salt",
+          "I want two scrambled eggs, please.",
+          "Can you bring me toast?",
+          "I want them well done.",
+          "Does it come with fruit?",
+          "Is the coffee included?",
+          "What comes with the breakfast?"
+        ],
+        "englishReading": [
+          "A traveler walks into a café in the morning.",
+          "He sits at a table and looks at the menu.",
+          "The waitress asks: What would you like?",
+          "He says: I want two scrambled eggs, please.",
+          "He also orders bacon, toast, and fruit.",
+          "The waitress asks: How do you want the eggs?",
+          "He answers: I want them well done, without salt.",
+          "Then he asks: Is the coffee included?",
+          "The waitress says: Yes, the coffee is included."
+        ],
+        "englishSourceSha256": "6c14b80b2f409fd0a957fc832213a0a08eb039072e3c54762e20630fb990e26b"
+      },
+      "title": "Ordering a full breakfast",
+      "objective": "Order eggs and sides, state a cooking preference, and ask which items are included.",
+      "focus": "～をお願いします makes a polite order. 焼き加減 means cooking level; よく焼いてください requests well cooked. セットに含まれますか checks whether something is included. Menu contents and cooking choices vary; do not imply a fixed breakfast set.",
+      "scene": "Sam sees an egg breakfast set on a café menu and asks what comes with it.",
+      "cards": [
+        {
+          "ja": "朝食セット",
+          "en": "breakfast set",
+          "kind": "term"
+        },
+        {
+          "ja": "卵料理",
+          "en": "egg dish",
+          "kind": "term"
+        },
+        {
+          "ja": "目玉焼き",
+          "en": "fried egg",
+          "kind": "term"
+        },
+        {
+          "ja": "スクランブルエッグ",
+          "en": "scrambled eggs",
+          "kind": "term"
+        },
+        {
+          "ja": "トースト",
+          "en": "toast",
+          "kind": "term"
+        },
+        {
+          "ja": "果物",
+          "en": "fruit",
+          "kind": "term"
+        },
+        {
+          "ja": "オレンジジュース",
+          "en": "orange juice",
+          "kind": "term"
+        },
+        {
+          "ja": "バター",
+          "en": "butter",
+          "kind": "term"
+        },
+        {
+          "ja": "焼き加減",
+          "en": "cooking level",
+          "kind": "term"
+        },
+        {
+          "ja": "よく焼いてください",
+          "en": "Please cook it well",
+          "kind": "term"
+        },
+        {
+          "ja": "セットに含まれますか",
+          "en": "Is it included in the set?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "何が付きますか",
+          "en": "What comes with it?",
+          "kind": "term"
+        },
+        {
+          "ja": "塩なしでお願いします",
+          "en": "Without salt, please",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "この朝食セットには何が付きますか。",
+          "en": "What comes with this breakfast set?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "卵料理とトーストと果物が付きます。",
+          "en": "It comes with an egg dish, toast, and fruit."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "卵料理は選べますか。",
+          "en": "Can I choose the egg dish?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、目玉焼きかスクランブルエッグです。",
+          "en": "Yes, fried or scrambled eggs."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "スクランブルエッグをお願いします。",
+          "en": "Scrambled eggs, please."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "よく焼いてください。",
+          "en": "Please cook them well."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "かしこまりました。",
+          "en": "Certainly."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "コーヒーもセットに含まれますか。",
+          "en": "Is coffee included in the set too?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "いいえ、コーヒーは別料金です。",
+          "en": "No, coffee costs extra."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler ordering breakfast",
+        "partnerRole": "Café server",
+        "opening": "朝食セットはいかがですか。",
+        "goal": "Ask what is included, choose an egg dish, state a cooking preference, and check whether coffee costs extra.",
+        "closure": "Repeat the staff’s answer without assuming all breakfast sets are the same.",
+        "wordBank": [
+          "朝食セット",
+          "何が付きますか",
+          "スクランブルエッグ",
+          "よく焼いてください",
+          "含まれますか"
+        ]
+      },
+      "modes": {
+        "see": "Read a breakfast-set exchange with aligned English.",
+        "recall": "Recall egg dishes, sides and included-price questions.",
+        "hear": "Hear the distinction between 目玉焼き and スクランブルエッグ.",
+        "type": "Type a cooking preference with kana help.",
+        "say": "Order an egg set and ask what comes with it.",
+        "write": "Write a short order plus an inclusion question."
+      }
+    },
+    {
+      "n": 5,
+      "stableId": "travel-breakfast:5:ja-en",
+      "sourceEnglish": {
+        "objective": "ask whether breakfast is included, the hours, room number, and buffet rules",
+        "roleplay": "Arrive at a hotel breakfast and resolve uncertainty about access and seating.",
+        "englishWordAnchors": [
+          "breakfast",
+          "dining room",
+          "hours, schedule",
+          "room number",
+          "buffet",
+          "receptionist",
+          "table",
+          "plate",
+          "coffee",
+          "rules",
+          "Is breakfast included?",
+          "What are the breakfast hours?",
+          "My room is 214.",
+          "Can I sit at any table?",
+          "Excuse me, what are the buffet rules?",
+          "Can you repeat that, please?"
+        ],
+        "englishReading": [
+          "A traveler arrives at the hotel dining room in the morning.",
+          "He talks to the receptionist: Is breakfast included?",
+          "She says: Yes, it is included with your room.",
+          "He asks: What are the breakfast hours?",
+          "She answers that the hours are from 6:30 to 10:00, according to the hotel.",
+          "The traveler gives his room number: 214.",
+          "Then he asks: Is it a buffet or a menu?",
+          "She explains the buffet rules: take a clean plate and do not take food with you.",
+          "He looks for a free table and gets coffee."
+        ],
+        "englishSourceSha256": "9483a580b4b5b971308a7f50648ac705c8b9dd9733bc2b8d897c245d1e9dfe23"
+      },
+      "title": "Checking hotel breakfast",
+      "objective": "Ask whether your room plan includes breakfast, confirm the hours, and ask how the buffet works.",
+      "focus": "朝食付き means breakfast included in a particular booking; it is not assumed. 何時から何時まで asks the hours. 部屋番号 is room number. Follow the hotel’s stated buffet rules rather than treating one hotel’s practice as universal.",
+      "scene": "At the hotel dining-room entrance, Sam gives a room number and checks the booking.",
+      "cards": [
+        {
+          "ja": "朝食",
+          "en": "breakfast",
+          "kind": "term"
+        },
+        {
+          "ja": "朝食付き",
+          "en": "breakfast included",
+          "kind": "term"
+        },
+        {
+          "ja": "宿泊プラン",
+          "en": "room plan",
+          "kind": "term"
+        },
+        {
+          "ja": "食事会場",
+          "en": "dining room",
+          "kind": "term"
+        },
+        {
+          "ja": "営業時間",
+          "en": "opening hours",
+          "kind": "term"
+        },
+        {
+          "ja": "何時から何時まで",
+          "en": "from what time to what time",
+          "kind": "term"
+        },
+        {
+          "ja": "部屋番号",
+          "en": "room number",
+          "kind": "term"
+        },
+        {
+          "ja": "ビュッフェ",
+          "en": "buffet",
+          "kind": "term"
+        },
+        {
+          "ja": "皿",
+          "en": "plate",
+          "kind": "term"
+        },
+        {
+          "ja": "席",
+          "en": "seat",
+          "kind": "term"
+        },
+        {
+          "ja": "確認します",
+          "en": "I will check",
+          "kind": "term"
+        },
+        {
+          "ja": "ルールを教えてください",
+          "en": "Please explain the rules",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "おはようございます。朝食はこちらですか。",
+          "en": "Good morning. Is breakfast here?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "はい。お部屋番号をお願いします。",
+          "en": "Yes. Your room number, please."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "二一四号室です。",
+          "en": "Room 214."
+        },
+        {
+          "speaker": "Host",
+          "ja": "宿泊プランを確認します。",
+          "en": "I will check your room plan."
+        },
+        {
+          "speaker": "Host",
+          "ja": "朝食付きのプランです。",
+          "en": "Your plan includes breakfast."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "朝食は何時から何時までですか。",
+          "en": "What are the breakfast hours?"
+        },
+        {
+          "speaker": "Host",
+          "ja": "六時半から十時までです。",
+          "en": "From six thirty to ten."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ビュッフェのルールを教えてください。",
+          "en": "Please explain the buffet rules."
+        },
+        {
+          "speaker": "Host",
+          "ja": "こちらで新しいお皿をお取りください。",
+          "en": "Please take a clean plate here."
+        }
+      ],
+      "speaking": {
+        "role": "Hotel breakfast guest",
+        "partnerRole": "Hotel dining-room host",
+        "opening": "おはようございます。お部屋番号をお願いします。",
+        "goal": "Provide a room number, ask whether the booked plan includes breakfast, confirm hours and ask about buffet rules.",
+        "closure": "Follow only the host’s stated rules for this hotel.",
+        "wordBank": [
+          "部屋番号",
+          "朝食付き",
+          "宿泊プラン",
+          "何時から何時まで",
+          "ビュッフェ",
+          "ルール"
+        ]
+      },
+      "modes": {
+        "see": "Read the hotel check-in and reveal English support.",
+        "recall": "Recall room, inclusion, hours and buffet questions.",
+        "hear": "Hear the room number and hours.",
+        "type": "Type a question about hours with guided input.",
+        "say": "Check breakfast access and ask about rules.",
+        "write": "Write room number, inclusion and hours questions."
+      }
+    },
+    {
+      "n": 6,
+      "stableId": "travel-breakfast:6:ja-en",
+      "sourceEnglish": {
+        "objective": "state an allergy or dietary need and confirm ingredients without seeking medical advice",
+        "roleplay": "Ask whether a breakfast item contains nuts, dairy, gluten, meat, or another ingredient.",
+        "englishWordAnchors": [
+          "allergy",
+          "nuts",
+          "peanuts",
+          "dairy",
+          "gluten",
+          "meat",
+          "ingredients",
+          "bread",
+          "butter",
+          "server",
+          "I have an allergy to nuts.",
+          "What ingredients does it have?",
+          "I don't eat meat.",
+          "Can you check with the kitchen, please?",
+          "I prefer to avoid dairy.",
+          "Does this bread have gluten?"
+        ],
+        "englishReading": [
+          "I am in a café and I talk to the server before ordering.",
+          "First I say: I have an allergy to nuts.",
+          "Then I ask: What ingredients does it have?",
+          "The server is not sure, so he is going to check with the kitchen.",
+          "Afterward he tells me that, according to the kitchen, the bread has no nuts.",
+          "I also say: I don't eat meat, and I ask if the filling has meat in it.",
+          "If the kitchen is not sure, I order something else.",
+          "I only confirm the ingredients and I do not ask for medical advice."
+        ],
+        "englishSourceSha256": "245627931d1f11044d3f1cf856847c9324abc42d169a0674135f8a8b45b2e5d8"
+      },
+      "title": "State a food restriction",
+      "objective": "Tell staff about a nut allergy or food preference, ask the kitchen to check ingredients and handling, and decline when the answer is uncertain.",
+      "focus": "アレルギーがあります states an allergy; 肉を食べません and 乳製品を避けています describe dietary choices. 原材料 asks about ingredients, and 調理器具 asks about shared utensils. ～を確認していただけますか is a polite request to staff.",
+      "scene": "Sam asks about a pastry for a companion with a nut allergy; staff cannot verify its preparation.",
+      "cards": [
+        {
+          "ja": "アレルギー",
+          "en": "allergy",
+          "kind": "term"
+        },
+        {
+          "ja": "ナッツ",
+          "en": "nuts",
+          "kind": "term"
+        },
+        {
+          "ja": "ピーナッツ",
+          "en": "peanuts",
+          "kind": "term"
+        },
+        {
+          "ja": "乳製品",
+          "en": "dairy products",
+          "kind": "term"
+        },
+        {
+          "ja": "小麦",
+          "en": "wheat",
+          "kind": "term"
+        },
+        {
+          "ja": "グルテン",
+          "en": "gluten",
+          "kind": "term"
+        },
+        {
+          "ja": "肉",
+          "en": "meat",
+          "kind": "term"
+        },
+        {
+          "ja": "原材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "調理器具",
+          "en": "cooking utensils",
+          "kind": "term"
+        },
+        {
+          "ja": "確認してください",
+          "en": "Please check",
+          "kind": "term"
+        },
+        {
+          "ja": "わかりません",
+          "en": "I do not know",
+          "kind": "term"
+        },
+        {
+          "ja": "注文しません",
+          "en": "I will not order it",
+          "kind": "term"
+        },
+        {
+          "ja": "ナッツアレルギーがあります",
+          "en": "I have a nut allergy",
+          "kind": "phrase"
+        },
+        {
+          "ja": "肉は食べません",
+          "en": "I do not eat meat",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。同行者にナッツアレルギーがあります。",
+          "en": "Excuse me. My companion has a nut allergy."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "このパンの原材料を確認していただけますか。",
+          "en": "Could you check the ingredients of this bread?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "厨房に確認します。少々お待ちください。",
+          "en": "I will check with the kitchen. Please wait a moment."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "原材料は確認できましたが、調理器具は共用です。",
+          "en": "We checked the ingredients, but the cooking utensils are shared."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "詳しい取り扱いは確認できますか。",
+          "en": "Can you confirm how it is handled in detail?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "申し訳ありません。そこまでは確認できません。",
+          "en": "I am sorry. I cannot confirm that."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "わかりました。このパンは注文しません。",
+          "en": "I understand. I will not order this bread."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "承知しました。",
+          "en": "Understood."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler communicating a companion’s restriction",
+        "partnerRole": "Café staff",
+        "opening": "ご注文はお決まりですか。",
+        "goal": "State the companion’s allergy, request an ingredient and handling check, and decline the item if staff cannot verify it.",
+        "closure": "Repeat the ingredient and utensil information that staff actually provided.",
+        "wordBank": [
+          "ナッツアレルギー",
+          "原材料",
+          "調理器具",
+          "確認していただけますか",
+          "注文しません"
+        ]
+      },
+      "modes": {
+        "see": "Read the restriction scene with aligned English.",
+        "recall": "Distinguish an allergy from a food preference.",
+        "hear": "Hear 確認できます and 確認できません.",
+        "type": "Type an ingredient-check request with kana support.",
+        "say": "State a restriction and ask for verification without assuming safety.",
+        "write": "Write a brief restriction statement and a decline when facts are uncertain."
+      }
+    },
+    {
+      "n": 7,
+      "stableId": "travel-breakfast:7:ja-en",
+      "sourceEnglish": {
+        "objective": "ask for a typical regional breakfast and understand a cultural explanation",
+        "roleplay": "Tell the server you want the breakfast locals actually choose, not a tourist substitute.",
+        "englishWordAnchors": [
+          "table",
+          "server (male)",
+          "typical dish",
+          "chilaquiles (fried tortilla pieces in salsa)",
+          "salsa, sauce",
+          "beans",
+          "spiced clay-pot coffee",
+          "sweet bread, pastry",
+          "counter",
+          "breakfast",
+          "What do people here eat for breakfast?",
+          "I want the breakfast that locals order.",
+          "I don't want something just for tourists.",
+          "Can you recommend a typical dish to me?",
+          "Can you explain to me what it has in it?",
+          "Can you repeat that more slowly, please?"
+        ],
+        "englishReading": [
+          "Ana sits at a table in a small café in Puebla.",
+          "First she asks the server: What do people here eat for breakfast?",
+          "Then she says: I want the breakfast that locals order.",
+          "The server smiles and says that chilaquiles are a typical morning dish.",
+          "According to him, they are going to serve the chilaquiles with green salsa and beans.",
+          "Ana asks: Can you explain to me what it has in it?",
+          "The server explains that café de olla comes with cinnamon and that the sweet bread is for afterward.",
+          "Ana orders the chilaquiles, a café de olla, and a sweet bread.",
+          "At the end, she is going to pay at the counter."
+        ],
+        "englishSourceSha256": "a34d46208b74a136dd7d99563da7a880f4a295246b65f2fc88e402b48bbfa120"
+      },
+      "title": "Ask about a local breakfast",
+      "objective": "Ask staff what people in the area choose for breakfast, hear the explanation, and check the ingredients before ordering.",
+      "focus": "この辺りでは means around here; この店では means at this shop. 「地元の人は」 asks about local customers without claiming everyone eats the same thing. A recommendation is one staff member’s description, not a universal cultural fact or ingredient guarantee.",
+      "scene": "Sam asks a café worker which breakfast on this shop’s menu is popular with local customers.",
+      "cards": [
+        {
+          "ja": "この辺り",
+          "en": "this area",
+          "kind": "term"
+        },
+        {
+          "ja": "地元",
+          "en": "local area",
+          "kind": "term"
+        },
+        {
+          "ja": "地元の人",
+          "en": "local people",
+          "kind": "term"
+        },
+        {
+          "ja": "朝食",
+          "en": "breakfast",
+          "kind": "term"
+        },
+        {
+          "ja": "定食",
+          "en": "set meal",
+          "kind": "term"
+        },
+        {
+          "ja": "おにぎり",
+          "en": "rice ball",
+          "kind": "term"
+        },
+        {
+          "ja": "味噌汁",
+          "en": "miso soup",
+          "kind": "term"
+        },
+        {
+          "ja": "漬物",
+          "en": "pickles",
+          "kind": "term"
+        },
+        {
+          "ja": "人気があります",
+          "en": "is popular",
+          "kind": "term"
+        },
+        {
+          "ja": "おすすめ",
+          "en": "recommendation",
+          "kind": "term"
+        },
+        {
+          "ja": "材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "何が入っていますか",
+          "en": "What is in it?",
+          "kind": "term"
+        },
+        {
+          "ja": "この店では何が人気ですか",
+          "en": "What is popular at this shop?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "この辺りでは、朝食に何を食べますか。",
+          "en": "What do people around here eat for breakfast?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "人によりますが、この店ではおにぎり定食が人気です。",
+          "en": "It depends on the person, but the rice-ball set is popular here."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "何が付きますか。",
+          "en": "What comes with it?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "おにぎりと味噌汁と漬物が付きます。",
+          "en": "It comes with rice balls, miso soup, and pickles."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "おにぎりの中身は何ですか。",
+          "en": "What is inside the rice balls?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "今日の中身は鮭です。",
+          "en": "Today the filling is salmon."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "材料をもう少し教えていただけますか。",
+          "en": "Could you tell me a little more about the ingredients?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "厨房に確認します。",
+          "en": "I will check with the kitchen."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。確認をお願いします。",
+          "en": "Thank you. Please check."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler asking about local breakfast",
+        "partnerRole": "Café staff",
+        "opening": "おはようございます。メニューをご覧になりますか。",
+        "goal": "Ask about a local breakfast choice, what comes with it, and the ingredients before ordering.",
+        "closure": "Wait for any kitchen check; do not generalize one menu item to all Japanese breakfasts.",
+        "wordBank": [
+          "この辺り",
+          "朝食",
+          "この店では",
+          "何が付きますか",
+          "中身",
+          "材料"
+        ]
+      },
+      "modes": {
+        "see": "Read the shop recommendation with English support.",
+        "recall": "Recall local-area, set meal and ingredient questions.",
+        "hear": "Hear おにぎり and 味噌汁 in context.",
+        "type": "Type a short recommendation question with kana help.",
+        "say": "Ask what locals order and what is in one item.",
+        "write": "Write a recommendation question and an ingredient check."
+      }
+    },
+    {
+      "n": 8,
+      "stableId": "travel-breakfast:8:ja-en",
+      "sourceEnglish": {
+        "objective": "order several drinks and foods accurately and confirm who gets each item",
+        "roleplay": "Order breakfast for a family or group with different preferences.",
+        "englishWordAnchors": [
+          "waiter",
+          "order",
+          "coffee with milk",
+          "scrambled eggs",
+          "orange juice",
+          "sweet roll",
+          "toast",
+          "butter",
+          "decaf",
+          "check",
+          "table",
+          "ham sandwich",
+          "I want to order for everyone, please.",
+          "Is the order correct?",
+          "This is for her, right?",
+          "Without cheese, please.",
+          "Can you repeat the order, please?",
+          "The check, please."
+        ],
+        "englishReading": [
+          "I am in a café with my wife, my son, and my mother-in-law.",
+          "First, I say to the waiter: I want to order for everyone, please.",
+          "For me, a coffee with milk and some scrambled eggs.",
+          "For my wife, a tea and a ham sandwich, without cheese.",
+          "My son is going to have orange juice and a sweet roll.",
+          "My mother-in-law wants a decaf coffee and toast with butter.",
+          "Then, I repeat the order: Is that correct? The tea is for her, right?",
+          "The waiter smiles and says: Everything is right, I'll bring it right away.",
+          "At the end, I ask for the check at the table."
+        ],
+        "englishSourceSha256": "1c86fb57a2ac3cc9181bcd82167593abd51b9ed4bd95348faef5e9771497dc25"
+      },
+      "title": "Order for a group",
+      "objective": "Order different drinks and foods for three people, then read back who receives each item.",
+      "focus": "～には marks the person receiving an item. それぞれ means each person. こちらは誰の分ですか asks whose portion an item is. Japanese often uses a person’s name rather than a bare pronoun. Avoid mixing an allergy need with an ordinary taste preference.",
+      "scene": "Sam orders with two companions at a café and checks the server’s readback.",
+      "cards": [
+        {
+          "ja": "三人分",
+          "en": "for three people",
+          "kind": "term"
+        },
+        {
+          "ja": "それぞれ",
+          "en": "each",
+          "kind": "term"
+        },
+        {
+          "ja": "私には",
+          "en": "for me",
+          "kind": "term"
+        },
+        {
+          "ja": "友人には",
+          "en": "for my friend",
+          "kind": "term"
+        },
+        {
+          "ja": "子どもには",
+          "en": "for the child",
+          "kind": "term"
+        },
+        {
+          "ja": "カフェオレ",
+          "en": "coffee with milk",
+          "kind": "term"
+        },
+        {
+          "ja": "紅茶",
+          "en": "black tea",
+          "kind": "term"
+        },
+        {
+          "ja": "オレンジジュース",
+          "en": "orange juice",
+          "kind": "term"
+        },
+        {
+          "ja": "卵料理",
+          "en": "egg dish",
+          "kind": "term"
+        },
+        {
+          "ja": "トースト",
+          "en": "toast",
+          "kind": "term"
+        },
+        {
+          "ja": "バター",
+          "en": "butter",
+          "kind": "term"
+        },
+        {
+          "ja": "注文を確認してください",
+          "en": "Please check the order",
+          "kind": "phrase"
+        },
+        {
+          "ja": "これは誰の分ですか",
+          "en": "Whose portion is this?",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Staff",
+          "ja": "ご注文をどうぞ。",
+          "en": "Please tell me your order."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "三人分をお願いします。",
+          "en": "An order for three people, please."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "私にはカフェオレと卵料理をお願いします。",
+          "en": "Coffee with milk and an egg dish for me, please."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "友人には紅茶とトーストをお願いします。",
+          "en": "Tea and toast for my friend, please."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "子どもにはオレンジジュースとパンをお願いします。",
+          "en": "Orange juice and bread for the child, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "確認します。カフェオレと卵料理はお客様の分ですね。",
+          "en": "Let me confirm. The coffee with milk and egg dish are for you."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "はい。紅茶とトーストは友人の分です。",
+          "en": "Yes. The tea and toast are for my friend."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "オレンジジュースとパンはお子様の分ですね。",
+          "en": "The orange juice and bread are for the child."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "はい、そのとおりです。",
+          "en": "Yes, that is correct."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler ordering for a group",
+        "partnerRole": "Café server",
+        "opening": "ご注文をどうぞ。",
+        "goal": "Place three distinct orders and confirm who receives each item.",
+        "closure": "Read back the allocation before the server submits the order.",
+        "wordBank": [
+          "三人分",
+          "私には",
+          "友人には",
+          "子どもには",
+          "注文を確認してください",
+          "そのとおりです"
+        ]
+      },
+      "modes": {
+        "see": "Read the group order with aligned English.",
+        "recall": "Recall who gets each food and drink.",
+        "hear": "Hear the three recipient phrases.",
+        "type": "Type a short allocation sentence with kana help.",
+        "say": "Order for three and confirm the readback.",
+        "write": "Write a compact three-person order."
+      }
+    },
+    {
+      "n": 9,
+      "stableId": "travel-breakfast:9:ja-en",
+      "sourceEnglish": {
+        "objective": "ask for food or coffee to go, packaging, napkins, and utensils",
+        "roleplay": "Convert part of a seated order into takeaway because your train leaves soon.",
+        "englishWordAnchors": [
+          "coffee with milk",
+          "croissant",
+          "counter",
+          "lid",
+          "paper bag",
+          "napkins",
+          "spoon",
+          "fork",
+          "to-go cup",
+          "bill",
+          "order",
+          "Can I order the coffee to go?",
+          "I want this to go, please.",
+          "Can you give me napkins and a spoon?",
+          "Can you put it in a bag for me?",
+          "Does it come with a lid?",
+          "My train leaves soon."
+        ],
+        "englishReading": [
+          "A traveler is in a café and looks at the clock.",
+          "First he orders a coffee with milk and a croissant at the counter.",
+          "Then he says: Excuse me, can I order the coffee to go?",
+          "The waitress asks: Do you want a lid and a bag?",
+          "The traveler answers: Yes, please, and I also need napkins and a spoon.",
+          "After that he changes the croissant order, because he is going to eat on the train.",
+          "He says: Can you put it in a paper bag for me?",
+          "In the end he pays the bill and says thank you.",
+          "With his order in hand, he quickly heads out to the station."
+        ],
+        "englishSourceSha256": "1df5fdc6e38ec3c990e004f907a050357d1f83d84d1cc393e6eb6d4c3bd38829"
+      },
+      "title": "Change part of an order to takeaway",
+      "objective": "Ask to take a coffee and pastry away, check packaging, and request a napkin or spoon.",
+      "focus": "持ち帰り means takeaway. ～に変更できますか asks if a change is possible; do not assume a prepared order can be changed. 袋 is a bag and ふた is a lid. Ask whether these are supplied; packaging and train policies vary.",
+      "scene": "Sam has limited time before a train and asks the café to change the unprepared part of an order.",
+      "cards": [
+        {
+          "ja": "持ち帰り",
+          "en": "takeaway",
+          "kind": "term"
+        },
+        {
+          "ja": "店内",
+          "en": "inside the café",
+          "kind": "term"
+        },
+        {
+          "ja": "変更できますか",
+          "en": "Can it be changed?",
+          "kind": "term"
+        },
+        {
+          "ja": "電車",
+          "en": "train",
+          "kind": "term"
+        },
+        {
+          "ja": "すぐ",
+          "en": "soon",
+          "kind": "term"
+        },
+        {
+          "ja": "紙袋",
+          "en": "paper bag",
+          "kind": "term"
+        },
+        {
+          "ja": "ふた",
+          "en": "lid",
+          "kind": "term"
+        },
+        {
+          "ja": "ナプキン",
+          "en": "napkin",
+          "kind": "term"
+        },
+        {
+          "ja": "スプーン",
+          "en": "spoon",
+          "kind": "term"
+        },
+        {
+          "ja": "クロワッサン",
+          "en": "croissant",
+          "kind": "term"
+        },
+        {
+          "ja": "カフェオレ",
+          "en": "coffee with milk",
+          "kind": "term"
+        },
+        {
+          "ja": "持ち帰りにできますか",
+          "en": "Can it be made takeaway?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "袋に入れてください",
+          "en": "Please put it in a bag",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。電車の時間が近いです。",
+          "en": "Excuse me. My train time is close."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "コーヒーを持ち帰りに変更できますか。",
+          "en": "Can you change the coffee to takeaway?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "まだ作っていないので、変更できます。",
+          "en": "We have not made it yet, so we can change it."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。ふたはありますか。",
+          "en": "Thank you. Is there a lid?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、ふたを付けます。",
+          "en": "Yes, we will add a lid."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "クロワッサンも紙袋に入れてください。",
+          "en": "Please put the croissant in a paper bag too."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "かしこまりました。",
+          "en": "Certainly."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ナプキンを一枚いただけますか。",
+          "en": "Could I have one napkin?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、どうぞ。",
+          "en": "Yes, here you are."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler changing an order",
+        "partnerRole": "Café staff",
+        "opening": "ご注文の変更ですか。",
+        "goal": "Ask whether coffee can be changed to takeaway and request packaging for a pastry.",
+        "closure": "Accept the change only after staff confirms it is possible.",
+        "wordBank": [
+          "持ち帰り",
+          "変更できますか",
+          "ふた",
+          "紙袋",
+          "ナプキン",
+          "いただけますか"
+        ]
+      },
+      "modes": {
+        "see": "Read a takeaway-change scene with English support.",
+        "recall": "Recall takeaway, lid, bag and napkin terms.",
+        "hear": "Hear 変更できます and 変更できません.",
+        "type": "Type a change request with guided input.",
+        "say": "Ask for takeaway and packaging.",
+        "write": "Write a short change request and napkin question."
+      }
+    },
+    {
+      "n": 10,
+      "stableId": "travel-breakfast:10:ja-en",
+      "sourceEnglish": {
+        "objective": "politely identify a missing or incorrect item and request the right one",
+        "roleplay": "You received the wrong coffee and one pastry is missing; resolve both without sounding hostile.",
+        "englishWordAnchors": [
+          "order",
+          "counter",
+          "receipt",
+          "americano (black coffee)",
+          "coffee with milk",
+          "pastry",
+          "cup",
+          "server (male)",
+          "table",
+          "decaf",
+          "Excuse me, I think there is a mistake with my order.",
+          "I ordered an americano, not a coffee with milk.",
+          "I am missing a pastry.",
+          "Can you change it for me, please?",
+          "Here is my receipt.",
+          "Can you check my order, please?"
+        ],
+        "englishReading": [
+          "I get to the counter and order an americano and a pastry.",
+          "Then the server gives me a cup of coffee with milk.",
+          "I check my bag and see that there is no pastry in it.",
+          "First, I smile and say: Excuse me, I think there is a mistake with my order.",
+          "Then I explain: I ordered an americano, not a coffee with milk.",
+          "I also say: I am missing a pastry, and here is my receipt.",
+          "I ask: Can you change it for me, please?",
+          "The server says: Of course, I will bring you the coffee and the pastry now."
+        ],
+        "englishSourceSha256": "8bd882be2f930e8acd854d1d0be94c86aa133b19a8bf8177b8d1a15d216a861c"
+      },
+      "title": "Correct an order politely",
+      "objective": "Explain that the drink is different from what you ordered and a pastry is missing; offer the receipt so staff can check.",
+      "focus": "注文したのは～です identifies the item ordered. ～ではなく means not X but Y. 入っていません says an item is missing from a bag. Ask staff to check before asserting fault. Menu labels for アメリカン and ブレンド vary, so use the exact label shown on this order.",
+      "scene": "Sam checks a takeaway bag and notices a different drink and missing pastry.",
+      "cards": [
+        {
+          "ja": "注文",
+          "en": "order",
+          "kind": "term"
+        },
+        {
+          "ja": "レシート",
+          "en": "receipt",
+          "kind": "term"
+        },
+        {
+          "ja": "袋",
+          "en": "bag",
+          "kind": "term"
+        },
+        {
+          "ja": "入っていません",
+          "en": "is not in it",
+          "kind": "term"
+        },
+        {
+          "ja": "違います",
+          "en": "is different; incorrect",
+          "kind": "term"
+        },
+        {
+          "ja": "ブレンド",
+          "en": "blend coffee",
+          "kind": "term"
+        },
+        {
+          "ja": "カフェオレ",
+          "en": "coffee with milk",
+          "kind": "term"
+        },
+        {
+          "ja": "クロワッサン",
+          "en": "croissant",
+          "kind": "term"
+        },
+        {
+          "ja": "確認してください",
+          "en": "please check",
+          "kind": "term"
+        },
+        {
+          "ja": "取り替えられますか",
+          "en": "Could it be replaced?",
+          "kind": "term"
+        },
+        {
+          "ja": "注文したのはブレンドです",
+          "en": "I ordered a blend coffee",
+          "kind": "phrase"
+        },
+        {
+          "ja": "クロワッサンが入っていません",
+          "en": "The croissant is missing",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。注文を確認していただけますか。",
+          "en": "Excuse me. Could you check my order?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。どうなさいましたか。",
+          "en": "Yes. What seems to be the problem?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "注文したのはブレンドですが、これはカフェオレです。",
+          "en": "I ordered a blend coffee, but this is coffee with milk."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "クロワッサンも袋に入っていません。",
+          "en": "The croissant is not in the bag either."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "レシートはこちらです。",
+          "en": "Here is the receipt."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "確認します。少々お待ちください。",
+          "en": "I will check. Please wait a moment."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "失礼しました。ご注文を確認できました。",
+          "en": "I am sorry. We confirmed your order."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "ブレンドとクロワッサンをお持ちします。",
+          "en": "I will bring the blend coffee and croissant."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。",
+          "en": "Thank you."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler correcting a takeaway order",
+        "partnerRole": "Café staff",
+        "opening": "何かお困りですか。",
+        "goal": "Explain the different coffee and missing pastry, show the receipt, and ask staff to check.",
+        "closure": "Wait for the verified correction; avoid blame.",
+        "wordBank": [
+          "注文",
+          "確認していただけますか",
+          "注文したのは",
+          "入っていません",
+          "レシート"
+        ]
+      },
+      "modes": {
+        "see": "Read the correction scene with aligned English.",
+        "recall": "Recall missing-item and wrong-item forms.",
+        "hear": "Hear ブレンド versus カフェオレ.",
+        "type": "Type a receipt/check request with kana help.",
+        "say": "Correct a wrong drink and missing pastry politely.",
+        "write": "Write a concise two-item correction and offer the receipt."
+      }
+    },
+    {
+      "n": 11,
+      "stableId": "travel-breakfast:11:ja-en",
+      "sourceEnglish": {
+        "objective": "exchange greetings and talk briefly about the day, weather, and plans",
+        "roleplay": "Chat naturally with a barista or nearby customer while waiting.",
+        "englishWordAnchors": [
+          "coffee with milk",
+          "counter",
+          "barista",
+          "weather",
+          "forecast",
+          "coat",
+          "plans",
+          "morning",
+          "downtown",
+          "order",
+          "sleepiness",
+          "Good morning, how are you this morning?",
+          "It is very cold today, isn't it?",
+          "I am still a little sleepy.",
+          "I am going to visit downtown if it does not rain.",
+          "Sorry, can you repeat that more slowly, please?",
+          "You too, have a good day!"
+        ],
+        "englishReading": [
+          "It is early and I am in a small café, waiting for my coffee with milk at the counter.",
+          "The barista smiles at me and says: Good morning, how are you this morning?",
+          "I answer: Very well, thanks, but I am still a little sleepy.",
+          "She comments that it is cold today because it rained last night, and I tell her the weather is very different in my country.",
+          "A man near me asks: What plans do you have for today?",
+          "I explain that I am going to visit downtown if it does not rain again.",
+          "He recommends that I bring a coat, because according to the forecast the afternoon is going to be cool.",
+          "When my order is ready, the barista tells me: Have a great day!",
+          "I answer with a smile: You too, have a good day!"
+        ],
+        "englishSourceSha256": "539d184547036bbbf10bdce0d3ea3ea42e378efe3fdee47327f9cf5ff82b75d1"
+      },
+      "title": "Morning small talk",
+      "objective": "Exchange a greeting, comment on the weather and share a tentative plan while waiting for a drink.",
+      "focus": "今日は寒いですね invites agreement about present weather. ～なら expresses a condition, as in 雨が降らなければ. Keep the exchange brief and appropriate with staff; do not claim a forecast unless someone actually reports it. Ask for repetition politely if needed.",
+      "scene": "Sam makes brief small talk with a barista while waiting for a coffee.",
+      "cards": [
+        {
+          "ja": "今朝",
+          "en": "this morning",
+          "kind": "term"
+        },
+        {
+          "ja": "天気",
+          "en": "weather",
+          "kind": "term"
+        },
+        {
+          "ja": "寒い",
+          "en": "cold",
+          "kind": "term"
+        },
+        {
+          "ja": "雨",
+          "en": "rain",
+          "kind": "term"
+        },
+        {
+          "ja": "予定",
+          "en": "plan",
+          "kind": "term"
+        },
+        {
+          "ja": "駅前",
+          "en": "near the station",
+          "kind": "term"
+        },
+        {
+          "ja": "散歩",
+          "en": "walk",
+          "kind": "term"
+        },
+        {
+          "ja": "眠い",
+          "en": "sleepy",
+          "kind": "term"
+        },
+        {
+          "ja": "コート",
+          "en": "coat",
+          "kind": "term"
+        },
+        {
+          "ja": "もう一度",
+          "en": "one more time",
+          "kind": "term"
+        },
+        {
+          "ja": "ゆっくり",
+          "en": "slowly",
+          "kind": "term"
+        },
+        {
+          "ja": "今日は寒いですね",
+          "en": "It is cold today, isn’t it?",
+          "kind": "term"
+        },
+        {
+          "ja": "雨が降らなければ",
+          "en": "if it does not rain",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Barista",
+          "ja": "おはようございます。今日は寒いですね。",
+          "en": "Good morning. It is cold today, isn’t it?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "おはようございます。本当に寒いですね。",
+          "en": "Good morning. It really is cold."
+        },
+        {
+          "speaker": "Barista",
+          "ja": "コーヒーはもう少しでできます。",
+          "en": "Your coffee will be ready shortly."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。まだ少し眠いです。",
+          "en": "Thank you. I am still a little sleepy."
+        },
+        {
+          "speaker": "Barista",
+          "ja": "今日はどちらへ行きますか。",
+          "en": "Where are you going today?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "雨が降らなければ、駅前を散歩します。",
+          "en": "If it does not rain, I will walk near the station."
+        },
+        {
+          "speaker": "Barista",
+          "ja": "いいですね。こちらがコーヒーです。",
+          "en": "That sounds nice. Here is your coffee."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。よい一日を。",
+          "en": "Thank you. Have a good day."
+        },
+        {
+          "speaker": "Barista",
+          "ja": "お客様も、よい一日を。",
+          "en": "You too. Have a good day."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler waiting for coffee",
+        "partnerRole": "Barista",
+        "opening": "おはようございます。今日は寒いですね。",
+        "goal": "Respond to a greeting, mention the weather and share a tentative plan.",
+        "closure": "Thank staff when the coffee arrives.",
+        "wordBank": [
+          "おはようございます",
+          "寒いですね",
+          "まだ少し眠いです",
+          "雨が降らなければ",
+          "よい一日を"
+        ]
+      },
+      "modes": {
+        "see": "Read a short café conversation with English after reveal.",
+        "recall": "Recall weather and conditional-plan phrases.",
+        "hear": "Hear 寒い and 眠い in context.",
+        "type": "Type a brief weather sentence with kana support.",
+        "say": "Make brief morning small talk while waiting.",
+        "write": "Write a greeting and one tentative plan."
+      }
+    },
+    {
+      "n": 12,
+      "stableId": "travel-breakfast:12:ja-en",
+      "sourceEnglish": {
+        "objective": "request the bill, understand cover or service charges, and choose a payment method",
+        "roleplay": "Pay for breakfast, clarify one unfamiliar charge, and request a receipt.",
+        "englishWordAnchors": [
+          "bill",
+          "cover charge",
+          "tip",
+          "service charge",
+          "extra charge",
+          "cash",
+          "card",
+          "receipt",
+          "register",
+          "waitress",
+          "total",
+          "card terminal",
+          "Could you bring me the bill, please?",
+          "What is this charge?",
+          "Is the tip included?",
+          "Can I pay by card?",
+          "I want to pay in cash.",
+          "Could you give me the receipt, please?"
+        ],
+        "englishReading": [
+          "After eating breakfast, the traveler raises his hand and says: Excuse me, could you bring me the bill, please?",
+          "The waitress answers that he can pay at the register or at the table, as he prefers.",
+          "When the bill arrives, the traveler sees an extra charge and asks: What is this charge?",
+          "The waitress explains that it is the cover charge, and that the menu states it on the last page.",
+          "The traveler says he understands, but he wants to know if the tip is included.",
+          "She answers that service is not included, so the tip is optional.",
+          "Since he has no cash, the traveler asks: Can I pay by card?",
+          "The waitress brings the card terminal, he pays, and he asks her for the receipt.",
+          "Before leaving, the traveler checks the total and says thank you."
+        ],
+        "englishSourceSha256": "d82cade827143daf0050f6177d9766f3032834ddf3227f2cc8266838ba90bed3"
+      },
+      "title": "Understand the bill",
+      "objective": "Ask for the bill, clarify an unfamiliar item, confirm the total and payment method, then request a receipt.",
+      "focus": "お会計 is the bill/payment; 明細 is the itemized detail; 合計 is the total. こちらの料金は何ですか asks about an unfamiliar charge without assuming a cover charge or tip applies. Payment methods, service charges and tipping practices vary; check the actual bill and staff answer.",
+      "scene": "Sam checks a café bill that includes a separately listed drink and asks about it.",
+      "cards": [
+        {
+          "ja": "お会計",
+          "en": "the bill; payment",
+          "kind": "term"
+        },
+        {
+          "ja": "明細",
+          "en": "itemized details",
+          "kind": "term"
+        },
+        {
+          "ja": "料金",
+          "en": "charge",
+          "kind": "term"
+        },
+        {
+          "ja": "合計",
+          "en": "total",
+          "kind": "term"
+        },
+        {
+          "ja": "別料金",
+          "en": "separate charge",
+          "kind": "term"
+        },
+        {
+          "ja": "レシート",
+          "en": "receipt",
+          "kind": "term"
+        },
+        {
+          "ja": "現金",
+          "en": "cash",
+          "kind": "term"
+        },
+        {
+          "ja": "カード",
+          "en": "card",
+          "kind": "term"
+        },
+        {
+          "ja": "レジ",
+          "en": "register",
+          "kind": "term"
+        },
+        {
+          "ja": "端末",
+          "en": "card terminal",
+          "kind": "term"
+        },
+        {
+          "ja": "こちらの料金は何ですか",
+          "en": "What is this charge?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "カードで払えますか",
+          "en": "Can I pay by card?",
+          "kind": "term"
+        },
+        {
+          "ja": "レシートをください",
+          "en": "The receipt, please",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。お会計をお願いします。",
+          "en": "Excuse me. The bill, please."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。こちらが明細です。",
+          "en": "Yes. Here are the itemized details."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "この飲み物は別料金ですか。",
+          "en": "Is this drink a separate charge?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。セットには含まれていません。",
+          "en": "Yes. It is not included in the set."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "わかりました。合計はいくらですか。",
+          "en": "I see. What is the total?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "合計は千二百円です。",
+          "en": "The total is twelve hundred yen."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "カードで払えますか。",
+          "en": "Can I pay by card?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、レジで払えます。",
+          "en": "Yes, you can pay at the register."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "レシートもください。",
+          "en": "The receipt too, please."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler paying for breakfast",
+        "partnerRole": "Café staff",
+        "opening": "お会計ですね。こちらが明細です。",
+        "goal": "Ask about a separate charge, confirm the total and card payment, and request the receipt.",
+        "closure": "Pay the confirmed amount; do not invent a universal service-charge or tip rule.",
+        "wordBank": [
+          "お会計",
+          "明細",
+          "別料金",
+          "合計",
+          "カードで払えますか",
+          "レシート"
+        ]
+      },
+      "modes": {
+        "see": "Read the bill clarification with aligned English.",
+        "recall": "Recall bill, itemized detail, total and receipt.",
+        "hear": "Hear 合計 and 別料金 in context.",
+        "type": "Type a charge question with kana help.",
+        "say": "Ask about one charge and confirm payment.",
+        "write": "Write a polite bill request and receipt request."
+      }
+    },
+    {
+      "n": 13,
+      "stableId": "travel-breakfast:13:ja-en",
+      "sourceEnglish": {
+        "objective": "give a specific, natural compliment and thank the staff warmly",
+        "roleplay": "Tell the cook why the pastry or coffee was memorable rather than only saying it was good.",
+        "englishWordAnchors": [
+          "breakfast",
+          "coffee",
+          "sweet bread, pastry",
+          "eggs",
+          "aroma, smell",
+          "recipe",
+          "cook",
+          "counter",
+          "tip",
+          "staff",
+          "crunchy",
+          "service, attention",
+          "I want to compliment you on the breakfast.",
+          "The coffee was delicious, just the way I like it.",
+          "I loved it because it was very soft.",
+          "Is it a house recipe?",
+          "Thank you very much for the service.",
+          "If I come back tomorrow, I'm going to order another one."
+        ],
+        "englishReading": [
+          "A traveler finishes her breakfast in a small café and wants to talk to the cook.",
+          "She greets him and says: I want to compliment you on the breakfast.",
+          "The coffee was very strong and had a delicious aroma, just the way I like it.",
+          "The sweet bread was soft inside and crunchy outside, and it wasn't too sweet.",
+          "I also loved the eggs, because they were creamy and very well seasoned.",
+          "The cook smiles and explains that the sweet bread is his grandmother's recipe.",
+          "The traveler tells him: If I come back tomorrow, I'm going to order another one of those.",
+          "Before leaving, she leaves a tip on the counter and thanks the staff for the service.",
+          "The cook answers: Thank you very much, we're so glad you liked it."
+        ],
+        "englishSourceSha256": "32c01852801ea9b0b8958d188c265d49196b39ca85413b053e2dae1c7cfc88c6"
+      },
+      "title": "A specific thank-you",
+      "objective": "Give a specific compliment about coffee and pastry, then thank the staff without inventing a family recipe or tip custom.",
+      "focus": "～が香り高かったです describes an aromatic item after eating. 外はさくさく、中はふんわり gives a concrete texture contrast. おいしかったです is polite past. Staff access to the cook is not assumed; offer the compliment to the person serving you.",
+      "scene": "After breakfast, Sam thanks café staff for a coffee and pastry.",
+      "cards": [
+        {
+          "ja": "香り",
+          "en": "aroma",
+          "kind": "term"
+        },
+        {
+          "ja": "香り高い",
+          "en": "aromatic",
+          "kind": "term"
+        },
+        {
+          "ja": "さくさく",
+          "en": "crisp",
+          "kind": "term"
+        },
+        {
+          "ja": "ふんわり",
+          "en": "soft and airy",
+          "kind": "term"
+        },
+        {
+          "ja": "甘さ",
+          "en": "sweetness",
+          "kind": "term"
+        },
+        {
+          "ja": "ちょうどいい",
+          "en": "just right",
+          "kind": "term"
+        },
+        {
+          "ja": "焼き菓子",
+          "en": "baked pastry",
+          "kind": "term"
+        },
+        {
+          "ja": "コーヒー",
+          "en": "coffee",
+          "kind": "term"
+        },
+        {
+          "ja": "おいしかったです",
+          "en": "It was delicious",
+          "kind": "term"
+        },
+        {
+          "ja": "ありがとうございました",
+          "en": "Thank you very much",
+          "kind": "phrase"
+        },
+        {
+          "ja": "伝えてください",
+          "en": "Please pass this on",
+          "kind": "term"
+        },
+        {
+          "ja": "また来たいです",
+          "en": "I would like to return",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "ごちそうさまでした。",
+          "en": "Thank you for the meal."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "ありがとうございます。いかがでしたか。",
+          "en": "Thank you. How was it?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "コーヒーの香りがとてもよかったです。",
+          "en": "The coffee had a wonderful aroma."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "この焼き菓子は外がさくさくで、中がふんわりしていました。",
+          "en": "This pastry was crisp outside and soft inside."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "気に入っていただけてうれしいです。",
+          "en": "I am glad you liked it."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "甘さもちょうどよかったです。",
+          "en": "The sweetness was just right too."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "作った方にも伝えていただけますか。",
+          "en": "Could you pass that on to the person who made it?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、伝えます。",
+          "en": "Yes, I will pass it on."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございました。また来たいです。",
+          "en": "Thank you very much. I would like to come back."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler complimenting breakfast",
+        "partnerRole": "Café staff",
+        "opening": "お食事はいかがでしたか。",
+        "goal": "Give two specific compliments about aroma and texture, and ask staff to pass them on.",
+        "closure": "Thank staff without assuming tipping or access to the cook.",
+        "wordBank": [
+          "ごちそうさまでした",
+          "香り",
+          "さくさく",
+          "ふんわり",
+          "伝えていただけますか"
+        ]
+      },
+      "modes": {
+        "see": "Read the specific compliment with English support.",
+        "recall": "Recall aroma, texture and polite past forms.",
+        "hear": "Hear さくさく and ふんわり in context.",
+        "type": "Type a short compliment with kana help.",
+        "say": "Compliment two concrete qualities and thank staff.",
+        "write": "Write a short, specific thank-you note."
+      }
+    },
+    {
+      "n": 14,
+      "stableId": "travel-breakfast:14:ja-en",
+      "sourceEnglish": {
+        "objective": "explain time pressure, ask what is fastest, and confirm preparation time",
+        "roleplay": "You have twelve minutes before a tour; ask for a realistic fast option.",
+        "englishWordAnchors": [
+          "breakfast",
+          "counter",
+          "bill",
+          "americano coffee",
+          "egg sandwich",
+          "to go",
+          "hurry",
+          "tour",
+          "waitress",
+          "preparation",
+          "minutes",
+          "kitchen",
+          "I'm in a hurry because my tour leaves soon.",
+          "What is the fastest thing you have?",
+          "How long does the preparation take?",
+          "Could it be to go, please?",
+          "I only have 12 minutes.",
+          "Could you bring me the bill now, please?"
+        ],
+        "englishReading": [
+          "A traveler walks into a café at 8:00 and talks with the waitress at the counter.",
+          "He says: I'm in a hurry because my tour leaves in 12 minutes.",
+          "He asks: What is the fastest thing you have for breakfast?",
+          "The waitress answers that an egg sandwich and an americano come out quickly.",
+          "The traveler asks: How long does the sandwich take to prepare?",
+          "She says it takes about 5 minutes, according to the kitchen.",
+          "If it is possible, he wants breakfast to go, because he has no time to sit down.",
+          "He also asks for the bill now so he can pay at the counter.",
+          "The waitress smiles and says: My pleasure, I'll get it ready for you right away."
+        ],
+        "englishSourceSha256": "ba26a1ed1c951f5c48ab9f810654ce507c5fcd4f9e18c08aceebfe9effb673c4"
+      },
+      "title": "A rushed breakfast",
+      "objective": "Explain a twelve-minute limit, ask what can be prepared quickly, and confirm the expected time before ordering.",
+      "focus": "あと十二分です means twelve minutes remain. 何分くらいかかりますか asks an approximate preparation time. すぐできるもの asks what can be ready soon, but staff must answer. A quoted time is an estimate, not a guarantee; the traveler decides whether to order.",
+      "scene": "Sam has a tour meeting soon and asks a café worker for a realistic breakfast option.",
+      "cards": [
+        {
+          "ja": "急いでいます",
+          "en": "I am in a hurry",
+          "kind": "term"
+        },
+        {
+          "ja": "あと十二分",
+          "en": "twelve minutes left",
+          "kind": "term"
+        },
+        {
+          "ja": "ツアー",
+          "en": "tour",
+          "kind": "term"
+        },
+        {
+          "ja": "何分くらい",
+          "en": "about how many minutes",
+          "kind": "term"
+        },
+        {
+          "ja": "かかりますか",
+          "en": "will it take?",
+          "kind": "term"
+        },
+        {
+          "ja": "すぐ",
+          "en": "soon",
+          "kind": "term"
+        },
+        {
+          "ja": "持ち帰り",
+          "en": "takeaway",
+          "kind": "term"
+        },
+        {
+          "ja": "おにぎり",
+          "en": "rice ball",
+          "kind": "term"
+        },
+        {
+          "ja": "サンドイッチ",
+          "en": "sandwich",
+          "kind": "term"
+        },
+        {
+          "ja": "お会計",
+          "en": "the bill",
+          "kind": "term"
+        },
+        {
+          "ja": "間に合いますか",
+          "en": "Will it be in time?",
+          "kind": "term"
+        },
+        {
+          "ja": "先に払えますか",
+          "en": "Can I pay first?",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。ツアーまであと十二分です。",
+          "en": "Excuse me. I have twelve minutes before my tour."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "すぐできる朝食はありますか。",
+          "en": "Is there a breakfast that can be ready quickly?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "おにぎりなら、すぐお渡しできます。",
+          "en": "We can hand you a rice ball soon."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "サンドイッチは何分くらいかかりますか。",
+          "en": "About how many minutes would a sandwich take?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "五分くらいですが、混み具合で変わります。",
+          "en": "About five minutes, but it depends on how busy we are."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "では、おにぎりを持ち帰りでお願いします。",
+          "en": "Then a rice ball to take away, please."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "先にお会計できますか。",
+          "en": "Can I pay first?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、こちらでお願いします。",
+          "en": "Yes, please pay here."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。",
+          "en": "Thank you."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler on a time limit",
+        "partnerRole": "Café staff",
+        "opening": "おはようございます。ご注文は何になさいますか。",
+        "goal": "State a twelve-minute limit, compare an immediately available item with a preparation estimate, and choose accordingly.",
+        "closure": "Do not treat estimated timing as a guarantee.",
+        "wordBank": [
+          "あと十二分",
+          "すぐできる",
+          "何分くらいかかりますか",
+          "持ち帰り",
+          "先にお会計できますか"
+        ]
+      },
+      "modes": {
+        "see": "Read the timed order with aligned English.",
+        "recall": "Recall time-left and preparation-estimate questions.",
+        "hear": "Hear 十二分 and 五分 in context.",
+        "type": "Type an approximate-time question with kana help.",
+        "say": "Ask for a realistic quick option.",
+        "write": "Write a short time-limit statement and an order."
+      }
+    },
+    {
+      "n": 15,
+      "stableId": "travel-breakfast:15:ja-en",
+      "sourceEnglish": {
+        "objective": "combine entering, ordering, a restriction, a correction, small talk, and payment from lessons 1–14 in one ordinary morning",
+        "roleplay": "Handle a routine café breakfast from greeting to payment, including one small mix-up, without English.",
+        "englishWordAnchors": [
+          "table",
+          "counter",
+          "waitress",
+          "americano",
+          "oat milk",
+          "dairy",
+          "scrambled eggs",
+          "toast",
+          "bill",
+          "tip",
+          "Do you have a table for one?",
+          "I'd like an americano, please.",
+          "I can't have dairy.",
+          "Excuse me, I ordered oat milk.",
+          "Could you bring me the bill, please?",
+          "Can I pay by card?"
+        ],
+        "englishReading": [
+          "First, I walked into the café and asked the waitress: Good morning, do you have a table for one?",
+          "She gave me a table near the counter.",
+          "Then I ordered an americano, scrambled eggs and toast.",
+          "I also told her: I can't have dairy, do you have oat milk?",
+          "When the coffee arrived, it had regular milk, and I told her: Excuse me, I ordered oat milk.",
+          "The waitress changed my coffee and asked me: Is this your first time in the city?",
+          "I answered: Yes, and afterward I'm going to visit the museum.",
+          "At the end I asked for the bill and paid by card.",
+          "Before leaving, I left a tip for the waitress."
+        ],
+        "englishSourceSha256": "08b74037de064ad261e983a26d85060cbc01a93fc071bdfd2abc0ca4dabd7e08"
+      },
+      "title": "Breakfast midpoint review",
+      "objective": "Handle greeting, seating, order, a dairy restriction, an incorrect drink, and payment in one Japanese-led scene.",
+      "focus": "This review combines entering, ordering, stating a dairy restriction, correcting a drink, small talk and payment. ～を注文しました identifies the original order; ～ではなく corrects the item received.",
+      "scene": "Sam, who avoids dairy, checks a breakfast order and finds the drink was made with regular milk.",
+      "cards": [
+        {
+          "ja": "一人です",
+          "en": "I am alone",
+          "kind": "term"
+        },
+        {
+          "ja": "席",
+          "en": "seat",
+          "kind": "term"
+        },
+        {
+          "ja": "注文",
+          "en": "order",
+          "kind": "term"
+        },
+        {
+          "ja": "乳製品",
+          "en": "dairy products",
+          "kind": "term"
+        },
+        {
+          "ja": "牛乳",
+          "en": "milk",
+          "kind": "term"
+        },
+        {
+          "ja": "オーツミルク",
+          "en": "oat milk",
+          "kind": "term"
+        },
+        {
+          "ja": "確認",
+          "en": "confirmation",
+          "kind": "term"
+        },
+        {
+          "ja": "違う",
+          "en": "different; wrong",
+          "kind": "term"
+        },
+        {
+          "ja": "飲みません",
+          "en": "I will not drink it",
+          "kind": "term"
+        },
+        {
+          "ja": "お会計",
+          "en": "the bill",
+          "kind": "term"
+        },
+        {
+          "ja": "カード",
+          "en": "card",
+          "kind": "term"
+        },
+        {
+          "ja": "レシート",
+          "en": "receipt",
+          "kind": "term"
+        },
+        {
+          "ja": "乳製品を避けています",
+          "en": "I avoid dairy",
+          "kind": "phrase"
+        },
+        {
+          "ja": "原材料と扱い方を確認してください",
+          "en": "Please check ingredients and handling",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "おはようございます。一人です。席は空いていますか。",
+          "en": "Good morning. I am alone. Is a seat available?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、こちらへどうぞ。",
+          "en": "Yes, please come this way."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "コーヒーとトーストをお願いします。乳製品を避けています。",
+          "en": "Coffee and toast, please. I avoid dairy."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "オーツミルクはありますか。",
+          "en": "Do you have oat milk?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。コーヒーに入れますか。",
+          "en": "Yes. Would you like it in your coffee?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "お願いします。注文を確認してください。",
+          "en": "Yes, please. Please confirm the order."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "コーヒーはオーツミルクですね。",
+          "en": "The coffee is with oat milk."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "すみません。このコーヒーは牛乳のようです。飲みません。",
+          "en": "Excuse me. This coffee appears to have regular milk. I will not drink it."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "確認します。少々お待ちください。",
+          "en": "I will check. Please wait a moment."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。確認できなければ、飲み物は注文しません。",
+          "en": "Thank you. If it cannot be verified, I will not order a drink."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "トーストのお会計をお願いします。カードで払えますか。",
+          "en": "The bill for the toast, please. Can I pay by card?"
+        }
+      ],
+      "speaking": {
+        "role": "Traveler completing a breakfast review",
+        "partnerRole": "Café staff",
+        "opening": "おはようございます。何名様ですか。",
+        "goal": "Greet, ask for seating, order with a dairy restriction, identify a wrong drink, wait for staff verification, and ask to pay.",
+        "closure": "Confirm the corrected order and final bill with staff.",
+        "wordBank": [
+          "一人です",
+          "席は空いていますか",
+          "乳製品を避けています",
+          "注文を確認してください",
+          "飲みません",
+          "お会計をお願いします"
+        ]
+      },
+      "modes": {
+        "see": "Read the full scene in Japanese before revealing English.",
+        "recall": "Recall the ordering, restriction, correction and bill sequence.",
+        "hear": "Hear the wrong-drink correction before viewing text.",
+        "type": "Type a concise correction with kana help.",
+        "say": "Complete the café exchange mainly in Japanese; English help remains available.",
+        "write": "Write a short order, correction and payment request."
+      }
+    },
+    {
+      "n": 16,
+      "stableId": "travel-breakfast:16:ja-en",
+      "sourceEnglish": {
+        "objective": "ask for a high chair, child portions, milder options, and space for a stroller",
+        "roleplay": "Arrive with two young children and a stroller and arrange a table, a high chair, and kid-sized food.",
+        "englishWordAnchors": [
+          "high chair",
+          "stroller",
+          "kids' menu",
+          "child portion",
+          "table",
+          "bib",
+          "scrambled eggs",
+          "spicy",
+          "chili pepper",
+          "milk",
+          "corner",
+          "Do you have a high chair, please?",
+          "Is there room for the stroller?",
+          "Are there portions for children?",
+          "Can you make it without chili?",
+          "Is this spicy?",
+          "We are one adult and two children."
+        ],
+        "englishReading": [
+          "I arrive at the café at 8 with my 2 children and the stroller.",
+          "First I ask the waiter: Is there room for the stroller?",
+          "The waiter says: Yes, I'm going to give you a table in the corner.",
+          "Then I ask him: Do you have a high chair, please?",
+          "The waiter brings a high chair and a bib for my daughter.",
+          "After that I ask for the kids' menu, and my son wants a child portion of scrambled eggs.",
+          "The sauce on the dish is spicy, so I ask: Can you make it without chili?",
+          "To drink, I'm going to order 2 glasses of milk."
+        ],
+        "englishSourceSha256": "5097beabf73dcd025af7b93bea8a122dff2faee60457f4c20a058c28d4e775ff"
+      },
+      "title": "Breakfast with children",
+      "objective": "Ask for stroller space and a high chair, then check a smaller and milder breakfast option for children.",
+      "focus": "ベビーカー is stroller and 子ども用の椅子 is a child’s chair. 少なめ asks for a smaller amount; 辛くしないで asks for a non-spicy version, if the kitchen can make it. Confirm availability and ingredients rather than assuming an item is suitable for children.",
+      "scene": "Sam arrives at a café with two children and asks about seating and food options.",
+      "cards": [
+        {
+          "ja": "ベビーカー",
+          "en": "stroller",
+          "kind": "term"
+        },
+        {
+          "ja": "子ども用の椅子",
+          "en": "high chair; child chair",
+          "kind": "term"
+        },
+        {
+          "ja": "子ども二人",
+          "en": "two children",
+          "kind": "term"
+        },
+        {
+          "ja": "一人",
+          "en": "one adult",
+          "kind": "term"
+        },
+        {
+          "ja": "席",
+          "en": "seat",
+          "kind": "term"
+        },
+        {
+          "ja": "通路",
+          "en": "aisle",
+          "kind": "term"
+        },
+        {
+          "ja": "少なめ",
+          "en": "smaller amount",
+          "kind": "term"
+        },
+        {
+          "ja": "辛い",
+          "en": "spicy",
+          "kind": "term"
+        },
+        {
+          "ja": "辛くしないで",
+          "en": "please make it not spicy",
+          "kind": "term"
+        },
+        {
+          "ja": "たまご料理",
+          "en": "egg dish",
+          "kind": "term"
+        },
+        {
+          "ja": "パン",
+          "en": "bread",
+          "kind": "term"
+        },
+        {
+          "ja": "牛乳",
+          "en": "milk",
+          "kind": "term"
+        },
+        {
+          "ja": "ベビーカーを置けますか",
+          "en": "Is there room for a stroller?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "大人一人と子ども二人です。",
+          "en": "One adult and two children."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ベビーカーを置ける席はありますか。",
+          "en": "Is there a seat with room for a stroller?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "通路をふさがない席を確認します。",
+          "en": "I will check for a seat that does not block the aisle."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "こちらの席はいかがですか。",
+          "en": "How about this seat?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。子ども用の椅子はありますか。",
+          "en": "Thank you. Do you have a high chair?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、一つあります。",
+          "en": "Yes, we have one."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "たまご料理を少なめにできますか。",
+          "en": "Can you make a smaller portion of the egg dish?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "厨房に確認します。",
+          "en": "I will check with the kitchen."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "辛いものは入っていますか。",
+          "en": "Does it contain anything spicy?"
+        }
+      ],
+      "speaking": {
+        "role": "Parent arranging breakfast",
+        "partnerRole": "Café staff",
+        "opening": "いらっしゃいませ。何名様ですか。",
+        "goal": "State one adult and two children, ask for stroller room and a high chair, and check a small non-spicy option.",
+        "closure": "Wait for kitchen and seating confirmation before ordering.",
+        "wordBank": [
+          "子ども二人",
+          "ベビーカー",
+          "子ども用の椅子",
+          "少なめ",
+          "辛いもの"
+        ]
+      },
+      "modes": {
+        "see": "Read a family seating and menu exchange with aligned English.",
+        "recall": "Recall stroller, high chair and smaller portion requests.",
+        "hear": "Hear 子ども用の椅子 and ベビーカー distinctly.",
+        "type": "Type a stroller-space question with kana help.",
+        "say": "Ask about family seating and a child-size option.",
+        "write": "Write a short seating request and food question."
+      }
+    },
+    {
+      "n": 17,
+      "stableId": "travel-breakfast:17:ja-en",
+      "sourceEnglish": {
+        "objective": "ask about step-free entry, table height, restroom access, and room for a wheelchair or crutches",
+        "roleplay": "Your companion uses a wheelchair; find out whether the café can seat you comfortably before you sit down.",
+        "englishWordAnchors": [
+          "wheelchair",
+          "crutches",
+          "ramp",
+          "step",
+          "entrance",
+          "aisle",
+          "height",
+          "room",
+          "accessible restroom",
+          "grab bars",
+          "waiter",
+          "table",
+          "Is there a step-free entrance?",
+          "Is there room for a wheelchair?",
+          "Is the restroom accessible?",
+          "Do you have a lower table?",
+          "Can we see the table before we sit down?",
+          "My friend uses crutches."
+        ],
+        "englishReading": [
+          "I arrive at a café with my friend Elena, who uses a wheelchair.",
+          "First, I ask the waiter: Is there a step-free entrance?",
+          "The waiter says: Yes, there is a ramp at the side door.",
+          "Then I ask: Is there room for a wheelchair next to the table?",
+          "He answers: I am going to give you the table by the window, because the aisle is wider.",
+          "Elena looks at the height of the table, and the waiter takes away a chair for her.",
+          "Next I ask: Is the restroom accessible?",
+          "The waiter says: Yes, the accessible restroom is at the back and it has grab bars.",
+          "Then we say: Perfect, we are going to sit here."
+        ],
+        "englishSourceSha256": "1e824f3c06b409038ed98a056aa4b4d88a918d00bfb733278ec5557f4a30ce1d"
+      },
+      "title": "Check access before seating",
+      "objective": "Ask about a step-free entrance, table clearance and restroom access while letting the wheelchair user decide what works.",
+      "focus": "段差のない入口 means a step-free entrance; 車いすが入れるスペース asks about room for a wheelchair. バリアフリートイレ is a common label but facilities differ; ask about the actual route and features. The companion, not the traveler or server, decides whether the table is usable.",
+      "scene": "Sam and friend Aya arrive at a café; Aya uses a wheelchair and checks the table herself.",
+      "cards": [
+        {
+          "ja": "車いす",
+          "en": "wheelchair",
+          "kind": "term"
+        },
+        {
+          "ja": "段差",
+          "en": "step",
+          "kind": "term"
+        },
+        {
+          "ja": "入口",
+          "en": "entrance",
+          "kind": "term"
+        },
+        {
+          "ja": "段差のない入口",
+          "en": "step-free entrance",
+          "kind": "term"
+        },
+        {
+          "ja": "通路",
+          "en": "aisle",
+          "kind": "term"
+        },
+        {
+          "ja": "テーブルの高さ",
+          "en": "table height",
+          "kind": "term"
+        },
+        {
+          "ja": "スペース",
+          "en": "space",
+          "kind": "term"
+        },
+        {
+          "ja": "トイレ",
+          "en": "restroom",
+          "kind": "term"
+        },
+        {
+          "ja": "バリアフリートイレ",
+          "en": "accessible restroom label",
+          "kind": "term"
+        },
+        {
+          "ja": "見せてください",
+          "en": "please show me",
+          "kind": "term"
+        },
+        {
+          "ja": "確認したいです",
+          "en": "I would like to check",
+          "kind": "term"
+        },
+        {
+          "ja": "座れますか",
+          "en": "Can I sit here?",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Aya",
+          "ja": "すみません。段差のない入口はありますか。",
+          "en": "Excuse me. Is there a step-free entrance?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "横の入口をご案内します。",
+          "en": "I will show you the side entrance."
+        },
+        {
+          "speaker": "Aya",
+          "ja": "テーブルを見てから席を決めたいです。",
+          "en": "I would like to see the table before deciding on a seat."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。こちらをご覧ください。",
+          "en": "Of course. Please look here."
+        },
+        {
+          "speaker": "Aya",
+          "ja": "車いすが入れるスペースはありますか。",
+          "en": "Is there room for my wheelchair?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "椅子を動かせます。通路も確認します。",
+          "en": "We can move a chair. I will check the aisle too."
+        },
+        {
+          "speaker": "Aya",
+          "ja": "トイレまでの道も見せていただけますか。",
+          "en": "Could you show me the route to the restroom too?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、ご案内します。",
+          "en": "Yes, I will show you."
+        },
+        {
+          "speaker": "Aya",
+          "ja": "ありがとうございます。確認してから決めます。",
+          "en": "Thank you. I will decide after checking."
+        }
+      ],
+      "speaking": {
+        "role": "Wheelchair user checking access",
+        "partnerRole": "Café staff",
+        "opening": "いらっしゃいませ。お席をご案内しますか。",
+        "goal": "Ask about the entrance, table clearance and restroom route; inspect before deciding to sit.",
+        "closure": "The user decides whether the offered space works.",
+        "wordBank": [
+          "段差のない入口",
+          "車いす",
+          "スペース",
+          "テーブル",
+          "トイレまでの道",
+          "見せていただけますか"
+        ]
+      },
+      "modes": {
+        "see": "Read an access check led by the wheelchair user.",
+        "recall": "Recall entrance, space and restroom-route questions.",
+        "hear": "Hear 入口 and 通路 in context.",
+        "type": "Type a table-clearance request with kana help.",
+        "say": "Ask to see the actual route and table before deciding.",
+        "write": "Write three access questions in the user’s own voice."
+      }
+    },
+    {
+      "n": 18,
+      "stableId": "travel-breakfast:18:ja-en",
+      "sourceEnglish": {
+        "objective": "ask how food is handled, whether tongs, toasters, or milk jugs are shared, and decide what to order",
+        "roleplay": "Your friend has a serious nut allergy; ask how pastries are stored and handled before ordering anything for them.",
+        "englishWordAnchors": [
+          "counter",
+          "display case",
+          "tongs",
+          "toaster",
+          "milk jug",
+          "nuts",
+          "allergy",
+          "cross-contact",
+          "almond milk",
+          "pastry",
+          "black coffee",
+          "My friend is allergic to nuts.",
+          "How do you store the pastries?",
+          "Do you use the same tongs for everything?",
+          "Do you share the toaster and the milk jug?",
+          "Can you show me the ingredients, please?",
+          "I'm going to order a black coffee, no pastry."
+        ],
+        "englishReading": [
+          "This morning, Elena and I arrived at the counter of a small café.",
+          "First, I told the barista: My friend is allergic to nuts.",
+          "Then I asked: How do you store the pastries in the display case?",
+          "The barista explained: The bread with nuts is in the same display case, and sometimes we use the same tongs.",
+          "I also asked: Do you share the toaster and the milk jug?",
+          "He answered: Yes, and we use the same jug for the almond milk.",
+          "Then he said: There is a risk of cross-contact at this counter.",
+          "So Elena decided: I'm going to order a black coffee, no pastry."
+        ],
+        "englishSourceSha256": "c0d7aefedb04ba5148c9e4e38a0ed388a7d7e8dc66a547faa96fe01b225d7504"
+      },
+      "title": "Ask about shared handling",
+      "objective": "Explain a companion’s nut allergy, ask about shared utensils and preparation, and decline an item when handling cannot be verified.",
+      "focus": "共用 means shared. 同じトングを使いますか asks about tongs; トースター and ミルクピッチャー name other equipment; 混入 means cross-contact. Use these terms to ask staff how the pastry and drink are handled.",
+      "scene": "Aya has a nut allergy and asks a café worker about pastry storage and shared tools before ordering.",
+      "cards": [
+        {
+          "ja": "ナッツアレルギー",
+          "en": "nut allergy",
+          "kind": "term"
+        },
+        {
+          "ja": "原材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "共用",
+          "en": "shared use",
+          "kind": "term"
+        },
+        {
+          "ja": "トング",
+          "en": "tongs",
+          "kind": "term"
+        },
+        {
+          "ja": "トースター",
+          "en": "toaster",
+          "kind": "term"
+        },
+        {
+          "ja": "ミルクピッチャー",
+          "en": "milk jug",
+          "kind": "term"
+        },
+        {
+          "ja": "調理器具",
+          "en": "cooking tools",
+          "kind": "term"
+        },
+        {
+          "ja": "保管",
+          "en": "storage",
+          "kind": "term"
+        },
+        {
+          "ja": "確認できますか",
+          "en": "Can you verify?",
+          "kind": "term"
+        },
+        {
+          "ja": "注文しません",
+          "en": "I will not order it",
+          "kind": "term"
+        },
+        {
+          "ja": "同じトングを使いますか",
+          "en": "Do you use the same tongs?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "別々に扱っていますか",
+          "en": "Are they handled separately?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Aya",
+          "ja": "ナッツアレルギーがあります。注文前に確認したいです。",
+          "en": "I have a nut allergy. I want to check before ordering."
+        },
+        {
+          "speaker": "Aya",
+          "ja": "ナッツ入りのパンはどのように保管していますか。",
+          "en": "How do you store pastries with nuts?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "ほかのパンと同じケースにあります。",
+          "en": "They are in the same display case as the other bread."
+        },
+        {
+          "speaker": "Aya",
+          "ja": "同じトングを使いますか。",
+          "en": "Do you use the same tongs?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、共用しています。",
+          "en": "Yes, the tongs are shared."
+        },
+        {
+          "speaker": "Aya",
+          "ja": "トースターやミルクピッチャーも共用ですか。",
+          "en": "Are the toaster and milk jug shared too?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。詳しい扱い方は確認できません。",
+          "en": "Yes. I cannot verify the handling in detail."
+        },
+        {
+          "speaker": "Aya",
+          "ja": "わかりました。ここでは注文しません。",
+          "en": "I understand. I will not order here."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "承知しました。",
+          "en": "Understood."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler with a nut allergy",
+        "partnerRole": "Café staff",
+        "opening": "ご注文はお決まりですか。",
+        "goal": "State the allergy, ask about display/storage and shared tongs, toaster and milk jug, then decline if safety cannot be verified.",
+        "closure": "State which item the traveler chooses after staff answers the handling questions.",
+        "wordBank": [
+          "ナッツアレルギー",
+          "同じトング",
+          "共用",
+          "トースター",
+          "ミルクピッチャー",
+          "注文しません"
+        ]
+      },
+      "modes": {
+        "see": "Read a shared-handling check with aligned English.",
+        "recall": "Recall shared versus separate handling.",
+        "hear": "Hear 共用 and 確認できません.",
+        "type": "Type a short tongs question with kana help.",
+        "say": "Ask about handling without accepting an unsafe inference.",
+        "write": "Write an allergy statement and two handling questions."
+      }
+    },
+    {
+      "n": 19,
+      "stableId": "travel-breakfast:19:ja-en",
+      "sourceEnglish": {
+        "objective": "ask why standing and sitting prices differ and choose where to drink your coffee",
+        "roleplay": "You notice the table price is higher than the counter price; ask how pricing works and decide where to sit.",
+        "englishWordAnchors": [
+          "counter",
+          "table",
+          "terrace",
+          "menu",
+          "price",
+          "coffee with milk",
+          "waiter",
+          "table service",
+          "surcharge",
+          "bill",
+          "tip",
+          "Why is it more expensive at the table?",
+          "How much does it cost on the terrace?",
+          "I am going to have my coffee at the counter.",
+          "Is there a surcharge for the terrace?",
+          "I prefer to sit at a table, please."
+        ],
+        "englishReading": [
+          "I go into a small café and look at the menu on the wall.",
+          "The menu says: coffee with milk, 2 euros at the counter and 3 euros at the table.",
+          "First I ask the waiter: Why is it more expensive at the table?",
+          "He explains: At the table there is table service, and on the terrace there is a surcharge.",
+          "Then I ask: How much does it cost on the terrace?",
+          "The waiter answers: According to the menu, it costs 4 euros.",
+          "I am in a hurry, so I say: I am going to have my coffee at the counter.",
+          "After that I pay the bill at the counter and leave a small tip."
+        ],
+        "englishSourceSha256": "d103e04559d1045658866bfacd9d94cb2c5a00702b550528b1655307a9326215"
+      },
+      "title": "Compare two posted prices",
+      "objective": "Ask why one café posts different prices for counter and table service, then choose where to drink coffee.",
+      "focus": "カウンター席 and テーブル席 name seating areas. 店内利用 means eating or drinking in the shop. 料金が違うのはなぜですか asks why prices differ. This is a fictional menu example; a counter/table surcharge is not a general Japanese café rule. Confirm the posted total before ordering.",
+      "scene": "A café menu displays one price at the counter and another at a table; Sam asks staff what applies.",
+      "cards": [
+        {
+          "ja": "カウンター席",
+          "en": "counter seat",
+          "kind": "term"
+        },
+        {
+          "ja": "テーブル席",
+          "en": "table seat",
+          "kind": "term"
+        },
+        {
+          "ja": "店内利用",
+          "en": "for use inside the café",
+          "kind": "term"
+        },
+        {
+          "ja": "持ち帰り",
+          "en": "takeaway",
+          "kind": "term"
+        },
+        {
+          "ja": "料金",
+          "en": "price; charge",
+          "kind": "term"
+        },
+        {
+          "ja": "追加料金",
+          "en": "additional charge",
+          "kind": "term"
+        },
+        {
+          "ja": "メニュー",
+          "en": "menu",
+          "kind": "term"
+        },
+        {
+          "ja": "税込み",
+          "en": "tax included",
+          "kind": "term"
+        },
+        {
+          "ja": "合計",
+          "en": "total",
+          "kind": "term"
+        },
+        {
+          "ja": "なぜ",
+          "en": "why",
+          "kind": "term"
+        },
+        {
+          "ja": "料金が違うのはなぜですか",
+          "en": "Why are the prices different?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "カウンター席にします",
+          "en": "I will choose a counter seat",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "メニューの料金を確認したいです。",
+          "en": "I would like to check the menu prices."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、どうぞ。",
+          "en": "Of course."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "コーヒーはカウンター席で五百円、テーブル席で六百円ですか。",
+          "en": "Is the coffee five hundred yen at the counter and six hundred at a table?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。この店ではテーブル席に追加料金があります。",
+          "en": "Yes. At this shop, table seating has an additional charge."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "料金が違うのはなぜですか。",
+          "en": "Why are the prices different?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "テーブル席では席までお持ちするためです。",
+          "en": "Because we bring orders to the table."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "では、カウンター席にします。合計は五百円ですか。",
+          "en": "Then I will take a counter seat. Is the total five hundred yen?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、税込みで五百円です。",
+          "en": "Yes, five hundred yen including tax."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。",
+          "en": "Thank you."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler comparing posted prices",
+        "partnerRole": "Café staff",
+        "opening": "いらっしゃいませ。お席はお決まりですか。",
+        "goal": "Ask why the shop posts different counter and table prices and confirm the total before choosing.",
+        "closure": "Treat this as this shop’s policy, not a national pricing custom.",
+        "wordBank": [
+          "カウンター席",
+          "テーブル席",
+          "料金が違うのはなぜですか",
+          "追加料金",
+          "合計"
+        ]
+      },
+      "modes": {
+        "see": "Read the price comparison with aligned English.",
+        "recall": "Recall counter, table and total-price terms.",
+        "hear": "Hear five hundred versus six hundred yen.",
+        "type": "Type a price-difference question with kana support.",
+        "say": "Ask about two posted prices and choose a seat.",
+        "write": "Write a short price clarification and total check."
+      }
+    },
+    {
+      "n": 20,
+      "stableId": "travel-breakfast:20:ja-en",
+      "sourceEnglish": {
+        "objective": "show what your booking promised, question the charge calmly, and agree on a corrected bill",
+        "roleplay": "Your hotel bills you for breakfast your booking says is included; resolve it calmly with the front desk.",
+        "englishWordAnchors": [
+          "bill",
+          "front desk",
+          "receptionist",
+          "charge",
+          "booking",
+          "confirmation email",
+          "breakfast included",
+          "rate",
+          "room",
+          "mistake",
+          "receipt",
+          "corrected bill",
+          "I think there is a mistake on the bill.",
+          "My booking says breakfast is included.",
+          "Can you explain this charge to me?",
+          "Can you remove the charge, please?",
+          "Can you give me a new receipt, please?"
+        ],
+        "englishReading": [
+          "Before leaving the hotel, I check the bill at the front desk.",
+          "I see a charge of 36 dollars for breakfast.",
+          "I calmly tell the receptionist: I think there is a mistake on the bill.",
+          "First I show him the confirmation email on my phone and say: My booking says breakfast is included.",
+          "He checks my room rate on the computer.",
+          "Then he says: You are right, I am going to remove the charge.",
+          "I ask him: Can you give me a new receipt, please?",
+          "In the end, I pay the corrected bill without the breakfast."
+        ],
+        "englishSourceSha256": "c1af154841c7779b34c4fe77aa9a41286a1e6ab14a72b3e2977b5ce418e13a28"
+      },
+      "title": "Question a hotel breakfast charge",
+      "objective": "Show a booking confirmation, ask about a breakfast charge, and request a corrected bill only after the desk verifies the plan.",
+      "focus": "予約確認メール is booking confirmation email. 朝食付き means breakfast included in a specific booking. 明細 is the itemized bill. ～ようですが expresses tentative observation without declaring staff wrong. Ask the desk to check the booked rate before asking for correction.",
+      "scene": "Sam notices a separate breakfast line on a hotel bill and shows the confirmation.",
+      "cards": [
+        {
+          "ja": "予約",
+          "en": "reservation",
+          "kind": "term"
+        },
+        {
+          "ja": "予約確認メール",
+          "en": "booking confirmation email",
+          "kind": "term"
+        },
+        {
+          "ja": "朝食付き",
+          "en": "breakfast included",
+          "kind": "term"
+        },
+        {
+          "ja": "宿泊プラン",
+          "en": "room plan",
+          "kind": "term"
+        },
+        {
+          "ja": "明細",
+          "en": "itemized bill",
+          "kind": "term"
+        },
+        {
+          "ja": "請求",
+          "en": "charge",
+          "kind": "term"
+        },
+        {
+          "ja": "料金",
+          "en": "price",
+          "kind": "term"
+        },
+        {
+          "ja": "訂正",
+          "en": "correction",
+          "kind": "term"
+        },
+        {
+          "ja": "領収書",
+          "en": "receipt",
+          "kind": "term"
+        },
+        {
+          "ja": "確認してください",
+          "en": "please check",
+          "kind": "term"
+        },
+        {
+          "ja": "朝食代が入っているようです",
+          "en": "There seems to be a breakfast charge",
+          "kind": "phrase"
+        },
+        {
+          "ja": "訂正した明細をいただけますか",
+          "en": "Could I have a corrected bill?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Sam",
+          "ja": "すみません。明細を確認したいです。",
+          "en": "Excuse me. I would like to check the bill."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "朝食代が入っているようです。",
+          "en": "There seems to be a breakfast charge."
+        },
+        {
+          "speaker": "Desk",
+          "ja": "ご予約の内容を確認します。",
+          "en": "I will check your booking details."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "こちらが予約確認メールです。朝食付きと書いてあります。",
+          "en": "Here is my booking confirmation email. It says breakfast is included."
+        },
+        {
+          "speaker": "Desk",
+          "ja": "ありがとうございます。宿泊プランを確認します。",
+          "en": "Thank you. I will check the room plan."
+        },
+        {
+          "speaker": "Desk",
+          "ja": "確認できました。朝食代は請求しないプランです。",
+          "en": "I confirmed it. This plan does not charge separately for breakfast."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "訂正した明細をいただけますか。",
+          "en": "Could I have a corrected bill?"
+        },
+        {
+          "speaker": "Desk",
+          "ja": "はい。新しい明細をお渡しします。",
+          "en": "Yes. I will give you a new bill."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ありがとうございます。",
+          "en": "Thank you."
+        }
+      ],
+      "speaking": {
+        "role": "Hotel guest checking a bill",
+        "partnerRole": "Front desk staff",
+        "opening": "お会計の確認でしょうか。",
+        "goal": "Show the booking confirmation, question the breakfast line calmly, and ask for a corrected bill after verification.",
+        "closure": "Keep the original and corrected documents for your records.",
+        "wordBank": [
+          "明細",
+          "朝食代",
+          "予約確認メール",
+          "朝食付き",
+          "確認してください",
+          "訂正した明細"
+        ]
+      },
+      "modes": {
+        "see": "Read a hotel bill check with aligned English.",
+        "recall": "Recall booking, included breakfast and corrected bill.",
+        "hear": "Hear 朝食付き and 朝食代 as distinct phrases.",
+        "type": "Type a tentative charge question with kana help.",
+        "say": "Ask the desk to verify the booking and correct a confirmed error.",
+        "write": "Write a calm bill query and document request."
+      }
+    },
+    {
+      "n": 21,
+      "stableId": "travel-breakfast:21:ja-en",
+      "sourceEnglish": {
+        "objective": "state a seating preference, explain your reason, and accept or propose a compromise",
+        "roleplay": "A server asks your group to move to a smaller table for a reservation; explain why you'd like to stay and reach a compromise.",
+        "englishWordAnchors": [
+          "table",
+          "window",
+          "server (female)",
+          "reservation",
+          "corner",
+          "counter",
+          "stroller",
+          "patio",
+          "shade",
+          "chair",
+          "We prefer this table because we have a stroller.",
+          "What time does the reservation arrive?",
+          "What if we finish before 10:15?",
+          "If possible, we would like to stay here.",
+          "That's fine, we understand."
+        ],
+        "englishReading": [
+          "It is Saturday morning and my family is having breakfast at a big table by the window.",
+          "The server comes over and says: Excuse me, we have a reservation and we need this table.",
+          "She offers us a smaller table in the corner, near the counter.",
+          "I calmly explain to her: We prefer this table because we have a stroller and it does not fit in the corner.",
+          "Then I ask her: What time does the reservation arrive?",
+          "The server answers that the group arrives at 10:30.",
+          "So I propose: What if we finish breakfast here before 10:15 and then move to the patio for coffee?",
+          "She smiles and says: Perfect, there is shade on the patio and I will bring you an extra chair.",
+          "I tell her: Thank you very much for your help, this way we are all happy."
+        ],
+        "englishSourceSha256": "f745303a2165bb7225b5dfd98773a74a2e9fcc2b1ee530c1c156beb3d8742415"
+      },
+      "title": "Negotiate a table change",
+      "objective": "Explain why a smaller table will not fit a stroller, ask when a reservation begins, and agree on a workable alternative.",
+      "focus": "ベビーカーが入らない means a stroller will not fit. 予約は何時からですか asks the reserved time. ～なら expresses a conditional compromise. Do not block exits or aisles; the staff and group should inspect the offered space before agreeing.",
+      "scene": "Staff needs a reserved table; Sam’s family checks another space that can fit the stroller.",
+      "cards": [
+        {
+          "ja": "予約",
+          "en": "reservation",
+          "kind": "term"
+        },
+        {
+          "ja": "席",
+          "en": "seat",
+          "kind": "term"
+        },
+        {
+          "ja": "小さいテーブル",
+          "en": "small table",
+          "kind": "term"
+        },
+        {
+          "ja": "ベビーカー",
+          "en": "stroller",
+          "kind": "term"
+        },
+        {
+          "ja": "通路",
+          "en": "aisle",
+          "kind": "term"
+        },
+        {
+          "ja": "窓際",
+          "en": "by the window",
+          "kind": "term"
+        },
+        {
+          "ja": "別の席",
+          "en": "another seat",
+          "kind": "term"
+        },
+        {
+          "ja": "何時から",
+          "en": "from what time",
+          "kind": "term"
+        },
+        {
+          "ja": "移れます",
+          "en": "can move",
+          "kind": "term"
+        },
+        {
+          "ja": "確認したいです",
+          "en": "I would like to check",
+          "kind": "term"
+        },
+        {
+          "ja": "ベビーカーが入りません",
+          "en": "The stroller will not fit",
+          "kind": "phrase"
+        },
+        {
+          "ja": "別の席を見せてください",
+          "en": "Please show us another seat",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Staff",
+          "ja": "すみません。この席は十時半から予約があります。",
+          "en": "Excuse me. This table is reserved from ten thirty."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "あちらの小さいテーブルに移れますか。",
+          "en": "Could you move to that smaller table?"
+        },
+        {
+          "speaker": "Sam",
+          "ja": "ベビーカーが入るか確認したいです。",
+          "en": "I would like to check whether the stroller fits."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "あの席にはベビーカーが入りません。",
+          "en": "The stroller will not fit at that table."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "失礼しました。別の席をお探しします。",
+          "en": "I am sorry. I will look for another seat."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "予約は何時からですか。",
+          "en": "From what time is the reservation?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "十時半からです。こちらの席なら通路も空きます。",
+          "en": "From ten thirty. This seat also keeps the aisle clear."
+        },
+        {
+          "speaker": "Sam",
+          "ja": "見てから決めてもいいですか。",
+          "en": "May we decide after looking?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、もちろんです。",
+          "en": "Yes, of course."
+        }
+      ],
+      "speaking": {
+        "role": "Parent negotiating seating",
+        "partnerRole": "Café staff",
+        "opening": "すみません。この席は十時半から予約があります。",
+        "goal": "Explain stroller-space needs, ask the reservation time, and inspect an alternative seat before agreeing.",
+        "closure": "Agree only to a layout that works for the group and keeps the aisle clear.",
+        "wordBank": [
+          "予約",
+          "ベビーカー",
+          "入りません",
+          "別の席",
+          "通路",
+          "見てから決めます"
+        ]
+      },
+      "modes": {
+        "see": "Read the seating negotiation with aligned English.",
+        "recall": "Recall reason, time and alternative-seat phrases.",
+        "hear": "Hear 十時半 and 通路 in context.",
+        "type": "Type a stroller-space explanation with kana support.",
+        "say": "Explain the concern and ask to inspect a compromise.",
+        "write": "Write a polite reason and alternative request."
+      }
+    },
+    {
+      "n": 22,
+      "stableId": "travel-breakfast:22:ja-en",
+      "sourceEnglish": {
+        "objective": "learn local habits about milky coffee, sugar, lingering, and paying first",
+        "roleplay": "Ask a barista which café habits mark someone as a tourist and how long it is fine to stay at a table.",
+        "englishWordAnchors": [
+          "coffee with milk",
+          "espresso with a little milk",
+          "sugar",
+          "counter",
+          "table",
+          "register",
+          "bill",
+          "tip",
+          "habit",
+          "tourist",
+          "Do you pay first at the register here?",
+          "Does the coffee already come with sugar?",
+          "Is it okay to stay at the table for a while?",
+          "What habits are typical of tourists here?",
+          "Can I order another cortado later?"
+        ],
+        "englishReading": [
+          "A traveler walks into a small café and asks the barista: Do you pay first at the register here?",
+          "The barista smiles and explains: In this café, yes, you pay first at the register and then order at the counter.",
+          "She orders a cortado because in the morning she prefers less milk than in a café con leche.",
+          "Then she asks: Does the coffee already come with sugar?",
+          "He answers: No, the sugar is on the counter, so you add as much as you want.",
+          "The traveler also wants to know: What habits are typical of tourists here?",
+          "The barista says: Many tourists wait for the bill at the table, but here there is no bill at the end, and if there are free tables, nobody asks them to leave.",
+          "Before sitting down, she asks: Is it okay to stay at the table for a while? Can I order another cortado later?",
+          "The barista answers: Of course, take your time; if you want another cortado, you pay for it at the register, and the tip is optional."
+        ],
+        "englishSourceSha256": "52ad296bee97c4e663c4dc972a7632da595b4e5ca3e0bac93bb59c6701db641b"
+      },
+      "title": "Ask how this café works",
+      "objective": "Ask where to pay, whether sugar is included, and whether another order is needed to stay longer.",
+      "focus": "この店では (at this shop) limits a question to the current café. 先にお会計ですか asks whether payment comes first. ～てもいいですか asks permission; do not generalize one café’s policy to a region.",
+      "scene": "A traveler asks staff about this café’s payment and seating rules before ordering.",
+      "cards": [
+        {
+          "ja": "この店では",
+          "en": "at this café",
+          "kind": "term"
+        },
+        {
+          "ja": "レジ",
+          "en": "register",
+          "kind": "term"
+        },
+        {
+          "ja": "カウンター",
+          "en": "counter",
+          "kind": "term"
+        },
+        {
+          "ja": "テーブル席",
+          "en": "table seat",
+          "kind": "term"
+        },
+        {
+          "ja": "先に払う",
+          "en": "pay first",
+          "kind": "term"
+        },
+        {
+          "ja": "あとで払う",
+          "en": "pay later",
+          "kind": "term"
+        },
+        {
+          "ja": "砂糖",
+          "en": "sugar",
+          "kind": "term"
+        },
+        {
+          "ja": "ミルク",
+          "en": "milk",
+          "kind": "term"
+        },
+        {
+          "ja": "コーヒー",
+          "en": "coffee",
+          "kind": "term"
+        },
+        {
+          "ja": "追加注文",
+          "en": "additional order",
+          "kind": "term"
+        },
+        {
+          "ja": "しばらく",
+          "en": "for a while",
+          "kind": "term"
+        },
+        {
+          "ja": "店の決まり",
+          "en": "shop policy",
+          "kind": "term"
+        },
+        {
+          "ja": "先にお会計ですか",
+          "en": "Do I pay first?",
+          "kind": "term"
+        },
+        {
+          "ja": "しばらく座ってもいいですか",
+          "en": "May I sit for a while?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Traveler",
+          "ja": "すみません。この店では先にお会計ですか。",
+          "en": "Excuse me. Do I pay first at this café?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。レジで先にお支払いください。",
+          "en": "Yes. Please pay at the register first."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "カウンターで注文しますか。",
+          "en": "Do I order at the counter?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。ご注文を伺います。",
+          "en": "Yes. I will take your order."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "ミルク入りのコーヒーを一杯ください。",
+          "en": "One coffee with milk, please."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "砂糖は最初から入っていますか。",
+          "en": "Is sugar already added?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "いいえ。砂糖はあちらにあります。",
+          "en": "No. The sugar is over there."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "しばらくテーブル席に座ってもいいですか。",
+          "en": "May I sit at a table for a while?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。今日は空いています。追加注文のときはレジにお越しください。",
+          "en": "Yes. We have space today. Please come to the register for another order."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler asking about café policy",
+        "partnerRole": "Café staff",
+        "opening": "いらっしゃいませ。ご注文はお決まりですか。",
+        "goal": "Ask this café about payment, sugar and seating, then place one order.",
+        "closure": "Confirm the local shop policy rather than assuming a universal rule.",
+        "wordBank": [
+          "この店では",
+          "先にお会計ですか",
+          "カウンター",
+          "砂糖",
+          "しばらく",
+          "追加注文"
+        ]
+      },
+      "modes": {
+        "see": "Read a shop-specific café exchange with English support.",
+        "recall": "Recall payment, sugar and seating questions.",
+        "hear": "Hear 先に and あとで in policy questions.",
+        "type": "Type 先にお会計ですか with kana support.",
+        "say": "Ask staff about this shop’s rules before ordering.",
+        "write": "Write a brief question about paying and staying."
+      }
+    },
+    {
+      "n": 23,
+      "stableId": "travel-breakfast:23:ja-en",
+      "sourceEnglish": {
+        "objective": "ask a local for a specific recommendation, opening hours, and walking directions",
+        "roleplay": "Ask the hotel host where to find the best bakery open before 7 a.m. and how to walk there.",
+        "englishWordAnchors": [
+          "bakery",
+          "receptionist",
+          "sweet bread",
+          "opening hours",
+          "map",
+          "block",
+          "street",
+          "traffic light",
+          "corner",
+          "square",
+          "Can you recommend a bakery nearby?",
+          "What time does it open?",
+          "Is it open before 7?",
+          "How do I get there on foot from here?",
+          "How many blocks is it?",
+          "Can you repeat that, please?"
+        ],
+        "englishReading": [
+          "It is 6:30 in the morning and Ana is looking for breakfast near the hotel.",
+          "Ana asks the receptionist: Can you recommend a bakery nearby that is open before 7?",
+          "The receptionist says: I recommend Panadería Lupita, because the sweet bread comes out hot very early.",
+          "Ana asks: What time does it open?",
+          "He answers: According to their hours, it opens at 6, but on Sundays it opens later.",
+          "Then Ana asks: How do I get there on foot from here?",
+          "The receptionist shows her the map and says: Walk 3 blocks along this street and turn right at the traffic light.",
+          "Ana does not understand everything and asks: Can you repeat that, please?",
+          "He calmly repeats: The bakery is on the corner, across from the square."
+        ],
+        "englishSourceSha256": "3a8178e8ffbcf8ee9468502dcaf27583f1152c322dc68476556afc00c623de87"
+      },
+      "title": "Find a bakery open early",
+      "objective": "Ask hotel staff for a nearby bakery, verify its current opening time, and repeat walking directions.",
+      "focus": "近くのパン屋 (nearby bakery), 何時に開きますか (what time does it open?) and もう一度お願いします (please repeat) form a practical route request. Hours and routes can change, so confirm with current local information.",
+      "scene": "Before breakfast, a hotel guest asks for an early bakery and repeats the route.",
+      "cards": [
+        {
+          "ja": "パン屋",
+          "en": "bakery",
+          "kind": "term"
+        },
+        {
+          "ja": "近く",
+          "en": "nearby",
+          "kind": "term"
+        },
+        {
+          "ja": "朝早く",
+          "en": "early in the morning",
+          "kind": "term"
+        },
+        {
+          "ja": "営業時間",
+          "en": "opening hours",
+          "kind": "term"
+        },
+        {
+          "ja": "何時",
+          "en": "what time",
+          "kind": "term"
+        },
+        {
+          "ja": "地図",
+          "en": "map",
+          "kind": "term"
+        },
+        {
+          "ja": "徒歩",
+          "en": "on foot",
+          "kind": "term"
+        },
+        {
+          "ja": "道",
+          "en": "road",
+          "kind": "term"
+        },
+        {
+          "ja": "角",
+          "en": "corner",
+          "kind": "term"
+        },
+        {
+          "ja": "信号",
+          "en": "traffic light",
+          "kind": "term"
+        },
+        {
+          "ja": "右",
+          "en": "right",
+          "kind": "term"
+        },
+        {
+          "ja": "左",
+          "en": "left",
+          "kind": "term"
+        },
+        {
+          "ja": "近くのパン屋を教えてください",
+          "en": "Please tell me about a nearby bakery",
+          "kind": "phrase"
+        },
+        {
+          "ja": "もう一度お願いします",
+          "en": "Please say that again",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "おはようございます。朝早く開くパン屋は近くにありますか。",
+          "en": "Good morning. Is there a nearby bakery that opens early?"
+        },
+        {
+          "speaker": "Desk",
+          "ja": "一軒あります。こちらの地図をご覧ください。",
+          "en": "There is one. Please look at this map."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "何時に開きますか。",
+          "en": "What time does it open?"
+        },
+        {
+          "speaker": "Desk",
+          "ja": "表示では六時半からです。今日の営業時間も確認しましょう。",
+          "en": "The listing says six thirty. Let us also check today’s hours."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "ありがとうございます。ここから徒歩で行けますか。",
+          "en": "Thank you. Can I walk there from here?"
+        },
+        {
+          "speaker": "Desk",
+          "ja": "はい。この道をまっすぐ進んでください。",
+          "en": "Yes. Go straight along this road."
+        },
+        {
+          "speaker": "Desk",
+          "ja": "二つ目の信号を右に曲がると、角にあります。",
+          "en": "Turn right at the second traffic light, and it is on the corner."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "すみません。信号は二つ目ですね。もう一度お願いします。",
+          "en": "Excuse me. The second traffic light, right? Please say it again."
+        },
+        {
+          "speaker": "Desk",
+          "ja": "はい。二つ目の信号を右です。出発前に地図でも確認してください。",
+          "en": "Yes. Right at the second traffic light. Please check the map too before leaving."
+        }
+      ],
+      "speaking": {
+        "role": "Hotel guest finding breakfast",
+        "partnerRole": "Hotel front desk staff",
+        "opening": "おはようございます。何かお探しですか。",
+        "goal": "Ask for a bakery, confirm today’s hours and repeat the walking route.",
+        "closure": "Use current hours and a map before leaving.",
+        "wordBank": [
+          "パン屋",
+          "近く",
+          "営業時間",
+          "徒歩",
+          "信号",
+          "もう一度お願いします"
+        ]
+      },
+      "modes": {
+        "see": "Read an early bakery route with aligned English.",
+        "recall": "Recall bakery, hours and directions.",
+        "hear": "Hear 二つ目 and 右に曲がる in a route.",
+        "type": "Type a request to repeat directions with kana support.",
+        "say": "Ask for current hours and repeat the route aloud.",
+        "write": "Write a short bakery question and route summary."
+      }
+    },
+    {
+      "n": 24,
+      "stableId": "travel-breakfast:24:ja-en",
+      "sourceEnglish": {
+        "objective": "alert staff, ask someone to call emergency services, give the location, and describe what you saw",
+        "roleplay": "A guest at the next table collapses; alert the staff, ask for emergency help, and describe what happened.",
+        "englishWordAnchors": [
+          "emergency",
+          "ambulance",
+          "waiter",
+          "manager",
+          "customer",
+          "next table",
+          "floor",
+          "emergency number",
+          "address",
+          "corner",
+          "operator",
+          "paramedics",
+          "Help, please, it's an emergency!",
+          "Can you call an ambulance, please?",
+          "A man fell at the next table.",
+          "What is the exact address of the café?",
+          "I don't know if he is breathing well.",
+          "We are on the corner of Juárez and Madero."
+        ],
+        "englishReading": [
+          "I am having breakfast in a café when the customer at the next table falls to the floor.",
+          "I stand up and say to the waiter: Help, please, it's an emergency!",
+          "The manager comes quickly and I ask him: Can you call an ambulance, please?",
+          "He dials the emergency number and the operator asks him for the address.",
+          "The manager answers: We are on the corner of Juárez and Madero, next to the bank.",
+          "Then the operator wants to know what happened, because that information helps the paramedics.",
+          "I explain to her: A man fell at the next table and he isn't answering.",
+          "I also tell her: I don't know if he is breathing well.",
+          "Then I wait at the door to show the table to the paramedics when they arrive."
+        ],
+        "englishSourceSha256": "f9fca21783eb812a6cb1404b874aa957f5bf385aff31f7e2136fbedb03630773"
+      },
+      "title": "Call for help at a café",
+      "objective": "Alert staff to a collapse, ask them to call local emergency services, and report only the location and what you observed.",
+      "focus": "助けてください and 救急車を呼んでください are urgent requests. 隣の席の人が倒れました reports what happened; 店の住所は何ですか asks for the exact location; 呼吸がよく分かりません expresses uncertainty about breathing.",
+      "scene": "A guest sees another customer collapse and immediately alerts café staff.",
+      "cards": [
+        {
+          "ja": "助けてください",
+          "en": "Please help",
+          "kind": "term"
+        },
+        {
+          "ja": "緊急です",
+          "en": "It is an emergency",
+          "kind": "term"
+        },
+        {
+          "ja": "救急車",
+          "en": "ambulance",
+          "kind": "term"
+        },
+        {
+          "ja": "店員",
+          "en": "staff member",
+          "kind": "term"
+        },
+        {
+          "ja": "責任者",
+          "en": "person in charge",
+          "kind": "term"
+        },
+        {
+          "ja": "お客さん",
+          "en": "customer",
+          "kind": "term"
+        },
+        {
+          "ja": "隣の席",
+          "en": "next table",
+          "kind": "term"
+        },
+        {
+          "ja": "床",
+          "en": "floor",
+          "kind": "term"
+        },
+        {
+          "ja": "住所",
+          "en": "address",
+          "kind": "term"
+        },
+        {
+          "ja": "店の名前",
+          "en": "shop name",
+          "kind": "term"
+        },
+        {
+          "ja": "場所",
+          "en": "location",
+          "kind": "term"
+        },
+        {
+          "ja": "通報",
+          "en": "emergency call",
+          "kind": "term"
+        },
+        {
+          "ja": "救急車を呼んでください",
+          "en": "Please call an ambulance",
+          "kind": "phrase"
+        },
+        {
+          "ja": "隣の席の人が倒れました",
+          "en": "The person at the next table collapsed",
+          "kind": "phrase"
+        },
+        {
+          "ja": "反応がありません",
+          "en": "There is no response",
+          "kind": "term"
+        },
+        {
+          "ja": "救急隊員",
+          "en": "paramedics",
+          "kind": "term"
+        },
+        {
+          "ja": "呼吸がよく分かりません",
+          "en": "I do not know if the person is breathing well",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "助けてください。緊急です。",
+          "en": "Please help. It is an emergency."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "どうしましたか。",
+          "en": "What happened?"
+        },
+        {
+          "speaker": "Guest",
+          "ja": "隣の席の人が床に倒れました。",
+          "en": "The person at the next table fell to the floor."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "救急車を呼んでください。",
+          "en": "Please call an ambulance."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "すぐにこの地域の緊急通報先に連絡します。",
+          "en": "I will contact the local emergency service immediately."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "店の住所と場所を確認します。",
+          "en": "I will confirm the shop address and location."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "あのテーブルです。声をかけましたが、反応がありません。",
+          "en": "It is that table. I spoke to the person, but there was no response."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "電話で見たことを伝えます。係員の指示を聞きます。",
+          "en": "I will tell the operator what we observed and listen to their instructions."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "入口で救急隊を案内します。",
+          "en": "I will guide the emergency team from the entrance."
+        }
+      ],
+      "speaking": {
+        "role": "Witness alerting café staff",
+        "partnerRole": "Café staff contacting local emergency services",
+        "opening": "いらっしゃいませ。どうしましたか。",
+        "goal": "Alert staff, request an ambulance, state the shop location and describe only what you observed.",
+        "closure": "Give the location and observed details to the emergency operator.",
+        "wordBank": [
+          "助けてください",
+          "緊急です",
+          "救急車を呼んでください",
+          "隣の席",
+          "倒れました",
+          "店の住所"
+        ]
+      },
+      "modes": {
+        "see": "Read a witness report with aligned English.",
+        "recall": "Recall alert, location and observation phrases.",
+        "hear": "Hear 救急車 and 緊急 in urgent speech.",
+        "type": "Type a request for an ambulance with kana support.",
+        "say": "Report a collapse to staff without diagnosing.",
+        "write": "Write a factual location and observation report."
+      }
+    },
+    {
+      "n": 25,
+      "stableId": "travel-breakfast:25:ja-en",
+      "sourceEnglish": {
+        "objective": "ask for cold water, a first-aid kit, and napkins, and accept or decline an apology and offer",
+        "roleplay": "A server spills hot coffee on your arm; ask for cold water and a first-aid kit, and respond graciously to the apology.",
+        "englishWordAnchors": [
+          "cold water",
+          "first-aid kit",
+          "napkins",
+          "burn",
+          "arm",
+          "skin",
+          "server",
+          "manager",
+          "hot coffee",
+          "stain",
+          "breakfast",
+          "Could you bring me cold water, please?",
+          "Do you have a first-aid kit?",
+          "Could you pass me more napkins, please?",
+          "Don't worry, it was an accident.",
+          "Thank you, but it's not necessary."
+        ],
+        "englishReading": [
+          "In a café in Oaxaca, the server trips and spills hot coffee on Ana's arm.",
+          "Ana takes a breath and says: Could you bring me cold water, please?",
+          "The server brings a glass of cold water and some napkins, and Ana carefully dries her arm.",
+          "Then Ana asks if they have a first-aid kit, because the skin is a little red.",
+          "The manager brings the first-aid kit and says: If the burn hurts a lot, we can call a doctor.",
+          "Ana answers: Thank you, but it's not necessary, because it's a small burn.",
+          "The server is very worried and says: I'm very sorry, we won't charge you for breakfast.",
+          "Ana smiles and says: Don't worry, it was an accident, and I gladly accept the offer."
+        ],
+        "englishSourceSha256": "e380007056035955b7ce2fda25090524e8f3396cc82caa1cd1bcc06a192f0bf9"
+      },
+      "title": "Ask for help after a hot-drink spill",
+      "objective": "Report a hot-coffee burn on the arm, ask for cold water, napkins and a first-aid kit, and respond to the staff's apology and offer.",
+      "focus": "火傷（やけど） means a burn; 皮膚 means skin. 冷たい水をいただけますか asks for cold water, ナプキンをもう少しいただけますか asks for more napkins, and 救急箱はありますか asks for a first-aid kit. ～がかかりました reports where the hot coffee spilled.",
+      "scene": "Hot coffee spills on a guest’s arm; the guest requests help and cool running water.",
+      "cards": [
+        {
+          "ja": "熱い",
+          "en": "hot",
+          "kind": "term"
+        },
+        {
+          "ja": "飲み物",
+          "en": "drink",
+          "kind": "term"
+        },
+        {
+          "ja": "こぼれる",
+          "en": "spill",
+          "kind": "term"
+        },
+        {
+          "ja": "腕",
+          "en": "arm",
+          "kind": "term"
+        },
+        {
+          "ja": "水道",
+          "en": "tap",
+          "kind": "term"
+        },
+        {
+          "ja": "流水",
+          "en": "running water",
+          "kind": "term"
+        },
+        {
+          "ja": "冷やす",
+          "en": "cool",
+          "kind": "term"
+        },
+        {
+          "ja": "救急箱",
+          "en": "first-aid kit",
+          "kind": "term"
+        },
+        {
+          "ja": "店員",
+          "en": "staff member",
+          "kind": "term"
+        },
+        {
+          "ja": "責任者",
+          "en": "person in charge",
+          "kind": "term"
+        },
+        {
+          "ja": "医療機関",
+          "en": "medical service",
+          "kind": "term"
+        },
+        {
+          "ja": "お詫び",
+          "en": "apology",
+          "kind": "term"
+        },
+        {
+          "ja": "熱いコーヒーが腕にかかりました",
+          "en": "Hot coffee spilled on my arm",
+          "kind": "phrase"
+        },
+        {
+          "ja": "水道の流水で冷やしたいです",
+          "en": "I would like to cool it under running tap water",
+          "kind": "phrase"
+        },
+        {
+          "ja": "救急箱はありますか",
+          "en": "Do you have a first-aid kit?",
+          "kind": "term"
+        },
+        {
+          "ja": "火傷（やけど）",
+          "en": "burn",
+          "kind": "term"
+        },
+        {
+          "ja": "皮膚",
+          "en": "skin",
+          "kind": "term"
+        },
+        {
+          "ja": "冷たい水",
+          "en": "cold water",
+          "kind": "term"
+        },
+        {
+          "ja": "ナプキン",
+          "en": "napkins",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "熱いコーヒーが腕にかかって、火傷をしました。",
+          "en": "Hot coffee spilled on my arm and I got a burn."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "申し訳ありません。すぐにお手伝いします。",
+          "en": "I am sorry. I will help right away."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "冷たい水をいただけますか。",
+          "en": "Could you bring me cold water, please?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい、冷たい水をお持ちします。",
+          "en": "Yes, I will bring cold water."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "救急箱はありますか。",
+          "en": "Do you have a first-aid kit?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。責任者にも知らせます。",
+          "en": "Yes. I will also tell the person in charge."
+        },
+        {
+          "speaker": "Manager",
+          "ja": "皮膚が赤くなっていますね。救急箱をお持ちしました。",
+          "en": "Your skin is red. I brought the first-aid kit."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "ナプキンをもう少しいただけますか。",
+          "en": "Could you pass me more napkins, please?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "改めてお詫びします。",
+          "en": "I apologize again."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "お詫びに、朝食代はいただきません。",
+          "en": "As an apology, we will not charge you for breakfast."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "ありがとうございます。お気持ちを受け取ります。",
+          "en": "Thank you. I accept your offer."
+        }
+      ],
+      "speaking": {
+        "role": "Guest requesting assistance after a spill",
+        "partnerRole": "Café staff",
+        "opening": "申し訳ありません。大丈夫ですか。",
+        "goal": "Name the burn and affected skin, request cold water, napkins and a first-aid kit, then accept or decline the apology and offer.",
+        "closure": "Close by answering the manager's offer politely.",
+        "wordBank": [
+          "熱いコーヒー",
+          "腕",
+          "流水",
+          "水道",
+          "救急箱",
+          "医療機関"
+        ]
+      },
+      "modes": {
+        "see": "Read a scald assistance exchange with aligned English.",
+        "recall": "Recall spill, running water and help requests.",
+        "hear": "Hear 冷やす and 救急箱 in context.",
+        "type": "Type a request for cool running water with kana support.",
+        "say": "Ask staff for immediate help and avoid self-diagnosis.",
+        "write": "Write a factual spill report and help request."
+      }
+    },
+    {
+      "n": 26,
+      "stableId": "travel-breakfast:26:ja-en",
+      "sourceEnglish": {
+        "objective": "ask whether staying is welcome, about Wi-Fi and outlets, and when to order again",
+        "roleplay": "You need to work for two hours; ask whether that's acceptable, where to sit, and when to order a second round.",
+        "englishWordAnchors": [
+          "laptop",
+          "counter",
+          "Wi-Fi",
+          "password",
+          "outlet",
+          "charger",
+          "table",
+          "corner",
+          "latte",
+          "sweet pastry",
+          "bill",
+          "tip",
+          "Do you mind if I stay and work for 2 hours?",
+          "What is the Wi-Fi password?",
+          "Can I sit near an outlet?",
+          "When would you prefer that I order again?",
+          "If it fills up, I'll give up the table."
+        ],
+        "englishReading": [
+          "It is Tuesday morning and Lena walks into a small café with her laptop.",
+          "Before sitting down, she goes to the counter and asks the server: Do you mind if I stay and work for 2 hours?",
+          "The server smiles and says: No problem, but at lunchtime it gets very full.",
+          "Lena answers: If it fills up, I'll give up the table, and then she asks: What is the Wi-Fi password?",
+          "The server gives her a slip of paper with the password and points her to a table in the corner with an outlet.",
+          "Lena plugs in her charger, orders a latte and a sweet pastry, and starts working.",
+          "After 1 hour, she raises her hand and asks: When would you prefer that I order again?",
+          "The server says: Whenever you like, because I come by your table every half hour.",
+          "At the end, Lena asks for the bill and leaves a good tip for the time and the space."
+        ],
+        "englishSourceSha256": "14a9a5f6a95d6302ee1796d0ef76bb9e1f783e3c767764162c3420dde8608766"
+      },
+      "title": "Ask before working at a café table",
+      "objective": "Ask whether a two-hour work visit is welcome, check Wi-Fi and outlets, and ask when to order again.",
+      "focus": "二時間ほど仕事をしてもいいですか asks permission for about two hours. コンセントは使えますか asks whether an outlet may be used. ～たら moves a condition into a polite offer. Shop rules vary; ask before settling in.",
+      "scene": "A traveler with a laptop checks a café’s work and seating policy.",
+      "cards": [
+        {
+          "ja": "ノートパソコン",
+          "en": "laptop",
+          "kind": "term"
+        },
+        {
+          "ja": "仕事",
+          "en": "work",
+          "kind": "term"
+        },
+        {
+          "ja": "二時間ほど",
+          "en": "for about two hours",
+          "kind": "term"
+        },
+        {
+          "ja": "席",
+          "en": "seat",
+          "kind": "term"
+        },
+        {
+          "ja": "コンセント",
+          "en": "power outlet",
+          "kind": "term"
+        },
+        {
+          "ja": "充電器",
+          "en": "charger",
+          "kind": "term"
+        },
+        {
+          "ja": "Wi-Fi",
+          "en": "Wi-Fi",
+          "kind": "term"
+        },
+        {
+          "ja": "パスワード",
+          "en": "password",
+          "kind": "term"
+        },
+        {
+          "ja": "注文",
+          "en": "order",
+          "kind": "term"
+        },
+        {
+          "ja": "追加注文",
+          "en": "additional order",
+          "kind": "term"
+        },
+        {
+          "ja": "混む",
+          "en": "become busy",
+          "kind": "term"
+        },
+        {
+          "ja": "席を空ける",
+          "en": "free up a seat",
+          "kind": "term"
+        },
+        {
+          "ja": "ここで仕事をしてもいいですか",
+          "en": "May I work here?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "コンセントは使えますか",
+          "en": "May I use the outlet?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "次はいつ注文すればいいですか",
+          "en": "When should I order again?",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Traveler",
+          "ja": "すみません。ここで二時間ほど仕事をしてもいいですか。",
+          "en": "Excuse me. May I work here for about two hours?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "今は空いていますが、昼には混むことがあります。",
+          "en": "We have space now, but it sometimes gets busy at lunch."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "混んできたら席を空けます。",
+          "en": "If it gets busy, I will free up the seat."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "Wi-Fiは使えますか。",
+          "en": "May I use the Wi-Fi?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。パスワードはこちらに書いてあります。",
+          "en": "Yes. The password is written here."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "コンセントを使える席はありますか。",
+          "en": "Is there a seat where I may use an outlet?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "あちらの席は使えます。",
+          "en": "You may use it at that seat."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "では、コーヒーを一杯お願いします。",
+          "en": "Then one coffee, please."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "次はいつ注文すればいいですか。",
+          "en": "When should I order again?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "決まりはありません。必要なときにお声がけください。",
+          "en": "There is no set rule. Please ask when you need something."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler planning a work visit",
+        "partnerRole": "Café staff",
+        "opening": "いらっしゃいませ。お席をお探しですか。",
+        "goal": "Ask permission for a work visit, check Wi-Fi/outlet policy and ask about another order.",
+        "closure": "Adjust to this café’s stated policy and free the seat if needed.",
+        "wordBank": [
+          "二時間ほど",
+          "仕事",
+          "Wi-Fi",
+          "パスワード",
+          "コンセント",
+          "追加注文"
+        ]
+      },
+      "modes": {
+        "see": "Read a work-visit request with aligned English.",
+        "recall": "Recall time, Wi-Fi and outlet questions.",
+        "hear": "Hear 二時間ほど and 混んできたら.",
+        "type": "Type a polite outlet question with kana support.",
+        "say": "Ask staff about working and ordering again.",
+        "write": "Write a short work-visit request and conditional offer."
+      }
+    },
+    {
+      "n": 27,
+      "stableId": "travel-breakfast:27:ja-en",
+      "sourceEnglish": {
+        "objective": "ask for a packed breakfast or early service before official hours and confirm pickup",
+        "roleplay": "Your 5:30 a.m. airport transfer leaves before breakfast opens; ask the hotel for a packed breakfast or an early option.",
+        "englishWordAnchors": [
+          "packed breakfast",
+          "front desk",
+          "airport transfer",
+          "breakfast hours",
+          "dining room",
+          "paper bag",
+          "fruit",
+          "juice",
+          "allergy",
+          "room number",
+          "rate",
+          "Can you prepare a packed breakfast for me?",
+          "My airport transfer leaves at 5:30 a.m.",
+          "What time can I pick it up?",
+          "Where do I pick it up, at the front desk or in the dining room?",
+          "Is it included in my rate?"
+        ],
+        "englishReading": [
+          "Ana arrives at the hotel front desk at 9 p.m.",
+          "She says: My airport transfer leaves at 5:30 a.m., but breakfast hours start at 7.",
+          "Then she asks: If the dining room is closed, can you prepare a packed breakfast for me?",
+          "The receptionist explains that the kitchen can prepare a paper bag with fruit, bread and juice.",
+          "Ana mentions her nut allergy, and he writes it down with her room number.",
+          "Then she asks: What time can I pick it up?",
+          "He answers: The bag will be ready at the front desk at 5 a.m.",
+          "Ana wants to confirm the price and asks: Is it included in my rate?",
+          "The receptionist says yes, because her reservation includes breakfast."
+        ],
+        "englishSourceSha256": "d562ef49a0d034e397ee2c5f90df362746d953b6596a59f05c7c992faa34e0ac"
+      },
+      "title": "Arrange an early packed breakfast",
+      "objective": "Ask the hotel about breakfast before an early transfer, confirm pickup time and place, and disclose an allergy without assuming safe handling.",
+      "focus": "朝食の時間より早く出ます explains an early departure. 持ち帰りの朝食 asks for a packed breakfast. アレルギーがあります states an allergy; ～を避ける必要があります specifies the ingredient to avoid. 何時に受け取れますか asks for the pickup time.",
+      "scene": "A hotel guest leaves before breakfast service and checks whether a suitable option exists.",
+      "cards": [
+        {
+          "ja": "早朝",
+          "en": "early morning",
+          "kind": "term"
+        },
+        {
+          "ja": "出発",
+          "en": "departure",
+          "kind": "term"
+        },
+        {
+          "ja": "空港行きの車",
+          "en": "airport transfer",
+          "kind": "term"
+        },
+        {
+          "ja": "朝食の時間",
+          "en": "breakfast hours",
+          "kind": "term"
+        },
+        {
+          "ja": "持ち帰りの朝食",
+          "en": "packed breakfast",
+          "kind": "term"
+        },
+        {
+          "ja": "受け取り",
+          "en": "pickup",
+          "kind": "term"
+        },
+        {
+          "ja": "フロント",
+          "en": "front desk",
+          "kind": "term"
+        },
+        {
+          "ja": "食堂",
+          "en": "dining room",
+          "kind": "term"
+        },
+        {
+          "ja": "予約",
+          "en": "booking",
+          "kind": "term"
+        },
+        {
+          "ja": "料金",
+          "en": "charge",
+          "kind": "term"
+        },
+        {
+          "ja": "アレルギー",
+          "en": "allergy",
+          "kind": "term"
+        },
+        {
+          "ja": "材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "調理方法",
+          "en": "preparation method",
+          "kind": "term"
+        },
+        {
+          "ja": "何時に受け取れますか",
+          "en": "What time can I pick it up?",
+          "kind": "term"
+        },
+        {
+          "ja": "この材料を避ける必要があります",
+          "en": "I need to avoid this ingredient",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Guest",
+          "ja": "明日は朝食の時間より早く出発します。",
+          "en": "Tomorrow I leave before breakfast service."
+        },
+        {
+          "speaker": "Desk",
+          "ja": "何時にお出かけですか。",
+          "en": "What time are you leaving?"
+        },
+        {
+          "speaker": "Guest",
+          "ja": "空港行きの車が五時半に出ます。",
+          "en": "My airport transfer leaves at five thirty."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "持ち帰りの朝食は用意できますか。",
+          "en": "Can you prepare a packed breakfast?"
+        },
+        {
+          "speaker": "Desk",
+          "ja": "厨房に確認します。すぐにはお約束できません。",
+          "en": "I will check with the kitchen. I cannot promise it yet."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "私はナッツのアレルギーがあります。材料と調理方法を確認できますか。",
+          "en": "I have a nut allergy. Can you check ingredients and how it is prepared?"
+        },
+        {
+          "speaker": "Desk",
+          "ja": "厨房と確認してからお答えします。",
+          "en": "I will answer after checking with the kitchen."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "確認できなければ、食べません。",
+          "en": "If it cannot be verified, I will not eat it."
+        },
+        {
+          "speaker": "Guest",
+          "ja": "用意できる場合、何時にどこで受け取れますか。",
+          "en": "If it can be prepared, when and where can I pick it up?"
+        },
+        {
+          "speaker": "Desk",
+          "ja": "確認後に、受け取り時間と場所、料金をお知らせします。",
+          "en": "After checking, I will tell you the pickup time, place and charge."
+        }
+      ],
+      "speaking": {
+        "role": "Hotel guest arranging early breakfast",
+        "partnerRole": "Hotel front desk staff",
+        "opening": "こんばんは。明日のご予定はいかがですか。",
+        "goal": "Ask for an early option, disclose the specific allergy, request kitchen verification, and confirm pickup/price only if an option is available.",
+        "closure": "Confirm the pickup place, time, contents and price with the front desk.",
+        "wordBank": [
+          "早朝",
+          "持ち帰りの朝食",
+          "アレルギー",
+          "材料",
+          "調理方法",
+          "受け取り"
+        ]
+      },
+      "modes": {
+        "see": "Read an early-breakfast enquiry with aligned English.",
+        "recall": "Recall departure, pickup and allergy-verification phrases.",
+        "hear": "Hear 五時半 and 受け取り in context.",
+        "type": "Type a pickup-time question with kana support.",
+        "say": "Ask about an early meal and verify allergy handling.",
+        "write": "Write a conditional pickup and preparation question."
+      }
+    },
+    {
+      "n": 28,
+      "stableId": "travel-breakfast:28:ja-en",
+      "sourceEnglish": {
+        "objective": "sustain a longer conversation about the neighborhood, work, and travel with follow-up questions",
+        "roleplay": "A retired regular asks where you're from; keep the conversation going for several turns, ask follow-ups, and close politely.",
+        "englishWordAnchors": [
+          "retiree",
+          "neighbor",
+          "neighborhood",
+          "coffee",
+          "table",
+          "trip",
+          "town square",
+          "work",
+          "market",
+          "Mexican sweet bread",
+          "museum",
+          "bill",
+          "I'm here traveling for two weeks.",
+          "How long have you lived in this neighborhood?",
+          "And what do you do for a living?",
+          "Really? Tell me more.",
+          "What do you recommend I visit around here?",
+          "It was a pleasure chatting with you."
+        ],
+        "englishReading": [
+          "Every morning, Don Ramón, a retiree and neighbor from the neighborhood, has his coffee at the same table.",
+          "Today he asks me where I'm from, and I tell him: I'm from Canada and I'm here traveling for two weeks.",
+          "Then I ask him: How long have you lived in this neighborhood?",
+          "He tells me that he has lived here for 40 years and that he was a teacher at the school on the plaza.",
+          "Since his work interests me, I say: Really? Tell me more.",
+          "Then he talks to me about the market, because on Saturdays they sell very good pan dulce.",
+          "When I ask him what he recommends, he says that if I have time, I should visit the downtown museum.",
+          "Before I leave, I pay the bill and tell him: It was a pleasure chatting with you."
+        ],
+        "englishSourceSha256": "6fc226d2d5cd1045a2d5d8ed2bae4ac8933442625f99e63f4796a6043388b71a"
+      },
+      "title": "Chat with a café regular",
+      "objective": "Sustain a polite neighborhood conversation with follow-up questions, respond to a recommendation, and close naturally.",
+      "focus": "この辺りに長くお住まいですか asks how long someone has lived nearby. そうなんですね and もう少し教えてください sustain interest. Keep personal questions optional and accept a short answer or a change of topic.",
+      "scene": "A café regular starts a friendly conversation with a traveler at a shared table.",
+      "cards": [
+        {
+          "ja": "常連",
+          "en": "regular customer",
+          "kind": "term"
+        },
+        {
+          "ja": "近所",
+          "en": "neighborhood",
+          "kind": "term"
+        },
+        {
+          "ja": "旅行",
+          "en": "travel",
+          "kind": "term"
+        },
+        {
+          "ja": "町",
+          "en": "town",
+          "kind": "term"
+        },
+        {
+          "ja": "市場",
+          "en": "market",
+          "kind": "term"
+        },
+        {
+          "ja": "公園",
+          "en": "park",
+          "kind": "term"
+        },
+        {
+          "ja": "仕事",
+          "en": "work",
+          "kind": "term"
+        },
+        {
+          "ja": "おすすめ",
+          "en": "recommendation",
+          "kind": "term"
+        },
+        {
+          "ja": "会話",
+          "en": "conversation",
+          "kind": "term"
+        },
+        {
+          "ja": "失礼します",
+          "en": "Excuse me; I will be going",
+          "kind": "term"
+        },
+        {
+          "ja": "この辺り",
+          "en": "this area",
+          "kind": "term"
+        },
+        {
+          "ja": "もう少し",
+          "en": "a little more",
+          "kind": "term"
+        },
+        {
+          "ja": "この辺りに長くお住まいですか",
+          "en": "Have you lived in this area long?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "おすすめの場所はありますか",
+          "en": "Is there a place you recommend?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "お話できてよかったです",
+          "en": "It was nice talking with you",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Regular",
+          "ja": "こんにちは。こちらは旅行ですか。",
+          "en": "Hello. Are you here on a trip?"
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "はい。今週はこの町を見ています。",
+          "en": "Yes. I am exploring this town this week."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "この辺りに長くお住まいですか。",
+          "en": "Have you lived in this area long?"
+        },
+        {
+          "speaker": "Regular",
+          "ja": "ええ、二十年ほどです。",
+          "en": "Yes, for about twenty years."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "そうなんですね。この近所の好きなところは何ですか。",
+          "en": "I see. What do you like about this neighborhood?"
+        },
+        {
+          "speaker": "Regular",
+          "ja": "朝の市場がにぎやかですよ。",
+          "en": "The morning market is lively."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "そうですか。もう少し教えてください。",
+          "en": "Really? Please tell me a little more."
+        },
+        {
+          "speaker": "Regular",
+          "ja": "駅の近くです。今日は早く閉まるので、時間を確認してください。",
+          "en": "It is near the station. It closes early today, so check the hours."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "ありがとうございます。お話できてよかったです。そろそろ失礼します。",
+          "en": "Thank you. It was nice talking with you. I should be going now."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler chatting with a café regular",
+        "partnerRole": "Local regular customer",
+        "opening": "こんにちは。こちらは旅行ですか。",
+        "goal": "Answer an opening question, ask at least two follow-ups, respond to a local recommendation, and close politely.",
+        "closure": "Do not press for private details if the partner gives a short answer.",
+        "wordBank": [
+          "旅行",
+          "この辺り",
+          "長くお住まいですか",
+          "そうなんですね",
+          "おすすめ",
+          "お話できてよかったです"
+        ]
+      },
+      "modes": {
+        "see": "Read a nine-turn café chat with aligned English.",
+        "recall": "Recall follow-up and farewell phrases.",
+        "hear": "Hear そうなんですね and そろそろ in conversation.",
+        "type": "Type a follow-up question with kana support.",
+        "say": "Keep a conversation going and close politely.",
+        "write": "Write two follow-up questions and a farewell."
+      }
+    },
+    {
+      "n": 29,
+      "stableId": "travel-breakfast:29:ja-en",
+      "sourceEnglish": {
+        "objective": "offer to pay, respond when others insist, and follow local custom on treating",
+        "roleplay": "Your new friends insist on paying for breakfast; negotiate politely, accept or decline, and agree how to settle.",
+        "englishWordAnchors": [
+          "breakfast",
+          "bill",
+          "waiter",
+          "tip",
+          "cash",
+          "card",
+          "sweet bread",
+          "change",
+          "cash register",
+          "guest",
+          "Breakfast is on me today.",
+          "No, really, let me pay.",
+          "OK, thanks, but next time it's on me.",
+          "Then I'll leave the tip.",
+          "Is it customary to leave a tip here?",
+          "Shall we split the bill among all of us?"
+        ],
+        "englishReading": [
+          "After a breakfast of coffee and sweet bread in Oaxaca, the waiter brings the bill to our table.",
+          "I take out my card and say: Breakfast is on me today, because you showed me the city.",
+          "My new friends, Lucía and Andrés, insist: No, here you are our guest.",
+          "I tell them: No, really, let me pay, but Andrés is already giving cash to the waiter.",
+          "So I ask: Is it customary to leave a tip here?",
+          "Lucía says that they usually leave 10 percent if the service is good.",
+          "I tell them: If you pay the bill, then I'll leave the tip, and they agree.",
+          "At the end I say: OK, thanks, but next time it's on me, and everyone laughs."
+        ],
+        "englishSourceSha256": "91719b9279d3f95412bd367d7c3b60a1467e977691098e61f96a59ba709dfb13"
+      },
+      "title": "Decide who pays for breakfast",
+      "objective": "Offer to pay, acknowledge a friend’s counteroffer, and agree who pays the bill and whether to ask about gratuity.",
+      "focus": "今日は私が払います offers to pay; 次は私に払わせてください makes a future reciprocal offer. チップは必要ですか asks about this café’s policy without assuming a local rule. Avoid assigning an unverified tip percentage to a whole country.",
+      "scene": "Friends finish breakfast and politely agree on the bill.",
+      "cards": [
+        {
+          "ja": "会計",
+          "en": "bill",
+          "kind": "term"
+        },
+        {
+          "ja": "払う",
+          "en": "pay",
+          "kind": "term"
+        },
+        {
+          "ja": "割り勘",
+          "en": "splitting the bill",
+          "kind": "term"
+        },
+        {
+          "ja": "現金",
+          "en": "cash",
+          "kind": "term"
+        },
+        {
+          "ja": "カード",
+          "en": "card",
+          "kind": "term"
+        },
+        {
+          "ja": "おつり",
+          "en": "change",
+          "kind": "term"
+        },
+        {
+          "ja": "レジ",
+          "en": "register",
+          "kind": "term"
+        },
+        {
+          "ja": "チップ",
+          "en": "tip",
+          "kind": "term"
+        },
+        {
+          "ja": "おごる",
+          "en": "treat someone",
+          "kind": "term"
+        },
+        {
+          "ja": "次は",
+          "en": "next time",
+          "kind": "term"
+        },
+        {
+          "ja": "遠慮します",
+          "en": "I will politely decline",
+          "kind": "term"
+        },
+        {
+          "ja": "ありがとうございます",
+          "en": "Thank you",
+          "kind": "term"
+        },
+        {
+          "ja": "今日は私が払います",
+          "en": "I will pay today",
+          "kind": "term"
+        },
+        {
+          "ja": "次は私に払わせてください",
+          "en": "Please let me pay next time",
+          "kind": "phrase"
+        },
+        {
+          "ja": "チップは必要ですか",
+          "en": "Is a tip needed?",
+          "kind": "term"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Traveler",
+          "ja": "今日は私が払います。案内してくれてありがとう。",
+          "en": "I will pay today. Thank you for showing me around."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "ありがとう。でも、今日は私たちがおごります。",
+          "en": "Thank you. But we will treat you today."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "そうですか。ありがとうございます。",
+          "en": "I see. Thank you."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "では、次は私に払わせてください。",
+          "en": "Then please let me pay next time."
+        },
+        {
+          "speaker": "Friend",
+          "ja": "ぜひ。次の朝食を楽しみにしています。",
+          "en": "Certainly. I look forward to our next breakfast."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "会計はレジですか、テーブルですか。",
+          "en": "Do we pay at the register or at the table?"
+        },
+        {
+          "speaker": "Friend",
+          "ja": "この店はレジです。",
+          "en": "At this shop, we pay at the register."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "この店ではチップは必要ですか。",
+          "en": "Is a tip needed at this shop?"
+        },
+        {
+          "speaker": "Friend",
+          "ja": "店員さんに確認しましょう。",
+          "en": "Let us ask the staff."
+        },
+        {
+          "speaker": "Traveler",
+          "ja": "わかりました。今日はごちそうさまです。",
+          "en": "All right. Thank you for treating me today."
+        }
+      ],
+      "speaking": {
+        "role": "Traveler settling breakfast with friends",
+        "partnerRole": "Friend offering to pay",
+        "opening": "今日は私たちがおごります。",
+        "goal": "Offer to pay, acknowledge a counteroffer, agree on a next-time plan, and ask this shop about the bill or tip.",
+        "closure": "Follow the group’s agreement and the café’s actual payment policy.",
+        "wordBank": [
+          "会計",
+          "私が払います",
+          "おごります",
+          "次は",
+          "チップ",
+          "ごちそうさまです"
+        ]
+      },
+      "modes": {
+        "see": "Read a polite payment negotiation with English support.",
+        "recall": "Recall offer, acceptance and next-time phrases.",
+        "hear": "Hear 払います and 払わせてください.",
+        "type": "Type a next-time offer with kana support.",
+        "say": "Negotiate who pays and ask about local policy.",
+        "write": "Write a short agreement about the bill."
+      }
+    },
+    {
+      "n": 30,
+      "stableId": "travel-breakfast:30:ja-en",
+      "sourceEnglish": {
+        "objective": "handle a complete breakfast with children or special needs, a complication, a seating or charge disagreement, local customs, and a warm farewell without English",
+        "roleplay": "Navigate a busy breakfast with a mixed group—an allergy, a wrong charge, a seating dispute, and a long chat with a local—from the doorway to a warm goodbye.",
+        "englishWordAnchors": [
+          "allergy",
+          "nuts",
+          "high chair",
+          "kids' menu",
+          "scrambled eggs",
+          "sweet bread",
+          "table",
+          "counter",
+          "bill",
+          "charge",
+          "tip",
+          "Can you bring us a high chair, please?",
+          "Excuse me, the waiter gave us this table.",
+          "My daughter is allergic to nuts.",
+          "Excuse me, I think there is a mistake on the bill.",
+          "Is the tip included?",
+          "Thank you so much for everything, see you soon."
+        ],
+        "englishReading": [
+          "I arrive at the café with my 2 children and ask the waiter: Can you bring us a high chair, please?",
+          "Another customer says the table is his, and I calmly explain that the waiter gave us this table; the waiter confirms it and takes the man to another free table.",
+          "Before ordering, I explain to the waiter: My daughter is allergic to nuts, does the sweet bread have nuts in it?",
+          "The waiter checks in the kitchen and recommends the kids' menu with scrambled eggs, because the cook says it has no nuts.",
+          "While we eat, I chat with a woman at the next table: she asks me where we are from, recommends the downtown market and tells me that here people have a relaxed breakfast and chat for a long time.",
+          "When paying at the counter, I see a charge for 3 coffees, but we only ordered 2.",
+          "I tell the cashier: Excuse me, I think there is a mistake on the bill, and she fixes it right away.",
+          "Then I ask: Is the tip included? and she answers no, so I leave a tip on the table.",
+          "On the way out, I tell the woman: Thank you so much for everything, see you soon."
+        ],
+        "englishSourceSha256": "e4ff1072f44f31515030330fe96cd3424610cde27ba4f4f51c99cb8c06f3cf74"
+      },
+      "title": "Breakfast from doorway to goodbye",
+      "objective": "Coordinate a family breakfast, request suitable seating, disclose a nut allergy, question a charge, ask about this café’s policy, and close warmly.",
+      "focus": "This capstone combines ベビーチェア, ナッツのアレルギー, 明細 and ありがとうございました. Use ～をお願いします for a request, ～があります for a condition, and ～を確認したいです for a bill question.",
+      "scene": "A parent with children navigates seating, allergy questions and the bill in a busy café.",
+      "cards": [
+        {
+          "ja": "ベビーチェア",
+          "en": "high chair",
+          "kind": "term"
+        },
+        {
+          "ja": "子ども",
+          "en": "child",
+          "kind": "term"
+        },
+        {
+          "ja": "席",
+          "en": "seat",
+          "kind": "term"
+        },
+        {
+          "ja": "予約",
+          "en": "reservation",
+          "kind": "term"
+        },
+        {
+          "ja": "ナッツ",
+          "en": "nuts",
+          "kind": "term"
+        },
+        {
+          "ja": "アレルギー",
+          "en": "allergy",
+          "kind": "term"
+        },
+        {
+          "ja": "材料",
+          "en": "ingredients",
+          "kind": "term"
+        },
+        {
+          "ja": "調理方法",
+          "en": "preparation method",
+          "kind": "term"
+        },
+        {
+          "ja": "明細",
+          "en": "itemized bill",
+          "kind": "term"
+        },
+        {
+          "ja": "請求",
+          "en": "charge",
+          "kind": "term"
+        },
+        {
+          "ja": "コーヒー",
+          "en": "coffee",
+          "kind": "term"
+        },
+        {
+          "ja": "チップ",
+          "en": "tip",
+          "kind": "term"
+        },
+        {
+          "ja": "ベビーチェアをお願いします",
+          "en": "A high chair, please",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ナッツのアレルギーがあります",
+          "en": "There is a nut allergy",
+          "kind": "phrase"
+        },
+        {
+          "ja": "明細を確認したいです",
+          "en": "I would like to check the bill",
+          "kind": "term"
+        },
+        {
+          "ja": "ありがとうございました",
+          "en": "Thank you very much",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "speaker": "Parent",
+          "ja": "おはようございます。子どもと一緒です。ベビーチェアはありますか。",
+          "en": "Good morning. I am with my children. Do you have a high chair?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "はい。こちらの席へどうぞ。",
+          "en": "Yes. Please come to this table."
+        },
+        {
+          "speaker": "Other guest",
+          "ja": "すみません。この席は予約していました。",
+          "en": "Excuse me. I reserved this table."
+        },
+        {
+          "speaker": "Parent",
+          "ja": "店員さんに確認していただけますか。",
+          "en": "Could we ask a staff member to check?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "失礼しました。別のお席をご案内します。",
+          "en": "I am sorry. I will show you another table."
+        },
+        {
+          "speaker": "Parent",
+          "ja": "子どもにナッツのアレルギーがあります。材料と調理方法を確認できますか。",
+          "en": "My child has a nut allergy. Can you check ingredients and preparation?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "厨房に確認します。今は安全とはお約束できません。",
+          "en": "I will check with the kitchen. I cannot promise it is safe now."
+        },
+        {
+          "speaker": "Parent",
+          "ja": "確認できなければ、その料理は注文しません。",
+          "en": "If it cannot be verified, we will not order that dish."
+        },
+        {
+          "speaker": "Regular",
+          "ja": "この近所は初めてですか。",
+          "en": "Is this your first time in this neighborhood?"
+        },
+        {
+          "speaker": "Parent",
+          "ja": "はい。短い旅行です。おすすめの場所はありますか。",
+          "en": "Yes. It is a short trip. Is there a place you recommend?"
+        },
+        {
+          "speaker": "Regular",
+          "ja": "駅の近くに公園があります。",
+          "en": "There is a park near the station."
+        },
+        {
+          "speaker": "Parent",
+          "ja": "ありがとうございます。ところで、明細を確認したいです。コーヒーは二杯注文しました。",
+          "en": "Thank you. By the way, I would like to check the bill. We ordered two coffees."
+        },
+        {
+          "speaker": "Staff",
+          "ja": "確認します。三杯の請求になっていました。訂正します。",
+          "en": "I will check. The bill charged for three. I will correct it."
+        },
+        {
+          "speaker": "Parent",
+          "ja": "助かります。この店ではチップはどうしますか。",
+          "en": "That helps. What is the tip policy at this café?"
+        },
+        {
+          "speaker": "Staff",
+          "ja": "こちらでご案内します。",
+          "en": "I will explain it here."
+        },
+        {
+          "speaker": "Parent",
+          "ja": "ありがとうございました。また来ます。",
+          "en": "Thank you very much. We will come again."
+        }
+      ],
+      "speaking": {
+        "role": "Parent managing a family breakfast",
+        "partnerRole": "Café staff and local regular",
+        "opening": "おはようございます。何名様ですか。",
+        "goal": "In Japanese, request child seating, resolve a seat mix-up through staff, verify nut-allergy handling, hold a brief chat, correct a bill, and say goodbye.",
+        "closure": "Confirm the seating, food order and bill before saying goodbye.",
+        "wordBank": [
+          "ベビーチェア",
+          "席",
+          "ナッツのアレルギー",
+          "調理方法",
+          "明細",
+          "ありがとうございました"
+        ]
+      },
+      "modes": {
+        "see": "Read a full breakfast sequence with aligned English.",
+        "recall": "Recall seating, allergy, bill and farewell requests.",
+        "hear": "Hear the key requests in a busy café exchange.",
+        "type": "Type an allergy-verification or bill question with kana support.",
+        "say": "Complete a multi-step café roleplay in Japanese.",
+        "write": "Write a concise seating, allergy and bill summary."
+      }
+    }
+  ],
+  "reviewGates": [
+    "Qualified Japanese language and register review",
+    "Qualified regional café/menu review",
+    "Qualified food-allergy review before any safety guidance",
+    "Recorded Japanese audio plus phone/offline/native checks"
+  ]
+}

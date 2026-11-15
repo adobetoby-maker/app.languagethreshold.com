@@ -1,0 +1,542 @@
+{
+  "target": "French",
+  "native": "English",
+  "moduleId": "french-basics",
+  "stage": "core",
+  "reviewed": false,
+  "state": "authored-draft",
+  "source": {
+    "path": "content/french-basics/source-english-core-25-27.json",
+    "sourceSha256": "02698683d580df6cee79c8994b6371d7c0f342a071dcb17d1ccb0dd94b5d644e",
+    "sourcePaths": [
+      "src/data/spanish-basics-core.json",
+      "src/data/spanish-basics-practice.json"
+    ],
+    "sourceFileSha256": {
+      "src/data/spanish-basics-core.json": "d50c3e52a846331e9c0bcec19a5c91605585f4e285c62138941425390d160e38",
+      "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe"
+    },
+    "use": "Exact English objectives, word meanings, reading meanings and progression; French grammar and examples authored separately"
+  },
+  "draftModel": "Codex authored; independent Fable/Opus and human review pending",
+  "sourceNotes": [
+    "Core 22 source objective is truncated; examples determine the broader comparison scope.",
+    "French le/la/les and lui/leur do not map one-to-one to Spanish object pronouns.",
+    "Broad English source glosses receive notes rather than false universal equivalents."
+  ],
+  "lessons": [
+    {
+      "n": 25,
+      "title": "Chercher une personne",
+      "sourceTitleEnglish": "Personal a",
+      "sourceObjectiveEnglish": "Personal a: Use personal a before a specific person who is a direct object: veo a Ana.",
+      "objective": "Parlez de personnes et de choses que vous cherchez, voyez ou connaissez, sans ajouter de préposition devant le complément direct en français.",
+      "foundationTie": "Reuses Core 21 connaître and Core 23 direct objects, now comparing person and thing objects.",
+      "focus": "verbe transitif + personne/chose; pas de « a » personnel en français",
+      "grammar": {
+        "explanation": "Spanish often marks a specific person who is a direct object with a personal a. French normally does not: je cherche Ana, je vois Luis, je connais ma sœur. The same basic order works for a thing: je cherche mon livre. À can still appear for an indirect recipient (je donne un livre à Ana), but not merely because the direct object is a person. A person may be replaced by a direct-object pronoun: je la cherche.",
+        "model": {
+          "person": "Je cherche Ana à la bibliothèque.",
+          "another person": "Je vois Luis près de la porte.",
+          "thing": "Je cherche mon livre dans le sac à dos.",
+          "question": "Tu connais ma sœur ?"
+        },
+        "caution": "The source lesson teaches a Spanish-only personal a. This French lesson deliberately teaches the contrasting French rule rather than inventing a matching particle. In “Je cherche Ana à la bibliothèque,” à marks the location, not Ana."
+      },
+      "scene": "Deux amis cherchent leurs proches et leurs affaires avant une visite à l’école.",
+      "dialogue": [
+        "Je cherche Ana à la bibliothèque.|I am looking for Ana in the library.",
+        "Je vois Luis près de la porte.|I see Luis near the door.",
+        "Nous rendons visite à la professeure aujourd’hui.|We are visiting the teacher today.",
+        "Je cherche mon livre dans le sac à dos.|I am looking for my book in the backpack.",
+        "J’ai deux frères.|I have two brothers.",
+        "Tu connais ma sœur ?|Do you know my sister?"
+      ],
+      "speaking": "Look for friends with a classmate. Ask whether they have seen Ana, Luis or your sister, then say where your book is. Contrast direct person objects in chercher, voir and connaître with the recipient construction in rendre visite à. Confirm where to meet.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "sac à dos",
+          "en": "backpack",
+          "kind": "term"
+        },
+        {
+          "order": 2,
+          "fr": "livre",
+          "en": "book",
+          "kind": "term"
+        },
+        {
+          "order": 3,
+          "fr": "la",
+          "en": "the / it / her (feminine)",
+          "kind": "term",
+          "note": "La may be a feminine article, a direct-object pronoun, or “her” in context."
+        },
+        {
+          "order": 4,
+          "fr": "dans / sur / à",
+          "en": "in / on / at",
+          "kind": "term",
+          "note": "Choose dans, sur or à by location; they are not interchangeable."
+        },
+        {
+          "order": 5,
+          "fr": "j’ai",
+          "en": "I have",
+          "kind": "term"
+        },
+        {
+          "order": 6,
+          "fr": "deux",
+          "en": "two",
+          "kind": "term"
+        },
+        {
+          "order": 7,
+          "fr": "professeure",
+          "en": "female teacher",
+          "kind": "term",
+          "note": "Professeure is a female teacher; enseignante is another common term."
+        },
+        {
+          "order": 8,
+          "fr": "mon / ma",
+          "en": "my (singular possession)",
+          "kind": "term",
+          "note": "Use mon before a masculine noun and ma before a feminine noun; both mean “my”."
+        },
+        {
+          "order": 9,
+          "fr": "Je cherche Ana à la bibliothèque.",
+          "en": "I am looking for Ana in the library.",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Je vois Luis près de la porte.",
+          "en": "I see Luis near the door.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Nous rendons visite à la professeure aujourd’hui.",
+          "en": "We are visiting the teacher today.",
+          "kind": "phrase",
+          "note": "Rendre visite à takes à because of the French verb construction; this is not a personal a rule."
+        },
+        {
+          "order": 12,
+          "fr": "Je cherche mon livre dans le sac à dos.",
+          "en": "I am looking for my book in the backpack.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "J’ai deux frères.",
+          "en": "I have two brothers.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Tu connais ma sœur ?",
+          "en": "Do you know my sister?",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "Retrouver ses amis",
+        "sourceTitleEnglish": "Encontrar a los amigos",
+        "target": [
+          "Je cherche Ana à la bibliothèque.",
+          "Je vois Luis près de la porte.",
+          "Nous rendons visite à la professeure aujourd’hui.",
+          "Je cherche mon livre dans le sac à dos.",
+          "J’ai deux frères.",
+          "Tu connais ma sœur ?"
+        ],
+        "native": [
+          "I am looking for Ana in the library.",
+          "I see Luis near the door.",
+          "We are visiting the teacher today.",
+          "I am looking for my book in the backpack.",
+          "I have two brothers.",
+          "Do you know my sister?"
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete without a personal a: Je cherche ___ à la bibliothèque.",
+          "answer": "Ana"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: I see Luis near the door.",
+          "answer": "Je vois Luis près de la porte."
+        },
+        {
+          "type": "listening",
+          "audioText": "Je cherche mon livre dans le sac à dos.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen: what is being sought in the backpack?",
+          "answer": "My book."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "Who are we visiting today in the reading?",
+          "answer": "The female teacher."
+        },
+        {
+          "type": "recall",
+          "prompt": "Complete: Tu connais ___ sœur ?",
+          "answer": "ma"
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 26,
+      "title": "Raconter hier",
+      "sourceTitleEnglish": "Regular completed past actions",
+      "sourceObjectiveEnglish": "Regular completed past actions: The preterite reports completed past actions.",
+      "objective": "Racontez des actions achevées hier au passé composé avec avoir et distinguez les participes réguliers de quelques formes fréquentes irrégulières.",
+      "foundationTie": "Builds on Core 19 plans and Core 24 class materials; now locates completed actions in the past.",
+      "focus": "passé composé: avoir au présent + participe passé; -é/-i/-u and acheté, étudié, parlé, fini, mangé, écrit",
+      "grammar": {
+        "explanation": "For these completed actions, use the present of avoir plus a past participle: j’ai étudié, Ana a acheté, nous avons mangé. Many -er verbs form -é (parler → parlé); many -ir verbs form -i (finir → fini), and many -re verbs form -u (vendre → vendu), but there are exceptions. Écrire → écrit is irregular. A simple question can use est-ce que: Est-ce que tu as fini les devoirs hier ?",
+        "model": {
+          "study": "Hier, j’ai étudié à la bibliothèque.",
+          "buy": "Ana a acheté un cahier.",
+          "eat": "Nous avons mangé à la cafétéria.",
+          "write": "Luis a écrit un message."
+        },
+        "caution": "The Spanish source calls this the preterite, but French does not use one analogous everyday form for all these lines. This lesson uses the conversational passé composé. “Comimos” and “escribió” yield French mangé and irregular écrit; the lesson title “regular” must not hide that contrast."
+      },
+      "scene": "Le lendemain d’une journée à l’école, des amis racontent ce qu’ils ont fait.",
+      "dialogue": [
+        "Hier, j’ai étudié à la bibliothèque.|Yesterday I studied in the library.",
+        "Ana a acheté un cahier.|Ana bought a notebook.",
+        "Nous avons mangé à la cafétéria.|We ate in the cafeteria.",
+        "Luis a écrit un message.|Luis wrote a message.",
+        "Mes amis ont parlé avec la professeure.|My friends spoke with the teacher.",
+        "Est-ce que tu as fini les devoirs hier ?|Did you finish the homework yesterday?"
+      ],
+      "speaking": "Tell a classmate what happened yesterday at school. Say where you studied, what Ana bought and where you ate; report Luis’s message and your friends’ talk with the teacher. Ask whether your classmate finished the homework, then repeat one answer using a different subject.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "cahier",
+          "en": "notebook",
+          "kind": "term"
+        },
+        {
+          "order": 2,
+          "fr": "la",
+          "en": "the / it / her (feminine)",
+          "kind": "term",
+          "note": "La is a feminine article or object pronoun by context."
+        },
+        {
+          "order": 3,
+          "fr": "un",
+          "en": "a (masculine)",
+          "kind": "term"
+        },
+        {
+          "order": 4,
+          "fr": "un cahier",
+          "en": "a notebook",
+          "kind": "term"
+        },
+        {
+          "order": 5,
+          "fr": "dans / sur / à",
+          "en": "in / on / at",
+          "kind": "term",
+          "note": "Choose dans, sur or à by location; the pinned English gloss is broad."
+        },
+        {
+          "order": 6,
+          "fr": "professeure",
+          "en": "female teacher",
+          "kind": "term",
+          "note": "Professeure refers here to a female teacher."
+        },
+        {
+          "order": 7,
+          "fr": "amis",
+          "en": "friends",
+          "kind": "term"
+        },
+        {
+          "order": 8,
+          "fr": "bibliothèque",
+          "en": "library",
+          "kind": "term"
+        },
+        {
+          "order": 9,
+          "fr": "Hier, j’ai étudié à la bibliothèque.",
+          "en": "Yesterday I studied in the library.",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Ana a acheté un cahier.",
+          "en": "Ana bought a notebook.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Nous avons mangé à la cafétéria.",
+          "en": "We ate in the cafeteria.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Luis a écrit un message.",
+          "en": "Luis wrote a message.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Mes amis ont parlé avec la professeure.",
+          "en": "My friends spoke with the teacher.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Est-ce que tu as fini les devoirs hier ?",
+          "en": "Did you finish the homework yesterday?",
+          "kind": "phrase",
+          "note": "Les devoirs is the usual French noun for school homework."
+        }
+      ],
+      "reading": {
+        "title": "Hier à l’école",
+        "sourceTitleEnglish": "Ayer en la escuela",
+        "target": [
+          "Hier, j’ai étudié à la bibliothèque.",
+          "Ana a acheté un cahier.",
+          "Nous avons mangé à la cafétéria.",
+          "Luis a écrit un message.",
+          "Mes amis ont parlé avec la professeure.",
+          "Est-ce que tu as fini les devoirs hier ?"
+        ],
+        "native": [
+          "Yesterday I studied in the library.",
+          "Ana bought a notebook.",
+          "We ate in the cafeteria.",
+          "Luis wrote a message.",
+          "My friends spoke with the teacher.",
+          "Did you finish the homework yesterday?"
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete the past: Hier, j’___ étudié.",
+          "answer": "ai"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: Luis wrote a message.",
+          "answer": "Luis a écrit un message."
+        },
+        {
+          "type": "listening",
+          "audioText": "Nous avons mangé à la cafétéria.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen: where did we eat?",
+          "answer": "In the cafeteria."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "Who bought a notebook in the reading?",
+          "answer": "Ana."
+        },
+        {
+          "type": "recall",
+          "prompt": "Complete the irregular participle: Luis a ___ un message.",
+          "answer": "écrit"
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 27,
+      "title": "Aller ou être hier",
+      "sourceTitleEnglish": "Ir and ser in the past",
+      "sourceObjectiveEnglish": "Ir and ser in the past: Fui, fuiste, fue, fuimos and fueron are preterite forms of both ir and ser.",
+      "objective": "Distinguez un déplacement accompli avec être allé d’un état ou jugement passé avec a été, et accordez allé avec le sujet.",
+      "foundationTie": "Extends Core 19 aller + infinitive and Core 26 passé composé to a movement verb and a past state.",
+      "focus": "aller: être + allé(e)(s); être: avoir + été",
+      "grammar": {
+        "explanation": "Unlike Spanish fui, French everyday past forms for “went” and “was” are different. Aller uses être as its auxiliary: je suis allé(e), Ana est allée, nous sommes allé(e)s. The participle agrees with the subject. Être uses avoir in the passé composé: la visite a été intéressante, le voyage a été difficile. These forms let you say whether someone went somewhere or what an experience was like.",
+        "model": {
+          "I went": "Hier, je suis allé au musée.",
+          "Ana went": "Ana est allée avec sa sœur.",
+          "visit was": "La visite a été intéressante.",
+          "we went": "Nous sommes allés au café ensuite."
+        },
+        "caution": "The Spanish source teaches that fui/fue/fuimos can belong to both ir and ser. French does not share that form; teach two distinct constructions instead. Je suis allé assumes a male speaker, je suis allée a female speaker. Nous sommes allés is mixed/masculine; an all-female group writes allées. Spoken endings may sound alike."
+      },
+      "scene": "Après une sortie au musée, des amis racontent où ils sont allés et ce qu’ils ont pensé de la visite.",
+      "dialogue": [
+        "Hier, je suis allé au musée.|Yesterday I went to the museum.",
+        "Ana est allée avec sa sœur.|Ana went with her sister.",
+        "La visite a été intéressante.|The visit was interesting.",
+        "Nous sommes allés au café ensuite.|We went to the café afterward.",
+        "Les amis ont été très gentils.|The friends were very kind.",
+        "Le voyage a été difficile ?|Was the trip difficult?"
+      ],
+      "speaking": "Describe a museum trip to a classmate. Say where you went, who accompanied Ana, what the visit was like, and where your group went afterward. Ask whether the trip was difficult, then confirm who was kind. Use être allé for movement and a été/ont été for descriptions.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "le",
+          "en": "the (masculine singular)",
+          "kind": "term"
+        },
+        {
+          "order": 2,
+          "fr": "la",
+          "en": "the / it / her (feminine)",
+          "kind": "term",
+          "note": "La can be a feminine article or object pronoun."
+        },
+        {
+          "order": 3,
+          "fr": "les",
+          "en": "the / them (masculine plural)",
+          "kind": "term",
+          "note": "Les is a plural article or object pronoun for any gender."
+        },
+        {
+          "order": 4,
+          "fr": "amis",
+          "en": "friends",
+          "kind": "term"
+        },
+        {
+          "order": 5,
+          "fr": "gentils / gentilles",
+          "en": "kind (plural)",
+          "kind": "term",
+          "note": "Gentils is masculine/mixed plural; gentilles is feminine plural."
+        },
+        {
+          "order": 6,
+          "fr": "avec",
+          "en": "with",
+          "kind": "term"
+        },
+        {
+          "order": 7,
+          "fr": "café",
+          "en": "coffee / café",
+          "kind": "term",
+          "note": "Café means the drink or the place, depending on context; the reading means the place."
+        },
+        {
+          "order": 8,
+          "fr": "son / sa / ses",
+          "en": "his / her / your formal / their",
+          "kind": "term",
+          "note": "French son/sa/ses agrees with the thing possessed, not the possessor; English his/her/your/their requires context."
+        },
+        {
+          "order": 9,
+          "fr": "Hier, je suis allé au musée.",
+          "en": "Yesterday I went to the museum.",
+          "kind": "phrase",
+          "note": "Allé marks a male speaker; a female speaker writes allée."
+        },
+        {
+          "order": 10,
+          "fr": "Ana est allée avec sa sœur.",
+          "en": "Ana went with her sister.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "La visite a été intéressante.",
+          "en": "The visit was interesting.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Nous sommes allés au café ensuite.",
+          "en": "We went to the café afterward.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Les amis ont été très gentils.",
+          "en": "The friends were very kind.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Le voyage a été difficile ?",
+          "en": "Was the trip difficult?",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "Une sortie au musée",
+        "sourceTitleEnglish": "Una excursión",
+        "target": [
+          "Hier, je suis allé au musée.",
+          "Ana est allée avec sa sœur.",
+          "La visite a été intéressante.",
+          "Nous sommes allés au café ensuite.",
+          "Les amis ont été très gentils.",
+          "Le voyage a été difficile ?"
+        ],
+        "native": [
+          "Yesterday I went to the museum.",
+          "Ana went with her sister.",
+          "The visit was interesting.",
+          "We went to the café afterward.",
+          "The friends were very kind.",
+          "Was the trip difficult?"
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete for Ana: Ana est ___ avec sa sœur.",
+          "answer": "allée"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: The visit was interesting.",
+          "answer": "La visite a été intéressante."
+        },
+        {
+          "type": "listening",
+          "audioText": "Nous sommes allés au café ensuite.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen: where did the group go afterward?",
+          "answer": "To the café."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "How were the friends in the reading?",
+          "answer": "Very kind."
+        },
+        {
+          "type": "recall",
+          "prompt": "Complete the past description: La visite a ___ intéressante.",
+          "answer": "été"
+        }
+      ],
+      "locale": "fr-FR"
+    }
+  ]
+}

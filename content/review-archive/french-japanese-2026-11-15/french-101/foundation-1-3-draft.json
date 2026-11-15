@@ -1,0 +1,556 @@
+{
+  "target": "French",
+  "native": "English",
+  "moduleId": "french-basics",
+  "stage": "foundation",
+  "reviewed": false,
+  "state": "authored-draft",
+  "source": {
+    "path": "src/data/core60/es/foundation-spanish-basics.json",
+    "sourceSha256": "820ed6fcd726180c3794027f4578de051666d973eb2e23373e086c94c6211eb0",
+    "sourceSubsetSha256": "931cc16edfcfee9be0e0b5401f06e1956138872570f95c7857e4e76573c732d0",
+    "use": "learning architecture and English objectives only"
+  },
+  "draftModel": "Claude Haiku via CLI OAuth",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Greetings and your name",
+      "sourceObjectiveEnglish": "Greetings and clear vowels: Say each Spanish vowel clearly: a, e, i, o, u.",
+      "focus": "Greet someone with bonjour and introduce yourself with je m’appelle. The j in je and bonjour sounds /ʒ/; ou in bonjour sounds /u/; on in bonjour is a nasal vowel /ɔ̃/ with no separate n sound. Some final consonants are silent (Paris, salut), but others are pronounced (Marc, Paul, bonjour). Use vous with an adult you have just met; save tu for familiar classmates once you agree to be informal. A woman writes enchantée with a final -e; it sounds the same as enchanté.",
+      "scene": "At an adult language café. Claire and Marc meet for the first time and use polite vous to exchange names and greetings.",
+      "dialogue": [
+        "Claire: Bonjour ! Je m’appelle Claire.|Hello! My name is Claire.",
+        "Claire: Comment vous appelez-vous ?|What is your name?",
+        "Marc: Bonjour, je m’appelle Marc.|Hello, my name is Marc.",
+        "Claire: Enchantée, Marc. Ça va ?|Pleased to meet you, Marc. How are you?",
+        "Marc: Enchanté, Claire. Ça va bien, merci. Et vous ?|Pleased to meet you, Claire. I’m doing well, thank you. And you?",
+        "Claire: Ça va bien, merci.|I’m doing well, thank you.",
+        "Marc: Merci, bonne journée !|Thank you, have a good day!",
+        "Claire: Au revoir, Marc !|Goodbye, Marc!"
+      ],
+      "speaking": "Role-play meeting another adult learner at a language café. Begin with Bonjour and Je m’appelle plus your name. Ask Comment vous appelez-vous ?; respond to Ça va ?; say Enchanté(e) and close with Merci, bonne journée ! and Au revoir. Your partner uses polite vous, repeats an unclear word, and explains unfamiliar words in English if asked. Then repeat bonjour and je m’appelle aloud, noticing /ʒ/, /u/, and nasal /ɔ̃/.",
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "How do you say “My name is” in French?",
+          "answer": "Je m’appelle",
+          "acceptedAnswers": [
+            "Je m’appelle",
+            "Je m'appelle"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; preserve article, number, and accents for learning feedback."
+        },
+        {
+          "type": "write",
+          "prompt": "Write “Pleased to meet you” as Claire would write it.",
+          "answer": "Enchantée",
+          "acceptedAnswers": [
+            "Enchantée"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; preserve article, number, and accents for learning feedback."
+        },
+        {
+          "type": "listening",
+          "prompt": "Listen to Claire introduce herself. Which word has the “zh” sound?",
+          "audioText": "Bonjour ! Je m’appelle Claire.",
+          "answer": "Bonjour",
+          "acceptedAnswers": [
+            "Bonjour",
+            "Je"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; preserve article, number, and accents for learning feedback.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "After Marc says “Et vous ?”, what is he asking Claire?",
+          "answer": "And you?",
+          "acceptedAnswers": [
+            "And you?",
+            "How are you?"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation."
+        }
+      ],
+      "objective": "Greet a new adult learner, exchange names politely, and hear and produce the French /ʒ/, /u/, and nasal /ɔ̃/ sounds in familiar words.",
+      "words": [
+        {
+          "fr": "bonjour",
+          "en": "hello, good day",
+          "kind": "term"
+        },
+        {
+          "fr": "bonsoir",
+          "en": "good evening",
+          "kind": "term"
+        },
+        {
+          "fr": "au revoir",
+          "en": "goodbye",
+          "kind": "term"
+        },
+        {
+          "fr": "merci",
+          "en": "thank you",
+          "kind": "term"
+        },
+        {
+          "fr": "je m’appelle",
+          "en": "my name is",
+          "kind": "term"
+        },
+        {
+          "fr": "Comment vous appelez-vous ?",
+          "en": "What is your name? (polite)",
+          "kind": "phrase"
+        },
+        {
+          "fr": "enchanté",
+          "en": "pleased to meet you (said by a man)",
+          "kind": "term"
+        },
+        {
+          "fr": "Ça va bien, merci.",
+          "en": "I’m doing well, thank you.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Et vous ?",
+          "en": "And you? (polite)",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Bonne journée !",
+          "en": "Have a good day!",
+          "kind": "phrase"
+        },
+        {
+          "fr": "oui",
+          "en": "yes",
+          "kind": "term"
+        },
+        {
+          "fr": "non",
+          "en": "no",
+          "kind": "term"
+        },
+        {
+          "fr": "Ça va ?",
+          "en": "How are you?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "enchantée",
+          "en": "pleased to meet you (said by a woman)",
+          "kind": "term"
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 2,
+      "title": "Masculine and feminine: le, la, un, une",
+      "sourceObjectiveEnglish": "El, la, un and una: A noun has grammatical gender.",
+      "focus": "French nouns are grammatically masculine or feminine. Learn each object with its article: un stylo, une trousse. Use un/une when naming or introducing one object (C’est un cahier); use le/la for a particular object already identified (Voilà la gomme). The noun ending is only a partial gender clue, so learn the article with the noun. Hear the difference between nasal un and pronounced n in une, and between le and la.",
+      "scene": "A classroom desk after a lesson. Léa points to objects on the table and asks Paul what each one is, and they sort the items by their articles.",
+      "dialogue": [
+        "Léa: Qu’est-ce que c’est ?|What is it?",
+        "Paul: C’est un cahier.|It’s a notebook.",
+        "Léa: Et ça, c’est une trousse ?|And that one, is it a pencil case?",
+        "Paul: Oui, c’est une trousse.|Yes, it’s a pencil case.",
+        "Léa: Et ça, c’est un stylo ou une gomme ?|And that one, is it a pen or an eraser?",
+        "Paul: C’est un stylo. Et voilà la gomme.|It’s a pen. And here is the eraser.",
+        "Léa: D’accord. Merci, Paul !|Okay. Thanks, Paul!"
+      ],
+      "speaking": "Role-play sorting objects with a classmate after class. Open with Qu’est-ce que c’est ? Name an unfamiliar object with C’est un... or C’est une..., then point to a specific known object with Voilà le... or Voilà la.... Ask whether another object is a stylo or a gomme and answer the same question. Close with Merci. Your partner gently checks the article and explains unfamiliar words in English when asked.",
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Which article completes “___ trousse” for “a pencil case”?",
+          "answer": "une",
+          "acceptedAnswers": [
+            "une"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; preserve article, number, and accents for learning feedback."
+        },
+        {
+          "type": "write",
+          "prompt": "Write “Here is the eraser” in French.",
+          "answer": "Voilà la gomme.",
+          "acceptedAnswers": [
+            "Voilà la gomme.",
+            "Voilà la gomme"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; preserve article, number, and accents for learning feedback."
+        },
+        {
+          "type": "listening",
+          "prompt": "Listen and choose the article you hear before “trousse”: un or une?",
+          "audioText": "C’est une trousse.",
+          "answer": "une",
+          "acceptedAnswers": [
+            "une"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; preserve article, number, and accents for learning feedback.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "In the dialogue, which object does Paul identify first?",
+          "answer": "a notebook",
+          "acceptedAnswers": [
+            "a notebook",
+            "notebook",
+            "un cahier"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation."
+        }
+      ],
+      "objective": "Name familiar classroom objects with un or une, and use le or la when pointing to a specific object.",
+      "words": [
+        {
+          "fr": "un",
+          "en": "a, one (masculine)",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg"
+        },
+        {
+          "fr": "une",
+          "en": "a, one (feminine)",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg"
+        },
+        {
+          "fr": "le",
+          "en": "the (masculine)",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg"
+        },
+        {
+          "fr": "la",
+          "en": "the (feminine)",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg"
+        },
+        {
+          "fr": "le stylo",
+          "en": "the pen",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg",
+          "pairedForm": "les stylos"
+        },
+        {
+          "fr": "la table",
+          "en": "the table",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg",
+          "pairedForm": "les tables"
+        },
+        {
+          "fr": "un cahier",
+          "en": "a notebook",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg",
+          "pairedForm": "des cahiers"
+        },
+        {
+          "fr": "une trousse",
+          "en": "a pencil case",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg",
+          "pairedForm": "des trousses"
+        },
+        {
+          "fr": "le livre",
+          "en": "the book",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg",
+          "pairedForm": "les livres"
+        },
+        {
+          "fr": "la chaise",
+          "en": "the chair",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg",
+          "pairedForm": "les chaises"
+        },
+        {
+          "fr": "la porte",
+          "en": "the door",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg",
+          "pairedForm": "les portes"
+        },
+        {
+          "fr": "Qu’est-ce que c’est ?",
+          "en": "What is it?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "C’est un stylo.",
+          "en": "It's a pen.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Voilà la gomme.",
+          "en": "Here is the eraser.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Et ça, c’est une trousse ?",
+          "en": "And that one, is it a pencil case?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "la gomme",
+          "en": "the eraser",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg",
+          "pairedForm": "les gommes"
+        },
+        {
+          "fr": "Voilà.",
+          "en": "Here it is.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "ou",
+          "en": "or",
+          "kind": "term"
+        },
+        {
+          "fr": "et",
+          "en": "and",
+          "kind": "term"
+        },
+        {
+          "fr": "D’accord.",
+          "en": "Okay.",
+          "kind": "phrase"
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 3,
+      "title": "One thing or several: des, les and plurals",
+      "sourceObjectiveEnglish": "One thing or several: Usually add -s after a vowel and -es after a consonant.",
+      "focus": "Most French plurals are written with -s: un crayon → des crayons. The final -s is usually silent, so the article often tells you whether one or several are meant: le /lə/ versus les /le/, un or une versus des /de/. Un and une become des for unspecified plural objects; le and la become les for specific plural objects. Nouns already ending in -s, -x, or -z keep that ending in the plural. Other patterns come later; learn each new plural in context.",
+      "scene": "At the language-school supply cupboard, Léa and Paul sort pencils, notebooks, erasers, and books for a class.",
+      "dialogue": [
+        "Léa: Voilà les crayons.|Here are the pencils.",
+        "Paul: Merci ! Et ça, ce sont des stylos ?|Thank you! And these, are they pens?",
+        "Léa: Oui, ce sont des stylos. Et voilà les cahiers.|Yes, they are pens. And here are the notebooks.",
+        "Paul: Et la gomme ?|And the eraser?",
+        "Léa: Voilà la gomme et la trousse.|Here’s the eraser and the pencil case.",
+        "Paul: Parfait ! Et les livres ?|Perfect! And the books?",
+        "Léa: Voilà les livres.|Here are the books.",
+        "Paul: Merci, Léa. Au revoir !|Thanks, Léa. Goodbye!",
+        "Léa: Au revoir, Paul !|Goodbye, Paul!"
+      ],
+      "speaking": "Role-play sorting school supplies with a classmate. Open with Voilà les crayons. Ask whether another group consists of pens with Et ça, ce sont des stylos ? Point to a single eraser with Voilà la gomme, then identify the notebooks and books in the plural with les. Close with Merci and Au revoir. Your partner repeats an unclear article and explains unfamiliar words in English when asked.",
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "What is the plural of “le livre” (the book)?",
+          "answer": "les livres",
+          "acceptedAnswers": [
+            "les livres"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; preserve article, number, and accents for learning feedback."
+        },
+        {
+          "type": "write",
+          "prompt": "Write “some pencils” in French.",
+          "answer": "des crayons",
+          "acceptedAnswers": [
+            "des crayons"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; preserve article, number, and accents for learning feedback."
+        },
+        {
+          "type": "listening",
+          "prompt": "Listen and choose whether the speaker says one notebook or the notebooks.",
+          "audioText": "Les cahiers.",
+          "answer": "the notebooks",
+          "acceptedAnswers": [
+            "the notebooks",
+            "notebooks",
+            "plural"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation; preserve article, number, and accents for learning feedback.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "Which supplies does Léa show after the pens?",
+          "answer": "the notebooks",
+          "acceptedAnswers": [
+            "the notebooks",
+            "notebooks",
+            "les cahiers"
+          ],
+          "normalization": "Ignore capitalization and terminal punctuation."
+        }
+      ],
+      "objective": "Distinguish one classroom object from several using un/une/des and le/la/les, and hear plural meaning through the article.",
+      "words": [
+        {
+          "fr": "un",
+          "en": "a, one (masculine singular)",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg",
+          "review": true
+        },
+        {
+          "fr": "une",
+          "en": "a, one (feminine singular)",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg",
+          "review": true
+        },
+        {
+          "fr": "des",
+          "en": "some (unspecified plural article, often untranslated)",
+          "kind": "term",
+          "number": "pl"
+        },
+        {
+          "fr": "le",
+          "en": "the (masculine singular)",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg",
+          "review": true
+        },
+        {
+          "fr": "la",
+          "en": "the (feminine singular)",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg",
+          "review": true
+        },
+        {
+          "fr": "les",
+          "en": "the (plural)",
+          "kind": "term",
+          "number": "pl"
+        },
+        {
+          "fr": "le crayon",
+          "en": "the pencil",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg",
+          "pairedForm": "les crayons"
+        },
+        {
+          "fr": "les cahiers",
+          "en": "the notebooks",
+          "kind": "term",
+          "gender": "m",
+          "number": "pl",
+          "pairedForm": "le cahier"
+        },
+        {
+          "fr": "des crayons",
+          "en": "some pencils",
+          "kind": "term",
+          "gender": "m",
+          "number": "pl",
+          "pairedForm": "un crayon"
+        },
+        {
+          "fr": "la gomme",
+          "en": "the eraser",
+          "kind": "term",
+          "gender": "f",
+          "number": "sg",
+          "pairedForm": "les gommes",
+          "review": true
+        },
+        {
+          "fr": "les livres",
+          "en": "the books",
+          "kind": "term",
+          "gender": "m",
+          "number": "pl",
+          "pairedForm": "le livre"
+        },
+        {
+          "fr": "Voilà les livres.",
+          "en": "Here are the books.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Ce sont des stylos.",
+          "en": "These are pens.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Voilà la gomme.",
+          "en": "Here is the eraser.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Et ça, ce sont des stylos ?",
+          "en": "And these, are they pens?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "voilà",
+          "en": "here is / here are",
+          "kind": "term",
+          "review": true
+        },
+        {
+          "fr": "et",
+          "en": "and",
+          "kind": "term",
+          "review": true
+        },
+        {
+          "fr": "un crayon",
+          "en": "a pencil",
+          "kind": "term",
+          "gender": "m",
+          "number": "sg",
+          "pairedForm": "des crayons"
+        },
+        {
+          "fr": "des cahiers",
+          "en": "some notebooks",
+          "kind": "term",
+          "gender": "m",
+          "number": "pl",
+          "pairedForm": "un cahier"
+        },
+        {
+          "fr": "Parfait !",
+          "en": "Perfect!",
+          "kind": "phrase"
+        }
+      ],
+      "locale": "fr-FR"
+    }
+  ]
+}

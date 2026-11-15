@@ -1,0 +1,539 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "core",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "englishSourceSubsetSHA256": "9de76b045756a94be2f5df3b7f4a72ccff40b009185817511b9a481ab8cf3798",
+  "sourceFileSHA256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+  },
+  "lessons": [
+    {
+      "n": 21,
+      "stableId": "roofing:21:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Tie-Off Before Access",
+      "sourceEnglishObjective": "Give a clear fall-protection instruction",
+      "sourceEnglishSpeaking": "Tell the crew to tie off before roof access and ask them to point to the approved anchor.",
+      "title": "屋根に上がる前のハーネスの接続",
+      "objective": "屋根に上がる前の墜落防止用ハーネスの接続を明確に指示する。",
+      "focus": "～前に places the tie-off before roof access. ～ないでください prohibits an action; ～がなければ states the condition for not going up.",
+      "cards": [
+        {
+          "ja": "フルハーネス",
+          "en": "harness",
+          "kind": "term"
+        },
+        {
+          "ja": "墜落防止用の接続",
+          "en": "tie-off",
+          "kind": "term"
+        },
+        {
+          "ja": "屋根のアンカー",
+          "en": "roof anchor",
+          "kind": "term"
+        },
+        {
+          "ja": "ランヤード",
+          "en": "lanyard",
+          "kind": "term"
+        },
+        {
+          "ja": "墜落防止",
+          "en": "fall protection",
+          "kind": "term"
+        },
+        {
+          "ja": "バックル",
+          "en": "buckle",
+          "kind": "term"
+        },
+        {
+          "ja": "ヘルメット",
+          "en": "hard hat",
+          "kind": "term"
+        },
+        {
+          "ja": "墜落の危険",
+          "en": "fall hazard",
+          "kind": "term"
+        },
+        {
+          "ja": "屋根に上がる前にハーネスをアンカーに接続してください。",
+          "en": "Tie off before you go on the roof.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "屋根のアンカーを使ってください。自己判断で別の場所に接続しないでください。",
+          "en": "Use the roof anchor — don't freelance.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "地面に接触しない長さのランヤードを使ってください。",
+          "en": "Lanyard short enough you won't hit the ground.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "承認されたアンカーを見せてください。",
+          "en": "Show me the approved anchor.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "上がる前にハーネスを確認してください。",
+          "en": "Check your harness before you climb.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "ハーネスなしでは誰も上がらないでください。",
+          "en": "Nobody goes up without a harness.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "屋根に上がる前に、職長ははしごの横に作業班を集めます。",
+          "en": "Before going up, the foreman gathers the crew next to the ladder."
+        },
+        {
+          "ja": "屋根の端には墜落の危険があるため、ハーネスなしでは誰も上がらないでください。",
+          "en": "Nobody goes up without a harness, because there is a fall hazard at the edge of the roof."
+        },
+        {
+          "ja": "上がる前に、バックル、ランヤード、ストラップを確認してください。",
+          "en": "Check your harness before you climb: the buckle, the lanyard, and the straps."
+        },
+        {
+          "ja": "屋根に上がる前にハーネスをアンカーに接続してください。",
+          "en": "Tie your harness off before you go up on the roof."
+        },
+        {
+          "ja": "承認されたアンカーを見せてください。",
+          "en": "Show me the approved anchor."
+        },
+        {
+          "ja": "屋根のアンカーが見つからなければ、上がらずに職長に伝えてください。",
+          "en": "If you don't see a roof anchor, don't go up and tell me."
+        },
+        {
+          "ja": "ヘルメットも着用してください。",
+          "en": "Put on your hard hat too."
+        },
+        {
+          "ja": "墜落防止は、各自が正しく使って初めて機能します。",
+          "en": "Fall protection only works if each person uses it correctly."
+        },
+        {
+          "ja": "接続した後、各自が職長に親指を立てて合図します。",
+          "en": "After tying off, each person gives a thumbs up to let the foreman know."
+        }
+      ],
+      "forms": [
+        {
+          "base": "上がる",
+          "exampleJa": "ハーネスなしでは誰も上がらないでください。",
+          "meaningEnglish": "to go up, to climb",
+          "exampleEnglish": "Nobody goes up without a harness.",
+          "sourceInfinitiveSpanish": "subir"
+        },
+        {
+          "base": "確認する",
+          "exampleJa": "全員が屋根に上がる前にハーネスを確認します。",
+          "meaningEnglish": "to check, to inspect",
+          "exampleEnglish": "Everyone checks their harness before going up.",
+          "sourceInfinitiveSpanish": "revisar"
+        },
+        {
+          "base": "接続する",
+          "exampleJa": "屋根に上がる前にハーネスをアンカーに接続します。",
+          "meaningEnglish": "to anchor, to tie off",
+          "exampleEnglish": "We tie off the harness before going up on the roof.",
+          "sourceInfinitiveSpanish": "anclar"
+        },
+        {
+          "base": "見せる",
+          "exampleJa": "各自が承認されたアンカーを職長に見せます。",
+          "meaningEnglish": "to show",
+          "exampleEnglish": "Each person shows the approved anchor to the foreman.",
+          "sourceInfinitiveSpanish": "mostrar"
+        },
+        {
+          "base": "使う",
+          "exampleJa": "墜落防止は各自が正しく使って初めて機能します。",
+          "meaningEnglish": "to use",
+          "exampleEnglish": "Fall protection only works if each person uses it correctly.",
+          "sourceInfinitiveSpanish": "usar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "上がる前にハーネスを確認し、承認された屋根のアンカーに接続してください。アンカーを見せてください。",
+        "goal": "Tell the crew to tie off before roof access and ask them to point to the approved anchor."
+      },
+      "modes": {
+        "see": "Identify the harness, lanyard, buckle, and roof anchor.",
+        "recall": "Recall tie-off, roof anchor, and fall hazard.",
+        "hear": "Distinguish アンカー from ランヤード when spoken.",
+        "type": "Type 'Check your harness before you climb' in Japanese.",
+        "say": "Give a clear tie-off instruction before roof access.",
+        "write": "Write what the crew checks and shows before going up."
+      }
+    },
+    {
+      "n": 22,
+      "stableId": "roofing:22:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Anchor & Lifeline Check",
+      "sourceEnglishObjective": "Raise a concern about the anchor or lifeline",
+      "sourceEnglishSpeaking": "Stop work and ask the competent person to confirm the site-specific setup.",
+      "title": "アンカーと親綱の点検",
+      "objective": "アンカーや親綱に関する懸念を伝える。",
+      "focus": "～かどうか embeds an inspection question. ～たら marks the failure condition, and ～前に orders confirmation before continuing.",
+      "cards": [
+        {
+          "ja": "アンカー",
+          "en": "anchor",
+          "kind": "term"
+        },
+        {
+          "ja": "親綱",
+          "en": "lifeline",
+          "kind": "term"
+        },
+        {
+          "ja": "墜落距離",
+          "en": "fall distance",
+          "kind": "term"
+        },
+        {
+          "ja": "フルハーネス",
+          "en": "harness",
+          "kind": "term"
+        },
+        {
+          "ja": "ランヤード",
+          "en": "lanyard",
+          "kind": "term"
+        },
+        {
+          "ja": "適任者（competent person）",
+          "en": "competent person",
+          "kind": "term"
+        },
+        {
+          "ja": "点検",
+          "en": "inspection",
+          "kind": "term"
+        },
+        {
+          "ja": "ロープ",
+          "en": "rope",
+          "kind": "term"
+        },
+        {
+          "ja": "作業を止める",
+          "en": "stop work",
+          "kind": "term"
+        },
+        {
+          "ja": "屋根のアンカーを使ってください。自己判断で別の場所に接続しないでください。",
+          "en": "Use the roof anchor — don't freelance.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "作業を止めてください。アンカーは安全ではありません。",
+          "en": "Stop work. The anchor is not safe.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "適任者はどこにいますか。",
+          "en": "Where is the competent person?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "親綱に損傷がないか確認してください。",
+          "en": "Check the lifeline for damage.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "続ける前にアンカーの設置状態を確認してください。",
+          "en": "Confirm the anchor setup before we continue.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "屋根で作業中、作業員が親綱の異常に気づきます。",
+          "en": "While they work on the roof, a worker sees something wrong with the lifeline."
+        },
+        {
+          "ja": "作業員は立ち止まり、職長に伝えます。",
+          "en": "He stops and tells the foreman."
+        },
+        {
+          "ja": "職長は「作業を止めてください。アンカーは安全ではありません」と言います。",
+          "en": "The foreman says: Stop work. The anchor is not safe."
+        },
+        {
+          "ja": "職長は「適任者はどこにいますか」と尋ねます。",
+          "en": "The foreman asks: Where is the competent person?"
+        },
+        {
+          "ja": "親綱に損傷がないか確認してください。",
+          "en": "Check whether the lifeline has any damage."
+        },
+        {
+          "ja": "適任者が点検し、墜落防止システムの墜落距離を確認します。",
+          "en": "The competent person does the inspection and confirms the fall distance of the system."
+        },
+        {
+          "ja": "続ける前にアンカーの設置状態を確認してください。",
+          "en": "Confirm the anchor setup before we continue."
+        },
+        {
+          "ja": "アンカーやランヤードが機能しなければ、ハーネスは役に立ちません。",
+          "en": "A harness is no use if the anchor or the lanyard fails."
+        }
+      ],
+      "forms": [
+        {
+          "base": "止める",
+          "exampleJa": "作業を止めてください。アンカーは安全ではありません。",
+          "meaningEnglish": "to stop",
+          "exampleEnglish": "Stop work. The anchor is not safe.",
+          "sourceInfinitiveSpanish": "detener"
+        },
+        {
+          "base": "確認する",
+          "exampleJa": "親綱に損傷がないか確認してください。",
+          "meaningEnglish": "to check / to inspect",
+          "exampleEnglish": "Check whether the lifeline has any damage.",
+          "sourceInfinitiveSpanish": "revisar"
+        },
+        {
+          "base": "確認する",
+          "exampleJa": "適任者がシステムの墜落距離を確認します。",
+          "meaningEnglish": "to confirm",
+          "exampleEnglish": "The competent person confirms the fall distance of the system.",
+          "sourceInfinitiveSpanish": "confirmar"
+        },
+        {
+          "base": "伝える",
+          "exampleJa": "作業員は立ち止まり、職長に伝えます。",
+          "meaningEnglish": "to notify / to tell (a warning)",
+          "exampleEnglish": "The worker stops and tells the foreman.",
+          "sourceInfinitiveSpanish": "avisar"
+        },
+        {
+          "base": "機能しない",
+          "exampleJa": "アンカーやランヤードが機能しなければ、ハーネスは役に立ちません。",
+          "meaningEnglish": "to fail",
+          "exampleEnglish": "A harness is no use if the anchor or the lanyard fails.",
+          "sourceInfinitiveSpanish": "fallar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "作業を止めてください。親綱に損傷があるようです。適任者にアンカーの設置状態と墜落距離を確認してもらってください。",
+        "goal": "Stop work and ask the competent person to confirm the site-specific setup."
+      },
+      "modes": {
+        "see": "Identify the damaged lifeline and the anchor setup.",
+        "recall": "Recall lifeline, competent person, fall distance, and inspection.",
+        "hear": "Distinguish 親綱 from ロープ when spoken.",
+        "type": "Type 'Where is the competent person?' in Japanese.",
+        "say": "Raise a concern about the anchor and request an inspection.",
+        "write": "Write what must be confirmed before work continues."
+      }
+    },
+    {
+      "n": 23,
+      "stableId": "roofing:23:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Footing & Weather",
+      "sourceEnglishObjective": "Warn about slippery conditions and changing weather",
+      "sourceEnglishSpeaking": "Warn the crew about slick footing and bring them down when lightning approaches.",
+      "title": "足元の安定と天候",
+      "objective": "滑りやすい状態と変わる天候について警告する。",
+      "focus": "～ので gives the reason for a warning. ～たら sets a weather-change condition; ～てください gives a direct instruction to come down.",
+      "cards": [
+        {
+          "ja": "朝露",
+          "en": "dew",
+          "kind": "term"
+        },
+        {
+          "ja": "足元の安定",
+          "en": "footing",
+          "kind": "term"
+        },
+        {
+          "ja": "雷",
+          "en": "lightning",
+          "kind": "term"
+        },
+        {
+          "ja": "滑りやすい",
+          "en": "slippery",
+          "kind": "term"
+        },
+        {
+          "ja": "濡れている",
+          "en": "wet",
+          "kind": "term"
+        },
+        {
+          "ja": "雨",
+          "en": "rain",
+          "kind": "term"
+        },
+        {
+          "ja": "風",
+          "en": "wind",
+          "kind": "term"
+        },
+        {
+          "ja": "嵐",
+          "en": "storm",
+          "kind": "term"
+        },
+        {
+          "ja": "作業靴",
+          "en": "boots",
+          "kind": "term"
+        },
+        {
+          "ja": "足元に気をつけてください。朝露で滑りやすくなっています。",
+          "en": "Watch your footing — the dew is slick.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "雷が発生している間は屋根で作業しないでください。",
+          "en": "Don't work the roof in lightning.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "天候が変わったら作業を止めて降りてください。",
+          "en": "Stop work and come down if the weather changes.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "屋根が濡れています。気をつけてください。",
+          "en": "The roof is wet. Be careful.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "嵐が近づいています。今すぐ降りてください。",
+          "en": "A storm is coming. Come down now.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "滑りにくい作業靴を履いてください。",
+          "en": "Wear boots with good grip.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "午前六時半、屋根にはまだ朝露が残っています。",
+          "en": "It is 6:30 in the morning and there is still dew on the roof."
+        },
+        {
+          "ja": "職長は「屋根が濡れています。気をつけてください」と警告します。",
+          "en": "The foreman warns: The roof is wet. Be careful."
+        },
+        {
+          "ja": "朝露で屋根が滑りやすいため、安定した足元を探してください。",
+          "en": "Look for solid footing, because the dew makes the roof slippery."
+        },
+        {
+          "ja": "滑りにくい作業靴を履いてください。",
+          "en": "Wear boots with good grip."
+        },
+        {
+          "ja": "その後、風が強まり、空に暗い雲が現れます。",
+          "en": "Later, the wind picks up and dark clouds appear in the sky."
+        },
+        {
+          "ja": "雷が発生している間は屋根で作業しないでください。",
+          "en": "Do not work the roof in lightning."
+        },
+        {
+          "ja": "職長は「嵐が近づいています。今すぐ降りてください」と叫びます。",
+          "en": "The foreman shouts: A storm is coming. Come down now."
+        },
+        {
+          "ja": "天候が変わったら作業を止めて降りてください。",
+          "en": "Stop work and come down if the weather changes."
+        }
+      ],
+      "forms": [
+        {
+          "base": "降りる",
+          "exampleJa": "嵐が近づいています。今すぐ降りてください。",
+          "meaningEnglish": "to come down",
+          "exampleEnglish": "A storm is coming. Come down now.",
+          "sourceInfinitiveSpanish": "bajar"
+        },
+        {
+          "base": "止める",
+          "exampleJa": "天候が変わったら作業を止めて降りてください。",
+          "meaningEnglish": "to stop",
+          "exampleEnglish": "Stop work and come down if the weather changes.",
+          "sourceInfinitiveSpanish": "detener"
+        },
+        {
+          "base": "履く",
+          "exampleJa": "滑りにくい作業靴を履いてください。",
+          "meaningEnglish": "to use, to wear",
+          "exampleEnglish": "Wear boots with good grip.",
+          "sourceInfinitiveSpanish": "usar"
+        },
+        {
+          "base": "探す",
+          "exampleJa": "朝露で滑りやすいので、安定した足元を探します。",
+          "meaningEnglish": "to look for",
+          "exampleEnglish": "We look for solid footing because the dew is slick.",
+          "sourceInfinitiveSpanish": "buscar"
+        },
+        {
+          "base": "変わる",
+          "exampleJa": "天候が変わったら降りてください。",
+          "meaningEnglish": "to change",
+          "exampleEnglish": "Come down if the weather changes.",
+          "sourceInfinitiveSpanish": "cambiar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "屋根が朝露で滑りやすくなっています。足元に気をつけてください。嵐が近づいているので、今すぐ降りてください。",
+        "goal": "Warn the crew about slick footing and bring them down when lightning approaches."
+      },
+      "modes": {
+        "see": "Find the dew on the roof and the approaching dark clouds.",
+        "recall": "Recall dew, slippery footing, lightning, wind, and storm.",
+        "hear": "Distinguish 朝露 from 雨 when spoken.",
+        "type": "Type 'A storm is coming. Come down now' in Japanese.",
+        "say": "Warn the crew about slippery footing and changing weather.",
+        "write": "Write the foreman's instruction when the weather changes."
+      }
+    }
+  ],
+  "reviewGates": {
+    "independentJapaneseReview": false,
+    "qualifiedRoofingReview": false,
+    "sixModeRuntime": false,
+    "dictionarySenses": false,
+    "offlineVerified": false,
+    "recordedAudioListening": false,
+    "phoneAndNativeAcceptance": false
+  }
+}

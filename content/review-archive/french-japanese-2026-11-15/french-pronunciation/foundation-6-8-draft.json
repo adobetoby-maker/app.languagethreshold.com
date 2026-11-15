@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "foundation",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "foundation-french-sound-like-a-native:6:fr-en",
+      "n": 6,
+      "sourceSpanishLesson": 6,
+      "title": "Carry /s/ and /f/ into a clear vowel",
+      "objective": "Sustain the initial /s/ or /f/ briefly, then move into the vowel without adding an extra syllable.",
+      "focus": "Compare sac, sucre, fleur, and fil. Let air pass continuously at the start of /s/ and /f/, then keep the following French vowel steady.",
+      "words": [
+        { "fr": "sac", "en": "bag", "kind": "term" },
+        { "fr": "sucre", "en": "sugar", "kind": "term" },
+        { "fr": "salon", "en": "living room", "kind": "term" },
+        { "fr": "fleur", "en": "flower", "kind": "term" },
+        { "fr": "fil", "en": "thread", "kind": "term" },
+        { "fr": "photo", "en": "photograph", "kind": "term" },
+        { "fr": "La fleur est dans le sac.", "en": "The flower is in the bag.", "kind": "phrase" },
+        { "fr": "Je fais une photo dans le salon.", "en": "I take a photo in the living room.", "kind": "phrase" },
+        { "fr": "Le fil est sur le sac.", "en": "The thread is on the bag.", "kind": "phrase" },
+        { "fr": "Tu veux du sucre ?", "en": "Do you want some sugar?", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Dans le salon, je prépare une fleur pour une photo.", "en": "In the living room, I prepare a flower for a photo." },
+        { "fr": "Je trouve un fil sur mon sac.", "en": "I find a thread on my bag." },
+        { "fr": "Je mets la fleur dans le sac et je fais la photo.", "en": "I put the flower in the bag and take the photo." },
+        { "fr": "Ensuite, je demande : « Tu veux du sucre ? »", "en": "Then I ask, 'Do you want some sugar?'" }
+      ],
+      "speaking": { "scene": "Preparing a flower photo at home", "roles": ["photographer", "friend"], "opening": "Je fais une photo dans le salon.", "goals": ["Say where the flower is.", "Point out the thread on the bag.", "Offer your friend sugar."], "closure": "Merci, la photo est faite." },
+      "practice": {
+        "see": { "prompt": "Group sac, sucre, salon, fleur, fil, and photo by initial /s/ or /f/.", "wordRefs": ["sac", "sucre", "salon", "fleur", "fil", "photo"] },
+        "recall": { "prompt": "Recall the French word for flower before revealing it.", "answerRef": "fleur" },
+        "hear": { "prompt": "Listen for sac or fil in the recorded sentence.", "choices": ["sac", "fil"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The flower is in the bag.'", "answerRef": "La fleur est dans le sac." },
+        "say": { "prompt": "Ask your friend whether they want some sugar.", "answerRef": "Tu veux du sucre ?" },
+        "write": { "prompt": "Write two French sentences about the photo and where the flower is.", "requiredRefs": ["photo", "fleur", "sac"] }
+      }
+    },
+    {
+      "id": "foundation-french-sound-like-a-native:7:fr-en",
+      "n": 7,
+      "sourceSpanishLesson": 7,
+      "title": "Read /k/ in c and qu spellings",
+      "objective": "Recognize and pronounce /k/ in familiar French c and qu words while ordering at a café.",
+      "focus": "Compare café and carte with qui and quel. The spelling changes, but the opening /k/ sound remains. Read the whole word before choosing a spelling rule.",
+      "words": [
+        { "fr": "café", "en": "coffee; café", "kind": "term" },
+        { "fr": "carte", "en": "menu; map", "kind": "term" },
+        { "fr": "cuisine", "en": "kitchen; cooking", "kind": "term" },
+        { "fr": "qui", "en": "who", "kind": "term" },
+        { "fr": "quel", "en": "which; what (masculine singular)", "kind": "term" },
+        { "fr": "quatre", "en": "four", "kind": "term" },
+        { "fr": "Quel café prenez-vous ?", "en": "Which coffee are you having?", "kind": "phrase" },
+        { "fr": "La carte est sur la table.", "en": "The menu is on the table.", "kind": "phrase" },
+        { "fr": "Qui prépare le café ?", "en": "Who prepares the coffee?", "kind": "phrase" },
+        { "fr": "Il y a quatre tables près de la cuisine.", "en": "There are four tables near the kitchen.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Au café, la carte est sur la table.", "en": "At the café, the menu is on the table." },
+        { "fr": "Je demande : « Quel café prenez-vous ? »", "en": "I ask, 'Which coffee are you having?'" },
+        { "fr": "Mon ami demande qui prépare le café.", "en": "My friend asks who prepares the coffee." },
+        { "fr": "Nous voyons quatre tables près de la cuisine.", "en": "We see four tables near the kitchen." }
+      ],
+      "speaking": { "scene": "Choosing coffee at a café", "roles": ["customer", "friend"], "opening": "La carte est sur la table.", "goals": ["Ask which coffee your friend wants.", "Ask who prepares the coffee.", "Describe where four tables are."], "closure": "D'accord, je prends ce café." },
+      "practice": {
+        "see": { "prompt": "Find the /k/ spelling at the start of café, carte, qui, and quel.", "wordRefs": ["café", "carte", "qui", "quel"] },
+        "recall": { "prompt": "Recall the French word for menu before revealing it.", "answerRef": "carte" },
+        "hear": { "prompt": "Listen for carte or café in the recorded sentence.", "choices": ["carte", "café"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The menu is on the table.'", "answerRef": "La carte est sur la table." },
+        "say": { "prompt": "Ask who prepares the coffee, keeping /k/ clear in qui and café.", "answerRef": "Qui prépare le café ?" },
+        "write": { "prompt": "Write a French café exchange asking which coffee your friend wants and who makes it.", "requiredRefs": ["quel", "café", "qui"] }
+      }
+    },
+    {
+      "id": "foundation-french-sound-like-a-native:8:fr-en",
+      "n": 8,
+      "sourceSpanishLesson": 8,
+      "title": "Read hard /g/ in g and gu spellings",
+      "objective": "Use the French /g/ sound in g and gu words while asking for directions at a station.",
+      "focus": "Compare gare and gomme with guide and guitare. The written u in guide and guitare keeps g hard before i; do not pronounce it as a separate /u/ in these words.",
+      "words": [
+        { "fr": "gare", "en": "train station", "kind": "term" },
+        { "fr": "gomme", "en": "eraser", "kind": "term" },
+        { "fr": "guide", "en": "guide", "kind": "term" },
+        { "fr": "guitare", "en": "guitar", "kind": "term" },
+        { "fr": "bagage", "en": "piece of luggage", "kind": "term" },
+        { "fr": "gauche", "en": "left", "kind": "term" },
+        { "fr": "Le guide attend à la gare.", "en": "The guide is waiting at the station.", "kind": "phrase" },
+        { "fr": "Ma guitare est dans mon bagage.", "en": "My guitar is in my luggage.", "kind": "phrase" },
+        { "fr": "La gare est à gauche.", "en": "The station is on the left.", "kind": "phrase" },
+        { "fr": "Avez-vous une gomme ?", "en": "Do you have an eraser?", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Le guide nous attend à la gare.", "en": "The guide is waiting for us at the station." },
+        { "fr": "Il dit que la sortie est à gauche.", "en": "He says the exit is on the left." },
+        { "fr": "Ma guitare est dans mon bagage.", "en": "My guitar is in my luggage." },
+        { "fr": "Je demande au guide où poser mon bagage.", "en": "I ask the guide where to put my luggage." }
+      ],
+      "speaking": { "scene": "Meeting a guide at a station", "roles": ["traveler", "guide"], "opening": "Bonjour, je cherche le guide à la gare.", "goals": ["Ask where the guide is waiting.", "Explain that the guitar is in your luggage.", "Confirm that the exit is on the left."], "closure": "Merci, je vais à gauche." },
+      "practice": {
+        "see": { "prompt": "Compare the hard /g/ spelling in gare, gomme, guide, and guitare.", "wordRefs": ["gare", "gomme", "guide", "guitare"] },
+        "recall": { "prompt": "Recall the French word for train station before revealing it.", "answerRef": "gare" },
+        "hear": { "prompt": "Listen for guide or guitare in the recorded station sentence.", "choices": ["guide", "guitare"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The guide is waiting at the station.'", "answerRef": "Le guide attend à la gare." },
+        "say": { "prompt": "Tell the guide that your guitar is in your luggage.", "answerRef": "Ma guitare est dans mon bagage." },
+        "write": { "prompt": "Write two French sentences saying where the station is and what is in your luggage.", "requiredRefs": ["gare", "gauche", "guitare", "bagage"] }
+      }
+    }
+  ]
+}

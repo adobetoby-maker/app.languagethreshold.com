@@ -1,0 +1,539 @@
+{
+  "target": "French",
+  "native": "English",
+  "moduleId": "french-basics",
+  "stage": "core",
+  "reviewed": false,
+  "state": "authored-draft",
+  "source": {
+    "path": "content/french-basics/source-english-core-19-21.json",
+    "sourceSha256": "749e34092e2950a14833c280601032299498ee1bf44ffd6e1feabb645234d44d",
+    "sourcePaths": [
+      "src/data/spanish-basics-core.json",
+      "src/data/spanish-basics-practice.json"
+    ],
+    "sourceFileSha256": {
+      "src/data/spanish-basics-core.json": "d50c3e52a846331e9c0bcec19a5c91605585f4e285c62138941425390d160e38",
+      "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe"
+    },
+    "use": "Exact English objectives, word meanings, reading meanings and progression; French grammar and examples authored separately"
+  },
+  "draftModel": "Codex authored; independent Fable/Opus and human review pending",
+  "sourceNotes": [
+    "Future, progressive and know-verbs mirror the source concepts but use French forms.",
+    "Two English source sentences explicitly concern Spanish; the French examples preserve that meaning.",
+    "Broad source glosses use annotated French alternatives rather than asserting one universal equivalent."
+  ],
+  "lessons": [
+    {
+      "n": 19,
+      "title": "Prévoir demain",
+      "sourceTitleEnglish": "Future plans with ir a",
+      "sourceObjectiveEnglish": "Future plans with ir a: Use a present form of ir + a + infinitive: voy a estudiar.",
+      "objective": "Annoncez des projets proches avec aller au présent suivi d’un infinitif et posez une question sur le programme d’un ami.",
+      "foundationTie": "Builds on Core 12 plans and Core 10 time references; shifts from present plans to the near future.",
+      "focus": "je vais, tu vas, il/elle va, nous allons, ils/elles vont + infinitif",
+      "grammar": {
+        "explanation": "The French near future uses a present form of aller followed directly by an infinitive: je vais étudier, Ana va acheter, nous allons manger. Do not insert à between aller and the infinitive. The form of aller changes with the subject; the second verb remains an infinitive. Demain places the plan tomorrow.",
+        "model": {
+          "I": "Demain, je vais étudier l’espagnol.",
+          "Ana": "Ana va acheter un livre.",
+          "we": "Nous allons manger à la maison.",
+          "friends": "Mes amis vont visiter le musée."
+        },
+        "caution": "Spanish ir a + infinitive has a linking a; French aller + infinitive does not. The source sentence explicitly says Spanish, so this draft retains l’espagnol as the subject of study rather than silently changing the English meaning."
+      },
+      "scene": "Deux amis organisent leur journée de demain et vérifient qui viendra à la bibliothèque.",
+      "dialogue": [
+        "Demain, je vais étudier l’espagnol.|Tomorrow I am going to study Spanish.",
+        "Ana va acheter un livre.|Ana is going to buy a book.",
+        "Nous allons manger à la maison.|We are going to eat at home.",
+        "Luis va appeler son frère.|Luis is going to call his brother.",
+        "Mes amis vont visiter le musée.|My friends are going to visit the museum.",
+        "Tu vas venir à la bibliothèque ?|Are you going to come to the library?"
+      ],
+      "speaking": "Plan tomorrow with a classmate. Say what you will study, ask whether they will come to the library, and compare Ana’s, Luis’s and your friends’ plans. Finish by confirming where you will eat. Use different present forms of aller followed directly by an infinitive.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "livre",
+          "en": "book",
+          "kind": "term"
+        },
+        {
+          "order": 2,
+          "fr": "le",
+          "en": "the (masculine singular)",
+          "kind": "term"
+        },
+        {
+          "order": 3,
+          "fr": "la",
+          "en": "the / it / her (feminine)",
+          "kind": "term",
+          "note": "La is a feminine article or object pronoun; choose by context."
+        },
+        {
+          "order": 4,
+          "fr": "un",
+          "en": "a (masculine)",
+          "kind": "term"
+        },
+        {
+          "order": 5,
+          "fr": "dans / sur / à",
+          "en": "in / on / at",
+          "kind": "term",
+          "note": "Choose dans (inside), sur (on top), or à (general location) by context; they are not interchangeable."
+        },
+        {
+          "order": 6,
+          "fr": "amis",
+          "en": "friends",
+          "kind": "term"
+        },
+        {
+          "order": 7,
+          "fr": "bibliothèque",
+          "en": "library",
+          "kind": "term"
+        },
+        {
+          "order": 8,
+          "fr": "frère",
+          "en": "brother",
+          "kind": "term"
+        },
+        {
+          "order": 9,
+          "fr": "Demain, je vais étudier l’espagnol.",
+          "en": "Tomorrow I am going to study Spanish.",
+          "kind": "phrase",
+          "note": "The source studies Spanish; l’espagnol is retained for exact English meaning."
+        },
+        {
+          "order": 10,
+          "fr": "Ana va acheter un livre.",
+          "en": "Ana is going to buy a book.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Nous allons manger à la maison.",
+          "en": "We are going to eat at home.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Luis va appeler son frère.",
+          "en": "Luis is going to call his brother.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Mes amis vont visiter le musée.",
+          "en": "My friends are going to visit the museum.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Tu vas venir à la bibliothèque ?",
+          "en": "Are you going to come to the library?",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "Le programme de demain",
+        "sourceTitleEnglish": "Mañana",
+        "target": [
+          "Demain, je vais étudier l’espagnol.",
+          "Ana va acheter un livre.",
+          "Nous allons manger à la maison.",
+          "Luis va appeler son frère.",
+          "Mes amis vont visiter le musée.",
+          "Tu vas venir à la bibliothèque ?"
+        ],
+        "native": [
+          "Tomorrow I am going to study Spanish.",
+          "Ana is going to buy a book.",
+          "We are going to eat at home.",
+          "Luis is going to call his brother.",
+          "My friends are going to visit the museum.",
+          "Are you going to come to the library?"
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete the near future: Nous ___ manger à la maison.",
+          "answer": "allons"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: Luis is going to call his brother.",
+          "answer": "Luis va appeler son frère."
+        },
+        {
+          "type": "listening",
+          "audioText": "Mes amis vont visiter le musée.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen: what will the friends visit?",
+          "answer": "The museum."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "In Le programme de demain, where will we eat?",
+          "answer": "At home."
+        },
+        {
+          "type": "recall",
+          "prompt": "Complete: Ana ___ acheter un livre.",
+          "answer": "va"
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 20,
+      "title": "Ce qui se passe maintenant",
+      "sourceTitleEnglish": "Actions happening now",
+      "sourceObjectiveEnglish": "Actions happening now: Use estar + gerund for an action in progress: estoy hablando.",
+      "objective": "Décrivez une action en cours avec être en train de + infinitif et reconnaissez le présent simple lorsque le contexte suffit.",
+      "foundationTie": "Reuses present-tense verbs from Core 1–3; adds an explicit way to emphasize an action underway now.",
+      "focus": "être en train de + infinitif; je suis, tu es, il/elle est, nous sommes, ils/elles sont",
+      "grammar": {
+        "explanation": "French usually uses the simple present for both “I study” and “I am studying”; the context tells you whether it is happening now. To insist that an action is in progress, use être en train de + infinitive: je suis en train d’étudier, Ana est en train de parler, nous sommes en train d’écrire. De becomes d’ before a vowel. Only être changes with the subject; the activity verb stays an infinitive.",
+        "model": {
+          "I": "Je suis en train d’étudier à la bibliothèque.",
+          "Ana": "Ana est en train de parler avec Luis.",
+          "we": "Nous sommes en train d’écrire un message.",
+          "students": "Les élèves sont en train de manger."
+        },
+        "caution": "Unlike Spanish estar + gerund, French does not require a progressive form for every action happening now. “J’étudie à la bibliothèque” can also mean “I am studying in the library.” Use en train de here to teach the explicit contrast; avoid using it mechanically in every ordinary present-tense sentence."
+      },
+      "scene": "À la bibliothèque, une élève demande à ses amis ce que tout le monde fait en ce moment.",
+      "dialogue": [
+        "Je suis en train d’étudier à la bibliothèque.|I am studying in the library.",
+        "Ana est en train de parler avec Luis.|Ana is talking with Luis.",
+        "Nous sommes en train d’écrire un message.|We are writing a message.",
+        "La professeure est en train de lire un livre.|The teacher is reading a book.",
+        "Les élèves sont en train de manger.|The students are eating.",
+        "Tu es en train d’écouter la question ?|Are you listening to the question?"
+      ],
+      "speaking": "At the library, describe what you, Ana, the teacher and the students are doing right now. Ask your classmate whether they are listening to the question, and contrast one en train de sentence with a natural simple-present version.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "livre",
+          "en": "book",
+          "kind": "term"
+        },
+        {
+          "order": 2,
+          "fr": "est / se trouve",
+          "en": "is (condition/location)",
+          "kind": "term",
+          "note": "French être can express identity, condition, or location; se trouver emphasizes location."
+        },
+        {
+          "order": 3,
+          "fr": "la",
+          "en": "the / it / her (feminine)",
+          "kind": "term"
+        },
+        {
+          "order": 4,
+          "fr": "un",
+          "en": "a (masculine)",
+          "kind": "term"
+        },
+        {
+          "order": 5,
+          "fr": "dans / sur / à",
+          "en": "in / on / at",
+          "kind": "term",
+          "note": "Choose dans, sur, or à by place meaning; these are not interchangeable."
+        },
+        {
+          "order": 6,
+          "fr": "sont / se trouvent",
+          "en": "are (condition/location)",
+          "kind": "term",
+          "note": "French être has no Spanish ser/estar split; se trouvent specifically signals location."
+        },
+        {
+          "order": 7,
+          "fr": "les",
+          "en": "the / them (masculine plural)",
+          "kind": "term"
+        },
+        {
+          "order": 8,
+          "fr": "élèves / étudiants",
+          "en": "students",
+          "kind": "term",
+          "note": "Élèves is natural for school pupils; étudiants is typical for university students."
+        },
+        {
+          "order": 9,
+          "fr": "Je suis en train d’étudier à la bibliothèque.",
+          "en": "I am studying in the library.",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Ana est en train de parler avec Luis.",
+          "en": "Ana is talking with Luis.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Nous sommes en train d’écrire un message.",
+          "en": "We are writing a message.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "La professeure est en train de lire un livre.",
+          "en": "The teacher is reading a book.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Les élèves sont en train de manger.",
+          "en": "The students are eating.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Tu es en train d’écouter la question ?",
+          "en": "Are you listening to the question?",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "À la bibliothèque en ce moment",
+        "sourceTitleEnglish": "Ahora mismo",
+        "target": [
+          "Je suis en train d’étudier à la bibliothèque.",
+          "Ana est en train de parler avec Luis.",
+          "Nous sommes en train d’écrire un message.",
+          "La professeure est en train de lire un livre.",
+          "Les élèves sont en train de manger.",
+          "Tu es en train d’écouter la question ?"
+        ],
+        "native": [
+          "I am studying in the library.",
+          "Ana is talking with Luis.",
+          "We are writing a message.",
+          "The teacher is reading a book.",
+          "The students are eating.",
+          "Are you listening to the question?"
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete: Nous ___ en train d’écrire un message.",
+          "answer": "sommes"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: Ana is talking with Luis.",
+          "answer": "Ana est en train de parler avec Luis."
+        },
+        {
+          "type": "listening",
+          "audioText": "La professeure est en train de lire un livre.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen: what is the teacher reading?",
+          "answer": "A book."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "In À la bibliothèque en ce moment, what are the students doing?",
+          "answer": "Eating."
+        },
+        {
+          "type": "recall",
+          "prompt": "Complete: Tu es en train ___ écouter la question ?",
+          "answer": "d’"
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 21,
+      "title": "Savoir un fait, connaître une personne",
+      "sourceTitleEnglish": "Saber and conocer",
+      "sourceObjectiveEnglish": "Saber and conocer: Use saber for a fact or an ability with an infinitive.",
+      "objective": "Choisissez savoir pour un fait ou une compétence et connaître pour une personne, un lieu ou une chose familière.",
+      "foundationTie": "Reuses Core 18 place vocabulary and Core 20 classroom context; now distinguishes two meanings of “to know.”",
+      "focus": "savoir + fait/question/infinitif; connaître + personne/lieu",
+      "grammar": {
+        "explanation": "Use savoir for knowledge of a fact, an answer, or how to do something: je sais où est la bibliothèque; Ana sait parler espagnol; Luis sait la réponse. Use connaître for familiarity with a person or place: je connais la professeure; nous ne connaissons pas cette ville. The present forms change: je sais, tu sais, il sait, nous savons; je connais, tu connais, il connaît, nous connaissons.",
+        "model": {
+          "fact": "Je sais où est la bibliothèque.",
+          "ability": "Ana sait parler espagnol.",
+          "person": "Je connais la professeure.",
+          "place": "Nous ne connaissons pas cette ville."
+        },
+        "caution": "French connaître does not take the Spanish personal a before a person: je connais la professeure. The source line says Ana speaks Spanish, so espagnol remains the language in that example."
+      },
+      "scene": "Une nouvelle élève découvre le quartier et demande qui connaît l’école, la professeure et le café.",
+      "dialogue": [
+        "Je sais où est la bibliothèque.|I know where the library is.",
+        "Ana sait parler espagnol.|Ana knows how to speak Spanish.",
+        "Je connais la professeure.|I know the teacher.",
+        "Nous ne connaissons pas cette ville.|We do not know this city.",
+        "Luis sait la réponse.|Luis knows the answer.",
+        "Tu connais le café de la place ?|Do you know the café in the square?"
+      ],
+      "speaking": "Welcome a new classmate. Tell them where the library is, say what language Ana knows how to speak, introduce the teacher you know, and ask whether they know the café in the square. Admit when you do not know the city or an answer; use savoir or connaître for each meaning.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "est / se trouve",
+          "en": "is (condition/location)",
+          "kind": "term",
+          "note": "French être can express location; se trouver emphasizes it."
+        },
+        {
+          "order": 2,
+          "fr": "le",
+          "en": "the (masculine singular)",
+          "kind": "term"
+        },
+        {
+          "order": 3,
+          "fr": "la",
+          "en": "the / it / her (feminine)",
+          "kind": "term"
+        },
+        {
+          "order": 4,
+          "fr": "professeure / enseignante",
+          "en": "female teacher",
+          "kind": "term",
+          "note": "Both feminine nouns mean female teacher; professeure is common in France and Canada."
+        },
+        {
+          "order": 5,
+          "fr": "de",
+          "en": "of / from",
+          "kind": "term"
+        },
+        {
+          "order": 6,
+          "fr": "bibliothèque",
+          "en": "library",
+          "kind": "term"
+        },
+        {
+          "order": 7,
+          "fr": "non / ne… pas",
+          "en": "no / not",
+          "kind": "term",
+          "note": "Non answers no; ne… pas negates a verb."
+        },
+        {
+          "order": 8,
+          "fr": "à la",
+          "en": "to / at the (feminine)",
+          "kind": "term",
+          "note": "À la can mean movement toward or location at a feminine noun; context decides."
+        },
+        {
+          "order": 9,
+          "fr": "Je sais où est la bibliothèque.",
+          "en": "I know where the library is.",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Ana sait parler espagnol.",
+          "en": "Ana knows how to speak Spanish.",
+          "kind": "phrase",
+          "note": "The source meaning is “speak Spanish”; espagnol is intentionally retained."
+        },
+        {
+          "order": 11,
+          "fr": "Je connais la professeure.",
+          "en": "I know the teacher.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Nous ne connaissons pas cette ville.",
+          "en": "We do not know this city.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Luis sait la réponse.",
+          "en": "Luis knows the answer.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Tu connais le café de la place ?",
+          "en": "Do you know the café in the square?",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "Connaître le quartier",
+        "sourceTitleEnglish": "Una visita nueva",
+        "target": [
+          "Je sais où est la bibliothèque.",
+          "Ana sait parler espagnol.",
+          "Je connais la professeure.",
+          "Nous ne connaissons pas cette ville.",
+          "Luis sait la réponse.",
+          "Tu connais le café de la place ?"
+        ],
+        "native": [
+          "I know where the library is.",
+          "Ana knows how to speak Spanish.",
+          "I know the teacher.",
+          "We do not know this city.",
+          "Luis knows the answer.",
+          "Do you know the café in the square?"
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete the fact: Je ___ où est la bibliothèque.",
+          "answer": "sais"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: I know the teacher.",
+          "answer": "Je connais la professeure."
+        },
+        {
+          "type": "listening",
+          "audioText": "Tu connais le café de la place ?",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen: which place is being asked about?",
+          "answer": "The café in the square."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "In Connaître le quartier, who knows the answer?",
+          "answer": "Luis."
+        },
+        {
+          "type": "recall",
+          "prompt": "Complete the place: Nous ne ___ pas cette ville.",
+          "answer": "connaissons"
+        }
+      ],
+      "locale": "fr-FR"
+    }
+  ]
+}

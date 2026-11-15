@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "master",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "master-french-sound-like-a-native:10:fr-en",
+      "n": 10,
+      "sourceSpanishLesson": 10,
+      "title": "Retell a changed meeting plan",
+      "objective": "Retell a French message in new words while preserving who changed the plan, the new day, and the room.",
+      "focus": "Read Leïla a déplacé la réunion à jeudi dans la salle bleue, then hide the line and tell a colleague what changed. Keep Leïla, jeudi, and salle bleue in the retelling; the sentence can change while those facts stay intact. Compare phrase rhythm with a reviewed model after the first attempt.",
+      "words": [
+        { "fr": "réunion", "en": "meeting", "kind": "term" },
+        { "fr": "jeudi", "en": "Thursday", "kind": "term" },
+        { "fr": "salle", "en": "room", "kind": "term" },
+        { "fr": "collègue", "en": "colleague", "kind": "term" },
+        { "fr": "message", "en": "message", "kind": "term" },
+        { "fr": "horaire", "en": "schedule", "kind": "term" },
+        { "fr": "Leïla a déplacé la réunion à jeudi dans la salle bleue.", "en": "Leïla moved the meeting to Thursday in the blue room.", "kind": "phrase" },
+        { "fr": "La réunion aura lieu jeudi dans la salle bleue.", "en": "The meeting will take place Thursday in the blue room.", "kind": "phrase" },
+        { "fr": "Je transmets le message à ma collègue.", "en": "I pass the message to my colleague.", "kind": "phrase" },
+        { "fr": "Je vérifie le nouvel horaire avant de répondre.", "en": "I check the new schedule before replying.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Leïla a déplacé la réunion à jeudi dans la salle bleue.", "en": "Leïla moved the meeting to Thursday in the blue room." },
+        { "fr": "Elle envoie un message à Karim pour expliquer le changement.", "en": "She sends Karim a message to explain the change." },
+        { "fr": "Karim cache le message et dit à sa collègue que la réunion aura lieu jeudi dans la salle bleue.", "en": "Karim hides the message and tells his colleague that the meeting will take place Thursday in the blue room." },
+        { "fr": "Sa collègue vérifie le nouvel horaire avant de répondre à Leïla.", "en": "His colleague checks the new schedule before replying to Leïla." }
+      ],
+      "grammar": {
+        "focus": "A déplacé reports the completed change; aura lieu gives the event's future time and place.",
+        "examples": [
+          { "fr": "Leïla a déplacé la réunion à jeudi dans la salle bleue.", "en": "Leïla moved the meeting to Thursday in the blue room." },
+          { "fr": "La réunion aura lieu jeudi dans la salle bleue.", "en": "The meeting will take place Thursday in the blue room." }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C",
+      "speaking": {
+        "scene": "Passing a changed meeting plan to a colleague",
+        "roles": ["message relayer", "colleague"],
+        "opening": "J'ai un message de Leïla à propos de la réunion.",
+        "goals": ["Retell who changed the meeting.", "Give the new day and room.", "Confirm the colleague understood both details."],
+        "complication": "The colleague remembers the day but names the wrong room; retell the message with the room made clear.",
+        "closure": "Oui, la réunion aura lieu jeudi dans la salle bleue."
+      },
+      "practice": {
+        "see": { "prompt": "Identify the person, new day, and room that must survive the retelling.", "wordRefs": ["Leïla a déplacé la réunion à jeudi dans la salle bleue.", "La réunion aura lieu jeudi dans la salle bleue."] },
+        "recall": { "prompt": "After hiding the notice, recall the short sentence with the new day and room.", "answerRef": "La réunion aura lieu jeudi dans la salle bleue." },
+        "hear": { "prompt": "In the reviewed recorded retelling, distinguish jeudi from the room detail.", "choices": ["jeudi", "salle"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence saying that you pass the message to your colleague.", "answerRef": "Je transmets le message à ma collègue." },
+        "say": { "prompt": "Retell the change in your own sentence while keeping the day and room.", "answerRef": "La réunion aura lieu jeudi dans la salle bleue." },
+        "write": { "prompt": "Write a two-sentence retelling naming the sender, new day, and room.", "requiredRefs": ["réunion", "jeudi", "salle", "message"] }
+      }
+    },
+    {
+      "id": "master-french-sound-like-a-native:11:fr-en",
+      "n": 11,
+      "sourceSpanishLesson": 11,
+      "title": "Confirm a name and address",
+      "objective": "Give a French name, street address, and apartment number so a listener can repeat them accurately.",
+      "focus": "Say Camille Durand and 24, rue des Lilas in complete phrases, then slow the name and numbers when the listener asks. Keep the street and apartment numbers separate; check the listener's repeat-back instead of relying on volume alone.",
+      "words": [
+        { "fr": "nom", "en": "surname; name", "kind": "term" },
+        { "fr": "prénom", "en": "given name", "kind": "term" },
+        { "fr": "adresse", "en": "address", "kind": "term" },
+        { "fr": "numéro", "en": "number", "kind": "term" },
+        { "fr": "rue", "en": "street", "kind": "term" },
+        { "fr": "appartement", "en": "apartment", "kind": "term" },
+        { "fr": "Je m'appelle Camille Durand.", "en": "My name is Camille Durand.", "kind": "phrase" },
+        { "fr": "J'habite au 24, rue des Lilas.", "en": "I live at 24 Rue des Lilas.", "kind": "phrase" },
+        { "fr": "Le numéro de l'appartement est le douze.", "en": "The apartment number is twelve.", "kind": "phrase" },
+        { "fr": "Pouvez-vous répéter le nom et l'adresse ?", "en": "Can you repeat the name and address?", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Camille Durand appelle l'accueil pour confirmer son adresse.", "en": "Camille Durand calls reception to confirm her address." },
+        { "fr": "Elle dit : « J'habite au 24, rue des Lilas. »", "en": "She says, 'I live at 24 Rue des Lilas.'" },
+        { "fr": "L'agent note la rue, puis demande le numéro de l'appartement.", "en": "The agent notes the street, then asks for the apartment number." },
+        { "fr": "Camille répond « le douze » et demande à l'agent de répéter le nom et l'adresse.", "en": "Camille answers 'twelve' and asks the agent to repeat the name and address." }
+      ],
+      "grammar": {
+        "focus": "Je m'appelle introduces a person's name; j'habite au introduces the numbered street address.",
+        "examples": [
+          { "fr": "Je m'appelle Camille Durand.", "en": "My name is Camille Durand." },
+          { "fr": "J'habite au 24, rue des Lilas.", "en": "I live at 24 Rue des Lilas." }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C",
+      "speaking": {
+        "scene": "Confirming an address with a reception agent",
+        "roles": ["resident", "reception agent"],
+        "opening": "Bonjour, je m'appelle Camille Durand.",
+        "goals": ["Give the full name.", "Give the street number and street name.", "Give the apartment number and ask for a repeat-back."],
+        "complication": "The agent repeats apartment twelve as street twelve; distinguish 24, rue des Lilas from apartment twelve.",
+        "closure": "Merci, le nom et les deux numéros sont corrects."
+      },
+      "practice": {
+        "see": { "prompt": "Separate the name, street address, and apartment number in the three phrases.", "wordRefs": ["Je m'appelle Camille Durand.", "J'habite au 24, rue des Lilas.", "Le numéro de l'appartement est le douze."] },
+        "recall": { "prompt": "Recall the full street-address phrase.", "answerRef": "J'habite au 24, rue des Lilas." },
+        "hear": { "prompt": "In the reviewed address recording, distinguish the street number from the apartment number.", "choices": ["rue", "appartement"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence giving apartment number twelve.", "answerRef": "Le numéro de l'appartement est le douze." },
+        "say": { "prompt": "Ask the agent to repeat the name and address.", "answerRef": "Pouvez-vous répéter le nom et l'adresse ?" },
+        "write": { "prompt": "Write the person's name, street address, and apartment number as three distinct facts.", "requiredRefs": ["nom", "adresse", "rue", "appartement"] }
+      }
+    },
+    {
+      "id": "master-french-sound-like-a-native:12:fr-en",
+      "n": 12,
+      "sourceSpanishLesson": 12,
+      "title": "Distinguish prices and times",
+      "objective": "Keep French fifteen/fifty and thirteen/thirty contrasts clear in a station exchange.",
+      "focus": "Compare quinze and cinquante in ticket prices, then treize and trente in a departure time. Say the numbers inside complete phrases; a listener's correct price and time matter more than speed.",
+      "words": [
+        { "fr": "quinze", "en": "fifteen", "kind": "term" },
+        { "fr": "cinquante", "en": "fifty", "kind": "term" },
+        { "fr": "treize", "en": "thirteen", "kind": "term" },
+        { "fr": "trente", "en": "thirty", "kind": "term" },
+        { "fr": "billet", "en": "ticket", "kind": "term" },
+        { "fr": "départ", "en": "departure", "kind": "term" },
+        { "fr": "Le billet coûte quinze euros.", "en": "The ticket costs fifteen euros.", "kind": "phrase" },
+        { "fr": "Le billet coûte cinquante euros.", "en": "The ticket costs fifty euros.", "kind": "phrase" },
+        { "fr": "Le train part à treize heures trente.", "en": "The train leaves at 1:30 p.m.", "kind": "phrase" },
+        { "fr": "Le train part à treize heures cinquante.", "en": "The train leaves at 1:50 p.m.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "À la gare, Samir croit que le billet coûte cinquante euros.", "en": "At the station, Samir thinks the ticket costs fifty euros." },
+        { "fr": "L'agent répète que le billet coûte quinze euros.", "en": "The agent repeats that the ticket costs fifteen euros." },
+        { "fr": "Samir demande si le train part à treize heures cinquante.", "en": "Samir asks whether the train leaves at 1:50 p.m." },
+        { "fr": "L'agent confirme le prix et précise que le départ est à treize heures trente.", "en": "The agent confirms the price and clarifies that departure is at 1:30 p.m." }
+      ],
+      "grammar": {
+        "focus": "À treize heures trente and à treize heures cinquante give two different departure times; coûte gives the ticket price.",
+        "examples": [
+          { "fr": "Le billet coûte quinze euros.", "en": "The ticket costs fifteen euros." },
+          { "fr": "Le train part à treize heures trente.", "en": "The train leaves at 1:30 p.m." }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C",
+      "speaking": {
+        "scene": "Correcting a ticket price and departure time",
+        "roles": ["traveler", "ticket agent"],
+        "opening": "Bonjour, je voudrais confirmer le prix et l'heure du départ.",
+        "goals": ["Distinguish fifteen from fifty euros.", "Confirm 13:30 rather than 13:50.", "Repeat the corrected price and time together."],
+        "complication": "The traveler hears fifty euros and 13:50; correct both numbers in complete French phrases.",
+        "closure": "Merci, le billet coûte quinze euros et le train part à treize heures trente."
+      },
+      "practice": {
+        "see": { "prompt": "Compare the two prices and the two departure times; underline each changed number word.", "wordRefs": ["Le billet coûte quinze euros.", "Le billet coûte cinquante euros.", "Le train part à treize heures trente.", "Le train part à treize heures cinquante."] },
+        "recall": { "prompt": "Recall the sentence giving the corrected fifteen-euro price.", "answerRef": "Le billet coûte quinze euros." },
+        "hear": { "prompt": "In the reviewed station recording, distinguish quinze from cinquante in the ticket price.", "choices": ["quinze", "cinquante"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence giving the 13:30 departure.", "answerRef": "Le train part à treize heures trente." },
+        "say": { "prompt": "Correct the mistaken fifty-euro price in a complete sentence.", "answerRef": "Le billet coûte quinze euros." },
+        "write": { "prompt": "Write the corrected price and departure time, then note the mistaken number words.", "requiredRefs": ["quinze", "cinquante", "treize", "trente"] }
+      }
+    }
+  ]
+}

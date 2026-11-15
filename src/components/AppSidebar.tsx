@@ -854,6 +854,18 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           </details>
 
           <div hidden={moreView === "settings"}>
+            <button
+              type="button"
+              aria-label="Add a word to My Vocab from this page"
+              onClick={() => {
+                setMoreSheetOpen(false);
+                requestAnimationFrame(openAddWord);
+              }}
+              className="flex min-h-11 w-full items-center gap-3 rounded-xl px-3 py-2 text-left text-sm text-foreground hover:bg-card/80"
+            >
+              <BookmarkPlus className="h-[18px] w-[18px] text-gold-ink" aria-hidden="true" />
+              Add a word
+            </button>
             <div className="mt-2 space-y-5">
               <NavigationMenu
                 items={navigationItems}

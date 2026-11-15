@@ -179,6 +179,16 @@ export function LessonWorkspaceHeader({
               Switch between the six practice modes below. Opening a mode records a visit; it does
               not mark the lesson mastered.
             </p>
+            <button
+              type="button"
+              onClick={() => {
+                setDetailsOpen(false);
+                onExit();
+              }}
+              className="min-h-11 rounded-xl border border-border px-4 text-sm font-semibold"
+            >
+              Course lessons
+            </button>
           </div>
         </SheetContent>
       </Sheet>

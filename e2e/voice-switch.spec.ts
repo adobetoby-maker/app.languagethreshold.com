@@ -37,6 +37,13 @@ async function stubVoices(page: Page): Promise<void> {
   );
 }
 
+async function openSettings(page: Page) {
+  await page.getByRole("button", { name: "Navigation menu", exact: true }).click();
+  const settings = page.getByTestId("more-settings");
+  if ((await settings.getAttribute("open")) === null)
+    await settings.locator(":scope > summary").click();
+}
+
 async function openReader(page: Page): Promise<void> {
   await page.goto("/");
   const ready = page.getByRole("button", { name: "billete", exact: true }).first();
@@ -62,9 +69,7 @@ test("voice changes live only in Settings and listening/speaking choices persist
   await openReader(page);
   await expect(page.getByTestId("site-voice-button")).toHaveCount(0);
   await expect(page.getByRole("group", { name: "Reader voice", exact: true })).toHaveCount(0);
-  await page
-    .getByRole("button", { name: isMobile ? "App settings" : "Learning settings", exact: true })
-    .click();
+  await openSettings(page);
   const settings = page.getByRole("region", { name: "Voice settings", exact: true });
   const listening = settings.getByRole("group", { name: "Listening voice", exact: true });
   const speaking = settings.getByRole("group", { name: "Speaking partner voice", exact: true });
@@ -88,9 +93,7 @@ test("voice changes live only in Settings and listening/speaking choices persist
     )
     .toBe("man");
   await page.reload();
-  await page
-    .getByRole("button", { name: isMobile ? "App settings" : "Learning settings", exact: true })
-    .click();
+  await openSettings(page);
   await expect(listening.getByRole("button", { name: "Male", exact: true })).toHaveAttribute(
     "aria-pressed",
     "true",
@@ -108,17 +111,13 @@ test("Back dismisses voice settings without leaving the reader and X cleans up i
   await stubVoices(page);
   await openReader(page);
   const url = page.url();
-  const trigger = page.getByRole("button", {
-    name: isMobile ? "App settings" : "Learning settings",
-    exact: true,
-  });
-  await trigger.click();
+  await openSettings(page);
   const panel = page.getByRole("dialog").filter({ visible: true }).last();
   await expect(page.getByTestId("voice-settings")).toBeVisible();
   await page.goBack();
   await expect(panel).not.toBeVisible();
   await expect(page).toHaveURL(url);
-  await trigger.click();
+  await openSettings(page);
   await panel
     .getByRole("button", { name: /^Close( settings)?$/, exact: true })
     .first()
@@ -136,9 +135,7 @@ test("module search always has an X and Back returns to the same reading page", 
   await stubVoices(page);
   await openReader(page);
   const url = page.url();
-  const trigger = isMobile
-    ? page.getByTitle("Core (Free)", { exact: true })
-    : page.getByTitle("Change module", { exact: true });
+  const trigger = page.getByRole("button", { name: /^Choose course,/ });
   await trigger.click();
   const dialog = page.getByRole("dialog", { name: "Select Module" });
   await dialog.getByPlaceholder("Search modules…").fill("roof");
@@ -161,18 +158,13 @@ test("settings and nested native-language menu close one layer at a time", async
   await stubVoices(page);
   await openReader(page);
   const url = page.url();
-  await page
-    .getByRole("button", { name: isMobile ? "App settings" : "Learning settings", exact: true })
-    .click();
+  await openSettings(page);
   const panel = page.getByRole("dialog").filter({ visible: true }).last();
   await expect(panel).toBeVisible();
-  if (!isMobile) {
-    await page.getByTitle(/^Native language:/).click();
-    await expect(page.getByRole("menu")).toBeVisible();
-    await page.goBack();
-    await expect(page.getByRole("menu")).not.toBeVisible();
-    await expect(panel).toBeVisible();
-  }
+  await panel.getByText("Language and account", { exact: true }).click();
+  await expect(panel.getByRole("combobox", { name: "Native", exact: true })).toHaveValue("English");
+  await panel.getByText("Language and account", { exact: true }).click();
+  await expect(panel.getByRole("combobox", { name: "Native", exact: true })).not.toBeVisible();
   await page.goBack();
   await expect(panel).not.toBeVisible();
   await expect(page).toHaveURL(url);
@@ -190,6 +182,7 @@ test("reader focus and unsaved vocabulary panels have X exits and support Back",
   await expect(closeReader).toBeInViewport();
   await page.goBack();
   await expect(closeReader).not.toBeVisible();
+  await page.getByRole("button", { name: "Navigation menu", exact: true }).click();
   await page
     .getByRole("button", { name: "Add a word to My Vocab from this page", exact: true })
     .filter({ visible: true })
@@ -301,9 +294,7 @@ test("signed-in Google previews use the curated pair and keep listening separate
     });
   });
   await page.goto(appUrl({ tab: "reader" }));
-  await page
-    .getByRole("button", { name: isMobile ? "App settings" : "Learning settings", exact: true })
-    .click();
+  await openSettings(page);
   const settings = page.getByRole("region", { name: "Voice settings", exact: true });
   await expect(settings.getByRole("status")).toContainText("Google voices are ready");
   const savedListeningVoice = () =>
@@ -327,7 +318,7 @@ test("signed-in Google previews use the curated pair and keep listening separate
   await expect.poll(() => requests.at(-1)?.voiceName).toBe("es-US-Chirp3-HD-Aoede");
   await expect.poll(savedListeningVoice).toContain("Charon");
   await page.goto(appUrl({ tab: "speak" }));
-  await expect(page.getByRole("heading", { name: "Your next speaking practice" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Speaking menu", exact: true })).toBeVisible();
   await expect.poll(savedListeningVoice).toContain("Charon");
 });
 
@@ -337,9 +328,7 @@ test("Settings scrolls below its close row without covering controls", async ({
 }) => {
   await stubVoices(page);
   await openReader(page);
-  await page
-    .getByRole("button", { name: isMobile ? "App settings" : "Learning settings", exact: true })
-    .click();
+  await openSettings(page);
   const panel = page.getByRole("dialog").filter({ visible: true }).last();
   const body = panel.locator("[data-overlay-scroll-body]");
   const close = panel.locator("[data-overlay-close]");
@@ -353,13 +342,22 @@ test("Settings scrolls below its close row without covering controls", async ({
       await body.evaluate((el, fraction) => {
         el.scrollTop = (el.scrollHeight - el.clientHeight) * fraction;
       }, position);
-      await expect.poll(() => panel.evaluate((root) => {
-        const header = root.querySelector("[data-overlay-close]")?.getBoundingClientRect();
-        const scrollBody = root.querySelector("[data-overlay-scroll-body]")?.getBoundingClientRect();
-        return Boolean(header && scrollBody
-          && scrollBody.top >= header.bottom - 1
-          && scrollBody.bottom <= window.innerHeight + 1);
-      })).toBe(true);
+      await expect
+        .poll(() =>
+          panel.evaluate((root) => {
+            const header = root.querySelector("[data-overlay-close]")?.getBoundingClientRect();
+            const scrollBody = root
+              .querySelector("[data-overlay-scroll-body]")
+              ?.getBoundingClientRect();
+            return Boolean(
+              header &&
+              scrollBody &&
+              scrollBody.top >= header.bottom - 1 &&
+              scrollBody.bottom <= window.innerHeight + 1,
+            );
+          }),
+        )
+        .toBe(true);
       await expect(close.getByRole("button")).toBeInViewport();
     }
   }

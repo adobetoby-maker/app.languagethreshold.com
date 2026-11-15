@@ -38,7 +38,9 @@ function dateKey(offsetDays: number): string {
  */
 async function openModuleCore30(page: Page) {
   await page.goto("/");
-  await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
+  await expect(
+    page.getByRole("button", { name: "Speaking menu", exact: true }).first(),
+  ).toBeVisible({
     timeout: 60_000,
   });
   const startDate = dateKey(0);
@@ -82,13 +84,17 @@ async function openLesson1(page: Page) {
     .getByRole("button", { name: /Today: Lesson 1|Start Lesson 1/ })
     .first()
     .click();
-  await expect(page.getByText("✕ Exit")).toBeVisible();
-  await expect(page.getByTestId("lesson-section-nav")).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Lesson details and goal", exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("navigation", { name: "Lesson practice modes", exact: true }),
+  ).toBeVisible();
 }
 
 async function goSection(page: Page, section: "see" | "recall" | "type") {
-  await page.getByTestId(`lesson-nav-${section}`).click();
-  await expect(page.getByTestId(`lesson-nav-${section}`)).toHaveAttribute("aria-current", "step");
+  await page.getByTestId(`v6-nav-${section}`).click();
+  await expect(page.getByTestId(`v6-nav-${section}`)).toHaveAttribute("aria-current", "page");
 }
 
 test.describe("Lesson content: Plumber lesson 1", () => {
@@ -97,27 +103,26 @@ test.describe("Lesson content: Plumber lesson 1", () => {
     await openLesson1(page);
     const reader = page.getByTestId("lesson-reader");
     await expect(reader).toBeVisible({ timeout: 60_000 });
-    await expect(reader).toContainText(LESSON_1.passage.title);
-    await expect(reader).toContainText(LESSON_1.passage.target[0]);
-    expect(await reader.locator("[data-sentence-index]").count()).toBe(
-      LESSON_1.passage.target.length,
-    );
-    // The translation toggle shows the aligned English sentence.
-    await reader.getByRole("button", { name: "English", exact: true }).click();
-    await expect(reader).toContainText(LESSON_1.passage.native[0]);
+    await expect(reader.getByRole("article", { name: "Lesson phrase" })).toHaveCount(1);
+    for (let index = 0; index < LESSON_1.passage.target.length; index++) {
+      await expect(reader.locator(".lt-native-reading-target")).toHaveText(
+        LESSON_1.passage.target[index],
+      );
+      await expect(reader.locator(".lt-native-reading-translation")).toHaveText(
+        LESSON_1.passage.native[index],
+      );
+      if (index + 1 < LESSON_1.passage.target.length)
+        await reader.getByRole("button", { name: "Next →", exact: true }).click();
+    }
+    await expect(reader.getByRole("button", { name: "Finish round", exact: true })).toBeVisible();
   });
 
   test("Recall it has a Verbs tab with the lesson's verb cards", async ({ page }) => {
     await openModuleCore30(page);
     await openLesson1(page);
     await goSection(page, "recall");
-    if ((page.viewportSize()?.width ?? 1440) < 768) {
-      await expect(page.getByTestId("practice-recall-switch")).toBeHidden();
-      await page.getByTestId("lesson-recall-menu").getByTestId("lesson-recall-verbs").click();
-    } else {
-      await expect(page.getByTestId("practice-recall-switch")).toBeVisible({ timeout: 60_000 });
-      await page.getByTestId("practice-mode-verbs").click();
-    }
+    await expect(page.getByTestId("practice-recall-switch")).toBeVisible({ timeout: 60_000 });
+    await page.getByTestId("practice-mode-verbs").click();
     const study = page.getByTestId("verb-practice-study");
     await expect(study).toBeVisible();
     await expect(study.getByTestId("verb-card")).toHaveCount(LESSON_1.verbs.length);

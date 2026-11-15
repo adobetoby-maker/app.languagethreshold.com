@@ -44,7 +44,9 @@ async function openStage(
   purchasedModules: string[] = [FOUNDATION, "roofing", MASTER],
 ) {
   await page.goto("/");
-  await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
+  await expect(
+    page.getByRole("button", { name: "Speaking menu", exact: true }).first(),
+  ).toBeVisible({
     timeout: 60_000,
   });
   for (let attempt = 0; attempt < 3; attempt++) {
@@ -63,11 +65,20 @@ async function openStage(
     }
     await page
       .getByTestId(ready)
-      .waitFor({ timeout: attempt < 2 ? 15_000 : 60_000 })
+      .waitFor({
+        state: ready === "tool-purpose" ? "attached" : "visible",
+        timeout: attempt < 2 ? 15_000 : 60_000,
+      })
       .catch(() => undefined);
-    if (await page.getByTestId(ready).isVisible()) return;
+    if (
+      ready === "tool-purpose"
+        ? (await page.getByTestId(ready).count()) > 0
+        : await page.getByTestId(ready).isVisible()
+    )
+      return;
   }
-  await expect(page.getByTestId(ready)).toBeVisible();
+  if (ready === "tool-purpose") await expect(page.getByTestId(ready)).toBeAttached();
+  else await expect(page.getByTestId(ready)).toBeVisible();
 }
 
 test.describe("Core 60 path", () => {
@@ -145,7 +156,7 @@ test.describe("Core 60 path", () => {
     // No beginner nudge off the Core 30 page.
     await expect(page.getByText("New to Spanish? Start here.")).toHaveCount(0);
     // The page banner names the stage.
-    const banner = page.getByRole("region", { name: /purpose/i }).first();
+    const banner = page.getByRole("region", { name: /purpose/i, includeHidden: true }).first();
     await expect(banner).toContainText("Core 60 · Master");
     await expect(banner).toContainText("Twenty lessons for the day that doesn't go as planned.");
     // The way back: Core 30 is a button again.
@@ -192,10 +203,12 @@ test.describe("Roofing Master 20 lessons", () => {
       .getByRole("button", { name: /Today: Master Lesson 1|Start Master Lesson 1/ })
       .first()
       .click();
-    await expect(page.getByText("✕ Exit")).toBeVisible();
-    await expect(page.getByText(/Master · Lesson 1 · /)).toBeVisible();
+    await expect(
+      page.getByRole("button", { name: "Lesson details and goal", exact: true }),
+    ).toBeVisible();
+    await expect(page.getByRole("group", { name: "Lesson 1 of 20", exact: true })).toBeVisible();
     // The runner's previous / next buttons carry the stage: "Master 2", not a bare "Lesson 2".
-    const nav = page.getByTestId("lesson-nav-top");
+    const nav = page.getByTestId("lesson-nav-bottom");
     await expect(nav.getByRole("button", { name: "Next lesson: Master 2" })).toBeVisible();
     await expect(nav.getByRole("button", { name: /^Lesson / })).toHaveCount(0);
     if (MASTER_ROOFING_LESSONS[0].grammar) {
@@ -233,7 +246,9 @@ test.describe("Core 30 page of a module with a published Foundation and Master (
     page,
   }) => {
     await page.goto("/");
-    await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
+    await expect(
+      page.getByRole("button", { name: "Speaking menu", exact: true }).first(),
+    ).toBeVisible({
       timeout: 60_000,
     });
     for (let attempt = 0; attempt < 3; attempt++) {
@@ -246,11 +261,13 @@ test.describe("Core 30 page of a module with a published Foundation and Master (
         currentTab: "core30",
       });
       await page.goto(appUrl({ tab: "core30", module: "plumber" }));
-      const banner = page.getByRole("region", { name: /purpose/i }).first();
-      await banner.waitFor({ timeout: attempt < 2 ? 15_000 : 60_000 }).catch(() => undefined);
-      if (await banner.isVisible()) break;
+      const banner = page.getByRole("region", { name: /purpose/i, includeHidden: true }).first();
+      await banner
+        .waitFor({ state: "attached", timeout: attempt < 2 ? 15_000 : 60_000 })
+        .catch(() => undefined);
+      if (await banner.count()) break;
     }
-    const banner = page.getByRole("region", { name: /purpose/i }).first();
+    const banner = page.getByRole("region", { name: /purpose/i, includeHidden: true }).first();
     // Both stages are published and listed, so no "coming soon" banner: the page keeps the whole Core 60 text.
     await expect(banner).toContainText(
       "Core 60 — Your module, step by step: the free Foundation, then Core 30, then Master 20.",
@@ -297,7 +314,9 @@ async function openFixtureStage(
     (window as unknown as { __CORE60_FIXTURE__: unknown }).__CORE60_FIXTURE__ = fixture;
   }, core60Fixture());
   await page.goto("/");
-  await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
+  await expect(
+    page.getByRole("button", { name: "Speaking menu", exact: true }).first(),
+  ).toBeVisible({
     timeout: 60_000,
   });
   for (let attempt = 0; attempt < 3; attempt++) {
@@ -322,11 +341,20 @@ async function openFixtureStage(
     }
     await page
       .getByTestId(ready)
-      .waitFor({ timeout: attempt < 2 ? 15_000 : 60_000 })
+      .waitFor({
+        state: ready === "tool-purpose" ? "attached" : "visible",
+        timeout: attempt < 2 ? 15_000 : 60_000,
+      })
       .catch(() => undefined);
-    if (await page.getByTestId(ready).isVisible()) return;
+    if (
+      ready === "tool-purpose"
+        ? (await page.getByTestId(ready).count()) > 0
+        : await page.getByTestId(ready).isVisible()
+    )
+      return;
   }
-  await expect(page.getByTestId(ready)).toBeVisible();
+  if (ready === "tool-purpose") await expect(page.getByTestId(ready)).toBeAttached();
+  else await expect(page.getByTestId(ready)).toBeVisible();
 }
 
 test.describe("Data-driven Core 60 stage (fixture trade)", { tag: "@dev-only" }, () => {
@@ -355,9 +383,9 @@ test.describe("Data-driven Core 60 stage (fixture trade)", { tag: "@dev-only" },
       .getByRole("button", { name: /Today: Master Lesson 1|Start Master Lesson 1/ })
       .first()
       .click();
-    await expect(page.getByText(/Master · Lesson 1 · /)).toBeVisible();
+    await expect(page.getByRole("group", { name: "Lesson 1 of 20", exact: true })).toBeVisible();
     await expect(
-      page.getByTestId("lesson-nav-top").getByRole("button", { name: "Next lesson: Master 2" }),
+      page.getByTestId("lesson-nav-bottom").getByRole("button", { name: "Next lesson: Master 2" }),
     ).toBeVisible();
     const grammar = page.getByTestId("lesson-grammar-focus");
     await expect(grammar).toContainText("Fixture grammar focus 1");
@@ -427,7 +455,8 @@ test.describe("Generated Electrician Core 60 (pilot)", () => {
   test("the Electrician banner no longer says any stage is coming soon", async ({ page }) => {
     await openStage(page, "electrician", {}, "tool-purpose", ELECTRICIAN_STAGES);
     const banner = page.getByTestId("tool-purpose");
-    await expect(banner).toBeVisible();
+    await expect(banner).not.toBeVisible();
+    await expect(page.getByRole("button", { name: /^Choose course,.*Electrician/ })).toBeVisible();
     await expect(banner).not.toContainText("coming soon");
   });
 
@@ -514,11 +543,20 @@ async function openStageSignedIn(page: Page, moduleId: string, ready: string) {
     }
     await page
       .getByTestId(ready)
-      .waitFor({ timeout: attempt < 2 ? 15_000 : 60_000 })
+      .waitFor({
+        state: ready === "tool-purpose" ? "attached" : "visible",
+        timeout: attempt < 2 ? 15_000 : 60_000,
+      })
       .catch(() => undefined);
-    if (await page.getByTestId(ready).isVisible()) return;
+    if (
+      ready === "tool-purpose"
+        ? (await page.getByTestId(ready).count()) > 0
+        : await page.getByTestId(ready).isVisible()
+    )
+      return;
   }
-  await expect(page.getByTestId(ready)).toBeVisible();
+  if (ready === "tool-purpose") await expect(page.getByTestId(ready)).toBeAttached();
+  else await expect(page.getByTestId(ready)).toBeVisible();
 }
 
 test.describe("Core 60 stage load failure", { tag: "@dev-only" }, () => {

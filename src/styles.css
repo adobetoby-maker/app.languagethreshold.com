@@ -1961,6 +1961,9 @@ body:has(.lt-lesson-workspace-active) .lt-speaking-navigation {
 .lt-lesson-workspace-active [data-testid="practice-recall-switch"] {
   display: none;
 }
+.lt-v6-app .lt-lesson-workspace-active [data-testid="practice-recall-switch"] {
+  display: grid;
+}
 .lt-lesson-mode-bar .lt-core60-recall-menu {
   position: absolute;
   inset: auto 0 100%;

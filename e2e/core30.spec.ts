@@ -1,97 +1,65 @@
 import { expect, test, type Page } from "@playwright/test";
 import { appUrl, currentTab, readAppState, seedAppState } from "./app-state.ts";
 
-// Core 60 (tab key core30) is a first-class tab in the desktop sidebar
-// near the top and the phone's bottom bar. It holds the module's path: the free
-// Foundation, Core 30 and Master 20.
-
 async function openWithModule(page: Page, moduleId: string | null) {
-  const savedModule = async () => (await readAppState(page)).activeModuleId ?? null;
   await page.goto("/");
-  await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
-    timeout: 60_000,
-  });
-  // On a cold dev server the app can finish loading after the seed is written and
-  // drop it, so seed again (up to three times) until the module sticks.
-  for (let attempt = 0; attempt < 3; attempt++) {
-    await seedAppState(page, { activeModuleId: moduleId, currentTab: "guide" });
-    await page.goto(appUrl({ tab: "guide", module: moduleId }));
-    await expect(
-      page
-        .getByRole("button", { name: /App Guide|Core 60/ })
-        .or(page.getByText("More", { exact: true }))
-        .filter({ visible: true })
-        .first(),
-    ).toBeVisible({ timeout: 60_000 });
-    await page.waitForTimeout(2000);
-    if ((await savedModule()) === moduleId) return;
-  }
-  expect(await savedModule()).toBe(moduleId);
+  await expect(page.getByRole("button", { name: "Speaking menu", exact: true })).toBeVisible();
+  await seedAppState(page, { activeModuleId: moduleId, currentTab: "guide" });
+  await page.goto(appUrl({ tab: "guide", module: moduleId }));
+  await expect(page.getByRole("button", { name: "Navigation menu", exact: true })).toBeVisible();
+  await expect.poll(async () => (await readAppState(page)).activeModuleId ?? null).toBe(moduleId);
 }
 
-test.describe("desktop navigation", () => {
-  test.skip(({ isMobile }) => isMobile, "desktop-only layout checks");
+async function openExplore(page: Page) {
+  await page.getByRole("button", { name: "Navigation menu", exact: true }).click();
+  const sheet = page.getByRole("dialog").filter({ hasText: "Explore" });
+  await expect(sheet).toBeVisible();
+  return sheet;
+}
 
-  test("desktop has one feature menu in the sidebar", async ({ page }) => {
-    await openWithModule(page, "orthopedics");
-    await expect(page.getByRole("navigation", { name: "Desktop navigation" })).toBeVisible();
-    await expect(page.locator("header nav")).toHaveCount(0);
-    await expect(page.getByRole("navigation", { name: "Primary", exact: true })).not.toBeVisible();
-    await expect(page.getByRole("button", { name: "Core 60", exact: true })).toHaveCount(1);
-  });
-
-  test("left sidebar groups Core 60 and Modules under Learn with Core first", async ({ page }) => {
-    await openWithModule(page, "orthopedics");
-    const learn = page.getByRole("navigation", { name: "Desktop navigation" }).getByRole("region", { name: "Learn", exact: true });
-    await expect(learn.getByRole("button", { name: "Core 60", exact: true })).toBeVisible();
-    await expect(learn.getByRole("button", { name: "Modules", exact: true })).toBeVisible();
-    const labels = (await learn.getByRole("button").allInnerTexts()).map((t) => t.trim());
-    const core = labels.findIndex((t) => /^core 60$/i.test(t));
-    const modules = labels.findIndex((t) => /^modules$/i.test(t));
-    expect(core).toBeGreaterThanOrEqual(0);
-    expect(modules).toBeGreaterThan(core);
-  });
-
-  test("Core 60 opens from the sidebar and starts a lesson", async ({ page }) => {
-    await openWithModule(page, "orthopedics");
-    await page.getByRole("button", { name: "Core 60", exact: true }).first().click();
-    await expect(page.getByText(/Core 60/).first()).toBeVisible();
-    await expect.poll(() => currentTab(page)).toBe("core30");
-    await page.getByTestId("study-options").locator(":scope > summary").click();
-    await expect(page.getByText(/lessons complete/i)).toBeVisible();
-    await page.getByRole("button", { name: /Start Lesson 1/ }).click();
-    await expect(page.getByText("✕ Exit")).toBeVisible();
-    await expect(page.getByText(/^Step 1/)).toBeVisible();
-    await page.getByText("✕ Exit").click();
-    await expect(page.getByRole("button", { name: /Continue Lesson 1/ })).toBeVisible();
-  });
-
-  test("Core 60 opens from the sidebar", async ({ page }) => {
-    await openWithModule(page, "orthopedics");
-    await page
-      .locator("aside")
-      .first()
-      .getByRole("button", { name: /core 60/i })
-      .click();
-    await expect.poll(() => currentTab(page)).toBe("core30");
-    await expect(page.getByRole("button", { name: /Start Lesson 1/ })).toBeVisible();
-  });
+test("the Study screen keeps other features in one deeper navigation menu", async ({ page }) => {
+  await openWithModule(page, "orthopedics");
+  await expect(page.getByRole("navigation", { name: "Desktop navigation" })).not.toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Study and speak" })).toBeVisible();
+  const menu = await openExplore(page);
+  await expect(menu.getByRole("button", { name: "Core 60", exact: true })).toHaveCount(1);
+  await expect(menu.getByRole("button", { name: "Modules", exact: true })).toBeVisible();
 });
 
-test("Core 60 without a module offers Spanish 101 and specialty selection", async ({ page, isMobile }) => {
+test("the deeper Learn menu groups Core 60 before Modules", async ({ page }) => {
+  await openWithModule(page, "orthopedics");
+  const menu = await openExplore(page);
+  const labels = (await menu.getByRole("button").allInnerTexts()).map((text) => text.trim());
+  const core = labels.findIndex((text) => /^core 60$/i.test(text));
+  expect(core).toBeGreaterThanOrEqual(0);
+  expect(labels.findIndex((text) => /^modules$/i.test(text))).toBeGreaterThan(core);
+});
+
+test("Core 60 opens from the deeper menu, starts a lesson and returns to course lessons", async ({
+  page,
+}) => {
+  await openWithModule(page, "orthopedics");
+  const menu = await openExplore(page);
+  await menu.getByRole("button", { name: "Core 60", exact: true }).click();
+  await expect.poll(() => currentTab(page)).toBe("core30");
+  await page.getByTestId("study-options").locator(":scope > summary").click();
+  await expect(page.getByText(/lessons complete/i)).toBeVisible();
+  await page.getByRole("button", { name: /Start Lesson 1/ }).click();
+  await expect(
+    page.getByRole("navigation", { name: "Lesson practice modes", exact: true }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Lesson details and goal", exact: true }).click();
+  await page.getByRole("button", { name: "Course lessons", exact: true }).click();
+  await expect(page.getByRole("button", { name: /Continue Lesson 1/ })).toBeVisible();
+});
+
+test("Core 60 without a module offers Spanish 101 and specialty selection", async ({ page }) => {
   await openWithModule(page, null);
   await seedAppState(page, { currentTab: "core30" });
   await page.goto(appUrl({ tab: "core30" }));
-  await expect(page.getByRole("link", { name: "Start Spanish 101 · Foundation", exact: true })).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "Start Spanish 101 · Foundation", exact: true }),
+  ).toBeVisible();
   await page.getByRole("button", { name: "Choose a module" }).click();
   await expect.poll(() => currentTab(page)).toBe("modules");
-  expect(isMobile !== undefined).toBe(true);
-});
-
-test("phone: Core 60 is in the bottom bar and opens", async ({ page, isMobile }) => {
-  test.skip(!isMobile, "phone-only");
-  await openWithModule(page, "orthopedics");
-  await page.getByText("Core 60", { exact: true }).filter({ visible: true }).last().tap();
-  await expect.poll(() => currentTab(page)).toBe("core30");
-  await expect(page.getByRole("button", { name: /Start Lesson 1/ })).toBeVisible();
 });

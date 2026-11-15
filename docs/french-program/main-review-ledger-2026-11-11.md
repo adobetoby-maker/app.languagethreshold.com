@@ -247,3 +247,7 @@ The [Master 13–15 checkpoint](french101-master13-15-conflict-review-2026-11-15
 ### 2026-11-15 — French 101 Master 16–18 conflict review
 
 The [Master 16–18 checkpoint](french101-master16-18-conflict-review-2026-11-15.md) extends the separate owner-only conflict page by 25 exact-source disputed faces, to 123 across Master 1–18. All 12 pinned Spanish/English Reader lines per lesson and the unresolved French semantic decisions are visible. Stable IDs and false review, learner, audio/listening, scoring and progress gates remain enforced. Ordinary owner French 101 remains Foundation 10/Core 1–21; qualified French/dictionary/curriculum review, authored six modes, audio and V4 acceptance remain open.
+
+### 2026-11-15 — French 101 Master 19–20 conflict review
+
+The [Master 19–20 checkpoint](french101-master19-20-conflict-review-2026-11-15.md) extends the platform-owner conflict page by eight exact-source disputed faces, to 131 across Master 1–20. The 12 pinned Spanish/English Reader turns per lesson and meaning decisions remain visible. Master 19's `allé/allée` and near/nearby alternatives, Master 20's `être`/source ser–estar contrast and treatment/payment scene, plus grouped dictionary senses and missing approved Hear clips keep ordinary owner projection blocked. All review, learner, audio/listening, scoring and progress gates stay false; no audio or V4 change.

@@ -1,5 +1,5 @@
 {
-  "schema": "french101-master1-18-owner-conflicts-v1",
+  "schema": "french101-master1-20-owner-conflicts-v1",
   "pairKey": "French:English",
   "courseId": "french-basics",
   "stage": "master",
@@ -2420,6 +2420,202 @@
       "scoringEnabled": false,
       "progressEnabled": false,
       "normalCardProjectionAllowed": false
+    },
+    {
+      "n": 19,
+      "stableId": "master-french-basics:19:fr-en",
+      "sourceTitleEnglish": "Contrast a habit and an event",
+      "sourceObjectiveEnglish": "Contrast a habit and an event: Use the imperfect for past habits or background: estudiaba, comía, vivía.",
+      "sourceReaderTitleSpanish": "Antes y ayer",
+      "sourceReaderSpanish": [
+        "Antes vivía cerca de Julia.",
+        "Estudiábamos juntos los lunes.",
+        "Ella tenía muchos libros.",
+        "Ayer fui a su casa.",
+        "Hablamos una hora en español.",
+        "La visita fue muy agradable.",
+        "Antes vivía cerca de la escuela.",
+        "Estudiaba español por la tarde.",
+        "Ana caminaba a la biblioteca.",
+        "Comíamos juntos los viernes.",
+        "Luis tenía una mochila azul.",
+        "Ahora vivimos en otra ciudad."
+      ],
+      "sourceReaderEnglish": [
+        "I used to live near Julia.",
+        "We used to study together on Mondays.",
+        "She had many books.",
+        "Yesterday I went to her house.",
+        "We spoke Spanish for an hour.",
+        "The visit was very pleasant.",
+        "I used to live near the school.",
+        "I used to study Spanish in the afternoon.",
+        "Ana used to walk to the library.",
+        "We used to eat together on Fridays.",
+        "Luis had a blue backpack.",
+        "Now we live in another city."
+      ],
+      "cards": [
+        {
+          "id": "master-french-basics:19:card:5",
+          "number": 5,
+          "kind": "term",
+          "sourceSpanish": "en",
+          "sourceEnglish": "in / on / at",
+          "frenchCandidate": "dans / sur / à",
+          "semanticNote": "Grouped dans / sur / à cannot be scored or entered as one dictionary headword for in / on / at. Choose contextual phrases and accepted variants.",
+          "status": "qualified French/dictionary/scoring decision required",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        },
+        {
+          "id": "master-french-basics:19:card:7",
+          "number": 7,
+          "kind": "term",
+          "sourceSpanish": "los",
+          "sourceEnglish": "the / them (masculine plural)",
+          "frenchCandidate": "les",
+          "semanticNote": "Source English is masculine-only the / them; French les applies to masculine and feminine plurals. Visible English alone misstates French gender scope.",
+          "status": "qualified French/dictionary/scoring decision required",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        },
+        {
+          "id": "master-french-basics:19:card:12",
+          "number": 12,
+          "kind": "term",
+          "sourceSpanish": "cerca",
+          "sourceEnglish": "near / nearby",
+          "frenchCandidate": "près (de)",
+          "semanticNote": "près (de) means near; nearby can require tout près or à proximité depending construction. Parenthetical de is context-dependent.",
+          "status": "qualified French/dictionary/scoring decision required",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        },
+        {
+          "id": "master-french-basics:19:card:16",
+          "number": 16,
+          "kind": "phrase",
+          "sourceSpanish": "Ayer fui a su casa.",
+          "sourceEnglish": "Yesterday I went to her house.",
+          "frenchCandidate": "Hier, je suis allé chez elle.",
+          "semanticNote": "Source English does not mark speaker gender. Card has masculine primary French and feminine alternate; owner renderer and accepted-answer grading must present both.",
+          "status": "qualified French/dictionary/scoring decision required",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        }
+      ],
+      "reviewGaps": [
+        "Source-pinned candidate has Hear/Speak/Read/Write/Build/Say, not six authored See/Recall/Hear/Type/Say/Write tasks.",
+        "French form explanations for le lundi/le vendredi differ in number from exact Reader text.",
+        "Imparfait versus passé composé with être and allé/allée agreement needs progression and scoring review.",
+        "Hear remains script-only without approved recording or listening decision.",
+        "Speaking role/context and exact-pair dictionary/Reader/card integration need qualified review."
+      ],
+      "normalCardProjectionAllowed": false,
+      "reviewed": false,
+      "registered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "progressEnabled": false
+    },
+    {
+      "n": 20,
+      "stableId": "master-french-basics:20:fr-en",
+      "sourceTitleEnglish": "Spanish 101 final conversation",
+      "sourceObjectiveEnglish": "Spanish 101 final conversation: Y adds an idea, pero contrasts it, porque explains a reason, and entonces signals a result or next step.",
+      "sourceReaderTitleSpanish": "Un cambio de planes",
+      "sourceReaderSpanish": [
+        "Soy estudiante y vivo cerca de la escuela.",
+        "Ayer estudié con mis amigos.",
+        "Hoy estamos preparando un examen.",
+        "Quiero ir a la biblioteca, pero está cerrada.",
+        "Podemos estudiar en casa porque tenemos los libros.",
+        "Mañana vamos a practicar otra vez.",
+        "Quiero estudiar, pero la biblioteca está cerrada.",
+        "Ana tiene un libro y dos cuadernos.",
+        "Vamos al café porque está abierto.",
+        "Luis no tiene dinero, entonces Ana lo invita.",
+        "Estudiamos una hora y después caminamos a casa.",
+        "Mañana vamos a repasar juntos."
+      ],
+      "sourceReaderEnglish": [
+        "I am a student and I live near the school.",
+        "Yesterday I studied with my friends.",
+        "Today we are preparing for an exam.",
+        "I want to go to the library, but it is closed.",
+        "We can study at home because we have the books.",
+        "Tomorrow we are going to practice again.",
+        "I want to study, but the library is closed.",
+        "Ana has a book and two notebooks.",
+        "We are going to the café because it is open.",
+        "Luis has no money, so Ana treats him.",
+        "We study for an hour and then walk home.",
+        "Tomorrow we are going to review together."
+      ],
+      "cards": [
+        {
+          "id": "master-french-basics:20:card:2",
+          "number": 2,
+          "kind": "term",
+          "sourceSpanish": "soy",
+          "sourceEnglish": "I am (identity)",
+          "frenchCandidate": "je suis",
+          "semanticNote": "Spanish soy marks identity here. French je suis also uses être for conditions and locations; do not imply a one-to-one Spanish ser/estar split or score identity and condition as different French verbs.",
+          "status": "qualified-review-required",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        },
+        {
+          "id": "master-french-basics:20:card:4",
+          "number": 4,
+          "kind": "term",
+          "sourceSpanish": "está",
+          "sourceEnglish": "is (condition/location)",
+          "frenchCandidate": "est",
+          "semanticNote": "Spanish está marks condition/location here. French est is the same être form used for Spanish es; the source distinction needs sentence context, not a separate French verb or identical scored card answer.",
+          "status": "qualified-review-required",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        },
+        {
+          "id": "master-french-basics:20:card:8",
+          "number": 8,
+          "kind": "term",
+          "sourceSpanish": "en",
+          "sourceEnglish": "in / on / at",
+          "frenchCandidate": "dans / sur / à",
+          "semanticNote": "The pinned source groups in/on/at. French dans/sur/à are contextual choices and cannot form one interchangeable target. Choose a sentence-linked noun/location sense and contraction before dictionary or scored practice.",
+          "status": "qualified-review-required",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        },
+        {
+          "id": "master-french-basics:20:card:10",
+          "number": 10,
+          "kind": "term",
+          "sourceSpanish": "los",
+          "sourceEnglish": "the / them (masculine plural)",
+          "frenchCandidate": "les",
+          "semanticNote": "The source's masculine-only English gloss applies to Spanish los. French les is plural for both masculine and feminine nouns; the Reader has les livres as an article, while object-pronoun use needs its own context. Keep the source anchor and show this French contrast.",
+          "status": "qualified-review-required",
+          "scoringEnabled": false,
+          "normalCardProjectionAllowed": false
+        }
+      ],
+      "reviewGaps": [
+        "Reader 10 says Ana l’invite for pinned English Ana treats him. Decide whether the French conveys paying for Luis in the no-money café scene and update any coupled Say/form references.",
+        "Private activity labels are not the six required authored modes. Hear has no approved clip; all proposals are script-only and unscored.",
+        "Qualified curriculum review must assess the beginner connector focus under this Master number and the context-dependent dictionary senses."
+      ],
+      "normalCardProjectionAllowed": false,
+      "reviewed": false,
+      "registered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "progressEnabled": false
     }
   ]
 }

@@ -1,0 +1,712 @@
+{
+  "target": "French",
+  "native": "English",
+  "moduleId": "french-basics",
+  "stage": "master",
+  "reviewed": false,
+  "state": "authored-draft",
+  "source": {
+    "path": "content/french-basics/source-english-master-1-3.json",
+    "sourceSha256": "1d2b972c3b315f8c398d8c34b43a8148d6e01057895c80cb936ab6628ffd323e",
+    "sourcePaths": [
+      "src/data/core60/es/master-spanish-basics.json",
+      "src/data/spanish-basics-practice.json"
+    ],
+    "sourceFileSha256": {
+      "src/data/core60/es/master-spanish-basics.json": "27084a65c51ef96ab6b74dd969de1c4b38cd670be1c4b148e2b66f4d9bb15ede",
+      "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe"
+    },
+    "use": "Exact English objectives, word meanings, reading meanings and progression; French grammar and examples authored separately"
+  },
+  "draftModel": "Codex authored; independent Fable/Opus and human review pending",
+  "sourceNotes": [
+    "Pinned Spanish Master 1–3 source repeats beginner content; stage progression needs redesign.",
+    "Spanish vowel/personal morphology rules do not transfer to French; French-native explanations are authored separately.",
+    "Broad English source glosses receive contextual notes rather than false universal equivalents."
+  ],
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Présenter une camarade",
+      "sourceTitleEnglish": "Introduce a classmate",
+      "sourceObjectiveEnglish": "Introduce a classmate: Say each Spanish vowel clearly: a, e, i, o, u.",
+      "objective": "Présentez une nouvelle camarade, reliez son origine à ses études et adaptez la formule de présentation au registre de l’échange.",
+      "coreTie": "Reuses Core 1 introductions and Core 11 origin; the source repeats beginner content rather than advancing Master grammar.",
+      "focus": "je suis / il est / nous sommes; s’appeler; tu vs vous in introductions",
+      "grammar": {
+        "explanation": "French introductions use je suis for identity, venir de or être de for origin, and s’appeler for names: je m’appelle Ana, mon camarade s’appelle Diego. Tu is informal; vous is used with an unfamiliar adult or in a formal setting. Bonjour and enchanté(e) can make a first meeting more polite. French vowels a, e, i, o, u do not follow the Spanish pronunciation rule in the pinned source objective; practise French vowel contrasts separately.",
+        "model": {
+          "introduce": "Bonjour, je suis Elena.",
+          "origin": "Je viens du Pérou et j’étudie la musique.",
+          "classmate": "Mon camarade s’appelle Diego.",
+          "formal question": "Comment vous appelez-vous ?"
+        },
+        "caution": "The English source teaches Spanish vowel sounds and repeats beginner introductions under Master. This French draft preserves the English sentence meanings, teaches French forms, and flags the stage-placement problem; it does not claim advanced Master progression. “Spanish students” is interpreted as students of Spanish, not students from Spain."
+      },
+      "scene": "Elena accueille une nouvelle camarade dans un cours d’espagnol et présente Diego à Ana.",
+      "dialogue": [
+        "Bonjour, je suis Elena.|Hello, I am Elena.",
+        "Je viens du Pérou et j’étudie la musique.|I am from Peru and I study music.",
+        "Mon camarade s’appelle Diego.|My classmate's name is Diego.",
+        "Il vient du Chili.|He is from Chile.",
+        "Nous sommes étudiants en espagnol.|We are Spanish students.",
+        "Comment tu t’appelles ?|What is your name?",
+        "Bonjour !|Hello, good morning.",
+        "Je m’appelle Ana.|My name is Ana.",
+        "Je suis étudiante.|I am a student.",
+        "Comment tu t’appelles ?|What is your name?",
+        "Je m’appelle Luis.|My name is Luis.",
+        "Enchantée de faire ta connaissance, Luis.|Nice to meet you, Luis."
+      ],
+      "speaking": "Introduce Elena and Diego to a new classmate, including their origins and Elena’s music studies. Ask the classmate’s name informally, then repeat one greeting with vous for a formal meeting. Clarify that the group studies Spanish; close with a suitable nice-to-meet-you phrase.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "étudiant / étudiante",
+          "en": "student",
+          "kind": "term",
+          "note": "Étudiant is masculine; étudiante feminine."
+        },
+        {
+          "order": 2,
+          "fr": "bonjour",
+          "en": "hello",
+          "kind": "term"
+        },
+        {
+          "order": 3,
+          "fr": "bonjour",
+          "en": "good morning",
+          "kind": "term",
+          "note": "French bonjour covers both hello and good morning; the two English cards collapse to one natural French greeting."
+        },
+        {
+          "order": 4,
+          "fr": "enchanté(e) de faire votre connaissance",
+          "en": "nice to meet you",
+          "kind": "term",
+          "note": "The written ending of enchanté/enchantée agrees with the speaker; the formal phrase uses votre."
+        },
+        {
+          "order": 5,
+          "fr": "je m’appelle",
+          "en": "my name is",
+          "kind": "term"
+        },
+        {
+          "order": 6,
+          "fr": "tu appelles",
+          "en": "you call",
+          "kind": "term",
+          "note": "The English source “you call” is a bare gloss; French tu appelles needs an object, e.g. tu appelles Ana."
+        },
+        {
+          "order": 7,
+          "fr": "je suis",
+          "en": "I am (identity)",
+          "kind": "term"
+        },
+        {
+          "order": 8,
+          "fr": "me / moi-même",
+          "en": "me / myself",
+          "kind": "term",
+          "note": "Me is a clitic; moi-même is the emphatic/reflexive “myself”, not an interchangeable object."
+        },
+        {
+          "order": 9,
+          "fr": "te / toi-même",
+          "en": "you / yourself",
+          "kind": "term",
+          "note": "Te is a clitic; toi-même is emphatic/reflexive “yourself”."
+        },
+        {
+          "order": 10,
+          "fr": "comment",
+          "en": "how",
+          "kind": "term"
+        },
+        {
+          "order": 11,
+          "fr": "est",
+          "en": "is (identity)",
+          "kind": "term",
+          "note": "French est does not distinguish Spanish ser and estar."
+        },
+        {
+          "order": 12,
+          "fr": "et",
+          "en": "and",
+          "kind": "term"
+        },
+        {
+          "order": 13,
+          "fr": "Bonjour, je suis Elena.",
+          "en": "Hello, I am Elena.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Je viens du Pérou et j’étudie la musique.",
+          "en": "I am from Peru and I study music.",
+          "kind": "phrase"
+        },
+        {
+          "order": 15,
+          "fr": "Mon camarade s’appelle Diego.",
+          "en": "My classmate's name is Diego.",
+          "kind": "phrase"
+        },
+        {
+          "order": 16,
+          "fr": "Il vient du Chili.",
+          "en": "He is from Chile.",
+          "kind": "phrase"
+        },
+        {
+          "order": 17,
+          "fr": "Nous sommes étudiants en espagnol.",
+          "en": "We are Spanish students.",
+          "kind": "phrase",
+          "note": "“Spanish students” means students of Spanish in this classroom context, not nationality."
+        },
+        {
+          "order": 18,
+          "fr": "Comment tu t’appelles ?",
+          "en": "What is your name?",
+          "kind": "phrase"
+        },
+        {
+          "order": 19,
+          "fr": "Bonjour !",
+          "en": "Hello, good morning.",
+          "kind": "phrase"
+        },
+        {
+          "order": 20,
+          "fr": "Je m’appelle Ana.",
+          "en": "My name is Ana.",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "Une nouvelle camarade",
+        "sourceTitleEnglish": "Una compañera nueva",
+        "target": [
+          "Bonjour, je suis Elena.",
+          "Je viens du Pérou et j’étudie la musique.",
+          "Mon camarade s’appelle Diego.",
+          "Il vient du Chili.",
+          "Nous sommes étudiants en espagnol.",
+          "Comment tu t’appelles ?",
+          "Bonjour !",
+          "Je m’appelle Ana.",
+          "Je suis étudiante.",
+          "Comment tu t’appelles ?",
+          "Je m’appelle Luis.",
+          "Enchantée de faire ta connaissance, Luis."
+        ],
+        "native": [
+          "Hello, I am Elena.",
+          "I am from Peru and I study music.",
+          "My classmate's name is Diego.",
+          "He is from Chile.",
+          "We are Spanish students.",
+          "What is your name?",
+          "Hello, good morning.",
+          "My name is Ana.",
+          "I am a student.",
+          "What is your name?",
+          "My name is Luis.",
+          "Nice to meet you, Luis."
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete the introduction: Je m’___ Ana.",
+          "answer": "appelle"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: My classmate’s name is Diego.",
+          "answer": "Mon camarade s’appelle Diego."
+        },
+        {
+          "type": "listening",
+          "audioText": "Je viens du Pérou et j’étudie la musique.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen: where is Elena from?",
+          "answer": "Peru."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "Who is from Chile in the reading?",
+          "answer": "Diego."
+        },
+        {
+          "type": "recall",
+          "prompt": "Choose the informal question: Comment tu t’___ ?",
+          "answer": "appelles"
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 2,
+      "title": "Préparer le premier cours",
+      "sourceTitleEnglish": "Pack for a first class",
+      "sourceObjectiveEnglish": "Pack for a first class: A noun has grammatical gender.",
+      "objective": "Décrivez le matériel nécessaire au cours, localisez-le précisément et distinguez genre grammatical, article et pronom.",
+      "coreTie": "Reuses Foundation classroom objects and Core 18 locations; source is beginner-level despite Master placement.",
+      "focus": "un/une, le/la/l’; il y a; sur, près de, dans; accord de bleu",
+      "grammar": {
+        "explanation": "A French noun has grammatical gender: un livre, une table. The article agrees with the noun, not the owner of the object. Use il y a for there is/are, sur for on a surface, dans for inside a bag, and près de for near. Adjectives may agree in gender: un livre bleu, une sacoche bleue. La can also be a direct-object pronoun before a verb, but here it is mostly an article.",
+        "model": {
+          "need": "J’ai besoin d’un sac à dos pour le cours.",
+          "surface": "Le cahier est sur la table.",
+          "near": "La chaise est près de la porte.",
+          "inside": "Je mets le livre dans le sac à dos."
+        },
+        "caution": "The source repeats Foundation gender and classroom-object content rather than introducing Master-level structures. French sac à dos is masculine, unlike the Spanish mochila. English “class / classroom” spans cours and salle de classe; the card gives both with context."
+      },
+      "scene": "Avant de sortir, deux camarades vérifient le matériel sur la table et dans leur sac.",
+      "dialogue": [
+        "J’ai besoin d’un sac à dos pour le cours.|I need a backpack for class.",
+        "Le cahier est sur la table.|The notebook is on the table.",
+        "La chaise est près de la porte.|The chair is near the door.",
+        "J’ai un livre bleu.|I have a blue book.",
+        "Je mets le livre dans le sac à dos.|I put the book in the backpack.",
+        "Maintenant, j’ai tout ce qu’il faut pour étudier.|Now I have everything for studying.",
+        "Il y a une table dans la salle de classe.|There is a table in the classroom.",
+        "Le livre est sur la table.|The book is on the table.",
+        "J’ai un cahier et un sac à dos.|I have a notebook and a backpack.",
+        "Le sac à dos est bleu.|The backpack is blue.",
+        "J’ai besoin d’une chaise.|I need a chair.",
+        "La chaise est ici.|The chair is here."
+      ],
+      "speaking": "Pack for the first class. Tell a classmate what you need and where the notebook, chair, book and backpack are. Ask them to locate one item, correct a mistaken location with sur/dans/près de, then confirm that you have everything needed.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "table",
+          "en": "table",
+          "kind": "term"
+        },
+        {
+          "order": 2,
+          "fr": "sac à dos",
+          "en": "backpack",
+          "kind": "term",
+          "note": "Sac à dos is masculine in French."
+        },
+        {
+          "order": 3,
+          "fr": "cahier",
+          "en": "notebook",
+          "kind": "term"
+        },
+        {
+          "order": 4,
+          "fr": "livre",
+          "en": "book",
+          "kind": "term"
+        },
+        {
+          "order": 5,
+          "fr": "chaise",
+          "en": "chair",
+          "kind": "term"
+        },
+        {
+          "order": 6,
+          "fr": "cours / salle de classe",
+          "en": "class / classroom",
+          "kind": "term",
+          "note": "Cours is a class/session; salle de classe is the room. The source gloss covers both."
+        },
+        {
+          "order": 7,
+          "fr": "est",
+          "en": "is (identity)",
+          "kind": "term",
+          "note": "French est covers identity, condition and location; there is no ser/estar split."
+        },
+        {
+          "order": 8,
+          "fr": "est / se trouve",
+          "en": "is (condition/location)",
+          "kind": "term",
+          "note": "Se trouve explicitly locates something; est also works."
+        },
+        {
+          "order": 9,
+          "fr": "il y a",
+          "en": "there is / there are",
+          "kind": "term",
+          "note": "Il y a works for singular and plural “there is/are”."
+        },
+        {
+          "order": 10,
+          "fr": "le",
+          "en": "the (masculine singular)",
+          "kind": "term"
+        },
+        {
+          "order": 11,
+          "fr": "la",
+          "en": "the / it / her (feminine)",
+          "kind": "term",
+          "note": "La can be a feminine article or an object pronoun."
+        },
+        {
+          "order": 12,
+          "fr": "un",
+          "en": "a (masculine)",
+          "kind": "term",
+          "note": "Un is a masculine article; une is feminine."
+        },
+        {
+          "order": 13,
+          "fr": "J’ai besoin d’un sac à dos pour le cours.",
+          "en": "I need a backpack for class.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Le cahier est sur la table.",
+          "en": "The notebook is on the table.",
+          "kind": "phrase"
+        },
+        {
+          "order": 15,
+          "fr": "La chaise est près de la porte.",
+          "en": "The chair is near the door.",
+          "kind": "phrase"
+        },
+        {
+          "order": 16,
+          "fr": "J’ai un livre bleu.",
+          "en": "I have a blue book.",
+          "kind": "phrase"
+        },
+        {
+          "order": 17,
+          "fr": "Je mets le livre dans le sac à dos.",
+          "en": "I put the book in the backpack.",
+          "kind": "phrase"
+        },
+        {
+          "order": 18,
+          "fr": "Maintenant, j’ai tout ce qu’il faut pour étudier.",
+          "en": "Now I have everything for studying.",
+          "kind": "phrase"
+        },
+        {
+          "order": 19,
+          "fr": "Il y a une table dans la salle de classe.",
+          "en": "There is a table in the classroom.",
+          "kind": "phrase"
+        },
+        {
+          "order": 20,
+          "fr": "Le livre est sur la table.",
+          "en": "The book is on the table.",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "Avant de partir",
+        "sourceTitleEnglish": "Antes de salir",
+        "target": [
+          "J’ai besoin d’un sac à dos pour le cours.",
+          "Le cahier est sur la table.",
+          "La chaise est près de la porte.",
+          "J’ai un livre bleu.",
+          "Je mets le livre dans le sac à dos.",
+          "Maintenant, j’ai tout ce qu’il faut pour étudier.",
+          "Il y a une table dans la salle de classe.",
+          "Le livre est sur la table.",
+          "J’ai un cahier et un sac à dos.",
+          "Le sac à dos est bleu.",
+          "J’ai besoin d’une chaise.",
+          "La chaise est ici."
+        ],
+        "native": [
+          "I need a backpack for class.",
+          "The notebook is on the table.",
+          "The chair is near the door.",
+          "I have a blue book.",
+          "I put the book in the backpack.",
+          "Now I have everything for studying.",
+          "There is a table in the classroom.",
+          "The book is on the table.",
+          "I have a notebook and a backpack.",
+          "The backpack is blue.",
+          "I need a chair.",
+          "The chair is here."
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete the location: Le cahier est ___ la table.",
+          "answer": "sur"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: I put the book in the backpack.",
+          "answer": "Je mets le livre dans le sac à dos."
+        },
+        {
+          "type": "listening",
+          "audioText": "La chaise est près de la porte.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen: where is the chair?",
+          "answer": "Near the door."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "What color is the book in the reading?",
+          "answer": "Blue."
+        },
+        {
+          "type": "recall",
+          "prompt": "Complete the existence statement: Il ___ a une table.",
+          "answer": "y"
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 3,
+      "title": "Préparer le matériel du groupe",
+      "sourceTitleEnglish": "Prepare materials for a group",
+      "sourceObjectiveEnglish": "Prepare materials for a group: Usually add -s after a vowel and -es after a consonant.",
+      "objective": "Comptez et répartissez le matériel du groupe en accordant articles, noms et adjectifs au pluriel.",
+      "coreTie": "Reuses Core 14 plural forms and Core 24 recipients; source is a beginner inventory rather than a Master-level task.",
+      "focus": "un/une → des; le/la → les; plural -s, -x and irregular forms; il y a",
+      "grammar": {
+        "explanation": "French plural articles become les or des: le livre → les livres, une chaise → des chaises. Most nouns add written -s; many -eau nouns take -x (un tableau → des tableaux), and some plurals are irregular. The final consonant is often silent, but an article may link to the noun in speech. Use il y a with either singular or plural. For a group, distinguish what is on the table from what is still needed.",
+        "model": {
+          "group": "Il y a quatre étudiants dans le groupe.",
+          "need": "Il nous faut quatre livres.",
+          "shortage": "Il n’y a que deux livres sur la table.",
+          "bags": "Les sacs à dos sont sous les chaises."
+        },
+        "caution": "The pinned Spanish objective says add -s after a vowel and -es after a consonant, which is not a French plural rule. This French draft teaches French spelling instead. The source repeats Foundation plural/inventory content under Master; curriculum progression needs redesign before release."
+      },
+      "scene": "Quatre camarades comptent livres, cahiers et crayons avant de commencer le cours.",
+      "dialogue": [
+        "Il y a quatre étudiants dans le groupe.|There are four students in the group.",
+        "Il nous faut quatre livres.|We need four books.",
+        "Il n’y a que deux livres sur la table.|There are only two books on the table.",
+        "Ana apporte deux cahiers.|Ana brings two notebooks.",
+        "Les sacs à dos sont sous les chaises.|The backpacks are under the chairs.",
+        "Les crayons sont près des cahiers.|The pencils are near the notebooks.",
+        "J’ai deux livres.|I have two books.",
+        "Les livres sont pour le cours.|The books are for the class.",
+        "Il y a trois cahiers sur la table.|There are three notebooks on the table.",
+        "Les chaises sont ici.|The chairs are here.",
+        "Il nous faut deux crayons.|We need two pencils.",
+        "Les crayons sont dans le sac à dos.|The pencils are in the backpack."
+      ],
+      "speaking": "Prepare materials for four classmates. Count the books, notebooks and pencils; identify what is on the table, under the chairs and inside the backpack. Tell your partner what is missing, ask them to bring it, and confirm each plural quantity.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "table",
+          "en": "table",
+          "kind": "term"
+        },
+        {
+          "order": 2,
+          "fr": "sac à dos",
+          "en": "backpack",
+          "kind": "term",
+          "note": "Sac à dos is masculine; its plural is sacs à dos."
+        },
+        {
+          "order": 3,
+          "fr": "cours / salle de classe",
+          "en": "class / classroom",
+          "kind": "term",
+          "note": "Cours is a class/session; salle de classe is the room."
+        },
+        {
+          "order": 4,
+          "fr": "il y a",
+          "en": "there is / there are",
+          "kind": "term",
+          "note": "Il y a works for singular and plural."
+        },
+        {
+          "order": 5,
+          "fr": "le",
+          "en": "the (masculine singular)",
+          "kind": "term"
+        },
+        {
+          "order": 6,
+          "fr": "la",
+          "en": "the / it / her (feminine)",
+          "kind": "term",
+          "note": "La is a feminine article or object pronoun by context."
+        },
+        {
+          "order": 7,
+          "fr": "ici",
+          "en": "here",
+          "kind": "term"
+        },
+        {
+          "order": 8,
+          "fr": "dans / sur / à",
+          "en": "in / on / at",
+          "kind": "term",
+          "note": "Choose dans, sur or à by place meaning; the source English gloss is broad."
+        },
+        {
+          "order": 9,
+          "fr": "j’ai",
+          "en": "I have",
+          "kind": "term"
+        },
+        {
+          "order": 10,
+          "fr": "sont",
+          "en": "are (identity)",
+          "kind": "term",
+          "note": "French sont covers identity, condition and location; there is no ser/estar split."
+        },
+        {
+          "order": 11,
+          "fr": "sont / se trouvent",
+          "en": "are (condition/location)",
+          "kind": "term",
+          "note": "Se trouvent highlights location; sont can also locate objects."
+        },
+        {
+          "order": 12,
+          "fr": "les",
+          "en": "the / them (masculine plural)",
+          "kind": "term",
+          "note": "Les is plural regardless of gender; it may also be an object pronoun."
+        },
+        {
+          "order": 13,
+          "fr": "Il y a quatre étudiants dans le groupe.",
+          "en": "There are four students in the group.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Il nous faut quatre livres.",
+          "en": "We need four books.",
+          "kind": "phrase"
+        },
+        {
+          "order": 15,
+          "fr": "Il n’y a que deux livres sur la table.",
+          "en": "There are only two books on the table.",
+          "kind": "phrase"
+        },
+        {
+          "order": 16,
+          "fr": "Ana apporte deux cahiers.",
+          "en": "Ana brings two notebooks.",
+          "kind": "phrase"
+        },
+        {
+          "order": 17,
+          "fr": "Les sacs à dos sont sous les chaises.",
+          "en": "The backpacks are under the chairs.",
+          "kind": "phrase"
+        },
+        {
+          "order": 18,
+          "fr": "Les crayons sont près des cahiers.",
+          "en": "The pencils are near the notebooks.",
+          "kind": "phrase"
+        },
+        {
+          "order": 19,
+          "fr": "J’ai deux livres.",
+          "en": "I have two books.",
+          "kind": "phrase"
+        },
+        {
+          "order": 20,
+          "fr": "Les livres sont pour le cours.",
+          "en": "The books are for the class.",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "Quatre camarades",
+        "sourceTitleEnglish": "Cuatro compañeros",
+        "target": [
+          "Il y a quatre étudiants dans le groupe.",
+          "Il nous faut quatre livres.",
+          "Il n’y a que deux livres sur la table.",
+          "Ana apporte deux cahiers.",
+          "Les sacs à dos sont sous les chaises.",
+          "Les crayons sont près des cahiers.",
+          "J’ai deux livres.",
+          "Les livres sont pour le cours.",
+          "Il y a trois cahiers sur la table.",
+          "Les chaises sont ici.",
+          "Il nous faut deux crayons.",
+          "Les crayons sont dans le sac à dos."
+        ],
+        "native": [
+          "There are four students in the group.",
+          "We need four books.",
+          "There are only two books on the table.",
+          "Ana brings two notebooks.",
+          "The backpacks are under the chairs.",
+          "The pencils are near the notebooks.",
+          "I have two books.",
+          "The books are for the class.",
+          "There are three notebooks on the table.",
+          "The chairs are here.",
+          "We need two pencils.",
+          "The pencils are in the backpack."
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete the shortage: Il n’y a que deux ___ sur la table.",
+          "answer": "livres"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: The backpacks are under the chairs.",
+          "answer": "Les sacs à dos sont sous les chaises."
+        },
+        {
+          "type": "listening",
+          "audioText": "Ana apporte deux cahiers.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen: how many notebooks does Ana bring?",
+          "answer": "Two."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "How many students are in the group?",
+          "answer": "Four."
+        },
+        {
+          "type": "recall",
+          "prompt": "Complete the plural article: ___ livres sont pour le cours.",
+          "answer": "Les"
+        }
+      ],
+      "locale": "fr-FR"
+    }
+  ]
+}

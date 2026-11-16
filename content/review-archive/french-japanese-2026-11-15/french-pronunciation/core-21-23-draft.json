@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "core",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "core-french-sound-like-a-native:21:fr-en",
+      "n": 21,
+      "sourceSpanishLesson": 21,
+      "title": "Hear spoken syllable boundaries",
+      "objective": "Follow the spoken syllables of a French directions exchange through elision and smooth word boundaries.",
+      "focus": "Read l'école and l'entrée with the elided article joined to the following vowel. Compare une école, where the final consonant of une flows into école. Count the sounds you hear in the whole phrase rather than giving every written letter its own beat.",
+      "words": [
+        { "fr": "carte", "en": "map", "kind": "term" },
+        { "fr": "ville", "en": "city; town", "kind": "term" },
+        { "fr": "école", "en": "school", "kind": "term" },
+        { "fr": "entrée", "en": "entrance", "kind": "term" },
+        { "fr": "arrêt", "en": "stop", "kind": "term" },
+        { "fr": "itinéraire", "en": "route; itinerary", "kind": "term" },
+        { "fr": "L'école est près de l'arrêt.", "en": "The school is near the stop.", "kind": "phrase" },
+        { "fr": "Je cherche l'entrée de la gare.", "en": "I'm looking for the station entrance.", "kind": "phrase" },
+        { "fr": "Voici une carte de la ville.", "en": "Here is a map of the city.", "kind": "phrase" },
+        { "fr": "Quel est l'itinéraire le plus court ?", "en": "What is the shortest route?", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "À l'office de tourisme, Léa demande une carte de la ville.", "en": "At the tourist office, Léa asks for a map of the city." },
+        { "fr": "L'agent lui montre l'école près de l'arrêt de bus.", "en": "The agent shows her the school near the bus stop." },
+        { "fr": "Léa cherche ensuite l'entrée de la gare sur la carte.", "en": "Léa then looks for the station entrance on the map." },
+        { "fr": "L'agent trace l'itinéraire le plus court jusqu'à la gare.", "en": "The agent draws the shortest route to the station." }
+      ],
+      "speaking": {
+        "scene": "Asking for directions at a tourist office",
+        "roles": ["visitor", "tourist-office agent"],
+        "opening": "Bonjour, voici une carte de la ville.",
+        "goals": ["Locate the school near the stop.", "Ask for the station entrance.", "Ask for the shortest route."],
+        "closure": "Merci, je vois l'entrée de la gare sur la carte."
+      },
+      "practice": {
+        "see": { "prompt": "Find the elided article in l'école and l'entrée in the model phrases.", "wordRefs": ["L'école est près de l'arrêt.", "Je cherche l'entrée de la gare."] },
+        "recall": { "prompt": "Recall the French sentence locating the school near the stop.", "answerRef": "L'école est près de l'arrêt." },
+        "hear": { "prompt": "Listen for entrée or itinéraire in the recorded directions phrase.", "choices": ["entrée", "itinéraire"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'Here is a map of the city.'", "answerRef": "Voici une carte de la ville." },
+        "say": { "prompt": "Ask the agent for the shortest route.", "answerRef": "Quel est l'itinéraire le plus court ?" },
+        "write": { "prompt": "Write two French sentences that locate the school and ask about the station entrance.", "requiredRefs": ["école", "arrêt", "entrée"] }
+      }
+    },
+    {
+      "id": "core-french-sound-like-a-native:22:fr-en",
+      "n": 22,
+      "sourceSpanishLesson": 22,
+      "title": "Accent a French phrase group",
+      "objective": "Place prominence near the end of a French phrase group in a post-office exchange.",
+      "focus": "Say Je dépose le colis | demain matin in two useful meaning groups. Give each group's final spoken syllable the prominence that carries the message; avoid assigning every written word a fixed stress pattern from Spanish.",
+      "words": [
+        { "fr": "colis", "en": "parcel", "kind": "term" },
+        { "fr": "adresse", "en": "address", "kind": "term" },
+        { "fr": "bureau", "en": "office", "kind": "term" },
+        { "fr": "demain", "en": "tomorrow", "kind": "term" },
+        { "fr": "matin", "en": "morning", "kind": "term" },
+        { "fr": "reçu", "en": "receipt", "kind": "term" },
+        { "fr": "Je dépose le colis demain matin.", "en": "I'll drop off the parcel tomorrow morning.", "kind": "phrase" },
+        { "fr": "Le bureau ferme à cinq heures.", "en": "The office closes at five o'clock.", "kind": "phrase" },
+        { "fr": "Voici l'adresse et le reçu.", "en": "Here are the address and the receipt.", "kind": "phrase" },
+        { "fr": "Je reviens demain matin.", "en": "I'll come back tomorrow morning.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Nora apporte un colis au bureau de poste.", "en": "Nora brings a parcel to the post office." },
+        { "fr": "Elle vérifie l'adresse avant de parler à l'employé.", "en": "She checks the address before speaking to the clerk." },
+        { "fr": "Le bureau ferme bientôt, alors elle reviendra demain matin.", "en": "The office is closing soon, so she will return tomorrow morning." },
+        { "fr": "Elle garde le reçu d'un autre envoi dans son sac.", "en": "She keeps the receipt from another mailing in her bag." }
+      ],
+      "speaking": {
+        "scene": "Planning a parcel drop-off at the post office",
+        "roles": ["customer", "postal clerk"],
+        "opening": "Bonjour, le bureau ferme à cinq heures.",
+        "goals": ["Explain when you will drop off the parcel.", "Confirm the address.", "Ask about the receipt."],
+        "closure": "Merci, je reviens demain matin avec le colis."
+      },
+      "practice": {
+        "see": { "prompt": "Mark the phrase-group boundary in 'Je dépose le colis | demain matin' and locate each group's last spoken syllable.", "wordRefs": ["Je dépose le colis demain matin."] },
+        "recall": { "prompt": "Recall when the customer will drop off the parcel.", "answerRef": "Je dépose le colis demain matin." },
+        "hear": { "prompt": "Listen for bureau or reçu in the recorded post-office phrase.", "choices": ["bureau", "reçu"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The office closes at five o'clock.'", "answerRef": "Le bureau ferme à cinq heures." },
+        "say": { "prompt": "Tell the clerk that you will come back tomorrow morning.", "answerRef": "Je reviens demain matin." },
+        "write": { "prompt": "Write two French sentences about the parcel, its address, and your return tomorrow morning.", "requiredRefs": ["colis", "adresse", "demain", "matin"] }
+      }
+    },
+    {
+      "id": "core-french-sound-like-a-native:23:fr-en",
+      "n": 23,
+      "sourceSpanishLesson": 23,
+      "title": "Read é and è in context",
+      "objective": "Use written é and è as cues to French /e/ and /ɛ/ in a café exchange.",
+      "focus": "Compare é in café, clé, and école with è in père and crème, and è in après. These marks help identify vowel quality in these words; they do not mark a Spanish-style stressed syllable.",
+      "words": [
+        { "fr": "café", "en": "coffee; café", "kind": "term" },
+        { "fr": "père", "en": "father", "kind": "term" },
+        { "fr": "clé", "en": "key", "kind": "term" },
+        { "fr": "crème", "en": "cream", "kind": "term" },
+        { "fr": "école", "en": "school", "kind": "term" },
+        { "fr": "après", "en": "after", "kind": "term" },
+        { "fr": "La clé est près du café.", "en": "The key is near the café.", "kind": "phrase" },
+        { "fr": "Mon père arrive après l'école.", "en": "My father arrives after school.", "kind": "phrase" },
+        { "fr": "Je prends un café avec de la crème.", "en": "I'll have a coffee with cream.", "kind": "phrase" },
+        { "fr": "Après le cours, nous allons au café.", "en": "After class, we're going to the café.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Après l'école, Camille retrouve son père dans un café.", "en": "After school, Camille meets her father in a café." },
+        { "fr": "Elle a laissé sa clé près de la fenêtre.", "en": "She left her key near the window." },
+        { "fr": "Son père commande un café avec de la crème.", "en": "Her father orders a coffee with cream." },
+        { "fr": "Avant de partir, Camille reprend sa clé sur la table.", "en": "Before leaving, Camille picks up her key from the table." }
+      ],
+      "speaking": {
+        "scene": "Meeting a parent at a café after school",
+        "roles": ["student", "parent"],
+        "opening": "Bonjour, je suis au café après l'école.",
+        "goals": ["Say where the key is.", "Order coffee with cream.", "Explain when your father arrives."],
+        "closure": "Merci, j'ai ma clé et mon café."
+      },
+      "practice": {
+        "see": { "prompt": "Sort the marked vowels in café, clé, école, père, crème, and après into é and è groups.", "wordRefs": ["café", "clé", "école", "père", "crème", "après"] },
+        "recall": { "prompt": "Recall the French sentence about your father's arrival.", "answerRef": "Mon père arrive après l'école." },
+        "hear": { "prompt": "Listen for clé or crème in the recorded café phrase.", "choices": ["clé", "crème"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The key is near the café.'", "answerRef": "La clé est près du café." },
+        "say": { "prompt": "Order a coffee with cream.", "answerRef": "Je prends un café avec de la crème." },
+        "write": { "prompt": "Write two French sentences about your father, the café, and the key after school.", "requiredRefs": ["père", "café", "clé", "école"] }
+      }
+    }
+  ]
+}

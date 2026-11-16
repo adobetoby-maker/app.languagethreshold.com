@@ -1,0 +1,181 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "master",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "master-french-sound-like-a-native:18:fr-en",
+      "n": 18,
+      "sourceSpanishLesson": 18,
+      "title": "Choose two sound priorities",
+      "objective": "Select two French pronunciation habits from a saved self-recording and test them in a new phrase.",
+      "focus": "Listen to an actual saved recording before naming a priority. For each of two recurring features, note the exact word or phrase you heard, the target you want to practise, and a fresh phrase for checking it. A sample priority is not evidence about your own voice.",
+      "words": [
+        { "fr": "enregistrement", "en": "recording", "kind": "term" },
+        { "fr": "écoute", "en": "listening", "kind": "term" },
+        { "fr": "habitude", "en": "habit", "kind": "term" },
+        { "fr": "rythme", "en": "rhythm", "kind": "term" },
+        { "fr": "voyelle", "en": "vowel", "kind": "term" },
+        { "fr": "consonne", "en": "consonant", "kind": "term" },
+        { "fr": "J'écoute mon enregistrement avant de choisir deux priorités.", "en": "I listen to my recording before choosing two priorities.", "kind": "phrase" },
+        { "fr": "Je note le mot où j'entends cette habitude.", "en": "I note the word where I hear that habit.", "kind": "phrase" },
+        { "fr": "Je travaille le rythme dans une nouvelle phrase.", "en": "I work on rhythm in a new sentence.", "kind": "phrase" },
+        { "fr": "Je compare ma voyelle et ma consonne au modèle.", "en": "I compare my vowel and consonant with the model.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Après un exercice oral, Lina réécoute son propre enregistrement.", "en": "After a speaking exercise, Lina listens again to her own recording." },
+        { "fr": "Elle note le mot précis où elle veut retravailler une consonne.", "en": "She notes the exact word in which she wants to work on a consonant again." },
+        { "fr": "Elle choisit aussi une phrase où son rythme coupe le message en trop petits morceaux.", "en": "She also chooses a sentence where her rhythm breaks the message into pieces that are too small." },
+        { "fr": "Lina essaie ensuite les deux priorités dans une phrase qu'elle n'avait pas répétée.", "en": "Lina then tries both priorities in a sentence she had not rehearsed." }
+      ],
+      "grammar": {
+        "focus": "Avant de marks the step before choosing; où identifies the word in which the habit was heard.",
+        "examples": [
+          { "fr": "J'écoute mon enregistrement avant de choisir deux priorités.", "en": "I listen to my recording before choosing two priorities." },
+          { "fr": "Je note le mot où j'entends cette habitude.", "en": "I note the word where I hear that habit." }
+        ]
+      },
+      "lessonType": "Capstone",
+      "block": "E",
+      "speaking": {
+        "scene": "Explaining two observed pronunciation priorities to a tutor",
+        "roles": ["learner", "tutor"],
+        "opening": "J'ai réécouté mon enregistrement et j'ai choisi deux priorités.",
+        "goals": ["Name the exact word or phrase behind each priority.", "Explain one sound target and one rhythm target only if both are supported by the recording.", "Try a new sentence and compare it with the earlier sample."],
+        "complication": "The tutor asks which recording supports your second priority; identify it or say that you need a new sample before claiming a recurring habit.",
+        "closure": "Je garde ces deux priorités pour mon prochain enregistrement."
+      },
+      "practice": {
+        "see": { "prompt": "Identify the evidence step, the chosen habit, and the new-phrase check in the model workflow.", "wordRefs": ["J'écoute mon enregistrement avant de choisir deux priorités.", "Je note le mot où j'entends cette habitude.", "Je travaille le rythme dans une nouvelle phrase."] },
+        "recall": { "prompt": "Recall the sentence that places listening before choosing priorities.", "answerRef": "J'écoute mon enregistrement avant de choisir deux priorités." },
+        "hear": { "prompt": "Compare your saved recording with the reviewed model only after locating the same target word.", "choices": ["voyelle", "consonne"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for noting the word where the habit is audible.", "answerRef": "Je note le mot où j'entends cette habitude." },
+        "say": { "prompt": "Explain that you are testing rhythm in a new phrase.", "answerRef": "Je travaille le rythme dans une nouvelle phrase." },
+        "write": { "prompt": "Record two priorities with the actual sample word, observed feature, and new test phrase for each.", "requiredRefs": ["enregistrement", "habitude", "rythme", "consonne"] }
+      },
+      "evidenceRequirement": {
+        "source": "learner-saved-recording-or-instructor-observation",
+        "minimumPriorities": 2,
+        "sampleWordRequired": true,
+        "newPhraseCheckRequired": true
+      }
+    },
+    {
+      "id": "master-french-sound-like-a-native:19:fr-en",
+      "n": 19,
+      "sourceSpanishLesson": 19,
+      "title": "Keep a conversation clear after a change",
+      "objective": "Preserve the reservation time and new seating place when a French café conversation changes unexpectedly.",
+      "focus": "Begin with a reservation for twelve-thirty inside the café. When the server says that the indoor table is unavailable, ask about the terrace without changing the time. Group the new place and unchanged time so the listener can confirm both.",
+      "words": [
+        { "fr": "réservation", "en": "reservation", "kind": "term" },
+        { "fr": "terrasse", "en": "terrace; outdoor seating", "kind": "term" },
+        { "fr": "table", "en": "table", "kind": "term" },
+        { "fr": "intérieur", "en": "inside; interior", "kind": "term" },
+        { "fr": "heure", "en": "time; hour", "kind": "term" },
+        { "fr": "serveur", "en": "server", "kind": "term" },
+        { "fr": "J'ai réservé une table à l'intérieur pour midi et demi.", "en": "I reserved an indoor table for twelve-thirty.", "kind": "phrase" },
+        { "fr": "La table à l'intérieur n'est plus disponible.", "en": "The indoor table is no longer available.", "kind": "phrase" },
+        { "fr": "Avez-vous une table sur la terrasse à la même heure ?", "en": "Do you have a table on the terrace at the same time?", "kind": "phrase" },
+        { "fr": "Je confirme la terrasse pour midi et demi.", "en": "I confirm the terrace for twelve-thirty.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Nora arrive au café pour sa réservation de midi et demi.", "en": "Nora arrives at the café for her twelve-thirty reservation." },
+        { "fr": "Le serveur lui dit que la table à l'intérieur n'est plus disponible.", "en": "The server tells her that the indoor table is no longer available." },
+        { "fr": "Nora demande s'il reste une table sur la terrasse à la même heure.", "en": "Nora asks whether there is a table left on the terrace at the same time." },
+        { "fr": "Le serveur confirme la terrasse, et Nora répète l'heure avant de s'asseoir.", "en": "The server confirms the terrace, and Nora repeats the time before sitting down." }
+      ],
+      "grammar": {
+        "focus": "N'est plus disponible gives the changed condition; à la même heure keeps the reservation time unchanged.",
+        "examples": [
+          { "fr": "La table à l'intérieur n'est plus disponible.", "en": "The indoor table is no longer available." },
+          { "fr": "Avez-vous une table sur la terrasse à la même heure ?", "en": "Do you have a table on the terrace at the same time?" }
+        ]
+      },
+      "lessonType": "Capstone",
+      "block": "E",
+      "speaking": {
+        "scene": "Moving a café reservation from inside to the terrace",
+        "roles": ["customer", "server"],
+        "opening": "Bonjour, j'ai réservé une table à l'intérieur pour midi et demi.",
+        "goals": ["State the original time and place.", "Ask about a terrace table after the change.", "Confirm the same time and new place."],
+        "complication": "The indoor table is unavailable; the server offers the terrace but does not repeat the time.",
+        "closure": "Merci, je confirme la terrasse pour midi et demi."
+      },
+      "practice": {
+        "see": { "prompt": "Mark the unavailable place, the possible new place, and the time that stays unchanged.", "wordRefs": ["J'ai réservé une table à l'intérieur pour midi et demi.", "La table à l'intérieur n'est plus disponible.", "Avez-vous une table sur la terrasse à la même heure ?"] },
+        "recall": { "prompt": "Recall the question asking for a terrace table at the same time.", "answerRef": "Avez-vous une table sur la terrasse à la même heure ?" },
+        "hear": { "prompt": "In the reviewed café exchange, distinguish intérieur from terrasse.", "choices": ["intérieur", "terrasse"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence confirming the terrace at twelve-thirty.", "answerRef": "Je confirme la terrasse pour midi et demi." },
+        "say": { "prompt": "Ask the server for a terrace table without changing the reservation time.", "answerRef": "Avez-vous une table sur la terrasse à la même heure ?" },
+        "write": { "prompt": "Write a response that preserves the time and changes only the seating place.", "requiredRefs": ["réservation", "intérieur", "terrasse", "heure"] }
+      }
+    },
+    {
+      "id": "master-french-sound-like-a-native:20:fr-en",
+      "n": 20,
+      "sourceSpanishLesson": 20,
+      "title": "Build a final speech portfolio",
+      "objective": "Compare an earlier and a final French recording on the same task, then complete a fresh reading and response.",
+      "focus": "Use the same short message for a saved baseline and final recording. Compare intelligibility of target sounds, preservation of details, and rhythmic groups with specific timestamps or words. Read a new notice and answer an unexpected question separately. If no earlier baseline exists, label a same-day first attempt honestly rather than claiming course-long improvement.",
+      "words": [
+        { "fr": "départ", "en": "departure", "kind": "term" },
+        { "fr": "demain", "en": "tomorrow", "kind": "term" },
+        { "fr": "réunion", "en": "meeting", "kind": "term" },
+        { "fr": "enregistrement", "en": "recording", "kind": "term" },
+        { "fr": "comparaison", "en": "comparison", "kind": "term" },
+        { "fr": "progrès", "en": "progress", "kind": "term" },
+        { "fr": "Je prends le train demain matin avant la réunion.", "en": "I'm taking the train tomorrow morning before the meeting.", "kind": "phrase" },
+        { "fr": "J'écoute les deux enregistrements avec la même phrase.", "en": "I listen to both recordings with the same sentence.", "kind": "phrase" },
+        { "fr": "Je note un progrès précis dans le rythme.", "en": "I note a specific improvement in rhythm.", "kind": "phrase" },
+        { "fr": "Je vérifie que le jour et l'heure restent clairs.", "en": "I check that the day and time remain clear.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Demain, le train de Lucie partira à huit heures de la voie quatre.", "en": "Tomorrow, Lucie's train will leave at eight o'clock from platform four." },
+        { "fr": "Une réunion commencera à dix heures dans la salle verte.", "en": "A meeting will start at ten o'clock in the green room." },
+        { "fr": "Lucie lit le nouveau message à haute voix sans l'avoir répété auparavant.", "en": "Lucie reads the new message aloud without having rehearsed it before." },
+        { "fr": "Son collègue lui demande ensuite de confirmer la voie et la salle.", "en": "Her colleague then asks her to confirm the platform and room." }
+      ],
+      "grammar": {
+        "focus": "Partira and commencera place two events in the future; their times and places remain separate facts.",
+        "examples": [
+          { "fr": "Demain, le train de Lucie partira à huit heures de la voie quatre.", "en": "Tomorrow, Lucie's train will leave at eight o'clock from platform four." },
+          { "fr": "Une réunion commencera à dix heures dans la salle verte.", "en": "A meeting will start at ten o'clock in the green room." }
+        ]
+      },
+      "lessonType": "Capstone",
+      "block": "E",
+      "speaking": {
+        "scene": "Presenting a fresh train-and-meeting notice to a colleague",
+        "roles": ["traveler", "colleague"],
+        "opening": "Je prends le train demain matin avant la réunion.",
+        "goals": ["Read the new notice with its two times and places.", "Answer which platform the train uses.", "Answer which room holds the meeting."],
+        "complication": "The colleague asks for the platform and room in reverse order; answer both without swapping their times.",
+        "closure": "Le train part de la voie quatre à huit heures; la réunion est dans la salle verte à dix heures."
+      },
+      "practice": {
+        "see": { "prompt": "Separate the train's time and platform from the meeting's time and room in the new notice.", "wordRefs": ["Je prends le train demain matin avant la réunion.", "Je vérifie que le jour et l'heure restent clairs."] },
+        "recall": { "prompt": "Recall the common phrase used in both portfolio recordings.", "answerRef": "Je prends le train demain matin avant la réunion." },
+        "hear": { "prompt": "Listen to your baseline and final recordings of the same phrase before comparing them with the reviewed model.", "choices": ["enregistrement", "comparaison"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence saying you listen to both recordings of the same phrase.", "answerRef": "J'écoute les deux enregistrements avec la même phrase." },
+        "say": { "prompt": "Record the common portfolio phrase, then read the new notice aloud and answer its unexpected detail question.", "answerRef": "Je prends le train demain matin avant la réunion.", "freshReading": ["Demain, le train de Lucie partira à huit heures de la voie quatre.", "Une réunion commencera à dix heures dans la salle verte."] },
+        "write": { "prompt": "Write two timestamped observations comparing the recordings, including one sound and one meaning or rhythm detail.", "requiredRefs": ["enregistrement", "comparaison", "progrès", "départ"] }
+      },
+      "portfolio": {
+        "commonPrompt": "Je prends le train demain matin avant la réunion.",
+        "baselineRequired": true,
+        "missingBaselineLabel": "same-day first attempt; no course-long comparison",
+        "rubric": ["target-sound intelligibility", "retention of the common prompt's travel and meeting details", "rhythmic grouping"],
+        "freshReadingRubric": ["train time and platform retained", "meeting time and room retained", "response to the unexpected question"],
+        "assessmentStatus": "not-assessed"
+      }
+    }
+  ]
+}

@@ -1,0 +1,549 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "core",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "englishSourceSubsetSHA256": "e71d2da5abeb58cd7933cd814417c5969a7625c04da017076ce33d32809a59b0",
+  "sourceFileSHA256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+  },
+  "lessons": [
+    {
+      "n": 16,
+      "stableId": "roofing:16:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Nailing Zone",
+      "sourceEnglishObjective": "Correct nails placed outside the specified zone",
+      "sourceEnglishSpeaking": "Tell a worker 'Nail in the strip — not too high' and explain the correction.",
+      "title": "釘打ち位置の確認",
+      "objective": "指定された釘打ち帯から外れた釘を見つけ、位置を直すよう伝える。",
+      "focus": "～の中に and ～の外に contrast placement; ～すぎる describes a nail placed too high. ～てください gives an instruction and ～を見せてください requests a demonstration.",
+      "cards": [
+        {
+          "ja": "釘打ち帯",
+          "en": "nailing strip",
+          "kind": "term"
+        },
+        {
+          "ja": "高すぎる位置に打たれた釘",
+          "en": "high nail",
+          "kind": "term"
+        },
+        {
+          "ja": "固定具",
+          "en": "fastener",
+          "kind": "term"
+        },
+        {
+          "ja": "釘",
+          "en": "nail",
+          "kind": "term"
+        },
+        {
+          "ja": "シングル材",
+          "en": "shingle",
+          "kind": "term"
+        },
+        {
+          "ja": "釘打ち機",
+          "en": "nail gun",
+          "kind": "term"
+        },
+        {
+          "ja": "釘打ち範囲",
+          "en": "nailing zone",
+          "kind": "term"
+        },
+        {
+          "ja": "粘着帯",
+          "en": "sealant strip",
+          "kind": "term"
+        },
+        {
+          "ja": "シングル材のタブ",
+          "en": "tab",
+          "kind": "term"
+        },
+        {
+          "ja": "釘打ち帯の中に打ってください。高すぎる位置には打たないでください。",
+          "en": "Nail in the strip — not too high.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "その釘は位置が高すぎます。",
+          "en": "That nail is too high.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "釘は釘打ち範囲の中に収めてください。",
+          "en": "Keep the nails inside the nailing zone.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この段を直してください。",
+          "en": "Fix this row.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "このようにしてください。",
+          "en": "Do it like this.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "釘打ち帯がどこにあるか見せてください。",
+          "en": "Show me where the strip is.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "職長は新しい段のアスファルトシングル材を確認します。",
+          "en": "The foreman checks the asphalt shingles in the new course."
+        },
+        {
+          "ja": "釘打ち帯の外側に、高すぎる位置の釘を見つけます。",
+          "en": "He sees a nail that is too high, outside the nailing strip."
+        },
+        {
+          "ja": "その釘は位置が高すぎます。",
+          "en": "That nail is too high."
+        },
+        {
+          "ja": "釘打ち帯がどこにあるか見せてください。",
+          "en": "Show me where the strip is."
+        },
+        {
+          "ja": "釘は釘打ち範囲の中に収めてください。",
+          "en": "Keep the nails inside the nailing zone."
+        },
+        {
+          "ja": "この段を直してください。",
+          "en": "Fix this row."
+        },
+        {
+          "ja": "職長は釘打ち機を手に取り、「このようにしてください」と言います。",
+          "en": "The foreman takes the nail gun and says: Do it like this."
+        },
+        {
+          "ja": "その後、ペドロは一本ずつ釘をより注意深く確認します。",
+          "en": "Afterward, Pedro checks each nail more carefully."
+        }
+      ],
+      "forms": [
+        {
+          "base": "打つ",
+          "exampleJa": "ペドロは釘打ち帯の中に釘を打ちます。",
+          "meaningEnglish": "to nail",
+          "exampleEnglish": "Pedro nails inside the nailing strip.",
+          "sourceInfinitiveSpanish": "clavar"
+        },
+        {
+          "base": "確認する",
+          "exampleJa": "職長は新しい段のアスファルトシングル材を確認します。",
+          "meaningEnglish": "to check",
+          "exampleEnglish": "The foreman checks the asphalt shingles in the new course.",
+          "sourceInfinitiveSpanish": "revisar"
+        },
+        {
+          "base": "直す",
+          "exampleJa": "ペドロはこの段の高すぎる位置の釘を直します。",
+          "meaningEnglish": "to fix, to correct",
+          "exampleEnglish": "Pedro fixes the high nail in this row.",
+          "sourceInfinitiveSpanish": "corregir"
+        },
+        {
+          "base": "収める",
+          "exampleJa": "作業員は釘を釘打ち範囲の中に収めます。",
+          "meaningEnglish": "to keep, to hold",
+          "exampleEnglish": "The workers keep the nails inside the nailing zone.",
+          "sourceInfinitiveSpanish": "mantener"
+        },
+        {
+          "base": "見せる",
+          "exampleJa": "職長が釘打ち帯の位置を見せます。",
+          "meaningEnglish": "to show",
+          "exampleEnglish": "The foreman shows where the strip is.",
+          "sourceInfinitiveSpanish": "mostrar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "釘打ち帯の中に打ってください。その釘は位置が高すぎるので、この段を直してください。",
+        "goal": "Tell a worker 'Nail in the strip — not too high' and explain the correction."
+      },
+      "modes": {
+        "see": "Find the nail placed outside the nailing strip.",
+        "recall": "Recall nailing strip, nail gun, and nailing zone.",
+        "hear": "Distinguish 釘打ち帯 from 粘着帯 when spoken.",
+        "type": "Type 'That nail is too high.' in Japanese.",
+        "say": "Tell a worker to nail in the strip and explain the correction.",
+        "write": "Write what Pedro checks after the correction."
+      }
+    },
+    {
+      "n": 17,
+      "stableId": "roofing:17:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Fastener Pattern",
+      "sourceEnglishObjective": "Confirm the manufacturer's fastener count and pattern",
+      "sourceEnglishSpeaking": "Practice 'Four nails per shingle' as a language example, then request the actual product pattern.",
+      "title": "釘打ちパターンの確認",
+      "objective": "製品ごとの釘の本数と配置をメーカーの施工説明書で確認する。",
+      "focus": "～によると attributes the four-nail example to the guide; ～ごとに marks each shingle. ～てから orders reading product instructions before choosing the pattern.",
+      "cards": [
+        {
+          "ja": "釘打ちパターン",
+          "en": "nail pattern",
+          "kind": "term"
+        },
+        {
+          "ja": "シングル材",
+          "en": "shingle",
+          "kind": "term"
+        },
+        {
+          "ja": "メーカーの施工説明書",
+          "en": "manufacturer instructions",
+          "kind": "term"
+        },
+        {
+          "ja": "釘",
+          "en": "nail",
+          "kind": "term"
+        },
+        {
+          "ja": "固定具",
+          "en": "fastener",
+          "kind": "term"
+        },
+        {
+          "ja": "釘打ち機",
+          "en": "nail gun",
+          "kind": "term"
+        },
+        {
+          "ja": "包装紙",
+          "en": "wrapper",
+          "kind": "term"
+        },
+        {
+          "ja": "製品",
+          "en": "product",
+          "kind": "term"
+        },
+        {
+          "ja": "釘の本数",
+          "en": "number of nails",
+          "kind": "term"
+        },
+        {
+          "ja": "シングル材一枚につき釘を四本打ちます。",
+          "en": "Four nails per shingle.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "釘打ちパターンを決める前に製品の施工説明書を確認してください。",
+          "en": "Check the product instructions before setting the nail pattern.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "このシングル材には釘が何本必要ですか。",
+          "en": "How many nails does this shingle need?",
+          "kind": "phrase"
+        },
+        {
+          "ja": "包装紙を読んでください。",
+          "en": "Read the wrapper.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "どのシングル材にも同じパターンを使ってください。",
+          "en": "Use the same pattern on every shingle.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "この製品の正確な釘打ちパターンが必要です。",
+          "en": "I need the exact pattern for this product.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "今日、作業班はアスファルトシングル材の新しい梱包を開けます。",
+          "en": "Today the crew opens a new package of asphalt shingles."
+        },
+        {
+          "ja": "作業員が「このシングル材には釘が何本必要ですか」と尋ねます。",
+          "en": "A worker asks: How many nails does this shingle need?"
+        },
+        {
+          "ja": "ガイドの例では、一枚につき釘が四本です。",
+          "en": "In the guide's example it is four nails per shingle."
+        },
+        {
+          "ja": "ただし、メーカーごとに施工説明書があります。",
+          "en": "But every manufacturer gives its own instructions."
+        },
+        {
+          "ja": "梱包の包装紙を読んでください。",
+          "en": "Read the wrapper on the package."
+        },
+        {
+          "ja": "釘打ちパターンを決める前に製品の施工説明書を確認してください。",
+          "en": "Check the product instructions before setting the nail pattern."
+        },
+        {
+          "ja": "この製品の正確な釘打ちパターンが必要です。",
+          "en": "I need the exact pattern for this product."
+        },
+        {
+          "ja": "その後、どのシングル材にも同じパターンを使ってください。",
+          "en": "After that, use the same pattern on every shingle."
+        }
+      ],
+      "forms": [
+        {
+          "base": "確認する",
+          "exampleJa": "釘打ちパターンを決める前に製品の施工説明書を確認してください。",
+          "meaningEnglish": "to check",
+          "exampleEnglish": "Check the product instructions before setting the nail pattern.",
+          "sourceInfinitiveSpanish": "revisar"
+        },
+        {
+          "base": "読む",
+          "exampleJa": "梱包の包装紙を読んでください。",
+          "meaningEnglish": "to read",
+          "exampleEnglish": "Read the wrapper on the package.",
+          "sourceInfinitiveSpanish": "leer"
+        },
+        {
+          "base": "必要とする",
+          "exampleJa": "この製品には正確な釘打ちパターンが必要です。",
+          "meaningEnglish": "to need",
+          "exampleEnglish": "I need the exact pattern for this product.",
+          "sourceInfinitiveSpanish": "necesitar"
+        },
+        {
+          "base": "使う",
+          "exampleJa": "どのシングル材にも同じパターンを使ってください。",
+          "meaningEnglish": "to use",
+          "exampleEnglish": "Use the same pattern on every shingle.",
+          "sourceInfinitiveSpanish": "usar"
+        },
+        {
+          "base": "開ける",
+          "exampleJa": "今日、作業班はアスファルトシングル材の新しい梱包を開けます。",
+          "meaningEnglish": "to open",
+          "exampleEnglish": "Today the crew opens a new package of asphalt shingles.",
+          "sourceInfinitiveSpanish": "abrir"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "ガイドの例では一枚につき四本です。この製品の正確な釘打ちパターンを確認してください。",
+        "goal": "Practice 'Four nails per shingle' as a language example, then request the actual product pattern."
+      },
+      "modes": {
+        "see": "Find the guide's example nail count.",
+        "recall": "Recall nail pattern, wrapper, and manufacturer instructions.",
+        "hear": "Distinguish 釘の本数 from 釘打ちパターン when spoken.",
+        "type": "Type 'How many nails does this shingle need?' in Japanese.",
+        "say": "Use the guide's four-nail example, then ask for this product's pattern.",
+        "write": "Write what the worker checks before setting the pattern."
+      }
+    },
+    {
+      "n": 18,
+      "stableId": "roofing:18:ja-en",
+      "reviewed": false,
+      "titleEnglish": "Avoid Overdriven Nails",
+      "sourceEnglishObjective": "Identify and correct overdriven fasteners",
+      "sourceEnglishSpeaking": "Stop installation when the nail gun is burying nails and ask for an adjustment.",
+      "title": "釘の打ち込みすぎ",
+      "objective": "釘が深く打ち込まれすぎた状態を見つけ、釘打ち機の調整を求める。",
+      "focus": "～すぎる describes excessive depth; ～ないでください gives a negative instruction. ～てから orders checking depth before continuing.",
+      "cards": [
+        {
+          "ja": "深く打ち込みすぎた釘",
+          "en": "overdriven nail",
+          "kind": "term"
+        },
+        {
+          "ja": "シングル材",
+          "en": "shingle",
+          "kind": "term"
+        },
+        {
+          "ja": "釘打ち機",
+          "en": "nail gun",
+          "kind": "term"
+        },
+        {
+          "ja": "空気圧",
+          "en": "air pressure",
+          "kind": "term"
+        },
+        {
+          "ja": "コンプレッサー",
+          "en": "compressor",
+          "kind": "term"
+        },
+        {
+          "ja": "深さ",
+          "en": "depth",
+          "kind": "term"
+        },
+        {
+          "ja": "釘の頭",
+          "en": "nail head",
+          "kind": "term"
+        },
+        {
+          "ja": "ホース",
+          "en": "hose",
+          "kind": "term"
+        },
+        {
+          "ja": "調整する",
+          "en": "adjust",
+          "kind": "term"
+        },
+        {
+          "ja": "釘を深く打ち込みすぎないでください。",
+          "en": "Don't over-drive the nails.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "止めてください。釘が深すぎます。",
+          "en": "Stop. The nails are too deep.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "空気圧を下げてください。",
+          "en": "Lower the air pressure.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "釘の頭は表面と同じ高さにしてください。",
+          "en": "The nail head must sit flush.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "その隣に新しい釘を打ってください。",
+          "en": "Put a new nail next to it.",
+          "kind": "phrase"
+        },
+        {
+          "ja": "釘打ち機を調整してください。",
+          "en": "Adjust the nail gun.",
+          "kind": "phrase"
+        }
+      ],
+      "reader": [
+        {
+          "ja": "職長は屋根を歩きながら釘打ち機の音を聞きます。",
+          "en": "The foreman walks the roof and listens to the nail gun."
+        },
+        {
+          "ja": "いくつかの釘は深く打ち込みすぎたように見えます。",
+          "en": "Some nails look overdriven."
+        },
+        {
+          "ja": "職長は手を上げて「止めてください。釘が深すぎます」と言います。",
+          "en": "The foreman raises his hand and says: Stop. The nails are too deep."
+        },
+        {
+          "ja": "釘の頭は表面と同じ高さでなければなりません。",
+          "en": "The nail head has to sit flush."
+        },
+        {
+          "ja": "作業員はコンプレッサーとホースを確認します。",
+          "en": "A worker checks the compressor and the hose."
+        },
+        {
+          "ja": "空気圧を下げてください。",
+          "en": "Lower the air pressure."
+        },
+        {
+          "ja": "釘打ち機を調整してください。",
+          "en": "Adjust the nail gun."
+        },
+        {
+          "ja": "その隣に新しい釘を打ってください。",
+          "en": "Put a new nail next to it."
+        },
+        {
+          "ja": "続ける前に、いくつかのシングル材で打ち込みの深さを確認してください。",
+          "en": "Check the depth on a few shingles before continuing."
+        }
+      ],
+      "forms": [
+        {
+          "base": "調整する",
+          "exampleJa": "釘打ち機を調整してください。",
+          "meaningEnglish": "to adjust",
+          "exampleEnglish": "Adjust the nail gun.",
+          "sourceInfinitiveSpanish": "ajustar"
+        },
+        {
+          "base": "確認する",
+          "exampleJa": "作業員はコンプレッサーとホースを確認します。",
+          "meaningEnglish": "to check",
+          "exampleEnglish": "A worker checks the compressor and the hose.",
+          "sourceInfinitiveSpanish": "revisar"
+        },
+        {
+          "base": "下げる",
+          "exampleJa": "空気圧を下げてください。",
+          "meaningEnglish": "to lower",
+          "exampleEnglish": "Lower the air pressure.",
+          "sourceInfinitiveSpanish": "bajar"
+        },
+        {
+          "base": "打つ",
+          "exampleJa": "その隣に新しい釘を打ってください。",
+          "meaningEnglish": "to put",
+          "exampleEnglish": "Put a new nail next to it.",
+          "sourceInfinitiveSpanish": "poner"
+        },
+        {
+          "base": "打ち込む",
+          "exampleJa": "釘を深く打ち込みすぎないでください。",
+          "meaningEnglish": "to nail, to drive a nail",
+          "exampleEnglish": "Don't over-drive the nails.",
+          "sourceInfinitiveSpanish": "clavar"
+        }
+      ],
+      "speaking": {
+        "role": "roofing crew member",
+        "opening": "作業を止めてください。釘が深すぎます。釘打ち機を調整してください。",
+        "goal": "Stop installation when the nail gun is burying nails and ask for an adjustment."
+      },
+      "modes": {
+        "see": "Find the overdriven nails in the scene.",
+        "recall": "Recall nail gun, air pressure, nail head, and depth.",
+        "hear": "Distinguish 空気圧 from 深さ when spoken.",
+        "type": "Type 'Stop. The nails are too deep.' in Japanese.",
+        "say": "Stop installation and ask for the nail gun to be adjusted.",
+        "write": "Write what is checked before work continues."
+      }
+    }
+  ],
+  "reviewGates": {
+    "independentJapaneseReview": false,
+    "qualifiedRoofingReview": false,
+    "sixModeRuntime": false,
+    "dictionarySenses": false,
+    "offlineVerified": false,
+    "recordedAudioListening": false,
+    "phoneAndNativeAcceptance": false
+  }
+}

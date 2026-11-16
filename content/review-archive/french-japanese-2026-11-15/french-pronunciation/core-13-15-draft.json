@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "core",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "core-french-sound-like-a-native:13:fr-en",
+      "n": 13,
+      "sourceSpanishLesson": 13,
+      "title": "Read x in words, numbers, and names",
+      "objective": "Read x as /ks/ or /gz/ in selected words, confirm a person's name pronunciation, and compare its behavior in deux and dix.",
+      "focus": "Compare /ks/ in taxi and Alex with /gz/ in exact. Ask how Xavier pronounces his own name rather than inferring it from the spelling. Final x is silent in deux. Dix has /s/ in isolation, but its final sound changes with the following word.",
+      "words": [
+        { "fr": "taxi", "en": "taxi", "kind": "term" },
+        { "fr": "Alex", "en": "Alex (given name)", "kind": "term" },
+        { "fr": "exact", "en": "exact (masculine singular)", "kind": "term" },
+        { "fr": "Xavier", "en": "Xavier (given name)", "kind": "term" },
+        { "fr": "deux", "en": "two", "kind": "term" },
+        { "fr": "dix", "en": "ten", "kind": "term" },
+        { "fr": "Le taxi arrive dans dix minutes.", "en": "The taxi arrives in ten minutes.", "kind": "phrase" },
+        { "fr": "Alex et Xavier attendent devant la gare.", "en": "Alex and Xavier are waiting in front of the station.", "kind": "phrase" },
+        { "fr": "J'ai deux adresses sur mon téléphone.", "en": "I have two addresses on my phone.", "kind": "phrase" },
+        { "fr": "Voici l'endroit exact sur la carte.", "en": "Here is the exact place on the map.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Alex attend Xavier devant la gare avec deux valises.", "en": "Alex waits for Xavier in front of the station with two suitcases." },
+        { "fr": "Le taxi arrive dans dix minutes, mais le chauffeur demande l'adresse exacte.", "en": "The taxi arrives in ten minutes, but the driver asks for the exact address." },
+        { "fr": "Xavier montre l'endroit sur la carte de son téléphone.", "en": "Xavier shows the place on the map on his phone." },
+        { "fr": "Alex confirme l'adresse et ils montent dans le taxi.", "en": "Alex confirms the address and they get into the taxi." }
+      ],
+      "speaking": {
+        "scene": "Giving a taxi driver the exact station pickup address",
+        "roles": ["passenger", "taxi driver"],
+        "opening": "Bonjour, Alex et Xavier attendent devant la gare.",
+        "goals": ["Say that two passengers are waiting.", "Give the exact pickup address.", "Confirm whether the taxi arrives in ten minutes."],
+        "closure": "Merci, voici l'endroit exact sur la carte."
+      },
+      "practice": {
+        "see": { "prompt": "Find /ks/ in taxi and Alex, /gz/ in exact, then compare final x in deux and dix; ask how Xavier says his name.", "wordRefs": ["taxi", "Alex", "exact", "Xavier", "deux", "dix"] },
+        "recall": { "prompt": "Recall the French phrase for 'the exact place' before revealing it.", "answerRef": "Voici l'endroit exact sur la carte." },
+        "hear": { "prompt": "Listen for taxi or exact in the recorded station phrase and compare the x sound.", "choices": ["taxi", "exact"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The taxi arrives in ten minutes.'", "answerRef": "Le taxi arrive dans dix minutes." },
+        "say": { "prompt": "Tell the driver that Alex and Xavier are waiting in front of the station.", "answerRef": "Alex et Xavier attendent devant la gare." },
+        "write": { "prompt": "Write two French sentences giving the two passengers' names and the exact pickup place.", "requiredRefs": ["Alex", "Xavier", "exact"] }
+      }
+    },
+    {
+      "id": "core-french-sound-like-a-native:14:fr-en",
+      "n": 14,
+      "sourceSpanishLesson": 14,
+      "title": "Hear spoken and silent final consonants",
+      "objective": "Contrast selected audible final consonants with silent ones in a market purchase and pickup request.",
+      "focus": "Hear the final consonant in sac, avec, and neuf; compare silent written endings in grand, petit, and trop. These examples are word-specific models, not a rule that every final letter of the same kind behaves alike.",
+      "words": [
+        { "fr": "sac", "en": "bag", "kind": "term" },
+        { "fr": "avec", "en": "with", "kind": "term" },
+        { "fr": "neuf", "en": "nine; new (masculine singular)", "kind": "term" },
+        { "fr": "grand", "en": "large; tall (masculine singular)", "kind": "term" },
+        { "fr": "petit", "en": "small (masculine singular)", "kind": "term" },
+        { "fr": "trop", "en": "too much; too many", "kind": "term" },
+        { "fr": "Je prends un grand sac.", "en": "I'll take a large bag.", "kind": "phrase" },
+        { "fr": "Le petit sac est trop plein.", "en": "The small bag is too full.", "kind": "phrase" },
+        { "fr": "Je viens avec neuf livres.", "en": "I am coming with nine books.", "kind": "phrase" },
+        { "fr": "Ce sac est neuf.", "en": "This bag is new.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Au marché du livre, je demande un grand sac pour mes achats.", "en": "At the book market, I ask for a large bag for my purchases." },
+        { "fr": "Le vendeur me donne d'abord un petit sac, mais il est trop plein.", "en": "The seller first gives me a small bag, but it is too full." },
+        { "fr": "Je repars avec neuf livres dans un sac plus grand.", "en": "I leave with nine books in a larger bag." },
+        { "fr": "Le vendeur me dit que ce sac est neuf.", "en": "The seller tells me that this bag is new." }
+      ],
+      "speaking": {
+        "scene": "Choosing a bag for books at a market",
+        "roles": ["customer", "book seller"],
+        "opening": "Bonjour, je viens avec neuf livres à emporter.",
+        "goals": ["Ask for a large bag.", "Explain why the small bag is too full.", "Confirm that the replacement bag is new."],
+        "closure": "Merci, je prends ce grand sac."
+      },
+      "practice": {
+        "see": { "prompt": "Mark the heard final consonant in sac, avec, neuf and the silent written ending in grand, petit, trop.", "wordRefs": ["sac", "avec", "neuf", "grand", "petit", "trop"] },
+        "recall": { "prompt": "Recall the French phrase for 'the small bag is too full' before revealing it.", "answerRef": "Le petit sac est trop plein." },
+        "hear": { "prompt": "Listen for grand or sac in the recorded book-market phrase.", "choices": ["grand", "sac"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'This bag is new.'", "answerRef": "Ce sac est neuf." },
+        "say": { "prompt": "Tell the bookseller that you will take a large bag.", "answerRef": "Je prends un grand sac." },
+        "write": { "prompt": "Write two French sentences about the small bag and the nine books.", "requiredRefs": ["petit", "sac", "neuf"] }
+      }
+    },
+    {
+      "id": "core-french-sound-like-a-native:15:fr-en",
+      "n": 15,
+      "sourceSpanishLesson": 15,
+      "title": "Begin French s clusters without an extra vowel",
+      "objective": "Start French sp and st clusters directly in a sports-center conversation without inserting a vowel before /s/.",
+      "focus": "Begin sport, spécial, spectacle with /sp/ and stade, station, style with /st/. The first sound is /s/; do not add an initial vowel while moving into the next consonant.",
+      "words": [
+        { "fr": "sport", "en": "sport", "kind": "term" },
+        { "fr": "spécial", "en": "special (masculine singular)", "kind": "term" },
+        { "fr": "spectacle", "en": "show; performance", "kind": "term" },
+        { "fr": "stade", "en": "stadium", "kind": "term" },
+        { "fr": "station", "en": "station; stop", "kind": "term" },
+        { "fr": "style", "en": "style", "kind": "term" },
+        { "fr": "Nous faisons du sport au stade.", "en": "We play sports at the stadium.", "kind": "phrase" },
+        { "fr": "La station est près du stade.", "en": "The station is near the stadium.", "kind": "phrase" },
+        { "fr": "Ce spectacle a un style spécial.", "en": "This show has a special style.", "kind": "phrase" },
+        { "fr": "Je vais au stade après le spectacle.", "en": "I am going to the stadium after the show.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Nous sortons de la station et marchons vers le stade.", "en": "We leave the station and walk toward the stadium." },
+        { "fr": "Un spectacle de danse commence avant le match de football.", "en": "A dance show starts before the football match." },
+        { "fr": "Le groupe a un style spécial que tout le monde remarque.", "en": "The group has a special style that everyone notices." },
+        { "fr": "Après le spectacle, nous entrons dans le stade pour voir le match.", "en": "After the show, we enter the stadium to watch the match." }
+      ],
+      "speaking": {
+        "scene": "Finding a performance and a match near a stadium",
+        "roles": ["visitor", "event attendant"],
+        "opening": "Bonjour, la station est-elle près du stade ?",
+        "goals": ["Ask where the station is.", "Ask when the show begins.", "Say you will go into the stadium after the show."],
+        "closure": "Merci, je vais au stade après le spectacle."
+      },
+      "practice": {
+        "see": { "prompt": "Group sport, spécial, spectacle by /sp/ and stade, station, style by /st/; keep /s/ at word start.", "wordRefs": ["sport", "spécial", "spectacle", "stade", "station", "style"] },
+        "recall": { "prompt": "Recall the French word for station before revealing it.", "answerRef": "station" },
+        "hear": { "prompt": "Listen for station or spectacle in the recorded event sentence.", "choices": ["station", "spectacle"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The station is near the stadium.'", "answerRef": "La station est près du stade." },
+        "say": { "prompt": "Tell the attendant you will go to the stadium after the show.", "answerRef": "Je vais au stade après le spectacle." },
+        "write": { "prompt": "Write two French sentences linking the station, the show, and the stadium.", "requiredRefs": ["station", "spectacle", "stade"] }
+      }
+    }
+  ]
+}

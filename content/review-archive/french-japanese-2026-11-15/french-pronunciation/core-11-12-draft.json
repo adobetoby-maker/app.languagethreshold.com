@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "core",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "core-french-sound-like-a-native:11:fr-en",
+      "n": 11,
+      "sourceSpanishLesson": 11,
+      "title": "Read mute and aspirated h in phrases",
+      "objective": "Use elision before French mute h and keep the boundary before aspirated h in a hotel and market exchange.",
+      "focus": "French h is not an English /h/ sound. Say l'hôtel and l'homme with elision, but le héros, le hall, and le haricot without elision. Aspirated h also blocks liaison in les héros and les haricots.",
+      "words": [
+        { "fr": "hôtel", "en": "hotel", "kind": "term" },
+        { "fr": "homme", "en": "man", "kind": "term" },
+        { "fr": "heure", "en": "hour; time", "kind": "term" },
+        { "fr": "héros", "en": "hero", "kind": "term" },
+        { "fr": "hall", "en": "lobby; entrance hall", "kind": "term" },
+        { "fr": "haricot", "en": "bean", "kind": "term" },
+        { "fr": "L'hôtel ouvre à huit heures.", "en": "The hotel opens at eight o'clock.", "kind": "phrase" },
+        { "fr": "L'homme attend dans le hall.", "en": "The man waits in the lobby.", "kind": "phrase" },
+        { "fr": "Le héros est sur l'affiche.", "en": "The hero is on the poster.", "kind": "phrase" },
+        { "fr": "Les haricots sont au marché.", "en": "The beans are at the market.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "À huit heures, un homme entre dans l'hôtel près du marché.", "en": "At eight o'clock, a man enters the hotel near the market." },
+        { "fr": "Dans le hall, il voit l'affiche d'un film avec un héros célèbre.", "en": "In the lobby, he sees a film poster with a famous hero." },
+        { "fr": "Puis il sort et demande où trouver des haricots pour le dîner.", "en": "Then he goes out and asks where to find beans for dinner." },
+        { "fr": "La vendeuse lui montre les haricots sur son étal.", "en": "The vendor shows him the beans on her stall." }
+      ],
+      "speaking": {
+        "scene": "Finding a hotel lobby and the nearby market",
+        "roles": ["visitor", "hotel receptionist"],
+        "opening": "Bonjour, l'homme attend-il dans le hall de l'hôtel ?",
+        "goals": ["Ask whether the man is waiting in the lobby.", "Mention the hero on the film poster.", "Ask where to find beans at the market."],
+        "closure": "Merci, je vais au marché chercher des haricots."
+      },
+      "practice": {
+        "see": { "prompt": "Sort hôtel, homme, heure with mute h and héros, hall, haricot with aspirated h; read the articles aloud.", "wordRefs": ["hôtel", "homme", "heure", "héros", "hall", "haricot"] },
+        "recall": { "prompt": "Recall the French phrase for 'the hotel opens at eight o'clock' before revealing it.", "answerRef": "L'hôtel ouvre à huit heures." },
+        "hear": { "prompt": "Listen for l'hôtel or le hall in the recorded phrase and identify the word boundary.", "choices": ["hôtel", "hall"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The man waits in the lobby.'", "answerRef": "L'homme attend dans le hall." },
+        "say": { "prompt": "Tell the receptionist that the hero is on the poster.", "answerRef": "Le héros est sur l'affiche." },
+        "write": { "prompt": "Write two French sentences placing the man at the hotel and the beans at the market.", "requiredRefs": ["homme", "hôtel", "haricot"] }
+      }
+    },
+    {
+      "id": "core-french-sound-like-a-native:12:fr-en",
+      "n": 12,
+      "sourceSpanishLesson": 12,
+      "title": "Hear u, ou, and silent u in qu",
+      "objective": "Distinguish French /y/ in rue and tu from /u/ in roue and tout, then read qui and quatre without adding a vowel after /k/.",
+      "focus": "The letter u is heard as /y/ in rue and tu; ou is /u/ in roue and tout. In ordinary qui and quatre, the written u belongs to qu and is not an extra vowel. Keep rue and roue distinct when giving directions.",
+      "words": [
+        { "fr": "rue", "en": "street", "kind": "term" },
+        { "fr": "roue", "en": "wheel", "kind": "term" },
+        { "fr": "tu", "en": "you (informal singular)", "kind": "term" },
+        { "fr": "tout", "en": "all; everything", "kind": "term" },
+        { "fr": "qui", "en": "who", "kind": "term" },
+        { "fr": "quatre", "en": "four", "kind": "term" },
+        { "fr": "Tu vois la rue sur la carte ?", "en": "Do you see the street on the map?", "kind": "phrase" },
+        { "fr": "La roue du vélo est abîmée.", "en": "The bicycle wheel is damaged.", "kind": "phrase" },
+        { "fr": "Qui a quatre roues ?", "en": "Who has four wheels?", "kind": "phrase" },
+        { "fr": "Tout est prêt pour partir.", "en": "Everything is ready to leave.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Tu regardes la rue sur la carte avant de partir à vélo.", "en": "You look at the street on the map before leaving by bicycle." },
+        { "fr": "Mais la roue du vélo est abîmée, alors tu appelles ton ami.", "en": "But the bicycle wheel is damaged, so you call your friend." },
+        { "fr": "Il demande : « Qui a une voiture avec quatre roues en bon état ? »", "en": "He asks, 'Who has a car with four wheels in good condition?'" },
+        { "fr": "Une amie propose sa voiture et tout le monde peut partir.", "en": "A friend offers her car and everyone can leave." }
+      ],
+      "speaking": {
+        "scene": "Changing transport after a bicycle wheel is damaged",
+        "roles": ["cyclist", "friend"],
+        "opening": "La roue du vélo est abîmée dans cette rue.",
+        "goals": ["Name the street on the map.", "Explain that the bicycle wheel is damaged.", "Ask who has a car with four working wheels."],
+        "closure": "Merci, tout est prêt pour partir."
+      },
+      "practice": {
+        "see": { "prompt": "Mark /y/ in rue and tu, /u/ in roue and tout, then identify the single /k/ onset in qui and quatre.", "wordRefs": ["rue", "roue", "tu", "tout", "qui", "quatre"] },
+        "recall": { "prompt": "Recall the French word for wheel before revealing it.", "answerRef": "roue" },
+        "hear": { "prompt": "Listen for rue or roue in the recorded transport sentence.", "choices": ["rue", "roue"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The bicycle wheel is damaged.'", "answerRef": "La roue du vélo est abîmée." },
+        "say": { "prompt": "Ask your friend who has four wheels.", "answerRef": "Qui a quatre roues ?" },
+        "write": { "prompt": "Write two French sentences about the street, the bicycle wheel, and who can help.", "requiredRefs": ["rue", "roue", "qui"] }
+      }
+    }
+  ]
+}

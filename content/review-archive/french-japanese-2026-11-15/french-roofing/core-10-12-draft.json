@@ -1,0 +1,476 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "core",
+  "target": "French",
+  "native": "English",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFiles": [
+    "src/data/roofing-curriculum.ts",
+    "src/data/roofing-lesson-words.ts",
+    "src/data/roofing-lesson-passages.ts",
+    "public/lesson-content/es/roofing.json"
+  ],
+  "sourceFileSHA256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+  },
+  "englishSourceSubsetSHA256": "b4e671293e692774964b497d6762df4c91d78a4dae3581174ffa2bc8efbeda57",
+  "draftMethod": "manual source-aligned French draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 10,
+      "titleEnglish": "Tarp the Unfinished Roof",
+      "objectiveEnglishSource": "Close an unfinished work area before departure",
+      "titleFrench": "Protéger la toiture inachevée",
+      "objectiveFrench": "Expliquer quelle partie inachevée doit être protégée et faire reformuler le plan en tenant compte de la météo.",
+      "speakingEnglishSource": "Explain which section needs a tarp and have the crew repeat the plan.",
+      "speakingFrenchInstruction": "Expliquez quelle partie reste ouverte, demandez à l’équipe de reformuler le plan et consultez la personne responsable sur la météo avant d’ordonner un travail en hauteur.",
+      "speakingFrenchOpening": "Cette partie n’est pas terminée. Que prévoit notre plan météo et qui confirme si nous pouvons encore travailler ?",
+      "grammarFocusFrench": "Si + présent pour une condition de météo; impératif de politesse; faire répéter une consigne avant de quitter la zone.",
+      "words": [
+        {
+          "en": "tarp",
+          "kind": "term",
+          "fr": "la bâche"
+        },
+        {
+          "en": "unfinished section",
+          "kind": "term",
+          "fr": "la partie inachevée"
+        },
+        {
+          "en": "weather",
+          "kind": "term",
+          "fr": "la météo"
+        },
+        {
+          "en": "rain",
+          "kind": "term",
+          "fr": "la pluie"
+        },
+        {
+          "en": "wind",
+          "kind": "term",
+          "fr": "le vent"
+        },
+        {
+          "en": "forecast",
+          "kind": "term",
+          "fr": "les prévisions météorologiques"
+        },
+        {
+          "en": "rope",
+          "kind": "term",
+          "fr": "la corde"
+        },
+        {
+          "en": "leak",
+          "kind": "term",
+          "fr": "la fuite"
+        },
+        {
+          "en": "Tarp anything you can't finish today.",
+          "kind": "phrase",
+          "fr": "Protégez avec une bâche ce que vous ne pouvez pas terminer aujourd’hui.",
+          "noteEnglish": "Source language example only; high-wind work and temporary protection require the approved site weather and fall-protection plan."
+        },
+        {
+          "en": "Stop work and come down if the weather changes.",
+          "kind": "phrase",
+          "fr": "Arrêtez le travail et descendez si la météo change."
+        },
+        {
+          "en": "Cover this section before we leave.",
+          "kind": "phrase",
+          "fr": "Couvrez cette partie avant de partir."
+        },
+        {
+          "en": "Tie down the tarp well.",
+          "kind": "phrase",
+          "fr": "Fixez bien la bâche.",
+          "noteEnglish": "Source language example only; high-wind work and temporary protection require the approved site weather and fall-protection plan."
+        },
+        {
+          "en": "Rain is coming tonight.",
+          "kind": "phrase",
+          "fr": "Il va pleuvoir ce soir."
+        },
+        {
+          "en": "Repeat the plan to confirm.",
+          "kind": "phrase",
+          "fr": "Répétez le plan pour confirmer."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Protéger la toiture inachevée",
+        "target": [
+          "Il est seize heures et il y a du vent.",
+          "Les prévisions météorologiques annoncent de la pluie ce soir.",
+          "Une partie à l’arrière n’est pas terminée.",
+          "La pluie peut mouiller le support de couverture exposé.",
+          "Couvrez cette partie avant de partir.",
+          "Protégez avec une bâche ce que vous ne pouvez pas terminer aujourd’hui.",
+          "Fixez bien la bâche avec la corde.",
+          "Arrêtez le travail et descendez si la météo change.",
+          "Répétez le plan pour confirmer."
+        ],
+        "native": [
+          "It is 4:00 in the afternoon and it is windy.",
+          "The weather forecast says it will rain tonight.",
+          "There is an unfinished section at the back.",
+          "Rain can wet the open deck.",
+          "Cover this section before we leave.",
+          "Tarp anything you can't finish today.",
+          "Tie the tarp down well with the rope.",
+          "Stop work and come down if the weather changes.",
+          "Repeat the plan to confirm."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to cover",
+          "exampleEnglish": "Cover this section before we leave.",
+          "sourceInfinitiveSpanish": "cubrir",
+          "infinitiveFrench": "couvrir",
+          "exampleFrench": "Couvrez cette partie avant de partir."
+        },
+        {
+          "meaningEnglish": "to tie down",
+          "exampleEnglish": "Tie the tarp down well with the rope.",
+          "sourceInfinitiveSpanish": "amarrar",
+          "infinitiveFrench": "fixer",
+          "exampleFrench": "Fixez bien la bâche avec la corde."
+        },
+        {
+          "meaningEnglish": "to stop",
+          "exampleEnglish": "Stop work if the weather changes.",
+          "sourceInfinitiveSpanish": "detener",
+          "infinitiveFrench": "arrêter",
+          "exampleFrench": "Arrêtez le travail si la météo change."
+        },
+        {
+          "meaningEnglish": "to come down",
+          "exampleEnglish": "We come down off the roof if the weather changes.",
+          "sourceInfinitiveSpanish": "bajar",
+          "infinitiveFrench": "descendre",
+          "exampleFrench": "Nous descendons du toit si la météo change."
+        },
+        {
+          "meaningEnglish": "to repeat",
+          "exampleEnglish": "We repeat the plan to confirm.",
+          "sourceInfinitiveSpanish": "repetir",
+          "infinitiveFrench": "répéter",
+          "exampleFrench": "Nous répétons le plan pour confirmer."
+        }
+      ],
+      "teachingNotesFrench": "La scène source mentionne du vent et la pose d’une bâche; elle ne prouve pas qu’il est sûr de rester sur le toit. L’arrêt et la descente suivent le plan météo et la décision de la personne compétente; ne pas enseigner une procédure de bâchage universelle.",
+      "regionalNotesEnglish": [
+        "France/Québec roofing terminology and site safety require qualified regional/trade review.",
+        "Confirm the approved plan, manufacturer instructions and weather/fall-protection controls; this scene is not a work procedure."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 11,
+      "titleEnglish": "First-Course Layout",
+      "objectiveEnglishSource": "Describe the chalk line and first course",
+      "titleFrench": "Tracer le premier rang",
+      "objectiveFrench": "Décrire le cordeau et le premier rang en demandant la mesure prévue sur le plan.",
+      "speakingEnglishSource": "Show a new worker where to run the first-course chalk line.",
+      "speakingFrenchInstruction": "Montrez sur le plan le premier rang et l’emplacement du cordeau. Demandez la mesure de débord et la méthode approuvée pour ce produit.",
+      "speakingFrenchOpening": "Voici le bord de l’avant-toit. Quelle mesure de débord figure sur le plan pour ce produit ?",
+      "grammarFocusFrench": "D’abord / puis / de nouveau pour l’ordre des étapes; où et à partir de pour les repères de mesure; impératif pluriel.",
+      "words": [
+        {
+          "en": "chalk line",
+          "kind": "term",
+          "fr": "le cordeau traceur"
+        },
+        {
+          "en": "first course",
+          "kind": "term",
+          "fr": "le premier rang"
+        },
+        {
+          "en": "starter strip",
+          "kind": "term",
+          "fr": "la bande de départ"
+        },
+        {
+          "en": "eave",
+          "kind": "term",
+          "fr": "l’avant-toit"
+        },
+        {
+          "en": "tape measure",
+          "kind": "term",
+          "fr": "le ruban à mesurer"
+        },
+        {
+          "en": "measurement",
+          "kind": "term",
+          "fr": "la mesure"
+        },
+        {
+          "en": "straight",
+          "kind": "term",
+          "fr": "droit"
+        },
+        {
+          "en": "overhang",
+          "kind": "term",
+          "fr": "le débord"
+        },
+        {
+          "en": "Run a chalk line for the first course.",
+          "kind": "phrase",
+          "fr": "Tracez une ligne au cordeau pour le premier rang."
+        },
+        {
+          "en": "Start here at the eave.",
+          "kind": "phrase",
+          "fr": "Commencez ici, à l’avant-toit."
+        },
+        {
+          "en": "Is the line straight?",
+          "kind": "phrase",
+          "fr": "La ligne est-elle droite ?"
+        },
+        {
+          "en": "Measure from the edge.",
+          "kind": "phrase",
+          "fr": "Mesurez à partir du bord."
+        },
+        {
+          "en": "Put the starter strip along the eave.",
+          "kind": "phrase",
+          "fr": "Placez la bande de départ le long de l’avant-toit.",
+          "noteEnglish": "Confirm the actual product, position and sequence against the approved job detail and manufacturer instructions."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Tracer le premier rang",
+        "target": [
+          "D’abord, le contremaître sort le ruban à mesurer.",
+          "Il mesure à partir du bord de l’avant-toit et marque les points sur le plan.",
+          "Puis il dit : « Tracez une ligne au cordeau pour le premier rang. »",
+          "Deux ouvriers tendent le cordeau et le font claquer.",
+          "La ligne est-elle droite ?",
+          "Le contremaître vérifie de nouveau la mesure.",
+          "Commencez ici, à l’avant-toit.",
+          "Placez la bande de départ le long de l’avant-toit.",
+          "La mesure du débord figure sur le plan du chantier."
+        ],
+        "native": [
+          "First, the foreman takes out the tape measure.",
+          "He measures from the edge of the eave and marks the points on the plan.",
+          "Then he says: Run a chalk line for the first course.",
+          "Two workers stretch the line and snap it.",
+          "Is the line straight?",
+          "The foreman checks the measurement again.",
+          "Start here at the eave.",
+          "Put the starter strip along the eave.",
+          "The overhang measurement is on the job plan."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to measure",
+          "exampleEnglish": "The foreman measures from the edge of the eave.",
+          "sourceInfinitiveSpanish": "medir",
+          "infinitiveFrench": "mesurer",
+          "exampleFrench": "Le contremaître mesure à partir du bord de l’avant-toit."
+        },
+        {
+          "meaningEnglish": "to run (a line), to mark out",
+          "exampleEnglish": "The workers run a chalk line for the first course.",
+          "sourceInfinitiveSpanish": "trazar",
+          "infinitiveFrench": "tracer",
+          "exampleFrench": "Les ouvriers tracent une ligne au cordeau pour le premier rang."
+        },
+        {
+          "meaningEnglish": "to start",
+          "exampleEnglish": "The workers start here at the eave.",
+          "sourceInfinitiveSpanish": "empezar",
+          "infinitiveFrench": "commencer",
+          "exampleFrench": "Les ouvriers commencent ici, à l’avant-toit."
+        },
+        {
+          "meaningEnglish": "to put, to place",
+          "exampleEnglish": "They put the starter strip along the eave.",
+          "sourceInfinitiveSpanish": "poner",
+          "infinitiveFrench": "placer",
+          "exampleFrench": "Ils placent la bande de départ le long de l’avant-toit."
+        },
+        {
+          "meaningEnglish": "to check",
+          "exampleEnglish": "The foreman checks the measurement again.",
+          "sourceInfinitiveSpanish": "revisar",
+          "infinitiveFrench": "vérifier",
+          "exampleFrench": "Le contremaître vérifie de nouveau la mesure."
+        }
+      ],
+      "teachingNotesFrench": "Le tracé, le débord et la bande de départ dépendent du système et du produit approuvés. Le texte sert à décrire une tâche, pas à prescrire un emplacement ou une séquence.",
+      "regionalNotesEnglish": [
+        "France/Québec roofing terminology and site safety require qualified regional/trade review.",
+        "Confirm the approved plan, manufacturer instructions and weather/fall-protection controls; this scene is not a work procedure."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 12,
+      "titleEnglish": "Joint Stagger",
+      "objectiveEnglishSource": "Communicate the job's stagger pattern",
+      "titleFrench": "Confirmer le décalage des joints",
+      "objectiveFrench": "Employer la formule de décalage du guide puis confirmer la spécification réelle du chantier.",
+      "speakingEnglishSource": "Use the guide's six-inch stagger phrase, then ask the lead to confirm the actual job specification.",
+      "speakingFrenchInstruction": "Citez la phrase du guide « six pouces » comme exemple linguistique, puis demandez au chef d’équipe de confirmer le décalage réel et les instructions du fabricant.",
+      "speakingFrenchOpening": "Le guide donne un exemple de six pouces. Quel décalage est réellement prévu pour ce chantier ?",
+      "grammarFocusFrench": "Mesures en pouces dans le devis source; décaler / aligner; contraste entre exemple du guide et spécification du chantier.",
+      "words": [
+        {
+          "en": "joint",
+          "kind": "term",
+          "fr": "le joint"
+        },
+        {
+          "en": "stagger",
+          "kind": "term",
+          "fr": "le décalage"
+        },
+        {
+          "en": "course",
+          "kind": "term",
+          "fr": "le rang"
+        },
+        {
+          "en": "shingle",
+          "kind": "term",
+          "fr": "le bardeau"
+        },
+        {
+          "en": "pattern",
+          "kind": "term",
+          "fr": "le motif de pose"
+        },
+        {
+          "en": "inch",
+          "kind": "term",
+          "fr": "le pouce"
+        },
+        {
+          "en": "align",
+          "kind": "term",
+          "fr": "aligner"
+        },
+        {
+          "en": "specification",
+          "kind": "term",
+          "fr": "la spécification"
+        },
+        {
+          "en": "cut",
+          "kind": "term",
+          "fr": "couper"
+        },
+        {
+          "en": "Stagger the joints six inches.",
+          "kind": "phrase",
+          "fr": "Décalez les joints de six pouces.",
+          "noteEnglish": "Six inches is a guide example, not a universal product specification; confirm the actual job requirement."
+        },
+        {
+          "en": "The joints must not line up.",
+          "kind": "phrase",
+          "fr": "Les joints ne doivent pas être alignés."
+        },
+        {
+          "en": "What is the stagger for this job?",
+          "kind": "phrase",
+          "fr": "Quel décalage est prévu pour ce chantier ?"
+        },
+        {
+          "en": "Please confirm the job specification.",
+          "kind": "phrase",
+          "fr": "Veuillez confirmer la spécification du chantier."
+        },
+        {
+          "en": "Check the joints on the next course.",
+          "kind": "phrase",
+          "fr": "Vérifiez les joints du rang suivant."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Confirmer le décalage des joints",
+        "target": [
+          "L’équipe a déjà posé le premier rang de bardeaux d’asphalte.",
+          "Chaque nouveau rang doit maintenant suivre un motif de pose.",
+          "Les joints ne doivent pas être alignés.",
+          "Le guide indique : « Décalez les joints de six pouces. »",
+          "Mais chaque chantier est différent.",
+          "Un ouvrier demande : « Quel décalage est prévu pour ce chantier ? »",
+          "Le contremaître appelle le bureau : « Veuillez confirmer la spécification du chantier. »",
+          "Pendant ce temps, vérifiez les joints du rang suivant."
+        ],
+        "native": [
+          "The crew already has the first course of asphalt shingles.",
+          "Now each new course needs a pattern.",
+          "The joints must not line up.",
+          "The guide says: stagger the joints six inches.",
+          "But every job is different.",
+          "A worker asks: What is the stagger for this job?",
+          "The foreman calls the office: Please confirm the job specification.",
+          "Meanwhile, check the joints on the next course."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to stagger",
+          "exampleEnglish": "Stagger the joints six inches, according to the guide.",
+          "sourceInfinitiveSpanish": "escalonar",
+          "infinitiveFrench": "décaler",
+          "exampleFrench": "Décalez les joints de six pouces, selon le guide."
+        },
+        {
+          "meaningEnglish": "to check",
+          "exampleEnglish": "Check the joints on the next course.",
+          "sourceInfinitiveSpanish": "revisar",
+          "infinitiveFrench": "vérifier",
+          "exampleFrench": "Vérifiez les joints du rang suivant."
+        },
+        {
+          "meaningEnglish": "to confirm",
+          "exampleEnglish": "Please confirm the job specification.",
+          "sourceInfinitiveSpanish": "confirmar",
+          "infinitiveFrench": "confirmer",
+          "exampleFrench": "Veuillez confirmer la spécification du chantier."
+        },
+        {
+          "meaningEnglish": "to align",
+          "exampleEnglish": "The joints do not line up in this course.",
+          "sourceInfinitiveSpanish": "alinear",
+          "infinitiveFrench": "aligner",
+          "exampleFrench": "Les joints ne sont pas alignés sur ce rang."
+        },
+        {
+          "meaningEnglish": "to cut",
+          "exampleEnglish": "Cut the shingle according to the job's pattern.",
+          "sourceInfinitiveSpanish": "cortar",
+          "infinitiveFrench": "couper",
+          "exampleFrench": "Coupez le bardeau selon le motif prévu pour ce chantier."
+        }
+      ],
+      "teachingNotesFrench": "Six pouces est la phrase du guide source, pas une mesure valable pour tous les produits. Demander la spécification du fabricant et du chantier avant tout travail.",
+      "regionalNotesEnglish": [
+        "France/Québec roofing terminology and site safety require qualified regional/trade review.",
+        "Confirm the approved plan, manufacturer instructions and weather/fall-protection controls; this scene is not a work procedure."
+      ],
+      "reviewed": false
+    }
+  ]
+}

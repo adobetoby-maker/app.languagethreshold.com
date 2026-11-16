@@ -198,3 +198,6 @@ The [source-warning checkpoint](travel-lunch-master13-20-owner-source-warning-20
 ## November 15 Japanese Lunch Master 13–20 source-only review bundle
 
 The [Master 13–20 review bundle](../../content/japanese-travel-lunch/review/master-13-20/README.md) adds eight source-pinned candidate and derived packets to main as repository-only evidence. No owner page, learner route, audio manifest, scoring or progress runtime imports the bundle. The [gap matrix](../french-japanese-main-gap-matrix-2026-11-15.md) tracks missing lesson and audio work. The validator checks stable IDs, exact English source positions, and false gates; Master 15's competing form proposals, Master 16's fever timeline and Master 20's shellfish wording still need qualified decisions. The older owner drafts and their source warnings remain visible as before. No new clip or listening approval is implied.
+## November 15 source snapshot transfer
+
+The [inert main archive](../../content/review-archive/french-japanese-2026-11-15/README.md) now contains pinned Japanese Breakfast and Roofing draft JSON from private PR heads. No owner page or learner import was added. Source, dictionary, mode, progress and audio/listening gaps in the gap matrix and tickets remain open; review and release gates remain false.

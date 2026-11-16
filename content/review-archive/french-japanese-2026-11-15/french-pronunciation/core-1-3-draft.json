@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "core",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "core-french-sound-like-a-native:1:fr-en",
+      "n": 1,
+      "sourceSpanishLesson": 1,
+      "title": "Keep French /b/ and /v/ distinct",
+      "objective": "Hear and produce the French /b/ and /v/ difference in a restaurant conversation.",
+      "focus": "French b and v represent distinct sounds. Close both lips for /b/ in beau and bateau; use the lower lip against the upper teeth for /v/ in vin and veau.",
+      "words": [
+        { "fr": "bateau", "en": "boat", "kind": "term" },
+        { "fr": "beau", "en": "beautiful (masculine singular)", "kind": "term" },
+        { "fr": "bon", "en": "good (masculine singular)", "kind": "term" },
+        { "fr": "vin", "en": "wine", "kind": "term" },
+        { "fr": "veau", "en": "veal", "kind": "term" },
+        { "fr": "vase", "en": "vase", "kind": "term" },
+        { "fr": "Le bateau est beau.", "en": "The boat is beautiful.", "kind": "phrase" },
+        { "fr": "Le vase est sur la table.", "en": "The vase is on the table.", "kind": "phrase" },
+        { "fr": "Je voudrais du veau, s'il vous plaît.", "en": "I would like veal, please.", "kind": "phrase" },
+        { "fr": "Ce vin est bon.", "en": "This wine is good.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Nous déjeunons près de la rivière et voyons un beau bateau.", "en": "We have lunch near the river and see a beautiful boat." },
+        { "fr": "Un vase est posé sur notre table.", "en": "A vase is set on our table." },
+        { "fr": "Je commande du veau et mon ami choisit du vin.", "en": "I order veal and my friend chooses wine." },
+        { "fr": "À la fin du repas, il dit : « Ce vin est bon. »", "en": "At the end of the meal, he says, 'This wine is good.'" }
+      ],
+      "speaking": { "scene": "Ordering lunch beside a river", "roles": ["customer", "server"], "opening": "Bonjour, je voudrais du veau, s'il vous plaît.", "goals": ["Order veal.", "Ask about the wine.", "Describe the boat outside."], "closure": "Merci, le bateau est beau et le vin est bon." },
+      "practice": {
+        "see": { "prompt": "Sort bateau, beau, bon, vin, veau, and vase by initial /b/ or /v/.", "wordRefs": ["bateau", "beau", "bon", "vin", "veau", "vase"] },
+        "recall": { "prompt": "Recall the French word for boat before revealing it.", "answerRef": "bateau" },
+        "hear": { "prompt": "Listen for beau or veau in the recorded sentence.", "choices": ["beau", "veau"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The boat is beautiful.'", "answerRef": "Le bateau est beau." },
+        "say": { "prompt": "Order veal politely, keeping the initial /v/ distinct.", "answerRef": "Je voudrais du veau, s'il vous plaît." },
+        "write": { "prompt": "Write two French sentences describing the boat and your restaurant order.", "requiredRefs": ["bateau", "beau", "veau"] }
+      }
+    },
+    {
+      "id": "core-french-sound-like-a-native:2:fr-en",
+      "n": 2,
+      "sourceSpanishLesson": 2,
+      "title": "Contrast /t/ and /d/ at a café",
+      "objective": "Keep French /t/ and /d/ distinct in words for a café meeting and in short requests.",
+      "focus": "Compare tasse, table, and thé with dame, date, and demain. The tongue makes a brief contact near the upper front teeth; the vocal folds distinguish /d/ from /t/.",
+      "words": [
+        { "fr": "tasse", "en": "cup", "kind": "term" },
+        { "fr": "table", "en": "table", "kind": "term" },
+        { "fr": "thé", "en": "tea", "kind": "term" },
+        { "fr": "dame", "en": "woman; lady", "kind": "term" },
+        { "fr": "date", "en": "date", "kind": "term" },
+        { "fr": "demain", "en": "tomorrow", "kind": "term" },
+        { "fr": "La dame demande du thé.", "en": "The woman asks for tea.", "kind": "phrase" },
+        { "fr": "La tasse est sur la table.", "en": "The cup is on the table.", "kind": "phrase" },
+        { "fr": "Quelle date vous convient ?", "en": "What date works for you?", "kind": "phrase" },
+        { "fr": "On se voit demain.", "en": "We'll see each other tomorrow.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Une dame attend à la table près de la fenêtre.", "en": "A woman waits at the table near the window." },
+        { "fr": "Elle demande une tasse de thé.", "en": "She asks for a cup of tea." },
+        { "fr": "Nous choisissons une date pour notre prochaine rencontre.", "en": "We choose a date for our next meeting." },
+        { "fr": "Elle propose demain, et je suis d'accord.", "en": "She suggests tomorrow, and I agree." }
+      ],
+      "speaking": { "scene": "Arranging a second café meeting", "roles": ["visitor", "friend"], "opening": "Quelle date vous convient ?", "goals": ["Ask what date works.", "Suggest tomorrow.", "Ask for a cup of tea."], "closure": "Très bien, on se voit demain." },
+      "practice": {
+        "see": { "prompt": "Sort tasse, table, thé, dame, date, and demain by initial /t/ or /d/.", "wordRefs": ["tasse", "table", "thé", "dame", "date", "demain"] },
+        "recall": { "prompt": "Recall the French word for tomorrow before revealing it.", "answerRef": "demain" },
+        "hear": { "prompt": "Listen for tasse or date in the recorded café sentence.", "choices": ["tasse", "date"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence for 'The cup is on the table.'", "answerRef": "La tasse est sur la table." },
+        "say": { "prompt": "Ask which date works for your friend.", "answerRef": "Quelle date vous convient ?" },
+        "write": { "prompt": "Write a short French exchange setting a date and ordering tea.", "requiredRefs": ["date", "demain", "thé"] }
+      }
+    },
+    {
+      "id": "core-french-sound-like-a-native:3:fr-en",
+      "n": 3,
+      "sourceSpanishLesson": 3,
+      "title": "Carry /d/ through connected French phrases",
+      "objective": "Keep /d/ audible in French words and short connected phrases while exchanging an address and directions.",
+      "focus": "Say adresse, idée, détail, and demander within whole phrases. Keep /d/ as part of the word; do not add a vowel after it or replace it with an English-style flap.",
+      "words": [
+        { "fr": "adresse", "en": "address", "kind": "term" },
+        { "fr": "idée", "en": "idea", "kind": "term" },
+        { "fr": "détail", "en": "detail", "kind": "term" },
+        { "fr": "aider", "en": "to help", "kind": "term" },
+        { "fr": "donner", "en": "to give", "kind": "term" },
+        { "fr": "demander", "en": "to ask", "kind": "term" },
+        { "fr": "Donnez-moi votre adresse, s'il vous plaît.", "en": "Give me your address, please.", "kind": "phrase" },
+        { "fr": "Pouvez-vous me donner plus de détails sur le trajet ?", "en": "Can you give me more details about the route?", "kind": "phrase" },
+        { "fr": "J'ai une idée pour vous aider.", "en": "I have an idea to help you.", "kind": "phrase" },
+        { "fr": "Pouvez-vous me donner l'adresse ?", "en": "Can you give me the address?", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Je demande une adresse à l'agent d'accueil.", "en": "I ask the reception agent for an address." },
+        { "fr": "L'agent me donne l'adresse et un détail sur le trajet.", "en": "The agent gives me the address and a detail about the route." },
+        { "fr": "J'ai une idée pour aider mon ami à trouver la rue.", "en": "I have an idea to help my friend find the street." },
+        { "fr": "Je lui donne l'adresse et nous partons ensemble.", "en": "I give him the address and we leave together." }
+      ],
+      "speaking": { "scene": "Asking a reception agent for an address", "roles": ["visitor", "reception agent"], "opening": "Pouvez-vous me donner l'adresse ?", "goals": ["Ask for the address.", "Ask one detail about the route.", "Repeat the address to a friend."], "closure": "Merci, j'ai l'adresse et le détail." },
+      "practice": {
+        "see": { "prompt": "Locate written d and spoken /d/ in adresse, idée, détail, aider, donner, and demander.", "wordRefs": ["adresse", "idée", "détail", "aider", "donner", "demander"] },
+        "recall": { "prompt": "Recall the French word for address before revealing it.", "answerRef": "adresse" },
+        "hear": { "prompt": "Listen for adresse or détail in the recorded direction request.", "choices": ["adresse", "détail"], "audioRequired": true },
+        "type": { "prompt": "Type the French question for 'Can you give me the address?'", "answerRef": "Pouvez-vous me donner l'adresse ?" },
+        "say": { "prompt": "Ask the agent for more details about the route.", "answerRef": "Pouvez-vous me donner plus de détails sur le trajet ?" },
+        "write": { "prompt": "Write two French sentences asking for an address and offering an idea to help.", "requiredRefs": ["adresse", "idée", "aider"] }
+      }
+    }
+  ]
+}

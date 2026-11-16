@@ -1,0 +1,539 @@
+{
+  "target": "French",
+  "native": "English",
+  "moduleId": "french-basics",
+  "stage": "core",
+  "reviewed": false,
+  "state": "authored-draft",
+  "source": {
+    "path": "content/french-basics/source-english-core-16-18.json",
+    "sourceSha256": "5d06f85097dcd7d1beddc58804fbfc50865212aea3f1b6b20e95a0a1dedfcb01",
+    "sourcePaths": [
+      "src/data/spanish-basics-core.json",
+      "src/data/spanish-basics-practice.json"
+    ],
+    "sourceFileSha256": {
+      "src/data/spanish-basics-core.json": "d50c3e52a846331e9c0bcec19a5c91605585f4e285c62138941425390d160e38",
+      "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe"
+    },
+    "use": "Exact English objectives, word meanings, reading meanings and progression; French grammar and examples authored separately"
+  },
+  "draftModel": "Codex authored; independent Fable/Opus and human review pending",
+  "sourceNotes": [
+    "French reflexive verb forms, demonstratives and location prepositions need structures unlike the Spanish source.",
+    "Broad source glosses retain the exact English meaning with contextual French notes."
+  ],
+  "lessons": [
+    {
+      "n": 16,
+      "title": "Les gestes du matin",
+      "sourceTitleEnglish": "Reflexive routines",
+      "sourceObjectiveEnglish": "Reflexive routines: A reflexive pronoun changes with the person: me, te, se, nos, se.",
+      "objective": "Racontez une routine avec les verbes pronominaux au présent et accordez le pronom avec la personne.",
+      "foundationTie": "Reuses Core 10 clock times and Core 12 daily plans; introduces reflexive forms for a morning routine.",
+      "focus": "se lever, se doucher, se préparer, se coucher, se réveiller; me, te, se, nous, vous, se",
+      "grammar": {
+        "explanation": "In a French pronominal verb, the reflexive pronoun agrees with the subject: je me lève, tu te réveilles, Ana se douche, nous nous préparons. Me, te and se contract to m’, t’ and s’ before a vowel. The verb also changes with its subject. Se lever and se coucher take a grave accent in the je/tu/il/ils forms (je me lève, il se couche); nous nous levons keeps the stem without that accent. For clock time use à sept heures.",
+        "model": {
+          "I": "Je me lève à sept heures.",
+          "you": "Tu te réveilles tôt ?",
+          "we": "Nous nous préparons pour le cours.",
+          "Ana": "Ana se douche le matin."
+        },
+        "caution": "French nous nous préparons repeats nous because the first is the subject and the second is the reflexive pronoun. Negation surrounds the reflexive-pronoun-plus-verb group: je ne me lève pas tôt."
+      },
+      "scene": "Avant le cours, deux amis comparent leur heure de réveil et leur routine.",
+      "dialogue": [
+        "Je me lève à sept heures.|I get up at seven.",
+        "Ana se douche le matin.|Ana showers in the morning.",
+        "Nous nous préparons pour le cours.|We get ready for class.",
+        "Luis se couche à dix heures.|Luis goes to bed at ten.",
+        "Tu te réveilles tôt ?|Do you wake up early?",
+        "Oui, je me réveille avant sept heures.|Yes, I wake up before seven."
+      ],
+      "speaking": "Compare morning routines with a classmate. Ask whether they wake early, say when you get up, tell them when Ana showers and when Luis goes to bed, then agree when you both get ready for class. Use je me, tu te, il/elle se and nous nous.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "me / moi-même",
+          "en": "me / myself",
+          "kind": "term",
+          "note": "Me is the unstressed reflexive/object pronoun; moi-même is emphatic “myself.”"
+        },
+        {
+          "order": 2,
+          "fr": "te / toi-même",
+          "en": "you / yourself",
+          "kind": "term",
+          "note": "Te is the unstressed reflexive/object pronoun; toi-même is emphatic “yourself.”"
+        },
+        {
+          "order": 3,
+          "fr": "cours / salle de classe",
+          "en": "class / classroom",
+          "kind": "term",
+          "note": "Cours is a class session; salle de classe is a classroom."
+        },
+        {
+          "order": 4,
+          "fr": "la",
+          "en": "the / it / her (feminine)",
+          "kind": "term"
+        },
+        {
+          "order": 5,
+          "fr": "les",
+          "en": "the / them (feminine plural)",
+          "kind": "term",
+          "note": "French les has no masculine/feminine plural distinction."
+        },
+        {
+          "order": 6,
+          "fr": "pour / afin de",
+          "en": "for / in order to",
+          "kind": "term",
+          "note": "Pour is common for purpose; afin de is more formal and precedes an infinitive."
+        },
+        {
+          "order": 7,
+          "fr": "de",
+          "en": "of / from",
+          "kind": "term"
+        },
+        {
+          "order": 8,
+          "fr": "dix",
+          "en": "ten",
+          "kind": "term"
+        },
+        {
+          "order": 9,
+          "fr": "Je me lève à sept heures.",
+          "en": "I get up at seven.",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Ana se douche le matin.",
+          "en": "Ana showers in the morning.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Nous nous préparons pour le cours.",
+          "en": "We get ready for class.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Luis se couche à dix heures.",
+          "en": "Luis goes to bed at ten.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Tu te réveilles tôt ?",
+          "en": "Do you wake up early?",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Oui, je me réveille avant sept heures.",
+          "en": "Yes, I wake up before seven.",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "Un matin ordinaire",
+        "sourceTitleEnglish": "Una mañana normal",
+        "target": [
+          "Je me lève à sept heures.",
+          "Ana se douche le matin.",
+          "Nous nous préparons pour le cours.",
+          "Luis se couche à dix heures.",
+          "Tu te réveilles tôt ?",
+          "Oui, je me réveille avant sept heures."
+        ],
+        "native": [
+          "I get up at seven.",
+          "Ana showers in the morning.",
+          "We get ready for class.",
+          "Luis goes to bed at ten.",
+          "Do you wake up early?",
+          "Yes, I wake up before seven."
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete: Nous ___ préparons pour le cours.",
+          "answer": "nous"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: I get up at seven.",
+          "answer": "Je me lève à sept heures."
+        },
+        {
+          "type": "listening",
+          "audioText": "Ana se douche le matin.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen: when does Ana shower?",
+          "answer": "In the morning."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "In Un matin ordinaire, when does Luis go to bed?",
+          "answer": "At ten."
+        },
+        {
+          "type": "recall",
+          "prompt": "Complete the question: Tu ___ réveilles tôt ?",
+          "answer": "te"
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 17,
+      "title": "Choisir ce livre ou celui-là",
+      "sourceTitleEnglish": "This, that and those",
+      "sourceObjectiveEnglish": "This, that and those: Demonstratives agree with the noun: este libro, esta mesa, estos libros, estas mesas.",
+      "objective": "Désignez des objets proches ou plus éloignés avec ce, cet, cette, ces et les pronoms celui ou celle.",
+      "foundationTie": "Reuses classroom nouns from Foundation and Core 16; adds noun agreement and standalone demonstrative pronouns.",
+      "focus": "ce / cet / cette / ces + nom; celui / celle; -ci / -là for explicit contrast",
+      "grammar": {
+        "explanation": "French demonstrative adjectives agree with the noun: ce livre, cet ordinateur, cette table, ces cahiers. Ce and cette can mean “this” or “that” without an inherent distance distinction; add -ci and -là after the noun to contrast nearby and farther items: ce livre-ci, ce livre-là. When the noun is omitted, use a pronoun: je veux ce cahier-ci, pas celui-là. Use celle-là for a feminine noun and ceux-là/celles-là for plural nouns.",
+        "model": {
+          "book": "Ce livre est pour le cours.",
+          "bag": "Ce sac à dos est petit.",
+          "plural": "Ces cahiers-là sont à Ana.",
+          "choice": "Je veux ce cahier-ci, pas celui-là."
+        },
+        "caution": "Spanish este/ese distinguishes distance within the adjective; French ce/cette/ces alone does not. Do not use ce as a standalone “that one”: choose celui-là or celle-là."
+      },
+      "scene": "Deux élèves comparent leurs fournitures et choisissent le bon cahier en classe.",
+      "dialogue": [
+        "Ce livre est pour le cours.|This book is for class.",
+        "Ce sac à dos est petit.|This backpack is small.",
+        "Ces cahiers-là sont à Ana.|Those notebooks are Ana's.",
+        "Ces chaises-ci sont libres.|These chairs are available.",
+        "Cette table-là est près de la fenêtre.|That table is near the window.",
+        "Je veux ce cahier-ci, pas celui-là.|I want this notebook, not that one."
+      ],
+      "speaking": "At a classroom table, identify which book is for class, describe the small backpack, point out Ana’s notebooks and the available chairs, then choose this notebook instead of that one. Use ce, cette, ces and celui-là; ask your partner to confirm the choice.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "table",
+          "en": "table",
+          "kind": "term"
+        },
+        {
+          "order": 2,
+          "fr": "sac à dos",
+          "en": "backpack",
+          "kind": "term"
+        },
+        {
+          "order": 3,
+          "fr": "cahier",
+          "en": "notebook",
+          "kind": "term"
+        },
+        {
+          "order": 4,
+          "fr": "livre",
+          "en": "book",
+          "kind": "term"
+        },
+        {
+          "order": 5,
+          "fr": "cours / salle de classe",
+          "en": "class / classroom",
+          "kind": "term",
+          "note": "Cours means class session; salle de classe means the room."
+        },
+        {
+          "order": 6,
+          "fr": "est",
+          "en": "is (identity)",
+          "kind": "term",
+          "note": "Est is a form of être. French does not split ser/estar into two verbs."
+        },
+        {
+          "order": 7,
+          "fr": "se trouve / est",
+          "en": "is (condition/location)",
+          "kind": "term",
+          "note": "Se trouve expresses location; est is also natural. French has no ser/estar split."
+        },
+        {
+          "order": 8,
+          "fr": "la",
+          "en": "the / it / her (feminine)",
+          "kind": "term",
+          "note": "La is a feminine article or object pronoun; choose by context."
+        },
+        {
+          "order": 9,
+          "fr": "Ce livre est pour le cours.",
+          "en": "This book is for class.",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "Ce sac à dos est petit.",
+          "en": "This backpack is small.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Ces cahiers-là sont à Ana.",
+          "en": "Those notebooks are Ana's.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Ces chaises-ci sont libres.",
+          "en": "These chairs are available.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Cette table-là est près de la fenêtre.",
+          "en": "That table is near the window.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Je veux ce cahier-ci, pas celui-là.",
+          "en": "I want this notebook, not that one.",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "Comparer les fournitures",
+        "sourceTitleEnglish": "Comparar materiales",
+        "target": [
+          "Ce livre est pour le cours.",
+          "Ce sac à dos est petit.",
+          "Ces cahiers-là sont à Ana.",
+          "Ces chaises-ci sont libres.",
+          "Cette table-là est près de la fenêtre.",
+          "Je veux ce cahier-ci, pas celui-là."
+        ],
+        "native": [
+          "This book is for class.",
+          "This backpack is small.",
+          "Those notebooks are Ana's.",
+          "These chairs are available.",
+          "That table is near the window.",
+          "I want this notebook, not that one."
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Choose the demonstrative: ___ table-là est près de la fenêtre.",
+          "answer": "Cette"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: I want this notebook, not that one.",
+          "answer": "Je veux ce cahier-ci, pas celui-là."
+        },
+        {
+          "type": "listening",
+          "audioText": "Ces cahiers-là sont à Ana.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen: whose notebooks are those?",
+          "answer": "Ana’s."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "In Comparer les fournitures, which chairs are available?",
+          "answer": "These chairs."
+        },
+        {
+          "type": "recall",
+          "prompt": "Complete: ___ livre est pour le cours.",
+          "answer": "Ce"
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 18,
+      "title": "Trouver la salle de cours",
+      "sourceTitleEnglish": "Location prepositions",
+      "sourceObjectiveEnglish": "Location prepositions: Use en for in/on/at as context requires.",
+      "objective": "Donnez un itinéraire simple dans un bâtiment avec au, près de, loin de, sous, devant et derrière.",
+      "foundationTie": "Reuses Core 7 location questions and Core 17 classroom objects; adds precise place relations.",
+      "focus": "au deuxième étage; près du café; loin de l’école; sous la table; devant / derrière",
+      "grammar": {
+        "explanation": "French uses distinct prepositions for where something is: dans for inside, sur for on top, à for a general location, sous for under, devant for in front of and derrière for behind. Près de and loin de express distance. De + le contracts to du (près du café), and à + le contracts to au (au deuxième étage). Keep de before l’: loin de l’école.",
+        "model": {
+          "floor": "La salle de cours est au deuxième étage.",
+          "near": "La bibliothèque est près du café.",
+          "under": "Le sac à dos est sous la table.",
+          "behind": "Luis est derrière Ana."
+        },
+        "caution": "Spanish en covers several locations. In French choose à, dans or sur by meaning. “The classroom is on the second floor” is au deuxième étage, not sur le deuxième étage."
+      },
+      "scene": "À l’entrée d’un bâtiment scolaire, deux amis cherchent la salle de cours et un sac à dos.",
+      "dialogue": [
+        "La salle de cours est au deuxième étage.|The classroom is on the second floor.",
+        "La bibliothèque est près du café.|The library is near the café.",
+        "Le magasin est loin de l’école.|The store is far from the school.",
+        "Le sac à dos est sous la table.|The backpack is under the table.",
+        "Ana est devant la porte.|Ana is in front of the door.",
+        "Luis est derrière Ana.|Luis is behind Ana."
+      ],
+      "speaking": "A visitor is looking for a classroom. Tell them it is on the second floor, locate the library near the café and the store far from the school, then help find a backpack under a table. Finish by identifying Ana at the door and Luis behind her. Ask the visitor to repeat the floor before they leave.",
+      "words": [
+        {
+          "order": 1,
+          "fr": "table",
+          "en": "table",
+          "kind": "term"
+        },
+        {
+          "order": 2,
+          "fr": "sac à dos",
+          "en": "backpack",
+          "kind": "term"
+        },
+        {
+          "order": 3,
+          "fr": "cours / salle de cours",
+          "en": "class / classroom",
+          "kind": "term",
+          "note": "Cours is the class session; salle de cours is its physical room."
+        },
+        {
+          "order": 4,
+          "fr": "est / se trouve",
+          "en": "is (condition/location)",
+          "kind": "term",
+          "note": "French uses être for both identity and location; se trouver makes location explicit."
+        },
+        {
+          "order": 5,
+          "fr": "le",
+          "en": "the (masculine singular)",
+          "kind": "term"
+        },
+        {
+          "order": 6,
+          "fr": "la",
+          "en": "the / it / her (feminine)",
+          "kind": "term"
+        },
+        {
+          "order": 7,
+          "fr": "dans / sur / à",
+          "en": "in / on / at",
+          "kind": "term",
+          "note": "Choose dans (inside), sur (on top) or à (general place) by context; these are not interchangeable."
+        },
+        {
+          "order": 8,
+          "fr": "de",
+          "en": "of / from",
+          "kind": "term",
+          "note": "De contracts with le to du and with les to des."
+        },
+        {
+          "order": 9,
+          "fr": "La salle de cours est au deuxième étage.",
+          "en": "The classroom is on the second floor.",
+          "kind": "phrase"
+        },
+        {
+          "order": 10,
+          "fr": "La bibliothèque est près du café.",
+          "en": "The library is near the café.",
+          "kind": "phrase"
+        },
+        {
+          "order": 11,
+          "fr": "Le magasin est loin de l’école.",
+          "en": "The store is far from the school.",
+          "kind": "phrase"
+        },
+        {
+          "order": 12,
+          "fr": "Le sac à dos est sous la table.",
+          "en": "The backpack is under the table.",
+          "kind": "phrase"
+        },
+        {
+          "order": 13,
+          "fr": "Ana est devant la porte.",
+          "en": "Ana is in front of the door.",
+          "kind": "phrase"
+        },
+        {
+          "order": 14,
+          "fr": "Luis est derrière Ana.",
+          "en": "Luis is behind Ana.",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "Chercher la salle",
+        "sourceTitleEnglish": "Buscar el aula",
+        "target": [
+          "La salle de cours est au deuxième étage.",
+          "La bibliothèque est près du café.",
+          "Le magasin est loin de l’école.",
+          "Le sac à dos est sous la table.",
+          "Ana est devant la porte.",
+          "Luis est derrière Ana."
+        ],
+        "native": [
+          "The classroom is on the second floor.",
+          "The library is near the café.",
+          "The store is far from the school.",
+          "The backpack is under the table.",
+          "Ana is in front of the door.",
+          "Luis is behind Ana."
+        ]
+      },
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "Complete: La salle de cours est ___ deuxième étage.",
+          "answer": "au"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: The backpack is under the table.",
+          "answer": "Le sac à dos est sous la table."
+        },
+        {
+          "type": "listening",
+          "audioText": "La bibliothèque est près du café.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "prompt": "Listen: what is near the café?",
+          "answer": "The library."
+        },
+        {
+          "type": "comprehension",
+          "prompt": "In Chercher la salle, where is Ana?",
+          "answer": "In front of the door."
+        },
+        {
+          "type": "recall",
+          "prompt": "Complete: Luis est ___ Ana.",
+          "answer": "derrière"
+        }
+      ],
+      "locale": "fr-FR"
+    }
+  ]
+}

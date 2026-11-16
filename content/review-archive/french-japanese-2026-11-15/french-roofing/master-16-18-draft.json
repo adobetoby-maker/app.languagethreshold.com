@@ -1,0 +1,728 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "master",
+  "target": "French",
+  "native": "English",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFiles": [
+    "src/data/master-roofing-curriculum.ts",
+    "public/lesson-content/es/master-roofing.json"
+  ],
+  "sourceFileSHA256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+  },
+  "englishSourceSubsetSHA256": "aa714cd09501f751736760d5315d6c8c7b066054095472d8fa0f51221dafea0f",
+  "draftMethod": "manual source-aligned French draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 16,
+      "titleEnglish": "Inspector on Site",
+      "objectiveEnglishSource": "Receive a city inspector formally, explain your procedures with passive se, and handle a correction notice",
+      "focusEnglishSource": "Formal register; passive se for procedures",
+      "lessonType": "Document",
+      "block": "D",
+      "speakingEnglishSource": "You are the crew lead and the AI is the city inspector arriving mid-install: greet them formally, show the permit, explain how fastening and flashing are done with passive se, and confirm any correction they ask for.",
+      "grammarExamplesEnglish": [
+        "Here each course is checked before continuing.",
+        "Could you tell me what needs to be corrected?"
+      ],
+      "titleFrench": "Accueillir un inspecteur sur le chantier",
+      "objectiveFrench": "Accueillir un inspecteur avec courtoisie, expliquer les procédures observées et demander une précision écrite sur toute correction.",
+      "grammarFocusFrench": "Registre formel; tournures impersonnelles avec on et passif en être + participe pour décrire une procédure sans prétendre à la conformité.",
+      "speakingFrenchInstruction": "Vous dirigez l’équipe et l’IA joue un inspecteur municipal. Présentez le dossier disponible, décrivez les fixations et les solins d’après le plan et la notice du produit, demandez ce qui doit être corrigé et confirmez la procédure locale de nouvelle inspection. Ne déclarez pas le travail approuvé.",
+      "speakingFrenchOpening": "Bonjour, voici le dossier du chantier. Que souhaitez-vous examiner en premier ?",
+      "teachingNotesFrench": "On, est vérifié et doit être corrigé décrivent une procédure, pas une approbation. La source affirme que le permis est affiché comme la ville l’exige, que le nombre de clous varie selon pente/vent et que chaque rang reçoit un solin; ces détails nécessitent vérification du code local, du système et de la notice. L’accès au toit de l’inspecteur suit le plan de sécurité.",
+      "words": [
+        {
+          "en": "the city inspector",
+          "kind": "term",
+          "fr": "l’inspecteur municipal"
+        },
+        {
+          "en": "the building permit",
+          "kind": "term",
+          "fr": "le permis de construire"
+        },
+        {
+          "en": "the inspection card",
+          "kind": "term",
+          "fr": "la fiche d’inspection"
+        },
+        {
+          "en": "the building code",
+          "kind": "term",
+          "fr": "le code du bâtiment"
+        },
+        {
+          "en": "the check (review)",
+          "kind": "term",
+          "fr": "le contrôle"
+        },
+        {
+          "en": "the finding (inspector's note)",
+          "kind": "term",
+          "fr": "l’observation de l’inspecteur"
+        },
+        {
+          "en": "the correction notice",
+          "kind": "term",
+          "fr": "l’avis de correction"
+        },
+        {
+          "en": "the re-inspection",
+          "kind": "term",
+          "fr": "la nouvelle inspection"
+        },
+        {
+          "en": "the fastening method",
+          "kind": "term",
+          "fr": "la méthode de fixation"
+        },
+        {
+          "en": "the number of nails",
+          "kind": "term",
+          "fr": "le nombre de clous"
+        },
+        {
+          "en": "the attic ventilation",
+          "kind": "term",
+          "fr": "la ventilation des combles"
+        },
+        {
+          "en": "the compliance",
+          "kind": "term",
+          "fr": "la conformité"
+        },
+        {
+          "en": "the requirement",
+          "kind": "term",
+          "fr": "l’exigence"
+        },
+        {
+          "en": "the approval",
+          "kind": "term",
+          "fr": "l’approbation"
+        },
+        {
+          "en": "Good morning, here's the permit.",
+          "kind": "phrase",
+          "fr": "Bonjour, voici le permis."
+        },
+        {
+          "en": "Would you like to go up or would you rather see the photos?",
+          "kind": "phrase",
+          "fr": "Préférez-vous examiner le toit ou les photos, selon les règles d’accès ?",
+          "enDisplay": "Would you rather examine the roof or photos, under the site's access rules?"
+        },
+        {
+          "en": "Here nailing is done according to the product instructions.",
+          "kind": "phrase",
+          "fr": "Ici, la fixation suit la notice du produit et le plan approuvé.",
+          "enDisplay": "Fastening here follows the product instructions and approved plan."
+        },
+        {
+          "en": "Each course is checked before continuing.",
+          "kind": "phrase",
+          "fr": "Chaque rang est vérifié avant de poursuivre."
+        },
+        {
+          "en": "Could you tell me what needs to be corrected?",
+          "kind": "phrase",
+          "fr": "Pourriez-vous préciser par écrit ce qui doit être corrigé ?"
+        },
+        {
+          "en": "We'll correct it today.",
+          "kind": "phrase",
+          "fr": "Nous organiserons la correction selon le plan et la procédure locale.",
+          "enDisplay": "We'll arrange the correction under the plan and local process."
+        },
+        {
+          "en": "Let me know if you see the inspector arrive.",
+          "kind": "phrase",
+          "fr": "Prévenez-moi si vous voyez arriver l’inspecteur."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Accueillir un inspecteur sur le chantier",
+        "target": [
+          "À onze heures, M. Wong, inspecteur municipal dans cette scène fictive, est arrivé pendant la pose des bardeaux du côté sud.",
+          "Rogelio est descendu du toit pour l’accueillir : « Bonjour, voici le permis. »",
+          "Le permis et la fiche d’inspection étaient disponibles dans le dossier du chantier; leur affichage dépend des règles locales.",
+          "L’inspecteur : « Merci, je viens examiner les fixations et les solins. »",
+          "Rogelio : « Préférez-vous examiner le toit ou les photos, selon les règles d’accès au chantier ? »",
+          "L’inspecteur : « Je voudrais voir la pose; quelle méthode de fixation utilisez-vous ici ? »",
+          "Rogelio : « La fixation suit la notice du produit et le plan approuvé; nous vérifierons avec vous le nombre de clous prévu pour ce système. »",
+          "Rogelio : « Chaque rang est vérifié avant de poursuivre, et la méthode est consignée dans le rapport du jour. »",
+          "L’inspecteur a ensuite examiné la ventilation des combles et le solin de cheminée.",
+          "L’inspecteur : « J’ai une observation à consigner; je ne peux pas encore confirmer la conformité. »",
+          "L’inspecteur : « Près du mur du garage, je constate un manque de solin à gradins sur deux rangs. »",
+          "Rogelio : « Pourriez-vous préciser par écrit ce qui doit être corrigé et la référence applicable ? »",
+          "L’inspecteur a noté son observation; la méthode exacte de correction sera vérifiée avec le plan, le produit et l’autorité locale.",
+          "Rogelio : « Nous organiserons la correction puis demanderons une nouvelle inspection selon la procédure locale. »",
+          "L’inspecteur : « L’approbation dépendra de la vérification ultérieure. »",
+          "Plus tard, Rogelio a dit à Kevin : « Préviens-moi quand l’inspecteur arrive. »"
+        ],
+        "native": [
+          "At eleven the city inspector, Mr. Wong, arrived while the crew was installing the shingles on the south side.",
+          "Rogelio came down from the roof and greeted him: Good morning, here's the permit.",
+          "The building permit and the inspection card were in the garage window, as the city requires.",
+          "Inspector: Thank you; I'm here to check the fastening and the flashing.",
+          "Rogelio: Would you like to go up or would you rather see the photos?",
+          "Inspector: I'd rather go up; how are the shingles nailed on this job?",
+          "Rogelio: Here nailing is done according to the product instructions, and the number of nails is adjusted for the slope and the wind, according to the manufacturer.",
+          "Rogelio: Each course is checked before continuing, and the fastening method is noted in the day's report.",
+          "The inspector checked the attic ventilation and the chimney flashing.",
+          "Inspector: Everything complies with the building code, except one thing.",
+          "Inspector: On the garage wall the step flashing is missing on two courses.",
+          "Rogelio: Could you tell me exactly what needs to be corrected, according to the requirement?",
+          "The inspector wrote a finding on the correction notice: Step flashing must be installed on every course next to the wall.",
+          "Rogelio: We'll correct it today and request the re-inspection through the city website.",
+          "Inspector: Very good; if compliance is confirmed, you'll have the approval.",
+          "At the end, Rogelio told Kevin: Next time, let me know if you see the inspector arrive."
+        ],
+        "nativeDisplay": [
+          "At eleven the city inspector, Mr. Wong, arrived while the crew was installing the shingles on the south side.",
+          "Rogelio came down from the roof and greeted him: Good morning, here's the permit.",
+          "The permit and inspection card were available in the job file; posting requirements depend on local rules.",
+          "Inspector: Thank you; I'm here to check the fastening and the flashing.",
+          "Rogelio: Would you rather examine the roof or the photos, under the site's access rules?",
+          "Inspector: I'd rather go up; how are the shingles nailed on this job?",
+          "Rogelio: Fastening follows the product instructions and approved plan; we'll verify the required nail count for this system with you.",
+          "Rogelio: Each course is checked before continuing, and the fastening method is noted in the day's report.",
+          "The inspector checked the attic ventilation and the chimney flashing.",
+          "Inspector: I have an observation to record; I cannot confirm compliance yet.",
+          "Inspector: On the garage wall the step flashing is missing on two courses.",
+          "Rogelio: Could you tell me exactly what needs to be corrected, according to the requirement?",
+          "The inspector recorded an observation; the exact correction method will be checked against the plan, product and local authority.",
+          "Rogelio: We'll arrange the correction and request re-inspection under the local process.",
+          "Inspector: Approval depends on the later verification.",
+          "At the end, Rogelio told Kevin: Next time, let me know if you see the inspector arrive."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to comply",
+          "exampleEnglish": "Everything complies with the building code.",
+          "sourceInfinitiveSpanish": "cumplir",
+          "infinitiveFrench": "respecter",
+          "exampleFrench": "La méthode doit respecter les exigences applicables."
+        },
+        {
+          "meaningEnglish": "to correct",
+          "exampleEnglish": "We'll correct it today.",
+          "sourceInfinitiveSpanish": "corregir",
+          "infinitiveFrench": "corriger",
+          "exampleFrench": "Nous organiserons la correction selon le plan."
+        },
+        {
+          "meaningEnglish": "to indicate, to point out",
+          "exampleEnglish": "Could you tell me what needs to be corrected?",
+          "sourceInfinitiveSpanish": "indicar",
+          "infinitiveFrench": "préciser",
+          "exampleFrench": "Pourriez-vous préciser ce qui doit être corrigé ?"
+        },
+        {
+          "meaningEnglish": "to note down",
+          "exampleEnglish": "The fastening method is noted in the day's report.",
+          "sourceInfinitiveSpanish": "anotar",
+          "infinitiveFrench": "consigner",
+          "exampleFrench": "La méthode est consignée dans le rapport du jour."
+        },
+        {
+          "meaningEnglish": "must, to have to",
+          "exampleEnglish": "Step flashing must be installed on every course.",
+          "sourceInfinitiveSpanish": "deber",
+          "infinitiveFrench": "devoir",
+          "exampleFrench": "La méthode exacte doit être vérifiée avant la reprise."
+        }
+      ],
+      "practiceModesFrench": {
+        "see": "Repérez la demande de permis, le constat et la demande de précision.",
+        "recall": "Retrouvez la phrase qui évite de déclarer la conformité acquise.",
+        "hear": "Écoutez la demande formelle de correction et de référence.",
+        "type": "Écrivez en français : Could you tell me what needs to be corrected?",
+        "say": "Accueillez l’inspecteur sans promettre l’approbation ni une correction immédiate.",
+        "write": "Rédigez un compte rendu factuel de l’observation et de la prochaine vérification."
+      },
+      "reviewGapsEnglish": [
+        "Qualified local building-code/inspector, roofing-product and fall-safety review required for permit display, inspector roof access, fastening count, ventilation, step flashing, correction notice and re-inspection process.",
+        "Qualified France/Québec regional terminology review needed; a fictional city approval cannot be generalized to another jurisdiction."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 17,
+      "titleEnglish": "Written Daily Report and Deck Repair Documentation",
+      "objectiveEnglishSource": "Write a clear daily report: work done, deck repairs with photos, materials used and open items",
+      "focusEnglishSource": "Written register; report connectors",
+      "lessonType": "Document",
+      "block": "E",
+      "speakingEnglishSource": "You are the crew lead and the AI is the office manager taking your end-of-day report by phone: give the hours, the squares completed, the deck repair and materials, and the open items, using report connectors like además, asimismo and por lo tanto.",
+      "grammarExamplesEnglish": [
+        "14 squares were completed; in addition, the valley was finished.",
+        "Likewise, the ridge cap on the west side is still pending."
+      ],
+      "titleFrench": "Rédiger le rapport quotidien et documenter une réparation",
+      "objectiveFrench": "Rédiger un rapport lisible avec heures, travaux, matériaux, photos et points ouverts, en distinguant mesures vérifiées et valeurs d’exemple.",
+      "grammarFocusFrench": "Registre écrit et connecteurs de rapport : de plus, également, par conséquent; accord du participe dans les formulations passives.",
+      "speakingFrenchInstruction": "Vous dirigez l’équipe et l’IA reçoit votre rapport de fin de journée. Donnez les heures, surfaces mesurées, réparation du support, matériaux et points ouverts, en vérifiant les chiffres et les autorisations. N’annoncez pas un horaire de lendemain non confirmé.",
+      "speakingFrenchOpening": "Je vous transmets le rapport du jour; je vais d’abord confirmer les heures et les quantités.",
+      "teachingNotesFrench": "Les chiffres, l’adresse et le nom sont fictifs. Le carré de toiture est une unité américaine qui exige une explication et une conversion adaptée au marché. Les réparations du support, photos, avenants et quantités ne valent pas autorisation ni preuve de conformité. L’horaire de demain dépend de la météo et de l’approbation du responsable.",
+      "words": [
+        {
+          "en": "the daily report",
+          "kind": "term",
+          "fr": "le rapport quotidien"
+        },
+        {
+          "en": "the summary",
+          "kind": "term",
+          "fr": "le résumé"
+        },
+        {
+          "en": "the address",
+          "kind": "term",
+          "fr": "l’adresse"
+        },
+        {
+          "en": "the hours worked",
+          "kind": "term",
+          "fr": "les heures travaillées"
+        },
+        {
+          "en": "the square (roofing unit)",
+          "kind": "term",
+          "fr": "le carré de toiture (unité américaine)"
+        },
+        {
+          "en": "the deck repair",
+          "kind": "term",
+          "fr": "la réparation du support"
+        },
+        {
+          "en": "the replaced sheet",
+          "kind": "term",
+          "fr": "le panneau remplacé"
+        },
+        {
+          "en": "the materials used",
+          "kind": "term",
+          "fr": "les matériaux utilisés"
+        },
+        {
+          "en": "the roll of underlayment",
+          "kind": "term",
+          "fr": "le rouleau de sous-couche"
+        },
+        {
+          "en": "the open items",
+          "kind": "term",
+          "fr": "les points ouverts"
+        },
+        {
+          "en": "the photo evidence",
+          "kind": "term",
+          "fr": "les photos justificatives"
+        },
+        {
+          "en": "in addition",
+          "kind": "term",
+          "fr": "de plus"
+        },
+        {
+          "en": "likewise",
+          "kind": "term",
+          "fr": "également"
+        },
+        {
+          "en": "therefore",
+          "kind": "term",
+          "fr": "par conséquent"
+        },
+        {
+          "en": "14 squares were completed on the east side.",
+          "kind": "phrase",
+          "fr": "Quatorze carrés ont été réalisés sur le côté est, selon le relevé.",
+          "enDisplay": "According to the measurement, 14 squares were completed on the east side."
+        },
+        {
+          "en": "Three sheets of rotten deck were replaced.",
+          "kind": "phrase",
+          "fr": "Trois panneaux du support dégradé ont été remplacés, selon le rapport.",
+          "enDisplay": "According to the report, three sheets of damaged deck were replaced."
+        },
+        {
+          "en": "Likewise, the membrane was installed in the valley.",
+          "kind": "phrase",
+          "fr": "La membrane a également été posée dans la noue."
+        },
+        {
+          "en": "The ridge cap on the west side is still pending.",
+          "kind": "phrase",
+          "fr": "La finition du faîtage ouest reste à faire."
+        },
+        {
+          "en": "Before and after photos are attached.",
+          "kind": "phrase",
+          "fr": "Les photos avant et après sont jointes."
+        },
+        {
+          "en": "With nothing further, I sign off.",
+          "kind": "phrase",
+          "fr": "Je termine le rapport et reste disponible pour toute question.",
+          "enDisplay": "I have finished the report and remain available for questions."
+        },
+        {
+          "en": "Hey, send me the photos of the plywood.",
+          "kind": "phrase",
+          "fr": "Envoie-moi les photos du contreplaqué, s’il te plaît."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Rédiger le rapport quotidien et documenter une réparation",
+        "target": [
+          "En fin de journée, Rogelio s’est assis dans la camionnette pour rédiger le rapport quotidien.",
+          "Il a d’abord écrit à Kevin : « Envoie-moi les photos du contreplaqué, s’il te plaît. »",
+          "Puis il a adopté un ton plus formel pour le rapport.",
+          "Rapport quotidien du 14 octobre; adresse fictive : 418, rue Pine, maison Ortega.",
+          "Heures déclarées : de 7 h à 15 h 30, avec une équipe de cinq personnes; à vérifier sur la feuille de temps.",
+          "Résumé : selon le relevé, quatorze carrés ont été réalisés du côté est; de plus, la noue principale a été traitée.",
+          "Pendant la dépose, l’équipe a constaté du bois dégradé près de la fenêtre de toit.",
+          "Selon le dossier, trois panneaux ont été remplacés; la validité de l’avenant et de l’autorisation doit être vérifiée.",
+          "La membrane a également été posée dans la noue et autour de la fenêtre de toit, selon le relevé.",
+          "Les photos avant et après de chaque réparation sont jointes au dossier.",
+          "Matériaux consignés : quinze paquets de bardeaux, trois rouleaux de sous-couche et trois panneaux de contreplaqué; contrôler les quantités.",
+          "Points ouverts : la finition du faîtage ouest et le nettoyage de la gouttière restent à faire.",
+          "De la pluie est prévue demain après-midi; l’horaire du lendemain reste à confirmer selon les conditions.",
+          "Je termine le rapport et reste disponible pour toute question.",
+          "Rogelio Mendoza, chef d’équipe.",
+          "Avant l’envoi, Rogelio a relu le rapport et corrigé deux chiffres."
+        ],
+        "native": [
+          "At the end of the day, Rogelio sat in the pickup to write the daily report.",
+          "First he sent Kevin a message: Hey, send me the photos of the plywood.",
+          "Then he wrote the report in a more formal tone than his messages.",
+          "Daily report for October 14; address: 418 Pine Street, Ortega house.",
+          "Hours worked: from 7:00 a.m. to 3:30 p.m., with a crew of five people.",
+          "Summary: 14 squares were completed on the east side and, in addition, the main valley was finished.",
+          "During the tear-off, rotten deck was found near the skylight.",
+          "Therefore, three sheets of rotten deck were replaced, according to the change order signed by the customer.",
+          "Likewise, the membrane was installed in the valley and around the skylight.",
+          "Before and after photos of the deck repair and of each replaced sheet are attached, as photo evidence for the file.",
+          "Materials used: 15 bundles of shingles, 3 rolls of underlayment and 3 sheets of plywood.",
+          "Open items: the ridge cap on the west side is still pending and, in addition, the gutter still needs cleaning.",
+          "Rain is expected tomorrow afternoon; therefore, the crew will start at 6:30 a.m.",
+          "With nothing further, I sign off.",
+          "Rogelio Mendoza, crew lead.",
+          "Before sending it, Rogelio read the report again and corrected two numbers."
+        ],
+        "nativeDisplay": [
+          "At the end of the day, Rogelio sat in the pickup to write the daily report.",
+          "First he sent Kevin a message: Hey, send me the photos of the plywood.",
+          "Then he wrote the report in a more formal tone than his messages.",
+          "Daily report for October 14; fictional address: 418 Pine Street, Ortega house.",
+          "Reported hours: 7:00 a.m. to 3:30 p.m., crew of five; verify against the time sheet.",
+          "Summary: according to the measurement, 14 squares were completed on the east side; the main valley was also treated.",
+          "During the tear-off, rotten deck was found near the skylight.",
+          "According to the file, three sheets were replaced; verify that the change order and authorization are valid.",
+          "Likewise, the membrane was installed in the valley and around the skylight.",
+          "Before-and-after photos of each repair are attached to the file.",
+          "Recorded materials: 15 bundles of shingles, three rolls of underlayment and three plywood sheets; check the quantities.",
+          "Open items: the ridge cap on the west side is still pending and, in addition, the gutter still needs cleaning.",
+          "Rain is expected tomorrow afternoon; tomorrow's schedule remains to be confirmed under the conditions.",
+          "I have finished the report and remain available for questions.",
+          "Rogelio Mendoza, crew lead.",
+          "Before sending it, Rogelio read the report again and corrected two numbers."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to complete",
+          "exampleEnglish": "14 squares were completed on the east side.",
+          "sourceInfinitiveSpanish": "completar",
+          "infinitiveFrench": "réaliser",
+          "exampleFrench": "Selon le relevé, quatorze carrés ont été réalisés du côté est."
+        },
+        {
+          "meaningEnglish": "to replace",
+          "exampleEnglish": "Three sheets of rotten deck were replaced.",
+          "sourceInfinitiveSpanish": "reemplazar",
+          "infinitiveFrench": "remplacer",
+          "exampleFrench": "Trois panneaux du support dégradé ont été remplacés."
+        },
+        {
+          "meaningEnglish": "to attach",
+          "exampleEnglish": "Before and after photos are attached.",
+          "sourceInfinitiveSpanish": "adjuntar",
+          "infinitiveFrench": "joindre",
+          "exampleFrench": "Les photos avant et après sont jointes."
+        },
+        {
+          "meaningEnglish": "to send",
+          "exampleEnglish": "Before sending it, Rogelio read the report again.",
+          "sourceInfinitiveSpanish": "enviar",
+          "infinitiveFrench": "envoyer",
+          "exampleFrench": "Avant l’envoi, Rogelio a relu le rapport."
+        },
+        {
+          "meaningEnglish": "to be missing, still to be done",
+          "exampleEnglish": "In addition, the gutter still needs cleaning.",
+          "sourceInfinitiveSpanish": "faltar",
+          "infinitiveFrench": "rester",
+          "exampleFrench": "Le nettoyage de la gouttière reste à faire."
+        }
+      ],
+      "practiceModesFrench": {
+        "see": "Repérez chiffres, photos et points ouverts.",
+        "recall": "Rappelez les trois connecteurs de rapport.",
+        "hear": "Écoutez les quantités puis indiquez celles qui doivent être confirmées.",
+        "type": "Écrivez en français : Before and after photos are attached.",
+        "say": "Présentez le rapport oral en séparant mesure, estimation et point à confirmer.",
+        "write": "Rédigez un rapport de chantier fictif sans transformer les chiffres de l’exemple en factures réelles."
+      },
+      "reviewGapsEnglish": [
+        "Qualified roofing/structural and contract review required for rotten-deck repair, signed change order, material quantities, square-unit conversion and proof/document retention.",
+        "Qualified labor/privacy and regional-language review needed for hours, photos, address and report conventions; source's automatic 6:30 restart is not confirmed."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 18,
+      "titleEnglish": "Client Texts and Phone Calls: Schedule Changes",
+      "objectiveEnglishSource": "Text a homeowner about a rain delay and handle their call to reschedule, politely and clearly",
+      "focusEnglishSource": "Phone and text conventions; conditional politeness",
+      "lessonType": "Document",
+      "block": "E",
+      "speakingEnglishSource": "You are the crew lead and the AI is the homeowner calling back about your text: answer the phone properly, explain the rain delay, propose a new date with sería posible and podríamos, and confirm the new arrival time.",
+      "grammarExamplesEnglish": [
+        "Would it be possible to start on Thursday?",
+        "We could arrive at eight, if that works for you."
+      ],
+      "titleFrench": "Messages et appels au client : modifier un rendez-vous",
+      "objectiveFrench": "Prévenir d’un retard dû à la pluie, proposer un nouveau créneau et confirmer seulement après accord explicite du client.",
+      "grammarFocusFrench": "Conditionnel de politesse : serait-il possible, pourrions-nous; conventions de message et d’appel.",
+      "speakingFrenchInstruction": "Vous dirigez l’équipe et l’IA joue un propriétaire qui rappelle après votre message. Présentez-vous, expliquez le retard, proposez un créneau sous réserve de météo et de disponibilité, vérifiez l’accord et résumez ce qui reste à confirmer, notamment la livraison des matériaux.",
+      "speakingFrenchOpening": "Bonjour, Rogelio de Mendoza Roofing à l’appareil. Est-ce que je parle bien à M. Kim ?",
+      "teachingNotesFrench": "Serait-il possible et pourrions-nous proposent sans imposer. Le texte source affirme une livraison mercredi et laisse sur la messagerie un nouveau créneau comme décidé avant l’accord du client; la version affichée distingue proposition, réponse et confirmation. Coordonnées, accès à l’entrée et horaires réels demandent validation selon le contrat et la disponibilité.",
+      "words": [
+        {
+          "en": "the text message",
+          "kind": "term",
+          "fr": "le message texte"
+        },
+        {
+          "en": "the phone call",
+          "kind": "term",
+          "fr": "l’appel téléphonique"
+        },
+        {
+          "en": "the voicemail",
+          "kind": "term",
+          "fr": "le message vocal"
+        },
+        {
+          "en": "the phone number",
+          "kind": "term",
+          "fr": "le numéro de téléphone"
+        },
+        {
+          "en": "the rain delay",
+          "kind": "term",
+          "fr": "le retard dû à la pluie"
+        },
+        {
+          "en": "the date change",
+          "kind": "term",
+          "fr": "le changement de date"
+        },
+        {
+          "en": "the new date",
+          "kind": "term",
+          "fr": "la nouvelle date"
+        },
+        {
+          "en": "the availability",
+          "kind": "term",
+          "fr": "la disponibilité"
+        },
+        {
+          "en": "the appointment",
+          "kind": "term",
+          "fr": "le rendez-vous"
+        },
+        {
+          "en": "the arrival time",
+          "kind": "term",
+          "fr": "l’heure d’arrivée"
+        },
+        {
+          "en": "the confirmation",
+          "kind": "term",
+          "fr": "la confirmation"
+        },
+        {
+          "en": "the inconvenience",
+          "kind": "term",
+          "fr": "le désagrément"
+        },
+        {
+          "en": "the driveway",
+          "kind": "term",
+          "fr": "l’entrée de garage"
+        },
+        {
+          "en": "the advance notice",
+          "kind": "term",
+          "fr": "le préavis"
+        },
+        {
+          "en": "Good afternoon, this is Rogelio, from Mendoza Roofing.",
+          "kind": "phrase",
+          "fr": "Bonjour, Rogelio de Mendoza Roofing à l’appareil."
+        },
+        {
+          "en": "Would it be possible to start on Thursday?",
+          "kind": "phrase",
+          "fr": "Serait-il possible de commencer jeudi ?"
+        },
+        {
+          "en": "We could arrive at eight, if that works for you.",
+          "kind": "phrase",
+          "fr": "Nous pourrions arriver vers huit heures si cela vous convient.",
+          "enDisplay": "We could arrive around eight if that works for you."
+        },
+        {
+          "en": "I look forward to your reply.",
+          "kind": "phrase",
+          "fr": "Dans l’attente de votre réponse."
+        },
+        {
+          "en": "Who am I speaking with?",
+          "kind": "phrase",
+          "fr": "À qui ai-je le plaisir de parler ?"
+        },
+        {
+          "en": "Sorry, the call dropped.",
+          "kind": "phrase",
+          "fr": "Excusez-moi, la communication a été coupée."
+        },
+        {
+          "en": "I'll leave you my number just in case.",
+          "kind": "phrase",
+          "fr": "Je vous laisse mon numéro au cas où."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Messages et appels au client : modifier un rendez-vous",
+        "target": [
+          "Mardi, il a plu toute la journée; l’équipe n’a pas pu commencer chez Mme Kim.",
+          "À dix-sept heures, Rogelio lui a envoyé un message texte.",
+          "Message : « Bonjour, Rogelio de Mendoza Roofing à l’appareil. »",
+          "Message : « À cause de la pluie, nous ne pourrons pas commencer demain; serait-il possible de reporter à jeudi ? »",
+          "Message : « Nous pourrions arriver vers huit heures si cela vous convient; la livraison des matériaux reste à confirmer. »",
+          "Message : « Nous sommes désolés du désagrément et attendons votre réponse. »",
+          "Une heure plus tard, le téléphone a sonné; Rogelio ne connaissait pas le numéro.",
+          "Rogelio : « Mendoza Roofing, bonjour; à qui ai-je le plaisir de parler ? »",
+          "M. Kim : « Daniel Kim, son mari. J’ai vu le message, mais jeudi nous serons absents. »",
+          "Rogelio : « Je comprends. Seriez-vous disponibles vendredi, sous réserve de la météo ? »",
+          "M. Kim : « Vendredi pourrait convenir, mais je vous entends mal. »",
+          "La communication a été coupée; Rogelio a rappelé et est tombé sur la messagerie vocale.",
+          "Rogelio, sur la messagerie : « Excusez-moi, la communication a été coupée; vendredi vers huit heures est une proposition, à confirmer ensemble. »",
+          "Rogelio : « Je vous laisse mon numéro et je vous enverrai le récapitulatif par message. »",
+          "Le soir, Rogelio a écrit : « Je propose vendredi à 8 h; merci de confirmer. Je vous préviendrai si l’horaire ou la livraison change. »",
+          "M. Kim a répondu : « Vendredi à huit heures me convient, si la météo le permet. »"
+        ],
+        "native": [
+          "On Tuesday it rained all day, so the crew couldn't start at Mrs. Kim's house.",
+          "At five, Rogelio sent her a text message.",
+          "Message: Good afternoon, this is Rogelio, from Mendoza Roofing.",
+          "Message: Due to the rain delay, we won't be able to start tomorrow; would it be possible to start on Thursday?",
+          "Message: We could arrive at eight, if that works for you, and the material would arrive in the driveway on Wednesday.",
+          "Message: Sorry for the inconvenience; I look forward to your reply.",
+          "An hour later the phone rang, from a number Rogelio didn't know.",
+          "Rogelio: Mendoza Roofing, good afternoon; who am I speaking with?",
+          "Mr. Kim: This is Daniel Kim, the husband; I saw the message, but on Thursday we're not home.",
+          "Rogelio: Don't worry; what would your availability be on Friday?",
+          "Mr. Kim: Friday works, but sorry, I can't hear you well.",
+          "The call dropped, and Rogelio dialed the phone number again, but he got the voicemail.",
+          "Rogelio on the voicemail: Sorry, the call dropped; so the new date would be Friday at eight.",
+          "Rogelio: I'll leave you my number just in case, and I'll send you the confirmation by text.",
+          "That night, Rogelio wrote: I confirm the date change to Friday at 8:00 a.m.; I'll give you advance notice if the arrival time changes.",
+          "Mr. Kim replied: Perfect, the appointment is confirmed."
+        ],
+        "nativeDisplay": [
+          "On Tuesday it rained all day, so the crew couldn't start at Mrs. Kim's house.",
+          "At five, Rogelio sent her a text message.",
+          "Message: Good afternoon, this is Rogelio, from Mendoza Roofing.",
+          "Message: Due to the rain delay, we won't be able to start tomorrow; would it be possible to start on Thursday?",
+          "Message: We could arrive around eight if that works for you; material delivery remains to be confirmed.",
+          "Message: Sorry for the inconvenience; I look forward to your reply.",
+          "An hour later the phone rang, from a number Rogelio didn't know.",
+          "Rogelio: Mendoza Roofing, good afternoon; who am I speaking with?",
+          "Mr. Kim: This is Daniel Kim, the husband; I saw the message, but on Thursday we're not home.",
+          "Rogelio: I understand. Would you be available Friday, weather permitting?",
+          "Mr. Kim: Friday works, but sorry, I can't hear you well.",
+          "The call dropped, and Rogelio dialed the phone number again, but he got the voicemail.",
+          "Rogelio on voicemail: Sorry, the call dropped; Friday around eight is a proposal for us to confirm together.",
+          "Rogelio: I'll leave you my number just in case, and I'll send you the confirmation by text.",
+          "That night Rogelio wrote: I propose Friday at 8:00 a.m.; please confirm. I'll let you know if the time or delivery changes.",
+          "Mr. Kim replied: Friday at eight works for me, weather permitting."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to ring",
+          "exampleEnglish": "An hour later the phone rang.",
+          "sourceInfinitiveSpanish": "sonar",
+          "infinitiveFrench": "sonner",
+          "exampleFrench": "Une heure plus tard, le téléphone a sonné."
+        },
+        {
+          "meaningEnglish": "to hear",
+          "exampleEnglish": "Sorry, I can't hear you well.",
+          "sourceInfinitiveSpanish": "oír",
+          "infinitiveFrench": "entendre",
+          "exampleFrench": "Excusez-moi, je vous entends mal."
+        },
+        {
+          "meaningEnglish": "to cut",
+          "exampleEnglish": "Sorry, the call dropped.",
+          "sourceInfinitiveSpanish": "cortar",
+          "infinitiveFrench": "couper",
+          "exampleFrench": "La communication a été coupée."
+        },
+        {
+          "meaningEnglish": "to confirm",
+          "exampleEnglish": "I confirm the date change to Friday.",
+          "sourceInfinitiveSpanish": "confirmar",
+          "infinitiveFrench": "confirmer",
+          "exampleFrench": "Merci de confirmer le changement de date."
+        },
+        {
+          "meaningEnglish": "to reply",
+          "exampleEnglish": "Mr. Kim replied: Perfect.",
+          "sourceInfinitiveSpanish": "responder",
+          "infinitiveFrench": "répondre",
+          "exampleFrench": "M. Kim a répondu au message."
+        }
+      ],
+      "practiceModesFrench": {
+        "see": "Repérez proposition, réponse et confirmation.",
+        "recall": "Retrouvez la demande explicite de confirmation.",
+        "hear": "Écoutez jeudi, vendredi et huit heures; identifiez le créneau accepté.",
+        "type": "Écrivez en français : Would it be possible to start on Thursday?",
+        "say": "Rappelez le client et clarifiez un horaire sous réserve de météo.",
+        "write": "Rédigez un message de suivi qui confirme l’accord sans promettre une livraison non vérifiée."
+      },
+      "reviewGapsEnglish": [
+        "Qualified consumer-contract and operations review required for rain-delay notice, material delivery into a driveway, schedule promises, voicemail consent/authority and who may confirm an appointment.",
+        "Qualified France/Québec language review required for phone and text register and local date/time conventions; privacy review needed for customer contact details."
+      ],
+      "reviewed": false
+    }
+  ]
+}

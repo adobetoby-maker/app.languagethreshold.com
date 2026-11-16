@@ -1,0 +1,565 @@
+{
+  "target": "French",
+  "native": "English",
+  "moduleId": "french-basics",
+  "stage": "foundation",
+  "reviewed": false,
+  "state": "authored-draft",
+  "source": {
+    "path": "src/data/core60/es/foundation-spanish-basics.json",
+    "sourceSha256": "820ed6fcd726180c3794027f4578de051666d973eb2e23373e086c94c6211eb0",
+    "sourceSubsetSha256": "d9baf0272303feecc2bda25a8aeb092d4d71e466e742ac6d3d5aa27145c7e9d1",
+    "use": "learning architecture and English objectives only"
+  },
+  "draftModel": "Claude Haiku via CLI OAuth",
+  "lessons": [
+    {
+      "n": 9,
+      "title": "Simple questions and no",
+      "sourceObjectiveEnglish": "Simple questions and no: Put no before the verb to make a negative.",
+      "objective": "Ask simple yes/no questions in French and make a negative with ne…pas.",
+      "focus": "Make a negative with ne before the verb and pas after it: je ne suis pas, je n’ai pas. Before a vowel or mute h, ne becomes n’: elle n’est pas, je n’ai pas. After a negated avoir, un/une/des usually become de: je n’ai pas de livre; after être, keep the article: ce n’est pas un livre. Ask yes/no questions with rising intonation (Tu as un livre ?) or est-ce que. In conversation ne is often dropped, but write the full ne…pas in this course. Être covers identity and location; avoir expresses possession. Je suis étudiant has no article before the role.",
+      "scene": "Avant le cours (before class). Léa and Marc are classmates waiting in a hallway outside the classroom. Léa is checking who is inside and whether Marc has his book.",
+      "dialogue": [
+        "Léa : Tu es étudiant ?|Are you a student?",
+        "Marc : Oui, je suis étudiant.|Yes, I am a student.",
+        "Léa : Est-ce que la professeure est ici ?|Is the teacher here?",
+        "Marc : Non, elle n’est pas ici. Elle est dans le bureau.|No, she is not here. She is in the office.",
+        "Léa : Tu as un livre ?|Do you have a book?",
+        "Marc : Non, je n’ai pas de livre aujourd’hui.|No, I do not have a book today.",
+        "Léa : Pas de problème. J’ai un livre ici.|No problem. I have a book here.",
+        "Marc : Merci beaucoup !|Thank you very much!"
+      ],
+      "speaking": "Role-play before class with a classmate using tu. Open with Salut ! Ask if the classmate is in this course, and ask Est-ce que tu as un livre ? Answer with Je n’ai pas de livre aujourd’hui if needed. Ask Est-ce que la professeure est ici ? and answer Non, elle n’est pas ici. Confirm one reply in French and close with Merci, à demain ! Explain an unfamiliar word in English when asked.",
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "How do you say “I am a student” in French?",
+          "answer": "Je suis étudiant.",
+          "acceptedAnswers": [
+            "Je suis étudiant.",
+            "Je suis étudiant",
+            "Je suis étudiante.",
+            "Je suis étudiante"
+          ],
+          "normalization": "casefold; ignore final punctuation; accept masculine or feminine student form"
+        },
+        {
+          "type": "recall",
+          "prompt": "Translate into French: “No, she is not here.”",
+          "answer": "Non, elle n’est pas ici.",
+          "acceptedAnswers": [
+            "Non, elle n’est pas ici.",
+            "Non, elle n'est pas ici.",
+            "Non elle n’est pas ici",
+            "Non, elle n’est pas ici"
+          ],
+          "normalization": "treat ’ and ' as equal; ignore comma and final punctuation"
+        },
+        {
+          "type": "write",
+          "prompt": "Write a negative answer in French: “I do not have a book today.”",
+          "answer": "Je n’ai pas de livre aujourd’hui.",
+          "acceptedAnswers": [
+            "Je n’ai pas de livre aujourd’hui.",
+            "Je n'ai pas de livre aujourd'hui.",
+            "Je n’ai pas de livre aujourd’hui",
+            "Je n'ai pas de livre aujourd'hui"
+          ],
+          "normalization": "treat ’ and ' as equal; ignore final punctuation; the de after pas is required"
+        },
+        {
+          "type": "write",
+          "prompt": "Write a yes/no question with tu in French: “Are you a student?”",
+          "answer": "Tu es étudiant ?",
+          "acceptedAnswers": [
+            "Tu es étudiant ?",
+            "Tu es étudiant?",
+            "Est-ce que tu es étudiant ?",
+            "Est-ce que tu es étudiant?",
+            "Tu es étudiante ?",
+            "Tu es étudiante?",
+            "Est-ce que tu es étudiante ?",
+            "Est-ce que tu es étudiante?"
+          ],
+          "normalization": "treat narrow or normal space before ? as equal; accept rising intonation form or est-ce que form"
+        },
+        {
+          "type": "listening",
+          "prompt": "Dictation script for future audio: transcribe this French sentence when audio is available. No recording is attached yet.",
+          "audioText": "Tu as un livre ?",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "answer": "Tu as un livre ?",
+          "acceptedAnswers": [
+            "Tu as un livre ?",
+            "Tu as un livre?"
+          ],
+          "normalization": "treat narrow or normal space before ? as equal; ignore final punctuation"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "Marc says: “Non, je n’ai pas de livre aujourd’hui.” Does Marc have a book today? Answer in English.",
+          "answer": "No, he does not have a book today.",
+          "acceptedAnswers": [
+            "No",
+            "No, he does not.",
+            "No, he doesn't have a book today.",
+            "No, he does not have a book today."
+          ],
+          "normalization": "casefold; accept any English answer that clearly says no; ignore punctuation"
+        }
+      ],
+      "words": [
+        {
+          "fr": "un étudiant",
+          "en": "student (masculine singular)",
+          "kind": "term"
+        },
+        {
+          "fr": "une étudiante",
+          "en": "student (feminine singular)",
+          "kind": "term"
+        },
+        {
+          "fr": "je suis",
+          "en": "I am",
+          "kind": "term"
+        },
+        {
+          "fr": "est",
+          "en": "is (form of être)",
+          "kind": "term"
+        },
+        {
+          "fr": "un livre",
+          "en": "book (masculine singular)",
+          "kind": "term"
+        },
+        {
+          "fr": "la",
+          "en": "the (feminine singular)",
+          "kind": "term"
+        },
+        {
+          "fr": "elle",
+          "en": "she / it (feminine subject)",
+          "kind": "term"
+        },
+        {
+          "fr": "un",
+          "en": "a (masculine)",
+          "kind": "term"
+        },
+        {
+          "fr": "ici",
+          "en": "here",
+          "kind": "term"
+        },
+        {
+          "fr": "j’ai",
+          "en": "I have",
+          "kind": "term"
+        },
+        {
+          "fr": "la professeure",
+          "en": "the teacher (feminine singular)",
+          "kind": "term"
+        },
+        {
+          "fr": "Tu es étudiant ?",
+          "en": "Are you a student?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Oui, je suis étudiant.",
+          "en": "Yes, I am a student.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Est-ce que la professeure est ici ?",
+          "en": "Is the teacher here?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Non, elle n’est pas ici.",
+          "en": "No, she is not here.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Tu as un livre ?",
+          "en": "Do you have a book?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je n’ai pas de livre aujourd’hui.",
+          "en": "I do not have a book today.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Pas de problème. J’ai un livre ici.",
+          "en": "No problem. I have a book here.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "ne … pas",
+          "en": "not (around a verb)",
+          "kind": "term"
+        },
+        {
+          "fr": "pas de",
+          "en": "no / not any (after a negated avoir)",
+          "kind": "term"
+        },
+        {
+          "fr": "est-ce que",
+          "en": "yes/no question marker",
+          "kind": "term"
+        },
+        {
+          "fr": "oui",
+          "en": "yes",
+          "kind": "term"
+        },
+        {
+          "fr": "non",
+          "en": "no",
+          "kind": "term"
+        },
+        {
+          "fr": "tu as",
+          "en": "you have (informal)",
+          "kind": "term"
+        },
+        {
+          "fr": "aujourd’hui",
+          "en": "today",
+          "kind": "term"
+        },
+        {
+          "fr": "dans",
+          "en": "in",
+          "kind": "term"
+        },
+        {
+          "fr": "le bureau",
+          "en": "the office",
+          "kind": "term"
+        },
+        {
+          "fr": "Tu es dans ce cours ?",
+          "en": "Are you in this course? (informal)",
+          "kind": "phrase"
+        },
+        {
+          "fr": "À demain !",
+          "en": "See you tomorrow!",
+          "kind": "phrase"
+        },
+        {
+          "fr": "le professeur",
+          "en": "the teacher (man)",
+          "kind": "term"
+        },
+        {
+          "fr": "Merci beaucoup !",
+          "en": "Thank you very much!",
+          "kind": "phrase"
+        }
+      ],
+      "locale": "fr-FR"
+    },
+    {
+      "n": 10,
+      "title": "Ask for help and review",
+      "sourceObjectiveEnglish": "Ask for help and review: Use a short repair phrase when you need help: No entiendo; ¿Puedes repetir?; Más despacio, por favor.",
+      "objective": "Ask a classmate to repeat or speak more slowly, ask a teacher politely, and review selected earlier forms: être, articles, agreement, il y a (from Lesson 7) and ne…pas.",
+      "focus": "New repair phrases: Je ne comprends pas (ce mot); Tu peux répéter, s’il te plaît ?; Plus lentement, s’il te plaît. Use Vous pouvez répéter, s’il vous plaît ? with a teacher. Comprendre means to understand; répéter means to repeat; plus lentement means more slowly. Review être, articles, noun/adjective agreement, il y a from Lesson 7, and full ne…pas. With a plain role, say je suis étudiante without an article; when the role noun has an adjective, the article returns: je suis une nouvelle étudiante or je suis un nouvel étudiant. The adjective comes before the noun: nouveau before a masculine consonant, nouvel before a masculine vowel sound (un nouvel étudiant), and nouvelle for feminine (une nouvelle étudiante). Plus has a silent s in plus lentement. Keep the pronoun/verb in the chosen tu or vous register. Pronunciation: un étudiant links the n to the vowel; est-ce que sounds roughly “es-kuh”; the final consonants of comprends and pas are silent; il y a is pronounced together as a short group.",
+      "scene": "Before a French class, a new learner asks a classmate to explain a word in a book, then practises a polite request for the teacher.",
+      "dialogue": [
+        "Léa : Bonjour, je suis une nouvelle étudiante.|Hello, I am a new student.",
+        "Marc : Bienvenue ! Tu es dans le cours de français ?|Welcome! Are you in French class?",
+        "Léa : Oui. Il y a un mot dans le livre : « tableau ».|Yes. There is a word in the book: “tableau.”",
+        "Léa : Je ne comprends pas ce mot.|I do not understand this word.",
+        "Marc : « Tableau » veut dire « board ».|“Tableau” means “board.”",
+        "Léa : Tu peux répéter, s’il te plaît ? Plus lentement.|Can you repeat, please? More slowly.",
+        "Marc : Oui, bien sûr. « Tableau » veut dire « board ».|Yes, of course. “Tableau” means “board.”",
+        "Léa : Ah, d’accord ! Merci beaucoup !|Oh, okay! Thank you very much!"
+      ],
+      "speaking": "Role-play asking a classmate for help, using tu. Choose the form that fits you: Je suis un nouvel étudiant or Je suis une nouvelle étudiante. Say you are in French class with Je suis dans le cours de français. Point to the word tableau in a book and say Je ne comprends pas ce mot. Ask Tu peux répéter, s’il te plaît ? and then Plus lentement, s’il te plaît. Your partner explains tableau in English and repeats slowly. Then practise asking the teacher politely: Vous pouvez répéter, s’il vous plaît ? Close with Merci beaucoup ! Explain unfamiliar words in English when asked.",
+      "checks": [
+        {
+          "type": "recall",
+          "prompt": "How do you say “Can you repeat, please?” to a classmate?",
+          "answer": "Tu peux répéter, s’il te plaît ?",
+          "acceptedAnswers": [
+            "Tu peux répéter, s’il te plaît ?",
+            "Tu peux répéter, s'il te plaît ?",
+            "Tu peux répéter, s’il te plaît?",
+            "Tu peux répéter, s'il te plaît?",
+            "Peux-tu répéter, s’il te plaît ?",
+            "Peux-tu répéter, s'il te plaît ?"
+          ],
+          "normalization": "treat ’ and ' as equal; treat narrow or normal space before ? as equal; ignore final punctuation"
+        },
+        {
+          "type": "recall",
+          "prompt": "How do you say “I do not understand this word” in French?",
+          "answer": "Je ne comprends pas ce mot.",
+          "acceptedAnswers": [
+            "Je ne comprends pas ce mot.",
+            "Je ne comprends pas ce mot"
+          ],
+          "normalization": "Ignore capitalization and final punctuation; require the full ne…pas in this written answer."
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French: “There is a word in the book.”",
+          "answer": "Il y a un mot dans le livre.",
+          "acceptedAnswers": [
+            "Il y a un mot dans le livre.",
+            "Il y a un mot dans le livre"
+          ],
+          "normalization": "casefold; ignore final punctuation; reject c’est or est here because il y a is required for existence"
+        },
+        {
+          "type": "write",
+          "prompt": "Write in French (you are a woman): “I am a new student.”",
+          "answer": "Je suis une nouvelle étudiante.",
+          "acceptedAnswers": [
+            "Je suis une nouvelle étudiante.",
+            "Je suis une nouvelle étudiante"
+          ],
+          "normalization": "casefold; ignore final punctuation; feminine agreement nouvelle and étudiante is required"
+        },
+        {
+          "type": "listening",
+          "prompt": "Dictation script for future audio: transcribe this French sentence when audio is available. No recording is attached yet.",
+          "audioText": "Plus lentement, s’il te plaît.",
+          "locale": "fr-FR",
+          "voiceStatus": "script-only; no recorded audio",
+          "answer": "Plus lentement, s’il te plaît.",
+          "acceptedAnswers": [
+            "Plus lentement, s’il te plaît.",
+            "Plus lentement, s'il te plaît.",
+            "Plus lentement, s’il te plaît",
+            "Plus lentement, s'il te plaît"
+          ],
+          "normalization": "treat ’ and ' as equal; ignore final punctuation"
+        },
+        {
+          "type": "comprehension",
+          "prompt": "Léa says: “Je ne comprends pas ce mot.” What is her problem? Answer in English.",
+          "answer": "She does not understand the word.",
+          "acceptedAnswers": [
+            "She does not understand the word.",
+            "She does not understand this word.",
+            "She doesn't understand the word.",
+            "She doesn't understand this word."
+          ],
+          "normalization": "casefold; ignore punctuation; accept any English answer that says she does not understand the word"
+        },
+        {
+          "type": "recall",
+          "prompt": "How would you ask a teacher to repeat, politely, in French?",
+          "answer": "Vous pouvez répéter, s’il vous plaît ?",
+          "acceptedAnswers": [
+            "Vous pouvez répéter, s’il vous plaît ?",
+            "Vous pouvez répéter, s'il vous plaît ?",
+            "Pouvez-vous répéter, s’il vous plaît ?",
+            "Pouvez-vous répéter, s'il vous plaît ?"
+          ],
+          "normalization": "Ignore capitalization and final punctuation; straight and typographic apostrophes are equivalent."
+        },
+        {
+          "type": "write",
+          "prompt": "Write “I am a new student” in French as a man.",
+          "answer": "Je suis un nouvel étudiant.",
+          "acceptedAnswers": [
+            "Je suis un nouvel étudiant.",
+            "Je suis un nouvel étudiant"
+          ],
+          "normalization": "Ignore capitalization and final punctuation; require nouvel before the masculine vowel sound."
+        }
+      ],
+      "words": [
+        {
+          "fr": "un étudiant",
+          "en": "student (masculine singular)",
+          "kind": "term"
+        },
+        {
+          "fr": "une étudiante",
+          "en": "student (feminine singular)",
+          "kind": "term"
+        },
+        {
+          "fr": "je suis",
+          "en": "I am",
+          "kind": "term"
+        },
+        {
+          "fr": "un livre",
+          "en": "book (masculine singular)",
+          "kind": "term"
+        },
+        {
+          "fr": "il y a",
+          "en": "there is / there are",
+          "kind": "term"
+        },
+        {
+          "fr": "le",
+          "en": "the (masculine singular)",
+          "kind": "term"
+        },
+        {
+          "fr": "la",
+          "en": "the (feminine singular)",
+          "kind": "term"
+        },
+        {
+          "fr": "un",
+          "en": "a (masculine singular)",
+          "kind": "term"
+        },
+        {
+          "fr": "une",
+          "en": "a (feminine singular)",
+          "kind": "term"
+        },
+        {
+          "fr": "nouveau / nouvel / nouvelle",
+          "en": "new (masculine before consonant / masculine before vowel / feminine)",
+          "kind": "term"
+        },
+        {
+          "fr": "ce mot",
+          "en": "this word (masculine singular)",
+          "kind": "term"
+        },
+        {
+          "fr": "Je suis une nouvelle étudiante.",
+          "en": "I am a new student.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je suis dans le cours de français.",
+          "en": "I am in the French course.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Il y a un mot dans le livre.",
+          "en": "There is a word in the book.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je ne comprends pas ce mot.",
+          "en": "I do not understand this word.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Tu peux répéter, s’il te plaît ?",
+          "en": "Can you repeat, please?",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Plus lentement, s’il te plaît.",
+          "en": "More slowly, please.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Oui, bien sûr.",
+          "en": "Yes, of course.",
+          "kind": "phrase"
+        },
+        {
+          "fr": "un nouvel étudiant",
+          "en": "a new student (man)",
+          "kind": "term"
+        },
+        {
+          "fr": "une nouvelle étudiante",
+          "en": "a new student (woman)",
+          "kind": "term"
+        },
+        {
+          "fr": "le tableau",
+          "en": "the board",
+          "kind": "term"
+        },
+        {
+          "fr": "comprendre",
+          "en": "to understand",
+          "kind": "term"
+        },
+        {
+          "fr": "répéter",
+          "en": "to repeat",
+          "kind": "term"
+        },
+        {
+          "fr": "plus lentement",
+          "en": "more slowly",
+          "kind": "term"
+        },
+        {
+          "fr": "s’il te plaît",
+          "en": "please (informal)",
+          "kind": "term"
+        },
+        {
+          "fr": "s’il vous plaît",
+          "en": "please (polite)",
+          "kind": "term"
+        },
+        {
+          "fr": "bienvenue",
+          "en": "welcome",
+          "kind": "term"
+        },
+        {
+          "fr": "bien sûr",
+          "en": "of course",
+          "kind": "term"
+        },
+        {
+          "fr": "veut dire",
+          "en": "means",
+          "kind": "term"
+        },
+        {
+          "fr": "Vous pouvez répéter, s’il vous plaît ?",
+          "en": "Can you repeat, please? (polite)",
+          "kind": "phrase"
+        },
+        {
+          "fr": "Je suis un nouvel étudiant.",
+          "en": "I am a new student. (said by a man)",
+          "kind": "phrase"
+        },
+        {
+          "fr": "le cours",
+          "en": "the course / class",
+          "kind": "term"
+        },
+        {
+          "fr": "le professeur",
+          "en": "the teacher (man)",
+          "kind": "term"
+        },
+        {
+          "fr": "Merci beaucoup !",
+          "en": "Thank you very much!",
+          "kind": "phrase"
+        },
+        {
+          "fr": "un mot",
+          "en": "a word",
+          "kind": "term"
+        }
+      ],
+      "locale": "fr-FR"
+    }
+  ]
+}

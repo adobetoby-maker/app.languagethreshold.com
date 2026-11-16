@@ -1,0 +1,690 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stage": "master",
+  "target": "French",
+  "native": "English",
+  "state": "translation-draft",
+  "reviewed": false,
+  "sourceRevision": "7a2bef7428120af880a4340cc5ecf216a38f0f3d",
+  "sourceFiles": [
+    "src/data/master-roofing-curriculum.ts",
+    "public/lesson-content/es/master-roofing.json"
+  ],
+  "sourceFileSHA256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+  },
+  "englishSourceSubsetSHA256": "e6cf8863157411f292cb82eb771925a3c510e227bbd73893198c47261eadf120",
+  "draftMethod": "manual source-aligned French draft; independent Fable/Opus and qualified human review pending",
+  "lessons": [
+    {
+      "n": 4,
+      "titleEnglish": "Read the Manufacturer Sheet Before the Flashing Goes On",
+      "objectiveEnglishSource": "Read a manufacturer instruction sheet, find the key specs, and explain the steps to the crew",
+      "focusEnglishSource": "Antes de / después de + infinitive; hay que",
+      "lessonType": "Document",
+      "block": "A",
+      "speakingEnglishSource": "You are the crew lead and the AI is a crew member ready to install flashing from habit: read the key steps of the manufacturer sheet aloud, explain what has to happen before and after each step, and get agreement to follow the sheet.",
+      "grammarExamplesEnglish": [
+        "Before installing the flashing, you have to read the sheet.",
+        "After reading each step, we have to check the material."
+      ],
+      "titleFrench": "Lire la fiche du fabricant avant la pose des solins",
+      "objectiveFrench": "Repérer les exigences d’une fiche du fabricant et en expliquer les étapes à l’équipe avant la pose.",
+      "grammarFocusFrench": "Avant de et après + infinitif passé; il faut + infinitif pour exprimer une obligation du document.",
+      "speakingFrenchInstruction": "Vous dirigez une équipe prête à poser des solins selon ses habitudes. Demandez la fiche réelle du produit, lisez les exigences qui s’appliquent, faites confirmer le recouvrement et les fixations indiqués, puis demandez à l’équipe de reformuler avant la pose.",
+      "speakingFrenchOpening": "Avant de poser le solin, ouvrons la fiche du produit : que prévoit-elle pour ce raccord ?",
+      "teachingNotesFrench": "Avant de + infinitif décrit une étape préalable; il faut signale une obligation. Les étapes 1–4 sont une fiche fictive du cours source, non les instructions d’un produit réel. Le recouvrement, la fixation, la garantie et le traitement du mur doivent être vérifiés sur le produit et le plan approuvé.",
+      "words": [
+        {
+          "en": "the spec sheet",
+          "kind": "term",
+          "fr": "la fiche technique"
+        },
+        {
+          "en": "the manufacturer instructions",
+          "kind": "term",
+          "fr": "les instructions du fabricant"
+        },
+        {
+          "en": "the step flashing",
+          "kind": "term",
+          "fr": "le solin à gradins"
+        },
+        {
+          "en": "the pipe boot",
+          "kind": "term",
+          "fr": "le manchon d’étanchéité du tuyau"
+        },
+        {
+          "en": "the fastener",
+          "kind": "term",
+          "fr": "la fixation"
+        },
+        {
+          "en": "the specification",
+          "kind": "term",
+          "fr": "la spécification"
+        },
+        {
+          "en": "the minimum overlap",
+          "kind": "term",
+          "fr": "le recouvrement minimal"
+        },
+        {
+          "en": "the sealant",
+          "kind": "term",
+          "fr": "le produit d’étanchéité"
+        },
+        {
+          "en": "the sidewall",
+          "kind": "term",
+          "fr": "le mur latéral"
+        },
+        {
+          "en": "the siding",
+          "kind": "term",
+          "fr": "le revêtement mural"
+        },
+        {
+          "en": "the warning",
+          "kind": "term",
+          "fr": "l’avertissement"
+        },
+        {
+          "en": "the step (in a procedure)",
+          "kind": "term",
+          "fr": "l’étape d’une procédure"
+        },
+        {
+          "en": "the habit",
+          "kind": "term",
+          "fr": "l’habitude"
+        },
+        {
+          "en": "the chimney",
+          "kind": "term",
+          "fr": "la cheminée"
+        },
+        {
+          "en": "Before installing, you have to read the sheet.",
+          "kind": "phrase",
+          "fr": "Avant de poser, il faut lire la fiche."
+        },
+        {
+          "en": "The sheet rules, not habit.",
+          "kind": "phrase",
+          "fr": "C’est la fiche qui prévaut, pas l’habitude."
+        },
+        {
+          "en": "What does the sheet say about the overlap?",
+          "kind": "phrase",
+          "fr": "Que dit la fiche sur le recouvrement ?"
+        },
+        {
+          "en": "Don't do it from memory.",
+          "kind": "phrase",
+          "fr": "Ne le faites pas de mémoire."
+        },
+        {
+          "en": "That's what the manufacturer asks for.",
+          "kind": "phrase",
+          "fr": "C’est ce que demande le fabricant."
+        },
+        {
+          "en": "Hey, have you already read it?",
+          "kind": "phrase",
+          "fr": "Au fait, l’avez-vous déjà lue ?"
+        },
+        {
+          "en": "Could you give me a moment, please?",
+          "kind": "phrase",
+          "fr": "Pourriez-vous me laisser un instant, s’il vous plaît ?"
+        }
+      ],
+      "reading": {
+        "titleFrench": "Lire la fiche du fabricant avant la pose des solins",
+        "target": [
+          "Avant de poser le solin à gradins contre le mur latéral, Rogelio sort la fiche technique de la boîte.",
+          "Rogelio : « Avant de poser, il faut lire la fiche, même si nous faisons ce travail depuis des années. »",
+          "Rogelio : « C’est la fiche qui prévaut, pas l’habitude. »",
+          "Rogelio lit à voix haute la première étape des instructions du fabricant.",
+          "Première étape : avant de poser le solin, placez la sous-couche sur le platelage et faites-la remonter le long du mur selon la spécification.",
+          "Deuxième étape : posez un solin à gradins par rang, avec le recouvrement minimal indiqué sur cette fiche.",
+          "Troisième étape : fixez chaque pièce seulement au platelage, jamais au mur, avec la fixation spécifiée.",
+          "Quatrième étape : après la pose, le revêtement mural doit recouvrir le solin; n’utilisez pas de mastic à sa place.",
+          "Avertissement : si ces étapes ne sont pas suivies, le produit peut présenter une défaillance et le fabricant peut refuser de couvrir les dommages.",
+          "Kevin : « Au fait, avez-vous déjà tout lu ? »",
+          "Rogelio : « Oui, et tu dois le lire aussi; ne travaille pas de mémoire. »",
+          "Rogelio : « Après chaque étape, vérifie que le matériau dans le camion correspond à celui de la fiche. »",
+          "Rogelio : « Que dit la fiche sur le recouvrement ? »",
+          "Kevin : « Elle indique son recouvrement minimal; la cheminée et le manchon du tuyau ont une autre rubrique. »",
+          "La propriétaire demande quand ils commenceront, et Rogelio répond : « Pourriez-vous me laisser un instant, s’il vous plaît ? »",
+          "Rogelio : « C’est ce que demande le fabricant; nous suivons sa fiche. »"
+        ],
+        "native": [
+          "Before putting the step flashing on the sidewall, Rogelio takes the spec sheet out of the box.",
+          "Rogelio: Before installing, you have to read the sheet, even if we've been doing this for years.",
+          "Rogelio: The sheet rules, not habit.",
+          "Rogelio reads step 1 of the manufacturer instructions out loud.",
+          "Step 1: Before placing the flashing, install the underlayment over the deck and run it up the sidewall according to the specification.",
+          "Step 2: Place one piece of step flashing on each course, with the minimum overlap this sheet indicates.",
+          "Step 3: Fasten each piece only to the deck, never to the wall, with the specified fastener.",
+          "Step 4: After placing the flashing, the siding must cover it; do not use sealant instead of flashing.",
+          "Warning: If you do not follow these steps, the product may fail and the manufacturer may not cover the damage.",
+          "Kevin: Hey, have you already read all of it?",
+          "Rogelio: Yes, and you have to read it too; don't do it from memory.",
+          "Rogelio: After reading each step, you have to check whether the material on the truck is the same as on the sheet.",
+          "Rogelio: What does the sheet say about the overlap?",
+          "Kevin: It says you have to use the sheet's minimum overlap, and that the chimney and the pipe boot have another section.",
+          "Then the homeowner asks when they're starting, and Rogelio answers: Could you give me a moment, please?",
+          "Rogelio: That's what the manufacturer asks for, and that's how we do it."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to read",
+          "exampleEnglish": "Rogelio reads step 1 of the manufacturer instructions out loud.",
+          "sourceInfinitiveSpanish": "leer",
+          "infinitiveFrench": "lire",
+          "exampleFrench": "Rogelio lit à voix haute la première étape des instructions du fabricant."
+        },
+        {
+          "meaningEnglish": "to install",
+          "exampleEnglish": "Before installing, you have to read the sheet.",
+          "sourceInfinitiveSpanish": "instalar",
+          "infinitiveFrench": "poser",
+          "exampleFrench": "Avant de poser, il faut lire la fiche."
+        },
+        {
+          "meaningEnglish": "to place",
+          "exampleEnglish": "Rogelio places one piece of step flashing on each course.",
+          "sourceInfinitiveSpanish": "colocar",
+          "infinitiveFrench": "placer",
+          "exampleFrench": "Rogelio place un solin à gradins à chaque rang."
+        },
+        {
+          "meaningEnglish": "to fasten",
+          "exampleEnglish": "Fasten each piece only to the deck.",
+          "sourceInfinitiveSpanish": "fijar",
+          "infinitiveFrench": "fixer",
+          "exampleFrench": "Fixez chaque pièce seulement au platelage."
+        },
+        {
+          "meaningEnglish": "to follow",
+          "exampleEnglish": "If you do not follow these steps, the product may fail.",
+          "sourceInfinitiveSpanish": "seguir",
+          "infinitiveFrench": "suivre",
+          "exampleFrench": "Si ces étapes ne sont pas suivies, le produit peut présenter une défaillance."
+        }
+      ],
+      "practiceModesFrench": {
+        "see": "Repérez dans la fiche l’ordre, le recouvrement et les fixations indiqués.",
+        "recall": "Retrouvez la phrase qui oppose la fiche à l’habitude.",
+        "hear": "Écoutez la question sur le recouvrement et nommez la rubrique recherchée.",
+        "type": "Écrivez en français : Before installing, you have to read the sheet.",
+        "say": "Demandez oralement à l’équipe de reformuler une exigence de la fiche réelle.",
+        "write": "Rédigez deux questions à vérifier avant et après la pose des solins."
+      },
+      "reviewGapsEnglish": [
+        "Qualified roofing/product review is required for all sample flashing steps, especially fasten-only-to-deck, underlayment rise, siding coverage, sealant substitution and the warranty claim.",
+        "The fictional sheet must not be represented as an actual manufacturer specification; France/Québec terms for step flashing, pipe boot and siding require regional review."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 5,
+      "titleEnglish": "Unexpected Rotten Deck: Change Order with the Homeowner",
+      "objectiveEnglishSource": "Tell a homeowner what you found under the old roof, propose the repair, and get a signed change order",
+      "focusEnglishSource": "Preterite vs imperfect; conditional for the proposal",
+      "lessonType": "Case",
+      "block": "B",
+      "speakingEnglishSource": "You are the crew lead and the AI is the homeowner: describe what you found during the tear-off and what it looked like, propose the repair with its cost and extra time using the conditional, and ask for a signature on the change order.",
+      "grammarExamplesEnglish": [
+        "When we removed the shingles, we found rotten wood.",
+        "The deck was soft; replacing it would cost more."
+      ],
+      "titleFrench": "Platelage abîmé : expliquer un avenant au propriétaire",
+      "objectiveFrench": "Décrire un dommage découvert sous la couverture, proposer une évaluation de réparation et demander l’autorisation écrite prévue au contrat.",
+      "grammarFocusFrench": "Imparfait pour l’état constaté, passé composé pour la découverte; conditionnel pour une proposition non approuvée.",
+      "speakingFrenchInstruction": "Vous êtes chef d’équipe et votre partenaire joue le propriétaire. Décrivez ce qui a été constaté, montrez les photos, demandez une évaluation compétente de la structure et expliquez le coût et le délai proposés; vérifiez les conditions du contrat avant toute autorisation de travaux supplémentaires.",
+      "speakingFrenchOpening": "Monsieur Ramírez, nous avons découvert du bois abîmé; puis-je vous montrer les photos et l’évaluation proposée ?",
+      "teachingNotesFrench": "L’imparfait décrit l’état du platelage; le passé composé situe la découverte. Le conditionnel indique une proposition, non une réparation validée. Le nombre de panneaux, l’état du chevron, le coût, le délai et la forme d’autorisation dépendent d’une évaluation compétente, du contrat et des règles locales.",
+      "words": [
+        {
+          "en": "the soft or rotten deck",
+          "kind": "term",
+          "fr": "le platelage mou ou pourri"
+        },
+        {
+          "en": "the rotten wood",
+          "kind": "term",
+          "fr": "le bois pourri"
+        },
+        {
+          "en": "the change order",
+          "kind": "term",
+          "fr": "l’avenant au contrat"
+        },
+        {
+          "en": "the estimate",
+          "kind": "term",
+          "fr": "le devis"
+        },
+        {
+          "en": "the extra cost",
+          "kind": "term",
+          "fr": "le coût supplémentaire"
+        },
+        {
+          "en": "the sheet of plywood",
+          "kind": "term",
+          "fr": "la feuille de contreplaqué"
+        },
+        {
+          "en": "the signature",
+          "kind": "term",
+          "fr": "la signature"
+        },
+        {
+          "en": "the contract",
+          "kind": "term",
+          "fr": "le contrat"
+        },
+        {
+          "en": "the authorization",
+          "kind": "term",
+          "fr": "l’autorisation"
+        },
+        {
+          "en": "the photo of the damage",
+          "kind": "term",
+          "fr": "la photo des dommages"
+        },
+        {
+          "en": "the tear-off",
+          "kind": "term",
+          "fr": "la dépose"
+        },
+        {
+          "en": "the rafter",
+          "kind": "term",
+          "fr": "le chevron"
+        },
+        {
+          "en": "the extra day",
+          "kind": "term",
+          "fr": "le jour supplémentaire"
+        },
+        {
+          "en": "the homeowner",
+          "kind": "term",
+          "fr": "le propriétaire"
+        },
+        {
+          "en": "When we removed the shingles, we found rotten wood.",
+          "kind": "phrase",
+          "fr": "Quand nous avons retiré les bardeaux, nous avons trouvé du bois pourri."
+        },
+        {
+          "en": "The deck was soft in this section.",
+          "kind": "phrase",
+          "fr": "Le platelage était mou dans cette section."
+        },
+        {
+          "en": "I would recommend replacing three sheets.",
+          "kind": "phrase",
+          "fr": "Je recommanderais de remplacer trois panneaux."
+        },
+        {
+          "en": "It would cost more and take an extra day.",
+          "kind": "phrase",
+          "fr": "Cela coûterait plus cher et prendrait un jour de plus."
+        },
+        {
+          "en": "Shall I show you the photos?",
+          "kind": "phrase",
+          "fr": "Puis-je vous montrer les photos ?"
+        },
+        {
+          "en": "I need your signature on the change order.",
+          "kind": "phrase",
+          "fr": "J’ai besoin de votre signature sur l’avenant."
+        },
+        {
+          "en": "Hey, come look at this.",
+          "kind": "phrase",
+          "fr": "Venez voir ceci."
+        }
+      ],
+      "reading": {
+        "titleFrench": "Platelage abîmé : expliquer un avenant au propriétaire",
+        "target": [
+          "À neuf heures du matin, l’équipe a terminé la dépose du côté nord.",
+          "Kevin avançait prudemment quand il a senti le platelage s’affaisser.",
+          "Kevin : « Venez voir ceci. »",
+          "Rogelio a examiné la zone avec un pied-de-biche : le bois était noir et humide, et un chevron était taché.",
+          "Rogelio a photographié les dommages et marqué le bord avec de la peinture.",
+          "Puis il est descendu parler au propriétaire, M. Ramírez.",
+          "Rogelio : « Monsieur Ramírez, quand nous avons retiré les bardeaux, nous avons trouvé du bois pourri. »",
+          "Rogelio : « Le platelage était mou ici, près de la cheminée; on aurait dit que l’eau s’infiltrait depuis des années. »",
+          "Rogelio : « Puis-je vous montrer les photos ? »",
+          "M. Ramírez : « Oui, s’il vous plaît. Ce n’était pas dans le devis ? »",
+          "Rogelio : « Non, car personne ne pouvait le voir avant la dépose; c’est pour cela qu’il faut un avenant. »",
+          "Rogelio : « Je recommanderais de remplacer trois panneaux de contreplaqué et de faire vérifier le chevron. »",
+          "Rogelio : « Cela coûterait plus cher et prendrait un jour de plus; le coût supplémentaire est écrit ici, comme le prévoit le contrat. »",
+          "Rogelio : « Nous ne pouvons pas recouvrir du bois pourri, car les nouvelles fixations risqueraient de mal tenir. »",
+          "M. Ramírez : « D’accord, faites-le. »",
+          "Rogelio : « Merci; j’ai besoin de votre signature sur l’avenant, car sans votre autorisation nous ne pouvons pas commencer la réparation. »"
+        ],
+        "native": [
+          "At nine in the morning, the crew finished the tear-off on the north side.",
+          "Kevin was stepping carefully when he felt the deck sinking.",
+          "Kevin: Hey, come look at this.",
+          "Rogelio checked the area with the pry bar: the wood was black and damp, and a rafter had stains.",
+          "Rogelio took photos of the damage and marked the edge with paint.",
+          "Then he went down to talk with the homeowner, Mr. Ramírez.",
+          "Rogelio: Mr. Ramírez, when we removed the shingles, we found rotten wood.",
+          "Rogelio: The deck was soft in this section, near the chimney, and it looked like water had been getting in for years.",
+          "Rogelio: Shall I show you the photos?",
+          "Mr. Ramírez: Yes, please. And that wasn't in the estimate?",
+          "Rogelio: No, because nobody could see it before the tear-off; that's what the change order is for.",
+          "Rogelio: I would recommend replacing three sheets of plywood and checking the rafter.",
+          "Rogelio: It would cost more and take an extra day, and the extra cost appears here, in writing, as the contract says.",
+          "Rogelio: We can't cover rotten wood, because the new nails wouldn't hold well.",
+          "Mr. Ramírez: All right, then do it.",
+          "Rogelio: Thank you; I need your signature on the change order, because without your authorization we can't start the repair."
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to find",
+          "exampleEnglish": "Rogelio finds rotten wood near the chimney.",
+          "sourceInfinitiveSpanish": "encontrar",
+          "infinitiveFrench": "trouver",
+          "exampleFrench": "Rogelio trouve du bois pourri près de la cheminée."
+        },
+        {
+          "meaningEnglish": "to remove",
+          "exampleEnglish": "When we removed the shingles, we found rotten wood.",
+          "sourceInfinitiveSpanish": "quitar",
+          "infinitiveFrench": "retirer",
+          "exampleFrench": "Quand nous avons retiré les bardeaux, nous avons trouvé du bois pourri."
+        },
+        {
+          "meaningEnglish": "to be (condition)",
+          "exampleEnglish": "The deck was soft in this section.",
+          "sourceInfinitiveSpanish": "estar",
+          "infinitiveFrench": "être",
+          "exampleFrench": "Le platelage était mou dans cette section."
+        },
+        {
+          "meaningEnglish": "to cost",
+          "exampleEnglish": "It would cost more and take an extra day.",
+          "sourceInfinitiveSpanish": "costar",
+          "infinitiveFrench": "coûter",
+          "exampleFrench": "Cela coûterait plus cher et prendrait un jour de plus."
+        },
+        {
+          "meaningEnglish": "to recommend",
+          "exampleEnglish": "I would recommend replacing three sheets of plywood.",
+          "sourceInfinitiveSpanish": "recomendar",
+          "infinitiveFrench": "recommander",
+          "exampleFrench": "Je recommanderais de remplacer trois panneaux de contreplaqué."
+        }
+      ],
+      "practiceModesFrench": {
+        "see": "Repérez ce qui a été constaté et ce qui reste une proposition.",
+        "recall": "Retrouvez la demande de montrer les photos au propriétaire.",
+        "hear": "Écoutez le coût et le délai proposés et dites s’ils sont confirmés.",
+        "type": "Écrivez en français : The deck was soft in this section.",
+        "say": "Expliquez oralement la découverte sans diagnostiquer la structure.",
+        "write": "Rédigez une courte description du dommage et une demande d’évaluation ou d’autorisation."
+      },
+      "reviewGapsEnglish": [
+        "Qualified structural/roofing review is required before diagnosing rafter condition, prescribing three plywood sheets or asserting nail-holding capacity from this scene.",
+        "Qualified contract/consumer review is needed for change-order authorization, cost and signature claims; France/Québec legal and trade terms need regional review."
+      ],
+      "reviewed": false
+    },
+    {
+      "n": 6,
+      "titleEnglish": "Material Shortage and Substitution",
+      "objectiveEnglishSource": "Handle a short delivery: get dates from the supplier, compare a substitute, and give the new plan",
+      "focusEnglishSource": "Future and ir a; comparisons",
+      "lessonType": "Case",
+      "block": "B",
+      "speakingEnglishSource": "You are the crew lead and the AI is the supplier: find out what is missing and when it will arrive, compare the substitute with the original product, and say what you will do next using the future and ir a.",
+      "grammarExamplesEnglish": [
+        "The rest will arrive Thursday; today we're going to finish the underlayment.",
+        "This shingle is heavier than the other one, but just as durable."
+      ],
+      "titleFrench": "Livraison incomplète et produit de remplacement",
+      "objectiveFrench": "Confirmer une rupture de stock, comparer une solution proposée avec le produit prévu et transmettre un plan conditionnel.",
+      "grammarFocusFrench": "Futur simple et futur proche pour le calendrier; aussi… que et plus… que pour comparer sans supposer l’équivalence.",
+      "speakingFrenchInstruction": "Vous êtes chef d’équipe et votre partenaire joue le fournisseur. Vérifiez ce qui manque, la date de livraison et la fiche du substitut; comparez seulement les caractéristiques documentées, puis demandez l’accord requis du client et du contrat avant de changer de produit.",
+      "speakingFrenchOpening": "Quelle partie de la commande manque, et pouvez-vous envoyer la fiche du produit proposé ?",
+      "teachingNotesFrench": "Aussi… que établit une comparaison, mais ne prouve pas l’équivalence technique. La durabilité annoncée, le poids, la compatibilité, le prix et la couleur doivent être vérifiés sur les fiches et le contrat. Une approbation par texto peut ne pas suffire à modifier le contrat; faites confirmer la procédure applicable.",
+      "words": [
+        {
+          "en": "the supplier",
+          "kind": "term",
+          "fr": "le fournisseur"
+        },
+        {
+          "en": "the order",
+          "kind": "term",
+          "fr": "la commande"
+        },
+        {
+          "en": "the delivery",
+          "kind": "term",
+          "fr": "la livraison"
+        },
+        {
+          "en": "the substitute",
+          "kind": "term",
+          "fr": "le produit de remplacement"
+        },
+        {
+          "en": "the pallet",
+          "kind": "term",
+          "fr": "la palette"
+        },
+        {
+          "en": "the warehouse",
+          "kind": "term",
+          "fr": "l’entrepôt"
+        },
+        {
+          "en": "in stock",
+          "kind": "term",
+          "fr": "en stock"
+        },
+        {
+          "en": "the delay",
+          "kind": "term",
+          "fr": "le retard"
+        },
+        {
+          "en": "the brand",
+          "kind": "term",
+          "fr": "la marque"
+        },
+        {
+          "en": "the architectural shingle",
+          "kind": "term",
+          "fr": "le bardeau architectural"
+        },
+        {
+          "en": "the three-tab shingle",
+          "kind": "term",
+          "fr": "le bardeau à trois pattes"
+        },
+        {
+          "en": "the color",
+          "kind": "term",
+          "fr": "la couleur"
+        },
+        {
+          "en": "the invoice",
+          "kind": "term",
+          "fr": "la facture"
+        },
+        {
+          "en": "the price",
+          "kind": "term",
+          "fr": "le prix"
+        },
+        {
+          "en": "The order won't arrive complete.",
+          "kind": "phrase",
+          "fr": "La commande n’arrivera pas au complet."
+        },
+        {
+          "en": "When will the rest arrive?",
+          "kind": "phrase",
+          "fr": "Quand arrivera le reste ?"
+        },
+        {
+          "en": "We're going to use another brand.",
+          "kind": "phrase",
+          "fr": "Nous allons utiliser une autre marque."
+        },
+        {
+          "en": "It's just as durable, but heavier.",
+          "kind": "phrase",
+          "fr": "Le fournisseur affirme qu’il est tout aussi durable, mais plus lourd.",
+          "enDisplay": "The supplier claims it's just as durable, but heavier.",
+          "noteEnglish": "Unverified durability claim from the fictional supplier; qualified product comparison required before release."
+        },
+        {
+          "en": "This color is closer to the original.",
+          "kind": "phrase",
+          "fr": "Cette couleur se rapproche davantage de l’originale."
+        },
+        {
+          "en": "I'm going to send you the photo of the color.",
+          "kind": "phrase",
+          "fr": "Je vais vous envoyer la photo de la couleur."
+        },
+        {
+          "en": "Can you give me a hand?",
+          "kind": "phrase",
+          "fr": "Pouvez-vous me donner un coup de main ?"
+        }
+      ],
+      "reading": {
+        "titleFrench": "Livraison incomplète et produit de remplacement",
+        "target": [
+          "À sept heures, le fournisseur a appelé Rogelio avec une mauvaise nouvelle.",
+          "Le fournisseur : « Désolé, la commande n’arrivera pas au complet, car cette couleur n’est pas en stock. »",
+          "Rogelio : « Quand arrivera le reste ? »",
+          "Le fournisseur : « L’usine annonce une arrivée à l’entrepôt jeudi, mais ce n’est pas certain. »",
+          "Rogelio : « Ce serait quatre jours de retard, et le client souhaite finir plus tôt. »",
+          "Le fournisseur : « J’ai le même type de bardeau architectural d’une autre marque, au même prix. »",
+          "Le fournisseur : « Il est tout aussi durable, mais plus lourd, et sa couleur est très proche. »",
+          "Rogelio : « Un bardeau architectural d’une autre marque pourrait convenir, mais je n’accepterai pas un bardeau à trois pattes : le contrat prévoit un bardeau architectural. »",
+          "Rogelio : « Envoyez-moi la fiche technique; avant de décider, je parlerai au client. »",
+          "Ensuite Rogelio a appelé la propriétaire, Mme Díaz.",
+          "Rogelio : « Madame, le fournisseur propose un produit de remplacement dont la couleur se rapproche davantage de l’originale. »",
+          "Rogelio : « Je vais vous envoyer la photo de la couleur; si vous l’approuvez, la livraison pourrait avoir lieu tôt demain. »",
+          "Mme Díaz a accepté le changement par message, et Rogelio a demandé une nouvelle facture.",
+          "Puis il a rassemblé l’équipe près du camion.",
+          "Rogelio : « Nous allons utiliser une autre marque, et deux palettes arriveront demain. »",
+          "Rogelio : « Aujourd’hui, nous terminerons la sous-couche et le larmier; demain, nous commencerons les bardeaux. »",
+          "Rogelio : « Kevin, peux-tu me donner un coup de main avec ces rouleaux ? »"
+        ],
+        "native": [
+          "At seven, the supplier called Rogelio with bad news.",
+          "Supplier: I'm sorry, the order won't arrive complete, because we don't have that color in stock.",
+          "Rogelio: When will the rest arrive?",
+          "Supplier: The factory says it will arrive at the warehouse on Thursday, but it's not certain.",
+          "Rogelio: That would be a four-day delay, and the customer wants to finish sooner.",
+          "Supplier: I have the same architectural shingle from another brand, at the same price.",
+          "Supplier: It's just as durable, but heavier, and the color is very similar.",
+          "Rogelio: The architectural one from another brand works for me, but I'm not going to accept three-tab shingle; the contract says architectural.",
+          "Rogelio: Send me the spec sheet, and before deciding I'm going to talk to the customer.",
+          "Then Rogelio called Mrs. Díaz, the homeowner.",
+          "Rogelio: Ma'am, the supplier has a substitute, and this color is closer to the original than the others.",
+          "Rogelio: I'm going to send you the photo of the color, and if you approve it, the delivery will be early tomorrow.",
+          "Mrs. Díaz approved the change by text, and Rogelio asked for a new invoice.",
+          "Then he gathered the crew next to the truck.",
+          "Rogelio: We're going to use another brand, and tomorrow two pallets will arrive.",
+          "Rogelio: Today we're going to finish the underlayment and the drip edge, and tomorrow we'll start on the shingles.",
+          "Rogelio: Kevin, can you give me a hand with these rolls?"
+        ],
+        "nativeDisplay": [
+          "At seven, the supplier called Rogelio with bad news.",
+          "Supplier: I'm sorry, the order won't arrive complete, because we don't have that color in stock.",
+          "Rogelio: When will the rest arrive?",
+          "Supplier: The factory says it will arrive at the warehouse on Thursday, but it's not certain.",
+          "Rogelio: That would be a four-day delay, and the customer wants to finish sooner.",
+          "Supplier: I have the same architectural shingle from another brand, at the same price.",
+          "Supplier: It's just as durable, but heavier, and the color is very similar.",
+          "Rogelio: Another brand's architectural shingle might work, but I won't accept three-tab shingle; the contract says architectural.",
+          "Rogelio: Send me the spec sheet, and before deciding I'm going to talk to the customer.",
+          "Then Rogelio called Mrs. Díaz, the homeowner.",
+          "Rogelio: Ma'am, the supplier has a substitute, and this color is closer to the original than the others.",
+          "Rogelio: I'll send you the color photo, and if you approve it, delivery might be early tomorrow.",
+          "Mrs. Díaz approved the change by text, and Rogelio asked for a new invoice.",
+          "Then he gathered the crew next to the truck.",
+          "Rogelio: We're going to use another brand, and tomorrow two pallets will arrive.",
+          "Rogelio: Today we're going to finish the underlayment and the drip edge, and tomorrow we'll start on the shingles.",
+          "Rogelio: Kevin, can you give me a hand with these rolls?"
+        ]
+      },
+      "verbs": [
+        {
+          "meaningEnglish": "to arrive",
+          "exampleEnglish": "The order won't arrive complete.",
+          "sourceInfinitiveSpanish": "llegar",
+          "infinitiveFrench": "arriver",
+          "exampleFrench": "La commande n’arrivera pas au complet."
+        },
+        {
+          "meaningEnglish": "to send",
+          "exampleEnglish": "I'm going to send you the photo of the color.",
+          "sourceInfinitiveSpanish": "mandar",
+          "infinitiveFrench": "envoyer",
+          "exampleFrench": "Je vais vous envoyer la photo de la couleur."
+        },
+        {
+          "meaningEnglish": "to use",
+          "exampleEnglish": "We're going to use another brand.",
+          "sourceInfinitiveSpanish": "usar",
+          "infinitiveFrench": "utiliser",
+          "exampleFrench": "Nous allons utiliser une autre marque."
+        },
+        {
+          "meaningEnglish": "to approve",
+          "exampleEnglish": "If you approve it, the delivery will be early tomorrow.",
+          "sourceInfinitiveSpanish": "aprobar",
+          "infinitiveFrench": "approuver",
+          "exampleFrench": "Si vous l’approuvez, la livraison pourrait avoir lieu tôt demain."
+        },
+        {
+          "meaningEnglish": "to finish",
+          "exampleEnglish": "Today we're going to finish the underlayment and the drip edge.",
+          "sourceInfinitiveSpanish": "terminar",
+          "infinitiveFrench": "terminer",
+          "exampleFrench": "Aujourd’hui, nous terminerons la sous-couche et le larmier."
+        }
+      ],
+      "practiceModesFrench": {
+        "see": "Repérez les dates certaines et les dates encore annoncées comme incertaines.",
+        "recall": "Retrouvez la demande de fiche technique avant la décision.",
+        "hear": "Écoutez la comparaison du substitut et relevez les caractéristiques prétendues.",
+        "type": "Écrivez en français : When will the rest arrive?",
+        "say": "Demandez au fournisseur de documenter la compatibilité sans affirmer l’équivalence.",
+        "write": "Rédigez un plan conditionnel au client avec la date, la fiche et l’accord requis."
+      },
+      "reviewGapsEnglish": [
+        "Qualified roofing/product review is required for unverified 'just as durable' and substitute-compatibility claims, weights, sequencing and early-delivery promises.",
+        "Qualified contract/consumer review is required for text-message approval as a change authorization; France/Québec product and contract terminology need regional review."
+      ],
+      "reviewed": false
+    }
+  ]
+}

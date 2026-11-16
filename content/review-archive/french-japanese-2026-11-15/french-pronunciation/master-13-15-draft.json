@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "moduleId": "french-sound-like-a-native",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "regionalModel": "Metropolitan French reference; regional variants require review",
+  "stage": "master",
+  "status": "partial-authored-draft",
+  "reviewed": false,
+  "runtimeRegistered": false,
+  "audioPublished": false,
+  "lessons": [
+    {
+      "id": "master-french-sound-like-a-native:13:fr-en",
+      "n": 13,
+      "sourceSpanishLesson": 13,
+      "title": "Handle a changed train platform",
+      "objective": "Keep a French travel exchange intelligible when the departure platform changes.",
+      "focus": "Confirm the train and departure time first, then respond when the agent changes voie trois to voie cinq. Keep the platform numbers inside complete rhythmic groups and ask for a repeat-back of the new platform.",
+      "words": [
+        { "fr": "voie", "en": "platform track", "kind": "term" },
+        { "fr": "train", "en": "train", "kind": "term" },
+        { "fr": "départ", "en": "departure", "kind": "term" },
+        { "fr": "billet", "en": "ticket", "kind": "term" },
+        { "fr": "annonce", "en": "announcement", "kind": "term" },
+        { "fr": "changement", "en": "change", "kind": "term" },
+        { "fr": "Mon train part à neuf heures, voie trois.", "en": "My train leaves at nine o'clock from platform three.", "kind": "phrase" },
+        { "fr": "Le départ est toujours à neuf heures, mais le train part de la voie cinq.", "en": "Departure is still at nine o'clock, but the train leaves from platform five.", "kind": "phrase" },
+        { "fr": "Pouvez-vous confirmer le changement de voie ?", "en": "Can you confirm the platform change?", "kind": "phrase" },
+        { "fr": "Je vérifie l'annonce et mon billet.", "en": "I check the announcement and my ticket.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "À la gare, Amine vérifie son billet pour le train de neuf heures.", "en": "At the station, Amine checks his ticket for the nine o'clock train." },
+        { "fr": "Il croit que le départ se fait voie trois.", "en": "He thinks departure is from platform three." },
+        { "fr": "Une nouvelle annonce indique que le départ est toujours prévu à neuf heures, mais que le train part de la voie cinq.", "en": "A new announcement says the train still leaves at nine o'clock, but from platform five." },
+        { "fr": "Amine demande à l'agent de confirmer le changement avant de rejoindre la voie cinq.", "en": "Amine asks the agent to confirm the change before going to platform five." }
+      ],
+      "grammar": {
+        "focus": "Toujours keeps the departure time unchanged; mais introduces the changed platform.",
+        "examples": [
+          { "fr": "Mon train part à neuf heures, voie trois.", "en": "My train leaves at nine o'clock from platform three." },
+          { "fr": "Le départ est toujours à neuf heures, mais le train part de la voie cinq.", "en": "Departure is still at nine o'clock, but the train leaves from platform five." }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D",
+      "speaking": {
+        "scene": "Confirming a changed platform at the station",
+        "roles": ["traveler", "station agent"],
+        "opening": "Bonjour, mon billet indique un train à neuf heures.",
+        "goals": ["State the original platform.", "Confirm that the departure time is unchanged.", "Repeat the new platform and ask the agent to confirm it."],
+        "complication": "The display changes from platform three to platform five while the departure time stays nine o'clock.",
+        "closure": "Merci, le train part à neuf heures, voie cinq."
+      },
+      "practice": {
+        "see": { "prompt": "Mark the time that stays the same and the platform number that changes.", "wordRefs": ["Mon train part à neuf heures, voie trois.", "Le départ est toujours à neuf heures, mais le train part de la voie cinq."] },
+        "recall": { "prompt": "Recall the sentence giving the unchanged time and new platform.", "answerRef": "Le départ est toujours à neuf heures, mais le train part de la voie cinq." },
+        "hear": { "prompt": "In the reviewed station announcement, distinguish the original platform from the new one.", "choices": ["voie", "changement"], "audioRequired": true },
+        "type": { "prompt": "Type the French question asking the agent to confirm the platform change.", "answerRef": "Pouvez-vous confirmer le changement de voie ?" },
+        "say": { "prompt": "Tell the agent the departure is still at nine but now from platform five.", "answerRef": "Le départ est toujours à neuf heures, mais le train part de la voie cinq." },
+        "write": { "prompt": "Write the old and new departure details without changing the time.", "requiredRefs": ["train", "départ", "voie", "changement"] }
+      }
+    },
+    {
+      "id": "master-french-sound-like-a-native:14:fr-en",
+      "n": 14,
+      "sourceSpanishLesson": 14,
+      "title": "Explain a printer problem",
+      "objective": "Explain a routine French workplace problem with its cause and next step in clear meaning groups.",
+      "focus": "Say L'imprimante ne fonctionne pas parce qu'il n'y a plus de papier, then give the next step: Je vais remettre du papier avant la réunion. Group the cause and action so a colleague can understand them without requiring fast speech.",
+      "words": [
+        { "fr": "imprimante", "en": "printer", "kind": "term" },
+        { "fr": "papier", "en": "paper", "kind": "term" },
+        { "fr": "réunion", "en": "meeting", "kind": "term" },
+        { "fr": "dossier", "en": "file; folder", "kind": "term" },
+        { "fr": "problème", "en": "problem", "kind": "term" },
+        { "fr": "solution", "en": "solution", "kind": "term" },
+        { "fr": "L'imprimante ne fonctionne pas parce qu'il n'y a plus de papier.", "en": "The printer is not working because it is out of paper.", "kind": "phrase" },
+        { "fr": "Je vais remettre du papier avant la réunion.", "en": "I will put more paper in before the meeting.", "kind": "phrase" },
+        { "fr": "Le dossier sera prêt après l'impression.", "en": "The file will be ready after printing.", "kind": "phrase" },
+        { "fr": "J'explique le problème et la solution à ma collègue.", "en": "I explain the problem and the solution to my colleague.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Maya doit imprimer un dossier pour la réunion de l'après-midi.", "en": "Maya needs to print a file for the afternoon meeting." },
+        { "fr": "L'imprimante s'arrête parce qu'il n'y a plus de papier.", "en": "The printer stops because it is out of paper." },
+        { "fr": "Maya explique le problème à sa collègue et dit qu'elle va remettre du papier.", "en": "Maya explains the problem to her colleague and says she will put in more paper." },
+        { "fr": "Après l'impression, le dossier sera prêt pour la réunion.", "en": "After printing, the file will be ready for the meeting." }
+      ],
+      "grammar": {
+        "focus": "Parce que gives the cause; je vais remettre gives the planned next action.",
+        "examples": [
+          { "fr": "L'imprimante ne fonctionne pas parce qu'il n'y a plus de papier.", "en": "The printer is not working because it is out of paper." },
+          { "fr": "Je vais remettre du papier avant la réunion.", "en": "I will put more paper in before the meeting." }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D",
+      "speaking": {
+        "scene": "Updating a colleague about a delayed print job",
+        "roles": ["print-job owner", "colleague"],
+        "opening": "Bonjour, j'ai un problème avec l'imprimante.",
+        "goals": ["Explain why the printer stopped.", "State the next action.", "Tell the colleague when the file will be ready."],
+        "complication": "The colleague thinks the printer itself is broken; clarify that it has run out of paper.",
+        "closure": "Je remets du papier, puis le dossier sera prêt."
+      },
+      "practice": {
+        "see": { "prompt": "Separate the problem, its cause, and the next action in the workplace message.", "wordRefs": ["L'imprimante ne fonctionne pas parce qu'il n'y a plus de papier.", "Je vais remettre du papier avant la réunion."] },
+        "recall": { "prompt": "Recall the sentence giving the cause of the printer problem.", "answerRef": "L'imprimante ne fonctionne pas parce qu'il n'y a plus de papier." },
+        "hear": { "prompt": "In the reviewed workplace message, identify whether the colleague mentions papier or dossier as the missing supply.", "choices": ["papier", "dossier"], "audioRequired": true },
+        "type": { "prompt": "Type the French sentence giving the planned action before the meeting.", "answerRef": "Je vais remettre du papier avant la réunion." },
+        "say": { "prompt": "Explain the cause of the printer problem to the colleague.", "answerRef": "L'imprimante ne fonctionne pas parce qu'il n'y a plus de papier." },
+        "write": { "prompt": "Write a short update with the problem, cause, and solution.", "requiredRefs": ["imprimante", "papier", "problème", "solution"] }
+      }
+    },
+    {
+      "id": "master-french-sound-like-a-native:15:fr-en",
+      "n": 15,
+      "sourceSpanishLesson": 15,
+      "title": "Repair a misheard day",
+      "objective": "Clarify a French appointment day when a listener hears Friday instead of Thursday.",
+      "focus": "If the listener repeats vendredi after you said jeudi, repair only the day: Jeudi, pas vendredi. Then restate the complete appointment: Le rendez-vous est jeudi à dix heures. Keep the meaning unchanged while altering pace or wording.",
+      "words": [
+        { "fr": "jeudi", "en": "Thursday", "kind": "term" },
+        { "fr": "vendredi", "en": "Friday", "kind": "term" },
+        { "fr": "rendez-vous", "en": "appointment; meeting", "kind": "term" },
+        { "fr": "heure", "en": "hour; time", "kind": "term" },
+        { "fr": "message", "en": "message", "kind": "term" },
+        { "fr": "confirmation", "en": "confirmation", "kind": "term" },
+        { "fr": "Le rendez-vous est jeudi à dix heures.", "en": "The appointment is Thursday at ten o'clock.", "kind": "phrase" },
+        { "fr": "Jeudi, pas vendredi.", "en": "Thursday, not Friday.", "kind": "phrase" },
+        { "fr": "Pouvez-vous répéter le jour du rendez-vous ?", "en": "Can you repeat the day of the appointment?", "kind": "phrase" },
+        { "fr": "Je confirme le message : jeudi à dix heures.", "en": "I confirm the message: Thursday at ten o'clock.", "kind": "phrase" }
+      ],
+      "reader": [
+        { "fr": "Zoé appelle Marc pour confirmer leur rendez-vous.", "en": "Zoé calls Marc to confirm their appointment." },
+        { "fr": "Elle dit que le rendez-vous est jeudi à dix heures.", "en": "She says the appointment is Thursday at ten o'clock." },
+        { "fr": "Marc répète vendredi; Zoé répond : « Jeudi, pas vendredi. »", "en": "Marc repeats Friday; Zoé replies, 'Thursday, not Friday.'" },
+        { "fr": "Marc répète enfin jeudi à dix heures, et Zoé confirme le message.", "en": "Marc finally repeats Thursday at ten o'clock, and Zoé confirms the message." }
+      ],
+      "grammar": {
+        "focus": "Pas vendredi corrects only the day; the full sentence restores the day and time together.",
+        "examples": [
+          { "fr": "Jeudi, pas vendredi.", "en": "Thursday, not Friday." },
+          { "fr": "Le rendez-vous est jeudi à dix heures.", "en": "The appointment is Thursday at ten o'clock." }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D",
+      "speaking": {
+        "scene": "Correcting an appointment day on a phone call",
+        "roles": ["appointment organizer", "listener"],
+        "opening": "Bonjour, je confirme notre rendez-vous jeudi à dix heures.",
+        "goals": ["State the intended day and time.", "Correct Friday to Thursday.", "Ask for a repeat-back of the day."],
+        "complication": "The listener keeps the time but repeats Friday; repair the day before repeating the full appointment.",
+        "closure": "Merci, nous avons confirmé jeudi à dix heures."
+      },
+      "practice": {
+        "see": { "prompt": "Identify the misheard day, the corrected day, and the unchanged appointment time.", "wordRefs": ["Le rendez-vous est jeudi à dix heures.", "Jeudi, pas vendredi."] },
+        "recall": { "prompt": "Recall the short repair that changes Friday back to Thursday.", "answerRef": "Jeudi, pas vendredi." },
+        "hear": { "prompt": "In the reviewed call, distinguish jeudi from vendredi in the corrected appointment.", "choices": ["jeudi", "vendredi"], "audioRequired": true },
+        "type": { "prompt": "Type the French question asking the listener to repeat the appointment day.", "answerRef": "Pouvez-vous répéter le jour du rendez-vous ?" },
+        "say": { "prompt": "Correct the day without changing the ten-o'clock time.", "answerRef": "Le rendez-vous est jeudi à dix heures." },
+        "write": { "prompt": "Write the short correction and a complete confirmed appointment.", "requiredRefs": ["jeudi", "vendredi", "rendez-vous", "heure"] }
+      }
+    }
+  ]
+}

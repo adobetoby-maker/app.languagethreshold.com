@@ -1,0 +1,7 @@
+# French and Japanese lesson draft snapshots on main
+
+This archive preserves 114 JSON lesson-source snapshots from six private PR heads: French 101 (#430), French Breakfast (#475), French Pronunciation (#479), French Roofing (#400), Japanese Breakfast (#424), and Japanese Roofing (#432). `manifest.json` pins every source path, commit and SHA-256. `scripts/validate-french-japanese-review-archive.py` checks the hashes and JSON.
+
+These are source snapshots for direct review on main. They are not imported by the learner catalog, routes, Reader, scoring, offline packs, audio, V4, or progress. The prior drafts have known source, identity, six-mode and terminology gaps in the program ledgers; copying them does not resolve those gaps or document a qualified per-lesson review decision. The archive therefore keeps `reviewed:false` and all release gates false. Existing lessons and owner-only pages remain unchanged.
+
+French Breakfast includes the older complete private runtime candidate as a source snapshot because its separate `*-draft.json` files do not themselves cover all 60 lessons. Its stale source references and Core 30 allergy conflict remain open. French Roofing has stage-local identity collisions and a Core 21 fall-protection conflict. French 101 Core 22–30 and Master 1–20 include grouped or false-equivalent face conflicts. Japanese Breakfast and Roofing still need source/dictionary/six-mode audits. None of the old audio candidates has new listening approval from this archival step.

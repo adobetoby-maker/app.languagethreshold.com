@@ -1,0 +1,177 @@
+{
+  "schema": 1,
+  "moduleId": "roofing",
+  "stageId": "foundation-roofing",
+  "target": "Japanese",
+  "native": "English",
+  "state": "authored-draft-partial",
+  "reviewed": false,
+  "registered": false,
+  "audio": "none",
+  "source": {
+    "curriculumPath": "src/data/foundation-roofing-curriculum.ts",
+    "curriculumSha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b",
+    "readerPath": "public/lesson-content/es/foundation-roofing.json",
+    "readerSha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8",
+    "role": "English objectives, meanings and progression are anchors; Japanese grammar and scenes are authored for this pair"
+  },
+  "lessons": [
+    {
+      "n": 7,
+      "stableId": "foundation-roofing:7:ja-en",
+      "sourceEnglishObjective": "Ask the questions you need on any job",
+      "title": "Questions on the first day",
+      "objective": "Ask who is in charge, where equipment is, when materials arrive, and how a task is done.",
+      "focus": "Use 誰 for who, どこ for where, いつ for when, 何 for what, and どうやって for how. Add か to a polite question. 何色 asks about color; どのくらい asks about amount.",
+      "cards": [
+        {"ja": "何", "en": "what"},
+        {"ja": "誰", "en": "who"},
+        {"ja": "どこ", "en": "where"},
+        {"ja": "いつ", "en": "when"},
+        {"ja": "どのくらい", "en": "how much, how many"},
+        {"ja": "どうやって", "en": "how"},
+        {"ja": "なぜ", "en": "why"},
+        {"ja": "どれ", "en": "which"},
+        {"ja": "はしごはどこですか。", "en": "Where is the ladder?"},
+        {"ja": "資材はいつ届きますか。", "en": "When does the material arrive?"},
+        {"ja": "班長は誰ですか。", "en": "Who is the crew lead?"},
+        {"ja": "なぜ作業を止めるのですか。", "en": "Why are we stopping work?"}
+      ],
+      "reader": [
+        {"ja": "今日は初日なので、質問があります。", "en": "Today is my first day, so I have questions."},
+        {"ja": "班長は誰ですか。", "en": "Who is the crew lead?"},
+        {"ja": "はしごはどこですか。", "en": "Where is the ladder?"},
+        {"ja": "資材はいつ届きますか。", "en": "When does the material arrive?"},
+        {"ja": "資材はどのくらい必要で、シングル材は何色ですか。", "en": "How much material do we need, and what color are the shingles?"},
+        {"ja": "最初に何をしますか。フルハーネスはどうやって着けますか。", "en": "What do I do first, and how do I put on the full-body harness?"},
+        {"ja": "なぜ十一時に作業を止めるのですか。", "en": "Why are we stopping work at eleven?"}
+      ],
+      "forms": [
+        {"base": "届く", "contextJa": "資材はいつ届きますか。", "contextEn": "When does the material arrive?"},
+        {"base": "着ける", "contextJa": "最初に何をしますか。フルハーネスはどうやって着けますか。", "contextEn": "What do I do first, and how do I put on the full-body harness?"}
+      ],
+      "speaking": {"role": "new crew member asking questions", "opening": "班長は誰ですか。資材はいつ届きますか。", "goal": "Ask about the crew lead, ladder, materials, and first task."},
+      "modes": {"see": "Find the questions about material quantity and shingle color.", "recall": "Recall who, where, when, what, and how in Japanese.", "hear": "Distinguish 誰, どこ, and いつ in spoken questions.", "type": "Type 'Where is the ladder?' in Japanese.", "say": "Ask the crew lead four specific jobsite questions.", "write": "Write a question about when materials arrive and one about how to put on the harness."}
+    },
+    {
+      "n": 8,
+      "stableId": "foundation-roofing:8:ja-en",
+      "sourceEnglishObjective": "Say no, not yet and never, and ask for more or less",
+      "title": "Not yet, nobody, and another bundle",
+      "objective": "Use Japanese negative expressions and compare quantities while reporting jobsite supplies.",
+      "focus": "まだ～ていません means not yet; 誰も～ません and 何も～ません pair an indefinite word with a negative ending. 決して～ません means never. もっと requests more; ～より少ない compares quantities.",
+      "cards": [
+        {"ja": "決して～ません", "en": "never"},
+        {"ja": "誰も～ません", "en": "nobody"},
+        {"ja": "何もありません", "en": "nothing"},
+        {"ja": "もっと", "en": "more"},
+        {"ja": "少なく", "en": "less, fewer"},
+        {"ja": "もう一つ", "en": "another one"},
+        {"ja": "まだ", "en": "still, yet"},
+        {"ja": "少し", "en": "a little"},
+        {"ja": "分かりません。", "en": "I don't understand."},
+        {"ja": "まだです。", "en": "Not yet."},
+        {"ja": "フルハーネスなしで上がる人はいません。", "en": "Nobody goes up without a full-body harness."},
+        {"ja": "もう一束必要です。", "en": "I need another bundle."}
+      ],
+      "reader": [
+        {"ja": "屋根の準備はまだできていません。", "en": "The roof isn't ready yet."},
+        {"ja": "フルハーネスなしで屋根に上がる人はいません。", "en": "Nobody goes up on the roof without a full-body harness."},
+        {"ja": "ぬれた屋根では決して作業しません。", "en": "We never work on a wet roof."},
+        {"ja": "手押し車には何もありません。", "en": "There's nothing in the wheelbarrow."},
+        {"ja": "もう一束と釘がもう少し必要です。", "en": "I need another bundle and a few more nails."},
+        {"ja": "今日は昨日より少ないシングル材を使います。", "en": "Today we use fewer shingles than yesterday."},
+        {"ja": "分かりません。もう少しゆっくり話してもらえますか。", "en": "I don't understand. Can you speak more slowly?"}
+      ],
+      "forms": [
+        {"base": "できる", "contextJa": "屋根の準備はまだできていません。", "contextEn": "The roof isn't ready yet."},
+        {"base": "使う", "contextJa": "今日は昨日より少ないシングル材を使います。", "contextEn": "Today we use fewer shingles than yesterday."}
+      ],
+      "speaking": {"role": "crew member reporting status", "opening": "屋根の準備はまだできていません。もう一束必要です。", "goal": "Report what is not ready, what is absent, and what quantity is needed."},
+      "modes": {"see": "Find what is absent from the wheelbarrow.", "recall": "Recall the expressions for not yet, nothing, and another bundle.", "hear": "Distinguish まだです from 分かりません when spoken.", "type": "Type 'I need another bundle.' in Japanese.", "say": "Tell a coworker what is not ready and ask for more nails.", "write": "Write one sentence with 何も～ません and another comparing today's quantity with yesterday's."}
+    },
+    {
+      "n": 9,
+      "stableId": "foundation-roofing:9:ja-en",
+      "sourceEnglishObjective": "Ask politely and give short, clear instructions",
+      "title": "Polite requests and short instructions",
+      "objective": "Ask for a tool politely and give clear, short instructions to a coworker.",
+      "focus": "～てください makes a polite instruction. ～てもらえますか asks a coworker to do something for you. Use すみません to get attention or apologize, and お願いします with a request.",
+      "cards": [
+        {"ja": "お願いします", "en": "please"},
+        {"ja": "ありがとうございます", "en": "thank you"},
+        {"ja": "失礼します", "en": "excuse me (to pass)"},
+        {"ja": "すみません", "en": "sorry, excuse me"},
+        {"ja": "気をつけてください", "en": "be careful"},
+        {"ja": "待ってください", "en": "wait"},
+        {"ja": "来てください", "en": "come"},
+        {"ja": "ここ", "en": "here"},
+        {"ja": "ハンマーを渡してもらえますか。", "en": "Can you pass me the hammer?"},
+        {"ja": "気をつけてください。", "en": "Be careful."},
+        {"ja": "ここで待ってください。", "en": "Wait here, please."},
+        {"ja": "はしごを持ってきてください。", "en": "Bring the ladder."}
+      ],
+      "reader": [
+        {"ja": "すみません、はしごを持って通ります。", "en": "Excuse me, I'm coming through with the ladder."},
+        {"ja": "ハンマーを渡してもらえますか。", "en": "Can you pass me the hammer, please?"},
+        {"ja": "ありがとうございます。お待たせしてすみません。", "en": "Thank you, and sorry for the wait."},
+        {"ja": "こちらに来て、はしごを持ってきてください。", "en": "Come here and bring the ladder."},
+        {"ja": "ここで待ってください。", "en": "Wait here, please."},
+        {"ja": "屋根の端に気をつけてください。", "en": "Be careful at the edge of the roof."},
+        {"ja": "班長は「分かりました」と答えます。", "en": "The crew lead answers, 'Understood.'"}
+      ],
+      "forms": [
+        {"base": "渡す", "contextJa": "ハンマーを渡してもらえますか。", "contextEn": "Can you pass me the hammer, please?"},
+        {"base": "待つ", "contextJa": "ここで待ってください。", "contextEn": "Wait here, please."}
+      ],
+      "speaking": {"role": "coworker requesting tools", "opening": "すみません、ハンマーを渡してもらえますか。", "goal": "Request two tools politely and give two short instructions."},
+      "modes": {"see": "Find the polite tool request and the instruction to wait.", "recall": "Recall the words for excuse me, thank you, and please.", "hear": "Distinguish 待ってください from 来てください when spoken.", "type": "Type 'Bring the ladder.' in Japanese.", "say": "Ask a coworker for the hammer and give a short instruction.", "write": "Write a polite request for a tool and an instruction to wait here."}
+    },
+    {
+      "n": 10,
+      "stableId": "foundation-roofing:10:ja-en",
+      "sourceEnglishObjective": "Use Spanish words that look like English and ask for help when you are stuck",
+      "title": "Incident words and asking for help",
+      "objective": "Name an accident, ambulance, inspection, and hospital; ask for help or a word's meaning.",
+      "focus": "Japanese compounds such as 救急車, 病院, and 点検 build meaning from kanji. ～とはどういう意味ですか asks what a word means; ～が必要です states what is needed. The number 911 is retained for the U.S. jobsite in this scene.",
+      "cards": [
+        {"ja": "緊急事態", "en": "emergency"},
+        {"ja": "事故", "en": "accident"},
+        {"ja": "救急車", "en": "ambulance"},
+        {"ja": "建設", "en": "construction"},
+        {"ja": "点検", "en": "inspection"},
+        {"ja": "墜落防止", "en": "fall protection"},
+        {"ja": "安全", "en": "safety"},
+        {"ja": "病院", "en": "hospital"},
+        {"ja": "～とはどういう意味ですか。", "en": "What does ... mean?"},
+        {"ja": "助けが必要です。", "en": "I need help."},
+        {"ja": "911に電話してください。", "en": "Call 911."},
+        {"ja": "英語を話せますか。", "en": "Do you speak English?"}
+      ],
+      "reader": [
+        {"ja": "建設現場では、安全が第一です。", "en": "At a construction site, safety comes first."},
+        {"ja": "今日は墜落防止設備の点検があります。", "en": "Today there's a fall-protection equipment inspection."},
+        {"ja": "同僚がはしごで軽い事故に遭いました。", "en": "A coworker has a minor accident on the ladder."},
+        {"ja": "緊急事態ではありませんが、助けが必要です。", "en": "It's not an emergency, but I need help."},
+        {"ja": "深刻な場合は911に電話して、救急車を呼んでください。", "en": "If it's serious, call 911 and ask for an ambulance."},
+        {"ja": "救急車は病院に向かいます。", "en": "The ambulance goes to the hospital."},
+        {"ja": "「転落」とはどういう意味ですか。", "en": "What does the word 'fall' mean?"}
+      ],
+      "forms": [
+        {"base": "呼ぶ", "contextJa": "深刻な場合は911に電話して、救急車を呼んでください。", "contextEn": "If it's serious, call 911 and ask for an ambulance."},
+        {"base": "向かう", "contextJa": "救急車は病院に向かいます。", "contextEn": "The ambulance goes to the hospital."}
+      ],
+      "speaking": {"role": "crew member reporting an incident", "opening": "同僚がはしごで事故に遭いました。助けが必要です。", "goal": "Report an accident, ask for help, and ask what an unfamiliar word means."},
+      "modes": {"see": "Find the inspection, accident, and request for help in the reading.", "recall": "Recall the Japanese words for accident, ambulance, hospital, and inspection.", "hear": "Distinguish 事故 from 救急車 in spoken Japanese.", "type": "Type 'I need help.' in Japanese.", "say": "Report the accident and ask a coworker for help.", "write": "Write two sentences: identify the accident and ask what a word means."}
+    }
+  ],
+  "reviewGates": {
+    "independentJapaneseReview": false,
+    "qualifiedRoofingReview": false,
+    "sixModeRuntime": false,
+    "dictionarySenses": false,
+    "offlineVerified": false,
+    "recordedAudioListening": false,
+    "phoneAndNativeAcceptance": false
+  }
+}

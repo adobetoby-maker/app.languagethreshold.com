@@ -1,0 +1,497 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "foundation",
+  "sourceCurriculumSha256": "94621cca4158b76c69435f35eb1dfdc4893df553afaccb8a1963bdd9e6d80e79",
+  "sourceReaderSha256": "e11886cd3e030534ba8f8b8e92515c528e07c2875f20a58034faed2bc3d0f78a",
+  "archivedDraftSha256": "2c4f1ba884691e7c0b0d550304e4acced537b32fa91c00fdf1fd943e6ce3c390",
+  "status": "source-only review candidates; no runtime import, owner route, audio or progress migration",
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false
+  },
+  "proposals": [
+    {
+      "lessonKey": "foundation:4",
+      "stableLessonId": "foundation-travel-breakfast:4:ja-en",
+      "sourceObjective": "Say what you have, need and want at breakfast, and ask what the café has.",
+      "sourceReaderTitle": "Desayuno en Oaxaca",
+      "sourceSetting": "Oaxaca, Mexico",
+      "sourceReviewStatus": "Spanish source is reviewed:false; it is a parity baseline, not a qualified approval",
+      "sceneFraming": "Japanese-language practice dialogue following the Spanish source's Oaxaca setting; the old Japanese draft uses original scenes elsewhere in the track.",
+      "archivedDraftScene": "At the café counter, Sam asks about juice before requesting utensils.",
+      "sourceAnchors": [
+        {
+          "position": 1,
+          "english": "In a café in Oaxaca, Emma tells the server Luis: I'm very hungry."
+        },
+        {
+          "position": 2,
+          "english": "Emma: Do you have fresh orange juice?"
+        },
+        {
+          "position": 3,
+          "english": "Luis: Yes, and there is also fresh fruit with breakfast."
+        },
+        {
+          "position": 4,
+          "english": "Emma: Is there toast?"
+        },
+        {
+          "position": 5,
+          "english": "Luis: Yes, the toast comes with butter and jam."
+        },
+        {
+          "position": 6,
+          "english": "Emma: I'd like a tea without sugar and a spoon, please."
+        },
+        {
+          "position": 7,
+          "english": "Emma: I also need a fork and a napkin, please."
+        },
+        {
+          "position": 8,
+          "english": "Luis: Sure, and you have to pay at the register at the end."
+        }
+      ],
+      "proposedSourceSettingReader": [
+        {
+          "id": "foundation-travel-breakfast:4:ja-en:reader:source-scene-v1:oaxaca-hungry",
+          "candidateReaderRevision": "foundation-travel-breakfast:4:ja-en:reader:source-scene-v1",
+          "candidatePosition": 1,
+          "speaker": "Narrator",
+          "ja": "オアハカのカフェで、エマは店員のルイスに「とてもおなかがすいています」と言います。",
+          "sourceEnglish": "In a café in Oaxaca, Emma tells the server Luis: I'm very hungry.",
+          "literalJapaneseGlossEn": "At a café in Oaxaca, Emma tells staff member Luis, 'I am very hungry.'",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:4:ja-en:reader:source-scene-v1:ask-natural-juice",
+          "candidateReaderRevision": "foundation-travel-breakfast:4:ja-en:reader:source-scene-v1",
+          "candidatePosition": 2,
+          "speaker": "Emma",
+          "ja": "生搾りのオレンジジュースはありますか。",
+          "sourceEnglish": "Emma: Do you have fresh orange juice?",
+          "literalJapaneseGlossEn": "Do you have fresh-squeezed orange juice?",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:4:ja-en:reader:source-scene-v1:yes-fruit",
+          "candidateReaderRevision": "foundation-travel-breakfast:4:ja-en:reader:source-scene-v1",
+          "candidatePosition": 3,
+          "speaker": "Luis",
+          "ja": "はい、あります。朝食には新鮮な果物もあります。",
+          "sourceEnglish": "Luis: Yes, and there is also fresh fruit with breakfast.",
+          "literalJapaneseGlossEn": "Yes, we do. There is also fresh fruit with breakfast.",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:4:ja-en:reader:source-scene-v1:ask-toast",
+          "candidateReaderRevision": "foundation-travel-breakfast:4:ja-en:reader:source-scene-v1",
+          "candidatePosition": 4,
+          "speaker": "Emma",
+          "ja": "トーストはありますか。",
+          "sourceEnglish": "Emma: Is there toast?",
+          "literalJapaneseGlossEn": "Is there toast?",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:4:ja-en:reader:source-scene-v1:toast-butter-jam",
+          "candidateReaderRevision": "foundation-travel-breakfast:4:ja-en:reader:source-scene-v1",
+          "candidatePosition": 5,
+          "speaker": "Luis",
+          "ja": "はい、トーストにはバターとジャムがつきます。",
+          "sourceEnglish": "Luis: Yes, the toast comes with butter and jam.",
+          "literalJapaneseGlossEn": "Yes, toast comes with butter and jam.",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:4:ja-en:reader:source-scene-v1:tea-spoon",
+          "candidateReaderRevision": "foundation-travel-breakfast:4:ja-en:reader:source-scene-v1",
+          "candidatePosition": 6,
+          "speaker": "Emma",
+          "ja": "砂糖なしのお茶とスプーンをお願いします。",
+          "sourceEnglish": "Emma: I'd like a tea without sugar and a spoon, please.",
+          "literalJapaneseGlossEn": "Tea without sugar and a spoon, please.",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:4:ja-en:reader:source-scene-v1:need-fork-napkin",
+          "candidateReaderRevision": "foundation-travel-breakfast:4:ja-en:reader:source-scene-v1",
+          "candidatePosition": 7,
+          "speaker": "Emma",
+          "ja": "フォークとナプキンも必要です。いただけますか。",
+          "sourceEnglish": "Emma: I also need a fork and a napkin, please.",
+          "literalJapaneseGlossEn": "I also need a fork and napkin. Could I have them?",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:4:ja-en:reader:source-scene-v1:pay-register",
+          "candidateReaderRevision": "foundation-travel-breakfast:4:ja-en:reader:source-scene-v1",
+          "candidatePosition": 8,
+          "speaker": "Luis",
+          "ja": "かしこまりました。お会計は食後にレジでお願いします。",
+          "sourceEnglish": "Luis: Sure, and you have to pay at the register at the end.",
+          "literalJapaneseGlossEn": "Certainly. Please pay at the register after the meal.",
+          "sourceEnglishIsJapaneseGloss": false
+        }
+      ],
+      "candidateReaderRevision": "foundation-travel-breakfast:4:ja-en:reader:source-scene-v1",
+      "savedPositionPolicy": "Do not resolve old saved Reader positions through this candidate revision. The archived draft was unregistered; no shipped saved positions are known. A future runtime must use revision-scoped row IDs and explicit migration or tombstones.",
+      "oldReaderPositionPlan": [
+        {
+          "old": 1,
+          "candidate": null,
+          "oldEnglish": "Excuse me. I am hungry.",
+          "disposition": "retire from candidate; retain only in archive; no saved-item migration"
+        },
+        {
+          "old": 2,
+          "candidate": null,
+          "oldEnglish": "What would you like to order?",
+          "disposition": "retire from candidate; retain only in archive; no saved-item migration"
+        },
+        {
+          "old": 3,
+          "candidate": null,
+          "oldEnglish": "Do you have orange juice?",
+          "disposition": "retire from candidate; retain only in archive; no saved-item migration"
+        },
+        {
+          "old": 4,
+          "candidate": null,
+          "oldEnglish": "Yes, we do.",
+          "disposition": "retire from candidate; retain only in archive; no saved-item migration"
+        },
+        {
+          "old": 5,
+          "candidate": null,
+          "oldEnglish": "Is it freshly squeezed?",
+          "disposition": "retire from candidate; retain only in archive; no saved-item migration"
+        },
+        {
+          "old": 6,
+          "candidate": null,
+          "oldEnglish": "No, it is not freshly squeezed.",
+          "disposition": "retire from candidate; retain only in archive; no saved-item migration"
+        },
+        {
+          "old": 7,
+          "candidate": null,
+          "oldEnglish": "Then tea, please.",
+          "disposition": "retire from candidate; retain only in archive; no saved-item migration"
+        },
+        {
+          "old": 8,
+          "candidate": null,
+          "oldEnglish": "A fork and napkin too, please.",
+          "disposition": "retire from candidate; retain only in archive; no saved-item migration"
+        },
+        {
+          "old": 9,
+          "candidate": null,
+          "oldEnglish": "Certainly.",
+          "disposition": "retire from candidate; retain only in archive; no saved-item migration"
+        }
+      ],
+      "newCardCandidates": [
+        {
+          "id": "foundation-travel-breakfast:4:ja-en:card:source-scene-v1:ask-natural-orange-juice",
+          "ja": "生搾りのオレンジジュースはありますか",
+          "literalJapaneseGlossEn": "Do you have fresh orange juice?",
+          "kind": "phrase"
+        },
+        {
+          "id": "foundation-travel-breakfast:4:ja-en:card:source-scene-v1:fresh-fruit",
+          "ja": "新鮮な果物",
+          "literalJapaneseGlossEn": "fresh fruit",
+          "kind": "term"
+        },
+        {
+          "id": "foundation-travel-breakfast:4:ja-en:card:source-scene-v1:butter-and-jam",
+          "ja": "バターとジャム",
+          "literalJapaneseGlossEn": "butter and jam",
+          "kind": "phrase"
+        }
+      ],
+      "newCardsPlacement": "Candidate cards have distinct IDs but no saved positions. The archived 12 cards remain intact; decide any append, replacement or retirement with qualified review and explicit saved-item mapping.",
+      "sourceConflictNote": "The Spanish curriculum glosses natural orange juice as freshly squeezed. The older original Japanese scene answers no, unlike the source scene's yes. This proposed Oaxaca practice scene follows source order and reverses that particular original-scene choice. Natural/freshly squeezed equivalence needs qualified Japanese and locale review.",
+      "speakingGoalCandidate": "Say you are hungry, ask whether fresh-squeezed orange juice is available, and say you need a fork and napkin.",
+      "learnerContextCandidate": "This practice dialogue follows a café in Oaxaca; confirm juice preparation when ordering.",
+      "archivedFieldReconciliation": "If promoted, replace or reconcile the old objective, focus, opening, closure, word bank and mode content as one reviewed lesson revision; the source-only speaking goal does not update those fields.",
+      "modeStatus": "Archived mode descriptions are labels, not authored six-mode prompt/answer pairs; no proposed answer is registered.",
+      "readerPositionIndexBase": 1,
+      "identityNote": "The archived Reader has no row IDs. Every source-setting turn has a new candidate ID. Old positions are retired as candidates, not automatically mapped to saved items or scoring targets; no progress migration is authorized.",
+      "audioNote": "Each new exact-text Japanese turn needs fresh audio and its own listening decision if promoted; older recordings do not cover this proposal."
+    },
+    {
+      "lessonKey": "foundation:9",
+      "stableLessonId": "foundation-travel-breakfast:9:ja-en",
+      "sourceObjective": "Ask a server politely for the bill, water or the check, and give simple usted commands.",
+      "sourceReaderTitle": "La cuenta en Oaxaca",
+      "sourceSetting": "Oaxaca, Mexico",
+      "sourceReviewStatus": "Spanish source is reviewed:false; it is a parity baseline, not a qualified approval",
+      "sceneFraming": "Japanese-language practice dialogue following the Spanish source's Oaxaca setting; the old Japanese draft uses original scenes elsewhere in the track.",
+      "archivedDraftScene": "Sam finishes breakfast and asks staff how to pay.",
+      "sourceAnchors": [
+        {
+          "position": 1,
+          "english": "Anna eats eggs and coffee for breakfast at a café in Oaxaca."
+        },
+        {
+          "position": 2,
+          "english": "Anna: Can you give me a glass of water?"
+        },
+        {
+          "position": 3,
+          "english": "Luis, the server, brings water with ice and a straw."
+        },
+        {
+          "position": 4,
+          "english": "Anna: Can you bring me the salt, please?"
+        },
+        {
+          "position": 5,
+          "english": "Anna: Please bring me more cream."
+        },
+        {
+          "position": 6,
+          "english": "Anna: Could you bring me the bill, please?"
+        },
+        {
+          "position": 7,
+          "english": "Luis: Are you going to pay by card or in cash?"
+        },
+        {
+          "position": 8,
+          "english": "Anna: In cash, here are 200 pesos."
+        },
+        {
+          "position": 9,
+          "english": "Anna: Keep the change as a tip."
+        }
+      ],
+      "proposedSourceSettingReader": [
+        {
+          "id": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v1:oaxaca-breakfast",
+          "candidateReaderRevision": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v1",
+          "candidatePosition": 1,
+          "speaker": "Narrator",
+          "ja": "アンナはオアハカのカフェで、朝食に卵料理を食べ、コーヒーを飲みます。",
+          "sourceEnglish": "Anna eats eggs and coffee for breakfast at a café in Oaxaca.",
+          "literalJapaneseGlossEn": "Anna eats an egg dish and drinks coffee for breakfast at a café in Oaxaca.",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v1:ask-water",
+          "candidateReaderRevision": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v1",
+          "candidatePosition": 2,
+          "speaker": "Anna",
+          "ja": "お水を一杯いただけますか。",
+          "sourceEnglish": "Anna: Can you give me a glass of water?",
+          "literalJapaneseGlossEn": "Could I have a glass of water?",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v1:water-ice-straw",
+          "candidateReaderRevision": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v1",
+          "candidatePosition": 3,
+          "speaker": "Narrator",
+          "ja": "店員のルイスは、氷入りの水とストローを持ってきます。",
+          "sourceEnglish": "Luis, the server, brings water with ice and a straw.",
+          "literalJapaneseGlossEn": "Staff member Luis brings water with ice and a straw.",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v1:ask-salt",
+          "candidateReaderRevision": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v1",
+          "candidatePosition": 4,
+          "speaker": "Anna",
+          "ja": "お塩を持ってきていただけますか。",
+          "sourceEnglish": "Anna: Can you bring me the salt, please?",
+          "literalJapaneseGlossEn": "Could you bring me salt?",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v1:ask-cream",
+          "candidateReaderRevision": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v1",
+          "candidatePosition": 5,
+          "speaker": "Anna",
+          "ja": "クリームをもっと持ってきてください。",
+          "sourceEnglish": "Anna: Please bring me more cream.",
+          "literalJapaneseGlossEn": "Please bring me more cream.",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v1:ask-bill",
+          "candidateReaderRevision": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v1",
+          "candidatePosition": 6,
+          "speaker": "Anna",
+          "ja": "お会計をお願いできますか。",
+          "sourceEnglish": "Anna: Could you bring me the bill, please?",
+          "literalJapaneseGlossEn": "Could I ask for the bill?",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v1:card-or-cash",
+          "candidateReaderRevision": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v1",
+          "candidatePosition": 7,
+          "speaker": "Luis",
+          "ja": "カードと現金、どちらでお支払いになりますか。",
+          "sourceEnglish": "Luis: Are you going to pay by card or in cash?",
+          "literalJapaneseGlossEn": "Will you pay by card or in cash?",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v1:cash-two-hundred-pesos",
+          "candidateReaderRevision": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v1",
+          "candidatePosition": 8,
+          "speaker": "Anna",
+          "ja": "現金で払います。二百ペソ、どうぞ。",
+          "sourceEnglish": "Anna: In cash, here are 200 pesos.",
+          "literalJapaneseGlossEn": "I will pay in cash. Here are 200 pesos.",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v1:change-as-tip",
+          "candidateReaderRevision": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v1",
+          "candidatePosition": 9,
+          "speaker": "Anna",
+          "ja": "おつりはチップとしてどうぞ。",
+          "sourceEnglish": "Anna: Keep the change as a tip.",
+          "literalJapaneseGlossEn": "Here is the change as a tip.",
+          "sourceEnglishIsJapaneseGloss": false
+        }
+      ],
+      "candidateReaderRevision": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v1",
+      "savedPositionPolicy": "Do not resolve old saved Reader positions through this candidate revision. The archived draft was unregistered; no shipped saved positions are known. A future runtime must use revision-scoped row IDs and explicit migration or tombstones.",
+      "oldReaderPositionPlan": [
+        {
+          "old": 1,
+          "candidate": null,
+          "oldEnglish": "Excuse me. Could I have a glass of water?",
+          "disposition": "retire from candidate; retain only in archive; no saved-item migration"
+        },
+        {
+          "old": 2,
+          "candidate": null,
+          "oldEnglish": "Yes, please wait a moment.",
+          "disposition": "retire from candidate; retain only in archive; no saved-item migration"
+        },
+        {
+          "old": 3,
+          "candidate": null,
+          "oldEnglish": "Here is your water.",
+          "disposition": "retire from candidate; retain only in archive; no saved-item migration"
+        },
+        {
+          "old": 4,
+          "candidate": null,
+          "oldEnglish": "Thank you. The bill, please.",
+          "disposition": "retire from candidate; retain only in archive; no saved-item migration"
+        },
+        {
+          "old": 5,
+          "candidate": null,
+          "oldEnglish": "Please pay at the register.",
+          "disposition": "retire from candidate; retain only in archive; no saved-item migration"
+        },
+        {
+          "old": 6,
+          "candidate": null,
+          "oldEnglish": "Can I pay by card?",
+          "disposition": "retire from candidate; retain only in archive; no saved-item migration"
+        },
+        {
+          "old": 7,
+          "candidate": null,
+          "oldEnglish": "Yes, you can pay by card.",
+          "disposition": "retire from candidate; retain only in archive; no saved-item migration"
+        },
+        {
+          "old": 8,
+          "candidate": null,
+          "oldEnglish": "Then I will pay by card.",
+          "disposition": "retire from candidate; retain only in archive; no saved-item migration"
+        },
+        {
+          "old": 9,
+          "candidate": null,
+          "oldEnglish": "Thank you.",
+          "disposition": "retire from candidate; retain only in archive; no saved-item migration"
+        }
+      ],
+      "newCardCandidates": [
+        {
+          "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v1:tip",
+          "ja": "チップ",
+          "literalJapaneseGlossEn": "the tip",
+          "kind": "term"
+        },
+        {
+          "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v1:salt",
+          "ja": "塩",
+          "literalJapaneseGlossEn": "the salt",
+          "kind": "term"
+        },
+        {
+          "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v1:straw",
+          "ja": "ストロー",
+          "literalJapaneseGlossEn": "the straw",
+          "kind": "term"
+        },
+        {
+          "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v1:cream",
+          "ja": "クリーム",
+          "literalJapaneseGlossEn": "the cream",
+          "kind": "term"
+        },
+        {
+          "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v1:ice",
+          "ja": "氷",
+          "literalJapaneseGlossEn": "the ice",
+          "kind": "term"
+        },
+        {
+          "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v1:tip-included-question",
+          "ja": "チップは含まれていますか",
+          "literalJapaneseGlossEn": "Is the tip included?",
+          "kind": "phrase"
+        },
+        {
+          "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v1:keep-change-as-tip",
+          "ja": "おつりはチップとしてどうぞ",
+          "literalJapaneseGlossEn": "Keep the change as a tip.",
+          "kind": "phrase"
+        }
+      ],
+      "newCardsPlacement": "Candidate cards have distinct IDs but no saved positions. The archived 12 cards remain intact; decide any append, replacement or retirement with qualified review and explicit saved-item mapping.",
+      "sourceConflictNote": "The source scene is explicitly in Oaxaca and pays 200 pesos cash, leaving change as a tip; no bill total or tip percentage is stated. The older original card-payment scene remains archived, and its future variation status is undecided. This is a Japanese-language practice dialogue in the source setting, not a claim about ordinary Japanese café payment or tipping. Qualified Japanese, Mexican locale and restaurant review is required.",
+      "speakingGoalCandidate": "In the Oaxaca source scene, ask for water and the bill, pay in cash and explicitly leave the change as a tip; the 200-peso amount is a Reader detail, not a required response.",
+      "learnerContextCandidate": "This practice dialogue follows a café in Oaxaca and uses pesos. If unsure, ask whether a tip is included. Payment and tipping practices vary by place.",
+      "archivedFieldReconciliation": "If promoted, replace or reconcile the old objective, focus, opening, closure, word bank and mode content as one reviewed lesson revision; the source-only speaking goal does not update those fields.",
+      "modeStatus": "Archived mode descriptions are labels, not authored six-mode prompt/answer pairs; no proposed answer is registered.",
+      "readerPositionIndexBase": 1,
+      "identityNote": "The archived Reader has no row IDs. Every source-setting turn has a new candidate ID. Old positions are retired as candidates, not automatically mapped to saved items or scoring targets; no progress migration is authorized.",
+      "audioNote": "Each new exact-text Japanese turn needs fresh audio and its own listening decision if promoted; older recordings do not cover this proposal."
+    }
+  ],
+  "unresolved": [
+    "Qualified Japanese, locale and restaurant review must decide the proposed wording and whether the old Japan-style card-payment scene remains a separate lesson variation.",
+    "Foundation 4's source gloss says natural means freshly squeezed; confirm the intended Japanese quality claim and café response before any learner answer is set.",
+    "Foundation 9's cash, 200-peso and tip lines belong to the Oaxaca source setting; they must not be taught as a universal Japanese café practice.",
+    "The source English anchors are separate from literal Japanese glosses; qualified review must approve text and paired answer semantics, including tea type, cream type and natural/freshly squeezed nuance.",
+    "Stable card and Reader saved-item semantics, dictionary senses, Japanese forms, speaking and six authored activities remain open. The old F9 speaking closure requires an amount confirmation absent from the source dialogue.",
+    "All new exact-text audio needs technical verification and distinct per-clip listening decisions; older audio is not approved for changed text."
+  ]
+}

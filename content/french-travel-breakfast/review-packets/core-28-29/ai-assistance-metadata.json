@@ -1,0 +1,32 @@
+{
+  "status": "AI assistance only; no qualified French, food or locale approval",
+  "calls": [
+    {
+      "role": "candidate authoring",
+      "requestedModel": "haiku",
+      "reportedModel": "claude-sonnet-5-5",
+      "auth": "claude.ai subscription login (API credentials stripped)",
+      "durationMs": 86439,
+      "readScope": "Current Spanish/English Core 28–29 source and archived French candidate",
+      "limitation": "Requested Haiku fell back to Sonnet; optional proposals were independently checked against the pinned source."
+    },
+    {
+      "role": "read-only critique",
+      "requestedModel": "opus",
+      "reportedModel": "claude-opus-5-5",
+      "auth": "claude.ai subscription login (API credentials stripped)",
+      "durationMs": 114588,
+      "readScope": "Pinned source, archived French draft and generated Core 28–29 packets",
+      "limitation": "Claude wrote a plan file outside the repository; no repository file was edited. Findings were independently source-checked."
+    },
+    {
+      "role": "read-only correction pass",
+      "requestedModel": "fable",
+      "reportedModel": "claude-fable-5-2",
+      "auth": "claude.ai subscription login (API credentials stripped)",
+      "durationMs": 101684,
+      "readScope": "Pinned source and revised Core 28–29 packet",
+      "limitation": "Did not open the archived draft or run validate.py; findings were independently checked against both before editing."
+    }
+  ]
+}

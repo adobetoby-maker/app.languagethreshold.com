@@ -1,0 +1,425 @@
+{
+  "lessonKey": "core:29",
+  "pair": {
+    "target": "French",
+    "support": "English"
+  },
+  "source": {
+    "path": "public/lesson-content/es/travel-breakfast.json",
+    "sha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "stage": "core",
+    "number": 29,
+    "passageTitleSpanish": "¿Quién paga el desayuno?",
+    "lessonTitleEnglish": "Settle who pays for the group",
+    "lessonTitlePath": "src/data/travel-zone.ts",
+    "lessonTitleSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8"
+  },
+  "priorDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/french-breakfast/private-runtime-candidate.json",
+    "sha256": "f58bb01321fa2e04ef1bbc802c7a776836c3ea9ac6c51fdbedfaca50fe764f26"
+  },
+  "sourceDriftOverrideSha256": "7c4babea4b9221c07cffabd7ee82de1e86dcf04694c06673db6a8dd0983fc4a7",
+  "overriddenDraftIds": [
+    "core:29:line:1",
+    "core:29:line:2",
+    "core:29:line:3",
+    "core:29:line:4",
+    "core:29:line:6",
+    "core:29:line:7",
+    "core:29:line:8",
+    "core:29:word:14",
+    "core:29:word:7"
+  ],
+  "titleEnglishDraft": "Settle who pays for the group",
+  "objectiveEnglishDraft": "Offer to treat friends, respond when they insist, ask whether tipping is customary, and offer to leave the tip if they pay.",
+  "focusFrenchDraft": "Proposer de payer, accepter une invitation et proposer de laisser le pourboire.",
+  "focusEnglishDraft": "Use c’est pour moi to offer, laissez-moi payer to insist politely, and la prochaine fois for reciprocity.",
+  "cards": [
+    {
+      "id": "core:29:word:1",
+      "sourceSpanish": "desayuno",
+      "supportEnglish": "breakfast",
+      "targetFrenchDraft": "le petit-déjeuner",
+      "kind": "term"
+    },
+    {
+      "id": "core:29:word:2",
+      "sourceSpanish": "cuenta",
+      "supportEnglish": "bill",
+      "targetFrenchDraft": "l’addition",
+      "kind": "term"
+    },
+    {
+      "id": "core:29:word:3",
+      "sourceSpanish": "mesero",
+      "supportEnglish": "waiter",
+      "targetFrenchDraft": "le serveur",
+      "kind": "term"
+    },
+    {
+      "id": "core:29:word:4",
+      "sourceSpanish": "propina",
+      "supportEnglish": "tip",
+      "targetFrenchDraft": "le pourboire",
+      "kind": "term"
+    },
+    {
+      "id": "core:29:word:5",
+      "sourceSpanish": "efectivo",
+      "supportEnglish": "cash",
+      "targetFrenchDraft": "des espèces",
+      "kind": "term"
+    },
+    {
+      "id": "core:29:word:6",
+      "sourceSpanish": "tarjeta",
+      "supportEnglish": "card",
+      "targetFrenchDraft": "la carte bancaire",
+      "kind": "term"
+    },
+    {
+      "id": "core:29:word:7",
+      "sourceSpanish": "pan dulce",
+      "supportEnglish": "sweet bread",
+      "targetFrenchDraft": "le pan dulce",
+      "kind": "term"
+    },
+    {
+      "id": "core:29:word:8",
+      "sourceSpanish": "cambio",
+      "supportEnglish": "change",
+      "targetFrenchDraft": "la monnaie",
+      "kind": "term"
+    },
+    {
+      "id": "core:29:word:9",
+      "sourceSpanish": "caja",
+      "supportEnglish": "cash register",
+      "targetFrenchDraft": "la caisse",
+      "kind": "term"
+    },
+    {
+      "id": "core:29:word:10",
+      "sourceSpanish": "invitado",
+      "supportEnglish": "guest",
+      "targetFrenchDraft": "un invité, une invitée",
+      "kind": "term"
+    },
+    {
+      "id": "core:29:word:11",
+      "sourceSpanish": "Yo invito el desayuno hoy.",
+      "supportEnglish": "Breakfast is on me today.",
+      "targetFrenchDraft": "Aujourd’hui, le petit-déjeuner, c’est pour moi.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:29:word:12",
+      "sourceSpanish": "No, de veras, déjenme pagar.",
+      "supportEnglish": "No, really, let me pay.",
+      "targetFrenchDraft": "Non, vraiment, laissez-moi payer.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:29:word:13",
+      "sourceSpanish": "Bueno, gracias, pero la próxima vez invito yo.",
+      "supportEnglish": "OK, thanks, but next time it's on me.",
+      "targetFrenchDraft": "D’accord, merci, mais la prochaine fois c’est pour moi.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:29:word:14",
+      "sourceSpanish": "Entonces yo dejo la propina.",
+      "supportEnglish": "Then I'll leave the tip.",
+      "targetFrenchDraft": "Alors, c’est moi qui laisse le pourboire.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:29:word:15",
+      "sourceSpanish": "¿Aquí se acostumbra dejar propina?",
+      "supportEnglish": "Is it customary to leave a tip here?",
+      "targetFrenchDraft": "Ici, on laisse habituellement un pourboire ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:29:word:16",
+      "sourceSpanish": "¿Dividimos la cuenta entre todos?",
+      "supportEnglish": "Shall we split the bill among all of us?",
+      "targetFrenchDraft": "On partage l’addition entre nous tous ?",
+      "kind": "phrase"
+    }
+  ],
+  "readerTitleFrenchDraft": "Qui paie le petit-déjeuner ?",
+  "reader": [
+    {
+      "id": "core:29:line:1",
+      "sourceSpanish": "Después de un desayuno con café y pan dulce en Oaxaca, el mesero trae la cuenta a nuestra mesa.",
+      "supportEnglish": "After a breakfast of coffee and sweet bread in Oaxaca, the waiter brings the bill to our table.",
+      "targetFrenchDraft": "Après un petit-déjeuner avec du café et du pan dulce à Oaxaca, le serveur apporte l’addition à notre table."
+    },
+    {
+      "id": "core:29:line:2",
+      "sourceSpanish": "Yo saco mi tarjeta y digo: Yo invito el desayuno hoy, porque ustedes me enseñaron la ciudad.",
+      "supportEnglish": "I take out my card and say: Breakfast is on me today, because you showed me the city.",
+      "targetFrenchDraft": "Je sors ma carte et je dis : « Aujourd’hui, le petit-déjeuner, c’est pour moi, parce que vous m’avez fait visiter la ville. »"
+    },
+    {
+      "id": "core:29:line:3",
+      "sourceSpanish": "Mis nuevos amigos, Lucía y Andrés, insisten: No, aquí tú eres nuestro invitado.",
+      "supportEnglish": "My new friends, Lucía and Andrés, insist: No, here you are our guest.",
+      "targetFrenchDraft": "Mes nouveaux amis, Lucía et Andrés, insistent : « Non, ici, tu es notre invité. »"
+    },
+    {
+      "id": "core:29:line:4",
+      "sourceSpanish": "Les digo: No, de veras, déjenme pagar, pero Andrés ya le da efectivo al mesero.",
+      "supportEnglish": "I tell them: No, really, let me pay, but Andrés is already giving cash to the waiter.",
+      "targetFrenchDraft": "Je leur dis : « Non, vraiment, laissez-moi payer », mais Andrés donne déjà des espèces au serveur."
+    },
+    {
+      "id": "core:29:line:5",
+      "sourceSpanish": "Entonces pregunto: ¿Aquí se acostumbra dejar propina?",
+      "supportEnglish": "So I ask: Is it customary to leave a tip here?",
+      "targetFrenchDraft": "Alors je demande : « Ici, on laisse habituellement un pourboire ? »"
+    },
+    {
+      "id": "core:29:line:6",
+      "sourceSpanish": "Lucía dice que ellos normalmente dejan 10 por ciento si el servicio es bueno.",
+      "supportEnglish": "Lucía says that they usually leave 10 percent if the service is good.",
+      "targetFrenchDraft": "Lucía dit qu’ils laissent d’habitude dix pour cent de pourboire si le service est bon."
+    },
+    {
+      "id": "core:29:line:7",
+      "sourceSpanish": "Les digo: Si ustedes pagan la cuenta, entonces yo dejo la propina, y ellos aceptan.",
+      "supportEnglish": "I tell them: If you pay the bill, then I'll leave the tip, and they agree.",
+      "targetFrenchDraft": "Je leur dis : « Si vous payez l’addition, alors c’est moi qui laisse le pourboire », et ils acceptent."
+    },
+    {
+      "id": "core:29:line:8",
+      "sourceSpanish": "Al final digo: Bueno, gracias, pero la próxima vez invito yo, y todos se ríen.",
+      "supportEnglish": "At the end I say: OK, thanks, but next time it's on me, and everyone laughs.",
+      "targetFrenchDraft": "À la fin, je dis : « D’accord, merci, mais la prochaine fois c’est pour moi », et tout le monde rit."
+    }
+  ],
+  "sourceSpanishVerbs": [
+    {
+      "infinitive": "pagar",
+      "native": "to pay",
+      "forms": {
+        "yo": "pago",
+        "tú": "pagas",
+        "él_ella_usted": "paga",
+        "nosotros": "pagamos",
+        "ellos_ustedes": "pagan"
+      },
+      "example": {
+        "target": "Si ustedes pagan la cuenta, yo dejo la propina.",
+        "native": "If you pay the bill, I'll leave the tip."
+      },
+      "note": "Spelling change in some other tenses (pagué), but the present tense is regular."
+    },
+    {
+      "infinitive": "invitar",
+      "native": "to treat (to pay for someone)",
+      "forms": {
+        "yo": "invito",
+        "tú": "invitas",
+        "él_ella_usted": "invita",
+        "nosotros": "invitamos",
+        "ellos_ustedes": "invitan"
+      },
+      "example": {
+        "target": "La próxima vez invito yo.",
+        "native": "Next time it's on me."
+      }
+    },
+    {
+      "infinitive": "dejar",
+      "native": "to leave, to let",
+      "forms": {
+        "yo": "dejo",
+        "tú": "dejas",
+        "él_ella_usted": "deja",
+        "nosotros": "dejamos",
+        "ellos_ustedes": "dejan"
+      },
+      "example": {
+        "target": "Ellos normalmente dejan 10 por ciento.",
+        "native": "They usually leave 10 percent."
+      },
+      "note": "Déjenme pagar means let me pay (said to several people)."
+    },
+    {
+      "infinitive": "insistir",
+      "native": "to insist",
+      "forms": {
+        "yo": "insisto",
+        "tú": "insistes",
+        "él_ella_usted": "insiste",
+        "nosotros": "insistimos",
+        "ellos_ustedes": "insisten"
+      },
+      "example": {
+        "target": "Mis amigos insisten en pagar el desayuno.",
+        "native": "My friends insist on paying for breakfast."
+      },
+      "note": "Use insistir en + infinitive."
+    },
+    {
+      "infinitive": "dividir",
+      "native": "to split, to divide",
+      "forms": {
+        "yo": "divido",
+        "tú": "divides",
+        "él_ella_usted": "divide",
+        "nosotros": "dividimos",
+        "ellos_ustedes": "dividen"
+      },
+      "example": {
+        "target": "¿Dividimos la cuenta entre todos?",
+        "native": "Shall we split the bill among all of us?"
+      }
+    }
+  ],
+  "speakingDraft": {
+    "openingFrench": "Aujourd’hui, le petit-déjeuner, c’est pour moi. Non, vraiment, laissez-moi payer. Ici, on laisse habituellement un pourboire ? Si vous payez l’addition, alors c’est moi qui laisse le pourboire. D’accord, merci, mais la prochaine fois c’est pour moi.",
+    "instructionEnglish": "Offer to pay, respond when friends insist, ask whether tipping is customary, and say you will leave the tip if they pay the bill. In this Oaxaca scene, Lucía says they usually leave ten percent for good service."
+  },
+  "modeInputIdsDraft": {
+    "see": [
+      "core:29:word:1",
+      "core:29:word:2",
+      "core:29:word:3",
+      "core:29:word:4",
+      "core:29:word:5",
+      "core:29:word:6",
+      "core:29:word:7",
+      "core:29:word:8",
+      "core:29:word:9",
+      "core:29:word:10",
+      "core:29:word:11",
+      "core:29:word:12",
+      "core:29:word:13",
+      "core:29:word:14",
+      "core:29:word:15",
+      "core:29:word:16"
+    ],
+    "recall": [
+      "core:29:word:1",
+      "core:29:word:2",
+      "core:29:word:3",
+      "core:29:word:4",
+      "core:29:word:5",
+      "core:29:word:6",
+      "core:29:word:7",
+      "core:29:word:8",
+      "core:29:word:9",
+      "core:29:word:10",
+      "core:29:word:11",
+      "core:29:word:12",
+      "core:29:word:13",
+      "core:29:word:14",
+      "core:29:word:15",
+      "core:29:word:16"
+    ],
+    "hear": [
+      "core:29:word:1",
+      "core:29:word:2",
+      "core:29:word:3",
+      "core:29:word:4",
+      "core:29:word:5",
+      "core:29:word:6",
+      "core:29:word:7",
+      "core:29:word:8",
+      "core:29:word:9",
+      "core:29:word:10",
+      "core:29:word:11",
+      "core:29:word:12",
+      "core:29:word:13",
+      "core:29:word:14",
+      "core:29:word:15",
+      "core:29:word:16"
+    ],
+    "type": [
+      "core:29:word:1",
+      "core:29:word:2",
+      "core:29:word:3",
+      "core:29:word:4",
+      "core:29:word:5",
+      "core:29:word:6",
+      "core:29:word:7",
+      "core:29:word:8",
+      "core:29:word:9",
+      "core:29:word:10",
+      "core:29:word:11",
+      "core:29:word:12",
+      "core:29:word:13",
+      "core:29:word:14",
+      "core:29:word:15",
+      "core:29:word:16"
+    ],
+    "say": [
+      "core:29:word:1",
+      "core:29:word:2",
+      "core:29:word:3",
+      "core:29:word:4",
+      "core:29:word:5",
+      "core:29:word:6",
+      "core:29:word:7",
+      "core:29:word:8",
+      "core:29:word:9",
+      "core:29:word:10",
+      "core:29:word:11",
+      "core:29:word:12",
+      "core:29:word:13",
+      "core:29:word:14",
+      "core:29:word:15",
+      "core:29:word:16"
+    ],
+    "write": [
+      "core:29:word:1",
+      "core:29:word:2",
+      "core:29:word:3",
+      "core:29:word:4",
+      "core:29:word:5",
+      "core:29:word:6",
+      "core:29:word:7",
+      "core:29:word:8",
+      "core:29:word:9",
+      "core:29:word:10",
+      "core:29:word:11",
+      "core:29:word:12",
+      "core:29:word:13",
+      "core:29:word:14",
+      "core:29:word:15",
+      "core:29:word:16"
+    ]
+  },
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "learnerRegistered": false,
+    "audioRegistered": false,
+    "audioApproved": false,
+    "listeningReviewed": false,
+    "playbackEnabled": false,
+    "scoringEnabled": false,
+    "progressTracking": false,
+    "progressWritesEnabled": false,
+    "offlineRegistered": false,
+    "released": false
+  },
+  "reviewNotes": [
+    "Archived French text is an unapproved candidate; exact Spanish/English source controls meaning.",
+    "Mode ID lists are not six authored prompt/answer activities.",
+    "French verb paradigms, dictionary senses, scoring answers, audio and listening need separate review.",
+    "Core 28–29 source and French meaning drift is corrected only in the listed draft rows and fields; qualified clinical, emergency, food and locale review remains open."
+  ],
+  "overriddenLessonFields": [
+    "focusFrenchDraft",
+    "objectiveEnglishDraft",
+    "readerTitleFrenchDraft",
+    "speakingDraft.instructionEnglish",
+    "speakingDraft.openingFrench",
+    "titleEnglishDraft"
+  ]
+}

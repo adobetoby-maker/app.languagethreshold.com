@@ -3,6 +3,7 @@ import { useState } from "react";
 import { AuthProvider, useAuth } from "@/state/auth-state";
 import { SubscriptionProvider } from "@/state/subscription-state";
 import { AuthButton } from "@/components/auth/AuthButton";
+import { isJuniorOfferPlan } from "@/lib/resource-offer-products";
 import { useOwnerResource } from "@/components/owner/use-owner-resource";
 import {
   RESOURCE_OFFER_TERMS,
@@ -11,6 +12,7 @@ import {
 } from "@/lib/resource-offer";
 export const Route = createFileRoute("/offer")({
   validateSearch: (search: Record<string, unknown>) => ({
+    product: search.product === "junior" ? "junior" : "all",
     resource:
       typeof search.resource === "string" && /^[a-z0-9][a-z0-9-]{0,79}$/.test(search.resource)
         ? search.resource
@@ -41,6 +43,20 @@ const plans: {
   first: string;
   period: string;
 }[] = [
+  {
+    id: "junior-monthly",
+    label: "Junior Linguist monthly",
+    normal: "$9.99",
+    first: "$8.99",
+    period: "month",
+  },
+  {
+    id: "junior-annual",
+    label: "Junior Linguist annual",
+    normal: "$79",
+    first: "$71.10",
+    period: "year",
+  },
   { id: "monthly", label: "Individual monthly", normal: "$19", first: "$17.10", period: "month" },
   { id: "annual", label: "Individual annual", normal: "$149", first: "$134.10", period: "year" },
   {
@@ -54,7 +70,7 @@ const plans: {
 ];
 function StudyOffer() {
   const { user } = useAuth(),
-    { resource } = Route.useSearch();
+    { resource, product } = Route.useSearch();
   const claim = useOwnerResource<ResourceOfferView>("/api/resource-offer");
   const checkout = useOwnerResource("/api/resource-offer-checkout", false);
   const [adult, setAdult] = useState(false),
@@ -76,8 +92,9 @@ function StudyOffer() {
         </p>
         <h1 className="text-3xl font-semibold leading-tight">Keep the practice going.</h1>
         <p className="mt-4 text-base leading-relaxed">
-          Use your printable alongside Language Threshold. Parents and adult learners can claim a
-          personal code for one eligible paid subscription invoice.
+          Use your printable alongside Junior Linguist or Language Threshold. Parents and adult
+          learners can claim one personal offer across the eligible plans. Junior Linguist has its
+          own plan; a Language Threshold subscription is not required.
         </p>
       </section>
       <section className="grid gap-3 rounded-2xl border bg-card p-6">
@@ -180,47 +197,58 @@ function StudyOffer() {
         <section className="grid gap-4">
           <h2 className="text-2xl font-semibold">Choose an eligible plan</h2>
           <p>
-            The normal renewal price remains visible below. Your first eligible regular paid invoice
-            after the seven-day trial receives the one-time 10% discount. Tax, if applicable, is
-            shown in checkout.
+            Junior Linguist, Language Threshold Individual and Family include a seven-day trial
+            through this offer. The first eligible paid invoice receives 10% off once; later
+            renewals are at the normal price. Tax, if applicable, is shown in checkout.
           </p>
+          {product === "junior" && (
+            <Link to="/offer" search={{ resource, product: "all" }} className="underline">
+              Compare all eligible offer plans
+            </Link>
+          )}
           <div className="grid gap-4 sm:grid-cols-2">
-            {plans.map((plan) => (
-              <article key={plan.id} className="grid gap-3 rounded-2xl border bg-card p-5">
-                <h3 className="text-lg font-semibold">{plan.label}</h3>
-                <p>
-                  <strong className="text-2xl">{plan.first}</strong> for the first eligible paid
-                  invoice.
-                </p>
-                <p>
-                  Then {plan.normal} per {plan.period}; renews until canceled.
-                </p>
-                <button
-                  className="rounded-xl bg-primary px-4 py-3 font-semibold text-primary-foreground disabled:opacity-50"
-                  disabled={busy}
-                  onClick={async () => {
-                    const userId = user.id;
-                    try {
-                      const result = await checkout.run<{ url: string }>({ plan: plan.id });
-                      if (!result) return;
-                      if (!/^https:\/\/checkout\.stripe\.com\//.test(result.url))
-                        throw Error("Checkout could not be verified. Please refresh.");
-                      window.location.assign(result.url);
-                    } catch (e) {
-                      setNotice({
-                        userId,
-                        text:
-                          e instanceof Error
-                            ? e.message
-                            : "Checkout could not be confirmed. No purchase was made.",
-                      });
-                    }
-                  }}
-                >
-                  Continue to the seven-day trial
-                </button>
-              </article>
-            ))}
+            {plans
+              .filter((plan) => product !== "junior" || isJuniorOfferPlan(plan.id))
+              .map((plan) => (
+                <article key={plan.id} className="grid gap-3 rounded-2xl border bg-card p-5">
+                  <h3 className="text-lg font-semibold">{plan.label}</h3>
+                  <p>
+                    <strong className="text-2xl">{plan.first}</strong> for the first eligible paid
+                    invoice.
+                  </p>
+                  <p>
+                    Then {plan.normal} per {plan.period}; renews until canceled.
+                  </p>
+                  <p>Seven-day free trial, then paid billing.</p>
+                  {isJuniorOfferPlan(plan.id) && !offer.juniorEnabled && (
+                    <p>The Junior offer is being connected. No checkout will be created yet.</p>
+                  )}
+                  <button
+                    className="rounded-xl bg-primary px-4 py-3 font-semibold text-primary-foreground disabled:opacity-50"
+                    disabled={busy || (isJuniorOfferPlan(plan.id) && !offer.juniorEnabled)}
+                    onClick={async () => {
+                      const userId = user.id;
+                      try {
+                        const result = await checkout.run<{ url: string }>({ plan: plan.id });
+                        if (!result) return;
+                        if (!/^https:\/\/checkout\.stripe\.com\//.test(result.url))
+                          throw Error("Checkout could not be verified. Please refresh.");
+                        window.location.assign(result.url);
+                      } catch (e) {
+                        setNotice({
+                          userId,
+                          text:
+                            e instanceof Error
+                              ? e.message
+                              : "Checkout could not be confirmed. No purchase was made.",
+                        });
+                      }
+                    }}
+                  >
+                    Continue to the seven-day trial
+                  </button>
+                </article>
+              ))}
           </div>
         </section>
       )}
@@ -233,11 +261,13 @@ function StudyOffer() {
           to manage billing. This page does not change an existing subscription.
         </p>
         <p>
-          Looking for the standalone kids-only plan?{" "}
+          Junior Linguist is available independently; no Language Threshold Family purchase is
+          required.{" "}
           <a href="https://juniorlinguist.com/pricing" className="underline">
             See Junior Linguist pricing
           </a>
-          . That separate plan is not included in this offer.
+          . If you already have paid or Family access, contact support to verify it before
+          purchasing again.
         </p>
         <Link to="/pricing" className="underline">
           Compare Language Threshold plans

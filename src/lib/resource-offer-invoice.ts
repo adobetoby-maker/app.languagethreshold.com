@@ -45,6 +45,9 @@ export async function applyResourceOfferInvoice(
     (existing.applied_invoice_id && existing.applied_invoice_id !== eventInvoice.id)
   )
     return { applied: false, reason: "not_an_unused_offer" };
+  const direct = existing.checkout_discount_mode === "checkout";
+  if (direct && eventInvoice.billing_reason !== "subscription_create")
+    return { applied: false, reason: "junior_renewal_at_normal_price" };
   const lease = randomUUID();
   let claim: OfferClaim | undefined;
   try {
@@ -71,11 +74,23 @@ export async function applyResourceOfferInvoice(
       subscription.metadata?.resourceOfferClaimId !== claim.id ||
       ref(subscription.customer) !== claim.stripe_customer_id ||
       ref(session.customer) !== claim.stripe_customer_id ||
-      ref(session.subscription) !== subscription.id ||
-      session.status !== "complete" ||
+      (ref(session.subscription) !== subscription.id &&
+        !(direct && session.status === "open" && !session.subscription)) ||
+      (direct
+        ? !["open", "complete"].includes(session.status || "")
+        : session.status !== "complete") ||
+      session.mode !== "subscription" ||
+      (direct &&
+        (subscription.trial_start ||
+          subscription.trial_end ||
+          claim.checkout_trial_days !== 0 ||
+          claim.checkout_discount_mode !== "checkout" ||
+          subscription.metadata?.resourceOfferAttempt !== claim.checkout_attempt_id ||
+          subscription.metadata?.resourceOfferMode !== "checkout")) ||
       session.client_reference_id !== e.userId ||
       session.metadata?.resourceOfferClaimId !== claim.id ||
       ref(invoice.customer) !== claim.stripe_customer_id ||
+      ref(invoice.parent?.subscription_details?.subscription) !== subscription.id ||
       ref(price.product) !== claim.checkout_product_id ||
       price.currency !== "usd" ||
       price.unit_amount !== claim.checkout_unit_amount
@@ -100,10 +115,14 @@ export async function applyResourceOfferInvoice(
     if (invoice.discounts.length && !ownsDiscount(invoice, claim)) throw hold();
     const service = resourceOfferService({ stripe, repo });
     const promotion = await service.promotion(claim);
+    let discounted = invoice;
     if (!ownsDiscount(invoice, claim)) {
+      // Junior's positive first invoice is already discounted by Checkout. Never
+      // wait for Checkout completion or mutate this invoice to install its code.
+      if (direct) throw hold();
       if (invoice.status !== "draft" || !promotion.active || promotion.times_redeemed > 0)
         throw hold();
-      const updated = await stripe.invoices.update(
+      discounted = await stripe.invoices.update(
         invoice.id,
         {
           discounts: [{ promotion_code: promotion.id }],
@@ -111,16 +130,16 @@ export async function applyResourceOfferInvoice(
         },
         { idempotencyKey: `resource-offer-invoice:${claim.id}:${invoice.id}` },
       );
-      if (
-        !ownsDiscount(updated, claim) ||
-        (updated.total_discount_amounts || []).reduce((n, d) => n + d.amount, 0) !==
-          Math.round(line.amount * 0.1)
-      )
-        throw hold();
     }
+    if (
+      !ownsDiscount(discounted, claim) ||
+      (discounted.total_discount_amounts || []).reduce((n, d) => n + d.amount, 0) !==
+        Math.round(line.amount * 0.1)
+    )
+      throw hold();
     await repo.checkpoint(e.userId, lease, "invoice", { invoice: invoice.id });
-    if (invoice.status === "paid" && invoice.amount_paid > 0)
-      await recordResourceOfferPaid(stripe, repo, invoice);
+    if (discounted.status === "paid" && discounted.amount_paid > 0)
+      await recordResourceOfferPaid(stripe, repo, discounted);
     return { applied: true };
   } catch {
     if (claim) {
@@ -158,6 +177,11 @@ export async function recordResourceOfferPaid(
     !ownsDiscount(current, existing)
   )
     throw hold();
+  if (!existing.applied_invoice_id) {
+    const reconciled = await applyResourceOfferInvoice(stripe, repo, current);
+    if (!reconciled.applied) throw hold();
+    return { recorded: true };
+  }
   const lease = randomUUID();
   await repo.reserve(e.userId, existing.resource_slug, lease, "invoice");
   if (!existing.applied_invoice_id) {

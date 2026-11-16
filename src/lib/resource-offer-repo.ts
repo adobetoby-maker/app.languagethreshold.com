@@ -25,6 +25,21 @@ export function resourceOfferRepo(db: TeamDb): OfferRepo {
       if (r.error) throw new TeamOperationError("Offer storage is unavailable.", 503);
       return r.data ? checked(r.data) : null;
     },
+    async juniorPending(userId) {
+      const r = await db
+        .from("jl_billing_checkouts")
+        .select("id,claim_id,stripe_customer_id,stripe_session_id,price_id,state")
+        .eq("user_id", userId)
+        .in("state", ["pending", "open"])
+        .eq("source", "normal")
+        .limit(2);
+      if (r.error)
+        throw new TeamOperationError(
+          "Junior checkout history is not ready yet. No duplicate checkout was created.",
+          503,
+        );
+      return r.data || [];
+    },
     async profileCustomer(userId) {
       const r = await db.from("profiles").select("data").eq("id", userId).maybeSingle();
       if (r.error) throw new TeamOperationError("Your billing profile could not be checked.", 503);

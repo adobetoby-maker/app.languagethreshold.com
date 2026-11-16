@@ -11,6 +11,7 @@ const { applyResourceOfferInvoice, recordResourceOfferPaid } = await loadModule(
   { external: ["stripe"] },
 );
 const { adultOfferAccount, RESOURCE_OFFER_COUPON } = await loadModule("src/lib/resource-offer.ts");
+const { JUNIOR_OFFER_PRICES } = await loadModule("src/lib/resource-offer-products.ts");
 const { INDIVIDUAL_PRICES } = await loadModule("src/lib/individual-pricing.ts");
 const user = { id: "10000000-0000-4000-8000-000000000001", email: "adult@example.test" };
 const clone = (value) => structuredClone(value);
@@ -20,7 +21,8 @@ function fixture() {
     lease = null,
     profile = null,
     coupon = null,
-    invoice = null;
+    invoice = null,
+    pendingJunior = [];
   const calls = [],
     customers = new Map(),
     promotions = new Map(),
@@ -34,14 +36,33 @@ function fixture() {
       {
         id,
         active: true,
+        livemode: true,
         currency: "usd",
-        product: name.startsWith("family") ? "prod_family" : "prod_individual",
+        product: name.startsWith("family")
+          ? "prod_family"
+          : name === "annual"
+            ? "prod_individualAnnual"
+            : "prod_individual",
         unit_amount: { monthly: 1900, annual: 14900, familyMonthly: 3500, family: 24900 }[name],
-        recurring: { interval: name === "monthly" || name === "familyMonthly" ? "month" : "year" },
+        recurring: {
+          interval: name === "monthly" || name === "familyMonthly" ? "month" : "year",
+          interval_count: 1,
+        },
       },
     ]),
   );
+  for (const p of Object.values(JUNIOR_OFFER_PRICES))
+    prices.set(p.id, {
+      id: p.id,
+      active: true,
+      livemode: true,
+      currency: "usd",
+      product: p.product,
+      unit_amount: p.amount,
+      recurring: { interval: p.interval, interval_count: 1 },
+    });
   const repo = {
+    juniorPending: async () => clone(pendingJunior),
     read: async (id) => (id === user.id ? clone(claim) : null),
     profileCustomer: async () => profile,
     reserve: async (id, resource, nextLease, purpose) => {
@@ -62,11 +83,16 @@ function fixture() {
         checkout_price_id: null,
         checkout_product_id: null,
         checkout_unit_amount: null,
+        checkout_trial_days: null,
+        checkout_discount_mode: null,
         checkout_session_id: null,
         applied_invoice_id: null,
+        normal_family_attempt_id: null,
+        normal_family_attempted_at: null,
+        normal_family_price_id: null,
+        normal_family_checkout_session_id: null,
       };
-      if (claim.state === "redeemed" || (claim.state === "issued" && purpose === "claim"))
-        return clone(claim);
+      if (["redeemed", "issued"].includes(claim.state) && purpose === "claim") return clone(claim);
       if (lease && lease !== nextLease) throw Error("busy");
       lease = nextLease;
       return clone(claim);
@@ -90,6 +116,8 @@ function fixture() {
         claim.checkout_price_id = fields.price;
         claim.checkout_product_id = fields.product;
         claim.checkout_unit_amount = fields.amount;
+        claim.checkout_trial_days = 7;
+        claim.checkout_discount_mode = "deferred";
         claim.checkout_attempt_id ||= "30000000-0000-4000-8000-000000000001";
         claim.checkout_attempted_at ||= new Date(now).toISOString();
       } else if (phase === "checkout") {
@@ -101,8 +129,22 @@ function fixture() {
           claim.checkout_price_id =
           claim.checkout_product_id =
           claim.checkout_unit_amount =
+          claim.checkout_trial_days =
+          claim.checkout_discount_mode =
           claim.checkout_attempt_id =
           claim.checkout_attempted_at =
+            null;
+      } else if (phase === "attempt_family_checkout") {
+        claim.normal_family_attempt_id ||= "40000000-0000-4000-8000-000000000001";
+        claim.normal_family_attempted_at ||= new Date(now).toISOString();
+        claim.normal_family_price_id = fields.price;
+      } else if (phase === "family_checkout") {
+        claim.normal_family_checkout_session_id = fields.session;
+      } else if (phase === "clear_family_checkout") {
+        claim.normal_family_attempt_id =
+          claim.normal_family_attempted_at =
+          claim.normal_family_price_id =
+          claim.normal_family_checkout_session_id =
             null;
       } else if (phase === "invoice") {
         if (claim.applied_invoice_id && claim.applied_invoice_id !== fields.invoice)
@@ -134,6 +176,7 @@ function fixture() {
     return clone(value);
   };
   const stripe = {
+    products: { retrieve: async (id) => ({ id, active: true, livemode: true }) },
     prices: {
       retrieve: async (id) => clone(prices.get(id)),
       list: async () => {
@@ -156,7 +199,7 @@ function fixture() {
       },
       create: async (input, options) =>
         idem("customer", input, options, () => {
-          const value = { id: "cus_resource1", ...input };
+          const value = { id: "cus_resource1", balance: 0, cash_balance: null, ...input };
           customers.set(value.id, value);
           return value;
         }),
@@ -216,7 +259,7 @@ function fixture() {
         create: async (input, options) =>
           idem("checkout", input, options, () => {
             const value = {
-              id: "cs_test_resource1",
+              id: "cs_test_resource" + calls.filter((c) => c[0] === "checkout").length,
               url: "https://checkout.stripe.com/c/pay/resource1",
               status: "open",
               subscription: null,
@@ -262,7 +305,7 @@ function fixture() {
       }),
     },
   };
-  const service = resourceOfferService({ stripe, repo, now: () => now });
+  const service = resourceOfferService({ stripe, repo, now: () => now, juniorEnabled: true });
   return {
     service,
     stripe,
@@ -285,48 +328,73 @@ function fixture() {
     set invoice(v) {
       invoice = v;
     },
+    set pendingJunior(v) {
+      pendingJunior = v;
+    },
     set profile(v) {
       profile = v;
     },
     advance: (ms) => (now += ms),
-    async paidDraft() {
+    async paidDraft(plan = "monthly", direct = false) {
       await service.claim(user);
-      await service.checkout(user, "monthly", "https://app.languagethreshold.com");
+      await service.checkout(user, plan, "https://app.languagethreshold.com");
+      const junior = direct,
+        amount = claim.checkout_unit_amount;
       const session = sessions.get(claim.checkout_session_id);
-      session.status = "complete";
-      session.subscription = "sub_resource";
+      if (direct) {
+        claim.checkout_trial_days = 0;
+        claim.checkout_discount_mode = "checkout";
+        session.metadata.resourceOfferMode = "checkout";
+        session.subscription_data.metadata.resourceOfferMode = "checkout";
+        delete session.subscription_data.trial_period_days;
+      }
+      session.status = junior ? "open" : "complete";
+      session.subscription = junior ? null : "sub_resource";
       subscriptions.set("sub_resource", {
         id: "sub_resource",
         customer: claim.stripe_customer_id,
-        status: "trialing",
-        metadata: { userId: user.id, resourceOfferClaimId: claim.id },
-        items: { data: [{ price: prices.get(INDIVIDUAL_PRICES.monthly) }] },
+        status: junior ? "incomplete" : "active",
+        trial_start: null,
+        trial_end: null,
+        metadata: clone(session.subscription_data.metadata),
+        items: { data: [{ price: prices.get(claim.checkout_price_id) }] },
       });
       invoice = {
         id: "in_resource",
         status: "draft",
-        billing_reason: "subscription_cycle",
-        amount_due: 1900,
+        billing_reason: junior ? "subscription_create" : "subscription_cycle",
+        amount_due: junior ? amount - Math.round(amount * 0.1) : amount,
         amount_paid: 0,
+        amount_remaining: junior ? amount - Math.round(amount * 0.1) : amount,
         currency: "usd",
         customer: claim.stripe_customer_id,
         parent: {
           subscription_details: {
             subscription: "sub_resource",
-            metadata: { userId: user.id, resourceOfferClaimId: claim.id },
+            metadata: clone(session.subscription_data.metadata),
           },
         },
-        discounts: [],
-        total_discount_amounts: [],
+        discounts: junior
+          ? [
+              {
+                id: "di_resource",
+                promotion_code: claim.stripe_promotion_id,
+                source: { type: "coupon", coupon: RESOURCE_OFFER_COUPON },
+              },
+            ]
+          : [],
+        total_discount_amounts: junior
+          ? [{ amount: Math.round(amount * 0.1), discount: "di_resource" }]
+          : [],
         lines: {
           has_more: false,
           data: [
             {
               quantity: 1,
-              amount: 1900,
+              amount,
               currency: "usd",
               discountable: true,
-              pricing: { price_details: { price: INDIVIDUAL_PRICES.monthly } },
+              pricing: { price_details: { price: claim.checkout_price_id } },
               parent: { subscription_item_details: { proration: false } },
             },
           ],
@@ -360,7 +428,15 @@ test("each account gets one customer-bound single-redemption code while the shar
   assert.equal(coupon.percent_off, 10);
   assert.equal(coupon.duration, "once");
   assert.equal(coupon.max_redemptions, undefined);
-  assert.deepEqual(coupon.applies_to.products, ["prod_family", "prod_individual"]);
+  assert.deepEqual(
+    coupon.applies_to.products,
+    [
+      "prod_family",
+      "prod_individual",
+      "prod_individualAnnual",
+      ...Object.values(JUNIOR_OFFER_PRICES).map((p) => p.product),
+    ].sort(),
+  );
   assert.equal(promo.max_redemptions, 1);
   assert.equal(promo.customer, f.claim.stripe_customer_id);
   assert.equal(promo.expires_at, undefined);
@@ -543,4 +619,220 @@ test("claim creation requires the exact enabled invoice webhook and never change
     verifyOfferInvoiceWebhook(f.stripe, "https://app.languagethreshold.com/api/stripe-webhook"),
     /not ready/,
   );
+});
+
+test("Junior public checkout honors the owner-approved seven-day deferred first-positive offer", async () => {
+  const f = fixture();
+  await f.service.claim(user);
+  await f.service.checkout(user, "junior-annual", "https://app.languagethreshold.com");
+  const body = f.calls.find((c) => c[0] === "checkout")[1];
+  assert.equal(body.subscription_data.trial_period_days, 7);
+  assert.equal(body.discounts, undefined);
+  assert.equal(body.line_items[0].price, JUNIOR_OFFER_PRICES["junior-annual"].id);
+  assert.equal(body.subscription_data.metadata.resourceOfferMode, "deferred");
+  assert.equal(f.claim.checkout_trial_days, 7);
+  assert.equal(f.claim.checkout_discount_mode, "deferred");
+  assert.ok(body.success_url.startsWith("https://juniorlinguist.com/"));
+});
+test("a preserved legacy no-trial discounted invoice can finalize while Checkout is open, with no deferred mutation or renewal discount", async () => {
+  const f = fixture(),
+    first = await f.paidDraft("junior-annual", true);
+  assert.equal(f.sessions.get(f.claim.checkout_session_id).status, "open");
+  assert.equal((await applyResourceOfferInvoice(f.stripe, f.repo, first)).applied, true);
+  assert.equal((await applyResourceOfferInvoice(f.stripe, f.repo, first)).applied, true);
+  assert.equal(f.calls.filter((c) => c[0] === "invoice").length, 0);
+  const renewal = {
+    ...first,
+    id: "in_renewal",
+    billing_reason: "subscription_cycle",
+    discounts: [],
+    total_discount_amounts: [],
+    amount_due: 7900,
+  };
+  f.invoice = renewal;
+  assert.equal((await applyResourceOfferInvoice(f.stripe, f.repo, renewal)).applied, false);
+  assert.equal(f.calls.filter((c) => c[0] === "invoice").length, 0);
+});
+test("provider-used but unpaid is reserved; the SAME failed/pending Checkout resumes and only paid proof redeems", async () => {
+  const f = fixture(),
+    first = await f.paidDraft("junior-annual", true);
+  await applyResourceOfferInvoice(f.stripe, f.repo, first);
+  const p = f.promotions.get(f.claim.stripe_promotion_id);
+  p.times_redeemed = 1;
+  p.active = false;
+  const status = await f.service.status(user.id);
+  assert.equal(status.status, "reserved");
+  assert.equal(f.claim.state, "issued");
+  const resume = await f.service.checkout(
+    user,
+    "junior-annual",
+    "https://app.languagethreshold.com",
+  );
+  assert.ok(resume.url);
+  assert.equal(f.calls.filter((c) => c[0] === "checkout").length, 1);
+  f.invoice = { ...first, status: "paid", amount_paid: 7110, amount_remaining: 0 };
+  assert.equal((await recordResourceOfferPaid(f.stripe, f.repo, f.invoice)).recorded, true);
+  assert.equal((await f.service.status(user.id)).status, "redeemed");
+  await assert.rejects(f.service.checkout(user, "monthly", "https://app.languagethreshold.com"));
+  assert.equal(f.calls.filter((c) => c[0] === "promotion").length, 1);
+  assert.equal(f.calls.filter((c) => c[0] === "checkout").length, 1);
+});
+test("Junior paid delivery before invoice.created reconciles the attached discount without a second allowance", async () => {
+  const f = fixture(),
+    first = await f.paidDraft("junior-monthly", true);
+  f.invoice = { ...first, status: "paid", amount_paid: 899, amount_remaining: 0 };
+  assert.equal((await recordResourceOfferPaid(f.stripe, f.repo, f.invoice)).recorded, true);
+  assert.equal(f.claim.state, "redeemed");
+  assert.equal(f.calls.filter((c) => c[0] === "invoice").length, 0);
+  assert.equal(f.calls.filter((c) => c[0] === "promotion").length, 1);
+});
+test("missing direct discount, wrong amount and a surprise Junior trial hold instead of applying another discount", async () => {
+  for (const change of [
+    (f) => {
+      f.invoice.discounts = [];
+    },
+    (f) => {
+      f.invoice.total_discount_amounts[0].amount = 1;
+    },
+    (f) => {
+      f.subscriptions.get("sub_resource").trial_end = 123;
+    },
+  ]) {
+    const f = fixture();
+    await f.paidDraft("junior-annual", true);
+    change(f);
+    await assert.rejects(applyResourceOfferInvoice(f.stripe, f.repo, f.invoice));
+    assert.equal(f.calls.filter((c) => c[0] === "invoice").length, 0);
+  }
+});
+test("deferred credits do not consume the code; provider-used void/unknown receipts hold without replacement", async () => {
+  for (const extra of [
+    { balance: -100 },
+    { invoice_credit_balance: { usd: 100 } },
+    { cash_balance: { available: { usd: 100 } } },
+  ]) {
+    const f = fixture();
+    await f.service.claim(user);
+    Object.assign(f.customers.get(f.claim.stripe_customer_id), extra);
+    await f.service.checkout(user, "junior-annual", "https://app.languagethreshold.com");
+    const body = f.calls.find((c) => c[0] === "checkout")[1];
+    assert.equal(body.discounts, undefined);
+    const first = await f.paidDraft("junior-annual");
+    assert.equal(
+      (await applyResourceOfferInvoice(f.stripe, f.repo, { ...first, amount_due: 0 })).applied,
+      false,
+    );
+    assert.equal(f.promotions.get(f.claim.stripe_promotion_id).times_redeemed, 0);
+  }
+  const f = fixture();
+  const invoice = await f.paidDraft("junior-annual", true);
+  await applyResourceOfferInvoice(f.stripe, f.repo, invoice);
+  f.promotions.get(f.claim.stripe_promotion_id).times_redeemed = 1;
+  f.invoice.status = "void";
+  assert.equal((await f.service.status(user.id)).status, "needs_review");
+  await assert.rejects(
+    f.service.checkout(user, "junior-annual", "https://app.languagethreshold.com"),
+  );
+  assert.equal(f.calls.filter((c) => c[0] === "promotion").length, 1);
+  const g = fixture();
+  await g.paidDraft("junior-annual", true);
+  g.promotions.get(g.claim.stripe_promotion_id).times_redeemed = 1;
+  assert.equal((await g.service.status(user.id)).status, "needs_review");
+  await assert.rejects(
+    g.service.checkout(user, "junior-annual", "https://app.languagethreshold.com"),
+  );
+  assert.equal(g.calls.filter((c) => c[0] === "checkout").length, 1);
+});
+test("cross-app open Junior sessions block both Junior offers and overlapping Family purchases", async () => {
+  for (const plan of ["junior-annual", "family"]) {
+    const f = fixture();
+    await f.service.claim(user);
+    f.pendingJunior = [{ id: "jr_pending", state: "pending", stripe_session_id: null }];
+    await assert.rejects(
+      f.service.checkout(user, plan, "https://app.languagethreshold.com"),
+      /earlier Junior/,
+    );
+    assert.equal(f.calls.filter((c) => c[0] === "checkout").length, 0);
+  }
+  const f = fixture();
+  await f.service.claim(user);
+  f.pendingJunior = [{ id: "jr_pending", state: "open" }];
+  await f.service.checkout(user, "monthly", "https://app.languagethreshold.com");
+  assert.equal(f.calls.filter((c) => c[0] === "checkout").length, 1);
+});
+test("active Family and Junior products require a reviewed upgrade, while Individual plus Junior is distinct", async () => {
+  for (const [plan, product] of [
+    ["junior-annual", "prod_family"],
+    ["family", JUNIOR_OFFER_PRICES["junior-annual"].product],
+  ]) {
+    const f = fixture();
+    await f.service.claim(user);
+    f.subscriptions.set("sub_conflict", {
+      id: "sub_conflict",
+      customer: f.claim.stripe_customer_id,
+      status: "active",
+      items: { data: [{ price: { product } }] },
+    });
+    await assert.rejects(
+      f.service.checkout(user, plan, "https://app.languagethreshold.com"),
+      /active or pending/,
+    );
+    assert.equal(f.calls.filter((c) => c[0] === "checkout").length, 0);
+  }
+  const f = fixture();
+  await f.service.claim(user);
+  f.subscriptions.set("sub_individual", {
+    id: "sub_individual",
+    customer: f.claim.stripe_customer_id,
+    status: "active",
+    items: { data: [{ price: { product: "prod_individual" } }] },
+  });
+  await f.service.checkout(user, "junior-annual", "https://app.languagethreshold.com");
+  assert.equal(f.calls.filter((c) => c[0] === "checkout").length, 1);
+});
+test("ordinary Family checkout journals the canonical customer without minting a coupon, and blocks Junior overlap", async () => {
+  const f = fixture();
+  await f.service.familyCheckout(user, "family");
+  assert.equal(f.calls.filter((c) => c[0] === "promotion" || c[0] === "coupon").length, 0);
+  const body = f.calls.find((c) => c[0] === "checkout")[1];
+  assert.equal(body.customer, f.claim.stripe_customer_id);
+  assert.equal(body.subscription_data.trial_period_days, 7);
+  assert.equal(body.allow_promotion_codes, undefined);
+  await f.service.claim(user);
+  await assert.rejects(
+    f.service.checkout(user, "junior-annual", "https://app.languagethreshold.com"),
+    /Family checkout/,
+  );
+  assert.equal(f.calls.filter((c) => c[0] === "checkout").length, 1);
+  const g = fixture();
+  await g.service.claim(user);
+  g.pendingJunior = [{ id: "jr_pending", state: "open" }];
+  await assert.rejects(g.service.familyCheckout(user, "family"), /Junior checkout/);
+  assert.equal(g.calls.filter((c) => c[0] === "checkout").length, 0);
+});
+
+test("Junior seven-day trial and zero-credit invoice preserve the code for exactly one positive post-trial bill", async () => {
+  const f = fixture(),
+    first = await f.paidDraft("junior-annual");
+  const zero = {
+    ...first,
+    id: "in_trial",
+    billing_reason: "subscription_create",
+    amount_due: 0,
+    amount_paid: 0,
+  };
+  assert.equal((await applyResourceOfferInvoice(f.stripe, f.repo, zero)).applied, false);
+  assert.equal(f.promotions.get(f.claim.stripe_promotion_id).times_redeemed, 0);
+  assert.equal((await applyResourceOfferInvoice(f.stripe, f.repo, first)).applied, true);
+  assert.equal(f.invoice.amount_due, 7110);
+  assert.equal(f.calls.filter((c) => c[0] === "invoice").length, 1);
+  f.invoice = { ...f.invoice, status: "paid", amount_paid: 7110, amount_remaining: 0 };
+  await recordResourceOfferPaid(f.stripe, f.repo, f.invoice);
+  assert.equal(f.claim.state, "redeemed");
+  assert.equal(
+    (await applyResourceOfferInvoice(f.stripe, f.repo, { ...first, id: "in_full_renewal" }))
+      .applied,
+    false,
+  );
+  assert.equal(f.calls.filter((c) => c[0] === "invoice").length, 1);
 });

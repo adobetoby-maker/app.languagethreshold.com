@@ -2,20 +2,28 @@ export const RESOURCE_OFFER_CAMPAIGN = "study-guides-10-v1";
 export const RESOURCE_OFFER_COUPON = "lt_study_guides_10_once_v1";
 export const RESOURCE_OFFER_URL = "https://app.languagethreshold.com/offer";
 export const RESOURCE_OFFER_PERCENT = 10;
-export const RESOURCE_OFFER_PLANS = ["monthly", "annual", "family-monthly", "family"] as const;
+export const RESOURCE_OFFER_PLANS = [
+  "monthly",
+  "annual",
+  "family-monthly",
+  "family",
+  "junior-monthly",
+  "junior-annual",
+] as const;
 export type ResourceOfferPlan = (typeof RESOURCE_OFFER_PLANS)[number];
 export const RESOURCE_OFFER_TERMS = {
   eligiblePlans:
-    "Language Threshold Individual monthly/annual and Family monthly/annual subscriptions.",
+    "Junior Linguist monthly/annual and Language Threshold Individual monthly/annual and Family monthly/annual subscriptions.",
   excludedPlans:
-    "Standalone Junior Linguist, team subscriptions, add-ons and document purchases are not included in this offer.",
+    "Team subscriptions, add-ons and document purchases are not included in this offer.",
   discount: "10% off one eligible regular paid subscription invoice, once per adult account.",
   trial:
-    "Your existing seven-day free trial is unchanged. The discount is applied to the first eligible regular paid invoice after the trial, not to the $0 trial invoice. Later renewals are at the normal plan price.",
+    "Junior Linguist, Language Threshold Individual and Family include a seven-day trial through this secure offer. The discount applies to the first eligible regular paid invoice after the trial, not the $0 trial invoice. Later renewals are at the normal plan price. Existing subscription agreements keep their original terms.",
   privacy: "Claiming an offer does not subscribe you or your children to marketing emails.",
 };
 export type ResourceOfferView = {
   enabled: boolean;
+  juniorEnabled?: boolean;
   status: "not_claimed" | "pending" | "ready" | "reserved" | "redeemed" | "needs_review";
   code?: string;
   notice?: string;

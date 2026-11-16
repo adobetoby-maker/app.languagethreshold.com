@@ -12,7 +12,11 @@ import { ownerStripe } from "@/lib/owner-discounts-server";
 import { ownerServiceFetch } from "@/lib/owner-service-fetch";
 import { adultOfferAccount, RESOURCE_OFFER_PLANS } from "@/lib/resource-offer";
 import { resourceOfferRepo } from "@/lib/resource-offer-repo";
-import { resourceOfferService, verifyOfferInvoiceWebhook } from "@/lib/resource-offer-server";
+import {
+  resourceOfferService,
+  verifyOfferInvoiceWebhook,
+  verifyJuniorOfferWebhook,
+} from "@/lib/resource-offer-server";
 import { consumeServerRequestBudget } from "@/lib/speaking-security";
 const schema = z.object({ plan: z.enum(RESOURCE_OFFER_PLANS) }).strict();
 export const Route = createFileRoute("/api/resource-offer-checkout")({
@@ -48,9 +52,11 @@ export const Route = createFileRoute("/api/resource-offer-checkout")({
             stripe,
             "https://app.languagethreshold.com/api/stripe-webhook",
           );
+          if (p.data.plan.startsWith("junior-")) await verifyJuniorOfferWebhook(stripe);
           const journal = teamAdminClient(ownerServiceFetch(AbortSignal.timeout(120000)));
           const service = resourceOfferService({
             stripe,
+            juniorEnabled: process.env.RESOURCE_OFFER_JUNIOR_ENABLED === "true",
             repo: resourceOfferRepo(journal),
             active: () => request.signal.throwIfAborted(),
           });

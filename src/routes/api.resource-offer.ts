@@ -39,6 +39,7 @@ export const Route = createFileRoute("/api/resource-offer")({
             );
           const service = resourceOfferService({
             stripe: ownerStripe(),
+            juniorEnabled: process.env.RESOURCE_OFFER_JUNIOR_ENABLED === "true",
             repo: resourceOfferRepo(db),
             active: () => request.signal.throwIfAborted(),
           });
@@ -83,6 +84,7 @@ export const Route = createFileRoute("/api/resource-offer")({
           const journal = teamAdminClient(ownerServiceFetch(AbortSignal.timeout(120000)));
           const service = resourceOfferService({
             stripe,
+            juniorEnabled: process.env.RESOURCE_OFFER_JUNIOR_ENABLED === "true",
             repo: resourceOfferRepo(journal),
             active: () => request.signal.throwIfAborted(),
           });

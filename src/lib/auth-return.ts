@@ -35,10 +35,12 @@ export function authReturnPath(value: string): string | null {
     return null;
   const url = new URL(value, "https://auth-return.invalid");
   if (url.pathname === "/offer") {
-    const resource = url.searchParams.get("resource");
-    return resource && /^[a-z0-9][a-z0-9-]{0,79}$/.test(resource)
-      ? "/offer?" + new URLSearchParams({ resource })
-      : "/offer";
+    const resource = url.searchParams.get("resource"),
+      product = url.searchParams.get("product"),
+      params = new URLSearchParams();
+    if (resource && /^[a-z0-9][a-z0-9-]{0,79}$/.test(resource)) params.set("resource", resource);
+    if (product === "junior") params.set("product", "junior");
+    return "/offer" + (params.size ? "?" + params.toString() : "");
   }
   if (url.pathname === "/refer") {
     const code = url.searchParams.get("code");

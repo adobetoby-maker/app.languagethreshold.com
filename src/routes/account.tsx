@@ -22,6 +22,7 @@ import {
 import { AuthProvider, useAuth } from "@/state/auth-state";
 import { SubscriptionProvider, useSubscription } from "@/state/subscription-state";
 import { PwaInstallControl } from "@/components/PwaInstallControl";
+import { WeeklyPracticeChoice } from "@/components/auth/WeeklyPracticeChoice";
 
 export const Route = createFileRoute("/account")({
   component: () => (
@@ -273,6 +274,7 @@ function AccountPage() {
             <h1 className="text-2xl font-bold text-foreground">Account Settings</h1>
           </div>
 
+          <div className="mb-4"><WeeklyPracticeChoice /></div>
           <PwaInstallControl variant="card" />
           <AppVersion />
 

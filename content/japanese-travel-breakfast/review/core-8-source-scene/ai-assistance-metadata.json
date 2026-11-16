@@ -1,0 +1,43 @@
+{
+  "status": "AI-assisted source-only candidate; qualified Japanese, food, locale, source and dictionary review remains open",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Core 8 source-card and Reader candidate authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "d599803a-cf3c-4f75-a7fb-18bdcb7ee852",
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "stopReason": "end_turn",
+      "isError": false,
+      "note": "Compared archived three-person scene against pinned four-person source; candidate wording was independently corrected."
+    },
+    {
+      "role": "Full packet read-only critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "6932bc06-740c-43ab-b427-2060d0f96aaf",
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "stopReason": "end_turn",
+      "isError": false,
+      "note": "Flagged order-agent shifts, stilted request, table narration, tea ambiguity, and food-name glosses."
+    },
+    {
+      "role": "Second-pass correction critique",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "9af44ea5-82c9-4782-a2f4-e9c7470d6bcb",
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "stopReason": "end_turn",
+      "isError": false,
+      "note": "Flagged source verb losses and extra Reader 7 check, then rechecked card/Reader semantics."
+    }
+  ],
+  "selfCheck": [
+    "Pinned current source and archived hashes; independently verified exact Spanish and English card/Reader rows in source order.",
+    "Replaced archived three-person scene with four source family members and restored decaf, no cheese, named foods and check at table.",
+    "Kept narrator order repetition distinct from the card asking staff to repeat it; corrected Reader 5–7 verbs and pronoun after critique.",
+    "Kept unspecified tea and cultural food/register decisions open, with literal Japanese glosses separate from source English.",
+    "Preserved all false gates, unregistered archive, revision-scoped candidate IDs and no saved-item or clip migration; no audio generated."
+  ]
+}

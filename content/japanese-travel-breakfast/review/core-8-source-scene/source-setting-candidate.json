@@ -1,0 +1,586 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:8",
+  "stableLessonId": "travel-breakfast:8:ja-en",
+  "candidateRevision": "travel-breakfast:8:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Order for another person",
+    "objectiveEnglishInternal": "order several drinks and foods accurately and confirm who gets each item",
+    "roleplayEnglishInternal": "Order breakfast for a family or group with different preferences.",
+    "readerTitleSpanish": "Desayuno para toda la familia",
+    "readerVerbExamples": [
+      {
+        "target": "Al final, pido la cuenta.",
+        "native": "At the end, I ask for the check."
+      },
+      {
+        "target": "Mi suegra quiere un café descafeinado.",
+        "native": "My mother-in-law wants a decaf coffee."
+      },
+      {
+        "target": "Mi hijo va a tomar jugo de naranja.",
+        "native": "My son is going to have orange juice."
+      },
+      {
+        "target": "Repito el pedido para confirmar.",
+        "native": "I repeat the order to confirm."
+      },
+      {
+        "target": "Enseguida lo traigo.",
+        "native": "I'll bring it right away."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "Sam orders with two companions at a café and checks the server’s readback.",
+    "cardCount": 13,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "mesero",
+      "sourceEnglish": "waiter",
+      "kind": "term",
+      "sourceNoteInternal": "For a woman, say mesera.",
+      "targetJapaneseDraft": "ウェイター",
+      "literalJapaneseGlossEn": "waiter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "pedido",
+      "sourceEnglish": "order",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "注文",
+      "literalJapaneseGlossEn": "order",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "café con leche",
+      "sourceEnglish": "coffee with milk",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ミルク入りのコーヒー",
+      "literalJapaneseGlossEn": "coffee with milk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "huevos revueltos",
+      "sourceEnglish": "scrambled eggs",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "スクランブルエッグ",
+      "literalJapaneseGlossEn": "scrambled eggs",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "jugo de naranja",
+      "sourceEnglish": "orange juice",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "オレンジジュース",
+      "literalJapaneseGlossEn": "orange juice",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "pan dulce",
+      "sourceEnglish": "sweet roll",
+      "kind": "term",
+      "sourceNoteInternal": "Common in Mexico and the US; pastry is also pan dulce.",
+      "targetJapaneseDraft": "パンドゥルセ",
+      "literalJapaneseGlossEn": "pan dulce (a sweet roll or pastry)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "pan tostado",
+      "sourceEnglish": "toast",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "トースト",
+      "literalJapaneseGlossEn": "toast",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "mantequilla",
+      "sourceEnglish": "butter",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "バター",
+      "literalJapaneseGlossEn": "butter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "descafeinado",
+      "sourceEnglish": "decaf",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "デカフェ",
+      "literalJapaneseGlossEn": "decaf",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "cuenta",
+      "sourceEnglish": "check",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "お会計",
+      "literalJapaneseGlossEn": "the check / bill",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "mesa",
+      "sourceEnglish": "table",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "テーブル",
+      "literalJapaneseGlossEn": "table",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "torta de jamón",
+      "sourceEnglish": "ham sandwich",
+      "kind": "term",
+      "sourceNoteInternal": "A torta is a sandwich on a roll.",
+      "targetJapaneseDraft": "ハムのトルタ",
+      "literalJapaneseGlossEn": "ham torta (a sandwich on a roll)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "Quiero pedir para todos, por favor.",
+      "sourceEnglish": "I want to order for everyone, please.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "全員分の注文をお願いします。",
+      "literalJapaneseGlossEn": "An order for everyone, please.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Es correcto el pedido?",
+      "sourceEnglish": "Is the order correct?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "注文は合っていますか。",
+      "literalJapaneseGlossEn": "Is the order correct?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "Esto es para ella, ¿verdad?",
+      "sourceEnglish": "This is for her, right?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "これは彼女の分ですよね。",
+      "literalJapaneseGlossEn": "This is for her, right?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "Sin queso, por favor.",
+      "sourceEnglish": "Without cheese, please.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Use sin to remove an ingredient.",
+      "targetJapaneseDraft": "チーズ抜きでお願いします。",
+      "literalJapaneseGlossEn": "Without cheese, please.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "¿Puede repetir el pedido, por favor?",
+      "sourceEnglish": "Can you repeat the order, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Puede is the polite usted form.",
+      "targetJapaneseDraft": "注文を復唱していただけますか。",
+      "literalJapaneseGlossEn": "Could you repeat the order, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "La cuenta, por favor.",
+      "sourceEnglish": "The check, please.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "お会計をお願いします。",
+      "literalJapaneseGlossEn": "The check, please.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Estoy en un café con mi esposa, mi hijo y mi suegra.",
+      "sourceEnglish": "I am in a café with my wife, my son, and my mother-in-law.",
+      "targetJapaneseDraft": "私は妻と息子と義母と一緒にカフェにいます。",
+      "literalJapaneseGlossEn": "I am at a café with my wife, son, and mother-in-law.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Primero, le digo al mesero: Quiero pedir para todos, por favor.",
+      "sourceEnglish": "First, I say to the waiter: I want to order for everyone, please.",
+      "targetJapaneseDraft": "まず、ウェイターに「全員分の注文をお願いします」と言います。",
+      "literalJapaneseGlossEn": "First I say to the waiter: An order for everyone, please.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Para mí, un café con leche y unos huevos revueltos.",
+      "sourceEnglish": "For me, a coffee with milk and some scrambled eggs.",
+      "targetJapaneseDraft": "私はミルク入りのコーヒーとスクランブルエッグをお願いします。",
+      "literalJapaneseGlossEn": "For me, coffee with milk and scrambled eggs, please.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Para mi esposa, un té y una torta de jamón, sin queso.",
+      "sourceEnglish": "For my wife, a tea and a ham sandwich, without cheese.",
+      "targetJapaneseDraft": "妻にはお茶とチーズ抜きのハムのトルタをお願いします。",
+      "literalJapaneseGlossEn": "For my wife, tea and a ham torta without cheese, please.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Mi hijo va a tomar jugo de naranja y un pan dulce.",
+      "sourceEnglish": "My son is going to have orange juice and a sweet roll.",
+      "targetJapaneseDraft": "息子はオレンジジュースとパンドゥルセにします。",
+      "literalJapaneseGlossEn": "My son will have orange juice and pan dulce.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Mi suegra quiere un café descafeinado y pan tostado con mantequilla.",
+      "sourceEnglish": "My mother-in-law wants a decaf coffee and toast with butter.",
+      "targetJapaneseDraft": "義母はデカフェのコーヒーとバター付きのトーストを希望しています。",
+      "literalJapaneseGlossEn": "My mother-in-law wants decaf coffee and toast with butter.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Después, repito el pedido: ¿Es correcto? El té es para ella, ¿verdad?",
+      "sourceEnglish": "Then, I repeat the order: Is that correct? The tea is for her, right?",
+      "targetJapaneseDraft": "それから注文を繰り返します。「合っていますか。お茶は彼女の分ですよね」",
+      "literalJapaneseGlossEn": "Then I repeat the order: Is it correct? The tea is for her, right?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "El mesero sonríe y dice: Todo está bien, enseguida lo traigo.",
+      "sourceEnglish": "The waiter smiles and says: Everything is right, I'll bring it right away.",
+      "targetJapaneseDraft": "ウェイターはほほえんで「全部合っています。すぐにお持ちします」と言います。",
+      "literalJapaneseGlossEn": "The waiter smiles and says: Everything is right. I will bring it right away.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:8:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "Al final, pido la cuenta en la mesa.",
+      "sourceEnglish": "At the end, I ask for the check at the table.",
+      "targetJapaneseDraft": "最後に、テーブルでお会計を頼みます。",
+      "literalJapaneseGlossEn": "Finally, I request the check at the table.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Place and confirm an order for four family members with distinct food and drink requests while preserving each person's assignment.",
+  "speakingGoalInternal": "Order breakfast for a family or group with different preferences.",
+  "sourceConflictInternal": "The archived Japanese draft replaces the four-person family scene with Sam and two companions, omits the mother-in-law, substitutes food, and loses the decaf, no-cheese, and check-at-table details. This candidate follows the pinned Spanish/English source instead. The source Reader has the narrator repeat the order; source card 17 separately asks a server to repeat it. Both speech acts are retained rather than treated as interchangeable. The source does not specify the tea type or a city. Pan dulce and torta de jamón remain named foods rather than generic Japanese substitutes. Japanese cafés may use counter payment, but the pinned scene asks for the check at the table.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "for three people",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "each",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "for me",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "for my friend",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "for the child",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "coffee with milk",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "black tea",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "orange juice",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "egg dish",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "toast",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "butter",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "Please check the order",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "Whose portion is this?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Please tell me your order.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "An order for three people, please.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Coffee with milk and an egg dish for me, please.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Tea and toast for my friend, please.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Orange juice and bread for the child, please.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Let me confirm. The coffee with milk and egg dish are for you.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Yes. The tea and toast are for my friend.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "The orange juice and bread are for the child.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Yes, that is correct.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 8,
+      "candidatePosition": 5,
+      "migrationAuthorized": false,
+      "textOnly": true
+    },
+    {
+      "oldPosition": 10,
+      "candidatePosition": 7,
+      "migrationAuthorized": false,
+      "textOnly": true
+    },
+    {
+      "oldPosition": 11,
+      "candidatePosition": 8,
+      "migrationAuthorized": false,
+      "textOnly": true
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 27,
+    "twoVoiceClipDecisionsIfTextApproved": 54,
+    "twoVoiceSubmittedCharactersIfTextApproved": 784,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.02352,
+    "archivedExactJapaneseCardTextOverlapsOnly": 3,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows were not registered and have no explicit stable row IDs. New revision-scoped IDs do not authorize saved-item or audio placement migration. This revision's order is frozen; any insertion or reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Confirm polite ウェイター versus neutral 店員 for the source mesero and target speaking register.",
+    "Confirm that the service request 全員分の注文をお願いします adequately teaches source Quiero pedir para todos; its literal Japanese gloss does not include want.",
+    "Confirm that ミルク入りのコーヒー preserves café con leche without a stronger coffee-style claim.",
+    "Review パンドゥルセ and ハムのトルタ pronunciation and explanatory glosses; neither is a generic Japanese pastry or sliced-bread sandwich.",
+    "Confirm お茶 as an unspecified tea; do not silently make the source tea black or green.",
+    "Confirm デカフェ and the explicit チーズ抜き order, including a distinct food-allergy interpretation only if the source supplies one.",
+    "Check the narrator's order repetition against the separate card asking the server to repeat it.",
+    "Confirm table-side check request and all four family assignments before any audio or learner release."
+  ],
+  "missing": [
+    "qualified Japanese/food/locale review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese grammar/form examples",
+    "contextual dictionary senses",
+    "speaking setup and word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

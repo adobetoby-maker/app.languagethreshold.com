@@ -1,0 +1,11 @@
+# Japanese Breakfast Core 8 source-scene review packet
+
+This inert Japanese→English packet pins 18 source-order cards and nine Reader turns to current Spanish Breakfast Core 8. Run `python3 build.py --check` and `python3 validate.py` here to verify source hashes, exact Spanish and English row order, stable lesson identity, revision-scoped IDs, archived-position disposition, read-only audio scope and false gates.
+
+The archived Japanese lesson changes a four-person family order into Sam with two companions. It omits the mother-in-law, substitutes foods, and loses the decaf, no-cheese and check-at-table details. This candidate restores the narrator, wife, son and mother-in-law; each source order; and the separate source card asking the server to repeat the order. The Reader has the narrator repeat it. Named source foods remain パンドゥルセ and ハムのトルタ with explanatory English glosses. The source specifies neither tea type nor city. Japanese register, tea wording, food naming and table-side payment still need qualified Japanese, food, locale and dictionary review. Internal factual notes are separate from draft teaching faces.
+
+The stable lesson ID remains `travel-breakfast:8:ja-en`. New card and Reader IDs belong only to `source-scene-v1`; the archived rows had no explicit row IDs and were not registered. The new order is frozen within this revision. Each candidate row has `learnerFaceEnabled:false`. No saved-item migration, practice activities, forms, speaking runtime, dictionary mapping, offline pack, web or V4 import is authorized.
+
+The read-only audio scope counts 27 draft Japanese faces: 54 voice-specific clip decisions if the text is approved. It is an estimate, not a synthesis order. Exact text overlap with the old draft does not transfer a clip or listening decision. No audio was created or registered. All review, learner, scoring, audio/listening, offline, progress, owner-route and release gates remain false.
+
+Claude CLI Haiku 5.5 proposed source-grounded wording. Opus 5.5 and Fable 5.2 provided read-only critiques. The final candidate corrects the son and mother-in-law order agents and the narrator's repeat/check wording. See `ai-assistance-metadata.json` for actual CLI metadata and corrections. AI critique and structural validation are not qualified approval.

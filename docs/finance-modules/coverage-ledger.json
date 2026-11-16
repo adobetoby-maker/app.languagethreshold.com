@@ -602,7 +602,7 @@
     "Complete prerecorded HD batch for missing texts and voices",
     "Offline registration and actual device installation checks, if requested",
     "Custom formal assessments and global Verb Games additions, if requested",
-    "Production merge/release; this branch is not production"
+    "Production merge/release remains separate; the preview is verified and the PR is a draft"
   ],
   "previewRegeneration": "node scripts/preview-finance-modules.mjs",
   "validation": {
@@ -641,8 +641,26 @@
     }
   },
   "publication": {
-    "state": "review-draft; preview pending",
+    "state": "verified-preview",
+    "url": "https://language-threshold-j0gceb44f-adobetoby-5572s-projects.vercel.app",
+    "deploymentId": "dpl_5cQVXXVgBi64KZGPCBDnVh6nL8Wd",
+    "deploymentCommit": "cf2b90d58bbf66068904cc327d4b137ebee2d71b",
+    "sourceCodeRevision": "a8f79b759",
+    "verifiedAt": "2026-11-16T01:46:44.090294+00:00",
     "productionReleased": false,
-    "branch": "feat/finance-language-modules-2026-11-15"
+    "pr": "https://github.com/adobetoby-maker/app.languagethreshold.com/pull/630",
+    "checks": {
+      "deploymentState": "READY",
+      "project": "language-threshold-app",
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+      "target": "preview",
+      "rootStatus": 200,
+      "publicCourseFiles": 18,
+      "publicCourseLessons": 360,
+      "allCourseFilesStatus": 200,
+      "reviewedFlags": false
+    },
+    "runtimeLimits": "Remote checks verify the exact Git deployment, app HTML and all 18 public lesson files. Interactive mode/Reader/navigation checks ran locally in Chrome and an iPhone viewport; live AI providers, real microphone recording and Safari were not exercised."
   }
 }

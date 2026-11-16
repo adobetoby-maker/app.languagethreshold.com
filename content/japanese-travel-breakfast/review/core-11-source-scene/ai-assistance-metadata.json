@@ -1,0 +1,39 @@
+{
+  "status": "AI-assisted source-only candidate; qualified Japanese, locale, food, source and dictionary review remains open",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "source-card and Reader candidate authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "0122b66a-33d0-445f-94f3-a37eb0682fe7",
+      "mode": "Claude CLI --safe-mode --model haiku --tools empty --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false
+    },
+    {
+      "role": "independent read-only critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "2a03b04a-9355-477a-b69f-263d70fbde34",
+      "mode": "Claude CLI --safe-mode --model opus --tools empty --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false
+    },
+    {
+      "role": "read-only correction critique",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "46812a6f-2a02-4762-9641-2de6692cf69d",
+      "mode": "Claude CLI --safe-mode --model fable --tools empty --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false
+    }
+  ],
+  "selfCheck": [
+    "Pinned exact current Spanish/English source and archived Japanese draft hashes; verified 17 cards and nine Reader turns in source order, stable lesson identity and distinct revision row IDs.",
+    "Applied source-grounded corrections to greeting, conditional downtown visit, reciprocal farewell and polite repeat request; kept last-night rain, female barista and male nearby customer.",
+    "Archived station-walk invention was not carried forward; old positions and audio do not migrate.",
+    "Independent validator confirms all 26 Japanese draft faces and all review, learner, scoring, audio/listening, offline, progress, owner-route and V4 gates false. AI is not qualified approval."
+  ]
+}

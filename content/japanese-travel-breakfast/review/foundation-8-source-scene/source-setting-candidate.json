@@ -1,0 +1,461 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "foundation",
+  "lessonKey": "foundation:8",
+  "stableLessonId": "foundation-travel-breakfast:8:ja-en",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/foundation-travel-breakfast.json",
+    "curriculumSha256": "94621cca4158b76c69435f35eb1dfdc4893df553afaccb8a1963bdd9e6d80e79",
+    "readerPath": "public/lesson-content/es/foundation-travel-breakfast.json",
+    "readerSha256": "e11886cd3e030534ba8f8b8e92515c528e07c2875f20a58034faed2bc3d0f78a",
+    "objectiveEnglish": "Say what you don't eat, say you are not ready yet, and ask for more, less or another.",
+    "readerTitleSpanish": "Desayuno sin carne en Oaxaca"
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/foundation-1-10-draft.json",
+    "sha256": "2c4f1ba884691e7c0b0d550304e4acced537b32fa91c00fdf1fd943e6ce3c390",
+    "scene": "Sam asks for a moment and adjusts a drink order at a café.",
+    "cardCount": 12,
+    "readerCount": 9
+  },
+  "priorPeanutProposal": {
+    "path": "content/japanese-travel-breakfast/review/foundation-2-8/source-correction-proposals.json",
+    "sha256": "88e0946c9df43444cb6f8389d482875af3ddd41c2e43cc8d1594172e6011fe1d",
+    "status": "superseded as a full-scene candidate; original proposal remains in the archive"
+  },
+  "status": "source-only Japanese-language practice candidate in the Oaxaca source setting; unapproved",
+  "sourceReviewStatus": "Spanish source is reviewed:false; used as parity baseline, not qualified approval",
+  "sourceCards": [
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1:meat",
+      "candidateCardRevision": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1",
+      "candidatePosition": 1,
+      "sourceSpanish": "la carne",
+      "sourceEnglish": "the meat",
+      "targetJapaneseDraft": "肉",
+      "kind": "term",
+      "sourceNote": null
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1:nuts",
+      "candidateCardRevision": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1",
+      "candidatePosition": 2,
+      "sourceSpanish": "las nueces",
+      "sourceEnglish": "the nuts",
+      "targetJapaneseDraft": "ナッツ類",
+      "kind": "term",
+      "sourceNote": null
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1:peanut",
+      "candidateCardRevision": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1",
+      "candidatePosition": 3,
+      "sourceSpanish": "el cacahuate",
+      "sourceEnglish": "the peanut",
+      "targetJapaneseDraft": "ピーナッツ",
+      "kind": "term",
+      "sourceNote": "Mexican word; in other countries it is el maní."
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1:dairy-products",
+      "candidateCardRevision": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1",
+      "candidatePosition": 4,
+      "sourceSpanish": "los lácteos",
+      "sourceEnglish": "the dairy products",
+      "targetJapaneseDraft": "乳製品",
+      "kind": "term",
+      "sourceNote": null
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1:gluten",
+      "candidateCardRevision": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1",
+      "candidatePosition": 5,
+      "sourceSpanish": "el gluten",
+      "sourceEnglish": "the gluten",
+      "targetJapaneseDraft": "グルテン",
+      "kind": "term",
+      "sourceNote": null
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1:lactose-free-milk",
+      "candidateCardRevision": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1",
+      "candidatePosition": 6,
+      "sourceSpanish": "la leche deslactosada",
+      "sourceEnglish": "the lactose-free milk",
+      "targetJapaneseDraft": "ラクトースフリーの牛乳",
+      "kind": "term",
+      "sourceNote": null
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1:nobody",
+      "candidateCardRevision": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1",
+      "candidatePosition": 7,
+      "sourceSpanish": "nadie",
+      "sourceEnglish": "nobody",
+      "targetJapaneseDraft": "誰も…ない",
+      "kind": "term",
+      "sourceNote": null
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1:not-yet",
+      "candidateCardRevision": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1",
+      "candidatePosition": 8,
+      "sourceSpanish": "todavía no",
+      "sourceEnglish": "not yet",
+      "targetJapaneseDraft": "まだ…ない",
+      "kind": "term",
+      "sourceNote": null
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1:another",
+      "candidateCardRevision": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1",
+      "candidatePosition": 9,
+      "sourceSpanish": "otro",
+      "sourceEnglish": "another",
+      "targetJapaneseDraft": "もう一杯",
+      "kind": "term",
+      "sourceNote": "Never say un otro: just otro café, otra taza."
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1:more",
+      "candidateCardRevision": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1",
+      "candidatePosition": 10,
+      "sourceSpanish": "más",
+      "sourceEnglish": "more",
+      "targetJapaneseDraft": "もっと",
+      "kind": "term",
+      "sourceNote": null
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1:less",
+      "candidateCardRevision": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1",
+      "candidatePosition": 11,
+      "sourceSpanish": "menos",
+      "sourceEnglish": "less",
+      "targetJapaneseDraft": "少なめ",
+      "kind": "term",
+      "sourceNote": null
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1:do-not-eat-meat",
+      "candidateCardRevision": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1",
+      "candidatePosition": 12,
+      "sourceSpanish": "No como carne.",
+      "sourceEnglish": "I don't eat meat.",
+      "targetJapaneseDraft": "肉は食べません。",
+      "kind": "phrase",
+      "sourceNote": null
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1:never-peanuts-allergic",
+      "candidateCardRevision": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1",
+      "candidatePosition": 13,
+      "sourceSpanish": "Nunca como cacahuate, soy alérgico.",
+      "sourceEnglish": "I never eat peanuts, I'm allergic.",
+      "targetJapaneseDraft": "ピーナッツは絶対に食べません。アレルギーがあります。",
+      "kind": "phrase",
+      "sourceNote": "A woman says alérgica."
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1:not-ready-yet",
+      "candidateCardRevision": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1",
+      "candidatePosition": 14,
+      "sourceSpanish": "Todavía no estamos listos.",
+      "sourceEnglish": "We're not ready yet.",
+      "targetJapaneseDraft": "まだ注文が決まっていません。",
+      "kind": "phrase",
+      "sourceNote": null
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1:another-coffee",
+      "candidateCardRevision": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1",
+      "candidatePosition": 15,
+      "sourceSpanish": "Otro café, por favor.",
+      "sourceEnglish": "Another coffee, please.",
+      "targetJapaneseDraft": "コーヒーをもう一杯お願いします。",
+      "kind": "phrase",
+      "sourceNote": null
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1:more-milk-less-sugar",
+      "candidateCardRevision": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1",
+      "candidatePosition": 16,
+      "sourceSpanish": "Más leche y menos azúcar, por favor.",
+      "sourceEnglish": "More milk and less sugar, please.",
+      "targetJapaneseDraft": "牛乳を多めに、砂糖は少なめでお願いします。",
+      "kind": "phrase",
+      "sourceNote": null
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1:nothing-else-thanks",
+      "candidateCardRevision": "foundation-travel-breakfast:8:ja-en:card:source-scene-v1",
+      "candidatePosition": 17,
+      "sourceSpanish": "No quiero nada más, gracias.",
+      "sourceEnglish": "I don't want anything else, thanks.",
+      "targetJapaneseDraft": "ほかには何もいりません。ありがとうございます。",
+      "kind": "phrase",
+      "sourceNote": "Spanish uses a double negative: no... nada."
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:reader:source-scene-v1:oaxaca-breakfast",
+      "candidateReaderRevision": "foundation-travel-breakfast:8:ja-en:reader:source-scene-v1",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Emma y Tom desayunan en un café de Oaxaca.",
+      "sourceEnglish": "Emma and Tom are having breakfast at a café in Oaxaca.",
+      "targetJapaneseDraft": "エマとトムは、オアハカのカフェで朝食をとっています。",
+      "literalJapaneseGlossEn": "Emma and Tom are having breakfast at a café in Oaxaca.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:reader:source-scene-v1:ask-ready",
+      "candidateReaderRevision": "foundation-travel-breakfast:8:ja-en:reader:source-scene-v1",
+      "candidatePosition": 2,
+      "speaker": "Luis",
+      "sourceSpanish": "El mesero Luis pregunta: ¿Ya están listos?",
+      "sourceEnglish": "The server Luis asks: Are you ready?",
+      "targetJapaneseDraft": "店員のルイスが尋ねます。「ご注文はお決まりですか。」",
+      "literalJapaneseGlossEn": "Staff member Luis asks: Have you decided on your order?",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:reader:source-scene-v1:not-ready",
+      "candidateReaderRevision": "foundation-travel-breakfast:8:ja-en:reader:source-scene-v1",
+      "candidatePosition": 3,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: Todavía no estamos listos.",
+      "sourceEnglish": "Emma: We're not ready yet.",
+      "targetJapaneseDraft": "まだ決まっていません。",
+      "literalJapaneseGlossEn": "We have not decided yet.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:reader:source-scene-v1:meat-and-dairy",
+      "candidateReaderRevision": "foundation-travel-breakfast:8:ja-en:reader:source-scene-v1",
+      "candidatePosition": 4,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: No como carne y Tom no come lácteos.",
+      "sourceEnglish": "Emma: I don't eat meat and Tom doesn't eat dairy products.",
+      "targetJapaneseDraft": "私は肉を食べません。トムは乳製品を食べません。",
+      "literalJapaneseGlossEn": "I don't eat meat. Tom does not eat dairy products.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:reader:source-scene-v1:peanut-allergy",
+      "candidateReaderRevision": "foundation-travel-breakfast:8:ja-en:reader:source-scene-v1",
+      "candidatePosition": 5,
+      "speaker": "Tom",
+      "sourceSpanish": "Tom: Nunca como cacahuate, soy alérgico.",
+      "sourceEnglish": "Tom: I never eat peanuts, I'm allergic.",
+      "targetJapaneseDraft": "ピーナッツは絶対に食べません。アレルギーがあります。",
+      "literalJapaneseGlossEn": "I never eat peanuts. I have an allergy.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:reader:source-scene-v1:ask-kitchen",
+      "candidateReaderRevision": "foundation-travel-breakfast:8:ja-en:reader:source-scene-v1",
+      "candidatePosition": 6,
+      "speaker": "Luis",
+      "sourceSpanish": "Luis: Voy a preguntar en la cocina si usan nueces o cacahuate.",
+      "sourceEnglish": "Luis: I'm going to ask the kitchen if they use nuts or peanuts.",
+      "targetJapaneseDraft": "厨房でナッツ類やピーナッツを使っているか確認します。",
+      "literalJapaneseGlossEn": "I will check whether the kitchen uses nuts or peanuts.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:reader:source-scene-v1:chilaquiles",
+      "candidateReaderRevision": "foundation-travel-breakfast:8:ja-en:reader:source-scene-v1",
+      "candidatePosition": 7,
+      "speaker": "Luis",
+      "sourceSpanish": "Luis: Los chilaquiles verdes sin crema ni queso no tienen carne ni lácteos.",
+      "sourceEnglish": "Luis: The green chilaquiles without cream or cheese have no meat or dairy.",
+      "targetJapaneseDraft": "クリームもチーズも入っていない緑のチラキレスには、肉も乳製品も入っていません。",
+      "literalJapaneseGlossEn": "The green chilaquiles without cream or cheese contain neither meat nor dairy products.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:reader:source-scene-v1:corn-tortillas",
+      "candidateReaderRevision": "foundation-travel-breakfast:8:ja-en:reader:source-scene-v1",
+      "candidatePosition": 8,
+      "speaker": "Luis",
+      "sourceSpanish": "Luis: Las tortillas de maíz no tienen gluten.",
+      "sourceEnglish": "Luis: The corn tortillas don't have gluten.",
+      "targetJapaneseDraft": "トウモロコシのトルティーヤにはグルテンが入っていません。",
+      "literalJapaneseGlossEn": "The corn tortillas do not contain gluten.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:8:ja-en:reader:source-scene-v1:another-coffee",
+      "candidateReaderRevision": "foundation-travel-breakfast:8:ja-en:reader:source-scene-v1",
+      "candidatePosition": 9,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: Otro café con más leche deslactosada y menos azúcar, por favor.",
+      "sourceEnglish": "Emma: Another coffee with more lactose-free milk and less sugar, please.",
+      "targetJapaneseDraft": "コーヒーをもう一杯。ラクトースフリーの牛乳を多めに、砂糖は少なめでお願いします。",
+      "literalJapaneseGlossEn": "Another coffee, with more lactose-free milk and less sugar, please.",
+      "sourceEnglishIsJapaneseGloss": false
+    }
+  ],
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "not yet",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "have not decided",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "meat",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "do not eat",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "another cup",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "sugar",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "less; a small amount",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "milk",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "nuts",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "allergy",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "ingredients",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "please check",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Have you decided what to order?",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "I have not decided yet. Please wait a moment.",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Certainly.",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "I do not eat meat. Do you have a dish without meat?",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "I will check. Please wait a moment.",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Thank you. Another coffee, please.",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Less sugar, please.",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Yes, less sugar.",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Yes, that is right.",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    }
+  ],
+  "savedPositionPolicy": "The archived cards and Reader have no row IDs; all source-setting candidates use revision-scoped IDs. No shipped saved positions are known because the archived draft was unregistered. Do not map old positions to new IDs or scoring targets without reviewed semantic migration or tombstones.",
+  "speakingGoalCandidate": "In the Oaxaca source scene, say the group is not ready; keep Emma's meat avoidance, Tom's dairy avoidance and Tom's peanut allergy distinct; request more lactose-free milk and less sugar in another coffee.",
+  "learnerContextCandidate": "This Japanese-language practice dialogue follows a café in Oaxaca. Luis says he will ask the kitchen whether it uses nuts or peanuts.",
+  "archivedFieldReconciliation": "If promoted, reconcile objective, focus, scene, speaking, word bank and six authored mode prompt/answer pairs as one reviewed lesson revision; this packet changes no runtime field.",
+  "modeStatus": "Archived six-mode descriptions are labels, not authored prompt/answer pairs; no answer is registered.",
+  "audioNote": "All new exact-text Japanese card and Reader strings need scoped audio, technical checks and distinct per-clip listening decisions if promoted; older recordings do not cover this revision.",
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false
+  },
+  "reviewQuestions": [
+    "Qualified Japanese, Oaxaca/Mexican locale, food and allergy terminology review must decide the proposed wording and source-scene switch.",
+    "The source separates Tom's dairy avoidance from his peanut allergy; neither implies the other, and Emma's lactose-free milk request is her own.",
+    "The source states ingredient/gluten properties for specific foods, but the packet does not claim cross-contact safety or give medical advice.",
+    "Card 'another' uses the contextual drink counter もう一杯; a general standalone Japanese dictionary sense needs separate review.",
+    "The old Japan-oriented Sam scene and partial peanut addition remain archived; decide whether either survives as a separately identified locale variant.",
+    "No saved-item, scoring, progress, audio, offline, owner or V4 identity was changed."
+  ]
+}

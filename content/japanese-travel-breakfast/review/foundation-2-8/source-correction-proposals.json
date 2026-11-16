@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "foundation",
+  "sourceCurriculumSha256": "94621cca4158b76c69435f35eb1dfdc4893df553afaccb8a1963bdd9e6d80e79",
+  "sourceReaderSha256": "e11886cd3e030534ba8f8b8e92515c528e07c2875f20a58034faed2bc3d0f78a",
+  "archivedDraftSha256": "2c4f1ba884691e7c0b0d550304e4acced537b32fa91c00fdf1fd943e6ce3c390",
+  "status": "source-only correction proposals; no runtime import or progress migration",
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false
+  },
+  "proposals": [
+    {
+      "lessonKey": "foundation:2",
+      "stableLessonId": "foundation-travel-breakfast:2:ja-en",
+      "sourceObjective": "Use numbers, prices in pesos, clock times and café quantities to order and check a total.",
+      "sourceReaderAnchor": {
+        "position": 2,
+        "english": "Emma looks at the time: It's half past 8."
+      },
+      "existingCardAnchor": {
+        "position": 11,
+        "ja": "八時半",
+        "en": "half past eight",
+        "kind": "term"
+      },
+      "readerPositionIndexBase": 1,
+      "readerAdditionBeforeOldPosition": 1,
+      "newReaderCandidate": {
+        "id": "foundation-travel-breakfast:2:reader:clock-time-v1",
+        "speaker": "Narrator",
+        "ja": "サムは時計を見ます。今、八時半です。",
+        "en": "Sam looks at the clock. It is half past eight now."
+      },
+      "speakingGoalAddition": "Use the half-past-eight clock cue in the scene, then order and confirm the stated total.",
+      "legacyReaderPositionPlan": [
+        {
+          "old": 1,
+          "candidate": 2
+        },
+        {
+          "old": 2,
+          "candidate": 3
+        },
+        {
+          "old": 3,
+          "candidate": 4
+        },
+        {
+          "old": 4,
+          "candidate": 5
+        },
+        {
+          "old": 5,
+          "candidate": 6
+        },
+        {
+          "old": 6,
+          "candidate": 7
+        },
+        {
+          "old": 7,
+          "candidate": 8
+        },
+        {
+          "old": 8,
+          "candidate": 9
+        },
+        {
+          "old": 9,
+          "candidate": 10
+        }
+      ],
+      "identityNote": "Old Reader positions have no explicit row IDs. The new scene-setting turn has position 1 and a new ID; the listed old-to-candidate positions are a review plan, not an authorized progress migration. The archived course was unregistered, so no shipped saved positions are known.",
+      "audioNote": "A new exact-text turn needs new audio and a distinct listening decision."
+    },
+    {
+      "lessonKey": "foundation:8",
+      "stableLessonId": "foundation-travel-breakfast:8:ja-en",
+      "sourceObjective": "Say what you don't eat, say you are not ready yet, and ask for more, less or another.",
+      "sourceReaderAnchors": [
+        {
+          "position": 5,
+          "english": "Tom: I never eat peanuts, I'm allergic."
+        },
+        {
+          "position": 6,
+          "english": "Luis: I'm going to ask the kitchen if they use nuts or peanuts."
+        }
+      ],
+      "existingReaderAnchors": [
+        {
+          "position": 4,
+          "speaker": "Sam",
+          "ja": "肉は食べません。肉を使わない料理はありますか。",
+          "en": "I do not eat meat. Do you have a dish without meat?"
+        },
+        {
+          "position": 5,
+          "speaker": "Staff",
+          "ja": "確認します。少々お待ちください。",
+          "en": "I will check. Please wait a moment."
+        }
+      ],
+      "newCardCandidates": [
+        {
+          "id": "foundation-travel-breakfast:8:card:peanuts-v1",
+          "ja": "ピーナッツ",
+          "en": "peanuts",
+          "kind": "term"
+        },
+        {
+          "id": "foundation-travel-breakfast:8:card:peanut-allergy-v1",
+          "ja": "ピーナッツアレルギーがあります",
+          "en": "I have a peanut allergy",
+          "kind": "phrase"
+        },
+        {
+          "id": "foundation-travel-breakfast:8:card:cannot-eat-peanuts-v1",
+          "ja": "ピーナッツは絶対に食べられません",
+          "en": "I cannot eat peanuts at all",
+          "kind": "phrase"
+        }
+      ],
+      "newCardsPlacement": "Append after all 12 old cards; retain old positions 1–12.",
+      "sceneAddition": "Sam's companion states the peanut allergy; Sam's meat avoidance stays a separate statement.",
+      "readerPositionIndexBase": 1,
+      "readerAdditionAfterOldPosition": 4,
+      "newReaderCandidate": {
+        "id": "foundation-travel-breakfast:8:reader:peanut-allergy-v1",
+        "speaker": "Companion",
+        "ja": "ピーナッツは絶対に食べられません。ピーナッツアレルギーがあります。",
+        "en": "I cannot eat peanuts at all. I have a peanut allergy."
+      },
+      "existingReaderPosition5ReplacementCandidate": {
+        "id": "foundation-travel-breakfast:8:reader:kitchen-check-v1",
+        "speaker": "Staff",
+        "ja": "ピーナッツやナッツ類を使っているか、調理場に確認します。少々お待ちください。",
+        "en": "I will check with the kitchen whether they use nuts or peanuts. Please wait a moment."
+      },
+      "speakingGoalAddition": "State the companion's peanut allergy separately from Sam's meat avoidance, and ask staff to check with the kitchen whether nuts or peanuts are used.",
+      "legacyReaderPositionPlan": [
+        {
+          "old": 1,
+          "candidate": 1,
+          "disposition": "preserve meaning at mapped position"
+        },
+        {
+          "old": 2,
+          "candidate": 2,
+          "disposition": "preserve meaning at mapped position"
+        },
+        {
+          "old": 3,
+          "candidate": 3,
+          "disposition": "preserve meaning at mapped position"
+        },
+        {
+          "old": 4,
+          "candidate": 4,
+          "disposition": "preserve meaning at mapped position"
+        },
+        {
+          "old": 5,
+          "candidate": null,
+          "disposition": "retire old generic check; new specific staff turn at candidate position 6"
+        },
+        {
+          "old": 6,
+          "candidate": 7,
+          "disposition": "preserve meaning at mapped position"
+        },
+        {
+          "old": 7,
+          "candidate": 8,
+          "disposition": "preserve meaning at mapped position"
+        },
+        {
+          "old": 8,
+          "candidate": 9,
+          "disposition": "preserve meaning at mapped position"
+        },
+        {
+          "old": 9,
+          "candidate": 10,
+          "disposition": "preserve meaning at mapped position"
+        }
+      ],
+      "identityNote": "The allergy turn is candidate position 5 with a new ID. Retire generic old turn 5 rather than treating its specific replacement as the same saved item; the new kitchen-check turn is candidate position 6 with a new ID. The listed old-to-candidate positions are a review plan, not an authorized progress migration. The archived course was unregistered, so no shipped saved positions are known.",
+      "audioNote": "The added turn and changed staff turn need exact-text audio and distinct listening decisions."
+    }
+  ],
+  "unresolved": [
+    "Qualified Japanese, food and allergy terminology review is required; dietary preference must stay distinct from allergy.",
+    "The Spanish source names Tom as the allergic diner. The older Japanese scene names only Sam; qualified review must approve the added companion and scene continuity.",
+    "Foundation 8's source also states that Tom does not eat dairy; the old Japanese scene omits that separate statement.",
+    "Foundation 4 fresh versus freshly squeezed juice and Foundation 9 payment/tip locale choices need separate review.",
+    "The archived draft supplies prose mode labels, not six authored prompt/answer activities; dictionary, forms, speaking and saved-item mapping remain open.",
+    "The original meat-free dish question has no confirmed food answer in this short scene; the kitchen-check reply is not a claim of allergen safety."
+  ]
+}

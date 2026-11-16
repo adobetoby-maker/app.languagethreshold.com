@@ -1,6 +1,6 @@
 {
   "date": "2026-11-15",
-  "sourceRevision": "42d440204c8396e965e4dae099eb99129535dd2c",
+  "sourceRevision": "a8f79b759a541a13940347511e3fe4b73a9491c6",
   "scope": "Three full bidirectional authored courses, integrated as drafts in the app branch. Model review and Codex review are separate from qualified human review and production release.",
   "tracks": [
     {
@@ -608,11 +608,11 @@
   "validation": {
     "sourceContent": "360 lessons validated with the real stage-specific content validator",
     "integration": "Six exact-pair tests exhaustively check all 360 lessons, Reader seeds, vocabulary, decks, speaking and unsupported-pair gates",
-    "nodeSuite": "3,010 tests passed; final navigation placement change is undergoing browser regression",
-    "browser": "72 lesson-mode/Reader cases passed; four navigation/retry cases passed after correcting a cold-course URL reset; final regression in progress",
+    "nodeSuite": "3,010 tests passed",
+    "browser": "72 complete first/last lesson cases passed across desktop/iPhone; after correcting the two cold-navigation failures, 40 additional first-lesson/navigation/retry checks passed on the final code",
     "typecheck": "passed",
     "lint": "0 errors; two existing speech-state fast-refresh warnings",
-    "productionBuild": "final build in progress"
+    "productionBuild": "passed; Vercel adapter artifact verified"
   },
   "authoredLessons": 360,
   "modelTeam": {
@@ -641,6 +641,8 @@
     }
   },
   "publication": {
-    "state": "branch-draft-not-production"
+    "state": "review-draft; preview pending",
+    "productionReleased": false,
+    "branch": "feat/finance-language-modules-2026-11-15"
   }
 }

@@ -1,0 +1,534 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:3",
+  "stableLessonId": "travel-breakfast:3:ja-en",
+  "candidateRevision": "travel-breakfast:3:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "objectiveEnglish": "ask what is fresh, filled, sweet, savory, or typical",
+    "roleplayEnglish": "Ask the server to explain three pastries and recommend one made that morning.",
+    "readerTitleSpanish": "Pan dulce en la panadería"
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "At a bakery café, Sam asks about three pastries without inventing what they contain.",
+    "cardCount": 14,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "panadería",
+      "sourceEnglish": "bakery",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "パン屋",
+      "literalJapaneseGlossEn": "bread shop",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "mostrador",
+      "sourceEnglish": "counter",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カウンター",
+      "literalJapaneseGlossEn": "counter",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "pan dulce",
+      "sourceEnglish": "sweet bread",
+      "kind": "term",
+      "sourceNoteInternal": "Common Mexican term for sweet pastries in general.",
+      "targetJapaneseDraft": "パン・ドゥルセ",
+      "literalJapaneseGlossEn": "pan dulce (Mexican sweet bread)",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "pastel",
+      "sourceEnglish": "pastry",
+      "kind": "term",
+      "sourceNoteInternal": "Can also mean cake, depending on the country.",
+      "targetJapaneseDraft": "ペストリー",
+      "literalJapaneseGlossEn": "pastry",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "bolillo",
+      "sourceEnglish": "bolillo (crusty white roll)",
+      "kind": "term",
+      "sourceNoteInternal": "Common in Mexico.",
+      "targetJapaneseDraft": "ボリージョ",
+      "literalJapaneseGlossEn": "bolillo (crusty white roll)",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "concha",
+      "sourceEnglish": "concha (sweet shell-shaped bread)",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "コンチャ",
+      "literalJapaneseGlossEn": "concha (sweet shell-shaped bread)",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "empanada",
+      "sourceEnglish": "empanada (filled pastry)",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "エンパナーダ",
+      "literalJapaneseGlossEn": "empanada (filled pastry)",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "queso",
+      "sourceEnglish": "cheese",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "チーズ",
+      "literalJapaneseGlossEn": "cheese",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "relleno",
+      "sourceEnglish": "filling",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "中身",
+      "literalJapaneseGlossEn": "contents or filling",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "horno",
+      "sourceEnglish": "oven",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "オーブン",
+      "literalJapaneseGlossEn": "oven",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "croissant",
+      "sourceEnglish": "croissant",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "クロワッサン",
+      "literalJapaneseGlossEn": "croissant",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "mermelada",
+      "sourceEnglish": "jam",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ジャム",
+      "literalJapaneseGlossEn": "jam",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "¿Qué está fresco hoy?",
+      "sourceEnglish": "What is fresh today?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "今日作ったものはどれですか。",
+      "literalJapaneseGlossEn": "Which items were made today?",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Cuál es el más típico?",
+      "sourceEnglish": "Which one is the most typical?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "どれがいちばん代表的ですか。",
+      "literalJapaneseGlossEn": "Which is the most representative?",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "¿Está relleno?",
+      "sourceEnglish": "Is it filled?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "中に何か入っていますか。",
+      "literalJapaneseGlossEn": "Does it have something inside?",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿Es dulce o salado?",
+      "sourceEnglish": "Is it sweet or savory?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "甘いですか、それとも塩気のあるものですか。",
+      "literalJapaneseGlossEn": "Is it sweet or something savory/salty?",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "¿Qué me recomienda?",
+      "sourceEnglish": "What do you recommend?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Polite form with usted.",
+      "targetJapaneseDraft": "何がおすすめですか。",
+      "literalJapaneseGlossEn": "What do you recommend?",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "¿Cuál salió del horno hoy?",
+      "sourceEnglish": "Which one came out of the oven today?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "今日焼き上がったのはどれですか。",
+      "literalJapaneseGlossEn": "Which finished baking today?",
+      "sourceEnglishIsJapaneseGloss": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Un viajero entra a una panadería en la mañana.",
+      "sourceEnglish": "A traveler walks into a bakery in the morning.",
+      "targetJapaneseDraft": "朝、旅行者がパン屋に入ります。",
+      "literalJapaneseGlossEn": "In the morning, a traveler enters a bread shop.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Hay muchos panes y pasteles en el mostrador.",
+      "sourceEnglish": "There are many breads and pastries on the counter.",
+      "targetJapaneseDraft": "カウンターには、たくさんのパンとペストリーが並んでいます。",
+      "literalJapaneseGlossEn": "There are many breads and pastries lined up on the counter.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Él pregunta: ¿Qué está fresco hoy?",
+      "sourceEnglish": "He asks: What is fresh today?",
+      "targetJapaneseDraft": "旅行者は「今日作ったものはどれですか」と尋ねます。",
+      "literalJapaneseGlossEn": "The traveler asks which items were made today.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "La empleada dice que el pan dulce es de esta mañana.",
+      "sourceEnglish": "The employee says the sweet bread is from this morning.",
+      "targetJapaneseDraft": "店員は、パン・ドゥルセは今朝のものだと言います。",
+      "literalJapaneseGlossEn": "The employee says that the pan dulce is from this morning.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "El viajero pregunta: ¿Cuál está relleno?",
+      "sourceEnglish": "The traveler asks: Which one is filled?",
+      "targetJapaneseDraft": "旅行者は「中に何か入っているのはどれですか」と尋ねます。",
+      "literalJapaneseGlossEn": "The traveler asks which one has something inside.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ella explica que la concha es dulce y la empanada es salada.",
+      "sourceEnglish": "She explains that the concha is sweet and the empanada is savory.",
+      "targetJapaneseDraft": "店員は、コンチャは甘く、エンパナーダは塩気のあるものだと説明します。",
+      "literalJapaneseGlossEn": "The employee explains that the concha is sweet and the empanada is savory/salty.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Él dice: Quiero probar algo típico de aquí.",
+      "sourceEnglish": "He says: I want to try something typical from here.",
+      "targetJapaneseDraft": "旅行者は「この辺で一般的なものを食べてみたいです」と言います。",
+      "literalJapaneseGlossEn": "The traveler says that they want to try something common to this area.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "La empleada recomienda un bolillo con queso.",
+      "sourceEnglish": "The employee recommends a bolillo with cheese.",
+      "targetJapaneseDraft": "店員はボリージョとチーズの組み合わせをすすめます。",
+      "literalJapaneseGlossEn": "The employee recommends a combination of bolillo and cheese.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "travel-breakfast:3:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "El viajero pide una concha y un café, por favor.",
+      "sourceEnglish": "The traveler orders a concha and a coffee, please.",
+      "targetJapaneseDraft": "旅行者は「コンチャを一つとコーヒーを一杯、お願いします」と注文します。",
+      "literalJapaneseGlossEn": "The traveler orders one concha and one cup of coffee, please.",
+      "sourceEnglishIsJapaneseGloss": false
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Ask which bakery items were prepared today, whether one has a filling, and what staff recommend; preserve the Mexican bakery item names as vocabulary.",
+  "speakingGoalCandidate": "Ask the server to explain three pastries and recommend one made that morning.",
+  "sourceConflictInternal": "Core 3 source names no city or country. Its word notes identify pan dulce and bolillo as Mexican terms. The roleplay asks a server to explain three pastries and recommend one made that morning, but the Reader explains only concha and empanada, never says the recommended bolillo was made that morning, and ends with an order for concha. The filled-item question is answered with sweet versus savory, not a filling. The archived Japanese draft adds Sam, anpan, bean paste and cheese bread, and recommends the listed croissant instead of the source bolillo. These differences need source/locale review before release.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "bakery",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "baked pastry",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "this morning",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "baked",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "sweet",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "savory; salty",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "filling",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "sweet bean bun",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "croissant",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "cheese",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "recommendation",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "Which were baked this morning?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "What is inside?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "Which do you recommend?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Sam looks at the bakery counter.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Which items were baked this morning?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "This croissant and anpan were.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "What is inside the anpan?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Sweet bean paste. It is sweet.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Do you have something savory?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "We have this cheese bread.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Which do you recommend?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "I recommend the croissant baked this morning.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 1,
+      "candidatePosition": 1,
+      "sameJapaneseAndEnglish": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 7,
+      "candidatePosition": 9,
+      "sameJapaneseAndEnglish": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 9,
+      "candidatePosition": 11,
+      "sameJapaneseAndEnglish": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 10,
+      "candidatePosition": 8,
+      "sameJapaneseAndEnglish": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "placements": 27,
+    "twoVoiceClipDecisions": 54,
+    "twoVoiceSubmittedCharacters": 772,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.02316,
+    "archivedExactJapaneseCardTextOverlaps": 4,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Old rows have no explicit stable row IDs. New revision-scoped IDs do not authorize a saved-item migration or transfer of earlier clip placement identities.",
+  "sourceActorsInternal": "Spanish Reader uses a male traveler and a female employee; Japanese narration uses neutral nouns. No audio casting decision is made.",
+  "reviewQuestionsInternal": [
+    "Resolve the roleplay-versus-Reader gap about three pastry explanations and a recommendation made that morning; source setting is an unnamed bakery.",
+    "The Reader question about a filling receives a sweet-versus-savory answer; decide whether to correct the source before any learner answer is selected.",
+    "Confirm Japanese spellings for pan dulce, bolillo, concha and empanada with a qualified Japanese and Mexican-food reviewer.",
+    "Decide whether 今日作った preserves fresh today, distinct from the separate oven question, without overclaiming just baked.",
+    "Resolve pastry/pastel, savory/salado, filling/中身 and typical/代表的 in context.",
+    "Confirm the bolillo-with-cheese serving relation without inventing a filling."
+  ],
+  "missing": [
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese grammar/form examples",
+    "contextual dictionary senses",
+    "speaking setup and word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

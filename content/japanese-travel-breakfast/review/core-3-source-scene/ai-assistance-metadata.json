@@ -1,0 +1,30 @@
+{
+  "status": "AI-assisted unapproved source-only candidate; qualified Japanese, Mexican food, locale and dictionary review remains open",
+  "runs": [
+    {
+      "role": "Initial Japanese card and Reader proposal",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "4d57f83d-fa82-4edb-ba27-8e3fedb5b234",
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "note": "Source-grounded candidate; its invented Sam name and incorrect assumption about a Roman cafe were rejected."
+    },
+    {
+      "role": "Read-only strict source and Japanese critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "24f837fe-eeaf-4906-92d7-bd2c7efa1b19",
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "note": "Flagged Roman-cafe premise, glosses embedded in Japanese answers, filling/savory/typical wording, source roleplay versus Reader gap and candidate identity."
+    },
+    {
+      "role": "Read-only second-pass correction critique",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "ccbe371a-27e3-47ef-834c-75a570aa26c1",
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "note": "Flagged unresolved fresh versus made-today, savory versus salty, pastel, pan dulce category, bolillo with cheese, roleplay/Reader and source gender."
+    }
+  ],
+  "selfCheck": "Removed unsupported place and personal name, moved explanations out of Japanese answer strings, restored source-order 18/9 rows and retained real source contradictions as internal review questions. Independent validator checks SHA-256, exact English/Spanish rows, candidate IDs, archived exact-text overlaps, position plans and false gates. AI and structural checks do not constitute qualified approval."
+}

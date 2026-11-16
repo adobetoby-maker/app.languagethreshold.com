@@ -1,0 +1,41 @@
+{
+  "status": "AI-assisted inert source-only candidate; qualified Japanese/source/food/dictionary review open",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "source-order candidate authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "b4683c37-6414-42d2-ab64-89d0196b9af0",
+      "mode": "Claude CLI --safe-mode --model haiku --tools empty --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false
+    },
+    {
+      "role": "read-only meaning and register critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "518673b2-6622-4438-a3c6-69b85d63a0a0",
+      "mode": "Claude CLI --safe-mode --model opus --tools empty --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false
+    },
+    {
+      "role": "source-grounded candidate correction",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "7d41faf3-b8d8-415a-a9b9-6027a7c23861",
+      "mode": "Claude CLI --safe-mode --model fable --tools empty --print --output-format json --effort low",
+      "terminalReason": "completed",
+      "isError": false
+    }
+  ],
+  "discardedAttempt": "An initial Haiku prompt referred to an inaccessible private file while tools were disabled; its unrelated invented scene was discarded. The completed Haiku call above included exact source JSON inline. No material from the discarded attempt entered the packet.",
+  "selfCheck": [
+    "Pinned current Spanish content/objective/archive SHA-256 and exact English card/Reader order.",
+    "Compared all 16 Japanese card faces and eight Reader faces with distinct literal English glosses, preserving americano versus coffee with milk, missing pan dulce, male server and receipt.",
+    "Accepted source-grounded register/arrival corrections; rejected assumptions that the bag is a takeout bag or that the replacement object must be made explicit.",
+    "Preserved archived source position dispositions without authorizing saved-item or audio migration.",
+    "Six authored modes, forms, dictionary senses, speaking runtime, exact-text audio and qualified review remain open; all gates false."
+  ]
+}

@@ -1,0 +1,537 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:10",
+  "stableLessonId": "travel-breakfast:10:ja-en",
+  "candidateRevision": "travel-breakfast:10:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Fix the wrong order",
+    "objectiveEnglishInternal": "politely identify a missing or incorrect item and request the right one",
+    "objectiveEditorialHold": true,
+    "roleplayEnglishInternal": "You received the wrong coffee and one pastry is missing; resolve both without sounding hostile.",
+    "readerTitleSpanish": "Un pedido equivocado",
+    "readerVerbExamples": [
+      {
+        "target": "Pido un café americano y un pan dulce.",
+        "native": "I order an americano and a pastry."
+      },
+      {
+        "target": "Reviso mi bolsa y no hay pan dulce.",
+        "native": "I check my bag and there is no pastry."
+      },
+      {
+        "target": "¿Usted me cambia el café, por favor?",
+        "native": "Can you change the coffee for me, please?"
+      },
+      {
+        "target": "Ahora le traigo el café y el pan dulce.",
+        "native": "I will bring you the coffee and the pastry now."
+      },
+      {
+        "target": "Primero sonrío y digo: Disculpe.",
+        "native": "First I smile and say: Excuse me."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "Sam checks a takeaway bag and notices a different drink and missing pastry.",
+    "cardCount": 12,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "pedido",
+      "sourceEnglish": "order",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "注文",
+      "literalJapaneseGlossEn": "order",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "mostrador",
+      "sourceEnglish": "counter",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カウンター",
+      "literalJapaneseGlossEn": "counter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "recibo",
+      "sourceEnglish": "receipt",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "レシート",
+      "literalJapaneseGlossEn": "receipt",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "café americano",
+      "sourceEnglish": "americano (black coffee)",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アメリカーノ（ブラックコーヒー）",
+      "literalJapaneseGlossEn": "americano (black coffee)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "café con leche",
+      "sourceEnglish": "coffee with milk",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ミルク入りコーヒー",
+      "literalJapaneseGlossEn": "coffee with milk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "pan dulce",
+      "sourceEnglish": "pastry",
+      "kind": "term",
+      "sourceNoteInternal": "Common word for sweet pastries in Mexican and US Spanish.",
+      "targetJapaneseDraft": "菓子パン",
+      "literalJapaneseGlossEn": "pastry (sweet bread; contextual rendering of pan dulce)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "taza",
+      "sourceEnglish": "cup",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カップ",
+      "literalJapaneseGlossEn": "cup",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "mesero",
+      "sourceEnglish": "server (male)",
+      "kind": "term",
+      "sourceNoteInternal": "Say mesera for a woman.",
+      "targetJapaneseDraft": "ウェイター",
+      "literalJapaneseGlossEn": "server (male) / waiter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "mesa",
+      "sourceEnglish": "table",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "テーブル",
+      "literalJapaneseGlossEn": "table",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "descafeinado",
+      "sourceEnglish": "decaf",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "デカフェ",
+      "literalJapaneseGlossEn": "decaf",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "Disculpe, creo que hay un error con mi pedido.",
+      "sourceEnglish": "Excuse me, I think there is a mistake with my order.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Use usted with one staff member.",
+      "targetJapaneseDraft": "すみません、注文に間違いがあると思います。",
+      "literalJapaneseGlossEn": "Excuse me, I think there is a mistake with my order.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "Pedí un café americano, no un café con leche.",
+      "sourceEnglish": "I ordered an americano, not a coffee with milk.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ミルク入りコーヒーではなく、アメリカーノを注文しました。",
+      "literalJapaneseGlossEn": "I ordered an americano, not a coffee with milk.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "Me falta un pan dulce.",
+      "sourceEnglish": "I am missing a pastry.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "菓子パンが一つ足りません。",
+      "literalJapaneseGlossEn": "I am missing a pastry. (lit. one pastry is short)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Me lo puede cambiar, por favor?",
+      "sourceEnglish": "Can you change it for me, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "取り替えていただけますか。",
+      "literalJapaneseGlossEn": "Can you change it for me, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "Aquí está mi recibo.",
+      "sourceEnglish": "Here is my receipt.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "こちらが私のレシートです。",
+      "literalJapaneseGlossEn": "Here is my receipt.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿Puede revisar mi pedido, por favor?",
+      "sourceEnglish": "Can you check my order, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "注文を確認していただけますか。",
+      "literalJapaneseGlossEn": "Can you check my order, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Llego al mostrador y pido un café americano y un pan dulce.",
+      "sourceEnglish": "I get to the counter and order an americano and a pastry.",
+      "targetJapaneseDraft": "カウンターに着いて、アメリカーノと菓子パンを注文します。",
+      "literalJapaneseGlossEn": "I get to the counter and order an americano and a pastry.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Después, el mesero me da una taza de café con leche.",
+      "sourceEnglish": "Then the server gives me a cup of coffee with milk.",
+      "targetJapaneseDraft": "その後、ウェイターがミルク入りコーヒーを一杯くれます。",
+      "literalJapaneseGlossEn": "Then the server (waiter) gives me a cup of coffee with milk.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Reviso mi bolsa y veo que no hay pan dulce.",
+      "sourceEnglish": "I check my bag and see that there is no pastry in it.",
+      "targetJapaneseDraft": "かばんを確認して、菓子パンがないことに気づきます。",
+      "literalJapaneseGlossEn": "I check my bag and see that there is no pastry.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Primero, sonrío y digo: Disculpe, creo que hay un error con mi pedido.",
+      "sourceEnglish": "First, I smile and say: Excuse me, I think there is a mistake with my order.",
+      "targetJapaneseDraft": "まず、ほほえんでこう言います。「すみません、注文に間違いがあると思います。」",
+      "literalJapaneseGlossEn": "First, I smile and say: \"Excuse me, I think there is a mistake with my order.\"",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Luego explico: Pedí un café americano, no un café con leche.",
+      "sourceEnglish": "Then I explain: I ordered an americano, not a coffee with milk.",
+      "targetJapaneseDraft": "次に、こう説明します。「ミルク入りコーヒーではなく、アメリカーノを注文しました。」",
+      "literalJapaneseGlossEn": "Then I explain: \"I ordered an americano, not a coffee with milk.\"",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "También digo: Me falta un pan dulce, y aquí está mi recibo.",
+      "sourceEnglish": "I also say: I am missing a pastry, and here is my receipt.",
+      "targetJapaneseDraft": "さらに、こう言います。「菓子パンが一つ足りません。そして、こちらが私のレシートです。」",
+      "literalJapaneseGlossEn": "I also say: \"I am missing a pastry, and here is my receipt.\"",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Pregunto: ¿Me lo puede cambiar, por favor?",
+      "sourceEnglish": "I ask: Can you change it for me, please?",
+      "targetJapaneseDraft": "こうたずねます。「取り替えていただけますか。」",
+      "literalJapaneseGlossEn": "I ask: \"Can you change it for me, please?\"",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:10:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "El mesero dice: Claro, ahora le traigo el café y el pan dulce.",
+      "sourceEnglish": "The server says: Of course, I will bring you the coffee and the pastry now.",
+      "targetJapaneseDraft": "ウェイターがこう言います。「かしこまりました。すぐにコーヒーと菓子パンをお持ちします。」",
+      "literalJapaneseGlossEn": "The server (waiter) says: \"Of course, I will bring you the coffee and the pastry now.\"",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Identify the wrong coffee and missing sweet pastry, present the receipt, and politely request correction.",
+  "speakingGoalInternal": "You received the wrong coffee and one pastry is missing; resolve both without sounding hostile.",
+  "sourceConflictInternal": "The archived Japanese draft switches to a blend coffee and croissant, adds staff confirmation and nine different Reader turns. The current source instead has an americano, coffee with milk, one missing pan dulce/sweet pastry, the receipt and a male server who promises to bring the corrected coffee and pastry. Card 10 decaf and Card 9 table do not occur in the Reader. Spanish pan dulce is a contextual Mexican sweet pastry; 菓子パン is a draft approximation requiring locale review. Source Card 8 says server (male); Japanese needs explicit gender wording to preserve that detail. Source Reader 8 says coffee without repeating americano; do not silently add it there.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "order",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "receipt",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "bag",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "is not in it",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "is different; incorrect",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "blend coffee",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "coffee with milk",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "croissant",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "please check",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "Could it be replaced?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "I ordered a blend coffee",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "The croissant is missing",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Excuse me. Could you check my order?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Yes. What seems to be the problem?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "I ordered a blend coffee, but this is coffee with milk.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "The croissant is not in the bag either.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Here is the receipt.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "I will check. Please wait a moment.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "I am sorry. We confirmed your order.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "I will bring the blend coffee and croissant.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Thank you.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 1,
+      "candidatePosition": 1,
+      "migrationAuthorized": false,
+      "textOnly": true
+    },
+    {
+      "oldPosition": 2,
+      "candidatePosition": 3,
+      "migrationAuthorized": false,
+      "textOnly": true
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 24,
+    "twoVoiceClipDecisionsIfTextApproved": 48,
+    "twoVoiceSubmittedCharactersIfTextApproved": 856,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.02568,
+    "archivedExactJapaneseCardTextOverlapsOnly": 2,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows were not registered and have no explicit stable row IDs. New revision-scoped IDs do not authorize saved-item or audio placement migration. This revision's order is frozen; any insertion or reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Review 菓子パン for Mexican pan dulce and whether a retained food name or gloss is needed.",
+    "Confirm アメリカーノ（ブラックコーヒー） and ミルク入りコーヒー as distinct source drink labels without implying a new preparation.",
+    "Check male-server wording 男性の店員 versus natural Japanese café register and every literal gloss.",
+    "Resolve Card 14's implied object: source says change it for me without specifying whether cup/drink/order; Japanese draft should not add one.",
+    "Review whether source Reader 8's 'coffee' should stay generic while the wider scene establishes an americano.",
+    "Map decaf and table cards, absent from the Reader, into contextual dictionary/six-mode work before learner use."
+  ],
+  "missing": [
+    "qualified Japanese/source/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese grammar/form examples",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

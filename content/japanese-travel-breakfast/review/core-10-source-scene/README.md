@@ -1,0 +1,9 @@
+# Japanese Breakfast Core 10 source-scene review packet
+
+This inert Japanese→English packet pins all 16 current Spanish Breakfast Core 10 cards and eight Reader turns in source order. It retains stage-local lesson ID `travel-breakfast:10:ja-en` and uses revision-scoped candidate row IDs. Run `python3 build.py --check` and `python3 validate.py` here to verify the source hashes, IDs, positions, audio scope and closed gates.
+
+The archived Japanese draft describes blend coffee and a missing croissant. The current source instead has an americano, coffee with milk, a missing *pan dulce* pastry, a receipt and a male server. The new Japanese faces follow the current source. They remain unapproved; `菓子パン` for *pan dulce*, `ウェイター` in a counter-service café, coffee labels, bag wording and service register need qualified Japanese, food, source and dictionary review. Internal notes list these choices separately from candidate teaching text.
+
+The archive had no row IDs and was never learner-registered. Its positions are retired for this candidate. Two exact card-text overlaps do not authorize saved-item or audio migration. Every candidate face is disabled. Six authored mode activities, Japanese forms, speaking setup, contextual dictionary senses, learner/offline/native registration and qualified review remain open.
+
+The read-only audio scope is 24 Japanese draft faces, or 48 potential decisions for two voices, with 856 submitted Japanese characters and a gross estimate of $0.02568 at the earlier $30 per million character rate. No audio was synthesized, listened to or approved for this revision. Haiku 5.5 authored a source-grounded candidate, Opus 5.5 critiqued it read-only, Fable 5.2 corrected it, and a separate source/ID/gate check followed. Actual CLI metadata is in `ai-assistance-metadata.json`; AI is not qualified approval.

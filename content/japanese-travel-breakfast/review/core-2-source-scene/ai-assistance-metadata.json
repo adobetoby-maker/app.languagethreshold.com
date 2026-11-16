@@ -1,0 +1,41 @@
+{
+  "status": "AI-assisted, source-only Japanese draft; no qualified language or source approval",
+  "safeMode": true,
+  "calls": [
+    {
+      "role": "Source-grounded card and Reader candidate authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "e3254865-9b7c-461a-9344-133d005382d8",
+      "stopReason": "end_turn",
+      "isError": false,
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json"
+    },
+    {
+      "role": "Read-only source and Japanese critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "543ae3fd-49e3-4c22-90ba-cd4d32d31bc6",
+      "stopReason": "end_turn",
+      "isError": false,
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json"
+    },
+    {
+      "role": "Read-only correction critique",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "a25eb23a-be6b-4dd5-836f-3fda0405622f",
+      "stopReason": "end_turn",
+      "isError": false,
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json"
+    }
+  ],
+  "selfCheck": [
+    "Compared all 18 source Spanish/English cards and eight Reader rows with the current source in order.",
+    "Held card 1 and Reader 3 null because café americano conflicts with black coffee; held Reader 7 null because the source puts a staff-style here-or-to-go question in the traveler's mouth.",
+    "Corrected third-person wanting, question frames, table-seat calque, medium-size and hot/cold menu register without adding missing oat-milk order lines.",
+    "AI suggestions to rewrite source were recorded as unresolved source questions, not adopted as lesson answers.",
+    "Independent validator checks pinned hashes, exact source rows, revision-scoped IDs, 17 selected card/6 selected Reader Japanese drafts, old-position disposition and false gates."
+  ],
+  "qualifiedReview": false
+}

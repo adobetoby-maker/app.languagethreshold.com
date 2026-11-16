@@ -1,0 +1,552 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:2",
+  "stableLessonId": "travel-breakfast:2:ja-en",
+  "candidateRevision": "travel-breakfast:2:ja-en:source-scene-v1",
+  "reviewed": false,
+  "status": "source-only Japanese-language candidate; unapproved",
+  "source": {
+    "lessonPath": "public/lesson-content/es/travel-breakfast.json",
+    "lessonSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "archivePath": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "archiveSha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "objectiveEnglish": "ask about coffee styles, size, milk, temperature, and where to drink it",
+    "readerTitleSpanish": "Un café en el mostrador",
+    "sourceVerbExamples": [
+      {
+        "target": "Ella quiere un café con leche mediano.",
+        "native": "She wants a medium coffee with milk."
+      },
+      {
+        "target": "Ella pregunta: ¿Qué tipos de café hay?",
+        "native": "She asks: What types of coffee are there?"
+      },
+      {
+        "target": "Ella toma una mesa y bebe su café.",
+        "native": "She takes a table and drinks her coffee."
+      },
+      {
+        "target": "Ella pide el café caliente.",
+        "native": "She asks for the coffee hot."
+      },
+      {
+        "target": "¿Tiene leche de avena?",
+        "native": "Do you have oat milk?"
+      }
+    ]
+  },
+  "archivedDraft": {
+    "scene": "Sam studies a café menu and checks which milk and size are available.",
+    "cardCount": 15,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "café americano",
+      "sourceEnglish": "black coffee",
+      "kind": "term",
+      "sourceNoteInternal": "Usually espresso with hot water; the name can vary by place.",
+      "targetJapaneseDraft": null,
+      "literalJapaneseGlossEn": null,
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": true
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "café con leche",
+      "sourceEnglish": "coffee with milk",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カフェオレ",
+      "literalJapaneseGlossEn": "café au lait; coffee with milk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "mediano",
+      "sourceEnglish": "medium",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "Mサイズ",
+      "literalJapaneseGlossEn": "medium size",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "leche de avena",
+      "sourceEnglish": "oat milk",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "オーツミルク",
+      "literalJapaneseGlossEn": "oat milk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "caliente",
+      "sourceEnglish": "hot",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ホット",
+      "literalJapaneseGlossEn": "hot (menu label)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "frío",
+      "sourceEnglish": "cold",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アイス",
+      "literalJapaneseGlossEn": "iced/cold (menu label)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "mostrador",
+      "sourceEnglish": "counter",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カウンター",
+      "literalJapaneseGlossEn": "counter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "mesa",
+      "sourceEnglish": "table",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "テーブル",
+      "literalJapaneseGlossEn": "table",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "barista",
+      "sourceEnglish": "barista",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "バリスタ",
+      "literalJapaneseGlossEn": "barista",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "tamaño",
+      "sourceEnglish": "size",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "サイズ",
+      "literalJapaneseGlossEn": "size",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "leche",
+      "sourceEnglish": "milk",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ミルク",
+      "literalJapaneseGlossEn": "milk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "para llevar",
+      "sourceEnglish": "to go",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "持ち帰り",
+      "literalJapaneseGlossEn": "takeaway",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "¿Qué tipos de café hay?",
+      "sourceEnglish": "What types of coffee are there?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "どんな種類のコーヒーがありますか。",
+      "literalJapaneseGlossEn": "What kinds of coffee are available?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Qué tamaños tienen?",
+      "sourceEnglish": "What sizes do you have?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "どんなサイズがありますか。",
+      "literalJapaneseGlossEn": "What sizes are available?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "Quiero un café con leche, por favor.",
+      "sourceEnglish": "I want a coffee with milk, please.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カフェオレをお願いします。",
+      "literalJapaneseGlossEn": "Café au lait, please.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿Tiene leche de avena?",
+      "sourceEnglish": "Do you have oat milk?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "オーツミルクはありますか。",
+      "literalJapaneseGlossEn": "Is oat milk available?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "¿Es para tomar aquí o para llevar?",
+      "sourceEnglish": "Is it to drink here or to go?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Cafés often ask this to you too.",
+      "targetJapaneseDraft": "店内ですか、持ち帰りですか。",
+      "literalJapaneseGlossEn": "For here or to go?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "¿Puede ser caliente, por favor?",
+      "sourceEnglish": "Can it be hot, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ホットでお願いできますか。",
+      "literalJapaneseGlossEn": "Could it be hot, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "Una viajera llega al mostrador de un café.",
+      "sourceEnglish": "A traveler arrives at the counter of a café.",
+      "targetJapaneseDraft": "女性の旅行者がカフェのカウンターに来ます。",
+      "literalJapaneseGlossEn": "A female traveler comes to the café counter.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "Ella pregunta: ¿Qué tipos de café hay?",
+      "sourceEnglish": "She asks: What types of coffee are there?",
+      "targetJapaneseDraft": "彼女は「どんな種類のコーヒーがありますか」と聞きます。",
+      "literalJapaneseGlossEn": "She asks what kinds of coffee are available.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "El barista dice que hay café americano y café con leche.",
+      "sourceEnglish": "The barista says there is black coffee and coffee with milk.",
+      "targetJapaneseDraft": null,
+      "literalJapaneseGlossEn": null,
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": true
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "Ella quiere un café con leche mediano.",
+      "sourceEnglish": "She wants a medium coffee with milk.",
+      "targetJapaneseDraft": "彼女はMサイズのカフェオレがほしいと思っています。",
+      "literalJapaneseGlossEn": "She thinks she wants a medium café au lait.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "Pregunta: ¿Tiene leche de avena?",
+      "sourceEnglish": "She asks: Do you have oat milk?",
+      "targetJapaneseDraft": "「オーツミルクはありますか」と聞きます。",
+      "literalJapaneseGlossEn": "She asks whether oat milk is available.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "El barista responde que sí, y pregunta si lo quiere caliente o frío.",
+      "sourceEnglish": "The barista answers yes, and asks if she wants it hot or cold.",
+      "targetJapaneseDraft": "バリスタは「はい」と答え、ホットとアイスのどちらがいいかを聞きます。",
+      "literalJapaneseGlossEn": "The barista says yes and asks whether she wants it hot or iced.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "Ella pide el café caliente y pregunta: ¿Es para tomar aquí o para llevar?",
+      "sourceEnglish": "She asks for the coffee hot and asks: Is it to drink here or to go?",
+      "targetJapaneseDraft": null,
+      "literalJapaneseGlossEn": null,
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": true
+    },
+    {
+      "id": "travel-breakfast:2:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "Ella toma una mesa y bebe su café.",
+      "sourceEnglish": "She takes a table and drinks her coffee.",
+      "targetJapaneseDraft": "彼女はテーブルに着いて、コーヒーを飲みます。",
+      "literalJapaneseGlossEn": "She sits at a table and drinks her coffee.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "blockedOnSourceDecision": false
+    }
+  ],
+  "selectedJapaneseCardCount": 17,
+  "selectedJapaneseReaderCount": 6,
+  "sourceConflictsInternal": [
+    {
+      "sourceRows": [
+        "card:01",
+        "reader:03"
+      ],
+      "issue": "Spanish café americano and its espresso-with-water note conflict with English black coffee; no Japanese face selected for either row.",
+      "alternativesNotSelected": [
+        "アメリカーノ",
+        "ブラックコーヒー"
+      ]
+    },
+    {
+      "sourceRows": [
+        "card:17",
+        "reader:07"
+      ],
+      "issue": "Reader assigns a normally staff-asked here-or-to-go question to the traveler; Card 17 is speaker-neutral, but Reader 7 remains null pending source decision.",
+      "alternativesNotSelected": [
+        "traveler asks as written",
+        "barista asks after source correction"
+      ]
+    },
+    {
+      "sourceRows": [
+        "reader:04",
+        "reader:05",
+        "reader:06",
+        "reader:07"
+      ],
+      "issue": "Oat milk is confirmed available but never ordered; hot/medium coffee order sequence is incomplete in source. Do not add a new order line in this candidate."
+    }
+  ],
+  "qualifiedReviewQuestionsInternal": [
+    "Choose Japanese café menu labels for café con leche, medium, hot and cold without equating every menu style.",
+    "Review narrator gender and polite request register; decide whether Core 2 should teach source Spanish querer/pedir forms or a Japanese want/request contrast.",
+    "Review source Reader 7 speaker and card 17 direction before authoring six practice answers or audio."
+  ],
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "coffee",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "blend coffee",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "American-style coffee (menu label)",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "coffee with milk (menu label)",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "milk",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "oat milk",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "size",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "small",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "hot; warm",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "cold",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "inside the café",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "takeaway",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "What coffees do you have?",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "Do you have oat milk?",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 15,
+      "candidate": null,
+      "oldEnglish": "A hot one, please",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "What coffees do you have?",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "We have blend coffee and café au lait.",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Is there a small café au lait?",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Yes, there is.",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Do you have oat milk?",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "We do not have it today. We have milk.",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Then a small hot blend coffee, please.",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Will you drink it here?",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Yes, I will drink it here.",
+      "disposition": "retire from candidate only; preserve archive; no saved-item migration"
+    }
+  ],
+  "savedPositionPolicy": "New revision-scoped candidate IDs do not map archived positions or change learner progress.",
+  "modeStatus": "Archived mode labels are not authored six-mode prompt/answer pairs.",
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

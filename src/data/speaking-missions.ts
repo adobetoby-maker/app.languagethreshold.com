@@ -1,3 +1,4 @@
+import { financeLesson } from "./finance.ts";
 import { orCleaningLesson } from "./or-cleaning.ts";
 import { placeLesson } from "./place-directions.ts";
 import { soundLesson } from "./sound-like-a-native.ts";
@@ -633,6 +634,7 @@ const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpeci
   Spanish: {
     Core: "Hola. ¿En qué puedo ayudarle hoy?",
     "Core Basics": "Hola. ¿En qué puedo ayudarle hoy?",
+    Finance: "Hola. ¿Qué consulta financiera quiere hacer?",
     Faith: "Hola. Gracias por venir. ¿De qué le gustaría hablar conmigo?",
     Medical: "Hola. Gracias por atenderme. ¿Qué necesita saber para ayudarme hoy?",
     Trades: "Buenos días. ¿Qué tenemos que hacer primero en esta situación?",
@@ -646,6 +648,7 @@ const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpeci
   Italian: {
     Core: "Buongiorno. Come posso aiutarla oggi?",
     "Core Basics": "Buongiorno. Come posso aiutarla oggi?",
+    Finance: "Buongiorno. Quale domanda sulle finanze vuole fare?",
     Faith: "Buongiorno. Grazie di essere venuto. Di che cosa vorrebbe parlare?",
     Medical: "Buongiorno. Grazie per avermi ricevuto. Che cosa deve sapere per aiutarmi?",
     Trades: "Buongiorno. Che cosa dobbiamo fare per prima cosa in questa situazione?",
@@ -659,6 +662,7 @@ const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpeci
   Japanese: {
     Core: "こんにちは。今日はどうされましたか。",
     "Core Basics": "こんにちは。今日はどうされましたか。",
+    Finance: "こんにちは。お金について、どのようなご相談ですか。",
     Faith: "こんにちは。来てくださってありがとうございます。今日は何について話しましょうか。",
     Medical: "こんにちは。診ていただきありがとうございます。まず何をお伝えすればよいですか。",
     Trades: "おはようございます。この状況では、まず何をすればよいですか。",
@@ -672,6 +676,7 @@ const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpeci
   Chinese: {
     Core: "你好。今天有什么可以帮您的？",
     "Core Basics": "你好。今天有什么可以帮您的？",
+    Finance: "您好。您想咨询什么财务问题？",
     Faith: "你好。谢谢你来。今天想聊些什么？",
     Medical: "你好。谢谢您接待我。您需要先了解什么情况？",
     Trades: "早上好。这种情况下我们应该先做什么？",
@@ -685,6 +690,7 @@ const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpeci
   English: {
     Core: "Hello. How can I help you today?",
     "Core Basics": "Hello. How can I help you today?",
+    Finance: "Hello. Which money question would you like to discuss?",
     Faith: "Hello. Thank you for coming. What would you like to talk about?",
     Medical: "Hello. Thank you for seeing me. What do you need to know first?",
     Trades: "Good morning. What should we do first in this situation?",
@@ -937,6 +943,11 @@ function safetyRulesFor(category: SpeakingMissionSpecialty): string[] {
       ];
     case "Education":
       return [practiceOnly, "Use fictional student details and do not expose educational records."];
+    case "Finance":
+      return [
+        practiceOnly,
+        "Use fictional financial details. Never request account credentials, access codes or private records. Teach language without inventing live rates, jurisdiction-specific rules or guaranteed returns.",
+      ];
     case "Travel":
       return [practiceOnly, "Use fictional personal, passport, payment, and location details."];
     case "English for Work":
@@ -1234,6 +1245,12 @@ function missionFromLesson(
     language,
     language === "English" ? "Spanish" : "English",
   );
+  const finance = financeLesson(
+    module.id,
+    lesson.n,
+    language,
+    language === "English" ? "Spanish" : "English",
+  );
   const military = language === "English" ? militaryLessonPractice(module.id, lesson.n) : null;
   const basics =
     spanishBasicsLesson(module.id, lesson.n, language, "English") ??
@@ -1261,16 +1278,22 @@ function missionFromLesson(
     moduleEmoji: module.emoji,
     learnerRole: projectTextForLanguage(module.userRole, language),
     partnerRole:
+      finance?.partnerRole ??
       cleaning?.partnerRole ??
       place?.partnerRole ??
       sound?.partnerRole ??
       basics?.partnerRole ??
       military?.partnerRole ??
       partnerRoleFor(module, language),
-    level:
-      basics &&
-      (module.id.includes("spanish-102") ||
-        (module.id.includes("spanish-conjugation-patterns") && basics.stage === "master"))
+    level: finance
+      ? finance.stage === "foundation"
+        ? "A1"
+        : finance.stage === "master"
+          ? "B1"
+          : "A2"
+      : basics &&
+          (module.id.includes("spanish-102") ||
+            (module.id.includes("spanish-conjugation-patterns") && basics.stage === "master"))
         ? "B1"
         : basics
           ? basics.stage === "foundation"
@@ -1320,6 +1343,7 @@ function missionFromLesson(
       },
     ],
     openingLine:
+      finance?.openingLine ??
       cleaning?.openingLine ??
       place?.openingLine ??
       sound?.openingLine ??
@@ -1508,7 +1532,7 @@ function getSpecialtySpeakingModules(
   nativeLanguage?: NativeLanguage,
 ) {
   return MODULES.filter((module): module is SpecialtySpeakingModule =>
-    language === "English" && nativeLanguage
+    nativeLanguage
       ? moduleSupportsLearningPair(module, language, nativeLanguage)
       : language === "English"
         ? module.learnDirection === "en-target" ||

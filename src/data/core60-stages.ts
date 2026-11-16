@@ -1,3 +1,5 @@
+import { financeTrack } from "./finance-courses.ts";
+import { readFinanceCourse, loadFinanceCourse } from "./finance-course-loader.ts";
 // Built by TAC — 2026-10-19
 // Registry and loader for data-driven Core 60 stages (Foundation / Master modules listed in
 // src/data/core60/manifest.ts). Their curricula are NOT in the main bundle: each stage file
@@ -88,8 +90,9 @@ const FS = BUNDLED ? null : nodeFs();
 function nodeRoot(fromHere: string, fromRepo: string, marker: string): URL | null {
   if (!FS) return null;
   const proc = (globalThis as { process?: { cwd?: () => string } }).process;
-  const url = (globalThis as { process?: { getBuiltinModule?: (id: string) => unknown } }).process
-    ?.getBuiltinModule?.("node:url") as { pathToFileURL(path: string): URL } | undefined;
+  const url = (
+    globalThis as { process?: { getBuiltinModule?: (id: string) => unknown } }
+  ).process?.getBuiltinModule?.("node:url") as { pathToFileURL(path: string): URL } | undefined;
   const candidates: URL[] = [];
   // import.meta.url is not a file URL when this module was bundled into a data: URL.
   try {
@@ -110,9 +113,12 @@ const STAGE_ROOT = nodeRoot(STAGE_DIR, "src/data/core60/", "manifest.ts");
 const FIXTURE_ROOT = nodeRoot(FIXTURE_DIR, "tests/fixtures/core60/", "fixture.json");
 
 function nodeFixture(): Core60Fixture | null {
-  const env = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env;
+  const env = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process
+    ?.env;
   if (!FS || !FIXTURE_ROOT || env?.CORE60_FIXTURE !== "1") return null;
-  return JSON.parse(FS.readFileSync(new URL("fixture.json", FIXTURE_ROOT), "utf8")) as Core60Fixture;
+  return JSON.parse(
+    FS.readFileSync(new URL("fixture.json", FIXTURE_ROOT), "utf8"),
+  ) as Core60Fixture;
 }
 
 const FIXTURE: Core60Fixture | null = INJECTED_FIXTURE ?? nodeFixture();
@@ -132,7 +138,11 @@ export function core60FixtureModules(): AppModule[] {
 }
 
 /** The manifest entry and stage of a data-driven stage module, or null for every other module. */
-export function dataStageOf(moduleId: string | null | undefined, targetLanguage?: string, nativeLanguage?: string) {
+export function dataStageOf(
+  moduleId: string | null | undefined,
+  targetLanguage?: string,
+  nativeLanguage?: string,
+) {
   return findStageEntry(MANIFEST, moduleId, targetLanguage, nativeLanguage);
 }
 
@@ -162,7 +172,8 @@ function curriculumFrom(moduleId: string, raw: unknown): ModuleCurriculum | null
     moduleId,
     stage: found.stage,
     language: found.entry.language,
-    nativeLanguage: found.entry.nativeLanguage ?? (found.entry.language === "English" ? "Spanish" : "English"),
+    nativeLanguage:
+      found.entry.nativeLanguage ?? (found.entry.language === "English" ? "Spanish" : "English"),
   });
   return file ? stageCurriculumFromFile(file) : null;
 }
@@ -189,8 +200,13 @@ function readFromDisk(moduleId: string): ModuleCurriculum | null {
  * The stage's curriculum if it has loaded, else null. Under plain Node the file is read from disk
  * on the first call. Not a data-driven stage → null (getCurriculum answers those from CURRICULA).
  */
-export function stageCurriculum(moduleId: string, targetLanguage?: string, nativeLanguage?: string): ModuleCurriculum | null {
-  if ((targetLanguage || nativeLanguage) && !dataStageOf(moduleId, targetLanguage, nativeLanguage)) return null;
+export function stageCurriculum(
+  moduleId: string,
+  targetLanguage?: string,
+  nativeLanguage?: string,
+): ModuleCurriculum | null {
+  if ((targetLanguage || nativeLanguage) && !dataStageOf(moduleId, targetLanguage, nativeLanguage))
+    return null;
   if (curricula.has(moduleId)) return curricula.get(moduleId) ?? null;
   if (FS && dataStageOf(moduleId)) {
     const curriculum = readFromDisk(moduleId);
@@ -207,7 +223,11 @@ export type StageCurriculumStatus = "none" | "loading" | "ready" | "unavailable"
  * "loading" until its file has been asked for and arrived, "ready", or "unavailable" (no file,
  * an unusable file, or a failed chunk load, which a later load retries).
  */
-export function stageCurriculumStatus(moduleId: string | null | undefined, targetLanguage?: string, nativeLanguage?: string): StageCurriculumStatus {
+export function stageCurriculumStatus(
+  moduleId: string | null | undefined,
+  targetLanguage?: string,
+  nativeLanguage?: string,
+): StageCurriculumStatus {
   if (!moduleId || !dataStageOf(moduleId, targetLanguage, nativeLanguage)) return "none";
   if (FS) stageCurriculum(moduleId);
   if (curricula.has(moduleId)) return curricula.get(moduleId) ? "ready" : "unavailable";
@@ -235,7 +255,12 @@ export function loadStageCurriculum(
   moduleId: string,
   options: LoadOptions = {},
 ): Promise<ModuleCurriculum | null> {
-  if (!dataStageOf(moduleId, options.targetLanguage, options.nativeLanguage)) return Promise.resolve(null);
+  if (financeTrack(moduleId) && !readFinanceCourse(moduleId))
+    return loadFinanceCourse(moduleId)
+      .then(() => loadStageCurriculum(moduleId, options))
+      .catch(() => null);
+  if (!dataStageOf(moduleId, options.targetLanguage, options.nativeLanguage))
+    return Promise.resolve(null);
   if (curricula.has(moduleId)) return Promise.resolve(curricula.get(moduleId) ?? null);
   if (FS || !dataStageOf(moduleId)) return Promise.resolve(stageCurriculum(moduleId));
   const existing = pending.get(moduleId);
@@ -278,7 +303,11 @@ export function loadStageCurriculum(
  * The Retry button: forgets a stage that failed (or settled without a curriculum) and loads it
  * again right away. A stage that has loaded is left alone.
  */
-export function retryStageCurriculum(moduleId: string, targetLanguage?: string, nativeLanguage?: string): Promise<ModuleCurriculum | null> {
+export function retryStageCurriculum(
+  moduleId: string,
+  targetLanguage?: string,
+  nativeLanguage?: string,
+): Promise<ModuleCurriculum | null> {
   if (!dataStageOf(moduleId, targetLanguage, nativeLanguage)) return Promise.resolve(null);
   if (curricula.get(moduleId)) return Promise.resolve(curricula.get(moduleId) ?? null);
   if (!FS && !pending.has(moduleId)) {
@@ -327,6 +356,16 @@ export function stageModuleIdOfScenario(scenarioVersionId: string): string | nul
   return match && dataStageOf(match[1]) ? match[1] : null;
 }
 
+/** A lazily loaded curriculum needed by a requested speaking scenario, including Finance Core. */
+export function curriculumModuleIdOfScenario(scenarioVersionId: string): string | null {
+  const stage = stageModuleIdOfScenario(scenarioVersionId);
+  if (stage) return stage;
+  const match = scenarioVersionId.match(
+    /^scenario_version_(.+)_(?:lesson|challenge)_\d+_(?:es|it|ja|zh|en)_v1$/,
+  );
+  return match && financeTrack(match[1]) ? match[1] : null;
+}
+
 /** Every listed stage module id (the fixture's too, in fixture mode). */
 function listedStageIds(): string[] {
   return MANIFEST.flatMap((entry) =>
@@ -353,7 +392,14 @@ export function ensureStageForModule(
   moduleId: string | null | undefined,
   options: LoadOptions = {},
 ): Promise<ModuleCurriculum | null> {
-  if (!moduleId || !dataStageOf(moduleId, options.targetLanguage, options.nativeLanguage)) return Promise.resolve(null);
+  // Core finance courses also have a public lazy pack. Populate it before any
+  // server lesson/mission reader, without changing the existing return contract.
+  if (moduleId && financeTrack(moduleId) && !readFinanceCourse(moduleId))
+    return loadFinanceCourse(moduleId)
+      .then(() => ensureStageForModule(moduleId, options))
+      .catch(() => null);
+  if (!moduleId || !dataStageOf(moduleId, options.targetLanguage, options.nativeLanguage))
+    return Promise.resolve(null);
   return ensureStageCurriculum(moduleId, options);
 }
 

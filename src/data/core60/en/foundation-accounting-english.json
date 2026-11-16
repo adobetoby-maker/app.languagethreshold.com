@@ -1,0 +1,970 @@
+{
+  "version": 1,
+  "module": "foundation-accounting-english",
+  "language": "English",
+  "nativeLanguage": "Spanish",
+  "headline": "Accounting & Financial Services · English · Foundation",
+  "threshold": "Use English to complete the foundation accounting & financial services conversations and explain the next step.",
+  "reviewed": false,
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Introduce your professional role",
+      "objective": "Presentar tu función profesional en inglés, explicar qué servicios das y preguntar qué necesita el cliente.",
+      "focus": "Presente simple en primera persona, el verbo be con I am y la pregunta con do o does.",
+      "words": [
+        {
+          "es": "accountant",
+          "en": "contador",
+          "kind": "term",
+          "note": "Persona que registra, revisa e informa de las finanzas. En inglés no tiene género; se usa igual para hombres y mujeres."
+        },
+        {
+          "es": "bookkeeping",
+          "en": "contabilidad diaria",
+          "kind": "term",
+          "note": "Registro de transacciones y saldos. Es la parte más cercana al día a día del negocio."
+        },
+        {
+          "es": "client",
+          "en": "cliente",
+          "kind": "term",
+          "note": "Persona o empresa que contrata tus servicios."
+        },
+        {
+          "es": "office",
+          "en": "despacho",
+          "kind": "term",
+          "note": "Lugar de trabajo; en contabilidad puede ser un despacho pequeño."
+        },
+        {
+          "es": "document",
+          "en": "documento",
+          "kind": "term",
+          "note": "Cualquier papel o archivo con información, en formato físico o digital."
+        },
+        {
+          "es": "taxes",
+          "en": "impuestos",
+          "kind": "term",
+          "note": "Pagos al gobierno. Se usa en plural para hablar del conjunto."
+        },
+        {
+          "es": "bank",
+          "en": "banco",
+          "kind": "term",
+          "note": "Institución donde el negocio guarda su dinero."
+        },
+        {
+          "es": "appointment",
+          "en": "cita",
+          "kind": "term",
+          "note": "Hora fijada para reunirse con alguien."
+        },
+        {
+          "es": "service",
+          "en": "servicio",
+          "kind": "term",
+          "note": "Trabajo que un profesional presta a cambio de una tarifa."
+        },
+        {
+          "es": "payroll",
+          "en": "nómina",
+          "kind": "term",
+          "note": "Lista y sistema de los salarios pagados a los empleados."
+        },
+        {
+          "es": "I am an accountant and I handle bookkeeping.",
+          "en": "Soy contador y llevo la contabilidad.",
+          "kind": "phrase",
+          "note": "Con be, I am indica tu profesión; el sustantivo va después de an o a: an accountant."
+        },
+        {
+          "es": "How can I help you today?",
+          "en": "¿En qué puedo ayudarle hoy?",
+          "kind": "phrase",
+          "note": "Fórmula habitual al empezar una atención con un cliente."
+        },
+        {
+          "es": "Do you also handle taxes?",
+          "en": "¿También se encarga de los impuestos?",
+          "kind": "phrase",
+          "note": "Pregunta sencilla con do; responde con Yes, I do."
+        },
+        {
+          "es": "Let me explain what I can do.",
+          "en": "Déjeme explicarle lo que puedo hacer.",
+          "kind": "phrase",
+          "note": "La construcción con let y la forma base del verbo sirve para ofrecer ayuda."
+        }
+      ],
+      "speaking": "Preséntate ante un nuevo dueño de panadería en inglés. Di dos servicios que ofreces y pregunta qué necesita más este mes. Termina acordando el siguiente paso.",
+      "partnerRole": "Dueño de una panadería que conoce al contador por primera vez y habla inglés con tono amable.",
+      "openingLine": "Hello, are you the accountant the bank recommended to us?",
+      "readingTemplate": "seed-en-foundation-accounting-english-lesson-1"
+    },
+    {
+      "n": 2,
+      "title": "Arrange a client meeting",
+      "objective": "Confirmar una cita con un cliente en inglés, incluyendo hora, formato y documentos que debe traer, usando imperativos y can.",
+      "focus": "Imperativo para instrucciones (bring, send) y can para pedir o confirmar posibilidad, con preposiciones de tiempo como on, at y by.",
+      "words": [
+        {
+          "es": "meeting",
+          "en": "reunión",
+          "kind": "term",
+          "note": "Encuentro planificado entre personas para tratar un asunto."
+        },
+        {
+          "es": "appointment",
+          "en": "cita",
+          "kind": "term",
+          "note": "Hora fijada para reunirse. En inglés suele usarse con profesionales."
+        },
+        {
+          "es": "video call",
+          "en": "videollamada",
+          "kind": "term",
+          "note": "Llamada por internet con imagen. Muy común en oficinas pequeñas."
+        },
+        {
+          "es": "email",
+          "en": "correo electrónico",
+          "kind": "term",
+          "note": "Forma corta y habitual de decir correo electrónico en la oficina."
+        },
+        {
+          "es": "address",
+          "en": "dirección",
+          "kind": "term",
+          "note": "Lugar donde se encuentra algo; también dirección de correo."
+        },
+        {
+          "es": "receipt",
+          "en": "recibo",
+          "kind": "term",
+          "note": "Comprobante de un pago realizado. No es lo mismo que una factura."
+        },
+        {
+          "es": "bank statement",
+          "en": "extracto bancario",
+          "kind": "term",
+          "note": "Resumen periódico de movimientos de la cuenta bancaria."
+        },
+        {
+          "es": "document",
+          "en": "documento",
+          "kind": "term",
+          "note": "Papel o archivo que contiene información."
+        },
+        {
+          "es": "office",
+          "en": "oficina",
+          "kind": "term",
+          "note": "Lugar físico donde se trabaja."
+        },
+        {
+          "es": "confirm",
+          "en": "confirmar",
+          "kind": "term",
+          "note": "Verificar que una cita, un importe o un dato es correcto."
+        },
+        {
+          "es": "I am calling to confirm our meeting on Tuesday.",
+          "en": "Llamo para confirmar nuestra reunión del martes.",
+          "kind": "phrase",
+          "note": "Calling to confirm es una forma común de abrir una llamada de trabajo."
+        },
+        {
+          "es": "Can we hold the meeting by video call?",
+          "en": "¿Podemos hacer la reunión por videollamada?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Please send the documents to the office email.",
+          "en": "Por favor, envíe los documentos al correo de la oficina.",
+          "kind": "phrase",
+          "note": "Please más imperativo es la forma amable de pedir algo a un cliente."
+        },
+        {
+          "es": "What time suits you on Tuesday?",
+          "en": "¿A qué hora le viene bien el martes?",
+          "kind": "phrase",
+          "note": "Suit you es una expresión habitual para preguntar por conveniencia."
+        }
+      ],
+      "speaking": "Llama a un cliente para confirmar una reunión el martes. Indica la hora, ofrece una opción presencial o por videollamada y pide dos documentos. Termina pidiéndole que repita la hora.",
+      "partnerRole": "Cliente pequeño que debe confirmar la reunión y los documentos que tiene que traer.",
+      "openingLine": "Hi, I am calling to confirm our meeting on Tuesday with the accountant.",
+      "readingTemplate": "seed-en-foundation-accounting-english-lesson-2"
+    },
+    {
+      "n": 3,
+      "title": "Identify a financial document",
+      "objective": "Identificar cuatro documentos financieros en inglés y explicar cómo se diferencian, usando this y these con singular y plural.",
+      "focus": "This, that, these y those con is y are, y el uso de a, an y the con sustantivos contables.",
+      "words": [
+        {
+          "es": "bank statement",
+          "en": "extracto bancario",
+          "kind": "term",
+          "note": "Resumen periódico de la cuenta bancaria con movimientos y saldo."
+        },
+        {
+          "es": "invoice",
+          "en": "factura",
+          "kind": "term",
+          "note": "Documento que un vendedor emite a un comprador con lo que debe pagar."
+        },
+        {
+          "es": "receipt",
+          "en": "recibo",
+          "kind": "term",
+          "note": "Prueba de que se pagó algo. Es distinto de una factura."
+        },
+        {
+          "es": "proof of payment",
+          "en": "comprobante de pago",
+          "kind": "term",
+          "note": "Expresión incontable: se dice proof of payment, sin a. Es cualquier documento que demuestra que se pagó."
+        },
+        {
+          "es": "tax return",
+          "en": "declaración de impuestos",
+          "kind": "term",
+          "note": "Formulario que informa de ingresos y gastos a la autoridad fiscal."
+        },
+        {
+          "es": "supplier",
+          "en": "proveedor",
+          "kind": "term",
+          "note": "Empresa que vende bienes o servicios a tu cliente."
+        },
+        {
+          "es": "copy",
+          "en": "copia",
+          "kind": "term",
+          "note": "Duplicado de un documento original."
+        },
+        {
+          "es": "original",
+          "en": "original",
+          "kind": "term",
+          "note": "Primera versión de un documento, a veces necesaria para certificar algo."
+        },
+        {
+          "es": "date",
+          "en": "fecha",
+          "kind": "term",
+          "note": "Día escrito en un documento. Revísala antes de registrar."
+        },
+        {
+          "es": "total",
+          "en": "total",
+          "kind": "term",
+          "note": "Suma final de varias cantidades."
+        },
+        {
+          "es": "This is a bank statement, not an invoice.",
+          "en": "Este es un extracto bancario, no una factura.",
+          "kind": "phrase",
+          "note": "Not más el sustantivo aclara qué no es el documento: not an invoice."
+        },
+        {
+          "es": "Is this paper a receipt or an invoice?",
+          "en": "¿Este papel es un recibo o una factura?",
+          "kind": "phrase",
+          "note": "Or introduce la alternativa en una pregunta."
+        },
+        {
+          "es": "It is a receipt from the supplier.",
+          "en": "Es un recibo del proveedor.",
+          "kind": "phrase",
+          "note": "It is se usa para identificar un documento por su función."
+        },
+        {
+          "es": "I keep copies of every document.",
+          "en": "Guardo copias de cada documento.",
+          "kind": "phrase",
+          "note": "Keep copies of: forma habitual de archivar."
+        }
+      ],
+      "speaking": "Sostén un extracto bancario y un recibo. Pregunta a un compañero cuál es cuál, explica la diferencia en una frase para cada uno y acuerda dónde archivar cada documento.",
+      "partnerRole": "Compañero que ordena documentos en una oficina contable pequeña.",
+      "openingLine": "We have a pile of papers here. Is this one an invoice or a receipt?",
+      "readingTemplate": "seed-en-foundation-accounting-english-lesson-3"
+    },
+    {
+      "n": 4,
+      "title": "Read amounts and currencies",
+      "objective": "Leer una cantidad de dinero en inglés, indicar su moneda y repetirla antes de registrarla, distinguiendo el punto decimal del separador de miles.",
+      "focus": "Punto decimal y coma de miles en inglés, plural de dollars y euros, y the amount is para introducir la cifra.",
+      "words": [
+        {
+          "es": "amount",
+          "en": "importe",
+          "kind": "term",
+          "note": "Cantidad de dinero en una transacción."
+        },
+        {
+          "es": "currency",
+          "en": "moneda",
+          "kind": "term",
+          "note": "Dinero que usa una transacción. Compruébala antes de registrar."
+        },
+        {
+          "es": "figure",
+          "en": "cifra",
+          "kind": "term",
+          "note": "Número que representa un importe, total o saldo."
+        },
+        {
+          "es": "cent",
+          "en": "centavo",
+          "kind": "term",
+          "note": "Centésima parte de un dólar. Con euros se dice cent o céntimo."
+        },
+        {
+          "es": "difference",
+          "en": "diferencia",
+          "kind": "term",
+          "note": "Distancia entre dos cifras que deberían coincidir."
+        },
+        {
+          "es": "deposit",
+          "en": "depósito",
+          "kind": "term",
+          "note": "Dinero que se ingresa en una cuenta."
+        },
+        {
+          "es": "statement",
+          "en": "extracto",
+          "kind": "term",
+          "note": "Resumen de la cuenta en un periodo. Forma corta de bank statement."
+        },
+        {
+          "es": "record",
+          "en": "registro",
+          "kind": "term",
+          "note": "Entrada escrita o digital de una operación."
+        },
+        {
+          "es": "total",
+          "en": "total",
+          "kind": "term",
+          "note": "Cifra final de varias cantidades sumadas."
+        },
+        {
+          "es": "account",
+          "en": "cuenta",
+          "kind": "term",
+          "note": "Cuenta bancaria o contable."
+        },
+        {
+          "es": "The amount is 1,250.50 dollars.",
+          "en": "El importe es de 1.250,50 dólares.",
+          "kind": "phrase",
+          "note": "The amount is introduce la cifra que se confirma."
+        },
+        {
+          "es": "I confirm that the currency is dollars.",
+          "en": "Confirmo que la moneda es el dólar.",
+          "kind": "phrase"
+        },
+        {
+          "es": "I repeat the figure from the receipt.",
+          "en": "Repito la cifra del recibo.",
+          "kind": "phrase"
+        },
+        {
+          "es": "I will note the difference in the record.",
+          "en": "Anotaré la diferencia en el registro.",
+          "kind": "phrase",
+          "note": "Will + verbo indica una acción futura decidida en el momento."
+        }
+      ],
+      "speaking": "Lee en inglés un importe de un recibo a un compañero, incluyendo la moneda y los centavos. Pide que lo repita y acuerden la cifra antes de registrarla.",
+      "partnerRole": "Compañero que verifica un importe de pago antes de anotarlo en el libro mayor.",
+      "openingLine": "What amount does the receipt show? I want to confirm it before I record it.",
+      "readingTemplate": "seed-en-foundation-accounting-english-lesson-4"
+    },
+    {
+      "n": 5,
+      "title": "Confirm dates and periods",
+      "objective": "Preguntar en inglés qué mes, trimestre o año fiscal cubre un documento y confirmar el periodo con preposiciones de fecha.",
+      "focus": "Preposiciones from ... to, in y on con fechas, y el orden de mes y día según el país.",
+      "words": [
+        {
+          "es": "period",
+          "en": "periodo",
+          "kind": "term",
+          "note": "Intervalo de tiempo que cubre un informe o documento."
+        },
+        {
+          "es": "quarter",
+          "en": "trimestre",
+          "kind": "term",
+          "note": "Periodo de tres meses. El primer trimestre es Q1."
+        },
+        {
+          "es": "tax year",
+          "en": "año fiscal",
+          "kind": "term",
+          "note": "Periodo anual para impuestos; sus fechas dependen de la jurisdicción."
+        },
+        {
+          "es": "date",
+          "en": "fecha",
+          "kind": "term",
+          "note": "Día en que ocurre algo o se fecha un documento."
+        },
+        {
+          "es": "due date",
+          "en": "fecha de vencimiento",
+          "kind": "term",
+          "note": "Día en que un pago o trámite debe estar hecho."
+        },
+        {
+          "es": "summary",
+          "en": "resumen",
+          "kind": "term",
+          "note": "Informe breve de resultados de un periodo."
+        },
+        {
+          "es": "deadline",
+          "en": "plazo",
+          "kind": "term",
+          "note": "Último día para entregar o hacer algo."
+        },
+        {
+          "es": "statement",
+          "en": "extracto",
+          "kind": "term",
+          "note": "Resumen periódico de cuenta o movimientos."
+        },
+        {
+          "es": "document",
+          "en": "documento",
+          "kind": "term",
+          "note": "Papel o archivo con información."
+        },
+        {
+          "es": "month",
+          "en": "mes",
+          "kind": "term",
+          "note": "Unidad de calendario. En plural, months."
+        },
+        {
+          "es": "Which period does this document cover?",
+          "en": "¿Qué periodo cubre este documento?",
+          "kind": "phrase",
+          "note": "Which + sustantivo pregunta por una opción concreta."
+        },
+        {
+          "es": "It covers from January 1 to March 31.",
+          "en": "Cubre del 1 de enero al 31 de marzo.",
+          "kind": "phrase",
+          "note": "Cover es el verbo que indica qué incluye el periodo."
+        },
+        {
+          "es": "What is the due date?",
+          "en": "¿Cuál es la fecha de vencimiento?",
+          "kind": "phrase"
+        },
+        {
+          "es": "I will send you the summary today.",
+          "en": "Le envío el resumen hoy.",
+          "kind": "phrase",
+          "note": "Will indica una decisión en el momento de hablar."
+        }
+      ],
+      "speaking": "Pregunta a un cliente qué periodo cubre un extracto. Confirma las fechas exactas usando from y to, indica la fecha límite y termina acordando el siguiente paso.",
+      "partnerRole": "Cliente que quiere saber qué periodo cubre el documento antes de enviarlo.",
+      "openingLine": "Which period does this document cover? I need it for the report.",
+      "readingTemplate": "seed-en-foundation-accounting-english-lesson-5"
+    },
+    {
+      "n": 6,
+      "title": "Ask about income and expenses",
+      "objective": "Hacer preguntas sencillas en inglés para separar lo que un negocio ganó de lo que pagó, y responder con cifras en pasado simple.",
+      "focus": "Pasado simple de verbos regulares e irregulares (earned, spent) con did en preguntas y las palabras how much y what.",
+      "words": [
+        {
+          "es": "income",
+          "en": "ingresos",
+          "kind": "term",
+          "note": "Dinero que el negocio recibe por ventas o servicios."
+        },
+        {
+          "es": "expense",
+          "en": "gasto",
+          "kind": "term",
+          "note": "Dinero que el negocio paga para operar. Plural expenses."
+        },
+        {
+          "es": "sale",
+          "en": "venta",
+          "kind": "term",
+          "note": "Operación en la que se vende un bien o un servicio."
+        },
+        {
+          "es": "supplier",
+          "en": "proveedor",
+          "kind": "term",
+          "note": "Empresa que vende bienes o servicios al negocio."
+        },
+        {
+          "es": "payment",
+          "en": "pago",
+          "kind": "term",
+          "note": "Dinero entregado para saldar una cuenta."
+        },
+        {
+          "es": "outstanding",
+          "en": "pendiente",
+          "kind": "term",
+          "note": "Puede ir antes del sustantivo (an outstanding invoice) o después de be (the invoice is outstanding)."
+        },
+        {
+          "es": "last month",
+          "en": "mes pasado",
+          "kind": "term",
+          "note": "Expresión de tiempo para el mes anterior al actual."
+        },
+        {
+          "es": "profit",
+          "en": "ganancia",
+          "kind": "term",
+          "note": "Lo que queda después de restar los gastos a los ingresos."
+        },
+        {
+          "es": "collection",
+          "en": "cobro",
+          "kind": "term",
+          "note": "Acto de recibir dinero que se debía."
+        },
+        {
+          "es": "figure",
+          "en": "cifra",
+          "kind": "term",
+          "note": "Número que representa una cantidad."
+        },
+        {
+          "es": "How much did the bakery earn last month?",
+          "en": "¿Cuánto ganó la panadería el mes pasado?",
+          "kind": "phrase",
+          "note": "Did + sujeto + forma base forma la pregunta de pasado."
+        },
+        {
+          "es": "What expenses did the business pay?",
+          "en": "¿Qué gastos pagó el negocio?",
+          "kind": "phrase",
+          "note": "What + sustantivo sirve para preguntar qué tipo de gasto."
+        },
+        {
+          "es": "It earned more than it spent.",
+          "en": "Ganó más de lo que gastó.",
+          "kind": "phrase",
+          "note": "Más de lo que se usa para comparar dos cantidades."
+        },
+        {
+          "es": "Is any payment still outstanding?",
+          "en": "¿Queda algún pago pendiente?",
+          "kind": "phrase",
+          "note": "Still indica que algo sigue sin resolverse."
+        }
+      ],
+      "speaking": "Entrevista a una panadera sobre el mes pasado. Pregunta cuánto ganó la tienda, qué gastos pagó y si queda algún pago pendiente. Repite los dos totales y di cuál es mayor.",
+      "partnerRole": "Dueña de una panadería que responde preguntas sobre ventas y facturas del mes pasado.",
+      "openingLine": "Good morning. What would you like to know about last month?",
+      "readingTemplate": "seed-en-foundation-accounting-english-lesson-6"
+    },
+    {
+      "n": 7,
+      "title": "Describe an account balance",
+      "objective": "Describir un saldo en inglés y explicar la diferencia entre el saldo y el dinero disponible para gastar.",
+      "focus": "There is y there are para indicar existencia, have y has para posesión y el adjetivo available después de un sustantivo en nombres compuestos.",
+      "words": [
+        {
+          "es": "balance",
+          "en": "saldo",
+          "kind": "term",
+          "note": "Cantidad que hay en una cuenta en un momento dado."
+        },
+        {
+          "es": "available balance",
+          "en": "saldo disponible",
+          "kind": "term",
+          "note": "Dinero que puede usarse ahora."
+        },
+        {
+          "es": "current account",
+          "en": "cuenta corriente",
+          "kind": "term",
+          "note": "Cuenta bancaria para pagos diarios."
+        },
+        {
+          "es": "deposit",
+          "en": "depósito",
+          "kind": "term",
+          "note": "Dinero que se ingresa en una cuenta."
+        },
+        {
+          "es": "withdrawal",
+          "en": "retiro",
+          "kind": "term",
+          "note": "Dinero que se saca de una cuenta."
+        },
+        {
+          "es": "charge",
+          "en": "cargo",
+          "kind": "term",
+          "note": "Importe que se toma de una cuenta."
+        },
+        {
+          "es": "credit",
+          "en": "abono",
+          "kind": "term",
+          "note": "Importe que se suma a una cuenta."
+        },
+        {
+          "es": "statement",
+          "en": "extracto",
+          "kind": "term",
+          "note": "Resumen periódico de una cuenta."
+        },
+        {
+          "es": "fee",
+          "en": "comisión",
+          "kind": "term",
+          "note": "Cobro del banco por un servicio."
+        },
+        {
+          "es": "funds",
+          "en": "fondos",
+          "kind": "term",
+          "note": "Dinero disponible para un propósito."
+        },
+        {
+          "es": "hold",
+          "en": "retención",
+          "kind": "term",
+          "note": "Dinero bloqueado por el banco hasta que un cargo se liquida. Reduce el saldo disponible, no el contable."
+        },
+        {
+          "es": "The available balance is lower than the book balance.",
+          "en": "El saldo disponible es menor que el saldo contable.",
+          "kind": "phrase",
+          "note": "Lower than compara dos cantidades."
+        },
+        {
+          "es": "We have enough funds to pay.",
+          "en": "Tenemos fondos suficientes para pagar.",
+          "kind": "phrase",
+          "note": "Enough va antes del sustantivo: enough funds."
+        },
+        {
+          "es": "There is a fee for the withdrawal.",
+          "en": "Hay una comisión por el retiro.",
+          "kind": "phrase"
+        },
+        {
+          "es": "What is the balance of the account?",
+          "en": "¿Cuál es el saldo de la cuenta?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Explica a una nueva contable qué muestra el saldo del extracto y cuánto dinero puede gastar hoy el negocio. Di el saldo y el disponible, y pide a la otra persona que repita las dos cifras.",
+      "partnerRole": "Contable nueva que debe entender la diferencia entre saldo y dinero disponible.",
+      "openingLine": "What is the balance on this statement? I am not sure what it means.",
+      "readingTemplate": "seed-en-foundation-accounting-english-lesson-7"
+    },
+    {
+      "n": 8,
+      "title": "Explain debit and credit in context",
+      "objective": "Explicar debit y credit como términos contables en inglés y separarlos de la tarjeta de débito, la tarjeta de crédito y un préstamo.",
+      "focus": "Must y have to para obligación, debit y credit como verbos y sustantivos, y la diferencia de uso según el contexto.",
+      "words": [
+        {
+          "es": "debit",
+          "en": "débito",
+          "kind": "term",
+          "note": "En contabilidad, lado izquierdo de un asiento; en banca, cargo o tarjeta de débito."
+        },
+        {
+          "es": "credit",
+          "en": "crédito",
+          "kind": "term",
+          "note": "En contabilidad, lado derecho; en banca, préstamo o tarjeta de crédito."
+        },
+        {
+          "es": "debit card",
+          "en": "tarjeta de débito",
+          "kind": "term",
+          "note": "Tarjeta que saca el dinero de la cuenta vinculada."
+        },
+        {
+          "es": "credit card",
+          "en": "tarjeta de crédito",
+          "kind": "term",
+          "note": "Tarjeta con un límite que permite pagar después."
+        },
+        {
+          "es": "loan",
+          "en": "préstamo",
+          "kind": "term",
+          "note": "Dinero prestado que se devuelve con intereses."
+        },
+        {
+          "es": "ledger",
+          "en": "libro mayor",
+          "kind": "term",
+          "note": "Libro o sistema con todas las cuentas del negocio."
+        },
+        {
+          "es": "entry",
+          "en": "asiento",
+          "kind": "term",
+          "note": "Registro de una operación en el libro mayor."
+        },
+        {
+          "es": "limit",
+          "en": "límite",
+          "kind": "term",
+          "note": "Cantidad máxima permitida."
+        },
+        {
+          "es": "installment",
+          "en": "cuota",
+          "kind": "term",
+          "note": "Pago parcial y periódico de una deuda."
+        },
+        {
+          "es": "balance sheet",
+          "en": "balance general",
+          "kind": "term",
+          "note": "Documento con activos, pasivos y patrimonio en una fecha."
+        },
+        {
+          "es": "Debits go on the left side.",
+          "en": "Los débitos van a la izquierda.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Is this a debit or a credit?",
+          "en": "¿Esto es un débito o un crédito?",
+          "kind": "phrase",
+          "note": "Or introduce las dos opciones."
+        },
+        {
+          "es": "The credit card has a limit.",
+          "en": "La tarjeta de crédito tiene un límite.",
+          "kind": "phrase",
+          "note": "Has a limit: tener con tercera persona."
+        },
+        {
+          "es": "She must pay the loan each month.",
+          "en": "Debe pagar el préstamo cada mes.",
+          "kind": "phrase",
+          "note": "Must indica una obligación."
+        }
+      ],
+      "speaking": "Da una breve lección a una persona nueva en contabilidad. Explica en qué lado del libro mayor va un débito, luego qué tarjeta o préstamo se llama igual en un banco. Pide que repita la diferencia.",
+      "partnerRole": "Persona nueva que confunde debit, credit y los términos del banco.",
+      "openingLine": "I get confused because debit and credit sound like bank words. Can you explain?",
+      "readingTemplate": "seed-en-foundation-accounting-english-lesson-8"
+    },
+    {
+      "n": 9,
+      "title": "Request missing information",
+      "objective": "Pedir en inglés, de forma educada, un documento que falta por el canal acordado, usando could y would en peticiones.",
+      "focus": "Could y would para peticiones corteses, la preposición by para indicar medio o canal, y I need + sustantivo + by + fecha.",
+      "words": [
+        {
+          "es": "receipt",
+          "en": "recibo",
+          "kind": "term",
+          "note": "Prueba de pago de una compra. Pide el original si la copia no se lee bien."
+        },
+        {
+          "es": "document",
+          "en": "documento",
+          "kind": "term",
+          "note": "Papel o archivo que entrega el cliente."
+        },
+        {
+          "es": "identification",
+          "en": "identificación",
+          "kind": "term",
+          "note": "Documento que confirma quién es una persona."
+        },
+        {
+          "es": "email",
+          "en": "correo electrónico",
+          "kind": "term",
+          "note": "Canal de envío de documentos."
+        },
+        {
+          "es": "deadline",
+          "en": "plazo",
+          "kind": "term",
+          "note": "Fecha límite para entregar algo."
+        },
+        {
+          "es": "channel",
+          "en": "canal",
+          "kind": "term",
+          "note": "Medio acordado para compartir información."
+        },
+        {
+          "es": "statement",
+          "en": "extracto",
+          "kind": "term",
+          "note": "Resumen periódico de una cuenta."
+        },
+        {
+          "es": "invoice",
+          "en": "factura",
+          "kind": "term",
+          "note": "Documento que pide el pago de bienes o servicios."
+        },
+        {
+          "es": "request",
+          "en": "solicitud",
+          "kind": "term",
+          "note": "Petición formal de algo."
+        },
+        {
+          "es": "contact",
+          "en": "contacto",
+          "kind": "term",
+          "note": "Persona o medio para comunicarse."
+        },
+        {
+          "es": "Could you send me the purchase receipt?",
+          "en": "¿Podría enviarme el recibo de la compra?",
+          "kind": "phrase",
+          "note": "Could you ... ? es una petición cortés."
+        },
+        {
+          "es": "I am missing the March statement.",
+          "en": "Me falta el extracto de marzo.",
+          "kind": "phrase",
+          "note": "Missing indica algo que no ha llegado."
+        },
+        {
+          "es": "Please send it through the agreed channel.",
+          "en": "Por favor, envíelo por el canal acordado.",
+          "kind": "phrase",
+          "note": "Through indica el medio."
+        },
+        {
+          "es": "By what date do you need it?",
+          "en": "¿Para qué fecha lo necesita?",
+          "kind": "phrase",
+          "note": "By what date pregunta por el plazo. También se dice: When do you need it by?"
+        }
+      ],
+      "speaking": "Llama a un cliente que no ha enviado un recibo. Di qué falta, pide el documento por el canal acordado y di para qué fecha lo necesitas. Termina repitiendo la fecha límite.",
+      "partnerRole": "Cliente ocupado que quiere enviar el documento correctamente.",
+      "openingLine": "Hello, Luis Ortega speaking. I guess you are calling about the missing documents?",
+      "readingTemplate": "seed-en-foundation-accounting-english-lesson-9"
+    },
+    {
+      "n": 10,
+      "title": "Close a routine client exchange",
+      "objective": "Resumir en inglés un intercambio rutinario con un cliente: qué se recibió, qué falta y cuál es la siguiente cita.",
+      "focus": "Present perfect con already, yet y still para lo ya recibido y lo pendiente, y agreed to para acuerdos.",
+      "words": [
+        {
+          "es": "received",
+          "en": "recibido",
+          "kind": "term",
+          "note": "Documento o pago que ya llegó."
+        },
+        {
+          "es": "outstanding",
+          "en": "pendiente",
+          "kind": "term",
+          "note": "Algo que aún no se ha resuelto."
+        },
+        {
+          "es": "statement",
+          "en": "extracto",
+          "kind": "term",
+          "note": "Resumen periódico de una cuenta."
+        },
+        {
+          "es": "summary",
+          "en": "resumen",
+          "kind": "term",
+          "note": "Informe breve del intercambio o de los resultados."
+        },
+        {
+          "es": "appointment",
+          "en": "cita",
+          "kind": "term",
+          "note": "Hora fijada para revisar algo."
+        },
+        {
+          "es": "agreement",
+          "en": "acuerdo",
+          "kind": "term",
+          "note": "Decisión que aceptan ambas partes."
+        },
+        {
+          "es": "date",
+          "en": "fecha",
+          "kind": "term",
+          "note": "Día fijado para una acción."
+        },
+        {
+          "es": "documentation",
+          "en": "documentación",
+          "kind": "term",
+          "note": "Conjunto de registros de un trabajo."
+        },
+        {
+          "es": "follow-up",
+          "en": "seguimiento",
+          "kind": "term",
+          "note": "Acción para comprobar el avance después de una reunión."
+        },
+        {
+          "es": "confirmation",
+          "en": "confirmación",
+          "kind": "term",
+          "note": "Prueba escrita o hablada de que algo se aceptó."
+        },
+        {
+          "es": "We agreed to review everything on Thursday.",
+          "en": "Acordamos revisar todo el jueves.",
+          "kind": "phrase"
+        },
+        {
+          "es": "The March receipt is still outstanding.",
+          "en": "El recibo de marzo sigue pendiente.",
+          "kind": "phrase"
+        },
+        {
+          "es": "I will send you the summary by email today.",
+          "en": "Le envío el resumen por correo hoy.",
+          "kind": "phrase",
+          "note": "Will indica una decisión tomada en ese momento."
+        },
+        {
+          "es": "Does Thursday at ten suit you?",
+          "en": "¿Le viene bien el jueves a las diez?",
+          "kind": "phrase",
+          "note": "Suit introduce la comprobación de disponibilidad."
+        }
+      ],
+      "speaking": "Cierra una llamada con un cliente. Di qué has recibido y cuándo, menciona el único documento que falta y fija la siguiente cita. Termina confirmando la fecha y la hora.",
+      "partnerRole": "Cliente que cierra una llamada rutinaria sobre documentos de abril.",
+      "openingLine": "Thanks for calling. What have you received so far, and what is still missing?",
+      "readingTemplate": "seed-en-foundation-accounting-english-lesson-10"
+    }
+  ],
+  "baseModule": "accounting-english",
+  "stage": "foundation"
+}

@@ -1,0 +1,65 @@
+{
+  "reviewer": "Codex (primary implementation agent)",
+  "reviewStatus": "completed",
+  "sourceRevision": "a8f79b759a541a13940347511e3fe4b73a9491c6",
+  "sourceSha256": {
+    "content/finance/accounting/en-es.json": "859726a01c61a5a507bbb9c7315ea2972333abe2fd4620416c66a71c2a5652c0",
+    "content/finance/accounting/es-en.json": "d83818b32b60f33345a902b50560ad6b0fbc89e03d7bab0077b75bdb5b035585",
+    "content/finance/personal-money/en-es.json": "f5c1c65383d053f1c9f50f6a044c6dca51c0d8f3c29e160a460e8e320423947e",
+    "content/finance/personal-money/es-en.json": "c5f8de1477591355e38884c1a4820b042224c4ae3b6e9c87d44ca86188a47950",
+    "content/finance/travel-money/en-es.json": "880e36abbd119670aa763bca3e6817d41b40a9b02950ccf7810ad146d897c96b",
+    "content/finance/travel-money/es-en.json": "df9923d6ab45e2c0aafa3a4b30b7441a849a8f3fca21b3db0cdd47c2894a9fb7"
+  },
+  "method": [
+    "Read all three Opus review reports and their remaining uncertainties",
+    "Independently checked specialist terminology, money calculations and grammar explanations in sampled Foundation/Core lessons and first/last and selected intermediate Master lessons",
+    "Corrected additional source findings and integration issues, then regenerated the public content, lazy packs, Reader shards and vocabulary index",
+    "Exhaustively validated and tested structural mappings for all 360 lessons; browser checks use real UI components with synthetic local authentication and intercepted provider/database calls"
+  ],
+  "corrections": "codex-corrections.json",
+  "humanReview": false,
+  "validation": {
+    "sourceLessons": {
+      "validated": 360,
+      "failures": 0
+    },
+    "nodeSuite": {
+      "passed": 3010,
+      "failed": 0
+    },
+    "exactPairIntegration": {
+      "passedTracks": 6,
+      "lessons": 360
+    },
+    "browser": {
+      "initialLessonCasesPassed": 72,
+      "initialNavigationFailures": 2,
+      "navigationDefect": "fixed; incoming URL bridge remains outside loading boundary",
+      "postFixRegressionPassed": 40,
+      "failed": 0,
+      "projects": [
+        "desktop Chrome",
+        "iPhone 15 viewport in Chromium"
+      ],
+      "liveProviderCalls": false
+    },
+    "typecheck": "passed",
+    "lint": "0 errors, two existing react-refresh warnings",
+    "core60ManifestAndStageFiles": "passed",
+    "productionBuild": "passed; Vercel adapter artifact verified",
+    "preview": {
+      "state": "verified",
+      "url": "https://language-threshold-j0gceb44f-adobetoby-5572s-projects.vercel.app",
+      "commit": "cf2b90d58bbf66068904cc327d4b137ebee2d71b",
+      "publicFiles": 18,
+      "publicLessons": 360
+    }
+  },
+  "materialLimits": [
+    "Qualified human linguistic and financial/tax terminology review pending; regional style choices remain documented",
+    "Full prerecorded batch not produced; online HD and verified existing clip reuse are separate",
+    "No offline course registration or device-installation claim",
+    "No custom formal exams, no measured CEFR exit level, no native iOS/TestFlight release",
+    "Global signed Verb Games pool excludes these draft additions pending its separate review"
+  ]
+}

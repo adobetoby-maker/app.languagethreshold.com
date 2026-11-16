@@ -1,0 +1,562 @@
+{
+  "module": "travel-money",
+  "moduleName": "Travel Money & Payments",
+  "reviewer": "Opus model review (claude-opus-5-5) after the Haiku builder",
+  "reviewedAt": "2026-11-15",
+  "reviewStatus": "completed",
+  "reviewStatusMeaning": "All 120 rows (60 es-en + 60 en-es; Foundation 10 / Core 30 / Master 20 each) were present, read in full by the model reviewer, and corrected where needed. This is a model review only.",
+  "humanReview": false,
+  "files": [
+    "content/finance/travel-money/es-en.json",
+    "content/finance/travel-money/en-es.json"
+  ],
+  "sourceSemantics": "LessonWord.es is always the target-language text and .en the native text in both files; stage-local numbering and lesson situations follow docs/finance-modules/blueprint.json and were not renumbered.",
+  "counts": {
+    "es-en": {
+      "foundation": {
+        "rows": 10,
+        "lessonNumbers": "1-10",
+        "sentencePairs": 80,
+        "terms": 90,
+        "phrases": 50,
+        "verbs": 30,
+        "rowsChangedByReview": 8,
+        "readingsChanged": 7
+      },
+      "core": {
+        "rows": 30,
+        "lessonNumbers": "1-30",
+        "sentencePairs": 253,
+        "terms": 271,
+        "phrases": 149,
+        "verbs": 116,
+        "rowsChangedByReview": 29,
+        "readingsChanged": 28
+      },
+      "master": {
+        "rows": 20,
+        "lessonNumbers": "1-20",
+        "sentencePairs": 253,
+        "terms": 264,
+        "phrases": 120,
+        "verbs": 100,
+        "rowsChangedByReview": 20,
+        "readingsChanged": 20
+      }
+    },
+    "en-es": {
+      "foundation": {
+        "rows": 10,
+        "lessonNumbers": "1-10",
+        "sentencePairs": 81,
+        "terms": 94,
+        "phrases": 50,
+        "verbs": 30,
+        "rowsChangedByReview": 10,
+        "readingsChanged": 6
+      },
+      "core": {
+        "rows": 30,
+        "lessonNumbers": "1-30",
+        "sentencePairs": 253,
+        "terms": 269,
+        "phrases": 150,
+        "verbs": 90,
+        "rowsChangedByReview": 30,
+        "readingsChanged": 26
+      },
+      "master": {
+        "rows": 20,
+        "lessonNumbers": "1-20",
+        "sentencePairs": 253,
+        "terms": 262,
+        "phrases": 120,
+        "verbs": 100,
+        "rowsChangedByReview": 20,
+        "readingsChanged": 20
+      }
+    }
+  },
+  "validation": {
+    "validator": "Real validateLessonContent + contentLimitsFor from src/lib/lesson-content-core.ts, bundled with the repository's esbuild (limits: contentLimitsFor('travel-money') for foundation/core, contentLimitsFor('master-travel-money') for master).",
+    "commands": [
+      "node /tmp/tm-opus-review/validate.mjs /Users/drive/git-backups/lt-finance-modules-2026-11-15  (scratch script: imports the real validator; also checks ordered 1-10/1-30/1-20, lesson.words === content.words, term ≤4 words, phrase ≤12 words, notes ≤160, ≥2 grammar examples, speaking fields, title ≤70, no duplicate readings)",
+      "node scripts/validate-finance-content.mjs  (repository validator, unmodified)"
+    ],
+    "results": {
+      "scratchValidator": "120/120 travel-money rows pass; failures: []",
+      "repositoryValidator": "validatedLessons 360 (all finance modules), failures 0, exit 0",
+      "manualChecks": "Every reading's money arithmetic recomputed; sentence alignment and digit parity enforced by the validator; en-es explanation language re-audited (remaining heuristic flags are Spanish notes quoting English examples)."
+    },
+    "validatorsChanged": false
+  },
+  "findings": [
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "en-es",
+      "stage": "all",
+      "lesson": [
+        "foundation 2-10",
+        "core 1-30",
+        "master 1-20"
+      ],
+      "explanation": "612 term notes (65% of all en-es word notes) and all 60 grammar.focus explanations were written in English, so Spanish-speaking learners of English got English-only explanations; the verb-note validator does not inspect word notes or grammar focus.",
+      "correction": "Rewrote every affected term note and all 60 grammar explanations in Spanish, with English-specific points (US/UK usage, irregular pasts, phrasal verbs, uncountable nouns, silent letters, infinitive-versus-Spanish-subjunctive contrasts). Notes that only repeated the translation were removed (60)."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "core",
+      "lesson": [
+        5
+      ],
+      "explanation": "Card-currency conversion (DCC) was explained wrongly: the cashier said the terminal rate depends on the cardholder's bank and cannot be seen. If the home currency is chosen, the terminal operator converts and must show its rate; if the local currency is chosen, the card issuer converts.",
+      "correction": "Rewrote the explanation in both directions; replaced the cashier's blanket 'pay in local currency' recommendation with advice to compare the displayed rate with the bank's (subjunctive retained: que compare / suggest you compare)."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "core",
+      "lesson": [
+        4
+      ],
+      "explanation": "ATM: 'choose local currency and you pay no extra conversion' overstated (the issuer may still charge); staff said they would print the ATM receipt themselves.",
+      "correction": "Now: the ATM does not convert, your bank does; the home-currency option 'usually' uses the ATM's own rate with a built-in surcharge; the ATM prints the slip."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "master",
+      "lesson": [
+        12
+      ],
+      "explanation": "DCC at an ATM was described as asking 'which currency you want the cash in'. The cash is always local; DCC asks which currency to be charged in. Ana was also told it is 'always advisable to choose the local currency' (blanket advice).",
+      "correction": "Corrected the question; added explicit figures (100 withdrawal + 4 fee = 104 converted at the ATM's rate); the advice is now to compare the rate before accepting the conversion. The 'ojalá' note now says pluperfect, not imperfect, subjunctive."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "core",
+      "lesson": [
+        2
+      ],
+      "explanation": "es-en: board convention inverted (compra/venta notes described the customer's buy/sell; the clerk said 0.92 was 'for the sale of dollars'). Both: the 'vender/sell' example contradicted the board (sell euros at 0.92 dollars / at 0.95).",
+      "correction": "Clerk now explains that the board shows the bank's view: compra/buy rate = what the bank pays you, venta/sell rate = what you pay. Fixed the notes and examples."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "core",
+      "lesson": [
+        8
+      ],
+      "explanation": "Arithmetic: 24 requested minus 18 agreed was stated as 5 more; the driver then said 'pay 18 and we will sort it out', yet the traveler still 'disputed the difference later'.",
+      "correction": "Changed to 6 more, made the meter breakdown explicit (19 + 5 night supplement = 24), and had the traveler pay 24 and dispute 6 using the receipt. Spanish now uses 'más de lo acordado' (not 'más que'). Notes on 'lo acordado' and acordamos (present/preterite) corrected."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "core",
+      "lesson": [
+        10
+      ],
+      "explanation": "The ticket desk said the final price included the card deposit (20.50), then the traveler paid 21.50.",
+      "correction": "The deposit is now 1 extra on top of 20.50 = 21.50. Notes saying ofrecer/incluir are 'regular' corrected (ofrezco, incluyo)."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "core",
+      "lesson": [
+        20
+      ],
+      "explanation": "Cash 42 versus card 45 was explained as a 3% card surcharge (3% of 42 is 1.26, not 3). es-en (euro context): EU rules generally ban surcharges on consumer cards.",
+      "correction": "Reframed as a 3-unit cash discount with no card surcharge; the recargo/surcharge note now explains EU rules (es-en) and US state and card-network rules (en-es) without asserting specific rates."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "core",
+      "lesson": [
+        26
+      ],
+      "explanation": "Laundry: 7.50 'per kilo/pound' for 3 units (= 22.50) was called cheaper than 4 items at 4 (= 16).",
+      "correction": "Now 2.50 per unit, so three units cost 7.50 against 16 per item, with the comparison stated in the dialogue."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "core",
+      "lesson": [
+        27
+      ],
+      "explanation": "Remittance: the fee was 'already included in the 300' while the lesson taught 'deducted'; payout figures implied an unstated rate; the sender told the agent to keep the receipt.",
+      "correction": "Rewrote the scene: fee 12 deducted, 288 converted at a stated fictional rate (1.10 USD/EUR in es-en gives 316.80; 0.92 EUR/USD in en-es gives 264.96); the traveler keeps the receipt."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "core",
+      "lesson": [
+        12
+      ],
+      "explanation": "Hold release: the receptionist said the bank releases it in five days and then that the hotel releases it at checkout, in reverse logical order.",
+      "correction": "The hotel releases the hold at checkout; the bank decides when funds show as available (several business days, not exact). The amount is stated as held, not charged."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "core",
+      "lesson": [
+        13,
+        15
+      ],
+      "explanation": "Core 13: the cashier said the fourth night was on the booking, contradicting the guest, and then gave no correction. Core 15: the gauge record showed a half tank, yet the agent conceded the tank should be full and removed the charge.",
+      "correction": "Core 13: the fourth night is shown as a billing error and a corrected bill is issued. Core 15: the record shows a full tank at a stated time, so the fuel charge is removed. en-es: 'The terms said I return' corrected to 'I had to return'."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "core",
+      "lesson": [
+        14
+      ],
+      "explanation": "es-en used depósito for both the fuel tank and the security deposit in one scene; the 'same level' instruction conflicted with 'must be full'; the deposit was 'returned' when it is a card hold.",
+      "correction": "Removed the ambiguity (lo recibe lleno y hay que devolverlo lleno); the deposit is now a released hold; the note records the Spain usage depósito = tank."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "core",
+      "lesson": [
+        22
+      ],
+      "explanation": "Refund logic: the policy was 80% for 7+ days, the customer claimed 100% for cancelling 9 days ahead, and the agent agreed.",
+      "correction": "Customer confirms 80 of 100 under the policy; the agent confirms the amount and timing."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "core",
+      "lesson": [
+        30
+      ],
+      "explanation": "Capstone: the traveler paid the agreed taxi fare and then 'kept the receipt to claim later', leaving nothing to claim.",
+      "correction": "The traveler now pays the metered 11, with a stated night supplement as the explanation, and keeps the receipt to claim the 2 difference. es-en: singular driver (explicara)."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "master",
+      "lesson": [
+        4
+      ],
+      "explanation": "Duplicate settled charge: 'only the bank can reverse the charge' was presented as fact. A merchant can refund its own duplicate; a card dispute is the fallback. Settled versus pending was never distinguished.",
+      "correction": "Rewrote the reading: the guest asks whether both charges are settled or one is pending; the receptionist's claim is the complication; the hotel issues a 180 refund. Added the terms devolución/refund, liquidado/settled and pendiente/pending."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "master",
+      "lesson": [
+        9
+      ],
+      "explanation": "Changed rental quote: 105 'without full insurance, plus pick-up fee' could not be derived from any stated figure; the automatic-upgrade complication was never resolved.",
+      "correction": "Rebuilt the figures: original 180 including a 15 fee; new 355 = 180 + upgrade 60 + insurance 75 + fuel 40; 280 without insurance; resolved as a no-cost upgrade, signing at 180. es-en: tasa de recogida changed to cargo por recogida; en-es: tasa changed to cargo."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "master",
+      "lesson": [
+        13
+      ],
+      "explanation": "Negotiation: after delivery was said to cost 5 extra (260 + 5 = 265), the deal closed at 255 'with delivery' with no concession; es-en used lo for two bags.",
+      "correction": "Closes at a stated compromise of 260 with delivery. es-en: me los deja / me los envía. Replaced the blanket 'the rate is worse for you' line with a factual DCC statement."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "master",
+      "lesson": [
+        15
+      ],
+      "explanation": "Prepaid cancellation: the complication said section three gave a different percentage, yet the outcome stayed at 50% (180) with no amount paid shown.",
+      "correction": "Added 360 paid; section three gives 75% for 7-14 days; the agent accepts the signed document; refund 270. es-en: hostal glossed as guesthouse; en-es: hostel glossed as albergue (the Spanish hostal is not a hostel)."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "master",
+      "lesson": [
+        17
+      ],
+      "explanation": "Lost wallet: station staff offered to block the traveler's cards; 'until you block the account, nobody can use it without the PIN' is false (contactless and online use need no PIN); generic closing caution.",
+      "correction": "Staff now help the traveler call the bank; the risk statement is corrected (mientras no bloquee / until you block, contactless and online); the police report is the bank's requirement; the closing gives the police-station location."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "master",
+      "lesson": [
+        20
+      ],
+      "explanation": "Capstone: the scene jumped from the hotel desk to a live taxi driver; the hold was described as 'on the hotel card'; the exchange figures (92 versus 89) had no calculation; the taxi payment contradicted the dispute plan.",
+      "correction": "Sequenced the scenes; the hotel releases the hold and the bank timing varies; taxi 15 + 4 supplement paid under dispute; exchange 100 × 0.90 − 1 fee = 89; added a closing summary of amounts."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": [
+        29
+      ],
+      "explanation": "The visitor tax named no jurisdiction ('en esta ciudad').",
+      "correction": "Set in a Spanish city whose council charges a per-person, per-night tourist tax; the note states that name, rate and rules vary and amounts are fictional. Corrected the passive-se agreement note."
+    },
+    {
+      "severity": "P1",
+      "module": "travel-money",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": [
+        29
+      ],
+      "explanation": "The visitor tax named no jurisdiction and used a European per-person model in a dollar (US) context.",
+      "correction": "Set in a US city with an occupancy tax charged as a percentage of the room rate (fictional 6% of 150 = 9 per night); new terms occupancy tax and percentage; notes say rates vary by place."
+    },
+    {
+      "severity": "P2",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "foundation",
+      "lesson": [
+        3
+      ],
+      "explanation": "Coins were handed over without any payment; the closing 'Gracias por la visita' was unidiomatic.",
+      "correction": "The note is now changed in exchange (es-en: 3×1 + 2 = 5; en-es: four quarters + four 1-dollar bills = 5); 'Gracias por su visita'."
+    },
+    {
+      "severity": "P2",
+      "module": "travel-money",
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": [
+        8
+      ],
+      "explanation": "The grammar focus said incluir is regular (incluyo, incluye); the museum's 'servicio' charge was implausible; disfrutar used without de.",
+      "correction": "Corrected the y-insertion note, made the charges explicit, and used 'Disfrute de la visita' with a usted-command note."
+    },
+    {
+      "severity": "P2",
+      "module": "travel-money",
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": [
+        7
+      ],
+      "explanation": "Taught that cuál means 'which one of a set' but used ¿Cuál es la fecha? translated as 'Which is the date'.",
+      "correction": "Explains that cuál precedes es where English says what; 'sin cambio' replaced."
+    },
+    {
+      "severity": "P2",
+      "module": "travel-money",
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": [
+        10
+      ],
+      "explanation": "The focus claimed estar was taught but it is absent; 'Mostrador' was used as a speaker name; an incoherent wait line.",
+      "correction": "Focus aligned with the reading; speaker changed to Dependienta; coherent closing."
+    },
+    {
+      "severity": "P2",
+      "module": "travel-money",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": [
+        3
+      ],
+      "explanation": "'aunque el tipo sea menor' stated a known fact with the subjunctive.",
+      "correction": "Indicative 'aunque el tipo es menor'; grammar note explains it; 'pesa más' translated as 'outweighs'. Same fix in the en-es Spanish native lines."
+    },
+    {
+      "severity": "P2",
+      "module": "travel-money",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": [
+        24
+      ],
+      "explanation": "'tasa de cambio' used for a booking change fee (in much of Latin America it means exchange rate) in a travel-money course; mixed 'pagaría ... si uso'.",
+      "correction": "Changed to cargo por cambio, with a note on the ambiguity; conditional grammar now contrasts 'si cambiara ..., pagaría' with real 'si cambio ..., pago'. en-es: Spanish glosses use cargo por cambio; English 'if I use' changed to 'if I used'."
+    },
+    {
+      "severity": "P2",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "master",
+      "lesson": [
+        1
+      ],
+      "explanation": "The voucher complication from the speaking card was missing from the reading; duplicate 'Tiene razón'; an odd opening line.",
+      "correction": "Added the closed-till voucher offer and a polite insistence on cash; reordered the admission; new opening."
+    },
+    {
+      "severity": "P2",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "master",
+      "lesson": [
+        7,
+        8
+      ],
+      "explanation": "Times written as '23 horas / at 23 hours'; review results 'by the end of the day' although the review takes days; es-en focus said quiero que takes the imperfect subjunctive; passive se was described as using a 'passive participle'.",
+      "correction": "Times now 23:00 / 11 p.m. with matching digits; results sent when the review ends; the manager authorizes removal during review; grammar notes corrected."
+    },
+    {
+      "severity": "P2",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "master",
+      "lesson": [
+        10
+      ],
+      "explanation": "The central-office confirmation never happened.",
+      "correction": "The driver calls; the central office confirms 22 + 7 toll = 29; the traveler pays and keeps the receipt."
+    },
+    {
+      "severity": "P2",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "master",
+      "lesson": [
+        14
+      ],
+      "explanation": "'a menos que no esté / unless it is not' (double negative) created a confusing condition; a company fee was called a tasa.",
+      "correction": "'No acepto el cargo a menos que esté...' / 'I will not accept the fee unless it is in the terms'; tasa de gestión changed to cargo de gestión."
+    },
+    {
+      "severity": "P2",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "master",
+      "lesson": [
+        16
+      ],
+      "explanation": "'reembolso en efectivo, a mi tarjeta' (a refund to a card is not cash). en-es grammar called 'to be' a subjunctive.",
+      "correction": "Distinguishes a money refund to the card from app credit; en-es note explains want + object + infinitive versus the Spanish subjunctive."
+    },
+    {
+      "severity": "P2",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "master",
+      "lesson": [
+        19
+      ],
+      "explanation": "en-es: the fee was given in dollars but subtracted in euros. Both: '321.84' was hedged with 'about'; a filler line.",
+      "correction": "Fee in euros; exact 321.84; explicit 324 − 321.84 = 2.16 difference."
+    },
+    {
+      "severity": "P2",
+      "module": "travel-money",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": [
+        16
+      ],
+      "explanation": "A US-context lesson used the British 'motorway'; the traveler claimed he paid the toll; the parking charge was never assigned.",
+      "correction": "Highway operator, airport garage, toll + company fee; cargo administrativo instead of tasa."
+    },
+    {
+      "severity": "P2",
+      "module": "travel-money",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": [
+        5,
+        9
+      ],
+      "explanation": "The focus labelled 'if I had known, I would have...' as the second conditional.",
+      "correction": "Relabelled as the third conditional (tercer condicional)."
+    },
+    {
+      "severity": "P2",
+      "module": "travel-money",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": [
+        11
+      ],
+      "explanation": "Verb entry 'check' glossed as 'salir (del hotel)' with forms 'check/checks'.",
+      "correction": "Changed to the phrasal verb 'check out' (check out / checks out) with a note distinguishing the noun checkout."
+    },
+    {
+      "severity": "P3",
+      "module": "travel-money",
+      "pair": "both",
+      "stage": "various",
+      "lesson": [
+        "F5",
+        "F9",
+        "C1",
+        "C6",
+        "C7",
+        "C9",
+        "C16",
+        "C18",
+        "C19",
+        "C21",
+        "C23",
+        "C25",
+        "M2",
+        "M3",
+        "M5",
+        "M6",
+        "M11",
+        "M18"
+      ],
+      "explanation": "Smaller issues: wrong English verb notes (withdraw called regular; show 'past is showed or shown'); se lo note wording; leísmo (le entiendo); esperar que for 'wait for'; feminine orden with lo; an unstated pre-discount total; tú/usted wording; split-bill roles and an inconsistent 'pay 14' phrase; a bargaining discount applied to fewer kilos without agreement; enviar accent note; double-sold tower tickets; quote-direction omissions; English 'what must I do'.",
+      "correction": "Each corrected in place (see the regenerated sources). All money arithmetic in the 120 readings was rechecked."
+    }
+  ],
+  "remainingUncertainties": [
+    "Regional Spanish variants are mixed by design and were not normalized: zumo/jugo, coche/carro, móvil/celular, frigorífico/nevera/refrigerador, aparcamiento/estacionamiento, comprobante vs justificante. es-en leans to Spain (euros, ayuntamiento, datáfono, magdalena); en-es native glosses use mostly neutral or Spain Spanish. A regional pass by a qualified reviewer is still needed.",
+    "en-es spelling is US-oriented (dollars, check, pants, subway, traveling) but some British forms remain where natural or flagged (cancelled, ground floor, roadworks, notes contrasting US/UK). A house style choice (US versus UK) is still open.",
+    "The es-en Core 29 tourist tax is presented as a council-collected, per-person, per-night charge in an unnamed Spanish city. Real Spanish schemes differ by region and municipality (for example, regional laws versus municipal levies); the amounts are fictional and no specific city's rates are asserted.",
+    "The en-es Core 29 US occupancy tax uses a fictional 6% rate. Real rates and collecting bodies (city, county, state) vary.",
+    "Hold-release and refund timings (five business days, ten days, two hours) are fictional scene details, not rules.",
+    "Card-surcharge notes summarize EU (generally banned for consumer cards) and US (state and card-network rules) positions at a general level; they are not legal advice and were not checked against current statutes.",
+    "Fictional exchange rates (0.88-0.95 EUR/USD, 1.08-1.10 USD/EUR) are illustrations, not live quotes; the module uses both directions deliberately to teach quote direction."
+  ],
+  "notPerformedOrSeparate": {
+    "hdAudio": "Not generated; HD audio is absent for all 120 lessons.",
+    "offlinePacks": "Not created or verified; no download manifests were touched.",
+    "runtimeRegistration": "Not done by this reviewer; the primary agent integrates runtime independently.",
+    "humanQualifiedReview": "None. humanReview remains false; this is a model review, followed by the primary Codex agent's independent review and runtime testing."
+  },
+  "method": "Corrections were authored as reviewed, lesson-specific patch files (30) in a scratch directory and applied from the untouched Haiku originals so the result is reproducible. No runtime or shared files were edited; git was not used; no external services, credentials or audio synthesis were used."
+}

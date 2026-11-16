@@ -1,3 +1,4 @@
+import { FINANCE_READERS } from "./finance-readers.ts";
 import { OR_CLEANING_READERS } from "./or-cleaning-readers";
 import { PLACE_READER_SEEDS } from "./place-directions-readers";
 import { SOUND_READER_SEEDS } from "./sound-like-a-native-readers";
@@ -1360,6 +1361,7 @@ const BASE_SEEDS: LibraryEntry[] = [
   ...(MEDICAL_B_SEEDS as LibraryEntry[]).map(tag("Medical")),
   ...(TRADES_SEEDS as LibraryEntry[]).map(tag("Trades")),
   ...(ROOFING_READER_SEEDS as LibraryEntry[]).map(tag("Trades")),
+  ...(FINANCE_READERS as LibraryEntry[]),
   ...(MILITARY_READER_SEEDS as LibraryEntry[]),
   ...(OR_CLEANING_READERS as LibraryEntry[]),
   ...(SOUND_READER_SEEDS as LibraryEntry[]),

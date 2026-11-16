@@ -14,7 +14,7 @@ import {
   speakingCatalogModuleId,
   type SpeakingMission,
 } from "../data/speaking-missions";
-import { ensureStageCurriculum, stageModuleIdOfScenario } from "../data/core60-stages";
+import { ensureStageForModule, curriculumModuleIdOfScenario } from "../data/core60-stages";
 import {
   destinationPromptContext,
   getTravelDestination,
@@ -431,9 +431,9 @@ export const Route = createFileRoute("/api/speak")({
           const text = payload.userText?.trim() ?? "";
           const lines = payload.translationLines;
           const scenarioStage = payload.scenarioVersionId
-            ? stageModuleIdOfScenario(payload.scenarioVersionId)
+            ? curriculumModuleIdOfScenario(payload.scenarioVersionId)
             : null;
-          if (scenarioStage) await ensureStageCurriculum(scenarioStage);
+          if (scenarioStage) await ensureStageForModule(scenarioStage);
           const mission = payload.scenarioVersionId
             ? findSpeakingMission(payload.scenarioVersionId)
             : null;
@@ -566,9 +566,9 @@ export const Route = createFileRoute("/api/speak")({
           // loaded: load only the requested scenario's stage (cached; a failed load is retried by
           // the next request).
           const scenarioStage = payload.scenarioVersionId
-            ? stageModuleIdOfScenario(payload.scenarioVersionId)
+            ? curriculumModuleIdOfScenario(payload.scenarioVersionId)
             : null;
-          if (scenarioStage) await ensureStageCurriculum(scenarioStage);
+          if (scenarioStage) await ensureStageForModule(scenarioStage);
           const mission = payload.scenarioVersionId
             ? findSpeakingMission(payload.scenarioVersionId)
             : null;
@@ -954,7 +954,7 @@ export const Route = createFileRoute("/api/speak")({
         let lessonContext: string | null = null;
         if (payload.lessonNumber !== undefined) {
           if (compatibleModule) {
-            await ensureStageCurriculum(compatibleModule.id);
+            await ensureStageForModule(compatibleModule.id);
             lessonContext = lessonSpeakingContext(
               compatibleModule.id,
               payload.lessonNumber,

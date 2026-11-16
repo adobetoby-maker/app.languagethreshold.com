@@ -1,3 +1,4 @@
+import { financeLesson } from "../data/finance.ts";
 import { orCleaningLesson } from "../data/or-cleaning.ts";
 import { placeLesson } from "../data/place-directions.ts";
 import { soundLesson } from "../data/sound-like-a-native.ts";
@@ -15,6 +16,18 @@ export function authoredLessonReading(
   targetLanguage: string,
   instructionLanguage: string,
 ) {
+  const finance = lessonNumber
+    ? financeLesson(moduleId, lessonNumber, targetLanguage, instructionLanguage)
+    : null;
+  if (finance)
+    return {
+      id: `${moduleId}-lesson-${lessonNumber}`,
+      title: finance.reading.title,
+      sentences: finance.reading.target.map((target, i) => ({
+        target,
+        en: finance.reading.native[i],
+      })),
+    };
   const cleaning = lessonNumber
     ? orCleaningLesson(moduleId, lessonNumber, targetLanguage, instructionLanguage)
     : null;
@@ -115,7 +128,10 @@ export function exactLessonLibraryId(
 }
 
 export function libraryTranslationLanguage(id: string | null) {
-  return id?.startsWith("esl-") ||
+  return /^seed-en-(?:foundation-|master-)?(?:accounting|personal-money|travel-money)-english-lesson-/.test(
+    id ?? "",
+  ) ||
+    id?.startsWith("esl-") ||
     /^seed-en-(?:foundation-|master-)?(?:military|or-evs)-lesson-/.test(id ?? "")
     ? "Spanish"
     : "English";

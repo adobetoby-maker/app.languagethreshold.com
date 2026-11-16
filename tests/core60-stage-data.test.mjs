@@ -239,7 +239,7 @@ test("shared Foreman base keeps Spanish IDs and assigns Japanese stages their ow
     foundation: { moduleId: "foundation-japanese-construction-foreman" },
   };
   const manifest = [spanish, japanese];
-  assert.deepEqual(validateManifest(manifest, HANDWRITTEN_MODULES, (id) => Boolean(CURRICULA[id])), []);
+  assert.deepEqual(validateManifest(manifest, HANDWRITTEN_MODULES, (id) => Boolean(getCurriculum(id))), []);
   assert.equal(manifestStageModuleId(spanish, "foundation"), "foundation-construction-foreman");
   assert.equal(manifestStageModuleId(japanese, "foundation"), "foundation-japanese-construction-foreman");
   assert.equal(findStageEntry(manifest, "foundation-construction-foreman", "Japanese", "English"), null);
@@ -249,7 +249,7 @@ test("shared Foreman base keeps Spanish IDs and assigns Japanese stages their ow
   const modules = withDerivedStageModules(HANDWRITTEN_MODULES, manifest);
   assert.equal(modules.find((m) => m.id === "foundation-construction-foreman")?.languages?.[0], "Spanish");
   assert.equal(modules.find((m) => m.id === "foundation-japanese-construction-foreman")?.languages?.[0], "Japanese");
-  assert.ok(validateManifest([spanish, { ...japanese, foundation: {} }], HANDWRITTEN_MODULES, (id) => Boolean(CURRICULA[id]))
+  assert.ok(validateManifest([spanish, { ...japanese, foundation: {} }], HANDWRITTEN_MODULES, (id) => Boolean(getCurriculum(id)))
     .some((error) => error.includes("listed for more than one pair")));
 });
 
@@ -261,7 +261,7 @@ test("French stages on a shared base keep French progress ids and French/English
     master: { moduleId: "master-french-electrician" },
   };
   const manifest = [spanish, french];
-  assert.deepEqual(validateManifest(manifest, HANDWRITTEN_MODULES, (id) => Boolean(CURRICULA[id])), []);
+  assert.deepEqual(validateManifest(manifest, HANDWRITTEN_MODULES, (id) => Boolean(getCurriculum(id))), []);
   const frenchModules = withDerivedStageModules(HANDWRITTEN_MODULES, manifest);
   const frenchStage = frenchModules.find((module) => module.id === "foundation-french-electrician");
   assert.deepEqual(frenchStage.authoredPair, { target: "French", native: "English" });
@@ -280,12 +280,12 @@ test("French stages on a shared base keep French progress ids and French/English
   assert.equal(core60PathOfPair("foundation-roofing", "Spanish", "English")?.tradeModuleId, "roofing");
   assert.ok(validateManifest([
     { base: "spanish-basics", language: "French", nativeLanguage: "English", foundation: { moduleId: "foundation-french-basics" } },
-  ], HANDWRITTEN_MODULES, (id) => Boolean(CURRICULA[id]))
+  ], HANDWRITTEN_MODULES, (id) => Boolean(getCurriculum(id)))
     .some((error) => error.includes("use a separate base module for French/English")));
 });
 
 test("the shipped manifest is valid and leaves every current module exactly as written", () => {
-  assert.deepEqual(validateManifest(CORE60_MANIFEST, HANDWRITTEN_MODULES, (id) => Boolean(CURRICULA[id])), []);
+  assert.deepEqual(validateManifest(CORE60_MANIFEST, HANDWRITTEN_MODULES, (id) => Boolean(getCurriculum(id))), []);
   const listed = new Set(CORE60_MANIFEST.flatMap((e) => [`foundation-${e.base}`, `master-${e.base}`]));
   assert.deepEqual(
     MODULES.filter((m) => !listed.has(m.id)),
@@ -304,7 +304,7 @@ test("the manifest validator catches unknown bases, missing stages and hand-writ
       { base: "electrician", language: "Spanish", master: {} },
     ],
     HANDWRITTEN_MODULES,
-    (id) => Boolean(CURRICULA[id]),
+    (id) => Boolean(getCurriculum(id)),
   );
   assert.ok(errors.includes('manifest entry "no-such-module": no module with that id'));
   assert.ok(errors.includes('manifest entry "electrician": lists no stage'));
@@ -313,7 +313,7 @@ test("the manifest validator catches unknown bases, missing stages and hand-writ
 });
 
 test("the manifest validator rejects a language the app does not support", () => {
-  const hasCurriculum = (id) => Boolean(CURRICULA[id]);
+  const hasCurriculum = (id) => Boolean(getCurriculum(id));
   // Electrician lists no languages of its own, so only the app's language list can reject these.
   assert.equal(getModule("electrician").languages, undefined);
   for (const language of ["Klingon", "spanish", "Es", "Swedish"]) {

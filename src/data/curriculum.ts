@@ -1,3 +1,4 @@
+import { getFinanceCurriculum } from "./finance.ts";
 import { OR_CLEANING_CURRICULA } from "./or-cleaning.ts";
 import { PLACE_CURRICULUM } from "./place-directions.ts";
 import { SOUND_CURRICULUM } from "./sound-like-a-native.ts";
@@ -4268,7 +4269,11 @@ export function getCurriculum(
   targetLanguage?: string,
   nativeLanguage?: string,
 ): ModuleCurriculum | null {
-  return CURRICULA[moduleId] ?? stageCurriculum(moduleId, targetLanguage, nativeLanguage);
+  return (
+    getFinanceCurriculum(moduleId) ??
+    CURRICULA[moduleId] ??
+    stageCurriculum(moduleId, targetLanguage, nativeLanguage)
+  );
 }
 
 export function getCurrentLesson(

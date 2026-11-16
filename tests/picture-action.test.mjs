@@ -18,8 +18,8 @@ import {
 } from "../src/lib/picture-action.ts";
 test("shared scenes and module sets have authored object/action language, valid targets, and distinct starting points", () => {
   assert.equal(SHARED_PICTURE_SCENES.length, 8);
-  assert.equal(PICTURE_MODULES.length, 73);
-  assert.equal(PICTURE_SCENES.length, 81);
+  assert.equal(PICTURE_MODULES.length, 79);
+  assert.equal(PICTURE_SCENES.length, 87);
   let n = 0;
   for (const s of PICTURE_SCENES) {
     assert.ok(statSync(`public${s.image}-hq.webp`).size > 0);
@@ -47,7 +47,7 @@ test("shared scenes and module sets have authored object/action language, valid 
         assert.equal(acceptsPictureTarget(s, c.target, p), false);
     }
   }
-  assert.equal(n, 492);
+  assert.equal(n, 528);
 });
 test("cleaning requires repeated movement within the region, not placing a brush or a jump from outside", () => {
   const s = pictureScene("bedroom"),

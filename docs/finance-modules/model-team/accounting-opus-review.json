@@ -1,0 +1,1573 @@
+{
+  "module": "accounting",
+  "moduleName": "Accounting & Financial Services",
+  "reviewer": "accounting-opus-review",
+  "model": "claude-opus-5-5",
+  "modelSource": "Opus selected by the launcher; the session reports model ID claude-opus-5-5. Model review is not human review.",
+  "reviewDate": "2026-11-15",
+  "reviewStatus": "completed",
+  "reviewStatusNote": "All 120 rows (60 es-en, 60 en-es) are present and were read in full: objective, focus, speaking card, opening line, grammar, every aligned sentence, every term and phrase, and every verb. Corrections were applied where needed and re-validated. This status covers source review and correction only; runtime integration, HD audio, offline packs and human-qualified review are separate and not done here.",
+  "humanReview": false,
+  "files": {
+    "corrected": [
+      "content/finance/accounting/es-en.json",
+      "content/finance/accounting/en-es.json"
+    ],
+    "report": "docs/finance-modules/model-team/accounting-opus-review.json",
+    "notEdited": "No runtime, shared, test, script or other-module files were changed. git was not run."
+  },
+  "counts": {
+    "es-en": {
+      "foundation": {
+        "lessons": 10,
+        "sentencePairs": [
+          7,
+          9
+        ],
+        "terms": [
+          10,
+          10
+        ],
+        "phrases": [
+          4,
+          5
+        ],
+        "verbs": [
+          3,
+          4
+        ],
+        "grammarExamples": [
+          2,
+          2
+        ],
+        "lessonWordsEqualContentWords": true
+      },
+      "core": {
+        "lessons": 30,
+        "sentencePairs": [
+          7,
+          9
+        ],
+        "terms": [
+          10,
+          10
+        ],
+        "phrases": [
+          4,
+          5
+        ],
+        "verbs": [
+          4,
+          4
+        ],
+        "grammarExamples": [
+          2,
+          2
+        ],
+        "lessonWordsEqualContentWords": true
+      },
+      "master": {
+        "lessons": 20,
+        "sentencePairs": [
+          12,
+          16
+        ],
+        "terms": [
+          12,
+          14
+        ],
+        "phrases": [
+          6,
+          6
+        ],
+        "verbs": [
+          5,
+          5
+        ],
+        "grammarExamples": [
+          2,
+          2
+        ],
+        "lessonWordsEqualContentWords": true
+      }
+    },
+    "en-es": {
+      "foundation": {
+        "lessons": 10,
+        "sentencePairs": [
+          7,
+          9
+        ],
+        "terms": [
+          10,
+          11
+        ],
+        "phrases": [
+          4,
+          4
+        ],
+        "verbs": [
+          3,
+          4
+        ],
+        "grammarExamples": [
+          2,
+          2
+        ],
+        "lessonWordsEqualContentWords": true
+      },
+      "core": {
+        "lessons": 30,
+        "sentencePairs": [
+          7,
+          9
+        ],
+        "terms": [
+          10,
+          10
+        ],
+        "phrases": [
+          4,
+          5
+        ],
+        "verbs": [
+          4,
+          4
+        ],
+        "grammarExamples": [
+          2,
+          2
+        ],
+        "lessonWordsEqualContentWords": true
+      },
+      "master": {
+        "lessons": 20,
+        "sentencePairs": [
+          12,
+          16
+        ],
+        "terms": [
+          12,
+          14
+        ],
+        "phrases": [
+          6,
+          6
+        ],
+        "verbs": [
+          5,
+          5
+        ],
+        "grammarExamples": [
+          2,
+          2
+        ],
+        "lessonWordsEqualContentWords": true
+      }
+    }
+  },
+  "countsNote": "Ranges are min-max per stage. Foundation/Core: 5-9 sentences, 8-12 terms, 4-6 phrases, 3-5 verbs. Master: 12-18 sentences, 12-16 terms, 6-8 phrases, exactly 5 verbs. lesson.words and content.words are identical in every row.",
+  "severityScale": {
+    "P0": "Wrong money arithmetic that teaches a false financial fact.",
+    "P1": "Wrong meaning, contradictory or reversed scene, misleading grammar rule, false friend, wrong financial treatment, or missing/invented jurisdiction.",
+    "P2": "Lesson objective not met by the scene, unquantified case, terminology or regional mismatch.",
+    "P3": "Register, consistency or note-language issues."
+  },
+  "summary": {
+    "findings": 129,
+    "bySeverity": {
+      "P1": 73,
+      "P2": 44,
+      "P3": 10,
+      "P0": 2
+    },
+    "byPair": {
+      "es-en": 69,
+      "en-es": 60
+    },
+    "lessonsWithLoggedCorrections": {
+      "es-en": 60,
+      "en-es": 59
+    },
+    "lessonsWithoutLoggedCorrection": "Only en-es Foundation 10, which was read in full and needed no change; every other lesson has at least one logged correction. Module-wide sweep fixes (Let's, accented names) are listed under moduleWideFindings.",
+    "recurringProblemsFixed": [
+      "Reversed or wrong speakers: creditor promising to pay (Core 6), owner approving his own payment run (Core 7), bank officer asking which documents the bank needs (Core 18), client asking the accountant whether she understood (Master 14), learner asking the trainer for the teach-back (Master 19), accountant telling the client not to record an entry the accountant records (Master 17), bank opening lines written as the caller (Core 21).",
+      "Arithmetic and financial logic: a 200 tax credit called worth more than a deduction that saves 200 (Core 23, both pairs); bank reconciliations whose items could not balance (Core 8, Master 1); unquantified profit, cash, variance, budget and loan cases (Core 12-16, 19; Master 10, 18, 20).",
+      "Financial terminology: pending hold versus settled charge (Foundation 7), double entry misstated as debit or credit (Foundation 8), receivable confirmed with the supplier (Foundation 6), foreign invoices converted only at the payment-date rate (Core 26), sender fee confused with amount received (Master 15), the whole loan treated as current (Core 13).",
+      "Jurisdiction: the invented country Norland/Norlandia replaced by real named contexts with fictional figures: Spain (IRPF, pago fraccionado, Agencia Tributaria, propuesta de liquidación) in es-en; United States (federal return, Form W-2, 1099-INT, 1099-NEC, 1099-B, estimated payments, IRS CP2000) in en-es; es-en Core 23 uses a US federal example to teach that Spain's IRPF uses deducción differently. Unlabeled tax deadlines were replaced with internal or bank deadlines; no live rates or universal benefits are asserted.",
+      "Spanish grammar notes: ser/estar as permanent/temporary, ayudar with obligatory le, no sé si with subjunctive, quisiera called conditional, repartir and convertir stem changes, deberse a agreement, passive se called reflexive, pagar/cargar/clasificar 'no spelling change', ungrammatical tanto como comparatives.",
+      "False friend: error material (a clerical slip in Spanish) glossed as material error in both directions; replaced with error significativo.",
+      "English-specific grammar in en-es: stative owe in past continuous (was owing), work for her own account (calque), a proof of payment, Assets equals as the singular rule, equal to as the verb pattern, due to called a noun, would plus unless plus present, would-if-present mixes, take responsibility for for task assignment, exceed called a noun, keep to hand in a US scene, take a decision in a US track, Let us for suggestions, Mr. plus first name, English sentences inside Spanish-native notes.",
+      "Register: tú between coworkers and usted with clients made consistent; near-future Spanish presents translated with will."
+    ],
+    "preliminaryReviewResolution": [
+      {
+        "item": "es-en Foundation 1 traer al banco translated as bring from the bank",
+        "status": "fixed in both pairs"
+      },
+      {
+        "item": "es-en Foundation 1 ayudar note asserting indirect le/les",
+        "status": "fixed: transitive lo/la with le noted as common variant with usted"
+      },
+      {
+        "item": "es-en Foundation 1 ser/estar permanence rule",
+        "status": "fixed: identity/classification versus location/current state; also fixed in Core 11"
+      },
+      {
+        "item": "Norland fictional jurisdiction in Core 22-24",
+        "status": "fixed in both pairs with Spain and United States labels and fictional figures"
+      }
+    ]
+  },
+  "findings": [
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 1,
+      "area": "translation",
+      "explanation": "Spanish said traer al banco (bring to the bank) but English said bring from the bank; the client is bringing bank records to the accountant.",
+      "correction": "Rewrote as le recuerdo qué documentos del banco debe traer / remind you which bank documents to bring."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 1,
+      "area": "grammar note",
+      "explanation": "Taught ser/estar as permanent versus temporary, which is misleading as a rule.",
+      "correction": "Reframed as identity/profession/category versus location/current state."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 1,
+      "area": "grammar note",
+      "explanation": "Ayudar note claimed helping a person always takes indirect le/les; ayudar is transitive (lo/la), with le as accepted leísmo, especially with usted.",
+      "correction": "Rewrote the verb note and phrase note; changed the example to Ayudo a mis clientes con los impuestos."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 2,
+      "area": "scene logic",
+      "explanation": "The client chose a video call, then the assistant told him to bring receipts in person; contact details were never confirmed.",
+      "correction": "Rewrote the scene: video format, documents sent by email before Monday, contact address corrected, and closure with the confirmed time."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 3,
+      "area": "objective",
+      "explanation": "The scene named the documents but never stated how an invoice and a receipt differ, which is the lesson outcome.",
+      "correction": "Sentence 6 now contrasts invoice (requests payment) with receipt (shows payment made)."
+    },
+    {
+      "severity": "P3",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 3,
+      "area": "verb example",
+      "explanation": "The revisar example was an odd statement with an inverted subject, and its note contradicted it.",
+      "correction": "Turned it into a question and rewrote the note."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 4,
+      "area": "grammar note",
+      "explanation": "Presented the decimal comma as Spanish-wide; Mexico and much of Central America use a decimal point. The reading of 1.250,50 as fifty hundredths was unnatural.",
+      "correction": "Rewrote the note with the regional formats."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 5,
+      "area": "scene logic",
+      "explanation": "The client said January to March and the accountant answered No with the same period. A tax due date was asserted with no jurisdiction.",
+      "correction": "The client now guesses the whole year; the date is the firm's internal deadline, so no unlabeled tax deadline is asserted."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 6,
+      "area": "financial logic",
+      "explanation": "Money owed to the bakery was to be confirmed with the supplier; a receivable is collected from the customer.",
+      "correction": "The pending collection is now an unpaid customer invoice confirmed with that customer."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 6,
+      "area": "verb note",
+      "explanation": "Said pagar has no spelling change; it has pagué/pague.",
+      "correction": "Corrected the note."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 7,
+      "area": "financial terminology",
+      "explanation": "The pending hold was called a charge the bank had not confirmed, and the closing line mentioned a fee that never existed.",
+      "correction": "Made it a pending card hold not yet settled; the closing line records the pending charge; fixed de los que parecen."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 7,
+      "area": "verb note",
+      "explanation": "Described tengo as an e-to-ie stem change.",
+      "correction": "Corrected the irregularity description."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 8,
+      "area": "financial terminology",
+      "explanation": "Said each purchase is a debit or credit depending on the account (double entry has both), and debe pagar had the bank as its subject.",
+      "correction": "Each purchase now has a debit and a credit, with a worked credit card example; the cardholder repays."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 9,
+      "area": "translation",
+      "explanation": "Cerrar el plazo de marzo is unidiomatic; several near-future Spanish presents were rendered as I send.",
+      "correction": "Rewrote to cerrar el mes de marzo; translations use will; added an identifying detail (invoice number)."
+    },
+    {
+      "severity": "P3",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 10,
+      "area": "translation and notes",
+      "explanation": "A near-future Spanish present was translated as I send it tomorrow; the grammar note ignored the Spain preference for he recibido with hoy; the acordar note was vague.",
+      "correction": "Translated with will, added the regional preterite/perfect note, and clarified the acordar stem change and acordarse de."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 1,
+      "area": "objective",
+      "explanation": "The scene requested records but never limited the set, although the lesson teaches a scoped request with solo.",
+      "correction": "Sentence 5 now scopes the invoices with solo and defers payroll."
+    },
+    {
+      "severity": "P3",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 1,
+      "area": "English translations (module-wide)",
+      "explanation": "English translations used Let us for suggestions in 7 es-en lessons (es-en/core/1, es-en/core/14, es-en/core/4, es-en/master/1, es-en/master/10, es-en/master/5, es-en/master/6); in modern English Let us is formal or means allow us.",
+      "correction": "Replaced with Let's in English translations; a parallel global pass fixed English target text in en-es (Let us to Let's; accented names Julián, Iván, Verónica)."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 2,
+      "area": "grammar",
+      "explanation": "The por example Pagamos el horno por una cantidad fija was unnatural Spanish and did not illustrate exchange clearly.",
+      "correction": "Replaced with Pagamos 4.500 euros por el horno in the reading, grammar and phrase list; fixed the clasificar spelling-change note."
+    },
+    {
+      "severity": "P3",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 3,
+      "area": "register",
+      "explanation": "Coworkers addressed each other with usted commands and an usted opening, which is stiff for a team review.",
+      "correction": "Switched the coworker lines to tú and noted the usted form for clients."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 4,
+      "area": "scene logic",
+      "explanation": "The collection was called Tuesday's and then said to arrive Monday, and the 1,200 movement was never stated. The pagar example was copied from another lesson.",
+      "correction": "Clarified arrival versus recording date, stated the amount and gave a lesson-specific example."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 5,
+      "area": "financial logic",
+      "explanation": "A value date later than the invoice date was presented as a discrepancy, which is normal; the opening line contradicted the scene's direction.",
+      "correction": "The reference is the mismatch; the value date explains why the payment was not matched automatically; the closure applies the payment to the invoice."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 6,
+      "area": "speaker logic",
+      "explanation": "The collector said pagaremos (we will pay) for the client, and the client's hoped-for Friday payment contradicted the Monday commitment.",
+      "correction": "Rewrote the exchange: the accountant proposes with subjunctive, the client commits to Monday, and the closure sets a written follow-up."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 7,
+      "area": "speaker logic",
+      "explanation": "The owner, who approves, told the bookkeeper we will pay when you approve; only two of the three bills were reviewed; the Mexican corrida de pagos conflicted with the lesson term lote de pagos.",
+      "correction": "Rewrote the scene with the correct speakers, all three bills, and a closure stating which bills enter the payment run."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 8,
+      "area": "arithmetic",
+      "explanation": "The scene said the whole difference was due to two checks, then added a deposit in transit and a fee with no figures, so the reconciliation could not balance. The deberse a note claimed agreement with the cause.",
+      "correction": "Rebuilt with figures: 9,000 - 900 - 600 + 400 = 7,900 and 7,930 - 30 = 7,900; corrected the agreement rule."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 9,
+      "area": "grammar",
+      "explanation": "The pluperfect sentence had no prior reference point, después de que llegara is nonstandard for a past fact, and the question in the preterite was answered in the present.",
+      "correction": "Anchored the pluperfect to the statement's arrival, simplified the detection sentence, aligned tenses and stated the reversal amount."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 10,
+      "area": "jurisdiction and arithmetic",
+      "explanation": "Payroll deductions had no jurisdiction and mixed Latin American aportes with a euro payslip; net pay was compared with an unexplained previous year; focus called passive se reflexive.",
+      "correction": "Labeled the fictional payslip as from Spain with cotizaciones and IRPF withholding (no rates), stated 1,200 - 260 = 940, and corrected the focus and grammar note."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 11,
+      "area": "jurisdiction and logic",
+      "explanation": "Objective required a labeled jurisdiction but none was named; asked whether she was autónoma or por cuenta propia (the same thing); taught ser as permanent; implied the contract alone decides classification; no next review step.",
+      "correction": "Set the case in Madrid, Spain; fixed the question; framed review as contract versus actual working arrangement; requested payslips conditionally; added a specialist review step."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 12,
+      "area": "grammar",
+      "explanation": "Taught ungrammatical comparisons: La utilidad no es tanto como esperábamos and las ventas netas son tanto como las del mes anterior; no figures for revenue, expenses or profit.",
+      "correction": "Rebuilt the comparatives (mayor/menor que, tan ... como, verb + tanto como) and added 42,000 - 36,500 = 5,500."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 13,
+      "area": "financial accuracy",
+      "explanation": "The whole loan was called a current liability; no figures supported the equation; English grammar errors (What does the current assets include).",
+      "correction": "Only the portion due this year is current; added 80,000 = 30,000 + 50,000; fixed English agreement and the tener note."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 14,
+      "area": "objective",
+      "explanation": "No figures connected the profit, the uncollected sale and the payment, and the owner never repeated the distinction.",
+      "correction": "Added the 3,000 profit, 7,500 receivable and 4,200 payment, plus a teach-back closure."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 15,
+      "area": "arithmetic and register",
+      "explanation": "Variable costs had no figure, so affordability could not be discussed; the euro setting used Latin American camioneta; the grammar note allowed the conditional in a real condition.",
+      "correction": "Added variable costs and the 18,000 - 6,500 - 3,000 = 8,500 margin; used furgoneta with a regional note; corrected the si-clause rule."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 16,
+      "area": "objective",
+      "explanation": "The planned and actual amounts were never stated, the variance was asked about for the quarter in a monthly review, and there was no corrective step.",
+      "correction": "Added 3,300 - 2,400 = 900, fixed the period and added the agreed corrective step."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 17,
+      "area": "speaker logic",
+      "explanation": "The client asked the accountant to confirm the invoice, though the open question needed the client's answer; the update never asked the client to confirm or correct it.",
+      "correction": "The accountant now asks the client to answer the open question by the deadline; the client confirms and offers corrections."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 18,
+      "area": "speaker logic",
+      "explanation": "The bank officer asked the client which documents the bank needs, the client answered, and the closing implied approval; funcionario means civil servant in Spain; quisiera was called a conditional.",
+      "correction": "The client asks and the banker lists documents; the closing sets delivery and the next meeting without implying approval; fixed the quisiera note."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 19,
+      "area": "verb note",
+      "explanation": "The repartir note claimed an e-to-ie stem change; repartir is regular.",
+      "correction": "Corrected the note."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 19,
+      "area": "arithmetic and rate wording",
+      "explanation": "The quote had no rate or payment figure, so the 4,100 total was unsupported; the grammar taught un interés de 8 por ciento por año.",
+      "correction": "Built a consistent fictional quote: 20,000 at 6% for 60 months is about 387 a month, about 3,200 interest, a 200 fee, about 3,400 total cost; rates now use anual."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 20,
+      "area": "terminology",
+      "explanation": "A bank employee was called a prestamista (money lender); the reason for a personal guarantee was unclear; secured guarantee is not idiomatic English.",
+      "correction": "Recast the roles, made the aval depend on the valuation falling short, and translated garantía real as collateral."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 21,
+      "area": "speaking card",
+      "explanation": "The bank officer's opening line said Llamo por una comisión, which is the caller's line; the trigger sentence said the minimum balance fell rather than the balance fell below the minimum.",
+      "correction": "Rewrote the opening line as the bank answering, fixed the trigger and the follow-up logic, and used future forms for the bank's stated next step."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 22,
+      "area": "jurisdiction",
+      "explanation": "Used the invented country Norlandia; the preliminary review asked for a real named context with fictional figures.",
+      "correction": "Set the meeting in Spain (declaración de la renta, certificado de retenciones, Agencia Tributaria) with no dates or rates asserted."
+    },
+    {
+      "severity": "P0",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 23,
+      "area": "arithmetic",
+      "explanation": "A 1,000 deduction at 20% saves 200, and a 200 credit was then said to be worth more than it; both save 200.",
+      "correction": "Compared equal 1,000 amounts: the deduction saves 200, the credit 1,000."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 23,
+      "area": "jurisdiction and terminology",
+      "explanation": "Used invented Norlandia; the focus named a nonexistent de ... que comparative; did not warn that Spain's IRPF uses deducción for a credit against the tax and reducción for base reductions.",
+      "correction": "Set on a US federal return with fictional figures, used crédito tributario, added the Spain terminology note, corrected the comparative focus and closed without a universal benefit claim."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 24,
+      "area": "jurisdiction and tax logic",
+      "explanation": "An autónomo (Spain) was told the final calculation happens in December, with no jurisdiction named; in Spain the IRPF year is settled in the following year's return.",
+      "correction": "Labeled the case as Spain, used pago fraccionado / pago a cuenta / declaración anual, and explained the settlement without dates or rates."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 25,
+      "area": "terminology",
+      "explanation": "Valor de costo is not standard Spanish for cost basis, and the capital-gain question had no jurisdiction.",
+      "correction": "Used valor de adquisición and the broker's informe fiscal, and named Spain's IRPF label ganancia patrimonial."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 26,
+      "area": "accounting accuracy",
+      "explanation": "Taught converting a foreign invoice only at the payment-date rate, not the invoice date; under accrual accounting the invoice uses the transaction-date rate and the payment difference is an exchange difference. The convertir note said o to ue and exceeded 160 characters; the revisa example was labeled an usted command.",
+      "correction": "Rewrote the scene with invoice-date and payment-date rates and the exchange difference, made the specialist question concrete, closed on who sends the figure, and fixed the verb notes."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 27,
+      "area": "grammar",
+      "explanation": "Tú prepara el registro mixed a command with a stated subject; only two of three requested items were assigned; the pedir note exceeded 160 characters.",
+      "correction": "Used tú preparas, assigned all three items, added the teach-back confirmation and shortened the note."
+    },
+    {
+      "severity": "P3",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 28,
+      "area": "register",
+      "explanation": "Mixed usted (le dejo) and tú (avísame) between the same colleagues.",
+      "correction": "Made the colleague register consistently tú."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 29,
+      "area": "closure",
+      "explanation": "The call ended with No hay problema and no secure route for documents; the compartir note was garbled.",
+      "correction": "Added a callback on the official number and the approved portal route; fixed the note."
+    },
+    {
+      "severity": "P3",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 30,
+      "area": "verb notes",
+      "explanation": "The cerrar note exceeded 160 characters, and the enviar note claimed nosotros keeps the stress on the stem.",
+      "correction": "Shortened and corrected both notes."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 1,
+      "area": "complication and arithmetic",
+      "explanation": "The first explanation and the remaining gap were never quantified, so the revision of the reconciliation was not traceable; the closing review was noted before the evidence.",
+      "correction": "Added the first explanation (236 - 150 = 86), the 86-euro charge as the missing item, the evidence request and the documented revision."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 2,
+      "area": "scene logic",
+      "explanation": "A partial payment added twice was offered to explain an invoice that was lower than the statement, the credit-note question was unanswered, and the accountant said yo decido.",
+      "correction": "Made the 300-euro gap a possible duplicated delivery charge, requested all three source documents, and made the source document decide the figure."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 3,
+      "area": "jurisdiction and grammar",
+      "explanation": "An unlabeled tax filing was given a partial version and an extension, which depend on jurisdiction; the grammar paired the conditional with si plus the present indicative.",
+      "correction": "Made the deadline a bank submission under a loan agreement, used a provisional version and a bank extension request, and taught si plus imperfect subjunctive with the conditional."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 4,
+      "area": "false friend",
+      "explanation": "Error material was glossed as material error; in Spanish it normally means a clerical slip, and the significant-error sense is error significativo or de importancia relativa.",
+      "correction": "Replaced the term with error significativo and added a note on the false friend."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 4,
+      "area": "grammar note",
+      "explanation": "Taught that no sé si takes the subjunctive; it takes the indicative (the example itself used será). Eso es el efecto should be Ese es el efecto.",
+      "correction": "Taught es posible que plus subjunctive versus no sé si plus indicative; fixed the demonstrative; added a concrete 12,400 versus 1,240 error."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 5,
+      "area": "jurisdiction and terminology",
+      "explanation": "A tax notice had no jurisdiction; requerimiento (request for documents) was paired with a claimed amount; cuota was glossed as installment in a tax context; the client told the adviser to keep the documents to hand.",
+      "correction": "Set in Spain with a propuesta de liquidación, importe propuesto and the reply period; glossed cuota as tax amount due; corrected the speakers; added a teach-back closure."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 6,
+      "area": "financial accuracy",
+      "explanation": "Said the lease returns the residual value (lo devolvemos) instead of the van; maintenance and depreciation were contrasted vaguely; costs had no figures; tasa de interés real could mean the inflation-adjusted rate.",
+      "correction": "Stated an example cost gap, tied depreciation to ownership and maintenance to lease terms, mentioned a purchase option and referred to the bank offer's rate."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 7,
+      "area": "jurisdiction and timeline",
+      "explanation": "A self-employed worker was told the adjustment happens at year end with no jurisdiction; March income was said to invalidate an April payment that should already have included it.",
+      "correction": "Set in Spain (Málaga, under the Agencia Tributaria rather than a foral regime), moved the new income to May, kept the April Q1 payment valid, and settled the year in the annual return."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 8,
+      "area": "complication and grammar",
+      "explanation": "The discrepancy had no cause, so the master complication was missing; the note said reflexive se shows who approved, when passive se hides the agent.",
+      "correction": "Added the cause (payroll ran on the pre-approval hours file), clarified the overtime correction and fixed the grammar note."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 9,
+      "area": "scene logic and controls",
+      "explanation": "Collections (receivables) handled a payment to a vendor; No creo que nos hayan pagado mal contradicted the vendor's claim; the vendor's immediate-resend demand had no double-payment or bank-detail verification step.",
+      "correction": "Rewrote with the payables team, a changed bank account as the complication, no resend until the trace, a recall request, verification of new account details through the known contact, and a written statement of what remains unverified."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 10,
+      "area": "arithmetic and restricted cash",
+      "explanation": "The shortage was never quantified, the landlord's security deposit was treated as restricted cash in the business's bank, and se queda sin efectivo had no subject.",
+      "correction": "Built a traceable position: 11,000 in the bank - 3,000 restricted = 8,000 available against 12,000 due (4,000 short), with 14,000 receivables next month and a supplier-terms option that covers the week."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 11,
+      "area": "terminology",
+      "explanation": "A mortgage guarantee was delivered rather than signed; the Latin American avalúo appeared in a euro setting; the conditions precedent term was listed but not explained in the scene; the confirmar example was copied from another lesson.",
+      "correction": "Named both conditions precedent, used firmar la garantía hipotecaria and tasación, used tipo de interés, and gave a lesson-specific example."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 12,
+      "area": "register and objective",
+      "explanation": "Mixed ustedes verbs with le for one client; the delivery timing question was answered with a quote date; honorario mensual is unidiomatic; the confirmar example came from a bank lesson.",
+      "correction": "Used usted consistently, answered the delivery timing, used honorarios, and gave a lesson-specific confirmar example."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 13,
+      "area": "terminology and closure",
+      "explanation": "Entrega de guardia is a shift handover (usually clinical), not a case handoff; the call ended without the colleague confirming the callback time.",
+      "correction": "Used traspaso and added a closing commitment with the time and next owner."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 14,
+      "area": "speaker logic",
+      "explanation": "The client asked the accountant ¿Entendió usted la conclusión?, reversing the teach-back; no misunderstanding was corrected; the technical note itself was never read aloud.",
+      "correction": "Rewrote the scene: the accountant reads the note, translates it into plain language, asks for the explain-back, corrects a provision misunderstanding and confirms the meaning."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 15,
+      "area": "financial accuracy",
+      "explanation": "The sender fee was presented as a reason the recipient got less, though a fee charged separately does not reduce the amount received; the currency of receipt and the charge option were never stated.",
+      "correction": "Separated the 35-euro sender fee (charged separately), the conversion into pesos and a possible intermediary fee under shared charges (SHA), and requested both sides' documents."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 16,
+      "area": "context",
+      "explanation": "An unnamed authority issued a compliance request, and the reason and approved route were generic; the file-upload problem had no practical answer.",
+      "correction": "Made it a bank due diligence request on the source of funds, with the bank's portal as the approved route, a practical upload fallback through the official number, and a verification closure."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 17,
+      "area": "speaker logic",
+      "explanation": "The accountant told the client No registre el gasto although the accountant is the one recording it; the client asked the accountant when he could send the receipt; an unlabeled deductibility claim replaced the real issue of classification.",
+      "correction": "The accountant refuses and explains the missing evidence (expense, advance or loan), records the bank outflow as a pending item, asks the client for the invoice with a date, and gives the client a negative command about the client's own books."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 18,
+      "area": "jurisdiction and arithmetic",
+      "explanation": "A tax return deadline of 30 November was stated with no jurisdiction; the cash priority had no available-cash figure; the finance director decided alone; the manager never confirmed the order.",
+      "correction": "Made the deadline a bank delivery, added 45,000 due against 38,000 available (7,000 short), separated the proposer from the approver and added the confirmation closure."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 19,
+      "area": "teach-back logic",
+      "explanation": "The new coworker asked the trainer to repeat the steps in his own words (and in usted), so there was no teach-back, and the overlooked check was never overlooked by the learner.",
+      "correction": "The trainer asks for the teach-back with tú, the learner omits the reference check, the trainer corrects it respectfully without blame, and the learner repeats the revised sequence."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 20,
+      "area": "capstone coherence",
+      "explanation": "The conflicting records, the changed estimate and the open item were never specified, so nothing could be reconciled or handed off precisely; the tax impact had no period or jurisdiction.",
+      "correction": "Built a traceable case in Spain: 5,800 in the sales book versus 5,300 in the bank (500 open), a May receipt moving the Q2 advance estimate, a provisional update with a correction path, and named handoff owners and dates."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "foundation",
+      "lesson": 1,
+      "area": "translation",
+      "explanation": "Bring from the bank made it unclear who brings what to whom; the Spanish repeated cada.",
+      "correction": "The client brings bank documents to the accountant; smoothed the Spanish."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "foundation",
+      "lesson": 2,
+      "area": "scene logic",
+      "explanation": "The client chose a video call and was then told to bring receipts; contact details were never confirmed; a verb note was written in English for Spanish-speaking learners.",
+      "correction": "Rewrote the scene with the video format, documents emailed by Monday, an updated address and closure; rewrote the notes in Spanish and added bring versus take."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "foundation",
+      "lesson": 3,
+      "area": "English grammar",
+      "explanation": "A proof of payment treats an uncountable noun as countable; the scene never stated how an invoice differs from a receipt; notes contained English sentences and a garbled rule.",
+      "correction": "Fixed the article, added the invoice-versus-receipt contrast, and rewrote the notes in Spanish."
+    },
+    {
+      "severity": "P3",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "foundation",
+      "lesson": 4,
+      "area": "consistency",
+      "explanation": "The phrase list confirmed euros while the scene confirmed dollars.",
+      "correction": "Aligned the phrase with the scene and clarified the number format note."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "foundation",
+      "lesson": 5,
+      "area": "scene logic",
+      "explanation": "The client said January to March and the accountant answered No with the same period; a tax due date was asserted with no jurisdiction.",
+      "correction": "The client now assumes the whole year; the date is the firm's internal deadline."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "foundation",
+      "lesson": 6,
+      "area": "financial logic",
+      "explanation": "A customer's unpaid amount was to be confirmed with the supplier; the outstanding note claimed it only follows the noun.",
+      "correction": "The receivable is confirmed with the customer; corrected the adjective note."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "foundation",
+      "lesson": 7,
+      "area": "financial terminology",
+      "explanation": "The pending hold was called a charge the bank had not confirmed, and the closing line mentioned a fee that never occurred.",
+      "correction": "Made it a card hold not yet settled, added hold as a term, recorded the pending charge, and taught singular there is with money amounts."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "foundation",
+      "lesson": 8,
+      "area": "financial terminology",
+      "explanation": "Said each purchase is a debit or a credit depending on the account; double entry always records both.",
+      "correction": "Each purchase now has a debit and a credit, with a worked credit card example."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "foundation",
+      "lesson": 9,
+      "area": "speaking card",
+      "explanation": "The client's opening line said this is the accountant speaking; close the March deadline is unidiomatic.",
+      "correction": "The client now answers the phone; fixed the deadline wording, added an identifying detail, and contrasted wait, expect and hope for Spanish esperar."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 1,
+      "area": "objective",
+      "explanation": "The request was never scoped although the grammar teaches only.",
+      "correction": "Sentence 5 now limits the invoices with only and defers payroll."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 2,
+      "area": "accounting accuracy",
+      "explanation": "Said a fixed asset counts as depreciation over time; the asset is depreciated, it is not depreciation. Paid for it in one fixed amount was unidiomatic.",
+      "correction": "Corrected to it is depreciated over several years and used pay 4,500 dollars for it."
+    },
+    {
+      "severity": "P3",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 3,
+      "area": "native register",
+      "explanation": "The Spanish translation used usted between coworkers.",
+      "correction": "Used tú in the Spanish and noted that English marks politeness with please."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 4,
+      "area": "English grammar",
+      "explanation": "Taught was still owing and was noting as past continuous; owe is stative and was owing is unidiomatic. A note called What was the balance a was + participle question.",
+      "correction": "Rebuilt the focus with actions in progress (was closing, was reconciling) interrupted by past simple events, added the stative-verb rule and fixed the notes."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 5,
+      "area": "financial logic",
+      "explanation": "A value date later than the invoice date was presented as the discrepancy; the opening line contradicted the scene.",
+      "correction": "The reference is the mismatch; the value date explains the failed automatic match; the closure applies the payment."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 6,
+      "area": "speaker logic",
+      "explanation": "The collector said I will pay the undisputed part, taking the client's role; payment terms have expired is not idiomatic.",
+      "correction": "Rewrote: the collector proposes, the client commits to Monday, and the collector closes with a written follow-up; used past its due date."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 7,
+      "area": "speaker logic and verb note",
+      "explanation": "The owner, who approves, said we will pay when you approve; only two of three bills were reviewed; fall due was called regular.",
+      "correction": "Corrected the speakers, reviewed all three bills with a clear closure, and fixed the fall due note."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 8,
+      "area": "arithmetic and grammar",
+      "explanation": "Said the whole difference was due to two checks, then added a deposit in transit and a fee without figures; called due to a noun; the show note mixed past and participle.",
+      "correction": "Rebuilt with figures (9,000 - 900 - 600 + 400 = 7,900; 7,930 - 30 = 7,900) and corrected the grammar notes."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 9,
+      "area": "grammar",
+      "explanation": "The past perfect had no later past reference point, and a past question was answered in the present.",
+      "correction": "Anchored the past perfect to the statement's arrival, aligned tenses and stated the amount."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 10,
+      "area": "jurisdiction and arithmetic",
+      "explanation": "Payroll deductions had no jurisdiction; net pay was compared with an unexplained previous year; a note was in English.",
+      "correction": "Labeled the payslip as US (federal withholding, Social Security, Medicare; no rates), stated 1,200 - 260 = 940 and fixed the note."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 11,
+      "area": "English calque and jurisdiction",
+      "explanation": "Work for her own account is a calque of por cuenta propia; English says self-employed or works for herself. No jurisdiction was named, and the contract alone was treated as deciding classification.",
+      "correction": "Used idiomatic English, set the case in Arizona with the real Form 1099-NEC/W-2 labels, compared contract and actual arrangement, and added a specialist step."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 12,
+      "area": "comparisons and figures",
+      "explanation": "Compared profit with last year rather than last year's profit, compared the quarter with last month, and gave no figures.",
+      "correction": "Added 42,000 - 36,500 = 5,500 and parallel comparisons (last year's, last quarter's)."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 13,
+      "area": "English grammar and accounting",
+      "explanation": "The grammar note gave Assets equals as the singular rule; the equal note said equal to introduces the figure; What does the current asset include; the whole loan was called current.",
+      "correction": "Corrected the agreement and equal/is equal to rules, the question, and the current portion of the loan; added 80,000 = 30,000 + 50,000."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 14,
+      "area": "objective",
+      "explanation": "No figures connected profit, the uncollected sale and the payment, and the owner never repeated the distinction.",
+      "correction": "Added the figures and a teach-back closure."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 15,
+      "area": "arithmetic",
+      "explanation": "Variable costs had no figure, so affordability could not be judged.",
+      "correction": "Added variable costs and the 18,000 - 6,500 - 3,000 = 8,500 margin."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 16,
+      "area": "objective",
+      "explanation": "Planned and actual amounts were never stated, the period mixed quarter and month, there was no corrective step, and the focus contained English words.",
+      "correction": "Added 3,300 - 2,400 = 900, fixed the period, added the corrective step and rewrote the focus in Spanish."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 17,
+      "area": "speaker logic",
+      "explanation": "The client asked the accountant to confirm the invoice, though the open question needed the client's answer.",
+      "correction": "The accountant asks the client to answer by the deadline; the client confirms."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 18,
+      "area": "speaker logic",
+      "explanation": "The bank officer asked the client which documents the bank needs, and the closing implied approval.",
+      "correction": "The client asks with an indirect question, the banker lists documents, and the closing sets delivery and the next meeting."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 19,
+      "area": "arithmetic",
+      "explanation": "The quote had no rate or payment figure, so the 4,100 total was unsupported.",
+      "correction": "Built a consistent quote: 20,000 at 6% for 60 months is about 387 a month, about 3,200 interest, a 200 fee and about 3,400 total cost; added an APR note."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 20,
+      "area": "terminology",
+      "explanation": "A bank employee was called a lender, secured collateral is redundant, and I request the written terms is stiff in conversation.",
+      "correction": "Recast the roles, used collateral and I would like, and made the personal guarantee depend on the valuation."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 21,
+      "area": "speaking card",
+      "explanation": "The bank's opening line said I am calling about a fee, which is the caller's line; the transfer remark did not explain the trigger.",
+      "correction": "The bank now answers the call; the caller links the low balance to a one-day transfer; future forms state the bank's next step."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 22,
+      "area": "jurisdiction",
+      "explanation": "Used the invented country Norland.",
+      "correction": "Set the meeting in the United States with real labels (federal return, Form W-2, Form 1099-INT, IRS) and no dates or rates."
+    },
+    {
+      "severity": "P0",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 23,
+      "area": "arithmetic",
+      "explanation": "A 1,000 deduction at 20% saves 200, and a 200 credit was said to be worth more; both save 200.",
+      "correction": "Compared equal 1,000 amounts."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 23,
+      "area": "jurisdiction",
+      "explanation": "Used invented Norland in the objective, grammar, speaking card and phrases.",
+      "correction": "Set on a US federal return with fictional figures, without a universal benefit claim."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 24,
+      "area": "jurisdiction and tax logic",
+      "explanation": "No jurisdiction; said the final calculation happens in December; pay two estimated payments is a collocation error (make a payment).",
+      "correction": "Set in the United States (estimated payment periods, final liability on the following year's return), and fixed the collocation."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 25,
+      "area": "English note",
+      "explanation": "The exceed note claimed exceed is also a noun (an excess); valor de costo is not standard Spanish for cost basis; no jurisdiction for the gain.",
+      "correction": "Corrected the note, used base de costo, and named the US Form 1099-B."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 26,
+      "area": "accounting accuracy",
+      "explanation": "Taught converting the invoice only at the payment-date rate; a dollar invoice was converted into euros although the client's context was US dollars.",
+      "correction": "Rewrote: euro invoice for a dollar-ledger client, invoice-date and payment-date rates with an exchange difference, a concrete specialist question and a closure on who sends the figure."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 27,
+      "area": "English usage",
+      "explanation": "Take responsibility for was used for task assignment (it usually means accepting accountability); the grammar said the main verb backshifts; only two of three items were assigned.",
+      "correction": "Used take care of, corrected the backshift explanation, assigned all three items and added a teach-back confirmation."
+    },
+    {
+      "severity": "P3",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 28,
+      "area": "English grammar",
+      "explanation": "I leave you the note described a present action with the simple present; the let me know note was unclear.",
+      "correction": "Used I am leaving you, clarified let me know if, and noted that hand over is separable."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 29,
+      "area": "closure",
+      "explanation": "The call ended with That is no problem and no approved route for documents; with an unsolicited call is the wrong preposition.",
+      "correction": "Added a callback on the official number and the approved portal route; used on a call."
+    },
+    {
+      "severity": "P3",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 30,
+      "area": "note language",
+      "explanation": "A verb note was written in English for Spanish-speaking learners.",
+      "correction": "Rewrote the note in Spanish."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 1,
+      "area": "complication and arithmetic",
+      "explanation": "The first explanation and remaining gap were not quantified, so the revision was not traceable; the Spanish used tienen for a single coworker.",
+      "correction": "Added 236 - 150 = 86, the missing charge, must have / might for hypotheses, the evidence request and the documented revision."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 2,
+      "area": "scene logic and grammar note",
+      "explanation": "A partial payment added twice could not explain a lower invoice, the accountant said I decide, and the grammar note contained a mixed English-Spanish sentence.",
+      "correction": "Made the 300-dollar gap a possible duplicated delivery charge, requested all source documents, let the source decide, and rewrote the grammar note."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 3,
+      "area": "English grammar and jurisdiction",
+      "explanation": "We would submit a partial version unless the receipts arrive combined would with unless and the present indicative; I communicate the uncertainty is unidiomatic; a tax filing was given a partial version and an extension with no jurisdiction.",
+      "correction": "Made the deadline a bank submission, taught will/unless and the second-conditional fallback correctly, and replaced the unidiomatic phrase."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 4,
+      "area": "false friend in native gloss",
+      "explanation": "Material error was glossed as error material, which in Spanish usually means a clerical slip; learners would carry the false friend into Spanish.",
+      "correction": "Glossed as error significativo with a note; added a concrete 12,400 versus 1,240 error and used will for commitments."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 5,
+      "area": "jurisdiction and terminology",
+      "explanation": "The tax notice had no jurisdiction; a request for clarification was paired with a claimed amount; installment was out of context; the client said he would keep the documents while the adviser should instruct; to hand is British in a US scene.",
+      "correction": "Set it in the US with a CP2000 proposed-change notice that is not a bill, glossed the proposed amount and amount due, used on hand, and added a teach-back closure."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 6,
+      "area": "financial accuracy",
+      "explanation": "Maintenance and depreciation were contrasted vaguely, costs had no figures, and the real interest rate could mean the inflation-adjusted rate.",
+      "correction": "Stated an example cost gap, tied depreciation to ownership and maintenance to lease terms, mentioned a purchase option and used the offer's rate."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 7,
+      "area": "jurisdiction and timeline",
+      "explanation": "No jurisdiction; March income was said to change an April payment that should already have included it; the adjustment was placed at year end rather than on the annual return.",
+      "correction": "Set in Texas under US federal rules: the April payment covered January to March, the May income can raise the June payment, and the final amount comes from next year's return."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 8,
+      "area": "English usage and complication",
+      "explanation": "We would check the time record sounded hypothetical rather than a proposal; the discrepancy had no cause; the employee answered her own should-have question.",
+      "correction": "Used I would suggest that we check, added the cause (payroll run before approval) and gave the should-have conclusion to the payroll officer."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 9,
+      "area": "scene logic and controls",
+      "explanation": "Collections (receivables) handled a vendor payment; the vendor's resend demand had no double-payment or bank-detail verification step.",
+      "correction": "Rewrote with accounts payable, a changed bank account, no resend before the trace (second conditional), a recall request, and verification of new account details through the known contact."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 10,
+      "area": "arithmetic and English",
+      "explanation": "The shortage was never quantified, a landlord deposit was treated as the business's restricted bank cash, and collecting sales at thirty days is a calque.",
+      "correction": "Built the traceable position (11,000 - 3,000 = 8,000 available vs 12,000 due; 4,000 short; 14,000 receivables next month), used on thirty-day terms, and added a teach-back."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 11,
+      "area": "terminology",
+      "explanation": "A mortgage guarantee was delivered rather than signed, and only one condition precedent was named.",
+      "correction": "Named both conditions precedent, used signed and in place, and clarified what the owner will not commit."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 12,
+      "area": "English idiom",
+      "explanation": "What is left outside and When would the delivery timing be are unidiomatic; the delivery-timing question was answered with a quote date; a note told learners to use the usted form in English.",
+      "correction": "Used left out and When would you deliver it, answered the timing, and corrected the note."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 13,
+      "area": "closure",
+      "explanation": "The call ended with the client telling the colleague to confirm when she knows something, without a committed callback time.",
+      "correction": "Added the colleague's committed callback and the next owner."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 14,
+      "area": "speaker logic",
+      "explanation": "The client asked the accountant Did you understand the conclusion?, reversing the teach-back; no misunderstanding was corrected; Mr. Julián is a calque of don Julián.",
+      "correction": "Rewrote: the accountant reads the note, restates it plainly, asks for the explain-back, corrects a provision misunderstanding and confirms; used the full name."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 15,
+      "area": "financial accuracy",
+      "explanation": "Presented the separately charged sender fee as the reason the recipient got less, and never stated the receiving currency or the charge option.",
+      "correction": "Separated the 35-dollar sender fee, the conversion into pesos and a possible intermediary fee under shared charges (SHA), and requested both sides' documents."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 16,
+      "area": "context",
+      "explanation": "An unnamed authority issued the request, its reason was generic, and the upload problem had no answer.",
+      "correction": "Made it a bank due diligence request on the source of funds, with the bank's portal as the approved route, a practical fallback and a verification closure."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 17,
+      "area": "speaker logic and grammar",
+      "explanation": "The accountant told the client Do not record although the accountant records it; the client asked the accountant when he could send the proof; We would record it if you send mixed conditional types; an unlabeled deductibility claim replaced classification.",
+      "correction": "The accountant refuses and explains the missing evidence, records the outflow as pending, asks the client for the invoice with a date, gives the client a negative instruction about the client's own books, and uses could ... until."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 18,
+      "area": "jurisdiction, arithmetic and usage",
+      "explanation": "A tax return deadline was stated with no jurisdiction; the cash priority had no available figure; the finance director decided alone; take a decision is British in a US-dollar track.",
+      "correction": "Made the deadline a bank delivery, added 45,000 due vs 38,000 available (7,000 short), separated proposer and approver, replaced take with make and added the confirmation closure."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 19,
+      "area": "teach-back logic",
+      "explanation": "The new coworker asked the trainer to say the steps back in his own words, so there was no teach-back, and the learner never overlooked the check being corrected.",
+      "correction": "The trainer asks for the teach-back, the learner omits the reference check, the trainer corrects it with I would like you to, and the learner repeats the full sequence."
+    },
+    {
+      "severity": "P1",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 20,
+      "area": "capstone coherence",
+      "explanation": "The conflicting records, changed estimate and open item were never specified; the tax impact had no period or jurisdiction.",
+      "correction": "Built a traceable US case: 5,800 in the sales ledger vs 5,300 at the bank (500 open), a May receipt affecting the June estimated payment, a provisional update with a correction path, and named owners and dates."
+    }
+  ],
+  "moduleWideFindings": [
+    {
+      "severity": "P3",
+      "module": "accounting",
+      "pair": "en-es",
+      "stage": "all",
+      "lesson": "all",
+      "area": "English target text",
+      "explanation": "Suggestions used Let us in 10 en-es lessons, and names lost accents in English target text (Julian, Ivan, Veronica) while the Spanish translations kept them.",
+      "correction": "Global pass: Let us to Let's in target sentences, phrases, grammar and verb examples; restored Julián, Iván, Verónica."
+    },
+    {
+      "severity": "P2",
+      "module": "accounting",
+      "pair": "both",
+      "stage": "all",
+      "lesson": "all",
+      "area": "track differentiation",
+      "explanation": "en-es mirrored the es-en scenes with dollars but kept Spain-only or jurisdiction-free tax content.",
+      "correction": "en-es tax, payroll and contractor lessons now use US federal labels and English-specific grammar; es-en uses Spain. Scenes still share characters and storylines by design, but grammar focus, notes and jurisdiction content are authored per target language."
+    }
+  ],
+  "remainingUncertainties": [
+    "es-en regional standard is mixed: the setting is Spain (euros, nómina, extracto, IRPF, furgoneta) but Latin American terms remain in places (utilidad, costo, monto, cotización, tasa de interés, cuenta de clientes versus cuentas por cobrar). Notes name the variants where they matter; a human editor should choose one default or label each lesson's region.",
+    "Haiku's open choices remain for a human decision: contadora versus contable in Spain, cuenta corriente default, céntimo versus centavo, comprobante versus justificante versus recibo.",
+    "Spain tax content is stated at a general level and should be checked by a Spain-qualified tax professional: pago fraccionado (modelo 130) applies to many but not all autónomos; propuesta de liquidación with alegaciones describes the limited-review procedure; Málaga, Sevilla, Valencia, Zaragoza and Valladolid were chosen to stay under the common regime (not the Basque or Navarre foral systems).",
+    "US tax content uses real form names and periods (Form W-2, 1099-INT, 1099-NEC, 1099-B, estimated payment covering April-May due in June, CP2000 as a proposed-change notice that is not a bill). These were correct to the reviewer's knowledge but can change and should be checked by a US-qualified preparer before release.",
+    "Payroll lessons (Core 10) name deduction types (IRPF withholding and Social Security contributions in Spain; federal withholding, Social Security and Medicare in the US) with fictional totals and no rates; the 260 deduction total is illustrative.",
+    "Loan quote figures (Core 19) are rounded from a standard amortization (20,000 at 6% for 60 months is about 386.66 a month and about 3,199 interest); TIN/TAE (Spain) and APR (US) notes are definitions, not rates.",
+    "Accounting treatments are taught at an introductory level: foreign-currency invoices recorded at the transaction-date rate with an exchange difference on payment; a provision recognized before payment; a replacement oven capitalized as a fixed asset. Firm-specific capitalization thresholds or reporting frameworks are not addressed.",
+    "English date style: en-es uses US month-day order; es-en English translations use day-month order (1 January). Both are internally consistent per file but differ between files.",
+    "Spanish natives in en-es use a neutral Latin American register (contador, utilidad, cotización, corrida de pagos); a few Spain-leaning words remain (furgoneta in Master 6).",
+    "Validator coverage is structural plus term and phrase usage; naturalness of every sentence was judged by the model and should get native-speaker review in both languages."
+  ],
+  "validation": {
+    "realValidator": "validateLessonContent and contentLimitsFor imported from src/lib/lesson-content-core.ts, bundled locally with the repository's installed esbuild (no repository files written).",
+    "limitsUsed": "contentLimitsFor('accounting') for Foundation and Core; contentLimitsFor('master-accounting') for Master; plus maxTermWords 4 and maxPhraseWords 12 as stricter per-brief limits.",
+    "extraChecks": "Exact stage numbering 1-10, 1-30 and 1-20; lesson.words equal to content.words; word and verb notes at most 160 characters; titles at most 70; at least two grammar examples; required speaking fields present; no duplicated reading.",
+    "commands": [
+      "node /tmp/acct-opus-review/validate.mjs /Users/drive/git-backups/lt-finance-modules-2026-11-15",
+      "node scripts/validate-finance-content.mjs"
+    ],
+    "results": {
+      "reviewerValidator": "120 of 120 rows pass, validated against both lesson.words and content.words; 0 failures. Before review, 3 rows failed (verb notes over 160 characters in es-en Core 26, 27, 30).",
+      "repositoryValidator": "validatedLessons 360 (all three finance modules), 0 failures; 0 accounting failures."
+    },
+    "notRun": [
+      "npx tsc --noEmit (no TypeScript files changed)",
+      "npm run smoke:e2e and runtime tests (owned by the primary agent)",
+      "git"
+    ]
+  },
+  "method": "The Haiku originals were backed up outside the repository, and every correction was written as a scripted patch reapplied from that pristine copy, so the output is reproducible. The scratch scripts in /tmp/acct-opus-review are review tooling, not deliverables. Corrected text was authored per lesson; no templated substitution or padding was used to satisfy counts.",
+  "separateDeliverables": {
+    "hdAudio": "not produced; 0 lessons have HD audio",
+    "offlinePacks": "not produced or registered",
+    "runtimeRegistration": "not done by this reviewer; the primary agent owns runtime integration",
+    "humanQualifiedReview": "not done; humanReview is false"
+  }
+}

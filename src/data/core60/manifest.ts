@@ -14,6 +14,72 @@ import type { Core60ManifestEntry } from "../../lib/core60-stage-core.ts";
 
 export const CORE60_MANIFEST: readonly Core60ManifestEntry[] = [
   {
+    base: "accounting",
+    language: "Spanish",
+    nativeLanguage: "English",
+    tradeLabel: "Accounting & Financial Services · Spanish",
+    foundation: { blurb: "Ten guided lessons for first money conversations." },
+    master: {
+      blurb:
+        "Twenty advanced conversations with changed information, clarification and practical closure.",
+    },
+  },
+  {
+    base: "accounting-english",
+    language: "English",
+    nativeLanguage: "Spanish",
+    tradeLabel: "Accounting & Financial Services · English",
+    foundation: { blurb: "Ten guided lessons for first money conversations." },
+    master: {
+      blurb:
+        "Twenty advanced conversations with changed information, clarification and practical closure.",
+    },
+  },
+  {
+    base: "personal-money",
+    language: "Spanish",
+    nativeLanguage: "English",
+    tradeLabel: "Personal Money & Banking · Spanish",
+    foundation: { blurb: "Ten guided lessons for first money conversations." },
+    master: {
+      blurb:
+        "Twenty advanced conversations with changed information, clarification and practical closure.",
+    },
+  },
+  {
+    base: "personal-money-english",
+    language: "English",
+    nativeLanguage: "Spanish",
+    tradeLabel: "Personal Money & Banking · English",
+    foundation: { blurb: "Ten guided lessons for first money conversations." },
+    master: {
+      blurb:
+        "Twenty advanced conversations with changed information, clarification and practical closure.",
+    },
+  },
+  {
+    base: "travel-money",
+    language: "Spanish",
+    nativeLanguage: "English",
+    tradeLabel: "Travel Money & Payments · Spanish",
+    foundation: { blurb: "Ten guided lessons for first money conversations." },
+    master: {
+      blurb:
+        "Twenty advanced conversations with changed information, clarification and practical closure.",
+    },
+  },
+  {
+    base: "travel-money-english",
+    language: "English",
+    nativeLanguage: "Spanish",
+    tradeLabel: "Travel Money & Payments · English",
+    foundation: { blurb: "Ten guided lessons for first money conversations." },
+    master: {
+      blurb:
+        "Twenty advanced conversations with changed information, clarification and practical closure.",
+    },
+  },
+  {
     base: "or-cleaning",
     language: "Spanish",
     nativeLanguage: "English",

@@ -49,7 +49,7 @@ test("actual speaker hook and TTS wrapper keep cleanup within the owning surface
               () => ({ path: "host", namespace: "fixture" }),
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
-              contents: `export const controls={actor:'a',host:null};const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);export function useRef(initial){const h=controls.host,i=h.cursor++;if(!(i in h.slots))h.slots[i]={current:initial};return h.slots[i];}export function useCallback(fn,deps){const h=controls.host,i=h.cursor++,old=h.slots[i];if(!old||changed(old.deps,deps))h.slots[i]={deps,fn};return h.slots[i].fn;}export function useEffect(fn,deps){const h=controls.host,i=h.cursor++,old=h.slots[i];if(!old||changed(old.deps,deps))h.effects.push(()=>{old?.cleanup?.();h.slots[i]={deps,cleanup:fn()};});}const isCurrentUser=id=>controls.actor===id;export const useAuth=()=>({user:controls.actor?{id:controls.actor}:null,isCurrentUser});export const speakMissionTts=()=>Promise.resolve(),stopMissionTts=()=>{},getVoicesForLocale=()=>[{voiceURI:'default'}],configureUtterance=(u,locale)=>u.lang=locale,isIosDevice=()=>false,toast={warning:()=>{}};`,
+              contents: `export const createContext=value=>({value});export const useContext=context=>controls.hdOnly??context.value;export const controls={hdOnly:false,remote:[],actor:'a',host:null};const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);export function useRef(initial){const h=controls.host,i=h.cursor++;if(!(i in h.slots))h.slots[i]={current:initial};return h.slots[i];}export function useCallback(fn,deps){const h=controls.host,i=h.cursor++,old=h.slots[i];if(!old||changed(old.deps,deps))h.slots[i]={deps,fn};return h.slots[i].fn;}export function useEffect(fn,deps){const h=controls.host,i=h.cursor++,old=h.slots[i];if(!old||changed(old.deps,deps))h.effects.push(()=>{old?.cleanup?.();h.slots[i]={deps,cleanup:fn()};});}const isCurrentUser=id=>controls.actor===id;export const useAuth=()=>({user:controls.actor?{id:controls.actor}:null,isCurrentUser});export const speakMissionTts=opts=>{controls.remote.push(opts);return Promise.resolve()},stopMissionTts=()=>{},getVoicesForLocale=()=>[{voiceURI:'default'}],configureUtterance=(u,locale)=>u.lang=locale,isIosDevice=()=>false,toast={warning:()=>{},error:()=>{}};`,
             }));
           },
         },
@@ -149,6 +149,23 @@ test("actual speaker hook and TTS wrapper keep cleanup within the owning surface
     const after = utterances.length;
     guestSpeak("late guest", "en-US");
     assert.equal(utterances.length, after);
+    // A course's HD policy takes effect without changing the saved/device preference.
+    c.actor = "signed-in";
+    c.hdOnly = true;
+    const hd = host();
+    const hdPlayback = renderPlayback(hd, "finance");
+    const deviceBefore = utterances.length;
+    hdPlayback.speak("A newly authored finance sentence", "es-US", "device:default");
+    await tick();
+    assert.equal(utterances.length, deviceBefore, "HD policy never uses device speech");
+    assert.equal(c.remote.at(-1)?.voiceName, "es-US-Chirp3-HD-Aoede");
+    c.hdOnly = false;
+    renderPlayback(hd, "finance");
+    const remoteBefore = c.remote.length;
+    hdPlayback.speak("stale course audio", "es-US");
+    await tick();
+    assert.equal(c.remote.length, remoteBefore, "old course policy cannot start late audio");
+    unmount(hd);
   } finally {
     globalThis.window = old.window;
     globalThis.SpeechSynthesisUtterance = old.utterance;

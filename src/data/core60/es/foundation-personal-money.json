@@ -1,0 +1,920 @@
+{
+  "version": 1,
+  "module": "foundation-personal-money",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "Personal Money & Banking · Spanish · Foundation",
+  "threshold": "Use Spanish to complete the foundation personal money & banking conversations and explain the next step.",
+  "reviewed": false,
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Name everyday money amounts",
+      "objective": "Read a shop total aloud, name the banknotes and coins used to pay, and ask for the change and receipt in Spanish.",
+      "focus": "Dollar amounts with the $ sign; cuesta and cuestan agreement; the verb costar",
+      "words": [
+        {
+          "es": "billete",
+          "en": "banknote",
+          "kind": "term",
+          "note": "Paper money. Un billete de veinte dólares is a twenty-dollar bill."
+        },
+        {
+          "es": "moneda",
+          "en": "coin",
+          "kind": "term",
+          "note": "Metal money. Use monedas for coins in the plural."
+        },
+        {
+          "es": "precio",
+          "en": "price",
+          "kind": "term"
+        },
+        {
+          "es": "total",
+          "en": "total",
+          "kind": "term",
+          "note": "The full amount to pay after all items are added."
+        },
+        {
+          "es": "cambio",
+          "en": "change",
+          "kind": "term",
+          "note": "The money returned when you pay with more than the price."
+        },
+        {
+          "es": "recibo",
+          "en": "receipt",
+          "kind": "term"
+        },
+        {
+          "es": "cajero",
+          "en": "cashier",
+          "kind": "term",
+          "note": "In a shop, cajero or cajera is the person who takes payment. At a bank, the word means ATM."
+        },
+        {
+          "es": "dólar",
+          "en": "dollar",
+          "kind": "term"
+        },
+        {
+          "es": "centavo",
+          "en": "cent",
+          "kind": "term",
+          "note": "One hundredth of a dollar. Fifty cents is written $0.50."
+        },
+        {
+          "es": "efectivo",
+          "en": "cash",
+          "kind": "term",
+          "note": "Banknotes and coins, not a card payment."
+        },
+        {
+          "es": "¿Cuánto cuesta esto?",
+          "en": "How much does this cost?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Aquí tiene veinte dólares.",
+          "en": "Here is twenty dollars.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Me da el cambio, por favor?",
+          "en": "Could you give me the change, please?",
+          "kind": "phrase"
+        },
+        {
+          "es": "El total es $12.50.",
+          "en": "The total is $12.50.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Me da el recibo, por favor?",
+          "en": "Could you give me the receipt, please?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are buying bread and milk at a small shop counter. Ask the price of the milk, pay with a twenty-dollar bill, and ask for the change and the receipt. Finish by repeating the total and the change aloud so the cashier can confirm them.",
+      "partnerRole": "Spanish-speaking shop cashier",
+      "openingLine": "Buenas tardes. ¿Qué desea llevar hoy?",
+      "readingTemplate": "seed-es-foundation-personal-money-lesson-1"
+    },
+    {
+      "n": 2,
+      "title": "Ask about a bank account",
+      "objective": "Ask what a checking or savings account is for, ask which documents to bring, and check the minimum balance before opening.",
+      "focus": "Question words qué, para qué and cuál; the verbs abrir, necesitar and servir",
+      "words": [
+        {
+          "es": "cuenta corriente",
+          "en": "checking account",
+          "kind": "term",
+          "note": "Used for daily payments. In Mexico many people say cuenta de cheques."
+        },
+        {
+          "es": "ahorros",
+          "en": "savings",
+          "kind": "term",
+          "note": "Cuenta de ahorros means savings account."
+        },
+        {
+          "es": "identificación",
+          "en": "identification",
+          "kind": "term",
+          "note": "An official photo ID such as a passport or driver license."
+        },
+        {
+          "es": "sucursal",
+          "en": "branch",
+          "kind": "term",
+          "note": "A physical bank office where clients meet staff."
+        },
+        {
+          "es": "saldo mínimo",
+          "en": "minimum balance",
+          "kind": "term",
+          "note": "The lowest amount the account must keep."
+        },
+        {
+          "es": "depósito inicial",
+          "en": "opening deposit",
+          "kind": "term"
+        },
+        {
+          "es": "comprobante de domicilio",
+          "en": "proof of address",
+          "kind": "term",
+          "note": "A recent bill or statement that shows your home address."
+        },
+        {
+          "es": "firma",
+          "en": "signature",
+          "kind": "term"
+        },
+        {
+          "es": "solicitud",
+          "en": "application form",
+          "kind": "term"
+        },
+        {
+          "es": "requisito",
+          "en": "requirement",
+          "kind": "term"
+        },
+        {
+          "es": "¿Para qué sirve esta cuenta?",
+          "en": "What is this account for?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Qué documentos necesito traer?",
+          "en": "What documents do I need to bring?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quiero abrir una cuenta de ahorros.",
+          "en": "I want to open a savings account.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Hay un saldo mínimo para abrirla?",
+          "en": "Is there a minimum balance to open it?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puedo abrirla hoy mismo?",
+          "en": "Can I open it today?",
+          "kind": "phrase",
+          "note": "Hoy mismo stresses this very day."
+        }
+      ],
+      "speaking": "You visit a bank branch to open an account. Ask what the checking account is for, ask which documents you must bring, and ask whether there is a minimum balance. Close by confirming the single document you will bring next time and thanking the staff member.",
+      "partnerRole": "Spanish-speaking bank adviser at a branch desk",
+      "openingLine": "Buenos días. ¿En qué le puedo ayudar hoy?",
+      "readingTemplate": "seed-es-foundation-personal-money-lesson-2"
+    },
+    {
+      "n": 3,
+      "title": "Read your balance",
+      "objective": "Tell the current balance from the available balance and explain why a pending purchase may change the available amount.",
+      "focus": "Present tense of aparecer and incluir; singular and plural agreement with the thing that appears",
+      "words": [
+        {
+          "es": "saldo actual",
+          "en": "current balance",
+          "kind": "term",
+          "note": "The balance after posted transactions."
+        },
+        {
+          "es": "saldo disponible",
+          "en": "available balance",
+          "kind": "term",
+          "note": "The amount you can spend now, after holds are subtracted."
+        },
+        {
+          "es": "transacción",
+          "en": "transaction",
+          "kind": "term"
+        },
+        {
+          "es": "pendiente",
+          "en": "pending",
+          "kind": "term",
+          "note": "Authorized but not yet final. Esa compra está pendiente means the purchase is not final."
+        },
+        {
+          "es": "retención",
+          "en": "hold",
+          "kind": "term",
+          "note": "A temporary block on money. It is not yet a charge."
+        },
+        {
+          "es": "cargo",
+          "en": "charge",
+          "kind": "term"
+        },
+        {
+          "es": "movimiento",
+          "en": "activity entry",
+          "kind": "term",
+          "note": "One line of money in or out in the account history."
+        },
+        {
+          "es": "estado de cuenta",
+          "en": "statement",
+          "kind": "term",
+          "note": "In Spain the same document is called extracto."
+        },
+        {
+          "es": "fecha",
+          "en": "date",
+          "kind": "term"
+        },
+        {
+          "es": "monto",
+          "en": "amount",
+          "kind": "term",
+          "note": "The quantity of money in a transaction; common across Latin America."
+        },
+        {
+          "es": "¿Cuál es mi saldo disponible?",
+          "en": "What is my available balance?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Esa compra todavía está pendiente.",
+          "en": "That purchase is still pending.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuándo se refleja en mi saldo?",
+          "en": "When does it show up in my balance?",
+          "kind": "phrase"
+        },
+        {
+          "es": "El saldo actual incluye todos los cargos.",
+          "en": "The current balance includes all the charges.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are checking a banking app at a bus stop because you need to pay rent. Ask the bank helper for your available balance, ask why it is lower than the current balance, and ask when the pending purchase will appear. Close by stating the amount you can safely spend today.",
+      "partnerRole": "Spanish-speaking bank support assistant on a phone line",
+      "openingLine": "Hola, soy Diego del servicio al cliente. ¿Me dice su número de cuenta?",
+      "readingTemplate": "seed-es-foundation-personal-money-lesson-3"
+    },
+    {
+      "n": 4,
+      "title": "Make a deposit",
+      "objective": "State the amount of a cash and check deposit, confirm the total, and ask when the funds become available.",
+      "focus": "Estar for location and availability; the future estará for scheduled availability",
+      "words": [
+        {
+          "es": "depósito",
+          "en": "deposit",
+          "kind": "term"
+        },
+        {
+          "es": "ventanilla",
+          "en": "teller window",
+          "kind": "term",
+          "note": "The counter where clients do transactions with a teller in person."
+        },
+        {
+          "es": "cajera",
+          "en": "teller",
+          "kind": "term",
+          "note": "A bank teller at the counter, feminine form."
+        },
+        {
+          "es": "comprobante",
+          "en": "deposit receipt",
+          "kind": "term",
+          "note": "Proof of a completed deposit or payment, printed or digital. The form filled in before a deposit is often called ficha de depósito."
+        },
+        {
+          "es": "fondos",
+          "en": "funds",
+          "kind": "term"
+        },
+        {
+          "es": "disponible",
+          "en": "available",
+          "kind": "term"
+        },
+        {
+          "es": "cheque",
+          "en": "check",
+          "kind": "term",
+          "note": "A written order to pay money from a bank account. Cheque de viajero means traveler check."
+        },
+        {
+          "es": "confirmar",
+          "en": "confirm",
+          "kind": "term"
+        },
+        {
+          "es": "monto",
+          "en": "amount",
+          "kind": "term"
+        },
+        {
+          "es": "Quiero hacer un depósito de $150.00.",
+          "en": "I want to make a deposit of $150.00.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Me puede confirmar el monto, por favor?",
+          "en": "Could you confirm the amount for me, please?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Los fondos estarán disponibles mañana.",
+          "en": "The funds will be available tomorrow.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuándo estará disponible?",
+          "en": "When will it be available?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Aquí está el comprobante de depósito.",
+          "en": "Here is the deposit receipt.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are at a teller window with cash and a check. State that you want to deposit $150.00, confirm the amount, and ask when the money will be available. Close by repeating the availability date and taking the deposit slip.",
+      "partnerRole": "Spanish-speaking bank teller at a counter window",
+      "openingLine": "Buenas tardes. ¿En qué le puedo ayudar hoy?",
+      "readingTemplate": "seed-es-foundation-personal-money-lesson-4"
+    },
+    {
+      "n": 5,
+      "title": "Withdraw cash",
+      "objective": "Request an amount at the window, ask for the bill sizes you want, and count the cash before leaving.",
+      "focus": "Polite requests with puede and the verb form for usted; contar and entregar",
+      "words": [
+        {
+          "es": "retiro",
+          "en": "withdrawal",
+          "kind": "term",
+          "note": "A cash withdrawal from an account. Retiro de efectivo is the full phrase."
+        },
+        {
+          "es": "cajero automático",
+          "en": "ATM",
+          "kind": "term",
+          "note": "Cajero automático is used across Latin America. Spain often says cajero."
+        },
+        {
+          "es": "límite diario",
+          "en": "daily limit",
+          "kind": "term"
+        },
+        {
+          "es": "denominación",
+          "en": "denomination",
+          "kind": "term",
+          "note": "The value of each bill or coin, such as twenty dollars."
+        },
+        {
+          "es": "billete",
+          "en": "bill",
+          "kind": "term"
+        },
+        {
+          "es": "moneda",
+          "en": "coin",
+          "kind": "term"
+        },
+        {
+          "es": "cantidad",
+          "en": "amount",
+          "kind": "term"
+        },
+        {
+          "es": "recibo",
+          "en": "receipt",
+          "kind": "term"
+        },
+        {
+          "es": "identificación",
+          "en": "identification",
+          "kind": "term"
+        },
+        {
+          "es": "fila",
+          "en": "line",
+          "kind": "term",
+          "note": "A queue of people waiting. Hacer fila means to wait in line."
+        },
+        {
+          "es": "Quiero retirar $200.00 en efectivo, por favor.",
+          "en": "I want to withdraw $200.00 in cash, please.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puede darme billetes de veinte, por favor?",
+          "en": "Can you give me twenty-dollar bills, please?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuál es mi límite diario de retiro?",
+          "en": "What is my daily withdrawal limit?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Cuento el efectivo antes de salir.",
+          "en": "I count the cash before leaving.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Qué denominación prefiere?",
+          "en": "Which denomination do you prefer?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You need cash for a plumber, so you go to the bank window. Ask for $200.00 in cash, ask for twenty-dollar bills and some smaller bills, and ask what your daily limit is. Close by counting the cash aloud and confirming the amount with the teller.",
+      "partnerRole": "Spanish-speaking bank teller at a cash window",
+      "openingLine": "Buenos días. ¿Qué tipo de operación quiere hacer hoy?",
+      "readingTemplate": "seed-es-foundation-personal-money-lesson-5"
+    },
+    {
+      "n": 6,
+      "title": "Use a debit or credit card",
+      "objective": "Ask which cards a shop accepts, say which account a purchase affects, and explain the difference between paying from your balance and paying with credit.",
+      "focus": "Este and esta with a noun, and the verb afectar with a direct object",
+      "words": [
+        {
+          "es": "tarjeta de débito",
+          "en": "debit card",
+          "kind": "term",
+          "note": "Money leaves your bank account when the payment is processed."
+        },
+        {
+          "es": "tarjeta de crédito",
+          "en": "credit card",
+          "kind": "term",
+          "note": "Creates a bill you pay later; the balance is owed to the card issuer."
+        },
+        {
+          "es": "terminal",
+          "en": "payment terminal",
+          "kind": "term",
+          "note": "The machine that reads a card or phone at the till."
+        },
+        {
+          "es": "comercio",
+          "en": "merchant",
+          "kind": "term",
+          "note": "A shop or business that accepts card payments."
+        },
+        {
+          "es": "estado de cuenta",
+          "en": "card statement",
+          "kind": "term",
+          "note": "The monthly document for a credit card that shows the balance owed and the payment due date. Factura is a merchant invoice."
+        },
+        {
+          "es": "cuenta",
+          "en": "account",
+          "kind": "term"
+        },
+        {
+          "es": "límite de crédito",
+          "en": "credit limit",
+          "kind": "term"
+        },
+        {
+          "es": "vencimiento",
+          "en": "due date",
+          "kind": "term",
+          "note": "On a bill, fecha de vencimiento is the payment due date. Printed on a card, it is the expiry date. Fecha límite de pago is unambiguous."
+        },
+        {
+          "es": "pago sin contacto",
+          "en": "contactless payment",
+          "kind": "term"
+        },
+        {
+          "es": "cargo",
+          "en": "charge",
+          "kind": "term"
+        },
+        {
+          "es": "¿Aceptan tarjeta de débito?",
+          "en": "Do you accept debit cards?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Pase la tarjeta por la terminal.",
+          "en": "Run the card through the terminal.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Este pago afecta mi cuenta?",
+          "en": "Does this payment affect my account?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puedo pagar sin contacto?",
+          "en": "Can I pay contactless?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Esta tarjeta funciona aquí?",
+          "en": "Does this card work here?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are at a pharmacy counter with a card. Ask whether the shop accepts debit cards, ask whether the payment will affect your checking account or your credit limit, and ask if you can pay contactless. Close by saying which card you chose and why.",
+      "partnerRole": "Spanish-speaking pharmacy cashier",
+      "openingLine": "Buenas tardes. ¿Tiene todo lo que necesita o le busco algo más?",
+      "readingTemplate": "seed-es-foundation-personal-money-lesson-6"
+    },
+    {
+      "n": 7,
+      "title": "Find a transaction in an app",
+      "objective": "Locate the amount, date, merchant and payment status of one purchase on a banking app screen.",
+      "focus": "Imperative with usted for on-screen instructions; the verbs buscar, escribir and cambiar",
+      "words": [
+        {
+          "es": "buscador",
+          "en": "search box",
+          "kind": "term"
+        },
+        {
+          "es": "historial",
+          "en": "history",
+          "kind": "term",
+          "note": "The list of past activity in an app."
+        },
+        {
+          "es": "filtro",
+          "en": "filter",
+          "kind": "term"
+        },
+        {
+          "es": "estado",
+          "en": "status",
+          "kind": "term",
+          "note": "Estado del pago means payment status."
+        },
+        {
+          "es": "comercio",
+          "en": "merchant",
+          "kind": "term"
+        },
+        {
+          "es": "fecha",
+          "en": "date",
+          "kind": "term"
+        },
+        {
+          "es": "monto",
+          "en": "amount",
+          "kind": "term"
+        },
+        {
+          "es": "reembolso",
+          "en": "refund",
+          "kind": "term",
+          "note": "Money returned to you after a purchase is reversed or corrected."
+        },
+        {
+          "es": "notificación",
+          "en": "notification",
+          "kind": "term"
+        },
+        {
+          "es": "pantalla",
+          "en": "screen",
+          "kind": "term",
+          "note": "Captura de pantalla means screenshot."
+        },
+        {
+          "es": "Me llegó una notificación del banco.",
+          "en": "I received a notification from the bank.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuál es el estado del pago?",
+          "en": "What is the payment status?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuándo llegará el reembolso?",
+          "en": "When will the refund arrive?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Escriba el nombre del comercio en el buscador.",
+          "en": "Type the merchant name in the search box.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Use el filtro de fecha, por favor.",
+          "en": "Use the date filter, please.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Your father is helping you find a store charge on a banking app. Describe the purchase you remember, ask him to search for the store and the date, and read the amount and payment status aloud. Close by saying whether you will ask the bank about a refund.",
+      "partnerRole": "Spanish-speaking father helping with a phone app",
+      "openingLine": "Hija, ¿qué compra quieres encontrar en la aplicación?",
+      "readingTemplate": "seed-es-foundation-personal-money-lesson-7"
+    },
+    {
+      "n": 8,
+      "title": "Identify income and spending",
+      "objective": "Describe money that comes in, separate fixed costs from variable spending, and name one amount set aside for saving.",
+      "focus": "Subject-verb agreement with plural amounts and the verbs trabajar, sumar and separar",
+      "words": [
+        {
+          "es": "ingreso",
+          "en": "income",
+          "kind": "term"
+        },
+        {
+          "es": "gasto",
+          "en": "spending",
+          "kind": "term",
+          "note": "Money paid out. Gasto fijo and gasto variable are the two main groups."
+        },
+        {
+          "es": "sueldo",
+          "en": "salary",
+          "kind": "term",
+          "note": "Regular pay for work, often per month or per pay period."
+        },
+        {
+          "es": "pago quincenal",
+          "en": "semimonthly pay",
+          "kind": "term",
+          "note": "Paid twice a month, often on the 15th and the last day. Pay every two weeks is cada dos semanas."
+        },
+        {
+          "es": "suscripción",
+          "en": "subscription",
+          "kind": "term"
+        },
+        {
+          "es": "renta",
+          "en": "rent",
+          "kind": "term",
+          "note": "Money paid to rent a home. In Spain the usual word is alquiler."
+        },
+        {
+          "es": "servicio",
+          "en": "utility service",
+          "kind": "term",
+          "note": "A regular bill for electricity, water, internet or phone service."
+        },
+        {
+          "es": "gasto fijo",
+          "en": "fixed cost",
+          "kind": "term"
+        },
+        {
+          "es": "gasto variable",
+          "en": "variable spending",
+          "kind": "term"
+        },
+        {
+          "es": "ahorro",
+          "en": "saving",
+          "kind": "term"
+        },
+        {
+          "es": "Mi ingreso llega cada quince días.",
+          "en": "My income arrives every fifteen days.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Pago la renta el primero de cada mes.",
+          "en": "I pay the rent on the first day of each month.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuánto gasto al mes en comida?",
+          "en": "How much do I spend each month on food?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Los gastos fijos suman $644.99.",
+          "en": "The fixed costs add up to $644.99.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Separo un ahorro antes de gastar.",
+          "en": "I set aside savings before I spend.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Describe your money in a simple way: say how often your income arrives, name two fixed costs with amounts, and say what you spend on food each month. Close by naming one amount you will set aside before you spend, and ask the tutor whether that amount is realistic.",
+      "partnerRole": "Spanish-speaking money tutor at a community center",
+      "openingLine": "Hola. Cuénteme qué dinero entra y qué dinero sale cada mes.",
+      "readingTemplate": "seed-es-foundation-personal-money-lesson-8"
+    },
+    {
+      "n": 9,
+      "title": "Set a simple savings goal",
+      "objective": "State what you are saving for, the total amount, the monthly contribution and the target date.",
+      "focus": "Infinitive after a verb of wanting (quiero ahorrar) and the present tense for routine actions",
+      "words": [
+        {
+          "es": "meta de ahorro",
+          "en": "savings goal",
+          "kind": "term"
+        },
+        {
+          "es": "aporte mensual",
+          "en": "monthly contribution",
+          "kind": "term"
+        },
+        {
+          "es": "plazo",
+          "en": "time frame",
+          "kind": "term"
+        },
+        {
+          "es": "fecha objetivo",
+          "en": "target date",
+          "kind": "term"
+        },
+        {
+          "es": "transferencia automática",
+          "en": "automatic transfer",
+          "kind": "term"
+        },
+        {
+          "es": "presupuesto",
+          "en": "budget",
+          "kind": "term"
+        },
+        {
+          "es": "prioridad",
+          "en": "priority",
+          "kind": "term"
+        },
+        {
+          "es": "cuenta de ahorros",
+          "en": "savings account",
+          "kind": "term"
+        },
+        {
+          "es": "recordatorio",
+          "en": "reminder",
+          "kind": "term"
+        },
+        {
+          "es": "fondo de emergencia",
+          "en": "emergency fund",
+          "kind": "term",
+          "note": "Money kept for unexpected costs, separate from a trip or a purchase goal."
+        },
+        {
+          "es": "Quiero ahorrar $1,200.00 para un viaje.",
+          "en": "I want to save $1,200.00 for a trip.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuánto debo aportar cada mes?",
+          "en": "How much should I contribute each month?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Pongo una transferencia automática cada quincena.",
+          "en": "I set up an automatic transfer twice a month.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Esa meta es realista con mi presupuesto.",
+          "en": "That goal is realistic with my budget.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿En qué fecha puedo alcanzar la meta?",
+          "en": "On what date can I reach the goal?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Set a goal for a trip. State the amount and the purpose, say how long you have, and ask the adviser how much to contribute each month. Close by stating your monthly contribution and the date you aim to reach it.",
+      "partnerRole": "Spanish-speaking credit union adviser",
+      "openingLine": "Buenas tardes. ¿Qué meta de ahorro quiere empezar?",
+      "readingTemplate": "seed-es-foundation-personal-money-lesson-9"
+    },
+    {
+      "n": 10,
+      "title": "Ask for help clearly",
+      "objective": "Explain one money question, ask for a slower explanation, request a written summary and confirm the next step.",
+      "focus": "Polite requests with puede plus infinitive and attached pronouns (explicármelo); the verbs explicar, repetir and enviar",
+      "words": [
+        {
+          "es": "explicación",
+          "en": "explanation",
+          "kind": "term"
+        },
+        {
+          "es": "comisión",
+          "en": "fee",
+          "kind": "term",
+          "note": "A specific charge for a service, such as a low-balance fee."
+        },
+        {
+          "es": "ayuda",
+          "en": "help",
+          "kind": "term"
+        },
+        {
+          "es": "paso",
+          "en": "step",
+          "kind": "term"
+        },
+        {
+          "es": "resumen",
+          "en": "summary",
+          "kind": "term"
+        },
+        {
+          "es": "número de referencia",
+          "en": "reference number",
+          "kind": "term",
+          "note": "The code the bank gives you so the call or case can be found."
+        },
+        {
+          "es": "llamada",
+          "en": "call",
+          "kind": "term"
+        },
+        {
+          "es": "atención al cliente",
+          "en": "customer service",
+          "kind": "term"
+        },
+        {
+          "es": "agente",
+          "en": "agent",
+          "kind": "term"
+        },
+        {
+          "es": "pregunta",
+          "en": "question",
+          "kind": "term"
+        },
+        {
+          "es": "¿Puede explicármelo más despacio?",
+          "en": "Could you explain it to me more slowly?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuál es el siguiente paso?",
+          "en": "What is the next step?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Me puede repetir el número de referencia?",
+          "en": "Could you repeat the reference number for me?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Entonces confirmo que mañana reviso el cargo.",
+          "en": "So I confirm that tomorrow I will check the charge.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puede enviarme un resumen por escrito?",
+          "en": "Can you send me a summary in writing?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Call customer service about a fee you do not understand. Ask a clear question, ask the agent to explain more slowly, ask for the next step in writing, and repeat the reference number. Close by confirming what you will check tomorrow.",
+      "partnerRole": "Spanish-speaking customer service agent on a phone line",
+      "openingLine": "Atención al cliente, buenas tardes. ¿En qué le puedo ayudar?",
+      "readingTemplate": "seed-es-foundation-personal-money-lesson-10"
+    }
+  ],
+  "baseModule": "personal-money",
+  "stage": "foundation"
+}

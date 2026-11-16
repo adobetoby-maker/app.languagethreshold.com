@@ -72,6 +72,7 @@ for (const [name, file] of [
               b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
                 contents: `
  export const c={actor:'a',state:{selectedLanguage:'Spanish',activeModuleId:'roofing',level:'A2',moduleAssignments:{}},slots:[],cursor:0,effects:[],dispatches:[],writes:0,audio:[],errors:[]};
+ export const createContext=(value)=>({value,Provider:'provider'}),useContext=(context)=>context.value;
  const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
  export function useRef(initial){const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];}
  export function useState(initial){const i=c.cursor++;if(!(i in c.slots))c.slots[i]=typeof initial==='function'?initial():initial;return [c.slots[i],value=>{c.writes++;if(typeof value==='function'){value(c.slots[i]);c.slots[i]=value(c.slots[i]);}else c.slots[i]=value;}];}

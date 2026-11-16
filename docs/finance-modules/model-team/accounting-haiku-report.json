@@ -1,0 +1,106 @@
+{
+  "module": "accounting",
+  "moduleName": "Accounting & Financial Services",
+  "category": "Finance",
+  "builder": "accounting-haiku-authoring",
+  "model": "claude-haiku-5-5",
+  "modelSource": "Reported by the runner as Claude Haiku 5.5",
+  "auditDate": "2026-11-15",
+  "humanReviewed": false,
+  "modelReviewed": false,
+  "modelReviewNote": "Model review is not human review. No qualified human reviewer has checked terminology, grammar or tax/banking wording.",
+  "status": {
+    "es-en": "authored 60 draft (Foundation 10, Core 30, Master 20); not runtime-registered",
+    "en-es": "authored 60 draft (Foundation 10, Core 30, Master 20); not runtime-registered"
+  },
+  "pairs": [
+    {
+      "target": "Spanish",
+      "native": "English",
+      "file": "content/finance/accounting/es-en.json",
+      "rows": 60,
+      "stageCounts": { "foundation": 10, "core": 30, "master": 20 },
+      "perStageRanges": {
+        "foundation": { "sentencePairs": "7-8", "terms": 10, "phrases": "4-5", "verbs": "3-4" },
+        "core": { "sentencePairs": "7-9", "terms": 10, "phrases": "4-5", "verbs": 4 },
+        "master": { "sentencePairs": "12-14", "terms": "12-14", "phrases": 6, "verbs": 5 }
+      },
+      "validation": {
+        "repoValidator": "validateLessonContent from src/lib/lesson-content-core.ts, bundled with the repo's esbuild (read-only, no app files changed)",
+        "result": "60 of 60 rows pass with stage limits (Master profile for Master rows, Core profile otherwise) and per-row term/phrase caps of 4 and 12 words",
+        "structureCheck": "pass: exact stage counts, unique stage-local numbers, schema keys, two grammar examples per row, verb form keys yo/tú/él_ella_usted/nosotros/ellos_ustedes, digit alignment, sentence endings, sentence length 260 max, title 70 max, note 160 max"
+      }
+    },
+    {
+      "target": "English",
+      "native": "Spanish",
+      "file": "content/finance/accounting/en-es.json",
+      "rows": 60,
+      "stageCounts": { "foundation": 10, "core": 30, "master": 20 },
+      "perStageRanges": {
+        "foundation": { "sentencePairs": "7-8", "terms": 10, "phrases": 4, "verbs": "3-4" },
+        "core": { "sentencePairs": "7-9", "terms": 10, "phrases": "4-5", "verbs": 4 },
+        "master": { "sentencePairs": "12-15", "terms": "12-14", "phrases": 6, "verbs": 5 }
+      },
+      "validation": {
+        "repoValidator": "validateLessonContent from src/lib/lesson-content-core.ts, bundled with the repo's esbuild (read-only, no app files changed)",
+        "result": "60 of 60 rows pass with stage limits",
+        "structureCheck": "pass: same checks as es-en; verb form keys i/you/he_she/we/they"
+      }
+    }
+  ],
+  "authoredFrom": {
+    "blueprint": "docs/finance-modules/blueprint.json, accounting module, 60 lesson titles and outcomes",
+    "validator": "src/lib/lesson-content-core.ts (CONTENT_LIMITS, MASTER_CONTENT_LIMITS, validateLessonContent)",
+    "sourceBasis": "Original scenes and sentences written for this module with fictional people, businesses and amounts. No existing course text or external source passages were copied. Tax examples use the labeled fictional jurisdiction Norland; Spanish term notes name regional variants where they differ, but not every term has one."
+  },
+  "languageChoices": [
+    "Lesson titles are English navigational titles in both files, taken from the blueprint.",
+    "In es-en.json (Spanish target, English native), objective, focus, speaking task, partner role, grammar focus and all notes are in English.",
+    "In en-es.json (English target, Spanish native), objective, focus, speaking task, partner role, grammar focus and all notes are in Spanish. The brief asked for an English objective; for Spanish-native learners I used the native language, because the brief also asks for native-language explanations. This is a choice for the user to confirm.",
+    "Opening lines are spoken in the target language in both files.",
+    "Reading passages are in the target language with aligned native translations. Dialogue uses an inline colon, with no quotation marks or dialogue dashes. Apostrophes appear in possessives and contractions, which the validator does not treat as quotation marks."
+  ],
+  "hdAudio": {
+    "status": "missing",
+    "lessonsWithoutHdAudio": 120,
+    "note": "No audio was generated, per the brief. Speaking cards depend on device voice or later HD audio."
+  },
+  "issuesForOpus": {
+    "spanishTargetEsEn": [
+      "Regional variation is labeled but not standardized: camioneta is used for a delivery van (Latin American usage; Spain often says furgoneta). Confirm whether to keep one usage or give both.",
+      "Payslip and payroll vocabulary: recibo de nómina and nómina are used. Chile and Peru use boleta de pago or planilla; confirm which regional variant the module should follow.",
+      "Accountant gender forms: contadora and contador are used for the persona. Spain also uses contable. Confirm the preferred professional title.",
+      "Checking account: cuenta corriente is used. Some Spanish-speaking countries use cuenta de cheques or cuenta de depósito. Confirm the default.",
+      "Cent wording: céntimo is used in the Foundation 4 reading and the note gives centavo for Latin America. Confirm the default in the reading.",
+      "Document words: comprobante, justificante and recibo are used with notes. Check that each lesson uses the intended word consistently.",
+      "Tax terms are labeled by the fictional jurisdiction Norland in Core 22-24. Spanish tax wording such as declaración, retención and pago estimado should be checked against real jurisdiction-specific terms before any public release.",
+      "Imperative forms: usted forms for clients and tú forms for colleagues are mixed in a few passages. Confirm the register rule for each role.",
+      "Some Master passages use dense subjunctive constructions after cuando, siempre que and espero que. Check naturalness with a native speaker."
+    ],
+    "englishTargetEnEs": [
+      "Cheque spelling: check is used in passages and notes (US usage); UK English uses cheque. Confirm the default.",
+      "Date order in English passages is mixed: both 30 November and November 30 style appear. Choose one default.",
+      "Tax return is used generically in Foundation 3 and Core 22. Jurisdiction-specific forms such as the US Form 1099 are not used; confirm that the generic wording is acceptable.",
+      "Some dialogue lines use formal could/would constructions and contracted forms (couldn't, don't). Check consistency with the intended learner register.",
+      "Phrasal verbs (hand over, set aside, run out of, follow up) appear in notes and examples. Confirm they match the intended difficulty for each stage.",
+      "Speaker name spelling differs by file: Core 1 (English target) spells the accountant Julian without the accent, while the Spanish-target file uses Julián. Confirm the name policy for English-target readings.",
+      "Some verb notes label verbs regular or irregular and give spelling changes. Verify those claims with a native-English reviewer."
+    ]
+  },
+  "notRun": [
+    "git (per the brief)",
+    "runtime registration, lesson-content index, library shards, download artifacts",
+    "smoke tests and the app's type check (no app files were changed)",
+    "HD audio or any audio generation",
+    "human review"
+  ],
+  "files": {
+    "owned": [
+      "content/finance/accounting/es-en.json",
+      "content/finance/accounting/en-es.json",
+      "docs/finance-modules/model-team/accounting-haiku-report.json"
+    ],
+    "buildScratch": "Authored text sources and the assembler were kept outside the repo in a scratch folder; they are not part of the deliverable."
+  }
+}

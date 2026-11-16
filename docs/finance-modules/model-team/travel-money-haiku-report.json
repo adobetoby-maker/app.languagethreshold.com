@@ -1,0 +1,101 @@
+{
+  "module": "travel-money",
+  "moduleName": "Travel Money & Payments",
+  "requestedModel": "haiku",
+  "runnerModel": "claude-haiku-5-5",
+  "humanReview": false,
+  "modelReview": "Not performed. Author self-check against the validator only; no second-model review run.",
+  "generatedAt": "2026-11-15",
+  "scope": "content/finance/travel-money/ only (plus this report). No runtime, shared, git, credential, external-service or audio work.",
+  "pairs": {
+    "es-en": {
+      "rows": 60,
+      "stageCounts": {
+        "foundation": 10,
+        "core": 30,
+        "master": 20
+      },
+      "termsTotal": 622,
+      "phrasesTotal": 319,
+      "sentencePairsTotal": 573,
+      "verbsTotal": 246,
+      "file": "content/finance/travel-money/es-en.json",
+      "target": "Spanish",
+      "native": "English",
+      "explanationLanguage": "English (objective, focus, speaking, notes, grammar focus); titles English navigational"
+    },
+    "en-es": {
+      "rows": 60,
+      "stageCounts": {
+        "foundation": 10,
+        "core": 30,
+        "master": 20
+      },
+      "termsTotal": 622,
+      "phrasesTotal": 320,
+      "sentencePairsTotal": 576,
+      "verbsTotal": 220,
+      "file": "content/finance/travel-money/en-es.json",
+      "target": "English",
+      "native": "Spanish",
+      "explanationLanguage": "Spanish (objective, focus, speaking, notes, grammar focus); titles kept English navigational per spec. Note: spec wording said English objective; Spanish chosen so the explanations reach the Spanish-speaking learner."
+    }
+  },
+  "validation": {
+    "validator": "validateLessonContent from src/lib/lesson-content-core.ts, bundled to a scratch dir and run on the written files",
+    "result": "es-en 60/60 rows pass; en-es 60/60 rows pass",
+    "structure": "lesson.words equals content.words for every row; two grammar examples per row; lesson n runs 1..N per stage; Master rows have exactly five verbs",
+    "limitsApplied": "Foundation/Core: 5-9 sentence pairs, 8-12 terms, 4-6 phrases, 3-5 verbs. Master: 12-18 sentence pairs, 12-16 terms, 6-8 phrases, 5 verbs. Terms max 4 words, phrases max 12 words (enforced by the author-side checker)."
+  },
+  "blocks": {
+    "A": "Foundation: cash, prices, change, receipts",
+    "B": "Exchange, ATMs and currency choice",
+    "C": "Transport, hotels, rentals and disputes",
+    "D": "Food, markets, bookings and refunds",
+    "E": "Services, disputes and capstones"
+  },
+  "sourceBasis": [
+    "Lesson titles and outcomes: docs/finance-modules/blueprint.json (travel-money entries).",
+    "Row schema and limits: src/lib/lesson-content-core.ts (validateLessonContent, CONTENT_LIMITS, MASTER_CONTENT_LIMITS).",
+    "Row shape reference only: content/military/lessons.json (its template-style content was not reused).",
+    "All scenes, dialogues, figures and phrasing were authored for this module; amounts are fictional. No external sources were consulted or copied."
+  ],
+  "hdAudio": "Not generated. No audio files were produced; HD audio is missing for all 120 lessons.",
+  "issuesForOpus": {
+    "es-en_regional_terms": [
+      "cuenta (bill) and factura: Spain usage is used in restaurant and hotel bills; Latin American usage may differ.",
+      "billete vs boleto for ticket; recibo vs comprobante for proof of payment (comprobante is used in Latin America).",
+      "datáfono and terminal are both used for the card reader; check the chosen form per region.",
+      "aparcamiento vs estacionamiento; taquilla vs boletería.",
+      "zumo vs jugo; autobús vs bus/camión; menú del día (Spain).",
+      "ayuntamiento and tasa local appear as generic local-government terms; check that no region-specific tax name is asserted as universal."
+    ],
+    "es-en_grammar": [
+      "Tú and usted are mixed deliberately by scene (friends use tú, service uses usted); confirm the register choices are consistent in lesson 28 and Master 19.",
+      "Subjunctive usage in Core 12, Core 23, Master 6, Master 7, Master 10 and Master 20 should be reviewed for naturalness.",
+      "Pesar used figuratively in Core 3 and the pluperfect subjunctive in Master 5 are advanced; check the notes."
+    ],
+    "en-es_regional_terms": [
+      "bill vs check for restaurant bills; pants vs trousers; subway vs metro vs tube; ATM vs cash machine.",
+      "pound used as a weight unit at markets (Foundation/Core); pound is also the currency; the Spanish glosses say libra for weight. Check the lessons where both senses could appear.",
+      "tap card and contactless are used generically; check the usage note for each region."
+    ],
+    "en-es_grammar": [
+      "Phrasal verbs (check out, pick up, split, run out) are used and glossed; check the Spanish gloss wording.",
+      "Would have, had known and reported speech in Master 5, Master 9 and Master 10 are advanced; check the Spanish explanation.",
+      "Some English verb notes use the form is irregular; these are checked only by the author-side validator, not by a linguist."
+    ],
+    "jurisdiction": [
+      "Tax and local-charge labels are described generically (tasa local, impuesto local, cargo de servicio, service charge). No universal tax, deposit-protection or retirement claims are made.",
+      "Deposits and holds are described as bank practice in general terms; the release timing is a fictional example and not a legal rule."
+    ]
+  },
+  "knownGaps": [
+    "No native-speaker review has been done for any lesson.",
+    "Regional terminology has not been verified against a regional glossary.",
+    "No HD audio.",
+    "Learner-facing notes in es-en Foundation 1 and some Core notes are short; Opus may want to expand them.",
+    "Every Master speaking task includes a complication (verified in both files); Foundation and Core speaking tasks do not."
+  ],
+  "keepHumanReviewFalse": true
+}

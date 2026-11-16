@@ -1,3 +1,4 @@
+import { financeLesson } from "@/data/finance";
 import {
   LessonWorkspaceHeader,
   LessonModeBar,
@@ -800,7 +801,10 @@ function OwnedLessonRunner({
     state.nativeLanguage,
   );
   const coursePractice = basics ?? japanese;
-  const grammar = coursePractice?.grammar ?? lesson.grammar;
+  const grammar =
+    coursePractice?.grammar ??
+    financeLesson(moduleId, lesson.n, state.selectedLanguage, state.nativeLanguage)?.grammar ??
+    lesson.grammar;
   const [grammarPassed, setGrammarPassed] = useState(false);
   const [marking, setMarking] = useState(false);
   // In-flight guard: a completion (team post + counter + chain) must never run twice at once.

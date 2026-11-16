@@ -1,0 +1,9 @@
+# Japanese Breakfast Core 12 source review
+
+This inert Japanese→English packet pins the current Spanish Breakfast Core 12 source: 18 cards and nine aligned Reader turns. It preserves stage-local lesson ID `travel-breakfast:12:ja-en` and assigns revision-scoped candidate row IDs. Run `python3 build.py --check` and `python3 validate.py` in this directory to check source hashes, order, IDs, audio estimate and closed gates.
+
+The archived Japanese draft frames the problem as a separately billed drink. The current source Reader instead shows a cover charge on the bill, a question about whether the tip is included, optional tipping because service is not included, and card payment because the traveler lacks cash. The candidate retains those events and does not assume the café is in Japan. `伝票` denotes the bill document; payment uses forms of `支払う`. Source `service is not included` is provisionally rendered as `サービス料は含まれていない`; this interpretation and the setting's cover-charge/tip practice require qualified source and Japanese review.
+
+The archived rows have no explicit IDs and were not learner-registered. Their positions are retired for this candidate only; five identical Japanese card strings do not authorize saved-item or audio migration. The candidate has no authored six-mode prompt/target pairs, Japanese forms, contextual dictionary senses, speaking runtime, offline pack, learner registration or V4 import. All review, scoring, audio/listening, progress, owner-route and release gates remain false.
+
+Read-only audio scope: 27 draft Japanese faces, 54 potential two-voice clip/listening decisions, 942 submitted Japanese characters and about $0.02826 gross at the earlier $30 per million-character rate. No recording was synthesized, approved or registered. Haiku 5.5 drafted, Opus 5.5 critiqued, and Fable 5.2 checked the correction; actual CLI metadata is in `ai-assistance-metadata.json`. AI is not qualified approval.

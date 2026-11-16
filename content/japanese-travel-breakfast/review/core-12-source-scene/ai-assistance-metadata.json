@@ -1,0 +1,42 @@
+{
+  "status": "AI-assisted source-only candidate; qualified Japanese, source, food/locale and dictionary review remains open",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Exact source-card and Reader candidate authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "3bfa0eac-0e01-4501-a906-5c24873931e8",
+      "mode": "Claude CLI --safe-mode --model haiku --tools empty --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false,
+      "note": "Proposed 18 source-order cards and nine Reader Japanese faces."
+    },
+    {
+      "role": "Read-only source and Japanese critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "95f32b59-4235-4f97-b46a-8a1c53a61906",
+      "mode": "Claude CLI --safe-mode --model opus --tools empty --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false,
+      "note": "Flagged bill-document versus payment-act meaning, service-charge ambiguity and register; the source-linked candidate was corrected after this read-only critique."
+    },
+    {
+      "role": "Read-only correction critique",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "3bff9154-f8fe-447f-b37a-663658febc48",
+      "mode": "Claude CLI --safe-mode --model fable --effort low --tools empty --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false,
+      "note": "Found no material Japanese mismatch in revised 18-card/nine-turn candidate; two metadata defects were corrected afterward."
+    }
+  ],
+  "selfCheck": [
+    "Compared all 18 cards and nine Reader turns to pinned current Spanish/English source in order; separate English glosses exactly match source text.",
+    "Corrected bill-document, quote, service-charge and register meanings across linked cards and Reader turns without adding Japanese locale assumptions.",
+    "Archived positions have no matching candidate IDs; exact text overlaps authorize neither saved-item nor audio migration.",
+    "Validated source SHA-256 pins, stable/revision IDs, false gates and read-only audio estimate independently; qualified review and six-mode/runtime/audio work remain open."
+  ]
+}

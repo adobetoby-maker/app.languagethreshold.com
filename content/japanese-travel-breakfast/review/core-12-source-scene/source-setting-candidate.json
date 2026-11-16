@@ -1,0 +1,598 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:12",
+  "stableLessonId": "travel-breakfast:12:ja-en",
+  "candidateRevision": "travel-breakfast:12:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Ask for the bill",
+    "objectiveEnglishInternal": "request the bill, understand cover or service charges, and choose a payment method",
+    "roleplayEnglishInternal": "Pay for breakfast, clarify one unfamiliar charge, and request a receipt.",
+    "readerTitleSpanish": "Pagar el desayuno en el café",
+    "readerVerbExamples": [
+      {
+        "target": "Como no tengo efectivo, pago con tarjeta.",
+        "native": "Since I have no cash, I pay by card."
+      },
+      {
+        "target": "Pido el recibo antes de salir.",
+        "native": "I ask for the receipt before leaving."
+      },
+      {
+        "target": "¿Me trae la cuenta, por favor?",
+        "native": "Could you bring me the bill, please?"
+      },
+      {
+        "target": "El menú dice que la cuenta incluye el cubierto.",
+        "native": "The menu says the bill includes the cover charge."
+      },
+      {
+        "target": "Quiero pagar en efectivo.",
+        "native": "I want to pay in cash."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "Sam checks a café bill that includes a separately listed drink and asks about it.",
+    "cardCount": 13,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "cuenta",
+      "sourceEnglish": "bill",
+      "kind": "term",
+      "sourceNoteInternal": "In Mexico and the US, people say la cuenta; in Spain also la nota in some places.",
+      "targetJapaneseDraft": "伝票",
+      "literalJapaneseGlossEn": "bill",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "cubierto",
+      "sourceEnglish": "cover charge",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カバーチャージ",
+      "literalJapaneseGlossEn": "cover charge",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "propina",
+      "sourceEnglish": "tip",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "チップ",
+      "literalJapaneseGlossEn": "tip",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "servicio",
+      "sourceEnglish": "service charge",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "サービス料",
+      "literalJapaneseGlossEn": "service charge",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "cargo extra",
+      "sourceEnglish": "extra charge",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "追加料金",
+      "literalJapaneseGlossEn": "extra charge",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "efectivo",
+      "sourceEnglish": "cash",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "現金",
+      "literalJapaneseGlossEn": "cash",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "tarjeta",
+      "sourceEnglish": "card",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カード",
+      "literalJapaneseGlossEn": "card",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "recibo",
+      "sourceEnglish": "receipt",
+      "kind": "term",
+      "sourceNoteInternal": "You may also hear ticket or comprobante.",
+      "targetJapaneseDraft": "レシート",
+      "literalJapaneseGlossEn": "receipt",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "caja",
+      "sourceEnglish": "register",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "レジ",
+      "literalJapaneseGlossEn": "register",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "mesera",
+      "sourceEnglish": "waitress",
+      "kind": "term",
+      "sourceNoteInternal": "Use mesero for a man.",
+      "targetJapaneseDraft": "ウェイトレス",
+      "literalJapaneseGlossEn": "waitress",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "total",
+      "sourceEnglish": "total",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "合計",
+      "literalJapaneseGlossEn": "total",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "terminal",
+      "sourceEnglish": "card terminal",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カード決済端末",
+      "literalJapaneseGlossEn": "card terminal",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "¿Me trae la cuenta, por favor?",
+      "sourceEnglish": "Could you bring me the bill, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Polite request.",
+      "targetJapaneseDraft": "伝票を持ってきていただけますか？",
+      "literalJapaneseGlossEn": "Could you bring me the bill, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Qué es este cargo?",
+      "sourceEnglish": "What is this charge?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Use it to clarify something unfamiliar.",
+      "targetJapaneseDraft": "これは何の料金ですか？",
+      "literalJapaneseGlossEn": "What is this charge?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "¿La propina está incluida?",
+      "sourceEnglish": "Is the tip included?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "チップは含まれていますか？",
+      "literalJapaneseGlossEn": "Is the tip included?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿Puedo pagar con tarjeta?",
+      "sourceEnglish": "Can I pay by card?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カードで支払えますか？",
+      "literalJapaneseGlossEn": "Can I pay by card?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Quiero pagar en efectivo.",
+      "sourceEnglish": "I want to pay in cash.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "現金で支払いたいです。",
+      "literalJapaneseGlossEn": "I want to pay in cash.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "¿Me da el recibo, por favor?",
+      "sourceEnglish": "Could you give me the receipt, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "レシートをいただけますか？",
+      "literalJapaneseGlossEn": "Could you give me the receipt, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Después de desayunar, el viajero levanta la mano y dice: Disculpe, ¿me trae la cuenta, por favor?",
+      "sourceEnglish": "After eating breakfast, the traveler raises his hand and says: Excuse me, could you bring me the bill, please?",
+      "targetJapaneseDraft": "朝食を食べ終えると、旅行者は手を挙げて言います。「すみません、伝票を持ってきていただけますか？」",
+      "literalJapaneseGlossEn": "After eating breakfast, the traveler raises his hand and says: Excuse me, could you bring me the bill, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "La mesera responde que puede pagar en la caja o en la mesa, como prefiera.",
+      "sourceEnglish": "The waitress answers that he can pay at the register or at the table, as he prefers.",
+      "targetJapaneseDraft": "ウェイトレスは、お好みでレジでもテーブルでも支払えると答えます。",
+      "literalJapaneseGlossEn": "The waitress answers that he can pay at the register or at the table, as he prefers.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Cuando llega la cuenta, el viajero ve un cargo extra y pregunta: ¿Qué es este cargo?",
+      "sourceEnglish": "When the bill arrives, the traveler sees an extra charge and asks: What is this charge?",
+      "targetJapaneseDraft": "伝票が来ると、旅行者は追加料金があることに気づき、尋ねます。「これは何の料金ですか？」",
+      "literalJapaneseGlossEn": "When the bill arrives, the traveler sees an extra charge and asks: What is this charge?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "La mesera explica que es el cubierto, y que el menú lo indica en la última página.",
+      "sourceEnglish": "The waitress explains that it is the cover charge, and that the menu states it on the last page.",
+      "targetJapaneseDraft": "ウェイトレスは、それはカバーチャージで、メニューの最後のページに記載されていると説明します。",
+      "literalJapaneseGlossEn": "The waitress explains that it is the cover charge, and that the menu states it on the last page.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "El viajero dice que entiende, pero quiere saber si la propina está incluida.",
+      "sourceEnglish": "The traveler says he understands, but he wants to know if the tip is included.",
+      "targetJapaneseDraft": "旅行者は分かったと言いますが、チップが含まれているかどうか知りたいと思っています。",
+      "literalJapaneseGlossEn": "The traveler says he understands, but he wants to know if the tip is included.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ella contesta que el servicio no está incluido, así que la propina es opcional.",
+      "sourceEnglish": "She answers that service is not included, so the tip is optional.",
+      "targetJapaneseDraft": "彼女は、サービス料は含まれていないので、チップは任意だと答えます。",
+      "literalJapaneseGlossEn": "She answers that service is not included, so the tip is optional.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Como no tiene efectivo, el viajero pregunta: ¿Puedo pagar con tarjeta?",
+      "sourceEnglish": "Since he has no cash, the traveler asks: Can I pay by card?",
+      "targetJapaneseDraft": "現金の持ち合わせがないので、旅行者は尋ねます。「カードで支払えますか？」",
+      "literalJapaneseGlossEn": "Since he has no cash, the traveler asks: Can I pay by card?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "La mesera trae la terminal, él paga y le pide el recibo.",
+      "sourceEnglish": "The waitress brings the card terminal, he pays, and he asks her for the receipt.",
+      "targetJapaneseDraft": "ウェイトレスがカード決済端末を持ってきて、旅行者は支払い、彼女にレシートを頼みます。",
+      "literalJapaneseGlossEn": "The waitress brings the card terminal, he pays, and he asks her for the receipt.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:12:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "Antes de salir, el viajero revisa el total y da las gracias.",
+      "sourceEnglish": "Before leaving, the traveler checks the total and says thank you.",
+      "targetJapaneseDraft": "店を出る前に、旅行者は合計金額を確認し、お礼を言います。",
+      "literalJapaneseGlossEn": "Before leaving, the traveler checks the total and says thank you.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Ask for the bill, clarify a cover charge and optional tip, and pay by card.",
+  "speakingGoalInternal": "Pay for breakfast, clarify one unfamiliar charge, and request a receipt.",
+  "sourceConflictInternal": "The source Reader has an extra cover charge, optional tip, no cash, and payment by card. The archived draft instead foregrounds a separately listed drink and does not carry all source terms. The source setting is unspecified; do not import a Japan-specific tipping, cover-charge or receipt rule. The source phrase 'service is not included' is provisionally interpreted as service charge; qualified source/editorial review is required.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "the bill; payment",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "itemized details",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "charge",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "total",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "separate charge",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "receipt",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "cash",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "card",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "register",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "card terminal",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "What is this charge?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "Can I pay by card?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "The receipt, please",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Excuse me. The bill, please.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Yes. Here are the itemized details.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Is this drink a separate charge?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Yes. It is not included in the set.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "I see. What is the total?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "The total is twelve hundred yen.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Can I pay by card?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Yes, you can pay at the register.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "The receipt too, please.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 4,
+      "candidatePosition": 11,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 6,
+      "candidatePosition": 8,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 7,
+      "candidatePosition": 6,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 8,
+      "candidatePosition": 7,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 9,
+      "candidatePosition": 9,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 27,
+    "twoVoiceClipDecisionsIfTextApproved": 54,
+    "twoVoiceSubmittedCharactersIfTextApproved": 942,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.02826,
+    "archivedExactJapaneseCardTextOverlapsOnly": 5,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Cover charge and tipping come from an unspecified source setting; do not imply a Japanese café custom.",
+    "Reader 6 interprets source service not included as service charge not included; confirm source/editorial intent.",
+    "Bill document uses 伝票 and the payment act uses 支払い; contextual dictionary sense requires qualified review.",
+    "Waitress gender is preserved by ウェイトレス/彼女; retain unless source editorial changes.",
+    "Check cover charge and optional tip against the source setting and local food-service usage.",
+    "Check 伝票/会計/レシート as three contextual dictionary senses before learner release.",
+    "Review Card 10 ウェイトレス and corresponding Reader gender/register with qualified Japanese reviewers.",
+    "Assess cards for cash payment versus Reader's no-cash, card-payment scene without inventing a second payment."
+  ],
+  "missing": [
+    "qualified Japanese/source/food/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

@@ -1,0 +1,11 @@
+# Japanese Breakfast Foundation 2 source-scene candidate
+
+`source-setting-candidate.json` is inert review material for the current Spanish/English Foundation 2 source. It retains Emma, Luis, Café Luna, pesos, 8:30, the stated prices and the 120-peso total across 16 source-order cards and nine Reader turns. The older archived Japanese scene used Sam and yen. The [earlier Foundation 2 correction proposal](../foundation-2-8/README.md) inserted a Sam clock turn and a ten-turn position plan; this packet supersedes **only its Foundation 2 proposal**. Foundation 8 remains unaffected.
+
+The source English and Spanish fields are exact source anchors, not asserted literal glosses of the proposed Japanese. The 120-peso total is arithmetically consistent for two 30-peso coffees and three 20-peso pieces; the 200-peso dozen is a bulk price, and the 45-peso cake slice is separate. Internal questions cover clock-time wording, pan dulce, counters, chilaquiles servings, service register and transliteration. Qualified Japanese/Mexican food and locale review remains open.
+
+The stable lesson ID is unchanged, but every card and Reader candidate uses a new source-scene revision ID. All archived row positions are retired **in this candidate only**; no old position is mapped to a new saved item, scoring target or progress entry. The archived draft was unregistered, and no shipped saved position is known. Reconcile cards, Reader, six authored mode prompts, forms, speaking, dictionary and saved-item semantics together before any learner or V4 import.
+
+All review, learner, scoring, audio/listening, offline, progress, release, runtime import and owner-route gates are false. No audio was generated or registered. If approved, the 25 changed card/Reader placements would require an exact-text two-voice inventory, technical checks and 50 distinct clip listening decisions. Older Sam/yen recordings do not cover these texts.
+
+Run `python3 content/japanese-travel-breakfast/review/foundation-2-source-scene/build.py --check` and `python3 content/japanese-travel-breakfast/review/foundation-2-source-scene/validate.py` from the repository root. [AI assistance metadata](ai-assistance-metadata.json) records actual model responses; AI is not qualified review.

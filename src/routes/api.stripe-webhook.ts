@@ -1,5 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Stripe from "stripe";
+import {
+  isPersonalLanguageThresholdSubscription,
+  personalSessionSubscription,
+} from "@/lib/personal-subscription-product";
 import { createClient } from "@supabase/supabase-js";
 import { audit, sendTeamEmail, teamAdminClient } from "@/lib/team-server";
 import { fulfillDocumentSession, fulfillDocumentInvoice } from "@/lib/document-billing-server";
@@ -177,10 +181,11 @@ export const Route = createFileRoute("/api/stripe-webhook")({
                   event.created * 1000,
                 );
               }
-              const userId = session.client_reference_id ?? session.metadata?.userId;
-              if (userId) {
+              const personal = await personalSessionSubscription(stripe, session);
+              const userId = personal?.metadata?.userId;
+              if (userId && personal) {
                 await updateProfileData(userId, {
-                  subscription_status: session.subscription ? "trialing" : "active",
+                  subscription_status: personal.status,
                   ...(typeof session.customer === "string"
                     ? { stripe_customer_id: session.customer }
                     : {}),
@@ -194,6 +199,7 @@ export const Route = createFileRoute("/api/stripe-webhook")({
             case "customer.subscription.updated": {
               const sub = event.data.object as Stripe.Subscription;
               if (await syncTeamSubscription(sub)) break;
+              if (!isPersonalLanguageThresholdSubscription(sub)) break;
               const userId = sub.metadata?.userId;
               if (userId) {
                 const primaryItem = sub.items.data[0];
@@ -214,6 +220,7 @@ export const Route = createFileRoute("/api/stripe-webhook")({
             case "customer.subscription.deleted": {
               const sub = event.data.object as Stripe.Subscription;
               if (await syncTeamSubscription(sub)) break;
+              if (!isPersonalLanguageThresholdSubscription(sub)) break;
               const userId = sub.metadata?.userId;
               if (userId) {
                 await updateProfileData(userId, { subscription_status: "canceled" });
@@ -224,6 +231,7 @@ export const Route = createFileRoute("/api/stripe-webhook")({
             case "customer.subscription.paused": {
               const sub = event.data.object as Stripe.Subscription;
               if (await syncTeamSubscription(sub)) break;
+              if (!isPersonalLanguageThresholdSubscription(sub)) break;
               const userId = sub.metadata?.userId;
               if (userId) {
                 await updateProfileData(userId, { subscription_status: "paused" });
@@ -234,6 +242,7 @@ export const Route = createFileRoute("/api/stripe-webhook")({
             case "customer.subscription.resumed": {
               const sub = event.data.object as Stripe.Subscription;
               if (await syncTeamSubscription(sub)) break;
+              if (!isPersonalLanguageThresholdSubscription(sub)) break;
               const userId = sub.metadata?.userId;
               if (userId) {
                 await updateProfileData(userId, { subscription_status: "active" });
@@ -244,6 +253,7 @@ export const Route = createFileRoute("/api/stripe-webhook")({
             // ── Trial ending soon (fires 3 days before trial expires) ──────
             case "customer.subscription.trial_will_end": {
               const sub = event.data.object as Stripe.Subscription;
+              if (!isPersonalLanguageThresholdSubscription(sub)) break;
               const userId = sub.metadata?.userId;
               if (userId) {
                 await updateProfileData(userId, { trial_ending_soon: true });
@@ -278,10 +288,12 @@ export const Route = createFileRoute("/api/stripe-webhook")({
                 subscription?.metadata.organizationId,
                 event.created * 1000,
               );
-              const userId = inv.metadata?.userId;
+              const userId = isPersonalLanguageThresholdSubscription(subscription)
+                ? subscription?.metadata?.userId
+                : null;
               if (userId) {
                 await updateProfileData(userId, {
-                  subscription_status: "active",
+                  subscription_status: subscription!.status,
                   last_payment_failed: false,
                 });
               }
@@ -291,12 +303,13 @@ export const Route = createFileRoute("/api/stripe-webhook")({
             case "invoice.payment_failed": {
               const inv = event.data.object as Stripe.Invoice;
               const subId = invoiceSubscriptionId(inv);
-              if (subId) {
-                const subscription = await stripe.subscriptions.retrieve(subId);
+              const subscription = subId ? await stripe.subscriptions.retrieve(subId) : null;
+              if (subscription) {
                 if (subscription.metadata?.documentPurchase) break;
                 await syncTeamSubscription(subscription);
+                if (!isPersonalLanguageThresholdSubscription(subscription)) break;
               }
-              const userId = inv.metadata?.userId;
+              const userId = subscription?.metadata?.userId;
               if (userId) {
                 await updateProfileData(userId, { last_payment_failed: true });
               }

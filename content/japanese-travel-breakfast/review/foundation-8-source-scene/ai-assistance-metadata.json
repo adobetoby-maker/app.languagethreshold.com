@@ -1,0 +1,27 @@
+{
+  "status": "AI assistance only; no qualified Japanese, Oaxaca locale, food or allergy approval",
+  "calls": [
+    {
+      "role": "source-grounded candidate authoring",
+      "requestedModel": "haiku",
+      "reportedModel": "claude-sonnet-5-5",
+      "sessionId": "ee00d527-eb0c-426f-85d5-ae13deec9ecc",
+      "outcome": "Returned 17 card and nine Reader candidates with explicit open questions; final text was source-checked and revised",
+      "readScope": "Lesson 8 of current Spanish curriculum, current Spanish Reader and archived Japanese Foundation draft"
+    },
+    {
+      "role": "read-only critique",
+      "requestedModel": "opus",
+      "reportedModel": null,
+      "outcome": "Timed out after 120 seconds with no result or model metadata",
+      "readScope": "Requested source, archived draft, earlier partial proposal and new candidate"
+    },
+    {
+      "role": "read-only correction",
+      "requestedModel": "fable",
+      "reportedModel": null,
+      "outcome": "Timed out after 90 seconds with no result or model metadata",
+      "readScope": "Requested new candidate card and Reader rows"
+    }
+  ]
+}

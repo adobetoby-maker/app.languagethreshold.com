@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-16",
+  "cliVersion": "2.1.325",
+  "safeMode": true,
+  "modelRuns": {
+    "haikuF7": {
+      "requestedModel": "haiku",
+      "reportedModel": "claude-haiku-5-5",
+      "canonicalModel": "claude-haiku-5-5",
+      "stopReason": "end_turn",
+      "isError": false,
+      "toolUse": "Read only",
+      "outcome": "Read-only source translation candidates; independently corrected before packet."
+    },
+    "haikuF10": {
+      "requestedModel": "haiku",
+      "reportedModel": "claude-haiku-5-5",
+      "canonicalModel": "claude-haiku-5-5",
+      "stopReason": "end_turn",
+      "isError": false,
+      "toolUse": "Read only",
+      "outcome": "Read-only source translation candidates; independently corrected before packet."
+    },
+    "opus": {
+      "requestedModel": "opus",
+      "reportedModel": "claude-opus-5-5",
+      "canonicalModel": "claude-opus-5-5",
+      "stopReason": "end_turn",
+      "isError": false,
+      "toolUse": "Read only",
+      "outcome": "Read-only critique; source-grounded corrections applied before packet."
+    },
+    "fable": {
+      "requestedModel": "fable",
+      "reportedModel": "claude-fable-5-2",
+      "canonicalModel": "claude-fable-5-2",
+      "stopReason": "end_turn",
+      "isError": false,
+      "toolUse": "Read only",
+      "outcome": "Read-only critique; source-grounded corrections applied before packet."
+    },
+    "haikuF6": {
+      "requestedModel": "haiku",
+      "reportedModel": "claude-haiku-5-5",
+      "canonicalModel": "claude-haiku-5-5",
+      "stopReason": "end_turn",
+      "isError": false,
+      "toolUse": "Read only",
+      "outcome": "Read-only source translation candidates; independently corrected before packet."
+    }
+  },
+  "qualifiedReview": false,
+  "notes": [
+    "Haiku F10 proposed changing Spanish to Japanese in the source card and bilingual wall information; these substitutions were rejected because the packet preserves pinned source context and flags the target-language conflict.",
+    "Opus and Fable identified unsupported room-rate wording, shifted speaking goals, formal/informal register loss, unnatural specialty and source-food terms. Corrected against pinned Spanish and English source.",
+    "AI critique and structural validation are not qualified Japanese, food, locale, dictionary or clinical approval."
+  ]
+}

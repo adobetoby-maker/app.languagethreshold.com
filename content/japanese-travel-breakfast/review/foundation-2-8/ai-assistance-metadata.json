@@ -1,0 +1,32 @@
+{
+  "status": "AI assistance only; no qualified approval",
+  "calls": [
+    {
+      "role": "candidate authoring",
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "inputTokens": 4,
+      "outputTokens": 17747,
+      "thinkingTokens": 14344,
+      "readScope": "Read source curriculum, Reader and archived draft; proposed clock and allergy candidates."
+    },
+    {
+      "role": "read-only critique",
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "inputTokens": 10,
+      "outputTokens": 5101,
+      "thinkingTokens": 2597,
+      "readScope": "Read source and proposal; CLI critique could not locate archived draft, so its archived-row claims were independently checked."
+    },
+    {
+      "role": "read-only correction",
+      "canonicalModel": "claude-fable-5-2",
+      "provider": "firstParty",
+      "inputTokens": 6,
+      "outputTokens": 9666,
+      "thinkingTokens": 6989,
+      "readScope": "Read source, archived draft and proposal; suggested scene-order and wording corrections."
+    }
+  ]
+}

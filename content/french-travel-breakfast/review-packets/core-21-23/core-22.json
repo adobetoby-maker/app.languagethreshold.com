@@ -1,0 +1,389 @@
+{
+  "lessonKey": "core:22",
+  "pair": {
+    "target": "French",
+    "support": "English"
+  },
+  "source": {
+    "path": "public/lesson-content/es/travel-breakfast.json",
+    "sha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "stage": "core",
+    "number": 22
+  },
+  "priorDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/french-breakfast/private-runtime-candidate.json",
+    "sha256": "f58bb01321fa2e04ef1bbc802c7a776836c3ea9ac6c51fdbedfaca50fe764f26"
+  },
+  "sourceDriftOverrideSha256": "beb5dc4fb5daaedaacf4d1d87c4a4a4b73eb88da95024393c3ebea4d13bc617d",
+  "overriddenDraftIds": [
+    "core:22:line:3",
+    "core:22:line:8",
+    "core:22:line:9",
+    "core:22:word:1",
+    "core:22:word:13",
+    "core:22:word:15",
+    "core:22:word:2"
+  ],
+  "titleEnglishDraft": "Demander les habitudes du café",
+  "objectiveEnglishDraft": "Ask the barista how ordering, paying, sugar and lingering work in this particular café.",
+  "focusFrenchDraft": "Demander comment on commande, paie et occupe une table dans ce café précis.",
+  "focusEnglishDraft": "Use ici and dans ce café to keep local customs specific; ask questions rather than assume a universal café rule.",
+  "cards": [
+    {
+      "id": "core:22:word:1",
+      "sourceSpanish": "café con leche",
+      "supportEnglish": "coffee with milk",
+      "targetFrenchDraft": "un café con leche",
+      "kind": "term"
+    },
+    {
+      "id": "core:22:word:2",
+      "sourceSpanish": "cortado",
+      "supportEnglish": "espresso with a little milk",
+      "targetFrenchDraft": "un cortado",
+      "kind": "term"
+    },
+    {
+      "id": "core:22:word:3",
+      "sourceSpanish": "azúcar",
+      "supportEnglish": "sugar",
+      "targetFrenchDraft": "le sucre",
+      "kind": "term"
+    },
+    {
+      "id": "core:22:word:4",
+      "sourceSpanish": "barra",
+      "supportEnglish": "counter",
+      "targetFrenchDraft": "le comptoir",
+      "kind": "term"
+    },
+    {
+      "id": "core:22:word:5",
+      "sourceSpanish": "mesa",
+      "supportEnglish": "table",
+      "targetFrenchDraft": "la table",
+      "kind": "term"
+    },
+    {
+      "id": "core:22:word:6",
+      "sourceSpanish": "caja",
+      "supportEnglish": "register",
+      "targetFrenchDraft": "la caisse",
+      "kind": "term"
+    },
+    {
+      "id": "core:22:word:7",
+      "sourceSpanish": "cuenta",
+      "supportEnglish": "bill",
+      "targetFrenchDraft": "l’addition",
+      "kind": "term"
+    },
+    {
+      "id": "core:22:word:8",
+      "sourceSpanish": "propina",
+      "supportEnglish": "tip",
+      "targetFrenchDraft": "le pourboire",
+      "kind": "term"
+    },
+    {
+      "id": "core:22:word:9",
+      "sourceSpanish": "costumbre",
+      "supportEnglish": "habit",
+      "targetFrenchDraft": "une habitude",
+      "kind": "term"
+    },
+    {
+      "id": "core:22:word:10",
+      "sourceSpanish": "turista",
+      "supportEnglish": "tourist",
+      "targetFrenchDraft": "un touriste, une touriste",
+      "kind": "term"
+    },
+    {
+      "id": "core:22:word:11",
+      "sourceSpanish": "¿Aquí se paga primero en la caja?",
+      "supportEnglish": "Do you pay first at the register here?",
+      "targetFrenchDraft": "Ici, on paie d’abord à la caisse ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:22:word:12",
+      "sourceSpanish": "¿El café ya viene con azúcar?",
+      "supportEnglish": "Does the coffee already come with sugar?",
+      "targetFrenchDraft": "Le café est déjà sucré ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:22:word:13",
+      "sourceSpanish": "¿Está bien quedarme un rato en la mesa?",
+      "supportEnglish": "Is it okay to stay at the table for a while?",
+      "targetFrenchDraft": "Ça ne vous dérange pas si je reste un moment à cette table ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:22:word:14",
+      "sourceSpanish": "¿Qué costumbres son típicas de los turistas aquí?",
+      "supportEnglish": "What habits are typical of tourists here?",
+      "targetFrenchDraft": "Quelles habitudes sont typiques des touristes ici ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:22:word:15",
+      "sourceSpanish": "¿Puedo pedir otro cortado después?",
+      "supportEnglish": "Can I order another cortado later?",
+      "targetFrenchDraft": "Je peux commander un autre cortado plus tard ?",
+      "kind": "phrase"
+    }
+  ],
+  "readerTitleFrenchDraft": "Demander les habitudes du café",
+  "reader": [
+    {
+      "id": "core:22:line:1",
+      "sourceSpanish": "Una viajera entra a un café pequeño y le pregunta al barista: ¿Aquí se paga primero en la caja?",
+      "supportEnglish": "A traveler walks into a small café and asks the barista: Do you pay first at the register here?",
+      "targetFrenchDraft": "Une voyageuse entre dans un petit café et demande au barista : « Ici, on paie d’abord à la caisse ? »"
+    },
+    {
+      "id": "core:22:line:2",
+      "sourceSpanish": "El barista sonríe y explica: En este café sí, primero paga en la caja y después pide en la barra.",
+      "supportEnglish": "The barista smiles and explains: In this café, yes, you pay first at the register and then order at the counter.",
+      "targetFrenchDraft": "Le barista sourit et explique : « Dans ce café, oui : on paie d’abord à la caisse, puis on commande au comptoir. »"
+    },
+    {
+      "id": "core:22:line:3",
+      "sourceSpanish": "Ella pide un cortado porque en la mañana prefiere menos leche que en un café con leche.",
+      "supportEnglish": "She orders a cortado because in the morning she prefers less milk than in a café con leche.",
+      "targetFrenchDraft": "Elle commande un cortado, car le matin elle préfère moins de lait que dans un café con leche."
+    },
+    {
+      "id": "core:22:line:4",
+      "sourceSpanish": "Luego pregunta: ¿El café ya viene con azúcar?",
+      "supportEnglish": "Then she asks: Does the coffee already come with sugar?",
+      "targetFrenchDraft": "Puis elle demande : « Le café est déjà sucré ? »"
+    },
+    {
+      "id": "core:22:line:5",
+      "sourceSpanish": "Él responde: No, el azúcar está en la barra, así que usted le pone la cantidad que quiera.",
+      "supportEnglish": "He answers: No, the sugar is on the counter, so you add as much as you want.",
+      "targetFrenchDraft": "Il répond : « Non, le sucre est au comptoir ; vous en ajoutez autant que vous voulez. »"
+    },
+    {
+      "id": "core:22:line:6",
+      "sourceSpanish": "La viajera también quiere saber: ¿Qué costumbres son típicas de los turistas aquí?",
+      "supportEnglish": "The traveler also wants to know: What habits are typical of tourists here?",
+      "targetFrenchDraft": "La voyageuse veut aussi savoir : « Quelles habitudes sont typiques des touristes ici ? »"
+    },
+    {
+      "id": "core:22:line:7",
+      "sourceSpanish": "El barista dice: Muchos turistas esperan la cuenta en la mesa, pero aquí no hay cuenta al final, y si hay mesas libres, nadie les pide que se vayan.",
+      "supportEnglish": "The barista says: Many tourists wait for the bill at the table, but here there is no bill at the end, and if there are free tables, nobody asks them to leave.",
+      "targetFrenchDraft": "Le barista dit : « Beaucoup de touristes attendent l’addition à table, mais ici il n’y a pas d’addition à la fin et, s’il reste des tables libres, personne ne leur demande de partir. »"
+    },
+    {
+      "id": "core:22:line:8",
+      "sourceSpanish": "Antes de sentarse, ella pregunta: ¿Está bien quedarme un rato en la mesa? ¿Puedo pedir otro cortado después?",
+      "supportEnglish": "Before sitting down, she asks: Is it okay to stay at the table for a while? Can I order another cortado later?",
+      "targetFrenchDraft": "Avant de s’asseoir, elle demande : « Ça ne vous dérange pas si je reste un moment à cette table ? Je peux commander un autre cortado plus tard ? »"
+    },
+    {
+      "id": "core:22:line:9",
+      "sourceSpanish": "El barista contesta: Claro, quédese tranquila; si quiere otro cortado, lo paga en la caja, y la propina es opcional.",
+      "supportEnglish": "The barista answers: Of course, take your time; if you want another cortado, you pay for it at the register, and the tip is optional.",
+      "targetFrenchDraft": "Le barista répond : « Bien sûr, prenez votre temps ; si vous voulez un autre cortado, vous le payez à la caisse, et le pourboire est facultatif. »"
+    }
+  ],
+  "sourceSpanishVerbs": [
+    {
+      "infinitive": "pagar",
+      "native": "to pay",
+      "forms": {
+        "yo": "pago",
+        "tú": "pagas",
+        "él_ella_usted": "paga",
+        "nosotros": "pagamos",
+        "ellos_ustedes": "pagan"
+      },
+      "example": {
+        "target": "En este café, primero paga en la caja.",
+        "native": "In this café, you pay first at the register."
+      }
+    },
+    {
+      "infinitive": "pedir",
+      "native": "to order, to ask for",
+      "forms": {
+        "yo": "pido",
+        "tú": "pides",
+        "él_ella_usted": "pide",
+        "nosotros": "pedimos",
+        "ellos_ustedes": "piden"
+      },
+      "example": {
+        "target": "Primero pago y después pido en la barra.",
+        "native": "First I pay and then I order at the counter."
+      },
+      "note": "Stem change e to i (pido, pides), but not in nosotros (pedimos)."
+    },
+    {
+      "infinitive": "preferir",
+      "native": "to prefer",
+      "forms": {
+        "yo": "prefiero",
+        "tú": "prefieres",
+        "él_ella_usted": "prefiere",
+        "nosotros": "preferimos",
+        "ellos_ustedes": "prefieren"
+      },
+      "example": {
+        "target": "En la mañana prefiero un cortado.",
+        "native": "In the morning I prefer a cortado."
+      },
+      "note": "Stem change e to ie, except in nosotros (preferimos)."
+    },
+    {
+      "infinitive": "quedarse",
+      "native": "to stay",
+      "forms": {
+        "yo": "me quedo",
+        "tú": "te quedas",
+        "él_ella_usted": "se queda",
+        "nosotros": "nos quedamos",
+        "ellos_ustedes": "se quedan"
+      },
+      "example": {
+        "target": "Si hay mesas libres, me quedo un rato.",
+        "native": "If there are free tables, I stay for a while."
+      },
+      "note": "Reflexive; the polite command to one person is quédese."
+    }
+  ],
+  "speakingDraft": {
+    "openingFrench": "Bonjour, ici, on paie d’abord à la caisse ? Le café est déjà sucré ? Est-ce que je peux rester un moment à table ?",
+    "instructionEnglish": "Ask the barista how this café handles payment, sugar, table time and another order."
+  },
+  "modeInputIdsDraft": {
+    "see": [
+      "core:22:word:1",
+      "core:22:word:2",
+      "core:22:word:3",
+      "core:22:word:4",
+      "core:22:word:5",
+      "core:22:word:6",
+      "core:22:word:7",
+      "core:22:word:8",
+      "core:22:word:9",
+      "core:22:word:10",
+      "core:22:word:11",
+      "core:22:word:12",
+      "core:22:word:13",
+      "core:22:word:14",
+      "core:22:word:15"
+    ],
+    "recall": [
+      "core:22:word:1",
+      "core:22:word:2",
+      "core:22:word:3",
+      "core:22:word:4",
+      "core:22:word:5",
+      "core:22:word:6",
+      "core:22:word:7",
+      "core:22:word:8",
+      "core:22:word:9",
+      "core:22:word:10",
+      "core:22:word:11",
+      "core:22:word:12",
+      "core:22:word:13",
+      "core:22:word:14",
+      "core:22:word:15"
+    ],
+    "hear": [
+      "core:22:word:1",
+      "core:22:word:2",
+      "core:22:word:3",
+      "core:22:word:4",
+      "core:22:word:5",
+      "core:22:word:6",
+      "core:22:word:7",
+      "core:22:word:8",
+      "core:22:word:9",
+      "core:22:word:10",
+      "core:22:word:11",
+      "core:22:word:12",
+      "core:22:word:13",
+      "core:22:word:14",
+      "core:22:word:15"
+    ],
+    "type": [
+      "core:22:word:1",
+      "core:22:word:2",
+      "core:22:word:3",
+      "core:22:word:4",
+      "core:22:word:5",
+      "core:22:word:6",
+      "core:22:word:7",
+      "core:22:word:8",
+      "core:22:word:9",
+      "core:22:word:10",
+      "core:22:word:11",
+      "core:22:word:12",
+      "core:22:word:13",
+      "core:22:word:14",
+      "core:22:word:15"
+    ],
+    "say": [
+      "core:22:word:1",
+      "core:22:word:2",
+      "core:22:word:3",
+      "core:22:word:4",
+      "core:22:word:5",
+      "core:22:word:6",
+      "core:22:word:7",
+      "core:22:word:8",
+      "core:22:word:9",
+      "core:22:word:10",
+      "core:22:word:11",
+      "core:22:word:12",
+      "core:22:word:13",
+      "core:22:word:14",
+      "core:22:word:15"
+    ],
+    "write": [
+      "core:22:word:1",
+      "core:22:word:2",
+      "core:22:word:3",
+      "core:22:word:4",
+      "core:22:word:5",
+      "core:22:word:6",
+      "core:22:word:7",
+      "core:22:word:8",
+      "core:22:word:9",
+      "core:22:word:10",
+      "core:22:word:11",
+      "core:22:word:12",
+      "core:22:word:13",
+      "core:22:word:14",
+      "core:22:word:15"
+    ]
+  },
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "learnerRegistered": false,
+    "audioRegistered": false,
+    "audioApproved": false,
+    "listeningReviewed": false,
+    "playbackEnabled": false,
+    "scoringEnabled": false,
+    "progressTracking": false,
+    "progressWritesEnabled": false,
+    "offlineRegistered": false,
+    "released": false
+  },
+  "reviewNotes": [
+    "Archived French text is an unapproved candidate; exact Spanish/English source controls meaning.",
+    "Mode ID lists are not six authored prompt/answer activities.",
+    "French verb paradigms, dictionary senses, scoring answers, audio and listening need separate review.",
+    "Core 22–23 source drift is corrected only in the listed French draft rows; qualified drink, food and locale review remains open."
+  ]
+}

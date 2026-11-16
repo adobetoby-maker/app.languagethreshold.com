@@ -4,6 +4,9 @@ import { createClient } from "@supabase/supabase-js";
 import { audit, sendTeamEmail, teamAdminClient } from "@/lib/team-server";
 import { fulfillDocumentSession, fulfillDocumentInvoice } from "@/lib/document-billing-server";
 import { syncTeamSubscription } from "@/lib/team-subscription";
+import { applyResourceOfferInvoice, recordResourceOfferPaid } from "@/lib/resource-offer-invoice";
+import { resourceOfferRepo } from "@/lib/resource-offer-repo";
+import { ownerServiceFetch } from "@/lib/owner-service-fetch";
 
 async function getSupabaseAdmin() {
   const url = process.env.SUPABASE_URL;
@@ -91,6 +94,15 @@ export const Route = createFileRoute("/api/stripe-webhook")({
           )
             return new Response("ok");
           switch (event.type) {
+            case "invoice.created": {
+              const db = teamAdminClient(ownerServiceFetch(AbortSignal.timeout(120000)));
+              await applyResourceOfferInvoice(
+                stripe,
+                resourceOfferRepo(db),
+                event.data.object as Stripe.Invoice,
+              );
+              break;
+            }
             // ── Trial / checkout ──────────────────────────────────────────
             case "checkout.session.async_payment_succeeded":
             case "checkout.session.completed": {
@@ -240,8 +252,21 @@ export const Route = createFileRoute("/api/stripe-webhook")({
             }
 
             // ── Payment events ────────────────────────────────────────────
+            case "invoice.paid": {
+              await recordResourceOfferPaid(
+                stripe,
+                resourceOfferRepo(teamAdminClient(ownerServiceFetch(AbortSignal.timeout(120000)))),
+                event.data.object as Stripe.Invoice,
+              );
+              break;
+            }
             case "invoice.payment_succeeded": {
               const inv = event.data.object as Stripe.Invoice;
+              await recordResourceOfferPaid(
+                stripe,
+                resourceOfferRepo(teamAdminClient(ownerServiceFetch(AbortSignal.timeout(120000)))),
+                inv,
+              );
               const subId = invoiceSubscriptionId(inv);
               const subscription = subId ? await stripe.subscriptions.retrieve(subId) : null;
               if (await fulfillDocumentInvoice(stripe, inv, subscription)) break;

@@ -34,6 +34,12 @@ export function authReturnPath(value: string): string | null {
   )
     return null;
   const url = new URL(value, "https://auth-return.invalid");
+  if (url.pathname === "/offer") {
+    const resource = url.searchParams.get("resource");
+    return resource && /^[a-z0-9][a-z0-9-]{0,79}$/.test(resource)
+      ? "/offer?" + new URLSearchParams({ resource })
+      : "/offer";
+  }
   if (url.pathname === "/refer") {
     const code = url.searchParams.get("code");
     return code && uuid.test(code) ? "/refer?" + new URLSearchParams({ code }) : "/refer";

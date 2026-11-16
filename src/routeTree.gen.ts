@@ -24,6 +24,7 @@ import { Route as FamilySetupRouteImport } from './routes/family-setup'
 import { Route as FeedbackRouteImport } from './routes/feedback'
 import { Route as FounderRouteImport } from './routes/founder'
 import { Route as ModuleRequestRouteImport } from './routes/module-request'
+import { Route as OfferRouteImport } from './routes/offer'
 import { Route as OwnerRouteImport } from './routes/owner'
 import { Route as OwnerFrenchDinnerReviewRouteImport } from './routes/owner-french-dinner-review'
 import { Route as OwnerFrenchReviewRouteImport } from './routes/owner-french-review'
@@ -88,6 +89,8 @@ import { Route as ApiProductFeedbackRouteImport } from './routes/api.product-fee
 import { Route as ApiPushRouteImport } from './routes/api.push'
 import { Route as ApiPushCronRouteImport } from './routes/api.push-cron'
 import { Route as ApiRedditOfferRouteImport } from './routes/api.reddit-offer'
+import { Route as ApiResourceOfferRouteImport } from './routes/api.resource-offer'
+import { Route as ApiResourceOfferCheckoutRouteImport } from './routes/api.resource-offer-checkout'
 import { Route as ApiSpeakRouteImport } from './routes/api.speak'
 import { Route as ApiSpeakingConsentRouteImport } from './routes/api.speaking-consent'
 import { Route as ApiSpeakingTranscribeRouteImport } from './routes/api.speaking-transcribe'
@@ -183,6 +186,11 @@ const FounderRoute = FounderRouteImport.update({
 const ModuleRequestRoute = ModuleRequestRouteImport.update({
   id: '/module-request',
   path: '/module-request',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OfferRoute = OfferRouteImport.update({
+  id: '/offer',
+  path: '/offer',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OwnerRoute = OwnerRouteImport.update({
@@ -511,6 +519,17 @@ const ApiRedditOfferRoute = ApiRedditOfferRouteImport.update({
   path: '/api/reddit-offer',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiResourceOfferRoute = ApiResourceOfferRouteImport.update({
+  id: '/api/resource-offer',
+  path: '/api/resource-offer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiResourceOfferCheckoutRoute =
+  ApiResourceOfferCheckoutRouteImport.update({
+    id: '/api/resource-offer-checkout',
+    path: '/api/resource-offer-checkout',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiSpeakRoute = ApiSpeakRouteImport.update({
   id: '/api/speak',
   path: '/api/speak',
@@ -633,6 +652,7 @@ export interface FileRoutesByFullPath {
   '/founder': typeof FounderRoute
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
+  '/offer': typeof OfferRoute
   '/owner': typeof OwnerRoute
   '/owner-french-dinner-review': typeof OwnerFrenchDinnerReviewRoute
   '/owner-french-review': typeof OwnerFrenchReviewRoute
@@ -697,6 +717,8 @@ export interface FileRoutesByFullPath {
   '/api/push': typeof ApiPushRoute
   '/api/push-cron': typeof ApiPushCronRoute
   '/api/reddit-offer': typeof ApiRedditOfferRoute
+  '/api/resource-offer': typeof ApiResourceOfferRoute
+  '/api/resource-offer-checkout': typeof ApiResourceOfferCheckoutRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
   '/api/speaking-transcribe': typeof ApiSpeakingTranscribeRoute
@@ -735,6 +757,7 @@ export interface FileRoutesByTo {
   '/founder': typeof FounderRoute
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
+  '/offer': typeof OfferRoute
   '/owner': typeof OwnerRoute
   '/owner-french-dinner-review': typeof OwnerFrenchDinnerReviewRoute
   '/owner-french-review': typeof OwnerFrenchReviewRoute
@@ -799,6 +822,8 @@ export interface FileRoutesByTo {
   '/api/push': typeof ApiPushRoute
   '/api/push-cron': typeof ApiPushCronRoute
   '/api/reddit-offer': typeof ApiRedditOfferRoute
+  '/api/resource-offer': typeof ApiResourceOfferRoute
+  '/api/resource-offer-checkout': typeof ApiResourceOfferCheckoutRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
   '/api/speaking-transcribe': typeof ApiSpeakingTranscribeRoute
@@ -838,6 +863,7 @@ export interface FileRoutesById {
   '/founder': typeof FounderRoute
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
+  '/offer': typeof OfferRoute
   '/owner': typeof OwnerRoute
   '/owner-french-dinner-review': typeof OwnerFrenchDinnerReviewRoute
   '/owner-french-review': typeof OwnerFrenchReviewRoute
@@ -902,6 +928,8 @@ export interface FileRoutesById {
   '/api/push': typeof ApiPushRoute
   '/api/push-cron': typeof ApiPushCronRoute
   '/api/reddit-offer': typeof ApiRedditOfferRoute
+  '/api/resource-offer': typeof ApiResourceOfferRoute
+  '/api/resource-offer-checkout': typeof ApiResourceOfferCheckoutRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
   '/api/speaking-transcribe': typeof ApiSpeakingTranscribeRoute
@@ -942,6 +970,7 @@ export interface FileRouteTypes {
     | '/founder'
     | '/index'
     | '/module-request'
+    | '/offer'
     | '/owner'
     | '/owner-french-dinner-review'
     | '/owner-french-review'
@@ -1006,6 +1035,8 @@ export interface FileRouteTypes {
     | '/api/push'
     | '/api/push-cron'
     | '/api/reddit-offer'
+    | '/api/resource-offer'
+    | '/api/resource-offer-checkout'
     | '/api/speak'
     | '/api/speaking-consent'
     | '/api/speaking-transcribe'
@@ -1044,6 +1075,7 @@ export interface FileRouteTypes {
     | '/founder'
     | '/index'
     | '/module-request'
+    | '/offer'
     | '/owner'
     | '/owner-french-dinner-review'
     | '/owner-french-review'
@@ -1108,6 +1140,8 @@ export interface FileRouteTypes {
     | '/api/push'
     | '/api/push-cron'
     | '/api/reddit-offer'
+    | '/api/resource-offer'
+    | '/api/resource-offer-checkout'
     | '/api/speak'
     | '/api/speaking-consent'
     | '/api/speaking-transcribe'
@@ -1146,6 +1180,7 @@ export interface FileRouteTypes {
     | '/founder'
     | '/index'
     | '/module-request'
+    | '/offer'
     | '/owner'
     | '/owner-french-dinner-review'
     | '/owner-french-review'
@@ -1210,6 +1245,8 @@ export interface FileRouteTypes {
     | '/api/push'
     | '/api/push-cron'
     | '/api/reddit-offer'
+    | '/api/resource-offer'
+    | '/api/resource-offer-checkout'
     | '/api/speak'
     | '/api/speaking-consent'
     | '/api/speaking-transcribe'
@@ -1249,6 +1286,7 @@ export interface RootRouteChildren {
   FounderRoute: typeof FounderRoute
   Char91indexChar93Route: typeof Char91indexChar93Route
   ModuleRequestRoute: typeof ModuleRequestRoute
+  OfferRoute: typeof OfferRoute
   OwnerRoute: typeof OwnerRoute
   OwnerFrenchDinnerReviewRoute: typeof OwnerFrenchDinnerReviewRoute
   OwnerFrenchReviewRoute: typeof OwnerFrenchReviewRoute
@@ -1313,6 +1351,8 @@ export interface RootRouteChildren {
   ApiPushRoute: typeof ApiPushRoute
   ApiPushCronRoute: typeof ApiPushCronRoute
   ApiRedditOfferRoute: typeof ApiRedditOfferRoute
+  ApiResourceOfferRoute: typeof ApiResourceOfferRoute
+  ApiResourceOfferCheckoutRoute: typeof ApiResourceOfferCheckoutRoute
   ApiSpeakRoute: typeof ApiSpeakRoute
   ApiSpeakingConsentRoute: typeof ApiSpeakingConsentRoute
   ApiSpeakingTranscribeRoute: typeof ApiSpeakingTranscribeRoute
@@ -1441,6 +1481,13 @@ declare module '@tanstack/react-router' {
       path: '/module-request'
       fullPath: '/module-request'
       preLoaderRoute: typeof ModuleRequestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/offer': {
+      id: '/offer'
+      path: '/offer'
+      fullPath: '/offer'
+      preLoaderRoute: typeof OfferRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/owner': {
@@ -1891,6 +1938,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiRedditOfferRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/resource-offer': {
+      id: '/api/resource-offer'
+      path: '/api/resource-offer'
+      fullPath: '/api/resource-offer'
+      preLoaderRoute: typeof ApiResourceOfferRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/resource-offer-checkout': {
+      id: '/api/resource-offer-checkout'
+      path: '/api/resource-offer-checkout'
+      fullPath: '/api/resource-offer-checkout'
+      preLoaderRoute: typeof ApiResourceOfferCheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/speak': {
       id: '/api/speak'
       path: '/api/speak'
@@ -2057,6 +2118,7 @@ const rootRouteChildren: RootRouteChildren = {
   FounderRoute: FounderRoute,
   Char91indexChar93Route: Char91indexChar93Route,
   ModuleRequestRoute: ModuleRequestRoute,
+  OfferRoute: OfferRoute,
   OwnerRoute: OwnerRoute,
   OwnerFrenchDinnerReviewRoute: OwnerFrenchDinnerReviewRoute,
   OwnerFrenchReviewRoute: OwnerFrenchReviewRoute,
@@ -2121,6 +2183,8 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPushRoute: ApiPushRoute,
   ApiPushCronRoute: ApiPushCronRoute,
   ApiRedditOfferRoute: ApiRedditOfferRoute,
+  ApiResourceOfferRoute: ApiResourceOfferRoute,
+  ApiResourceOfferCheckoutRoute: ApiResourceOfferCheckoutRoute,
   ApiSpeakRoute: ApiSpeakRoute,
   ApiSpeakingConsentRoute: ApiSpeakingConsentRoute,
   ApiSpeakingTranscribeRoute: ApiSpeakingTranscribeRoute,

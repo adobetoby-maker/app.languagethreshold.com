@@ -16,6 +16,19 @@ function storage() {
   };
 }
 
+test("study-guide offer authentication retains only safe resource attribution", () => {
+  assert.equal(
+    authenticationRedirectUrl(
+      "https://app.languagethreshold.com/offer?resource=family-game&email=private#token=secret",
+    ),
+    "https://app.languagethreshold.com/offer?resource=family-game",
+  );
+  assert.equal(authReturnPath("/offer?resource=https://outside.invalid&token=secret"), "/offer");
+  const saved = storage();
+  rememberAuthReturn("/offer?resource=study-guide", saved, 1000);
+  assert.equal(consumeAuthReturn("/", true, saved, 2000), "/offer?resource=study-guide");
+});
+
 test("OAuth return brings a signed-in requester back to the form once", () => {
   const saved = storage();
   rememberAuthReturn("/module-request", saved, 1000);

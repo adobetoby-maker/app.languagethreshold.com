@@ -257,3 +257,7 @@ The [French Breakfast review archive](../../content/french-travel-breakfast/READ
 ## November 15 source snapshot transfer
 
 The [inert main archive](../../content/review-archive/french-japanese-2026-11-15/README.md) now contains pinned French 101, Breakfast, Roofing and Pronunciation draft JSON from private PR heads. It adds no owner page or learner import. The gap matrix and tickets retain stale Breakfast source references, Core 30 allergy conflict, Roofing identity/Core 21 safety issues, French 101 face/mode gaps, and exact-text audio/listening work. Review and release gates remain false.
+
+## November 16 source-only Breakfast Core 15–17 packets
+
+The [Core 15–17 packets](../../content/french-travel-breakfast/review-packets/core-15-17/README.md) preserve 51 stable card IDs and 26 Reader IDs with exact ordered Spanish/English source meanings and the archived French draft text. An independent validator checks source/draft hashes, every card and Reader pair, mode-input ID references and false gates. These are repository review packets, not a new owner page or learner course. Six authored prompt/answer modes, French verb paradigms, dictionary senses, qualified French/accessibility/restaurant review and new exact-text audio/listening remain open. The bounded Haiku audit attempt timed out, so no AI review result is claimed. French Breakfast Core 18–30 and Master 1–20 still need source-current packet reconciliation; Foundation 5, Core 30 and Master 4/6 source conflicts remain.

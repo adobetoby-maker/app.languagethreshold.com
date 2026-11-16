@@ -1,0 +1,35 @@
+{
+  "status": "AI-assisted, unapproved source-only candidate; qualified Japanese, hotel, locale and dictionary review remains open",
+  "safeMode": true,
+  "calls": [
+    {
+      "role": "Core 5 source-card and Reader candidate",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "154f3bd6-652e-4fac-abca-be6af7b63822",
+      "stopReason": "end_turn",
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "note": "Source order and lesson details were independently checked. The candidate was not copied without correction."
+    },
+    {
+      "role": "Read-only Japanese/source critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "57c07949-0540-40d8-8595-11609c952d4b",
+      "stopReason": "end_turn",
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "note": "Identified hotel-policy, menu, coffee, register, gloss and number-reading issues."
+    },
+    {
+      "role": "Read-only second-pass correction critique",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "b36e97dd-3460-4de1-aca6-991a70749973",
+      "stopReason": "end_turn",
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "note": "Flagged Reader narration, room-number syntax and source-attribution issues; some alternative wording remains a qualified review choice."
+    }
+  ],
+  "selfCheck": "Compared all 16 source English/Spanish cards and nine Reader rows in order; preserved 214, 6:30–10:00, clean plate and no food taken. Corrected archived Sam/room-plan inventions, narration, room-number syntax and coffee sense. Source hashes, revision-scoped IDs, exact-text hashes, old-position retirement and all false gates are checked independently. AI and structural checks are not qualified approval.",
+  "qualifiedReview": false
+}

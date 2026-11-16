@@ -1,0 +1,600 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:4",
+  "stageId": "travel-breakfast",
+  "lessonNumber": 4,
+  "stableLessonId": "travel-breakfast:4:ja-en",
+  "candidateRevision": "travel-breakfast:4:ja-en:source-scene-v1",
+  "reviewed": false,
+  "status": "source-only Japanese-language full-scene candidate; unapproved",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "readerPath": "public/lesson-content/es/travel-breakfast.json",
+    "readerSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "planTitleEnglish": "Order eggs and a full breakfast",
+    "objectiveEnglish": "request eggs, sides, toast, fruit, and cooking preferences",
+    "roleplayEnglish": "Build a complete hot breakfast order and confirm what is included.",
+    "readerTitleSpanish": "Un desayuno completo",
+    "sourceVerbs": [
+      {
+        "infinitive": "querer",
+        "native": "to want",
+        "forms": {
+          "yo": "quiero",
+          "tú": "quieres",
+          "él_ella_usted": "quiere",
+          "nosotros": "queremos",
+          "ellos_ustedes": "quieren"
+        },
+        "example": {
+          "target": "Quiero dos huevos revueltos, por favor.",
+          "native": "I want two scrambled eggs, please."
+        },
+        "note": "Stem change: e to ie (except nosotros)."
+      },
+      {
+        "infinitive": "pedir",
+        "native": "to order, to ask for",
+        "forms": {
+          "yo": "pido",
+          "tú": "pides",
+          "él_ella_usted": "pide",
+          "nosotros": "pedimos",
+          "ellos_ustedes": "piden"
+        },
+        "example": {
+          "target": "También pide tocino, pan tostado y fruta.",
+          "native": "He also orders bacon, toast, and fruit."
+        },
+        "note": "Stem change: e to i (except nosotros)."
+      },
+      {
+        "infinitive": "traer",
+        "native": "to bring",
+        "forms": {
+          "yo": "traigo",
+          "tú": "traes",
+          "él_ella_usted": "trae",
+          "nosotros": "traemos",
+          "ellos_ustedes": "traen"
+        },
+        "example": {
+          "target": "¿Me puede traer pan tostado?",
+          "native": "Can you bring me toast?"
+        },
+        "note": "Irregular yo form: traigo."
+      },
+      {
+        "infinitive": "sentarse",
+        "native": "to sit down",
+        "forms": {
+          "yo": "me siento",
+          "tú": "te sientas",
+          "él_ella_usted": "se sienta",
+          "nosotros": "nos sentamos",
+          "ellos_ustedes": "se sientan"
+        },
+        "example": {
+          "target": "Se sienta en una mesa y mira el menú.",
+          "native": "He sits at a table and looks at the menu."
+        },
+        "note": "Reflexive verb with stem change: e to ie (except nosotros)."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "Sam sees an egg breakfast set on a café menu and asks what comes with it.",
+    "cardCount": 13,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "huevos revueltos",
+      "sourceEnglish": "scrambled eggs",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "スクランブルエッグ",
+      "literalJapaneseGlossEn": "scrambled eggs",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "9f4ebfb660f2133ad90b3942986be9c9be718a9cca8561247a111cb7434e69a0"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "huevos fritos",
+      "sourceEnglish": "fried eggs",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "目玉焼き",
+      "literalJapaneseGlossEn": "fried egg (commonly sunny side up)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "1fcf0b3c12838c7dbc29f124730dcded01154702247502a055dd313b2270d655"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "tocino",
+      "sourceEnglish": "bacon",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ベーコン",
+      "literalJapaneseGlossEn": "bacon",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "6ec66144404c03705fa89cab5026aed819409e5b978a8ced25c22db7522f36df"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "pan tostado",
+      "sourceEnglish": "toast",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "トースト",
+      "literalJapaneseGlossEn": "toast",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "3f9a7992a45fb79501ff9e37bf7df5f9a871d3bf1a00ced3d95d01a12cdecfa1"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "fruta",
+      "sourceEnglish": "fruit",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "果物",
+      "literalJapaneseGlossEn": "fruit",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "69363e7f12cbf231d1171ca73265e942d059a2142b68cad37b90c7df05570e9a"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "jugo de naranja",
+      "sourceEnglish": "orange juice",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "オレンジジュース",
+      "literalJapaneseGlossEn": "orange juice",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "bd51b844005dd1d67d1d7eaf891e58fbe9163e4a1d3e32d32234a69daf727670"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "salchicha",
+      "sourceEnglish": "sausage",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ソーセージ",
+      "literalJapaneseGlossEn": "sausage",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "afe9ceb30e485cda9ad5fbe965283326f61854eb66aac4bef6c48bbe19ec4e9a"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "papas",
+      "sourceEnglish": "potatoes",
+      "kind": "term",
+      "sourceNoteInternal": "In Mexico and the US, papas fritas or papas hash browns are common breakfast sides.",
+      "targetJapaneseDraft": "ポテト",
+      "literalJapaneseGlossEn": "potato side (style unspecified)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "5c5d73bf53db510400ef09a8b56f0105aee0d5dca0d46e64dc064e3bf1aae3d3"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "mantequilla",
+      "sourceEnglish": "butter",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "バター",
+      "literalJapaneseGlossEn": "butter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "0e846682b4e509b095efec310881f39bb8aff0bdf723e7fa715e3f244ab4f0a3"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "mesa",
+      "sourceEnglish": "table",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "テーブル",
+      "literalJapaneseGlossEn": "table",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "0fac3ba703c833bc320b469586f6e138570e59711e4536b366185f5f4da0f299"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "menú",
+      "sourceEnglish": "menu",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "メニュー",
+      "literalJapaneseGlossEn": "menu",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "6f3443ca32a16492ca004f31a9b9534dc5ec9e9cf07633b9aa0be2086f8907c7"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "sin sal",
+      "sourceEnglish": "without salt",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "塩なしで",
+      "literalJapaneseGlossEn": "without salt",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "76cfa778b60e4fc916a814fa9b5db740bb6cb6dc7e8a3996620664d16dfecace"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "Quiero dos huevos revueltos, por favor.",
+      "sourceEnglish": "I want two scrambled eggs, please.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "卵二個のスクランブルエッグをお願いします。",
+      "literalJapaneseGlossEn": "Scrambled eggs made with two eggs, please.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "a292637a767cdd17d682c1f4e8473a750190b62dc16fa8f2e31d0bfe050f40d9"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Me puede traer pan tostado?",
+      "sourceEnglish": "Can you bring me toast?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Polite way to ask a server.",
+      "targetJapaneseDraft": "トーストを持ってきていただけますか。",
+      "literalJapaneseGlossEn": "Could you bring me toast?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "fd827056ef88252dfb8cef1dc2e699d3852ef209952ffc00df3d2946c042cbd4"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "Los quiero bien cocidos.",
+      "sourceEnglish": "I want them well done.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "しっかり火を通してください。",
+      "literalJapaneseGlossEn": "Please cook it through thoroughly.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "7cffe32a69a1763afe7fecd14c4752f4b2d64d90cc526bbcc82da3ac58babf40"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿Viene con fruta?",
+      "sourceEnglish": "Does it come with fruit?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "果物は付きますか。",
+      "literalJapaneseGlossEn": "Does fruit come with it?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "b9a8c6b403cfa519bdfbdfb04ad8e98d026e2388fbe2d0d8e39f43a73139bfc8"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "¿El café está incluido?",
+      "sourceEnglish": "Is the coffee included?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "コーヒーは含まれていますか。",
+      "literalJapaneseGlossEn": "Is coffee included?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "1905e62667463d3a3e6dc64af697df512425929eddf4b9704f6e7a8510dbd068"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "¿Qué viene con el desayuno?",
+      "sourceEnglish": "What comes with the breakfast?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "朝食には何が付いていますか。",
+      "literalJapaneseGlossEn": "What comes with breakfast?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "b0ccb1ba6fc8edf5a6643c17026dff7e4bdf651f28788163029dc040a68f48ec"
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "quotedSpeaker": null,
+      "sourceSpanish": "Un viajero entra a un café en la mañana.",
+      "sourceEnglish": "A traveler walks into a café in the morning.",
+      "targetJapaneseDraft": "朝、旅行者がカフェに入ります。",
+      "literalJapaneseGlossEn": "In the morning, a traveler enters a café.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "f8d179cf8249da869ac9a8256755ab7ac347123b4661b9615a56385075ef4aba"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "quotedSpeaker": null,
+      "sourceSpanish": "Se sienta en una mesa y mira el menú.",
+      "sourceEnglish": "He sits at a table and looks at the menu.",
+      "targetJapaneseDraft": "旅行者はテーブルに座り、メニューを見ます。",
+      "literalJapaneseGlossEn": "The traveler sits at a table and looks at the menu.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "41ce93f4b316db8e349af5990e68ad8d3a9271b4b2298465e1efdd5e6c273b05"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "quotedSpeaker": "Waitress",
+      "sourceSpanish": "La mesera pregunta: ¿Qué desea usted?",
+      "sourceEnglish": "The waitress asks: What would you like?",
+      "targetJapaneseDraft": "女性の店員は「ご注文は何になさいますか」と尋ねます。",
+      "literalJapaneseGlossEn": "The female staff member asks: What will you have for your order?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "5ba1d2dbdb027575d0f68a380e41229e721306a22a9db09391a8e25cca0ff03f"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "quotedSpeaker": "Traveler",
+      "sourceSpanish": "Él dice: Quiero dos huevos revueltos, por favor.",
+      "sourceEnglish": "He says: I want two scrambled eggs, please.",
+      "targetJapaneseDraft": "旅行者は「卵二個のスクランブルエッグをお願いします」と言います。",
+      "literalJapaneseGlossEn": "The traveler says: Scrambled eggs made with two eggs, please.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "a6363edfecf56e78f82dbaed94a0a4731a843fcf421912a3509b45b4f75f1a10"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "quotedSpeaker": null,
+      "sourceSpanish": "También pide tocino, pan tostado y fruta.",
+      "sourceEnglish": "He also orders bacon, toast, and fruit.",
+      "targetJapaneseDraft": "旅行者はベーコンとトーストと果物も注文します。",
+      "literalJapaneseGlossEn": "The traveler also orders bacon, toast, and fruit.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "3e0f808a9c2f5bbe5b93079aed0ca1ac100b653187aa739b09b8ab207ce2d8db"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "quotedSpeaker": "Waitress",
+      "sourceSpanish": "La mesera pregunta: ¿Cómo quiere los huevos?",
+      "sourceEnglish": "The waitress asks: How do you want the eggs?",
+      "targetJapaneseDraft": "女性の店員は「卵はどのように調理いたしましょうか」と尋ねます。",
+      "literalJapaneseGlossEn": "The female staff member asks: How shall I prepare the eggs?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "6393569e6e95578d0dee017c686ddc1fd96eb34731586f99f099e56bf35c0c1b"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "quotedSpeaker": "Traveler",
+      "sourceSpanish": "Él responde: Los quiero bien cocidos, sin sal.",
+      "sourceEnglish": "He answers: I want them well done, without salt.",
+      "targetJapaneseDraft": "旅行者は「しっかり火を通して、塩なしでお願いします」と答えます。",
+      "literalJapaneseGlossEn": "The traveler answers: Cook them thoroughly, without salt, please.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "23543445199274337b4f3f24f838a0f717934effc30aecac9bae4c067b582982"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "quotedSpeaker": "Traveler",
+      "sourceSpanish": "Luego pregunta: ¿El café está incluido?",
+      "sourceEnglish": "Then he asks: Is the coffee included?",
+      "targetJapaneseDraft": "それから旅行者は「コーヒーは含まれていますか」と尋ねます。",
+      "literalJapaneseGlossEn": "Then the traveler asks: Is coffee included?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "9e2155ff2e73c3c3e6e0a1af0345296992fd4752f80c00b71328d89fb797ec98"
+    },
+    {
+      "id": "travel-breakfast:4:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "quotedSpeaker": "Waitress",
+      "sourceSpanish": "La mesera dice: Sí, el café está incluido.",
+      "sourceEnglish": "The waitress says: Yes, the coffee is included.",
+      "targetJapaneseDraft": "女性の店員は「はい、コーヒーは含まれています」と言います。",
+      "literalJapaneseGlossEn": "The female staff member says: Yes, coffee is included.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "719fc4e3d60039e81c9f229d346422a8b8d55e94e76033d67f1ee478c8b0a78c"
+    }
+  ],
+  "speakingGoalCandidate": "Order two scrambled eggs, bacon, toast and fruit; request the eggs cooked through without salt; ask whether coffee is included.",
+  "japaneseSpecificFocusCandidate": "Order with ～をお願いします, request a cooking preference with ～てください, and ask whether an item is included with 含まれていますか. Spanish querer/pedir/traer/sentarse form tables are separate source concepts.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "breakfast set",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "egg dish",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "fried egg",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "scrambled eggs",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "toast",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "fruit",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "orange juice",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "butter",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "cooking level",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "Please cook it well",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "Is it included in the set?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "What comes with it?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "Without salt, please",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "What comes with this breakfast set?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "It comes with an egg dish, toast, and fruit.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Can I choose the egg dish?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Yes, fried or scrambled eggs.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Scrambled eggs, please.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Please cook them well.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Certainly.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Is coffee included in the set too?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "No, coffee costs extra.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "savedPositionPolicy": "Archived rows have no explicit row IDs. Some Japanese text overlaps, but no old row identity is authorized for transfer. This packet has revision-scoped candidate IDs; no shipped progress migration is authorized.",
+  "unresolvedInternal": [
+    "The archived Sam breakfast-set scene and extra-price coffee answer contradict the pinned unnamed-traveler Reader; they remain archived, not promoted.",
+    "Spanish dos huevos revueltos means two eggs scrambled, not two servings; Japanese card and Reader explicitly say 卵二個.",
+    "The source asks for scrambled eggs well done. Choose natural Japanese egg-doneness wording with a qualified reviewer before scoring or recording.",
+    "The source marks the traveler as male in English/Spanish; Japanese naturally omits that pronoun. Keep this source distinction visible for translation and voice decisions.",
+    "Japanese 目玉焼き is a common fried-egg term, but the source does not specify sunny-side-up or a count for that separate card.",
+    "Spanish papas has an unspecified breakfast-potato preparation; Japanese ポテト is a candidate menu term, not a claim about fries or hash browns.",
+    "The source says coffee is included. Whether it is included in price or merely served alongside breakfast needs source and dictionary review.",
+    "The source Reader is itself reviewed:false; its source authority is structural, not qualified language approval.",
+    "The source says waitress; Japanese 女性の店員 retains gender in narration, while its service wording needs qualified register review.",
+    "Card 13 counting, table-side request register, salt omission and the Reader narrator frames need qualified Japanese and café-domain review."
+  ],
+  "missing": [
+    "six authored prompt-answer mode pairs",
+    "kana readings for learner display",
+    "Japanese Reader title",
+    "contextual forms",
+    "full speaking setup",
+    "dictionary senses",
+    "saved-item reconciliation decision",
+    "exact-text audio and individual listening decisions",
+    "qualified Japanese and domain review"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "status": "AI-assisted unapproved source-only candidate; qualified Japanese, food, locale and dictionary review remains open",
+  "calls": [
+    {
+      "role": "Source-grounded Japanese card and Reader candidate authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "3edf11ab-7d32-4e1e-bec9-e92e3531515f",
+      "stopReason": "end_turn",
+      "isError": false,
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "note": "Proposed all 18 source cards and nine Reader lines; the source and draft were read only."
+    },
+    {
+      "role": "Independent source and Japanese read-only critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "581a598c-42d8-4a0c-93bb-994b142573cd",
+      "stopReason": "end_turn",
+      "isError": false,
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "note": "Flagged two-eggs versus two-servings, narrator frames, waitress question register, coffee inclusion, exact IDs and source provenance."
+    },
+    {
+      "role": "Second independent correction critique",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "0fbd32e7-a087-4f85-a31f-aaf1758804a6",
+      "stopReason": "end_turn",
+      "isError": false,
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "note": "Flagged Reader-9 says/answers, male-pronoun omission note, salt-form consistency, potato side, full source-verb provenance and no automatic text-only ID mapping."
+    }
+  ],
+  "selfCheck": "Corrected the confirmed source and Japanese issues, then independently checked all 18 cards and nine Reader rows against pinned Spanish and English source, stable lesson identity, new row IDs, exact text hashes, archived-position plans and false gates. Potatoes, egg doneness, inclusion and register remain visible qualified-review questions. No AI or structural check is a qualified approval."
+}

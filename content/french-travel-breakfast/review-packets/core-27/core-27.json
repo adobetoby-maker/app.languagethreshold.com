@@ -1,0 +1,395 @@
+{
+  "lessonKey": "core:27",
+  "pair": {
+    "target": "French",
+    "support": "English"
+  },
+  "source": {
+    "path": "public/lesson-content/es/travel-breakfast.json",
+    "sha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "stage": "core",
+    "number": 27
+  },
+  "priorDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/french-breakfast/private-runtime-candidate.json",
+    "sha256": "f58bb01321fa2e04ef1bbc802c7a776836c3ea9ac6c51fdbedfaca50fe764f26"
+  },
+  "sourceDriftOverrideSha256": "f07c7397d32699de2e31020a1b86ad2834cdf385ab93a844b4f99723da7dc83c",
+  "overriddenDraftIds": [],
+  "titleEnglishDraft": "Prévoir un petit-déjeuner avant le départ",
+  "objectiveEnglishDraft": "Request an early packed breakfast, confirm pickup time and place, and ask whether it is included.",
+  "focusFrenchDraft": "Demander un petit-déjeuner à emporter avant l’ouverture et confirmer le retrait.",
+  "focusEnglishDraft": "Use mon transfert part à… for the departure, un petit-déjeuner à emporter for the request, and où/quand le récupérer for pickup.",
+  "cards": [
+    {
+      "id": "core:27:word:1",
+      "sourceSpanish": "desayuno para llevar",
+      "supportEnglish": "packed breakfast",
+      "targetFrenchDraft": "un petit-déjeuner à emporter",
+      "kind": "term"
+    },
+    {
+      "id": "core:27:word:2",
+      "sourceSpanish": "recepción",
+      "supportEnglish": "front desk",
+      "targetFrenchDraft": "la réception",
+      "kind": "term"
+    },
+    {
+      "id": "core:27:word:3",
+      "sourceSpanish": "traslado al aeropuerto",
+      "supportEnglish": "airport transfer",
+      "targetFrenchDraft": "le transfert vers l’aéroport",
+      "kind": "term"
+    },
+    {
+      "id": "core:27:word:4",
+      "sourceSpanish": "horario del desayuno",
+      "supportEnglish": "breakfast hours",
+      "targetFrenchDraft": "les horaires du petit-déjeuner",
+      "kind": "term"
+    },
+    {
+      "id": "core:27:word:5",
+      "sourceSpanish": "comedor",
+      "supportEnglish": "dining room",
+      "targetFrenchDraft": "la salle à manger",
+      "kind": "term"
+    },
+    {
+      "id": "core:27:word:6",
+      "sourceSpanish": "bolsa de papel",
+      "supportEnglish": "paper bag",
+      "targetFrenchDraft": "un sac en papier",
+      "kind": "term"
+    },
+    {
+      "id": "core:27:word:7",
+      "sourceSpanish": "fruta",
+      "supportEnglish": "fruit",
+      "targetFrenchDraft": "des fruits",
+      "kind": "term"
+    },
+    {
+      "id": "core:27:word:8",
+      "sourceSpanish": "jugo",
+      "supportEnglish": "juice",
+      "targetFrenchDraft": "du jus",
+      "kind": "term"
+    },
+    {
+      "id": "core:27:word:9",
+      "sourceSpanish": "alergia",
+      "supportEnglish": "allergy",
+      "targetFrenchDraft": "une allergie",
+      "kind": "term"
+    },
+    {
+      "id": "core:27:word:10",
+      "sourceSpanish": "número de habitación",
+      "supportEnglish": "room number",
+      "targetFrenchDraft": "le numéro de chambre",
+      "kind": "term"
+    },
+    {
+      "id": "core:27:word:11",
+      "sourceSpanish": "tarifa",
+      "supportEnglish": "rate",
+      "targetFrenchDraft": "le tarif",
+      "kind": "term"
+    },
+    {
+      "id": "core:27:word:12",
+      "sourceSpanish": "¿Pueden prepararme un desayuno para llevar?",
+      "supportEnglish": "Can you prepare a packed breakfast for me?",
+      "targetFrenchDraft": "Pourriez-vous me préparer un petit-déjeuner à emporter ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:27:word:13",
+      "sourceSpanish": "Mi traslado al aeropuerto sale a las 5:30 de la mañana.",
+      "supportEnglish": "My airport transfer leaves at 5:30 a.m.",
+      "targetFrenchDraft": "Mon transfert vers l’aéroport part à cinq heures trente.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:27:word:14",
+      "sourceSpanish": "¿A qué hora puedo recogerlo?",
+      "supportEnglish": "What time can I pick it up?",
+      "targetFrenchDraft": "À quelle heure puis-je le récupérer ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:27:word:15",
+      "sourceSpanish": "¿Dónde lo recojo, en recepción o en el comedor?",
+      "supportEnglish": "Where do I pick it up, at the front desk or in the dining room?",
+      "targetFrenchDraft": "Où dois-je le récupérer, à la réception ou dans la salle à manger ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:27:word:16",
+      "sourceSpanish": "¿Está incluido en mi tarifa?",
+      "supportEnglish": "Is it included in my rate?",
+      "targetFrenchDraft": "C’est compris dans mon tarif ?",
+      "kind": "phrase"
+    }
+  ],
+  "readerTitleFrenchDraft": "Prévoir un petit-déjeuner avant le départ",
+  "reader": [
+    {
+      "id": "core:27:line:1",
+      "sourceSpanish": "Ana llega a la recepción del hotel a las 9 de la noche.",
+      "supportEnglish": "Ana arrives at the hotel front desk at 9 p.m.",
+      "targetFrenchDraft": "Ana arrive à la réception de l’hôtel à vingt et une heures."
+    },
+    {
+      "id": "core:27:line:2",
+      "sourceSpanish": "Ella dice: Mi traslado al aeropuerto sale a las 5:30 de la mañana, pero el horario del desayuno empieza a las 7.",
+      "supportEnglish": "She says: My airport transfer leaves at 5:30 a.m., but breakfast hours start at 7.",
+      "targetFrenchDraft": "Elle dit : « Mon transfert vers l’aéroport part à cinq heures trente, mais le petit-déjeuner commence à sept heures. »"
+    },
+    {
+      "id": "core:27:line:3",
+      "sourceSpanish": "Luego pregunta: Si el comedor está cerrado, ¿pueden prepararme un desayuno para llevar?",
+      "supportEnglish": "Then she asks: If the dining room is closed, can you prepare a packed breakfast for me?",
+      "targetFrenchDraft": "Puis elle demande : « Si la salle à manger est fermée, pourriez-vous me préparer un petit-déjeuner à emporter ? »"
+    },
+    {
+      "id": "core:27:line:4",
+      "sourceSpanish": "El recepcionista explica que la cocina puede preparar una bolsa de papel con fruta, pan y jugo.",
+      "supportEnglish": "The receptionist explains that the kitchen can prepare a paper bag with fruit, bread and juice.",
+      "targetFrenchDraft": "Le réceptionniste explique que la cuisine peut préparer un sac en papier contenant des fruits, du pain et du jus."
+    },
+    {
+      "id": "core:27:line:5",
+      "sourceSpanish": "Ana menciona su alergia a las nueces, y él la anota con su número de habitación.",
+      "supportEnglish": "Ana mentions her nut allergy, and he writes it down with her room number.",
+      "targetFrenchDraft": "Ana mentionne son allergie aux fruits à coque ; il la note avec son numéro de chambre."
+    },
+    {
+      "id": "core:27:line:6",
+      "sourceSpanish": "Después ella pregunta: ¿A qué hora puedo recogerlo?",
+      "supportEnglish": "Then she asks: What time can I pick it up?",
+      "targetFrenchDraft": "Puis elle demande : « À quelle heure puis-je le récupérer ? »"
+    },
+    {
+      "id": "core:27:line:7",
+      "sourceSpanish": "Él responde: La bolsa va a estar lista en recepción a las 5 de la mañana.",
+      "supportEnglish": "He answers: The bag will be ready at the front desk at 5 a.m.",
+      "targetFrenchDraft": "Il répond : « Le sac sera prêt à la réception à cinq heures. »"
+    },
+    {
+      "id": "core:27:line:8",
+      "sourceSpanish": "Ana quiere confirmar el precio y pregunta: ¿Está incluido en mi tarifa?",
+      "supportEnglish": "Ana wants to confirm the price and asks: Is it included in my rate?",
+      "targetFrenchDraft": "Ana veut confirmer le prix et demande : « C’est compris dans mon tarif ? »"
+    },
+    {
+      "id": "core:27:line:9",
+      "sourceSpanish": "El recepcionista dice que sí, porque su reserva incluye el desayuno.",
+      "supportEnglish": "The receptionist says yes, because her reservation includes breakfast.",
+      "targetFrenchDraft": "Le réceptionniste répond que oui, car sa réservation comprend le petit-déjeuner."
+    }
+  ],
+  "sourceSpanishVerbs": [
+    {
+      "infinitive": "preparar",
+      "native": "to prepare",
+      "forms": {
+        "yo": "preparo",
+        "tú": "preparas",
+        "él_ella_usted": "prepara",
+        "nosotros": "preparamos",
+        "ellos_ustedes": "preparan"
+      },
+      "example": {
+        "target": "La cocina prepara una bolsa de papel con fruta y jugo.",
+        "native": "The kitchen prepares a paper bag with fruit and juice."
+      }
+    },
+    {
+      "infinitive": "recoger",
+      "native": "to pick up",
+      "forms": {
+        "yo": "recojo",
+        "tú": "recoges",
+        "él_ella_usted": "recoge",
+        "nosotros": "recogemos",
+        "ellos_ustedes": "recogen"
+      },
+      "example": {
+        "target": "¿Dónde lo recojo, en recepción o en el comedor?",
+        "native": "Where do I pick it up, at the front desk or in the dining room?"
+      },
+      "note": "Spelling change in the yo form: g becomes j (recojo) so it keeps the same sound."
+    },
+    {
+      "infinitive": "salir",
+      "native": "to leave",
+      "forms": {
+        "yo": "salgo",
+        "tú": "sales",
+        "él_ella_usted": "sale",
+        "nosotros": "salimos",
+        "ellos_ustedes": "salen"
+      },
+      "example": {
+        "target": "Mi traslado al aeropuerto sale a las 5:30 de la mañana.",
+        "native": "My airport transfer leaves at 5:30 a.m."
+      },
+      "note": "The yo form is irregular: salgo."
+    },
+    {
+      "infinitive": "incluir",
+      "native": "to include",
+      "forms": {
+        "yo": "incluyo",
+        "tú": "incluyes",
+        "él_ella_usted": "incluye",
+        "nosotros": "incluimos",
+        "ellos_ustedes": "incluyen"
+      },
+      "example": {
+        "target": "Su reserva incluye el desayuno.",
+        "native": "Your reservation includes breakfast."
+      },
+      "note": "A y is added before the ending in every form except nosotros: incluyo, incluyes, incluye, incluyen."
+    }
+  ],
+  "speakingDraft": {
+    "openingFrench": "Bonsoir, mon transfert vers l’aéroport part à cinq heures trente. Pourriez-vous préparer un petit-déjeuner à emporter ? J’ai une allergie aux fruits à coque : pouvez-vous vérifier les ingrédients et la préparation ?",
+    "instructionEnglish": "Ask the hotel for an early breakfast, confirm collection time and location, and clarify ingredients and price."
+  },
+  "modeInputIdsDraft": {
+    "see": [
+      "core:27:word:1",
+      "core:27:word:2",
+      "core:27:word:3",
+      "core:27:word:4",
+      "core:27:word:5",
+      "core:27:word:6",
+      "core:27:word:7",
+      "core:27:word:8",
+      "core:27:word:9",
+      "core:27:word:10",
+      "core:27:word:11",
+      "core:27:word:12",
+      "core:27:word:13",
+      "core:27:word:14",
+      "core:27:word:15",
+      "core:27:word:16"
+    ],
+    "recall": [
+      "core:27:word:1",
+      "core:27:word:2",
+      "core:27:word:3",
+      "core:27:word:4",
+      "core:27:word:5",
+      "core:27:word:6",
+      "core:27:word:7",
+      "core:27:word:8",
+      "core:27:word:9",
+      "core:27:word:10",
+      "core:27:word:11",
+      "core:27:word:12",
+      "core:27:word:13",
+      "core:27:word:14",
+      "core:27:word:15",
+      "core:27:word:16"
+    ],
+    "hear": [
+      "core:27:word:1",
+      "core:27:word:2",
+      "core:27:word:3",
+      "core:27:word:4",
+      "core:27:word:5",
+      "core:27:word:6",
+      "core:27:word:7",
+      "core:27:word:8",
+      "core:27:word:9",
+      "core:27:word:10",
+      "core:27:word:11",
+      "core:27:word:12",
+      "core:27:word:13",
+      "core:27:word:14",
+      "core:27:word:15",
+      "core:27:word:16"
+    ],
+    "type": [
+      "core:27:word:1",
+      "core:27:word:2",
+      "core:27:word:3",
+      "core:27:word:4",
+      "core:27:word:5",
+      "core:27:word:6",
+      "core:27:word:7",
+      "core:27:word:8",
+      "core:27:word:9",
+      "core:27:word:10",
+      "core:27:word:11",
+      "core:27:word:12",
+      "core:27:word:13",
+      "core:27:word:14",
+      "core:27:word:15",
+      "core:27:word:16"
+    ],
+    "say": [
+      "core:27:word:1",
+      "core:27:word:2",
+      "core:27:word:3",
+      "core:27:word:4",
+      "core:27:word:5",
+      "core:27:word:6",
+      "core:27:word:7",
+      "core:27:word:8",
+      "core:27:word:9",
+      "core:27:word:10",
+      "core:27:word:11",
+      "core:27:word:12",
+      "core:27:word:13",
+      "core:27:word:14",
+      "core:27:word:15",
+      "core:27:word:16"
+    ],
+    "write": [
+      "core:27:word:1",
+      "core:27:word:2",
+      "core:27:word:3",
+      "core:27:word:4",
+      "core:27:word:5",
+      "core:27:word:6",
+      "core:27:word:7",
+      "core:27:word:8",
+      "core:27:word:9",
+      "core:27:word:10",
+      "core:27:word:11",
+      "core:27:word:12",
+      "core:27:word:13",
+      "core:27:word:14",
+      "core:27:word:15",
+      "core:27:word:16"
+    ]
+  },
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "learnerRegistered": false,
+    "audioRegistered": false,
+    "audioApproved": false,
+    "listeningReviewed": false,
+    "playbackEnabled": false,
+    "scoringEnabled": false,
+    "progressTracking": false,
+    "progressWritesEnabled": false,
+    "offlineRegistered": false,
+    "released": false
+  },
+  "reviewNotes": [
+    "Archived French text is an unapproved candidate; exact Spanish/English source controls meaning.",
+    "Mode ID lists are not six authored prompt/answer activities.",
+    "French verb paradigms, dictionary senses, scoring answers, audio and listening need separate review.",
+    "Core 27 card and Reader meanings match the pinned source; qualified French, allergy and locale review remains open."
+  ],
+  "overriddenLessonFields": []
+}

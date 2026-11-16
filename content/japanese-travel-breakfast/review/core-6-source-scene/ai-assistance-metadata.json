@@ -1,0 +1,43 @@
+{
+  "status": "AI-assisted source-only candidate; qualified Japanese, food, locale, source and dictionary review remains open",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Core 6 source-card and Reader candidate authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "fe7dfd4d-160b-4e99-bd31-aa89b0248871",
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "stopReason": "end_turn",
+      "isError": false,
+      "note": "Proposed 16 cards and eight Reader translations; the archived companion/shared-utensil scene was compared against the pinned Spanish source."
+    },
+    {
+      "role": "Full packet read-only critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "cda4daeb-7263-4336-b94c-90d334853be5",
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "stopReason": "end_turn",
+      "isError": false,
+      "note": "Flagged ambiguous nuts/peanuts scope, Reader 5 attribution and antecedent, Japanese register, objective hold, source hash/ID checks and audio overlap language."
+    },
+    {
+      "role": "Second-pass correction critique",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "7532f0ac-ee8b-49c1-b562-1db7afa6e84a",
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "stopReason": "end_turn",
+      "isError": false,
+      "note": "Flagged remaining Reader 4/5/7 naturalness, orphaned ingredient term, missing source verb/title/status pins and Core 27 source conflict."
+    }
+  ],
+  "selfCheck": [
+    "Pinned current source and archived hashes as fixed constants; independently verified exact Spanish and English card/Reader rows in source order.",
+    "Corrected Reader 4, 5 and 7 Japanese wording, used the ingredient term in Card 12/Reader 3 and kept the kitchen statement attributed without adding handling claims.",
+    "Kept the generic medical-advice source line as a withheld Reader face and objective editorial hold, while retaining direct clinical vocabulary elsewhere.",
+    "Preserved all false gates, unregistered archive, revision-scoped candidate IDs and no saved-item or clip migration; no audio generated.",
+    "Qualified review remains required for Japanese nut/peanut/gluten terms, source referents and the inconsistent nueces notes across Core 6/18/27/30."
+  ]
+}

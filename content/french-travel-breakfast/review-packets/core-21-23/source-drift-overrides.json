@@ -1,0 +1,65 @@
+{
+  "status": "source-aligned French candidate overrides for repository review only",
+  "overrides": {
+    "core:22:word:1": {
+      "priorEnglish": "coffee with milk",
+      "sourceEnglish": "coffee with milk",
+      "targetFrenchDraft": "un café con leche",
+      "reason": "Keep the Spanish source drink name for the contrast with cortado; French café ordering terminology needs qualified review."
+    },
+    "core:22:word:2": {
+      "priorEnglish": "espresso with a little milk",
+      "sourceEnglish": "espresso with a little milk",
+      "targetFrenchDraft": "un cortado",
+      "reason": "Keep the named drink used in the pinned Spanish source."
+    },
+    "core:22:word:13": {
+      "priorEnglish": "Is it okay to stay at the table for a while?",
+      "sourceEnglish": "Is it okay to stay at the table for a while?",
+      "targetFrenchDraft": "Ça ne vous dérange pas si je reste un moment à cette table ?",
+      "reason": "Match the source's first-person permission request and Reader line 8."
+    },
+    "core:22:word:15": {
+      "priorEnglish": "Can I order another espresso with a little milk later?",
+      "sourceEnglish": "Can I order another cortado later?",
+      "targetFrenchDraft": "Je peux commander un autre cortado plus tard ?",
+      "reason": "Restore the source's named drink in the request."
+    },
+    "core:22:line:3": {
+      "priorEnglish": "She orders an espresso with a little milk: she prefers that drink in the morning.",
+      "sourceEnglish": "She orders a cortado because in the morning she prefers less milk than in a café con leche.",
+      "targetFrenchDraft": "Elle commande un cortado, car le matin elle préfère moins de lait que dans un café con leche.",
+      "reason": "Restore the explicit milk comparison and both source drink names."
+    },
+    "core:22:line:8": {
+      "priorEnglish": "Before sitting down, she asks: Is it okay to stay at the table for a while? Can I order another espresso with a little milk later?",
+      "sourceEnglish": "Before sitting down, she asks: Is it okay to stay at the table for a while? Can I order another cortado later?",
+      "targetFrenchDraft": "Avant de s’asseoir, elle demande : « Ça ne vous dérange pas si je reste un moment à cette table ? Je peux commander un autre cortado plus tard ? »",
+      "reason": "Restore the source's named drink in the table-time request."
+    },
+    "core:22:line:9": {
+      "priorEnglish": "The barista answers: Of course, take your time; for another espresso with a little milk, you pay at the register, and the tip is optional here.",
+      "sourceEnglish": "The barista answers: Of course, take your time; if you want another cortado, you pay for it at the register, and the tip is optional.",
+      "targetFrenchDraft": "Le barista répond : « Bien sûr, prenez votre temps ; si vous voulez un autre cortado, vous le payez à la caisse, et le pourboire est facultatif. »",
+      "reason": "Restore the condition, named drink and exact payment/tip scope."
+    },
+    "core:23:word:3": {
+      "priorEnglish": "sweet bread",
+      "sourceEnglish": "sweet bread",
+      "targetFrenchDraft": "le pan dulce",
+      "reason": "Avoid narrowing the Mexican source food to brioche."
+    },
+    "core:23:line:3": {
+      "priorEnglish": "The receptionist says: I recommend the Boulangerie des Tilleuls, because the brioches come out of the oven very early.",
+      "sourceEnglish": "The receptionist says: I recommend Panadería Lupita, because the sweet bread comes out hot very early.",
+      "targetFrenchDraft": "Le réceptionniste dit : « Je vous recommande la Panadería Lupita, car le pan dulce y sort tout chaud très tôt. »",
+      "reason": "Restore the bakery proper name, food and hot-early detail."
+    }
+  },
+  "qualifiedReviewNeeded": [
+    "Confirm whether cortado and café con leche should retain Spanish names in this French lesson.",
+    "Confirm how to gloss pan dulce without narrowing it to brioche.",
+    "Confirm French café service register and tip wording for the source scene; the pinned Spanish source customs may need an explicit setting rather than being presented as France.",
+    "Confirm Core 23's bakery and pan dulce scene is explicitly set in its source locale rather than implied to be a French bakery."
+  ]
+}

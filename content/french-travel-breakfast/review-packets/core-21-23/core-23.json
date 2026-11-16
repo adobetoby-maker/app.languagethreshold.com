@@ -1,0 +1,412 @@
+{
+  "lessonKey": "core:23",
+  "pair": {
+    "target": "French",
+    "support": "English"
+  },
+  "source": {
+    "path": "public/lesson-content/es/travel-breakfast.json",
+    "sha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "stage": "core",
+    "number": 23
+  },
+  "priorDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/french-breakfast/private-runtime-candidate.json",
+    "sha256": "f58bb01321fa2e04ef1bbc802c7a776836c3ea9ac6c51fdbedfaca50fe764f26"
+  },
+  "sourceDriftOverrideSha256": "beb5dc4fb5daaedaacf4d1d87c4a4a4b73eb88da95024393c3ebea4d13bc617d",
+  "overriddenDraftIds": [
+    "core:23:line:3",
+    "core:23:word:3"
+  ],
+  "titleEnglishDraft": "Trouver une boulangerie ouverte tôt",
+  "objectiveEnglishDraft": "Ask for a nearby bakery open before seven and confirm walking directions.",
+  "focusFrenchDraft": "Demander une recommandation, les horaires et un itinéraire à pied avec des repères.",
+  "focusEnglishDraft": "Ask à quelle heure ça ouvre for opening time and comment y aller à pied for walking directions; repeat landmarks back.",
+  "cards": [
+    {
+      "id": "core:23:word:1",
+      "sourceSpanish": "panadería",
+      "supportEnglish": "bakery",
+      "targetFrenchDraft": "la boulangerie",
+      "kind": "term"
+    },
+    {
+      "id": "core:23:word:2",
+      "sourceSpanish": "recepcionista",
+      "supportEnglish": "receptionist",
+      "targetFrenchDraft": "le réceptionniste",
+      "kind": "term"
+    },
+    {
+      "id": "core:23:word:3",
+      "sourceSpanish": "pan dulce",
+      "supportEnglish": "sweet bread",
+      "targetFrenchDraft": "le pan dulce",
+      "kind": "term"
+    },
+    {
+      "id": "core:23:word:4",
+      "sourceSpanish": "horario",
+      "supportEnglish": "opening hours",
+      "targetFrenchDraft": "les horaires d’ouverture",
+      "kind": "term"
+    },
+    {
+      "id": "core:23:word:5",
+      "sourceSpanish": "mapa",
+      "supportEnglish": "map",
+      "targetFrenchDraft": "la carte",
+      "kind": "term"
+    },
+    {
+      "id": "core:23:word:6",
+      "sourceSpanish": "cuadra",
+      "supportEnglish": "block",
+      "targetFrenchDraft": "un pâté de maisons",
+      "kind": "term"
+    },
+    {
+      "id": "core:23:word:7",
+      "sourceSpanish": "calle",
+      "supportEnglish": "street",
+      "targetFrenchDraft": "la rue",
+      "kind": "term"
+    },
+    {
+      "id": "core:23:word:8",
+      "sourceSpanish": "semáforo",
+      "supportEnglish": "traffic light",
+      "targetFrenchDraft": "le feu de circulation",
+      "kind": "term"
+    },
+    {
+      "id": "core:23:word:9",
+      "sourceSpanish": "esquina",
+      "supportEnglish": "corner",
+      "targetFrenchDraft": "le coin",
+      "kind": "term"
+    },
+    {
+      "id": "core:23:word:10",
+      "sourceSpanish": "plaza",
+      "supportEnglish": "square",
+      "targetFrenchDraft": "la place",
+      "kind": "term"
+    },
+    {
+      "id": "core:23:word:11",
+      "sourceSpanish": "¿Me puede recomendar una panadería cerca?",
+      "supportEnglish": "Can you recommend a bakery nearby?",
+      "targetFrenchDraft": "Vous pouvez me recommander une boulangerie près d’ici ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:23:word:12",
+      "sourceSpanish": "¿A qué hora abre?",
+      "supportEnglish": "What time does it open?",
+      "targetFrenchDraft": "À quelle heure ouvre-t-elle ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:23:word:13",
+      "sourceSpanish": "¿Está abierta antes de las 7?",
+      "supportEnglish": "Is it open before 7?",
+      "targetFrenchDraft": "Elle est ouverte avant sept heures ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:23:word:14",
+      "sourceSpanish": "¿Cómo llego a pie desde aquí?",
+      "supportEnglish": "How do I get there on foot from here?",
+      "targetFrenchDraft": "Comment y aller à pied depuis ici ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:23:word:15",
+      "sourceSpanish": "¿Cuántas cuadras son?",
+      "supportEnglish": "How many blocks is it?",
+      "targetFrenchDraft": "C’est à combien de pâtés de maisons ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:23:word:16",
+      "sourceSpanish": "¿Me lo puede repetir, por favor?",
+      "supportEnglish": "Can you repeat that, please?",
+      "targetFrenchDraft": "Vous pouvez répéter, s’il vous plaît ?",
+      "kind": "phrase"
+    }
+  ],
+  "readerTitleFrenchDraft": "Trouver une boulangerie ouverte tôt",
+  "reader": [
+    {
+      "id": "core:23:line:1",
+      "sourceSpanish": "Son las 6:30 de la mañana y Ana busca desayuno cerca del hotel.",
+      "supportEnglish": "It is 6:30 in the morning and Ana is looking for breakfast near the hotel.",
+      "targetFrenchDraft": "Il est six heures trente du matin et Ana cherche un petit-déjeuner près de l’hôtel."
+    },
+    {
+      "id": "core:23:line:2",
+      "sourceSpanish": "Ana le pregunta al recepcionista: ¿Me puede recomendar una panadería cerca que esté abierta antes de las 7?",
+      "supportEnglish": "Ana asks the receptionist: Can you recommend a bakery nearby that is open before 7?",
+      "targetFrenchDraft": "Ana demande au réceptionniste : « Vous pouvez me recommander une boulangerie près d’ici qui ouvre avant sept heures ? »"
+    },
+    {
+      "id": "core:23:line:3",
+      "sourceSpanish": "El recepcionista dice: Le recomiendo la Panadería Lupita, porque el pan dulce sale caliente muy temprano.",
+      "supportEnglish": "The receptionist says: I recommend Panadería Lupita, because the sweet bread comes out hot very early.",
+      "targetFrenchDraft": "Le réceptionniste dit : « Je vous recommande la Panadería Lupita, car le pan dulce y sort tout chaud très tôt. »"
+    },
+    {
+      "id": "core:23:line:4",
+      "sourceSpanish": "Ana pregunta: ¿A qué hora abre?",
+      "supportEnglish": "Ana asks: What time does it open?",
+      "targetFrenchDraft": "Ana demande : « À quelle heure ouvre-t-elle ? »"
+    },
+    {
+      "id": "core:23:line:5",
+      "sourceSpanish": "Él contesta: Según su horario, abre a las 6, pero los domingos abre más tarde.",
+      "supportEnglish": "He answers: According to their hours, it opens at 6, but on Sundays it opens later.",
+      "targetFrenchDraft": "Il répond : « D’après ses horaires, elle ouvre à six heures, mais le dimanche elle ouvre plus tard. »"
+    },
+    {
+      "id": "core:23:line:6",
+      "sourceSpanish": "Después Ana pregunta: ¿Cómo llego a pie desde aquí?",
+      "supportEnglish": "Then Ana asks: How do I get there on foot from here?",
+      "targetFrenchDraft": "Puis Ana demande : « Comment y aller à pied depuis ici ? »"
+    },
+    {
+      "id": "core:23:line:7",
+      "sourceSpanish": "El recepcionista le muestra el mapa y dice: Camine 3 cuadras por esta calle y doble a la derecha en el semáforo.",
+      "supportEnglish": "The receptionist shows her the map and says: Walk 3 blocks along this street and turn right at the traffic light.",
+      "targetFrenchDraft": "Le réceptionniste lui montre la carte et dit : « Continuez tout droit sur trois pâtés de maisons dans cette rue, puis tournez à droite au feu. »"
+    },
+    {
+      "id": "core:23:line:8",
+      "sourceSpanish": "Ana no entiende todo y pregunta: ¿Me lo puede repetir, por favor?",
+      "supportEnglish": "Ana does not understand everything and asks: Can you repeat that, please?",
+      "targetFrenchDraft": "Ana n’a pas tout compris et demande : « Vous pouvez répéter, s’il vous plaît ? »"
+    },
+    {
+      "id": "core:23:line:9",
+      "sourceSpanish": "Él repite con calma: La panadería está en la esquina, frente a la plaza.",
+      "supportEnglish": "He calmly repeats: The bakery is on the corner, across from the square.",
+      "targetFrenchDraft": "Il répète calmement : « La boulangerie est au coin, en face de la place. »"
+    }
+  ],
+  "sourceSpanishVerbs": [
+    {
+      "infinitive": "recomendar",
+      "native": "to recommend",
+      "forms": {
+        "yo": "recomiendo",
+        "tú": "recomiendas",
+        "él_ella_usted": "recomienda",
+        "nosotros": "recomendamos",
+        "ellos_ustedes": "recomiendan"
+      },
+      "example": {
+        "target": "Le recomiendo la Panadería Lupita.",
+        "native": "I recommend Panadería Lupita."
+      },
+      "note": "Stem change e to ie, except in nosotros."
+    },
+    {
+      "infinitive": "abrir",
+      "native": "to open",
+      "forms": {
+        "yo": "abro",
+        "tú": "abres",
+        "él_ella_usted": "abre",
+        "nosotros": "abrimos",
+        "ellos_ustedes": "abren"
+      },
+      "example": {
+        "target": "¿A qué hora abre la panadería?",
+        "native": "What time does the bakery open?"
+      }
+    },
+    {
+      "infinitive": "llegar",
+      "native": "to arrive, to get to",
+      "forms": {
+        "yo": "llego",
+        "tú": "llegas",
+        "él_ella_usted": "llega",
+        "nosotros": "llegamos",
+        "ellos_ustedes": "llegan"
+      },
+      "example": {
+        "target": "¿Cómo llego a pie desde aquí?",
+        "native": "How do I get there on foot from here?"
+      }
+    },
+    {
+      "infinitive": "caminar",
+      "native": "to walk",
+      "forms": {
+        "yo": "camino",
+        "tú": "caminas",
+        "él_ella_usted": "camina",
+        "nosotros": "caminamos",
+        "ellos_ustedes": "caminan"
+      },
+      "example": {
+        "target": "Camine 3 cuadras por esta calle.",
+        "native": "Walk 3 blocks along this street."
+      },
+      "note": "Camine is the polite usted command you will hear in directions."
+    },
+    {
+      "infinitive": "doblar",
+      "native": "to turn",
+      "forms": {
+        "yo": "doblo",
+        "tú": "doblas",
+        "él_ella_usted": "dobla",
+        "nosotros": "doblamos",
+        "ellos_ustedes": "doblan"
+      },
+      "example": {
+        "target": "Doble a la derecha en el semáforo.",
+        "native": "Turn right at the traffic light."
+      },
+      "note": "Common in Mexico and the US; in Spain people often say girar."
+    }
+  ],
+  "speakingDraft": {
+    "openingFrench": "Bonjour, vous connaissez une boulangerie ouverte avant sept heures ? Comment y aller à pied depuis ici ? Pouvez-vous répéter le dernier tournant ?",
+    "instructionEnglish": "Ask the hotel host for a bakery, check its opening time and repeat the walking route."
+  },
+  "modeInputIdsDraft": {
+    "see": [
+      "core:23:word:1",
+      "core:23:word:2",
+      "core:23:word:3",
+      "core:23:word:4",
+      "core:23:word:5",
+      "core:23:word:6",
+      "core:23:word:7",
+      "core:23:word:8",
+      "core:23:word:9",
+      "core:23:word:10",
+      "core:23:word:11",
+      "core:23:word:12",
+      "core:23:word:13",
+      "core:23:word:14",
+      "core:23:word:15",
+      "core:23:word:16"
+    ],
+    "recall": [
+      "core:23:word:1",
+      "core:23:word:2",
+      "core:23:word:3",
+      "core:23:word:4",
+      "core:23:word:5",
+      "core:23:word:6",
+      "core:23:word:7",
+      "core:23:word:8",
+      "core:23:word:9",
+      "core:23:word:10",
+      "core:23:word:11",
+      "core:23:word:12",
+      "core:23:word:13",
+      "core:23:word:14",
+      "core:23:word:15",
+      "core:23:word:16"
+    ],
+    "hear": [
+      "core:23:word:1",
+      "core:23:word:2",
+      "core:23:word:3",
+      "core:23:word:4",
+      "core:23:word:5",
+      "core:23:word:6",
+      "core:23:word:7",
+      "core:23:word:8",
+      "core:23:word:9",
+      "core:23:word:10",
+      "core:23:word:11",
+      "core:23:word:12",
+      "core:23:word:13",
+      "core:23:word:14",
+      "core:23:word:15",
+      "core:23:word:16"
+    ],
+    "type": [
+      "core:23:word:1",
+      "core:23:word:2",
+      "core:23:word:3",
+      "core:23:word:4",
+      "core:23:word:5",
+      "core:23:word:6",
+      "core:23:word:7",
+      "core:23:word:8",
+      "core:23:word:9",
+      "core:23:word:10",
+      "core:23:word:11",
+      "core:23:word:12",
+      "core:23:word:13",
+      "core:23:word:14",
+      "core:23:word:15",
+      "core:23:word:16"
+    ],
+    "say": [
+      "core:23:word:1",
+      "core:23:word:2",
+      "core:23:word:3",
+      "core:23:word:4",
+      "core:23:word:5",
+      "core:23:word:6",
+      "core:23:word:7",
+      "core:23:word:8",
+      "core:23:word:9",
+      "core:23:word:10",
+      "core:23:word:11",
+      "core:23:word:12",
+      "core:23:word:13",
+      "core:23:word:14",
+      "core:23:word:15",
+      "core:23:word:16"
+    ],
+    "write": [
+      "core:23:word:1",
+      "core:23:word:2",
+      "core:23:word:3",
+      "core:23:word:4",
+      "core:23:word:5",
+      "core:23:word:6",
+      "core:23:word:7",
+      "core:23:word:8",
+      "core:23:word:9",
+      "core:23:word:10",
+      "core:23:word:11",
+      "core:23:word:12",
+      "core:23:word:13",
+      "core:23:word:14",
+      "core:23:word:15",
+      "core:23:word:16"
+    ]
+  },
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "learnerRegistered": false,
+    "audioRegistered": false,
+    "audioApproved": false,
+    "listeningReviewed": false,
+    "playbackEnabled": false,
+    "scoringEnabled": false,
+    "progressTracking": false,
+    "progressWritesEnabled": false,
+    "offlineRegistered": false,
+    "released": false
+  },
+  "reviewNotes": [
+    "Archived French text is an unapproved candidate; exact Spanish/English source controls meaning.",
+    "Mode ID lists are not six authored prompt/answer activities.",
+    "French verb paradigms, dictionary senses, scoring answers, audio and listening need separate review.",
+    "Core 22–23 source drift is corrected only in the listed French draft rows; qualified drink, food and locale review remains open."
+  ]
+}

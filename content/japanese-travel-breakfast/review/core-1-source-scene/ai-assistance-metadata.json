@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-16",
+  "status": "AI-assisted unapproved source-only candidate; qualified Japanese, food, locale and dictionary review remains open",
+  "calls": [
+    {
+      "role": "source-order Japanese card and Reader candidate",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-sonnet-5-5",
+      "sessionId": "ed95ad2e-726c-45af-94c0-f3762356f688",
+      "mode": "local Claude CLI connector read-only plan mode",
+      "note": "Haiku request fell back to Sonnet. Suggested 15 cards and nine Reader turns; the source conflict was checked independently."
+    },
+    {
+      "role": "read-only source/Japanese critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "9657150e-36f2-4f56-94fe-f3d336d12468",
+      "mode": "local Claude CLI connector read-only plan mode",
+      "note": "Flagged register, gloss, terrace, line-waiting, speaker/audio identity and locale issues."
+    },
+    {
+      "role": "read-only correction critique",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "3bc5f4a1-e6f3-4497-8bd4-e56a3e6e08bb",
+      "mode": "local Claude CLI connector read-only plan mode",
+      "note": "Flagged stale intermediate JSON, text identity, Reader framing, kana/audio reading and staff-side card use."
+    },
+    {
+      "role": "direct safe-mode Haiku file and gate check",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "9c5a691e-501f-4afe-8dac-7c8ff410dc9b",
+      "mode": "claude --safe-mode --print --tools Read --model haiku --output-format json",
+      "note": "Actual modelUsage metadata verified Haiku 5.5; counted 15 candidate cards and observed false review gates."
+    }
+  ],
+  "selfCheck": "Corrected literal gloss and staff-side card order, terrace and line wording, narration/quoted-speaker split, text-hashed revision IDs and missing readings. Independent validator compares all current source cards and Reader rows in order and checks false gates. Locale and qualified review remain unresolved; AI is not approval."
+}

@@ -1,0 +1,207 @@
+{
+  "status": "source-aligned French candidate overrides for repository review only",
+  "overrides": {
+    "core:28:word:10": {
+      "priorEnglish": "brioche",
+      "sourceEnglish": "Mexican sweet bread",
+      "targetFrenchDraft": "le pan dulce",
+      "reason": "Preserve the Mexican pan dulce as the answer; its English support supplies the food gloss separately."
+    },
+    "core:28:word:15": {
+      "priorEnglish": "And what did you do for a living?",
+      "sourceEnglish": "And what do you do for a living?",
+      "targetFrenchDraft": "Et vous, que faites-vous dans la vie ?",
+      "reason": "Preserve the present-tense occupation question, even though the later story says he formerly taught."
+    },
+    "core:28:line:1": {
+      "priorEnglish": "Every morning, Madame Martin, a retired neighbor, has her coffee at the same table.",
+      "sourceEnglish": "Every morning, Don Ramón, a retiree and neighbor from the neighborhood, has his coffee at the same table.",
+      "targetFrenchDraft": "Tous les matins, don Ramón, un voisin retraité du quartier, prend son petit café à la même table.",
+      "reason": "Restore Don Ramón, a male retiree and neighbor; do not substitute Madame Martin."
+    },
+    "core:28:line:2": {
+      "priorEnglish": "Today she asks me where I am from, and I tell her: I am from Canada and I am traveling here for two weeks.",
+      "sourceEnglish": "Today he asks me where I'm from, and I tell him: I'm from Canada and I'm here traveling for two weeks.",
+      "targetFrenchDraft": "Aujourd’hui, il me demande d’où je viens, et je lui dis : « Je viens du Canada et je suis ici en voyage pour deux semaines. »",
+      "reason": "Preserve the source tell-him speech act."
+    },
+    "core:28:line:3": {
+      "priorEnglish": "Then I ask her: How long have you lived in this neighborhood?",
+      "sourceEnglish": "Then I ask him: How long have you lived in this neighborhood?",
+      "targetFrenchDraft": "Puis je lui demande : « Depuis combien de temps habitez-vous dans ce quartier ? »",
+      "reason": "Restore the male pronoun while retaining the duration question."
+    },
+    "core:28:line:4": {
+      "priorEnglish": "She tells me that she has lived here for forty years and used to teach at the school near the square.",
+      "sourceEnglish": "He tells me that he has lived here for 40 years and that he was a teacher at the school on the plaza.",
+      "targetFrenchDraft": "Il me raconte qu’il habite ici depuis quarante ans et qu’il était enseignant à l’école de la place.",
+      "reason": "Echo the source live-here question with the same habiter verb."
+    },
+    "core:28:line:5": {
+      "priorEnglish": "Her former work interests me, so I say: Really? Tell me more.",
+      "sourceEnglish": "Since his work interests me, I say: Really? Tell me more.",
+      "targetFrenchDraft": "Comme son travail m’intéresse, je lui dis : « Vraiment ? Racontez-m’en plus. »",
+      "reason": "Restore the male interlocutor without recasting the source as a woman’s former work."
+    },
+    "core:28:line:6": {
+      "priorEnglish": "Then she tells me about the market, because on Saturdays they sell very good brioches there.",
+      "sourceEnglish": "Then he talks to me about the market, because on Saturdays they sell very good pan dulce.",
+      "targetFrenchDraft": "Ensuite, il me parle du marché, car le samedi on y vend du très bon pan dulce.",
+      "reason": "Restore the male speaker and pan dulce rather than brioches."
+    },
+    "core:28:line:7": {
+      "priorEnglish": "When I ask her what she recommends, she tells me to visit the downtown museum if I have time.",
+      "sourceEnglish": "When I ask him what he recommends, he says that if I have time, I should visit the downtown museum.",
+      "targetFrenchDraft": "Quand je lui demande ce qu’il me recommande, il dit que, si j’ai le temps, je devrais visiter le musée du centre-ville.",
+      "reason": "Restore the male recommendation and downtown museum."
+    },
+    "core:28:line:8": {
+      "priorEnglish": "Before leaving, I pay the bill and tell her: It was a pleasure chatting with you.",
+      "sourceEnglish": "Before I leave, I pay the bill and tell him: It was a pleasure chatting with you.",
+      "targetFrenchDraft": "Avant de partir, je paie l’addition et je lui dis : « C’était un plaisir de discuter avec vous. »",
+      "reason": "Preserve the polite source closing and align it with the card."
+    },
+    "core:29:word:7": {
+      "priorEnglish": "sweet bread",
+      "sourceEnglish": "sweet bread",
+      "targetFrenchDraft": "le pan dulce",
+      "reason": "Preserve pan dulce as the answer; the English support supplies sweet bread separately."
+    },
+    "core:29:line:1": {
+      "priorEnglish": "After a breakfast of coffee and brioche in a café in Lyon, the server brings the bill to our table.",
+      "sourceEnglish": "After a breakfast of coffee and sweet bread in Oaxaca, the waiter brings the bill to our table.",
+      "targetFrenchDraft": "Après un petit-déjeuner avec du café et du pan dulce à Oaxaca, le serveur apporte l’addition à notre table.",
+      "reason": "Restore Oaxaca and pan dulce rather than a café in Lyon and brioche."
+    },
+    "core:29:line:3": {
+      "priorEnglish": "My new friends, Camille and Théo, insist: No, you are our guest today.",
+      "sourceEnglish": "My new friends, Lucía and Andrés, insist: No, here you are our guest.",
+      "targetFrenchDraft": "Mes nouveaux amis, Lucía et Andrés, insistent : « Non, ici, tu es notre invité. »",
+      "reason": "Restore Lucía and Andrés and their direct guest address."
+    },
+    "core:29:line:4": {
+      "priorEnglish": "I tell them: No, really, let me pay, but Théo is already handing his card to the server.",
+      "sourceEnglish": "I tell them: No, really, let me pay, but Andrés is already giving cash to the waiter.",
+      "targetFrenchDraft": "Je leur dis : « Non, vraiment, laissez-moi payer », mais Andrés donne déjà des espèces au serveur.",
+      "reason": "Restore Andrés paying cash rather than a substituted friend handing over a card."
+    },
+    "core:29:line:6": {
+      "priorEnglish": "Camille answers: Habits vary; if you like, you can ask the server.",
+      "sourceEnglish": "Lucía says that they usually leave 10 percent if the service is good.",
+      "targetFrenchDraft": "Lucía dit qu’ils laissent d’habitude dix pour cent de pourboire si le service est bon.",
+      "reason": "Present Lucía’s reported habit in this Oaxaca scene, conditional on good service, not a universal rule."
+    },
+    "core:29:line:7": {
+      "priorEnglish": "I tell them: If you pay the bill, I can offer to leave a tip, and they agree.",
+      "sourceEnglish": "I tell them: If you pay the bill, then I'll leave the tip, and they agree.",
+      "targetFrenchDraft": "Je leur dis : « Si vous payez l’addition, alors c’est moi qui laisse le pourboire », et ils acceptent.",
+      "reason": "Preserve the firm tip offer and acceptance, not a mere proposal to offer."
+    },
+    "core:29:line:2": {
+      "priorEnglish": "I take out my card and say: Breakfast is on me today, since you showed me around the city.",
+      "sourceEnglish": "I take out my card and say: Breakfast is on me today, because you showed me the city.",
+      "targetFrenchDraft": "Je sors ma carte et je dis : « Aujourd’hui, le petit-déjeuner, c’est pour moi, parce que vous m’avez fait visiter la ville. »",
+      "reason": "Use a because-equivalent for porque and preserve the city tour."
+    },
+    "core:29:line:8": {
+      "priorEnglish": "At the end I say: OK, thanks, but next time it is on me, and everyone laughs.",
+      "sourceEnglish": "At the end I say: OK, thanks, but next time it's on me, and everyone laughs.",
+      "targetFrenchDraft": "À la fin, je dis : « D’accord, merci, mais la prochaine fois c’est pour moi », et tout le monde rit.",
+      "reason": "Restore the exact English support contraction; French meaning is unchanged."
+    },
+    "core:28:word:1": {
+      "priorEnglish": "retiree",
+      "sourceEnglish": "retiree",
+      "targetFrenchDraft": "un retraité",
+      "reason": "Preserve the male retiree headword used for don Ramón in this specific scene."
+    },
+    "core:28:word:4": {
+      "priorEnglish": "coffee",
+      "sourceEnglish": "coffee",
+      "targetFrenchDraft": "un petit café",
+      "reason": "Preserve the friendly cafecito diminutive rather than flattening it to generic coffee."
+    },
+    "core:28:word:7": {
+      "priorEnglish": "town square",
+      "sourceEnglish": "town square",
+      "targetFrenchDraft": "la place",
+      "reason": "Preserve the town square without inventing a village setting."
+    },
+    "core:28:word:13": {
+      "priorEnglish": "I'm here traveling for two weeks.",
+      "sourceEnglish": "I'm here traveling for two weeks.",
+      "targetFrenchDraft": "Je suis ici en voyage pour deux semaines.",
+      "reason": "Align the two-week trip phrase with the corrected Reader turn."
+    },
+    "core:28:word:16": {
+      "priorEnglish": "Really? Tell me more.",
+      "sourceEnglish": "Really? Tell me more.",
+      "targetFrenchDraft": "Vraiment ? Racontez-m’en plus.",
+      "reason": "Preserve the más/tell-me-more request."
+    },
+    "core:28:word:17": {
+      "priorEnglish": "What do you recommend I visit around here?",
+      "sourceEnglish": "What do you recommend I visit around here?",
+      "targetFrenchDraft": "Qu’est-ce que vous me recommandez de visiter par ici ?",
+      "reason": "Use the same recommendation verb as the corrected Reader turn."
+    },
+    "core:29:word:14": {
+      "priorEnglish": "Then I'll leave the tip.",
+      "sourceEnglish": "Then I'll leave the tip.",
+      "targetFrenchDraft": "Alors, c’est moi qui laisse le pourboire.",
+      "reason": "Preserve the emphatic yo/then I will leave the tip with the corrected Reader scene."
+    },
+    "core:28:word:18": {
+      "priorEnglish": "It was a pleasure chatting with you.",
+      "sourceEnglish": "It was a pleasure chatting with you.",
+      "targetFrenchDraft": "C’était un plaisir de discuter avec vous.",
+      "reason": "Preserve the polite source closing and align it with the Reader."
+    }
+  },
+  "lessonFieldOverrides": {
+    "core:28": {
+      "focusEnglishDraft": {
+        "prior": "Use depuis combien de temps for duration, qu’est-ce que vous faisiez for former work, and racontez-moi for a follow-up.",
+        "proposed": "Use depuis combien de temps for duration, que faites-vous dans la vie to ask about occupation, and racontez-m’en plus to ask for more about his former teaching."
+      },
+      "speakingDraft.openingFrench": {
+        "prior": "Je viens du Canada et je voyage ici pendant deux semaines. Depuis combien de temps habitez-vous dans le quartier ? Vraiment ? Racontez-moi.",
+        "proposed": "Je viens du Canada et je suis ici en voyage pour deux semaines. Depuis combien de temps habitez-vous dans ce quartier ? Vraiment ? Racontez-m’en plus."
+      },
+      "titleEnglishDraft": {
+        "prior": "Parler avec un habitué du quartier",
+        "proposed": "Talk with a regular over coffee"
+      },
+      "readerTitleFrenchDraft": {
+        "prior": "Parler avec un habitué du quartier",
+        "proposed": "Un petit café avec don Ramón"
+      }
+    },
+    "core:29": {
+      "speakingDraft.instructionEnglish": {
+        "prior": "Offer to pay, respond naturally when friends insist, and settle the bill or tip without assuming a local rule.",
+        "proposed": "Offer to pay, respond when friends insist, ask whether tipping is customary, and say you will leave the tip if they pay the bill. In this Oaxaca scene, Lucía says they usually leave ten percent for good service."
+      },
+      "objectiveEnglishDraft": {
+        "prior": "Offer to treat friends, accept their offer gracefully or suggest sharing the bill.",
+        "proposed": "Offer to treat friends, respond when they insist, ask whether tipping is customary, and offer to leave the tip if they pay."
+      },
+      "focusFrenchDraft": {
+        "prior": "Proposer de payer, accepter une invitation et clarifier le partage de l’addition.",
+        "proposed": "Proposer de payer, accepter une invitation et proposer de laisser le pourboire."
+      },
+      "speakingDraft.openingFrench": {
+        "prior": "Aujourd’hui, le petit-déjeuner, c’est pour moi. Non ? D’accord, merci, mais la prochaine fois, je vous invite. Ici, on laisse habituellement un pourboire ?",
+        "proposed": "Aujourd’hui, le petit-déjeuner, c’est pour moi. Non, vraiment, laissez-moi payer. Ici, on laisse habituellement un pourboire ? Si vous payez l’addition, alors c’est moi qui laisse le pourboire. D’accord, merci, mais la prochaine fois c’est pour moi."
+      },
+      "titleEnglishDraft": {
+        "prior": "Décider qui règle le petit-déjeuner",
+        "proposed": "Settle who pays for the group"
+      },
+      "readerTitleFrenchDraft": {
+        "prior": "Décider qui règle le petit-déjeuner",
+        "proposed": "Qui paie le petit-déjeuner ?"
+      }
+    }
+  }
+}

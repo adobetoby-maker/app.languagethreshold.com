@@ -1,0 +1,9 @@
+# French Breakfast Core 18–20: source-aligned draft packets
+
+These three JSON files are inert repository review material. They preserve the archived French draft text, align each stable card and Reader ID with the current Spanish Breakfast source and exact English meaning, and pin both source and draft hashes in `manifest.json`. `build.py` fails on source/draft English or ID drift; `validate.py` independently checks the packets and closed gates. Core 18 has 17 cards/8 Reader turns, Core 19 has 16/8, and Core 20 has 17/8: 50 cards and 24 turns total.
+
+The French text has not received qualified linguistic, dictionary, food-allergy or restaurant review. Core 18's `allergie grave` adds severity absent from the pinned source. Its `contact croisé` versus `contamination croisée` term, and `fruits à coque` versus source `nueces` (including whether peanuts need separate wording) require a qualified French and allergy-domain decision. Core 19's terrace/table pricing and Core 20's hotel breakfast charge and receipt wording need locale, register and dictionary review. The old speaking text remains a draft. `modeInputIdsDraft` identifies cards but is not six authored See/Recall/Hear/Type/Say/Write prompt-and-answer activities. French verb paradigms, dictionary senses and saved-item behavior remain open.
+
+The Core 18 read-only Claude CLI audit returned `modelUsage` canonical model `claude-haiku-5-5` and raised the three Core 18 issues above; its output is an AI critique, not qualified approval. We checked those findings against the pinned source and packet. No Opus or Fable review is claimed for this batch.
+
+Every review, learner, audio, listening, playback, scoring, offline, progress and release gate is false. This batch adds no application import, owner page, audio, V4 code or learner registration. New exact-text audio needs a separate estimate, technical verification and individual listening decisions before use.

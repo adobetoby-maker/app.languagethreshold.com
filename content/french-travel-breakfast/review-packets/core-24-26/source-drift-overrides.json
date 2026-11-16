@@ -1,0 +1,170 @@
+{
+  "status": "source-aligned French candidate overrides for repository review only",
+  "overrides": {
+    "core:24:word:18": {
+      "priorEnglish": "We are at the corner of Rue des Tilleuls and Rue du Parc.",
+      "sourceEnglish": "We are on the corner of Juárez and Madero.",
+      "targetFrenchDraft": "Nous sommes à l’angle des rues Juárez et Madero.",
+      "reason": "Restore the exact emergency location; retain both street names."
+    },
+    "core:24:line:5": {
+      "priorEnglish": "The manager answers: We are at the corner of Rue des Tilleuls and Rue du Parc, next to the bank.",
+      "sourceEnglish": "The manager answers: We are on the corner of Juárez and Madero, next to the bank.",
+      "targetFrenchDraft": "Le responsable répond : « Nous sommes à l’angle des rues Juárez et Madero, à côté de la banque. »",
+      "reason": "Restore the exact location the manager gives to the emergency operator."
+    },
+    "core:24:line:9": {
+      "priorEnglish": "I tell the operator that I can show the paramedics the table when they arrive, and then I follow her instructions.",
+      "sourceEnglish": "Then I wait at the door to show the table to the paramedics when they arrive.",
+      "targetFrenchDraft": "Puis j’attends à la porte pour montrer la table aux secouristes à leur arrivée.",
+      "reason": "Restore waiting at the door and physically showing the table to arriving responders."
+    },
+    "core:25:word:3": {
+      "priorEnglish": "napkins",
+      "sourceEnglish": "napkins",
+      "targetFrenchDraft": "des serviettes",
+      "reason": "Avoid narrowing generic napkins to paper napkins."
+    },
+    "core:25:word:8": {
+      "priorEnglish": "manager",
+      "sourceEnglish": "manager",
+      "targetFrenchDraft": "la gérante",
+      "reason": "The Spanish source uses feminine la gerente; preserve the role and gender."
+    },
+    "core:25:line:1": {
+      "priorEnglish": "In a café in Lyon, the server trips and spills hot coffee on Ana’s arm.",
+      "sourceEnglish": "In a café in Oaxaca, the server trips and spills hot coffee on Ana's arm.",
+      "targetFrenchDraft": "Dans un café à Oaxaca, le serveur trébuche et renverse du café chaud sur le bras d’Ana.",
+      "reason": "Restore Oaxaca and the hot-coffee spill on Ana’s arm."
+    },
+    "core:25:line:2": {
+      "priorEnglish": "Ana calls to the staff and says: Hot coffee was spilled on my arm. Could you help me, please?",
+      "sourceEnglish": "Ana takes a breath and says: Could you bring me cold water, please?",
+      "targetFrenchDraft": "Ana prend une inspiration et dit : « Pourriez-vous m’apporter de l’eau froide, s’il vous plaît ? »",
+      "reason": "Restore Ana’s immediate cold-water request."
+    },
+    "core:25:line:3": {
+      "priorEnglish": "The server brings paper napkins and asks: What do you need?",
+      "sourceEnglish": "The server brings a glass of cold water and some napkins, and Ana carefully dries her arm.",
+      "targetFrenchDraft": "Le serveur apporte un verre d’eau froide et des serviettes, et Ana s’essuie le bras avec précaution.",
+      "reason": "Restore cold water, napkins and Ana carefully drying her arm."
+    },
+    "core:25:line:4": {
+      "priorEnglish": "Ana answers: Could you bring me cold water? Do you have a first-aid kit?",
+      "sourceEnglish": "Then Ana asks if they have a first-aid kit, because the skin is a little red.",
+      "targetFrenchDraft": "Puis Ana demande s’ils ont une trousse de premiers secours, car sa peau est un peu rouge.",
+      "reason": "Restore the kit request and slightly red skin."
+    },
+    "core:25:line:5": {
+      "priorEnglish": "The manager brings the kit and says: If the burn hurts a lot, we can call a doctor.",
+      "sourceEnglish": "The manager brings the first-aid kit and says: If the burn hurts a lot, we can call a doctor.",
+      "targetFrenchDraft": "La gérante apporte la trousse de premiers secours et dit : « Si la brûlure vous fait très mal, nous pouvons appeler un médecin. »",
+      "reason": "Restore the female manager, kit and conditional doctor offer."
+    },
+    "core:25:line:7": {
+      "priorEnglish": "The server apologizes: I am very sorry; we will not charge you for breakfast.",
+      "sourceEnglish": "The server is very worried and says: I'm very sorry, we won't charge you for breakfast.",
+      "targetFrenchDraft": "Le serveur, très inquiet, dit : « Je suis vraiment désolé, nous ne vous ferons pas payer le petit-déjeuner. »",
+      "reason": "Restore the server’s concern and waived breakfast charge."
+    },
+    "core:25:line:8": {
+      "priorEnglish": "Ana replies: Thank you for your help. We can discuss the bill afterward.",
+      "sourceEnglish": "Ana smiles and says: Don't worry, it was an accident, and I gladly accept the offer.",
+      "targetFrenchDraft": "Ana sourit et dit : « Ne vous inquiétez pas, c’était un accident, et j’accepte volontiers votre offre. »",
+      "reason": "Restore Ana smiling, calling it an accident and accepting the offer."
+    },
+    "core:24:line:1": {
+      "priorEnglish": "I am having breakfast in a café when the customer at the next table falls to the floor.",
+      "sourceEnglish": "I am having breakfast in a café when the customer at the next table falls to the floor.",
+      "targetFrenchDraft": "Je prends mon petit-déjeuner dans un café quand le client de la table voisine tombe au sol.",
+      "reason": "Keep the source’s definite customer at the next table."
+    },
+    "core:24:line:4": {
+      "priorEnglish": "He dials the emergency number and the operator asks him for the address.",
+      "sourceEnglish": "He dials the emergency number and the operator asks him for the address.",
+      "targetFrenchDraft": "Il compose le numéro d’urgence et l’opératrice lui demande l’adresse.",
+      "reason": "Remove local, which the source does not specify."
+    },
+    "core:24:line:6": {
+      "priorEnglish": "Then the operator wants to know what happened, because that information helps the paramedics.",
+      "sourceEnglish": "Then the operator wants to know what happened, because that information helps the paramedics.",
+      "targetFrenchDraft": "Puis l’opératrice veut savoir ce qui s’est passé, car ces informations aident les secouristes.",
+      "reason": "Restore the source’s reason: the information helps the responders."
+    },
+    "core:24:word:17": {
+      "priorEnglish": "I don't know if he is breathing well.",
+      "sourceEnglish": "I don't know if he is breathing well.",
+      "targetFrenchDraft": "Je ne sais pas s’il respire bien.",
+      "reason": "Keep the observed breathing uncertainty without changing it to normally."
+    },
+    "core:24:line:8": {
+      "priorEnglish": "I also tell her: I don't know if he is breathing well.",
+      "sourceEnglish": "I also tell her: I don't know if he is breathing well.",
+      "targetFrenchDraft": "Je lui dis aussi : « Je ne sais pas s’il respire bien. »",
+      "reason": "Match the source breathing report and word 17."
+    },
+    "core:26:word:16": {
+      "priorEnglish": "When would you prefer that I order again?",
+      "sourceEnglish": "When would you prefer that I order again?",
+      "targetFrenchDraft": "Quand préféreriez-vous que je commande à nouveau ?",
+      "reason": "Vuelva a pedir means order again, not order something else."
+    },
+    "core:26:line:2": {
+      "priorEnglish": "Before sitting down, she goes to the counter and asks the server: Do you mind if I stay and work for 2 hours?",
+      "sourceEnglish": "Before sitting down, she goes to the counter and asks the server: Do you mind if I stay and work for 2 hours?",
+      "targetFrenchDraft": "Avant de s’asseoir, elle va au comptoir et demande à la serveuse : « Ça vous dérange si je reste travailler deux heures ? »",
+      "reason": "Preserve the source’s female server."
+    },
+    "core:26:line:3": {
+      "priorEnglish": "The server smiles and says: No problem, but at lunchtime it gets very full.",
+      "sourceEnglish": "The server smiles and says: No problem, but at lunchtime it gets very full.",
+      "targetFrenchDraft": "La serveuse sourit et dit : « Aucun problème, mais à l’heure du déjeuner, il y a beaucoup de monde. »",
+      "reason": "Preserve the female server and the very full lunchtime scene."
+    },
+    "core:26:line:5": {
+      "priorEnglish": "The server gives her a slip of paper with the password and points her to a table in the corner with an outlet.",
+      "sourceEnglish": "The server gives her a slip of paper with the password and points her to a table in the corner with an outlet.",
+      "targetFrenchDraft": "La serveuse lui donne un petit papier avec le mot de passe et lui indique une table dans un coin, près d’une prise.",
+      "reason": "Preserve the female server and slip of paper."
+    },
+    "core:26:line:7": {
+      "priorEnglish": "After 1 hour, she raises her hand and asks: When would you prefer that I order again?",
+      "sourceEnglish": "After 1 hour, she raises her hand and asks: When would you prefer that I order again?",
+      "targetFrenchDraft": "Une heure plus tard, elle lève la main et demande : « Quand préféreriez-vous que je commande à nouveau ? »",
+      "reason": "Restore ordering again instead of something else."
+    },
+    "core:26:line:8": {
+      "priorEnglish": "The server says: Whenever you like, because I come by your table every half hour.",
+      "sourceEnglish": "The server says: Whenever you like, because I come by your table every half hour.",
+      "targetFrenchDraft": "La serveuse répond : « Quand vous voudrez, car je passe à votre table toutes les demi-heures. »",
+      "reason": "Preserve the female server and the because relationship."
+    }
+  },
+  "qualifiedReviewNeeded": [
+    "Confirm French equivalents for paramédicos and the exact Juárez/Madero location phrasing; secouristes is broader than paramedics.",
+    "Confirm that the burn and first-aid vocabulary keeps the Spanish source meaning without adding medical instructions.",
+    "Confirm French manager gender, napkin breadth, café payment and source-specific locale.",
+    "Review Core 26 female-server agreement and the source’s order-again meaning."
+  ],
+  "lessonFieldOverrides": {
+    "core:24": {
+      "focusEnglishDraft": {
+        "prior": "Use an urgent clear request, give the exact location, and describe only what you observed; follow the emergency operator’s instructions.",
+        "proposed": "Use an urgent clear request, give the exact location, and describe only what you observed.",
+        "reason": "Drop the unsupported operator-instructions clause after restoring Reader line 9."
+      },
+      "speakingDraft.openingFrench": {
+        "prior": "À l’aide, s’il vous plaît, c’est une urgence ! Pouvez-vous appeler les secours ? Nous sommes à l’angle de la rue des Tilleuls et de la rue du Parc. Un homme est tombé et ne répond pas.",
+        "proposed": "À l’aide, s’il vous plaît, c’est une urgence ! Pouvez-vous appeler une ambulance ? Nous sommes à l’angle des rues Juárez et Madero. Un homme est tombé et ne répond pas.",
+        "reason": "Restore the ambulance request and emergency location in the speaking cue."
+      }
+    },
+    "core:25": {
+      "speakingDraft.openingFrench": {
+        "prior": "Excusez-moi, du café chaud vient d’être renversé sur mon bras. C’est une petite brûlure. Pourriez-vous m’aider ? Mon bras me fait mal.",
+        "proposed": "Pourriez-vous m’apporter de l’eau froide, s’il vous plaît ? Vous avez une trousse de premiers secours ? Ne vous inquiétez pas, c’était un accident.",
+        "reason": "Restore source-aligned cold-water and first-aid requests and accident response."
+      }
+    }
+  }
+}

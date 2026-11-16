@@ -1,0 +1,32 @@
+{
+  "status": "AI assistance only; no qualified French or clinical approval",
+  "calls": [
+    {
+      "role": "candidate authoring",
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "inputTokens": 22,
+      "outputTokens": 15437,
+      "thinkingTokens": 11785,
+      "readScope": "Read current Spanish/English source and archived French draft for Core 24–26; proposed source drift replacements."
+    },
+    {
+      "role": "read-only critique",
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "inputTokens": 20,
+      "outputTokens": 6725,
+      "thinkingTokens": 3405,
+      "readScope": "Read current source, archived draft and overrides; found speaking, emergency and Core 26 French meaning drift."
+    },
+    {
+      "role": "read-only correction",
+      "canonicalModel": "claude-fable-5-2",
+      "provider": "firstParty",
+      "inputTokens": 8,
+      "outputTokens": 6467,
+      "thinkingTokens": 3505,
+      "readScope": "Read generated packet and overrides; did not open pinned source/archived draft, so findings were independently checked there."
+    }
+  ]
+}

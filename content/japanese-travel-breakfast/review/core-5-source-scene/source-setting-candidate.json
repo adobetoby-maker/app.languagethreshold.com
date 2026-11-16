@@ -1,0 +1,524 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:5",
+  "stableLessonId": "travel-breakfast:5:ja-en",
+  "candidateRevision": "travel-breakfast:5:ja-en:source-scene-v1",
+  "reviewed": false,
+  "status": "source-only Japanese-language full-scene candidate; unapproved",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "readerPath": "public/lesson-content/es/travel-breakfast.json",
+    "readerSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectiveEnglish": "ask whether breakfast is included, the hours, room number, and buffet rules",
+    "roleplayEnglish": "Arrive at a hotel breakfast and resolve uncertainty about access and seating.",
+    "readerTitleSpanish": "Desayuno en el hotel",
+    "sourceVerbExamples": [
+      {
+        "target": "Él pregunta: ¿Es buffet o menú?",
+        "native": "He asks: Is it a buffet or a menu?"
+      },
+      {
+        "target": "Yo tomo café en el comedor.",
+        "native": "I have coffee in the dining room."
+      },
+      {
+        "target": "Busco una mesa libre.",
+        "native": "I look for a free table."
+      },
+      {
+        "target": "Yo doy mi número de habitación.",
+        "native": "I give my room number."
+      },
+      {
+        "target": "¿Puedo tomar café ahora?",
+        "native": "Can I have coffee now?"
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "At the hotel dining-room entrance, Sam gives a room number and checks the booking.",
+    "cardCount": 12,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "desayuno",
+      "sourceEnglish": "breakfast",
+      "sourceNoteInternal": null,
+      "kind": "term",
+      "targetJapaneseDraft": "朝食",
+      "literalJapaneseGlossEn": "breakfast",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "887054be6719b7403b4c4eae9aa300fdcc40e3396b9ca7283417211aedce6b80"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "comedor",
+      "sourceEnglish": "dining room",
+      "sourceNoteInternal": null,
+      "kind": "term",
+      "targetJapaneseDraft": "食事会場",
+      "literalJapaneseGlossEn": "dining venue",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "524d500abcf924e9e9247ab6f76c29296197a9eca38ce63374ad1197a808ae9d"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "horario",
+      "sourceEnglish": "hours, schedule",
+      "sourceNoteInternal": null,
+      "kind": "term",
+      "targetJapaneseDraft": "朝食の時間",
+      "literalJapaneseGlossEn": "breakfast hours",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "89c633288146eaca01c84242f66e8ba4329f3b274e1b2fab60258a1b45e9f813"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "número de habitación",
+      "sourceEnglish": "room number",
+      "sourceNoteInternal": null,
+      "kind": "term",
+      "targetJapaneseDraft": "部屋番号",
+      "literalJapaneseGlossEn": "room number",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "51cdea132d92fce976fb5b6f47d749a4cfc9716f98b3dc4435383783fe23a8ee"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "buffet",
+      "sourceEnglish": "buffet",
+      "sourceNoteInternal": null,
+      "kind": "term",
+      "targetJapaneseDraft": "ビュッフェ",
+      "literalJapaneseGlossEn": "buffet",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "2ef05ba2c5c22a090b872fcd9a667d0f8dd6f3b6291ac4fd6699da4968f98902"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "recepcionista",
+      "sourceEnglish": "receptionist",
+      "sourceNoteInternal": "Same form for men and women.",
+      "kind": "term",
+      "targetJapaneseDraft": "受付係",
+      "literalJapaneseGlossEn": "reception staff member",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "b058f3dd4b1e44ae1564fd087af3abfed00742193c086944c4cceab2043c8c5d"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "mesa",
+      "sourceEnglish": "table",
+      "sourceNoteInternal": null,
+      "kind": "term",
+      "targetJapaneseDraft": "テーブル",
+      "literalJapaneseGlossEn": "table",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "0fac3ba703c833bc320b469586f6e138570e59711e4536b366185f5f4da0f299"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "plato",
+      "sourceEnglish": "plate",
+      "sourceNoteInternal": null,
+      "kind": "term",
+      "targetJapaneseDraft": "お皿",
+      "literalJapaneseGlossEn": "plate",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "bdde710492e783525bc71ab0c34bb010908f2a08cac7ea1d73c245335bcebbd6"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "café",
+      "sourceEnglish": "coffee",
+      "sourceNoteInternal": null,
+      "kind": "term",
+      "targetJapaneseDraft": "コーヒー",
+      "literalJapaneseGlossEn": "coffee",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "bb782cf87667ea09544c7c1326097a648d9ba469aeaeefdb2cfb71e2e0ea76c8"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "reglas",
+      "sourceEnglish": "rules",
+      "sourceNoteInternal": null,
+      "kind": "term",
+      "targetJapaneseDraft": "ルール",
+      "literalJapaneseGlossEn": "rules",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "69dbb3e571b6b6c60abd50e5d92d94109ba31a7dc57f9d0828a02c329cacd395"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "¿El desayuno está incluido?",
+      "sourceEnglish": "Is breakfast included?",
+      "sourceNoteInternal": null,
+      "kind": "phrase",
+      "targetJapaneseDraft": "朝食は付いていますか。",
+      "literalJapaneseGlossEn": "Is breakfast included?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "901202829827e940338ceef856391a35cb826848155b85185ce4a2522d1306d7"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "¿Cuál es el horario del desayuno?",
+      "sourceEnglish": "What are the breakfast hours?",
+      "sourceNoteInternal": null,
+      "kind": "phrase",
+      "targetJapaneseDraft": "朝食は何時から何時までですか。",
+      "literalJapaneseGlossEn": "From what time to what time is breakfast?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "440f4143927efeb3a5a1666b27ad5163a9fff2c61119773144ec5f46b1aa4bb1"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "Mi habitación es la 214.",
+      "sourceEnglish": "My room is 214.",
+      "sourceNoteInternal": null,
+      "kind": "phrase",
+      "targetJapaneseDraft": "部屋は214号室です。",
+      "literalJapaneseGlossEn": "The room is room 214.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "feca891289da7b3876e972a2d4f0194b8d3f74a55bb512229b2c3afbb818adb3"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Puedo sentarme en cualquier mesa?",
+      "sourceEnglish": "Can I sit at any table?",
+      "sourceNoteInternal": null,
+      "kind": "phrase",
+      "targetJapaneseDraft": "どのテーブルに座ってもいいですか。",
+      "literalJapaneseGlossEn": "May I sit at any table?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "a7dd640a7d7a51f5466d60a4dd0425dfa19b4bff08c2b9fa9726bfcaf5cbd207"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "Perdón, ¿cuáles son las reglas del buffet?",
+      "sourceEnglish": "Excuse me, what are the buffet rules?",
+      "sourceNoteInternal": "Polite way to ask.",
+      "kind": "phrase",
+      "targetJapaneseDraft": "すみません、ビュッフェのルールを教えていただけますか。",
+      "literalJapaneseGlossEn": "Excuse me, could you tell me the buffet rules?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "6e513b709688dab1564ce9b8c73c1855235a3894dfdb36b37ab04f05f323166c"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿Puede repetir, por favor?",
+      "sourceEnglish": "Can you repeat that, please?",
+      "sourceNoteInternal": null,
+      "kind": "phrase",
+      "targetJapaneseDraft": "もう一度言っていただけますか。",
+      "literalJapaneseGlossEn": "Could you say it again?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "161cfcc2f7d44c2f440a60d34e121df131be79b881218b88f496e327532dfa04"
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "quotedSpeaker": null,
+      "sourceSpanish": "Un viajero llega al comedor del hotel por la mañana.",
+      "sourceEnglish": "A traveler arrives at the hotel dining room in the morning.",
+      "targetJapaneseDraft": "朝、旅行者がホテルの食事会場に着きます。",
+      "literalJapaneseGlossEn": "In the morning, a traveler arrives at the hotel dining room.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "570f2f4d21a3b92519eea2f7b9279278f5adcd3002bd646805596c12bdd37fe5"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "quotedSpeaker": "Traveler",
+      "sourceSpanish": "Habla con la recepcionista: ¿El desayuno está incluido?",
+      "sourceEnglish": "He talks to the receptionist: Is breakfast included?",
+      "targetJapaneseDraft": "旅行者は受付係に話しかけます。「朝食は付いていますか」",
+      "literalJapaneseGlossEn": "The traveler speaks to the receptionist: 'Is breakfast included?'",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "330d10f0d56372142d6acb28f711c61d642152021cb69861c9a7476214c9cca9"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "quotedSpeaker": "Receptionist",
+      "sourceSpanish": "Ella dice: Sí, está incluido con su habitación.",
+      "sourceEnglish": "She says: Yes, it is included with your room.",
+      "targetJapaneseDraft": "受付係は「はい、お部屋に朝食が付いています」と言います。",
+      "literalJapaneseGlossEn": "The receptionist says, 'Yes, breakfast comes with your room.'",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "009d3475ead8ab0a77949a5339293b41f1821aedb7d9380942a8bbe56a80b82f"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "quotedSpeaker": "Traveler",
+      "sourceSpanish": "Él pregunta: ¿Cuál es el horario del desayuno?",
+      "sourceEnglish": "He asks: What are the breakfast hours?",
+      "targetJapaneseDraft": "旅行者は「朝食は何時から何時までですか」と尋ねます。",
+      "literalJapaneseGlossEn": "The traveler asks, 'From what time to what time is breakfast?'",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "672da610c0405336ff0a5bb1c31427b12d44fe18ce004691037d4261dcdf94b9"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "quotedSpeaker": null,
+      "sourceSpanish": "Ella responde que el horario es de 6:30 a 10:00, según el hotel.",
+      "sourceEnglish": "She answers that the hours are from 6:30 to 10:00, according to the hotel.",
+      "targetJapaneseDraft": "受付係は、このホテルの朝食は6時30分から10時までだと答えます。",
+      "literalJapaneseGlossEn": "The receptionist answers that breakfast at this hotel is from 6:30 to 10:00.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "66019d0f30c53444246e601a9b64249c9a5d957a6bd5947f0a44567e8be38c89"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "quotedSpeaker": null,
+      "sourceSpanish": "El viajero da su número de habitación: 214.",
+      "sourceEnglish": "The traveler gives his room number: 214.",
+      "targetJapaneseDraft": "旅行者は部屋番号の「214」を伝えます。",
+      "literalJapaneseGlossEn": "The traveler gives his room number: 214.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "46dd2e8dc9dbbbcaecae4365336c9c536cb01f410d59c1227ab2b12e88db4641"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "quotedSpeaker": "Traveler",
+      "sourceSpanish": "Después pregunta: ¿Es buffet o menú?",
+      "sourceEnglish": "Then he asks: Is it a buffet or a menu?",
+      "targetJapaneseDraft": "次に「ビュッフェですか、それともメニューから注文しますか」と尋ねます。",
+      "literalJapaneseGlossEn": "Then the traveler asks, 'Is it a buffet, or do I order from a menu?'",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "919864c416b1fc32f439a2a5bd7066e995366a9b506a42013437e6027fedea6e"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "quotedSpeaker": "Receptionist",
+      "sourceSpanish": "Ella explica las reglas del buffet: tome un plato limpio y no se lleve comida.",
+      "sourceEnglish": "She explains the buffet rules: take a clean plate and do not take food with you.",
+      "targetJapaneseDraft": "受付係はビュッフェのルールを説明します。「きれいなお皿をお取りください。食べ物は持ち出さないでください」",
+      "literalJapaneseGlossEn": "She explains the buffet rules: take a clean plate and do not take food out.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "133b994060b73c17b12e492e62e2e67669c211edade09c577019e0c1aaef3d98"
+    },
+    {
+      "id": "travel-breakfast:5:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "quotedSpeaker": null,
+      "sourceSpanish": "Él busca una mesa libre y toma café.",
+      "sourceEnglish": "He looks for a free table and gets coffee.",
+      "targetJapaneseDraft": "旅行者は空いているテーブルを探し、コーヒーを飲みます。",
+      "literalJapaneseGlossEn": "The traveler looks for a free table and drinks coffee.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "b1cc1ce9ae851e025c9dcffef21fbd486320f67546835ef7f518bccce23f5566"
+    }
+  ],
+  "speakingGoalCandidate": "Ask whether hotel breakfast is included and its hours, give room 214, and ask about buffet rules and seating.",
+  "japaneseSpecificFocusCandidate": "Ask service-time and inclusion questions with ～は付いていますか and 何時から何時まで; use polite hotel service register without copying Spanish verb paradigms.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "breakfast",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "breakfast included",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "room plan",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "dining room",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "opening hours",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "from what time to what time",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "room number",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "buffet",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "plate",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "seat",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "I will check",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "Please explain the rules",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Good morning. Is breakfast here?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Yes. Your room number, please.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Room 214.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "I will check your room plan.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Your plan includes breakfast.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "What are the breakfast hours?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "From six thirty to ten.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Please explain the buffet rules.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Please take a clean plate here.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "savedPositionPolicy": "Archived rows have no explicit row IDs. New revision-scoped IDs have no authorized saved-item migration.",
+  "unresolvedInternal": [
+    "Source menú could mean a set menu or ordering from a printed menu. Earlier Breakfast source lessons use menú as a printed menu, so Reader 7 provisionally selects ordering from it; qualified source/Japanese review remains.",
+    "Source says breakfast is included with the room; inclusion in a booking plan is not explicitly stated. Do not add an unverified hotel policy.",
+    "The 6:30–10:00 hours are attributed to this hotel only; no universal hotel hours are taught.",
+    "Source clean plate is not a new plate; source forbids taking food away without specifying beyond the dining area.",
+    "Card 15's Japanese polite request restructures the source's what-question; qualified register review should choose a natural question form.",
+    "Reader 8's 持ち出さない is a provisional service-register rendering of do not take food with you; the source does not state an exact boundary.",
+    "Receptionist is a woman in Reader but source card recepcionista is gender neutral; 受付係 preserves neutral card meaning.",
+    "Spanish toma café and English gets coffee differ in nuance. The source tomar verb examples support having/drinking coffee, so Japanese コーヒーを飲みます follows Spanish; qualified source decision needed.",
+    "Review whether 食事会場 versus 朝食会場 best matches hotel comedor and whether room 214 is spoken にいちよん or にひゃくじゅうよん for audio.",
+    "The archived draft names Sam and adds a room-plan check, changes the buffet question and omits the no-food rule; no archived text is promoted.",
+    "Pinned Spanish source itself remains reviewed:false."
+  ],
+  "missing": [
+    "six authored prompt-answer mode pairs",
+    "kana/number readings for learner display",
+    "Japanese Reader title",
+    "contextual forms",
+    "complete speaking setup",
+    "dictionary senses",
+    "saved-item migration",
+    "exact-text audio and individual listening decisions",
+    "qualified Japanese and domain review"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

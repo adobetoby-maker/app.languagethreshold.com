@@ -39,7 +39,7 @@ declare r public.resource_offer_claims; u auth.users;
 begin
  select * into u from auth.users where id=p_user and deleted_at is null;
  if p_purpose<>'invoice' and (u.id is null or u.email_confirmed_at is null or u.email is null or
-   lower(u.email) like '%@kids.languagethreshold.app' or
+   (lower(u.email) like '%@kids.languagethreshold.app' or lower(u.email) like '%@kids.juniorlinguist.app') or
    u.raw_app_meta_data->>'is_kid'='true' or u.raw_user_meta_data->>'is_kid'='true')
  then raise exception 'Confirmed adult account required'; end if;
  if p_resource !~ '^[a-z0-9][a-z0-9-]{0,79}$' or p_purpose not in ('claim','checkout','invoice') or p_lease is null

@@ -32,6 +32,8 @@ export function adultOfferAccount(user: {
     user.email_confirmed_at &&
     !user.app_metadata?.is_kid &&
     !user.user_metadata?.is_kid &&
-    !user.email.toLowerCase().endsWith("@kids.languagethreshold.app")
+    !["@kids.languagethreshold.app", "@kids.juniorlinguist.app"].some((domain) =>
+      user.email!.toLowerCase().endsWith(domain),
+    )
   );
 }

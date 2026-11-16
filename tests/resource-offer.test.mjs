@@ -344,6 +344,7 @@ test("only confirmed parent/adult accounts are eligible; child flags and synthet
     { app_metadata: { is_kid: true } },
     { user_metadata: { is_kid: true } },
     { email: "learner@kids.languagethreshold.app" },
+    { email: "learner@kids.juniorlinguist.app" },
   ])
     assert.equal(adultOfferAccount({ ...adult, ...changes }), false);
 });

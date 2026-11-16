@@ -1,0 +1,586 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:9",
+  "stableLessonId": "travel-breakfast:9:ja-en",
+  "candidateRevision": "travel-breakfast:9:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Request takeaway",
+    "objectiveEnglishInternal": "ask for food or coffee to go, packaging, napkins, and utensils",
+    "objectiveEditorialHold": true,
+    "roleplayEnglishInternal": "Convert part of a seated order into takeaway because your train leaves soon.",
+    "readerTitleSpanish": "Café para llevar antes del tren",
+    "readerVerbExamples": [
+      {
+        "target": "Primero pide un café con leche en la barra.",
+        "native": "First he orders a coffee with milk at the counter."
+      },
+      {
+        "target": "Yo llevo el pedido al tren.",
+        "native": "I take the order to the train."
+      },
+      {
+        "target": "Necesito servilletas y una cuchara.",
+        "native": "I need napkins and a spoon."
+      },
+      {
+        "target": "¿Me lo puede poner en una bolsa de papel?",
+        "native": "Can you put it in a paper bag for me?"
+      },
+      {
+        "target": "Al final paga la cuenta.",
+        "native": "In the end he pays the bill."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "Sam has limited time before a train and asks the café to change the unprepared part of an order.",
+    "cardCount": 13,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "café con leche",
+      "sourceEnglish": "coffee with milk",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ミルク入りコーヒー",
+      "literalJapaneseGlossEn": "coffee with milk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "croissant",
+      "sourceEnglish": "croissant",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "クロワッサン",
+      "literalJapaneseGlossEn": "croissant",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "barra",
+      "sourceEnglish": "counter",
+      "kind": "term",
+      "sourceNoteInternal": "In some places, mostrador is also used.",
+      "targetJapaneseDraft": "カウンター",
+      "literalJapaneseGlossEn": "counter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "tapa",
+      "sourceEnglish": "lid",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ふた",
+      "literalJapaneseGlossEn": "lid",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "bolsa de papel",
+      "sourceEnglish": "paper bag",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "紙袋",
+      "literalJapaneseGlossEn": "paper bag",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "servilletas",
+      "sourceEnglish": "napkins",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ナプキン",
+      "literalJapaneseGlossEn": "napkins",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "cuchara",
+      "sourceEnglish": "spoon",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "スプーン",
+      "literalJapaneseGlossEn": "spoon",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "tenedor",
+      "sourceEnglish": "fork",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "フォーク",
+      "literalJapaneseGlossEn": "fork",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "vaso para llevar",
+      "sourceEnglish": "to-go cup",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "持ち帰り用のカップ",
+      "literalJapaneseGlossEn": "cup for takeout",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "cuenta",
+      "sourceEnglish": "bill",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "お会計",
+      "literalJapaneseGlossEn": "bill",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "pedido",
+      "sourceEnglish": "order",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "注文",
+      "literalJapaneseGlossEn": "order",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "¿Puedo pedir el café para llevar?",
+      "sourceEnglish": "Can I order the coffee to go?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "コーヒーを持ち帰りで注文できますか。",
+      "literalJapaneseGlossEn": "Can I order the coffee for takeout?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "Quiero esto para llevar, por favor.",
+      "sourceEnglish": "I want this to go, please.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "これを持ち帰りでお願いします。",
+      "literalJapaneseGlossEn": "This for takeout, please.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Me puede dar servilletas y una cuchara?",
+      "sourceEnglish": "Can you give me napkins and a spoon?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ナプキンとスプーンをいただけますか。",
+      "literalJapaneseGlossEn": "Can you give me napkins and a spoon?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "¿Me lo puede poner en una bolsa?",
+      "sourceEnglish": "Can you put it in a bag for me?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Lo means the item you just mentioned.",
+      "targetJapaneseDraft": "袋に入れていただけますか。",
+      "literalJapaneseGlossEn": "Can you put it into a bag?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿Viene con tapa?",
+      "sourceEnglish": "Does it come with a lid?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ふたは付いていますか。",
+      "literalJapaneseGlossEn": "Does it come with a lid?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Mi tren sale pronto.",
+      "sourceEnglish": "My train leaves soon.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "私の電車はもうすぐ出発します。",
+      "literalJapaneseGlossEn": "My train departs soon.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Un viajero está en un café y mira el reloj.",
+      "sourceEnglish": "A traveler is in a café and looks at the clock.",
+      "targetJapaneseDraft": "旅行者がカフェにいて、時計を見ています。",
+      "literalJapaneseGlossEn": "A traveler is at a café and looking at a clock.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Primero pide un café con leche y un croissant en la barra.",
+      "sourceEnglish": "First he orders a coffee with milk and a croissant at the counter.",
+      "targetJapaneseDraft": "まず、カウンターでミルク入りコーヒーとクロワッサンを注文します。",
+      "literalJapaneseGlossEn": "First, at the counter, he orders a coffee with milk and a croissant.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Luego dice: Disculpe, ¿puedo pedir el café para llevar?",
+      "sourceEnglish": "Then he says: Excuse me, can I order the coffee to go?",
+      "targetJapaneseDraft": "次に言います。「すみません、コーヒーを持ち帰りで注文できますか。」",
+      "literalJapaneseGlossEn": "Next he says: 'Excuse me, can I order the coffee for takeout?'",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "La camarera pregunta: ¿Quiere una tapa y una bolsa?",
+      "sourceEnglish": "The waitress asks: Do you want a lid and a bag?",
+      "targetJapaneseDraft": "ウェイトレスさんが聞きます。「ふたと袋はいりますか。」",
+      "literalJapaneseGlossEn": "The waitress asks: 'Do you want a lid and a bag?'",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "El viajero contesta: Sí, por favor, y también necesito servilletas y una cuchara.",
+      "sourceEnglish": "The traveler answers: Yes, please, and I also need napkins and a spoon.",
+      "targetJapaneseDraft": "旅行者は答えます。「はい、お願いします。ナプキンとスプーンも必要です。」",
+      "literalJapaneseGlossEn": "The traveler answers: 'Yes, please. I also need napkins and a spoon.'",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Después cambia el croissant, porque va a comer en el tren.",
+      "sourceEnglish": "After that he changes the croissant order, because he is going to eat on the train.",
+      "targetJapaneseDraft": "そのあと、電車で食べるので、クロワッサンの注文を変えます。",
+      "literalJapaneseGlossEn": "After that, because he will eat on the train, he changes the croissant order.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Dice: ¿Me lo puede poner en una bolsa de papel?",
+      "sourceEnglish": "He says: Can you put it in a paper bag for me?",
+      "targetJapaneseDraft": "「それを紙袋に入れていただけますか。」と言います。",
+      "literalJapaneseGlossEn": "He says: 'Can you put it into a paper bag?'",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Al final paga la cuenta y da las gracias.",
+      "sourceEnglish": "In the end he pays the bill and says thank you.",
+      "targetJapaneseDraft": "最後にお会計をして、お礼を言います。",
+      "literalJapaneseGlossEn": "In the end he pays the bill and says thank you.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:9:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "Con su pedido en la mano, sale rápido hacia la estación.",
+      "sourceEnglish": "With his order in hand, he quickly heads out to the station.",
+      "targetJapaneseDraft": "注文したものを手に持って、急いで駅へ向かいます。",
+      "literalJapaneseGlossEn": "Holding his order in his hand, he quickly heads toward the station.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Request coffee to go, ask about a lid and bag, and request utensils while heading for a train.",
+  "speakingGoalInternal": "Convert part of a seated order into takeaway because your train leaves soon.",
+  "sourceConflictInternal": "The unreviewed curriculum asks to convert part of a seated order, but the source Reader never establishes a seated order. Source Reader 2 already orders coffee and croissant, then Reader 3 asks to order the coffee to go; Reader 6 says the croissant order changes, without specifying the requested change until Reader 7 asks for a paper bag. Preserve these ambiguities. The archived Japanese draft invents that the order is unprepared and that staff confirms a possible change, omitting the source bill, station and fuller utensil vocabulary. The source waitress is female; a Japanese neutral staff term would lose that detail. The source does not identify a city or establish any train food policy; it says the traveler plans to eat on the train.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "takeaway",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "inside the café",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Can it be changed?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "train",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "soon",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "paper bag",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "lid",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "napkin",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "spoon",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "croissant",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "coffee with milk",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "Can it be made takeaway?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "Please put it in a bag",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Excuse me. My train time is close.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Can you change the coffee to takeaway?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "We have not made it yet, so we can change it.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Thank you. Is there a lid?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Yes, we will add a lid.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Please put the croissant in a paper bag too.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Certainly.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Could I have one napkin?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Yes, here you are.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 6,
+      "candidatePosition": 5,
+      "migrationAuthorized": false,
+      "textOnly": true
+    },
+    {
+      "oldPosition": 7,
+      "candidatePosition": 4,
+      "migrationAuthorized": false,
+      "textOnly": true
+    },
+    {
+      "oldPosition": 8,
+      "candidatePosition": 6,
+      "migrationAuthorized": false,
+      "textOnly": true
+    },
+    {
+      "oldPosition": 9,
+      "candidatePosition": 7,
+      "migrationAuthorized": false,
+      "textOnly": true
+    },
+    {
+      "oldPosition": 10,
+      "candidatePosition": 2,
+      "migrationAuthorized": false,
+      "textOnly": true
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 26,
+    "twoVoiceClipDecisionsIfTextApproved": 52,
+    "twoVoiceSubmittedCharactersIfTextApproved": 768,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.02304,
+    "archivedExactJapaneseCardTextOverlapsOnly": 5,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows were not registered and have no explicit stable row IDs. New revision-scoped IDs do not authorize saved-item or audio placement migration. This revision's order is frozen; any insertion or reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Resolve curriculum seated-order wording against Reader 2–7 before learner release; do not invent that an order is unprepared.",
+    "Review Japanese expression for coffee with milk and whether café au lait is a faithful match in this scene.",
+    "Review female waitress reference versus natural Japanese café staff wording without silently erasing source detail.",
+    "Confirm bag referents in Card 15 and Reader 7 and the croissant order-change ambiguity.",
+    "Review whether source Reader 6 implies a changed order or a request to package the pastry; Japanese face keeps it unspecified.",
+    "Check Japanese register, punctuation and literal glosses with qualified native and dictionary reviewers.",
+    "Decide whether ナプキン needs café-specific clarification, and assess source cards fork, to-go cup and my train leaves soon, which do not occur in the Reader."
+  ],
+  "missing": [
+    "qualified Japanese/source/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese grammar/form examples",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

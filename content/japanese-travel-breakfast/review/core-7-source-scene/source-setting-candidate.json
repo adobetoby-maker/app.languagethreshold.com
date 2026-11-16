@@ -1,0 +1,546 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:7",
+  "stageId": "travel-breakfast",
+  "lessonNumber": 7,
+  "stableLessonId": "travel-breakfast:7:ja-en",
+  "candidateRevision": "travel-breakfast:7:ja-en:source-scene-v1",
+  "reviewed": false,
+  "status": "source-only Japanese-language candidate; unapproved",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "readerPath": "public/lesson-content/es/travel-breakfast.json",
+    "readerSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "planTitleEnglish": "Ask what locals eat",
+    "objectiveEnglish": "ask for a typical regional breakfast and understand a cultural explanation",
+    "roleplayEnglish": "Tell the server you want the breakfast locals actually choose, not a tourist substitute.",
+    "readerTitleSpanish": "Un desayuno como el de aquí",
+    "sourceVerbs": [
+      {
+        "infinitive": "pedir",
+        "native": "to order, to ask for",
+        "forms": {
+          "yo": "pido",
+          "tú": "pides",
+          "él_ella_usted": "pide",
+          "nosotros": "pedimos",
+          "ellos_ustedes": "piden"
+        },
+        "example": {
+          "target": "Los locales piden chilaquiles por la mañana.",
+          "native": "The locals order chilaquiles in the morning."
+        },
+        "note": "Stem change: e to i."
+      },
+      {
+        "infinitive": "recomendar",
+        "native": "to recommend",
+        "forms": {
+          "yo": "recomiendo",
+          "tú": "recomiendas",
+          "él_ella_usted": "recomienda",
+          "nosotros": "recomendamos",
+          "ellos_ustedes": "recomiendan"
+        },
+        "example": {
+          "target": "¿Qué me recomienda para el desayuno?",
+          "native": "What do you recommend to me for breakfast?"
+        },
+        "note": "Stem change: e to ie."
+      },
+      {
+        "infinitive": "explicar",
+        "native": "to explain",
+        "forms": {
+          "yo": "explico",
+          "tú": "explicas",
+          "él_ella_usted": "explica",
+          "nosotros": "explicamos",
+          "ellos_ustedes": "explican"
+        },
+        "example": {
+          "target": "El mesero explica qué lleva el platillo.",
+          "native": "The server explains what the dish has in it."
+        }
+      },
+      {
+        "infinitive": "desayunar",
+        "native": "to eat breakfast",
+        "forms": {
+          "yo": "desayuno",
+          "tú": "desayunas",
+          "él_ella_usted": "desayuna",
+          "nosotros": "desayunamos",
+          "ellos_ustedes": "desayunan"
+        },
+        "example": {
+          "target": "¿Qué desayuna la gente de aquí?",
+          "native": "What do people here eat for breakfast?"
+        },
+        "note": "The yo form and the noun desayuno look the same."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "Sam asks a café worker which breakfast on this shop’s menu is popular with local customers.",
+    "cardCount": 13,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "mesa",
+      "sourceEnglish": "table",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "テーブル",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "0fac3ba703c833bc320b469586f6e138570e59711e4536b366185f5f4da0f299"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "mesero",
+      "sourceEnglish": "server (male)",
+      "kind": "term",
+      "sourceNoteInternal": "Use mesera for a woman. Mesero/mesera is common in Mexico.",
+      "targetJapaneseDraft": "ウェイター（男性の店員）",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "4168ca40f9ad51399c3792d1dcd2f1015b9ece2f97b4c4d1a2528cb209000c8a"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "platillo típico",
+      "sourceEnglish": "typical dish",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "典型的な料理",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "1764019e92008318922ceea8b9196cc74e7fd94b70cc4432eb46aa147f3ea0f9"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "chilaquiles",
+      "sourceEnglish": "chilaquiles (fried tortilla pieces in salsa)",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "チラキレス（サルサに入った、揚げたトルティーヤのかけら）",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "c91bf337445dcd45feaec99e96d8bc73b2c200f129752d85c8061c30f666c54b"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "salsa",
+      "sourceEnglish": "salsa, sauce",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "サルサ、ソース",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "5d0abdc2273b4dd1796f13416deeabadfde7c5a7932ea3a1cffd702667b4239b"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "frijoles",
+      "sourceEnglish": "beans",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "豆",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "5cc70be56ed0f669b098733524991ef2ed597e38244156594b9112138fa4bd5b"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "café de olla",
+      "sourceEnglish": "spiced clay-pot coffee",
+      "kind": "term",
+      "sourceNoteInternal": "A traditional Mexican coffee, usually made with cinnamon.",
+      "targetJapaneseDraft": "カフェ・デ・オジャ（スパイス入りの土鍋コーヒー）",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "2452610413da2ee2b8db1eedc449f4f28eb2b561b6aba83a681b3645fbe8384c"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "pan dulce",
+      "sourceEnglish": "sweet bread, pastry",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "パン・ドゥルセ（甘いパン、ペストリー）",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "4aafe8552518e574b61bdd3702a5f2e272322987b3f7821bfa473b195aa5d130"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "mostrador",
+      "sourceEnglish": "counter",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カウンター",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "194068e0300b74bb7ec135f557cf24727ed96a48f8b1c234f401e843ccb91c8b"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "desayuno",
+      "sourceEnglish": "breakfast",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "朝食",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "887054be6719b7403b4c4eae9aa300fdcc40e3396b9ca7283417211aedce6b80"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "¿Qué desayuna la gente de aquí?",
+      "sourceEnglish": "What do people here eat for breakfast?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ここの人たちは朝食に何を食べますか？",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "b294d0112286b76929c99f8deeae0de7c71ce65d307339ad57562646b8705835"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "Quiero el desayuno que piden los locales.",
+      "sourceEnglish": "I want the breakfast that locals order.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "地元の人が注文する朝食がほしいです。",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "7984683fc6e55de9213cc78195b61bb3203253ced49678aa2583bf10df587429"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "No quiero algo solo para turistas.",
+      "sourceEnglish": "I don't want something just for tourists.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "観光客向けというだけのものは、ほしくありません。",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "6f14ebe5202530d58cf7e2d1117ef5b207ef563ff5ba45243812a584e696ae99"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Me puede recomendar un platillo típico?",
+      "sourceEnglish": "Can you recommend a typical dish to me?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "典型的な料理を一つおすすめしていただけますか？",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "79a8da925937a0ef979074a7887f095aaef735cca9f91804083468376c6ce973"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "¿Puede explicarme qué lleva?",
+      "sourceEnglish": "Can you explain to me what it has in it?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Use usted with a server you don't know.",
+      "targetJapaneseDraft": "何が入っているか説明していただけますか？",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "1351e05253881be8538d17845c218e97be0ceb197f30ec458188d286e966f1b2"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿Puede repetir más despacio, por favor?",
+      "sourceEnglish": "Can you repeat that more slowly, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "もっとゆっくり、もう一度言っていただけますか？",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "503b81b5fb8b4ef7bc2c93c394c95f3a7db6f40b8371d1983264ac95c46bd231"
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "Ana se sienta en una mesa de un café pequeño en Puebla.",
+      "sourceEnglish": "Ana sits at a table in a small café in Puebla.",
+      "targetJapaneseDraft": "アナは、プエブラにある小さなカフェのテーブルに着きます。",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "75ea42218088d4ccb6b14a9ab853c723b0b13cec1ca476e04a79e9621bd98cd6"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "Primero le pregunta al mesero: ¿Qué desayuna la gente de aquí?",
+      "sourceEnglish": "First she asks the server: What do people here eat for breakfast?",
+      "targetJapaneseDraft": "まず、彼女はウェイターに「ここの人たちは朝食に何を食べますか？」と尋ねます。",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "ef0d5b90764adb9bd01dd78752cc6ae4dab60762e08b30c258a4dcd4e91c414f"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "Después dice: Quiero el desayuno que piden los locales.",
+      "sourceEnglish": "Then she says: I want the breakfast that locals order.",
+      "targetJapaneseDraft": "それから、「地元の人が注文する朝食がほしいです。」と言います。",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "84abaeb47da680f976bcfc8e95f832f5431771b90f266b0e23bf995eefed33ef"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "El mesero sonríe y dice que los chilaquiles son un platillo típico de la mañana.",
+      "sourceEnglish": "The server smiles and says that chilaquiles are a typical morning dish.",
+      "targetJapaneseDraft": "ウェイターはほほえんで、チラキレスは朝の典型的な料理だと言います。",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "d8cd7d2338dd762ff915c325eca1d68fc0aab1724aa3f3b75b99af1f9361043c"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "Según él, van a servir los chilaquiles con salsa verde y frijoles.",
+      "sourceEnglish": "According to him, they are going to serve the chilaquiles with green salsa and beans.",
+      "targetJapaneseDraft": "彼によると、チラキレスは緑のサルサと豆と一緒に出されるそうです。",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "be3b5c9c3a9d7b9d762899695ae0dd0a8294ca624010711277f5bd7eb74b24e1"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "Ana pregunta: ¿Puede explicarme qué lleva?",
+      "sourceEnglish": "Ana asks: Can you explain to me what it has in it?",
+      "targetJapaneseDraft": "アナは「何が入っているか説明していただけますか？」と尋ねます。",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "5f512512ccbaa7733cd684887ac8b732ca0d985433b888ca8f74cd2f9cf6addd"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "El mesero explica que el café de olla va con canela y que el pan dulce es para después.",
+      "sourceEnglish": "The server explains that café de olla comes with cinnamon and that the sweet bread is for afterward.",
+      "targetJapaneseDraft": "ウェイターは、カフェ・デ・オジャはシナモン入りで、パン・ドゥルセは後のためのものだと説明します。",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "adc2aa0e32dbc87cfb3ec04b043e7253eccb2c378be877ddabfa5781dd9ef09b"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "Ana pide los chilaquiles, un café de olla y un pan dulce.",
+      "sourceEnglish": "Ana orders the chilaquiles, a café de olla, and a sweet bread.",
+      "targetJapaneseDraft": "アナは、チラキレスと、カフェ・デ・オジャを一つ、パン・ドゥルセを一つ注文します。",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "d12633566f45e7a8b46e83892cbf2dfdc6f9aef6142db39563edad078aab3f7e"
+    },
+    {
+      "id": "travel-breakfast:7:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "Al final, ella va a pagar en el mostrador.",
+      "sourceEnglish": "At the end, she is going to pay at the counter.",
+      "targetJapaneseDraft": "最後に、彼女はカウンターで支払います。",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "277af2aadbe3fc212a2e85cf92c3a9f55ca85c2b379fa0f9f4c08f34c2b5290f"
+    }
+  ],
+  "speakingGoalCandidate": "Ask what people in Puebla eat for breakfast; request the dish locals order; ask what is in it and ask the server to repeat slowly.",
+  "japaneseSpecificFocusCandidate": "Use polite server requests with ～ていただけますか and distinguish ここの人たち from 地元の人. Preserve Mexican food names and the source Reader scene.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "this area",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "local area",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "local people",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "breakfast",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "set meal",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "rice ball",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "miso soup",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "pickles",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "is popular",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "recommendation",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "ingredients",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "What is in it?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "What is popular at this shop?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "What do people around here eat for breakfast?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "It depends on the person, but the rice-ball set is popular here.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "What comes with it?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "It comes with rice balls, miso soup, and pickles.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "What is inside the rice balls?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Today the filling is salmon.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Could you tell me a little more about the ingredients?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "I will check with the kitchen.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Thank you. Please check.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "savedPositionPolicy": "The archived rows have no explicit row IDs and describe a different Sam breakfast-set scene. Revision-scoped candidate IDs do not authorize saved-item migration or progress changes.",
+  "unresolvedInternal": [
+    "The archived Sam rice-ball/miso/pickles scene contradicts the current Puebla source; retain it as archive only.",
+    "The roleplay mentions a tourist substitute and card 13 teaches its refusal; the Reader never says it. Do not insert it into Reader text.",
+    "The source card café de olla says spiced clay-pot coffee; only Reader 7 says cinnamon. Do not add cinnamon to card 7.",
+    "The source Reader asks what is in chilaquiles but the following answer explains café de olla and pan dulce; preserve this source sequence pending source review.",
+    "Japanese food transliterations, clay-pot vessel, typical-dish register and card 12 ordering phrasing require qualified Japanese/Mexican-food review.",
+    "The source marks the server male; Japanese narration may omit the gender where English Reader does. Check gender language and house style.",
+    "The Spanish source is itself reviewed:false; it is a structural parity anchor, not qualified approval.",
+    "Cards 4, 7, 8 and Reader 4, 5, 7, 8: are チラキレス, カフェ・デ・オジャ and パン・ドゥルセ the katakana forms the course wants, or should the Spanish spelling stay alongside them?",
+    "Cards 3, 14 and Reader 4: is 典型的な料理 the best fit for 'platillo típico', or would 代表的な料理 or 定番料理 read more naturally? 郷土料理 was removed because the source does not say regional.",
+    "Card 6 and Reader 5: is plain 豆 enough, or should it be フリホーレス（豆）to match how the other food terms are handled?",
+    "Card 7: does 土鍋 suggest a Japanese hot-pot vessel? Would 素焼きの壺 or 陶器のポット be closer to 'clay pot'? Cinnamon was deliberately left off this card because the source card says only 'spiced'.",
+    "Card 8: is ペストリー acceptable for 'pastry'? 菓子パン was removed because it suggests Japanese bakery buns.",
+    "Card 11 and Reader 2: is ここの人たち right for 'la gente de aquí', or is この辺りの人 more natural? 地元の人 was avoided so it stays distinct from 'los locales' in card 12.",
+    "Card 12 and Reader 3: 〜がほしいです is literal for 'Quiero' but slightly childlike when ordering. Should the face stay literal, or use 〜をお願いします?",
+    "Card 13: is 観光客向けというだけのもの natural for 'algo solo para turistas', and is ほしくありません polite enough when speaking to a server?",
+    "Card 16: 'por favor' is carried only by 〜いただけますか. Is that sufficient, or should すみませんが or お願いします be added?",
+    "Reader 1: テーブルに着きます or テーブル席に座ります for 'se sienta en una mesa'?",
+    "Reader 5: does 〜と一緒に出される stay neutral for 'con'? 添えて was removed because it implies a side serving. Is passive 出されるそうです acceptable for 'van a servir'?",
+    "Reader 6 (source question): what does 'qué lleva' refer to? Ana asks after the chilaquiles are described, but the answer in Reader 7 is about café de olla and pan dulce. The Japanese leaves the subject unstated, as the source does.",
+    "Reader 7: シナモン入り reads 'va con canela' as cinnamon in the coffee. If the source means it is served alongside, this needs changing.",
+    "Reader 7: 後のためのもの is literal for 'es para después' but stiff. Is there a natural wording that does not add 'eat' (後で食べるもの) or 'dessert'?",
+    "Reader 9: plain 支払います drops the 'going to' nuance of 'va a pagar'. 支払う予定です and 支払うつもりです were avoided because they add a schedule or an intention. Is that acceptable?",
+    "Reader style: are アナ in katakana and 「…」 for quoted speech the house style? The quotes in Reader 2, 3 and 6 match cards 11, 12 and 15 word for word."
+  ],
+  "missing": [
+    "six authored prompt-answer mode pairs",
+    "kana readings for learner display",
+    "literal English glosses of Japanese faces",
+    "Japanese Reader title",
+    "contextual forms",
+    "full speaking setup",
+    "dictionary senses",
+    "saved-item reconciliation decision",
+    "exact-text audio and individual listening decisions",
+    "qualified Japanese and Mexican food/domain review"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

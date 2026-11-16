@@ -1,0 +1,36 @@
+{
+  "status": "AI-assisted unapproved source-only candidate; qualified Japanese, Mexican food and dictionary review remains open",
+  "calls": [
+    {
+      "role": "Source-grounded candidate authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "130c23b2-dd79-42b9-bcae-37fdadc5c0f4",
+      "stopReason": "end_turn",
+      "isError": false,
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "note": "Authored initial 16 card and nine Reader Japanese candidates from pinned source; all content remained unapproved."
+    },
+    {
+      "role": "Read-only independent critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "e1a99e06-ada7-45dc-b5eb-7a9ee70583cd",
+      "stopReason": "end_turn",
+      "isError": false,
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "note": "Read-only critique found card 7 cinnamon leak from Reader, typical-dish inconsistency, green salsa/bean gloss omission, side-serving implication, and style/register issues."
+    },
+    {
+      "role": "Correction pass",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "07714f91-bf44-4571-9863-229e93983d28",
+      "stopReason": "end_turn",
+      "isError": false,
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "note": "Corrected 16 card and nine Reader candidates; retained explicit food-name, clay-pot, source ambiguity and register questions."
+    }
+  ],
+  "selfCheck": "Compared all 16 current source cards and nine Reader rows against pinned Spanish and English source, plan and archived English anchors; corrected the Opus findings, verified stage-local revision IDs and false gates. No AI or structural check is qualified approval."
+}

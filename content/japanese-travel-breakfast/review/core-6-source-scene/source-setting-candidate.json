@@ -1,0 +1,567 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:6",
+  "stableLessonId": "travel-breakfast:6:ja-en",
+  "candidateRevision": "travel-breakfast:6:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Explain a breakfast restriction",
+    "objectiveEnglishInternal": "state an allergy or dietary need and confirm ingredients without seeking medical advice",
+    "objectiveEditorialHold": true,
+    "roleplayEnglishInternal": "Ask whether a breakfast item contains nuts, dairy, gluten, meat, or another ingredient.",
+    "readerTitleSpanish": "Una alergia en el café",
+    "readerVerbExamples": [
+      {
+        "target": "Tengo alergia a los frutos secos.",
+        "native": "I have an allergy to nuts."
+      },
+      {
+        "target": "No como carne.",
+        "native": "I don't eat meat."
+      },
+      {
+        "target": "El pan no lleva frutos secos.",
+        "native": "The bread has no nuts in it."
+      },
+      {
+        "target": "Pregunto si el relleno lleva carne.",
+        "native": "I ask if the filling has meat in it."
+      },
+      {
+        "target": "El mesero revisa con la cocina.",
+        "native": "The server checks with the kitchen."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "Sam asks about a pastry for a companion with a nut allergy; staff cannot verify its preparation.",
+    "cardCount": 14,
+    "readerCount": 8
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "alergia",
+      "sourceEnglish": "allergy",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アレルギー",
+      "literalJapaneseGlossEn": "allergy",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "frutos secos",
+      "sourceEnglish": "nuts",
+      "kind": "term",
+      "sourceNoteInternal": "Means nuts in general. Nueces are specifically walnuts.",
+      "targetJapaneseDraft": "ナッツ",
+      "literalJapaneseGlossEn": "nuts",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "cacahuates",
+      "sourceEnglish": "peanuts",
+      "kind": "term",
+      "sourceNoteInternal": "Common word in Mexico; some regions say maní.",
+      "targetJapaneseDraft": "ピーナッツ",
+      "literalJapaneseGlossEn": "peanuts",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "lácteos",
+      "sourceEnglish": "dairy",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "乳製品",
+      "literalJapaneseGlossEn": "dairy products",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "gluten",
+      "sourceEnglish": "gluten",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "グルテン",
+      "literalJapaneseGlossEn": "gluten",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "carne",
+      "sourceEnglish": "meat",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "肉",
+      "literalJapaneseGlossEn": "meat",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "ingredientes",
+      "sourceEnglish": "ingredients",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "材料",
+      "literalJapaneseGlossEn": "ingredients",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "pan",
+      "sourceEnglish": "bread",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "パン",
+      "literalJapaneseGlossEn": "bread",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "mantequilla",
+      "sourceEnglish": "butter",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "バター",
+      "literalJapaneseGlossEn": "butter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "mesero",
+      "sourceEnglish": "server",
+      "kind": "term",
+      "sourceNoteInternal": "Mesera for a woman. In Spain, camarero.",
+      "targetJapaneseDraft": "店員",
+      "literalJapaneseGlossEn": "shop staff member",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "Tengo alergia a los frutos secos.",
+      "sourceEnglish": "I have an allergy to nuts.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ナッツアレルギーがあります。",
+      "literalJapaneseGlossEn": "I have a nut allergy.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "¿Qué ingredientes tiene?",
+      "sourceEnglish": "What ingredients does it have?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "これにはどんな材料が使われていますか。",
+      "literalJapaneseGlossEn": "What ingredients are used in this?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "No como carne.",
+      "sourceEnglish": "I don't eat meat.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "肉は食べません。",
+      "literalJapaneseGlossEn": "I do not eat meat.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Puede revisar con la cocina, por favor?",
+      "sourceEnglish": "Can you check with the kitchen, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Use usted with staff.",
+      "targetJapaneseDraft": "厨房に確認していただけますか。",
+      "literalJapaneseGlossEn": "Could you check with the kitchen?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "Prefiero evitar los lácteos.",
+      "sourceEnglish": "I prefer to avoid dairy.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "乳製品は避けたいです。",
+      "literalJapaneseGlossEn": "I would like to avoid dairy products.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿Este pan tiene gluten?",
+      "sourceEnglish": "Does this bread have gluten?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "このパンにはグルテンが入っていますか。",
+      "literalJapaneseGlossEn": "Does this bread contain gluten?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Estoy en un café y hablo con el mesero antes de pedir.",
+      "sourceEnglish": "I am in a café and I talk to the server before ordering.",
+      "targetJapaneseDraft": "カフェで、注文する前に店員に声をかけます。",
+      "literalJapaneseGlossEn": "At a café I speak to a staff member before ordering.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Primero digo: Tengo alergia a los frutos secos.",
+      "sourceEnglish": "First I say: I have an allergy to nuts.",
+      "targetJapaneseDraft": "まず「ナッツアレルギーがあります」と伝えます。",
+      "literalJapaneseGlossEn": "First I say: I have a nut allergy.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Luego pregunto: ¿Qué ingredientes tiene?",
+      "sourceEnglish": "Then I ask: What ingredients does it have?",
+      "targetJapaneseDraft": "次に「これにはどんな材料が使われていますか」と尋ねます。",
+      "literalJapaneseGlossEn": "Next I ask: What ingredients are used in this?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "El mesero no está seguro, así que va a revisar con la cocina.",
+      "sourceEnglish": "The server is not sure, so he is going to check with the kitchen.",
+      "targetJapaneseDraft": "店員ははっきり分からないので、厨房に確認します。",
+      "literalJapaneseGlossEn": "The staff member is not sure, so checks with the kitchen.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Después me dice que, según la cocina, el pan no lleva frutos secos.",
+      "sourceEnglish": "Afterward he tells me that, according to the kitchen, the bread has no nuts.",
+      "targetJapaneseDraft": "その後、店員は厨房の話ではパンにナッツは入っていないと教えてくれます。",
+      "literalJapaneseGlossEn": "Later the staff member tells me that, according to the kitchen, the bread contains no nuts.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "También digo: No como carne, y pregunto si el relleno lleva carne.",
+      "sourceEnglish": "I also say: I don't eat meat, and I ask if the filling has meat in it.",
+      "targetJapaneseDraft": "また「肉は食べません」と伝え、中身に肉が入っているかどうか尋ねます。",
+      "literalJapaneseGlossEn": "I also say that I do not eat meat and ask whether the filling contains meat.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Si la cocina no está segura, pido otra cosa.",
+      "sourceEnglish": "If the kitchen is not sure, I order something else.",
+      "targetJapaneseDraft": "厨房で確認してもはっきりしない場合は、別のものを注文します。",
+      "literalJapaneseGlossEn": "If a kitchen check does not settle the question, I order something else.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:6:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Solo confirmo los ingredientes y no pido consejo médico.",
+      "sourceEnglish": "I only confirm the ingredients and I do not ask for medical advice.",
+      "targetJapaneseDraft": null,
+      "literalJapaneseGlossEn": null,
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "withheld for source editorial review"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "State an allergy or dietary need directly, ask staff about ingredients and request a kitchen check using polite Japanese.",
+  "speakingGoalInternal": "Ask whether a breakfast item contains nuts, dairy, gluten, meat, or another ingredient.",
+  "sourceConflictInternal": "The unreviewed Spanish source objective and Reader 8 insert a generic no-medical-advice line. That line is kept as pinned source evidence but has no Japanese learner face pending source editorial review. The archived Japanese draft instead adds a companion, shared cooking utensils and handling uncertainty; these facts are not in Core 6 source and belong to a separate cross-contact lesson. Source Reader 3 has no explicit ingredient referent, Reader 5 introduces bread without an earlier mention, and Reader 5 reports only that the kitchen says the bread contains no nuts; it does not establish handling or safety. The source does not name a city. Mexican cacahuates and gendered mesero notes are source provenance, not a Japanese locale claim. Source Core 6 says nueces means specifically walnuts, while Core 18, Core 27 and Core 30 use it for nuts generally; resolve this source terminology before learner release.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "allergy",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "nuts",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "peanuts",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "dairy products",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "wheat",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "gluten",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "meat",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "ingredients",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "cooking utensils",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "Please check",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "I do not know",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "I will not order it",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "I have a nut allergy",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "I do not eat meat",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Excuse me. My companion has a nut allergy.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Could you check the ingredients of this bread?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "I will check with the kitchen. Please wait a moment.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "We checked the ingredients, but the cooking utensils are shared.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Can you confirm how it is handled in detail?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "I am sorry. I cannot confirm that.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "I understand. I will not order this bread.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Understood.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 1,
+      "candidatePosition": 1,
+      "migrationAuthorized": false,
+      "textOnly": true
+    },
+    {
+      "oldPosition": 2,
+      "candidatePosition": 2,
+      "migrationAuthorized": false,
+      "textOnly": true
+    },
+    {
+      "oldPosition": 3,
+      "candidatePosition": 3,
+      "migrationAuthorized": false,
+      "textOnly": true
+    },
+    {
+      "oldPosition": 4,
+      "candidatePosition": 4,
+      "migrationAuthorized": false,
+      "textOnly": true
+    },
+    {
+      "oldPosition": 6,
+      "candidatePosition": 5,
+      "migrationAuthorized": false,
+      "textOnly": true
+    },
+    {
+      "oldPosition": 7,
+      "candidatePosition": 6,
+      "migrationAuthorized": false,
+      "textOnly": true
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 23,
+    "twoVoiceClipDecisionsIfTextApproved": 46,
+    "twoVoiceSubmittedCharactersIfTextApproved": 622,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.01866,
+    "archivedExactJapaneseCardTextOverlapsOnly": 6,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows were not registered and have no explicit stable row IDs. New revision-scoped IDs do not authorize saved-item or audio placement migration. This revision's order is frozen; any insertion or reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Resolve source objective/Reader 8 generic medical-advice text before selecting a Japanese face; keep clinical vocabulary direct in teaching text.",
+    "Confirm whether ナッツ and ピーナッツ adequately distinguish source frutos secos and cacahuates in the intended locale.",
+    "Confirm 材料 versus 原材料 for spoken ingredient questions; the source gives no explicit referent until a later bread line.",
+    "Confirm that the kitchen-reported no-nuts statement in Reader 5 is clearly attributed and does not imply handling verification.",
+    "Keep Core 18 cross-contact and shared-utensil content out of Core 6 unless the source lesson is deliberately changed.",
+    "Review first-person narrator and neutral 店員 versus source mesero male server before audio casting."
+  ],
+  "missing": [
+    "one withheld Reader Japanese face",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese grammar/form examples",
+    "contextual dictionary senses",
+    "speaking setup and word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

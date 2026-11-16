@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-16",
+  "safeMode": true,
+  "modelRuns": {
+    "authoring": {
+      "requestedModel": "haiku",
+      "reportedModel": "claude-haiku-5-5",
+      "canonicalModel": "claude-haiku-5-5",
+      "stopReason": "end_turn",
+      "isError": false,
+      "toolUse": "Read only",
+      "outcome": "Proposed 14 Japanese cards in source order; self-check retained source setting and rejected the claim that tipping is a Japanese café custom."
+    },
+    "critique": {
+      "requestedModel": "opus",
+      "reportedModel": "claude-opus-5-5",
+      "canonicalModel": "claude-opus-5-5",
+      "stopReason": "end_turn",
+      "isError": false,
+      "toolUse": "Read only",
+      "outcome": "Identified card-versus-Reader tip meaning, missing literal glosses, speaker direction and exact-text audio identity."
+    },
+    "correction": {
+      "requestedModel": "fable",
+      "reportedModel": "claude-fable-5-2",
+      "canonicalModel": "claude-fable-5-2",
+      "stopReason": "end_turn",
+      "isError": false,
+      "toolUse": "Read only",
+      "outcome": "Independently identified card-versus-Reader tip meaning, cream ambiguity, saved-position and audio risks."
+    }
+  },
+  "qualifiedReview": false,
+  "selfCheck": [
+    "Matched all 14 source card and nine Reader Spanish/English rows in order and verified current source and draft hashes with the independent validator.",
+    "Changed card 14 to a direct keep-the-change request and Reader 9 to the separate as-a-tip request; neither invents a bill total or percentage.",
+    "Added literal Japanese glosses; retained source-only Spanish notes and did not assert a cream type.",
+    "Changed the wait card to a customer-directed request; its source lacks a named speaker, so qualified review remains open.",
+    "Kept prior proposals and audio inert; 12 exact-text overlaps do not give v2 placement or listening approval."
+  ]
+}

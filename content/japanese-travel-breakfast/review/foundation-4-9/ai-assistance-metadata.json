@@ -1,0 +1,32 @@
+{
+  "status": "AI assistance only; no qualified approval",
+  "calls": [
+    {
+      "role": "candidate authoring",
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "inputTokens": 18,
+      "outputTokens": 15556,
+      "thinkingTokens": 11323,
+      "readScope": "Read Spanish curriculum and Reader; CLI could not locate the archived Japanese draft, so its archived-row claims were independently checked."
+    },
+    {
+      "role": "read-only critique",
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "inputTokens": 6,
+      "outputTokens": 10573,
+      "thinkingTokens": 6815,
+      "readScope": "Read source, archive and first candidate; concrete wording, source-gloss and identity issues were corrected where supported."
+    },
+    {
+      "role": "read-only correction",
+      "canonicalModel": "claude-fable-5-2",
+      "provider": "firstParty",
+      "inputTokens": 6,
+      "outputTokens": 12566,
+      "thinkingTokens": 9819,
+      "readScope": "Read source, archive and revised candidate; identified further wording, source-setting and saved-position risks; corrections and unresolved decisions are recorded."
+    }
+  ]
+}

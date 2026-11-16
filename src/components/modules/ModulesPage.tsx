@@ -1,3 +1,4 @@
+import { financeTrack } from "@/data/finance-courses";
 import { useState, useMemo } from "react";
 import { moduleMatchesSearch } from "@/lib/module-search";
 import { Search, Sparkles, CheckCircle2 } from "lucide-react";
@@ -16,6 +17,7 @@ import { getAvailableModuleLessons } from "@/data/module-starters";
 const CATEGORY_ORDER: AppModule["category"][] = [
   "Core Basics",
   "English for Work",
+  "Finance",
   "Faith",
   "Medical",
   "Trades",
@@ -32,6 +34,7 @@ const CATEGORY_META: Record<AppModule["category"], { emoji: string; color: strin
     emoji: "🗣️",
     color: "text-indigo-400 border-indigo-400/40 bg-indigo-400/10",
   },
+  Finance: { emoji: "🏦", color: "text-foreground border-border bg-card" },
   Faith: { emoji: "🙏", color: "text-violet-400 border-violet-400/40 bg-violet-400/10" },
   Medical: { emoji: "🏥", color: "text-sky-400 border-sky-400/40 bg-sky-400/10" },
   Trades: { emoji: "🔧", color: "text-amber-400 border-amber-400/40 bg-amber-400/10" },
@@ -200,7 +203,7 @@ export function ModulesPage() {
   const handleActivate = (module: AppModule) => {
     dispatch({ type: "SET_ACTIVE_MODULE", payload: module.id });
     const destination =
-      getCurriculum(module.id) || /^(foundation|master)-/.test(module.id)
+      financeTrack(module.id) || getCurriculum(module.id) || /^(foundation|master)-/.test(module.id)
         ? "core30"
         : state.selectedLanguage === "English" && module.learnDirection !== "en-target"
           ? "reader"

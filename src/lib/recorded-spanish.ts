@@ -35,12 +35,18 @@ export function spanishRecordingPath(
  * lesson lines in the selected female/male voice, without serving a Spain accent.
  */
 export function nativeSpanishRecordingPath(
-  manifest: SpanishRecordings, text: string, gender: "female" | "male", locale: string,
+  manifest: SpanishRecordings,
+  text: string,
+  gender: "female" | "male",
+  locale: string,
 ): string | null {
   if (manifest.version !== 1 || !/^es(?:-|$)/i.test(locale) || /^es-ES/i.test(locale)) return null;
   const name = manifest.entries[normalizedRecordingText(text)]?.[gender];
-  return name && name.endsWith(`-${gender}`) && /^(?:v3|trade|cr)-[a-z0-9-]{1,120}-(female|male)$/.test(name)
-    ? `/audio/native-v3/${name}.mp3` : null;
+  return name &&
+    name.endsWith(`-${gender}`) &&
+    /^(?:v3|trade|cr)-[a-z0-9-]{1,120}-(female|male)$/.test(name)
+    ? `/audio/native-v3/${name}.mp3`
+    : null;
 }
 
 export function recordedSpanishPath(
@@ -49,6 +55,18 @@ export function recordedSpanishPath(
   locale: string,
 ): string | null {
   const gender = recordingGender(voiceName, locale);
-  return gender ? (spanishRecordingPath(recordings as SpanishRecordings, text, gender)
-    ?? nativeSpanishRecordingPath(nativeRecordings as SpanishRecordings, text, gender, locale)) : null;
+  return gender
+    ? (spanishRecordingPath(recordings as SpanishRecordings, text, gender) ??
+        nativeSpanishRecordingPath(nativeRecordings as SpanishRecordings, text, gender, locale))
+    : null;
+}
+
+/** Only recordings indexed as the selected Chirp 3 HD voice qualify for an HD-only course. */
+export function recordedSpanishHdPath(
+  text: string,
+  voiceName: string,
+  locale: string,
+): string | null {
+  const gender = recordingGender(voiceName, locale);
+  return gender ? spanishRecordingPath(recordings as SpanishRecordings, text, gender) : null;
 }

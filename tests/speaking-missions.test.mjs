@@ -171,23 +171,23 @@ test("speaking preview covers every authored topic in every speaking language", 
   const master = MASTER_ROOFING_LESSONS.length;
   const expected = {
     Spanish: withGenerated("Spanish", {
-      modules: 71,
-      challenges: 420,
-      lessons: 2110 + master,
+      modules: 74,
+      challenges: 429,
+      lessons: 2200 + master,
       curated: 6,
       core: 153,
-      total: 2683 + 6 + master,
+      total: 2683 + 6 + master + 99,
     }),
     Italian: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 153, total: 2157 },
     Japanese: { modules: 57, challenges: 366, lessons: 1710, curated: 0, core: 156, total: 2232 },
     Chinese: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 153, total: 2163 },
     English: withGenerated("English", {
-      modules: 59,
-      challenges: 370,
-      lessons: 1740,
+      modules: 62,
+      challenges: 379,
+      lessons: 1830,
       curated: 0,
       core: 153,
-      total: 2263,
+      total: 2362,
     }),
   };
 
@@ -256,7 +256,8 @@ test("speaking preview covers every authored topic in every speaking language", 
   // Sound Like a Native contributes three base challenges and thirty Core lessons.
   // Japanese 101 contributes twelve stage/base challenges and sixty lesson missions.
   // OR Cleaning Spanish adds four base challenges and thirty Core lesson missions.
-  const allMissions = 11030 + 34 + 6 + 36 + 34 + 192 + 33 + master + generated + 72 + 33 + 34;
+  // Three Finance courses in each direction: 6 × (30 Core lessons + 3 challenges).
+  const allMissions = 11030 + 34 + 6 + 36 + 34 + 192 + 33 + master + generated + 72 + 33 + 34 + 198;
 
   assert.equal(SPEAKING_MISSIONS.length, allMissions);
   assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, allMissions);
@@ -349,7 +350,8 @@ test("Travel is a large daily-interaction zone with the Rome gaps covered", () =
     // 5 challenges), to Spanish Travel: 644 + 255 = 899. The 17 travel Masters (Core 60 T7) are now
     // published and listed too: 17 x 20 lessons = 340, plus 99 challenges (14 Masters have 6, 3 have
     // 5), = 439 more: 899 + 439 = 1338. No other language has travel stages yet.
-    const expectedTravelMissions = language === "Spanish" ? 1338 : 644;
+    const expectedTravelMissions =
+      language === "Spanish" ? 1407 : language === "English" ? 713 : 644;
     assert.equal(travelMissions.length, expectedTravelMissions, `${language} Travel mission count`);
     // Stage missions (Foundation / Master) belong to their base module's trade, not a zone of
     // their own, so they do not count toward a zone's size here.

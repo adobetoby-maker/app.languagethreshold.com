@@ -14,7 +14,7 @@
 
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
-import { CURRICULA } from "../src/data/curriculum.ts";
+import { getCurriculum } from "../src/data/curriculum.ts";
 import { HANDWRITTEN_MODULES } from "../src/data/modules.ts";
 import { CORE60_MANIFEST } from "../src/data/core60/manifest.ts";
 import {
@@ -82,7 +82,7 @@ if (files.length > 0) {
   console.log(`Core 60: validating the manifest (${CORE60_MANIFEST.length} trade(s))`);
   report(
     "manifest",
-    validateManifest(CORE60_MANIFEST, HANDWRITTEN_MODULES, (id) => Boolean(CURRICULA[id])),
+    validateManifest(CORE60_MANIFEST, HANDWRITTEN_MODULES, (id) => Boolean(getCurriculum(id))),
   );
   const listed = new Set<string>();
   for (const entry of CORE60_MANIFEST) {

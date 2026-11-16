@@ -1,3 +1,5 @@
+import { HdAudioPolicy } from "./hd-audio-policy";
+import { hdCourseVoice } from "@/lib/hd-course-voice";
 import {
   DEFAULT_STANDARD_VOICES,
   readStandardVoiceSettings,
@@ -132,12 +134,14 @@ const RECENT_WORDS_CAP = 20;
 export function SpeechProvider({
   children,
   language,
+  hdOnly = false,
   onXp,
   onAchievement,
   hasAchievement,
 }: {
   children: ReactNode;
   language: Language;
+  hdOnly?: boolean;
   onXp: (n: number) => void;
   onAchievement: (name: string) => void;
   hasAchievement: (name: string) => boolean;
@@ -299,6 +303,10 @@ export function SpeechProvider({
     setActiveSentenceIndex(-1);
   }, [invalidatePlayback]);
 
+  useEffect(() => {
+    stop();
+  }, [hdOnly, stop]);
+
   const setVoiceSettings = useCallback(
     (patch: Partial<StandardVoiceSettings>) => {
       stop();
@@ -400,16 +408,26 @@ export function SpeechProvider({
         if (heard && sentenceIndex >= 0) incListened();
         onEnd?.();
       };
-      if (needsRemoteTTS(accent, voiceURI)) {
+      if (hdOnly || needsRemoteTTS(accent, voiceURI)) {
         setPlaying(true);
         setCurrent({ mode, sentenceIndex, text });
         if (sentenceIndex >= 0) setActiveSentenceIndex(sentenceIndex);
         void speakRemote(text, accent, {
           rate,
-          voiceURI,
+          voiceURI: hdOnly ? hdCourseVoice(accent, voiceURI) : voiceURI,
+          cloudOnly: hdOnly,
+          hdOnly,
           owner: { userId: actor ?? "", isCurrent: valid },
           onend: () => finish(true),
-          onerror: () => finish(false),
+          onerror: () => {
+            if (hdOnly && valid())
+              toast.error(
+                actor
+                  ? "HD audio is unavailable. Check your connection and try again."
+                  : "Sign in to play HD audio for this lesson.",
+              );
+            finish(false);
+          },
         });
         return;
       }
@@ -431,7 +449,7 @@ export function SpeechProvider({
         finish(false);
       }
     },
-    [accent, rate, voiceURI, incListened, ownsPlayback, actor],
+    [accent, rate, voiceURI, incListened, ownsPlayback, actor, hdOnly],
   );
 
   const speakWord = useCallback(
@@ -559,7 +577,11 @@ export function SpeechProvider({
     ],
   );
 
-  return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
+  return (
+    <HdAudioPolicy.Provider value={hdOnly}>
+      <Ctx.Provider value={value}>{children}</Ctx.Provider>
+    </HdAudioPolicy.Provider>
+  );
 }
 
 export function useSpeech() {

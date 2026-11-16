@@ -1,3 +1,5 @@
+import { useFinanceCourse } from "@/hooks/use-finance-course";
+import { financeTrack } from "@/data/finance-courses.ts";
 import { V6AppNavigation } from "@/components/core30/V6AppChrome";
 import { VerbExitReminder } from "@/components/verbs/VerbExitReminder";
 import { TutorSiteGuide } from "@/components/tutor/TutorSiteGuide";
@@ -259,14 +261,56 @@ function UrlModuleBridge() {
 
 function SpeechBridge({ children }: { children: ReactNode }) {
   const { state, dispatch } = useApp();
+  const finance = financeTrack(state.activeModuleId ?? "");
+  const financeCourse = useFinanceCourse(
+    finance?.authoredPair?.target === state.selectedLanguage &&
+      finance?.authoredPair?.native === state.nativeLanguage
+      ? state.activeModuleId
+      : null,
+    state.currentTab,
+  );
   return (
     <SpeechProvider
       language={state.selectedLanguage}
+      hdOnly={
+        finance?.authoredPair?.target === state.selectedLanguage &&
+        finance?.authoredPair?.native === state.nativeLanguage
+      }
       onXp={(n) => dispatch({ type: "ADD_XP", payload: n })}
       onAchievement={(name) => dispatch({ type: "ADD_ACHIEVEMENT", payload: name })}
       hasAchievement={(name) => state.achievements.includes(name)}
     >
-      {children}
+      {financeCourse.status === "ready" ? (
+        children
+      ) : (
+        <main className="mx-auto max-w-3xl p-8 text-foreground">
+          <h1 className="mb-4 font-serif text-2xl font-semibold">{finance?.name}</h1>
+          <p role="status">
+            {financeCourse.status === "error"
+              ? "This course could not load. Check your connection and try again."
+              : "Loading your money conversations…"}
+          </p>
+          {financeCourse.status === "error" && (
+            <button
+              type="button"
+              className="mt-4 min-h-11 rounded-lg border border-border px-4 py-2"
+              onClick={financeCourse.retry}
+            >
+              Retry course
+            </button>
+          )}
+          <button
+            type="button"
+            className="mt-4 min-h-11 rounded-lg border border-border px-4 py-2"
+            onClick={() => {
+              dispatch({ type: "SET_ACTIVE_MODULE", payload: null });
+              dispatch({ type: "SET_TAB", payload: "modules" });
+            }}
+          >
+            Back to courses
+          </button>
+        </main>
+      )}
     </SpeechProvider>
   );
 }
@@ -301,6 +345,7 @@ function Index() {
                   <NotesProvider>
                     <GrammarProvider>
                       <FlashcardProvider>
+                        <UrlModuleBridge />
                         <SpeechBridge>
                           <SpeakBridge>
                             <TutorProvider>
@@ -331,7 +376,6 @@ function Index() {
                                 {personalizationOpen && (
                                   <OnboardingWizard onClose={() => setPersonalizationOpen(false)} />
                                 )}
-                                <UrlModuleBridge />
                                 <TutorSiteGuide />
                                 <TutorPanel />
                                 <LevelUpOverlay />

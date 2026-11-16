@@ -116,7 +116,7 @@ test("actual SpeechProvider cancels queued text, rejects old actor callbacks, an
     };
     const render = () => {
       c.begin();
-      const result = SpeechProvider(props).props.value;
+      const result = SpeechProvider(props).props.children.props.value;
       c.commit();
       return result;
     };

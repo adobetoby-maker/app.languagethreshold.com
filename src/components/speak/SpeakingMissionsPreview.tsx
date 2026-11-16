@@ -118,6 +118,7 @@ function specialtyStyle(specialty: SpeakingMission["specialty"]) {
   const styles: Record<SpeakingMission["specialty"], { color: string }> = {
     Core: { color: "#f0c96a" },
     "Core Basics": { color: "#7fc66a" },
+    Finance: { color: "#77c7b7" },
     Faith: { color: "#c9a84c" },
     Medical: { color: "#4fb6d3" },
     Trades: { color: "#ff7a4a" },

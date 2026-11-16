@@ -141,6 +141,48 @@ export const SPEAKING_PARTNERS = [
     "a prospective client",
   ],
   [
+    "banker",
+    "Banker",
+    "Professional services",
+    "a banker discussing accounts, loan terms and client questions",
+    "a client or banking coworker",
+  ],
+  [
+    "bank-teller",
+    "Bank teller",
+    "Professional services",
+    "a bank teller helping with a deposit, withdrawal or balance question",
+    "an account holder",
+  ],
+  [
+    "tax-professional",
+    "Tax professional",
+    "Professional services",
+    "a tax professional discussing records and a planning question",
+    "a client or accounting coworker",
+  ],
+  [
+    "financial-educator",
+    "Financial educator",
+    "Professional services",
+    "a financial educator explaining budgets, saving and investment concepts",
+    "an individual asking about money",
+  ],
+  [
+    "rental-agent",
+    "Rental agent",
+    "Shopping & travel",
+    "a rental agent explaining a vehicle quote, deposit and return charges",
+    "a traveler renting a vehicle",
+  ],
+  [
+    "currency-exchange-clerk",
+    "Currency exchange clerk",
+    "Shopping & travel",
+    "an exchange-counter clerk confirming currencies, the quoted rate and fees",
+    "a traveler exchanging currency",
+  ],
+  [
     "accountant",
     "Accountant",
     "Professional services",
@@ -190,13 +232,7 @@ export const SPEAKING_PARTNERS = [
     "a pharmacist clarifying a prescription and questions",
     "a customer at a pharmacy",
   ],
-  [
-    "teacher",
-    "Teacher",
-    "Education",
-    "a language teacher guiding the chosen topic",
-    "a student",
-  ],
+  ["teacher", "Teacher", "Education", "a language teacher guiding the chosen topic", "a student"],
   ["student", "Student", "Education", "a student asking about the lesson", "a teacher"],
   [
     "parent",
@@ -272,6 +308,17 @@ export function suggestedPartnerIds(moduleId: string, category: string): string[
       "surgeon",
       "inspector",
     ];
+  if (moduleId.includes("personal-money"))
+    return ["bank-teller", "banker", "financial-educator", "accountant", "customer", "family"];
+  if (moduleId.includes("travel-money"))
+    return [
+      "currency-exchange-clerk",
+      "bank-teller",
+      "hotel",
+      "driver",
+      "rental-agent",
+      "salesperson",
+    ];
   if (moduleId.includes("sport-fishing"))
     return ["captain", "guide", "coworker", "salesperson", "friend", "customer"];
   if (moduleId.includes("climbing"))
@@ -279,6 +326,7 @@ export function suggestedPartnerIds(moduleId: string, category: string): string[
   if (/soccer|hockey|baseball|tennis|bowling|football|lacrosse|rugby/.test(moduleId))
     return ["coach", "teammate", "referee", "parent", "teacher", "friend"];
   const groups: Record<string, string[]> = {
+    Finance: ["accountant", "banker", "tax-professional", "coworker", "customer", "boss"],
     Medical: [
       "patient",
       "patient-family",

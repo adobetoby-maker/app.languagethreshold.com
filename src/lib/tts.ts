@@ -1,4 +1,4 @@
-import { recordedSpanishPath } from "./recorded-spanish";
+import { recordedSpanishPath, recordedSpanishHdPath } from "./recorded-spanish";
 import { recordedJapanesePath } from "./recorded-japanese";
 import { recordedFrenchPath } from "./recorded-french";
 import { prepareBrowserPlayback } from "./browser-audio-session";
@@ -167,6 +167,7 @@ export async function speakRemote(
     /** Protected QA listening text must never fall back to a remote provider. */
     deviceOnly?: boolean;
     cloudOnly?: boolean;
+    hdOnly?: boolean;
     onPlaybackStart?: () => void;
   },
 ): Promise<void> {
@@ -202,9 +203,11 @@ export async function speakRemote(
       return;
     }
     if (googleVoice && opts?.usage !== "mission") {
-      const recorded = recordedJapanesePath(text, googleVoice.voiceName, googleVoice.languageCode)
-        ?? recordedFrenchPath(text, googleVoice.voiceName, googleVoice.languageCode)
-        ?? recordedSpanishPath(text, googleVoice.voiceName, googleVoice.languageCode);
+      const recorded = opts?.hdOnly
+        ? recordedSpanishHdPath(text, googleVoice.voiceName, googleVoice.languageCode)
+        : (recordedJapanesePath(text, googleVoice.voiceName, googleVoice.languageCode) ??
+          recordedFrenchPath(text, googleVoice.voiceName, googleVoice.languageCode) ??
+          recordedSpanishPath(text, googleVoice.voiceName, googleVoice.languageCode));
       if (!current()) return;
       if (recorded) {
         const el = audioEl();

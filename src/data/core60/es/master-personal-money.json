@@ -1,0 +1,2513 @@
+{
+  "version": 1,
+  "module": "master-personal-money",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "Personal Money & Banking · Spanish · Master",
+  "threshold": "Use Spanish to complete the master personal money & banking conversations and explain the next step.",
+  "reviewed": false,
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Resolve an ATM cash mismatch",
+      "objective": "State what the screen reported, what cash you actually received and the difference, then ask the bank for its next step in a formal complaint.",
+      "focus": "Imperfect for what the screen said (decía) and preterite for what happened (no entregó); reported speech with decir",
+      "words": [
+        {
+          "es": "cajero automático",
+          "en": "ATM",
+          "kind": "term"
+        },
+        {
+          "es": "dispensador",
+          "en": "cash dispenser",
+          "kind": "term"
+        },
+        {
+          "es": "comprobante",
+          "en": "receipt",
+          "kind": "term"
+        },
+        {
+          "es": "monto solicitado",
+          "en": "requested amount",
+          "kind": "term"
+        },
+        {
+          "es": "faltante",
+          "en": "shortage",
+          "kind": "term",
+          "note": "The amount of cash missing when the total counted is less than the expected total."
+        },
+        {
+          "es": "registro de la transacción",
+          "en": "transaction log",
+          "kind": "term"
+        },
+        {
+          "es": "reclamo",
+          "en": "complaint",
+          "kind": "term"
+        },
+        {
+          "es": "investigación",
+          "en": "investigation",
+          "kind": "term"
+        },
+        {
+          "es": "cuadre de caja",
+          "en": "cash balancing",
+          "kind": "term",
+          "note": "Checking that the cash in a machine or drawer matches the records."
+        },
+        {
+          "es": "billete dañado",
+          "en": "damaged bill",
+          "kind": "term"
+        },
+        {
+          "es": "cámara de seguridad",
+          "en": "security camera",
+          "kind": "term"
+        },
+        {
+          "es": "conteo",
+          "en": "count",
+          "kind": "term"
+        },
+        {
+          "es": "sucursal",
+          "en": "branch",
+          "kind": "term"
+        },
+        {
+          "es": "La pantalla indica que el retiro fue exitoso.",
+          "en": "The screen shows that the withdrawal was successful.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Solicité $300.00, pero recibí $200.00.",
+          "en": "I requested $300.00, but I received $200.00.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuál es el procedimiento para un faltante?",
+          "en": "What is the procedure for a shortage?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puede revisar el registro de la transacción?",
+          "en": "Can you review the transaction log?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quiero presentar un reclamo formal.",
+          "en": "I want to file a formal complaint.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuánto tarda la investigación?",
+          "en": "How long does the investigation take?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "At a branch ATM, the screen shows a successful withdrawal of $300.00, but you receive $200.00. Explain what the screen said, state the difference, ask for the transaction log and the procedure for a shortage. Close by filing a complaint, asking how long the investigation takes, and stating the reference you will keep.",
+      "partnerRole": "Spanish-speaking branch operations officer",
+      "openingLine": "Buenas tardes. Me dicen que tuvo un problema con el cajero automático. ¿Qué pasó?",
+      "grammar": {
+        "focus": "Imperfect for what the screen said (la pantalla decía); preterite for the completed event (no entregó). Reported speech with decir: dijo que + a clause.",
+        "examples": [
+          {
+            "es": "La pantalla decía que el retiro era exitoso.",
+            "en": "The screen said the withdrawal was successful."
+          },
+          {
+            "es": "La máquina no entregó el efectivo completo.",
+            "en": "The machine did not give out all of the cash."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A",
+      "readingTemplate": "seed-es-master-personal-money-lesson-1"
+    },
+    {
+      "n": 2,
+      "title": "Handle a delayed transfer",
+      "objective": "Compare the transfer reference, receiving bank, processing time and crediting date with the bank's stated timeline, then request a trace.",
+      "focus": "Estar plus a gerund for an ongoing process (está procesando) and the future for a timeline the bank states (llegará)",
+      "words": [
+        {
+          "es": "transferencia pendiente",
+          "en": "pending transfer",
+          "kind": "term"
+        },
+        {
+          "es": "referencia",
+          "en": "reference",
+          "kind": "term"
+        },
+        {
+          "es": "cuenta de destino",
+          "en": "destination account",
+          "kind": "term"
+        },
+        {
+          "es": "banco receptor",
+          "en": "receiving bank",
+          "kind": "term"
+        },
+        {
+          "es": "código bancario",
+          "en": "bank code",
+          "kind": "term"
+        },
+        {
+          "es": "plazo de procesamiento",
+          "en": "processing time",
+          "kind": "term"
+        },
+        {
+          "es": "fecha de acreditación",
+          "en": "crediting date",
+          "kind": "term"
+        },
+        {
+          "es": "días hábiles",
+          "en": "business days",
+          "kind": "term"
+        },
+        {
+          "es": "instrucción de pago",
+          "en": "payment instruction",
+          "kind": "term"
+        },
+        {
+          "es": "rastreo",
+          "en": "trace",
+          "kind": "term",
+          "note": "A search of the payment path to find where the money is held."
+        },
+        {
+          "es": "rechazo",
+          "en": "rejection",
+          "kind": "term"
+        },
+        {
+          "es": "devolución",
+          "en": "return",
+          "kind": "term",
+          "note": "Money sent back to the sender after a failed or rejected transfer."
+        },
+        {
+          "es": "comprobante de envío",
+          "en": "sending receipt",
+          "kind": "term"
+        },
+        {
+          "es": "¿Cuál es la referencia de la transferencia?",
+          "en": "What is the transfer reference?",
+          "kind": "phrase"
+        },
+        {
+          "es": "La transferencia sigue pendiente desde el lunes.",
+          "en": "The transfer has been pending since Monday.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuál es el plazo de procesamiento del banco receptor?",
+          "en": "What is the processing time of the receiving bank?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puede rastrear la instrucción de pago?",
+          "en": "Can you trace the payment instruction?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Necesito el comprobante de envío para mi reclamo.",
+          "en": "I need the sending receipt for my complaint.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuántos días hábiles tarda la acreditación?",
+          "en": "How many business days does the crediting take?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quiero rastrear la transferencia hoy.",
+          "en": "I want to trace the transfer today.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "A transfer of $850.00 to your sister is still pending after four days. Ask for the transfer reference, the receiving bank's processing time and a trace of the payment instruction. Close by stating the crediting date you were given and what you will do if it passes.",
+      "partnerRole": "Spanish-speaking payments agent at a bank",
+      "openingLine": "Buenas tardes. ¿Qué transferencia quiere revisar hoy?",
+      "grammar": {
+        "focus": "Estar with a gerund for an ongoing process (está procesando) and a future for a timeline the bank states (llegará el lunes).",
+        "examples": [
+          {
+            "es": "El banco receptor está procesando la transferencia.",
+            "en": "The receiving bank is processing the transfer."
+          },
+          {
+            "es": "El depósito llegará el lunes.",
+            "en": "The deposit will arrive on Monday."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A",
+      "readingTemplate": "seed-es-master-personal-money-lesson-2"
+    },
+    {
+      "n": 3,
+      "title": "Resolve a duplicate debit",
+      "objective": "Separate two posted charges from a temporary authorization, state the amounts, and ask the bank to correct the repeated charge by reversal.",
+      "focus": "Subjunctive after es posible que and necesito que for what the bank must do (sea, revise, aparezca); the verbs revisar, aparecer, liberar, reclamar and pedir",
+      "words": [
+        {
+          "es": "cargo duplicado",
+          "en": "duplicate charge",
+          "kind": "term"
+        },
+        {
+          "es": "autorización temporal",
+          "en": "temporary authorization",
+          "kind": "term"
+        },
+        {
+          "es": "liquidación",
+          "en": "settlement",
+          "kind": "term"
+        },
+        {
+          "es": "comercio",
+          "en": "merchant",
+          "kind": "term"
+        },
+        {
+          "es": "cargo confirmado",
+          "en": "posted charge",
+          "kind": "term"
+        },
+        {
+          "es": "estado de cuenta",
+          "en": "statement",
+          "kind": "term"
+        },
+        {
+          "es": "reverso del cargo",
+          "en": "charge reversal",
+          "kind": "term"
+        },
+        {
+          "es": "número de autorización",
+          "en": "authorization number",
+          "kind": "term"
+        },
+        {
+          "es": "cobro repetido",
+          "en": "repeated charge",
+          "kind": "term"
+        },
+        {
+          "es": "reclamo",
+          "en": "complaint",
+          "kind": "term"
+        },
+        {
+          "es": "corrección",
+          "en": "correction",
+          "kind": "term"
+        },
+        {
+          "es": "aviso del comercio",
+          "en": "merchant notice",
+          "kind": "term"
+        },
+        {
+          "es": "historial de movimientos",
+          "en": "transaction history",
+          "kind": "term"
+        },
+        {
+          "es": "Hay dos cargos del mismo comercio.",
+          "en": "There are two charges from the same merchant.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Esto es una autorización temporal o un cargo confirmado?",
+          "en": "Is this a temporary authorization or a posted charge?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Necesito que el banco revise el cobro repetido.",
+          "en": "I need the bank to review the repeated charge.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puede darme el número de autorización?",
+          "en": "Can you give me the authorization number?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quiero que el reverso aparezca en mi estado de cuenta.",
+          "en": "I want the reversal to appear on my statement.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuándo se hará la corrección?",
+          "en": "When will the correction be made?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Two charges of $65.00 from the same merchant appear on your statement. Ask whether one is a temporary authorization, ask for the authorization number, and request that the bank review the repeated charge. Close by stating when you need the reversal to appear and what you will file if it does not.",
+      "partnerRole": "Spanish-speaking bank dispute specialist",
+      "openingLine": "Buenas tardes. Veo que hay un cobro repetido en su cuenta. ¿Me lo describe?",
+      "grammar": {
+        "focus": "Subjunctive after es posible que and necesito que for what the bank must do: es posible que sea, que el banco revise, que el reverso aparezca.",
+        "examples": [
+          {
+            "es": "Es posible que el segundo cargo sea una autorización temporal.",
+            "en": "It is possible that the second charge is a temporary authorization."
+          },
+          {
+            "es": "Necesito que el banco revise el cobro repetido.",
+            "en": "I need the bank to review the repeated charge."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A",
+      "readingTemplate": "seed-es-master-personal-money-lesson-3"
+    },
+    {
+      "n": 4,
+      "title": "Explain suspected account misuse",
+      "objective": "Describe unfamiliar activity, use only the official contact route, and request account controls such as a block, a security alert or a lower transaction limit.",
+      "focus": "Subjunctive after me preocupa que (alguien use) and usted-style plans with future (Le aplicaré); the verbs activar, reducir, proteger, aplicar and usar",
+      "words": [
+        {
+          "es": "actividad inusual",
+          "en": "unusual activity",
+          "kind": "term"
+        },
+        {
+          "es": "acceso no autorizado",
+          "en": "unauthorized access",
+          "kind": "term"
+        },
+        {
+          "es": "contacto oficial",
+          "en": "official contact",
+          "kind": "term"
+        },
+        {
+          "es": "bloqueo preventivo",
+          "en": "precautionary block",
+          "kind": "term"
+        },
+        {
+          "es": "límite de transacciones",
+          "en": "transaction limit",
+          "kind": "term"
+        },
+        {
+          "es": "verificación de identidad",
+          "en": "identity check",
+          "kind": "term"
+        },
+        {
+          "es": "inicio de sesión",
+          "en": "login",
+          "kind": "term"
+        },
+        {
+          "es": "dispositivo desconocido",
+          "en": "unknown device",
+          "kind": "term"
+        },
+        {
+          "es": "alerta de seguridad",
+          "en": "security alert",
+          "kind": "term"
+        },
+        {
+          "es": "cambio de contraseña",
+          "en": "password change",
+          "kind": "term"
+        },
+        {
+          "es": "número de cliente",
+          "en": "customer number",
+          "kind": "term"
+        },
+        {
+          "es": "reporte de actividad",
+          "en": "activity report",
+          "kind": "term"
+        },
+        {
+          "es": "correo de confirmación",
+          "en": "confirmation email",
+          "kind": "term"
+        },
+        {
+          "es": "Hay un inicio de sesión que no reconozco.",
+          "en": "There is a login that I do not recognize.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Usaré solo el contacto oficial del banco.",
+          "en": "I will use only the official contact of the bank.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puede activar una alerta de seguridad?",
+          "en": "Can you turn on a security alert?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puede aplicar un bloqueo preventivo a mi cuenta?",
+          "en": "Can you apply a precautionary block to my account?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quiero reducir el límite de transacciones.",
+          "en": "I want to reduce the transaction limit.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Qué pasos debo seguir para proteger mi cuenta?",
+          "en": "What steps should I follow to protect my account?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Your bank app sends a notice about a login from an unknown device. Describe the unfamiliar activity, say you will use only the official contact, and ask for a precautionary block and a security alert. Close by stating the customer number you will keep and the transaction limit you want.",
+      "partnerRole": "Spanish-speaking bank security specialist on a call",
+      "openingLine": "Buenas tardes. Gracias por reportar la actividad. ¿Qué inicio de sesión le llamó la atención?",
+      "grammar": {
+        "focus": "Subjunctive after me preocupa que for worry (me preocupa que alguien use mi cuenta); the future for a plan the bank will do (le aplicaré un bloqueo).",
+        "examples": [
+          {
+            "es": "Me preocupa que alguien use mi cuenta.",
+            "en": "I am worried that someone is using my account."
+          },
+          {
+            "es": "Le aplicaré un bloqueo preventivo.",
+            "en": "I will apply a precautionary block for you."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A",
+      "readingTemplate": "seed-es-master-personal-money-lesson-4"
+    },
+    {
+      "n": 5,
+      "title": "Deal with a convincing payment scam",
+      "objective": "Identify a message that demands urgent payment, refuse to share a verification code, and verify the request through a separate trusted channel.",
+      "focus": "Usted commands for a safe procedure (confirme, nunca comparta, llame); the verbs compartir, llamar, borrar, marcar and verificar",
+      "words": [
+        {
+          "es": "mensaje sospechoso",
+          "en": "suspicious message",
+          "kind": "term"
+        },
+        {
+          "es": "pago urgente",
+          "en": "urgent payment",
+          "kind": "term"
+        },
+        {
+          "es": "enlace falso",
+          "en": "fake link",
+          "kind": "term"
+        },
+        {
+          "es": "contacto de confianza",
+          "en": "trusted contact",
+          "kind": "term"
+        },
+        {
+          "es": "canal verificado",
+          "en": "verified channel",
+          "kind": "term"
+        },
+        {
+          "es": "estafa",
+          "en": "scam",
+          "kind": "term"
+        },
+        {
+          "es": "suplantación de identidad",
+          "en": "identity impersonation",
+          "kind": "term"
+        },
+        {
+          "es": "número oficial",
+          "en": "official number",
+          "kind": "term"
+        },
+        {
+          "es": "amenaza de cierre",
+          "en": "threat of closure",
+          "kind": "term"
+        },
+        {
+          "es": "transferencia de emergencia",
+          "en": "emergency transfer",
+          "kind": "term"
+        },
+        {
+          "es": "código de verificación",
+          "en": "verification code",
+          "kind": "term"
+        },
+        {
+          "es": "solicitud",
+          "en": "request",
+          "kind": "term"
+        },
+        {
+          "es": "remitente",
+          "en": "sender",
+          "kind": "term"
+        },
+        {
+          "es": "¿Quién es el remitente de este mensaje?",
+          "en": "Who is the sender of this message?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Esto parece una estafa.",
+          "en": "This looks like a scam.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Voy a llamar al número de la tarjeta.",
+          "en": "I am going to call the number on the card.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puede verificar esta solicitud por el número oficial?",
+          "en": "Can you verify this request through the official number?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Nunca comparta un código de verificación con nadie.",
+          "en": "Never share a verification code with anyone.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Confírmelo con el contacto de confianza.",
+          "en": "Confirm it with the trusted contact.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "A message says your account will close today unless you send $900.00 urgently. Ask who the sender is, say whether it looks like a scam, and state that you will call the number on your card. Close by refusing to share any verification code and saying what you will do with the message.",
+      "partnerRole": "Spanish-speaking bank fraud prevention adviser",
+      "openingLine": "Buenas tardes, gracias por llamar al número de su tarjeta. ¿Qué dice el mensaje?",
+      "grammar": {
+        "focus": "Usted commands for a safe procedure: nunca comparta (negative), confirme (affirmative), llame (affirmative). The command is the bank's own advice to the customer.",
+        "examples": [
+          {
+            "es": "Nunca comparta un código de verificación con nadie.",
+            "en": "Never share a verification code with anyone."
+          },
+          {
+            "es": "Confírmelo con el contacto de confianza.",
+            "en": "Confirm it with the trusted contact."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B",
+      "readingTemplate": "seed-es-master-personal-money-lesson-5"
+    },
+    {
+      "n": 6,
+      "title": "Question an investment promise",
+      "objective": "Ask about risk, fees, access to funds and the basis for a promised result, and refuse to sign under pressure.",
+      "focus": "Negative indefinite pronouns for refusal (no firmo nada, nadie garantiza); the verbs prometer, retirar, firmar, preguntar and exigir",
+      "words": [
+        {
+          "es": "promesa de rendimiento",
+          "en": "promise of return",
+          "kind": "term"
+        },
+        {
+          "es": "rendimiento garantizado",
+          "en": "guaranteed return",
+          "kind": "term"
+        },
+        {
+          "es": "riesgo",
+          "en": "risk",
+          "kind": "term"
+        },
+        {
+          "es": "comisiones",
+          "en": "fees",
+          "kind": "term"
+        },
+        {
+          "es": "base de la promesa",
+          "en": "basis of the promise",
+          "kind": "term"
+        },
+        {
+          "es": "prospecto",
+          "en": "prospectus",
+          "kind": "term",
+          "note": "The official document that describes an investment, its risks and its costs."
+        },
+        {
+          "es": "perfil de riesgo",
+          "en": "risk profile",
+          "kind": "term"
+        },
+        {
+          "es": "horizonte de inversión",
+          "en": "investment horizon",
+          "kind": "term"
+        },
+        {
+          "es": "acceso al dinero",
+          "en": "access to money",
+          "kind": "term"
+        },
+        {
+          "es": "penalización por salida",
+          "en": "exit penalty",
+          "kind": "term"
+        },
+        {
+          "es": "pérdida posible",
+          "en": "possible loss",
+          "kind": "term"
+        },
+        {
+          "es": "presentación comercial",
+          "en": "sales presentation",
+          "kind": "term"
+        },
+        {
+          "es": "contrato de inversión",
+          "en": "investment contract",
+          "kind": "term"
+        },
+        {
+          "es": "¿Cuál es la base de esa promesa?",
+          "en": "What is the basis for that promise?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Qué riesgo tiene este producto?",
+          "en": "What risk does this product carry?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuánto cuestan las comisiones?",
+          "en": "How much are the fees?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puedo retirar mi dinero cuando lo necesite?",
+          "en": "Can I withdraw my money when I need it?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Prefiero leer el prospecto completo.",
+          "en": "I prefer to read the full prospectus.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Nadie puede garantizar ese rendimiento.",
+          "en": "Nobody can guarantee that return.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "At a sales presentation, a salesperson promises a guaranteed 20% annual return. Ask for the basis of the promise, the risk, the fees and whether you can withdraw money when you need it. Close by stating that you will read the prospectus and sign nothing today.",
+      "partnerRole": "Spanish-speaking salesperson for a fictional investment fund",
+      "openingLine": "Buenas tardes. Este fondo ficticio ofrece un rendimiento garantizado del 20% anual. ¿Quiere saber más?",
+      "grammar": {
+        "focus": "Negative indefinite pronouns for refusal: no firmo nada (I sign nothing), nadie garantiza (nobody guarantees), ninguna promesa.",
+        "examples": [
+          {
+            "es": "No firmo nada hoy.",
+            "en": "I sign nothing today."
+          },
+          {
+            "es": "Nadie garantiza un rendimiento seguro.",
+            "en": "Nobody guarantees a safe return."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B",
+      "readingTemplate": "seed-es-master-personal-money-lesson-6"
+    },
+    {
+      "n": 7,
+      "title": "Handle a sudden income change",
+      "objective": "Explain that a paycheck has stopped, state the monthly income that is now missing, and agree on a revised budget with a partner.",
+      "focus": "Dejar de plus an infinitive (dejó de llegar) for stopping, and ya no versus todavía no; the verbs dejar, suspender, ajustar, confirmar and tocar",
+      "words": [
+        {
+          "es": "pago de nómina",
+          "en": "paycheck",
+          "kind": "term",
+          "note": "Pay from an employer, usually sent by direct deposit. Cheque de nómina is a paper paycheck."
+        },
+        {
+          "es": "pago suspendido",
+          "en": "suspended payment",
+          "kind": "term"
+        },
+        {
+          "es": "empleador",
+          "en": "employer",
+          "kind": "term"
+        },
+        {
+          "es": "revisión del presupuesto",
+          "en": "budget review",
+          "kind": "term"
+        },
+        {
+          "es": "ingreso mensual",
+          "en": "monthly income",
+          "kind": "term"
+        },
+        {
+          "es": "gastos esenciales",
+          "en": "essential expenses",
+          "kind": "term"
+        },
+        {
+          "es": "gasto no esencial",
+          "en": "non-essential spending",
+          "kind": "term"
+        },
+        {
+          "es": "reserva de emergencia",
+          "en": "emergency reserve",
+          "kind": "term"
+        },
+        {
+          "es": "cuota del préstamo",
+          "en": "loan installment",
+          "kind": "term"
+        },
+        {
+          "es": "plan de pagos",
+          "en": "payment plan",
+          "kind": "term"
+        },
+        {
+          "es": "cuenta de cargo",
+          "en": "charge account",
+          "kind": "term"
+        },
+        {
+          "es": "pago de la renta",
+          "en": "rent payment",
+          "kind": "term"
+        },
+        {
+          "es": "fecha de cobro",
+          "en": "payday",
+          "kind": "term",
+          "note": "The date when a payment is taken from the account or received."
+        },
+        {
+          "es": "Mi pago de nómina dejó de llegar.",
+          "en": "My paycheck stopped arriving.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Desde cuándo está suspendido el pago?",
+          "en": "Since when has the payment been suspended?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Ya no recibo el ingreso mensual.",
+          "en": "I no longer receive the monthly income.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puede explicarme por qué se suspendió el pago?",
+          "en": "Can you explain why the payment was suspended?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Esto cambia nuestro plan para los próximos meses.",
+          "en": "This changes our plan for the coming months.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuánto tiempo podemos usar la reserva de emergencia?",
+          "en": "How long can we use the emergency reserve?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Your paycheck stopped after the last pay period. Ask the bank since when the payment is suspended and why, state the monthly income you no longer receive, and ask about the emergency reserve. Close by agreeing with your partner on the first three changes to the budget.",
+      "partnerRole": "Spanish-speaking bank officer, then a partner at home",
+      "openingLine": "Buenas tardes, le atiende Javier del banco. ¿Qué pasó con el depósito de este mes?",
+      "grammar": {
+        "focus": "Dejar de plus an infinitive for stopping (dejó de llegar); ya no for something that no longer happens and todavía no for something not yet happened.",
+        "examples": [
+          {
+            "es": "Mi cheque dejó de llegar.",
+            "en": "My paycheck stopped arriving."
+          },
+          {
+            "es": "Ya no recibo el ingreso mensual.",
+            "en": "I no longer receive the monthly income."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B",
+      "readingTemplate": "seed-es-master-personal-money-lesson-7"
+    },
+    {
+      "n": 8,
+      "title": "Discuss difficulty making a payment",
+      "objective": "Explain a payment difficulty to a provider, ask for a deferral or payment plan, and confirm the due date and the commitment in writing.",
+      "focus": "Poder for ability and a polite request (puedo pagar; ¿Puede darme?); the verbs proponer, cumplir, poder, explicar and aclarar",
+      "words": [
+        {
+          "es": "pago atrasado",
+          "en": "late payment",
+          "kind": "term"
+        },
+        {
+          "es": "aplazamiento",
+          "en": "deferral",
+          "kind": "term",
+          "note": "A later date for a payment, usually agreed with the provider."
+        },
+        {
+          "es": "convenio de pago",
+          "en": "payment agreement",
+          "kind": "term"
+        },
+        {
+          "es": "recargo por mora",
+          "en": "late charge",
+          "kind": "term"
+        },
+        {
+          "es": "saldo vencido",
+          "en": "overdue balance",
+          "kind": "term"
+        },
+        {
+          "es": "estado de mora",
+          "en": "delinquency status",
+          "kind": "term"
+        },
+        {
+          "es": "plan de regularización",
+          "en": "recovery plan",
+          "kind": "term"
+        },
+        {
+          "es": "fecha de vencimiento",
+          "en": "due date",
+          "kind": "term"
+        },
+        {
+          "es": "pago parcial",
+          "en": "partial payment",
+          "kind": "term"
+        },
+        {
+          "es": "ajuste de cuota",
+          "en": "fee adjustment",
+          "kind": "term"
+        },
+        {
+          "es": "reducción temporal",
+          "en": "temporary reduction",
+          "kind": "term",
+          "note": "A lower amount for a limited time, after which the usual amount returns."
+        },
+        {
+          "es": "centro de atención",
+          "en": "service center",
+          "kind": "term"
+        },
+        {
+          "es": "carta de compromiso",
+          "en": "commitment letter",
+          "kind": "term"
+        },
+        {
+          "es": "Tengo dificultades para hacer el pago de este mes.",
+          "en": "I have trouble making this month's payment.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Qué arreglos ofrecen para un pago atrasado?",
+          "en": "What arrangements do you offer for a late payment?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puede darme un aplazamiento de dos semanas?",
+          "en": "Can you give me a two-week deferral?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quiero firmar un convenio de pago.",
+          "en": "I want to sign a payment agreement.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Puedo pagar una parte hoy.",
+          "en": "I can pay part of it today.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Me ayuda con un plan de regularización?",
+          "en": "Can you help me with a recovery plan?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Call your internet provider because you cannot pay this month. Explain your situation, ask what arrangements are offered for a late payment, and request a deferral or a payment agreement. Close by confirming the partial payment you will make today and the new due date.",
+      "partnerRole": "Spanish-speaking service center agent for a utility or internet provider",
+      "openingLine": "Centro de atención, buenas tardes. ¿Cuál es su número de cliente?",
+      "grammar": {
+        "focus": "Poder for ability and for a polite request: puedo pagar (I can pay), ¿puede darme? (can you give me?). ¿Me ayuda? is a present-tense request with me as the object pronoun.",
+        "examples": [
+          {
+            "es": "Puedo pagar una parte hoy.",
+            "en": "I can pay part of it today."
+          },
+          {
+            "es": "¿Puede darme un aplazamiento de dos semanas?",
+            "en": "Can you give me a two-week deferral?"
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B",
+      "readingTemplate": "seed-es-master-personal-money-lesson-8"
+    },
+    {
+      "n": 9,
+      "title": "Review a debt-repayment proposal",
+      "objective": "Compare the monthly payment, term, interest and total cost of a fictional consolidation offer, and explain how the term changes the result.",
+      "focus": "Con plus a noun and a clause for a condition with comparison (con un plazo más largo, el pago baja); the verbs comparar, calcular, amortizar, subir and reducir",
+      "words": [
+        {
+          "es": "propuesta de pago",
+          "en": "repayment proposal",
+          "kind": "term"
+        },
+        {
+          "es": "plazo total",
+          "en": "full term",
+          "kind": "term"
+        },
+        {
+          "es": "tasa de interés",
+          "en": "interest rate",
+          "kind": "term"
+        },
+        {
+          "es": "pago mensual",
+          "en": "monthly payment",
+          "kind": "term"
+        },
+        {
+          "es": "intereses totales",
+          "en": "total interest",
+          "kind": "term"
+        },
+        {
+          "es": "amortización",
+          "en": "amortization",
+          "kind": "term",
+          "note": "The way each payment reduces the balance over time."
+        },
+        {
+          "es": "saldo a liquidar",
+          "en": "balance to clear",
+          "kind": "term"
+        },
+        {
+          "es": "costo total",
+          "en": "total cost",
+          "kind": "term"
+        },
+        {
+          "es": "consolidación de deudas",
+          "en": "debt consolidation",
+          "kind": "term"
+        },
+        {
+          "es": "cronograma de pagos",
+          "en": "payment schedule",
+          "kind": "term"
+        },
+        {
+          "es": "comisión de apertura",
+          "en": "opening fee",
+          "kind": "term"
+        },
+        {
+          "es": "deuda total",
+          "en": "total debt",
+          "kind": "term"
+        },
+        {
+          "es": "pago final",
+          "en": "final payment",
+          "kind": "term"
+        },
+        {
+          "es": "¿Cuál es el costo total de esta propuesta?",
+          "en": "What is the total cost of this proposal?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuánto son los intereses totales?",
+          "en": "How much is the total interest?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuál es el pago final?",
+          "en": "What is the final payment?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuánto baja el pago mensual con un plazo más largo?",
+          "en": "How much does the monthly payment fall with a longer term?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quiero ver el cronograma de pagos completo.",
+          "en": "I want to see the full payment schedule.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Compararé la deuda total con mi plan actual.",
+          "en": "I will compare the total debt with my current plan.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "A lender proposes to consolidate $6,000.00 of debt at 18% a year. Ask for the monthly payment, the total cost and the total interest, and ask how a longer or shorter term changes the payment. Close by stating what you will compare with your current plan before signing.",
+      "partnerRole": "Spanish-speaking credit counselor reviewing a fictional proposal",
+      "openingLine": "Buenas tardes. Vamos a revisar la propuesta de consolidación. ¿Cuál es su deuda total?",
+      "grammar": {
+        "focus": "Con plus a noun and a clause for a condition with a comparison: con un plazo más largo, el pago baja; con un plazo más corto, los intereses bajan.",
+        "examples": [
+          {
+            "es": "Con un plazo más corto, el pago mensual sube, pero los intereses bajan.",
+            "en": "With a shorter term, the monthly payment goes up, but the interest goes down."
+          },
+          {
+            "es": "Con un plazo más largo, el pago mensual baja, pero los intereses suben.",
+            "en": "With a longer term, the monthly payment goes down, but the interest goes up."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "C",
+      "readingTemplate": "seed-es-master-personal-money-lesson-9"
+    },
+    {
+      "n": 10,
+      "title": "Resolve a subscription renewal dispute",
+      "objective": "Identify the renewal, the cancellation record and the refund you request, using the provider's written terms and a case number.",
+      "focus": "Antes de plus an infinitive when the subject stays the same (antes de cancelar); antes de que plus the subjunctive when the subject changes (antes de que renovaran)",
+      "words": [
+        {
+          "es": "renovación automática",
+          "en": "automatic renewal",
+          "kind": "term"
+        },
+        {
+          "es": "registro de cancelación",
+          "en": "cancellation record",
+          "kind": "term"
+        },
+        {
+          "es": "comprobante de cancelación",
+          "en": "cancellation receipt",
+          "kind": "term"
+        },
+        {
+          "es": "periodo de prueba",
+          "en": "trial period",
+          "kind": "term"
+        },
+        {
+          "es": "cargo recurrente",
+          "en": "recurring charge",
+          "kind": "term"
+        },
+        {
+          "es": "política de reembolso",
+          "en": "refund policy",
+          "kind": "term"
+        },
+        {
+          "es": "solicitud de reembolso",
+          "en": "refund request",
+          "kind": "term"
+        },
+        {
+          "es": "correo de aviso",
+          "en": "notice email",
+          "kind": "term"
+        },
+        {
+          "es": "servicio de atención",
+          "en": "customer care",
+          "kind": "term"
+        },
+        {
+          "es": "número de caso",
+          "en": "case number",
+          "kind": "term"
+        },
+        {
+          "es": "términos del servicio",
+          "en": "terms of service",
+          "kind": "term"
+        },
+        {
+          "es": "prueba gratuita",
+          "en": "free trial",
+          "kind": "term"
+        },
+        {
+          "es": "cobro indebido",
+          "en": "improper charge",
+          "kind": "term"
+        },
+        {
+          "es": "Cancelé la suscripción antes de la renovación.",
+          "en": "I cancelled the subscription before the renewal.",
+          "kind": "phrase"
+        },
+        {
+          "es": "No recibí el correo de aviso.",
+          "en": "I did not receive the notice email.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuál es la política de reembolso?",
+          "en": "What is the refund policy?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Me da un número de caso, por favor?",
+          "en": "Can you give me a case number, please?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quiero un reembolso por el cargo recurrente.",
+          "en": "I want a refund for the recurring charge.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Dónde está el registro de la cancelación?",
+          "en": "Where is the cancellation record?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "A streaming service charged you after you say you cancelled. Explain when you cancelled and that you did not receive the notice email. Ask for the cancellation record, the refund policy and a case number. Close by stating the refund you request and the date you will contact customer care again.",
+      "partnerRole": "Spanish-speaking customer care agent for a streaming service",
+      "openingLine": "Servicio de atención, buenas tardes. ¿En qué le puedo ayudar con su suscripción?",
+      "grammar": {
+        "focus": "Antes de plus an infinitive when the subject is the same (antes de cancelar); antes de que plus the subjunctive when another subject acts (antes de que renovaran el plan).",
+        "examples": [
+          {
+            "es": "Cancelé la suscripción antes de la renovación.",
+            "en": "I cancelled the subscription before the renewal."
+          },
+          {
+            "es": "Cancelé antes de que renovaran el plan.",
+            "en": "I cancelled before they renewed the plan."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C",
+      "readingTemplate": "seed-es-master-personal-money-lesson-10"
+    },
+    {
+      "n": 11,
+      "title": "Discuss a shared household budget",
+      "objective": "Negotiate how two people split shared bills in proportion to income, and agree how to handle an unexpected repair from a common fund.",
+      "focus": "Según plus a noun for a basis (según el ingreso) and percentages for a proportion; the verbs repartir, reponer, equilibrar, mantener and aportar",
+      "words": [
+        {
+          "es": "presupuesto compartido",
+          "en": "shared budget",
+          "kind": "term"
+        },
+        {
+          "es": "gastos compartidos",
+          "en": "shared expenses",
+          "kind": "term"
+        },
+        {
+          "es": "proporción",
+          "en": "proportion",
+          "kind": "term"
+        },
+        {
+          "es": "cuenta conjunta",
+          "en": "joint account",
+          "kind": "term"
+        },
+        {
+          "es": "cuenta personal",
+          "en": "personal account",
+          "kind": "term"
+        },
+        {
+          "es": "reparto",
+          "en": "split",
+          "kind": "term"
+        },
+        {
+          "es": "acuerdo",
+          "en": "agreement",
+          "kind": "term"
+        },
+        {
+          "es": "gasto inesperado",
+          "en": "unexpected expense",
+          "kind": "term"
+        },
+        {
+          "es": "fondo común",
+          "en": "common fund",
+          "kind": "term"
+        },
+        {
+          "es": "recibo de luz",
+          "en": "electricity bill",
+          "kind": "term"
+        },
+        {
+          "es": "saldo compartido",
+          "en": "shared balance",
+          "kind": "term"
+        },
+        {
+          "es": "aportación mensual",
+          "en": "monthly contribution",
+          "kind": "term"
+        },
+        {
+          "es": "revisión mensual",
+          "en": "monthly review",
+          "kind": "term"
+        },
+        {
+          "es": "Propongo que cada uno aporte según su ingreso.",
+          "en": "I propose that each of us contributes according to income.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Qué porcentaje pagamos cada uno?",
+          "en": "What percentage does each of us pay?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Quién paga el recibo de luz este mes?",
+          "en": "Who pays the electricity bill this month?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Podemos usar el fondo común para la reparación.",
+          "en": "We can use the common fund for the repair.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Hagamos un acuerdo por escrito.",
+          "en": "Let's make an agreement in writing.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuánto cuesta el gasto inesperado en total?",
+          "en": "What is the total cost of the unexpected expense?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Mi aportación mensual es $516.00.",
+          "en": "My monthly contribution is $516.00.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Negotiate with your partner how to split the rent and the electricity bill in proportion to income. Name each person's share, then decide how to pay an unexpected car repair that costs more than the common fund holds. Close by agreeing on the date of the next monthly review and the form of the agreement.",
+      "partnerRole": "Spanish-speaking partner who shares the household budget",
+      "openingLine": "Hola. Tenemos que hablar del presupuesto. ¿Por dónde empezamos?",
+      "grammar": {
+        "focus": "Según plus a noun for a basis (según el ingreso, each contributes in proportion); percentages with the verb (pagaría el 57%).",
+        "examples": [
+          {
+            "es": "Cada uno aporta según su ingreso.",
+            "en": "Each one contributes according to income."
+          },
+          {
+            "es": "Yo pagaría el 57% y tú el 43%.",
+            "en": "I would pay 57% and you would pay 43%."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C",
+      "readingTemplate": "seed-es-master-personal-money-lesson-11"
+    },
+    {
+      "n": 12,
+      "title": "Talk about a financial boundary",
+      "objective": "Decline a request for money respectfully, explain the limit you are setting, and offer a different kind of help.",
+      "focus": "Prefiero que plus the subjunctive for a preference about someone else (no firmemos); no puedo plus an infinitive for a firm refusal; the verbs decir, respetar, ayudar, sentir and prestar",
+      "words": [
+        {
+          "es": "límite financiero",
+          "en": "financial boundary",
+          "kind": "term"
+        },
+        {
+          "es": "préstamo personal",
+          "en": "personal loan",
+          "kind": "term"
+        },
+        {
+          "es": "devolución",
+          "en": "repayment",
+          "kind": "term"
+        },
+        {
+          "es": "compromiso financiero",
+          "en": "financial commitment",
+          "kind": "term"
+        },
+        {
+          "es": "ayuda económica",
+          "en": "financial help",
+          "kind": "term"
+        },
+        {
+          "es": "fecha de devolución",
+          "en": "repayment date",
+          "kind": "term"
+        },
+        {
+          "es": "aval",
+          "en": "co-signed guarantee",
+          "kind": "term",
+          "note": "A promise by another person to pay a debt if the borrower does not pay."
+        },
+        {
+          "es": "relación de confianza",
+          "en": "relationship of trust",
+          "kind": "term"
+        },
+        {
+          "es": "dinero prestado",
+          "en": "borrowed money",
+          "kind": "term"
+        },
+        {
+          "es": "pago de deuda",
+          "en": "debt payment",
+          "kind": "term"
+        },
+        {
+          "es": "presupuesto familiar",
+          "en": "family budget",
+          "kind": "term"
+        },
+        {
+          "es": "plan de ahorro",
+          "en": "savings plan",
+          "kind": "term"
+        },
+        {
+          "es": "decisión personal",
+          "en": "personal decision",
+          "kind": "term"
+        },
+        {
+          "es": "No puedo prestarte dinero este mes.",
+          "en": "I cannot lend you money this month.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Prefiero que no firmemos un aval.",
+          "en": "I prefer that we do not sign a co-signed guarantee.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuál sería la fecha de devolución?",
+          "en": "What would the repayment date be?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Puedo ayudarte con un plan de pago.",
+          "en": "I can help you with a payment plan.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Es una decisión personal que respeto.",
+          "en": "It is a personal decision that I respect.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Lo siento, pero tengo un límite financiero.",
+          "en": "I am sorry, but I have a financial limit.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Mi presupuesto no permite ese compromiso financiero.",
+          "en": "My budget does not allow that financial commitment.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "A cousin asks you for an $800.00 loan and to co-sign with him. Decline the loan and the co-signature respectfully, state the financial limit you are setting, and offer a payment plan or a small help instead. Close by saying what you will review with your family next month.",
+      "partnerRole": "Spanish-speaking cousin who asks for money",
+      "openingLine": "Hola, primo. ¿Tienes un minuto? Necesito hablar de algo importante.",
+      "grammar": {
+        "focus": "Prefiero que plus the subjunctive for a preference about another person (prefiero que no firmemos); no puedo plus an infinitive for a firm refusal.",
+        "examples": [
+          {
+            "es": "Prefiero que no firmemos un aval.",
+            "en": "I prefer that we do not sign a co-signed guarantee."
+          },
+          {
+            "es": "No puedo prestarte dinero este mes.",
+            "en": "I cannot lend you money this month."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "C",
+      "readingTemplate": "seed-es-master-personal-money-lesson-12"
+    },
+    {
+      "n": 13,
+      "title": "Review fees before moving an account",
+      "objective": "Confirm the closing fee, pending charges, direct debits, outstanding checks and transfer fee, and confirm in writing what changes automatically when an account closes.",
+      "focus": "Future for what will happen after a step, and cuando plus a subjunctive for a future event (cuando se confirme); the verbs cerrar, trasladar, quedar, confirmar and programar",
+      "words": [
+        {
+          "es": "cierre de cuenta",
+          "en": "account closure",
+          "kind": "term"
+        },
+        {
+          "es": "transferencia de saldo",
+          "en": "balance transfer",
+          "kind": "term"
+        },
+        {
+          "es": "comisión por cierre",
+          "en": "closing fee",
+          "kind": "term"
+        },
+        {
+          "es": "cargos pendientes",
+          "en": "pending charges",
+          "kind": "term"
+        },
+        {
+          "es": "pagos domiciliados",
+          "en": "direct debits",
+          "kind": "term",
+          "note": "Payments a company takes automatically from your account. Spain: domiciliaciones; Latin America also uses débitos automáticos."
+        },
+        {
+          "es": "cheques pendientes",
+          "en": "outstanding checks",
+          "kind": "term"
+        },
+        {
+          "es": "tarjeta vinculada",
+          "en": "linked card",
+          "kind": "term"
+        },
+        {
+          "es": "confirmación de cierre",
+          "en": "closure confirmation",
+          "kind": "term"
+        },
+        {
+          "es": "plazo de cierre",
+          "en": "closing period",
+          "kind": "term"
+        },
+        {
+          "es": "periodo de gracia",
+          "en": "grace period",
+          "kind": "term"
+        },
+        {
+          "es": "comisión por traslado",
+          "en": "transfer fee",
+          "kind": "term"
+        },
+        {
+          "es": "saldo final",
+          "en": "final balance",
+          "kind": "term"
+        },
+        {
+          "es": "nueva cuenta",
+          "en": "new account",
+          "kind": "term"
+        },
+        {
+          "es": "¿Cuánto cuesta cerrar esta cuenta?",
+          "en": "How much does it cost to close this account?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Qué pasa con mis pagos domiciliados?",
+          "en": "What happens to my direct debits?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuál es el plazo de cierre?",
+          "en": "What is the closing period?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quiero una confirmación de cierre por escrito.",
+          "en": "I want a closure confirmation in writing.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Se cobra alguna comisión por traslado?",
+          "en": "Is any transfer fee charged?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuándo se hace la transferencia de saldo?",
+          "en": "When does the balance transfer happen?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You plan to close your bank account and move the money to another bank. Ask the closing fee, what happens to your direct debits and outstanding checks, and whether the linked card stays active. Close by stating the closure confirmation you will request in writing and the date you will check the final balance.",
+      "partnerRole": "Spanish-speaking bank adviser handling an account closure",
+      "openingLine": "Buenas tardes. ¿Va a cerrar su cuenta o solo quiere revisar las condiciones?",
+      "grammar": {
+        "focus": "Future for a result after a step (la tarjeta se bloqueará) and cuando plus a subjunctive for a future event (cuando se confirme el cierre).",
+        "examples": [
+          {
+            "es": "La tarjeta vinculada se bloqueará cuando se confirme el cierre.",
+            "en": "The linked card will be blocked when the closure is confirmed."
+          },
+          {
+            "es": "Cierro la cuenta el viernes.",
+            "en": "I close the account on Friday."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D",
+      "readingTemplate": "seed-es-master-personal-money-lesson-13"
+    },
+    {
+      "n": 14,
+      "title": "Explain a market decline without panic language",
+      "objective": "Describe a fictional portfolio decline, separate price movement and an unrealized loss from a guaranteed outcome, and state a plan without promising a recovery.",
+      "focus": "Estar with a gerund for an ongoing change (está bajando, sigue subiendo y bajando); the verbs bajar, recuperar, revisar, subir and mantener",
+      "words": [
+        {
+          "es": "caída del mercado",
+          "en": "market decline",
+          "kind": "term"
+        },
+        {
+          "es": "precio de la inversión",
+          "en": "investment price",
+          "kind": "term"
+        },
+        {
+          "es": "fluctuación",
+          "en": "fluctuation",
+          "kind": "term"
+        },
+        {
+          "es": "pérdida no realizada",
+          "en": "unrealized loss",
+          "kind": "term",
+          "note": "A fall below the purchase value of an investment you still hold. Selling realizes the loss; the present value has already fallen."
+        },
+        {
+          "es": "valor de la cartera",
+          "en": "portfolio value",
+          "kind": "term"
+        },
+        {
+          "es": "volatilidad",
+          "en": "volatility",
+          "kind": "term"
+        },
+        {
+          "es": "horizonte de inversión",
+          "en": "investment horizon",
+          "kind": "term"
+        },
+        {
+          "es": "rebote",
+          "en": "rebound",
+          "kind": "term"
+        },
+        {
+          "es": "venta en pánico",
+          "en": "panic sale",
+          "kind": "term"
+        },
+        {
+          "es": "plan de inversión",
+          "en": "investment plan",
+          "kind": "term"
+        },
+        {
+          "es": "reequilibrio",
+          "en": "rebalancing",
+          "kind": "term"
+        },
+        {
+          "es": "rendimiento pasado",
+          "en": "past performance",
+          "kind": "term"
+        },
+        {
+          "es": "estrategia de largo plazo",
+          "en": "long-term strategy",
+          "kind": "term"
+        },
+        {
+          "es": "Mi cartera bajó un 8% este mes.",
+          "en": "My portfolio fell 8% this month.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Esa pérdida ya es real o solo está en el papel?",
+          "en": "Is that loss real, or is it only on paper?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Una caída no garantiza una pérdida definitiva.",
+          "en": "A decline does not guarantee a permanent loss.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuál es mi plan de inversión para este caso?",
+          "en": "What is my investment plan for this case?",
+          "kind": "phrase"
+        },
+        {
+          "es": "No voy a vender en pánico.",
+          "en": "I am not going to sell in a panic.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Debo reequilibrar la cartera?",
+          "en": "Should I rebalance the portfolio?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Explain to a financial educator why your fictional portfolio fell 8% this month. Separate the price movement from a realized loss, say what your investment horizon is, and explain that a decline is not a guaranteed outcome. Close by stating what you will review in your plan and what you will not do in a panic.",
+      "partnerRole": "Spanish-speaking financial educator explaining market movement to a client",
+      "openingLine": "Buenas tardes. Veo que su cartera ficticia tuvo una caída este mes. ¿Qué le preocupa más?",
+      "grammar": {
+        "focus": "Estar plus a gerund for an ongoing change in the market (está bajando, sigue subiendo y bajando); no garantiza plus a noun for a claim that is not certain.",
+        "examples": [
+          {
+            "es": "El mercado está bajando esta semana.",
+            "en": "The market is falling this week."
+          },
+          {
+            "es": "El precio sigue subiendo y bajando.",
+            "en": "The price keeps going up and down."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D",
+      "readingTemplate": "seed-es-master-personal-money-lesson-14"
+    },
+    {
+      "n": 15,
+      "title": "Discuss a goal with competing time horizons",
+      "objective": "Compare short-term access needs with a longer-term goal, state the conflict between them, and write questions for an investment adviser.",
+      "focus": "Tanto ... como for two options together (tanto la reserva como la inversión) and aunque plus an indicative for a concession; the verbs preparar, considerar, separar, ajustar and escribir",
+      "words": [
+        {
+          "es": "horizonte corto",
+          "en": "short horizon",
+          "kind": "term"
+        },
+        {
+          "es": "horizonte largo",
+          "en": "long horizon",
+          "kind": "term"
+        },
+        {
+          "es": "meta a corto plazo",
+          "en": "short-term goal",
+          "kind": "term"
+        },
+        {
+          "es": "meta a largo plazo",
+          "en": "long-term goal",
+          "kind": "term"
+        },
+        {
+          "es": "necesidad de liquidez",
+          "en": "liquidity need",
+          "kind": "term"
+        },
+        {
+          "es": "reserva de liquidez",
+          "en": "liquidity reserve",
+          "kind": "term"
+        },
+        {
+          "es": "matrícula universitaria",
+          "en": "university tuition",
+          "kind": "term"
+        },
+        {
+          "es": "inversión a plazo fijo",
+          "en": "fixed-term investment",
+          "kind": "term"
+        },
+        {
+          "es": "retiro parcial",
+          "en": "partial withdrawal",
+          "kind": "term"
+        },
+        {
+          "es": "aporte programado",
+          "en": "scheduled contribution",
+          "kind": "term"
+        },
+        {
+          "es": "asesor de inversiones",
+          "en": "investment adviser",
+          "kind": "term"
+        },
+        {
+          "es": "conflicto de plazos",
+          "en": "conflict between time frames",
+          "kind": "term"
+        },
+        {
+          "es": "lista de preguntas",
+          "en": "list of questions",
+          "kind": "term"
+        },
+        {
+          "es": "¿Cuándo necesito el dinero para la matrícula?",
+          "en": "When do I need the money for the tuition?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puedo tener una reserva de liquidez y también invertir?",
+          "en": "Can I have a liquidity reserve and also invest?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Qué pasa si necesito un retiro parcial?",
+          "en": "What happens if I need a partial withdrawal?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuál es la mejor opción para mi horizonte largo?",
+          "en": "What is the best option for my long horizon?",
+          "kind": "phrase",
+          "note": "A question for a licensed adviser. An educator explains products but does not choose one for you."
+        },
+        {
+          "es": "Quiero preparar una lista de preguntas para el asesor de inversiones.",
+          "en": "I want to prepare a list of questions for the investment adviser.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Tengo un conflicto de plazos entre dos metas.",
+          "en": "I have a conflict between two time frames.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Explain two goals to an adviser: tuition in two years and a retirement goal much later. Describe the liquidity need, ask whether you can keep a reserve and invest, and ask what happens with a partial withdrawal. Close by saying which questions you will write down for the next meeting.",
+      "partnerRole": "Spanish-speaking financial educator at a credit union",
+      "openingLine": "Buenas tardes. Cuénteme sus dos metas y en cuánto tiempo necesita el dinero.",
+      "grammar": {
+        "focus": "Tanto ... como for two options together (tanto la reserva como la inversión) and aunque plus an indicative for a concession (aunque invierto, mantengo una reserva).",
+        "examples": [
+          {
+            "es": "Quiero tanto la reserva como la inversión.",
+            "en": "I want both the reserve and the investment."
+          },
+          {
+            "es": "Aunque invierto, mantengo una reserva de liquidez.",
+            "en": "Although I invest, I keep a liquidity reserve."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D",
+      "readingTemplate": "seed-es-master-personal-money-lesson-15"
+    },
+    {
+      "n": 16,
+      "title": "Compare borrowing for a large purchase",
+      "objective": "Clarify the down payment, financed amount, fixed or variable rate and total payments across two fictional car financing offers.",
+      "focus": "Después de plus an infinitive for the order of steps; the verbs financiar, ofrecer, comparar, decidir and entregar",
+      "words": [
+        {
+          "es": "precio del vehículo",
+          "en": "vehicle price",
+          "kind": "term"
+        },
+        {
+          "es": "enganche",
+          "en": "down payment",
+          "kind": "term"
+        },
+        {
+          "es": "monto financiado",
+          "en": "financed amount",
+          "kind": "term"
+        },
+        {
+          "es": "tasa anual",
+          "en": "annual rate",
+          "kind": "term"
+        },
+        {
+          "es": "tasa fija",
+          "en": "fixed rate",
+          "kind": "term"
+        },
+        {
+          "es": "tasa variable",
+          "en": "variable rate",
+          "kind": "term"
+        },
+        {
+          "es": "plazo de financiamiento",
+          "en": "financing term",
+          "kind": "term"
+        },
+        {
+          "es": "pago mensual",
+          "en": "monthly payment",
+          "kind": "term"
+        },
+        {
+          "es": "pago total",
+          "en": "total payments",
+          "kind": "term"
+        },
+        {
+          "es": "costo total",
+          "en": "total cost",
+          "kind": "term"
+        },
+        {
+          "es": "seguro obligatorio",
+          "en": "required insurance",
+          "kind": "term"
+        },
+        {
+          "es": "oferta de financiamiento",
+          "en": "financing offer",
+          "kind": "term"
+        },
+        {
+          "es": "plan de financiamiento",
+          "en": "financing plan",
+          "kind": "term"
+        },
+        {
+          "es": "¿Cuál es el pago total del plan?",
+          "en": "What are the total payments of the plan?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿El seguro obligatorio está incluido?",
+          "en": "Is the required insurance included?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Necesito ver la oferta por escrito.",
+          "en": "I need to see the offer in writing.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Comparo el costo total de cada oferta.",
+          "en": "I compare the total cost of each offer.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿La tasa anual es fija o variable?",
+          "en": "Is the annual rate fixed or variable?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuál es el enganche mínimo?",
+          "en": "What is the minimum down payment?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuánto es el monto financiado?",
+          "en": "How much is the financed amount?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are buying a car for $18,000.00 with a $3,000.00 down payment. Ask the financed amount, the monthly payment and total payments in the dealership offer, and whether the required insurance is included. Close by comparing the total cost of both offers and stating which one you will ask to see in writing.",
+      "partnerRole": "Spanish-speaking dealership salesperson for a fictional car loan",
+      "openingLine": "Buenas tardes. ¿Qué auto le interesa y cuánto quiere dar de enganche?",
+      "grammar": {
+        "focus": "Después de plus an infinitive for the order of steps (después de hablar, después de firmar); plural subjects take plural verbs (los pagos suman).",
+        "examples": [
+          {
+            "es": "Decido después de hablar con mi hermana.",
+            "en": "I decide after speaking with my sister."
+          },
+          {
+            "es": "Los pagos suman $18,784.32 en total.",
+            "en": "The payments add up to $18,784.32 in total."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D",
+      "readingTemplate": "seed-es-master-personal-money-lesson-16"
+    },
+    {
+      "n": 17,
+      "title": "Handle a benefits or tax-related document question",
+      "objective": "Identify an IRS notice and a benefit letter from a fictional county program in Texas, state what you need to know, and prepare questions for a tax specialist without accepting an unverified figure.",
+      "focus": "Passive se for procedures (se presenta, se revisa) and según for a basis (según la revisión); the verbs presentar, aplicar, llenar, recibir and revisar",
+      "words": [
+        {
+          "es": "carta de beneficios",
+          "en": "benefit letter",
+          "kind": "term"
+        },
+        {
+          "es": "programa de apoyo",
+          "en": "support program",
+          "kind": "term",
+          "note": "A public support program. This lesson uses a fictional county program in Texas; real programs set their own rules."
+        },
+        {
+          "es": "declaración de impuestos",
+          "en": "tax return",
+          "kind": "term",
+          "note": "In the United States, the federal return is filed with the IRS; some states also have their own return."
+        },
+        {
+          "es": "formulario oficial",
+          "en": "official form",
+          "kind": "term"
+        },
+        {
+          "es": "número fiscal",
+          "en": "tax number",
+          "kind": "term",
+          "note": "The number a tax authority uses for you. In the United States, a Social Security number or an ITIN."
+        },
+        {
+          "es": "plazo de presentación",
+          "en": "filing deadline",
+          "kind": "term"
+        },
+        {
+          "es": "autoridad fiscal",
+          "en": "tax authority",
+          "kind": "term"
+        },
+        {
+          "es": "especialista fiscal",
+          "en": "tax specialist",
+          "kind": "term"
+        },
+        {
+          "es": "documento oficial",
+          "en": "official document",
+          "kind": "term"
+        },
+        {
+          "es": "ingreso declarado",
+          "en": "declared income",
+          "kind": "term"
+        },
+        {
+          "es": "reembolso de impuestos",
+          "en": "tax refund",
+          "kind": "term"
+        },
+        {
+          "es": "deducción",
+          "en": "deduction",
+          "kind": "term",
+          "note": "An amount that may reduce taxable income. Eligibility depends on the rules and on the review."
+        },
+        {
+          "es": "pago de beneficios",
+          "en": "benefit payment",
+          "kind": "term"
+        },
+        {
+          "es": "¿Qué tipo de documento es este?",
+          "en": "What kind of document is this?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Esta carta es de la autoridad fiscal?",
+          "en": "Is this letter from the tax authority?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuál es el plazo de presentación?",
+          "en": "What is the filing deadline?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Necesito un especialista fiscal para mi caso.",
+          "en": "I need a tax specialist for my case.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Esta deducción aplica a mi declaración federal?",
+          "en": "Does this deduction apply to my federal return?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Qué documento necesito llevar a la cita?",
+          "en": "What document do I need to take to the appointment?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Este aviso es del IRS de verdad?",
+          "en": "Is this notice really from the IRS?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You live in Texas and receive a benefit letter from a fictional county program and an IRS notice about your federal tax return. Ask what kind of document each one is, how to confirm that the notice comes from the IRS, and what the response deadline is. Close by saying you need a tax specialist and which documents you will bring to the appointment.",
+      "partnerRole": "Spanish-speaking help desk operator at a fictional community tax help center in Texas",
+      "openingLine": "Buenas tardes, mesa de ayuda. ¿Qué documento quiere revisar?",
+      "grammar": {
+        "focus": "Passive se for a procedure (la declaración se presenta antes del plazo) and según for a basis (según la revisión, según el tipo de declaración).",
+        "examples": [
+          {
+            "es": "La declaración se presenta antes del plazo.",
+            "en": "The return is filed before the deadline."
+          },
+          {
+            "es": "Esa deducción aplica según la revisión.",
+            "en": "That deduction applies according to the review."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "E",
+      "readingTemplate": "seed-es-master-personal-money-lesson-17"
+    },
+    {
+      "n": 18,
+      "title": "Support a family member at the bank",
+      "objective": "Clarify what a family member asks for, separate language help from the authority to act, and identify the document a bank requires.",
+      "focus": "Para que plus the subjunctive for the purpose of another person's action (para que usted firme); the verbs acompañar, delegar, autorizar, consentir and registrar",
+      "words": [
+        {
+          "es": "asistencia con el idioma",
+          "en": "language assistance",
+          "kind": "term"
+        },
+        {
+          "es": "autorización por escrito",
+          "en": "written authorization",
+          "kind": "term"
+        },
+        {
+          "es": "poder notarial",
+          "en": "power of attorney",
+          "kind": "term",
+          "note": "A notarized document that gives authority to act for another person. Rules depend on the jurisdiction."
+        },
+        {
+          "es": "titular de la cuenta",
+          "en": "account holder",
+          "kind": "term"
+        },
+        {
+          "es": "identificación del titular",
+          "en": "account holder's identification",
+          "kind": "term"
+        },
+        {
+          "es": "persona autorizada",
+          "en": "authorized person",
+          "kind": "term"
+        },
+        {
+          "es": "cuenta a nombre de",
+          "en": "account in the name of",
+          "kind": "term"
+        },
+        {
+          "es": "firma del titular",
+          "en": "account holder's signature",
+          "kind": "term"
+        },
+        {
+          "es": "consentimiento",
+          "en": "consent",
+          "kind": "term"
+        },
+        {
+          "es": "representante legal",
+          "en": "legal representative",
+          "kind": "term"
+        },
+        {
+          "es": "intérprete",
+          "en": "interpreter",
+          "kind": "term"
+        },
+        {
+          "es": "trámite",
+          "en": "procedure",
+          "kind": "term"
+        },
+        {
+          "es": "formulario de autorización",
+          "en": "authorization form",
+          "kind": "term"
+        },
+        {
+          "es": "Solo le ayudo con el idioma.",
+          "en": "I only help with the language.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Necesito una autorización por escrito?",
+          "en": "Do I need a written authorization?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Mi madre es la titular de la cuenta.",
+          "en": "My mother is the account holder.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Qué documentos necesita el banco para una persona autorizada?",
+          "en": "What documents does the bank need for an authorized person?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Ella debe firmar el formulario de autorización.",
+          "en": "She must sign the authorization form.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Necesito el formulario para que usted firme como persona autorizada.",
+          "en": "I need the form so that you can sign as an authorized person.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Your mother needs help at the bank. Explain that you can help with the language, ask whether you need a written authorization, and ask what documents the bank needs for an authorized person. Close by stating who will sign each document and what she will do herself.",
+      "partnerRole": "Spanish-speaking bank teller at a branch counter",
+      "openingLine": "Buenas tardes. ¿La señora está aquí para su cuenta o viene a acompañarla?",
+      "grammar": {
+        "focus": "Para que plus the subjunctive when another person performs the action (para que usted firme); the subject changes, so the verb is subjunctive.",
+        "examples": [
+          {
+            "es": "Necesito el formulario para que usted firme como persona autorizada.",
+            "en": "I need the form so that you can sign as an authorized person."
+          },
+          {
+            "es": "Firmo el formulario yo misma.",
+            "en": "I sign the form myself."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E",
+      "readingTemplate": "seed-es-master-personal-money-lesson-18"
+    },
+    {
+      "n": 19,
+      "title": "Explain a money decision to someone else",
+      "objective": "State the goal, the alternatives, the main assumption, the main risk and the questions still open in plain language, then give a provisional conclusion.",
+      "focus": "Que after decir and creer for reported ideas (mi conclusión es que), and para que plus the subjunctive for the purpose of the listener's understanding; the verbs explicar, escuchar, acordar, recomendar and hacer",
+      "words": [
+        {
+          "es": "decisión financiera",
+          "en": "financial decision",
+          "kind": "term"
+        },
+        {
+          "es": "alternativa",
+          "en": "alternative",
+          "kind": "term"
+        },
+        {
+          "es": "supuesto",
+          "en": "assumption",
+          "kind": "term"
+        },
+        {
+          "es": "objetivo",
+          "en": "goal",
+          "kind": "term"
+        },
+        {
+          "es": "riesgo principal",
+          "en": "main risk",
+          "kind": "term"
+        },
+        {
+          "es": "pregunta pendiente",
+          "en": "open question",
+          "kind": "term"
+        },
+        {
+          "es": "costo de oportunidad",
+          "en": "opportunity cost",
+          "kind": "term",
+          "note": "What you give up by choosing one option over another."
+        },
+        {
+          "es": "conclusión provisional",
+          "en": "provisional conclusion",
+          "kind": "term"
+        },
+        {
+          "es": "comparación",
+          "en": "comparison",
+          "kind": "term"
+        },
+        {
+          "es": "plazo de decisión",
+          "en": "decision deadline",
+          "kind": "term"
+        },
+        {
+          "es": "escenario",
+          "en": "scenario",
+          "kind": "term"
+        },
+        {
+          "es": "evaluación",
+          "en": "evaluation",
+          "kind": "term"
+        },
+        {
+          "es": "recomendación",
+          "en": "recommendation",
+          "kind": "term"
+        },
+        {
+          "es": "Mi objetivo es cambiar de auto sin deudas.",
+          "en": "My goal is to change cars without debt.",
+          "kind": "phrase"
+        },
+        {
+          "es": "La alternativa es esperar un año.",
+          "en": "The alternative is to wait a year.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Mi supuesto principal es que el ingreso se mantiene.",
+          "en": "My main assumption is that income stays the same.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuál es el riesgo principal de esta decisión?",
+          "en": "What is the main risk of this decision?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Todavía tengo una pregunta pendiente.",
+          "en": "I still have an open question.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Mi conclusión provisional es comprar el auto usado.",
+          "en": "My provisional conclusion is to buy the used car.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Qué escenario te preocupa más?",
+          "en": "Which scenario worries you the most?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Explain to your brother a decision to buy a used car instead of waiting a year. State your goal, the alternative, your main assumption, the main risk and the open question about the warranty. Close by giving your provisional conclusion and the day you will review it.",
+      "partnerRole": "Spanish-speaking brother asking clear questions about a family decision",
+      "openingLine": "Explícame tu decisión financiera, pero en palabras sencillas, por favor.",
+      "grammar": {
+        "focus": "Que after decir and creer for a reported idea (mi conclusión es que compro); para que plus the subjunctive for the listener's understanding (para que quede clara).",
+        "examples": [
+          {
+            "es": "Mi conclusión provisional es que compro el auto usado.",
+            "en": "My provisional conclusion is that I buy the used car."
+          },
+          {
+            "es": "Explícame la alternativa para que quede clara.",
+            "en": "Explain the alternative to me so that it is clear."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E",
+      "readingTemplate": "seed-es-master-personal-money-lesson-19"
+    },
+    {
+      "n": 20,
+      "title": "Complete a complex household case",
+      "objective": "Resolve a disputed transaction, revise a budget after an income change and prepare investment questions in one household review, explaining each step in plain Spanish.",
+      "focus": "Cuando plus the subjunctive for a future event (cuando aparezca el reembolso) and the preterite for a completed step (tuve que dejar); the verbs revisar, ajustar, cerrar, tomar and cumplir",
+      "words": [
+        {
+          "es": "caso del hogar",
+          "en": "household case",
+          "kind": "term"
+        },
+        {
+          "es": "transacción en disputa",
+          "en": "disputed transaction",
+          "kind": "term"
+        },
+        {
+          "es": "reembolso pendiente",
+          "en": "pending refund",
+          "kind": "term"
+        },
+        {
+          "es": "presupuesto revisado",
+          "en": "revised budget",
+          "kind": "term"
+        },
+        {
+          "es": "ingreso reducido",
+          "en": "reduced income",
+          "kind": "term"
+        },
+        {
+          "es": "plan de inversión",
+          "en": "investment plan",
+          "kind": "term"
+        },
+        {
+          "es": "preguntas para el asesor",
+          "en": "questions for the adviser",
+          "kind": "term"
+        },
+        {
+          "es": "gasto imprevisto",
+          "en": "unexpected expense",
+          "kind": "term"
+        },
+        {
+          "es": "fondo de emergencia",
+          "en": "emergency fund",
+          "kind": "term"
+        },
+        {
+          "es": "cuenta de cargo",
+          "en": "charge account",
+          "kind": "term"
+        },
+        {
+          "es": "aporte mensual",
+          "en": "monthly contribution",
+          "kind": "term"
+        },
+        {
+          "es": "cierre del caso",
+          "en": "closing of the case",
+          "kind": "term"
+        },
+        {
+          "es": "prioridades del hogar",
+          "en": "household priorities",
+          "kind": "term"
+        },
+        {
+          "es": "compromiso de pago",
+          "en": "payment commitment",
+          "kind": "term"
+        },
+        {
+          "es": "¿Cuál es el estado del caso del hogar?",
+          "en": "What is the status of the household case?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Revisemos la transacción en disputa primero.",
+          "en": "Let's review the disputed transaction first.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuándo llega el reembolso pendiente?",
+          "en": "When does the pending refund arrive?",
+          "kind": "phrase"
+        },
+        {
+          "es": "El presupuesto revisado cubre los gastos esenciales.",
+          "en": "The revised budget covers the essential expenses.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Preparemos las preguntas para el asesor.",
+          "en": "Let's prepare the questions for the adviser.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Nuestro compromiso de pago es mensual.",
+          "en": "Our payment commitment is monthly.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuál es la prioridad del hogar este año?",
+          "en": "What is the household priority this year?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "In one household review with your partner, resolve a $240.00 duplicate charge, adjust the budget after a lower income month, and list the investment questions for the adviser. Close by stating when the case closes, what you will pay from the emergency fund, and the payment commitment for the month.",
+      "partnerRole": "Spanish-speaking partner in a complete household money review",
+      "openingLine": "Hola. Revisemos el caso del hogar paso por paso. ¿Qué queda pendiente?",
+      "grammar": {
+        "focus": "Cuando plus the subjunctive for a future event (cuando aparezca el reembolso); the preterite for a completed step (tuve que dejar las horas extra).",
+        "examples": [
+          {
+            "es": "Cerramos el caso cuando el reembolso aparezca.",
+            "en": "We close the case when the refund appears."
+          },
+          {
+            "es": "Tuve que dejar las horas extra este mes.",
+            "en": "I had to give up overtime this month."
+          }
+        ]
+      },
+      "lessonType": "Capstone",
+      "block": "E",
+      "readingTemplate": "seed-es-master-personal-money-lesson-20"
+    }
+  ],
+  "baseModule": "personal-money",
+  "stage": "master"
+}

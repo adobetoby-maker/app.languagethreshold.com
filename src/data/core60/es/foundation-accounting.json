@@ -1,0 +1,960 @@
+{
+  "version": 1,
+  "module": "foundation-accounting",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "Accounting & Financial Services · Spanish · Foundation",
+  "threshold": "Use Spanish to complete the foundation accounting & financial services conversations and explain the next step.",
+  "reviewed": false,
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Introduce your professional role",
+      "objective": "Introduce your professional role in Spanish, name the services you handle and ask what a new client needs.",
+      "focus": "Ser for profession and identity, first-person work verbs, and usted with a new client.",
+      "words": [
+        {
+          "es": "contadora",
+          "en": "accountant (feminine form)",
+          "kind": "term",
+          "note": "The feminine form of contador. Many Spanish-speaking countries use it for a professional who keeps and reports financial records."
+        },
+        {
+          "es": "contabilidad",
+          "en": "bookkeeping; accounting",
+          "kind": "term",
+          "note": "Refers to the whole system of recording money. Use llevar la contabilidad for keeping the books."
+        },
+        {
+          "es": "cliente",
+          "en": "client",
+          "kind": "term",
+          "note": "Use for the person or business that hires you. Its plural is clientes and it does not change for gender."
+        },
+        {
+          "es": "despacho",
+          "en": "accounting office",
+          "kind": "term",
+          "note": "A professional office, as in despacho contable. Common in Spain and Mexico; oficina or estudio are also used."
+        },
+        {
+          "es": "documento",
+          "en": "document",
+          "kind": "term",
+          "note": "A paper or digital record. Plural documentos."
+        },
+        {
+          "es": "impuestos",
+          "en": "taxes",
+          "kind": "term",
+          "note": "Plural in ordinary speech. The specific tax (renta, IVA) depends on the jurisdiction."
+        },
+        {
+          "es": "cita",
+          "en": "appointment",
+          "kind": "term",
+          "note": "A fixed time to meet. Pedir cita means to request an appointment."
+        },
+        {
+          "es": "banco",
+          "en": "bank",
+          "kind": "term",
+          "note": "A financial institution where a business keeps its accounts."
+        },
+        {
+          "es": "servicio",
+          "en": "service",
+          "kind": "term",
+          "note": "A piece of work a professional provides for a fee."
+        },
+        {
+          "es": "asesoría",
+          "en": "advisory firm",
+          "kind": "term",
+          "note": "A firm that handles accounts, payroll and tax filings for businesses. Common in Spain and some Latin American countries."
+        },
+        {
+          "es": "Soy contadora y trabajo con pequeños negocios.",
+          "en": "I am an accountant and I work with small businesses.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Me encargo de la contabilidad.",
+          "en": "I handle the bookkeeping.",
+          "kind": "phrase",
+          "note": "Me encargo de means I take responsibility for a task."
+        },
+        {
+          "es": "¿En qué puedo ayudarle?",
+          "en": "How can I help you?",
+          "kind": "phrase",
+          "note": "Fixed polite formula with usted. ¿En qué puedo ayudarlo? or ayudarla is also correct."
+        },
+        {
+          "es": "¿Usted revisa también los impuestos?",
+          "en": "Do you also review the taxes?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Introduce yourself to a new bakery owner in Spanish. Name two services you provide, then ask what the owner needs most this month. Close by agreeing on one next step.",
+      "partnerRole": "Bakery owner meeting the bookkeeper for the first time, speaking Spanish with a polite tone.",
+      "openingLine": "Buenos días, ¿usted es la contadora que nos recomendaron?",
+      "readingTemplate": "seed-es-foundation-accounting-lesson-1"
+    },
+    {
+      "n": 2,
+      "title": "Arrange a client meeting",
+      "objective": "Confirm a client appointment in Spanish, including time, format and the documents the client must bring.",
+      "focus": "Formal commands with usted and indirect object pronouns with confirmar and enviar.",
+      "words": [
+        {
+          "es": "reunión",
+          "en": "meeting",
+          "kind": "term",
+          "note": "A planned conversation between people for a purpose. Often used for any scheduled meeting."
+        },
+        {
+          "es": "cita",
+          "en": "appointment",
+          "kind": "term",
+          "note": "A fixed time for a meeting. Often used with a professional or medical service."
+        },
+        {
+          "es": "videollamada",
+          "en": "video call",
+          "kind": "term",
+          "note": "A call over the internet with video. Common across Spanish-speaking countries."
+        },
+        {
+          "es": "correo electrónico",
+          "en": "email",
+          "kind": "term",
+          "note": "Often shortened to correo or mail in conversation. Both are common."
+        },
+        {
+          "es": "dirección",
+          "en": "address",
+          "kind": "term",
+          "note": "Also means direction. Context shows the meaning."
+        },
+        {
+          "es": "recibo",
+          "en": "receipt",
+          "kind": "term",
+          "note": "A proof of payment for a purchase. Some regions also use it for a utility bill."
+        },
+        {
+          "es": "extracto bancario",
+          "en": "bank statement",
+          "kind": "term",
+          "note": "The regular account summary from a bank. Spain and some countries also say extracto de cuenta."
+        },
+        {
+          "es": "documento",
+          "en": "document",
+          "kind": "term",
+          "note": "A paper or digital record a client must send or keep."
+        },
+        {
+          "es": "oficina",
+          "en": "office",
+          "kind": "term",
+          "note": "The place where a business works."
+        },
+        {
+          "es": "confirmar",
+          "en": "to confirm",
+          "kind": "term",
+          "note": "Confirmar una cita, un pago o un dato: to check and state that it is correct. It takes a direct object."
+        },
+        {
+          "es": "Le confirmo la cita del martes.",
+          "en": "I am confirming your Tuesday appointment.",
+          "kind": "phrase",
+          "note": "Use le for a client. Confirmar is often followed by the object: la cita, el pago, la reunión."
+        },
+        {
+          "es": "¿Podemos hacer la reunión por videollamada?",
+          "en": "Can we hold the meeting by video call?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Envíe los documentos al correo de la oficina.",
+          "en": "Send the documents to the office email.",
+          "kind": "phrase",
+          "note": "Usted command. Regular -ar verbs end in -e: envíe; the accent on the i stays."
+        },
+        {
+          "es": "Traiga los recibos y el extracto bancario.",
+          "en": "Bring the receipts and the bank statement.",
+          "kind": "phrase",
+          "note": "Usted command of traer, for a meeting in person."
+        },
+        {
+          "es": "¿A qué hora le viene bien?",
+          "en": "What time suits you?",
+          "kind": "phrase",
+          "note": "Le viene bien is a common polite phrase for convenience."
+        }
+      ],
+      "speaking": "Call a client to confirm a Tuesday meeting. Give the time, offer an in-person or video option, and list two documents to bring. End by asking the client to repeat the time and confirm.",
+      "partnerRole": "Small business client who needs to confirm a meeting and the documents for it.",
+      "openingLine": "Hola, llamo para confirmar la reunión del martes con la contadora.",
+      "readingTemplate": "seed-es-foundation-accounting-lesson-2"
+    },
+    {
+      "n": 3,
+      "title": "Identify a financial document",
+      "objective": "Identify four common financial documents in Spanish and explain how each one differs.",
+      "focus": "Demonstratives este, esta, estos and estas with ser for singular and plural identification.",
+      "words": [
+        {
+          "es": "estado de cuenta",
+          "en": "account statement",
+          "kind": "term",
+          "note": "The periodic summary from a bank or credit provider. The Spanish phrase estado de cuenta is widely used."
+        },
+        {
+          "es": "factura",
+          "en": "invoice",
+          "kind": "term",
+          "note": "A bill that a seller issues to a buyer for goods or services. It states who sold, who bought, and the amount due."
+        },
+        {
+          "es": "recibo",
+          "en": "receipt",
+          "kind": "term",
+          "note": "A proof that money was paid. A receipt is not the same as an invoice."
+        },
+        {
+          "es": "comprobante",
+          "en": "proof of payment",
+          "kind": "term",
+          "note": "A general term for a voucher or proof. In some countries it is used for a tax receipt or a payment slip."
+        },
+        {
+          "es": "declaración de impuestos",
+          "en": "tax return",
+          "kind": "term",
+          "note": "A form that reports income or activity to a tax authority. The exact form depends on the jurisdiction."
+        },
+        {
+          "es": "proveedor",
+          "en": "supplier",
+          "kind": "term",
+          "note": "A business that sells goods or services to your client. Plural proveedores."
+        },
+        {
+          "es": "copia",
+          "en": "copy",
+          "kind": "term",
+          "note": "A duplicate of an original document. Originals and copies are often filed separately."
+        },
+        {
+          "es": "original",
+          "en": "original",
+          "kind": "term",
+          "note": "The first version of a document, which may be needed for certification."
+        },
+        {
+          "es": "fecha",
+          "en": "date",
+          "kind": "term",
+          "note": "The date printed on a document. Check it before recording."
+        },
+        {
+          "es": "total",
+          "en": "total",
+          "kind": "term",
+          "note": "The final amount. Use total pagado for the amount paid."
+        },
+        {
+          "es": "Este documento es un estado de cuenta.",
+          "en": "This document is a bank statement.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Este papel es un recibo o una factura?",
+          "en": "Is this paper a receipt or an invoice?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Es un recibo del proveedor.",
+          "en": "It is a receipt from the supplier.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Guardo las copias de los documentos.",
+          "en": "I keep copies of the documents.",
+          "kind": "phrase",
+          "note": "Guardo means I keep or store. Use with copias de when filing."
+        }
+      ],
+      "speaking": "Hold up a bank statement and a receipt. Ask a coworker which is which, explain the difference in one sentence each, and agree where each document will be filed.",
+      "partnerRole": "Coworker sorting documents in a small accounting office.",
+      "openingLine": "Tenemos una pila de papeles. ¿Este documento es una factura o un recibo?",
+      "readingTemplate": "seed-es-foundation-accounting-lesson-3"
+    },
+    {
+      "n": 4,
+      "title": "Read amounts and currencies",
+      "objective": "Read a monetary amount in Spanish, name its currency and repeat it back before recording it.",
+      "focus": "Spanish number formats (decimal comma, point thousands separator) and the currency noun after the figure.",
+      "words": [
+        {
+          "es": "monto",
+          "en": "amount",
+          "kind": "term",
+          "note": "The sum of money in a transaction. Use in formal records and bank communications."
+        },
+        {
+          "es": "moneda",
+          "en": "currency",
+          "kind": "term",
+          "note": "The money a transaction uses. Check it before recording any figure."
+        },
+        {
+          "es": "cifra",
+          "en": "figure",
+          "kind": "term",
+          "note": "A number that represents an amount. Often used for a total or a balance."
+        },
+        {
+          "es": "céntimo",
+          "en": "cent",
+          "kind": "term",
+          "note": "The hundredth of a euro. In Latin America the word is centavo."
+        },
+        {
+          "es": "diferencia",
+          "en": "difference",
+          "kind": "term",
+          "note": "The gap between two numbers. Use for mismatched totals."
+        },
+        {
+          "es": "depósito",
+          "en": "deposit",
+          "kind": "term",
+          "note": "Money placed into an account. A deposit can also be a fee or security amount in some contexts."
+        },
+        {
+          "es": "extracto",
+          "en": "statement",
+          "kind": "term",
+          "note": "A short name for the bank statement. Context makes it clear."
+        },
+        {
+          "es": "registro",
+          "en": "record",
+          "kind": "term",
+          "note": "A written or digital entry. Use registrar to record a transaction."
+        },
+        {
+          "es": "total",
+          "en": "total",
+          "kind": "term",
+          "note": "The final sum of several amounts."
+        },
+        {
+          "es": "cuenta",
+          "en": "account",
+          "kind": "term",
+          "note": "A bank account or a ledger account. Context shows which."
+        },
+        {
+          "es": "El monto es 1.250,50 euros.",
+          "en": "The amount is 1,250.50 euros.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Confirmo que la moneda es euro.",
+          "en": "I confirm that the currency is euro.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Repito la cifra del recibo.",
+          "en": "I repeat the figure on the receipt.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Anoto la diferencia en el registro.",
+          "en": "I record the difference in the record.",
+          "kind": "phrase",
+          "note": "Anotar means to write down or note; use it for short records."
+        }
+      ],
+      "speaking": "Read an amount from a receipt to a coworker in Spanish, including the currency and the cents. Ask the coworker to repeat it, and agree the figure before you record it.",
+      "partnerRole": "Coworker checking a payment amount before entering it in the ledger.",
+      "openingLine": "¿Qué monto dice el recibo? Quiero confirmarlo antes de registrarlo.",
+      "readingTemplate": "seed-es-foundation-accounting-lesson-4"
+    },
+    {
+      "n": 5,
+      "title": "Confirm dates and periods",
+      "objective": "Ask which month, quarter or tax year a document covers and state the period in Spanish.",
+      "focus": "Prepositions de, a, desde and hasta in date periods, and day-month-year order.",
+      "words": [
+        {
+          "es": "periodo",
+          "en": "period",
+          "kind": "term",
+          "note": "A span of time for a report. Período, with an accent, is also correct. Plural periodos."
+        },
+        {
+          "es": "trimestre",
+          "en": "quarter",
+          "kind": "term",
+          "note": "A three-month period. Q1 is the first trimestre."
+        },
+        {
+          "es": "año fiscal",
+          "en": "tax year; fiscal year",
+          "kind": "term",
+          "note": "The twelve-month period a government or company uses for taxes and reporting. The months depend on the jurisdiction."
+        },
+        {
+          "es": "fecha",
+          "en": "date",
+          "kind": "term",
+          "note": "The day a transaction or document is dated. Use fecha de vencimiento for a due date."
+        },
+        {
+          "es": "vencimiento",
+          "en": "due date; expiry",
+          "kind": "term",
+          "note": "The day a payment or filing must be made. Common in banking and tax notices."
+        },
+        {
+          "es": "resumen",
+          "en": "summary",
+          "kind": "term",
+          "note": "A short report of results over a period."
+        },
+        {
+          "es": "plazo",
+          "en": "deadline; time limit",
+          "kind": "term",
+          "note": "A time limit for a task. Plazo is often used with a filing or payment."
+        },
+        {
+          "es": "extracto",
+          "en": "statement",
+          "kind": "term",
+          "note": "Bank or account summary for a period."
+        },
+        {
+          "es": "documento",
+          "en": "document",
+          "kind": "term",
+          "note": "A record or paper that shows information."
+        },
+        {
+          "es": "mes",
+          "en": "month",
+          "kind": "term",
+          "note": "A calendar month. Plural meses."
+        },
+        {
+          "es": "¿Qué periodo cubre este documento?",
+          "en": "Which period does this document cover?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Cubre desde el 1 de enero hasta el 31 de marzo.",
+          "en": "It covers from 1 January to 31 March.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Cuál es la fecha de vencimiento?",
+          "en": "What is the due date?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Le envío el resumen hoy mismo.",
+          "en": "I will send you the summary today.",
+          "kind": "phrase",
+          "note": "Spanish often uses the present for a near future action."
+        }
+      ],
+      "speaking": "Ask a client which period a statement covers. Confirm the period using desde and hasta for exact days and de a for months, then state the due date and close by agreeing the next step.",
+      "partnerRole": "Client who wants to know which period a document covers before sending it.",
+      "openingLine": "¿Qué periodo cubre este documento? Lo necesito para el informe.",
+      "readingTemplate": "seed-es-foundation-accounting-lesson-5"
+    },
+    {
+      "n": 6,
+      "title": "Ask about income and expenses",
+      "objective": "Ask simple questions in Spanish to separate income a business earned from the costs it paid, and answer with amounts.",
+      "focus": "Question words cuánto, cuántos, qué and the preterite of regular -ar verbs for completed amounts.",
+      "words": [
+        {
+          "es": "ingreso",
+          "en": "income; revenue",
+          "kind": "term",
+          "note": "Money a business receives from sales or services. Plural ingresos."
+        },
+        {
+          "es": "gasto",
+          "en": "expense; cost",
+          "kind": "term",
+          "note": "Money a business pays out. Gastos is plural."
+        },
+        {
+          "es": "venta",
+          "en": "sale",
+          "kind": "term",
+          "note": "A transaction in which goods or services are sold."
+        },
+        {
+          "es": "proveedor",
+          "en": "supplier",
+          "kind": "term",
+          "note": "A business that sells goods or services to yours."
+        },
+        {
+          "es": "pago",
+          "en": "payment",
+          "kind": "term",
+          "note": "Money paid to settle a bill or a debt."
+        },
+        {
+          "es": "pendiente",
+          "en": "outstanding; pending",
+          "kind": "term",
+          "note": "A payment or task that is not finished yet. Pendiente is an adjective; it agrees with the noun."
+        },
+        {
+          "es": "mes pasado",
+          "en": "last month",
+          "kind": "term",
+          "note": "Use pasado after the month to say last month. Useful in financial conversations."
+        },
+        {
+          "es": "ganancia",
+          "en": "profit; gain",
+          "kind": "term",
+          "note": "What remains after expenses are subtracted from income. Not the same as cash in the bank."
+        },
+        {
+          "es": "cobro",
+          "en": "collection; receipt of payment",
+          "kind": "term",
+          "note": "The moment or act of receiving money owed to you."
+        },
+        {
+          "es": "cifra",
+          "en": "figure",
+          "kind": "term",
+          "note": "A number used for an amount, a total or a balance."
+        },
+        {
+          "es": "¿Cuánto ganó la panadería este mes?",
+          "en": "How much did the bakery earn this month?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Qué gastos pagó el negocio?",
+          "en": "What expenses did the business pay?",
+          "kind": "phrase",
+          "note": "Pagó is preterite of pagar, the completed action."
+        },
+        {
+          "es": "Ganó más de lo que gastó.",
+          "en": "It earned more than it spent.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Queda algún pago pendiente?",
+          "en": "Is any payment still pending?",
+          "kind": "phrase",
+          "note": "Queda is a common way to ask what remains."
+        },
+        {
+          "es": "Los ingresos suben y los gastos bajan.",
+          "en": "Income rises and expenses fall.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Interview a bakery owner about last month. Ask how much the shop earned, which costs it paid, and whether any payment is still pending. Repeat the two totals and state which one is larger.",
+      "partnerRole": "Bakery owner answering questions about last month's sales and supplier bills.",
+      "openingLine": "Buenos días. ¿Qué quiere saber sobre el negocio del mes pasado?",
+      "readingTemplate": "seed-es-foundation-accounting-lesson-6"
+    },
+    {
+      "n": 7,
+      "title": "Describe an account balance",
+      "objective": "Describe a Spanish account balance and explain how the balance differs from the money currently available to spend.",
+      "focus": "Hay for existence and tener for possession, with estar for a balance that is low or negative.",
+      "words": [
+        {
+          "es": "saldo",
+          "en": "balance",
+          "kind": "term",
+          "note": "The amount in an account at a given moment. Saldo contable is the book balance; saldo disponible is what can be used now."
+        },
+        {
+          "es": "disponible",
+          "en": "available",
+          "kind": "term",
+          "note": "Money that can be used now. Disponible agrees with the noun it describes."
+        },
+        {
+          "es": "cuenta corriente",
+          "en": "current account; checking account",
+          "kind": "term",
+          "note": "A bank account for daily payments. Term used in Spain and many Latin American countries."
+        },
+        {
+          "es": "depósito",
+          "en": "deposit",
+          "kind": "term",
+          "note": "Money placed into an account."
+        },
+        {
+          "es": "retiro",
+          "en": "withdrawal",
+          "kind": "term",
+          "note": "Money taken out of an account. Retirar means to take money out."
+        },
+        {
+          "es": "cargo",
+          "en": "charge; debit",
+          "kind": "term",
+          "note": "An amount taken from an account."
+        },
+        {
+          "es": "abono",
+          "en": "credit; payment in",
+          "kind": "term",
+          "note": "An amount added to an account."
+        },
+        {
+          "es": "estado de cuenta",
+          "en": "account statement",
+          "kind": "term",
+          "note": "Periodic summary from the bank."
+        },
+        {
+          "es": "comisión",
+          "en": "fee; commission",
+          "kind": "term",
+          "note": "A charge by a bank or an agent. Check whether a fee applies."
+        },
+        {
+          "es": "fondos",
+          "en": "funds",
+          "kind": "term",
+          "note": "Money held or available for a purpose."
+        },
+        {
+          "es": "¿Cuál es el saldo de la cuenta?",
+          "en": "What is the balance of the account?",
+          "kind": "phrase"
+        },
+        {
+          "es": "El saldo disponible es menor que el saldo contable.",
+          "en": "The available balance is smaller than the book balance.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Tenemos fondos suficientes para pagar.",
+          "en": "We have enough funds to pay.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Hay una comisión por el retiro.",
+          "en": "There is a fee for the withdrawal.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Explain to a new bookkeeper what the balance on the statement shows and what the business can actually spend today. Name the balance and the available amount, then ask the bookkeeper to repeat both figures back.",
+      "partnerRole": "New bookkeeper who has to understand the difference between a balance and available funds.",
+      "openingLine": "¿Cuál es el saldo de la cuenta del negocio? No estoy segura de lo que significa.",
+      "readingTemplate": "seed-es-foundation-accounting-lesson-7"
+    },
+    {
+      "n": 8,
+      "title": "Explain debit and credit in context",
+      "objective": "Explain debit and credit as bookkeeping terms in Spanish and separate them from a debit card, credit card and a loan.",
+      "focus": "Debe and haber as nouns for the two sides of an entry, the verb deber meaning must, and a crédito as borrowing.",
+      "words": [
+        {
+          "es": "debe",
+          "en": "debit side",
+          "kind": "term",
+          "note": "The left column of a ledger entry where amounts are recorded as debits."
+        },
+        {
+          "es": "haber",
+          "en": "credit side",
+          "kind": "term",
+          "note": "The right column of a ledger entry. Haber is also an infinitive meaning to have."
+        },
+        {
+          "es": "débito",
+          "en": "debit",
+          "kind": "term",
+          "note": "Latin America: débito/crédito for entries. Spain: cargo/abono or debe/haber. Débito also names debit-card payments."
+        },
+        {
+          "es": "crédito",
+          "en": "credit",
+          "kind": "term",
+          "note": "A bookkeeping entry, a credit card or a loan. Context decides."
+        },
+        {
+          "es": "tarjeta de crédito",
+          "en": "credit card",
+          "kind": "term",
+          "note": "A card that lets the holder borrow up to a limit and pay later."
+        },
+        {
+          "es": "tarjeta de débito",
+          "en": "debit card",
+          "kind": "term",
+          "note": "A card that takes money directly from the linked account."
+        },
+        {
+          "es": "préstamo",
+          "en": "loan",
+          "kind": "term",
+          "note": "Money borrowed under agreed terms and repaid with interest."
+        },
+        {
+          "es": "asiento",
+          "en": "entry; journal entry",
+          "kind": "term",
+          "note": "A record in the ledger showing debit and credit amounts for one transaction."
+        },
+        {
+          "es": "libro mayor",
+          "en": "ledger",
+          "kind": "term",
+          "note": "The book or system that holds all account records."
+        },
+        {
+          "es": "límite",
+          "en": "limit",
+          "kind": "term",
+          "note": "The maximum amount allowed. Useful for credit cards."
+        },
+        {
+          "es": "El debe está a la izquierda.",
+          "en": "The debit side is on the left.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Esto es un débito o un crédito?",
+          "en": "Is this a debit or a credit?",
+          "kind": "phrase"
+        },
+        {
+          "es": "La tarjeta de crédito tiene un límite.",
+          "en": "The credit card has a limit.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Debe pagar el préstamo cada mes.",
+          "en": "He or she must make a loan payment each month.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Give a short lesson to a new bookkeeper: explain which side of a ledger a debit goes on, then explain which everyday card or loan the word refers to in a bank. Ask the bookkeeper to repeat the difference back.",
+      "partnerRole": "New bookkeeper who keeps confusing debe, débito and crédito.",
+      "openingLine": "Me confunden las palabras debe, débito y crédito. ¿Puede explicármelas?",
+      "readingTemplate": "seed-es-foundation-accounting-lesson-8"
+    },
+    {
+      "n": 9,
+      "title": "Request missing information",
+      "objective": "Ask a client politely for a missing statement, receipt or identifying detail, using Spanish requests and the agreed channel.",
+      "focus": "Polite conditional podría with infinitives and the expression me hace falta for a missing item.",
+      "words": [
+        {
+          "es": "recibo",
+          "en": "receipt",
+          "kind": "term",
+          "note": "A proof of a payment. Ask for the original if the copy is unclear."
+        },
+        {
+          "es": "documento",
+          "en": "document",
+          "kind": "term",
+          "note": "Any paper or file the client gives."
+        },
+        {
+          "es": "identificación",
+          "en": "identification",
+          "kind": "term",
+          "note": "A document that confirms who the person is. Often requested before a bank change."
+        },
+        {
+          "es": "correo",
+          "en": "email",
+          "kind": "term",
+          "note": "Short for correo electrónico. Use the address the client agreed."
+        },
+        {
+          "es": "plazo",
+          "en": "deadline",
+          "kind": "term",
+          "note": "The day or time by which the document is needed."
+        },
+        {
+          "es": "canal",
+          "en": "channel",
+          "kind": "term",
+          "note": "The method of contact agreed by both sides, such as email or a secure portal."
+        },
+        {
+          "es": "extracto",
+          "en": "statement",
+          "kind": "term",
+          "note": "A regular summary from a bank or card."
+        },
+        {
+          "es": "factura",
+          "en": "invoice",
+          "kind": "term",
+          "note": "A bill for goods or services."
+        },
+        {
+          "es": "solicitud",
+          "en": "request",
+          "kind": "term",
+          "note": "A formal request. Pedido usually means a purchase order."
+        },
+        {
+          "es": "contacto",
+          "en": "contact",
+          "kind": "term",
+          "note": "The person or method used to reach someone."
+        },
+        {
+          "es": "¿Podría enviarme el recibo de la compra?",
+          "en": "Could you send me the purchase receipt?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Me hace falta el extracto de marzo.",
+          "en": "I am missing the March statement.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Por favor, envíelo por el canal acordado.",
+          "en": "Please send it through the agreed channel.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Para qué fecha lo necesita usted?",
+          "en": "By which date do you need it?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Phone a client who has not sent one receipt. Name the missing item, ask politely for it by the agreed channel, and say by when you need it. Close by repeating the deadline.",
+      "partnerRole": "Client who is busy and wants to send the document in the right way.",
+      "openingLine": "Hola, dígame. Supongo que llama por los documentos que faltan.",
+      "readingTemplate": "seed-es-foundation-accounting-lesson-9"
+    },
+    {
+      "n": 10,
+      "title": "Close a routine client exchange",
+      "objective": "Summarize a routine client exchange in Spanish: what you received, what is still missing and the next appointment.",
+      "focus": "Preterite of recibir for completed receipt and present tense for what remains, with the expression quedar pendiente.",
+      "words": [
+        {
+          "es": "recibir",
+          "en": "to receive",
+          "kind": "term",
+          "note": "Verb form for receiving a document or payment."
+        },
+        {
+          "es": "cita",
+          "en": "appointment",
+          "kind": "term",
+          "note": "Fixed meeting time for the next review."
+        },
+        {
+          "es": "pendiente",
+          "en": "outstanding",
+          "kind": "term",
+          "note": "An item that still needs action."
+        },
+        {
+          "es": "extracto",
+          "en": "statement",
+          "kind": "term",
+          "note": "Bank summary already received."
+        },
+        {
+          "es": "resumen",
+          "en": "summary",
+          "kind": "term",
+          "note": "A short report of the exchange or of the results."
+        },
+        {
+          "es": "acuerdo",
+          "en": "agreement",
+          "kind": "term",
+          "note": "A decision both sides accept."
+        },
+        {
+          "es": "fecha",
+          "en": "date",
+          "kind": "term",
+          "note": "The day of the next appointment."
+        },
+        {
+          "es": "documentación",
+          "en": "documentation",
+          "kind": "term",
+          "note": "The full set of records for a task."
+        },
+        {
+          "es": "seguimiento",
+          "en": "follow-up",
+          "kind": "term",
+          "note": "Action to check progress after a meeting."
+        },
+        {
+          "es": "confirmación",
+          "en": "confirmation",
+          "kind": "term",
+          "note": "Written or spoken proof that a date or request was accepted."
+        },
+        {
+          "es": "Quedamos en revisar todo el jueves.",
+          "en": "We agreed to review everything on Thursday.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Queda pendiente el recibo de marzo.",
+          "en": "The March receipt is still outstanding.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Le envío el resumen por correo hoy.",
+          "en": "I will send you the summary by email today.",
+          "kind": "phrase",
+          "note": "Spanish often uses the present for a near-future action; English uses will."
+        },
+        {
+          "es": "Nos vemos la próxima semana para el seguimiento.",
+          "en": "We will meet next week for the follow-up.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Le parece bien el jueves a las diez?",
+          "en": "Does Thursday at ten suit you?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Close a call with a client. Say what you received and when, name the one item still missing, and set the next appointment. Finish by confirming the date and time.",
+      "partnerRole": "Client closing a routine document call with the bookkeeper.",
+      "openingLine": "Muchas gracias por llamar. ¿Qué recibió usted hoy y qué falta?",
+      "readingTemplate": "seed-es-foundation-accounting-lesson-10"
+    }
+  ],
+  "baseModule": "accounting",
+  "stage": "foundation"
+}

@@ -1,3 +1,4 @@
+import { financeTrack } from "@/data/finance-courses";
 import { useState } from "react";
 import { moduleMatchesSearch } from "@/lib/module-search";
 import { Search, X, Check, Clock } from "lucide-react";
@@ -17,6 +18,7 @@ import { cn } from "@/lib/utils";
 const FILTER_TABS = [
   { id: "ALL" as const, label: "All" },
   { id: "Core Basics" as const, label: "Core Basics" },
+  { id: "Finance" as const, label: "Finance" },
   { id: "Faith" as const, label: "Faith" },
   { id: "Medical" as const, label: "Medical" },
   { id: "Trades" as const, label: "Trades" },
@@ -52,7 +54,11 @@ export function ModulePickerDialog({ open, onClose }: Props) {
 
   function select(id: string | null, openPath = false) {
     dispatch({ type: "SET_ACTIVE_MODULE", payload: id });
-    if (id && openPath && (getCurriculum(id) || /^(foundation|master)-/.test(id)))
+    if (
+      id &&
+      openPath &&
+      (financeTrack(id) || getCurriculum(id) || /^(foundation|master)-/.test(id))
+    )
       dispatch({ type: "SET_TAB", payload: "core30" });
     if (id) {
       const mod = getModule(id);

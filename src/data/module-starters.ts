@@ -1,3 +1,4 @@
+import { financeTrack } from "./finance-courses.ts";
 import type { Language } from "@/state/app-state";
 import type { LibraryEntry } from "@/state/library-state";
 
@@ -522,6 +523,20 @@ export const MODULE_LESSONS: LessonMap = {
 };
 
 export function getLessons(moduleId: string, language: Language): string[] {
+  const finance = financeTrack(moduleId);
+  if (finance) {
+    const count = moduleId.startsWith("foundation-")
+      ? 10
+      : moduleId.startsWith("master-")
+        ? 20
+        : 30;
+    return language === finance.authoredPair?.target
+      ? Array.from(
+          { length: count },
+          (_, i) => `seed-${language === "English" ? "en" : "es"}-${moduleId}-lesson-${i + 1}`,
+        )
+      : [];
+  }
   const japaneseBasicsCount =
     moduleId === "japanese-basics"
       ? 30

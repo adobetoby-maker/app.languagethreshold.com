@@ -762,7 +762,7 @@ export function parseLessonContent(
     if (!value || typeof value !== "object") continue;
     const lesson = value as Record<string, unknown>;
     const passage = cleanPassage(lesson.passage) ?? undefined;
-    const words = cleanLessonWords(lesson.words);
+    const words = cleanLessonWords(lesson.words, contentLimitsFor(expected.moduleId));
     const verbs = cleanLessonVerbs(lesson.verbs, expected.language);
     if (!passage && words.length === 0 && verbs.length === 0) continue;
     const entry: LessonContentLesson = { verbs };

@@ -1,157 +1,565 @@
 {
   "date": "2026-11-15",
   "sourceRevision": "42d440204c8396e965e4dae099eb99129535dd2c",
-  "scope": "Curriculum design for the owner request to look at adding three finance modules; not a completed app implementation.",
+  "scope": "Three full bidirectional authored courses, integrated as drafts in the app branch. Model review and Codex review are separate from qualified human review and production release.",
   "tracks": [
     {
       "module": "accounting",
       "target": "Spanish",
       "native": "English",
-      "state": "planned-not-registered",
-      "plannedStages": {
+      "state": "mapped-60-draft",
+      "authoredStages": {
         "foundation": 10,
         "core": 30,
         "master": 20
       },
-      "authoredStages": {
-        "foundation": 0,
-        "core": 0,
-        "master": 0
-      },
-      "alignedReadings": 0,
-      "verbSets": 0,
-      "mappedLessons": 0,
-      "fullReaderLinks": 0,
-      "authoredDecks": 0,
-      "recordedAudio": 0,
+      "alignedReadings": 60,
+      "verbSets": 60,
+      "mappedLessons": 60,
+      "speakingCards": 60,
+      "fullReaderLinks": 60,
+      "authoredDecks": 3,
       "downloadRegistration": false,
       "humanReview": "pending",
-      "productionReleased": false
+      "productionReleased": false,
+      "sourceAudit": "audit-accounting-es-en.json",
+      "sourceSha256": "d83818b32b60f33345a902b50560ad6b0fbc89e03d7bab0077b75bdb5b035585",
+      "stages": [
+        {
+          "moduleId": "foundation-accounting",
+          "expectedLessons": 10,
+          "curriculumLessons": 10,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 10,
+            "vocabulary": 10,
+            "alignedReadings": 10,
+            "verbs": 10,
+            "mappedTeaching": 10,
+            "mappedReadings": 10,
+            "speakingCards": 10,
+            "fullReaderPassages": 10
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 124,
+          "offlinePackRegistration": null,
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        },
+        {
+          "moduleId": "accounting",
+          "expectedLessons": 30,
+          "curriculumLessons": 30,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 30,
+            "vocabulary": 30,
+            "alignedReadings": 30,
+            "verbs": 30,
+            "mappedTeaching": 30,
+            "mappedReadings": 30,
+            "speakingCards": 30,
+            "fullReaderPassages": 30
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 391,
+          "offlinePackRegistration": null,
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        },
+        {
+          "moduleId": "master-accounting",
+          "expectedLessons": 20,
+          "curriculumLessons": 20,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 20,
+            "vocabulary": 20,
+            "alignedReadings": 20,
+            "verbs": 20,
+            "mappedTeaching": 20,
+            "mappedReadings": 20,
+            "speakingCards": 20,
+            "fullReaderPassages": 20
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 338,
+          "offlinePackRegistration": null,
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        }
+      ]
     },
     {
-      "module": "accounting",
+      "module": "accounting-english",
       "target": "English",
       "native": "Spanish",
-      "state": "planned-not-registered",
-      "plannedStages": {
+      "state": "mapped-60-draft",
+      "authoredStages": {
         "foundation": 10,
         "core": 30,
         "master": 20
       },
-      "authoredStages": {
-        "foundation": 0,
-        "core": 0,
-        "master": 0
-      },
-      "alignedReadings": 0,
-      "verbSets": 0,
-      "mappedLessons": 0,
-      "fullReaderLinks": 0,
-      "authoredDecks": 0,
-      "recordedAudio": 0,
+      "alignedReadings": 60,
+      "verbSets": 60,
+      "mappedLessons": 60,
+      "speakingCards": 60,
+      "fullReaderLinks": 60,
+      "authoredDecks": 3,
       "downloadRegistration": false,
       "humanReview": "pending",
-      "productionReleased": false
+      "productionReleased": false,
+      "sourceAudit": "audit-accounting-en-es.json",
+      "sourceSha256": "859726a01c61a5a507bbb9c7315ea2972333abe2fd4620416c66a71c2a5652c0",
+      "stages": [
+        {
+          "moduleId": "foundation-accounting-english",
+          "expectedLessons": 10,
+          "curriculumLessons": 10,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 10,
+            "vocabulary": 10,
+            "alignedReadings": 10,
+            "verbs": 10,
+            "mappedTeaching": 10,
+            "mappedReadings": 10,
+            "speakingCards": 10,
+            "fullReaderPassages": 10
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 118,
+          "offlinePackRegistration": null,
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        },
+        {
+          "moduleId": "accounting-english",
+          "expectedLessons": 30,
+          "curriculumLessons": 30,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 30,
+            "vocabulary": 30,
+            "alignedReadings": 30,
+            "verbs": 30,
+            "mappedTeaching": 30,
+            "mappedReadings": 30,
+            "speakingCards": 30,
+            "fullReaderPassages": 30
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 388,
+          "offlinePackRegistration": null,
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        },
+        {
+          "moduleId": "master-accounting-english",
+          "expectedLessons": 20,
+          "curriculumLessons": 20,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 20,
+            "vocabulary": 20,
+            "alignedReadings": 20,
+            "verbs": 20,
+            "mappedTeaching": 20,
+            "mappedReadings": 20,
+            "speakingCards": 20,
+            "fullReaderPassages": 20
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 336,
+          "offlinePackRegistration": null,
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        }
+      ]
     },
     {
       "module": "personal-money",
       "target": "Spanish",
       "native": "English",
-      "state": "planned-not-registered",
-      "plannedStages": {
+      "state": "mapped-60-draft",
+      "authoredStages": {
         "foundation": 10,
         "core": 30,
         "master": 20
       },
-      "authoredStages": {
-        "foundation": 0,
-        "core": 0,
-        "master": 0
-      },
-      "alignedReadings": 0,
-      "verbSets": 0,
-      "mappedLessons": 0,
-      "fullReaderLinks": 0,
-      "authoredDecks": 0,
-      "recordedAudio": 0,
+      "alignedReadings": 60,
+      "verbSets": 60,
+      "mappedLessons": 60,
+      "speakingCards": 60,
+      "fullReaderLinks": 60,
+      "authoredDecks": 3,
       "downloadRegistration": false,
       "humanReview": "pending",
-      "productionReleased": false
+      "productionReleased": false,
+      "sourceAudit": "audit-personal-money-es-en.json",
+      "sourceSha256": "c5f8de1477591355e38884c1a4820b042224c4ae3b6e9c87d44ca86188a47950",
+      "stages": [
+        {
+          "moduleId": "foundation-personal-money",
+          "expectedLessons": 10,
+          "curriculumLessons": 10,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 10,
+            "vocabulary": 10,
+            "alignedReadings": 10,
+            "verbs": 10,
+            "mappedTeaching": 10,
+            "mappedReadings": 10,
+            "speakingCards": 10,
+            "fullReaderPassages": 10
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 140,
+          "offlinePackRegistration": null,
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        },
+        {
+          "moduleId": "personal-money",
+          "expectedLessons": 30,
+          "curriculumLessons": 30,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 30,
+            "vocabulary": 30,
+            "alignedReadings": 30,
+            "verbs": 30,
+            "mappedTeaching": 30,
+            "mappedReadings": 30,
+            "speakingCards": 30,
+            "fullReaderPassages": 30
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 447,
+          "offlinePackRegistration": null,
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        },
+        {
+          "moduleId": "master-personal-money",
+          "expectedLessons": 20,
+          "curriculumLessons": 20,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 20,
+            "vocabulary": 20,
+            "alignedReadings": 20,
+            "verbs": 20,
+            "mappedTeaching": 20,
+            "mappedReadings": 20,
+            "speakingCards": 20,
+            "fullReaderPassages": 20
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 354,
+          "offlinePackRegistration": null,
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        }
+      ]
     },
     {
-      "module": "personal-money",
+      "module": "personal-money-english",
       "target": "English",
       "native": "Spanish",
-      "state": "planned-not-registered",
-      "plannedStages": {
+      "state": "mapped-60-draft",
+      "authoredStages": {
         "foundation": 10,
         "core": 30,
         "master": 20
       },
-      "authoredStages": {
-        "foundation": 0,
-        "core": 0,
-        "master": 0
-      },
-      "alignedReadings": 0,
-      "verbSets": 0,
-      "mappedLessons": 0,
-      "fullReaderLinks": 0,
-      "authoredDecks": 0,
-      "recordedAudio": 0,
+      "alignedReadings": 60,
+      "verbSets": 60,
+      "mappedLessons": 60,
+      "speakingCards": 60,
+      "fullReaderLinks": 60,
+      "authoredDecks": 3,
       "downloadRegistration": false,
       "humanReview": "pending",
-      "productionReleased": false
+      "productionReleased": false,
+      "sourceAudit": "audit-personal-money-en-es.json",
+      "sourceSha256": "f5c1c65383d053f1c9f50f6a044c6dca51c0d8f3c29e160a460e8e320423947e",
+      "stages": [
+        {
+          "moduleId": "foundation-personal-money-english",
+          "expectedLessons": 10,
+          "curriculumLessons": 10,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 10,
+            "vocabulary": 10,
+            "alignedReadings": 10,
+            "verbs": 10,
+            "mappedTeaching": 10,
+            "mappedReadings": 10,
+            "speakingCards": 10,
+            "fullReaderPassages": 10
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 141,
+          "offlinePackRegistration": null,
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        },
+        {
+          "moduleId": "personal-money-english",
+          "expectedLessons": 30,
+          "curriculumLessons": 30,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 30,
+            "vocabulary": 30,
+            "alignedReadings": 30,
+            "verbs": 30,
+            "mappedTeaching": 30,
+            "mappedReadings": 30,
+            "speakingCards": 30,
+            "fullReaderPassages": 30
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 446,
+          "offlinePackRegistration": null,
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        },
+        {
+          "moduleId": "master-personal-money-english",
+          "expectedLessons": 20,
+          "curriculumLessons": 20,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 20,
+            "vocabulary": 20,
+            "alignedReadings": 20,
+            "verbs": 20,
+            "mappedTeaching": 20,
+            "mappedReadings": 20,
+            "speakingCards": 20,
+            "fullReaderPassages": 20
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 353,
+          "offlinePackRegistration": null,
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        }
+      ]
     },
     {
       "module": "travel-money",
       "target": "Spanish",
       "native": "English",
-      "state": "planned-not-registered",
-      "plannedStages": {
+      "state": "mapped-60-draft",
+      "authoredStages": {
         "foundation": 10,
         "core": 30,
         "master": 20
       },
-      "authoredStages": {
-        "foundation": 0,
-        "core": 0,
-        "master": 0
-      },
-      "alignedReadings": 0,
-      "verbSets": 0,
-      "mappedLessons": 0,
-      "fullReaderLinks": 0,
-      "authoredDecks": 0,
-      "recordedAudio": 0,
+      "alignedReadings": 60,
+      "verbSets": 60,
+      "mappedLessons": 60,
+      "speakingCards": 60,
+      "fullReaderLinks": 60,
+      "authoredDecks": 3,
       "downloadRegistration": false,
       "humanReview": "pending",
-      "productionReleased": false
+      "productionReleased": false,
+      "sourceAudit": "audit-travel-money-es-en.json",
+      "sourceSha256": "df9923d6ab45e2c0aafa3a4b30b7441a849a8f3fca21b3db0cdd47c2894a9fb7",
+      "stages": [
+        {
+          "moduleId": "foundation-travel-money",
+          "expectedLessons": 10,
+          "curriculumLessons": 10,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 10,
+            "vocabulary": 10,
+            "alignedReadings": 10,
+            "verbs": 10,
+            "mappedTeaching": 10,
+            "mappedReadings": 10,
+            "speakingCards": 10,
+            "fullReaderPassages": 10
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 118,
+          "offlinePackRegistration": null,
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        },
+        {
+          "moduleId": "travel-money",
+          "expectedLessons": 30,
+          "curriculumLessons": 30,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 30,
+            "vocabulary": 30,
+            "alignedReadings": 30,
+            "verbs": 30,
+            "mappedTeaching": 30,
+            "mappedReadings": 30,
+            "speakingCards": 30,
+            "fullReaderPassages": 30
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 339,
+          "offlinePackRegistration": null,
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        },
+        {
+          "moduleId": "master-travel-money",
+          "expectedLessons": 20,
+          "curriculumLessons": 20,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 20,
+            "vocabulary": 20,
+            "alignedReadings": 20,
+            "verbs": 20,
+            "mappedTeaching": 20,
+            "mappedReadings": 20,
+            "speakingCards": 20,
+            "fullReaderPassages": 20
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 282,
+          "offlinePackRegistration": null,
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        }
+      ]
     },
     {
-      "module": "travel-money",
+      "module": "travel-money-english",
       "target": "English",
       "native": "Spanish",
-      "state": "planned-not-registered",
-      "plannedStages": {
+      "state": "mapped-60-draft",
+      "authoredStages": {
         "foundation": 10,
         "core": 30,
         "master": 20
       },
-      "authoredStages": {
-        "foundation": 0,
-        "core": 0,
-        "master": 0
-      },
-      "alignedReadings": 0,
-      "verbSets": 0,
-      "mappedLessons": 0,
-      "fullReaderLinks": 0,
-      "authoredDecks": 0,
-      "recordedAudio": 0,
+      "alignedReadings": 60,
+      "verbSets": 60,
+      "mappedLessons": 60,
+      "speakingCards": 60,
+      "fullReaderLinks": 60,
+      "authoredDecks": 3,
       "downloadRegistration": false,
       "humanReview": "pending",
-      "productionReleased": false
+      "productionReleased": false,
+      "sourceAudit": "audit-travel-money-en-es.json",
+      "sourceSha256": "880e36abbd119670aa763bca3e6817d41b40a9b02950ccf7810ad146d897c96b",
+      "stages": [
+        {
+          "moduleId": "foundation-travel-money-english",
+          "expectedLessons": 10,
+          "curriculumLessons": 10,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 10,
+            "vocabulary": 10,
+            "alignedReadings": 10,
+            "verbs": 10,
+            "mappedTeaching": 10,
+            "mappedReadings": 10,
+            "speakingCards": 10,
+            "fullReaderPassages": 10
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 119,
+          "offlinePackRegistration": null,
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        },
+        {
+          "moduleId": "travel-money-english",
+          "expectedLessons": 30,
+          "curriculumLessons": 30,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 30,
+            "vocabulary": 30,
+            "alignedReadings": 30,
+            "verbs": 30,
+            "mappedTeaching": 30,
+            "mappedReadings": 30,
+            "speakingCards": 30,
+            "fullReaderPassages": 30
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 343,
+          "offlinePackRegistration": null,
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        },
+        {
+          "moduleId": "master-travel-money-english",
+          "expectedLessons": 20,
+          "curriculumLessons": 20,
+          "supported": true,
+          "counts": {
+            "validAuthoredLessons": 20,
+            "vocabulary": 20,
+            "alignedReadings": 20,
+            "verbs": 20,
+            "mappedTeaching": 20,
+            "mappedReadings": 20,
+            "speakingCards": 20,
+            "fullReaderPassages": 20
+          },
+          "authoredModuleDeck": true,
+          "deckPairs": 279,
+          "offlinePackRegistration": null,
+          "publicFileReviewFlag": false,
+          "authoredComplete": true,
+          "mappedComplete": true,
+          "gaps": []
+        }
+      ]
     }
   ],
   "examples": {
@@ -190,16 +598,49 @@
     "roofing": "Reference audited in both supported directions; audit evidence stored with this proposal"
   },
   "remaining": [
-    "Full 360-lesson bilingual authoring and linguistic review",
-    "Runtime registration and exact-pair integration",
-    "Practice/Reader/card/speaking integration",
-    "HD audio inventory and production",
-    "Actual browser, phone and release validation for the completed courses"
+    "Qualified native-language and specialist terminology review, including regional house style",
+    "Complete prerecorded HD batch for missing texts and voices",
+    "Offline registration and actual device installation checks, if requested",
+    "Custom formal assessments and global Verb Games additions, if requested",
+    "Production merge/release; this branch is not production"
   ],
   "previewRegeneration": "node scripts/preview-finance-modules.mjs",
   "validation": {
-    "proposal": "Each of the three paths has unique numbered 10/30/20 lesson situations. All nine bilingual sample cards map to a valid module/stage.",
-    "browser": "Chrome at 390px and 1440px: all module/stage filters, 60/10/30/20 counts, English/Spanish examples, search, empty state and no horizontal overflow pass.",
-    "appChecks": "No runtime app changes; course authoring, runtime integration and app release tests remain outstanding."
+    "sourceContent": "360 lessons validated with the real stage-specific content validator",
+    "integration": "Six exact-pair tests exhaustively check all 360 lessons, Reader seeds, vocabulary, decks, speaking and unsupported-pair gates",
+    "nodeSuite": "3,010 tests passed; final navigation placement change is undergoing browser regression",
+    "browser": "72 lesson-mode/Reader cases passed; four navigation/retry cases passed after correcting a cold-course URL reset; final regression in progress",
+    "typecheck": "passed",
+    "lint": "0 errors; two existing speech-state fast-refresh warnings",
+    "productionBuild": "final build in progress"
+  },
+  "authoredLessons": 360,
+  "modelTeam": {
+    "builders": "Three verified claude-haiku-5-5 runs, one per course, both directions",
+    "reviewers": "Three verified claude-opus-5-5 runs, one per course after its builder",
+    "receipts": "model-team/completed-runs.json",
+    "humanReview": false
+  },
+  "audio": {
+    "policy": "HD-only: exact verified recording reuse, otherwise online HD; no device fallback",
+    "inventory": "../../content/finance/audio-inventory.json",
+    "newBulkSynthesis": false,
+    "summary": {
+      "Spanish": {
+        "uniqueTexts": 6227,
+        "existingVerifiedHdClips": 2162,
+        "missingVoiceClips": 10292,
+        "targetCharactersPerVoice": 254007
+      },
+      "English": {
+        "uniqueTexts": 5222,
+        "existingVerifiedHdClips": 0,
+        "missingVoiceClips": 10444,
+        "targetCharactersPerVoice": 243065
+      }
+    }
+  },
+  "publication": {
+    "state": "branch-draft-not-production"
   }
 }

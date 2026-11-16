@@ -1,3 +1,4 @@
+import { financeReaderId } from "@/data/finance.ts";
 import { orCleaningLesson } from "@/data/or-cleaning";
 import { placeLesson } from "@/data/place-directions";
 import { soundLesson } from "@/data/sound-like-a-native";
@@ -165,6 +166,7 @@ export function LessonReader({
       ? `seed-${language === "English" ? "en" : "es"}-${moduleId}-lesson-${lessonNumber}`
       : null;
   const fullReaderId =
+    financeReaderId(moduleId, lessonNumber, language, state.nativeLanguage) ??
     cleaningReaderId ??
     japaneseReaderId ??
     basicsReaderId ??

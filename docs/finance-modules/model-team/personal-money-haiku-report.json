@@ -1,0 +1,124 @@
+{
+  "module": "personal-money",
+  "moduleName": "Personal Money & Banking",
+  "category": "Finance",
+  "builder": "haiku",
+  "model": {
+    "reportedModelId": "claude-haiku-5-5",
+    "source": "Self-reported by the authoring session. The runner did not independently confirm the model."
+  },
+  "humanReviewed": false,
+  "modelReviewPerformed": false,
+  "notes": "Model review is not human review. No person who reads the language has reviewed either file.",
+  "outputs": [
+    {
+      "direction": "es-en",
+      "targetLanguage": "Spanish",
+      "nativeLanguage": "English",
+      "file": "content/finance/personal-money/es-en.json",
+      "rows": 60,
+      "stageCounts": {
+        "foundation": 10,
+        "core": 30,
+        "master": 20
+      },
+      "status": "authored 60 draft (unreviewed)"
+    },
+    {
+      "direction": "en-es",
+      "targetLanguage": "English",
+      "nativeLanguage": "Spanish",
+      "file": "content/finance/personal-money/en-es.json",
+      "rows": 60,
+      "stageCounts": {
+        "foundation": 10,
+        "core": 30,
+        "master": 20
+      },
+      "status": "authored 60 draft (unreviewed)"
+    }
+  ],
+  "lessonsTotal": 120,
+  "validation": {
+    "repoValidator": {
+      "description": "src/lib/lesson-content-core.ts validateLessonContent with contentLimitsFor per stage, plus stageContentErrors from src/lib/core60-generator-core.ts (term head words in passage, vosotros, attributed specifications, bare term series). Run read-only through node 26 type stripping against the final JSON files.",
+      "es-en": "0 errors across 60 rows",
+      "en-es": "0 errors across 60 rows"
+    },
+    "structuralChecks": {
+      "description": "Python assembler checks: stage counts 10/30/20 and n sequences, term and phrase counts per stage, sentence counts per stage, sentence alignment, digit alignment, sentence-final punctuation, Spanish ¿ and ¡ pairing, quotation marks and apostrophes, title and note lengths, term and phrase word limits, verb form keys, Spanish -s/-mos/-n rules, English he/she form differs from I form, and exactly five verbs in each Master lesson.",
+      "es-en": "0 problems",
+      "en-es": "0 problems"
+    },
+    "notRun": [
+      "validateStageFile in src/lib/core60-validate.ts (the row shape requested for this module differs from the stage-file format, see deviations)",
+      "Repository test suite and smoke e2e",
+      "Lesson-content index, lazy library shards and download artifacts",
+      "App runtime checks on the six modes, Reader handoff, speaking cards and progress scoping",
+      "Any audio generation or audio validation"
+    ]
+  },
+  "deviations": [
+    "Foundation rows include grammar, lessonType and block, as the requested row schema shows for every row. validateStageFile rejects those fields on Foundation. Opus or the runner should decide whether to keep them or move them to a Core-only shape.",
+    "Block letters were assigned by me because the specification does not define them for Foundation or Core. Foundation: 1-2 A, 3-4 B, 5-6 C, 7-8 D, 9-10 E. Core: 1-6 A, 7-12 B, 13-18 C, 19-24 D, 25-30 E. Master follows the MASTER_BLOCKS arc (1-4 A, 5-8 B, 9-12 C, 13-16 D, 17-20 E).",
+    "The title and objective are English in both files, as the specification requires. The focus, speaking task, partnerRole, grammar focus and word notes are in each file's native language, so the en-es focus, speaking and partner role are in Spanish. Opus should decide whether Spanish-speaking learners should see the objectives in Spanish.",
+    "The openingLine is in the target language in both files, as specified.",
+    "Foundation lessons have three verbs each, 9 to 10 terms and 4 to 5 phrases in es-en (5 in en-es). Core lessons have 9 to 10 terms and 5 phrases; 29 of 30 have three verbs and one has five. Master lessons have exactly five verbs, 13 to 14 terms in es-en and 12 in en-es, and 6 to 7 phrases.",
+    "content.words is copied from lesson.words by the assembler, as the specification allows.",
+    "Learner-facing notes avoid generic caution language. Jurisdiction-specific items (tax returns and tax numbers, retirement accounts and contributions, deposit protection, power of attorney, benefit programs, cosignature) are labelled with an example country or a fictional program.",
+    "Fictional figures are internally consistent: for example, 185 x 48 = 8,880 with interest of 2,880; 1,000 at 12% simple gives 120; 1,000 at 12% compounded monthly gives 1,126.83 with 126.83 accrued; 1,200 split over seven months is 171.43; 18,000 with a 3,000 down payment leaves 15,000; 288 total for six installments of 48 against a cash price of 270."
+  ],
+  "regionalTerminologyIssuesForOpus": [
+    "es-en: 'estado de cuenta' is used for statement (Spain says extracto); a note mentions this, but the word list uses the Latin American form throughout.",
+    "es-en: 'renta' is used for rent (Spain says alquiler); a note mentions this in the fixed-cost lesson.",
+    "es-en: 'cuenta corriente' and 'cuenta de cheques' both appear for checking account; the note explains the Mexican form. Opus should confirm the register it prefers for one target region.",
+    "es-en: 'cajero automático' is the ATM term; Spain often uses 'cajero'. 'Cajero' is also used for the shop cashier, and a note marks the difference.",
+    "es-en: 'monto' is used for amount throughout; one note says it is common across Latin America, and Spain usually says 'importe'.",
+    "es-en: 'reembolso' and 'devolución' are both used for refund in different lessons. Opus should choose one for consistency.",
+    "es-en: 'sobregiro' is used for overdraft; Spain often says 'descubierto'. This is not noted.",
+    "es-en: 'PIN' is used as is; Mexico often says 'NIP'. This is not noted.",
+    "es-en: 'fila' is used for the teller line; Spain often says 'cola'. This is not noted.",
+    "es-en: 'cooperativa de crédito' appears for credit union; other regions use 'cooperativa' or a different term.",
+    "es-en: 'cotizar' appears in the retirement lesson with a note that its meaning depends on the local scheme. Opus should confirm the example wording.",
+    "es-en: 'pagos domiciliados' is used for direct debits; Spain often says 'domiciliaciones' and Latin American banks may say 'débitos automáticos'.",
+    "en-es: 'checking account' is 'cuenta corriente' in the word list. The note explains daily use and debit cards; it does not mention Mexico's 'cuenta de cheques', which Opus may want to add.",
+    "en-es: 'statement' is 'estado de cuenta' with a note for Spain's 'extracto'.",
+    "en-es: 'direct debits' is 'pagos domiciliados' (see es-en note). The regional alternative is not in the word note.",
+    "en-es: 'teller' is 'cajera' or 'cajero' as the speaker requires; the feminine forms are used for named female tellers.",
+    "en-es: 'power of attorney' is 'poder notarial' and 'co-signed guarantee' is 'aval'. Both depend on the jurisdiction and are labelled in the notes.",
+    "en-es: 'tax return', 'tax number', 'benefit letter' and 'support program' are labelled with the example country. Opus should check the Spanish terms against the real official terms for any country the course names.",
+    "Both directions: register varies. Bank staff speak with usted; family members and peers mostly use tú in Spanish dialogue. Opus should check that the register is consistent within each lesson.",
+    "Both directions: numbers use the decimal point and $ sign, with identical digits on both sides. Regions that use a decimal comma are not represented."
+  ],
+  "grammarIssuesForOpus": [
+    "Foundation and Core use simple present, preterite and future structures. Opus should check that the grammar focus for each lesson matches the verbs and examples, especially the es-en examples that use the preterite and the subjunctive.",
+    "es-en Master lessons use the subjunctive after es posible que, necesito que, quiero que, me preocupa que, para que, antes de que and cuando. These should be checked for regional acceptability.",
+    "es-en: the verb 'cotizar' note refers to contributing to a pension or social security system. The example uses the present tense with desde, which may be better translated with 'have been contributing'.",
+    "en-es Master lessons use English conditionals and modal verbs (would, will, can, could, have to, had to, when plus the present). Opus should check that the Spanish notes name the right Spanish equivalent for each form.",
+    "en-es: some verb notes give the Spanish equivalent of a phrasal verb (for example, 'set aside', 'write down', 'fill out'); these should be checked for naturalness.",
+    "en-es: a few Master passages use present continuous for an ongoing action (for example, 'someone is using my account'); Opus should confirm these match the lesson focus.",
+    "Both directions: several Core and Master lessons reuse the same verb in another lesson (for example, 'pay', 'review', 'cancel', 'confirm'). This is deliberate for review but Opus may prefer more variety."
+  ],
+  "sourceBasis": {
+    "description": "Original text written for this module by the builder model. No external lesson text, article or curriculum was copied. Financial concepts are described in general terms, with fictional banks, funds, people and figures. Scenes are original and vary in speaker, purpose, exchange, problem and closure.",
+    "externalSources": [],
+    "jurisdictionLabels": "Tax, retirement, deposit protection, power-of-attorney and benefit-program content is labelled with an example country or a fictional program."
+  },
+  "missingHdAudio": {
+    "status": "No HD audio was generated for any of the 120 lessons. Audio generation was out of scope for this builder."
+  },
+  "gaps": [
+    "No human review of either file.",
+    "The repo's stage-file validator and app runtime checks were not run; the row format differs from the stage-file format (see deviations).",
+    "Lesson-content index, download artifacts and app integration were not built; this builder owns only the content files and this report.",
+    "No audio for any lesson.",
+    "Spanish-target notes and the title in English both need Opus review for learner clarity.",
+    "Regional terminology items listed above need owner decisions."
+  ],
+  "filesWritten": [
+    "content/finance/personal-money/es-en.json",
+    "content/finance/personal-money/en-es.json",
+    "docs/finance-modules/model-team/personal-money-haiku-report.json"
+  ],
+  "scratchWork": "Batch files and the assembler live in /tmp/pm-build (outside the repo). They are not part of the deliverable."
+}

@@ -1,0 +1,78 @@
+{
+  "pipeline": "One Haiku builder per course, then a separate Opus reviewer per course; followed by Codex review. Exact models verified from Claude CLI system initialization records.",
+  "humanReview": false,
+  "runs": [
+    {
+      "module": "accounting",
+      "role": "builder",
+      "requestedModel": "haiku",
+      "actualModel": "claude-haiku-5-5",
+      "sessionId": "644fd8ad-0872-42ac-bce4-81a35e24fc1f",
+      "result": "success",
+      "durationMs": 1612748,
+      "turns": 92,
+      "streamSha256": "14233a5d33e28183de414ec4cd934b234423e56ff5c08813d7ba8cd294560e37",
+      "report": "accounting-haiku-report.json"
+    },
+    {
+      "module": "accounting",
+      "role": "reviewer",
+      "requestedModel": "opus",
+      "actualModel": "claude-opus-5-5",
+      "sessionId": "c04d6657-fe72-44bd-9f64-1df3e98330fb",
+      "result": "success",
+      "durationMs": 2104975,
+      "turns": 78,
+      "streamSha256": "37627abd125dd3e8b67ccd1fde63b439ff6dcacdf042b2419848c5cc439e166f",
+      "report": "accounting-opus-review.json"
+    },
+    {
+      "module": "personal-money",
+      "role": "builder",
+      "requestedModel": "haiku",
+      "actualModel": "claude-haiku-5-5",
+      "sessionId": "4914f658-99e6-45f9-a298-a083339437d0",
+      "result": "success",
+      "durationMs": 2808031,
+      "turns": 121,
+      "streamSha256": "754a602ae59c436ab1f1c0c0d3f2fc12c943dddef85f536d750505c29fb8c069",
+      "report": "personal-money-haiku-report.json"
+    },
+    {
+      "module": "personal-money",
+      "role": "reviewer",
+      "requestedModel": "opus",
+      "actualModel": "claude-opus-5-5",
+      "sessionId": "9adb3c11-fff7-4d6a-bda9-ec17b06138d9",
+      "result": "success",
+      "durationMs": 1884916,
+      "turns": 66,
+      "streamSha256": "b3cfd264d6b9b74c2dc3d9ac2c37826d3d6d99dd2a962f61ba73077c4497bca3",
+      "report": "personal-money-opus-review.json"
+    },
+    {
+      "module": "travel-money",
+      "role": "builder",
+      "requestedModel": "haiku",
+      "actualModel": "claude-haiku-5-5",
+      "sessionId": "53954a7f-5e4a-4539-8b07-a764d209514c",
+      "result": "success",
+      "durationMs": 1852641,
+      "turns": 89,
+      "streamSha256": "5f27fd5dc8dcb446ddda21ac1b82205ddb2eb8fe24fc0c5aba19e9597df94614",
+      "report": "travel-money-haiku-report.json"
+    },
+    {
+      "module": "travel-money",
+      "role": "reviewer",
+      "requestedModel": "opus",
+      "actualModel": "claude-opus-5-5",
+      "sessionId": "7f1b9bcf-36ba-4bd7-a12d-8b8413e53baa",
+      "result": "success",
+      "durationMs": 1881191,
+      "turns": 96,
+      "streamSha256": "8c5099dd0b4512974476866541fa581afd8a584fd0b801c9b26d796716f831f7",
+      "report": "travel-money-opus-review.json"
+    }
+  ]
+}

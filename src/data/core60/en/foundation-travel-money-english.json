@@ -1,0 +1,997 @@
+{
+  "version": 1,
+  "module": "foundation-travel-money-english",
+  "language": "English",
+  "nativeLanguage": "Spanish",
+  "headline": "Travel Money & Payments · English · Foundation",
+  "threshold": "Use English to complete the foundation travel money & payments conversations and explain the next step.",
+  "reviewed": false,
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Ask how much something costs",
+      "objective": "Preguntar el precio de un artículo y de varios, identificar la moneda y repetir cada importe a la vendedora.",
+      "focus": "Preguntas de precio con how much is y how much are: el verbo concuerda con un artículo o con varios.",
+      "words": [
+        {
+          "es": "price",
+          "en": "precio",
+          "kind": "term",
+          "note": "Lo que se pide por un artículo. Se usa con how much."
+        },
+        {
+          "es": "dollar",
+          "en": "dólar",
+          "kind": "term",
+          "note": "Moneda de Estados Unidos. El plural es dollars."
+        },
+        {
+          "es": "bag",
+          "en": "bolsa",
+          "kind": "term",
+          "note": "Recipiente de tela o plástico para llevar compras."
+        },
+        {
+          "es": "apple",
+          "en": "manzana",
+          "kind": "term",
+          "note": "Fruta redonda, roja o verde."
+        },
+        {
+          "es": "pear",
+          "en": "pera",
+          "kind": "term",
+          "note": "Fruta con forma de gota, muy usada en mercados."
+        },
+        {
+          "es": "total",
+          "en": "total",
+          "kind": "term",
+          "note": "La suma de todos los artículos."
+        },
+        {
+          "es": "vendor",
+          "en": "vendedora",
+          "kind": "term",
+          "note": "Persona que vende en un puesto. Vendor sirve igual para hombre o mujer."
+        },
+        {
+          "es": "fresh",
+          "en": "fresco",
+          "kind": "term",
+          "note": "Recién cosechado o no pasado. Se usa para la fruta del día."
+        },
+        {
+          "es": "market",
+          "en": "mercado",
+          "kind": "term",
+          "note": "Lugar con puestos donde se compra comida y productos."
+        },
+        {
+          "es": "How much is this bag of apples?",
+          "en": "¿Cuánto cuesta esta bolsa de manzanas?",
+          "kind": "phrase",
+          "note": "Pregunta el precio de un solo artículo."
+        },
+        {
+          "es": "How much are two bags of pears?",
+          "en": "¿Cuánto cuestan dos bolsas de peras?",
+          "kind": "phrase",
+          "note": "Usa are porque hay más de un artículo."
+        },
+        {
+          "es": "How much is that in total?",
+          "en": "¿Cuánto es en total?",
+          "kind": "phrase",
+          "note": "Pide la suma final antes de pagar."
+        },
+        {
+          "es": "I will take the apples.",
+          "en": "Me llevo las manzanas.",
+          "kind": "phrase",
+          "note": "Frase para decidir la compra."
+        },
+        {
+          "es": "Here is your bag.",
+          "en": "Aquí tiene su bolsa.",
+          "kind": "phrase",
+          "note": "Frase habitual al entregar la compra."
+        }
+      ],
+      "speaking": "Estás en un puesto de un mercado de agricultores. Pregunta el precio de una bolsa de manzanas y de dos bolsas de peras, repite cada importe en dólares y di cuál vas a llevar. Cierra dando las gracias a la vendedora.",
+      "partnerRole": "Vendedora de un mercado de agricultores que habla inglés con clientes de paso",
+      "openingLine": "Good morning! The apples are fresh today. What can I get for you?",
+      "readingTemplate": "seed-en-foundation-travel-money-english-lesson-1"
+    },
+    {
+      "n": 2,
+      "title": "Read prices and decimal amounts",
+      "objective": "Leer un precio con punto decimal, decir dólares y centavos en inglés y confirmar el total antes de pagar.",
+      "focus": "El punto decimal en inglés, los centavos después del punto y el plural de dollars.",
+      "words": [
+        {
+          "es": "decimal point",
+          "en": "punto decimal",
+          "kind": "term",
+          "note": "El punto que separa dólares y centavos en inglés. En español se usa coma: 2,50."
+        },
+        {
+          "es": "cent",
+          "en": "centavo",
+          "kind": "term",
+          "note": "Centésima parte del dólar. Plural cents. Se escribe 50 cents o $0.50."
+        },
+        {
+          "es": "dollar",
+          "en": "dólar",
+          "kind": "term",
+          "note": "Plural dollars. En los precios se escribe $2.50, con el símbolo delante."
+        },
+        {
+          "es": "coffee",
+          "en": "café",
+          "kind": "term",
+          "note": "La bebida. El local se llama café o coffee shop."
+        },
+        {
+          "es": "muffin",
+          "en": "bollo",
+          "kind": "term",
+          "note": "Magdalena grande típica de Estados Unidos; no es un bollo de pan."
+        },
+        {
+          "es": "total",
+          "en": "total",
+          "kind": "term",
+          "note": "La suma final. Se dice the total o in total."
+        },
+        {
+          "es": "receipt",
+          "en": "recibo",
+          "kind": "term",
+          "note": "El comprobante de pago. La p no se pronuncia: risit."
+        },
+        {
+          "es": "barista",
+          "en": "camarera",
+          "kind": "term",
+          "note": "Persona que prepara café en una cafetería. En español también se dice barista."
+        },
+        {
+          "es": "card machine",
+          "en": "terminal de tarjetas",
+          "kind": "term",
+          "note": "El lector de tarjetas. En Estados Unidos también se oye card reader."
+        },
+        {
+          "es": "amount",
+          "en": "importe",
+          "kind": "term",
+          "note": "La cantidad de dinero de una factura o recibo. Se dice the amount, no the quantity, para dinero."
+        },
+        {
+          "es": "The coffee is 2.50 dollars.",
+          "en": "El café cuesta 2,50 dólares.",
+          "kind": "phrase",
+          "note": "Dices el precio con punto decimal."
+        },
+        {
+          "es": "So the total is six dollars and twenty-five cents?",
+          "en": "¿Entonces el total es de seis dólares con veinticinco centavos?",
+          "kind": "phrase",
+          "note": "Confirmas el total con palabras antes de pagar."
+        },
+        {
+          "es": "I will pay by card, please.",
+          "en": "Pago con tarjeta, por favor.",
+          "kind": "phrase",
+          "note": "Indica el método de pago."
+        },
+        {
+          "es": "Could I get a receipt with the amount?",
+          "en": "¿Me puede dar un recibo con el importe?",
+          "kind": "phrase",
+          "note": "Pide una prueba escrita del pago."
+        },
+        {
+          "es": "Here is your receipt for 6.25 dollars.",
+          "en": "Aquí tiene su recibo por 6,25 dólares.",
+          "kind": "phrase",
+          "note": "Frase habitual al entregar el recibo."
+        }
+      ],
+      "speaking": "Estás en una cafetería. Pide un café y un bollo, di el precio de cada artículo con dólares y centavos, suma el total y confírmalo con el camarero antes de pagar. Cierra diciendo que pagas con tarjeta.",
+      "partnerRole": "Camarera de una cafetería de barrio que dice los precios en voz alta",
+      "openingLine": "Hi there! Would you like a coffee or something to eat? The muffins are fresh.",
+      "readingTemplate": "seed-en-foundation-travel-money-english-lesson-2"
+    },
+    {
+      "n": 3,
+      "title": "Recognize banknotes and coins",
+      "objective": "Reconocer billetes y monedas de Estados Unidos, preguntar qué vale cada uno y elegir las monedas necesarias para un trayecto.",
+      "focus": "A y an con el nombre de un billete, y of para decir el valor: a five-dollar bill, some quarters.",
+      "words": [
+        {
+          "es": "bill",
+          "en": "billete",
+          "kind": "term",
+          "note": "Billete en inglés de Estados Unidos; en el Reino Unido se dice note. Bill también significa cuenta o factura."
+        },
+        {
+          "es": "coin",
+          "en": "moneda",
+          "kind": "term",
+          "note": "Moneda metálica. Plural coins."
+        },
+        {
+          "es": "quarter",
+          "en": "moneda de veinticinco centavos",
+          "kind": "term",
+          "note": "Moneda de Estados Unidos de 25 centavos, la cuarta parte de un dólar."
+        },
+        {
+          "es": "kiosk",
+          "en": "quiosco",
+          "kind": "term",
+          "note": "Puesto pequeño de prensa, bebidas o billetes en una estación."
+        },
+        {
+          "es": "clerk",
+          "en": "empleada",
+          "kind": "term",
+          "note": "Empleado o empleada de mostrador. Sirve para hombre o mujer."
+        },
+        {
+          "es": "bus",
+          "en": "autobús",
+          "kind": "term",
+          "note": "Autobús. Plural buses. Take the bus significa ir en autobús."
+        },
+        {
+          "es": "change",
+          "en": "cambio",
+          "kind": "term",
+          "note": "El dinero que te devuelven. Small change son las monedas sueltas."
+        },
+        {
+          "es": "exactly",
+          "en": "exactamente",
+          "kind": "term",
+          "note": "Adverbio: justo esa cantidad, sin cambio."
+        },
+        {
+          "es": "be worth",
+          "en": "valer",
+          "kind": "term",
+          "note": "Valer. Se usa con el sujeto delante: this coin is worth 25 cents."
+        },
+        {
+          "es": "visit",
+          "en": "visita",
+          "kind": "term",
+          "note": "Visita. Thank you for visiting es una despedida amable de tienda."
+        },
+        {
+          "es": "What is this coin worth?",
+          "en": "¿Cuánto vale esta moneda?",
+          "kind": "phrase",
+          "note": "Pregunta el valor de una moneda o de un billete."
+        },
+        {
+          "es": "Is it the ten-dollar one?",
+          "en": "¿Es el de diez dólares?",
+          "kind": "phrase",
+          "note": "Confirma el billete que la persona señala."
+        },
+        {
+          "es": "I need four quarters for the bus.",
+          "en": "Necesito cuatro monedas de veinticinco centavos para el autobús.",
+          "kind": "phrase",
+          "note": "Pide monedas concretas para un trayecto."
+        },
+        {
+          "es": "That is exactly one dollar.",
+          "en": "Son exactamente un dólar.",
+          "kind": "phrase",
+          "note": "Confirma la cantidad antes de pagar."
+        },
+        {
+          "es": "Thank you for visiting.",
+          "en": "Gracias por su visita.",
+          "kind": "phrase",
+          "note": "Frase de despedida habitual."
+        }
+      ],
+      "speaking": "Estás en un quiosco de una estación con un billete de cinco dólares y solo monedas pequeñas. Pregunta qué vale una moneda, luego pide cuatro monedas de 25 centavos para el autobús y confirma el total antes de pagar.",
+      "partnerRole": "Empleada de un quiosco de estación que explica billetes y monedas",
+      "openingLine": "Good afternoon. Do you need change, or are you looking for a bus pass?",
+      "readingTemplate": "seed-en-foundation-travel-money-english-lesson-3"
+    },
+    {
+      "n": 4,
+      "title": "Ask whether cash or card is accepted",
+      "objective": "Preguntar si una tienda acepta efectivo o tarjeta antes de comprar y decir claramente qué método vas a usar.",
+      "focus": "Preguntas de sí o no con do y does: Do you accept cards? y Does the shop take cash?",
+      "words": [
+        {
+          "es": "accept",
+          "en": "aceptar",
+          "kind": "term",
+          "note": "Aceptar un medio de pago: we accept cards."
+        },
+        {
+          "es": "card",
+          "en": "tarjeta",
+          "kind": "term",
+          "note": "Tarjeta de pago. Debit card cobra de tu cuenta; credit card usa un crédito del banco."
+        },
+        {
+          "es": "cash",
+          "en": "efectivo",
+          "kind": "term",
+          "note": "Dinero en billetes y monedas. Pay in cash significa pagar en efectivo."
+        },
+        {
+          "es": "order",
+          "en": "pedido",
+          "kind": "term",
+          "note": "El pedido en un café o restaurante. Over five dollars: de más de cinco dólares."
+        },
+        {
+          "es": "waiter",
+          "en": "camarero",
+          "kind": "term",
+          "note": "Camarero. Para una mujer se dice waitress o, de forma neutra, server."
+        },
+        {
+          "es": "cake",
+          "en": "pastel",
+          "kind": "term",
+          "note": "Pastel o tarta. A slice of cake es una porción."
+        },
+        {
+          "es": "receipt",
+          "en": "recibo",
+          "kind": "term",
+          "note": "El comprobante de pago. La p no se pronuncia: risit."
+        },
+        {
+          "es": "change",
+          "en": "cambio",
+          "kind": "term",
+          "note": "El dinero que te devuelven. Keep the change: quédese con el cambio."
+        },
+        {
+          "es": "place",
+          "en": "sitio",
+          "kind": "term",
+          "note": "Lugar o local en sentido general: this place, este sitio."
+        },
+        {
+          "es": "small amount",
+          "en": "cantidad pequeña",
+          "kind": "term",
+          "note": "Una cantidad pequeña de dinero."
+        },
+        {
+          "es": "Do you accept cards?",
+          "en": "¿Aceptan tarjetas?",
+          "kind": "phrase",
+          "note": "Pregunta básica antes de pedir."
+        },
+        {
+          "es": "Does this place take cash?",
+          "en": "¿Este sitio acepta efectivo?",
+          "kind": "phrase",
+          "note": "Pregunta por el efectivo con does."
+        },
+        {
+          "es": "I will pay in cash, please.",
+          "en": "Pago en efectivo, por favor.",
+          "kind": "phrase",
+          "note": "Indica el método de pago."
+        },
+        {
+          "es": "Keep the change.",
+          "en": "Quédese con el cambio.",
+          "kind": "phrase",
+          "note": "Frase para dar una propina pequeña o no pedir el cambio."
+        },
+        {
+          "es": "I will bring you the receipt now.",
+          "en": "Ahora le traigo el recibo.",
+          "kind": "phrase",
+          "note": "Frase de camarero al cerrar el pago."
+        }
+      ],
+      "speaking": "Entras en una cafetería y quieres un café y un pastel. Pregunta si aceptan tarjetas, pregunta si también aceptan efectivo para importes pequeños, elige el método que vas a usar y confirma el importe con el camarero. Cierra dando las gracias.",
+      "partnerRole": "Camarero de un café que acepta efectivo y tarjeta",
+      "openingLine": "Good afternoon! What can I get you today? We have coffee, tea and cake.",
+      "readingTemplate": "seed-en-foundation-travel-money-english-lesson-4"
+    },
+    {
+      "n": 5,
+      "title": "Pay with a larger banknote",
+      "objective": "Entregar un billete grande, pedir que te lo cambien por billetes menores y usar could you para hacer una petición cortés.",
+      "focus": "Could you y could I para peticiones corteses y el uso de it y them para sustituir el billete o las monedas.",
+      "words": [
+        {
+          "es": "bill",
+          "en": "billete",
+          "kind": "term",
+          "note": "Billete en Estados Unidos; en el Reino Unido se dice note."
+        },
+        {
+          "es": "change",
+          "en": "cambio",
+          "kind": "term",
+          "note": "Cambio: el dinero devuelto o billetes más pequeños. Change a twenty: cambiar un billete de veinte."
+        },
+        {
+          "es": "till",
+          "en": "caja",
+          "kind": "term",
+          "note": "La caja registradora. En Estados Unidos también register o cash register."
+        },
+        {
+          "es": "juice",
+          "en": "zumo",
+          "kind": "term",
+          "note": "Zumo en España; jugo en América Latina. Orange juice: zumo de naranja."
+        },
+        {
+          "es": "corner shop",
+          "en": "tienda de barrio",
+          "kind": "term",
+          "note": "Tienda pequeña de barrio. En Estados Unidos es más común convenience store."
+        },
+        {
+          "es": "twenty",
+          "en": "veinte",
+          "kind": "term",
+          "note": "En la calle, a twenty significa un billete de veinte dólares."
+        },
+        {
+          "es": "tens",
+          "en": "de diez",
+          "kind": "term",
+          "note": "Two tens son dos billetes de diez. Igual: a five, a twenty."
+        },
+        {
+          "es": "smaller",
+          "en": "más pequeño",
+          "kind": "term",
+          "note": "Comparativo de small. Something smaller: billetes de menor valor."
+        },
+        {
+          "es": "bottle",
+          "en": "botella",
+          "kind": "term",
+          "note": "Botella. A bottle of juice: una botella de zumo."
+        },
+        {
+          "es": "evening",
+          "en": "noche",
+          "kind": "term",
+          "note": "La tarde-noche. Good evening se usa como saludo desde media tarde."
+        },
+        {
+          "es": "I would like a bottle of juice, please.",
+          "en": "Quisiera una botella de zumo, por favor.",
+          "kind": "phrase",
+          "note": "Pedido cortés."
+        },
+        {
+          "es": "I will give you this twenty-dollar bill.",
+          "en": "Le doy este billete de veinte dólares.",
+          "kind": "phrase",
+          "note": "Dices el billete antes de pagar."
+        },
+        {
+          "es": "Do you have something smaller?",
+          "en": "¿Tiene algo más pequeño?",
+          "kind": "phrase",
+          "note": "Pide billetes o monedas más pequeños."
+        },
+        {
+          "es": "Could you change it into two tens for me?",
+          "en": "¿Me lo puede cambiar por dos de diez?",
+          "kind": "phrase",
+          "note": "Petición cortés con it."
+        },
+        {
+          "es": "Your change is 7.50 dollars.",
+          "en": "Su cambio son 7,50 dólares.",
+          "kind": "phrase",
+          "note": "Frase para devolver el cambio."
+        }
+      ],
+      "speaking": "Vas a comprar una botella de zumo y solo tienes un billete de veinte dólares. Di que pagas con ese billete, pide si puede cambiarlo por billetes de diez, acepta el cambio y confirma el importe final. Cierra dando las gracias y deseando un buen día.",
+      "partnerRole": "Dependienta de una tienda pequeña con pocos billetes para cambio",
+      "openingLine": "Good evening. Can I help you find something? We have fresh orange juice.",
+      "readingTemplate": "seed-en-foundation-travel-money-english-lesson-5"
+    },
+    {
+      "n": 6,
+      "title": "Count and confirm your change",
+      "objective": "Restar un precio sencillo de un pago en efectivo, decir el cambio en voz alta en inglés y confirmarlo con la cajera antes de salir.",
+      "focus": "Let me count it back to you para contar el cambio, y so my change should be para comprobar un cálculo.",
+      "words": [
+        {
+          "es": "sandwich",
+          "en": "sándwich",
+          "kind": "term",
+          "note": "Plural sandwiches. Se pronuncia sánduich, con acento en la primera sílaba."
+        },
+        {
+          "es": "change",
+          "en": "cambio",
+          "kind": "term",
+          "note": "El dinero que te devuelven. Count the change: contar el cambio."
+        },
+        {
+          "es": "count",
+          "en": "contar",
+          "kind": "term",
+          "note": "Contar dinero. Count it back es contar el cambio sumando hasta lo que pagaste."
+        },
+        {
+          "es": "receipt",
+          "en": "recibo",
+          "kind": "term",
+          "note": "Recibo o tique. La p no se pronuncia: risit."
+        },
+        {
+          "es": "total",
+          "en": "total",
+          "kind": "term",
+          "note": "That comes to... en total: así se anuncia la suma final."
+        },
+        {
+          "es": "bill",
+          "en": "billete",
+          "kind": "term",
+          "note": "Billete en Estados Unidos. A ten-dollar bill: un billete de diez dólares."
+        },
+        {
+          "es": "cashier",
+          "en": "cajera",
+          "kind": "term",
+          "note": "Cajero o cajera; sirve para los dos."
+        },
+        {
+          "es": "coffee",
+          "en": "café",
+          "kind": "term",
+          "note": "Café. A coffee: un café, una taza."
+        },
+        {
+          "es": "turkey",
+          "en": "pavo",
+          "kind": "term",
+          "note": "Pavo. También significa Turquía cuando va con mayúscula: Turkey."
+        },
+        {
+          "es": "I will have a turkey sandwich and a coffee.",
+          "en": "Quiero un sándwich de pavo y un café.",
+          "kind": "phrase",
+          "note": "Frase habitual para pedir en un mostrador."
+        },
+        {
+          "es": "Let me count it back to you.",
+          "en": "Déjeme contarle el cambio.",
+          "kind": "phrase",
+          "note": "Propones contar el cambio en voz alta."
+        },
+        {
+          "es": "So my change should be 3.60 dollars?",
+          "en": "¿Entonces mi cambio debe ser de 3,60 dólares?",
+          "kind": "phrase",
+          "note": "Compruebas un cálculo con should."
+        },
+        {
+          "es": "I do not need a receipt, thanks.",
+          "en": "No necesito recibo, gracias.",
+          "kind": "phrase",
+          "note": "Preguntas si el recibo es necesario."
+        },
+        {
+          "es": "Have a good day!",
+          "en": "¡Que tenga un buen día!",
+          "kind": "phrase",
+          "note": "Frase de despedida habitual."
+        }
+      ],
+      "speaking": "Pides un sándwich de pavo y un café, que suman 6,40 dólares, y pagas con un billete de diez. Calcula el cambio mentalmente, dilo en voz alta y pide a la cajera que lo confirme. Cierra diciendo que no necesitas recibo, o pídelo si lo quieres.",
+      "partnerRole": "Cajera de una panadería pequeña que cuenta el cambio al cliente",
+      "openingLine": "Hi there! What can I get you? We have fresh turkey sandwiches and hot coffee.",
+      "readingTemplate": "seed-en-foundation-travel-money-english-lesson-6"
+    },
+    {
+      "n": 7,
+      "title": "Ask for a receipt",
+      "objective": "Pedir un recibo y comprobar la fecha, el importe y la moneda antes de salir del mostrador.",
+      "focus": "Could I have para una petición cortés y el orden de la fecha en inglés: November 15, con el mes primero.",
+      "words": [
+        {
+          "es": "receipt",
+          "en": "recibo",
+          "kind": "term",
+          "note": "Recibo, comprobante de pago. La p no se pronuncia."
+        },
+        {
+          "es": "amount",
+          "en": "importe",
+          "kind": "term",
+          "note": "Importe de dinero. The amount is 18 dollars."
+        },
+        {
+          "es": "date",
+          "en": "fecha",
+          "kind": "term",
+          "note": "Fecha. En Estados Unidos se escribe mes, día y año: 11/15/2026."
+        },
+        {
+          "es": "currency",
+          "en": "moneda",
+          "kind": "term",
+          "note": "Moneda como sistema monetario. US dollars: dólares estadounidenses."
+        },
+        {
+          "es": "passenger",
+          "en": "pasajero",
+          "kind": "term",
+          "note": "Pasajero o pasajera de tren, avión o autobús."
+        },
+        {
+          "es": "agent",
+          "en": "agente",
+          "kind": "term",
+          "note": "Agente o empleado de taquilla o de una empresa."
+        },
+        {
+          "es": "fare",
+          "en": "tarifa",
+          "kind": "term",
+          "note": "Tarifa o precio del billete de transporte. No confundir con fair, justo."
+        },
+        {
+          "es": "round trip",
+          "en": "ida y vuelta",
+          "kind": "term",
+          "note": "Ida y vuelta en Estados Unidos; en el Reino Unido se dice return."
+        },
+        {
+          "es": "refund",
+          "en": "reembolso",
+          "kind": "term",
+          "note": "Reembolso: devolución de dinero. Get a refund: recibir un reembolso."
+        },
+        {
+          "es": "Could I have a receipt for this train ticket, please?",
+          "en": "¿Me puede dar un recibo de este billete de tren, por favor?",
+          "kind": "phrase",
+          "note": "Petición cortés por un documento."
+        },
+        {
+          "es": "I need the date, the amount and the currency.",
+          "en": "Necesito la fecha, el importe y la moneda.",
+          "kind": "phrase",
+          "note": "Enumera los datos que quieres ver."
+        },
+        {
+          "es": "Is 18 dollars the full price?",
+          "en": "¿Son 18 dólares el precio completo?",
+          "kind": "phrase",
+          "note": "Confirma el importe completo."
+        },
+        {
+          "es": "Everything matches what I paid.",
+          "en": "Todo coincide con lo que pagué.",
+          "kind": "phrase",
+          "note": "Confirma que el documento coincide con el pago."
+        },
+        {
+          "es": "Please keep the receipt for any refund later.",
+          "en": "Guarde el recibo por si necesita un reembolso más adelante.",
+          "kind": "phrase",
+          "note": "Aconseja guardar el recibo."
+        }
+      ],
+      "speaking": "Compras un billete de tren de ida y vuelta. Pide un recibo, di qué datos necesitas y repite la fecha, el importe y la moneda para comprobarlos. Cierra diciendo que guardarás el recibo por si necesitas un reembolso.",
+      "partnerRole": "Agente de la taquilla de una estación de tren que imprime recibos",
+      "openingLine": "Good afternoon. Where are you travelling today? I can print your receipt now.",
+      "readingTemplate": "seed-en-foundation-travel-money-english-lesson-7"
+    },
+    {
+      "n": 8,
+      "title": "Ask what is included in a price",
+      "objective": "Preguntar si el precio de una entrada incluye un extra o un cargo por servicio, y entender la respuesta antes de pagar.",
+      "focus": "Does the price include para preguntar qué incluye un precio, e is separate para decir que algo cuesta aparte.",
+      "words": [
+        {
+          "es": "ticket",
+          "en": "entrada",
+          "kind": "term",
+          "note": "Entrada de museo o espectáculo; también billete de transporte."
+        },
+        {
+          "es": "price",
+          "en": "precio",
+          "kind": "term",
+          "note": "Precio. Ticket price: precio de la entrada."
+        },
+        {
+          "es": "audio guide",
+          "en": "audioguía",
+          "kind": "term",
+          "note": "Audioguía. Rent an audio guide: alquilar una audioguía."
+        },
+        {
+          "es": "service fee",
+          "en": "cargo por servicio",
+          "kind": "term",
+          "note": "Cargo que cobra el vendedor por gestionar la venta; no es un impuesto."
+        },
+        {
+          "es": "separate",
+          "en": "aparte",
+          "kind": "term",
+          "note": "Aparte. Is separate: se paga por separado. Se pronuncia séparet como adjetivo."
+        },
+        {
+          "es": "included",
+          "en": "incluido",
+          "kind": "term",
+          "note": "Incluido. Fee included: con el cargo incluido."
+        },
+        {
+          "es": "entry",
+          "en": "acceso",
+          "kind": "term",
+          "note": "Acceso o entrada a un lugar. Entry fee: precio de entrada."
+        },
+        {
+          "es": "total",
+          "en": "total",
+          "kind": "term",
+          "note": "Total. So the total is...? sirve para confirmar."
+        },
+        {
+          "es": "visit",
+          "en": "visita",
+          "kind": "term",
+          "note": "Visita. Enjoy your visit: disfrute de la visita."
+        },
+        {
+          "es": "Does the price include the service fee?",
+          "en": "¿El precio incluye la cargo por servicio?",
+          "kind": "phrase",
+          "note": "Pregunta si un cargo está dentro del precio."
+        },
+        {
+          "es": "The audio guide is separate.",
+          "en": "La audioguía es aparte.",
+          "kind": "phrase",
+          "note": "Explica un extra que se paga por separado."
+        },
+        {
+          "es": "So the total is 12 dollars for the entry?",
+          "en": "¿Entonces el total es de 12 dólares por la entrada?",
+          "kind": "phrase",
+          "note": "Confirma el total final."
+        },
+        {
+          "es": "I will decide about the audio guide later.",
+          "en": "Decidiré sobre la audioguía más tarde.",
+          "kind": "phrase",
+          "note": "Aplaza una compra sin rechazarla."
+        },
+        {
+          "es": "Enjoy your visit!",
+          "en": "¡Disfrute su visita!",
+          "kind": "phrase",
+          "note": "Frase de despedida del personal."
+        }
+      ],
+      "speaking": "Compras una entrada de museo y quieres saber si la audioguía está incluida. Pregunta por la audioguía, pregunta si el cargo por servicio está incluido en el precio, decide si compras la audioguía por separado y confirma el total antes de pagar. Cierra dando las gracias.",
+      "partnerRole": "Taquillera de un museo pequeño que explica los precios de entradas y extras",
+      "openingLine": "Good morning! Would you like a general ticket, or a student ticket today?",
+      "readingTemplate": "seed-en-foundation-travel-money-english-lesson-8"
+    },
+    {
+      "n": 9,
+      "title": "Ask about a discount",
+      "objective": "Preguntar por un descuento de estudiante, entender una oferta condicional y aceptarla o rechazarla con educación.",
+      "focus": "Primer condicional: if con presente y will o can en el resultado, como If I buy two, I will get a discount.",
+      "words": [
+        {
+          "es": "discount",
+          "en": "descuento",
+          "kind": "term",
+          "note": "Descuento. Student discount: descuento de estudiante."
+        },
+        {
+          "es": "student",
+          "en": "estudiante",
+          "kind": "term",
+          "note": "Estudiante. Student ID: carné de estudiante."
+        },
+        {
+          "es": "book",
+          "en": "libro",
+          "kind": "term",
+          "note": "Libro. Plural books."
+        },
+        {
+          "es": "bookstore",
+          "en": "librería",
+          "kind": "term",
+          "note": "Librería en Estados Unidos; en el Reino Unido bookshop. Library es biblioteca."
+        },
+        {
+          "es": "total",
+          "en": "total",
+          "kind": "term",
+          "note": "Total. With the discount: con el descuento aplicado."
+        },
+        {
+          "es": "percent",
+          "en": "por ciento",
+          "kind": "term",
+          "note": "Por ciento. 10 percent off: un 10 por ciento de descuento."
+        },
+        {
+          "es": "offer",
+          "en": "oferta",
+          "kind": "term",
+          "note": "Oferta. A special offer: una oferta especial."
+        },
+        {
+          "es": "ID",
+          "en": "carné",
+          "kind": "term",
+          "note": "Documento de identidad o carné. Se pronuncia ai-di."
+        },
+        {
+          "es": "receipt",
+          "en": "recibo",
+          "kind": "term",
+          "note": "Recibo. Here is your receipt: aquí tiene su recibo."
+        },
+        {
+          "es": "Do you have a student discount?",
+          "en": "¿Tienen descuento para estudiantes?",
+          "kind": "phrase",
+          "note": "Pregunta básica antes de decidir."
+        },
+        {
+          "es": "If I buy two books, will I get a discount?",
+          "en": "Si compro dos libros, ¿tendré un descuento?",
+          "kind": "phrase",
+          "note": "Pregunta un resultado con if y will."
+        },
+        {
+          "es": "That sounds good. I will take both.",
+          "en": "Me parece bien. Me llevo los dos.",
+          "kind": "phrase",
+          "note": "Acepta la oferta."
+        },
+        {
+          "es": "The total with the discount is 23.40 dollars.",
+          "en": "El total con el descuento es 23,40 dólares.",
+          "kind": "phrase",
+          "note": "Confirma el total con descuento."
+        },
+        {
+          "es": "Please show it at the counter.",
+          "en": "Por favor, enséñelo en el mostrador.",
+          "kind": "phrase",
+          "note": "Pide que muestre el carné."
+        }
+      ],
+      "speaking": "Estás en una librería con tu carné de estudiante y quieres comprar dos libros. Pregunta si hay descuento de estudiante, pregunta qué pasa si compras dos, acepta o rechaza la oferta y confirma el total. Cierra diciendo que pagarás con tarjeta.",
+      "partnerRole": "Dependiente de una librería que explica la oferta por compra de dos libros",
+      "openingLine": "Hello! Are you looking for something special, or browsing today?",
+      "readingTemplate": "seed-en-foundation-travel-money-english-lesson-9"
+    },
+    {
+      "n": 10,
+      "title": "Complete a small cash purchase",
+      "objective": "Completar una compra pequeña en efectivo de principio a fin: confirmar el precio, explicar que la terminal no funciona, contar el cambio y cerrar la transacción.",
+      "focus": "Is down para una máquina que no funciona por un tiempo, y only antes del verbo para limitar la opción.",
+      "words": [
+        {
+          "es": "counter",
+          "en": "mostrador",
+          "kind": "term",
+          "note": "Mostrador donde se pide y se paga. At the counter: en el mostrador."
+        },
+        {
+          "es": "card reader",
+          "en": "lector de tarjetas",
+          "kind": "term",
+          "note": "Lector de tarjetas o datáfono. Is down: no funciona."
+        },
+        {
+          "es": "cash",
+          "en": "efectivo",
+          "kind": "term",
+          "note": "Efectivo. Cash only: solo efectivo."
+        },
+        {
+          "es": "muffin",
+          "en": "bollo",
+          "kind": "term",
+          "note": "Magdalena grande típica de Estados Unidos."
+        },
+        {
+          "es": "coffee",
+          "en": "café",
+          "kind": "term",
+          "note": "Café. A coffee and a muffin: un café y una magdalena."
+        },
+        {
+          "es": "change",
+          "en": "cambio",
+          "kind": "term",
+          "note": "Cambio: el dinero devuelto."
+        },
+        {
+          "es": "bill",
+          "en": "billete",
+          "kind": "term",
+          "note": "Billete. A five-dollar bill: un billete de cinco dólares."
+        },
+        {
+          "es": "cent",
+          "en": "centavo",
+          "kind": "term",
+          "note": "Centavo. 50 cents: cincuenta centavos."
+        },
+        {
+          "es": "total",
+          "en": "total",
+          "kind": "term",
+          "note": "Total. In total: en total."
+        },
+        {
+          "es": "How much are a coffee and a muffin?",
+          "en": "¿Cuánto cuestan un café y un bollo?",
+          "kind": "phrase",
+          "note": "Pregunta el precio de dos artículos."
+        },
+        {
+          "es": "Can I pay by card?",
+          "en": "¿Puedo pagar con tarjeta?",
+          "kind": "phrase",
+          "note": "Pide un método de pago."
+        },
+        {
+          "es": "The card reader is down today.",
+          "en": "El lector de tarjetas no funciona hoy.",
+          "kind": "phrase",
+          "note": "Explica que la terminal no funciona."
+        },
+        {
+          "es": "We only take cash.",
+          "en": "Solo aceptamos efectivo.",
+          "kind": "phrase",
+          "note": "Explica el único método aceptado."
+        },
+        {
+          "es": "Let me count it: 4.50 and 50 cents makes 5 dollars.",
+          "en": "Déjeme contarlo: 4,50 y 50 centavos suman 5 dólares.",
+          "kind": "phrase",
+          "note": "Repite el cálculo antes de salir."
+        }
+      ],
+      "speaking": "Pides un café y un bollo en un quiosco de estación. La terminal de tarjetas no funciona, así que pagas con un billete de cinco dólares. Cuenta el cambio en inglés y confirma que es correcto. Cierra con una despedida.",
+      "partnerRole": "Empleado de un quiosco de estación al que se le ha estropeado el lector de tarjetas",
+      "openingLine": "Hi! What can I get you? The card reader is a bit slow today, sorry about that.",
+      "readingTemplate": "seed-en-foundation-travel-money-english-lesson-10"
+    }
+  ],
+  "baseModule": "travel-money-english",
+  "stage": "foundation"
+}

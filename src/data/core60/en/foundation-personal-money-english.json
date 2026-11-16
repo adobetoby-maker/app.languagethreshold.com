@@ -1,0 +1,919 @@
+{
+  "version": 1,
+  "module": "foundation-personal-money-english",
+  "language": "English",
+  "nativeLanguage": "Spanish",
+  "headline": "Personal Money & Banking · English · Foundation",
+  "threshold": "Use English to complete the foundation personal money & banking conversations and explain the next step.",
+  "reviewed": false,
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Name everyday money amounts",
+      "objective": "Leer en voz alta el total de una compra, nombrar los billetes y las monedas con que se paga y pedir el cambio y el recibo en inglés.",
+      "focus": "Sustantivos en plural (bills, coins); cost y costs según el sujeto; preguntas con how much",
+      "words": [
+        {
+          "es": "bill",
+          "en": "billete",
+          "kind": "term",
+          "note": "Dinero de papel. A twenty-dollar bill es un billete de veinte dólares. En inglés británico se dice note."
+        },
+        {
+          "es": "coin",
+          "en": "moneda",
+          "kind": "term",
+          "note": "Dinero de metal. El plural es coins."
+        },
+        {
+          "es": "price",
+          "en": "precio",
+          "kind": "term"
+        },
+        {
+          "es": "total",
+          "en": "total",
+          "kind": "term",
+          "note": "La cantidad completa que se paga después de sumar todos los artículos."
+        },
+        {
+          "es": "change",
+          "en": "cambio",
+          "kind": "term",
+          "note": "El dinero que le devuelven cuando paga con más que el precio. Como verbo, change significa cambiar."
+        },
+        {
+          "es": "receipt",
+          "en": "recibo",
+          "kind": "term",
+          "note": "Un recibo es la prueba escrita de un pago en tienda."
+        },
+        {
+          "es": "cashier",
+          "en": "cajero",
+          "kind": "term",
+          "note": "La persona que cobra en una tienda. En inglés, ATM es el cajero automático."
+        },
+        {
+          "es": "dollar",
+          "en": "dólar",
+          "kind": "term"
+        },
+        {
+          "es": "cent",
+          "en": "centavo",
+          "kind": "term",
+          "note": "Una centésima parte de un dólar. Cincuenta centavos se escribe $0.50."
+        },
+        {
+          "es": "cash",
+          "en": "efectivo",
+          "kind": "term",
+          "note": "Billetes y monedas, no un pago con tarjeta."
+        },
+        {
+          "es": "How much is this?",
+          "en": "¿Cuánto cuesta esto?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Here is twenty dollars.",
+          "en": "Aquí tiene veinte dólares.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Could I have my change, please?",
+          "en": "¿Me da el cambio, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "es": "The total is $12.50.",
+          "en": "El total es $12.50.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Could I get a receipt, please?",
+          "en": "¿Me da un recibo, por favor?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Compra pan y leche en una tienda de barrio. Pregunta el precio de la leche, paga con un billete de veinte dólares y pide el cambio y un recibo. Termina repitiendo en voz alta el total y el cambio para que el cajero los confirme.",
+      "partnerRole": "Cajero de una tienda de barrio que habla inglés",
+      "openingLine": "Good afternoon. What can I get for you today?",
+      "readingTemplate": "seed-en-foundation-personal-money-english-lesson-1"
+    },
+    {
+      "n": 2,
+      "title": "Ask about a bank account",
+      "objective": "Preguntar para qué sirve una cuenta, qué documentos hay que traer y si hay un saldo mínimo antes de abrirla.",
+      "focus": "Preguntas con what y what documents; need to y want to con el verbo base; el verbo open",
+      "words": [
+        {
+          "es": "checking account",
+          "en": "cuenta corriente",
+          "kind": "term",
+          "note": "Se usa para pagos diarios y para la tarjeta de débito. En México se dice cuenta de cheques."
+        },
+        {
+          "es": "savings account",
+          "en": "cuenta de ahorros",
+          "kind": "term"
+        },
+        {
+          "es": "ID",
+          "en": "identificación",
+          "kind": "term",
+          "note": "Documento oficial con foto, como un pasaporte o una licencia de conducir."
+        },
+        {
+          "es": "branch",
+          "en": "sucursal",
+          "kind": "term",
+          "note": "Oficina física del banco donde el cliente atiende personalmente."
+        },
+        {
+          "es": "minimum balance",
+          "en": "saldo mínimo",
+          "kind": "term"
+        },
+        {
+          "es": "opening deposit",
+          "en": "depósito inicial",
+          "kind": "term"
+        },
+        {
+          "es": "proof of address",
+          "en": "comprobante de domicilio",
+          "kind": "term",
+          "note": "Un recibo reciente que muestre la dirección de la casa."
+        },
+        {
+          "es": "signature",
+          "en": "firma",
+          "kind": "term"
+        },
+        {
+          "es": "application",
+          "en": "solicitud",
+          "kind": "term"
+        },
+        {
+          "es": "requirement",
+          "en": "requisito",
+          "kind": "term"
+        },
+        {
+          "es": "What is this account for?",
+          "en": "¿Para qué sirve esta cuenta?",
+          "kind": "phrase"
+        },
+        {
+          "es": "What documents do I need to bring?",
+          "en": "¿Qué documentos necesito traer?",
+          "kind": "phrase"
+        },
+        {
+          "es": "I want to open a savings account.",
+          "en": "Quiero abrir una cuenta de ahorros.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Is there a minimum balance to open it?",
+          "en": "¿Hay un saldo mínimo para abrirla?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Can I open it today?",
+          "en": "¿Puedo abrirla hoy?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Visita una sucursal para abrir una cuenta. Pregunta para qué sirve la cuenta corriente, qué documentos debes traer y si hay un saldo mínimo. Termina confirmando el documento que traerás la próxima vez y da las gracias al asesor.",
+      "partnerRole": "Asesor de cuentas de un banco que habla inglés",
+      "openingLine": "Good morning. How can I help you today?",
+      "readingTemplate": "seed-en-foundation-personal-money-english-lesson-2"
+    },
+    {
+      "n": 3,
+      "title": "Read your balance",
+      "objective": "Distinguir el saldo actual del saldo disponible y explicar por qué una compra pendiente o una retención cambia lo que se puede gastar.",
+      "focus": "Presente simple con check, show e include; la -s de tercera persona; la diferencia entre balance y available balance",
+      "words": [
+        {
+          "es": "current balance",
+          "en": "saldo actual",
+          "kind": "term",
+          "note": "El saldo después de las transacciones ya registradas."
+        },
+        {
+          "es": "available balance",
+          "en": "saldo disponible",
+          "kind": "term",
+          "note": "Lo que puede gastar ahora, después de restar las retenciones."
+        },
+        {
+          "es": "transaction",
+          "en": "transacción",
+          "kind": "term"
+        },
+        {
+          "es": "pending",
+          "en": "pendiente",
+          "kind": "term",
+          "note": "Autorizada pero todavía no final. Pending purchase significa compra pendiente."
+        },
+        {
+          "es": "hold",
+          "en": "retención",
+          "kind": "term",
+          "note": "Bloqueo temporal de dinero. Todavía no es un cargo final."
+        },
+        {
+          "es": "charge",
+          "en": "cargo",
+          "kind": "term"
+        },
+        {
+          "es": "statement",
+          "en": "estado de cuenta",
+          "kind": "term",
+          "note": "En España se llama extracto."
+        },
+        {
+          "es": "entry",
+          "en": "movimiento",
+          "kind": "term",
+          "note": "Una línea de dinero que entra o sale en el historial."
+        },
+        {
+          "es": "date",
+          "en": "fecha",
+          "kind": "term"
+        },
+        {
+          "es": "amount",
+          "en": "monto",
+          "kind": "term"
+        },
+        {
+          "es": "What is my available balance?",
+          "en": "¿Cuál es mi saldo disponible?",
+          "kind": "phrase"
+        },
+        {
+          "es": "That purchase is still pending.",
+          "en": "Esa compra todavía está pendiente.",
+          "kind": "phrase"
+        },
+        {
+          "es": "When will it show up in my balance?",
+          "en": "¿Cuándo aparece en mi saldo?",
+          "kind": "phrase"
+        },
+        {
+          "es": "The current balance includes all the charges.",
+          "en": "El saldo actual incluye todos los cargos.",
+          "kind": "phrase"
+        },
+        {
+          "es": "The hold is not a final charge.",
+          "en": "La retención no es un cargo final.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Revisas la app del banco en una parada de autobús porque necesitas pagar la renta. Pide al asistente tu saldo disponible, pregunta por qué es menor que el saldo actual y cuándo se registrará la compra pendiente. Termina diciendo cuánto puedes gastar hoy.",
+      "partnerRole": "Asistente de soporte de un banco que atiende por teléfono",
+      "openingLine": "Hello, this is Diego from customer support. May I have your account number?",
+      "readingTemplate": "seed-en-foundation-personal-money-english-lesson-3"
+    },
+    {
+      "n": 4,
+      "title": "Make a deposit",
+      "objective": "Decir el monto de un depósito en efectivo y con cheque, confirmar el total y preguntar cuándo estarán disponibles los fondos.",
+      "focus": "Will be available para una fecha futura e is available para un estado actual; make y take en el banco",
+      "words": [
+        {
+          "es": "deposit",
+          "en": "depósito",
+          "kind": "term"
+        },
+        {
+          "es": "teller window",
+          "en": "ventanilla",
+          "kind": "term",
+          "note": "El mostrador donde se hacen operaciones con un cajero en persona."
+        },
+        {
+          "es": "teller",
+          "en": "cajera",
+          "kind": "term",
+          "note": "Empleada o empleado que atiende en la ventanilla del banco."
+        },
+        {
+          "es": "deposit receipt",
+          "en": "comprobante de depósito",
+          "kind": "term",
+          "note": "El papel que confirma un depósito hecho. Deposit slip es el formulario que se llena antes de depositar."
+        },
+        {
+          "es": "funds",
+          "en": "fondos",
+          "kind": "term"
+        },
+        {
+          "es": "available",
+          "en": "disponible",
+          "kind": "term"
+        },
+        {
+          "es": "check",
+          "en": "cheque",
+          "kind": "term",
+          "note": "Orden escrita para pagar dinero desde una cuenta bancaria."
+        },
+        {
+          "es": "confirm",
+          "en": "confirmar",
+          "kind": "term"
+        },
+        {
+          "es": "amount",
+          "en": "monto",
+          "kind": "term"
+        },
+        {
+          "es": "I want to make a deposit of $150.00.",
+          "en": "Quiero hacer un depósito de $150.00.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Could you confirm the amount, please?",
+          "en": "¿Me puede confirmar el monto, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "es": "The funds will be available tomorrow.",
+          "en": "Los fondos estarán disponibles mañana.",
+          "kind": "phrase"
+        },
+        {
+          "es": "When will it be available?",
+          "en": "¿Cuándo estará disponible?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Here is your deposit receipt.",
+          "en": "Aquí tiene su comprobante de depósito.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Estás en la ventanilla con efectivo y un cheque. Di que quieres depositar $150.00, confirma el monto y pregunta cuándo estará disponible el dinero. Termina repitiendo la fecha de disponibilidad y recibiendo el comprobante.",
+      "partnerRole": "Cajera de ventanilla de un banco que habla inglés",
+      "openingLine": "Good afternoon. What would you like to do at the window today?",
+      "readingTemplate": "seed-en-foundation-personal-money-english-lesson-4"
+    },
+    {
+      "n": 5,
+      "title": "Withdraw cash",
+      "objective": "Pedir una cantidad en la ventanilla, elegir los billetes que quieres y contar el efectivo antes de irte, con peticiones corteses con could y can.",
+      "focus": "Could you give me... para peticiones corteses; bills y coins como sustantivos contables; los verbos withdraw, count y keep",
+      "words": [
+        {
+          "es": "withdrawal",
+          "en": "retiro",
+          "kind": "term",
+          "note": "Sacar dinero de una cuenta. Cash withdrawal es retiro de efectivo."
+        },
+        {
+          "es": "ATM",
+          "en": "cajero automático",
+          "kind": "term",
+          "note": "Máquina que entrega efectivo. En España también se dice cajero."
+        },
+        {
+          "es": "daily limit",
+          "en": "límite diario",
+          "kind": "term"
+        },
+        {
+          "es": "denomination",
+          "en": "denominación",
+          "kind": "term",
+          "note": "El valor de cada billete o moneda, como veinte dólares."
+        },
+        {
+          "es": "small bills",
+          "en": "billetes pequeños",
+          "kind": "term",
+          "note": "Billetes de poco valor, como de cinco o diez dólares."
+        },
+        {
+          "es": "five-dollar bill",
+          "en": "billete de cinco dólares",
+          "kind": "term"
+        },
+        {
+          "es": "teller line",
+          "en": "fila",
+          "kind": "term",
+          "note": "Las personas que esperan su turno en el banco."
+        },
+        {
+          "es": "receipt",
+          "en": "recibo",
+          "kind": "term"
+        },
+        {
+          "es": "photo ID",
+          "en": "identificación con foto",
+          "kind": "term"
+        },
+        {
+          "es": "amount",
+          "en": "cantidad",
+          "kind": "term"
+        },
+        {
+          "es": "I want to withdraw $200.00 in cash, please.",
+          "en": "Quiero retirar $200.00 en efectivo, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Could you give me twenty-dollar bills?",
+          "en": "¿Me puede dar billetes de veinte dólares?",
+          "kind": "phrase"
+        },
+        {
+          "es": "What is my daily limit?",
+          "en": "¿Cuál es mi límite diario?",
+          "kind": "phrase"
+        },
+        {
+          "es": "I count the cash before I leave.",
+          "en": "Cuento el efectivo antes de irme.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Which denomination do you prefer?",
+          "en": "¿Qué denominación prefiere?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Necesitas efectivo para pagar a un plomero y vas a la ventanilla del banco. Pide $200.00 en efectivo, billetes de veinte y algunos de cinco, y pregunta cuál es tu límite diario. Termina contando el efectivo en voz alta y confirmando el monto con el cajero.",
+      "partnerRole": "Cajero de ventanilla de un banco que habla inglés",
+      "openingLine": "Good morning. What kind of transaction would you like today?",
+      "readingTemplate": "seed-en-foundation-personal-money-english-lesson-5"
+    },
+    {
+      "n": 6,
+      "title": "Use a debit or credit card",
+      "objective": "Preguntar si una tienda acepta tarjeta, decir qué cuenta o deuda afecta una compra y preguntar por el pago sin contacto.",
+      "focus": "Do you accept... en preguntas; this y these con sustantivos; el verbo affect con objeto directo",
+      "words": [
+        {
+          "es": "debit card",
+          "en": "tarjeta de débito",
+          "kind": "term",
+          "note": "El dinero sale de su cuenta cuando el pago se procesa."
+        },
+        {
+          "es": "credit card",
+          "en": "tarjeta de crédito",
+          "kind": "term",
+          "note": "Crea una deuda que se paga después."
+        },
+        {
+          "es": "card reader",
+          "en": "terminal",
+          "kind": "term",
+          "note": "La máquina que lee la tarjeta o el teléfono en la caja."
+        },
+        {
+          "es": "merchant",
+          "en": "comercio",
+          "kind": "term"
+        },
+        {
+          "es": "statement",
+          "en": "estado de cuenta",
+          "kind": "term",
+          "note": "El documento mensual de la tarjeta de crédito con el saldo y la fecha de pago. Invoice es la factura de un comercio."
+        },
+        {
+          "es": "account",
+          "en": "cuenta",
+          "kind": "term"
+        },
+        {
+          "es": "credit limit",
+          "en": "límite de crédito",
+          "kind": "term"
+        },
+        {
+          "es": "due date",
+          "en": "fecha límite de pago",
+          "kind": "term",
+          "note": "En una cuenta por pagar, due date es la fecha límite. La fecha impresa en la tarjeta es expiration date."
+        },
+        {
+          "es": "contactless payment",
+          "en": "pago sin contacto",
+          "kind": "term"
+        },
+        {
+          "es": "charge",
+          "en": "cargo",
+          "kind": "term"
+        },
+        {
+          "es": "Do you accept debit cards?",
+          "en": "¿Aceptan tarjetas de débito?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Please run the card through the reader.",
+          "en": "Por favor, pase la tarjeta por el lector.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Does this payment affect my account?",
+          "en": "¿Este pago afecta mi cuenta?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Can I pay contactless?",
+          "en": "¿Puedo pagar sin contacto?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Does this card work here?",
+          "en": "¿Esta tarjeta funciona aquí?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Estás en la caja de una farmacia con tu tarjeta. Pregunta si aceptan tarjetas de débito, si el pago afecta tu cuenta corriente o tu límite de crédito y si puedes pagar sin contacto. Termina diciendo qué tarjeta elegiste y por qué.",
+      "partnerRole": "Cajera de una farmacia que habla inglés",
+      "openingLine": "Good afternoon. Do you have everything you need, or can I find something else for you?",
+      "readingTemplate": "seed-en-foundation-personal-money-english-lesson-6"
+    },
+    {
+      "n": 7,
+      "title": "Find a transaction in an app",
+      "objective": "Encontrar el monto, la fecha, el comercio y el estado de una compra en la pantalla de una app bancaria ficticia, usando imperativos para los pasos.",
+      "focus": "Imperativos para instrucciones (type, use, check); el verbo type; sustantivos compuestos como search box y date filter",
+      "words": [
+        {
+          "es": "search box",
+          "en": "buscador",
+          "kind": "term"
+        },
+        {
+          "es": "history",
+          "en": "historial",
+          "kind": "term",
+          "note": "La lista de actividad pasada en la aplicación."
+        },
+        {
+          "es": "filter",
+          "en": "filtro",
+          "kind": "term"
+        },
+        {
+          "es": "status",
+          "en": "estado",
+          "kind": "term",
+          "note": "Payment status es el estado del pago."
+        },
+        {
+          "es": "merchant",
+          "en": "comercio",
+          "kind": "term"
+        },
+        {
+          "es": "date",
+          "en": "fecha",
+          "kind": "term"
+        },
+        {
+          "es": "amount",
+          "en": "monto",
+          "kind": "term"
+        },
+        {
+          "es": "refund",
+          "en": "reembolso",
+          "kind": "term",
+          "note": "Dinero que se devuelve después de anular o corregir una compra."
+        },
+        {
+          "es": "notification",
+          "en": "notificación",
+          "kind": "term"
+        },
+        {
+          "es": "screenshot",
+          "en": "captura de pantalla",
+          "kind": "term"
+        },
+        {
+          "es": "Type the merchant name in the search box.",
+          "en": "Escriba el nombre del comercio en el buscador.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Use the date filter, please.",
+          "en": "Use el filtro de fecha, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "es": "What is the payment status?",
+          "en": "¿Cuál es el estado del pago?",
+          "kind": "phrase"
+        },
+        {
+          "es": "I received a notification from the bank.",
+          "en": "Recibí una notificación del banco.",
+          "kind": "phrase"
+        },
+        {
+          "es": "When will the refund arrive?",
+          "en": "¿Cuándo llegará el reembolso?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tu padre te ayuda a encontrar un cargo de una tienda en la app del banco. Describe la compra que recuerdas, pídele que busque la tienda y la fecha, y lee en voz alta el monto y el estado del pago. Termina diciendo si preguntarás por un reembolso.",
+      "partnerRole": "Padre que ayuda con la aplicación del banco por teléfono",
+      "openingLine": "Honey, which purchase do you want to find in the app?",
+      "readingTemplate": "seed-en-foundation-personal-money-english-lesson-7"
+    },
+    {
+      "n": 8,
+      "title": "Identify income and spending",
+      "objective": "Describir el dinero que entra, separar los gastos fijos de los variables y decir una cantidad que apartas para ahorrar.",
+      "focus": "Presente simple con -s en tercera persona y concordancia con sujetos plurales (the costs add up); los verbos arrive, add y set aside",
+      "words": [
+        {
+          "es": "income",
+          "en": "ingreso",
+          "kind": "term"
+        },
+        {
+          "es": "spending",
+          "en": "gasto",
+          "kind": "term",
+          "note": "Dinero que sale en compras y pagos."
+        },
+        {
+          "es": "salary",
+          "en": "sueldo",
+          "kind": "term"
+        },
+        {
+          "es": "biweekly pay",
+          "en": "pago cada dos semanas",
+          "kind": "term",
+          "note": "Biweekly: cada dos semanas, unos 26 pagos al año. Semimonthly: dos veces al mes, como la quincena."
+        },
+        {
+          "es": "subscription",
+          "en": "suscripción",
+          "kind": "term"
+        },
+        {
+          "es": "rent",
+          "en": "renta",
+          "kind": "term",
+          "note": "Dinero que se paga por vivir en una casa o un departamento."
+        },
+        {
+          "es": "utility bill",
+          "en": "factura de servicios",
+          "kind": "term",
+          "note": "Cuenta mensual de luz, agua, gas o internet."
+        },
+        {
+          "es": "fixed cost",
+          "en": "gasto fijo",
+          "kind": "term"
+        },
+        {
+          "es": "variable spending",
+          "en": "gasto variable",
+          "kind": "term"
+        },
+        {
+          "es": "savings",
+          "en": "ahorro",
+          "kind": "term"
+        },
+        {
+          "es": "My income arrives every two weeks.",
+          "en": "Mi ingreso llega cada dos semanas.",
+          "kind": "phrase"
+        },
+        {
+          "es": "I pay the rent on the first of the month.",
+          "en": "Pago la renta el primero de cada mes.",
+          "kind": "phrase"
+        },
+        {
+          "es": "How much do I spend on food each month?",
+          "en": "¿Cuánto gasto en comida cada mes?",
+          "kind": "phrase"
+        },
+        {
+          "es": "The fixed costs add up to $644.99.",
+          "en": "Los gastos fijos suman $644.99.",
+          "kind": "phrase"
+        },
+        {
+          "es": "I set aside savings before I spend.",
+          "en": "Aparto el ahorro antes de gastar.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Describe tu dinero de forma sencilla: di cada cuánto llega tu ingreso, nombra dos gastos fijos con su monto y di cuánto gastas en comida al mes. Termina diciendo qué cantidad apartarás antes de gastar y pregunta a la tutora si es realista.",
+      "partnerRole": "Tutora de finanzas personales en un centro comunitario que habla inglés",
+      "openingLine": "Hello. Tell me what money comes in and what money goes out each month.",
+      "readingTemplate": "seed-en-foundation-personal-money-english-lesson-8"
+    },
+    {
+      "n": 9,
+      "title": "Set a simple savings goal",
+      "objective": "Decir para qué ahorras, el monto total, el aporte mensual y la fecha en que quieres alcanzar la meta.",
+      "focus": "Want to y should con el verbo base para hablar de metas; presente simple para rutinas (I save each month); reach the goal",
+      "words": [
+        {
+          "es": "savings goal",
+          "en": "meta de ahorro",
+          "kind": "term"
+        },
+        {
+          "es": "monthly contribution",
+          "en": "aporte mensual",
+          "kind": "term"
+        },
+        {
+          "es": "time frame",
+          "en": "plazo",
+          "kind": "term"
+        },
+        {
+          "es": "target date",
+          "en": "fecha objetivo",
+          "kind": "term"
+        },
+        {
+          "es": "automatic transfer",
+          "en": "transferencia automática",
+          "kind": "term"
+        },
+        {
+          "es": "budget",
+          "en": "presupuesto",
+          "kind": "term"
+        },
+        {
+          "es": "priority",
+          "en": "prioridad",
+          "kind": "term"
+        },
+        {
+          "es": "savings account",
+          "en": "cuenta de ahorros",
+          "kind": "term"
+        },
+        {
+          "es": "reminder",
+          "en": "recordatorio",
+          "kind": "term"
+        },
+        {
+          "es": "emergency fund",
+          "en": "fondo de emergencia",
+          "kind": "term"
+        },
+        {
+          "es": "I want to save $1,200.00 for a trip.",
+          "en": "Quiero ahorrar $1,200.00 para un viaje.",
+          "kind": "phrase"
+        },
+        {
+          "es": "How much should I contribute each month?",
+          "en": "¿Cuánto debo aportar cada mes?",
+          "kind": "phrase"
+        },
+        {
+          "es": "I set up an automatic transfer every two weeks.",
+          "en": "Configuro una transferencia automática cada dos semanas.",
+          "kind": "phrase"
+        },
+        {
+          "es": "That goal is realistic with my budget.",
+          "en": "Esa meta es realista con mi presupuesto.",
+          "kind": "phrase"
+        },
+        {
+          "es": "When can I reach the goal?",
+          "en": "¿Cuándo puedo alcanzar la meta?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Fija una meta para un viaje. Di el monto y el propósito, cuánto tiempo tienes y pregunta al asesor cuánto aportar cada mes. Termina diciendo tu aporte mensual y la fecha en que quieres alcanzar la meta.",
+      "partnerRole": "Asesor de una cooperativa de crédito que habla inglés",
+      "openingLine": "Good afternoon. What savings goal would you like to start with?",
+      "readingTemplate": "seed-en-foundation-personal-money-english-lesson-9"
+    },
+    {
+      "n": 10,
+      "title": "Ask for help clearly",
+      "objective": "Explicar una duda sobre dinero, pedir una explicación más despacio, pedir un resumen por escrito y confirmar el siguiente paso.",
+      "focus": "Could you + verbo base para peticiones corteses; more slowly como adverbio de modo; can you send me",
+      "words": [
+        {
+          "es": "explanation",
+          "en": "explicación",
+          "kind": "term"
+        },
+        {
+          "es": "fee",
+          "en": "comisión",
+          "kind": "term",
+          "note": "Cargo específico por un servicio, como una comisión por saldo bajo."
+        },
+        {
+          "es": "help",
+          "en": "ayuda",
+          "kind": "term"
+        },
+        {
+          "es": "step",
+          "en": "paso",
+          "kind": "term"
+        },
+        {
+          "es": "summary",
+          "en": "resumen",
+          "kind": "term"
+        },
+        {
+          "es": "reference number",
+          "en": "número de referencia",
+          "kind": "term",
+          "note": "El código que da el banco para encontrar una llamada o un caso."
+        },
+        {
+          "es": "call",
+          "en": "llamada",
+          "kind": "term"
+        },
+        {
+          "es": "customer service",
+          "en": "atención al cliente",
+          "kind": "term"
+        },
+        {
+          "es": "agent",
+          "en": "agente",
+          "kind": "term"
+        },
+        {
+          "es": "question",
+          "en": "pregunta",
+          "kind": "term"
+        },
+        {
+          "es": "Could you explain that more slowly?",
+          "en": "¿Puede explicarlo más despacio?",
+          "kind": "phrase"
+        },
+        {
+          "es": "What is the next step?",
+          "en": "¿Cuál es el siguiente paso?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Could you repeat the reference number?",
+          "en": "¿Me puede repetir el número de referencia?",
+          "kind": "phrase"
+        },
+        {
+          "es": "So I confirm that I will check the charge tomorrow.",
+          "en": "Entonces confirmo que mañana reviso el cargo.",
+          "kind": "phrase"
+        },
+        {
+          "es": "Can you send me a summary in writing?",
+          "en": "¿Puede enviarme un resumen por escrito?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Llama a atención al cliente por una comisión que no entiendes. Haz una pregunta clara, pide que te lo expliquen más despacio, pide el siguiente paso por escrito y repite el número de referencia. Termina confirmando qué revisarás mañana.",
+      "partnerRole": "Agente de atención al cliente que atiende por teléfono en inglés",
+      "openingLine": "Customer service, good afternoon. How can I help you?",
+      "readingTemplate": "seed-en-foundation-personal-money-english-lesson-10"
+    }
+  ],
+  "baseModule": "personal-money-english",
+  "stage": "foundation"
+}

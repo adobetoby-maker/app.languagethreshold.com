@@ -1,0 +1,1389 @@
+{
+  "module": "personal-money",
+  "moduleName": "Personal Money & Banking",
+  "reviewer": "opus",
+  "model": {
+    "reportedModelId": "claude-opus-5-5",
+    "source": "Self-reported by the reviewing session; the launcher selected Opus. Not independently confirmed by the runner."
+  },
+  "reviewDate": "2026-11-15",
+  "reviewStatus": "completed",
+  "reviewStatusBasis": "All 120 rows (60 es-en, 60 en-es) are present with 10/30/20 numbering. Every row was read in full (metadata, words, notes, grammar, aligned reading, verbs) and every row received at least one recorded correction. Model review only: no human review.",
+  "humanReview": false,
+  "scopeOwned": [
+    "content/finance/personal-money/es-en.json",
+    "content/finance/personal-money/en-es.json",
+    "docs/finance-modules/model-team/personal-money-opus-review.json"
+  ],
+  "pairs": [
+    {
+      "direction": "es-en",
+      "targetLanguage": "Spanish",
+      "nativeLanguage": "English",
+      "file": "content/finance/personal-money/es-en.json",
+      "rows": 60,
+      "stages": {
+        "foundation": {
+          "lessons": 10,
+          "numbering": true,
+          "sentencesRange": [
+            8,
+            9
+          ],
+          "termsRange": [
+            9,
+            10
+          ],
+          "phrasesRange": [
+            4,
+            5
+          ],
+          "verbsRange": [
+            3,
+            3
+          ],
+          "grammarExamplesRange": [
+            2,
+            2
+          ]
+        },
+        "core": {
+          "lessons": 30,
+          "numbering": true,
+          "sentencesRange": [
+            9,
+            9
+          ],
+          "termsRange": [
+            9,
+            10
+          ],
+          "phrasesRange": [
+            5,
+            5
+          ],
+          "verbsRange": [
+            3,
+            5
+          ],
+          "grammarExamplesRange": [
+            2,
+            2
+          ]
+        },
+        "master": {
+          "lessons": 20,
+          "numbering": true,
+          "sentencesRange": [
+            13,
+            17
+          ],
+          "termsRange": [
+            13,
+            14
+          ],
+          "phrasesRange": [
+            6,
+            7
+          ],
+          "verbsRange": [
+            5,
+            5
+          ],
+          "grammarExamplesRange": [
+            2,
+            2
+          ]
+        }
+      }
+    },
+    {
+      "direction": "en-es",
+      "targetLanguage": "English",
+      "nativeLanguage": "Spanish",
+      "file": "content/finance/personal-money/en-es.json",
+      "rows": 60,
+      "stages": {
+        "foundation": {
+          "lessons": 10,
+          "numbering": true,
+          "sentencesRange": [
+            8,
+            9
+          ],
+          "termsRange": [
+            9,
+            10
+          ],
+          "phrasesRange": [
+            5,
+            5
+          ],
+          "verbsRange": [
+            3,
+            3
+          ],
+          "grammarExamplesRange": [
+            2,
+            2
+          ]
+        },
+        "core": {
+          "lessons": 30,
+          "numbering": true,
+          "sentencesRange": [
+            9,
+            9
+          ],
+          "termsRange": [
+            10,
+            10
+          ],
+          "phrasesRange": [
+            5,
+            5
+          ],
+          "verbsRange": [
+            3,
+            5
+          ],
+          "grammarExamplesRange": [
+            2,
+            2
+          ]
+        },
+        "master": {
+          "lessons": 20,
+          "numbering": true,
+          "sentencesRange": [
+            13,
+            17
+          ],
+          "termsRange": [
+            12,
+            12
+          ],
+          "phrasesRange": [
+            6,
+            7
+          ],
+          "verbsRange": [
+            5,
+            5
+          ],
+          "grammarExamplesRange": [
+            2,
+            2
+          ]
+        }
+      }
+    }
+  ],
+  "sourceSemantics": "LessonWord.es is always target-language text and .en is always native-language text in both files; grammar examples use es = target and en = native. In en-es, all learner-facing explanations (objective, focus, speaking task, grammar focus, word notes, verb notes, partner role) are now in Spanish; titles stay as English navigational titles and opening lines are in English (target).",
+  "summaryOfCorrections": [
+    "en-es learner-facing metadata: all 60 objectives, speaking tasks and grammar-focus lines (and mixed English/Spanish focus lines) rewritten in Spanish; English-language word notes translated; one English-target opening line that was written in Spanish replaced.",
+    "English-target grammar: notes rewritten to teach English-specific points for Spanish speakers (mandative subjunctive after it is important that, present after when vs Spanish subjunctive, before + clause in indicative, want/need + object + to, single negation, recommend + -ing, explain something to someone, demand false friend, made vs did, zero vs first conditional, stop + -ing, rise vs lower, biweekly vs semimonthly). Wrong spelling rules fixed (promise, amortize).",
+    "Spanish-target grammar: wrong or misleading notes fixed (abrir called irregular, descontar called regular, personal a misidentified, de el contraction, reflexive me ayuda, enviar accent pattern, exigir register, cotizar usage, aplicar regional usage) and register made consistent (tú/usted) within scenes.",
+    "Financial terminology: pending hold vs settled/posted charge (F3, C9, M3), returned payment vs overdraft (C10), card statement vs merchant invoice and due date vs card expiry (F6), deposit receipt vs deposit slip (F4), outstanding balance vs pending transaction (C30), return of funds vs merchant refund for misdirected transfers (C7), lost-card cancellation vs unblock (C11), funds availability tied to bank policy (C4), index fund vs asset class and management fee vs total annual expense (C27).",
+    "Arithmetic corrected to match stated rates: debt consolidation $6,000 at 18% over 48 months = $176.25/month, $8,460 total, $2,460 interest (Haiku had $185); car loan $15,000 at 11.5% over 48 months = $391.34, $18,784.32 (Haiku had $391.00); added computed alternatives (36/60-month consolidation, 36-month credit union $485.42/$17,475.12). ATM shortage 300 - 200 = one missing $100 bill (Haiku said two). Budget, overdraft, fee, split and reserve figures made derivable in the reading.",
+    "Jurisdiction: retirement (C28) moved from an unnamed example country to a US 401(k) at a fictional employer with no live limits; tax/benefits (M17) moved to an IRS notice plus a fictional Texas county program with VITA specialist help; deposit protection (C25) named as FDIC-insured US deposits up to the legal limit; power of attorney (M18) placed under bank and state rules.",
+    "Scenes: contradictory or non-sequitur dialogue rebuilt (availability, lost-card timeline, delayed transfer, duplicate debit, misuse, scam, income stop, subscription dispute, household split, capstones). Every Master lesson now has an explicit complication and a practical closure. Prescriptive investment recommendations and generic warning notes removed; educators decline to pick products."
+  ],
+  "findingCounts": {
+    "total": 127,
+    "bySeverity": {
+      "P1": 33,
+      "P2": 68,
+      "P3": 26
+    },
+    "byPair": {
+      "es-en": 66,
+      "en-es": 61
+    }
+  },
+  "severityScale": {
+    "P1": "Incorrect financial concept, wrong arithmetic, missing or wrong-language translation, or a jurisdiction requirement violated.",
+    "P2": "Misleading grammar note, incoherent or unresolved scene, register inconsistency, or a learner-facing field in the wrong language.",
+    "P3": "Unidiomatic wording, imprecise gloss or minor clarity issue."
+  },
+  "findings": [
+    {
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 1,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "Native sentence 1 was left in Spanish, so the aligned English translation was missing.",
+      "correction": "Translated sentence 1 into English."
+    },
+    {
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 2,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "The abrir note claimed abro is an irregular yo form; abrir is regular in the present (only the participle abierto is irregular).",
+      "correction": "Rewrote the note."
+    },
+    {
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 2,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Unidiomatic English: today itself; tengo dudas rendered as I have doubts.",
+      "correction": "Changed to Can I open it today? and I have some questions."
+    },
+    {
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 3,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Grammar focus called incluyo an irregular yo form and said all nosotros forms stay regular, while the examples showed only singular/plural agreement.",
+      "correction": "Rewrote focus and grammar focus to describe -zc- in aparezco, y-insertion in incluir and subject agreement."
+    },
+    {
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 3,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "The reading said a pending hold appears on the statement and that the date and amount arrive when the merchant sends the charge, blurring the hold/settled distinction.",
+      "correction": "Rewrote sentences 7-9: the gas station settles the charge in one or two days, the final amount then posts, and the current balance excludes the hold."
+    },
+    {
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 4,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Opening line ¿Qué le puedo hacer hoy? is unidiomatic (it reads as what can I do to you).",
+      "correction": "Changed to ¿En qué le puedo ayudar hoy?"
+    },
+    {
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 4,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Comprobante was glossed as deposit slip but defined as a receipt after the deposit.",
+      "correction": "Glossed comprobante as deposit receipt and noted ficha de depósito for the form."
+    },
+    {
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 4,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "The reading said all funds would be available tomorrow, then that the check could take two days, then that the cash was available today: contradictory availability.",
+      "correction": "Rewrote sentences 7-9: cash today, check funds on Thursday, receipt handed over."
+    },
+    {
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 5,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Elena chose the window because the ATM only gives twenties, then asked the teller for twenties; she counted cash while standing in line.",
+      "correction": "Rewrote sentences 6-9 with a 160 + 40 split into twenties and fives, counted at the window."
+    },
+    {
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 5,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The contar note said cuenta de means account; the entregar note about where the receiver goes was unclear.",
+      "correction": "Rewrote both notes."
+    },
+    {
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 6,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "Reading said a credit-card purchase produces a factura (merchant invoice) and used fecha de vencimiento without separating due date from card expiry date.",
+      "correction": "Replaced factura with the card estado de cuenta, rewrote sentences 6 and 8, and added a note separating due date and expiry date."
+    },
+    {
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 6,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "Verb notes for aceptar and funcionar were awkward or added an inaccurate sense.",
+      "correction": "Tightened both notes."
+    },
+    {
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 7,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The father addressed his daughter with tú in the opening line but with usted commands in the reading; the status said approved and later changed to approved.",
+      "correction": "The usted commands are now on-screen text that Rubén reads, Rubén speaks with tú, and the status moves from pending to completed the next day. Fixed the cambiar note."
+    },
+    {
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 8,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Tutor opened with tú but used usted throughout; quincenal was glossed as biweekly; the fixed-cost total was never stated in the reading; the title said the week although amounts were monthly.",
+      "correction": "Opening now uses usted, pago quincenal is glossed as semimonthly pay with a note, sentence 7 states 600 + 9.99 + 35 = 644.99, and the title says month. Fixed a saving to savings."
+    },
+    {
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 9,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "Cada quincena was rendered as every two weeks and fortnight; the alcanzar note described a non-issue.",
+      "correction": "Rendered as twice a month and rewrote the note on the z to c spelling change."
+    },
+    {
+      "pair": "es-en",
+      "stage": "foundation",
+      "lesson": 10,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The agent asked the caller for a reference number before one existed, and the caller asked for a slower explanation before any explanation was given. The enviar note called the accent pattern regular.",
+      "correction": "Reordered the call: identification, quick explanation, request to slow down, brief explanation, written summary, new reference number, confirmation. Rewrote the enviar note."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 1,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "The adviser did not answer whether the savings account had a balance waiver; an account was said to use ATMs; How much does the fee cost is unidiomatic.",
+      "correction": "Answered the waiver question, rewrote the ATM sentence and the English gloss."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 2,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "Tarifa means a single rate; the fee schedule is tarifario.",
+      "correction": "Changed the term to tarifario with a note."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 3,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "The spoken opening line was written as an email (Le escribo); the reading never showed which account Iván chose; the usar example translated an ambiguous subject as she.",
+      "correction": "Spoken opening line, sentence 8 names the checking account, and the example names Iván."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 4,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "The reading said funds availability depends on the issuing bank and the issue date, and it closed vaguely. A returned check is normally cheque devuelto.",
+      "correction": "Availability is now tied to the bank policy and to the date shown in the app. The term is cheque devuelto, and the reading closes with the fee schedule and with keeping the check and receipt until the funds are available."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 5,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The lesson outcome asks about withdrawal limits, but the reading never mentioned them. The fee question went unanswered, and the operator told the caller to check the ATM network himself.",
+      "correction": "Rewrote the reading: the out-of-network fee is $3.00, a reversal claim covers $100 + $3 = $103, the withdrawal counts toward a $400.00 daily limit while the claim is open, and the reading closes with the claim number."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 6,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "The assistant did not give the cutoff time asked for; the desde ... hasta example said a transfer is scheduled from Monday to Friday, which is not a meaningful schedule.",
+      "correction": "Stated a fictional 6:00 p.m. cutoff and replaced the example with a service-hours range."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 7,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "The grammar note called the a in envío el dinero a mi prima the personal a, but it marks the indirect object (the receiver). The agent also said a completed instant transfer could simply be refunded.",
+      "correction": "Rewrote the focus and grammar notes. Sentence 5 now has the app show the account-holder name. Sentence 8 says an instant transfer usually cannot be canceled and the bank requests, without guaranteeing, the return of the funds."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 8,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The restar note gave the ungrammatical de el total. The adviser said one fee appeared once but that the difference matched the fees for the month.",
+      "correction": "Fixed the contraction note and made sentence 7 itemize $12 + $6 = $18."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 9,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "Sentence 8 repeated the question already answered in sentences 2-5.",
+      "correction": "Sentence 8 now restates the hold and final-charge distinction as a check of understanding."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 10,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "The payment was returned for insufficient funds, but the reading then reported a $35 negative balance as if it had been paid into overdraft. The overdraft-fee question was never answered.",
+      "correction": "Rewrote the reading: a returned payment causes no negative balance, a single fictional $25.00 insufficient-funds fee applies, coverage applies only to card purchases up to $100.00, and the balance alert is set at $150.00."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 11,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The card was lost since yesterday in one sentence and this morning in the next. A charge Carla did not make was mentioned and then dropped, and the replacement and unblock questions were never answered.",
+      "correction": "The timeline now uses the lesson structure se me perdió ayer. The fraud charge goes to review under a report number, and the agent gives the replacement time and explains that a lost-card report cancels the card, so it cannot be unblocked."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 12,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The adviser asked for a purchase receipt for a purchase the customer never made. The provisional-credit question was answered only with the final outcome, and a duplicate charge appeared with no follow-up.",
+      "correction": "Rewrote sentences 4-9. The form now asks for a statement that the purchase was not made, the duplicate check is answered, and the provisional credit is explained as conditional, becoming permanent if the error is confirmed. Fixed the grammar focus wording."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 13,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The reading ended with an error still on screen and no recovery route; the support agent claimed to see the user's screen.",
+      "correction": "Sentence 9 now gives the approved route through the app with a code sent to the registered number; sentence 6 motivates the code-sharing statement. Added entrar a / entrar en usage."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 14,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The officer asked the customer's own question about frequency, the start-date question was never answered, and the avisar example did not contain me although it was translated as notifies me.",
+      "correction": "Moved the frequency question to Mariana, added a December 1 start date and a cancellation deadline, fixed the example, and added the z to c spelling change to the empezar note."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 15,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The officer told Diego to send a change request when he wanted to cancel, and answered Yes to whether any earlier charge was improper.",
+      "correction": "Sentence 5 now covers contract cancellation with the gym. Sentence 9 says a charge is improper only after cancellation and sends amount changes to the provider."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 16,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "The $120.00 leftover could not be derived from the stated figures, and sentence 9 said to keep an unexpected expense of $100.00.",
+      "correction": "Added $200.00 of savings and $400.00 of flexible spending (2,150 - 1,430 = 720; 720 - 200 - 400 = 120). Sentence 9 now sets aside $100.00 for an unexpected expense, and the English uses planned savings and left over."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 17,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "Ana asked how much the irregular income was, the shared plan used puedo instead of podemos, and the cushion question was not answered with an amount.",
+      "correction": "Rewrote sentences 3, 5 and 9 with a $400.00 draw from the cushion; natural Let's in English."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 18,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "Sentence 8 was circular (lower price per liter although the bottle costs more per liter) and did not use the superlative taught in the lesson.",
+      "correction": "Rewrote it with the superlative and the computed per-liter price ($9.18 / 6 = $1.53)."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 19,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "The atrasar example used the bank as the creditor in a store installment plan and used the less natural atraso una cuota.",
+      "correction": "Changed the example to the store and the natural form me atraso con una cuota."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 20,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The adviser said a full payment means no interest for the period without tying it to the statement balance, the due date and the card contract.",
+      "correction": "Sentence 8 now ties the grace on purchases to paying the full statement balance by the due date under the contract."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 21,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The reading called the whole year the compounding period, used about with an exact figure, and did not answer the loan-term question. The prometer note was a generic warning.",
+      "correction": "Fixed sentences 4, 6, 7 and 9 (1,000 × 1.01^12 = 1,126.83 with no payments, 12 monthly periods, 1-year term) and rewrote the note as language guidance."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 22,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "The reading never stated the total repayments, so the learner could not compare total cost (the speaking objective). Questions about offer B fees and early payment went unanswered. The grammar examples said an offer pays or receives money, and the descontar note called the verb regular although it changes o to ue.",
+      "correction": "Rewrote the reading: A pays out $4,850 and repays 24 × 250 = $6,000; B pays out $5,000 and repays 36 × 190 = $6,840. It closes with a pero contrast. Fixed both grammar examples and the descontar and leer notes."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 23,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "For a debt Pilar never had, the adviser asked for proof of payment. The answer to how long a correction takes was a non sequitur, and the consultar example said the agency consults the report.",
+      "correction": "Rewrote sentences 7 and 9 to give the dispute route and a timing that depends on the country, made the lender the subject of the consultar example, and rewrote the garantizar note without the generic warning."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 24,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "The term ingreso de respaldo (backup income) is not a standard concept.",
+      "correction": "Replaced it with ingreso extra (extra income)."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 25,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Deposit protection was attributed to an unnamed example country.",
+      "correction": "Named the jurisdiction (United States, FDIC-insured bank, up to the legal limit) without quoting a live figure."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 26,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "The management-fee question was not answered, the bond note implied repayment is certain, and the emitir example was a tautology (the issuer issues the bond).",
+      "correction": "Added a fictional 1.2% fee, qualified bond repayment, and replaced the example."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 27,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The reading confused annual cost with total annual expense, left the transaction-fee question unanswered, and called an index fund an asset class.",
+      "correction": "Sentence 3 separates a 0.85% management fee from the 1.10% total annual expense. Sentence 5 answers the entry, exit and transaction-fee question. Sentences 8 and 9 explain that an index fund spreads money across many companies within one asset class and can lose value."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 28,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "The retirement lesson used an unnamed fictional example country, which the course requirements prohibit for retirement topics, and stated universal-sounding penalties and tax-benefit loss.",
+      "correction": "Rewrote the reading around a US 401(k) at a fictional employer: a fictional 3% match, the IRS annual limit without a live figure, the general 59 and a half rule with exceptions, and traditional versus Roth tax treatment. Updated the notes, the phrase, the objective and the partner role. The cotizar example now uses social security."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 29,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "The grammar focus contrasted usted with tú but both examples were usted; cuánta necesidad de efectivo was awkward.",
+      "correction": "Added a tú example and smoothed sentence 3."
+    },
+    {
+      "pair": "es-en",
+      "stage": "core",
+      "lesson": 30,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "A shared nosotros review used yo forms (mi prioridad, puedo cancelar, mi plan). Pago pendiente was used for an outstanding card balance, which conflicts with the module meaning of pending. One sentence moved money into a summary, and Sofía asked which investment suits them, which invites a personal recommendation.",
+      "correction": "Changed the phrases and reading to nosotros forms, replaced the term with saldo pendiente and a note separating it from a pending transaction, gave a fictional $9.00 fee and a $600.00 balance, and changed the investment line to preparing questions. Fixed the cancelar and pagar examples."
+    },
+    {
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 1,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "The arithmetic was wrong: 300 - 200 = 100, but the reading said two $100 bills were missing. The operator offered to review the log before Marcos asked for it, a returned bill was also described as stuck, and the closure was vague.",
+      "correction": "Fixed it to one missing $100 bill and reordered sentences 4-5. The complication is now a preliminary $100 machine overage that awaits the official Monday cash balancing, and the closure names the case number and the follow-up. The opening line now matches an in-branch conversation."
+    },
+    {
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 2,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Gabriela called her sister's account my destination account and asked the agent for a reference that was printed on her own receipt. The agent promised to send a return himself, the code error was never fixed, Gabriela was said to check her sister's account, and the focus listed quedó en espera as a future form.",
+      "correction": "Rebuilt the reading with 16 sentences: the agent asks for the reference, the sister sends the corrected code, está procesando and será el jueves set the timeline, a failed payment is returned automatically, and Gabriela checks with her sister on Thursday. Fixed the focus and the enviar, esperar and confirmar notes."
+    },
+    {
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 3,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "The reading called one charge a settlement and the other an authorization, then said both were settled. That blurred the distinction between a posted duplicate and a temporary hold, which is the lesson outcome.",
+      "correction": "Rewrote the reading: the adviser explains what a pending authorization looks like, then shows that both charges settled on November 3 with different authorization numbers. The complication is a merchant correction notice with no reversal yet, followed by a duplicate-charge claim process and a subjunctive closure."
+    },
+    {
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 4,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The specialist on an official call told the customer to confirm details through the official contact; the password-change timeline was unclear; Master had no real complication.",
+      "correction": "Sentence 7 now checks that she called the official number; clarified the timeline; added the complication that the block stops tomorrow's rent autopay and her decision to pay at the branch."
+    },
+    {
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 5,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Elisa was already talking to the fraud adviser yet said she would call the number on her card. The adviser offered verification through the official number while already on it, and the borrar note contradicted the deletion in the reading.",
+      "correction": "Reorganized the reading: Elisa calls the card number first. The complications are a convincing message with her real name and last four digits and a second ten-minute deadline message arriving mid-call. She screenshots and then deletes the messages. Rewrote the opening line and three verb notes."
+    },
+    {
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 6,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The phrase un rendimiento garantizado no se puede prometer is false as a universal claim, since contractual guaranteed rates exist. The English mistranslated why does nobody else do it, the exigir note called a strong verb polite, the preguntar note was garbled, and the ending relied on an odd appeal to Bruno's risk profile.",
+      "correction": "Replaced the phrase with nadie puede garantizar ese rendimiento. Bruno now points out that past results guarantee nothing, refuses because he needs the money in six months, and asks about registration with a regulator. Fixed the translations and notes."
+    },
+    {
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 7,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "The bank officer explained why the employer had stopped pay, which a bank cannot know. The couple promised not to touch the reserve while their income dropped to zero, and the missing income and runway were never quantified.",
+      "correction": "Rewrote the reading. The bank only sees that no deposit arrived, and HR explains that the contract ended. The figures are $2,400 of lost income, $1,500 of remaining income against $2,700 of essentials (a $1,200 gap), and a $3,600 reserve that covers 3 months, followed by a shared nosotros plan."
+    },
+    {
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 8,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The grammar note called me ayuda reflexive. The reading never answered the deferral request, and the late-charge reduction was not quantified.",
+      "correction": "Fixed the grammar note. Added the complication that the account is already delinquent, so no deferral is possible and service stops in 5 days. The figures are now concrete: 74 - 40 = 34 split as 2 × 17, a $10 late charge waived, and a temporary $35/$45 plan, with a dated commitment letter."
+    },
+    {
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 9,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "The arithmetic did not match the stated rate: $6,000 at 18% a year over 48 months amortizes to $176.25 a month, not $185. The answer to the longer-term question was not quantified, and Master had no real complication.",
+      "correction": "Corrected the reading to $176.25 × 48 = $8,460 with $2,460 of interest. It now gives 60-month figures ($152.36 a month, $3,141.60 of interest) and 36-month figures ($216.91 a month, $1,808.76 of interest), and adds the complication of a $120 opening fee deducted at disbursement ($5,880 received). The final payment is explained as a rounding difference."
+    },
+    {
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 10,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The cancellation timeline was contradictory and never settled; the free-trial sentence was unrelated; the cancelar example (cancel before renewing, same subject) was semantically odd.",
+      "correction": "Built a dated complication (receipt Nov 1, system Nov 4, renewal Nov 3), added antes de que + subjunctive in context, case number 30577 and a $14.99 refund path; fixed focus and example."
+    },
+    {
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 11,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The proportional split was contradicted by alternating who pays the electricity bill. The total repair cost was given and then asked for again, and a cuenta conjunta was said to be required.",
+      "correction": "Bills now come from the joint account in the same 57/43 proportion. The complication is a $600 total repair (labor included) against a $400 fund, with the $200 shortfall split $114/$86. The joint account is presented as an option, not a requirement."
+    },
+    {
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 12,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "The ayuda económica offer was vague, Ramiro both argued and answered himself in sentence 9, and the ayudar note was unclear.",
+      "correction": "Made the alternative a $50 gift rather than a loan, tightened sentences 6, 9, 10 and 12, and fixed the note."
+    },
+    {
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 13,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The grammar point required a future tense with cuando plus the subjunctive, but sentence 9 used the present se bloquea. The balance-transfer question went unanswered, and Master had no complication.",
+      "correction": "Fixed sentence 9 to se bloqueará cuando se confirme and answered the transfer-timing question. Added the complication that the account is 5 months old, so the $25 fee applies unless closure waits until after the 15th. Added regional terms for pagos domiciliados."
+    },
+    {
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 14,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The recuperar example (the price recovers over time) implied a guaranteed recovery. Todavía no es realizada is unidiomatic, the lesson structure estar plus gerund was missing from the reading, and the educator gave prescriptive advice.",
+      "correction": "Sentence 3 now uses pérdida no realizada with the $800 drop, sentences 6-7 use está bajando and sigue subiendo y bajando, and sentences 9, 11 and 13 avoid promises or advice. Fixed the example and the role in the speaking task."
+    },
+    {
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 15,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Lorena asked the adviser when she herself needed the tuition money. A fixed-term product was proposed for the long horizon and then presented as the source of the conflict. The adviser answered which is best with a product suggestion while also being the adviser she would prepare questions for.",
+      "correction": "Rebuilt the reading with a credit-union educator, $12,000 tuition in two years, and the complication of a first payment due at 18 months against a 2-year fixed-term product. It uses tanto ... como with aunque, declines to choose a product, and ends with questions for a separate investment adviser."
+    },
+    {
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 16,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "The arithmetic did not match the stated rates: $15,000 at 11.5% over 48 months is $391.34 a month, not $391.00. The credit-union offer was never calculated, and the salesperson had judged it without figures. Sentence 1 was ungrammatical (cuyo precio del vehículo).",
+      "correction": "Corrected the payments to $391.34 × 48 = $18,784.32, and computed the credit union at $485.42 × 36 = $17,475.12. The complication is now a rate described as fixed that the paper shows turns variable after month 12. Fixed sentence 1, the grammar example and two notes."
+    },
+    {
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 17,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "The tax lesson used an unnamed example country with an unnamed tax authority and a fictional tax identifier, against the requirement to name the jurisdiction. Two phrases nearly duplicated each other.",
+      "correction": "Rewrote the lesson around a United States IRS notice proposing a change to a 2025 federal return, plus a fictional Texas county housing benefit. It covers verification through the official IRS website, the deadline as printed on the notice, recalculation under the program rules, and a VITA tax specialist, with no promised figure. Updated the notes, phrases, objective, speaking task and role."
+    },
+    {
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 18,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The lesson relied on an unnamed example country. The interpreter premise made no sense because everyone spoke Spanish, Carmen asked the teller to pass a message to her son, who was present, and the autorizar example was a tautology.",
+      "correction": "Set the scene at a US branch where the forms are in English, and placed power-of-attorney rules under the bank and state. Language help needs no authorization, while signing requires the form. Added the complication of an out-of-state power of attorney sent for 5-day legal review, and fixed the examples and notes."
+    },
+    {
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 19,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Sentence 7 was nonsensical (the scenario would be a hard evaluation of the budget), the decision had no figures, and the brother asked for a recommendation for the family.",
+      "correction": "Added a concrete gap ($9,500 − $8,000 = $1,500), made the old car's repair costs the opportunity cost, made the risk scenario a draw on the emergency fund, and had Sebastián state it is his own decision."
+    },
+    {
+      "pair": "es-en",
+      "stage": "master",
+      "lesson": 20,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "The capstone had a tautology (my reduced income is lower), an unquantified income change, a budget that covered a lower income with an unchanged contribution, an unclear emergency-fund sentence, and a question about whether investing now is better, which invites a recommendation. It had no complication.",
+      "correction": "Added the complication of a $120 partial merchant acknowledgment on the $240 duplicate. The $400 income drop is now covered by cutting the contribution from 300 to 100 plus $200 of eating out (200 + 200 = 400), the repair is taken from the emergency fund, and the investment question asks about costs and access. Updated a grammar example and the English Let's forms."
+    },
+    {
+      "pair": "en-es",
+      "stage": "foundation",
+      "lesson": 1,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, focus, speaking task and grammar focus were written in English (or mixed English and Spanish) although the native language of this track is Spanish. Four word notes were in English.",
+      "correction": "Rewrote objective, focus, speaking task, grammar focus and the four notes in Spanish."
+    },
+    {
+      "pair": "en-es",
+      "stage": "foundation",
+      "lesson": 2,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, focus, speaking task and grammar focus were written in English (or mixed English and Spanish) although the native language of this track is Spanish. I have doubts is unidiomatic for tengo dudas; What is this account for was ambiguous; the need note was in English.",
+      "correction": "Spanish metadata; I have some questions; named the checking account; Spanish verb note; clearer use example."
+    },
+    {
+      "pair": "en-es",
+      "stage": "foundation",
+      "lesson": 3,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "Objective, focus, speaking task and grammar focus were written in English (or mixed English and Spanish) although the native language of this track is Spanish. The reading said a pending hold appears on the statement and that date and amount arrive when the store sends the charge, blurring hold versus posted charge.",
+      "correction": "Spanish metadata; rewrote sentences 7-9 so the hold settles in one or two days and is excluded from the current balance."
+    },
+    {
+      "pair": "en-es",
+      "stage": "foundation",
+      "lesson": 4,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "Objective, focus, speaking task and grammar focus were written in English (or mixed English and Spanish) although the native language of this track is Spanish. Availability was contradictory (all funds tomorrow, check two days, cash today), and in US English the deposit slip is the form filled in before, not the receipt handed back.",
+      "correction": "Spanish metadata; rewrote sentences 7-9; term and phrase now deposit receipt with a note on deposit slip."
+    },
+    {
+      "pair": "en-es",
+      "stage": "foundation",
+      "lesson": 5,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, focus, speaking task and grammar focus were written in English (or mixed English and Spanish) although the native language of this track is Spanish. Elena chose the window because the ATM only gives twenties, then asked for twenties; the teller gave a PIN warning at a window where no PIN is entered; she counted cash in the line.",
+      "correction": "Spanish metadata; replaced the PIN term with five-dollar bill; rewrote the reading with a 160 + 40 split counted at the window; fixed the count note."
+    },
+    {
+      "pair": "en-es",
+      "stage": "foundation",
+      "lesson": 6,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "Objective, focus, speaking task and grammar focus were in English or mixed English and Spanish, although the native language of this track is Spanish. The reading said a credit-card purchase produces an invoice, and the Spanish fecha de vencimiento did not separate the payment due date from the card expiry date.",
+      "correction": "Spanish metadata; replaced invoice with statement; rewrote sentences 6 and 8; glossed due date as fecha límite de pago with an expiration-date note."
+    },
+    {
+      "pair": "en-es",
+      "stage": "foundation",
+      "lesson": 7,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "Objective, focus, speaking task and grammar focus were in English or mixed English and Spanish, although the native language of this track is Spanish. The English-target opening line was written in Spanish; the father used usted in the Spanish translation with his daughter; the status was approved and later changed to approved.",
+      "correction": "English opening line; Spanish metadata; on-screen commands read by Ruben, tú in his Spanish lines; status moves from pending to completed."
+    },
+    {
+      "pair": "en-es",
+      "stage": "foundation",
+      "lesson": 8,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, focus, speaking task and grammar focus were in English or mixed English and Spanish, although the native language of this track is Spanish. Biweekly (every two weeks) was equated with quincenal (twice a month); the reading never stated the fixed-cost total; the title said week for monthly amounts.",
+      "correction": "Spanish metadata; biweekly/semimonthly note; sentence 7 states 600 + 9.99 + 35 = 644.99; title says month; sentence 2 distinguishes biweekly pay from salary."
+    },
+    {
+      "pair": "en-es",
+      "stage": "foundation",
+      "lesson": 9,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "Objective, focus, speaking task and grammar focus were in English or mixed English and Spanish, although the native language of this track is Spanish.",
+      "correction": "Rewrote the metadata in Spanish."
+    },
+    {
+      "pair": "en-es",
+      "stage": "foundation",
+      "lesson": 10,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, focus, speaking task and grammar focus were in English or mixed English and Spanish, although the native language of this track is Spanish. The agent asked for a reference number before one existed and the caller asked for a slower explanation before any explanation; the explain note was in English.",
+      "correction": "Spanish metadata; reordered the call; explain note now teaches explain something to someone (a common error for Spanish speakers)."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 1,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. Feature was glossed as beneficio; the waiver question was not answered; the allow note was in English.",
+      "correction": "Spanish metadata; feature = función incluida; answered the waiver question; Spanish allow note teaching allows me to."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 2,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. Fee schedule was glossed as tarifa (a single rate).",
+      "correction": "Spanish metadata; gloss changed to tarifario."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 3,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The spoken opening line was written as an email (I am writing); the reading never showed which account Ivan registered; the grammar note did not explain that the base form stays even with he or she.",
+      "correction": "Spanish metadata with the English mandative-subjunctive point; spoken opening; sentence 8 names the checking account; the use example names Ivan."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 4,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. Funds availability was tied to the issuing bank and issue date; the closing was vague.",
+      "correction": "Spanish metadata; availability tied to bank policy and the app date; closing on the returned-check fee and keeping the check and receipt."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 5,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The outcome required withdrawal limits but the reading never mentioned them; the fee question was not answered; the operator told the caller to check the ATM network himself.",
+      "correction": "Spanish metadata; reading now gives a $3.00 out-of-network fee, a $103.00 reversal claim (100 + 3) and a $400.00 daily limit."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 6,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The cutoff time and transfer-fee questions were not answered.",
+      "correction": "Spanish metadata; a fictional 6:00 p.m. cutoff and no fee between own accounts."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 7,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. Sentence 6 was spoken by Yesenia in English but translated as narration; a completed instant transfer was said to be refundable on request.",
+      "correction": "Spanish metadata; aligned sentence 6; alias shows the holder name; instant transfers usually cannot be canceled and return of funds is not guaranteed; term changed to return of funds."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 8,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The adviser said one fee appeared once but that the difference matched the fees.",
+      "correction": "Spanish metadata; itemized $12 + $6 = $18."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 9,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. Sentence 8 repeated a question already answered.",
+      "correction": "Spanish metadata; sentence 8 restates the hold versus final-charge distinction."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 10,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. A returned payment was later reported as a $35 negative balance; the overdraft-fee question was not answered; the grammar note called a zero conditional a first conditional; two verb notes were in English.",
+      "correction": "Spanish metadata; rewrote the reading (no negative balance, a single fictional $25 insufficient-funds fee, coverage for card purchases only); grammar contrasts zero and first conditional; fixed verb notes."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 11,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The card was lost since yesterday and this morning; the fraud charge, replacement time and unblock question were left unresolved.",
+      "correction": "Spanish metadata; sentence 2 uses the lesson contrast I have lost / I lost it yesterday; fraud charge goes to review; agent answers replacement and explains a loss report cancels the card."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 12,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The adviser requested a purchase receipt for a purchase never made; provisional credit was answered only with the final outcome; the fill note mixed languages.",
+      "correction": "Spanish metadata; rewrote sentences 4-9 to match the corrected es-en scene; fixed the fill note."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 13,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The reading ended with the error unresolved and no recovery route; end your session is less natural than log out.",
+      "correction": "Spanish metadata; sentence 9 gives the in-app recovery route; log out; neutral share note."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 14,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The officer asked the customer's own frequency question; the start date was never given; the notify note was in English.",
+      "correction": "Spanish metadata; frequency question moved to Mariana; December 1 start date and cancellation deadline added; Spanish notify note."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 15,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The officer advised a change request for a cancellation and said Yes to whether any earlier charge was improper; the run note was partly English.",
+      "correction": "Spanish metadata; rewrote sentences 5 and 9; Spanish run note."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 16,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The $120 leftover could not be derived from the stated figures; sentence 9 said keep an unexpected expense of $100.",
+      "correction": "Spanish metadata; added $200 savings and $400 flexible spending (2,150 - 1,430 - 200 - 400 = 120); fixed sentence 9; planned savings and left over in English."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 17,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. Let us is stiff for a suggestion; the cushion question was not answered with an amount; the shared plan used I.",
+      "correction": "Spanish metadata; Let's; we; a $400 draw from the cushion; reduced hours term used naturally."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 18,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. Sentence 8 was circular and did not use the superlative.",
+      "correction": "Spanish metadata; sentence 8 uses the cheapest with $9.18 / 6 = $1.53."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 19,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish.",
+      "correction": "Spanish metadata; arithmetic checked (6 × 48 = 288; 288 - 270 = 18)."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 20,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The grammar note said did forms the past of make (I made a payment); the grace on purchases was not tied to the statement balance, the due date and the card agreement.",
+      "correction": "Spanish metadata explaining made and did correctly; sentence 8 ties grace to paying the full statement balance by the due date."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 21,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The reading called the whole year the compounding period, used about with an exact figure and left the term question unanswered; the promise note gave a wrong spelling rule (y to ies) and a generic warning.",
+      "correction": "Spanish metadata; fixed sentences 4, 6, 7, 9 (1,000 × 1.01^12 = 1,126.83); corrected promise note."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 22,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. Total repayments were never stated, offer-B questions went unanswered, and the grammar examples said an offer pays.",
+      "correction": "Spanish metadata; rewrote the reading (24 × 250 = 6,000; 36 × 190 = 6,840; A receives 4,850) closing with a but contrast; fixed grammar examples."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 23,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The adviser asked for proof of payment of a debt Pilar never had; the timing question received a non sequitur.",
+      "correction": "Spanish metadata; rewrote sentences 7 and 9; lender reviews the history; neutral guarantee note."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 24,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. Backup income is not a standard concept.",
+      "correction": "Spanish metadata; replaced with extra income (4,500 / 150 = 30 months checked)."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 25,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. Deposit protection was attributed to an unnamed example country.",
+      "correction": "Spanish metadata; named the United States and FDIC-insured bank up to the legal limit without a live figure."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 26,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The management fee was never stated; the bond note implied certain repayment; the issue example was a tautology.",
+      "correction": "Spanish metadata; fictional 1.2% fee; qualified bond repayment; new example."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 27,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. Annual cost and total annual expense were confused, the transaction-fee question went unanswered, and an index fund was called an asset class.",
+      "correction": "Spanish metadata; rewrote sentences 3, 5, 8, 9 as in es-en."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 28,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The retirement lesson used an unnamed fictional example country, which the task forbids, with universal-sounding penalty and tax-benefit loss.",
+      "correction": "Rewrote around a US 401(k) at a fictional employer (fictional 3% match, IRS annual limit without a live figure, the general 59 and a half rule with exceptions, traditional versus Roth); Spanish metadata, notes and phrase."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 29,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The Spanish of sentence 3 (cuánta necesidad de efectivo) did not match how much cash do you need.",
+      "correction": "Spanish metadata; aligned sentence 3."
+    },
+    {
+      "pair": "en-es",
+      "stage": "core",
+      "lesson": 30,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. A shared we plan used I and my; pending payment was used for an outstanding card balance, conflicting with the module meaning of pending; money was moved to a summary; asked which investment suits us.",
+      "correction": "Spanish metadata; we forms throughout; outstanding balance term with a note; fictional $9.00 fee and $600.00 balance; investment line asks for questions; English opening uses Let's."
+    },
+    {
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 1,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "Objective, focus, speaking task and grammar focus were in English or mixed English and Spanish, although the native language of this track is Spanish. 300 - 200 = 100 but the reading said two $100 bills were missing; the operator offered the log before it was requested; returned bill versus stuck bill; vague closure; phone-call opening at a branch.",
+      "correction": "Spanish metadata with backshift in reported speech; one missing $100 bill; reordered 4-5; preliminary $100 overage awaiting Monday balancing; concrete closure; in-branch opening."
+    },
+    {
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 2,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, focus, speaking task and grammar focus were in English or mixed English and Spanish, although the native language of this track is Spanish. Gabriela called her sister's account my destination account, asked the agent for a reference on her own receipt, the agent promised to send a return himself, the code error was never fixed, and she checked her sister's account herself.",
+      "correction": "Spanish metadata; rebuilt 16-sentence reading with the corrected code, is processing, will be Thursday, an automatic return path and a check with the sister on Thursday."
+    },
+    {
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 3,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "Objective, focus, speaking task and grammar focus were in English or mixed English and Spanish, although the native language of this track is Spanish. The reading called one charge a settlement and the other an authorization, then said both were settled; I claim the duplicate charge is unidiomatic English.",
+      "correction": "Spanish metadata contrasting want + object + to with Spanish que + subjunctive; rebuilt the reading (two posted charges settled Nov 3, different authorization numbers, merchant notice without reversal, case opened); replaced claim with dispute."
+    },
+    {
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 4,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The specialist on an official call told the customer to confirm through the official contact; unclear password timeline; no real Master complication.",
+      "correction": "Spanish metadata; rebuilt reading as in es-en with the blocked rent autopay complication."
+    },
+    {
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 5,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. Elisa was already speaking with the fraud adviser yet said she would call the card number; the grammar note confused the English imperative with Spanish usted; the delete note contradicted the reading.",
+      "correction": "Spanish metadata with an English imperative point; rebuilt the reading (convincing personal details and a second 10-minute message as complications; screenshot before deletion); phrase now I called the number on my card."
+    },
+    {
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 6,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. A guaranteed return cannot be promised is false as a universal claim; the promise note gave a wrong y-to-ies rule; the demand note called a very strong verb polite and missed the false friend with demandar; the risk-profile refusal was odd.",
+      "correction": "Spanish metadata teaching single negation in English; replaced the phrase with Nobody can guarantee that return; added past-results and regulator-registration points; corrected verb notes."
+    },
+    {
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 7,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The bank officer explained why the employer stopped pay; the couple refused to touch the reserve while income dropped to zero; no figures for the gap.",
+      "correction": "Spanish metadata; rebuilt reading (bank sees only that no deposit arrived; HR explains; 2,700 - 1,500 = 1,200 gap; 3,600 / 1,200 = 3 months); paycheck note for US usage."
+    },
+    {
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 8,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The deferral request was never answered and the late-charge reduction was not quantified; arrange was glossed as arreglar (to fix).",
+      "correction": "Spanish metadata contrasting can and could; rebuilt reading (delinquent account blocks a deferral; 74 - 40 = 34 = 2 × 17; $10 late charge waived; $35/$45 temporary plan; dated letter); arrange = organizar, acordar."
+    },
+    {
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 9,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. Arithmetic inconsistent with the stated rate ($6,000 at 18% over 48 months is $176.25/month, not $185); the longer-term question was unquantified; the amortize note gave a wrong spelling rule (z to s).",
+      "correction": "Spanish metadata explaining rise versus lower; corrected figures (176.25 × 48 = 8,460; 60 months 152.36 and 3,141.60; 36 months 216.91 and 1,808.76); added the $120 deducted opening fee complication; fixed verb notes."
+    },
+    {
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 10,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The cancellation timeline was contradictory, the free-trial sentence was unrelated, and the grammar note called before the renewal a before + -ing form.",
+      "correction": "Spanish metadata contrasting English indicative with Spanish subjunctive after before; dated complication (receipt Nov 1, system Nov 4, renewal Nov 3), case 30577 and a $14.99 refund path."
+    },
+    {
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 11,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. Alternating payers contradicted the proportional split; the total repair cost was asked after being given; a joint account was said to be required.",
+      "correction": "Spanish metadata; joint account pays in the same 57/43 proportion; $600 repair against a $400 fund with the $200 gap split $114/$86; Let's."
+    },
+    {
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 12,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. Co-signed guarantee is not idiomatic English; the alternative help was vague; Ramiro argued and answered himself; Let us.",
+      "correction": "Spanish metadata; co-signer term and I prefer not to be your co-signer; $50 gift rather than loan; tightened sentences; feel example tied to the reading."
+    },
+    {
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 13,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. Sentence 9 used is blocked instead of the taught will be blocked; the balance-transfer timing question was unanswered; no Master complication.",
+      "correction": "Spanish metadata contrasting English present after when with Spanish subjunctive; rebuilt reading with the five-month-old account fee complication."
+    },
+    {
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 14,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The recover example (the price recovers over time) implied a guaranteed recovery; the reading did not use the taught present continuous; the educator gave prescriptive advice.",
+      "correction": "Spanish metadata; sentences 3, 6, 7, 9, 11-13 rewritten with is falling and keeps going; neutral examples for recover and hold."
+    },
+    {
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 15,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. Lorena asked the adviser when she needed her own tuition money; the fixed-term product was placed on the long horizon and then blamed for the conflict; the adviser suggested a product while also being the adviser for her questions.",
+      "correction": "Spanish metadata; rebuilt reading with an educator, $12,000 tuition, the 18-month first payment against a 2-year fixed term, both ... and with although, refusal to pick a product; term made natural English."
+    },
+    {
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 16,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. $15,000 at 11.5% over 48 months is $391.34/month, not $391.00; the credit-union offer was never calculated; the native sentence 1 was ungrammatical (cuyo precio del vehículo).",
+      "correction": "Spanish metadata; corrected to 391.34 × 48 = 18,784.32 and computed the credit union at 485.42 × 36 = 17,475.12; fixed-then-variable rate complication; fixed sentence 1, grammar example and notes."
+    },
+    {
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 17,
+      "severity": "P1",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. The tax lesson used an unnamed example country, authority and identifier, contrary to the jurisdiction requirement.",
+      "correction": "Rewrote around a US IRS notice proposing a change to a 2025 federal return plus a fictional Texas county benefit: verification through the official IRS website, deadline as printed on the notice, VITA specialist and no promised figure; Spanish metadata, notes and phrases."
+    },
+    {
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 18,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. Unnamed example country; the interpreter premise was inconsistent; Carmen asked the teller to tell her son, who was present; the authorize example was a tautology.",
+      "correction": "Spanish metadata; US branch with English forms and Carmen's basic English; language help needs no authorization; out-of-state power of attorney under legal review as complication; fixed examples and notes."
+    },
+    {
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 19,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. Sentence 7 was nonsensical; the decision had no figures; the brother asked for a family recommendation.",
+      "correction": "Spanish metadata; $9,500 − $8,000 = $1,500 gap; opportunity cost of old-car repairs; emergency-fund scenario; own decision, not a recommendation."
+    },
+    {
+      "pair": "en-es",
+      "stage": "master",
+      "lesson": 20,
+      "severity": "P2",
+      "module": "personal-money",
+      "explanation": "Objective, speaking task and grammar focus were in English although the native language of this track is Spanish. Tautology (my reduced income is lower), unquantified income change, unchanged contribution with lower income, unclear emergency-fund sentence, a question whether investing now is better; no complication.",
+      "correction": "Spanish metadata contrasting English present after when with Spanish subjunctive; $120/$240 partial acknowledgment complication; 400 = 200 contribution cut + 200 eating out; investment questions about costs and access; Let's."
+    },
+    {
+      "pair": "en-es",
+      "stage": "all",
+      "lesson": null,
+      "severity": "P3",
+      "module": "personal-money",
+      "explanation": "Speaker labels were inconsistent (Advisor/Adviser) and Spanish translations used the anglicism Oficial for a bank officer.",
+      "correction": "Harmonized to Adviser and Ejecutivo/Ejecutiva (19 strings)."
+    }
+  ],
+  "remainingUncertainties": [
+    "Regional Spanish choices remain Latin American / US-Hispanic leaning: renta (Spain alquiler), monto (Spain importe), estado de cuenta (Spain extracto), enganche (Mexico; elsewhere pie/entrada/cuota inicial), cajero automático, cuenta corriente vs cuenta de cheques, sobregiro (Spain descubierto), fila. Notes flag several; a human editor should choose one target region and confirm the glossary.",
+    "Banking-process descriptions are generic and fictional (cutoff 6:00 p.m., $25 insufficient-funds fee, 5-day POA legal review, 10-business-day merchant reversal, closure rules). They are labeled by context as one bank's policy but are not tied to a real institution or regulation.",
+    "US-specific facts used without live figures: FDIC coverage up to the legal limit, IRS annual 401(k) limit, the general age 59 1/2 early-withdrawal additional tax with exceptions, traditional vs Roth, IRS VITA, IRS notices proposing changes. These are stable as of the review date but should be checked by a qualified reviewer before release.",
+    "The Spanish term reverso del cargo (charge reversal) and reversión are both used; some banks say contracargo for card disputes. Abono provisional is used for provisional credit. Confirm preferred terms.",
+    "English register: US spelling (canceled, check, adviser/advisor both valid; files use Adviser). British variants are noted only in a few verb notes.",
+    "tarifario (fee schedule) is common in Latin America; Spain may use libro de tarifas or folleto de tarifas.",
+    "The derived runtime artifacts (public/lesson-content, src/data/core60, finance packs) were rebuilt by the main agent from an earlier snapshot during this review; tests/finance-modules.test.mjs currently fails for personal-money and personal-money-english only because those derived files are stale against the corrected source. A rebuild by the runtime owner is required; this reviewer did not edit runtime files."
+  ],
+  "validation": {
+    "commands": [
+      "node /tmp/pmreview/validate.mjs  (local harness: esbuild-bundled import of src/lib/lesson-content-core.ts; validateLessonContent with contentLimitsFor(\"personal-money\") for Foundation/Core and contentLimitsFor(\"master-personal-money\") for Master; run against both lesson.words and content.words; plus stricter checks: terms <= 4 words, phrases <= 12 words, notes <= 160, titles <= 70, untranslated sentences, lesson.words == content.words, grammar examples >= 2, speaking context present, no duplicated readings, 10/30/20 ordered numbering)",
+      "node scripts/validate-finance-content.mjs  (repository finance validator, read-only)",
+      "node /tmp/pmreview/usage.mjs  (term/phrase usage in readings via the real termMatches/phraseMatches)",
+      "node --test --test-reporter=tap tests/finance-modules.test.mjs  (read-only; depends on derived artifacts)"
+    ],
+    "results": {
+      "localStrictValidator": "0 failures across 120 rows (es-en 60, en-es 60)",
+      "repoFinanceValidator": "validatedLessons 360 (all finance modules), 0 failures for personal-money",
+      "vocabularyUsage": "every lesson uses at least 8 lesson terms in its reading; phrases used: es-en min 4, en-es min 3 (requirements Core 5 terms + 1 phrase, Master 8 terms + 2 phrases)",
+      "financeModuleTest": "accounting and accounting-english pass; personal-money, personal-money-english (and travel-money pairs, not owned) fail on deepEqual between stale derived public files and the current source, not on validateLessonContent."
+    },
+    "notRun": [
+      "Rebuild of derived assets (scripts/build-finance-content.py) - runtime files are owned by the main agent",
+      "App runtime checks on six modes, Reader handoff, speaking cards, progress scoping",
+      "npm run smoke:e2e",
+      "Audio generation or audio validation"
+    ]
+  },
+  "notInScopeAndNotClaimed": {
+    "hdAudio": "none generated or reviewed",
+    "offlinePacks": "not built or verified",
+    "humanQualifiedReview": "none; model review is not human review"
+  },
+  "workingFiles": "Patch batches, findings and validator harness are in /tmp/pmreview (outside the repo); originals backed up at /tmp/pmreview/orig."
+}

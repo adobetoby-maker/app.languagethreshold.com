@@ -1,0 +1,460 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "foundation",
+  "lessonKey": "foundation:9",
+  "stableLessonId": "foundation-travel-breakfast:9:ja-en",
+  "reviewed": false,
+  "status": "source-only Japanese-language candidate; unapproved",
+  "source": {
+    "curriculumPath": "src/data/core60/es/foundation-travel-breakfast.json",
+    "curriculumSha256": "94621cca4158b76c69435f35eb1dfdc4893df553afaccb8a1963bdd9e6d80e79",
+    "readerPath": "public/lesson-content/es/foundation-travel-breakfast.json",
+    "readerSha256": "e11886cd3e030534ba8f8b8e92515c528e07c2875f20a58034faed2bc3d0f78a",
+    "objectiveEnglish": "Ask a server politely for the bill, water or the check, and give simple usted commands.",
+    "focusEnglish": "Polite requests with ¿Puede...? and ¿Me puede...?, and usted commands like tráigame",
+    "speakingEnglish": "Ask a server for a glass of water and the bill, pay in cash, and tell them to keep the change.",
+    "readerTitleSpanish": "La cuenta en Oaxaca"
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/foundation-1-10-draft.json",
+    "sha256": "2c4f1ba884691e7c0b0d550304e4acced537b32fa91c00fdf1fd943e6ce3c390",
+    "scene": "Sam finishes breakfast and asks staff how to pay.",
+    "cardCount": 12,
+    "readerCount": 9
+  },
+  "priorProposal": {
+    "path": "content/japanese-travel-breakfast/review/foundation-4-9/source-correction-proposals.json",
+    "sha256": "35ceb6e9e5d607bc94820e259a8f766fc96c285dd6a725d2867ac5d8f307c50d",
+    "readerRevision": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v1",
+    "cardRevision": "foundation-travel-breakfast:9:ja-en:card:source-scene-v1",
+    "status": "retained separately; no automatic audio or saved-item mapping"
+  },
+  "sourceCards": [
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2:01",
+      "candidateCardRevision": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2",
+      "candidatePosition": 1,
+      "sourceSpanish": "la cuenta",
+      "sourceEnglish": "the bill",
+      "kind": "term",
+      "sourceNote": null,
+      "targetJapaneseDraft": "お会計",
+      "literalJapaneseGlossEn": "the bill or payment",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2:02",
+      "candidateCardRevision": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2",
+      "candidatePosition": 2,
+      "sourceSpanish": "la propina",
+      "sourceEnglish": "the tip",
+      "kind": "term",
+      "sourceNote": "If unsure, ask: ¿La propina está incluida?",
+      "targetJapaneseDraft": "チップ",
+      "literalJapaneseGlossEn": "the tip",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2:03",
+      "candidateCardRevision": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2",
+      "candidatePosition": 3,
+      "sourceSpanish": "la tarjeta",
+      "sourceEnglish": "the card",
+      "kind": "term",
+      "sourceNote": null,
+      "targetJapaneseDraft": "カード",
+      "literalJapaneseGlossEn": "the card",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2:04",
+      "candidateCardRevision": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2",
+      "candidatePosition": 4,
+      "sourceSpanish": "el efectivo",
+      "sourceEnglish": "the cash",
+      "kind": "term",
+      "sourceNote": null,
+      "targetJapaneseDraft": "現金",
+      "literalJapaneseGlossEn": "cash",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2:05",
+      "candidateCardRevision": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2",
+      "candidatePosition": 5,
+      "sourceSpanish": "el cambio",
+      "sourceEnglish": "the change",
+      "kind": "term",
+      "sourceNote": null,
+      "targetJapaneseDraft": "おつり",
+      "literalJapaneseGlossEn": "change",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2:06",
+      "candidateCardRevision": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2",
+      "candidatePosition": 6,
+      "sourceSpanish": "el hielo",
+      "sourceEnglish": "the ice",
+      "kind": "term",
+      "sourceNote": null,
+      "targetJapaneseDraft": "氷",
+      "literalJapaneseGlossEn": "ice",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2:07",
+      "candidateCardRevision": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2",
+      "candidatePosition": 7,
+      "sourceSpanish": "la sal",
+      "sourceEnglish": "the salt",
+      "kind": "term",
+      "sourceNote": null,
+      "targetJapaneseDraft": "塩",
+      "literalJapaneseGlossEn": "salt",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2:08",
+      "candidateCardRevision": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2",
+      "candidatePosition": 8,
+      "sourceSpanish": "el popote",
+      "sourceEnglish": "the straw",
+      "kind": "term",
+      "sourceNote": "Mexican word; in other countries it is el pitillo or la pajilla.",
+      "targetJapaneseDraft": "ストロー",
+      "literalJapaneseGlossEn": "a straw",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2:09",
+      "candidateCardRevision": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2",
+      "candidatePosition": 9,
+      "sourceSpanish": "la crema",
+      "sourceEnglish": "the cream",
+      "kind": "term",
+      "sourceNote": null,
+      "targetJapaneseDraft": "クリーム",
+      "literalJapaneseGlossEn": "cream",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2:10",
+      "candidateCardRevision": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2",
+      "candidatePosition": 10,
+      "sourceSpanish": "¿Puede traerme la cuenta, por favor?",
+      "sourceEnglish": "Could you bring me the bill, please?",
+      "kind": "phrase",
+      "sourceNote": null,
+      "targetJapaneseDraft": "お会計をお願いできますか",
+      "literalJapaneseGlossEn": "Could I ask for the bill?",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2:11",
+      "candidateCardRevision": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2",
+      "candidatePosition": 11,
+      "sourceSpanish": "¿Me puede dar un vaso de agua?",
+      "sourceEnglish": "Can you give me a glass of water?",
+      "kind": "phrase",
+      "sourceNote": null,
+      "targetJapaneseDraft": "お水を一杯いただけますか",
+      "literalJapaneseGlossEn": "Could I have a glass of water?",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2:12",
+      "candidateCardRevision": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2",
+      "candidatePosition": 12,
+      "sourceSpanish": "Tráigame más crema, por favor.",
+      "sourceEnglish": "Please bring me more cream.",
+      "kind": "phrase",
+      "sourceNote": "Usted command of traer; add por favor to keep it polite.",
+      "targetJapaneseDraft": "クリームをもっと持ってきてください",
+      "literalJapaneseGlossEn": "Please bring more cream.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2:13",
+      "candidateCardRevision": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2",
+      "candidatePosition": 13,
+      "sourceSpanish": "Espere un momento, por favor.",
+      "sourceEnglish": "Wait a moment, please.",
+      "kind": "phrase",
+      "sourceNote": null,
+      "targetJapaneseDraft": "少し待ってください",
+      "literalJapaneseGlossEn": "Please wait a moment.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2:14",
+      "candidateCardRevision": "foundation-travel-breakfast:9:ja-en:card:source-scene-v2",
+      "candidatePosition": 14,
+      "sourceSpanish": "Quédese con el cambio.",
+      "sourceEnglish": "Keep the change.",
+      "kind": "phrase",
+      "sourceNote": "Say it when you leave the change as the tip.",
+      "targetJapaneseDraft": "おつりは取っておいてください",
+      "literalJapaneseGlossEn": "Please keep the change.",
+      "sourceEnglishIsJapaneseGloss": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v2:01",
+      "candidateReaderRevision": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v2",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Anna desayuna huevos y café en una cafetería de Oaxaca.",
+      "sourceEnglish": "Anna eats eggs and coffee for breakfast at a café in Oaxaca.",
+      "targetJapaneseDraft": "アンナはオアハカのカフェで、朝食に卵を食べ、コーヒーを飲みます。",
+      "literalJapaneseGlossEn": "Anna eats eggs and drinks coffee for breakfast at a café in Oaxaca.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v2:02",
+      "candidateReaderRevision": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v2",
+      "candidatePosition": 2,
+      "speaker": "Anna",
+      "sourceSpanish": "Anna: ¿Me puede dar un vaso de agua?",
+      "sourceEnglish": "Anna: Can you give me a glass of water?",
+      "targetJapaneseDraft": "お水を一杯いただけますか。",
+      "literalJapaneseGlossEn": "Could I have a glass of water?",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v2:03",
+      "candidateReaderRevision": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v2",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Luis, el mesero, trae agua con hielo y un popote.",
+      "sourceEnglish": "Luis, the server, brings water with ice and a straw.",
+      "targetJapaneseDraft": "店員のルイスは、氷入りの水とストローを持ってきます。",
+      "literalJapaneseGlossEn": "Staff member Luis brings water with ice and a straw.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v2:04",
+      "candidateReaderRevision": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v2",
+      "candidatePosition": 4,
+      "speaker": "Anna",
+      "sourceSpanish": "Anna: ¿Me puede traer la sal, por favor?",
+      "sourceEnglish": "Anna: Can you bring me the salt, please?",
+      "targetJapaneseDraft": "お塩を持ってきていただけますか。",
+      "literalJapaneseGlossEn": "Could you bring me salt?",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v2:05",
+      "candidateReaderRevision": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v2",
+      "candidatePosition": 5,
+      "speaker": "Anna",
+      "sourceSpanish": "Anna: Tráigame más crema, por favor.",
+      "sourceEnglish": "Anna: Please bring me more cream.",
+      "targetJapaneseDraft": "クリームをもっと持ってきてください。",
+      "literalJapaneseGlossEn": "Please bring me more cream.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v2:06",
+      "candidateReaderRevision": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v2",
+      "candidatePosition": 6,
+      "speaker": "Anna",
+      "sourceSpanish": "Anna: ¿Puede traerme la cuenta, por favor?",
+      "sourceEnglish": "Anna: Could you bring me the bill, please?",
+      "targetJapaneseDraft": "お会計をお願いできますか。",
+      "literalJapaneseGlossEn": "Could I ask for the bill?",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v2:07",
+      "candidateReaderRevision": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v2",
+      "candidatePosition": 7,
+      "speaker": "Luis",
+      "sourceSpanish": "Luis: ¿Va a pagar con tarjeta o en efectivo?",
+      "sourceEnglish": "Luis: Are you going to pay by card or in cash?",
+      "targetJapaneseDraft": "カードと現金、どちらでお支払いになりますか。",
+      "literalJapaneseGlossEn": "Will you pay by card or in cash?",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v2:08",
+      "candidateReaderRevision": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v2",
+      "candidatePosition": 8,
+      "speaker": "Anna",
+      "sourceSpanish": "Anna: En efectivo, aquí tiene 200 pesos.",
+      "sourceEnglish": "Anna: In cash, here are 200 pesos.",
+      "targetJapaneseDraft": "現金で払います。二百ペソ、どうぞ。",
+      "literalJapaneseGlossEn": "I will pay in cash. Here are 200 pesos.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v2:09",
+      "candidateReaderRevision": "foundation-travel-breakfast:9:ja-en:reader:source-scene-v2",
+      "candidatePosition": 9,
+      "speaker": "Anna",
+      "sourceSpanish": "Anna: Quédese con el cambio de propina.",
+      "sourceEnglish": "Anna: Keep the change as a tip.",
+      "targetJapaneseDraft": "おつりはチップとして取っておいてください。",
+      "literalJapaneseGlossEn": "Please keep the change as a tip.",
+      "sourceEnglishIsJapaneseGloss": false
+    }
+  ],
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "the bill; payment",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "water",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "one cup or glass",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "cash",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "card",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "change",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "register",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "please",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Could I have water?",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "The bill, please",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "Can I pay by card?",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "I will pay in cash",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Excuse me. Could I have a glass of water?",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Yes, please wait a moment.",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Here is your water.",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Thank you. The bill, please.",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Please pay at the register.",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Can I pay by card?",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Yes, you can pay by card.",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Then I will pay by card.",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Thank you.",
+      "disposition": "retire from candidate only; retain archived draft; no saved-item migration"
+    }
+  ],
+  "savedPositionPolicy": "Archived rows have no explicit row IDs. Source-scene v2 uses revision-scoped IDs; no shipped saved positions are known because the draft was unregistered. No automatic position migration, scoring or progress write is authorized.",
+  "speakingGoalCandidate": "In the Oaxaca café, ask for water and the bill, pay in cash, and tell Luis to keep the change.",
+  "sourceContextNote": "The Reader explicitly gives change as a tip in Oaxaca; the source word-list note also mentions tips. This is source-setting context, not a universal Japanese café payment rule. The extra prior-proposal tip-included question came from a source note, not one of the 14 source cards.",
+  "modeStatus": "Archived six-mode descriptions are labels, not authored prompt/answer pairs; no answer is registered.",
+  "audioNote": "Existing Foundation 9 v1 candidate recordings require exact text, voice, file-hash and placement audit before reuse. New or changed text needs separate synthesis and per-clip listening. No audio is registered or approved.",
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  },
+  "reviewQuestions": [
+    "Qualified Japanese and Mexican-locale review must distinguish this Oaxaca cash/tip scene from the archived Japanese card-payment scene; no universal tipping rule is asserted.",
+    "The source gives 200 pesos in the Reader but no bill total or tip percentage; do not invent one.",
+    "The Spanish source teaches usted commands. Japanese polite requests are the teaching adaptation; confirm register and card/Reader/speaking consistency before use.",
+    "The source does not specify the kind of cream; review クリーム in this food context and preserve the source ambiguity."
+  ]
+}

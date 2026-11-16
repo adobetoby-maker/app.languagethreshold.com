@@ -46,6 +46,7 @@ def main():
         lesson = raw.get('lesson', raw)
         extra = derived.get('lesson', derived['lessons'][0] if isinstance(derived.get('lessons'), list) else derived)
         stable = f'master-travel-lunch:{n}:ja-en'
+        check(lesson.get('stableId') == stable, f'Master {n} candidate stable ID missing or changed')
         check(row['identityPass'] and row['stableId'] == stable and row['ownerStableId'] == stable, f'Master {n} identity')
         check(row['cardExactCount'] == row['cardCount'][0] == row['cardCount'][1], f'Master {n} card source mismatch')
         check(row['readerExactCount'] == row['readerCount'][0] == row['readerCount'][1], f'Master {n} Reader source mismatch')

@@ -59,7 +59,7 @@ def build() -> dict:
         candidate = json.loads(candidate_file.read_text())
         new = candidate.get("lesson", candidate)
         candidate_stable_id = new.get("stableId")
-        assert candidate_stable_id is None or old["stableId"] == candidate_stable_id
+        assert old["stableId"] == candidate_stable_id
         cards = crosswalk(old["cards"], new["cards"])
         reader = crosswalk(old["reader"], new["reader"])
         lessons.append(

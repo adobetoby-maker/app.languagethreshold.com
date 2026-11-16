@@ -1,0 +1,43 @@
+{
+  "status": "AI-assisted unapproved source-only candidate; qualified Japanese, food and locale review remains open",
+  "calls": [
+    {
+      "role": "Foundation 1 candidate authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-sonnet-5-5",
+      "sessionId": "8f481a2c-ae74-4564-aa18-88836377758f",
+      "mode": "read-only Claude CLI tool",
+      "note": "The requested alias did not yield Haiku; candidate was independently checked and corrected against pinned source."
+    },
+    {
+      "role": "Foundation 3 candidate authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-sonnet-5-5",
+      "sessionId": "cdddf9de-9fc4-4bb4-ad31-935eff42a1c9",
+      "mode": "read-only Claude CLI tool",
+      "note": "The requested alias did not yield Haiku; candidate was independently checked and corrected against pinned source."
+    },
+    {
+      "role": "Foundation 5 source critique",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "sessionId": "7efe4faf-994a-416c-9bcc-980ab23bbfde"
+    },
+    {
+      "role": "Three-lesson read-only critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "sessionId": "a2d7e1cf-4d1d-4f50-bf62-ef13897bf293"
+    },
+    {
+      "role": "Three-lesson second-pass correction review",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "sessionId": "390197cd-640f-4d51-a882-bcb40419dd65"
+    }
+  ],
+  "selfCheck": "Corrected source-meaning and register defects found by AI; independent validator checks pinned source English and Spanish, IDs, hash pins and false gates. Remaining linguistic choices are explicit review questions. AI and structural checks do not count as qualified approval."
+}

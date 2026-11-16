@@ -1,0 +1,42 @@
+{
+  "status": "AI-assisted source-only candidate; qualified Japanese, food, locale, source and dictionary review remains open",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Core 9 source-card and Reader candidate authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "07fddf45-d541-489e-98e9-2675ecbcfba8",
+      "mode": "Claude CLI --safe-mode --model haiku --tools empty --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false,
+      "note": "Proposed 17 source-order cards and nine Reader Japanese candidate faces."
+    },
+    {
+      "role": "Full packet read-only critique attempt",
+      "requestedModel": "opus",
+      "actualModelReported": null,
+      "sessionId": "96e9ae15-ca4a-4ca9-8f41-d63fd153244d",
+      "mode": "Claude CLI --safe-mode --model opus --tools empty --print --output-format json",
+      "terminalReason": "aborted_streaming",
+      "isError": true,
+      "note": "Aborted after 319 seconds of waiting without an answer or model metadata; no Opus judgment is claimed."
+    },
+    {
+      "role": "Independent correction critique",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "2a0e1ecb-aa77-4370-badd-ead938fc1bcf",
+      "mode": "Claude CLI --safe-mode --model fable --effort low --tools empty --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false,
+      "note": "Found no material Japanese mismatch in 17 cards or nine Reader turns; suggested optional café napkin and register refinements, and highlighted three source cards absent from Reader."
+    }
+  ],
+  "selfCheck": [
+    "Pinned current Spanish source, English objective and archived Japanese draft with fixed SHA-256 values; verified exact card/Reader order and all stable/revision IDs.",
+    "Compared every Japanese candidate face and separate literal English gloss with source English, keeping source ambiguity about order change, bag referent and seated objective visible in internal notes.",
+    "Archived Japanese scene inventions about unprepared orders and staff confirmation were not carried into the candidate; no saved-item or audio migration is authorized.",
+    "Qualified Japanese/source/dictionary review, six authored modes, forms, speaking and exact-text audio remain open; false gates were independently validated."
+  ]
+}

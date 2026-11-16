@@ -1,0 +1,30 @@
+{
+  "status": "AI-assisted unapproved source-only candidate; qualified Japanese, food, Oaxaca locale and dictionary review remains open",
+  "calls": [
+    {
+      "role": "Foundation 4 source-card candidate authoring and prior Reader critique",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "ae56b10e-3ed7-4436-8f66-749141acf514",
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "note": "Read-only; card candidates were checked against the pinned Spanish and English source."
+    },
+    {
+      "role": "Full-scene source and Japanese read-only critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "db2c7291-32b9-4d4a-83be-6390ff781cd3",
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "note": "Flagged objective/grammar contrast, tea and fruit meaning, literal glosses, prior-ID disposition and audio identity."
+    },
+    {
+      "role": "Second-pass correction critique",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "2c165b68-0d8b-4f00-a3be-288ed9822d83",
+      "mode": "Claude CLI --safe-mode --print --tools Read --output-format json",
+      "note": "Flagged remaining tea, napkin, obligation/register, v1 overlap and verb-example issues."
+    }
+  ],
+  "selfCheck": "Independent source validator verifies all 15 Spanish/English cards and eight Reader turns, pinned SHA-256 files, stage-local lesson ID, revision-scoped unique candidate IDs and false gates. Source-specific ambiguities remain visible; AI and structural checks do not count as qualified approval."
+}

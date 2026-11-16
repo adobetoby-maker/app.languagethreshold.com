@@ -1,0 +1,465 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "foundation",
+  "lessonKey": "foundation:4",
+  "stableLessonId": "foundation-travel-breakfast:4:ja-en",
+  "candidateRevision": "foundation-travel-breakfast:4:ja-en:source-scene-v2",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/foundation-travel-breakfast.json",
+    "curriculumSha256": "94621cca4158b76c69435f35eb1dfdc4893df553afaccb8a1963bdd9e6d80e79",
+    "readerPath": "public/lesson-content/es/foundation-travel-breakfast.json",
+    "readerSha256": "e11886cd3e030534ba8f8b8e92515c528e07c2875f20a58034faed2bc3d0f78a",
+    "objectiveEnglish": "Say what you have, need and want at breakfast, and ask what the café has.",
+    "titleSpanish": "Have, There Is, Need and Want",
+    "focusSpanish": "tener, hay, necesitar, querer and hay que + infinitive",
+    "speakingEnglish": "Tell a server you are hungry, ask if they have fresh orange juice, and say you need a fork and a napkin.",
+    "readerTitleSpanish": "Desayuno en Oaxaca",
+    "readerVerbExamples": [
+      {
+        "target": "¿Tienen jugo de naranja natural?",
+        "native": "Do you have fresh orange juice?"
+      },
+      {
+        "target": "El pan tostado viene con mantequilla y mermelada.",
+        "native": "The toast comes with butter and jam."
+      },
+      {
+        "target": "Necesito un tenedor y una servilleta, por favor.",
+        "native": "I need a fork and a napkin, please."
+      },
+      {
+        "target": "Quiero un té sin azúcar.",
+        "native": "I'd like a tea without sugar."
+      },
+      {
+        "target": "Emma paga en la caja al final.",
+        "native": "Emma pays at the register at the end."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/foundation-1-10-draft.json",
+    "sha256": "2c4f1ba884691e7c0b0d550304e4acced537b32fa91c00fdf1fd943e6ce3c390",
+    "scene": "At the café counter, Sam asks about juice before requesting utensils.",
+    "cardCount": 12,
+    "readerCount": 9
+  },
+  "priorProposal": {
+    "path": "content/japanese-travel-breakfast/review/foundation-4-9/source-correction-proposals.json",
+    "sha256": "35ceb6e9e5d607bc94820e259a8f766fc96c285dd6a725d2867ac5d8f307c50d",
+    "status": "retained as a narrower source-setting proposal; F9 is unchanged"
+  },
+  "status": "source-only Japanese-language full-scene candidate; unapproved",
+  "sourceCards": [
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "el jugo de naranja",
+      "sourceEnglish": "the orange juice",
+      "targetJapaneseDraft": "オレンジジュース",
+      "literalJapaneseGlossEn": "orange juice",
+      "kind": "term",
+      "sourceEnglishIsJapaneseGloss": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "el pan tostado",
+      "sourceEnglish": "the toast",
+      "targetJapaneseDraft": "トースト",
+      "literalJapaneseGlossEn": "toast",
+      "kind": "term",
+      "sourceEnglishIsJapaneseGloss": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "la mantequilla",
+      "sourceEnglish": "the butter",
+      "targetJapaneseDraft": "バター",
+      "literalJapaneseGlossEn": "butter",
+      "kind": "term",
+      "sourceEnglishIsJapaneseGloss": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "la mermelada",
+      "sourceEnglish": "the jam",
+      "targetJapaneseDraft": "ジャム",
+      "literalJapaneseGlossEn": "jam",
+      "kind": "term",
+      "sourceEnglishIsJapaneseGloss": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "la fruta",
+      "sourceEnglish": "the fruit",
+      "targetJapaneseDraft": "果物",
+      "literalJapaneseGlossEn": "fruit",
+      "kind": "term",
+      "sourceEnglishIsJapaneseGloss": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "el té",
+      "sourceEnglish": "the tea",
+      "targetJapaneseDraft": "お茶",
+      "literalJapaneseGlossEn": "tea (type unspecified)",
+      "kind": "term",
+      "sourceEnglishIsJapaneseGloss": false,
+      "sourceSpanishNoteInternal": "The accent separates té (tea) from te (you)."
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "la servilleta",
+      "sourceEnglish": "the napkin",
+      "targetJapaneseDraft": "ナプキン",
+      "literalJapaneseGlossEn": "napkin",
+      "kind": "term",
+      "sourceEnglishIsJapaneseGloss": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "la cuchara",
+      "sourceEnglish": "the spoon",
+      "targetJapaneseDraft": "スプーン",
+      "literalJapaneseGlossEn": "spoon",
+      "kind": "term",
+      "sourceEnglishIsJapaneseGloss": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "el tenedor",
+      "sourceEnglish": "the fork",
+      "targetJapaneseDraft": "フォーク",
+      "literalJapaneseGlossEn": "fork",
+      "kind": "term",
+      "sourceEnglishIsJapaneseGloss": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "¿Tienen jugo de naranja natural?",
+      "sourceEnglish": "Do you have fresh orange juice?",
+      "targetJapaneseDraft": "生搾りのオレンジジュースはありますか。",
+      "literalJapaneseGlossEn": "Do you have freshly squeezed orange juice?",
+      "kind": "phrase",
+      "sourceEnglishIsJapaneseGloss": false,
+      "sourceSpanishNoteInternal": "Natural means freshly squeezed, not from a carton."
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "¿Hay pan tostado?",
+      "sourceEnglish": "Is there toast?",
+      "targetJapaneseDraft": "トーストはありますか。",
+      "literalJapaneseGlossEn": "Is toast available?",
+      "kind": "phrase",
+      "sourceEnglishIsJapaneseGloss": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "Necesito una servilleta, por favor.",
+      "sourceEnglish": "I need a napkin, please.",
+      "targetJapaneseDraft": "ナプキンが必要なのですが、いただけますか。",
+      "literalJapaneseGlossEn": "I need a napkin; could I have one?",
+      "kind": "phrase",
+      "sourceEnglishIsJapaneseGloss": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "Quiero un té sin azúcar.",
+      "sourceEnglish": "I'd like a tea without sugar.",
+      "targetJapaneseDraft": "砂糖なしのお茶をお願いします。",
+      "literalJapaneseGlossEn": "Tea without sugar, please.",
+      "kind": "phrase",
+      "sourceEnglishIsJapaneseGloss": false,
+      "sourceSpanishNoteInternal": "Quisiera is a softer, more polite way to say quiero."
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Hay que pagar en la caja?",
+      "sourceEnglish": "Do you have to pay at the register?",
+      "targetJapaneseDraft": "レジで支払う必要がありますか。",
+      "literalJapaneseGlossEn": "Is it necessary to pay at the register?",
+      "kind": "phrase",
+      "sourceEnglishIsJapaneseGloss": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "Tengo mucha hambre.",
+      "sourceEnglish": "I'm very hungry.",
+      "targetJapaneseDraft": "とてもおなかがすいています。",
+      "literalJapaneseGlossEn": "I am feeling very hungry.",
+      "kind": "phrase",
+      "sourceEnglishIsJapaneseGloss": false,
+      "sourceSpanishNoteInternal": "Spanish says 'I have hunger': tengo hambre."
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "En un café de Oaxaca, Emma le dice al mesero Luis: Tengo mucha hambre.",
+      "sourceEnglish": "In a café in Oaxaca, Emma tells the server Luis: I'm very hungry.",
+      "targetJapaneseDraft": "オアハカのカフェで、エマは店員のルイスに「とてもおなかがすいています」と言います。",
+      "literalJapaneseGlossEn": "At a café in Oaxaca, Emma tells staff member Luis, 'I am very hungry.'",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: ¿Tienen jugo de naranja natural?",
+      "sourceEnglish": "Emma: Do you have fresh orange juice?",
+      "targetJapaneseDraft": "生搾りのオレンジジュースはありますか。",
+      "literalJapaneseGlossEn": "Is freshly squeezed orange juice available?",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Luis",
+      "sourceSpanish": "Luis: Sí, y también hay fruta fresca con el desayuno.",
+      "sourceEnglish": "Luis: Yes, and there is also fresh fruit with breakfast.",
+      "targetJapaneseDraft": "はい、あります。朝食には新鮮な果物もあります。",
+      "literalJapaneseGlossEn": "Yes, we have it. There is also fresh fruit with breakfast.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: ¿Hay pan tostado?",
+      "sourceEnglish": "Emma: Is there toast?",
+      "targetJapaneseDraft": "トーストはありますか。",
+      "literalJapaneseGlossEn": "Is there toast?",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Luis",
+      "sourceSpanish": "Luis: Sí, el pan tostado viene con mantequilla y mermelada.",
+      "sourceEnglish": "Luis: Yes, the toast comes with butter and jam.",
+      "targetJapaneseDraft": "はい、トーストにはバターとジャムがつきます。",
+      "literalJapaneseGlossEn": "Yes, toast comes with butter and jam.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: Quiero un té sin azúcar y una cuchara, por favor.",
+      "sourceEnglish": "Emma: I'd like a tea without sugar and a spoon, please.",
+      "targetJapaneseDraft": "砂糖なしのお茶とスプーンをお願いします。",
+      "literalJapaneseGlossEn": "Tea without sugar and a spoon, please.",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: También necesito un tenedor y una servilleta, por favor.",
+      "sourceEnglish": "Emma: I also need a fork and a napkin, please.",
+      "targetJapaneseDraft": "フォークとナプキンも必要です。いただけますか。",
+      "literalJapaneseGlossEn": "I also need a fork and napkin. Could I have them?",
+      "sourceEnglishIsJapaneseGloss": false
+    },
+    {
+      "id": "foundation-travel-breakfast:4:ja-en:source-scene-v2:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Luis",
+      "sourceSpanish": "Luis: Claro, y hay que pagar en la caja al final.",
+      "sourceEnglish": "Luis: Sure, and you have to pay at the register at the end.",
+      "targetJapaneseDraft": "はい。お会計はお食事のあとにレジでお願いします。",
+      "literalJapaneseGlossEn": "Certainly. After the meal, payment at the register is requested in polite service language.",
+      "sourceEnglishIsJapaneseGloss": false
+    }
+  ],
+  "speakingGoalCandidate": "Say you are hungry, ask whether fresh-squeezed orange juice is available, and say you need a fork and napkin in the Oaxaca café scene.",
+  "japaneseSpecificFocusCandidate": "Express need with 必要, ask availability with ありますか, and make polite breakfast requests; Spanish tener/hay/querer are separate source concepts, not a one-to-one Japanese grammar target.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "I am hungry",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "orange juice",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "freshly squeezed",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Do you have it?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "toast",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "tea",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "without sugar",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "napkin",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "fork",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "spoon",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "A fork, please",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "A napkin too, please",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Excuse me. I am hungry.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "What would you like to order?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Do you have orange juice?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Yes, we do.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Is it freshly squeezed?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "No, it is not freshly squeezed.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Then tea, please.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "A fork and napkin too, please.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Certainly.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "priorProposalDisposition": "The earlier v1 Reader and three additional card IDs remain in their inert proposal. Reader 1–7 text is identical to v1; Reader 8 and some card text differ. V2 IDs are all distinct. No v1 ID is reused, mapped or retired in shipped progress. Any candidate audio reuse must satisfy exact text, voice, placement ID and separate listening review.",
+  "savedPositionPolicy": "Archived rows have no stable row IDs and no shipped saved positions are known. Candidate IDs are revision-scoped; a future insertion or reorder must use a new revision, never reuse a position ID with changed meaning. Do not map old positions or v1 proposal IDs to new IDs or scoring targets without reviewed migration or tombstones.",
+  "modeStatus": "Archived six-mode descriptions are labels, not authored prompt/answer pairs; no answer is registered.",
+  "audioNote": "New exact-text cards and Reader turns need audio scope, technical verification and distinct per-clip listening decisions. Older Foundation 4 recordings and the earlier proposal audio are not transferred to this revision.",
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false
+  },
+  "reviewQuestions": [
+    "Qualified Japanese, Oaxaca locale and restaurant review is open. The Spanish source is reviewed:false and is a parity baseline, not qualified approval.",
+    "Source natural orange juice is glossed freshly squeezed. Confirm 生搾り and the affirmative availability answer before setting a learner target.",
+    "Confirm whether source tea means a generic tea or a specific type; お茶 may imply green tea in Japanese. Its English gloss is a functional meaning, not a claim of Japanese tea-type neutrality.",
+    "Review restaurant context for isolated ナプキン, which could be ambiguous outside a meal; do not set an unreviewed dictionary sense.",
+    "The source's fruit with breakfast may mean included or available; decide whether Reader 3 needs つきます rather than あります.",
+    "The source's tener/hay/querer and verb examples are pinned separately. Japanese polite requests do not teach a one-to-one have/want morphology contrast; select a Japanese-specific objective and forms before learner use.",
+    "Reader 1's narrator quotes Emma; voice and punctuation must be decided before recording.",
+    "Review card 12's polite request, card 14's payment obligation wording, and Reader 7's need/request register together with the objective.",
+    "Reconcile cards, Reader, dictionary, speaking, six authored modes and saved-item identity before any learner or V4 registration."
+  ]
+}

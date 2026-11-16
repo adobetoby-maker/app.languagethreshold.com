@@ -1,0 +1,413 @@
+{
+  "lessonKey": "core:20",
+  "pair": {
+    "target": "French",
+    "support": "English"
+  },
+  "source": {
+    "path": "public/lesson-content/es/travel-breakfast.json",
+    "sha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "stage": "core",
+    "number": 20
+  },
+  "priorDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/french-breakfast/private-runtime-candidate.json",
+    "sha256": "f58bb01321fa2e04ef1bbc802c7a776836c3ea9ac6c51fdbedfaca50fe764f26"
+  },
+  "titleEnglishDraft": "Contester un petit-déjeuner facturé à tort",
+  "objectiveEnglishDraft": "Show a booking confirmation, question the breakfast charge and request a corrected receipt.",
+  "focusFrenchDraft": "Présenter la confirmation, demander une vérification et obtenir une facture corrigée.",
+  "focusEnglishDraft": "Use ma réservation indique que to refer to the booking; pourriez-vous vérifier to request a check; la facture corrigée for the revised bill.",
+  "cards": [
+    {
+      "id": "core:20:word:1",
+      "sourceSpanish": "cuenta",
+      "supportEnglish": "bill",
+      "targetFrenchDraft": "la facture",
+      "kind": "term"
+    },
+    {
+      "id": "core:20:word:2",
+      "sourceSpanish": "recepción",
+      "supportEnglish": "front desk",
+      "targetFrenchDraft": "la réception",
+      "kind": "term"
+    },
+    {
+      "id": "core:20:word:3",
+      "sourceSpanish": "recepcionista",
+      "supportEnglish": "receptionist",
+      "targetFrenchDraft": "le réceptionniste",
+      "kind": "term"
+    },
+    {
+      "id": "core:20:word:4",
+      "sourceSpanish": "cargo",
+      "supportEnglish": "charge",
+      "targetFrenchDraft": "les frais",
+      "kind": "term"
+    },
+    {
+      "id": "core:20:word:5",
+      "sourceSpanish": "reserva",
+      "supportEnglish": "booking",
+      "targetFrenchDraft": "la réservation",
+      "kind": "term"
+    },
+    {
+      "id": "core:20:word:6",
+      "sourceSpanish": "correo de confirmación",
+      "supportEnglish": "confirmation email",
+      "targetFrenchDraft": "l’e-mail de confirmation",
+      "kind": "term"
+    },
+    {
+      "id": "core:20:word:7",
+      "sourceSpanish": "desayuno incluido",
+      "supportEnglish": "breakfast included",
+      "targetFrenchDraft": "le petit-déjeuner compris",
+      "kind": "term"
+    },
+    {
+      "id": "core:20:word:8",
+      "sourceSpanish": "tarifa",
+      "supportEnglish": "rate",
+      "targetFrenchDraft": "le tarif",
+      "kind": "term"
+    },
+    {
+      "id": "core:20:word:9",
+      "sourceSpanish": "habitación",
+      "supportEnglish": "room",
+      "targetFrenchDraft": "la chambre",
+      "kind": "term"
+    },
+    {
+      "id": "core:20:word:10",
+      "sourceSpanish": "error",
+      "supportEnglish": "mistake",
+      "targetFrenchDraft": "une erreur",
+      "kind": "term"
+    },
+    {
+      "id": "core:20:word:11",
+      "sourceSpanish": "recibo",
+      "supportEnglish": "receipt",
+      "targetFrenchDraft": "le reçu",
+      "kind": "term"
+    },
+    {
+      "id": "core:20:word:12",
+      "sourceSpanish": "cuenta corregida",
+      "supportEnglish": "corrected bill",
+      "targetFrenchDraft": "la facture corrigée",
+      "kind": "term"
+    },
+    {
+      "id": "core:20:word:13",
+      "sourceSpanish": "Creo que hay un error en la cuenta.",
+      "supportEnglish": "I think there is a mistake on the bill.",
+      "targetFrenchDraft": "Je crois qu’il y a une erreur sur la facture.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:20:word:14",
+      "sourceSpanish": "Mi reserva dice que el desayuno está incluido.",
+      "supportEnglish": "My booking says breakfast is included.",
+      "targetFrenchDraft": "Ma réservation indique que le petit-déjeuner est compris.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:20:word:15",
+      "sourceSpanish": "¿Me puede explicar este cargo?",
+      "supportEnglish": "Can you explain this charge to me?",
+      "targetFrenchDraft": "Pouvez-vous m’expliquer ces frais ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:20:word:16",
+      "sourceSpanish": "¿Puede quitar el cargo, por favor?",
+      "supportEnglish": "Can you remove the charge, please?",
+      "targetFrenchDraft": "Pouvez-vous retirer ces frais, s’il vous plaît ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:20:word:17",
+      "sourceSpanish": "¿Me puede dar un recibo nuevo, por favor?",
+      "supportEnglish": "Can you give me a new receipt, please?",
+      "targetFrenchDraft": "Pouvez-vous me donner un nouveau reçu, s’il vous plaît ?",
+      "kind": "phrase"
+    }
+  ],
+  "readerTitleFrenchDraft": "Contester un petit-déjeuner facturé à tort",
+  "reader": [
+    {
+      "id": "core:20:line:1",
+      "sourceSpanish": "Antes de salir del hotel, reviso la cuenta en la recepción.",
+      "supportEnglish": "Before leaving the hotel, I check the bill at the front desk.",
+      "targetFrenchDraft": "Avant de quitter l’hôtel, je vérifie la facture à la réception."
+    },
+    {
+      "id": "core:20:line:2",
+      "sourceSpanish": "Veo un cargo de 36 dólares por el desayuno.",
+      "supportEnglish": "I see a charge of 36 dollars for breakfast.",
+      "targetFrenchDraft": "Je vois trente-six dollars de frais pour le petit-déjeuner."
+    },
+    {
+      "id": "core:20:line:3",
+      "sourceSpanish": "Le digo al recepcionista con calma: Creo que hay un error en la cuenta.",
+      "supportEnglish": "I calmly tell the receptionist: I think there is a mistake on the bill.",
+      "targetFrenchDraft": "Je dis calmement au réceptionniste : « Je crois qu’il y a une erreur sur la facture. »"
+    },
+    {
+      "id": "core:20:line:4",
+      "sourceSpanish": "Primero le muestro el correo de confirmación en mi teléfono y digo: Mi reserva dice que el desayuno está incluido.",
+      "supportEnglish": "First I show him the confirmation email on my phone and say: My booking says breakfast is included.",
+      "targetFrenchDraft": "Je lui montre d’abord l’e-mail de confirmation sur mon téléphone et je dis : « Ma réservation indique que le petit-déjeuner est compris. »"
+    },
+    {
+      "id": "core:20:line:5",
+      "sourceSpanish": "Él revisa la tarifa de mi habitación en la computadora.",
+      "supportEnglish": "He checks my room rate on the computer.",
+      "targetFrenchDraft": "Il vérifie le tarif de ma chambre sur l’ordinateur."
+    },
+    {
+      "id": "core:20:line:6",
+      "sourceSpanish": "Después dice: Tiene razón, voy a quitar el cargo.",
+      "supportEnglish": "Then he says: You are right, I am going to remove the charge.",
+      "targetFrenchDraft": "Puis il dit : « Vous avez raison, je vais retirer ces frais. »"
+    },
+    {
+      "id": "core:20:line:7",
+      "sourceSpanish": "Le pregunto: ¿Me puede dar un recibo nuevo, por favor?",
+      "supportEnglish": "I ask him: Can you give me a new receipt, please?",
+      "targetFrenchDraft": "Je lui demande : « Pouvez-vous me donner un nouveau reçu, s’il vous plaît ? »"
+    },
+    {
+      "id": "core:20:line:8",
+      "sourceSpanish": "Al final, pago la cuenta corregida sin el desayuno.",
+      "supportEnglish": "In the end, I pay the corrected bill without the breakfast.",
+      "targetFrenchDraft": "Finalement, je paie la facture corrigée, sans les frais de petit-déjeuner."
+    }
+  ],
+  "sourceSpanishVerbs": [
+    {
+      "infinitive": "revisar",
+      "native": "to check",
+      "forms": {
+        "yo": "reviso",
+        "tú": "revisas",
+        "él_ella_usted": "revisa",
+        "nosotros": "revisamos",
+        "ellos_ustedes": "revisan"
+      },
+      "example": {
+        "target": "Antes de salir, reviso la cuenta en la recepción.",
+        "native": "Before leaving, I check the bill at the front desk."
+      }
+    },
+    {
+      "infinitive": "mostrar",
+      "native": "to show",
+      "forms": {
+        "yo": "muestro",
+        "tú": "muestras",
+        "él_ella_usted": "muestra",
+        "nosotros": "mostramos",
+        "ellos_ustedes": "muestran"
+      },
+      "example": {
+        "target": "Le muestro el correo de confirmación.",
+        "native": "I show him the confirmation email."
+      },
+      "note": "Stem change o to ue (except nosotros)."
+    },
+    {
+      "infinitive": "decir",
+      "native": "to say",
+      "forms": {
+        "yo": "digo",
+        "tú": "dices",
+        "él_ella_usted": "dice",
+        "nosotros": "decimos",
+        "ellos_ustedes": "dicen"
+      },
+      "example": {
+        "target": "Mi reserva dice que el desayuno está incluido.",
+        "native": "My booking says breakfast is included."
+      },
+      "note": "Irregular: yo digo, and the stem changes e to i."
+    },
+    {
+      "infinitive": "quitar",
+      "native": "to remove",
+      "forms": {
+        "yo": "quito",
+        "tú": "quitas",
+        "él_ella_usted": "quita",
+        "nosotros": "quitamos",
+        "ellos_ustedes": "quitan"
+      },
+      "example": {
+        "target": "Voy a quitar el cargo.",
+        "native": "I am going to remove the charge."
+      }
+    },
+    {
+      "infinitive": "pagar",
+      "native": "to pay",
+      "forms": {
+        "yo": "pago",
+        "tú": "pagas",
+        "él_ella_usted": "paga",
+        "nosotros": "pagamos",
+        "ellos_ustedes": "pagan"
+      },
+      "example": {
+        "target": "Pago la cuenta corregida.",
+        "native": "I pay the corrected bill."
+      },
+      "note": "No preposition needed: pagar la cuenta means to pay the bill."
+    }
+  ],
+  "speakingDraft": {
+    "openingFrench": "Bonjour, je crois qu’il y a une erreur sur la facture. Ma réservation indique que le petit-déjeuner est compris. Pourriez-vous vérifier ?",
+    "instructionEnglish": "Show the confirmation and ask the front desk to check the breakfast charge and issue a corrected receipt if appropriate."
+  },
+  "modeInputIdsDraft": {
+    "see": [
+      "core:20:word:1",
+      "core:20:word:2",
+      "core:20:word:3",
+      "core:20:word:4",
+      "core:20:word:5",
+      "core:20:word:6",
+      "core:20:word:7",
+      "core:20:word:8",
+      "core:20:word:9",
+      "core:20:word:10",
+      "core:20:word:11",
+      "core:20:word:12",
+      "core:20:word:13",
+      "core:20:word:14",
+      "core:20:word:15",
+      "core:20:word:16",
+      "core:20:word:17"
+    ],
+    "recall": [
+      "core:20:word:1",
+      "core:20:word:2",
+      "core:20:word:3",
+      "core:20:word:4",
+      "core:20:word:5",
+      "core:20:word:6",
+      "core:20:word:7",
+      "core:20:word:8",
+      "core:20:word:9",
+      "core:20:word:10",
+      "core:20:word:11",
+      "core:20:word:12",
+      "core:20:word:13",
+      "core:20:word:14",
+      "core:20:word:15",
+      "core:20:word:16",
+      "core:20:word:17"
+    ],
+    "hear": [
+      "core:20:word:1",
+      "core:20:word:2",
+      "core:20:word:3",
+      "core:20:word:4",
+      "core:20:word:5",
+      "core:20:word:6",
+      "core:20:word:7",
+      "core:20:word:8",
+      "core:20:word:9",
+      "core:20:word:10",
+      "core:20:word:11",
+      "core:20:word:12",
+      "core:20:word:13",
+      "core:20:word:14",
+      "core:20:word:15",
+      "core:20:word:16",
+      "core:20:word:17"
+    ],
+    "type": [
+      "core:20:word:1",
+      "core:20:word:2",
+      "core:20:word:3",
+      "core:20:word:4",
+      "core:20:word:5",
+      "core:20:word:6",
+      "core:20:word:7",
+      "core:20:word:8",
+      "core:20:word:9",
+      "core:20:word:10",
+      "core:20:word:11",
+      "core:20:word:12",
+      "core:20:word:13",
+      "core:20:word:14",
+      "core:20:word:15",
+      "core:20:word:16",
+      "core:20:word:17"
+    ],
+    "say": [
+      "core:20:word:1",
+      "core:20:word:2",
+      "core:20:word:3",
+      "core:20:word:4",
+      "core:20:word:5",
+      "core:20:word:6",
+      "core:20:word:7",
+      "core:20:word:8",
+      "core:20:word:9",
+      "core:20:word:10",
+      "core:20:word:11",
+      "core:20:word:12",
+      "core:20:word:13",
+      "core:20:word:14",
+      "core:20:word:15",
+      "core:20:word:16",
+      "core:20:word:17"
+    ],
+    "write": [
+      "core:20:word:1",
+      "core:20:word:2",
+      "core:20:word:3",
+      "core:20:word:4",
+      "core:20:word:5",
+      "core:20:word:6",
+      "core:20:word:7",
+      "core:20:word:8",
+      "core:20:word:9",
+      "core:20:word:10",
+      "core:20:word:11",
+      "core:20:word:12",
+      "core:20:word:13",
+      "core:20:word:14",
+      "core:20:word:15",
+      "core:20:word:16",
+      "core:20:word:17"
+    ]
+  },
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "learnerRegistered": false,
+    "audioRegistered": false,
+    "audioApproved": false,
+    "listeningReviewed": false,
+    "playbackEnabled": false,
+    "scoringEnabled": false,
+    "progressTracking": false,
+    "progressWritesEnabled": false,
+    "offlineRegistered": false,
+    "released": false
+  },
+  "reviewNotes": [
+    "Archived French text is an unapproved candidate; exact Spanish/English source controls meaning.",
+    "Mode ID lists are not six authored prompt/answer activities.",
+    "French verb paradigms, dictionary senses, scoring answers, audio and listening need separate review."
+  ]
+}

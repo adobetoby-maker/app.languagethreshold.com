@@ -1,0 +1,400 @@
+{
+  "lessonKey": "core:19",
+  "pair": {
+    "target": "French",
+    "support": "English"
+  },
+  "source": {
+    "path": "public/lesson-content/es/travel-breakfast.json",
+    "sha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "stage": "core",
+    "number": 19
+  },
+  "priorDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/french-breakfast/private-runtime-candidate.json",
+    "sha256": "f58bb01321fa2e04ef1bbc802c7a776836c3ea9ac6c51fdbedfaca50fe764f26"
+  },
+  "titleEnglishDraft": "Comprendre les prix au comptoir et à table",
+  "objectiveEnglishDraft": "Compare posted prices for counter, table and terrace service before choosing where to drink.",
+  "focusFrenchDraft": "Comparer les prix affichés au comptoir, à table et en terrasse avant de commander.",
+  "focusEnglishDraft": "Use pourquoi plus cher to ask about a price difference and combien ça coûte to confirm a specific location.",
+  "cards": [
+    {
+      "id": "core:19:word:1",
+      "sourceSpanish": "barra",
+      "supportEnglish": "counter",
+      "targetFrenchDraft": "le comptoir",
+      "kind": "term"
+    },
+    {
+      "id": "core:19:word:2",
+      "sourceSpanish": "mesa",
+      "supportEnglish": "table",
+      "targetFrenchDraft": "la table",
+      "kind": "term"
+    },
+    {
+      "id": "core:19:word:3",
+      "sourceSpanish": "terraza",
+      "supportEnglish": "terrace",
+      "targetFrenchDraft": "la terrasse",
+      "kind": "term"
+    },
+    {
+      "id": "core:19:word:4",
+      "sourceSpanish": "carta",
+      "supportEnglish": "menu",
+      "targetFrenchDraft": "la carte",
+      "kind": "term"
+    },
+    {
+      "id": "core:19:word:5",
+      "sourceSpanish": "precio",
+      "supportEnglish": "price",
+      "targetFrenchDraft": "le prix",
+      "kind": "term"
+    },
+    {
+      "id": "core:19:word:6",
+      "sourceSpanish": "café con leche",
+      "supportEnglish": "coffee with milk",
+      "targetFrenchDraft": "un café au lait",
+      "kind": "term"
+    },
+    {
+      "id": "core:19:word:7",
+      "sourceSpanish": "camarero",
+      "supportEnglish": "waiter",
+      "targetFrenchDraft": "le serveur",
+      "kind": "term"
+    },
+    {
+      "id": "core:19:word:8",
+      "sourceSpanish": "servicio de mesa",
+      "supportEnglish": "table service",
+      "targetFrenchDraft": "le service à table",
+      "kind": "term"
+    },
+    {
+      "id": "core:19:word:9",
+      "sourceSpanish": "suplemento",
+      "supportEnglish": "surcharge",
+      "targetFrenchDraft": "un supplément",
+      "kind": "term"
+    },
+    {
+      "id": "core:19:word:10",
+      "sourceSpanish": "cuenta",
+      "supportEnglish": "bill",
+      "targetFrenchDraft": "l’addition",
+      "kind": "term"
+    },
+    {
+      "id": "core:19:word:11",
+      "sourceSpanish": "propina",
+      "supportEnglish": "tip",
+      "targetFrenchDraft": "un pourboire",
+      "kind": "term"
+    },
+    {
+      "id": "core:19:word:12",
+      "sourceSpanish": "¿Por qué es más caro en la mesa?",
+      "supportEnglish": "Why is it more expensive at the table?",
+      "targetFrenchDraft": "Pourquoi est-ce plus cher à table ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:19:word:13",
+      "sourceSpanish": "¿Cuánto cuesta en la terraza?",
+      "supportEnglish": "How much does it cost on the terrace?",
+      "targetFrenchDraft": "Combien ça coûte en terrasse ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:19:word:14",
+      "sourceSpanish": "Voy a tomar el café en la barra.",
+      "supportEnglish": "I am going to have my coffee at the counter.",
+      "targetFrenchDraft": "Je vais prendre mon café au comptoir.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:19:word:15",
+      "sourceSpanish": "¿Hay un suplemento por la terraza?",
+      "supportEnglish": "Is there a surcharge for the terrace?",
+      "targetFrenchDraft": "Il y a un supplément en terrasse ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:19:word:16",
+      "sourceSpanish": "Prefiero sentarme en una mesa, por favor.",
+      "supportEnglish": "I prefer to sit at a table, please.",
+      "targetFrenchDraft": "Je préfère m’asseoir à une table, s’il vous plaît.",
+      "kind": "phrase"
+    }
+  ],
+  "readerTitleFrenchDraft": "Comprendre les prix au comptoir et à table",
+  "reader": [
+    {
+      "id": "core:19:line:1",
+      "sourceSpanish": "Entro en un café pequeño y miro la carta en la pared.",
+      "supportEnglish": "I go into a small café and look at the menu on the wall.",
+      "targetFrenchDraft": "J’entre dans un petit café et je regarde la carte affichée au mur."
+    },
+    {
+      "id": "core:19:line:2",
+      "sourceSpanish": "La carta dice: café con leche, 2 euros en la barra y 3 euros en la mesa.",
+      "supportEnglish": "The menu says: coffee with milk, 2 euros at the counter and 3 euros at the table.",
+      "targetFrenchDraft": "La carte indique : café au lait, deux euros au comptoir et trois euros à table."
+    },
+    {
+      "id": "core:19:line:3",
+      "sourceSpanish": "Primero le pregunto al camarero: ¿Por qué es más caro en la mesa?",
+      "supportEnglish": "First I ask the waiter: Why is it more expensive at the table?",
+      "targetFrenchDraft": "Je demande d’abord au serveur : « Pourquoi est-ce plus cher à table ? »"
+    },
+    {
+      "id": "core:19:line:4",
+      "sourceSpanish": "Él explica: En la mesa hay servicio de mesa, y en la terraza hay un suplemento.",
+      "supportEnglish": "He explains: At the table there is table service, and on the terrace there is a surcharge.",
+      "targetFrenchDraft": "Il explique : « À table, vous bénéficiez du service ; en terrasse, il y a un supplément. »"
+    },
+    {
+      "id": "core:19:line:5",
+      "sourceSpanish": "Luego pregunto: ¿Cuánto cuesta en la terraza?",
+      "supportEnglish": "Then I ask: How much does it cost on the terrace?",
+      "targetFrenchDraft": "Puis je demande : « Combien ça coûte en terrasse ? »"
+    },
+    {
+      "id": "core:19:line:6",
+      "sourceSpanish": "El camarero responde: Según la carta, cuesta 4 euros.",
+      "supportEnglish": "The waiter answers: According to the menu, it costs 4 euros.",
+      "targetFrenchDraft": "Le serveur répond : « Selon la carte, cela coûte quatre euros. »"
+    },
+    {
+      "id": "core:19:line:7",
+      "sourceSpanish": "Tengo prisa, así que digo: Voy a tomar el café en la barra.",
+      "supportEnglish": "I am in a hurry, so I say: I am going to have my coffee at the counter.",
+      "targetFrenchDraft": "Je suis pressé, alors je dis : « Je vais prendre mon café au comptoir. »"
+    },
+    {
+      "id": "core:19:line:8",
+      "sourceSpanish": "Después pago la cuenta en la barra y dejo una pequeña propina.",
+      "supportEnglish": "After that I pay the bill at the counter and leave a small tip.",
+      "targetFrenchDraft": "Ensuite, je règle l’addition au comptoir et je laisse un petit pourboire."
+    }
+  ],
+  "sourceSpanishVerbs": [
+    {
+      "infinitive": "tomar",
+      "native": "to have (a drink), to take",
+      "forms": {
+        "yo": "tomo",
+        "tú": "tomas",
+        "él_ella_usted": "toma",
+        "nosotros": "tomamos",
+        "ellos_ustedes": "toman"
+      },
+      "example": {
+        "target": "Tomo el café en la barra.",
+        "native": "I have my coffee at the counter."
+      },
+      "note": "Regular -ar verb. Tomar is the usual verb for having a drink."
+    },
+    {
+      "infinitive": "costar",
+      "native": "to cost",
+      "forms": {
+        "yo": "cuesto",
+        "tú": "cuestas",
+        "él_ella_usted": "cuesta",
+        "nosotros": "costamos",
+        "ellos_ustedes": "cuestan"
+      },
+      "example": {
+        "target": "¿Cuánto cuesta en la terraza?",
+        "native": "How much does it cost on the terrace?"
+      },
+      "note": "Stem change o to ue (except nosotros). You will mostly use cuesta and cuestan."
+    },
+    {
+      "infinitive": "preguntar",
+      "native": "to ask",
+      "forms": {
+        "yo": "pregunto",
+        "tú": "preguntas",
+        "él_ella_usted": "pregunta",
+        "nosotros": "preguntamos",
+        "ellos_ustedes": "preguntan"
+      },
+      "example": {
+        "target": "Le pregunto al camarero por el precio.",
+        "native": "I ask the waiter about the price."
+      }
+    },
+    {
+      "infinitive": "sentarse",
+      "native": "to sit down",
+      "forms": {
+        "yo": "me siento",
+        "tú": "te sientas",
+        "él_ella_usted": "se sienta",
+        "nosotros": "nos sentamos",
+        "ellos_ustedes": "se sientan"
+      },
+      "example": {
+        "target": "Hoy me siento en la terraza.",
+        "native": "Today I am sitting on the terrace."
+      },
+      "note": "Stem change e to ie (except nosotros). Reflexive: keep the pronoun."
+    },
+    {
+      "infinitive": "pagar",
+      "native": "to pay",
+      "forms": {
+        "yo": "pago",
+        "tú": "pagas",
+        "él_ella_usted": "paga",
+        "nosotros": "pagamos",
+        "ellos_ustedes": "pagan"
+      },
+      "example": {
+        "target": "Pago la cuenta en la barra.",
+        "native": "I pay the bill at the counter."
+      }
+    }
+  ],
+  "speakingDraft": {
+    "openingFrench": "Bonjour, je vois deux prix pour le café au lait. Pourquoi est-ce plus cher à table ? Combien ça coûte en terrasse ?",
+    "instructionEnglish": "Compare the posted prices, ask why table service costs more in this scene, then choose a place to drink."
+  },
+  "modeInputIdsDraft": {
+    "see": [
+      "core:19:word:1",
+      "core:19:word:2",
+      "core:19:word:3",
+      "core:19:word:4",
+      "core:19:word:5",
+      "core:19:word:6",
+      "core:19:word:7",
+      "core:19:word:8",
+      "core:19:word:9",
+      "core:19:word:10",
+      "core:19:word:11",
+      "core:19:word:12",
+      "core:19:word:13",
+      "core:19:word:14",
+      "core:19:word:15",
+      "core:19:word:16"
+    ],
+    "recall": [
+      "core:19:word:1",
+      "core:19:word:2",
+      "core:19:word:3",
+      "core:19:word:4",
+      "core:19:word:5",
+      "core:19:word:6",
+      "core:19:word:7",
+      "core:19:word:8",
+      "core:19:word:9",
+      "core:19:word:10",
+      "core:19:word:11",
+      "core:19:word:12",
+      "core:19:word:13",
+      "core:19:word:14",
+      "core:19:word:15",
+      "core:19:word:16"
+    ],
+    "hear": [
+      "core:19:word:1",
+      "core:19:word:2",
+      "core:19:word:3",
+      "core:19:word:4",
+      "core:19:word:5",
+      "core:19:word:6",
+      "core:19:word:7",
+      "core:19:word:8",
+      "core:19:word:9",
+      "core:19:word:10",
+      "core:19:word:11",
+      "core:19:word:12",
+      "core:19:word:13",
+      "core:19:word:14",
+      "core:19:word:15",
+      "core:19:word:16"
+    ],
+    "type": [
+      "core:19:word:1",
+      "core:19:word:2",
+      "core:19:word:3",
+      "core:19:word:4",
+      "core:19:word:5",
+      "core:19:word:6",
+      "core:19:word:7",
+      "core:19:word:8",
+      "core:19:word:9",
+      "core:19:word:10",
+      "core:19:word:11",
+      "core:19:word:12",
+      "core:19:word:13",
+      "core:19:word:14",
+      "core:19:word:15",
+      "core:19:word:16"
+    ],
+    "say": [
+      "core:19:word:1",
+      "core:19:word:2",
+      "core:19:word:3",
+      "core:19:word:4",
+      "core:19:word:5",
+      "core:19:word:6",
+      "core:19:word:7",
+      "core:19:word:8",
+      "core:19:word:9",
+      "core:19:word:10",
+      "core:19:word:11",
+      "core:19:word:12",
+      "core:19:word:13",
+      "core:19:word:14",
+      "core:19:word:15",
+      "core:19:word:16"
+    ],
+    "write": [
+      "core:19:word:1",
+      "core:19:word:2",
+      "core:19:word:3",
+      "core:19:word:4",
+      "core:19:word:5",
+      "core:19:word:6",
+      "core:19:word:7",
+      "core:19:word:8",
+      "core:19:word:9",
+      "core:19:word:10",
+      "core:19:word:11",
+      "core:19:word:12",
+      "core:19:word:13",
+      "core:19:word:14",
+      "core:19:word:15",
+      "core:19:word:16"
+    ]
+  },
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "learnerRegistered": false,
+    "audioRegistered": false,
+    "audioApproved": false,
+    "listeningReviewed": false,
+    "playbackEnabled": false,
+    "scoringEnabled": false,
+    "progressTracking": false,
+    "progressWritesEnabled": false,
+    "offlineRegistered": false,
+    "released": false
+  },
+  "reviewNotes": [
+    "Archived French text is an unapproved candidate; exact Spanish/English source controls meaning.",
+    "Mode ID lists are not six authored prompt/answer activities.",
+    "French verb paradigms, dictionary senses, scoring answers, audio and listening need separate review."
+  ]
+}

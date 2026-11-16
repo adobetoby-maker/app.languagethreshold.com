@@ -1,0 +1,9 @@
+# Japanese Breakfast Core 11 source-scene review packet
+
+This inert Japanese→English packet pins all 17 current Spanish Breakfast Core 11 cards and 9 Reader turns in source order. It retains the stage-local identity `travel-breakfast:11:ja-en` and assigns revision-scoped row IDs. Run `python3 build.py --check` and `python3 validate.py` from this directory to verify source hashes, exact row order, archived-position disposition, audio scope and false gates.
+
+The archived Japanese scene replaces the source's conditional downtown visit with a station-area walk. It also omits the last-night rain, afternoon forecast and coat recommendation. This packet restores the source's female barista, nearby male customer, café counter, cold weather, visitor's different home-country weather, downtown plan contingent on no further rain, and two distinct farewell turns. Japanese wording, register, city-center and café terms require qualified review.
+
+The old archived rows had no stable row IDs and were never registered. Their saved positions are retired for this candidate; text overlap does not authorize saved-item or audio placement migration. Every candidate row has `learnerFaceEnabled:false`. The packet has no authored six-mode prompt/target pairs, contextual forms, speaking runtime, dictionary mapping, offline pack, learner registration or V4 import.
+
+The read-only audio scope counts 26 Japanese draft placements, 52 potential two-voice clip/listening decisions and 1000 submitted characters, an estimated gross $0.03000 at the earlier $30/million-character rate. No audio has been synthesized or approved for this revision. All review, learner, scoring, audio/listening, offline, progress, owner-route and release gates remain false. Haiku 5.5 authored the first candidate, Opus 5.5 critiqued it read-only, Fable 5.2 checked corrections, and I applied source-grounded fixes. Actual CLI metadata is recorded separately; AI is not qualified approval.

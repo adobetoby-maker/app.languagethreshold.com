@@ -1,0 +1,573 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:11",
+  "stableLessonId": "travel-breakfast:11:ja-en",
+  "candidateRevision": "travel-breakfast:11:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Make morning small talk",
+    "objectiveEnglishInternal": "exchange greetings and talk briefly about the day, weather, and plans",
+    "objectiveEditorialHold": false,
+    "roleplayEnglishInternal": "Chat naturally with a barista or nearby customer while waiting.",
+    "readerTitleSpanish": "Charla en la cafetería",
+    "readerVerbExamples": [
+      {
+        "target": "Hoy hace frío en la cafetería.",
+        "native": "Today it is cold at the café."
+      },
+      {
+        "target": "Espero mi café en el mostrador.",
+        "native": "I wait for my coffee at the counter."
+      },
+      {
+        "target": "Él me recomienda llevar un abrigo.",
+        "native": "He recommends that I bring a coat."
+      },
+      {
+        "target": "Hoy visito el centro con mi amigo.",
+        "native": "Today I visit downtown with my friend."
+      },
+      {
+        "target": "Un señor me pregunta por mis planes.",
+        "native": "A man asks me about my plans."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "Sam makes brief small talk with a barista while waiting for a coffee.",
+    "cardCount": 13,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "café con leche",
+      "sourceEnglish": "coffee with milk",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ミルク入りコーヒー",
+      "literalJapaneseGlossEn": "coffee with milk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "mostrador",
+      "sourceEnglish": "counter",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カウンター",
+      "literalJapaneseGlossEn": "counter (service counter)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "barista",
+      "sourceEnglish": "barista",
+      "kind": "term",
+      "sourceNoteInternal": "Same word for men and women: el barista, la barista.",
+      "targetJapaneseDraft": "バリスタ",
+      "literalJapaneseGlossEn": "barista (coffee maker/server)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "clima",
+      "sourceEnglish": "weather",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "天気",
+      "literalJapaneseGlossEn": "weather",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "pronóstico",
+      "sourceEnglish": "forecast",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "天気予報",
+      "literalJapaneseGlossEn": "weather forecast",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "abrigo",
+      "sourceEnglish": "coat",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "コート",
+      "literalJapaneseGlossEn": "coat (outer garment)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "planes",
+      "sourceEnglish": "plans",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "予定",
+      "literalJapaneseGlossEn": "plans (scheduled things)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "mañana",
+      "sourceEnglish": "morning",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "朝",
+      "literalJapaneseGlossEn": "morning",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "centro",
+      "sourceEnglish": "downtown",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "市の中心部",
+      "literalJapaneseGlossEn": "city center",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "pedido",
+      "sourceEnglish": "order",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "注文",
+      "literalJapaneseGlossEn": "order (request for goods)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "sueño",
+      "sourceEnglish": "sleepiness",
+      "kind": "term",
+      "sourceNoteInternal": "Tener sueño means to feel sleepy.",
+      "targetJapaneseDraft": "眠気",
+      "literalJapaneseGlossEn": "sleepiness",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "Buenos días, ¿cómo amaneció?",
+      "sourceEnglish": "Good morning, how are you this morning?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Polite form with usted; with a friend say ¿cómo amaneciste?",
+      "targetJapaneseDraft": "おはようございます。今朝はいかがですか。",
+      "literalJapaneseGlossEn": "Good morning. How are you this morning? (polite)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "Hoy hace mucho frío, ¿verdad?",
+      "sourceEnglish": "It is very cold today, isn't it?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "今日はとても寒いですね。",
+      "literalJapaneseGlossEn": "It is very cold today, isn't it?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "Todavía tengo un poco de sueño.",
+      "sourceEnglish": "I am still a little sleepy.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "まだ少し眠いです。",
+      "literalJapaneseGlossEn": "I am still a little sleepy.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "Voy a visitar el centro si no llueve.",
+      "sourceEnglish": "I am going to visit downtown if it does not rain.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "雨が降らなければ、市の中心部を訪れるつもりです。",
+      "literalJapaneseGlossEn": "If it does not rain, I plan to visit the city center.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "Perdón, ¿puede repetir más despacio, por favor?",
+      "sourceEnglish": "Sorry, can you repeat that more slowly, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "すみません、もっとゆっくり、もう一度言っていただけますか。",
+      "literalJapaneseGlossEn": "Sorry, could you say it again more slowly?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "¡Igualmente, que tenga un buen día!",
+      "sourceEnglish": "You too, have a good day!",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "そちらこそ、良い一日をお過ごしください。",
+      "literalJapaneseGlossEn": "You too, please have a good day. (polite)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Es temprano y estoy en una cafetería pequeña, esperando mi café con leche en el mostrador.",
+      "sourceEnglish": "It is early and I am in a small café, waiting for my coffee with milk at the counter.",
+      "targetJapaneseDraft": "早い時間に、私は小さなカフェにいて、カウンターでミルク入りコーヒーを待っています。",
+      "literalJapaneseGlossEn": "It is early, and I am in a small cafe waiting for my milk-containing coffee at the counter.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "La barista me sonríe y dice: Buenos días, ¿cómo amaneció?",
+      "sourceEnglish": "The barista smiles at me and says: Good morning, how are you this morning?",
+      "targetJapaneseDraft": "女性のバリスタが私に笑顔を向け、「おはようございます。今朝はいかがですか」と言います。",
+      "literalJapaneseGlossEn": "The female barista smiles at me and says: 'Good morning. How are you this morning?' (polite)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Yo respondo: Muy bien, gracias, pero todavía tengo un poco de sueño.",
+      "sourceEnglish": "I answer: Very well, thanks, but I am still a little sleepy.",
+      "targetJapaneseDraft": "私は「とても元気です。ありがとうございます。でも、まだ少し眠いです」と答えます。",
+      "literalJapaneseGlossEn": "I answer: “I am very well. Thank you. But I am still a little sleepy.”",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ella comenta que hoy hace frío porque anoche llovió, y yo le digo que el clima está muy distinto en mi país.",
+      "sourceEnglish": "She comments that it is cold today because it rained last night, and I tell her the weather is very different in my country.",
+      "targetJapaneseDraft": "彼女は、昨夜雨が降ったので今日は寒いと言い、私は自分の国では天気がとても違うと彼女に伝えます。",
+      "literalJapaneseGlossEn": "She says it is cold today because it rained last night, and I tell her the weather in my country is very different.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Un señor cerca de mí pregunta: ¿Qué planes tiene para hoy?",
+      "sourceEnglish": "A man near me asks: What plans do you have for today?",
+      "targetJapaneseDraft": "近くにいる男性が「今日のご予定は何ですか」と尋ねます。",
+      "literalJapaneseGlossEn": "A man near me asks: 'What are your plans for today?' (polite)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Le explico que voy a visitar el centro si no llueve otra vez.",
+      "sourceEnglish": "I explain that I am going to visit downtown if it does not rain again.",
+      "targetJapaneseDraft": "私は、また雨が降らなければ市の中心部を訪れるつもりだと説明します。",
+      "literalJapaneseGlossEn": "I explain that I plan to visit the city center if it does not rain again.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Él me recomienda llevar un abrigo, porque según el pronóstico la tarde va a estar fresca.",
+      "sourceEnglish": "He recommends that I bring a coat, because according to the forecast the afternoon is going to be cool.",
+      "targetJapaneseDraft": "彼は、天気予報によると午後は涼しくなる見込みなので、コートを持っていくよう勧めます。",
+      "literalJapaneseGlossEn": "He recommends that I bring a coat, because according to the weather forecast the afternoon is expected to be cool.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Cuando mi pedido está listo, la barista me dice: ¡Que le vaya muy bien!",
+      "sourceEnglish": "When my order is ready, the barista tells me: Have a great day!",
+      "targetJapaneseDraft": "注文した品ができると、バリスタが私に「どうぞ素敵な一日をお過ごしください」と言います。",
+      "literalJapaneseGlossEn": "When the ordered item is ready, the barista tells me: “Please have a wonderful day.”",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:11:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "Le contesto con una sonrisa: ¡Igualmente, que tenga un buen día!",
+      "sourceEnglish": "I answer with a smile: You too, have a good day!",
+      "targetJapaneseDraft": "私は笑顔で答えます。「そちらこそ、良い一日をお過ごしください」",
+      "literalJapaneseGlossEn": "I answer with a smile: 'You too, please have a good day.' (polite)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Exchange greetings and talk about cold weather, a conditional downtown visit, and a coat recommendation while waiting for coffee.",
+  "speakingGoalInternal": "Chat naturally with a barista or nearby customer while waiting.",
+  "sourceConflictInternal": "The archived Japanese scene changes a conditional downtown visit to a walk near the station and omits last-night rain, the coat/forecast recommendation, and a nearby male customer. The source Reader keeps the barista female, the nearby customer male, and the trip conditional on rain not returning. Do not infer a specific city or actual weather forecast beyond a cool afternoon.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "this morning",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "weather",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "cold",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "rain",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "plan",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "near the station",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "walk",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "sleepy",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "coat",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "one more time",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "slowly",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "It is cold today, isn’t it?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "if it does not rain",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Good morning. It is cold today, isn’t it?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Good morning. It really is cold.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Your coffee will be ready shortly.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Thank you. I am still a little sleepy.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Where are you going today?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "If it does not rain, I will walk near the station.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "That sounds nice. Here is your coffee.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Thank you. Have a good day.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "You too. Have a good day.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 2,
+      "candidatePosition": 4,
+      "migrationAuthorized": false,
+      "textOnly": true
+    },
+    {
+      "oldPosition": 5,
+      "candidatePosition": 7,
+      "migrationAuthorized": false,
+      "textOnly": true
+    },
+    {
+      "oldPosition": 9,
+      "candidatePosition": 6,
+      "migrationAuthorized": false,
+      "textOnly": true
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 26,
+    "twoVoiceClipDecisionsIfTextApproved": 52,
+    "twoVoiceSubmittedCharactersIfTextApproved": 1000,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.03,
+    "archivedExactJapaneseCardTextOverlapsOnly": 3,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows were not registered and have no explicit stable row IDs. New revision-scoped IDs do not authorize saved-item or audio placement migration. This revision's order is frozen; any insertion or reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Confirm whether ミルク入りコーヒー or カフェオレ best fits this café and source term.",
+    "Review polite greeting 今朝はいかがですか for Spanish ¿cómo amaneció? without turning it into a sleep question.",
+    "Review 天気 versus 気候 for climate/weather in Reader 4 while retaining the source English weather meaning.",
+    "Review 市の中心部, 予報, 眠気 and the source's female barista/male nearby customer with qualified Japanese and dictionary reviewers.",
+    "Check register and naturalness of the two distinct reciprocal farewells.",
+    "Assess source card phrases for repeating slowly and cold-weather small talk which do not all appear literally in the Reader."
+  ],
+  "missing": [
+    "qualified Japanese/source/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese grammar/form examples",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

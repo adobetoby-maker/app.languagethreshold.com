@@ -1,0 +1,45 @@
+{
+  "status": "AI assistance only; no qualified approval",
+  "calls": [
+    {
+      "role": "candidate authoring",
+      "requestedModel": "claude-haiku-5-5",
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "inputTokens": 4,
+      "outputTokens": 24380,
+      "thinkingTokens": 17880,
+      "isError": false,
+      "readScope": "Current Spanish curriculum/Reader, archived Japanese Foundation 2, previous F2 proposal and current source-scene packet as applicable."
+    },
+    {
+      "role": "read-only critique",
+      "requestedModel": "claude-opus-5-5",
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "inputTokens": 14,
+      "outputTokens": 9254,
+      "thinkingTokens": 5047,
+      "isError": false,
+      "readScope": "Current Spanish curriculum/Reader, archived Japanese Foundation 2, previous F2 proposal and current source-scene packet as applicable."
+    },
+    {
+      "role": "read-only correction critique",
+      "requestedModel": "claude-fable-5-2",
+      "canonicalModel": "claude-fable-5-2",
+      "provider": "firstParty",
+      "inputTokens": 4,
+      "outputTokens": 8289,
+      "thinkingTokens": 5301,
+      "isError": false,
+      "readScope": "Current Spanish curriculum/Reader, archived Japanese Foundation 2, previous F2 proposal and current source-scene packet as applicable."
+    }
+  ],
+  "sourceGroundedSelfCheck": [
+    "Accepted Opus explicit table-for-four and reader price/upsell improvements; kept 時刻 for specific clock time while flagging beginner register.",
+    "Accepted Fable removal of unsupported one-at-a-time ずつ; kept idiomatic 時計を見る for checking time and contextual cup/glass price wording.",
+    "Confirmed source arithmetic 2 × 30 + 3 × 20 = 120 pesos, with separate 200-peso dozen bulk price and 45-peso cake slice.",
+    "Superseded prior Foundation 2 Sam/now clock insertion and ten-turn position plan only; preserved prior Foundation 8 proposal.",
+    "Pinned original source English/Spanish and archived row positions; all learner/audio/progress gates false."
+  ]
+}

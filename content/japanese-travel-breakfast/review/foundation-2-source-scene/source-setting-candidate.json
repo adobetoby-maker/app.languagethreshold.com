@@ -1,0 +1,458 @@
+{
+  "schema": 1,
+  "track": "travel-breakfast",
+  "stage": "foundation",
+  "pairKey": "Japanese:English",
+  "lessons": [
+    {
+      "schema": 1,
+      "pairKey": "Japanese:English",
+      "track": "travel-breakfast",
+      "stage": "foundation",
+      "lessonKey": "foundation:2",
+      "stableLessonId": "foundation-travel-breakfast:2:ja-en",
+      "candidateRevision": "foundation-travel-breakfast:2:ja-en:source-scene-v1",
+      "reviewed": false,
+      "status": "source-only Japanese-language candidate; unapproved",
+      "source": {
+        "curriculumPath": "src/data/core60/es/foundation-travel-breakfast.json",
+        "curriculumSha256": "94621cca4158b76c69435f35eb1dfdc4893df553afaccb8a1963bdd9e6d80e79",
+        "readerPath": "public/lesson-content/es/foundation-travel-breakfast.json",
+        "readerSha256": "e11886cd3e030534ba8f8b8e92515c528e07c2875f20a58034faed2bc3d0f78a",
+        "objectiveEnglish": "Use numbers, prices in pesos, clock times and café quantities to order and check a total.",
+        "readerTitleSpanish": "Desayuno en el Café Luna"
+      },
+      "archivedDraft": {
+        "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/foundation-1-10-draft.json",
+        "sha256": "2c4f1ba884691e7c0b0d550304e4acced537b32fa91c00fdf1fd943e6ce3c390",
+        "scene": "Sam and a friend order at a café counter and check the stated total.",
+        "cardCount": 12,
+        "readerCount": 9
+      },
+      "supersedesPreviousProposal": {
+        "path": "content/japanese-travel-breakfast/review/foundation-2-8/source-correction-proposals.json",
+        "sha256": "88e0946c9df43444cb6f8389d482875af3ddd41c2e43cc8d1594172e6011fe1d",
+        "lessonKey": "foundation:2",
+        "scope": "Foundation 2 only; Foundation 8 remains unchanged",
+        "disposition": "superseded for source-scene review; no runtime or saved-item migration",
+        "rejectedCandidateReaderId": "foundation-travel-breakfast:2:reader:clock-time-v1",
+        "reason": "That proposal adds Sam and now to Emma's source clock-time turn and produces ten turns where the current source has nine. Its added speaking cue and one-to-ten Reader position plan are likewise superseded for Foundation 2 only."
+      },
+      "sourceCards": [
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:card:01",
+          "candidatePosition": 1,
+          "sourceSpanish": "los pesos",
+          "sourceEnglish": "the pesos",
+          "targetJapaneseDraft": "ペソ",
+          "kind": "term",
+          "sourceEnglishIsJapaneseGloss": false,
+          "sourceSpanishNoteInternal": null
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:card:02",
+          "candidatePosition": 2,
+          "sourceSpanish": "la hora",
+          "sourceEnglish": "the time",
+          "targetJapaneseDraft": "時刻",
+          "kind": "term",
+          "sourceEnglishIsJapaneseGloss": false,
+          "sourceSpanishNoteInternal": "¿Qué hora es? means what time is it?"
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:card:03",
+          "candidatePosition": 3,
+          "sourceSpanish": "la mañana",
+          "sourceEnglish": "the morning",
+          "targetJapaneseDraft": "朝",
+          "kind": "term",
+          "sourceEnglishIsJapaneseGloss": false,
+          "sourceSpanishNoteInternal": null
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:card:04",
+          "candidatePosition": 4,
+          "sourceSpanish": "el mediodía",
+          "sourceEnglish": "noon",
+          "targetJapaneseDraft": "正午",
+          "kind": "term",
+          "sourceEnglishIsJapaneseGloss": false,
+          "sourceSpanishNoteInternal": null
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:card:05",
+          "candidatePosition": 5,
+          "sourceSpanish": "la taza",
+          "sourceEnglish": "the cup",
+          "targetJapaneseDraft": "カップ",
+          "kind": "term",
+          "sourceEnglishIsJapaneseGloss": false,
+          "sourceSpanishNoteInternal": null
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:card:06",
+          "candidatePosition": 6,
+          "sourceSpanish": "el vaso",
+          "sourceEnglish": "the glass",
+          "targetJapaneseDraft": "グラス",
+          "kind": "term",
+          "sourceEnglishIsJapaneseGloss": false,
+          "sourceSpanishNoteInternal": null
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:card:07",
+          "candidatePosition": 7,
+          "sourceSpanish": "la pieza",
+          "sourceEnglish": "the piece",
+          "targetJapaneseDraft": "1個",
+          "kind": "term",
+          "sourceEnglishIsJapaneseGloss": false,
+          "sourceSpanishNoteInternal": "Mexican bakeries count sweet bread by the piece."
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:card:08",
+          "candidatePosition": 8,
+          "sourceSpanish": "la orden",
+          "sourceEnglish": "the serving",
+          "targetJapaneseDraft": "1人前",
+          "kind": "term",
+          "sourceEnglishIsJapaneseGloss": false,
+          "sourceSpanishNoteInternal": "In Mexico, una orden de chilaquiles is one plate or serving."
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:card:09",
+          "candidatePosition": 9,
+          "sourceSpanish": "la docena",
+          "sourceEnglish": "the dozen",
+          "targetJapaneseDraft": "1ダース",
+          "kind": "term",
+          "sourceEnglishIsJapaneseGloss": false,
+          "sourceSpanishNoteInternal": null
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:card:10",
+          "candidatePosition": 10,
+          "sourceSpanish": "la rebanada",
+          "sourceEnglish": "the slice",
+          "targetJapaneseDraft": "1切れ",
+          "kind": "term",
+          "sourceEnglishIsJapaneseGloss": false,
+          "sourceSpanishNoteInternal": null
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:card:11",
+          "candidatePosition": 11,
+          "sourceSpanish": "2 cafés americanos, por favor.",
+          "sourceEnglish": "2 americanos, please.",
+          "targetJapaneseDraft": "アメリカーノを2杯ください。",
+          "kind": "phrase",
+          "sourceEnglishIsJapaneseGloss": false,
+          "sourceSpanishNoteInternal": null
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:card:12",
+          "candidatePosition": 12,
+          "sourceSpanish": "Mesa para 4, por favor.",
+          "sourceEnglish": "A table for 4, please.",
+          "targetJapaneseDraft": "4人用のテーブルをお願いします。",
+          "kind": "phrase",
+          "sourceEnglishIsJapaneseGloss": false,
+          "sourceSpanishNoteInternal": null
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:card:13",
+          "candidatePosition": 13,
+          "sourceSpanish": "3 piezas de pan dulce, por favor.",
+          "sourceEnglish": "3 pieces of sweet bread, please.",
+          "targetJapaneseDraft": "甘いパンを3個ください。",
+          "kind": "phrase",
+          "sourceEnglishIsJapaneseGloss": false,
+          "sourceSpanishNoteInternal": null
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:card:14",
+          "candidatePosition": 14,
+          "sourceSpanish": "¿Son 120 pesos?",
+          "sourceEnglish": "Is it 120 pesos?",
+          "targetJapaneseDraft": "120ペソですか。",
+          "kind": "phrase",
+          "sourceEnglishIsJapaneseGloss": false,
+          "sourceSpanishNoteInternal": null
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:card:15",
+          "candidatePosition": 15,
+          "sourceSpanish": "Son las 8 y media.",
+          "sourceEnglish": "It's half past 8.",
+          "targetJapaneseDraft": "8時半です。",
+          "kind": "phrase",
+          "sourceEnglishIsJapaneseGloss": false,
+          "sourceSpanishNoteInternal": "Use son las for most hours, but es la 1 for one o'clock."
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:card:16",
+          "candidatePosition": 16,
+          "sourceSpanish": "¿El desayuno es de 7 a 11?",
+          "sourceEnglish": "Is breakfast from 7 to 11?",
+          "targetJapaneseDraft": "朝食は7時から11時までですか。",
+          "kind": "phrase",
+          "sourceEnglishIsJapaneseGloss": false,
+          "sourceSpanishNoteInternal": null
+        }
+      ],
+      "sourceSettingReader": [
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:reader:01",
+          "candidatePosition": 1,
+          "speaker": "Narrator",
+          "sourceSpanish": "Emma entra al Café Luna por la mañana.",
+          "sourceEnglish": "Emma walks into Café Luna in the morning.",
+          "targetJapaneseDraft": "エマは朝、カフェ・ルナに入ります。",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:reader:02",
+          "candidatePosition": 2,
+          "speaker": "Narrator",
+          "sourceSpanish": "Emma mira la hora: Son las 8 y media.",
+          "sourceEnglish": "Emma looks at the time: It's half past 8.",
+          "targetJapaneseDraft": "エマは時計を見ます。8時半です。",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:reader:03",
+          "candidatePosition": 3,
+          "speaker": "Luis",
+          "sourceSpanish": "Luis: Hay órdenes de chilaquiles hasta el mediodía.",
+          "sourceEnglish": "Luis: There are servings of chilaquiles until noon.",
+          "targetJapaneseDraft": "チラキレスは正午までご用意しています。",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:reader:04",
+          "candidatePosition": 4,
+          "speaker": "Emma",
+          "sourceSpanish": "Emma: 2 cafés americanos, por favor.",
+          "sourceEnglish": "Emma: 2 americanos, please.",
+          "targetJapaneseDraft": "アメリカーノを2杯ください。",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:reader:05",
+          "candidatePosition": 5,
+          "speaker": "Luis",
+          "sourceSpanish": "Luis: La taza cuesta 30 pesos y el vaso 35.",
+          "sourceEnglish": "Luis: The cup costs 30 pesos and the glass 35.",
+          "targetJapaneseDraft": "カップで30ペソ、グラスで35ペソです。",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:reader:06",
+          "candidatePosition": 6,
+          "speaker": "Emma",
+          "sourceSpanish": "Emma: En taza, y 3 piezas de pan dulce.",
+          "sourceEnglish": "Emma: In a cup, and 3 pieces of sweet bread.",
+          "targetJapaneseDraft": "カップでお願いします。それと、甘いパンを3個ください。",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:reader:07",
+          "candidatePosition": 7,
+          "speaker": "Luis",
+          "sourceSpanish": "Luis: La pieza cuesta 20 pesos y la docena 200.",
+          "sourceEnglish": "Luis: The piece costs 20 pesos and the dozen 200.",
+          "targetJapaneseDraft": "1個20ペソ、1ダースで200ペソです。",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:reader:08",
+          "candidatePosition": 8,
+          "speaker": "Emma",
+          "sourceSpanish": "Emma: ¿Son 120 pesos?",
+          "sourceEnglish": "Emma: Is it 120 pesos?",
+          "targetJapaneseDraft": "120ペソですか。",
+          "sourceEnglishIsJapaneseGloss": false
+        },
+        {
+          "id": "foundation-travel-breakfast:2:ja-en:source-scene-v1:reader:09",
+          "candidatePosition": 9,
+          "speaker": "Luis",
+          "sourceSpanish": "Luis: Sí, y la rebanada de pastel cuesta 45.",
+          "sourceEnglish": "Luis: Yes, and the slice of cake costs 45.",
+          "targetJapaneseDraft": "はい、そうです。それと、ケーキは1切れ45ペソです。",
+          "sourceEnglishIsJapaneseGloss": false
+        }
+      ],
+      "speakingGoalCandidate": "In Café Luna, order two americanos and three pieces of sweet bread, then confirm the stated total in pesos; use 8:30 and the café's noon chilaquiles window as scene cues.",
+      "japaneseLearningFocusCandidate": "Count drinks with 杯, items with 個, people with 人 and slices with 切れ; say clock time with 時/半 and a from–until span with から…まで while retaining pesos as the scene currency.",
+      "oldCardPositionPlan": [
+        {
+          "old": 1,
+          "candidate": null,
+          "oldEnglish": "two cups",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        },
+        {
+          "old": 2,
+          "candidate": null,
+          "oldEnglish": "three items",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        },
+        {
+          "old": 3,
+          "candidate": null,
+          "oldEnglish": "Two coffees, please",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        },
+        {
+          "old": 4,
+          "candidate": null,
+          "oldEnglish": "Three pieces of bread, please",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        },
+        {
+          "old": 5,
+          "candidate": null,
+          "oldEnglish": "yen",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        },
+        {
+          "old": 6,
+          "candidate": null,
+          "oldEnglish": "How much is it?",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        },
+        {
+          "old": 7,
+          "candidate": null,
+          "oldEnglish": "one thousand yen",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        },
+        {
+          "old": 8,
+          "candidate": null,
+          "oldEnglish": "Is it one thousand yen?",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        },
+        {
+          "old": 9,
+          "candidate": null,
+          "oldEnglish": "Yes, that is right",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        },
+        {
+          "old": 10,
+          "candidate": null,
+          "oldEnglish": "That is not right",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        },
+        {
+          "old": 11,
+          "candidate": null,
+          "oldEnglish": "half past eight",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        },
+        {
+          "old": 12,
+          "candidate": null,
+          "oldEnglish": "From what time?",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        }
+      ],
+      "oldReaderPositionPlan": [
+        {
+          "old": 1,
+          "candidate": null,
+          "oldEnglish": "Good morning. What would you like to order?",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        },
+        {
+          "old": 2,
+          "candidate": null,
+          "oldEnglish": "Two coffees, please.",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        },
+        {
+          "old": 3,
+          "candidate": null,
+          "oldEnglish": "Three pieces of bread, please.",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        },
+        {
+          "old": 4,
+          "candidate": null,
+          "oldEnglish": "Certainly.",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        },
+        {
+          "old": 5,
+          "candidate": null,
+          "oldEnglish": "How much is it?",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        },
+        {
+          "old": 6,
+          "candidate": null,
+          "oldEnglish": "It is one thousand yen.",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        },
+        {
+          "old": 7,
+          "candidate": null,
+          "oldEnglish": "One thousand yen?",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        },
+        {
+          "old": 8,
+          "candidate": null,
+          "oldEnglish": "Yes, that is right.",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        },
+        {
+          "old": 9,
+          "candidate": null,
+          "oldEnglish": "Thank you very much.",
+          "disposition": "retire from this candidate only; retain archive; no saved-item migration"
+        }
+      ],
+      "savedPositionPolicy": "Archived rows have no stable row IDs. New IDs are revision-scoped. The archived draft was unregistered; no shipped saved positions are known. Do not map old positions or the superseded ten-turn proposal to these IDs without reviewed semantic migration or tombstones.",
+      "modeStatus": "Archived See/Recall/Hear/Type/Say/Write descriptions are labels, not authored prompt/answer pairs. No answer is registered.",
+      "audioNote": "The 16 card and nine Reader Japanese texts need an exact-text audio inventory, technical checks and distinct per-clip listening decisions if approved; older yen/Sam clips cannot cover this revision.",
+      "gates": {
+        "reviewed": false,
+        "registered": false,
+        "learnerVisible": false,
+        "scoringEnabled": false,
+        "audioRegistered": false,
+        "listeningReviewed": false,
+        "offlineRegistered": false,
+        "progressWritesEnabled": false,
+        "released": false,
+        "runtimeImported": false,
+        "ownerRouteEnabled": false
+      },
+      "reviewQuestions": [
+        "Review 時刻 versus a more beginner-friendly clock-time expression; do not teach 時間 as exclusively duration. 時計を見る is an idiomatic way to check the time.",
+        "Review 1個/3個 for pan dulce, 1切れ for cake and 1ダース for a dozen in this Mexican café scene; 甘いパン is a meaning-based proposal, not a claim that pan dulce is a Japanese bakery item.",
+        "Luis's Japanese availability turn does not separately say 一人前. Decide whether this source serving nuance needs an explicit Japanese counter without adding one-at-a-time distribution.",
+        "Confirm Café Luna, Emma, Luis and chilaquiles transliterations and Japanese counter readings before any audio.",
+        "The source total is consistent: 2 × 30 + 3 × 20 = 120 pesos. The dozen's 200 pesos is a bulk price and the 45-peso cake slice is separate.",
+        "Qualified Japanese and Mexican food/locale review remains open. AI and structural checks are not approval."
+      ]
+    }
+  ],
+  "reviewed": false,
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false
+  }
+}

@@ -1,0 +1,549 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:1",
+  "stableLessonId": "travel-breakfast:1:ja-en",
+  "candidateRevision": "travel-breakfast:1:ja-en:source-scene-v1",
+  "reviewed": false,
+  "status": "source-only Japanese-language full-scene candidate; unapproved",
+  "source": {
+    "planPath": "src/data/travel-zone.ts",
+    "planSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "readerPath": "public/lesson-content/es/travel-breakfast.json",
+    "readerSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectiveEnglish": "greet staff, learn whether to order at the counter, and find a place",
+    "roleplayEnglish": "Walk into a crowded Roman café and work out how ordering and seating operate.",
+    "readerTitleSpanish": "Un café muy lleno",
+    "sourceVerbExamples": [
+      {
+        "target": "Un viajero entra en un café muy lleno.",
+        "native": "A traveler enters a very busy café."
+      },
+      {
+        "target": "Después pide un café y pan dulce.",
+        "native": "Then he orders a coffee and a sweet pastry."
+      },
+      {
+        "target": "Él espera en la fila.",
+        "native": "He waits in line."
+      },
+      {
+        "target": "Él pregunta: ¿Hay una mesa libre?",
+        "native": "He asks: Is there a free table?"
+      },
+      {
+        "target": "Me siento en la terraza.",
+        "native": "I sit on the patio."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "Sam enters a busy café near a station and asks the staff how to order.",
+    "cardCount": 12,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:1:ja-en:card:source-scene-v1:01",
+      "candidateCardRevision": "travel-breakfast:1:ja-en:card:source-scene-v1",
+      "candidatePosition": 1,
+      "sourceSpanish": "café",
+      "sourceEnglish": "café; coffee shop",
+      "sourceNoteInternal": "Also means coffee, the drink.",
+      "kind": "term",
+      "targetJapaneseDraft": "カフェ",
+      "literalJapaneseGlossEn": "café (the place)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "8f05b93b538d1d13f58cd027a64b63d8c0d1b46ba369efb750d464d245c52ed4",
+      "speakerUse": null
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:card:source-scene-v1:02",
+      "candidateCardRevision": "travel-breakfast:1:ja-en:card:source-scene-v1",
+      "candidatePosition": 2,
+      "sourceSpanish": "mostrador",
+      "sourceEnglish": "counter",
+      "sourceNoteInternal": null,
+      "kind": "term",
+      "targetJapaneseDraft": "カウンター",
+      "literalJapaneseGlossEn": "counter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "194068e0300b74bb7ec135f557cf24727ed96a48f8b1c234f401e843ccb91c8b",
+      "speakerUse": null
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:card:source-scene-v1:03",
+      "candidateCardRevision": "travel-breakfast:1:ja-en:card:source-scene-v1",
+      "candidatePosition": 3,
+      "sourceSpanish": "mesa",
+      "sourceEnglish": "table",
+      "sourceNoteInternal": null,
+      "kind": "term",
+      "targetJapaneseDraft": "テーブル",
+      "literalJapaneseGlossEn": "table",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "0fac3ba703c833bc320b469586f6e138570e59711e4536b366185f5f4da0f299",
+      "speakerUse": null
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:card:source-scene-v1:04",
+      "candidateCardRevision": "travel-breakfast:1:ja-en:card:source-scene-v1",
+      "candidatePosition": 4,
+      "sourceSpanish": "mesa libre",
+      "sourceEnglish": "free table",
+      "sourceNoteInternal": null,
+      "kind": "term",
+      "targetJapaneseDraft": "空いているテーブル",
+      "literalJapaneseGlossEn": "available table",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "8a40a03809b2ad28d8f565a271fb98d9d0a76ccc2989367b71d994e14d3b1799",
+      "speakerUse": null
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:card:source-scene-v1:05",
+      "candidateCardRevision": "travel-breakfast:1:ja-en:card:source-scene-v1",
+      "candidatePosition": 5,
+      "sourceSpanish": "mesero",
+      "sourceEnglish": "waiter",
+      "sourceNoteInternal": "Use mesera for a woman.",
+      "kind": "term",
+      "targetJapaneseDraft": "店員",
+      "literalJapaneseGlossEn": "staff member",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "2ed99c463a5b2128eb3c93d0537128770256b341a244c8391322b64ee044efc0",
+      "speakerUse": null
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:card:source-scene-v1:06",
+      "candidateCardRevision": "travel-breakfast:1:ja-en:card:source-scene-v1",
+      "candidatePosition": 6,
+      "sourceSpanish": "menú",
+      "sourceEnglish": "menu",
+      "sourceNoteInternal": null,
+      "kind": "term",
+      "targetJapaneseDraft": "メニュー",
+      "literalJapaneseGlossEn": "menu",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "6f3443ca32a16492ca004f31a9b9534dc5ec9e9cf07633b9aa0be2086f8907c7",
+      "speakerUse": null
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:card:source-scene-v1:07",
+      "candidateCardRevision": "travel-breakfast:1:ja-en:card:source-scene-v1",
+      "candidatePosition": 7,
+      "sourceSpanish": "fila",
+      "sourceEnglish": "line; queue",
+      "sourceNoteInternal": "In some places people also say cola.",
+      "kind": "term",
+      "targetJapaneseDraft": "列",
+      "literalJapaneseGlossEn": "line; queue",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "c06d21404eee51cbe93750787309fd04d2a3dc2da755d3d62851e716668c3ac8",
+      "speakerUse": null
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:card:source-scene-v1:08",
+      "candidateCardRevision": "travel-breakfast:1:ja-en:card:source-scene-v1",
+      "candidatePosition": 8,
+      "sourceSpanish": "terraza",
+      "sourceEnglish": "patio; outdoor seating",
+      "sourceNoteInternal": null,
+      "kind": "term",
+      "targetJapaneseDraft": "テラス",
+      "literalJapaneseGlossEn": "terrace; patio",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "30fe93dcec440220f3d2db2212c69523b339ce1b007dfdf299342d7054a7fb84",
+      "speakerUse": null
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:card:source-scene-v1:09",
+      "candidateCardRevision": "travel-breakfast:1:ja-en:card:source-scene-v1",
+      "candidatePosition": 9,
+      "sourceSpanish": "pan dulce",
+      "sourceEnglish": "sweet pastry",
+      "sourceNoteInternal": "Common in Mexican and US Spanish.",
+      "kind": "term",
+      "targetJapaneseDraft": "パン・ドゥルセ",
+      "literalJapaneseGlossEn": "pan dulce (sweet pastry)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "fdd975ceb38fabf6de131c02018caf54312042c2f14d781b610a6f3fe2022dd2",
+      "speakerUse": null
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:card:source-scene-v1:10",
+      "candidateCardRevision": "travel-breakfast:1:ja-en:card:source-scene-v1",
+      "candidatePosition": 10,
+      "sourceSpanish": "silla",
+      "sourceEnglish": "chair",
+      "sourceNoteInternal": null,
+      "kind": "term",
+      "targetJapaneseDraft": "椅子",
+      "literalJapaneseGlossEn": "chair",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "e57f49ca9c8120c9001bfcf5d954a533c4cb63de907fd14a088b508d2c9bf32f",
+      "speakerUse": null
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:card:source-scene-v1:11",
+      "candidateCardRevision": "travel-breakfast:1:ja-en:card:source-scene-v1",
+      "candidatePosition": 11,
+      "sourceSpanish": "Buenos días, ¿pido aquí en el mostrador?",
+      "sourceEnglish": "Good morning, do I order here at the counter?",
+      "sourceNoteInternal": null,
+      "kind": "phrase",
+      "targetJapaneseDraft": "おはようございます。こちらのカウンターで注文すればいいですか。",
+      "literalJapaneseGlossEn": "Good morning. Should I order at this counter?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "b6940332af5adc9afae41702b0da69b9ff22d40dbb30a08aba6df4dcc9649853",
+      "speakerUse": null
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:card:source-scene-v1:12",
+      "candidateCardRevision": "travel-breakfast:1:ja-en:card:source-scene-v1",
+      "candidatePosition": 12,
+      "sourceSpanish": "¿Hay una mesa libre?",
+      "sourceEnglish": "Is there a free table?",
+      "sourceNoteInternal": null,
+      "kind": "phrase",
+      "targetJapaneseDraft": "空いているテーブルはありますか。",
+      "literalJapaneseGlossEn": "Is there an available table?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "0ec39863f3f0a17ec1f31b7dbf30b973b0fa6732fe950875b1fc983c4eb9dd1d",
+      "speakerUse": null
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:card:source-scene-v1:13",
+      "candidateCardRevision": "travel-breakfast:1:ja-en:card:source-scene-v1",
+      "candidatePosition": 13,
+      "sourceSpanish": "¿Me siento donde quiero?",
+      "sourceEnglish": "Do I sit wherever I want?",
+      "sourceNoteInternal": null,
+      "kind": "phrase",
+      "targetJapaneseDraft": "好きなところに座ってもいいですか。",
+      "literalJapaneseGlossEn": "May I sit wherever I like?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "19982d9a77c13608fe5ea620ab90bafdf3439b5291e290679809a39b04f8ba33",
+      "speakerUse": null
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:card:source-scene-v1:14",
+      "candidateCardRevision": "travel-breakfast:1:ja-en:card:source-scene-v1",
+      "candidatePosition": 14,
+      "sourceSpanish": "Perdón, no entiendo. ¿Puede repetir, por favor?",
+      "sourceEnglish": "Sorry, I don't understand. Can you repeat, please?",
+      "sourceNoteInternal": null,
+      "kind": "phrase",
+      "targetJapaneseDraft": "すみません、わかりません。もう一度言っていただけますか。",
+      "literalJapaneseGlossEn": "Excuse me, I do not understand. Could you say it again?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "5f7773606a89191e446955fe04f0c617b23c225ab501f48037d9f0a0c6c99959",
+      "speakerUse": null
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:card:source-scene-v1:15",
+      "candidateCardRevision": "travel-breakfast:1:ja-en:card:source-scene-v1",
+      "candidatePosition": 15,
+      "sourceSpanish": "¿Es para llevar o para comer aquí?",
+      "sourceEnglish": "Is it to go or to eat here?",
+      "sourceNoteInternal": "Staff often ask this; you can also say it to check.",
+      "kind": "phrase",
+      "targetJapaneseDraft": "お持ち帰りですか、それとも店内でお召し上がりですか。",
+      "literalJapaneseGlossEn": "Will you take it away or eat in? (staff-side polite wording)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "6c9e5a9cbb163ff54a3a730500e8dcc43783f198d0c424e88995d9f7db571787",
+      "speakerUse": "staff-to-customer; traveler-side version requires separate review"
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:1:ja-en:reader:source-scene-v1:01",
+      "candidateReaderRevision": "travel-breakfast:1:ja-en:reader:source-scene-v1",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "quotedSpeaker": null,
+      "sourceSpanish": "Un viajero entra en un café muy lleno.",
+      "sourceEnglish": "A traveler enters a very busy café.",
+      "targetJapaneseDraft": "旅行者が、とても混んでいるカフェに入ります。",
+      "literalJapaneseGlossEn": "A traveler enters a very crowded café.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "e5bea1bc46f99d79b0925563e1cc578561fd3bd0621b8dc5ea4810ac975272ba"
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:reader:source-scene-v1:02",
+      "candidateReaderRevision": "travel-breakfast:1:ja-en:reader:source-scene-v1",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "quotedSpeaker": null,
+      "sourceSpanish": "Hay una fila larga frente al mostrador.",
+      "sourceEnglish": "There is a long line in front of the counter.",
+      "targetJapaneseDraft": "カウンターの前には長い列があります。",
+      "literalJapaneseGlossEn": "There is a long line in front of the counter.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "615cdf9f1a51e2336cacf2592157f811be8faf79cf8dc492f8de9ffa4d842bc6"
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:reader:source-scene-v1:03",
+      "candidateReaderRevision": "travel-breakfast:1:ja-en:reader:source-scene-v1",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "quotedSpeaker": "Traveler",
+      "sourceSpanish": "El viajero dice: Buenos días.",
+      "sourceEnglish": "The traveler says: Good morning.",
+      "targetJapaneseDraft": "旅行者は言います。「おはようございます。」",
+      "literalJapaneseGlossEn": "The traveler says: Good morning.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "4213db69aed540a76f00ecd245e04cdff10bdb0b728eb7b69c7b6a8135379c8b"
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:reader:source-scene-v1:04",
+      "candidateReaderRevision": "travel-breakfast:1:ja-en:reader:source-scene-v1",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "quotedSpeaker": "Traveler",
+      "sourceSpanish": "Pregunta a la mesera: ¿Pido aquí en el mostrador?",
+      "sourceEnglish": "He asks the waitress: Do I order here at the counter?",
+      "targetJapaneseDraft": "旅行者は女性の店員に聞きます。「こちらのカウンターで注文すればいいですか。」",
+      "literalJapaneseGlossEn": "The traveler asks a female staff member: Should I order at this counter?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "611066284a82a94e15fe45ea3eb118427e111990fa861cb0b132049714150690"
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:reader:source-scene-v1:05",
+      "candidateReaderRevision": "travel-breakfast:1:ja-en:reader:source-scene-v1",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "quotedSpeaker": "Waitress",
+      "sourceSpanish": "La mesera contesta: Sí, pida aquí, por favor.",
+      "sourceEnglish": "The waitress answers: Yes, order here, please.",
+      "targetJapaneseDraft": "女性の店員は答えます。「はい、こちらでご注文ください。」",
+      "literalJapaneseGlossEn": "The female staff member answers: Yes, please order here.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "aa19d3f2f71c1aaf2e0b394b0cbe841c851685e8644718b24ffa527ccaf1982b"
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:reader:source-scene-v1:06",
+      "candidateReaderRevision": "travel-breakfast:1:ja-en:reader:source-scene-v1",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "quotedSpeaker": "Traveler",
+      "sourceSpanish": "Él pregunta: ¿Hay una mesa libre?",
+      "sourceEnglish": "He asks: Is there a free table?",
+      "targetJapaneseDraft": "旅行者は聞きます。「空いているテーブルはありますか。」",
+      "literalJapaneseGlossEn": "The traveler asks: Is there an available table?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "3dc654840fd39494778a1a768e799e213f1449e399ecefd996537938fe1c0bd1"
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:reader:source-scene-v1:07",
+      "candidateReaderRevision": "travel-breakfast:1:ja-en:reader:source-scene-v1",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "quotedSpeaker": "Waitress",
+      "sourceSpanish": "La mesera dice: Hay una mesa en la terraza.",
+      "sourceEnglish": "The waitress says: There is a table on the patio.",
+      "targetJapaneseDraft": "女性の店員は言います。「テラスにテーブルがあります。」",
+      "literalJapaneseGlossEn": "The female staff member says: There is a table on the terrace.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "de025bcc015c992ec5470cf45c7d796aea4b70dca8ae6b5a857c4c81d1dd0bae"
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:reader:source-scene-v1:08",
+      "candidateReaderRevision": "travel-breakfast:1:ja-en:reader:source-scene-v1",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "quotedSpeaker": null,
+      "sourceSpanish": "Él espera en la fila y mira el menú.",
+      "sourceEnglish": "He waits in line and looks at the menu.",
+      "targetJapaneseDraft": "旅行者は列に並んで待ち、メニューを見ます。",
+      "literalJapaneseGlossEn": "The traveler waits in line and looks at the menu.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "376efaf185b7c2163a4bba811fd0822ecafae4e73183ef07095ac3bd4abc2979"
+    },
+    {
+      "id": "travel-breakfast:1:ja-en:reader:source-scene-v1:09",
+      "candidateReaderRevision": "travel-breakfast:1:ja-en:reader:source-scene-v1",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "quotedSpeaker": null,
+      "sourceSpanish": "Después pide un café y pan dulce.",
+      "sourceEnglish": "Then he orders a coffee and a sweet pastry.",
+      "targetJapaneseDraft": "それから、コーヒーとパン・ドゥルセを注文します。",
+      "literalJapaneseGlossEn": "Then the traveler orders coffee and pan dulce.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "candidateTextSha256": "fc1f1ec16227a7e83fe20aa5c22138d5154813281d4d847e4c8d926acbff39e1"
+    }
+  ],
+  "speakingGoalCandidate": "Greet the waitress, ask whether to order at the counter, and ask whether a table is available in a busy café.",
+  "japaneseSpecificFocusCandidate": "Ask service-process and seating questions with ～すればいいですか, ～はありますか and ～てもいいですか; source Spanish verb classes are not a Japanese conjugation lesson.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "café",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "is crowded",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "line; queue",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "counter",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "seat",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "is available",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "menu",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "order",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Do I order here?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "Is a seat available?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "I will wait a moment",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "takeaway",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "The café near the station is busy.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "There is a line in front of the counter.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Good morning. Should I order here?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Yes, please order here.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Is a seat available?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "One seat near the window is available.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "I understand. I will wait a moment.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Sam looks at the menu and waits in line.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "One coffee, please.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "savedPositionPolicy": "Archived rows have no explicit row IDs. This candidate has revision-scoped IDs; no shipped progress migration is authorized.",
+  "unresolvedInternal": [
+    "Source plan says Roman café; the Spanish Reader names no city and uses Mexican pan dulce. Choose intended locale before learner promotion.",
+    "Spanish café means the shop and may also mean coffee; Japanese カフェ carries only the shop sense here.",
+    "Spanish mesero/mesera has grammatical gender; Japanese 店員 is neutral. Reader retains a female staff member.",
+    "Pan dulce is preserved as a source-specific term, not silently generalized to Japanese sweet bread; qualified food/locale wording needed.",
+    "Card 15 is a staff-side question, so its Japanese polite register differs from traveler-side prompts.",
+    "Japanese quote punctuation, terrace seating, table availability and service register need qualified review.",
+    "The pinned Spanish Reader itself is reviewed:false; source text is not qualified approval.",
+    "Pin 空いている as あいている (vacant), not すいている (uncrowded), before any audio synthesis."
+  ],
+  "missing": [
+    "six authored prompt-answer mode pairs",
+    "kana readings for learner display",
+    "Japanese Reader title",
+    "traveler-side card 15 variant",
+    "contextual forms",
+    "full speaking setup",
+    "dictionary senses",
+    "saved-item migration",
+    "exact-text audio and individual listening decisions",
+    "qualified Japanese and domain review"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

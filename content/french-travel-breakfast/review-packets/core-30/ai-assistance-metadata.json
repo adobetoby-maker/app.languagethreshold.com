@@ -1,0 +1,27 @@
+{
+  "dateUtc": "2026-11-16",
+  "haikuRequested": {
+    "modelRequested": "haiku",
+    "toolResult": "Timed out after 180 seconds without response or actual model metadata",
+    "claim": "No Haiku result or model version claimed"
+  },
+  "opusCritique": {
+    "modelReported": "claude-opus-5-5",
+    "authReported": "claude.ai subscription login (API credentials stripped)",
+    "mode": "read-only critique",
+    "durationMs": 81312,
+    "findingsChecked": [
+      "The archived cross-contact outcome matches an unmerged Spanish source correction at commit 919ee4af0; the current main source has the cook's no-nuts statement. Both are now visible in the packet.",
+      "Cards 4 and 5 depend on the disputed Reader turn; automatic saved-item reuse is blocked.",
+      "The pan dulce card answer no longer contains a parenthetical explanation, and the Reader's nut-allergy question no longer narrows to walnuts.",
+      "Card 10 and Reader 6 now preserve a billed charge rather than generic fees."
+    ]
+  },
+  "fableRequested": {
+    "modelRequested": "fable",
+    "toolResult": "Timed out after 120 seconds without response or actual model metadata",
+    "claim": "No Fable result or model version claimed"
+  },
+  "selfCheck": "Pinned current Spanish/English source and archived French draft compared by ordered card/Reader position; alternate source correction verified locally at exact commit; independent validator checks hashes, IDs, disputed nulls and closed gates.",
+  "qualifiedApproval": false
+}

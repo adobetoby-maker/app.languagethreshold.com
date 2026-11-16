@@ -1,0 +1,362 @@
+{
+  "schema": "lt.inert-source-conflict-review.v1",
+  "lessonKey": "core:30",
+  "pair": {
+    "target": "French",
+    "support": "English"
+  },
+  "source": {
+    "path": "public/lesson-content/es/travel-breakfast.json",
+    "sha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "passageTitleSpanish": "Desayuno en familia en la cafetería"
+  },
+  "priorDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/french-breakfast/private-runtime-candidate.json",
+    "sha256": "f58bb01321fa2e04ef1bbc802c7a776836c3ea9ac6c51fdbedfaca50fe764f26"
+  },
+  "cards": [
+    {
+      "id": "core:30:word:1",
+      "sourceSpanish": "alergia",
+      "supportEnglish": "allergy",
+      "targetFrenchDraft": "une allergie",
+      "kind": "term"
+    },
+    {
+      "id": "core:30:word:2",
+      "sourceSpanish": "frutos secos",
+      "supportEnglish": "nuts",
+      "targetFrenchDraft": "les fruits à coque",
+      "kind": "term"
+    },
+    {
+      "id": "core:30:word:3",
+      "sourceSpanish": "silla para niños",
+      "supportEnglish": "high chair",
+      "targetFrenchDraft": "une chaise haute",
+      "kind": "term"
+    },
+    {
+      "id": "core:30:word:4",
+      "sourceSpanish": "menú infantil",
+      "supportEnglish": "kids' menu",
+      "targetFrenchDraft": "le menu enfant",
+      "kind": "term"
+    },
+    {
+      "id": "core:30:word:5",
+      "sourceSpanish": "huevos revueltos",
+      "supportEnglish": "scrambled eggs",
+      "targetFrenchDraft": "des œufs brouillés",
+      "kind": "term"
+    },
+    {
+      "id": "core:30:word:6",
+      "sourceSpanish": "pan dulce",
+      "supportEnglish": "sweet bread",
+      "targetFrenchDraft": "le pan dulce",
+      "kind": "term",
+      "reviewNoteEnglish": "Mexican pan dulce covers a range of sweet breakfast pastries; confirm French explanation and pronunciation separately from the answer."
+    },
+    {
+      "id": "core:30:word:7",
+      "sourceSpanish": "mesa",
+      "supportEnglish": "table",
+      "targetFrenchDraft": "la table",
+      "kind": "term"
+    },
+    {
+      "id": "core:30:word:8",
+      "sourceSpanish": "mostrador",
+      "supportEnglish": "counter",
+      "targetFrenchDraft": "le comptoir",
+      "kind": "term"
+    },
+    {
+      "id": "core:30:word:9",
+      "sourceSpanish": "cuenta",
+      "supportEnglish": "bill",
+      "targetFrenchDraft": "l’addition",
+      "kind": "term"
+    },
+    {
+      "id": "core:30:word:10",
+      "sourceSpanish": "cargo",
+      "supportEnglish": "charge",
+      "targetFrenchDraft": "un montant facturé",
+      "kind": "term"
+    },
+    {
+      "id": "core:30:word:11",
+      "sourceSpanish": "propina",
+      "supportEnglish": "tip",
+      "targetFrenchDraft": "le pourboire",
+      "kind": "term"
+    },
+    {
+      "id": "core:30:word:12",
+      "sourceSpanish": "¿Nos puede traer una silla para niños, por favor?",
+      "supportEnglish": "Can you bring us a high chair, please?",
+      "targetFrenchDraft": "Pourriez-vous nous apporter une chaise haute, s’il vous plaît ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:30:word:13",
+      "sourceSpanish": "Disculpe, el mesero nos dio esta mesa.",
+      "supportEnglish": "Excuse me, the waiter gave us this table.",
+      "targetFrenchDraft": "Excusez-moi, le serveur nous a installés à cette table.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:30:word:14",
+      "sourceSpanish": "Mi hija tiene alergia a los frutos secos.",
+      "supportEnglish": "My daughter is allergic to nuts.",
+      "targetFrenchDraft": "Ma fille est allergique aux fruits à coque.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:30:word:15",
+      "sourceSpanish": "Disculpe, creo que hay un error en la cuenta.",
+      "supportEnglish": "Excuse me, I think there is a mistake on the bill.",
+      "targetFrenchDraft": "Excusez-moi, je crois qu’il y a une erreur sur l’addition.",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:30:word:16",
+      "sourceSpanish": "¿La propina está incluida?",
+      "supportEnglish": "Is the tip included?",
+      "targetFrenchDraft": "Le pourboire est compris ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "core:30:word:17",
+      "sourceSpanish": "Muchas gracias por todo, nos vemos pronto.",
+      "supportEnglish": "Thank you so much for everything, see you soon.",
+      "targetFrenchDraft": "Merci beaucoup pour tout, à bientôt.",
+      "kind": "phrase"
+    }
+  ],
+  "reader": [
+    {
+      "id": "core:30:line:1",
+      "sourceSpanish": "Llego a la cafetería con mis 2 hijos y le pregunto al mesero: ¿Nos puede traer una silla para niños, por favor?",
+      "supportEnglish": "I arrive at the café with my 2 children and ask the waiter: Can you bring us a high chair, please?",
+      "targetFrenchDraft": "J’arrive au café avec mes deux enfants et je demande au serveur : « Pourriez-vous nous apporter une chaise haute, s’il vous plaît ? »"
+    },
+    {
+      "id": "core:30:line:2",
+      "sourceSpanish": "Otro cliente dice que la mesa es suya, y le explico con calma que el mesero nos dio esta mesa; el mesero lo confirma y lleva al señor a otra mesa libre.",
+      "supportEnglish": "Another customer says the table is his, and I calmly explain that the waiter gave us this table; the waiter confirms it and takes the man to another free table.",
+      "targetFrenchDraft": "Un autre client dit que la table lui appartient ; j’explique calmement que le serveur nous y a installés. Le serveur le confirme et conduit l’homme à une autre table libre."
+    },
+    {
+      "id": "core:30:line:3",
+      "sourceSpanish": "Antes de pedir, le explico al mesero: Mi hija tiene alergia a los frutos secos, ¿el pan dulce lleva nueces?",
+      "supportEnglish": "Before ordering, I explain to the waiter: My daughter is allergic to nuts, does the sweet bread have nuts in it?",
+      "targetFrenchDraft": "Avant de commander, je dis au serveur : « Ma fille est allergique aux fruits à coque ; le pan dulce en contient-il ? »"
+    },
+    {
+      "id": "core:30:line:4",
+      "sourceSpanish": "El mesero pregunta en la cocina y nos recomienda el menú infantil con huevos revueltos, porque según el cocinero no lleva nueces.",
+      "supportEnglish": "The waiter checks in the kitchen and recommends the kids' menu with scrambled eggs, because the cook says it has no nuts.",
+      "targetFrenchDraft": null
+    },
+    {
+      "id": "core:30:line:5",
+      "sourceSpanish": "Mientras comemos, platico con una señora de la mesa de al lado: me pregunta de dónde somos, me recomienda el mercado del centro y me cuenta que aquí la gente desayuna tranquila y platica mucho tiempo.",
+      "supportEnglish": "While we eat, I chat with a woman at the next table: she asks me where we are from, recommends the downtown market and tells me that here people have a relaxed breakfast and chat for a long time.",
+      "targetFrenchDraft": "Pendant que nous mangeons, je bavarde avec une dame à la table voisine : elle me demande d’où nous venons, me recommande le marché du centre-ville et me dit qu’ici les gens prennent leur petit-déjeuner tranquillement et bavardent longtemps."
+    },
+    {
+      "id": "core:30:line:6",
+      "sourceSpanish": "Al pagar en el mostrador, veo un cargo de 3 cafés, pero solo pedimos 2.",
+      "supportEnglish": "When paying at the counter, I see a charge for 3 coffees, but we only ordered 2.",
+      "targetFrenchDraft": "Au moment de payer au comptoir, je vois que trois cafés nous sont facturés, alors que nous n’en avons commandé que deux."
+    },
+    {
+      "id": "core:30:line:7",
+      "sourceSpanish": "Le digo a la cajera: Disculpe, creo que hay un error en la cuenta, y ella lo corrige enseguida.",
+      "supportEnglish": "I tell the cashier: Excuse me, I think there is a mistake on the bill, and she fixes it right away.",
+      "targetFrenchDraft": "Je dis à la caissière : « Excusez-moi, je crois qu’il y a une erreur sur l’addition », et elle la corrige tout de suite."
+    },
+    {
+      "id": "core:30:line:8",
+      "sourceSpanish": "Luego pregunto: ¿La propina está incluida? y ella responde que no, así que dejo propina en la mesa.",
+      "supportEnglish": "Then I ask: Is the tip included? and she answers no, so I leave a tip on the table.",
+      "targetFrenchDraft": "Puis je demande : « Le pourboire est compris ? » Elle répond que non, alors je laisse un pourboire sur la table."
+    },
+    {
+      "id": "core:30:line:9",
+      "sourceSpanish": "Al salir, le digo a la señora: Muchas gracias por todo, nos vemos pronto.",
+      "supportEnglish": "On the way out, I tell the woman: Thank you so much for everything, see you soon.",
+      "targetFrenchDraft": "En sortant, je dis à la dame : « Merci beaucoup pour tout, à bientôt. »"
+    }
+  ],
+  "unresolvedConflict": {
+    "id": "core:30:line:4",
+    "currentSourceSpanish": "El mesero pregunta en la cocina y nos recomienda el menú infantil con huevos revueltos, porque según el cocinero no lleva nueces.",
+    "currentSupportEnglish": "The waiter checks in the kitchen and recommends the kids' menu with scrambled eggs, because the cook says it has no nuts.",
+    "archivedSupportEnglish": "The waiter checks ingredients and preparation with the kitchen. They cannot rule out cross-contact, so we do not order café food for my daughter and use the breakfast we brought for her.",
+    "archivedTargetFrench": "Le serveur vérifie les ingrédients et la préparation avec la cuisine. Elle ne peut pas exclure le contact croisé ; nous ne commandons donc rien pour ma fille et utilisons le petit-déjeuner que nous avons apporté pour elle.",
+    "unmergedAlternativeSource": {
+      "commit": "919ee4af0e79cc4bf44f61f880e4a5eb6916c9c1",
+      "path": "public/lesson-content/es/travel-breakfast.json",
+      "sha256": "0be32206a43cf8ec4f2a7e1768477bc220016c2394d4bffd7b1495b313f9096a",
+      "sourceSpanish": "El mesero pregunta por los ingredientes y la preparación. La cocina no puede descartar el contacto cruzado, así que no pedimos comida para mi hija y usamos el desayuno que trajimos para ella.",
+      "supportEnglish": "The waiter checks ingredients and preparation with the kitchen. They cannot rule out cross-contact, so we do not order café food for my daughter and use the breakfast we brought for her."
+    },
+    "selectedFrenchAnswer": null,
+    "selectedWritePrompt": null,
+    "selectedWriteTarget": null,
+    "writeAudit": "The 2026-11-14 triage says the former Write mode targeted this superseded Reader line. No authored Write prompt/target was found in the archived private-runtime candidate, which holds card-ID lists only. Its former target must not be reused or scored.",
+    "qualifiedDecisionNeeded": "First decide which Spanish/English source revision is intended. Then obtain qualified allergy and French review of the meal outcome, and author Reader turn 4, dependent card/Write prompt and target, speaking activity and exact-text audio as one reviewed revision.",
+    "progressIdentity": {
+      "priorId": "core:30:line:4",
+      "dependentCardIds": [
+        "core:30:word:4",
+        "core:30:word:5"
+      ],
+      "reuseDecision": "blocked",
+      "revisionScopedIdDecision": "pending qualified source and ID-grammar review",
+      "migration": "No runtime or progress migration in this source-only packet; reconcile saved Reader/Write references and dependent cards before activation."
+    }
+  },
+  "speakingDraft": null,
+  "authoredModeActivities": null,
+  "modeInputIdsDraft": {
+    "see": [
+      "core:30:word:1",
+      "core:30:word:2",
+      "core:30:word:3",
+      "core:30:word:4",
+      "core:30:word:5",
+      "core:30:word:6",
+      "core:30:word:7",
+      "core:30:word:8",
+      "core:30:word:9",
+      "core:30:word:10",
+      "core:30:word:11",
+      "core:30:word:12",
+      "core:30:word:13",
+      "core:30:word:14",
+      "core:30:word:15",
+      "core:30:word:16",
+      "core:30:word:17"
+    ],
+    "recall": [
+      "core:30:word:1",
+      "core:30:word:2",
+      "core:30:word:3",
+      "core:30:word:4",
+      "core:30:word:5",
+      "core:30:word:6",
+      "core:30:word:7",
+      "core:30:word:8",
+      "core:30:word:9",
+      "core:30:word:10",
+      "core:30:word:11",
+      "core:30:word:12",
+      "core:30:word:13",
+      "core:30:word:14",
+      "core:30:word:15",
+      "core:30:word:16",
+      "core:30:word:17"
+    ],
+    "hear": [
+      "core:30:word:1",
+      "core:30:word:2",
+      "core:30:word:3",
+      "core:30:word:4",
+      "core:30:word:5",
+      "core:30:word:6",
+      "core:30:word:7",
+      "core:30:word:8",
+      "core:30:word:9",
+      "core:30:word:10",
+      "core:30:word:11",
+      "core:30:word:12",
+      "core:30:word:13",
+      "core:30:word:14",
+      "core:30:word:15",
+      "core:30:word:16",
+      "core:30:word:17"
+    ],
+    "type": [
+      "core:30:word:1",
+      "core:30:word:2",
+      "core:30:word:3",
+      "core:30:word:4",
+      "core:30:word:5",
+      "core:30:word:6",
+      "core:30:word:7",
+      "core:30:word:8",
+      "core:30:word:9",
+      "core:30:word:10",
+      "core:30:word:11",
+      "core:30:word:12",
+      "core:30:word:13",
+      "core:30:word:14",
+      "core:30:word:15",
+      "core:30:word:16",
+      "core:30:word:17"
+    ],
+    "say": [
+      "core:30:word:1",
+      "core:30:word:2",
+      "core:30:word:3",
+      "core:30:word:4",
+      "core:30:word:5",
+      "core:30:word:6",
+      "core:30:word:7",
+      "core:30:word:8",
+      "core:30:word:9",
+      "core:30:word:10",
+      "core:30:word:11",
+      "core:30:word:12",
+      "core:30:word:13",
+      "core:30:word:14",
+      "core:30:word:15",
+      "core:30:word:16",
+      "core:30:word:17"
+    ],
+    "write": [
+      "core:30:word:1",
+      "core:30:word:2",
+      "core:30:word:3",
+      "core:30:word:4",
+      "core:30:word:5",
+      "core:30:word:6",
+      "core:30:word:7",
+      "core:30:word:8",
+      "core:30:word:9",
+      "core:30:word:10",
+      "core:30:word:11",
+      "core:30:word:12",
+      "core:30:word:13",
+      "core:30:word:14",
+      "core:30:word:15",
+      "core:30:word:16",
+      "core:30:word:17"
+    ]
+  },
+  "reviewNotes": [
+    "The current source reports a waiter recommendation based on the cook's no-nuts statement; this packet does not assert the meal is safe for a person with a nut allergy.",
+    "Card 6 and Reader 3 restore Mexican pan dulce rather than substituting a brioche.",
+    "Reader 5 restores the source's long conversation; all French faces remain unreviewed candidates."
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "learnerRegistered": false,
+    "audioRegistered": false,
+    "audioApproved": false,
+    "listeningReviewed": false,
+    "playbackEnabled": false,
+    "scoringEnabled": false,
+    "progressTracking": false,
+    "progressWritesEnabled": false,
+    "offlineRegistered": false,
+    "released": false
+  }
+}

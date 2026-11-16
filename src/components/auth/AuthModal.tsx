@@ -11,8 +11,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/state/auth-state";
 import { trackEvent } from "@/lib/ga-events";
+import { WeeklyPracticeChoice } from "@/components/auth/WeeklyPracticeChoice";
 
-type Mode = "signin" | "signup" | "forgot" | "check-email";
+type Mode = "signin" | "signup" | "forgot" | "check-email" | "signup-ready";
 
 export function AuthModal({
   open,
@@ -29,9 +30,11 @@ export function AuthModal({
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
   const [checkEmailMsg, setCheckEmailMsg] = useState("");
+  const [checkEmailReason, setCheckEmailReason] = useState<"signup" | "password-reset" | null>(null);
 
   function reset(nextMode: Mode) {
     setErr(null);
+    setCheckEmailReason(null);
     setMode(nextMode);
   }
 
@@ -46,6 +49,7 @@ export function AuthModal({
       setBusy(false);
       if (error) { setErr(error); return; }
       setCheckEmailMsg("Password reset link sent — check your inbox.");
+      setCheckEmailReason("password-reset");
       setMode("check-email");
       return;
     }
@@ -68,9 +72,10 @@ export function AuthModal({
         setCheckEmailMsg(
           `We sent a confirmation link to ${email}. Click it to activate your account, then sign in.`,
         );
+        setCheckEmailReason("signup");
         setMode("check-email");
       } else {
-        onOpenChange(false);
+        setMode("signup-ready");
       }
     }
     setEmail("");
@@ -86,14 +91,24 @@ export function AuthModal({
             {mode === "signup" && "Create your account"}
             {mode === "forgot" && "Reset your password"}
             {mode === "check-email" && "Check your email"}
+            {mode === "signup-ready" && "Your account is ready"}
           </DialogTitle>
           <DialogDescription className="font-mono text-[11px] uppercase tracking-[0.18em]">
             {mode === "signin" && "Sign in to sync your progress across devices"}
             {mode === "signup" && "Your progress will sync across all your devices"}
             {mode === "forgot" && "We'll send a reset link to your email"}
             {mode === "check-email" && "One more step"}
+            {mode === "signup-ready" && "Continue learning"}
           </DialogDescription>
         </DialogHeader>
+
+        {mode === "signup-ready" && (
+          <div className="space-y-4">
+            <p className="text-sm leading-relaxed">You can continue learning now. Weekly practice emails are an optional, separate choice.</p>
+            <Button onClick={() => { reset("signin"); onOpenChange(false); }} className="w-full">Start learning</Button>
+            <WeeklyPracticeChoice />
+          </div>
+        )}
 
         {/* ── Check-email screen ── */}
         {mode === "check-email" && (
@@ -102,6 +117,7 @@ export function AuthModal({
               <Mail className="h-8 w-8 text-gold" strokeWidth={1.4} />
               <p className="text-sm text-muted-foreground leading-relaxed">{checkEmailMsg}</p>
             </div>
+            {checkEmailReason === "signup" && <WeeklyPracticeChoice />}
             <button
               type="button"
               onClick={() => reset("signin")}
@@ -113,7 +129,7 @@ export function AuthModal({
         )}
 
         {/* ── OAuth + form ── */}
-        {mode !== "check-email" && (
+        {mode !== "check-email" && mode !== "signup-ready" && (
           <div className="space-y-3">
             {/* Social buttons — hidden on forgot screen */}
             {mode !== "forgot" && (

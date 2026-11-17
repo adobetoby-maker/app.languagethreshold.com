@@ -1,0 +1,418 @@
+Correct the French→English Breakfast Master 2 candidate after a read-only critique. Output only JSON with keys cards and reader, each same object format {i,targetFrenchDraft}, exactly 23 and 18. Preserve every current source English/Spanish meaning, Seville/Triana/Ingrid/Rocío and the Spanish food names. Fix false equivalents and register, but be cautious with the critique: e.g. "degré de grillé" is not natural French; use a natural noun phrase for how toasted the bread is. Keep the menu words media and entera with clear French glosses, but do not overtranslate or invent a French equivalent. Use feminine/male-neutral narrator where source does not specify gender. For card 10 ensure the paprika detail appears only if the source gloss requires it; Reader line 13 explicitly requires it. Do not claim qualified review.
+
+INPUT:
+{
+  "cards": [
+    {
+      "i": 1,
+      "es": "la media",
+      "en": "the half (half-roll toast)",
+      "draft": "la media (tostada sur demi-petit pain)"
+    },
+    {
+      "i": 2,
+      "es": "la entera",
+      "en": "the whole (whole-roll toast)",
+      "draft": "la entera (tostada sur petit pain entier)"
+    },
+    {
+      "i": 3,
+      "es": "el mollete",
+      "en": "the mollete (soft flat roll)",
+      "draft": "le mollete (petit pain plat et moelleux)"
+    },
+    {
+      "i": 4,
+      "es": "el pan de viena",
+      "en": "the Vienna-style roll",
+      "draft": "le pan de viena (petit pain de type viennois)"
+    },
+    {
+      "i": 5,
+      "es": "el pitufo",
+      "en": "the small roll",
+      "draft": "le pitufo (petit pain)"
+    },
+    {
+      "i": 6,
+      "es": "el pan de la casa",
+      "en": "the house bread",
+      "draft": "le pan de la casa (pain de la maison)"
+    },
+    {
+      "i": 7,
+      "es": "el aceite de oliva",
+      "en": "the olive oil",
+      "draft": "l'huile d'olive"
+    },
+    {
+      "i": 8,
+      "es": "el tomate rallado",
+      "en": "the grated tomato",
+      "draft": "la tomate râpée"
+    },
+    {
+      "i": 9,
+      "es": "el jamón serrano",
+      "en": "the cured ham",
+      "draft": "le jamón serrano (jambon sec espagnol)"
+    },
+    {
+      "i": 10,
+      "es": "la manteca colorá",
+      "en": "the red pork-lard spread",
+      "draft": "la manteca colorá (tartinade rouge de saindoux de porc au paprika)"
+    },
+    {
+      "i": 11,
+      "es": "la zurrapa de lomo",
+      "en": "the pork loin in lard spread",
+      "draft": "la zurrapa de lomo (tartinade de longe de porc au saindoux)"
+    },
+    {
+      "i": 12,
+      "es": "la miga",
+      "en": "the soft inside of the bread",
+      "draft": "la mie moelleuse du pain"
+    },
+    {
+      "i": 13,
+      "es": "la corteza",
+      "en": "the crust",
+      "draft": "la croûte"
+    },
+    {
+      "i": 14,
+      "es": "el tueste",
+      "en": "the toasting (how toasted it is)",
+      "draft": "le grillage (le degré de grillage)"
+    },
+    {
+      "i": 15,
+      "es": "el salero",
+      "en": "the salt shaker",
+      "draft": "la salière"
+    },
+    {
+      "i": 16,
+      "es": "Aquí se pide media o entera, según el hambre que tengas.",
+      "en": "Here you order a half or a whole, depending on how hungry you are.",
+      "draft": "Ici, on commande une demie ou une entière, selon la faim qu'on a."
+    },
+    {
+      "i": 17,
+      "es": "Si pides mollete, el pan queda tierno por dentro.",
+      "en": "If you order a mollete, the bread stays soft inside.",
+      "draft": "Si on commande un mollete, le pain reste moelleux à l'intérieur."
+    },
+    {
+      "i": 18,
+      "es": "Si tienes mucha hambre, pide una entera.",
+      "en": "If you're really hungry, order a whole one.",
+      "draft": "Si on a très faim, on commande une entière."
+    },
+    {
+      "i": 19,
+      "es": "Si no comes cerdo, evita la manteca colorá y la zurrapa.",
+      "en": "If you don't eat pork, avoid the manteca colorá and the zurrapa.",
+      "draft": "Si on ne mange pas de porc, on évite la manteca colorá et la zurrapa."
+    },
+    {
+      "i": 20,
+      "es": "Perdone, ¿el pan de la casa es mollete o de viena?",
+      "en": "Excuse me, is the house bread a mollete or a Vienna roll?",
+      "draft": "« Excusez-moi, le pan de la casa (pain de la maison) est-il un mollete ou un pan de viena (petit pain de type viennois) ? »"
+    },
+    {
+      "i": 21,
+      "es": "Gracias por corregirme, no lo sabía.",
+      "en": "Thanks for correcting me, I didn't know that.",
+      "draft": "« Merci de m'avoir corrigé, je ne le savais pas. »"
+    },
+    {
+      "i": 22,
+      "es": "Para mí, media de tomate con aceite, por favor.",
+      "en": "For me, a half with tomato and oil, please.",
+      "draft": "« Pour moi, une demie avec tomate et huile, s'il vous plaît. »"
+    },
+    {
+      "i": 23,
+      "es": "¿Cómo se pide aquí si la quiero poco tostada?",
+      "en": "How do you order it here if I want it lightly toasted?",
+      "draft": "« Comment fait-on pour commander ici si je la veux peu grillée ? »"
+    }
+  ],
+  "reader": [
+    {
+      "i": 1,
+      "es": "Esta mañana, en un bar de tostadas de Triana, le explico a Ingrid cómo se piden las tostadas en Sevilla.",
+      "en": "This morning, at a tostada bar in Triana, I explain to Ingrid how tostadas are ordered in Seville.",
+      "draft": "Ce matin, dans un bar à tostadas (tartines grillées) de Triana, j'explique à Ingrid comment on commande les tostadas à Séville."
+    },
+    {
+      "i": 2,
+      "es": "Yo: Aquí se pide primero el pan y luego lo que lleva encima.",
+      "en": "Me: Here you order the bread first and then the topping.",
+      "draft": "Moi : « Ici, on commence par commander le pain, puis ce qui se met dessus. »"
+    },
+    {
+      "i": 3,
+      "es": "Yo: Aquí se pide media o entera, según el hambre que tengas.",
+      "en": "Me: Here you order a half or a whole, depending on how hungry you are.",
+      "draft": "Moi : « Ici, on commande une demie ou une entière, selon la faim que tu as. »"
+    },
+    {
+      "i": 4,
+      "es": "Yo: Si tienes mucha hambre, pide una entera.",
+      "en": "Me: If you're really hungry, order a whole one.",
+      "draft": "Moi : « Si tu as très faim, commande une entière. »"
+    },
+    {
+      "i": 5,
+      "es": "Yo: Si pides mollete, el pan queda tierno por dentro, porque tiene mucha miga.",
+      "en": "Me: If you order a mollete, the bread stays soft inside, because it has a lot of soft crumb.",
+      "draft": "Moi : « Si tu commandes un mollete (petit pain plat et moelleux), le pain reste moelleux à l'intérieur, parce qu'il a beaucoup de mie. »"
+    },
+    {
+      "i": 6,
+      "es": "Yo: El pan de viena tiene la corteza más fina y crujiente, y mucha gente lo prefiere por eso.",
+      "en": "Me: The Vienna roll has a thinner, crunchier crust, and a lot of people prefer it for that reason.",
+      "draft": "Moi : « Le pan de viena (petit pain de type viennois) a une croûte plus fine et plus croustillante, et beaucoup de gens le préfèrent pour cette raison. »"
+    },
+    {
+      "i": 7,
+      "es": "Yo: Si pides pitufo, te traen un pan más pequeño, perfecto para acompañar un café.",
+      "en": "Me: If you order a pitufo, they bring you a smaller roll, perfect to go with a coffee.",
+      "draft": "Moi : « Si tu commandes un pitufo (petit pain), on t'apporte un petit pain plus petit, parfait pour accompagner un café. »"
+    },
+    {
+      "i": 8,
+      "es": "Yo: Creo que el pan de la casa es mollete, pero voy a preguntar.",
+      "en": "Me: I think the house bread is a mollete, but I'm going to ask.",
+      "draft": "Moi : « Je crois que le pan de la casa (pain de la maison) est un mollete, mais je vais demander. »"
+    },
+    {
+      "i": 9,
+      "es": "Le digo a la dueña: Perdone, ¿el pan de la casa es mollete o de viena?",
+      "en": "I say to the owner: Excuse me, is the house bread a mollete or a Vienna roll?",
+      "draft": "Je dis à la propriétaire : « Excusez-moi, le pan de la casa est-il un mollete ou un pan de viena (petit pain de type viennois) ? »"
+    },
+    {
+      "i": 10,
+      "es": "Rocío: El pan de la casa es de viena, y el mollete se pide aparte.",
+      "en": "Rocío: The house bread is a Vienna roll, and the mollete is ordered separately.",
+      "draft": "Rocío : « Le pan de la casa est un pan de viena, et le mollete se commande à part. »"
+    },
+    {
+      "i": 11,
+      "es": "Yo: Gracias por corregirme, no lo sabía.",
+      "en": "Me: Thanks for correcting me, I didn't know that.",
+      "draft": "Moi : « Merci de m'avoir corrigé, je ne le savais pas. »"
+    },
+    {
+      "i": 12,
+      "es": "Luego le cuento a Ingrid que lo más típico es el tomate rallado con un buen chorro de aceite de oliva, porque es ligero y fresco.",
+      "en": "Then I tell Ingrid that the most typical choice is grated tomato with a good drizzle of olive oil, because it is light and fresh.",
+      "draft": "Ensuite, je dis à Ingrid que le choix le plus typique est la tomate râpée avec un bon filet d'huile d'olive, parce que c'est léger et frais."
+    },
+    {
+      "i": 13,
+      "es": "Yo: La manteca colorá es manteca de cerdo con pimentón, y la zurrapa de lomo lleva trocitos de lomo en manteca.",
+      "en": "Me: Manteca colorá is pork lard with paprika, and zurrapa de lomo has little pieces of pork loin in lard.",
+      "draft": "Moi : « La manteca colorá (tartinade rouge de saindoux de porc au paprika) est du saindoux de porc au paprika, et la zurrapa de lomo (tartinade de longe de porc au saindoux) contient de petits morceaux de longe de porc dans du saindoux. »"
+    },
+    {
+      "i": 14,
+      "es": "Ingrid me dice que no come cerdo, y le explico que el jamón serrano también es de cerdo.",
+      "en": "Ingrid tells me she doesn't eat pork, and I explain that cured ham is pork too.",
+      "draft": "Ingrid me dit qu'elle ne mange pas de porc, et j'explique que le jamón serrano (jambon sec espagnol) est aussi du porc."
+    },
+    {
+      "i": 15,
+      "es": "Yo: Si no comes cerdo, evita la manteca colorá y la zurrapa.",
+      "en": "Me: If you don't eat pork, avoid the manteca colorá and the zurrapa.",
+      "draft": "Moi : « Si tu ne manges pas de porc, évite la manteca colorá et la zurrapa. »"
+    },
+    {
+      "i": 16,
+      "es": "Ingrid: ¿Cómo se pide aquí si la quiero poco tostada?",
+      "en": "Ingrid: How do you order it here if I want it lightly toasted?",
+      "draft": "Ingrid : « Comment fait-on pour commander ici si je la veux peu grillée ? »"
+    },
+    {
+      "i": 17,
+      "es": "Rocío: Se pide con poco tueste, y se la sacamos más blandita.",
+      "en": "Rocío: You order it with light toasting, and we bring it out to you softer.",
+      "draft": "Rocío : « On commande avec un grillage léger, et on te la sert plus moelleuse. »"
+    },
+    {
+      "i": 18,
+      "es": "Al final, Ingrid pide media de tomate con aceite y poco tueste, y Rocío le deja el salero en la mesa.",
+      "en": "In the end, Ingrid orders a half with tomato and oil, lightly toasted, and Rocío leaves the salt shaker on the table for her.",
+      "draft": "À la fin, Ingrid commande une demie avec tomate et huile, peu grillée, et Rocío lui laisse la salière sur la table."
+    }
+  ],
+  "opusIssues": [
+    {
+      "scope": "card",
+      "i": 1,
+      "severity": "low",
+      "explanationEnglish": "'demi-petit pain' is unnatural French. The Spanish 'tostada' inside the French gloss also leaves the toast itself unexplained.",
+      "proposedFrench": "la media (tartine grillée sur un demi-pain)"
+    },
+    {
+      "scope": "card",
+      "i": 2,
+      "severity": "low",
+      "explanationEnglish": "Same structure as card 1. It should use a French gloss with a natural noun phrase.",
+      "proposedFrench": "la entera (tartine grillée sur un pain entier)"
+    },
+    {
+      "scope": "card",
+      "i": 4,
+      "severity": "medium",
+      "explanationEnglish": "False equivalent. French 'pain viennois' is a soft, milk-enriched bread. Reader 6 describes the Andalusian pan de viena as having a thin, crunchy crust, so 'de type viennois' points French readers to the wrong bread. Keep the Vienna reference without evoking pain viennois.",
+      "proposedFrench": "le pan de viena (petit pain dit « de Vienne »)"
+    },
+    {
+      "scope": "card",
+      "i": 10,
+      "severity": "low",
+      "explanationEnglish": "'saindoux de porc' is redundant, since saindoux is already pork fat. 'au paprika' adds a detail that is not in the English gloss. Pork can stay explicit with a more natural phrase.",
+      "proposedFrench": "la manteca colorá (saindoux de porc rouge à tartiner)"
+    },
+    {
+      "scope": "card",
+      "i": 12,
+      "severity": "low",
+      "explanationEnglish": "The adjective is merged into the headword. The target is the noun 'mie', and the English gloss is an explanation of it.",
+      "proposedFrench": "la mie (l'intérieur moelleux du pain)"
+    },
+    {
+      "scope": "card",
+      "i": 14,
+      "severity": "high",
+      "explanationEnglish": "False equivalent. In everyday French, 'grillage' means wire mesh or fencing. Its toasting sense is rare and reads oddly.",
+      "proposedFrench": "le degré de grillé (à quel point le pain est grillé)"
+    },
+    {
+      "scope": "card",
+      "i": 16,
+      "severity": "medium",
+      "explanationEnglish": "'une demie' / 'une entière' turns menu labels into generic French words. 'une demie' usually suggests a half-hour or a half-pint. Cards 1–2 teach media/entera as labels, so keep them. The phrasing is also more natural with 'selon qu'on a plus ou moins faim'.",
+      "proposedFrench": "Ici, on commande une media ou une entera, selon qu'on a plus ou moins faim."
+    },
+    {
+      "scope": "card",
+      "i": 17,
+      "severity": "low",
+      "explanationEnglish": "Perspective drift. The Spanish uses 'tú' ('pides'), and the reader version uses 'tu'. The card switches to generic 'on'.",
+      "proposedFrench": "Si tu commandes un mollete, le pain reste moelleux à l'intérieur."
+    },
+    {
+      "scope": "card",
+      "i": 18,
+      "severity": "medium",
+      "explanationEnglish": "The Spanish imperative 'pide' (direct advice) becomes a generic statement with 'on commande'. This changes the speech act and does not match reader 4. Keep the label 'entera'.",
+      "proposedFrench": "Si tu as très faim, commande une entera."
+    },
+    {
+      "scope": "card",
+      "i": 19,
+      "severity": "medium",
+      "explanationEnglish": "The imperative 'evita' becomes a generic 'on évite', which weakens the direct pork warning and does not match reader 15.",
+      "proposedFrench": "Si tu ne manges pas de porc, évite la manteca colorá et la zurrapa."
+    },
+    {
+      "scope": "card",
+      "i": 20,
+      "severity": "low",
+      "explanationEnglish": "The card uses guillemets and inline glosses, while cards 16–19 do not. The glosses also clutter a short question. 'o de viena' can stay elliptical, as in the Spanish.",
+      "proposedFrench": "Excusez-moi, le pan de la casa, c'est un mollete ou du pan de viena ?"
+    },
+    {
+      "scope": "card",
+      "i": 21,
+      "severity": "low",
+      "explanationEnglish": "'corrigé' assigns a masculine gender to an unspecified speaker, while the Spanish is gender-neutral. 'je ne le savais pas' is also stiffer than the usual 'je ne savais pas'.",
+      "proposedFrench": "Merci pour la correction, je ne savais pas."
+    },
+    {
+      "scope": "card",
+      "i": 22,
+      "severity": "medium",
+      "explanationEnglish": "'une demie' has the same label problem as card 16. 'avec tomate et huile' without articles is also clunky.",
+      "proposedFrench": "Pour moi, une media tomate-huile, s'il vous plaît."
+    },
+    {
+      "scope": "reader",
+      "i": 3,
+      "severity": "medium",
+      "explanationEnglish": "'une demie / une entière' has the same label problem as card 16.",
+      "proposedFrench": "Moi : « Ici, on commande une media ou une entera, selon la faim que tu as. »"
+    },
+    {
+      "scope": "reader",
+      "i": 4,
+      "severity": "low",
+      "explanationEnglish": "Keep the label 'entera' consistent with cards 2 and 18.",
+      "proposedFrench": "Moi : « Si tu as très faim, commande une entera. »"
+    },
+    {
+      "scope": "reader",
+      "i": 5,
+      "severity": "low",
+      "explanationEnglish": "The gloss 'moelleux' is immediately repeated by 'reste moelleux'. Drop the gloss here because the sentence itself explains the bread.",
+      "proposedFrench": "Moi : « Si tu commandes un mollete, le pain reste moelleux à l'intérieur, parce qu'il a beaucoup de mie. »"
+    },
+    {
+      "scope": "reader",
+      "i": 6,
+      "severity": "medium",
+      "explanationEnglish": "The gloss 'de type viennois' makes the same false equivalent as card 4. Here it also contradicts the 'thin, crunchy crust' described in the same sentence.",
+      "proposedFrench": "Moi : « Le pan de viena (petit pain dit « de Vienne ») a une croûte plus fine et plus croustillante, et beaucoup de gens le préfèrent pour ça. »"
+    },
+    {
+      "scope": "reader",
+      "i": 7,
+      "severity": "medium",
+      "explanationEnglish": "'un petit pain plus petit' is redundant and awkward after the gloss 'petit pain'.",
+      "proposedFrench": "Moi : « Si tu commandes un pitufo, on t'apporte un pain plus petit, parfait pour accompagner un café. »"
+    },
+    {
+      "scope": "reader",
+      "i": 11,
+      "severity": "low",
+      "explanationEnglish": "Same gender assumption as card 21. The narrator's gender is unspecified in the source.",
+      "proposedFrench": "Moi : « Merci pour la correction, je ne savais pas. »"
+    },
+    {
+      "scope": "reader",
+      "i": 13,
+      "severity": "medium",
+      "explanationEnglish": "The glosses duplicate the definitions that the sentence itself gives, as in 'manteca colorá (saindoux de porc au paprika) est du saindoux de porc au paprika'. Drop them. 'saindoux' alone already means pork fat, but keeping 'de porc' once is fine for the pork point.",
+      "proposedFrench": "Moi : « La manteca colorá, c'est du saindoux de porc au paprika, et la zurrapa de lomo contient de petits morceaux de longe de porc dans du saindoux. »"
+    },
+    {
+      "scope": "reader",
+      "i": 14,
+      "severity": "medium",
+      "explanationEnglish": "The indirect object is missing. Spanish 'le explico' means 'je lui explique', and bare 'j'explique' is incomplete in context.",
+      "proposedFrench": "Ingrid me dit qu'elle ne mange pas de porc, et je lui explique que le jamón serrano (jambon cru espagnol) est aussi du porc."
+    },
+    {
+      "scope": "reader",
+      "i": 17,
+      "severity": "high",
+      "explanationEnglish": "This line has three problems. (1) 'grillage léger' uses the same false equivalent as card 14. (2) 'On commande avec' has no object and is unnatural. (3) Register drift: Spanish 'se la sacamos' uses the usted/third-person 'se', and Rocío is serving a customer, but 'te' makes her informal.",
+      "proposedFrench": "Rocío : « Vous la demandez peu grillée, et on vous la sert plus moelleuse. »"
+    },
+    {
+      "scope": "reader",
+      "i": 18,
+      "severity": "medium",
+      "explanationEnglish": "'une demie' has the same label problem. 'avec tomate et huile' without articles is clunky.",
+      "proposedFrench": "À la fin, Ingrid commande une media tomate-huile, peu grillée, et Rocío lui laisse la salière sur la table."
+    }
+  ]
+}

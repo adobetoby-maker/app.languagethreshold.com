@@ -1,0 +1,216 @@
+You are authoring a French→English source-review candidate for Breakfast & Cafés Master lesson 2. Output a JSON object with keys cards and reader. cards must contain exactly 23 objects {i, targetFrenchDraft}; reader exactly 18 objects {i, targetFrenchDraft}. Every French face must convey the paired English exactly, preserving scene facts and proper names. This is a Spanish-set Seville/Triana tostada bar; do not relocate it to Lyon, replace mollete, pan de viena, pitufo, manteca colorá or zurrapa de lomo, or soften the pork statement. Preserve first-person narrator, Ingrid and Rocío dialogue, half/whole tostada order, food descriptions, light toasting and salt shaker. For distinctive Spanish food terms, retain the source term and add concise French explanation where useful; do not invent a French local equivalent. Use natural French with clear quoted speech. Do not add safety advice, qualified-review claims, audio or release flags. Return only JSON with no code fence.
+
+SOURCE JSON:
+{
+  "titleEnglish": "Explain Media or Entera at a Seville Tostada Bar",
+  "objectiveEnglish": "Explain how tostadas are ordered by bread type, size and topping, and why locals choose each one.",
+  "words": [
+    {
+      "i": 1,
+      "es": "la media",
+      "en": "the half (half-roll toast)"
+    },
+    {
+      "i": 2,
+      "es": "la entera",
+      "en": "the whole (whole-roll toast)"
+    },
+    {
+      "i": 3,
+      "es": "el mollete",
+      "en": "the mollete (soft flat roll)"
+    },
+    {
+      "i": 4,
+      "es": "el pan de viena",
+      "en": "the Vienna-style roll"
+    },
+    {
+      "i": 5,
+      "es": "el pitufo",
+      "en": "the small roll"
+    },
+    {
+      "i": 6,
+      "es": "el pan de la casa",
+      "en": "the house bread"
+    },
+    {
+      "i": 7,
+      "es": "el aceite de oliva",
+      "en": "the olive oil"
+    },
+    {
+      "i": 8,
+      "es": "el tomate rallado",
+      "en": "the grated tomato"
+    },
+    {
+      "i": 9,
+      "es": "el jamón serrano",
+      "en": "the cured ham"
+    },
+    {
+      "i": 10,
+      "es": "la manteca colorá",
+      "en": "the red pork-lard spread"
+    },
+    {
+      "i": 11,
+      "es": "la zurrapa de lomo",
+      "en": "the pork loin in lard spread"
+    },
+    {
+      "i": 12,
+      "es": "la miga",
+      "en": "the soft inside of the bread"
+    },
+    {
+      "i": 13,
+      "es": "la corteza",
+      "en": "the crust"
+    },
+    {
+      "i": 14,
+      "es": "el tueste",
+      "en": "the toasting (how toasted it is)"
+    },
+    {
+      "i": 15,
+      "es": "el salero",
+      "en": "the salt shaker"
+    },
+    {
+      "i": 16,
+      "es": "Aquí se pide media o entera, según el hambre que tengas.",
+      "en": "Here you order a half or a whole, depending on how hungry you are."
+    },
+    {
+      "i": 17,
+      "es": "Si pides mollete, el pan queda tierno por dentro.",
+      "en": "If you order a mollete, the bread stays soft inside."
+    },
+    {
+      "i": 18,
+      "es": "Si tienes mucha hambre, pide una entera.",
+      "en": "If you're really hungry, order a whole one."
+    },
+    {
+      "i": 19,
+      "es": "Si no comes cerdo, evita la manteca colorá y la zurrapa.",
+      "en": "If you don't eat pork, avoid the manteca colorá and the zurrapa."
+    },
+    {
+      "i": 20,
+      "es": "Perdone, ¿el pan de la casa es mollete o de viena?",
+      "en": "Excuse me, is the house bread a mollete or a Vienna roll?"
+    },
+    {
+      "i": 21,
+      "es": "Gracias por corregirme, no lo sabía.",
+      "en": "Thanks for correcting me, I didn't know that."
+    },
+    {
+      "i": 22,
+      "es": "Para mí, media de tomate con aceite, por favor.",
+      "en": "For me, a half with tomato and oil, please."
+    },
+    {
+      "i": 23,
+      "es": "¿Cómo se pide aquí si la quiero poco tostada?",
+      "en": "How do you order it here if I want it lightly toasted?"
+    }
+  ],
+  "reader": [
+    {
+      "i": 1,
+      "es": "Esta mañana, en un bar de tostadas de Triana, le explico a Ingrid cómo se piden las tostadas en Sevilla.",
+      "en": "This morning, at a tostada bar in Triana, I explain to Ingrid how tostadas are ordered in Seville."
+    },
+    {
+      "i": 2,
+      "es": "Yo: Aquí se pide primero el pan y luego lo que lleva encima.",
+      "en": "Me: Here you order the bread first and then the topping."
+    },
+    {
+      "i": 3,
+      "es": "Yo: Aquí se pide media o entera, según el hambre que tengas.",
+      "en": "Me: Here you order a half or a whole, depending on how hungry you are."
+    },
+    {
+      "i": 4,
+      "es": "Yo: Si tienes mucha hambre, pide una entera.",
+      "en": "Me: If you're really hungry, order a whole one."
+    },
+    {
+      "i": 5,
+      "es": "Yo: Si pides mollete, el pan queda tierno por dentro, porque tiene mucha miga.",
+      "en": "Me: If you order a mollete, the bread stays soft inside, because it has a lot of soft crumb."
+    },
+    {
+      "i": 6,
+      "es": "Yo: El pan de viena tiene la corteza más fina y crujiente, y mucha gente lo prefiere por eso.",
+      "en": "Me: The Vienna roll has a thinner, crunchier crust, and a lot of people prefer it for that reason."
+    },
+    {
+      "i": 7,
+      "es": "Yo: Si pides pitufo, te traen un pan más pequeño, perfecto para acompañar un café.",
+      "en": "Me: If you order a pitufo, they bring you a smaller roll, perfect to go with a coffee."
+    },
+    {
+      "i": 8,
+      "es": "Yo: Creo que el pan de la casa es mollete, pero voy a preguntar.",
+      "en": "Me: I think the house bread is a mollete, but I'm going to ask."
+    },
+    {
+      "i": 9,
+      "es": "Le digo a la dueña: Perdone, ¿el pan de la casa es mollete o de viena?",
+      "en": "I say to the owner: Excuse me, is the house bread a mollete or a Vienna roll?"
+    },
+    {
+      "i": 10,
+      "es": "Rocío: El pan de la casa es de viena, y el mollete se pide aparte.",
+      "en": "Rocío: The house bread is a Vienna roll, and the mollete is ordered separately."
+    },
+    {
+      "i": 11,
+      "es": "Yo: Gracias por corregirme, no lo sabía.",
+      "en": "Me: Thanks for correcting me, I didn't know that."
+    },
+    {
+      "i": 12,
+      "es": "Luego le cuento a Ingrid que lo más típico es el tomate rallado con un buen chorro de aceite de oliva, porque es ligero y fresco.",
+      "en": "Then I tell Ingrid that the most typical choice is grated tomato with a good drizzle of olive oil, because it is light and fresh."
+    },
+    {
+      "i": 13,
+      "es": "Yo: La manteca colorá es manteca de cerdo con pimentón, y la zurrapa de lomo lleva trocitos de lomo en manteca.",
+      "en": "Me: Manteca colorá is pork lard with paprika, and zurrapa de lomo has little pieces of pork loin in lard."
+    },
+    {
+      "i": 14,
+      "es": "Ingrid me dice que no come cerdo, y le explico que el jamón serrano también es de cerdo.",
+      "en": "Ingrid tells me she doesn't eat pork, and I explain that cured ham is pork too."
+    },
+    {
+      "i": 15,
+      "es": "Yo: Si no comes cerdo, evita la manteca colorá y la zurrapa.",
+      "en": "Me: If you don't eat pork, avoid the manteca colorá and the zurrapa."
+    },
+    {
+      "i": 16,
+      "es": "Ingrid: ¿Cómo se pide aquí si la quiero poco tostada?",
+      "en": "Ingrid: How do you order it here if I want it lightly toasted?"
+    },
+    {
+      "i": 17,
+      "es": "Rocío: Se pide con poco tueste, y se la sacamos más blandita.",
+      "en": "Rocío: You order it with light toasting, and we bring it out to you softer."
+    },
+    {
+      "i": 18,
+      "es": "Al final, Ingrid pide media de tomate con aceite y poco tueste, y Rocío le deja el salero en la mesa.",
+      "en": "In the end, Ingrid orders a half with tomato and oil, lightly toasted, and Rocío leaves the salt shaker on the table for her."
+    }
+  ]
+}

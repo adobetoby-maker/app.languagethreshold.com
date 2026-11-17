@@ -1,0 +1,49 @@
+{
+  "status": "Haiku 5.5 source-grounded candidate; Opus 5.5 read-only critique; Fable 5.2 targeted correction proposals; independent source self-check; qualified Japanese/clinical/locale/dictionary review remains open",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Candidate card and Reader authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "219814e3-6b0c-48ac-b92f-c7f6bb0c125d",
+      "mode": "Claude CLI --safe-mode --output-format json",
+      "terminalReason": "completed",
+      "isError": false,
+      "inputTokens": 2,
+      "outputTokens": 4080
+    },
+    {
+      "role": "Read-only source and linguistic critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "e1aeaefe-b85a-4248-9378-fc879488e75f",
+      "mode": "Claude CLI --safe-mode --output-format json",
+      "terminalReason": "completed",
+      "isError": false,
+      "inputTokens": 2,
+      "outputTokens": 3536
+    },
+    {
+      "role": "Targeted correction proposals",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "30a2b8b3-d4d1-411b-b4c3-b20f167e3085",
+      "mode": "Claude CLI --safe-mode --output-format json",
+      "terminalReason": "completed",
+      "isError": false,
+      "inputTokens": 2,
+      "outputTokens": 2888
+    }
+  ],
+  "opusCritiquePerformed": true,
+  "fableCorrectionPerformed": true,
+  "selfCheck": [
+    "Pinned all 16 card English/Spanish rows and eight Reader turns in exact current source order, including Oaxaca, server trip, hot-coffee spill on Ana arm, red skin, conditional doctor offer, breakfast-charge waiver and acceptance.",
+    "Accepted Opus/Fable corrections for kana やけど, natural quote order, conditional pain phrasing, breakfast-only waiver and careful arm drying; rejected Fable soft refusal because it dropped source not necessary.",
+    "Rejected archived running-water, tap and medical-service additions as absent from current source. No first-aid action or diagnosis was inserted.",
+    "Kept the source small burn as 小さなやけど; no unsupported mild-severity assertion. Retained clinical 皮膚 in the Reader while recording register for qualified review.",
+    "Kept isolated 染み and provisional accidental/apology expression visible as open dictionary and Japanese review questions; source English anchors are not independent back-translations.",
+    "Revision-scoped IDs preserve lesson identity but do not authorize saved-item migration or exact-text audio reuse; all gates remain false."
+  ]
+}

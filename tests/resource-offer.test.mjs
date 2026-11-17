@@ -836,3 +836,26 @@ test("Junior seven-day trial and zero-credit invoice preserve the code for exact
   );
   assert.equal(f.calls.filter((c) => c[0] === "invoice").length, 1);
 });
+
+test("Stripe coupon restrictions must be explicitly included on creation and subsequent reads", async () => {
+  const f = fixture(), originalCreate = f.stripe.coupons.create, originalRead = f.stripe.coupons.retrieve;
+  const observed = [];
+  f.stripe.coupons.create = async (input, options) => {
+    observed.push(["create", input.expand]);
+    const value = await originalCreate(input, options);
+    if (!input.expand?.includes("applies_to")) delete value.applies_to;
+    return value;
+  };
+  f.stripe.coupons.retrieve = async (id, params) => {
+    observed.push(["retrieve", params?.expand]);
+    const value = await originalRead(id);
+    if (!params?.expand?.includes("applies_to")) delete value.applies_to;
+    return value;
+  };
+  f.failOnce.add("issued");
+  await assert.rejects(f.service.claim(user));
+  await f.service.claim(user);
+  assert.ok(observed.some(([operation]) => operation === "create"));
+  assert.ok(observed.filter(([operation]) => operation === "retrieve").length >= 2);
+  assert.ok(observed.every(([,expand]) => expand?.includes("applies_to")));
+});

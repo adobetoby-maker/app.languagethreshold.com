@@ -261,7 +261,7 @@ export function resourceOfferService({
       .digest("hex");
     let value: Stripe.Coupon;
     try {
-      value = await call(() => stripe.coupons.retrieve(RESOURCE_OFFER_COUPON));
+      value = await call(() => stripe.coupons.retrieve(RESOURCE_OFFER_COUPON, { expand: ["applies_to"] }));
     } catch (e) {
       if (!(e instanceof Stripe.errors.StripeInvalidRequestError) || e.code !== "resource_missing")
         throw e;
@@ -269,6 +269,7 @@ export function resourceOfferService({
         stripe.coupons.create(
           {
             id: RESOURCE_OFFER_COUPON,
+            expand: ["applies_to"],
             percent_off: 10,
             duration: "once",
             applies_to: { products: expected },

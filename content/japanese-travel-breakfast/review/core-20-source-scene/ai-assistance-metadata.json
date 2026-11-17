@@ -1,0 +1,26 @@
+{
+  "status": "Source-grounded self-authored candidate after Claude CLI usage limit; qualified Japanese, hotel-billing, locale and dictionary review open",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Attempted source-order Japanese candidate authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": null,
+      "sessionId": "0d44609e-08f0-4da4-9216-a1de015fdfb4",
+      "mode": "Claude CLI --safe-mode --permission-mode plan --print --model haiku --output-format json",
+      "terminalReason": "weekly usage limit; resets Nov 21 at noon America/Denver",
+      "isError": true,
+      "modelUsage": {},
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUSD": 0
+    }
+  ],
+  "selfCheck": [
+    "Compared all 17 cards and eight Reader turns in order with the pinned current Spanish/English source; exact English source anchors are retained.",
+    "Restored the 36-dollar breakfast charge, phone confirmation email, booking inclusion, room-rate verification on the computer, charge removal, new receipt and payment of the corrected bill.",
+    "Kept bill, charge, receipt and breakfast-included Japanese expression choices as unapproved candidates with dictionary and locale questions visible.",
+    "All 25 candidate row IDs are revision-scoped; no archived row ID, saved-item mapping or audio approval is reused.",
+    "Independent validator checks hashes, exact source rows, stable lesson identity, false gates and read-only audio scope."
+  ]
+}

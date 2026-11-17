@@ -1,0 +1,557 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:20",
+  "stableLessonId": "travel-breakfast:20:ja-en",
+  "candidateRevision": "travel-breakfast:20:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Dispute an included-breakfast charge",
+    "objectiveEnglishInternal": "show what your booking promised, question the charge calmly, and agree on a corrected bill",
+    "roleplayEnglishInternal": "Your hotel bills you for breakfast your booking says is included; resolve it calmly with the front desk.",
+    "readerTitleSpanish": "Un cargo por el desayuno",
+    "readerVerbExamples": [
+      {
+        "target": "Antes de salir, reviso la cuenta en la recepción.",
+        "native": "Before leaving, I check the bill at the front desk."
+      },
+      {
+        "target": "Le muestro el correo de confirmación.",
+        "native": "I show him the confirmation email."
+      },
+      {
+        "target": "Mi reserva dice que el desayuno está incluido.",
+        "native": "My booking says breakfast is included."
+      },
+      {
+        "target": "Voy a quitar el cargo.",
+        "native": "I am going to remove the charge."
+      },
+      {
+        "target": "Pago la cuenta corregida.",
+        "native": "I pay the corrected bill."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "Sam notices a separate breakfast line on a hotel bill and shows the confirmation.",
+    "cardCount": 12,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "cuenta",
+      "sourceEnglish": "bill",
+      "kind": "term",
+      "sourceNoteInternal": "At a hotel you may also hear factura (invoice) or folio.",
+      "targetJapaneseDraft": "請求書",
+      "literalJapaneseGlossEn": "bill",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "recepción",
+      "sourceEnglish": "front desk",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ホテルのフロント",
+      "literalJapaneseGlossEn": "front desk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "recepcionista",
+      "sourceEnglish": "receptionist",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "フロント係",
+      "literalJapaneseGlossEn": "receptionist",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "cargo",
+      "sourceEnglish": "charge",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "請求項目",
+      "literalJapaneseGlossEn": "charge",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "reserva",
+      "sourceEnglish": "booking",
+      "kind": "term",
+      "sourceNoteInternal": "Also reservación in Mexico.",
+      "targetJapaneseDraft": "予約",
+      "literalJapaneseGlossEn": "booking",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "correo de confirmación",
+      "sourceEnglish": "confirmation email",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "予約確認メール",
+      "literalJapaneseGlossEn": "confirmation email",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "desayuno incluido",
+      "sourceEnglish": "breakfast included",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "朝食込み",
+      "literalJapaneseGlossEn": "breakfast included",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "tarifa",
+      "sourceEnglish": "rate",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "宿泊料金",
+      "literalJapaneseGlossEn": "rate",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "habitación",
+      "sourceEnglish": "room",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "客室",
+      "literalJapaneseGlossEn": "room",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "error",
+      "sourceEnglish": "mistake",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "誤り",
+      "literalJapaneseGlossEn": "mistake",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "recibo",
+      "sourceEnglish": "receipt",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "領収書",
+      "literalJapaneseGlossEn": "receipt",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "cuenta corregida",
+      "sourceEnglish": "corrected bill",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "訂正後の請求書",
+      "literalJapaneseGlossEn": "corrected bill",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "Creo que hay un error en la cuenta.",
+      "sourceEnglish": "I think there is a mistake on the bill.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Creo que (I think) makes this sound calm, not accusing.",
+      "targetJapaneseDraft": "請求書に誤りがあると思います。",
+      "literalJapaneseGlossEn": "I think there is a mistake on the bill.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "Mi reserva dice que el desayuno está incluido.",
+      "sourceEnglish": "My booking says breakfast is included.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "予約内容には朝食込みと書かれています。",
+      "literalJapaneseGlossEn": "My booking says breakfast is included.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "¿Me puede explicar este cargo?",
+      "sourceEnglish": "Can you explain this charge to me?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "この請求項目について説明していただけますか。",
+      "literalJapaneseGlossEn": "Can you explain this charge to me?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿Puede quitar el cargo, por favor?",
+      "sourceEnglish": "Can you remove the charge, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "この請求項目を取り消していただけますか。",
+      "literalJapaneseGlossEn": "Can you remove the charge, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "¿Me puede dar un recibo nuevo, por favor?",
+      "sourceEnglish": "Can you give me a new receipt, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "新しい領収書をいただけますか。",
+      "literalJapaneseGlossEn": "Can you give me a new receipt, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Antes de salir del hotel, reviso la cuenta en la recepción.",
+      "sourceEnglish": "Before leaving the hotel, I check the bill at the front desk.",
+      "targetJapaneseDraft": "ホテルを出る前に、フロントで請求書を確認します。",
+      "literalJapaneseGlossEn": "Before leaving the hotel, I check the bill at the front desk.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Veo un cargo de 36 dólares por el desayuno.",
+      "sourceEnglish": "I see a charge of 36 dollars for breakfast.",
+      "targetJapaneseDraft": "朝食代として36ドルの請求項目があります。",
+      "literalJapaneseGlossEn": "I see a charge of 36 dollars for breakfast.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Le digo al recepcionista con calma: Creo que hay un error en la cuenta.",
+      "sourceEnglish": "I calmly tell the receptionist: I think there is a mistake on the bill.",
+      "targetJapaneseDraft": "フロント係に落ち着いて「請求書に誤りがあると思います」と伝えます。",
+      "literalJapaneseGlossEn": "I calmly tell the receptionist: I think there is a mistake on the bill.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Primero le muestro el correo de confirmación en mi teléfono y digo: Mi reserva dice que el desayuno está incluido.",
+      "sourceEnglish": "First I show him the confirmation email on my phone and say: My booking says breakfast is included.",
+      "targetJapaneseDraft": "まず携帯電話で予約確認メールを見せて、「予約内容には朝食込みと書かれています」と言います。",
+      "literalJapaneseGlossEn": "First I show him the confirmation email on my phone and say: My booking says breakfast is included.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Él revisa la tarifa de mi habitación en la computadora.",
+      "sourceEnglish": "He checks my room rate on the computer.",
+      "targetJapaneseDraft": "フロント係はコンピューターで私の客室の宿泊料金を確認します。",
+      "literalJapaneseGlossEn": "He checks my room rate on the computer.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Después dice: Tiene razón, voy a quitar el cargo.",
+      "sourceEnglish": "Then he says: You are right, I am going to remove the charge.",
+      "targetJapaneseDraft": "それから「おっしゃるとおりです。この請求項目を取り消します」と言います。",
+      "literalJapaneseGlossEn": "Then he says: You are right, I am going to remove the charge.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Le pregunto: ¿Me puede dar un recibo nuevo, por favor?",
+      "sourceEnglish": "I ask him: Can you give me a new receipt, please?",
+      "targetJapaneseDraft": "「新しい領収書をいただけますか」と尋ねます。",
+      "literalJapaneseGlossEn": "I ask him: Can you give me a new receipt, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:20:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Al final, pago la cuenta corregida sin el desayuno.",
+      "sourceEnglish": "In the end, I pay the corrected bill without the breakfast.",
+      "targetJapaneseDraft": "最後に、朝食代を除いた訂正後の請求書の金額を支払います。",
+      "literalJapaneseGlossEn": "In the end, I pay the corrected bill without the breakfast.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Question an included-breakfast charge calmly, show the booking confirmation, wait for rate verification, then request a receipt and pay the corrected bill.",
+  "speakingGoalInternal": "Your hotel bills you for breakfast your booking says is included; resolve it calmly with the front desk.",
+  "sourceConflictInternal": "The current source is an eight-turn first-person hotel bill review: a 36-dollar breakfast charge, booking confirmation email on a phone, desk verification of room rate, charge removal, a new receipt, and payment of the corrected bill. The archived Sam dialogue omits or changes these details. Country and currency denomination beyond dollars are unspecified; qualified Japanese, hotel-billing and dictionary review remains open.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "reservation",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "booking confirmation email",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "breakfast included",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "room plan",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "itemized bill",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "charge",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "price",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "correction",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "receipt",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "please check",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "There seems to be a breakfast charge",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "Could I have a corrected bill?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Excuse me. I would like to check the bill.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "There seems to be a breakfast charge.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "I will check your booking details.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Here is my booking confirmation email. It says breakfast is included.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Thank you. I will check the room plan.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "I confirmed it. This plan does not charge separately for breakfast.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Could I have a corrected bill?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Yes. I will give you a new bill.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Thank you.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 1,
+      "candidatePosition": 5,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 2,
+      "candidatePosition": 6,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 9,
+      "candidatePosition": 11,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 25,
+    "twoVoiceClipDecisionsIfTextApproved": 50,
+    "twoVoiceSubmittedCharactersIfTextApproved": 762,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.02286,
+    "archivedExactJapaneseCardTextOverlapsOnly": 3,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Unapproved source-only Japanese candidate; no qualified Japanese, hotel-billing, locale or dictionary approval is claimed.",
+    "Current source has a first-person hotel bill review and exactly $36 breakfast charge; archived Sam dialogue differs in source order, bill/receipt outcome and payment, so saved positions and audio cannot transfer.",
+    "請求書, 明細, 領収書 and 請求項目 require hotel-context distinctions; the English source uses bill, charge and receipt, and Japanese expressions vary by document and jurisdiction.",
+    "朝食込み is one candidate for breakfast included in the booking. The archived 朝食付き and confirmation wording need qualified naturalness and dictionary review before selecting a learner face.",
+    "The source does not identify a country or local currency despite saying 36 dollars; do not infer Japanese hotel policies, currency conversion or tax treatment.",
+    "The source's final English 'without the breakfast' means the breakfast charge is absent from the corrected bill; the Japanese makes the omitted charge explicit. Qualified review should decide whether to correct the English anchor or retain the explanatory difference.",
+    "The source labels the receptionist masculine only in English pronouns; Japanese omits gender. No new person, location or verified legal entitlement is introduced.",
+    "Spanish verb examples and grammar notes are internal source anchors, not Japanese morphology teaching. Kanji readings, six authored activities, forms, speaking setup and contextual dictionary senses are missing.",
+    "The receptionist confirms the room rate before removing the charge; the draft does not assert an error before the desk's verification. The lesson teaches language for a calm question, not a hotel billing guarantee."
+  ],
+  "missing": [
+    "qualified Japanese/source/hotel-billing/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

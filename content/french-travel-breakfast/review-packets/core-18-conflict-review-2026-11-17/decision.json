@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "pair": "fr-en",
+  "lessonKey": "core:18",
+  "sourcePath": "public/lesson-content/es/travel-breakfast.json",
+  "sourceSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+  "existingPacketPath": "content/french-travel-breakfast/review-packets/core-18-20/core-18.json",
+  "existingPacketSha256": "4c0d02904b2fde327aa8a60ceec5a6b7c105419e6a5285bb588c87561e5e2895",
+  "status": "unselected-source-and-terminology-review",
+  "answerSelected": false,
+  "conflicts": [
+    {
+      "id": "severity-added-to-focus",
+      "anchorIds": ["core:18:word:7", "core:18:word:12", "core:18:line:2"],
+      "sourceSpanish": "Mi amiga tiene alergia a las nueces.",
+      "supportEnglish": "My friend is allergic to nuts.",
+      "existingFrenchFace": "Mon amie est allergique aux fruits à coque.",
+      "existingFocusFrenchDraft": "Signaler une allergie grave et demander comment les aliments et les ustensiles sont partagés.",
+      "issueInternal": "The current card and Reader name an allergy but give no severity grade. The archived focus adds grave. Do not promote that extra clinical claim from the focus into a learner answer or speaking objective.",
+      "alternativesNotSelected": [
+        {
+          "condition": "Preserve the current source's ungraded allergy statement.",
+          "french": "Signaler une allergie aux fruits à coque et demander comment les aliments et les ustensiles sont utilisés.",
+          "literalEnglishGloss": "State a tree-nut allergy and ask how food and utensils are used."
+        },
+        {
+          "condition": "Only if the source editor explicitly adds severity and a qualified clinical-language reviewer approves it.",
+          "french": "Signaler une allergie grave aux fruits à coque.",
+          "literalEnglishGloss": "State a severe tree-nut allergy."
+        }
+      ],
+      "reviewerDecision": "Decide whether this lesson teaches an ungraded nut allergy or a clinically severe allergy; align source objective, focus, speaking, cards and Reader before approval."
+    },
+    {
+      "id": "cross-contact-term",
+      "anchorIds": ["core:18:word:8", "core:18:line:7"],
+      "sourceSpanish": "contaminación cruzada",
+      "supportEnglish": "cross-contact",
+      "readerSourceSpanish": "Después dijo: Hay riesgo de contaminación cruzada en este mostrador.",
+      "readerSupportEnglish": "Then he said: There is a risk of cross-contact at this counter.",
+      "existingFrenchFace": "le contact croisé",
+      "alternativesNotSelected": [
+        {
+          "french": "le contact croisé",
+          "literalEnglishGloss": "cross-contact",
+          "condition": "If the qualified French food-allergy reviewer accepts this term for the intended locale and the English source concept."
+        },
+        {
+          "french": "la contamination croisée",
+          "literalEnglishGloss": "cross-contamination",
+          "condition": "If the source editor intends the Spanish literal concept and a qualified reviewer accepts the French wording in this context."
+        }
+      ],
+      "reviewerDecision": "Choose the French learner term and aligned Reader 7 phrase, preserving the barista's statement as an attributed risk rather than a verified safety assessment."
+    },
+    {
+      "id": "nuts-scope",
+      "anchorIds": ["core:18:word:6", "core:18:word:12", "core:18:line:2", "core:18:line:4", "core:18:line:6"],
+      "sourceSpanish": "nueces",
+      "supportEnglish": "nuts",
+      "readerContextSpanish": "El barista explicó: El pan con nueces está en la misma vitrina, y a veces usamos las mismas pinzas.",
+      "readerContextEnglish": "The barista explained: The bread with nuts is in the same display case, and sometimes we use the same tongs.",
+      "existingFrenchFace": "les fruits à coque",
+      "alternativesNotSelected": [
+        {
+          "french": "les fruits à coque",
+          "literalEnglishGloss": "tree nuts",
+          "condition": "If the source term is intended to include tree nuts such as the almond named later in Reader 6."
+        },
+        {
+          "french": "les noix",
+          "literalEnglishGloss": "walnuts or nuts, depending on context",
+          "condition": "Only if the qualified source/dictionary review narrows the intended ingredient; this may not carry the broader English nuts meaning."
+        }
+      ],
+      "reviewerDecision": "Set the source ingredient scope across card 6, card 12, Reader 2/4/6, speaking and dictionary. Decide separately whether peanuts are intended; do not insert them without a source edit."
+    }
+  ],
+  "releaseGates": {
+    "reviewed": false,
+    "learnerEnabled": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineEnabled": false,
+    "progressEnabled": false,
+    "v4Enabled": false
+  }
+}

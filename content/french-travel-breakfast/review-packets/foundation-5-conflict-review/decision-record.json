@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "pairKey": "French:English",
+  "track": "travel-breakfast",
+  "stage": "foundation",
+  "lessonNumber": 5,
+  "stableLessonKey": "foundation:5",
+  "reviewRevision": "travel-breakfast:foundation:5:fr-en:source-meaning-review-v1",
+  "status": "source-only alternatives for qualified review",
+  "selectedAnswer": null,
+  "source": {
+    "lessonPath": "src/data/core60/es/foundation-travel-breakfast.json",
+    "lessonSha256": "94621cca4158b76c69435f35eb1dfdc4893df553afaccb8a1963bdd9e6d80e79",
+    "existingPacketPath": "content/french-travel-breakfast/review-packets/foundation-5/owner-review-packet.json",
+    "existingPacketSha256": "76c5872564b21af5fadfd945e1db12fce59470da5163a50329e80f0549f92e59",
+    "sourceMainAtReview": "c32dd1915bc70998ce00fb38bfd265c13609bc18"
+  },
+  "row": {
+    "rowId": "foundation:5:word:15",
+    "kind": "phrase",
+    "position": 15,
+    "sourceSpanish": "¿Hacen huevos al gusto?",
+    "sourceEnglish": "Do you make eggs to order?",
+    "sourceNote": "Huevos al gusto: eggs cooked the way you like.",
+    "archivedFrenchCandidateUnapproved": "Est-ce que vous faites des œufs au choix ?",
+    "readerContainsThisQuestion": false,
+    "issueInternal": "The English wording can mean cooked when ordered; Spanish al gusto and its note specify cooking to the customer's preference. The archived French wording does not yet resolve that contrast.",
+    "alternativesNotSelected": [
+      {
+        "option": "preserve English made-on-request sense",
+        "french": "Préparez-vous les œufs à la demande ?",
+        "literalEnglishGloss": "Do you prepare the eggs on request?",
+        "sourceChangeNeeded": "A qualified source editor would need to revise the Spanish card and its note to express preparation on request rather than to preference."
+      },
+      {
+        "option": "preserve Spanish preparation-preference sense",
+        "french": "Est-ce que vous pouvez préparer les œufs comme je les aime ?",
+        "literalEnglishGloss": "Can you prepare the eggs the way I like them?",
+        "sourceChangeNeeded": "A qualified source editor would need to revise the English card to say that the eggs are cooked to the customer's preference."
+      }
+    ],
+    "qualifiedReviewQuestions": [
+      "Which concept should this card teach: made when ordered or cooked to the customer's preference?",
+      "Which source English/Spanish fields and dictionary sense must change together?",
+      "After the source decision, which natural French wording and register should appear on the card and in practice?"
+    ]
+  },
+  "otherOpenGap": "The archived Foundation 5 packet preserves Spanish verb paradigms but does not yet author full French counterparts.",
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

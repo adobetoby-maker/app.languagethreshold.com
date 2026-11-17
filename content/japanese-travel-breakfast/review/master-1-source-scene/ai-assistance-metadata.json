@@ -1,0 +1,52 @@
+{
+  "status": "Verified CLI draft/critique/correction, then independent source-grounded self-check; no qualified approval",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Safe-mode Haiku source authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "55742985-bda7-4cf2-a42e-e3259a3c97f1",
+      "terminalReason": "completed",
+      "isError": false,
+      "inputTokens": 2,
+      "cacheCreationInputTokens": 10350,
+      "cacheReadInputTokens": 11370,
+      "outputTokens": 9839,
+      "costUSD": 0.007103400000000001
+    },
+    {
+      "role": "Safe-mode Opus read-only critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "f6671b1a-9962-4fc1-87a4-ead3474ddd74",
+      "terminalReason": "completed",
+      "isError": false,
+      "inputTokens": 2,
+      "cacheCreationInputTokens": 14019,
+      "cacheReadInputTokens": 11254,
+      "outputTokens": 5666,
+      "costUSD": 0.2277308
+    },
+    {
+      "role": "Safe-mode Fable read-only correction",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "cbc15ead-f0a0-4787-8613-638550c8a347",
+      "terminalReason": "completed",
+      "isError": false,
+      "inputTokens": 2,
+      "cacheCreationInputTokens": 18115,
+      "cacheReadInputTokens": 11370,
+      "outputTokens": 8426,
+      "costUSD": 0.62917
+    }
+  ],
+  "selfCheck": [
+    "Compared all 22 card and 18 Reader exact source English anchors and Spanish rows in order; retained named people, Madrid/Lavapiés locale, 9 a.m. crowd and three-euro deal.",
+    "Accepted Opus counter-versus-Spanish-bar and speaker/register corrections; Fable aligned repeated card/Reader lines.",
+    "Manually used エスプレッソ for café solo, matching the source note and the Reader order; contextual Japanese/Spain café review remains open.",
+    "Retained Paco’s receipt under Thiago’s cup, pay-at-end sequence, card/cash alternatives, optional tip and Thiago’s teach-back.",
+    "Archived positions have no explicit row IDs and exact text overlap authorizes neither saved-item migration nor audio reuse. All review, learner, scoring, audio/listening, offline, progress, owner-route, V4 and release gates remain false."
+  ]
+}

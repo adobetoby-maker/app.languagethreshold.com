@@ -1,0 +1,776 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "master",
+  "lessonKey": "master:1",
+  "stableLessonId": "master-travel-breakfast:1:ja-en",
+  "candidateRevision": "master-travel-breakfast:1:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "curriculumVersion": 1,
+    "readerVersion": 1,
+    "curriculumReviewed": false,
+    "readerReviewed": false,
+    "titleEnglishInternal": "Teach a Friend How a Madrid Bar Breakfast Works",
+    "objectiveEnglishInternal": "Explain step by step how to order, eat and pay at a Madrid bar counter, then have a friend explain it back.",
+    "speakingEnglishInternal": "You are coaching the AI, Brazilian traveler Thiago, through a Madrid bar breakfast: explain ordering, eating and paying in order with primero, luego, después, porque and por eso, then ask him to explain the routine back to you.",
+    "lessonTypeInternal": "Teach-back",
+    "grammarInternal": {
+      "focus": "Connectors for sequence and cause (primero pides en la barra, luego te sirven, porque pagas al final, por eso guardas el tique)",
+      "examples": [
+        {
+          "es": "Primero pides en la barra y luego te sirven el café.",
+          "en": "First you order at the bar, and then they serve you the coffee."
+        },
+        {
+          "es": "Como hay mucho jaleo, primero buscas un hueco y después llamas al camarero.",
+          "en": "Since it's so busy, first you find a spot and then you call the waiter."
+        }
+      ]
+    },
+    "readerTitleSpanish": "El desayuno en la barra",
+    "readerVerbExamplesInternal": [
+      {
+        "target": "Primero buscas un hueco en la barra.",
+        "native": "First you find a spot at the bar."
+      },
+      {
+        "target": "Después le pides la cuenta al camarero.",
+        "native": "Afterwards you ask the waiter for the bill."
+      },
+      {
+        "target": "Ponme un café solo, por favor.",
+        "native": "I'll have a black coffee, please."
+      },
+      {
+        "target": "Paco sirve las porras enseguida.",
+        "native": "Paco serves the porras right away."
+      },
+      {
+        "target": "Pagas al final, por eso no tires el tique.",
+        "native": "You pay at the end, so don't throw away the receipt."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/master-1-3-draft.json",
+    "sha256": "84b7673fc72175428d48dbf211b41be75b7dac31320c7c82e708ab1c9803d224",
+    "scene": "A traveler coaches a friend through the routine posted at a particular café.",
+    "cardCount": 15,
+    "readerCount": 10
+  },
+  "sourceCards": [
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "el tique",
+      "sourceEnglish": "the receipt",
+      "kind": "term",
+      "sourceNoteInternal": "Spain; many bars also say el ticket.",
+      "targetJapaneseDraft": "レシート",
+      "literalJapaneseGlossEn": "the receipt",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "el hueco",
+      "sourceEnglish": "the gap (free spot at the bar)",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カウンターの空いている場所",
+      "literalJapaneseGlossEn": "the gap (free spot at the bar)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "el taburete",
+      "sourceEnglish": "the bar stool",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カウンター用のスツール",
+      "literalJapaneseGlossEn": "the bar stool",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "la pizarra",
+      "sourceEnglish": "the chalkboard menu",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "黒板のメニュー",
+      "literalJapaneseGlossEn": "the chalkboard menu",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "la oferta de desayuno",
+      "sourceEnglish": "the breakfast deal",
+      "kind": "term",
+      "sourceNoteInternal": "Usually coffee plus toast or pastry at one set price.",
+      "targetJapaneseDraft": "朝食セット",
+      "literalJapaneseGlossEn": "the breakfast deal",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "el café solo",
+      "sourceEnglish": "the black coffee (espresso)",
+      "kind": "term",
+      "sourceNoteInternal": "Spain: a short black coffee, like an espresso.",
+      "targetJapaneseDraft": "エスプレッソ（ブラック）",
+      "literalJapaneseGlossEn": "the black coffee (espresso)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "los churros",
+      "sourceEnglish": "the churros",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "チュロス",
+      "literalJapaneseGlossEn": "the churros",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "las porras",
+      "sourceEnglish": "the porras (thick churros)",
+      "kind": "term",
+      "sourceNoteInternal": "Thicker churros, a Madrid favorite.",
+      "targetJapaneseDraft": "ポラス（太めのチュロス）",
+      "literalJapaneseGlossEn": "the porras (thick churros)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "el pincho de tortilla",
+      "sourceEnglish": "the slice of Spanish omelette",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "スペイン風オムレツのひと切れ",
+      "literalJapaneseGlossEn": "the slice of Spanish omelette",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "el zumo de naranja natural",
+      "sourceEnglish": "the fresh-squeezed orange juice",
+      "kind": "term",
+      "sourceNoteInternal": "Spain says zumo; Latin America says jugo.",
+      "targetJapaneseDraft": "搾りたてのオレンジジュース",
+      "literalJapaneseGlossEn": "the fresh-squeezed orange juice",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "el datáfono",
+      "sourceEnglish": "the card reader",
+      "kind": "term",
+      "sourceNoteInternal": "Spain's word for the card terminal.",
+      "targetJapaneseDraft": "カード決済端末",
+      "literalJapaneseGlossEn": "the card reader",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "la vuelta",
+      "sourceEnglish": "the change (money back)",
+      "kind": "term",
+      "sourceNoteInternal": "Spain: ¿Me da la vuelta? means give me my change.",
+      "targetJapaneseDraft": "お釣り",
+      "literalJapaneseGlossEn": "the change (money back)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "el bote",
+      "sourceEnglish": "the tip jar",
+      "kind": "term",
+      "sourceNoteInternal": "In Spain, the jar for coins near the register.",
+      "targetJapaneseDraft": "チップ入れ",
+      "literalJapaneseGlossEn": "the tip jar",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "el jaleo",
+      "sourceEnglish": "the hustle and noise",
+      "kind": "term",
+      "sourceNoteInternal": "Informal.",
+      "targetJapaneseDraft": "ガヤガヤした騒がしさ",
+      "literalJapaneseGlossEn": "the hustle and noise",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "Primero buscas un hueco en la barra y luego pides.",
+      "sourceEnglish": "First you find a spot at the bar, and then you order.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal, to your friend.",
+      "targetJapaneseDraft": "まずカウンターの空いている場所を見つけて、それから注文するんだよ。",
+      "literalJapaneseGlossEn": "First you find a spot at the bar, and then you order.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "No esperes mesa, porque aquí casi todos desayunan de pie.",
+      "sourceEnglish": "Don't wait for a table, because almost everyone here eats breakfast standing up.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal.",
+      "targetJapaneseDraft": "テーブル席は待たないで。ここではほとんどの人が立ったまま朝食を食べるから。",
+      "literalJapaneseGlossEn": "Don't wait for a table, because almost everyone here eats breakfast standing up.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Pagas al final, por eso no tires el tique.",
+      "sourceEnglish": "You pay at the end, so don't throw away the receipt.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal.",
+      "targetJapaneseDraft": "支払いは最後だから、レシートは捨てないでね。",
+      "literalJapaneseGlossEn": "You pay at the end, so don't throw away the receipt.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "Un momento, por favor, que todavía está decidiendo.",
+      "sourceEnglish": "One moment, please, he's still deciding.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Here que means because; very common in spoken Spain Spanish.",
+      "targetJapaneseDraft": "ちょっと待ってください。彼はまだ決めているところなので。",
+      "literalJapaneseGlossEn": "One moment, please, he's still deciding.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:19",
+      "candidatePosition": 19,
+      "sourceSpanish": "Ponme un café solo y unas porras, por favor.",
+      "sourceEnglish": "I'll have a black coffee and some porras, please.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal; ponme is normal at Spanish bars, not rude.",
+      "targetJapaneseDraft": "エスプレッソとポラスをください。",
+      "literalJapaneseGlossEn": "I'll have a black coffee and some porras, please.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:20",
+      "candidatePosition": 20,
+      "sourceSpanish": "Después, cuando termines, le pides la cuenta al camarero.",
+      "sourceEnglish": "Afterwards, when you finish, you ask the waiter for the bill.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "そのあと、食べ終わったら、店員さんにお会計を頼むんだよ。",
+      "literalJapaneseGlossEn": "Afterwards, when you finish, you ask the waiter for the bill.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:21",
+      "candidatePosition": 21,
+      "sourceSpanish": "A ver, ahora explícamelo tú, paso a paso.",
+      "sourceEnglish": "Okay, now you explain it to me, step by step.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal.",
+      "targetJapaneseDraft": "じゃあ、今度はあなたが私に、順を追って説明してみて。",
+      "literalJapaneseGlossEn": "Okay, now you explain it to me, step by step.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:card:22",
+      "candidatePosition": 22,
+      "sourceSpanish": "¿Me cobras cuando puedas?",
+      "sourceEnglish": "Can you ring me up when you get a chance?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal; tú with bar staff is normal in Madrid.",
+      "targetJapaneseDraft": "手が空いたら、お会計お願いします。",
+      "literalJapaneseGlossEn": "Can you ring me up when you get a chance?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Emma y su amigo brasileño Thiago entran en un bar de Lavapiés para desayunar antes de pasear por el barrio.",
+      "sourceEnglish": "Emma and her Brazilian friend Thiago walk into a bar in Lavapiés to have breakfast before strolling around the neighborhood.",
+      "targetJapaneseDraft": "エマとブラジル人の友だちチアゴは、界隈を散歩する前に朝食をとろうと、ラバピエスのバルに入る。",
+      "literalJapaneseGlossEn": "Emma and her Brazilian friend Thiago walk into a bar in Lavapiés to have breakfast before strolling around the neighborhood.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Hay mucho jaleo, porque a las 9 medio barrio toma su café en la barra.",
+      "sourceEnglish": "It's really hectic, because at 9 half the neighborhood has its coffee at the bar.",
+      "targetJapaneseDraft": "店内はとてもガヤガヤしている。9時には、界隈の人の半分がカウンターでコーヒーを飲むからだ。",
+      "literalJapaneseGlossEn": "It's really hectic, because at 9 half the neighborhood has its coffee at the bar.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Emma: Primero buscas un hueco en la barra y luego pides.",
+      "sourceEnglish": "Emma: First you find a spot at the bar, and then you order.",
+      "targetJapaneseDraft": "エマ：まずカウンターの空いている場所を見つけて、それから注文するんだよ。",
+      "literalJapaneseGlossEn": "Emma: First you find a spot at the bar, and then you order.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Emma: No esperes mesa, porque aquí casi todos desayunan de pie.",
+      "sourceEnglish": "Emma: Don't wait for a table, because almost everyone here eats breakfast standing up.",
+      "targetJapaneseDraft": "エマ：テーブル席は待たないで。ここではほとんどの人が立ったまま朝食を食べるから。",
+      "literalJapaneseGlossEn": "Emma: Don't wait for a table, because almost everyone here eats breakfast standing up.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Thiago encuentra un hueco al final de la barra y deja su mochila en un taburete libre.",
+      "sourceEnglish": "Thiago finds a spot at the end of the bar and leaves his backpack on a free bar stool.",
+      "targetJapaneseDraft": "チアゴはカウンターの端に空いている場所を見つけ、空いていたスツールにリュックを置く。",
+      "literalJapaneseGlossEn": "Thiago finds a spot at the end of the bar and leaves his backpack on a free bar stool.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Emma: Antes de pedir, miras la pizarra, porque allí apuntan los precios del día.",
+      "sourceEnglish": "Emma: Before ordering, you look at the chalkboard menu, because that's where they write the day's prices.",
+      "targetJapaneseDraft": "エマ：注文する前に、黒板のメニューを見るんだよ。そこにその日の値段が書いてあるから。",
+      "literalJapaneseGlossEn": "Emma: Before ordering, you look at the chalkboard menu, because that's where they write the day's prices.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "La oferta de desayuno incluye un café y churros por 3 euros.",
+      "sourceEnglish": "The breakfast deal includes a coffee and churros for 3 euros.",
+      "targetJapaneseDraft": "朝食セットは、コーヒーとチュロスが付いて3ユーロだ。",
+      "literalJapaneseGlossEn": "The breakfast deal includes a coffee and churros for 3 euros.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "De repente Paco, el camarero, se planta delante de ellos y pregunta: ¿Qué les pongo?",
+      "sourceEnglish": "Suddenly Paco, the waiter, plants himself in front of them and asks: What can I get you?",
+      "targetJapaneseDraft": "突然、店員のパコが二人の真正面に立って、「ご注文は？」と聞く。",
+      "literalJapaneseGlossEn": "Suddenly Paco, the waiter, plants himself in front of them and asks: What can I get you?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Thiago se queda callado, así que Emma contesta: Un momento, por favor, que todavía está decidiendo.",
+      "sourceEnglish": "Thiago freezes, so Emma answers: One moment, please, he's still deciding.",
+      "targetJapaneseDraft": "チアゴは固まってしまい、そこでエマが答える。「ちょっと待ってください。彼はまだ決めているところなので。」",
+      "literalJapaneseGlossEn": "Thiago freezes, so Emma answers: One moment, please, he's still deciding.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:reader:10",
+      "candidatePosition": 10,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Después de mirar otra vez la pizarra, Thiago dice: Ponme un café solo y unas porras, por favor.",
+      "sourceEnglish": "After looking at the chalkboard again, Thiago says: I'll have a black coffee and some porras, please.",
+      "targetJapaneseDraft": "もう一度黒板を見てから、チアゴが言う。「エスプレッソとポラスをください。」",
+      "literalJapaneseGlossEn": "After looking at the chalkboard again, Thiago says: I'll have a black coffee and some porras, please.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:reader:11",
+      "candidatePosition": 11,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Emma pide un pincho de tortilla y un zumo de naranja natural, y Paco los sirve enseguida.",
+      "sourceEnglish": "Emma orders a slice of Spanish omelette and a fresh-squeezed orange juice, and Paco serves them right away.",
+      "targetJapaneseDraft": "エマはスペイン風オムレツのひと切れと搾りたてのオレンジジュースを注文し、パコはすぐにそれを出す。",
+      "literalJapaneseGlossEn": "Emma orders a slice of Spanish omelette and a fresh-squeezed orange juice, and Paco serves them right away.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:reader:12",
+      "candidatePosition": 12,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Cuando Paco deja los platos, también pone un tique pequeño debajo de la taza de Thiago.",
+      "sourceEnglish": "When Paco puts down the plates, he also puts a small receipt under Thiago's cup.",
+      "targetJapaneseDraft": "パコは皿を置くとき、チアゴのカップの下に小さなレシートも置く。",
+      "literalJapaneseGlossEn": "When Paco puts down the plates, he also puts a small receipt under Thiago's cup.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:reader:13",
+      "candidatePosition": 13,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Emma: Pagas al final, por eso no tires el tique.",
+      "sourceEnglish": "Emma: You pay at the end, so don't throw away the receipt.",
+      "targetJapaneseDraft": "エマ：支払いは最後だから、レシートは捨てないでね。",
+      "literalJapaneseGlossEn": "Emma: You pay at the end, so don't throw away the receipt.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:reader:14",
+      "candidatePosition": 14,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Emma: Después, cuando termines, le pides la cuenta al camarero.",
+      "sourceEnglish": "Emma: Afterwards, when you finish, you ask the waiter for the bill.",
+      "targetJapaneseDraft": "エマ：そのあと、食べ終わったら、店員さんにお会計を頼むんだよ。",
+      "literalJapaneseGlossEn": "Emma: Afterwards, when you finish, you ask the waiter for the bill.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:reader:15",
+      "candidatePosition": 15,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Emma: Si pagas con tarjeta, Paco te trae el datáfono, y si pagas en efectivo, te da la vuelta.",
+      "sourceEnglish": "Emma: If you pay by card, Paco brings you the card reader, and if you pay cash, he gives you your change.",
+      "targetJapaneseDraft": "エマ：カードで払うなら、パコがカード決済端末を持ってきてくれるし、現金で払うなら、お釣りをくれるよ。",
+      "literalJapaneseGlossEn": "Emma: If you pay by card, Paco brings you the card reader, and if you pay cash, he gives you your change.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:reader:16",
+      "candidatePosition": 16,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Emma: La propina no es obligatoria, pero si quieres, dejas unas monedas de la vuelta en el bote.",
+      "sourceEnglish": "Emma: Tipping isn't required, but if you want, you leave a few coins from your change in the tip jar.",
+      "targetJapaneseDraft": "エマ：チップは義務じゃないけど、よかったら、お釣りの小銭を何枚かチップ入れに入れるんだよ。",
+      "literalJapaneseGlossEn": "Emma: Tipping isn't required, but if you want, you leave a few coins from your change in the tip jar.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:reader:17",
+      "candidatePosition": 17,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Emma: A ver, ahora explícamelo tú, paso a paso.",
+      "sourceEnglish": "Emma: Okay, now you explain it to me, step by step.",
+      "targetJapaneseDraft": "エマ：じゃあ、今度はあなたが私に、順を追って説明してみて。",
+      "literalJapaneseGlossEn": "Emma: Okay, now you explain it to me, step by step.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:1:ja-en:source-scene-v1:reader:18",
+      "candidatePosition": 18,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Thiago: Primero busco un hueco y pido, después desayuno de pie y, como pago al final, guardo el tique.",
+      "sourceEnglish": "Thiago: First I find a spot and order, then I eat breakfast standing up, and since I pay at the end, I keep the receipt.",
+      "targetJapaneseDraft": "チアゴ：まず空いている場所を見つけて注文して、それから立ったまま朝食を食べる。そして、支払いは最後だから、レシートは取っておく。",
+      "literalJapaneseGlossEn": "Thiago: First I find a spot and order, then I eat breakfast standing up, and since I pay at the end, I keep the receipt.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Teach a friend the sequence of a Madrid bar breakfast at the counter, then ask for the teach-back.",
+  "speakingGoalInternal": "You are coaching the AI, Brazilian traveler Thiago, through a Madrid bar breakfast: explain ordering, eating and paying in order with primero, luego, después, porque and por eso, then ask him to explain the routine back to you.",
+  "speakingGoalJapaneseDraft": "マドリードのバルのカウンターで朝食を注文し、食べて、支払うまでの流れを、順を追って友だちに説明する。そのあと、友だちに同じ流れを説明し返してもらう。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "Current Spanish Master 1 has Emma and Brazilian Thiago at a crowded Lavapiés bar, 22 cards and 18 Reader turns; the archive has 15 cards and ten turns and is not a source-equivalent substitute. Current source includes 9 a.m. crowd, counter standing, chalkboard, three-euro deal, named foods and drinks, Paco's receipt under a cup, card/cash payment options, optional tip, and a full teach-back.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "first",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "next",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "finally",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "because",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "shop instructions",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "seat",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "order",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "payment",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "register",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "numbered ticket",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "menu",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "confirmation",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "First, we look at the shop instructions",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "Next, we order at the register",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 15,
+      "candidate": null,
+      "oldEnglish": "Finally, we pick it up when our number is called",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Let me explain this café’s breakfast routine.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Please do. Where do we start?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "First, check the sign at the entrance and see whether a seat is free.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Is ordering next?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Yes. At this café, we order and pay at the register first.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "You get a numbered ticket, so please do not lose it.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Where do we pick up the drink?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "When they call the number, we pick it up at the counter.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Now please explain the steps back to me.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "First I check the sign, next I order and pay at the register, and finally I pick it up by number.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 40,
+    "twoVoiceClipDecisionsIfTextApproved": 80,
+    "twoVoiceSubmittedCharactersIfTextApproved": 2094,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.06282,
+    "archivedExactJapaneseCardTextOverlapsOnly": 0,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Status: this is a correction proposal only. Nothing here is approved, no files were edited, and a native Japanese reviewer still needs to check it.",
+    "Accepted (bar vs counter): la barra is now カウンター in cards 2, 3 and 15 and reader rows 2, 3 and 5; the establishment (un bar de Lavapiés) is now バル in reader row 1 and the speaking goal. バー was dropped because it reads as a night-time drinking bar.",
+    "Accepted (card 2): el hueco is now カウンターの空いている場所, restoring the 'at the bar' part of the English anchor. Thiago's teach-back line keeps plain 空いている場所 because the source there says only 'un hueco'.",
+    "Accepted (reader row 2): the line is narration, so the Emma-like ending ～の was removed. ごちゃごちゃ (cluttered) was replaced with ガヤガヤ so it matches the jaleo card.",
+    "Partly accepted (el barrio): 近所 was replaced with 界隈, and the added 予定だ was removed by restructuring reader row 1 to follow 'antes de pasear'. The critique's reason that the characters are 'visitors' is not in the source and was not adopted. Its 住民 (residents) was also not used; 界隈の人の半分 keeps 'medio barrio' without adding that.",
+    "Accepted (card 18, reader row 9): 少々お待ちください is staff-to-customer register, so it became ちょっと待ってください. The subject 'he' is restored with 彼は. 決めている was kept over the critique's 選んでいる to stay close to 'está decidiendo'. The added 代わりに was removed.",
+    "Accepted (card 19, reader row 10): ブラックのエスプレッソ was redundant and did not match card 6. It is now ブラックコーヒー, matching the English anchor 'a black coffee'; card 6 keeps the （エスプレッソ） gloss. 'unas / some' is not rendered separately because いくつか is unnatural in a Japanese order. Reviewer may restore it.",
+    "Accepted (card 16, reader row 4): 待たなくていい (permission) became 待たないで (negative command), matching 'No esperes mesa'.",
+    "Accepted (card and reader consistency): each sentence card is now identical to its reader line minus the speaker tag. Emma's lines use the gender-neutral ～んだよ so the cards also work for any learner.",
+    "Accepted with a different fix (reader row 8): どっかと collocates with sitting, so it was removed. 真正面に立って is used instead of the critique's ぬっと立ち or 陣取り, which add eeriness or a sense of occupying a place that the source lacks. Some of the force of 'se planta' is lost; reviewer may pick a stronger verb.",
+    "Accepted (reader row 5, card 3): taburete is now スツール in both places, so the reader line reinforces the card.",
+    "Partly accepted (card 22): お願いできますか was lowered to お会計お願いします to reflect the informal tú. A fully plain form to staff would sound rude in Japanese, so light politeness is kept. This is a register adaptation, not a literal match.",
+    "Accepted (cards 21, reader row 17): 'to me' is restored with 私に, and 君 was replaced with あなた. 'A ver / Okay' is rendered じゃあ.",
+    "Partly accepted (card 13, reader row 16): びん reads as 'bottle', so チップ入れ is used. The critique's レジ横 was not added to the card because the location is only in the source note. The Japanese no longer says 'jar' explicitly; reviewer to confirm.",
+    "Accepted, needs verification (Thiago): チアゴ is the more common Japanese spelling for the Brazilian name, but ティアゴ is also in use.",
+    "Unverified transliterations: ポラス (porras), ラバピエス (Lavapiés), パコ, エマ. Check against a Japanese-Spanish dictionary or a Madrid food source.",
+    "Kept (el tique): レシート is kept to match the English anchor 'the receipt' and to keep the receipt-then-payment sequence intact (slip under the cup, keep it, ask for the bill, pay at the end). In Japanese, レシート usually implies a post-payment receipt; 伝票 fits an unpaid slip better. Changing it is a source-owner decision.",
+    "Kept (el camarero): rendered 店員 / 店員さん, which is natural at a counter. ウェイター is closer to the English 'waiter' if the reviewer prefers.",
+    "Kept (cuando termines): rendered 食べ終わったら. The source says only 'when you finish', so 'eating' is implied by context.",
+    "Kept (se queda callado): 固まってしまい follows the English anchor 'freezes'. The Spanish literally says he goes quiet.",
+    "Kept (porras vs churros): the deal on the chalkboard is coffee and churros for 3 euros (チュロス), while Thiago orders porras (ポラス). The two are kept distinct, as in the source. The source does not say whether his order falls under the deal.",
+    "Kept (card 5 note vs scene): the card note describes the usual deal as coffee plus toast or pastry, while the scene's deal is coffee and churros. The Japanese follows each as written.",
+    "Kept (tip optional): 'no es obligatoria' is rendered 義務じゃない, and 'si quieres' as よかったら, so no obligation is implied.",
+    "Not reflected: the Spanish-only source notes (el ticket, zumo vs jugo, ¿Me da la vuelta?, datáfono as Spain's word, que meaning because, ponme not rude) have no Japanese counterpart, since the output has no note field.",
+    "The source glosses café solo as a short black coffee like espresso. This draft uses エスプレッソ for the drink and retains the exact English source anchor; qualified Japanese/Spain café review must confirm presentation.",
+    "Source Reader 18 repeats the order/eat/pay/receipt sequence as a teach-back; six authored mode activities, speaking mission and contextual dictionary remain unbuilt."
+  ],
+  "missing": [
+    "qualified Japanese/source/Madrid café/food/locale/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "complete speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

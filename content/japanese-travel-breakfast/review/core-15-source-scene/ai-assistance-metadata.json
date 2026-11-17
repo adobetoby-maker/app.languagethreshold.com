@@ -1,0 +1,41 @@
+{
+  "status": "AI-assisted source-only candidate; qualified Japanese, source, food/locale and dictionary review remains open",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Exact source-card and Reader candidate authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "ca20ba61-56e4-4c37-b44c-12e07bf60c58",
+      "mode": "Claude CLI --safe-mode --model haiku --tools empty --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false
+    },
+    {
+      "role": "Read-only source and Japanese critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "ebca94f5-837f-4f8e-aef3-5b88efb1b9d8",
+      "mode": "Claude CLI --safe-mode --model opus --tools empty --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false
+    },
+    {
+      "role": "Read-only correction critique",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "a15b2902-1d70-4557-b947-6a965e462831",
+      "mode": "Claude CLI --safe-mode --model fable --effort low --tools empty --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false
+    }
+  ],
+  "selfCheck": [
+    "Compared all 16 cards and nine Reader turns in order to pinned current Spanish/English source.",
+    "Restored table near counter, americano, scrambled eggs and toast, direct dairy restriction, regular-milk mistake and replacement, small talk, generic museum, card payment and tip.",
+    "Corrected Haiku art-museum narrowing; Fable identified table/seat and museum ambiguity, reflected in draft text and internal review questions.",
+    "Source notes and kind fields are preserved from source, but Spanish grammar notes are not presented as Japanese teaching.",
+    "All 25 candidate row IDs are revision-scoped; no archived row ID, saved-item mapping or audio approval is reused.",
+    "Independent validator checks hashes, exact source rows, stable lesson identity, false gates and read-only audio scope."
+  ]
+}

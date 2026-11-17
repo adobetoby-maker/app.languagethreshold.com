@@ -1,0 +1,574 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:15",
+  "stableLessonId": "travel-breakfast:15:ja-en",
+  "candidateRevision": "travel-breakfast:15:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Breakfast midpoint review",
+    "objectiveEnglishInternal": "combine entering, ordering, a restriction, a correction, small talk, and payment from lessons 1–14 in one ordinary morning",
+    "roleplayEnglishInternal": "Handle a routine café breakfast from greeting to payment, including one small mix-up, without English.",
+    "readerTitleSpanish": "Una mañana en el café",
+    "readerVerbExamples": [
+      {
+        "target": "Pido huevos revueltos y pan tostado.",
+        "native": "I'm ordering scrambled eggs and toast."
+      },
+      {
+        "target": "¿Me trae la cuenta, por favor?",
+        "native": "Could you bring me the bill, please?"
+      },
+      {
+        "target": "¿Tienen leche de avena?",
+        "native": "Do you have oat milk?"
+      },
+      {
+        "target": "No puedo tomar lácteos.",
+        "native": "I can't have dairy."
+      },
+      {
+        "target": "Pago con tarjeta.",
+        "native": "I'm paying by card."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "Sam, who avoids dairy, checks a breakfast order and finds the drink was made with regular milk.",
+    "cardCount": 14,
+    "readerCount": 11
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "mesa",
+      "sourceEnglish": "table",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "テーブル",
+      "literalJapaneseGlossEn": "table",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "mostrador",
+      "sourceEnglish": "counter",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カウンター",
+      "literalJapaneseGlossEn": "counter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "mesera",
+      "sourceEnglish": "waitress",
+      "kind": "term",
+      "sourceNoteInternal": "A male server is mesero; in Spain you will hear camarero.",
+      "targetJapaneseDraft": "ウェイトレス",
+      "literalJapaneseGlossEn": "waitress",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "café americano",
+      "sourceEnglish": "americano",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アメリカーノ",
+      "literalJapaneseGlossEn": "americano",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "leche de avena",
+      "sourceEnglish": "oat milk",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "オーツミルク",
+      "literalJapaneseGlossEn": "oat milk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "lácteos",
+      "sourceEnglish": "dairy",
+      "kind": "term",
+      "sourceNoteInternal": "Usually plural: No tomo lácteos.",
+      "targetJapaneseDraft": "乳製品",
+      "literalJapaneseGlossEn": "dairy",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "huevos revueltos",
+      "sourceEnglish": "scrambled eggs",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "スクランブルエッグ",
+      "literalJapaneseGlossEn": "scrambled eggs",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "pan tostado",
+      "sourceEnglish": "toast",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "トースト",
+      "literalJapaneseGlossEn": "toast",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "cuenta",
+      "sourceEnglish": "bill",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "伝票",
+      "literalJapaneseGlossEn": "bill",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "propina",
+      "sourceEnglish": "tip",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "チップ",
+      "literalJapaneseGlossEn": "tip",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "¿Tiene una mesa para uno?",
+      "sourceEnglish": "Do you have a table for one?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "一人ですが、テーブル席はありますか？",
+      "literalJapaneseGlossEn": "Do you have a table for one?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "Quisiera un café americano, por favor.",
+      "sourceEnglish": "I'd like an americano, please.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Quisiera is softer and more polite than quiero.",
+      "targetJapaneseDraft": "アメリカーノをお願いします。",
+      "literalJapaneseGlossEn": "I'd like an americano, please.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "No puedo tomar lácteos.",
+      "sourceEnglish": "I can't have dairy.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "乳製品は口にできません。",
+      "literalJapaneseGlossEn": "I can't have dairy.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "Disculpe, pedí leche de avena.",
+      "sourceEnglish": "Excuse me, I ordered oat milk.",
+      "kind": "phrase",
+      "sourceNoteInternal": "A calm, polite way to point out a mix-up.",
+      "targetJapaneseDraft": "すみません、オーツミルクを頼んだのですが。",
+      "literalJapaneseGlossEn": "Excuse me, I ordered oat milk.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "¿Me trae la cuenta, por favor?",
+      "sourceEnglish": "Could you bring me the bill, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "伝票を持ってきていただけますか。",
+      "literalJapaneseGlossEn": "Could you bring me the bill, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿Puedo pagar con tarjeta?",
+      "sourceEnglish": "Can I pay by card?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カードで支払えますか？",
+      "literalJapaneseGlossEn": "Can I pay by card?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Primero, entré al café y le pregunté a la mesera: Buenos días, ¿tiene una mesa para uno?",
+      "sourceEnglish": "First, I walked into the café and asked the waitress: Good morning, do you have a table for one?",
+      "targetJapaneseDraft": "まず、カフェに入って、ウェイトレスに尋ねました。「おはようございます。一人ですが、テーブル席はありますか？」",
+      "literalJapaneseGlossEn": "First, I walked into the café and asked the waitress: Good morning, do you have a table for one?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ella me dio una mesa cerca del mostrador.",
+      "sourceEnglish": "She gave me a table near the counter.",
+      "targetJapaneseDraft": "彼女は私をカウンターの近くのテーブルに案内してくれました。",
+      "literalJapaneseGlossEn": "She gave me a table near the counter.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Luego pedí un café americano, huevos revueltos y pan tostado.",
+      "sourceEnglish": "Then I ordered an americano, scrambled eggs and toast.",
+      "targetJapaneseDraft": "それから、アメリカーノ、スクランブルエッグ、トーストを注文しました。",
+      "literalJapaneseGlossEn": "Then I ordered an americano, scrambled eggs and toast.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "También le dije: No puedo tomar lácteos, ¿tienen leche de avena?",
+      "sourceEnglish": "I also told her: I can't have dairy, do you have oat milk?",
+      "targetJapaneseDraft": "また、彼女にこう伝えました。「乳製品は口にできません。オーツミルクはありますか？」",
+      "literalJapaneseGlossEn": "I also told her: I can't have dairy, do you have oat milk?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Cuando llegó el café, tenía leche normal, y le dije: Disculpe, pedí leche de avena.",
+      "sourceEnglish": "When the coffee arrived, it had regular milk, and I told her: Excuse me, I ordered oat milk.",
+      "targetJapaneseDraft": "コーヒーが届いたとき、普通のミルクが入っていたので、「すみません、オーツミルクを頼んだのですが」と伝えました。",
+      "literalJapaneseGlossEn": "When the coffee arrived, it had regular milk, and I told her: Excuse me, I ordered oat milk.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "La mesera me cambió el café y me preguntó: ¿Es su primera vez en la ciudad?",
+      "sourceEnglish": "The waitress changed my coffee and asked me: Is this your first time in the city?",
+      "targetJapaneseDraft": "ウェイトレスはコーヒーを取り替えてくれて、「この街は初めてですか？」と尋ねました。",
+      "literalJapaneseGlossEn": "The waitress changed my coffee and asked me: Is this your first time in the city?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Le contesté: Sí, y después voy a visitar el museo.",
+      "sourceEnglish": "I answered: Yes, and afterward I'm going to visit the museum.",
+      "targetJapaneseDraft": "「はい。このあとミュージアムを訪れます」と答えました。",
+      "literalJapaneseGlossEn": "I answered: Yes, and afterward I'm going to visit the museum.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Al final pedí la cuenta y pagué con tarjeta.",
+      "sourceEnglish": "At the end I asked for the bill and paid by card.",
+      "targetJapaneseDraft": "最後に伝票をお願いし、カードで支払いました。",
+      "literalJapaneseGlossEn": "At the end I asked for the bill and paid by card.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:15:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "Antes de salir, dejé una propina para la mesera.",
+      "sourceEnglish": "Before leaving, I left a tip for the waitress.",
+      "targetJapaneseDraft": "店を出る前に、ウェイトレスにチップを残しました。",
+      "literalJapaneseGlossEn": "Before leaving, I left a tip for the waitress.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Handle a table, order, dairy restriction, corrected coffee, small talk, bill and tip in one scene.",
+  "speakingGoalInternal": "Handle a routine café breakfast from greeting to payment, including one small mix-up, without English.",
+  "sourceConflictInternal": "The current source is a first-person, nine-turn café account: table near counter, americano, eggs and toast, dairy restriction, a regular-milk mistake replaced with coffee, museum plan, card payment and tip. The archived Sam scene drops most of these details and ends with a toast-only bill. The source setting is unspecified; do not import a Japan-specific tipping or restaurant rule. Qualified source, Japanese, dairy and locale review remains open.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "I am alone",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "seat",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "order",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "dairy products",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "milk",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "oat milk",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "confirmation",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "different; wrong",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "I will not drink it",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "the bill",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "card",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "receipt",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "I avoid dairy",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "Please check ingredients and handling",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Good morning. I am alone. Is a seat available?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Yes, please come this way.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Coffee and toast, please. I avoid dairy.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Do you have oat milk?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Yes. Would you like it in your coffee?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Yes, please. Please confirm the order.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "The coffee is with oat milk.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Excuse me. This coffee appears to have regular milk. I will not drink it.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "I will check. Please wait a moment.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "Thank you. If it cannot be verified, I will not order a drink.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "The bill for the toast, please. Can I pay by card?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 4,
+      "candidatePosition": 6,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 6,
+      "candidatePosition": 5,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 25,
+    "twoVoiceClipDecisionsIfTextApproved": 50,
+    "twoVoiceSubmittedCharactersIfTextApproved": 934,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.02802,
+    "archivedExactJapaneseCardTextOverlapsOnly": 2,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Needs qualified Japanese review: ウェイトレス retains source mesera gender, while a general staff address and learner register remain undecided.",
+    "Needs qualified source and dictionary review: 伝票 for a bill document versus お会計 for the payment act; keep Card 9, Card 15 and Reader 8 aligned.",
+    "Needs qualified food review: 乳製品は口にできません states the dietary restriction without inventing an allergy diagnosis; confirm naturalness.",
+    "Needs qualified locale review: the source does not identify Japan; the tip is a story event, not a general local custom.",
+    "Needs qualified source review: テーブル席 preserves the table request naturally, while the exact table-versus-seat sense needs contextual review.",
+    "Needs qualified dictionary review: generic source museo is provisionally ミュージアム; do not narrow it to an art museum or a natural-history museum.",
+    "Needs qualified Japanese review: 普通のミルク contrasts with oat milk without specifying cow milk; check regional wording and the replacement line.",
+    "Needs qualified source review: source verbs are Spanish-only; Japanese forms and six authored modes need independent authoring."
+  ],
+  "missing": [
+    "qualified Japanese/source/food/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

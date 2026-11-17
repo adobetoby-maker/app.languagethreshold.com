@@ -1,0 +1,51 @@
+{
+  "status": "Haiku 5.5 candidate, Opus 5.5 read-only critique and Fable 5.2 correction, then source-grounded self-check; qualified review remains open",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Source-grounded Japanese candidate",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "cc3fec06-66ef-4f96-a9ae-29a81375c534",
+      "mode": "Claude CLI --safe-mode --model haiku --output-format json",
+      "stopReason": "end_turn",
+      "outputTokens": 9491,
+      "sourceOnly": true,
+      "qualifiedApproval": false,
+      "rawQualifiedApprovalClaim": null
+    },
+    {
+      "role": "Read-only source/Japanese critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "0e3934c0-b3be-4d5e-a809-ba5671361fd8",
+      "mode": "Claude CLI --safe-mode --model opus --output-format json",
+      "stopReason": "end_turn",
+      "outputTokens": 3882,
+      "sourceOnly": true,
+      "qualifiedApproval": false,
+      "rawQualifiedApprovalClaim": true
+    },
+    {
+      "role": "Read-only correction pass",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "a2d6f7b3-fcd9-45d5-8b53-1e6b2226553d",
+      "mode": "Claude CLI --safe-mode --model fable --output-format json",
+      "stopReason": "end_turn",
+      "outputTokens": 7070,
+      "sourceOnly": true,
+      "qualifiedApproval": false,
+      "rawQualifiedApprovalClaim": null
+    }
+  ],
+  "modelClaimCorrection": "Opus output incorrectly asserted qualifiedApproval:true. AI critique cannot grant qualified review; this claim and an invented-dialogue suggestion were rejected. All packet review and release gates remain false.",
+  "selfCheck": [
+    "Pinned all 16 current-source English/Spanish cards and eight Reader turns in order; preserved stable lesson ID and revision-scoped candidate row IDs.",
+    "Preserved Oaxaca, coffee/pan dulce, bill to table, narrator card offer because Lucía and Andrés showed city, friends guest insistence, Andrés cash handoff, reported conditional ten-percent tip, tip compromise and next-time invitation.",
+    "Changed restaurant bill use to contextual お会計 for payment and 伝票 for table slip; kept source English glosses unchanged and flagged senses for qualified dictionary review.",
+    "Kept ten-percent tip as Lucía and Andrés reported practice, not an Oaxaca-wide rule; rejected Opus invented dialogue and over-specific Japanese benefactive.",
+    "Kept archived register-vs-table and staff-check scene separate; no saved-item or audio migration, synthesis, learner/owner/progress/V4 import.",
+    "Independent validator checks source hashes, exact rows/order, scene anchors, stable identity, false gates and read-only audio scope."
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "status": "AI-assisted source-only candidate; qualified Japanese, source, food/locale and dictionary review remains open",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Exact source-card and Reader candidate authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "a8b876b3-1346-4517-8713-2d03d3bb61cc",
+      "mode": "Claude CLI --safe-mode --model haiku --output-format json --print",
+      "terminalReason": "completed",
+      "isError": false,
+      "note": "Returned a prose wrapper with an embedded 18-card/nine-turn JSON block. The block was extracted as a candidate, then edited against source and critiques."
+    },
+    {
+      "role": "Read-only source and Japanese critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "ed4ff9f5-6fbe-4925-b1b7-5be1323759f1",
+      "mode": "Claude CLI --safe-mode --model opus --output-format json --print",
+      "terminalReason": "completed",
+      "isError": false,
+      "note": "Flagged the wrong-direction honorific for the customer's own compliment, quotation and register issues, and missing plural we; corrected by source-grounded self-check."
+    },
+    {
+      "role": "Read-only correction critique",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "794c247f-9f08-40f8-a45e-21aa616f9e63",
+      "mode": "Claude CLI --safe-mode --model fable --output-format json --print",
+      "terminalReason": "completed",
+      "isError": false,
+      "note": "Flagged added meaning and literal-gloss mismatches in revised cards and Reader; corrected after this read-only critique."
+    }
+  ],
+  "selfCheck": [
+    "Compared all 18 cards and nine Reader turns to pinned current Spanish/English source in order; source text is retained separately from literal Japanese glosses.",
+    "Restored female traveler, male cook, strong aromatic coffee, pan dulce texture, eggs, grandmother recipe, future order, counter tip and staff thanks without importing the archived Sam scene.",
+    "Archived positions have no matching candidate IDs; exact text overlaps authorize neither saved-item nor audio migration.",
+    "Validated source SHA-256 pins, stable/revision IDs, false gates and read-only audio estimate independently; qualified review and six-mode/runtime/audio work remain open."
+  ]
+}

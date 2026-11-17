@@ -1,0 +1,11 @@
+# Japanese Breakfast Core 13 source review
+
+This inert Japanese→English packet pins the current Spanish Breakfast Core 13 source: 18 cards and nine aligned Reader turns. It preserves stage-local lesson ID `travel-breakfast:13:ja-en` and assigns revision-scoped candidate row IDs. Run `python3 build.py --check` and `python3 validate.py` in this directory to check source hashes, order, IDs, audio estimate and closed gates.
+
+The archived Japanese draft follows Sam thanking staff for generic coffee and pastry. The current source follows a female traveler praising a male cook after strong aromatic coffee, Mexican *pan dulce* soft inside and crunchy outside, creamy seasoned eggs, and the cook's grandmother's recipe. She says she will return for another sweet bread, leaves a tip on the counter, and thanks the staff. The candidate restores those scene facts. Literal English glosses of the Japanese are separate from the pinned source English because a Japanese paraphrase need not reproduce every English word.
+
+Qualified Japanese, Mexican-food and dictionary review remains open for the customer-to-cook compliment register, the descriptive *pan dulce* label, `接客` as service/attention, and the card's unnamed “another one” versus the Reader's bread referent. The tip is a source scene fact; this packet makes no general tipping claim about Japan. Spanish gender-form notes remain internal source context.
+
+The archived rows have no explicit IDs and were not learner-registered. Their positions are retired for this candidate only; two identical Japanese card strings do not authorize saved-item or audio migration. The candidate has no authored six-mode prompt/target pairs, Japanese forms, contextual dictionary senses, speaking runtime, offline pack, learner registration or V4 import. All review, scoring, audio/listening, progress, owner-route and release gates remain false.
+
+Read-only audio scope: 27 draft Japanese faces, 54 potential two-voice clip/listening decisions, 1,014 submitted Japanese characters and about $0.03042 gross at the earlier $30 per million-character rate. No recording was synthesized, approved or registered. Haiku 5.5 produced a draft JSON block inside a prose result, Opus 5.5 critiqued it, and Fable 5.2 checked the correction; actual CLI metadata is in `ai-assistance-metadata.json`. AI is not qualified approval.

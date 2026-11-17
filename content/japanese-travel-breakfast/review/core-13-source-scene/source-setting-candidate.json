@@ -1,0 +1,573 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:13",
+  "stableLessonId": "travel-breakfast:13:ja-en",
+  "candidateRevision": "travel-breakfast:13:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Compliment breakfast",
+    "objectiveEnglishInternal": "give a specific, natural compliment and thank the staff warmly",
+    "roleplayEnglishInternal": "Tell the cook why the pastry or coffee was memorable rather than only saying it was good.",
+    "readerTitleSpanish": "Gracias por el desayuno",
+    "readerVerbExamples": [
+      {
+        "target": "Felicito al cocinero por el desayuno.",
+        "native": "I compliment the cook on the breakfast."
+      },
+      {
+        "target": "Me encantan los huevos cremosos.",
+        "native": "I love creamy eggs."
+      },
+      {
+        "target": "Le agradezco mucho la atención.",
+        "native": "I am very grateful to you for the service."
+      },
+      {
+        "target": "Recomiendo este café a mis amigos.",
+        "native": "I recommend this coffee to my friends."
+      },
+      {
+        "target": "Si regreso mañana, pido otro.",
+        "native": "If I come back tomorrow, I'll order another one."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "After breakfast, Sam thanks café staff for a coffee and pastry.",
+    "cardCount": 12,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "desayuno",
+      "sourceEnglish": "breakfast",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "朝食",
+      "literalJapaneseGlossEn": "breakfast",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "café",
+      "sourceEnglish": "coffee",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "コーヒー",
+      "literalJapaneseGlossEn": "coffee",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "pan dulce",
+      "sourceEnglish": "sweet bread, pastry",
+      "kind": "term",
+      "sourceNoteInternal": "Common word for Mexican-style pastries.",
+      "targetJapaneseDraft": "メキシコ風の甘いパン",
+      "literalJapaneseGlossEn": "Mexican-style sweet bread",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "huevos",
+      "sourceEnglish": "eggs",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "卵",
+      "literalJapaneseGlossEn": "egg, eggs",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "aroma",
+      "sourceEnglish": "aroma, smell",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "香り",
+      "literalJapaneseGlossEn": "fragrance, aroma",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "receta",
+      "sourceEnglish": "recipe",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "レシピ",
+      "literalJapaneseGlossEn": "recipe",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "cocinero",
+      "sourceEnglish": "cook",
+      "kind": "term",
+      "sourceNoteInternal": "Use cocinera for a woman.",
+      "targetJapaneseDraft": "料理人",
+      "literalJapaneseGlossEn": "cook",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "mostrador",
+      "sourceEnglish": "counter",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カウンター",
+      "literalJapaneseGlossEn": "counter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "propina",
+      "sourceEnglish": "tip",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "チップ",
+      "literalJapaneseGlossEn": "tip",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "personal",
+      "sourceEnglish": "staff",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "スタッフ",
+      "literalJapaneseGlossEn": "staff",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "crujiente",
+      "sourceEnglish": "crunchy",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カリッとした",
+      "literalJapaneseGlossEn": "crisp, crunchy",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "atención",
+      "sourceEnglish": "service, attention",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "接客",
+      "literalJapaneseGlossEn": "serving customers, customer service",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "Quiero felicitarlo por el desayuno.",
+      "sourceEnglish": "I want to compliment you on the breakfast.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Use felicitarla for a woman.",
+      "targetJapaneseDraft": "朝食がすばらしかったとお伝えしたいです。",
+      "literalJapaneseGlossEn": "I want to tell you that the breakfast was wonderful.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "El café estaba delicioso, justo como me gusta.",
+      "sourceEnglish": "The coffee was delicious, just the way I like it.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "コーヒーはおいしくて、ちょうど私好みでした。",
+      "literalJapaneseGlossEn": "The coffee was delicious and exactly to my taste.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "Me encantó porque estaba muy suave.",
+      "sourceEnglish": "I loved it because it was very soft.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "とてもやわらかかったので、すごく気に入りました。",
+      "literalJapaneseGlossEn": "Because it was very soft, I liked it very much.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿Es una receta de la casa?",
+      "sourceEnglish": "Is it a house recipe?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "お店のレシピですか。",
+      "literalJapaneseGlossEn": "Is it the shop's recipe?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Muchas gracias por la atención.",
+      "sourceEnglish": "Thank you very much for the service.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "接客していただき、本当にありがとうございました。",
+      "literalJapaneseGlossEn": "Thank you very much for serving me.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "Si regreso mañana, voy a pedir otro.",
+      "sourceEnglish": "If I come back tomorrow, I'm going to order another one.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "明日また来たら、もう一つ注文します。",
+      "literalJapaneseGlossEn": "If I come again tomorrow, I will order one more.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Una viajera termina su desayuno en un café pequeño y quiere hablar con el cocinero.",
+      "sourceEnglish": "A traveler finishes her breakfast in a small café and wants to talk to the cook.",
+      "targetJapaneseDraft": "旅行者の女性は、小さなカフェで朝食を食べ終え、料理人と話したいと思っています。",
+      "literalJapaneseGlossEn": "A female traveler finishes her breakfast at a small café and wants to talk with the cook.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ella lo saluda y dice: Quiero felicitarlo por el desayuno.",
+      "sourceEnglish": "She greets him and says: I want to compliment you on the breakfast.",
+      "targetJapaneseDraft": "彼女は彼にあいさつをして言います。「朝食がすばらしかったとお伝えしたいです。」",
+      "literalJapaneseGlossEn": "She greets him and says: 'I want to tell you that the breakfast was wonderful.'",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "El café estaba muy fuerte y tenía un aroma delicioso, justo como me gusta.",
+      "sourceEnglish": "The coffee was very strong and had a delicious aroma, just the way I like it.",
+      "targetJapaneseDraft": "「コーヒーはとても濃くて、香りがすばらしく、ちょうど私好みでした。」",
+      "literalJapaneseGlossEn": "The coffee was very strong, its aroma was wonderful, and it was exactly to my taste.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "El pan dulce estaba suave por dentro y crujiente por fuera, y no era demasiado dulce.",
+      "sourceEnglish": "The sweet bread was soft inside and crunchy outside, and it wasn't too sweet.",
+      "targetJapaneseDraft": "「甘いパンは中はやわらかく、外はカリッとしていて、甘すぎませんでした。」",
+      "literalJapaneseGlossEn": "The sweet bread was soft inside, crisp outside, and not too sweet.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "También me encantaron los huevos, porque estaban cremosos y muy bien sazonados.",
+      "sourceEnglish": "I also loved the eggs, because they were creamy and very well seasoned.",
+      "targetJapaneseDraft": "「卵もクリーミーで味つけがとてもよかったので、すごく気に入りました。」",
+      "literalJapaneseGlossEn": "I also liked the eggs very much because they were creamy and very well seasoned.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "El cocinero sonríe y explica que el pan dulce es una receta de su abuela.",
+      "sourceEnglish": "The cook smiles and explains that the sweet bread is his grandmother's recipe.",
+      "targetJapaneseDraft": "料理人はにっこり笑って、その甘いパンは自分の祖母のレシピだと説明します。",
+      "literalJapaneseGlossEn": "The cook smiles and explains that the sweet bread is his grandmother's recipe.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "La viajera le dice: Si regreso mañana, voy a pedir otro de esos.",
+      "sourceEnglish": "The traveler tells him: If I come back tomorrow, I'm going to order another one of those.",
+      "targetJapaneseDraft": "旅行者は彼に言います。「明日また来たら、あのパンをもう一つ注文します。」",
+      "literalJapaneseGlossEn": "The traveler tells him: 'If I come again tomorrow, I will order one more of that bread.'",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Antes de salir, deja una propina en el mostrador y da las gracias al personal por la atención.",
+      "sourceEnglish": "Before leaving, she leaves a tip on the counter and thanks the staff for the service.",
+      "targetJapaneseDraft": "店を出る前に、彼女はカウンターにチップを置き、スタッフに接客のお礼を言います。",
+      "literalJapaneseGlossEn": "Before leaving the shop, she places a tip on the counter and thanks the staff for the service.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:13:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "El cocinero responde: Muchas gracias, nos alegra mucho que le haya gustado.",
+      "sourceEnglish": "The cook answers: Thank you very much, we're so glad you liked it.",
+      "targetJapaneseDraft": "料理人は答えます。「どうもありがとうございます。気に入っていただけて、私たちはとてもうれしいです。」",
+      "literalJapaneseGlossEn": "The cook answers: 'Thank you very much. We are very glad you liked it.'",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Give a specific compliment about the breakfast and thank the cook and staff.",
+  "speakingGoalInternal": "Tell the cook why the pastry or coffee was memorable rather than only saying it was good.",
+  "sourceConflictInternal": "The current source Reader follows a female traveler thanking a male cook after strong coffee, Mexican sweet bread, creamy seasoned eggs and a grandmother recipe, then leaving a tip on the counter. The archived Japanese draft instead follows Sam thanking staff for coffee and generic pastry and omits those source details.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "aroma",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "aromatic",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "crisp",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "soft and airy",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "sweetness",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "just right",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "baked pastry",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "coffee",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "It was delicious",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "Thank you very much",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "Please pass this on",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "I would like to return",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Thank you for the meal.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Thank you. How was it?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "The coffee had a wonderful aroma.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "This pastry was crisp outside and soft inside.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "I am glad you liked it.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "The sweetness was just right too.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Could you pass that on to the person who made it?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Yes, I will pass it on.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Thank you very much. I would like to come back.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 1,
+      "candidatePosition": 5,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 8,
+      "candidatePosition": 2,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 27,
+    "twoVoiceClipDecisionsIfTextApproved": 54,
+    "twoVoiceSubmittedCharactersIfTextApproved": 1014,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.03042,
+    "archivedExactJapaneseCardTextOverlapsOnly": 2,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "The source is a Mexican café scene. Keep pan dulce and the tip on the counter as scene facts; qualified Japanese and Mexican-food review should check メキシコ風の甘いパン as a descriptive label.",
+    "Card 13 and Reader 2 render a direct compliment as 朝食がすばらしかった; qualified Japanese review should decide the most natural customer-to-cook phrasing.",
+    "The term 接客 covers service in this café context but is narrower than all uses of Spanish atención; dictionary review should pin the sense.",
+    "Card 18 says another one without a referent, as the source card does; Reader 7 names the bread. Preserve this card/Reader difference until source review.",
+    "The source note felicitarlo/felicitarla is a Spanish gender contrast. It is internal source context, not a Japanese form rule.",
+    "Check whether the Japanese coffee description distinguishes the card's deliciousness from the Reader's strong aromatic coffee.",
+    "Check all 27 Japanese faces and literal glosses with a qualified Japanese reviewer before any audio or learner use."
+  ],
+  "missing": [
+    "qualified Japanese/source/food/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

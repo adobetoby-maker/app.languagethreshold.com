@@ -18,7 +18,7 @@ async function fixture(run) {
   try {
     await build({
       stdin: {
-        contents: `export {Route as platform} from '@/routes/api.platform';export {Route as users} from '@/routes/api.owner-users';export {Route as discounts} from '@/routes/api.owner-discounts';export {Route as checkout} from '@/routes/api.create-checkout';export {Route as customers} from '@/routes/api.owner-customers';export {Route as referral} from '@/routes/api.customer-referral';export {Route as unsubscribe} from '@/routes/api.customer-unsubscribe';`,
+        contents: `export {Route as marketing} from '@/routes/api.owner-marketing';export {Route as platform} from '@/routes/api.platform';export {Route as users} from '@/routes/api.owner-users';export {Route as discounts} from '@/routes/api.owner-discounts';export {Route as checkout} from '@/routes/api.create-checkout';export {Route as customers} from '@/routes/api.owner-customers';export {Route as referral} from '@/routes/api.customer-referral';export {Route as unsubscribe} from '@/routes/api.customer-unsubscribe';`,
         resolveDir: process.cwd(),
       },
       outfile: join(dir, "api.mjs"),
@@ -93,7 +93,7 @@ async function fixture(run) {
 }
 test("owner APIs deny guests, support and user-editable role claims before any directory or billing call", () =>
   fixture(async (api, c, req) => {
-    for (const route of [api.users, api.discounts, api.customers]) {
+    for (const route of [api.users, api.discounts, api.customers, api.marketing]) {
       c.calls = [];
       let r = await route.server.handlers.GET({
         request: req("/api/owner-users", undefined, false),

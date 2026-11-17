@@ -8,6 +8,7 @@ import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { assessmentCsv } from "@/lib/assessments/export";
 import { OwnerDownloadLeads } from "@/components/owner/OwnerDownloadLeads";
 import { OwnerCrm } from "@/components/owner/OwnerCrm";
+import { OwnerMarketing } from "@/components/owner/OwnerMarketing";
 import { OwnerAccounts } from "@/components/owner/OwnerAccounts";
 import { OwnerSupport } from "@/components/owner/OwnerSupport";
 import { OwnerDiscounts } from "@/components/owner/OwnerDiscounts";
@@ -489,6 +490,9 @@ function OwnedOwnerDashboard() {
             </OwnerTabPanel>
             <OwnerTabPanel id="email" active={tab === "email"}>
               <OwnerCrm />
+            </OwnerTabPanel>
+            <OwnerTabPanel id="marketing" active={tab === "marketing"}>
+              <OwnerMarketing />
             </OwnerTabPanel>
             <OwnerTabPanel id="companies" active={tab === "companies"}>
               {teamOrg && (

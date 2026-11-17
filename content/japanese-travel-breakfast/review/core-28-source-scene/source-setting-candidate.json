@@ -1,0 +1,596 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:28",
+  "stableLessonId": "travel-breakfast:28:ja-en",
+  "candidateRevision": "travel-breakfast:28:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Talk with a regular over coffee",
+    "objectiveEnglishInternal": "sustain a longer conversation about the neighborhood, work, and travel with follow-up questions",
+    "roleplayEnglishInternal": "A retired regular asks where you're from; keep the conversation going for several turns, ask follow-ups, and close politely.",
+    "readerTitleSpanish": "Un cafecito con don Ramón",
+    "readerVerbExamples": [
+      {
+        "target": "Don Ramón platica con todos en el café.",
+        "native": "Don Ramón chats with everyone at the café."
+      },
+      {
+        "target": "¿Hace cuánto tiempo vive en este barrio?",
+        "native": "How long have you lived in this neighborhood?"
+      },
+      {
+        "target": "Me cuenta que era maestro en la escuela de la plaza.",
+        "native": "He tells me that he was a teacher at the school on the plaza."
+      },
+      {
+        "target": "¿Qué me recomienda visitar por aquí?",
+        "native": "What do you recommend I visit around here?"
+      },
+      {
+        "target": "¿Y usted a qué se dedica?",
+        "native": "And what do you do for a living?"
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "A café regular starts a friendly conversation with a traveler at a shared table.",
+    "cardCount": 15,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "jubilado",
+      "sourceEnglish": "retiree",
+      "kind": "term",
+      "sourceNoteInternal": "Use jubilada for a woman.",
+      "targetJapaneseDraft": "退職者",
+      "literalJapaneseGlossEn": "retiree",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "vecino",
+      "sourceEnglish": "neighbor",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "近所の人",
+      "literalJapaneseGlossEn": "neighbor",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "barrio",
+      "sourceEnglish": "neighborhood",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "近所",
+      "literalJapaneseGlossEn": "neighborhood",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "cafecito",
+      "sourceEnglish": "coffee",
+      "kind": "term",
+      "sourceNoteInternal": "Friendly, affectionate form of café, very common in Mexico.",
+      "targetJapaneseDraft": "コーヒー",
+      "literalJapaneseGlossEn": "coffee",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "mesa",
+      "sourceEnglish": "table",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "テーブル",
+      "literalJapaneseGlossEn": "table",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "viaje",
+      "sourceEnglish": "trip",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "旅行",
+      "literalJapaneseGlossEn": "trip",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "plaza",
+      "sourceEnglish": "town square",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "広場",
+      "literalJapaneseGlossEn": "town square",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "trabajo",
+      "sourceEnglish": "work",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "仕事",
+      "literalJapaneseGlossEn": "work",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "mercado",
+      "sourceEnglish": "market",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "市場",
+      "literalJapaneseGlossEn": "market",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "pan dulce",
+      "sourceEnglish": "Mexican sweet bread",
+      "kind": "term",
+      "sourceNoteInternal": "Pan dulce means the sweet pastries sold at Mexican bakeries.",
+      "targetJapaneseDraft": "メキシコの菓子パン（パン・ドゥルセ）",
+      "literalJapaneseGlossEn": "Mexican sweet bread",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "museo",
+      "sourceEnglish": "museum",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "博物館",
+      "literalJapaneseGlossEn": "museum",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "cuenta",
+      "sourceEnglish": "bill",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "会計",
+      "literalJapaneseGlossEn": "bill",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "Estoy aquí de viaje por dos semanas.",
+      "sourceEnglish": "I'm here traveling for two weeks.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "私は2週間の旅行でここに来ています。",
+      "literalJapaneseGlossEn": "I'm here traveling for two weeks.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Hace cuánto tiempo vive en este barrio?",
+      "sourceEnglish": "How long have you lived in this neighborhood?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Use usted with an older person you just met.",
+      "targetJapaneseDraft": "この近所にはどのくらい住んでいらっしゃいますか？",
+      "literalJapaneseGlossEn": "How long have you lived in this neighborhood?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "¿Y usted a qué se dedica?",
+      "sourceEnglish": "And what do you do for a living?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "それで、お仕事は何をされていますか？",
+      "literalJapaneseGlossEn": "And what do you do for a living?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿De veras? Cuénteme más.",
+      "sourceEnglish": "Really? Tell me more.",
+      "kind": "phrase",
+      "sourceNoteInternal": "An easy follow-up that keeps the conversation going.",
+      "targetJapaneseDraft": "本当ですか？もっと聞かせてください。",
+      "literalJapaneseGlossEn": "Really? Tell me more.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "¿Qué me recomienda visitar por aquí?",
+      "sourceEnglish": "What do you recommend I visit around here?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "この辺りで、どこを訪ねるのがおすすめですか？",
+      "literalJapaneseGlossEn": "What do you recommend I visit around here?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "Fue un placer platicar con usted.",
+      "sourceEnglish": "It was a pleasure chatting with you.",
+      "kind": "phrase",
+      "sourceNoteInternal": "A polite way to end the conversation.",
+      "targetJapaneseDraft": "お話しできて楽しかったです。",
+      "literalJapaneseGlossEn": "It was a pleasure chatting with you.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Cada mañana, don Ramón, un jubilado y vecino del barrio, toma su cafecito en la misma mesa.",
+      "sourceEnglish": "Every morning, Don Ramón, a retiree and neighbor from the neighborhood, has his coffee at the same table.",
+      "targetJapaneseDraft": "毎朝、退職者で近所の人でもあるドン・ラモンは、いつも同じテーブルでコーヒーを飲みます。",
+      "literalJapaneseGlossEn": "Every morning, Don Ramón, a retiree and neighbor from the neighborhood, has his coffee at the same table.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Hoy me pregunta de dónde soy, y le digo: Soy de Canadá y estoy aquí de viaje por dos semanas.",
+      "sourceEnglish": "Today he asks me where I'm from, and I tell him: I'm from Canada and I'm here traveling for two weeks.",
+      "targetJapaneseDraft": "今日、彼は私にどこの出身かと尋ね、私は彼に言います。「カナダ出身です。2週間の旅行でここに来ています。」",
+      "literalJapaneseGlossEn": "Today he asks me where I'm from, and I tell him: I'm from Canada and I'm here traveling for two weeks.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Luego le pregunto: ¿Hace cuánto tiempo vive en este barrio?",
+      "sourceEnglish": "Then I ask him: How long have you lived in this neighborhood?",
+      "targetJapaneseDraft": "それから私は彼に尋ねます。「この近所にはどのくらい住んでいらっしゃいますか？」",
+      "literalJapaneseGlossEn": "Then I ask him: How long have you lived in this neighborhood?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Me cuenta que vive aquí desde hace 40 años y que era maestro en la escuela de la plaza.",
+      "sourceEnglish": "He tells me that he has lived here for 40 years and that he was a teacher at the school on the plaza.",
+      "targetJapaneseDraft": "彼は私に、ここに40年住んでいること、そして広場の学校で教師をしていたことを話してくれます。",
+      "literalJapaneseGlossEn": "He tells me that he has lived here for 40 years and that he was a teacher at the school on the plaza.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Como me interesa su trabajo, le digo: ¿De veras? Cuénteme más.",
+      "sourceEnglish": "Since his work interests me, I say: Really? Tell me more.",
+      "targetJapaneseDraft": "彼の仕事に興味があるので、私は言います。「本当ですか？もっと聞かせてください。」",
+      "literalJapaneseGlossEn": "Since his work interests me, I say: Really? Tell me more.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Después me habla del mercado, porque los sábados venden pan dulce muy bueno.",
+      "sourceEnglish": "Then he talks to me about the market, because on Saturdays they sell very good pan dulce.",
+      "targetJapaneseDraft": "それから彼は市場のことを話してくれます。土曜日には、とてもおいしいパン・ドゥルセが売られているからです。",
+      "literalJapaneseGlossEn": "Then he talks to me about the market, because on Saturdays they sell very good pan dulce.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Cuando le pregunto qué me recomienda, dice que si tengo tiempo, debo visitar el museo del centro.",
+      "sourceEnglish": "When I ask him what he recommends, he says that if I have time, I should visit the downtown museum.",
+      "targetJapaneseDraft": "何がおすすめかと尋ねると、彼は、時間があれば中心部の博物館に行くといいと言います。",
+      "literalJapaneseGlossEn": "When I ask him what he recommends, he says that if I have time, I should visit the downtown museum.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:28:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Antes de irme, pago la cuenta y le digo: Fue un placer platicar con usted.",
+      "sourceEnglish": "Before I leave, I pay the bill and tell him: It was a pleasure chatting with you.",
+      "targetJapaneseDraft": "帰る前に、私は会計を済ませ、彼に言います。「お話しできて楽しかったです。」",
+      "literalJapaneseGlossEn": "Before I leave, I pay the bill and tell him: It was a pleasure chatting with you.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Sustain a polite conversation with a retired café regular about travel, the neighborhood, former work and a local recommendation.",
+  "speakingGoalInternal": "A retired regular asks where you're from; keep the conversation going for several turns, ask follow-ups, and close politely.",
+  "speakingGoalJapaneseDraft": "カフェの常連であるドン・ラモンと話します。出身地と滞在期間を答え、近所や以前の仕事について質問し、おすすめを聞いて、丁寧に会話を終えてください。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "The current eight-turn source is a first-person café conversation with retired neighborhood resident Don Ramón: traveler from Canada for two weeks, his forty years in the neighborhood and former teaching at the plaza school, Saturday pan dulce market, downtown museum recommendation, bill payment and polite close. The archived nine-turn dialogue substitutes a generic regular/traveler scene and invents a park, station and early-closing market. The source card asking what he does for a living has no Reader turn; do not invent one. Qualified Japanese, Mexican food, locale and dictionary review remains open.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "regular customer",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "neighborhood",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "travel",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "town",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "market",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "park",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "work",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "recommendation",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "conversation",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "Excuse me; I will be going",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "this area",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "a little more",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "Have you lived in this area long?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "Is there a place you recommend?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 15,
+      "candidate": null,
+      "oldEnglish": "It was nice talking with you",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Hello. Are you here on a trip?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Yes. I am exploring this town this week.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Have you lived in this area long?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Yes, for about twenty years.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "I see. What do you like about this neighborhood?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "The morning market is lively.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Really? Please tell me a little more.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "It is near the station. It closes early today, so check the hours.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Thank you. It was nice talking with you. I should be going now.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 2,
+      "candidatePosition": 3,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 3,
+      "candidatePosition": 6,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 5,
+      "candidatePosition": 9,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 7,
+      "candidatePosition": 8,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 26,
+    "twoVoiceClipDecisionsIfTextApproved": 52,
+    "twoVoiceSubmittedCharactersIfTextApproved": 1024,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.03072,
+    "archivedExactJapaneseCardTextOverlapsOnly": 4,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Current source is a first-person narrative with Don Ramón, Canada, two weeks, forty years and the plaza school. Archived generic two-person dialogue changes the scene and is reference-only.",
+    "Source card cafecito is affectionate Mexican coffee wording; neutral Japanese コーヒー loses its diminutive. Qualified locale/dictionary reviewer should choose whether to preserve it in a note, without treating Spanish morphology as Japanese grammar.",
+    "Pan dulce is Mexican bakery sweet bread; メキシコの菓子パン（パン・ドゥルセ） identifies the food but food/locale review remains open.",
+    "The source card And what do you do for a living? is in the card list but not in the eight-turn Reader. Preserve the card without inventing a Reader conversation turn.",
+    "Town square/plaza is 広場; whether 町の広場 is preferred needs qualified review. Downtown museum is 中心部の博物館, not a new named venue.",
+    "The source Reader says Don Ramón was a teacher, but the card work is generic. The Japanese Reader keeps the past-tense teacher fact.",
+    "Retiree, neighbor, older-person register, direct Japanese speech, and polite closing require qualified Japanese review. The source does not require asking private details beyond the authored questions.",
+    "This is unapproved source-only draft; six authored modes, forms, speaking, contextual dictionary, saved-item policy, exact-text audio and distinct listening remain open.",
+    "Opus flagged 市場 reading ambiguity; the physical-market reading いちば must be pinned for eventual furigana and TTS, but this inert packet has no reading field. Fable agreed the issue belongs in review rather than silently changing the face.",
+    "Fable corrected Reader 7 from a yes/no recommendation question to the source what-question. Other Opus style proposals were held pending qualified Japanese review, and no source facts were added."
+  ],
+  "missing": [
+    "qualified Japanese/source/Mexican food/locale/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

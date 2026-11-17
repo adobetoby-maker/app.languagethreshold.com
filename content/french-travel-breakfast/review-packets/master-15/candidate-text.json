@@ -1,0 +1,83 @@
+{
+  "titleFrenchDraft": "Alarme incendie pendant le petit-déjeuner à Bogotá",
+  "focusFrenchDraft": "Suivre les consignes d’évacuation, les transmettre clairement aux autres clients et appeler la réception depuis l’extérieur ; employer si + présent, puis futur.",
+  "cardFrenchDrafts": [
+    "l’alarme incendie",
+    "la fumée",
+    "la sortie de secours",
+    "les escaliers",
+    "l’ascenseur",
+    "le point de rassemblement",
+    "l’évacuation",
+    "l’extincteur",
+    "le détecteur de fumée",
+    "le membre de l’équipe d’évacuation",
+    "la fausse alerte",
+    "la porte coupe-feu",
+    "le trottoir",
+    "la liste des clients de l’hôtel",
+    "à l’extérieur",
+    "Sortez par ici, par la sortie de secours !",
+    "N’utilisez pas l’ascenseur, descendez par les escaliers !",
+    "Doña Fabiola, laissez votre café, s’il vous plaît, et sortons tout de suite.",
+    "Si nous sortons maintenant, je vous offrirai un autre café après.",
+    "Julián, où se trouve le point de rassemblement ?",
+    "Allô, la réception ? Je vous appelle de la chambre 504 ; nous sommes dehors maintenant.",
+    "Nous sommes sur le trottoir, avec doña Fabiola et deux autres clients.",
+    "Si elle retentit de nouveau, nous sortirons immédiatement."
+  ],
+  "readerFrenchDrafts": [
+    "Pendant le petit-déjeuner dans la salle à manger du cinquième étage de l’hôtel Candelaria, à Bogotá, un grille-pain brûle et la fumée atteint le plafond.",
+    "Le détecteur de fumée se déclenche aussitôt et l’alarme incendie retentit dans tout le bâtiment.",
+    "Julián, membre de l’équipe d’évacuation de l’hôtel, débranche le grille-pain et garde l’extincteur prêt à côté du buffet, comme le prévoit le protocole de l’hôtel.",
+    "Julián : Sortez par ici, par la sortie de secours !",
+    "Daniel, client de la chambre 504, répète la consigne aux touristes de la table du fond : N’utilisez pas l’ascenseur, descendez par les escaliers !",
+    "Doña Fabiola, une dame âgée, reste assise et dit qu’elle veut d’abord finir son café.",
+    "Daniel : Doña Fabiola, laissez votre café, s’il vous plaît, et sortons tout de suite.",
+    "Daniel : Si nous sortons maintenant, je vous offrirai un autre café après.",
+    "Doña Fabiola sourit, prend sa canne et marche avec Daniel vers la porte coupe-feu, que Julián referme derrière eux.",
+    "Dans les escaliers, Daniel demande : Julián, où se trouve le point de rassemblement ?",
+    "Julián : Il se trouve sur le trottoir, en face de la boulangerie du coin.",
+    "Une fois dehors, Daniel appelle la réception de l’hôtel sur son téléphone portable.",
+    "La réceptionniste, Carolina, consulte la liste des clients de l’hôtel pour vérifier que personne ne se trouve encore à l’intérieur.",
+    "Daniel : Allô, la réception ? Je vous appelle de la chambre 504 ; nous sommes dehors maintenant.",
+    "Daniel : Nous sommes sur le trottoir, avec doña Fabiola et deux autres clients.",
+    "Carolina : Ce n’est pas une fausse alerte, alors attendez au point de rassemblement jusqu’à ce que les pompiers aient inspecté la salle à manger.",
+    "Carolina : Si les pompiers l’autorisent, l’évacuation prendra bientôt fin et vous pourrez regagner vos chambres.",
+    "Daniel : Si elle retentit de nouveau, nous sortirons immédiatement."
+  ],
+  "speakingDraft": {
+    "roleEnglish": "You are Daniel, a guest at the Hotel Candelaria breakfast in Bogotá. Julián is an evacuation team member, doña Fabiola is an older guest, and Carolina is the receptionist.",
+    "openingFrench": "Julián : L’alarme incendie retentit. Sortez par ici, par la sortie de secours !",
+    "objectivesEnglish": [
+      "Follow Julián and relay the emergency-exit and no-elevator commands to other guests.",
+      "Ask doña Fabiola to leave her coffee and accompany her to the fire door without changing the source’s evacuation sequence.",
+      "Ask Julián where the meeting point is, then call reception from the sidewalk outside.",
+      "Report room 504, Fabiola and two other guests, and use si + present followed by future for a repeat alarm."
+    ],
+    "closureFrench": "Daniel : Si elle retentit de nouveau, nous sortirons immédiatement."
+  },
+  "formsDraft": [
+    {"french": "Si elle retentit de nouveau, nous sortirons immédiatement.", "english": "If it goes off again, we’ll leave immediately.", "noteEnglish": "Si + present retentit introduces the condition; sortirons is future. The pronoun refers to the alarm."},
+    {"french": "Si nous sortons maintenant, je vous offrirai un autre café après.", "english": "If we leave now, I’ll buy you another coffee afterward.", "noteEnglish": "Sortons is present and offrirai is future; formal vous addresses doña Fabiola."},
+    {"french": "Sortez par ici, par la sortie de secours !", "english": "Go out this way, through the emergency exit!", "noteEnglish": "Sortez is a plural/formal imperative to guests."},
+    {"french": "N’utilisez pas l’ascenseur ; descendez par les escaliers !", "english": "Don’t use the elevator; go down the stairs!", "noteEnglish": "The negative and positive imperatives relay two distinct evacuation instructions."},
+    {"french": "Si les pompiers l’autorisent, vous pourrez regagner vos chambres.", "english": "If the firefighters allow it, you will be able to return to your rooms.", "noteEnglish": "The source conditions return on firefighter authorization; no return is promised before that."}
+  ],
+  "modeSourceCards": {"See": 16, "Recall": 17, "Hear": 18, "Type": 19, "Say": 20, "Write": 21},
+  "modeCuesEnglish": {
+    "See": "Read Julián’s command directing guests through the emergency exit.",
+    "Recall": "Recall Daniel’s no-elevator and stairs command.",
+    "Hear": "Listen for Daniel asking doña Fabiola to leave her coffee and go out now. Recording pending.",
+    "Type": "Type Daniel’s conditional offer of another coffee after leaving.",
+    "Say": "Ask Julián where the meeting point is.",
+    "Write": "From outside, call reception and identify room 504."
+  },
+  "reviewQuestionsEnglish": [
+    "Keep Bogotá, the Hotel Candelaria fifth-floor breakfast room, burnt toaster, smoke, Daniel in room 504, Julián, doña Fabiola, Carolina, the sidewalk and the bakery. Do not relocate the scene or invent fire, injuries, a return order or an emergency number.",
+    "The source says Julián unplugs the toaster and keeps the extinguisher ready under hotel protocol; it does not say he uses it. Qualified safety/domain review should confirm the French wording.",
+    "The Colombian source uses brigadista, andén, tinto and Aló. Review target-language equivalents without erasing the source’s locale; tinto refers to coffee here, not red wine.",
+    "The source says it is not a false alarm and that guests wait until firefighters inspect the room. Return is conditional on firefighter authorization.",
+    "The archived draft is evidence only; row IDs, saved items and exact-text audio cannot automatically migrate."
+  ]
+}

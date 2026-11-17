@@ -1,0 +1,11 @@
+# French Breakfast Master 13 — source-only review packet
+
+This inert French→English candidate pins the current Spanish Breakfast Master 13 lesson and Reader in source order: 23 cards and 18 turns. It preserves `master:13`, adds revision-scoped row IDs for review, and records source/archive hashes. Run `python3 content/french-travel-breakfast/review-packets/master-13/build.py` then `python3 content/french-travel-breakfast/review-packets/master-13/validate.py` from the repository root.
+
+The source is Emma's timeline of Lucía's reaction at Hotel Turia in Valencia. Emma tells duty manager Vicente that Lucía ate sponge cake at 8:10; the kitchen confirmed almond flour; symptoms progressed from an itchy throat to hives, difficulty breathing and swollen lips. Emma called Spain's 112, responders administered oxygen, and an ambulance took Lucía to the emergency department around 8:30. A nurse later said she was stable. Emma cannot recall an exact later time but says it was before 9. The older Montréal/Léa draft changed those facts and remains separate trace evidence.
+
+The French faces and five form examples are review candidates. The six card-linked mode cues are unscored proposals; Hear has no recording. Qualified French, clinical, food, locale and dictionary review must resolve the rendering of *bizcocho*, *frutos secos*, *sanitarios*, the symptom terms and register. Keep the kitchen's confirmation distinct from Emma's firsthand observations. Do not substitute an emergency number or add an unmentioned diagnosis, medicine or treatment.
+
+The local safe-mode Claude Haiku attempt and auth check exited with code 1 and returned no model output, model usage or tokens. No Haiku, Opus or Fable response was used. Source comparison and structural validation are not qualified approval.
+
+The read-only scope is 41 French face positions, 82 potential two-voice clip and individual listening decisions, and 2,492 submitted characters. The historical $30 per million-character rate implies about $0.07476 gross; refresh paid quota/pricing before synthesis. No audio was synthesized, approved or registered. Every learner, scoring, playback, offline, progress, owner-route, V4 and release gate remains false. Saved-item migration from the old draft, final modes, speaking, dictionary and independent V4 acceptance remain open.

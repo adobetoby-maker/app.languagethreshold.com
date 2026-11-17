@@ -1,0 +1,502 @@
+{
+  "schema": "lt.inert-source-review.v1",
+  "lessonKey": "master:13",
+  "pair": {
+    "target": "French",
+    "support": "English"
+  },
+  "source": {
+    "coursePath": "src/data/core60/es/master-travel-breakfast.json",
+    "courseSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "lessonSha256": "902d7f08e49eb650b46846033b2de60aab8c002be9017b1ef1edb672f0eb7186",
+    "titleEnglish": "Give the Hotel a Timeline of Lucía's Reaction",
+    "objectiveEnglish": "Narrate in order what your friend ate, when symptoms began, who called for help, and what happened next.",
+    "speakingEnglish": "You are Lucía's friend, and the AI is Vicente, the duty manager: give him a clear timeline of what Lucía ate, when her symptoms began, who called 112 and what happened next, using time markers like a las 8:10, unos minutos después and en cuanto.",
+    "sourceGrammar": {
+      "focus": "Past narration with time markers (a las ocho y diez comió…, unos minutos después…, en cuanto llegó la ambulancia…)",
+      "examples": [
+        {
+          "es": "A las 8:10 comió el bizcocho y unos minutos después dijo que le picaba la garganta.",
+          "en": "At 8:10 she ate the sponge cake, and a few minutes later she said her throat was itchy."
+        },
+        {
+          "es": "En cuanto llegó la ambulancia, los sanitarios la atendieron en el comedor.",
+          "en": "As soon as the ambulance arrived, the medical responders treated her in the dining room."
+        }
+      ]
+    },
+    "passageTitleSpanish": "La cronología de Lucía"
+  },
+  "priorDraft": {
+    "archivePath": "content/review-archive/french-japanese-2026-11-15/french-breakfast/master-13-15-draft.json",
+    "archiveSha256": "ae2b10eedbce8ad889007704b7b609c9f72f109cfea4bcf0bb8eaa2392f8ed50",
+    "runtimePath": "content/review-archive/french-japanese-2026-11-15/french-breakfast/private-runtime-candidate.json",
+    "runtimeSha256": "f58bb01321fa2e04ef1bbc802c7a776836c3ea9ac6c51fdbedfaca50fe764f26",
+    "oldScene": "Montréal hotel incident with Léa, unverified cake ingredients and an unspecified emergency call",
+    "sourceScene": "Hotel Turia in Valencia: Lucía's almond-flour sponge cake, 112 call, medical responders and ambulance timeline",
+    "matchingPriorEnglishCards": 4,
+    "matchingPriorEnglishReaderTurns": 0,
+    "disposition": "Archived positions are trace references only; no saved-item or recording migration is authorized."
+  },
+  "titleFrenchDraft": "Raconter la réaction de Lucía à l’hôtel Turia",
+  "focusFrenchDraft": "Raconter dans l’ordre les faits observés, les symptômes et l’arrivée des secours avec des repères temporels précis.",
+  "cards": [
+    {
+      "id": "master:13:source-902d7f08e49e:word:1",
+      "legacyDraftId": "master:13:word:1",
+      "sourceSpanish": "el informe de incidencias",
+      "supportEnglish": "the incident report",
+      "targetFrenchDraft": "le rapport d’incident",
+      "kind": "term"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:2",
+      "legacyDraftId": "master:13:word:2",
+      "sourceSpanish": "la cronología",
+      "supportEnglish": "the timeline",
+      "targetFrenchDraft": "la chronologie",
+      "kind": "term"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:3",
+      "legacyDraftId": "master:13:word:3",
+      "sourceSpanish": "el responsable de turno",
+      "supportEnglish": "the duty manager",
+      "targetFrenchDraft": "le responsable de service",
+      "kind": "term"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:4",
+      "legacyDraftId": "master:13:word:4",
+      "sourceSpanish": "los síntomas",
+      "supportEnglish": "the symptoms",
+      "targetFrenchDraft": "les symptômes",
+      "kind": "term"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:5",
+      "legacyDraftId": "master:13:word:5",
+      "sourceSpanish": "el picor de garganta",
+      "supportEnglish": "the itchy throat",
+      "targetFrenchDraft": "la gorge qui gratte",
+      "kind": "term"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:6",
+      "legacyDraftId": "master:13:word:6",
+      "sourceSpanish": "la hinchazón",
+      "supportEnglish": "the swelling",
+      "targetFrenchDraft": "le gonflement",
+      "kind": "term"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:7",
+      "legacyDraftId": "master:13:word:7",
+      "sourceSpanish": "los labios",
+      "supportEnglish": "the lips",
+      "targetFrenchDraft": "les lèvres",
+      "kind": "term"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:8",
+      "legacyDraftId": "master:13:word:8",
+      "sourceSpanish": "la urticaria",
+      "supportEnglish": "the hives",
+      "targetFrenchDraft": "l’urticaire",
+      "kind": "term"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:9",
+      "legacyDraftId": "master:13:word:9",
+      "sourceSpanish": "la dificultad para respirar",
+      "supportEnglish": "difficulty breathing",
+      "targetFrenchDraft": "les difficultés à respirer",
+      "kind": "term"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:10",
+      "legacyDraftId": "master:13:word:10",
+      "sourceSpanish": "el 112",
+      "supportEnglish": "112 (the emergency number)",
+      "targetFrenchDraft": "le 112 (numéro d’urgence en Espagne et dans l’Union européenne)",
+      "kind": "term",
+      "sourceNoteEnglish": "Emergency number in Spain and the EU. Say it as uno, uno, dos."
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:11",
+      "legacyDraftId": "master:13:word:11",
+      "sourceSpanish": "el servicio de urgencias",
+      "supportEnglish": "the emergency department",
+      "targetFrenchDraft": "le service des urgences",
+      "kind": "term",
+      "sourceNoteEnglish": "In everyday speech: la llevaron a urgencias (no article)."
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:12",
+      "legacyDraftId": "master:13:word:12",
+      "sourceSpanish": "los sanitarios",
+      "supportEnglish": "the medical responders",
+      "targetFrenchDraft": "les professionnels des secours médicaux",
+      "kind": "term",
+      "sourceNoteEnglish": "Common word in Spain for ambulance and ER staff."
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:13",
+      "legacyDraftId": "master:13:word:13",
+      "sourceSpanish": "el bizcocho",
+      "supportEnglish": "the sponge cake",
+      "targetFrenchDraft": "le gâteau de Savoie",
+      "kind": "term"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:14",
+      "legacyDraftId": "master:13:word:14",
+      "sourceSpanish": "mareada",
+      "supportEnglish": "dizzy",
+      "targetFrenchDraft": "étourdie",
+      "kind": "term",
+      "sourceNoteEnglish": "Agrees with the person: mareada for Lucía, mareado for a man."
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:15",
+      "legacyDraftId": "master:13:word:15",
+      "sourceSpanish": "unos minutos después",
+      "supportEnglish": "a few minutes later",
+      "targetFrenchDraft": "quelques minutes plus tard",
+      "kind": "term"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:16",
+      "legacyDraftId": "master:13:word:16",
+      "sourceSpanish": "A las 8:10, Lucía comió un trozo de bizcocho.",
+      "supportEnglish": "At 8:10, Lucía ate a piece of sponge cake.",
+      "targetFrenchDraft": "À 8 h 10, Lucía a mangé un morceau de gâteau de Savoie.",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:17",
+      "legacyDraftId": "master:13:word:17",
+      "sourceSpanish": "Unos minutos después, empezó a notar picor de garganta.",
+      "supportEnglish": "A few minutes later, she started to feel an itchy throat.",
+      "targetFrenchDraft": "Quelques minutes plus tard, elle a commencé à sentir que sa gorge la grattait.",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:18",
+      "legacyDraftId": "master:13:word:18",
+      "sourceSpanish": "En cuanto vi que se le hinchaban los labios, llamé al 112.",
+      "supportEnglish": "As soon as I saw her lips swelling, I called 112.",
+      "targetFrenchDraft": "Dès que j’ai vu ses lèvres gonfler, j’ai appelé le 112.",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:19",
+      "legacyDraftId": "master:13:word:19",
+      "sourceSpanish": "El camarero le trajo agua y avisó a recepción.",
+      "supportEnglish": "The waiter brought her water and notified reception.",
+      "targetFrenchDraft": "Le serveur lui a apporté de l’eau et a prévenu la réception.",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:20",
+      "legacyDraftId": "master:13:word:20",
+      "sourceSpanish": "Cuando llegaron los sanitarios, estaba muy mareada.",
+      "supportEnglish": "When the medical responders arrived, she was very dizzy.",
+      "targetFrenchDraft": "Quand les professionnels des secours médicaux sont arrivés, elle était très étourdie.",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:21",
+      "legacyDraftId": "master:13:word:21",
+      "sourceSpanish": "Hacia las 8:30, la llevaron a urgencias en ambulancia.",
+      "supportEnglish": "Around 8:30, they took her to the ER by ambulance.",
+      "targetFrenchDraft": "Vers 8 h 30, ils l’ont emmenée au service des urgences en ambulance.",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:22",
+      "legacyDraftId": "master:13:word:22",
+      "sourceSpanish": "No recuerdo la hora exacta, pero fue antes de las 9.",
+      "supportEnglish": "I don't remember the exact time, but it was before 9.",
+      "targetFrenchDraft": "Je ne me souviens pas de l’heure exacte, mais c’était avant 9 heures.",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:word:23",
+      "legacyDraftId": "master:13:word:23",
+      "sourceSpanish": "Vicente, ¿quiere que se lo repita más despacio?",
+      "supportEnglish": "Vicente, would you like me to repeat it more slowly?",
+      "targetFrenchDraft": "Vicente, voulez-vous que je vous le répète plus lentement ?",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal: usted with the hotel manager."
+    }
+  ],
+  "reader": [
+    {
+      "id": "master:13:source-902d7f08e49e:line:1",
+      "legacyDraftId": "master:13:line:1",
+      "sourceSpanish": "A las 10, en el Hotel Turia de Valencia, Vicente, el responsable de turno, se sienta con Emma en una sala junto a recepción.",
+      "supportEnglish": "At 10, at the Hotel Turia in Valencia, Vicente, the duty manager, sits down with Emma in a room next to reception.",
+      "targetFrenchDraft": "À 10 heures, à l’hôtel Turia de Valence, Vicente, le responsable de service, s’assoit avec Emma dans une salle près de la réception."
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:line:2",
+      "legacyDraftId": "master:13:line:2",
+      "sourceSpanish": "Vicente: Necesito una cronología clara para el informe de incidencias sobre lo que le pasó a Lucía, de la habitación 312.",
+      "supportEnglish": "Vicente: I need a clear timeline for the incident report about what happened to Lucía, from room 312.",
+      "targetFrenchDraft": "Vicente : J’ai besoin d’une chronologie claire pour le rapport d’incident sur ce qui est arrivé à Lucía, de la chambre 312."
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:line:3",
+      "legacyDraftId": "master:13:line:3",
+      "sourceSpanish": "Emma: A las 8:10, Lucía comió un trozo de bizcocho.",
+      "supportEnglish": "Emma: At 8:10, Lucía ate a piece of sponge cake.",
+      "targetFrenchDraft": "Emma : À 8 h 10, Lucía a mangé un morceau de gâteau de Savoie."
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:line:4",
+      "legacyDraftId": "master:13:line:4",
+      "sourceSpanish": "Vicente: ¿Sabe si el bizcocho llevaba algún ingrediente al que Lucía es alérgica?",
+      "supportEnglish": "Vicente: Do you know if the sponge cake had any ingredient Lucía is allergic to?",
+      "targetFrenchDraft": "Vicente : Savez-vous si le gâteau contenait un ingrédient auquel Lucía est allergique ?"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:line:5",
+      "legacyDraftId": "master:13:line:5",
+      "sourceSpanish": "Emma: Sí, la cocina me confirmó que llevaba harina de almendra, y Lucía es alérgica a los frutos secos.",
+      "supportEnglish": "Emma: Yes, the kitchen confirmed to me that it had almond flour, and Lucía is allergic to nuts.",
+      "targetFrenchDraft": "Emma : Oui, la cuisine m’a confirmé qu’il contenait de la farine d’amande, et Lucía est allergique aux fruits à coque."
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:line:6",
+      "legacyDraftId": "master:13:line:6",
+      "sourceSpanish": "Emma: Unos minutos después, empezó a notar picor de garganta.",
+      "supportEnglish": "Emma: A few minutes later, she started to feel an itchy throat.",
+      "targetFrenchDraft": "Emma : Quelques minutes plus tard, elle a commencé à sentir que sa gorge la grattait."
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:line:7",
+      "legacyDraftId": "master:13:line:7",
+      "sourceSpanish": "Vicente: ¿Alguien del personal la ayudó cuando empezaron los síntomas?",
+      "supportEnglish": "Vicente: Did anyone on the staff help her when the symptoms began?",
+      "targetFrenchDraft": "Vicente : Un membre du personnel l’a-t-il aidée quand les symptômes ont commencé ?"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:line:8",
+      "legacyDraftId": "master:13:line:8",
+      "sourceSpanish": "Emma: El camarero le trajo agua y avisó a recepción.",
+      "supportEnglish": "Emma: The waiter brought her water and notified reception.",
+      "targetFrenchDraft": "Emma : Le serveur lui a apporté de l’eau et a prévenu la réception."
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:line:9",
+      "legacyDraftId": "master:13:line:9",
+      "sourceSpanish": "Emma: Poco después le salió urticaria en los brazos y empezó a tener dificultad para respirar.",
+      "supportEnglish": "Emma: Shortly after, she broke out in hives on her arms and started to have difficulty breathing.",
+      "targetFrenchDraft": "Emma : Peu après, de l’urticaire est apparue sur ses bras et elle a commencé à avoir des difficultés à respirer."
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:line:10",
+      "legacyDraftId": "master:13:line:10",
+      "sourceSpanish": "Emma: En cuanto vi que se le hinchaban los labios, llamé al 112.",
+      "supportEnglish": "Emma: As soon as I saw her lips swelling, I called 112.",
+      "targetFrenchDraft": "Emma : Dès que j’ai vu ses lèvres gonfler, j’ai appelé le 112."
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:line:11",
+      "legacyDraftId": "master:13:line:11",
+      "sourceSpanish": "Emma: La operadora me pidió que no la dejara sola, porque la hinchazón podía empeorar muy rápido.",
+      "supportEnglish": "Emma: The operator asked me not to leave her alone, because the swelling could get worse very quickly.",
+      "targetFrenchDraft": "Emma : L’opératrice m’a demandé de ne pas la laisser seule, car le gonflement pouvait s’aggraver très vite."
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:line:12",
+      "legacyDraftId": "master:13:line:12",
+      "sourceSpanish": "Emma: Cuando llegaron los sanitarios, estaba muy mareada.",
+      "supportEnglish": "Emma: When the medical responders arrived, she was very dizzy.",
+      "targetFrenchDraft": "Emma : Quand les professionnels des secours médicaux sont arrivés, elle était très étourdie."
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:line:13",
+      "legacyDraftId": "master:13:line:13",
+      "sourceSpanish": "Emma: Los sanitarios la atendieron allí mismo, en el comedor, y le pusieron oxígeno.",
+      "supportEnglish": "Emma: The medical responders treated her right there, in the dining room, and gave her oxygen.",
+      "targetFrenchDraft": "Emma : Les professionnels des secours médicaux l’ont soignée sur place, dans la salle à manger, et lui ont administré de l’oxygène."
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:line:14",
+      "legacyDraftId": "master:13:line:14",
+      "sourceSpanish": "Emma: Hacia las 8:30, la llevaron a urgencias en ambulancia.",
+      "supportEnglish": "Emma: Around 8:30, they took her to the ER by ambulance.",
+      "targetFrenchDraft": "Emma : Vers 8 h 30, ils l’ont emmenée au service des urgences en ambulance."
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:line:15",
+      "legacyDraftId": "master:13:line:15",
+      "sourceSpanish": "Vicente: ¿Ha tenido noticias del servicio de urgencias desde entonces?",
+      "supportEnglish": "Vicente: Have you had any news from the emergency department since then?",
+      "targetFrenchDraft": "Vicente : Avez-vous reçu des nouvelles du service des urgences depuis ?"
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:line:16",
+      "legacyDraftId": "master:13:line:16",
+      "sourceSpanish": "Emma: Sí, una enfermera me llamó para decirme que Lucía estaba estable.",
+      "supportEnglish": "Emma: Yes, a nurse called me to tell me that Lucía was stable.",
+      "targetFrenchDraft": "Emma : Oui, une infirmière m’a appelée pour me dire que l’état de Lucía était stable."
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:line:17",
+      "legacyDraftId": "master:13:line:17",
+      "sourceSpanish": "Emma: No recuerdo la hora exacta, pero fue antes de las 9.",
+      "supportEnglish": "Emma: I don't remember the exact time, but it was before 9.",
+      "targetFrenchDraft": "Emma : Je ne me souviens pas de l’heure exacte, mais c’était avant 9 heures."
+    },
+    {
+      "id": "master:13:source-902d7f08e49e:line:18",
+      "legacyDraftId": "master:13:line:18",
+      "sourceSpanish": "Emma: Vicente, ¿quiere que se lo repita más despacio?",
+      "supportEnglish": "Emma: Vicente, would you like me to repeat it more slowly?",
+      "targetFrenchDraft": "Emma : Vicente, voulez-vous que je vous le répète plus lentement ?"
+    }
+  ],
+  "speakingDraft": {
+    "roleEnglish": "You are Emma, Lucía’s friend, speaking to Vicente, the duty manager at Hotel Turia in Valencia.",
+    "openingFrench": "Vicente : Pouvez-vous me donner une chronologie claire pour le rapport d’incident ?",
+    "objectivesEnglish": [
+      "State that Lucía ate sponge cake at 8:10 and that the kitchen later confirmed almond flour, while preserving that Emma learned this from the kitchen.",
+      "Describe the itchy throat, hives, difficulty breathing and swollen lips in source order.",
+      "Say that Emma called Spain’s 112, then describe the medical responders’ treatment, oxygen and ambulance transfer around 8:30.",
+      "Tell Vicente that a nurse said Lucía was stable, and qualify the uncertain time as before 9."
+    ],
+    "closureFrench": "Emma : Je ne me souviens pas de l’heure exacte, mais c’était avant 9 heures. Voulez-vous que je vous le répète plus lentement ?"
+  },
+  "formsDraft": [
+    {
+      "french": "À 8 h 10, Lucía a mangé un morceau de gâteau de Savoie.",
+      "english": "At 8:10, Lucía ate a piece of sponge cake.",
+      "noteEnglish": "The completed event uses passé composé with the exact source time."
+    },
+    {
+      "french": "Quelques minutes plus tard, sa gorge a commencé à la gratter.",
+      "english": "A few minutes later, her throat started to itch.",
+      "noteEnglish": "The temporal marker preserves the source order without inventing an exact onset minute."
+    },
+    {
+      "french": "Dès que j’ai vu ses lèvres gonfler, j’ai appelé le 112.",
+      "english": "As soon as I saw her lips swelling, I called 112.",
+      "noteEnglish": "First-person observation and call remain Emma’s; 112 is the source’s Spain/EU number."
+    },
+    {
+      "french": "Quand les secours sont arrivés, elle était très étourdie.",
+      "english": "When the responders arrived, she was very dizzy.",
+      "noteEnglish": "Imparfait describes Lucía’s state when the arrival occurred."
+    },
+    {
+      "french": "Vers 8 h 30, ils l’ont emmenée au service des urgences en ambulance.",
+      "english": "Around 8:30, they took her to the emergency department by ambulance.",
+      "noteEnglish": "Vers keeps the approximate source time; the pronoun l’ refers to Lucía."
+    }
+  ],
+  "modeActivitiesDraft": [
+    {
+      "mode": "See",
+      "cueEnglish": "Read the 8:10 event that starts Emma’s timeline.",
+      "sourceRef": "master:13:source-902d7f08e49e:word:16",
+      "legacyDraftSourceRef": "master:13:word:16",
+      "targetFrenchDraft": "À 8 h 10, Lucía a mangé un morceau de gâteau de Savoie.",
+      "supportEnglish": "At 8:10, Lucía ate a piece of sponge cake.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Recall",
+      "cueEnglish": "Recall the time marker and itchy-throat onset.",
+      "sourceRef": "master:13:source-902d7f08e49e:word:17",
+      "legacyDraftSourceRef": "master:13:word:17",
+      "targetFrenchDraft": "Quelques minutes plus tard, elle a commencé à sentir que sa gorge la grattait.",
+      "supportEnglish": "A few minutes later, she started to feel an itchy throat.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Hear",
+      "cueEnglish": "Listen for Emma’s observed lip swelling and call to Spain’s 112. Recording pending.",
+      "sourceRef": "master:13:source-902d7f08e49e:word:18",
+      "legacyDraftSourceRef": "master:13:word:18",
+      "targetFrenchDraft": "Dès que j’ai vu ses lèvres gonfler, j’ai appelé le 112.",
+      "supportEnglish": "As soon as I saw her lips swelling, I called 112.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Type",
+      "cueEnglish": "Type what the waiter did and whom he notified.",
+      "sourceRef": "master:13:source-902d7f08e49e:word:19",
+      "legacyDraftSourceRef": "master:13:word:19",
+      "targetFrenchDraft": "Le serveur lui a apporté de l’eau et a prévenu la réception.",
+      "supportEnglish": "The waiter brought her water and notified reception.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Say",
+      "cueEnglish": "Report Lucía’s dizziness when the responders arrived.",
+      "sourceRef": "master:13:source-902d7f08e49e:word:20",
+      "legacyDraftSourceRef": "master:13:word:20",
+      "targetFrenchDraft": "Quand les professionnels des secours médicaux sont arrivés, elle était très étourdie.",
+      "supportEnglish": "When the medical responders arrived, she was very dizzy.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Write",
+      "cueEnglish": "Explain the uncertainty in Emma’s recollection of the exact time.",
+      "sourceRef": "master:13:source-902d7f08e49e:word:22",
+      "legacyDraftSourceRef": "master:13:word:22",
+      "targetFrenchDraft": "Je ne me souviens pas de l’heure exacte, mais c’était avant 9 heures.",
+      "supportEnglish": "I don't remember the exact time, but it was before 9.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    }
+  ],
+  "dictionarySensesReviewed": false,
+  "reviewNotesEnglish": [
+    "The archived Montréal/Léa scene changes the source’s Valencia, Hotel Turia, Lucía, Vicente, room 312, almond flour confirmation and 112 call. Preserve the current source facts; old rows and recordings do not migrate by position.",
+    "Qualified clinical and French reviewers should check gorge qui gratte, urticaire, gonflement, difficultés à respirer, étourdie, professionnels des secours médicaux and the report of oxygen without weakening the source terms.",
+    "The source says the kitchen confirmed almond flour to Emma. Keep the reported source of that information distinct from Emma’s own observation; do not invent an allergy test, diagnosis, medicine or treatment.",
+    "The source’s 112 is the emergency number for this Valencia setting. Do not substitute a different locale’s number.",
+    "Gâteau de Savoie is a candidate rendering of bizcocho; qualified French/Spanish food review should decide whether it suggests a more specific recipe than the source."
+  ],
+  "audioScope": {
+    "status": "read-only estimate; no synthesis, technical verification, listening decision, reuse or registration",
+    "voices": 2,
+    "selectedFrenchStrings": 41,
+    "potentialClipDecisions": 82,
+    "submittedCharacters": 2492,
+    "rateUsdPerMillionCharacters": 30,
+    "estimatedGrossUsd": 0.07476
+  },
+  "aiAssistance": {
+    "currentRun": "Safe-mode Haiku CLI and auth status exited with code 1 and no model output, usage or tokens; no AI output was used.",
+    "actualModelUsage": {},
+    "qualifiedApproval": false
+  },
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "learnerRegistered": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "audioApproved": false,
+    "listeningReviewed": false,
+    "playbackEnabled": false,
+    "progressTracking": false,
+    "progressWritesEnabled": false,
+    "offlineRegistered": false,
+    "v4Registered": false,
+    "released": false
+  }
+}

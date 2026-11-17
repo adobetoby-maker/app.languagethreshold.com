@@ -1,0 +1,564 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:21",
+  "stableLessonId": "travel-breakfast:21:ja-en",
+  "candidateRevision": "travel-breakfast:21:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Disagree politely about a table",
+    "objectiveEnglishInternal": "state a seating preference, explain your reason, and accept or propose a compromise",
+    "roleplayEnglishInternal": "A server asks your group to move to a smaller table for a reservation; explain why you'd like to stay and reach a compromise.",
+    "readerTitleSpanish": "Una mesa junto a la ventana",
+    "readerVerbExamples": [
+      {
+        "target": "Preferimos esta mesa porque tenemos un cochecito.",
+        "native": "We prefer this table because we have a stroller."
+      },
+      {
+        "target": "Si es posible, nos quedamos aquí hasta las 10:15.",
+        "native": "If possible, we will stay here until 10:15."
+      },
+      {
+        "target": "Después nos movemos a la terraza.",
+        "native": "Afterward we move to the patio."
+      },
+      {
+        "target": "Propongo terminar antes de las 10:15.",
+        "native": "I propose finishing before 10:15."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "Staff needs a reserved table; Sam’s family checks another space that can fit the stroller.",
+    "cardCount": 12,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "mesa",
+      "sourceEnglish": "table",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "テーブル",
+      "literalJapaneseGlossEn": "table",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "ventana",
+      "sourceEnglish": "window",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "窓",
+      "literalJapaneseGlossEn": "window",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "mesera",
+      "sourceEnglish": "server (female)",
+      "kind": "term",
+      "sourceNoteInternal": "A male server is mesero; in Spain you also hear camarero/camarera.",
+      "targetJapaneseDraft": "女性の店員",
+      "literalJapaneseGlossEn": "server (female)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "reservación",
+      "sourceEnglish": "reservation",
+      "kind": "term",
+      "sourceNoteInternal": "Common in Mexico and the US; in Spain people usually say reserva.",
+      "targetJapaneseDraft": "予約",
+      "literalJapaneseGlossEn": "reservation",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "rincón",
+      "sourceEnglish": "corner",
+      "kind": "term",
+      "sourceNoteInternal": "Rincón is an inside corner of a room; esquina is a street corner.",
+      "targetJapaneseDraft": "部屋の隅",
+      "literalJapaneseGlossEn": "corner",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "barra",
+      "sourceEnglish": "counter",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カウンター",
+      "literalJapaneseGlossEn": "counter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "cochecito",
+      "sourceEnglish": "stroller",
+      "kind": "term",
+      "sourceNoteInternal": "You will also hear carriola in Mexico.",
+      "targetJapaneseDraft": "ベビーカー",
+      "literalJapaneseGlossEn": "stroller",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "terraza",
+      "sourceEnglish": "patio",
+      "kind": "term",
+      "sourceNoteInternal": "The outdoor seating area of a café or restaurant.",
+      "targetJapaneseDraft": "テラス席",
+      "literalJapaneseGlossEn": "patio",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "sombra",
+      "sourceEnglish": "shade",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "日陰",
+      "literalJapaneseGlossEn": "shade",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "silla",
+      "sourceEnglish": "chair",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "椅子",
+      "literalJapaneseGlossEn": "chair",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "Preferimos esta mesa porque tenemos un cochecito.",
+      "sourceEnglish": "We prefer this table because we have a stroller.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Giving a reason with porque makes your request sound polite, not demanding.",
+      "targetJapaneseDraft": "ベビーカーがあるので、このテーブルがいいです。",
+      "literalJapaneseGlossEn": "We prefer this table because we have a stroller.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "¿A qué hora llega la reservación?",
+      "sourceEnglish": "What time does the reservation arrive?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "予約のお客さんは何時に来ますか。",
+      "literalJapaneseGlossEn": "What time does the reservation arrive?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "¿Qué le parece si terminamos antes de las 10:15?",
+      "sourceEnglish": "What if we finish before 10:15?",
+      "kind": "phrase",
+      "sourceNoteInternal": "¿Qué le parece si...? is a polite way to suggest a compromise to one person (usted).",
+      "targetJapaneseDraft": "10時15分より前に食べ終えるのはいかがでしょうか。",
+      "literalJapaneseGlossEn": "What if we finish before 10:15?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "Si es posible, nos gustaría quedarnos aquí.",
+      "sourceEnglish": "If possible, we would like to stay here.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "可能でしたら、この席に座っていたいのですが。",
+      "literalJapaneseGlossEn": "If possible, we would like to stay here.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "Está bien, entendemos.",
+      "sourceEnglish": "That's fine, we understand.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "わかりました。事情は理解しました。",
+      "literalJapaneseGlossEn": "That's fine, we understand.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Es sábado por la mañana y mi familia desayuna en una mesa grande junto a la ventana.",
+      "sourceEnglish": "It is Saturday morning and my family is having breakfast at a big table by the window.",
+      "targetJapaneseDraft": "土曜日の朝、私の家族は窓際の大きなテーブルで朝食を食べています。",
+      "literalJapaneseGlossEn": "It is Saturday morning and my family is having breakfast at a big table by the window.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "La mesera se acerca y dice: Disculpen, tenemos una reservación y necesitamos esta mesa.",
+      "sourceEnglish": "The server comes over and says: Excuse me, we have a reservation and we need this table.",
+      "targetJapaneseDraft": "女性の店員がやって来て、こう言います。「すみません、予約が入っていて、このテーブルが必要なんです。」",
+      "literalJapaneseGlossEn": "The server comes over and says: Excuse me, we have a reservation and we need this table.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ella nos ofrece una mesa más pequeña en el rincón, cerca de la barra.",
+      "sourceEnglish": "She offers us a smaller table in the corner, near the counter.",
+      "targetJapaneseDraft": "店員はカウンター近くの隅にある、もっと小さなテーブルを勧めてくれます。",
+      "literalJapaneseGlossEn": "She offers us a smaller table in the corner, near the counter.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Le explico con calma: Preferimos esta mesa porque tenemos un cochecito y no cabe en el rincón.",
+      "sourceEnglish": "I calmly explain to her: We prefer this table because we have a stroller and it does not fit in the corner.",
+      "targetJapaneseDraft": "私は落ち着いて説明します。「ベビーカーがあるので、このテーブルがいいです。隅の席にはベビーカーが入りません。」",
+      "literalJapaneseGlossEn": "I calmly explain to her: We prefer this table because we have a stroller and it does not fit in the corner.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Luego le pregunto: ¿A qué hora llega la reservación?",
+      "sourceEnglish": "Then I ask her: What time does the reservation arrive?",
+      "targetJapaneseDraft": "それから店員に尋ねます。「予約のお客さんは何時に来ますか。」",
+      "literalJapaneseGlossEn": "Then I ask her: What time does the reservation arrive?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "La mesera responde que el grupo llega a las 10:30.",
+      "sourceEnglish": "The server answers that the group arrives at 10:30.",
+      "targetJapaneseDraft": "店員は、そのグループが10時30分に来ると答えます。",
+      "literalJapaneseGlossEn": "The server answers that the group arrives at 10:30.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Entonces propongo: ¿Qué le parece si terminamos el desayuno aquí antes de las 10:15 y después nos movemos a la terraza para el café?",
+      "sourceEnglish": "So I propose: What if we finish breakfast here before 10:15 and then move to the patio for coffee?",
+      "targetJapaneseDraft": "そこで私は提案します。「10時15分より前にここで朝食を食べ終えて、そのあとコーヒーを飲むためにテラス席に移るのはどうでしょうか。」",
+      "literalJapaneseGlossEn": "So I propose: What if we finish breakfast here before 10:15 and then move to the patio for coffee?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ella sonríe y dice: Perfecto, en la terraza hay sombra y les traigo una silla extra.",
+      "sourceEnglish": "She smiles and says: Perfect, there is shade on the patio and I will bring you an extra chair.",
+      "targetJapaneseDraft": "店員は笑顔で言います。「いいですね。テラス席には日陰がありますし、椅子をもう一脚お持ちします。」",
+      "literalJapaneseGlossEn": "She smiles and says: Perfect, there is shade on the patio and I will bring you an extra chair.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:21:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "Le digo: Muchas gracias por su ayuda, así todos estamos contentos.",
+      "sourceEnglish": "I tell her: Thank you very much for your help, this way we are all happy.",
+      "targetJapaneseDraft": "私は店員に言います。「ご協力ありがとうございます。こうすればみんなが満足できます。」",
+      "literalJapaneseGlossEn": "I tell her: Thank you very much for your help, this way we are all happy.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "State a seating preference, explain that the stroller does not fit the proposed corner table, ask when the reserved group arrives, and propose a timed move to the patio.",
+  "speakingGoalInternal": "A server asks your group to move to a smaller table for a reservation; explain why you'd like to stay and reach a compromise.",
+  "speakingGoalJapaneseDraft": "店員から、予約のために小さなテーブルへ移ってほしいと言われました。ベビーカーが入らない理由を説明し、予約のお客さんが来る時間を聞いて、妥協案を提案してください。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "The current source is a nine-turn Saturday family breakfast scene: a female server needs the big window table for a 10:30 reservation, offers a smaller corner table near the counter, hears that a stroller will not fit, and accepts a plan to finish before 10:15 then move to the shaded patio for coffee with an extra chair. The archived Sam scene instead adds aisle clearance and an inspection before agreeing; those are not current source facts. Japanese locale, gender marking, patio meaning and dictionary senses need qualified review.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "reservation",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "seat",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "small table",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "stroller",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "aisle",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "by the window",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "another seat",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "from what time",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "can move",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "I would like to check",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "The stroller will not fit",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "Please show us another seat",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Excuse me. This table is reserved from ten thirty.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Could you move to that smaller table?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "I would like to check whether the stroller fits.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "The stroller will not fit at that table.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "I am sorry. I will look for another seat.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "From what time is the reservation?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "From ten thirty. This seat also keeps the aisle clear.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "May we decide after looking?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Yes, of course.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 1,
+      "candidatePosition": 4,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 4,
+      "candidatePosition": 7,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 24,
+    "twoVoiceClipDecisionsIfTextApproved": 48,
+    "twoVoiceSubmittedCharactersIfTextApproved": 1044,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.03132,
+    "archivedExactJapaneseCardTextOverlapsOnly": 2,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    {
+      "ref": "card.3 / reader.2",
+      "note": "English source explicitly says the server is female. Japanese 女性の店員 makes that explicit where needed; 店員 alone later avoids awkward repetition. Qualified Japanese reviewer should decide whether the marked gender is natural in this teaching context."
+    },
+    {
+      "ref": "card.5 / reader.3-4",
+      "note": "Source rincón is an inside corner near the counter, not a street corner. 部屋の隅 in the card and 隅 in Reader preserve this. The archived draft instead adds an aisle inspection not present in current source."
+    },
+    {
+      "ref": "card.8 / reader.7-8",
+      "note": "English patio means outdoor café seating here. テラス席 is a contextual candidate, not a general equivalence for every patio. Source Spanish terraza and locale need dictionary review."
+    },
+    {
+      "ref": "card.11 / reader.4",
+      "note": "The card says “We prefer”; Japanese ベビーカーがあるので、このテーブルがいいです expresses the group preference without an overt plural subject. Reader includes that the stroller does not fit the corner; card does not add that separate fact."
+    },
+    {
+      "ref": "card.12 / reader.5-6",
+      "note": "The English question says the reservation arrives, then Reader clarifies a group arriving at 10:30. Japanese question names 予約のお客さん, avoiding the unnatural claim that a booking itself walks in. Reviewer to assess equivalence."
+    },
+    {
+      "ref": "card.13 / reader.7",
+      "note": "Card finishes before 10:15; Reader finishes breakfast here before 10:15 and moves to the patio for coffee. Japanese keeps the time and sequence. Source says strictly before 10:15, not at or by 10:15."
+    },
+    {
+      "ref": "reader.8-9",
+      "note": "Shade, an extra chair, and mutual satisfaction are retained. Japanese last line uses みんなが満足できます for “we are all happy”; reviewer to assess the satisfaction/happiness nuance."
+    },
+    {
+      "ref": "source Spanish notes",
+      "note": "Mesera/mesero, reservación/reserva, rincón/esquina, carriola and ¿Qué le parece si...? notes are Spanish-specific and remain internal. None are Japanese teaching."
+    },
+    {
+      "ref": "archive/progress/audio",
+      "note": "Archived draft has 12 cards and nine dialogue turns with different people and aisle-safety facts. Candidate has 15 source-order cards and nine source-aligned Reader turns. Old rows have no explicit IDs; string overlap is text-only and neither saved-item nor audio migration is authorized."
+    }
+  ],
+  "missing": [
+    "qualified Japanese/source/restaurant/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

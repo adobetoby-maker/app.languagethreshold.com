@@ -1,0 +1,801 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "master",
+  "lessonKey": "master:4",
+  "stableLessonId": "master-travel-breakfast:4:ja-en",
+  "candidateRevision": "master-travel-breakfast:4:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "curriculumVersion": 1,
+    "readerVersion": 1,
+    "curriculumReviewed": false,
+    "readerReviewed": false,
+    "titleEnglishInternal": "Read the Hotel's Allergen Chart Before the Buffet",
+    "objectiveEnglishInternal": "Read a printed allergen chart with staff, flag what is out of date, and explain what to verify before eating.",
+    "speakingEnglishInternal": "You are reading the hotel's allergen chart with the AI, host Renzo, for your partner Elif, who is allergic to sesame: go through each bread and spread, ask clear questions, and say what to check using antes de / después de + infinitive and hay que.",
+    "lessonTypeInternal": "Document",
+    "grammarInternal": {
+      "focus": "Antes de / después de + infinitive; hay que (antes de servirte, hay que preguntar; la tabla dice que contiene sésamo)",
+      "examples": [
+        {
+          "es": "Antes de probar el pan, hay que leer la etiqueta.",
+          "en": "Before trying the bread, you have to read the label."
+        },
+        {
+          "es": "Después de hablar con cocina, Renzo nos confirma los ingredientes.",
+          "en": "After talking to the kitchen, Renzo will confirm the ingredients for us."
+        }
+      ]
+    },
+    "readerTitleSpanish": "Una tabla desactualizada",
+    "readerVerbExamplesInternal": [
+      {
+        "target": "Renzo confirma los ingredientes con el jefe de cocina.",
+        "native": "Renzo confirms the ingredients with the head chef."
+      },
+      {
+        "target": "Yo reviso cada etiqueta antes del desayuno.",
+        "native": "I check each label before breakfast."
+      },
+      {
+        "target": "Leo la tabla de alérgenos con Renzo.",
+        "native": "I read the allergen chart with Renzo."
+      },
+      {
+        "target": "El pan de molde contiene ajonjolí.",
+        "native": "The sliced bread contains sesame."
+      },
+      {
+        "target": "Le pido la ficha técnica al jefe de cocina.",
+        "native": "I ask the head chef for the spec sheet."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/master-4-6-draft.json",
+    "sha256": "62e2ec4a86b1639f04241a0312acd3a6e06cb430950ec379964856d6d6fd5004",
+    "scene": "At a hotel breakfast buffet, one guest helps a companion with a sesame allergy ask the host about an old chart and a new bread supplier.",
+    "cardCount": 17,
+    "readerCount": 11
+  },
+  "sourceCards": [
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "la tabla de alérgenos",
+      "sourceEnglish": "the allergen chart",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アレルゲン一覧表",
+      "literalJapaneseGlossEn": "the allergen chart",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "el ajonjolí",
+      "sourceEnglish": "the sesame",
+      "kind": "term",
+      "sourceNoteInternal": "Common word in Peru; labels may say sésamo.",
+      "targetJapaneseDraft": "ごま",
+      "literalJapaneseGlossEn": "the sesame",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "las semillas",
+      "sourceEnglish": "the seeds",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "種",
+      "literalJapaneseGlossEn": "the seeds",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "las trazas",
+      "sourceEnglish": "the traces",
+      "kind": "term",
+      "sourceNoteInternal": "Labels say puede contener trazas de: may contain traces of.",
+      "targetJapaneseDraft": "微量の混入",
+      "literalJapaneseGlossEn": "the traces",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "la etiqueta",
+      "sourceEnglish": "the label",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ラベル",
+      "literalJapaneseGlossEn": "the label",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "el proveedor",
+      "sourceEnglish": "the supplier",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "供給業者",
+      "literalJapaneseGlossEn": "the supplier",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "la fecha de actualización",
+      "sourceEnglish": "the date last updated",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "最終更新日",
+      "literalJapaneseGlossEn": "the date last updated",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "la ficha técnica",
+      "sourceEnglish": "the product spec sheet",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "製品仕様書",
+      "literalJapaneseGlossEn": "the product spec sheet",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "el pan de molde",
+      "sourceEnglish": "the sliced bread",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "食パン",
+      "literalJapaneseGlossEn": "the sliced bread",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "el pan francés",
+      "sourceEnglish": "the French roll",
+      "kind": "term",
+      "sourceNoteInternal": "Peru's everyday crusty breakfast roll.",
+      "targetJapaneseDraft": "ペルーのパン・フランセス",
+      "literalJapaneseGlossEn": "the French roll",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "el jefe de cocina",
+      "sourceEnglish": "the head chef",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "料理長",
+      "literalJapaneseGlossEn": "the head chef",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "los utensilios separados",
+      "sourceEnglish": "the separate utensils",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "別々の調理器具",
+      "literalJapaneseGlossEn": "the separate utensils",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "la reacción alérgica",
+      "sourceEnglish": "the allergic reaction",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アレルギー反応",
+      "literalJapaneseGlossEn": "the allergic reaction",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "el autoinyector de epinefrina",
+      "sourceEnglish": "the epinephrine auto-injector",
+      "kind": "term",
+      "sourceNoteInternal": "Use it only as the prescribing doctor instructed.",
+      "targetJapaneseDraft": "エピネフリン自己注射器",
+      "literalJapaneseGlossEn": "the epinephrine auto-injector",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "actualizado",
+      "sourceEnglish": "up to date",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "最新の",
+      "literalJapaneseGlossEn": "up to date",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "Antes de servirte nada, hay que confirmar la tabla con Renzo.",
+      "sourceEnglish": "Before you serve yourself anything, we need to confirm the chart with Renzo.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal, to your partner.",
+      "targetJapaneseDraft": "何か取る前に、レンソとこの表の内容を確認しなきゃ。",
+      "literalJapaneseGlossEn": "Before you serve yourself anything, we need to confirm the chart with Renzo.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Disculpe, ¿de qué fecha es esta tabla de alérgenos?",
+      "sourceEnglish": "Excuse me, what date is this allergen chart from?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal, to staff.",
+      "targetJapaneseDraft": "すみません、このアレルゲン一覧表はいつの日付のものですか。",
+      "literalJapaneseGlossEn": "Excuse me, what date is this allergen chart from?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "La tabla dice que el pan francés no contiene ajonjolí.",
+      "sourceEnglish": "The chart says the French roll doesn't contain sesame.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "この表では、パン・フランセスにごまは入っていないと書いてあります。",
+      "literalJapaneseGlossEn": "The chart says the French roll doesn't contain sesame.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:19",
+      "candidatePosition": 19,
+      "sourceSpanish": "¿Podría pedirle la etiqueta del proveedor al jefe de cocina?",
+      "sourceEnglish": "Could you ask the head chef for the supplier's label?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal.",
+      "targetJapaneseDraft": "料理長に供給業者のラベルを取り寄せてもらえますか。",
+      "literalJapaneseGlossEn": "Could you ask the head chef for the supplier's label?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:20",
+      "candidatePosition": 20,
+      "sourceSpanish": "Si la tabla no está actualizada, hay que revisar cada etiqueta.",
+      "sourceEnglish": "If the chart isn't up to date, we need to check each label.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "この表が最新でないなら、ラベルを一つずつ確認する必要があります。",
+      "literalJapaneseGlossEn": "If the chart isn't up to date, we need to check each label.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:21",
+      "candidatePosition": 21,
+      "sourceSpanish": "Después de leer la etiqueta, te digo qué puedes comer.",
+      "sourceEnglish": "After reading the label, I'll tell you what you can eat.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal.",
+      "targetJapaneseDraft": "ラベルを読んだら、何を食べられるか伝えるね。",
+      "literalJapaneseGlossEn": "After reading the label, I'll tell you what you can eat.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:22",
+      "candidatePosition": 22,
+      "sourceSpanish": "Mi pareja tiene alergia al ajonjolí, incluso a las trazas.",
+      "sourceEnglish": "My partner is allergic to sesame, even to traces.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "私のパートナーはごまにアレルギーがあり、微量のごまにも反応します。",
+      "literalJapaneseGlossEn": "My partner is allergic to sesame, even to traces.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:card:23",
+      "candidatePosition": 23,
+      "sourceSpanish": "Mejor no comas nada sin confirmarlo primero.",
+      "sourceEnglish": "Better not eat anything without confirming it first.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal.",
+      "targetJapaneseDraft": "確認できるまでは何も食べないほうがいいよ。",
+      "literalJapaneseGlossEn": "Better not eat anything without confirming it first.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "En el comedor de un hotel de Miraflores, en Lima, Elif y yo llegamos temprano al bufé del desayuno.",
+      "sourceEnglish": "In the dining room of a hotel in Miraflores, in Lima, Elif and I arrive early for the breakfast buffet.",
+      "targetJapaneseDraft": "リマのミラフローレス地区にあるホテルの食堂に、エリフと私は朝早く朝食ビュッフェへ来た。",
+      "literalJapaneseGlossEn": "In the dining room of a hotel in Miraflores, in Lima, Elif and I arrive early for the breakfast buffet.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Yo le digo a Elif: Antes de servirte nada, hay que confirmar la tabla con Renzo.",
+      "sourceEnglish": "I tell Elif: Before you serve yourself anything, we need to confirm the chart with Renzo.",
+      "targetJapaneseDraft": "私はエリフに言う。「何か取る前に、レンソとこの表の内容を確認しなきゃ。」",
+      "literalJapaneseGlossEn": "I tell Elif: Before you serve yourself anything, we need to confirm the chart with Renzo.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Renzo, el anfitrión, nos trae la tabla de alérgenos impresa y la pone sobre la mesa.",
+      "sourceEnglish": "Renzo, the host, brings us the printed allergen chart and puts it on the table.",
+      "targetJapaneseDraft": "案内係のレンソが印刷されたアレルゲン一覧表を持ってきて、テーブルに置く。",
+      "literalJapaneseGlossEn": "Renzo, the host, brings us the printed allergen chart and puts it on the table.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Le explico a Renzo: Mi pareja tiene alergia al ajonjolí, incluso a las trazas.",
+      "sourceEnglish": "I explain to Renzo: My partner is allergic to sesame, even to traces.",
+      "targetJapaneseDraft": "私はレンソに説明する。「私のパートナーはごまにアレルギーがあり、微量のごまにも反応します。」",
+      "literalJapaneseGlossEn": "I explain to Renzo: My partner is allergic to sesame, even to traces.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Después de leer la primera columna, le pregunto: Disculpe, ¿de qué fecha es esta tabla de alérgenos?",
+      "sourceEnglish": "After reading the first column, I ask him: Excuse me, what date is this allergen chart from?",
+      "targetJapaneseDraft": "最初の列を読んでから、私は彼に尋ねる。「すみません、このアレルゲン一覧表はいつの日付のものですか。」",
+      "literalJapaneseGlossEn": "After reading the first column, I ask him: Excuse me, what date is this allergen chart from?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Renzo señala la fecha de actualización del 3 de marzo, pero el hotel tiene un proveedor nuevo de pan desde septiembre.",
+      "sourceEnglish": "Renzo points to the date last updated, March 3, but the hotel has had a new bread supplier since September.",
+      "targetJapaneseDraft": "レンソは最終更新日が3月3日だと指さす。しかしホテルは9月から新しいパンの供給業者を使っている。",
+      "literalJapaneseGlossEn": "Renzo points to the date last updated, March 3, but the hotel has had a new bread supplier since September.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Leo en voz alta: La tabla dice que el pan francés no contiene ajonjolí.",
+      "sourceEnglish": "I read aloud: The chart says the French roll doesn't contain sesame.",
+      "targetJapaneseDraft": "私は声に出して読む。「この表では、パン・フランセスにごまは入っていないと書いてあります。」",
+      "literalJapaneseGlossEn": "I read aloud: The chart says the French roll doesn't contain sesame.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Pero el pan de molde del nuevo proveedor tiene semillas por encima, y la tabla no dice nada de eso.",
+      "sourceEnglish": "But the sliced bread from the new supplier has seeds on top, and the chart says nothing about that.",
+      "targetJapaneseDraft": "しかし、新しい供給業者の食パンには表面に種がついていて、表にはそのことが何も書かれていない。",
+      "literalJapaneseGlossEn": "But the sliced bread from the new supplier has seeds on top, and the chart says nothing about that.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Le digo a Renzo: Si la tabla no está actualizada, hay que revisar cada etiqueta.",
+      "sourceEnglish": "I tell Renzo: If the chart isn't up to date, we need to check each label.",
+      "targetJapaneseDraft": "私はレンソに言う。「この表が最新でないなら、ラベルを一つずつ確認する必要があります。」",
+      "literalJapaneseGlossEn": "I tell Renzo: If the chart isn't up to date, we need to check each label.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:reader:10",
+      "candidatePosition": 10,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Luego le pregunto: ¿Podría pedirle la etiqueta del proveedor al jefe de cocina?",
+      "sourceEnglish": "Then I ask him: Could you ask the head chef for the supplier's label?",
+      "targetJapaneseDraft": "それから彼に尋ねる。「料理長に供給業者のラベルを取り寄せてもらえますか。」",
+      "literalJapaneseGlossEn": "Then I ask him: Could you ask the head chef for the supplier's label?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:reader:11",
+      "candidatePosition": 11,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Mientras Renzo va a la cocina, le digo a Elif: Después de leer la etiqueta, te digo qué puedes comer.",
+      "sourceEnglish": "While Renzo goes to the kitchen, I tell Elif: After reading the label, I'll tell you what you can eat.",
+      "targetJapaneseDraft": "レンソが厨房へ行っている間、私はエリフに言う。「ラベルを読んだら、何を食べられるか伝えるね。」",
+      "literalJapaneseGlossEn": "While Renzo goes to the kitchen, I tell Elif: After reading the label, I'll tell you what you can eat.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:reader:12",
+      "candidatePosition": 12,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Después de hablar con el jefe de cocina, Renzo regresa con la ficha técnica del pan de molde y la etiqueta del pan francés.",
+      "sourceEnglish": "After talking to the head chef, Renzo comes back with the spec sheet for the sliced bread and the label for the French roll.",
+      "targetJapaneseDraft": "料理長と話した後、レンソは食パンの製品仕様書とパン・フランセスのラベルを持って戻る。",
+      "literalJapaneseGlossEn": "After talking to the head chef, Renzo comes back with the spec sheet for the sliced bread and the label for the French roll.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:reader:13",
+      "candidatePosition": 13,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "La ficha técnica confirma que las semillas del pan de molde son de ajonjolí.",
+      "sourceEnglish": "The spec sheet confirms that the seeds on the sliced bread are sesame.",
+      "targetJapaneseDraft": "製品仕様書で、食パンの表面の種がごまだと確認できる。",
+      "literalJapaneseGlossEn": "The spec sheet confirms that the seeds on the sliced bread are sesame.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:reader:14",
+      "candidatePosition": 14,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "La etiqueta del pan francés dice: Puede contener trazas de ajonjolí.",
+      "sourceEnglish": "The French roll's label says: May contain traces of sesame.",
+      "targetJapaneseDraft": "パン・フランセスのラベルには「微量のごまを含む可能性があります」と書いてある。",
+      "literalJapaneseGlossEn": "The French roll's label says: May contain traces of sesame.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:reader:15",
+      "candidatePosition": 15,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Entonces le digo a Elif: Mejor no comas nada sin confirmarlo primero.",
+      "sourceEnglish": "So I tell Elif: Better not eat anything without confirming it first.",
+      "targetJapaneseDraft": "そこで私はエリフに言う。「確認できるまでは何も食べないほうがいいよ。」",
+      "literalJapaneseGlossEn": "So I tell Elif: Better not eat anything without confirming it first.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:reader:16",
+      "candidatePosition": 16,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Renzo explica que el jefe de cocina puede preparar huevos revueltos con utensilios separados, solo con huevo, sal y mantequilla.",
+      "sourceEnglish": "Renzo explains that the head chef can make scrambled eggs with separate utensils, with only egg, salt and butter.",
+      "targetJapaneseDraft": "レンソによると、料理長は別々の調理器具を使い、卵、塩、バターだけでスクランブルエッグを作ることができる。",
+      "literalJapaneseGlossEn": "Renzo explains that the head chef can make scrambled eggs with separate utensils, with only egg, salt and butter.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:reader:17",
+      "candidatePosition": 17,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Antes de comer, Elif revisa que tiene su autoinyector de epinefrina en el bolso.",
+      "sourceEnglish": "Before eating, Elif checks that she has her epinephrine auto-injector in her bag.",
+      "targetJapaneseDraft": "食べる前に、エリフはエピネフリン自己注射器がバッグに入っているか確認する。",
+      "literalJapaneseGlossEn": "Before eating, Elif checks that she has her epinephrine auto-injector in her bag.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:4:ja-en:source-scene-v1:reader:18",
+      "candidatePosition": 18,
+      "speaker": "Narrator with source dialogue",
+      "sourceSpanish": "Le explico a Renzo que, si Elif tiene una reacción alérgica, hay que usar el autoinyector como indicó su médico y llamar a una ambulancia.",
+      "sourceEnglish": "I explain to Renzo that if Elif has an allergic reaction, we have to use the auto-injector as her doctor instructed and call an ambulance.",
+      "targetJapaneseDraft": "私はレンソに、エリフにアレルギー反応が出た場合は、医師の指示どおりに自己注射器を使い、救急車を呼ぶ必要があると説明する。",
+      "literalJapaneseGlossEn": "I explain to Renzo that if Elif has an allergic reaction, we have to use the auto-injector as her doctor instructed and call an ambulance.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Use 〜する前に, 〜した後で and 〜する必要がある to compare a hotel's allergen chart with current supplier labels and explain checks before eating.",
+  "speakingGoalInternal": "You are reading the hotel's allergen chart with the AI, host Renzo, for your partner Elif, who is allergic to sesame: go through each bread and spread, ask clear questions, and say what to check using antes de / después de + infinitive and hay que.",
+  "speakingGoalJapaneseDraft": "ごまにアレルギーのあるパートナー、エリフのために、ホテルの案内係レンソと印刷されたアレルゲン一覧表を確認する。パンとスプレッドを一品ずつ尋ね、食べる前に何を確かめる必要があるか説明する。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "Current Spanish Master 4 has Elif and Renzo at a Miraflores, Lima hotel buffet, 23 cards and 18 Reader turns; the archive has 17 cards and eleven turns and is not a source-equivalent substitute. March 3 allergen chart predates a September bread-supplier change: sliced-bread seeds are sesame and the pan francés label says it may contain traces. The head chef offers separately prepared eggs with egg, salt and butter, but source does not state a safety approval. Elif checks an epinephrine auto-injector; doctor-directed use and calling an ambulance are source facts.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "allergen chart",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "sesame",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "ingredients",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "supplier",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "last updated date",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "product label",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "product specification sheet",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "cooking utensils",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "cross-contact",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "to verify",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "before eating",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "after checking",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "whether it is current",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "to hold off on ordering",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 15,
+      "candidate": null,
+      "oldEnglish": "allergic reaction",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 16,
+      "candidate": null,
+      "oldEnglish": "epinephrine auto-injector",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 17,
+      "candidate": null,
+      "oldEnglish": "trace amount",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "My companion has a sesame allergy. Can we check the information together before eating?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Here is the breakfast allergen chart.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "When was this chart last updated?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "It was updated in March. Our bread supplier changed last month.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Then I would like to check whether the bread information is current.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "I will check the current label and specification with the kitchen. I will also ask about utensils.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "I will wait without eating until the checks are complete.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "The kitchen responded, but we cannot verify the cross-contact risk.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Understood. We will not choose food that cannot be verified.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "Let's ask the appropriate staff member about other options.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "I also checked that my epinephrine auto-injector is in my bag.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 2,
+      "candidatePosition": 2,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 15,
+      "candidatePosition": 13,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 41,
+    "twoVoiceClipDecisionsIfTextApproved": 82,
+    "twoVoiceSubmittedCharactersIfTextApproved": 2134,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.06402,
+    "archivedExactJapaneseCardTextOverlapsOnly": 2,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "パン・フランセスというペルーの朝食用ロールパン名を、日本語の食材表示でどう説明するか。",
+    "ごまの微量混入を示す表示文言と、エリフの微量への反応の日本語が適切か。",
+    "ごまの種がある食パンと、微量を含む可能性のあるパン・フランセスを混同していないか。",
+    "旧3月3日付の表と9月からの新供給業者という時系列を維持できているか。",
+    "卵・塩・バターだけのスクランブルエッグを「安全」と推断せず、別々の調理器具という出典事実だけにとどめたか。",
+    "エピネフリン自己注射器、医師の指示、救急車という臨床語の正確さ。",
+    "レンソへの丁寧語とエリフへの親しい言い方の差。",
+    "スペイン語の antes de／después de／hay que に対応する日本語の文法目標は別途設計が必要。"
+  ],
+  "missing": [
+    "qualified Japanese/source/Madrid café/food/locale/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "complete speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

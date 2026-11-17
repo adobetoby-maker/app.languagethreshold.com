@@ -1,0 +1,85 @@
+{
+  "titleFrenchDraft": "Un courriel sur l’incident, avec le consentement de Lucía",
+  "focusFrenchDraft": "Rédiger à l’hôtel de Valence un compte rendu formel de l’incident et de ses demandes, en ne communiquant que les données de santé approuvées par Lucía.",
+  "cardFrenchDrafts": [
+    "l’objet du courriel",
+    "la pièce jointe",
+    "la formule de politesse finale",
+    "le résumé",
+    "le séjour",
+    "le service clientèle",
+    "le rapport médical",
+    "le consentement",
+    "les données de santé",
+    "la confidentialité",
+    "le formulaire officiel de réclamation",
+    "la carte des allergènes",
+    "la réponse écrite",
+    "le délai",
+    "les excuses",
+    "cordialement",
+    "Madame Soler, je vous écris au sujet de ce qui s’est passé mardi.",
+    "Tout d’abord, je tiens à remercier votre personnel pour sa réaction rapide.",
+    "Ci-dessous, je résume brièvement ce qui s’est passé pendant le petit-déjeuner.",
+    "Cependant, la carte des allergènes n’était pas visible.",
+    "Par conséquent, je vous demande une réponse écrite sur ce qui s’est passé.",
+    "Enfin, j’attends votre réponse.",
+    "Lucía, cela te convient-il si je mentionne que tu es allée aux urgences ?",
+    "Je n’inclurai rien du rapport médical sans ton autorisation."
+  ],
+  "readerFrenchDrafts": [
+    "Dans sa chambre de l’hôtel à Valence, Emma rédige le résumé de l’incident à l’intention d’Inés Soler, responsable du service clientèle.",
+    "Dans l’objet, elle écrit : Réaction allergique au petit-déjeuner du mardi 13 octobre.",
+    "Lucía, son amie, est assise sur le lit et décide quelles données de santé elle veut communiquer à l’hôtel.",
+    "Emma : Lucía, cela te convient-il si je mentionne que tu es allée aux urgences ?",
+    "Lucía : Oui, mais ne mentionne ni le diagnostic ni les médicaments, s’il te plaît.",
+    "Emma : Je n’inclurai rien du rapport médical sans ton autorisation.",
+    "Pour Lucía, la confidentialité est importante ; son consentement ne couvre donc que l’allergie à l’amande et le passage aux urgences.",
+    "Madame Soler, je vous écris au sujet de ce qui s’est passé mardi.",
+    "Tout d’abord, je tiens à remercier votre personnel pour sa réaction rapide.",
+    "Ci-dessous, je résume brièvement ce qui s’est passé pendant le petit-déjeuner.",
+    "Pendant notre séjour, mon amie a mangé un gâteau à l’amande, a eu une réaction allergique et s’est rendue aux urgences.",
+    "Cependant, la carte des allergènes n’était pas visible.",
+    "Par conséquent, je vous demande une réponse écrite sur ce qui s’est passé.",
+    "Je vous demande également des excuses et une révision de la carte des allergènes dans un délai de 15 jours.",
+    "Je joins une copie du formulaire officiel de réclamation que nous avons rempli à la réception.",
+    "Enfin, j’attends votre réponse.",
+    "Avant d’envoyer le courriel, Emma vérifie la pièce jointe et confirme qu’elle ne contient pas le rapport médical.",
+    "Pour terminer, Emma écrit : Cordialement, Emma Clarke."
+  ],
+  "speakingDraft": {
+    "roleEnglish": "You are Emma drafting the Valencia hotel email to Inés Soler. The AI plays Lucía, your friend, who chooses what health information she consents to share.",
+    "openingFrench": "Emma : Lucía, cela te convient-il si je mentionne que tu es allée aux urgences ?",
+    "objectivesEnglish": [
+      "Check Lucía’s consent before including the almond allergy and ER visit, and exclude diagnosis, medications and the medical report.",
+      "Read the factual Tuesday breakfast summary aloud using formal connectors in order.",
+      "Ask Inés Soler for an apology, a written reply and an allergen-menu review within 15 days.",
+      "Attach only the official complaint form and confirm the attachment contains no medical report."
+    ],
+    "closureFrench": "Emma : Je n’inclurai rien du rapport médical sans ton autorisation."
+  },
+  "formsDraft": [
+    {"french": "Tout d’abord, je tiens à remercier votre personnel pour sa réaction rapide.", "english": "First of all, I would like to thank your staff for their quick response.", "noteEnglish": "Formal connector opens the report; votre addresses Ms. Soler formally."},
+    {"french": "Ci-dessous, je résume brièvement ce qui s’est passé pendant le petit-déjeuner.", "english": "Below, I briefly summarize what happened during breakfast.", "noteEnglish": "Je résume is present tense in a formal written report; ci-dessous refers to text that follows."},
+    {"french": "Cependant, la carte des allergènes n’était pas visible.", "english": "However, the allergen menu was not on display.", "noteEnglish": "Cependant introduces the contrast; n’était pas visible reports the source condition, not an inferred cause."},
+    {"french": "Par conséquent, je vous demande une réponse écrite sur ce qui s’est passé.", "english": "Therefore, I request a written reply about what happened.", "noteEnglish": "Par conséquent links the stated concern to Emma’s request; je vous demande uses formal vous."},
+    {"french": "Enfin, j’attends votre réponse.", "english": "Finally, I look forward to your reply.", "noteEnglish": "Enfin closes the sequence; the draft uses a formal written register."}
+  ],
+  "modeSourceCards": {"See": 17, "Recall": 18, "Hear": 19, "Type": 20, "Say": 23, "Write": 24},
+  "modeCuesEnglish": {
+    "See": "Read Emma’s formal opening to Ms. Soler about Tuesday.",
+    "Recall": "Recall Emma’s first connector and thanks to the hotel staff.",
+    "Hear": "Listen for Emma’s brief breakfast summary line. Recording pending.",
+    "Type": "Type the formal contrast about the allergen menu not being visible.",
+    "Say": "Ask Lucía whether she agrees to mention the ER visit.",
+    "Write": "Promise Lucía that nothing from the medical report will be included without her permission."
+  },
+  "reviewQuestionsEnglish": [
+    "Keep Valencia, Inés Soler, Emma, Lucía, the Tuesday October 13 subject, almond-containing cake, allergic reaction and ER visit. The older Montréal/Léa scene is trace evidence only.",
+    "Lucía approves disclosure of only the almond allergy and ER visit; she excludes diagnosis, medications and anything from the medical report. Review privacy wording without broadening her consent.",
+    "Spain’s hoja de reclamaciones is an official complaint form in this source; check the French term against the Spanish administrative context rather than replacing it with a generic incident note.",
+    "The source asks for an apology and allergen-menu review within 15 days and a written reply; it does not promise a remedy or state a cause beyond the source facts.",
+    "Review formal email greeting and closing, the choice of cordialement for sincerely, and clinical/dictionary senses with a qualified French reviewer. Neither AI nor the structural validator grants approval.",
+    "Prior row IDs, saved items and exact-text recordings cannot automatically transfer to the revision-scoped rows."
+  ]
+}

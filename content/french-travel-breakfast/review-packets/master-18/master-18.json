@@ -1,0 +1,510 @@
+{
+  "schema": "lt.inert-source-review.v1",
+  "lessonKey": "master:18",
+  "pair": {
+    "target": "French",
+    "support": "English"
+  },
+  "source": {
+    "coursePath": "src/data/core60/es/master-travel-breakfast.json",
+    "courseSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "lessonSha256": "d2928ed4e30c72a4c57de022e192885a71e85eddc276b280391319e750991555",
+    "titleEnglish": "Text a Casa Rural Host When the Train Runs Late",
+    "objectiveEnglish": "Text and then call a host to explain a delay, change the group size and ask politely about breakfast times.",
+    "speakingEnglish": "You are on a delayed train to Asturias, and the AI is Begoña, the casa rural host: text her that the group grew from 3 to 5, then call to ask about breakfast times with le escribo porque…, ¿le vendría bien…? and ¿podría guardarnos el desayuno?",
+    "sourceGrammar": {
+      "focus": "Phone and text conventions; conditional politeness (¿le vendría bien…?, ¿podría guardarnos el desayuno?, te escribo porque…)",
+      "examples": [
+        {
+          "es": "Le escribo porque el tren lleva 1 hora de retraso.",
+          "en": "I'm writing because the train is 1 hour late."
+        },
+        {
+          "es": "¿Le vendría bien que llegáramos hacia las 22:00?",
+          "en": "Would it suit you if we arrived around 22:00?"
+        }
+      ]
+    },
+    "passageTitleSpanish": "Un tren con retraso"
+  },
+  "priorDraft": {
+    "archivePath": "content/review-archive/french-japanese-2026-11-15/french-breakfast/master-16-18-draft.json",
+    "archiveSha256": "9d5c2ff37d596373a224382b752406b63c0f5d159c402461ca9a418b68c9099d",
+    "runtimePath": "content/review-archive/french-japanese-2026-11-15/french-breakfast/private-runtime-candidate.json",
+    "runtimeSha256": "f58bb01321fa2e04ef1bbc802c7a776836c3ea9ac6c51fdbedfaca50fe764f26",
+    "oldScene": "French rural guesthouse after delayed TER travel; group-size and breakfast requests pending",
+    "sourceScene": "Asturias delayed train, Begoña at Cangas de Onís, five guests, Arriondas/ALSA transfer and confirmed 10:30 breakfast",
+    "matchingPriorEnglishCards": 7,
+    "matchingPriorEnglishReaderTurns": 0,
+    "disposition": "Archived positions are trace references only; no saved-item or recording migration is authorized."
+  },
+  "titleFrenchDraft": "Prévenir Begoña du retard du train",
+  "focusFrenchDraft": "Écrire puis appeler la propriétaire d’une maison d’hôtes rurale pour annoncer un retard, confirmer cinq voyageurs et demander poliment un petit-déjeuner à 10 h 30.",
+  "cards": [
+    {
+      "id": "master:18:source-d2928ed4e30c:word:1",
+      "legacyDraftId": "master:18:word:1",
+      "sourceSpanish": "el retraso",
+      "supportEnglish": "the delay",
+      "targetFrenchDraft": "le retard",
+      "kind": "term"
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:2",
+      "legacyDraftId": "master:18:word:2",
+      "sourceSpanish": "la casa rural",
+      "supportEnglish": "the rural guesthouse",
+      "targetFrenchDraft": "la maison d’hôtes rurale",
+      "kind": "term"
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:3",
+      "legacyDraftId": "master:18:word:3",
+      "sourceSpanish": "la dueña",
+      "supportEnglish": "the owner (woman)",
+      "targetFrenchDraft": "la propriétaire",
+      "kind": "term"
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:4",
+      "legacyDraftId": "master:18:word:4",
+      "sourceSpanish": "el audio",
+      "supportEnglish": "the voice message",
+      "targetFrenchDraft": "le message vocal",
+      "kind": "term",
+      "sourceNoteEnglish": "Common word for a WhatsApp voice note."
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:5",
+      "legacyDraftId": "master:18:word:5",
+      "sourceSpanish": "la cobertura",
+      "supportEnglish": "the cell signal",
+      "targetFrenchDraft": "le réseau mobile",
+      "kind": "term",
+      "sourceNoteEnglish": "No tengo cobertura = I have no signal."
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:6",
+      "legacyDraftId": "master:18:word:6",
+      "sourceSpanish": "el túnel",
+      "supportEnglish": "the tunnel",
+      "targetFrenchDraft": "le tunnel",
+      "kind": "term"
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:7",
+      "legacyDraftId": "master:18:word:7",
+      "sourceSpanish": "la llamada perdida",
+      "supportEnglish": "the missed call",
+      "targetFrenchDraft": "l’appel manqué",
+      "kind": "term"
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:8",
+      "legacyDraftId": "master:18:word:8",
+      "sourceSpanish": "la hora de llegada",
+      "supportEnglish": "the arrival time",
+      "targetFrenchDraft": "l’heure d’arrivée",
+      "kind": "term"
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:9",
+      "legacyDraftId": "master:18:word:9",
+      "sourceSpanish": "la cama supletoria",
+      "supportEnglish": "the extra bed",
+      "targetFrenchDraft": "le lit d’appoint",
+      "kind": "term",
+      "sourceNoteEnglish": "Spain usage for a rollaway bed."
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:10",
+      "legacyDraftId": "master:18:word:10",
+      "sourceSpanish": "la caja de llaves",
+      "supportEnglish": "the key lockbox",
+      "targetFrenchDraft": "la boîte à clés",
+      "kind": "term"
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:11",
+      "legacyDraftId": "master:18:word:11",
+      "sourceSpanish": "el revisor",
+      "supportEnglish": "the ticket inspector",
+      "targetFrenchDraft": "le contrôleur du train",
+      "kind": "term",
+      "sourceNoteEnglish": "Spain usage on trains."
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:12",
+      "legacyDraftId": "master:18:word:12",
+      "sourceSpanish": "el transbordo",
+      "supportEnglish": "the connection (change of train or bus)",
+      "targetFrenchDraft": "la correspondance",
+      "kind": "term"
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:13",
+      "legacyDraftId": "master:18:word:13",
+      "sourceSpanish": "la parada de taxis",
+      "supportEnglish": "the taxi stand",
+      "targetFrenchDraft": "la station de taxis",
+      "kind": "term"
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:14",
+      "legacyDraftId": "master:18:word:14",
+      "sourceSpanish": "entrecortado",
+      "supportEnglish": "breaking up",
+      "targetFrenchDraft": "la communication hachée",
+      "kind": "term",
+      "sourceNoteEnglish": "Te oigo entrecortado = you're breaking up."
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:15",
+      "legacyDraftId": "master:18:word:15",
+      "sourceSpanish": "el cambio de planes",
+      "supportEnglish": "the change of plans",
+      "targetFrenchDraft": "le changement de programme",
+      "kind": "term"
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:16",
+      "legacyDraftId": "master:18:word:16",
+      "sourceSpanish": "Buenas tardes, Begoña, le escribo porque el tren va con retraso.",
+      "supportEnglish": "Good afternoon, Begoña, I'm writing because the train is running late.",
+      "targetFrenchDraft": "Bonjour Begoña, je vous écris parce que le train a du retard.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal (usted)"
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:17",
+      "legacyDraftId": "master:18:word:17",
+      "sourceSpanish": "Al final seremos 5 en vez de 3, ¿le vendría bien?",
+      "supportEnglish": "In the end we'll be 5 instead of 3, would that work for you?",
+      "targetFrenchDraft": "Finalement, nous serons cinq au lieu de trois ; cela vous conviendrait-il ?",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal"
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:18",
+      "legacyDraftId": "master:18:word:18",
+      "sourceSpanish": "¿Podría guardarnos el desayuno hasta las 10:30, si no es molestia?",
+      "supportEnglish": "Could you save breakfast for us until 10:30, if it's no trouble?",
+      "targetFrenchDraft": "Pourriez-vous nous garder le petit-déjeuner jusqu’à 10 h 30, si cela ne vous dérange pas ?",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal"
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:19",
+      "legacyDraftId": "master:18:word:19",
+      "sourceSpanish": "Perdone, se corta; estamos pasando por un túnel.",
+      "supportEnglish": "Sorry, it's cutting out; we're going through a tunnel.",
+      "targetFrenchDraft": "Excusez-moi, ça coupe ; nous traversons un tunnel.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal"
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:20",
+      "legacyDraftId": "master:18:word:20",
+      "sourceSpanish": "Le vuelvo a llamar en cuanto tenga cobertura.",
+      "supportEnglish": "I'll call you back as soon as I have signal.",
+      "targetFrenchDraft": "Je vous rappellerai dès que j’aurai du réseau.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "En cuanto + subjunctive for a future moment."
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:21",
+      "legacyDraftId": "master:18:word:21",
+      "sourceSpanish": "¿Le importaría dejarnos las llaves en la caja?",
+      "supportEnglish": "Would you mind leaving the keys in the lockbox for us?",
+      "targetFrenchDraft": "Est-ce que cela vous dérangerait de nous laisser les clés dans la boîte à clés ?",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal"
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:22",
+      "legacyDraftId": "master:18:word:22",
+      "sourceSpanish": "¿Sería posible desayunar un poco más tarde mañana?",
+      "supportEnglish": "Would it be possible to have breakfast a little later tomorrow?",
+      "targetFrenchDraft": "Serait-il possible de prendre le petit-déjeuner un peu plus tard demain ?",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal"
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:word:23",
+      "legacyDraftId": "master:18:word:23",
+      "sourceSpanish": "Chicos, Begoña nos guarda el desayuno hasta las 10:30.",
+      "supportEnglish": "Guys, Begoña is saving breakfast for us until 10:30.",
+      "targetFrenchDraft": "Les amis, Begoña nous garde le petit-déjeuner jusqu’à 10 h 30.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Informal, to the group"
+    }
+  ],
+  "reader": [
+    {
+      "id": "master:18:source-d2928ed4e30c:line:1",
+      "legacyDraftId": "master:18:line:1",
+      "sourceSpanish": "Daniel viaja en tren hacia Asturias con sus amigos para pasar el fin de semana en una casa rural de Cangas de Onís.",
+      "supportEnglish": "Daniel is traveling by train to Asturias with his friends to spend the weekend at a rural guesthouse in Cangas de Onís.",
+      "targetFrenchDraft": "Daniel voyage en train vers les Asturies avec ses amis pour passer le week-end dans une maison d’hôtes rurale à Cangas de Onís."
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:line:2",
+      "legacyDraftId": "master:18:line:2",
+      "sourceSpanish": "El revisor pasa por el vagón y anuncia que el tren lleva 1 hora de retraso por una avería.",
+      "supportEnglish": "The ticket inspector walks through the car and announces that the train is 1 hour late because of a breakdown.",
+      "targetFrenchDraft": "Le contrôleur traverse la voiture et annonce que le train a une heure de retard à cause d’une panne."
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:line:3",
+      "legacyDraftId": "master:18:line:3",
+      "sourceSpanish": "Con este retraso van a perder el transbordo en Oviedo, así que la hora de llegada a Cangas de Onís cambia bastante.",
+      "supportEnglish": "With this delay they are going to miss the train change in Oviedo, so the arrival time in Cangas de Onís changes quite a bit.",
+      "targetFrenchDraft": "Avec ce retard, ils vont manquer la correspondance à Oviedo ; l’heure d’arrivée à Cangas de Onís change donc beaucoup."
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:line:4",
+      "legacyDraftId": "master:18:line:4",
+      "sourceSpanish": "Además, hay un cambio de planes, porque Lucía y su hermano Pablo se han apuntado al viaje esta mañana y ahora son 5.",
+      "supportEnglish": "Also, there is a change of plans, because Lucía and her brother Pablo joined the trip this morning and now there are 5 of them.",
+      "targetFrenchDraft": "De plus, le programme a changé : Lucía et son frère Pablo se sont joints au voyage ce matin et ils sont maintenant cinq."
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:line:5",
+      "legacyDraftId": "master:18:line:5",
+      "sourceSpanish": "Daniel le escribe un mensaje a Begoña, la dueña de la casa: Buenas tardes, Begoña, le escribo porque el tren va con retraso.",
+      "supportEnglish": "Daniel writes a message to Begoña, the owner of the house: Good afternoon, Begoña, I'm writing because the train is running late.",
+      "targetFrenchDraft": "Daniel écrit un message à Begoña, la propriétaire de la maison : Bonjour Begoña, je vous écris parce que le train a du retard."
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:line:6",
+      "legacyDraftId": "master:18:line:6",
+      "sourceSpanish": "En el mismo mensaje añade: Al final seremos 5 en vez de 3, ¿le vendría bien?",
+      "supportEnglish": "In the same message he adds: In the end we'll be 5 instead of 3, would that work for you?",
+      "targetFrenchDraft": "Dans le même message, il ajoute : Finalement, nous serons cinq au lieu de trois ; cela vous conviendrait-il ?"
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:line:7",
+      "legacyDraftId": "master:18:line:7",
+      "sourceSpanish": "Begoña contesta con un audio: no hay problema, porque puede poner una cama supletoria en cada habitación.",
+      "supportEnglish": "Begoña answers with a voice message: no problem, because she can put an extra bed in each room.",
+      "targetFrenchDraft": "Begoña répond par un message vocal : aucun problème, car elle peut installer un lit d’appoint dans chaque chambre."
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:line:8",
+      "legacyDraftId": "master:18:line:8",
+      "sourceSpanish": "Media hora después, Daniel ve una llamada perdida de Begoña y la llama enseguida.",
+      "supportEnglish": "Half an hour later, Daniel sees a missed call from Begoña and calls her right away.",
+      "targetFrenchDraft": "Une demi-heure plus tard, Daniel voit un appel manqué de Begoña et la rappelle aussitôt."
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:line:9",
+      "legacyDraftId": "master:18:line:9",
+      "sourceSpanish": "Daniel: ¿Le vendría bien que llegáramos hacia las 23:00?",
+      "supportEnglish": "Daniel: Would it suit you if we arrived around 23:00?",
+      "targetFrenchDraft": "Daniel : Cela vous conviendrait-il si nous arrivions vers 23 h 00 ?"
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:line:10",
+      "legacyDraftId": "master:18:line:10",
+      "sourceSpanish": "Begoña: Me viene bien, pero a esa hora yo ya no estaré en la casa.",
+      "supportEnglish": "Begoña: That works for me, but at that time I won't be at the house anymore.",
+      "targetFrenchDraft": "Begoña : Cela me convient, mais à cette heure-là, je ne serai plus à la maison."
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:line:11",
+      "legacyDraftId": "master:18:line:11",
+      "sourceSpanish": "Daniel: ¿Le importaría dejarnos las llaves en la caja?",
+      "supportEnglish": "Daniel: Would you mind leaving the keys in the lockbox for us?",
+      "targetFrenchDraft": "Daniel : Est-ce que cela vous dérangerait de nous laisser les clés dans la boîte à clés ?"
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:line:12",
+      "legacyDraftId": "master:18:line:12",
+      "sourceSpanish": "Begoña le explica que la caja de llaves está junto a la puerta y que, como Cangas de Onís no tiene estación de tren, desde la estación de Arriondas pueden tomar el autobús de ALSA, unos 15 minutos, o un taxi de la parada de enfrente.",
+      "supportEnglish": "Begoña explains to him that the key lockbox is next to the door and that, since Cangas de Onís has no train station, from the Arriondas station they can take the ALSA bus, about 15 minutes, or a taxi from the stand out front.",
+      "targetFrenchDraft": "Begoña lui explique que la boîte à clés se trouve près de la porte et que, comme Cangas de Onís n’a pas de gare, ils peuvent prendre à la gare d’Arriondas le bus ALSA, qui met environ quinze minutes, ou un taxi à la station juste devant."
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:line:13",
+      "legacyDraftId": "master:18:line:13",
+      "sourceSpanish": "Daniel le pregunta con educación a qué hora sirve el desayuno, y Begoña responde que normalmente de 8:00 a 10:00.",
+      "supportEnglish": "Daniel politely asks her what time she serves breakfast, and Begoña answers that it is usually from 8:00 to 10:00.",
+      "targetFrenchDraft": "Daniel lui demande poliment à quelle heure elle sert le petit-déjeuner ; Begoña répond que c’est habituellement de 8 h 00 à 10 h 00."
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:line:14",
+      "legacyDraftId": "master:18:line:14",
+      "sourceSpanish": "Daniel: ¿Podría guardarnos el desayuno hasta las 10:30, si no es molestia?",
+      "supportEnglish": "Daniel: Could you save breakfast for us until 10:30, if it's no trouble?",
+      "targetFrenchDraft": "Daniel : Pourriez-vous nous garder le petit-déjeuner jusqu’à 10 h 30, si cela ne vous dérange pas ?"
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:line:15",
+      "legacyDraftId": "master:18:line:15",
+      "sourceSpanish": "De repente, la voz de Begoña suena entrecortada porque el tren entra en un túnel.",
+      "supportEnglish": "Suddenly, Begoña's voice sounds broken up because the train goes into a tunnel.",
+      "targetFrenchDraft": "Soudain, la voix de Begoña devient hachée parce que le train entre dans un tunnel."
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:line:16",
+      "legacyDraftId": "master:18:line:16",
+      "sourceSpanish": "Daniel: Perdone, se corta; estamos pasando por un túnel.",
+      "supportEnglish": "Daniel: Sorry, it's cutting out; we're going through a tunnel.",
+      "targetFrenchDraft": "Daniel : Excusez-moi, ça coupe ; nous traversons un tunnel."
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:line:17",
+      "legacyDraftId": "master:18:line:17",
+      "sourceSpanish": "Cuando vuelve a tener cobertura, Daniel la llama otra vez y Begoña le confirma que les guarda el desayuno.",
+      "supportEnglish": "When he has signal again, Daniel calls her once more and Begoña confirms that she will save breakfast for them.",
+      "targetFrenchDraft": "Quand il retrouve du réseau, Daniel la rappelle et Begoña confirme qu’elle leur gardera le petit-déjeuner."
+    },
+    {
+      "id": "master:18:source-d2928ed4e30c:line:18",
+      "legacyDraftId": "master:18:line:18",
+      "sourceSpanish": "Daniel: Chicos, Begoña nos guarda el desayuno hasta las 10:30.",
+      "supportEnglish": "Daniel: Guys, Begoña is saving breakfast for us until 10:30.",
+      "targetFrenchDraft": "Daniel : Les amis, Begoña nous garde le petit-déjeuner jusqu’à 10 h 30."
+    }
+  ],
+  "speakingDraft": {
+    "roleEnglish": "You are Daniel on the delayed train to Asturias. Begoña owns the casa rural in Cangas de Onís; Lucía and Pablo have joined your group, which grew from three to five.",
+    "openingFrench": "Bonjour Begoña, je vous écris parce que le train a du retard.",
+    "objectivesEnglish": [
+      "Text Begoña that the train is late and ask whether five guests instead of three would suit her.",
+      "Call after her voice message and missed call; ask whether an arrival around 23:00 works and request the key lockbox.",
+      "Ask about the usual 8:00–10:00 breakfast hours and politely request breakfast until 10:30.",
+      "Explain the tunnel interruption, call back when signal returns, and tell the group only after Begoña confirms."
+    ],
+    "closureFrench": "Les amis, Begoña nous garde le petit-déjeuner jusqu’à 10 h 30."
+  },
+  "formsDraft": [
+    {
+      "french": "Je vous écris parce que le train a du retard.",
+      "english": "I'm writing because the train is running late.",
+      "noteEnglish": "Je vous écris keeps the source's formal address to Begoña; avoir du retard is idiomatic for a late train."
+    },
+    {
+      "french": "Cela vous conviendrait-il si nous arrivions vers 23 h 00 ?",
+      "english": "Would it suit you if we arrived around 23:00?",
+      "noteEnglish": "Conviendrait is a polite conditional; arrivions follows si in this hypothetical request. The Reader uses 23:00."
+    },
+    {
+      "french": "Pourriez-vous nous garder le petit-déjeuner jusqu’à 10 h 30 ?",
+      "english": "Could you save breakfast for us until 10:30?",
+      "noteEnglish": "Pourriez-vous is a polite conditional question; the request is for the source's 10:30 time."
+    },
+    {
+      "french": "Je vous rappellerai dès que j’aurai du réseau.",
+      "english": "I'll call you back as soon as I have signal.",
+      "noteEnglish": "French uses a future form after dès que for a future event; the Spanish source notes a subjunctive after en cuanto."
+    },
+    {
+      "french": "Les amis, Begoña nous garde le petit-déjeuner jusqu’à 10 h 30.",
+      "english": "Guys, Begoña is saving breakfast for us until 10:30.",
+      "noteEnglish": "Les amis addresses the group informally after Begoña confirms the arrangement."
+    }
+  ],
+  "modeActivitiesDraft": [
+    {
+      "mode": "See",
+      "cueEnglish": "Read Daniel's formal message explaining the late train to Begoña.",
+      "sourceRef": "master:18:source-d2928ed4e30c:word:16",
+      "legacyDraftSourceRef": "master:18:word:16",
+      "targetFrenchDraft": "Bonjour Begoña, je vous écris parce que le train a du retard.",
+      "supportEnglish": "Good afternoon, Begoña, I'm writing because the train is running late.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Recall",
+      "cueEnglish": "Recall the polite request asking whether five guests instead of three would work.",
+      "sourceRef": "master:18:source-d2928ed4e30c:word:17",
+      "legacyDraftSourceRef": "master:18:word:17",
+      "targetFrenchDraft": "Finalement, nous serons cinq au lieu de trois ; cela vous conviendrait-il ?",
+      "supportEnglish": "In the end we'll be 5 instead of 3, would that work for you?",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Hear",
+      "cueEnglish": "Listen for Daniel's polite 10:30 breakfast request. Recording pending.",
+      "sourceRef": "master:18:source-d2928ed4e30c:word:18",
+      "legacyDraftSourceRef": "master:18:word:18",
+      "targetFrenchDraft": "Pourriez-vous nous garder le petit-déjeuner jusqu’à 10 h 30, si cela ne vous dérange pas ?",
+      "supportEnglish": "Could you save breakfast for us until 10:30, if it's no trouble?",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Type",
+      "cueEnglish": "Type Daniel's explanation that the call is cutting out in a tunnel.",
+      "sourceRef": "master:18:source-d2928ed4e30c:word:19",
+      "legacyDraftSourceRef": "master:18:word:19",
+      "targetFrenchDraft": "Excusez-moi, ça coupe ; nous traversons un tunnel.",
+      "supportEnglish": "Sorry, it's cutting out; we're going through a tunnel.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Say",
+      "cueEnglish": "Tell Begoña you will call back as soon as you have cell signal.",
+      "sourceRef": "master:18:source-d2928ed4e30c:word:20",
+      "legacyDraftSourceRef": "master:18:word:20",
+      "targetFrenchDraft": "Je vous rappellerai dès que j’aurai du réseau.",
+      "supportEnglish": "I'll call you back as soon as I have signal.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Write",
+      "cueEnglish": "Ask Begoña politely to leave the keys in the lockbox.",
+      "sourceRef": "master:18:source-d2928ed4e30c:word:21",
+      "legacyDraftSourceRef": "master:18:word:21",
+      "targetFrenchDraft": "Est-ce que cela vous dérangerait de nous laisser les clés dans la boîte à clés ?",
+      "supportEnglish": "Would you mind leaving the keys in the lockbox for us?",
+      "recordedAudio": false,
+      "readyForLearner": false
+    }
+  ],
+  "dictionarySensesReviewed": false,
+  "reviewNotesEnglish": [
+    "Keep the Asturias/Cangas de Onís scene, Oviedo missed connection, Arriondas station, ALSA bus, taxi stand, Lucía and Pablo, Begoña, group change from 3 to 5, and two extra beds. Do not relocate this to a French TER or change the host and transportation facts.",
+    "The pinned Reader asks about arrival at 23:00, while a separate source grammar example asks about 22:00. This packet follows the Reader and leaves the source discrepancy visible for curriculum review.",
+    "The source says Cangas de Onís has no train station and that the ALSA bus from Arriondas takes about 15 minutes. Verify the French phrasing preserves that claim as source dialogue, not independently certified travel guidance.",
+    "The 8:00–10:00 regular breakfast window and 10:30 exception are distinct. Begoña confirms the later breakfast after Daniel calls back when signal returns.",
+    "Qualified French/Spanish locale and dictionary review should settle maison d’hôtes rurale versus casa rural, boîte à clés, lit d’appoint, and formal request register. Archived draft rows are evidence only; no saved-item or audio migration is authorized."
+  ],
+  "audioScope": {
+    "status": "read-only estimate; no synthesis, technical verification, listening decision, reuse or registration",
+    "voices": 2,
+    "selectedFrenchStrings": 41,
+    "potentialClipDecisions": 82,
+    "submittedCharacters": 2718,
+    "rateUsdPerMillionCharacters": 30,
+    "estimatedGrossUsd": 0.08154
+  },
+  "aiAssistance": {
+    "currentRun": "Safe-mode Haiku CLI returned Not logged in with empty modelUsage and zero tokens; no AI output was used.",
+    "actualModelUsage": {},
+    "qualifiedApproval": false
+  },
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "learnerRegistered": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "audioApproved": false,
+    "listeningReviewed": false,
+    "playbackEnabled": false,
+    "progressTracking": false,
+    "progressWritesEnabled": false,
+    "offlineRegistered": false,
+    "v4Registered": false,
+    "released": false
+  }
+}

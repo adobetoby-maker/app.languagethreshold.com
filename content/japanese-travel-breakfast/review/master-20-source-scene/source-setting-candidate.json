@@ -1,0 +1,760 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "master",
+  "lessonKey": "master:20",
+  "stableLessonId": "master-travel-breakfast:20:ja-en",
+  "candidateRevision": "master-travel-breakfast:20:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "curriculumVersion": 1,
+    "readerVersion": 1,
+    "curriculumReviewed": false,
+    "readerReviewed": false,
+    "titleEnglishInternal": "Capstone: A Group Breakfast in Puebla Goes Sideways",
+    "objectiveEnglishInternal": "Lead a group through a hard breakfast morning: teach, solve, refuse, report, message and close it out in Spanish.",
+    "speakingEnglishInternal": "You are leading five relatives through a Puebla breakfast, and the AI is Emilio, server Brenda, the host and the manager: coach Emilio's order, check tía Rosa's allergens, order for all, text the host and give checkout feedback, using commands, conditionals and the subjunctive.",
+    "grammarEnglishExamplesInternal": [
+      "You ask Brenda, and if she doesn't know, have her check with the kitchen.",
+      "If we hadn't checked the binder, my aunt would have ordered the pipián."
+    ],
+    "readerTitleSpanish": "Un desayuno difícil en Puebla",
+    "readerVerbExamples": [
+      {
+        "target": "Emilio pide las chalupas sin prisa.",
+        "native": "Emilio orders the chalupas with no rush."
+      },
+      {
+        "target": "Brenda confirma los ingredientes en la cocina.",
+        "native": "Brenda confirms the ingredients in the kitchen."
+      },
+      {
+        "target": "¿Qué nos recomienda en su lugar?",
+        "native": "What do you recommend instead?"
+      },
+      {
+        "target": "Le aviso al gerente antes de salir.",
+        "native": "I let the manager know before leaving."
+      },
+      {
+        "target": "Volvemos al hotel el próximo año.",
+        "native": "We're coming back to the hotel next year."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/master-19-20-draft.json",
+    "sha256": "43665cf686c2fee88655e3904f7e07606519744aa70b833dcfd6799f5bcaa127",
+    "scene": "A family breakfast group handles a missing allergen binder, a sold-out dish and a delayed next appointment before checkout.",
+    "cardCount": 14,
+    "readerCount": 10
+  },
+  "sourceCards": [
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "las chalupas",
+      "sourceEnglish": "the chalupas",
+      "kind": "term",
+      "sourceNoteInternal": "Puebla: small fried tortillas with salsa.",
+      "targetJapaneseDraft": "チャルーパス",
+      "literalJapaneseGlossEn": "the chalupas",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "el mole poblano",
+      "sourceEnglish": "the mole poblano",
+      "kind": "term",
+      "sourceNoteInternal": "Recipes vary and often include nuts or seeds; always ask.",
+      "targetJapaneseDraft": "モレ・ポブラーノ",
+      "literalJapaneseGlossEn": "the mole poblano",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "los molotes",
+      "sourceEnglish": "the molotes",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "モロテス",
+      "literalJapaneseGlossEn": "the molotes",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "las cemitas",
+      "sourceEnglish": "the cemitas",
+      "kind": "term",
+      "sourceNoteInternal": "Puebla sandwich on a sesame roll.",
+      "targetJapaneseDraft": "セミータス",
+      "literalJapaneseGlossEn": "the cemitas",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "el champurrado",
+      "sourceEnglish": "the champurrado",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "チャンプラード",
+      "literalJapaneseGlossEn": "the champurrado",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "la carpeta de alérgenos",
+      "sourceEnglish": "the allergen binder",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アレルゲン一覧のバインダー",
+      "literalJapaneseGlossEn": "the allergen binder",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "agotado",
+      "sourceEnglish": "sold out",
+      "kind": "term",
+      "sourceNoteInternal": "Se agotó el mole = the mole sold out.",
+      "targetJapaneseDraft": "売り切れ",
+      "literalJapaneseGlossEn": "sold out",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "el sustituto",
+      "sourceEnglish": "the substitute",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "代わりの料理",
+      "literalJapaneseGlossEn": "the substitute",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "el pipián",
+      "sourceEnglish": "the pipián",
+      "kind": "term",
+      "sourceNoteInternal": "Seed-based sauce; ingredients vary by cook.",
+      "targetJapaneseDraft": "ピピアン",
+      "literalJapaneseGlossEn": "the pipián",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "el sobrino",
+      "sourceEnglish": "the nephew",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "甥",
+      "literalJapaneseGlossEn": "the nephew",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "la tía",
+      "sourceEnglish": "the aunt",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "おば",
+      "literalJapaneseGlossEn": "the aunt",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "la orden",
+      "sourceEnglish": "the order",
+      "kind": "term",
+      "sourceNoteInternal": "Mexico: una orden de molotes = one serving of molotes.",
+      "targetJapaneseDraft": "一人前の注文",
+      "literalJapaneseGlossEn": "the order",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "las enfrijoladas",
+      "sourceEnglish": "the enfrijoladas",
+      "kind": "term",
+      "sourceNoteInternal": "Tortillas in bean sauce; ask what the filling and topping are.",
+      "targetJapaneseDraft": "エンフリホラーダス",
+      "literalJapaneseGlossEn": "the enfrijoladas",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "la encuesta de satisfacción",
+      "sourceEnglish": "the satisfaction survey",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "満足度アンケート",
+      "literalJapaneseGlossEn": "the satisfaction survey",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "el comal",
+      "sourceEnglish": "the griddle",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "コマル（調理用の鉄板）",
+      "literalJapaneseGlossEn": "the griddle",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "Emilio, saluda primero y luego pide tú, sin prisa.",
+      "sourceEnglish": "Emilio, say hello first and then you order, no rush.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal (tú) to the nephew",
+      "targetJapaneseDraft": "エミリオ、まず挨拶して、それから自分で注文してね。慌てなくていいよ。",
+      "literalJapaneseGlossEn": "Emilio, say hello first and then you order, no rush.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Disculpe, Brenda, ¿nos podría traer la carpeta de alérgenos?",
+      "sourceEnglish": "Excuse me, Brenda, could you bring us the allergen binder?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal",
+      "targetJapaneseDraft": "すみません、ブレンダさん。アレルゲン一覧のバインダーを持ってきていただけますか。",
+      "literalJapaneseGlossEn": "Excuse me, Brenda, could you bring us the allergen binder?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "Tía, no pida nada hasta que confirmemos los ingredientes.",
+      "sourceEnglish": "Auntie, don't order anything until we confirm the ingredients.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Usted shows respect to an older relative.",
+      "targetJapaneseDraft": "ローサおばさん、材料を確認するまで何も注文しないでください。",
+      "literalJapaneseGlossEn": "Auntie, don't order anything until we confirm the ingredients.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:19",
+      "candidatePosition": 19,
+      "sourceSpanish": "Si el mole está agotado, ¿qué nos recomienda en su lugar?",
+      "sourceEnglish": "If the mole is sold out, what do you recommend instead?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal",
+      "targetJapaneseDraft": "モレが売り切れなら、代わりに何を勧めてくださいますか。",
+      "literalJapaneseGlossEn": "If the mole is sold out, what do you recommend instead?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:20",
+      "candidatePosition": 20,
+      "sourceSpanish": "Se lo agradezco, Brenda, pero sin ver los ingredientes no nos arriesgamos.",
+      "sourceEnglish": "Thank you, Brenda, but without seeing the ingredients we won't risk it.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal, polite refusal",
+      "targetJapaneseDraft": "ありがとうございます、ブレンダさん。でも材料を確認できなければ、危険を冒すわけにはいきません。",
+      "literalJapaneseGlossEn": "Thank you, Brenda, but without seeing the ingredients we won't risk it.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:21",
+      "candidatePosition": 21,
+      "sourceSpanish": "Le aviso que hoy faltaba la carpeta de alérgenos.",
+      "sourceEnglish": "I'm letting you know the allergen binder was missing today.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal, to the manager",
+      "targetJapaneseDraft": "今日はアレルゲン一覧のバインダーがなかったことをお伝えします。",
+      "literalJapaneseGlossEn": "I'm letting you know the allergen binder was missing today.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:22",
+      "candidatePosition": 22,
+      "sourceSpanish": "Buenas, le escribo porque vamos a llegar 20 minutos tarde.",
+      "sourceEnglish": "Hi, I'm writing because we're going to arrive 20 minutes late.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal text message",
+      "targetJapaneseDraft": "こんにちは。20分遅れて到着する予定なので、ご連絡しました。",
+      "literalJapaneseGlossEn": "Hi, I'm writing because we're going to arrive 20 minutes late.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:card:23",
+      "candidatePosition": 23,
+      "sourceSpanish": "Volveríamos siempre que la carpeta de alérgenos esté a la vista.",
+      "sourceEnglish": "We'd come back as long as the allergen binder is on display.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アレルゲン一覧のバインダーが見える場所に置かれていれば、また来たいと思います。",
+      "literalJapaneseGlossEn": "We'd come back as long as the allergen binder is on display.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "El domingo, Daniel lleva a cinco familiares a desayunar al Hotel Azulejo, en Puebla, antes de visitar el Café Cholula.",
+      "sourceEnglish": "On Sunday, Daniel takes five relatives to have breakfast at the Hotel Azulejo, in Puebla, before visiting Café Cholula.",
+      "targetJapaneseDraft": "日曜日、ダニエルは親戚5人を連れて、プエブラのホテル・アスレホで朝食を取ります。その後、カフェ・チョルーラを訪れる予定です。",
+      "literalJapaneseGlossEn": "On Sunday, Daniel takes five relatives to have breakfast at the Hotel Azulejo, in Puebla, before visiting Café Cholula.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Su sobrino Emilio quiere practicar español, así que Daniel le dice: Emilio, saluda primero y luego pide tú, sin prisa.",
+      "sourceEnglish": "His nephew Emilio wants to practice Spanish, so Daniel tells him: Emilio, say hello first and then you order, no rush.",
+      "targetJapaneseDraft": "甥のエミリオはスペイン語を練習したいので、ダニエルは言いました。『エミリオ、まず挨拶して、それから自分で注文してね。慌てなくていいよ。』",
+      "literalJapaneseGlossEn": "His nephew Emilio wants to practice Spanish, so Daniel tells him: Emilio, say hello first and then you order, no rush.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Emilio pide las chalupas y un champurrado, y la cocinera las prepara en el comal junto a la barra.",
+      "sourceEnglish": "Emilio orders the chalupas and a champurrado, and the cook makes them on the griddle next to the counter.",
+      "targetJapaneseDraft": "エミリオはチャルーパスとチャンプラードを注文し、料理人はカウンターのそばのコマルでチャルーパスを調理します。",
+      "literalJapaneseGlossEn": "Emilio orders the chalupas and a champurrado, and the cook makes them on the griddle next to the counter.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Daniel busca la carpeta de alérgenos para su tía Rosa, que es alérgica al cacahuate, pero no está en la mesa.",
+      "sourceEnglish": "Daniel looks for the allergen binder for his aunt Rosa, who is allergic to peanuts, but it isn't on the table.",
+      "targetJapaneseDraft": "ダニエルは、ピーナッツアレルギーのあるローサおばのためにアレルゲン一覧のバインダーを探しますが、テーブルにはありません。",
+      "literalJapaneseGlossEn": "Daniel looks for the allergen binder for his aunt Rosa, who is allergic to peanuts, but it isn't on the table.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Disculpe, Brenda, ¿nos podría traer la carpeta de alérgenos?",
+      "sourceEnglish": "Daniel: Excuse me, Brenda, could you bring us the allergen binder?",
+      "targetJapaneseDraft": "ダニエル：すみません、ブレンダさん。アレルゲン一覧のバインダーを持ってきていただけますか。",
+      "literalJapaneseGlossEn": "Daniel: Excuse me, Brenda, could you bring us the allergen binder?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Brenda busca en la entrada, pero regresa sin ella porque hoy nadie la encuentra.",
+      "sourceEnglish": "Brenda looks at the entrance, but she comes back without it because nobody can find it today.",
+      "targetJapaneseDraft": "ブレンダは入口を探しますが、今日は誰も見つけられず、手ぶらで戻ってきます。",
+      "literalJapaneseGlossEn": "Brenda looks at the entrance, but she comes back without it because nobody can find it today.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Tía, no pida nada hasta que confirmemos los ingredientes.",
+      "sourceEnglish": "Daniel: Auntie, don't order anything until we confirm the ingredients.",
+      "targetJapaneseDraft": "ダニエル：ローサおばさん、材料を確認するまで何も注文しないでください。",
+      "literalJapaneseGlossEn": "Daniel: Auntie, don't order anything until we confirm the ingredients.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "La tía Rosa quería el mole poblano, pero Brenda explica que hoy está agotado.",
+      "sourceEnglish": "Aunt Rosa wanted the mole poblano, but Brenda explains that it is sold out today.",
+      "targetJapaneseDraft": "ローサおばはモレ・ポブラーノを食べたかったのですが、ブレンダは今日は売り切れだと説明します。",
+      "literalJapaneseGlossEn": "Aunt Rosa wanted the mole poblano, but Brenda explains that it is sold out today.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Si el mole está agotado, ¿qué nos recomienda en su lugar?",
+      "sourceEnglish": "Daniel: If the mole is sold out, what do you recommend instead?",
+      "targetJapaneseDraft": "ダニエル：モレが売り切れなら、代わりに何を勧めてくださいますか。",
+      "literalJapaneseGlossEn": "Daniel: If the mole is sold out, what do you recommend instead?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:reader:10",
+      "candidatePosition": 10,
+      "speaker": "Narrator",
+      "sourceSpanish": "Brenda ofrece el pipián como sustituto, pero no sabe si la salsa lleva cacahuate.",
+      "sourceEnglish": "Brenda offers the pipián as a substitute, but she doesn't know if the sauce contains peanuts.",
+      "targetJapaneseDraft": "ブレンダは代わりにピピアンを勧めますが、そのソースにピーナッツが入っているかは分かりません。",
+      "literalJapaneseGlossEn": "Brenda offers the pipián as a substitute, but she doesn't know if the sauce contains peanuts.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:reader:11",
+      "candidatePosition": 11,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Se lo agradezco, Brenda, pero sin ver los ingredientes no nos arriesgamos.",
+      "sourceEnglish": "Daniel: Thank you, Brenda, but without seeing the ingredients we won't risk it.",
+      "targetJapaneseDraft": "ダニエル：ありがとうございます、ブレンダさん。でも材料を確認できなければ、危険を冒すわけにはいきません。",
+      "literalJapaneseGlossEn": "Daniel: Thank you, Brenda, but without seeing the ingredients we won't risk it.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:reader:12",
+      "candidatePosition": 12,
+      "speaker": "Narrator",
+      "sourceSpanish": "Brenda pregunta en la cocina y confirma que el pipián sí lleva cacahuate, pero las enfrijoladas no.",
+      "sourceEnglish": "Brenda asks in the kitchen and confirms that the pipián does contain peanuts, but the enfrijoladas don't.",
+      "targetJapaneseDraft": "ブレンダは厨房に確認し、ピピアンにはピーナッツが入っているが、エンフリホラーダスには入っていないと伝えます。",
+      "literalJapaneseGlossEn": "Brenda asks in the kitchen and confirms that the pipián does contain peanuts, but the enfrijoladas don't.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:reader:13",
+      "candidatePosition": 13,
+      "speaker": "Emilio",
+      "sourceSpanish": "Emilio: Si no hubiéramos esperado, la tía Rosa habría pedido el pipián.",
+      "sourceEnglish": "Emilio: If we hadn't waited, aunt Rosa would have ordered the pipián.",
+      "targetJapaneseDraft": "エミリオ：もし待たなかったら、ローサおばさんはピピアンを注文していたね。",
+      "literalJapaneseGlossEn": "Emilio: If we hadn't waited, aunt Rosa would have ordered the pipián.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:reader:14",
+      "candidatePosition": 14,
+      "speaker": "Narrator",
+      "sourceSpanish": "Daniel hace la orden para los seis y pide las enfrijoladas para la tía Rosa con una nota sobre su alergia.",
+      "sourceEnglish": "Daniel places the order for the six of them and orders the enfrijoladas for aunt Rosa with a note about her allergy.",
+      "targetJapaneseDraft": "ダニエルは6人分の注文をまとめ、ローサおばにはアレルギーについてのメモを添えてエンフリホラーダスを注文します。",
+      "literalJapaneseGlossEn": "Daniel places the order for the six of them and orders the enfrijoladas for aunt Rosa with a note about her allergy.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:reader:15",
+      "candidatePosition": 15,
+      "speaker": "Narrator",
+      "sourceSpanish": "Los primos piden los molotes de papa, y el tío Javier prefiere las cemitas de milanesa para llevar.",
+      "sourceEnglish": "The cousins order the potato molotes, and uncle Javier prefers the breaded steak cemitas to go.",
+      "targetJapaneseDraft": "いとこたちはジャガイモ入りのモロテスを注文し、ハビエルおじはミラネサ入りのセミータスを持ち帰りにします。",
+      "literalJapaneseGlossEn": "The cousins order the potato molotes, and uncle Javier prefers the breaded steak cemitas to go.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:reader:16",
+      "candidatePosition": 16,
+      "speaker": "Narrator",
+      "sourceSpanish": "Después del desayuno, Daniel le escribe a Lupita, la anfitriona del café: Buenas, le escribo porque vamos a llegar 20 minutos tarde.",
+      "sourceEnglish": "After breakfast, Daniel writes to Lupita, the café's host: Hi, I'm writing because we're going to arrive 20 minutes late.",
+      "targetJapaneseDraft": "朝食の後、ダニエルはカフェの案内係ルピータに書きます。『こんにちは。20分遅れて到着する予定なので、ご連絡しました。』",
+      "literalJapaneseGlossEn": "After breakfast, Daniel writes to Lupita, the café's host: Hi, I'm writing because we're going to arrive 20 minutes late.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:reader:17",
+      "candidatePosition": 17,
+      "speaker": "Narrator",
+      "sourceSpanish": "Al entregar las llaves, Daniel le dice al gerente del hotel: Le aviso que hoy faltaba la carpeta de alérgenos.",
+      "sourceEnglish": "When he hands in the keys, Daniel tells the hotel manager: I'm letting you know the allergen binder was missing today.",
+      "targetJapaneseDraft": "鍵を返すとき、ダニエルはホテルの支配人に言います。『今日はアレルゲン一覧のバインダーがなかったことをお伝えします。』",
+      "literalJapaneseGlossEn": "When he hands in the keys, Daniel tells the hotel manager: I'm letting you know the allergen binder was missing today.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:20:ja-en:source-scene-v1:reader:18",
+      "candidatePosition": 18,
+      "speaker": "Narrator",
+      "sourceSpanish": "El gerente le pide que llene la encuesta de satisfacción, y Daniel escribe: Volveríamos siempre que la carpeta de alérgenos esté a la vista.",
+      "sourceEnglish": "The manager asks him to fill out the satisfaction survey, and Daniel writes: We'd come back as long as the allergen binder is on display.",
+      "targetJapaneseDraft": "支配人は満足度アンケートへの回答を頼み、ダニエルは書きました。『アレルゲン一覧のバインダーが見える場所に置かれていれば、また来たいと思います。』",
+      "literalJapaneseGlossEn": "The manager asks him to fill out the satisfaction survey, and Daniel writes: We'd come back as long as the allergen binder is on display.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Lead a Puebla group breakfast using Japanese polite requests, refusals, conditional explanations, a delay message and checkout feedback while preserving the source food and allergy facts.",
+  "speakingGoalInternal": "You are leading five relatives through a Puebla breakfast, and the AI is Emilio, server Brenda, the host and the manager: coach Emilio's order, check tía Rosa's allergens, order for all, text the host and give checkout feedback, using commands, conditionals and the subjunctive.",
+  "speakingGoalJapaneseDraft": "あなたはダニエルです。親戚5人を連れてプエブラのホテル・アスレホで朝食を取り、その後カフェ・チョルーラへ向かいます。甥のエミリオに注文を促し、ピーナッツアレルギーのあるローサおばのためにブレンダへアレルゲン一覧のバインダーを求めます。バインダーが見つからず、モレが売り切れで、代わりのピピアンの材料も不明な間は注文を控えます。厨房の確認内容に基づいて6人分を注文し、カフェの案内係ルピータに20分遅れると伝え、チェックアウト時に支配人へバインダーの欠如を報告してアンケートに回答します。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "Current source follows Daniel and five relatives at a Puebla breakfast with a missing allergen binder, a sold-out mole, peanut-containing pipián, a six-person order, a 20-minute café delay and checkout feedback. The archived generic scene omits source details and has only 14 cards/10 turns; retain it as separate evidence. The source does not establish cross-contact safety.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "relative",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "order",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "sold out",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "substitute dish",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "allergen information",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "ingredients",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "preparation method",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "peanuts",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "cannot verify",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "to arrive late",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "lodging host",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "checkout",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "first",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "finally",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "First, greet the staff and say what you would like, without rushing.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Good morning. One breakfast set, please.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Another relative has a peanut allergy. Could we check the information and preparation method?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "We cannot find the information, and the dish you first wanted is sold out too.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Could you check the substitute dish's ingredients and preparation?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "I asked the kitchen, but we cannot verify the cross-contact risk.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Understood. Because it cannot be verified, the affected person will hold off on ordering for now.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Thank you. I will decide my own next steps and needs.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "I will tell the next lodging host that we will arrive late.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "Finally, I will report at checkout that the information could not be found, as a matter of fact.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 4,
+      "candidatePosition": 8,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 41,
+    "twoVoiceClipDecisionsIfTextApproved": 82,
+    "twoVoiceSubmittedCharactersIfTextApproved": 2590,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.0777,
+    "archivedExactJapaneseCardTextOverlapsOnly": 1,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Qualified Japanese and Puebla food/locale review should approve transliteration and contextual senses for chalupas, mole poblano, molotes, cemitas, champurrado, pipián, enfrijoladas, comal and milanesa. Do not replace these foods with generic dishes.",
+    "The source says kitchen staff confirmed that the pipián contains peanuts and the enfrijoladas do not. This does not establish cross-contact safety; do not add a claim of guaranteed safety or invent a reaction.",
+    "The missing allergen binder, ingredient confirmation, peanut allergy note and conditional return must stay separate. Neither a missing binder nor a kitchen statement is a qualified food-allergy clearance.",
+    "Spanish distinguishes informal tú to nephew Emilio, respectful usted to aunt Rosa and formal usted to Brenda/manager. Japanese register should be reviewed rather than claiming one-to-one grammatical equivalence.",
+    "The source says Daniel has five relatives, making six people total. Preserve six orders and do not turn the café host Lupita into the hotel host.",
+    "The archived generic 14-card/10-turn scene is different from the current 23-card/18-turn source. No saved-item, progress or recording migration is authorized.",
+    "Six authored mode prompt/answer pairs, source-aligned Japanese forms, contextual dictionary senses, complete speaking setup, exact-text audio and distinct per-clip listening remain open."
+  ],
+  "missing": [
+    "qualified Japanese/source/Puebla food/allergy/locale/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

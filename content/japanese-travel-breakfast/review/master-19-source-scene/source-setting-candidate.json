@@ -1,0 +1,782 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "master",
+  "lessonKey": "master:19",
+  "stableLessonId": "master-travel-breakfast:19:ja-en",
+  "candidateRevision": "master-travel-breakfast:19:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "curriculumVersion": 1,
+    "readerVersion": 1,
+    "curriculumReviewed": false,
+    "readerReviewed": false,
+    "titleEnglishInternal": "Checkout Walkthrough: Breakfast Feedback to the Manager",
+    "objectiveEnglishInternal": "Review the stay's breakfasts with the manager, give balanced feedback, and agree on conditions for returning.",
+    "speakingEnglishInternal": "You are checking out of apartment 7B, and the AI is Gonzalo, the apart-hotel manager: review the stay's breakfasts, give balanced feedback, and set conditions for returning with volvería siempre que…, sería ideal que… and the conditional.",
+    "grammarEnglishExamplesInternal": [
+      "I'd come back as long as there's gluten-free bread at breakfast.",
+      "It would be ideal if the butter came in individual portions."
+    ],
+    "readerTitleSpanish": "Comentarios al salir del 7B",
+    "readerVerbExamples": [
+      {
+        "target": "Volvemos en marzo con los chicos.",
+        "native": "We're coming back in March with the kids."
+      },
+      {
+        "target": "Reservamos el 7B otra vez para marzo.",
+        "native": "We're booking 7B again for March."
+      },
+      {
+        "target": "La cocina mejora el surtido sin gluten esta semana.",
+        "native": "The kitchen is improving the gluten-free selection this week."
+      },
+      {
+        "target": "Con gusto le dejo una buena reseña.",
+        "native": "I'll gladly leave you a good review."
+      },
+      {
+        "target": "Gonzalo pregunta cómo fue la estadía.",
+        "native": "Gonzalo asks how the stay went."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/master-19-20-draft.json",
+    "sha256": "43665cf686c2fee88655e3904f7e07606519744aa70b833dcfd6799f5bcaa127",
+    "scene": "At checkout, a family discusses breakfast quality and celiac-disease accommodation with a guesthouse manager.",
+    "cardCount": 14,
+    "readerCount": 10
+  },
+  "sourceCards": [
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "el apartamento",
+      "sourceEnglish": "the apartment",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アパートメント",
+      "literalJapaneseGlossEn": "the apartment",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "el apart hotel",
+      "sourceEnglish": "the apart-hotel",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アパートホテル",
+      "literalJapaneseGlossEn": "the apart-hotel",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "la estadía",
+      "sourceEnglish": "the stay",
+      "kind": "term",
+      "sourceNoteInternal": "Río de la Plata and Latin American usage.",
+      "targetJapaneseDraft": "滞在",
+      "literalJapaneseGlossEn": "the stay",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "la reseña",
+      "sourceEnglish": "the review",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "レビュー",
+      "literalJapaneseGlossEn": "the review",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "la puntuación",
+      "sourceEnglish": "the score",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "評価点",
+      "literalJapaneseGlossEn": "the score",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "los comentarios",
+      "sourceEnglish": "the feedback",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "感想",
+      "literalJapaneseGlossEn": "the feedback",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "el punto fuerte",
+      "sourceEnglish": "the strong point",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "よかった点",
+      "literalJapaneseGlossEn": "the strong point",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "el punto débil",
+      "sourceEnglish": "the weak point",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "改善点",
+      "literalJapaneseGlossEn": "the weak point",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "la manteca",
+      "sourceEnglish": "the butter",
+      "kind": "term",
+      "sourceNoteInternal": "Uruguay and Argentina say manteca; Mexico says mantequilla.",
+      "targetJapaneseDraft": "バター",
+      "literalJapaneseGlossEn": "the butter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "la granola",
+      "sourceEnglish": "the granola",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "グラノーラ",
+      "literalJapaneseGlossEn": "the granola",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "la fruta de estación",
+      "sourceEnglish": "the seasonal fruit",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "旬の果物",
+      "literalJapaneseGlossEn": "the seasonal fruit",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "la variedad",
+      "sourceEnglish": "the variety",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "種類の豊富さ",
+      "literalJapaneseGlossEn": "the variety",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "el surtido",
+      "sourceEnglish": "the selection",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "品ぞろえ",
+      "literalJapaneseGlossEn": "the selection",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "la próxima visita",
+      "sourceEnglish": "the next visit",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "次回の訪問",
+      "literalJapaneseGlossEn": "the next visit",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "la promoción",
+      "sourceEnglish": "the special offer",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "特別プラン",
+      "literalJapaneseGlossEn": "the special offer",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "apto para celíacos",
+      "sourceEnglish": "safe for celiacs",
+      "kind": "term",
+      "sourceNoteInternal": "Common label on gluten-free products in Uruguay.",
+      "targetJapaneseDraft": "セリアック病の人が食べられる",
+      "literalJapaneseGlossEn": "safe for celiacs",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "En general, el desayuno nos encantó, sobre todo la fruta de estación.",
+      "sourceEnglish": "Overall, we loved the breakfast, especially the seasonal fruit.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal enough for the manager",
+      "targetJapaneseDraft": "全体として、朝食はとてもよかったです。特に旬の果物が気に入りました。",
+      "literalJapaneseGlossEn": "Overall, we loved the breakfast, especially the seasonal fruit.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "Lo único que mejoraría es la variedad de opciones aptas para celíacos.",
+      "sourceEnglish": "The only thing I'd improve is the variety of celiac-safe options.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "改善してほしいのは、セリアック病の人が食べられる選択肢の種類だけです。",
+      "literalJapaneseGlossEn": "The only thing I'd improve is the variety of celiac-safe options.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:19",
+      "candidatePosition": 19,
+      "sourceSpanish": "Volveríamos siempre que haya pan sin gluten todos los días.",
+      "sourceEnglish": "We'd come back as long as there's gluten-free bread every day.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Siempre que + subjunctive = as long as.",
+      "targetJapaneseDraft": "毎日グルテンフリーのパンがあるなら、また泊まりたいです。",
+      "literalJapaneseGlossEn": "We'd come back as long as there's gluten-free bread every day.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:20",
+      "candidatePosition": 20,
+      "sourceSpanish": "Sería ideal que repusieran la fruta más seguido a la mañana.",
+      "sourceEnglish": "It would be ideal if you restocked the fruit more often in the morning.",
+      "kind": "phrase",
+      "sourceNoteInternal": "A la mañana is Río de la Plata usage.",
+      "targetJapaneseDraft": "朝、果物をもっと頻繁に補充していただけると理想的です。",
+      "literalJapaneseGlossEn": "It would be ideal if you restocked the fruit more often in the morning.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:21",
+      "candidatePosition": 21,
+      "sourceSpanish": "Si nos dieran el 7B otra vez, reservaríamos encantados.",
+      "sourceEnglish": "If you gave us 7B again, we'd gladly book.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "また7Bに泊まれるなら、喜んで予約します。",
+      "literalJapaneseGlossEn": "If you gave us 7B again, we'd gladly book.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:22",
+      "candidatePosition": 22,
+      "sourceSpanish": "Volveríamos en marzo con tal de que la tarifa sea parecida.",
+      "sourceEnglish": "We'd come back in March provided the rate is similar.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Con tal de que always takes the subjunctive.",
+      "targetJapaneseDraft": "料金が同じくらいなら、3月にまた来たいです。",
+      "literalJapaneseGlossEn": "We'd come back in March provided the rate is similar.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:23",
+      "candidatePosition": 23,
+      "sourceSpanish": "Gonzalo, con gusto le dejo una buena reseña en la plataforma.",
+      "sourceEnglish": "Gonzalo, I'll gladly leave you a good review on the platform.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal (usted)",
+      "targetJapaneseDraft": "ゴンサロさん、プラットフォームに喜んでよいレビューを投稿します。",
+      "literalJapaneseGlossEn": "Gonzalo, I'll gladly leave you a good review on the platform.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:card:24",
+      "candidatePosition": 24,
+      "sourceSpanish": "Chicos, ¿qué fue lo que más les gustó del desayuno?",
+      "sourceEnglish": "Kids, what did you like most about the breakfast?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal, to the family",
+      "targetJapaneseDraft": "子どもたち、朝食でいちばんよかったのは何？",
+      "literalJapaneseGlossEn": "Kids, what did you like most about the breakfast?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "El domingo a las 10, Laura entrega la llave del apartamento 7B en la recepción del apart hotel, en Pocitos.",
+      "sourceEnglish": "On Sunday at 10, Laura hands in the key to apartment 7B at the front desk of the apart-hotel in Pocitos.",
+      "targetJapaneseDraft": "日曜日の10時、ラウラはポシートスのアパートホテルのフロントで、アパートメント7Bの鍵を返します。",
+      "literalJapaneseGlossEn": "On Sunday at 10, Laura hands in the key to apartment 7B at the front desk of the apart-hotel in Pocitos.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Gonzalo, el gerente, le pregunta cómo fue la estadía y qué haría falta para que la familia reserve otra vez.",
+      "sourceEnglish": "Gonzalo, the manager, asks her how the stay went and what it would take for the family to book again.",
+      "targetJapaneseDraft": "マネージャーのゴンサロは、滞在がどうだったか、家族がまた予約するには何が必要かを尋ねます。",
+      "literalJapaneseGlossEn": "Gonzalo, the manager, asks her how the stay went and what it would take for the family to book again.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Laura",
+      "sourceSpanish": "Laura: En general, el desayuno nos encantó, sobre todo la fruta de estación.",
+      "sourceEnglish": "Laura: Overall, we loved the breakfast, especially the seasonal fruit.",
+      "targetJapaneseDraft": "ラウラ：「全体として、朝食はとてもよかったです。特に旬の果物が気に入りました。」",
+      "literalJapaneseGlossEn": "Laura: Overall, we loved the breakfast, especially the seasonal fruit.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Laura",
+      "sourceSpanish": "Laura: Chicos, ¿qué fue lo que más les gustó del desayuno?",
+      "sourceEnglish": "Laura: Kids, what did you like most about the breakfast?",
+      "targetJapaneseDraft": "ラウラ：「子どもたち、朝食でいちばんよかったのは何？」",
+      "literalJapaneseGlossEn": "Laura: Kids, what did you like most about the breakfast?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Sofía dice que la granola casera fue el punto fuerte, porque la comía todas las mañanas con yogur.",
+      "sourceEnglish": "Sofía says the homemade granola was the strong point, because she ate it every morning with yogurt.",
+      "targetJapaneseDraft": "ソフィアは自家製グラノーラがいちばんよかったと言います。毎朝ヨーグルトと一緒に食べていたからです。",
+      "literalJapaneseGlossEn": "Sofía says the homemade granola was the strong point, because she ate it every morning with yogurt.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Gonzalo pregunta si alguien en la familia tiene alguna alergia o restricción alimentaria.",
+      "sourceEnglish": "Gonzalo asks whether anyone in the family has an allergy or a dietary restriction.",
+      "targetJapaneseDraft": "ゴンサロは、家族にアレルギーや食事制限がある人がいるか尋ねます。",
+      "literalJapaneseGlossEn": "Gonzalo asks whether anyone in the family has an allergy or a dietary restriction.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Laura explica que Tomás es celíaco y que solo puede comer productos aptos para celíacos.",
+      "sourceEnglish": "Laura explains that Tomás is celiac and can only eat products that are safe for celiacs.",
+      "targetJapaneseDraft": "ラウラは、トマスがセリアック病で、セリアック病の人が食べられる食品しか食べられないと説明します。",
+      "literalJapaneseGlossEn": "Laura explains that Tomás is celiac and can only eat products that are safe for celiacs.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Laura",
+      "sourceSpanish": "Laura: Lo único que mejoraría es la variedad de opciones aptas para celíacos.",
+      "sourceEnglish": "Laura: The only thing I'd improve is the variety of celiac-safe options.",
+      "targetJapaneseDraft": "ラウラ：「改善してほしいのは、セリアック病の人が食べられる選択肢の種類だけです。」",
+      "literalJapaneseGlossEn": "Laura: The only thing I'd improve is the variety of celiac-safe options.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ella cuenta que el surtido sin gluten era bueno el lunes, pero que el miércoles solo quedaban galletas.",
+      "sourceEnglish": "She says the gluten-free selection was good on Monday, but on Wednesday there were only crackers left.",
+      "targetJapaneseDraft": "月曜日はグルテンフリー食品の品ぞろえがよかったものの、水曜日にはクラッカーしか残っていなかったと話します。",
+      "literalJapaneseGlossEn": "She says the gluten-free selection was good on Monday, but on Wednesday there were only crackers left.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:reader:10",
+      "candidatePosition": 10,
+      "speaker": "Laura",
+      "sourceSpanish": "Laura: Volveríamos siempre que haya pan sin gluten todos los días.",
+      "sourceEnglish": "Laura: We'd come back as long as there's gluten-free bread every day.",
+      "targetJapaneseDraft": "ラウラ：「毎日グルテンフリーのパンがあるなら、また泊まりたいです。」",
+      "literalJapaneseGlossEn": "Laura: We'd come back as long as there's gluten-free bread every day.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:reader:11",
+      "candidatePosition": 11,
+      "speaker": "Narrator",
+      "sourceSpanish": "Otro punto débil fue la manteca, porque venía en un pote compartido y Tomás no podía usarla sin riesgo de contaminación.",
+      "sourceEnglish": "Another weak point was the butter, because it came in a shared tub and Tomás couldn't use it without a risk of cross-contamination.",
+      "targetJapaneseDraft": "もう一つの改善点はバターでした。共用の容器に入っていたため、トマスは交差汚染のリスクなしには使えなかったのです。",
+      "literalJapaneseGlossEn": "Another weak point was the butter, because it came in a shared tub and Tomás couldn't use it without a risk of cross-contamination.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:reader:12",
+      "candidatePosition": 12,
+      "speaker": "Laura",
+      "sourceSpanish": "Laura: Sería ideal que la manteca viniera en porciones individuales.",
+      "sourceEnglish": "Laura: It would be ideal if the butter came in individual portions.",
+      "targetJapaneseDraft": "ラウラ：「バターが個別包装なら理想的です。」",
+      "literalJapaneseGlossEn": "Laura: It would be ideal if the butter came in individual portions.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:reader:13",
+      "candidatePosition": 13,
+      "speaker": "Narrator",
+      "sourceSpanish": "Gonzalo anota los comentarios y dice que va a hablar con la cocina esta semana.",
+      "sourceEnglish": "Gonzalo writes down the feedback and says he is going to talk to the kitchen this week.",
+      "targetJapaneseDraft": "ゴンサロは感想を書き留め、今週キッチンと話すと言います。",
+      "literalJapaneseGlossEn": "Gonzalo writes down the feedback and says he is going to talk to the kitchen this week.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:reader:14",
+      "candidatePosition": 14,
+      "speaker": "Gonzalo",
+      "sourceSpanish": "Gonzalo: Para la próxima visita, tenemos una promoción con 15% de descuento en estadías de 5 noches o más.",
+      "sourceEnglish": "Gonzalo: For your next visit, we have a special offer with a 15% discount on stays of 5 nights or more.",
+      "targetJapaneseDraft": "ゴンサロ：「次回のご滞在には、5泊以上で15%割引の特別プランがあります。」",
+      "literalJapaneseGlossEn": "Gonzalo: For your next visit, we have a special offer with a 15% discount on stays of 5 nights or more.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:reader:15",
+      "candidatePosition": 15,
+      "speaker": "Laura",
+      "sourceSpanish": "Laura: Volveríamos en marzo con tal de que la tarifa sea parecida.",
+      "sourceEnglish": "Laura: We'd come back in March provided the rate is similar.",
+      "targetJapaneseDraft": "ラウラ：「料金が同じくらいなら、3月にまた来たいです。」",
+      "literalJapaneseGlossEn": "Laura: We'd come back in March provided the rate is similar.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:reader:16",
+      "candidatePosition": 16,
+      "speaker": "Laura",
+      "sourceSpanish": "Laura: Si nos dieran el 7B otra vez, reservaríamos encantados.",
+      "sourceEnglish": "Laura: If you gave us 7B again, we'd gladly book.",
+      "targetJapaneseDraft": "ラウラ：「また7Bに泊まれるなら、喜んで予約します。」",
+      "literalJapaneseGlossEn": "Laura: If you gave us 7B again, we'd gladly book.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:reader:17",
+      "candidatePosition": 17,
+      "speaker": "Narrator",
+      "sourceSpanish": "Gonzalo pregunta qué puntuación le daría al desayuno, y Laura responde que le daría un 9 de 10.",
+      "sourceEnglish": "Gonzalo asks what score she would give the breakfast, and Laura answers that she would give it a 9 out of 10.",
+      "targetJapaneseDraft": "ゴンサロは朝食に何点をつけるか尋ね、ラウラは10点満点中9点だと答えます。",
+      "literalJapaneseGlossEn": "Gonzalo asks what score she would give the breakfast, and Laura answers that she would give it a 9 out of 10.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:19:ja-en:source-scene-v1:reader:18",
+      "candidatePosition": 18,
+      "speaker": "Laura",
+      "sourceSpanish": "Laura: Gonzalo, con gusto le dejo una buena reseña en la plataforma.",
+      "sourceEnglish": "Laura: Gonzalo, I'll gladly leave you a good review on the platform.",
+      "targetJapaneseDraft": "ラウラ：「ゴンサロさん、プラットフォームに喜んでよいレビューを投稿します。」",
+      "literalJapaneseGlossEn": "Laura: Gonzalo, I'll gladly leave you a good review on the platform.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Practice balanced breakfast feedback at Pocitos apart-hotel checkout, conditions for a return visit and direct celiac-safe food requests.",
+  "speakingGoalInternal": "You are checking out of apartment 7B, and the AI is Gonzalo, the apart-hotel manager: review the stay's breakfasts, give balanced feedback, and set conditions for returning with volvería siempre que…, sería ideal que… and the conditional.",
+  "speakingGoalJapaneseDraft": "アパートメント7Bをチェックアウトするラウラとして、アパートホテルのマネージャー、ゴンサロと話します。朝食のよかった点と改善点を伝え、トマスのセリアック病に対応するグルテンフリーのパンと個別包装のバターについて確認し、次回予約する条件を述べます。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "Current source follows Laura and Gonzalo at Pocitos apart-hotel checkout, with Sofía, Tomás, celiac-safe breakfast, shared butter cross-contamination risk, next-visit conditions and a 15% five-night offer. The archived generic guesthouse scene omits most source details and has only 14 cards/10 turns; retain it as separate evidence.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "stay",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "checkout",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "feedback",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "strong point",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "area to improve",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "seasonal fruit",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "selection",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "gluten-free label",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "shared container",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "cross-contact",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "future booking",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "rate",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "overall",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "if we can verify",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "How were the breakfasts and your stay?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Overall, we were pleased. We especially liked the seasonal fruit.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Is there anything you would like us to improve?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Someone in our family has celiac disease. We need to check ingredients and preparation, not just a label.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "We also could not use the shared butter container because of cross-contact concerns.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "I will record your feedback and check the kitchen's procedure.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "For a future visit, it would help to check available food information in advance.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Please contact us before booking. We will tell you what we can verify.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Thank you. We will consider it after checking the rate and room terms too.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "Thank you for the specific feedback.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 3,
+      "candidatePosition": 6,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 4,
+      "candidatePosition": 7,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 7,
+      "candidatePosition": 13,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 42,
+    "twoVoiceClipDecisionsIfTextApproved": 84,
+    "twoVoiceSubmittedCharactersIfTextApproved": 1982,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.05946,
+    "archivedExactJapaneseCardTextOverlapsOnly": 3,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Source is a Pocitos apart-hotel checkout with Laura, Gonzalo, Sofía and Tomás, not a generic guesthouse scene. Keep the source's Uruguayan terms and 7B identity.",
+    "Qualified Japanese/Uruguay locale review should decide whether アパートホテル, the Japanese rendering of Pocitos, and platform review wording suit the intended audience.",
+    "Qualified clinical/food review should verify セリアック病, グルテンフリー and 交差汚染 terminology. The source says Tomás could not use butter from a shared tub without cross-contamination risk; it does not report an ingestion or reaction.",
+    "Source conditionals/subjunctive transfer to Japanese conditionals; do not imply Japanese has a Spanish-style subjunctive. Preserve the proposed every-day gluten-free bread, individual butter portions, similar March rate and 15% offer as distinct points.",
+    "Source English anchors are not approved literal glosses of Japanese face choices; resolve contextual dictionary senses and saved-item migration before learner exposure."
+  ],
+  "missing": [
+    "qualified Japanese/source/Uruguay locale/clinical-food/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

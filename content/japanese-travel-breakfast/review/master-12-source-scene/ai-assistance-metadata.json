@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "qualifiedReview": false,
+  "sourceGroundedSelfCheck": true,
+  "calls": [
+    {
+      "role": "Claude availability check for Haiku 5.5 authoring, Opus 5.5 critique and Fable 5.2 correction",
+      "requestedModel": "haiku",
+      "actualModel": null,
+      "outcome": "Claude CLI 2.1.325 auth status returned loggedIn:false, authMethod:none. No model call, candidate text, critique or correction occurred.",
+      "qualifiedApproval": false
+    }
+  ],
+  "correctionsAfterAICritique": [],
+  "independentSelfCheck": [
+    "Compared 23 source-order cards and 18 Spanish/English Reader turns with the pinned current Master 12 source.",
+    "Kept Trinidad, Cuba, casa particular, Lucía, Marcus, señora Odalys, Yandiel, don Rigoberto and Cienfuegos in the same scene roles and sequence.",
+    "Kept host coffee pot, papaya/fruta bomba request, sugar request and final guava smoothie order separate.",
+    "Kept the source Spanish usted/tú distinction as explicit scene content while marking Japanese polite/casual adaptation as unresolved qualified-review work.",
+    "Archived generic host/friend draft stays trace evidence; no saved-item or audio migration is authorized."
+  ]
+}

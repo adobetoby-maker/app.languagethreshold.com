@@ -1,0 +1,773 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "master",
+  "lessonKey": "master:10",
+  "stableLessonId": "master-travel-breakfast:10:ja-en",
+  "candidateRevision": "master-travel-breakfast:10:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "curriculumVersion": 1,
+    "readerVersion": 1,
+    "curriculumReviewed": false,
+    "readerReviewed": false,
+    "titleEnglishInternal": "Mediate Two Friends' Pre-Trek Breakfast Argument",
+    "objectiveEnglishInternal": "Report each friend's position fairly, add the staff's facts, and help the group agree on one plan.",
+    "speakingEnglishInternal": "You are the friend in the middle, and the AI plays Ana, Lars and Wilber from the hostel: report each friend's position fairly with dijo que and decía que plus the imperfect, add Wilber's facts about the market, and help everyone agree on one plan.",
+    "grammarEnglishExamplesInternal": [
+      "Ana said she wanted to have breakfast at the market.",
+      "Lars was saying there wasn't time before the trek."
+    ],
+    "readerTitleSpanish": "Desayuno antes de la caminata",
+    "readerVerbExamples": [
+      {
+        "target": "Lars dice que no hay tiempo antes del recojo.",
+        "native": "Lars says there isn't time before the pickup."
+      },
+      {
+        "target": "Ana quiere probar el caldo de gallina en el mercado.",
+        "native": "Ana wants to try the hen broth at the market."
+      },
+      {
+        "target": "Wilber explica que el mercado abre a las 6.",
+        "native": "Wilber explains that the market opens at 6."
+      },
+      {
+        "target": "Volvemos al hostal antes de las 7.",
+        "native": "We come back to the hostel before 7."
+      },
+      {
+        "target": "Entonces quedamos así: mercado rápido y mochilas listas antes.",
+        "native": "So it's settled: a quick market trip and backpacks ready beforehand."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/master-10-12-draft.json",
+    "sha256": "a8cc57c13ee9a3f37009e17b8495240a793ea9a308648f53705a067fe16d7f79",
+    "scene": "At a mountain lodge, two friends disagree about visiting a morning market before a scheduled shuttle pickup.",
+    "cardCount": 16,
+    "readerCount": 11
+  },
+  "sourceCards": [
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "el emoliente",
+      "sourceEnglish": "the emoliente (hot herbal drink)",
+      "kind": "term",
+      "sourceNoteInternal": "A hot Peruvian herbal drink sold at market stalls in the morning.",
+      "targetJapaneseDraft": "エモリエンテ（温かいハーブ飲料）",
+      "literalJapaneseGlossEn": "the emoliente (hot herbal drink)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "el caldo de gallina",
+      "sourceEnglish": "the hen broth",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "雌鶏のスープ（カルド・デ・ガジーナ）",
+      "literalJapaneseGlossEn": "the hen broth",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "el pan chuta",
+      "sourceEnglish": "the chuta bread",
+      "kind": "term",
+      "sourceNoteInternal": "A large, round sweet bread typical of Cusco.",
+      "targetJapaneseDraft": "パン・チュタ",
+      "literalJapaneseGlossEn": "the chuta bread",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "la quinua",
+      "sourceEnglish": "the quinoa",
+      "kind": "term",
+      "sourceNoteInternal": "In Peru it's spelled and said quinua.",
+      "targetJapaneseDraft": "キヌア",
+      "literalJapaneseGlossEn": "the quinoa",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "el soroche",
+      "sourceEnglish": "the altitude sickness",
+      "kind": "term",
+      "sourceNoteInternal": "Andean word for altitude sickness, used everywhere in Cusco.",
+      "targetJapaneseDraft": "高山病（ソロチェ）",
+      "literalJapaneseGlossEn": "the altitude sickness",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "el mate de coca",
+      "sourceEnglish": "the coca tea",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "コカ茶",
+      "literalJapaneseGlossEn": "the coca tea",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "la caminata",
+      "sourceEnglish": "the trek",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "トレッキング",
+      "literalJapaneseGlossEn": "the trek",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "la hora de recojo",
+      "sourceEnglish": "the pickup time",
+      "kind": "term",
+      "sourceNoteInternal": "Recojo is the Peruvian word for a pickup.",
+      "targetJapaneseDraft": "迎えの時刻",
+      "literalJapaneseGlossEn": "the pickup time",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "el hostal",
+      "sourceEnglish": "the hostel",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ホステル",
+      "literalJapaneseGlossEn": "the hostel",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "la postura",
+      "sourceEnglish": "the position (opinion)",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "立場（意見）",
+      "literalJapaneseGlossEn": "the position (opinion)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "el punto medio",
+      "sourceEnglish": "the middle ground",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "折衷案",
+      "literalJapaneseGlossEn": "the middle ground",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "el acuerdo",
+      "sourceEnglish": "the agreement",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "合意",
+      "literalJapaneseGlossEn": "the agreement",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "la apertura",
+      "sourceEnglish": "the opening",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "開店",
+      "literalJapaneseGlossEn": "the opening",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "la mochila",
+      "sourceEnglish": "the backpack",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "リュックサック",
+      "literalJapaneseGlossEn": "the backpack",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "la madrugada",
+      "sourceEnglish": "the early morning (before dawn)",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "夜明け前の早朝",
+      "literalJapaneseGlossEn": "the early morning (before dawn)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "Ana dijo que quería probar el caldo de gallina en el mercado.",
+      "sourceEnglish": "Ana said she wanted to try the hen broth at the market.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アナは市場で雌鶏のスープを食べてみたいと言いました。",
+      "literalJapaneseGlossEn": "Ana said she wanted to try the hen broth at the market.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Lars decía que no había tiempo antes del recojo.",
+      "sourceEnglish": "Lars was saying there wasn't time before the pickup.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Imperfect decía and había give the background of what he kept saying.",
+      "targetJapaneseDraft": "ラースは迎えまで時間がないと言っていました。",
+      "literalJapaneseGlossEn": "Lars was saying there wasn't time before the pickup.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "Wilber, ¿me podría decir a qué hora abren en el mercado?",
+      "sourceEnglish": "Wilber, could you tell me what time the market opens?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal: usted with the staff member.",
+      "targetJapaneseDraft": "ウィルベルさん、市場は何時に開くか教えていただけますか。",
+      "literalJapaneseGlossEn": "Wilber, could you tell me what time the market opens?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:19",
+      "candidatePosition": 19,
+      "sourceSpanish": "Wilber nos explicó que el mercado abría a las 6.",
+      "sourceEnglish": "Wilber explained to us that the market opened at 6.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ウィルベルは市場が6時に開くと説明してくれました。",
+      "literalJapaneseGlossEn": "Wilber explained to us that the market opened at 6.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:20",
+      "candidatePosition": 20,
+      "sourceSpanish": "Escuchen, los dos tienen razón en algo.",
+      "sourceEnglish": "Listen, you both have a point.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Ustedes for two friends; in Latin America it's also informal.",
+      "targetJapaneseDraft": "聞いて、二人とも一理あります。",
+      "literalJapaneseGlossEn": "Listen, you both have a point.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:21",
+      "candidatePosition": 21,
+      "sourceSpanish": "Lars, tú decías que el recojo era a las 7, ¿verdad?",
+      "sourceEnglish": "Lars, you were saying the pickup was at 7, right?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal: tú with a friend.",
+      "targetJapaneseDraft": "ラース、迎えは7時だと言っていたよね。",
+      "literalJapaneseGlossEn": "Lars, you were saying the pickup was at 7, right?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:22",
+      "candidatePosition": 22,
+      "sourceSpanish": "¿Y si vamos al mercado y volvemos antes de las 7?",
+      "sourceEnglish": "What if we go to the market and come back before 7?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "市場へ行って7時前に戻るのはどうかな。",
+      "literalJapaneseGlossEn": "What if we go to the market and come back before 7?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:card:23",
+      "candidatePosition": 23,
+      "sourceSpanish": "Entonces quedamos así: mercado rápido y mochilas listas antes.",
+      "sourceEnglish": "So it's settled: a quick market trip and backpacks ready beforehand.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "それではこうしましょう。市場には短時間だけ行き、リュックは前もって準備します。",
+      "literalJapaneseGlossEn": "So it's settled: a quick market trip and backpacks ready beforehand.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Eran las 5 de la madrugada en Cusco, y mis amigos Ana y Lars discutían antes de la caminata.",
+      "sourceEnglish": "It was 5 in the early morning in Cusco, and my friends Ana and Lars were arguing before the trek.",
+      "targetJapaneseDraft": "午前5時、クスコで友人のアナとラースがトレッキング前に言い争っていた。",
+      "literalJapaneseGlossEn": "It was 5 in the early morning in Cusco, and my friends Ana and Lars were arguing before the trek.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Estábamos en la cocina del hostal, donde Wilber, el encargado, preparaba un emoliente caliente.",
+      "sourceEnglish": "We were in the hostel kitchen, where Wilber, the person in charge, was making a hot emoliente.",
+      "targetJapaneseDraft": "私たちはホステルの台所にいて、責任者のウィルベルが温かいエモリエンテを作っていた。",
+      "literalJapaneseGlossEn": "We were in the hostel kitchen, where Wilber, the person in charge, was making a hot emoliente.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ana dijo que quería probar el caldo de gallina en el mercado.",
+      "sourceEnglish": "Ana said she wanted to try the hen broth at the market.",
+      "targetJapaneseDraft": "アナは市場で雌鶏のスープを食べてみたいと言った。",
+      "literalJapaneseGlossEn": "Ana said she wanted to try the hen broth at the market.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "También decía que el pan chuta del mercado San Pedro era famoso y que no quería irse de Cusco sin probarlo.",
+      "sourceEnglish": "She was also saying that the chuta bread at the San Pedro market was famous and that she didn't want to leave Cusco without trying it.",
+      "targetJapaneseDraft": "アナはさらに、サン・ペドロ市場のパン・チュタは有名で、食べずにクスコを去りたくないと言っていた。",
+      "literalJapaneseGlossEn": "She was also saying that the chuta bread at the San Pedro market was famous and that she didn't want to leave Cusco without trying it.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Lars decía que no había tiempo antes del recojo.",
+      "sourceEnglish": "Lars was saying there wasn't time before the pickup.",
+      "targetJapaneseDraft": "ラースは迎えまで時間がないと言っていた。",
+      "literalJapaneseGlossEn": "Lars was saying there wasn't time before the pickup.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Su postura era que la quinua del hostal bastaba y que correr con soroche antes de una caminata larga era mala idea.",
+      "sourceEnglish": "His position was that the hostel's quinoa was enough and that rushing around with altitude sickness before a long trek was a bad idea.",
+      "targetJapaneseDraft": "ラースの立場は、ホステルのキヌアで十分で、長いトレッキングの前に高山病のまま急いで動き回るのはよくないというものだった。",
+      "literalJapaneseGlossEn": "His position was that the hostel's quinoa was enough and that rushing around with altitude sickness before a long trek was a bad idea.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Yo me puse en el medio y les dije: Escuchen, los dos tienen razón en algo.",
+      "sourceEnglish": "I stepped into the middle and told them: Listen, you both have a point.",
+      "targetJapaneseDraft": "私は二人の間に入り、こう言った。「聞いて、二人とも一理あるよ。」",
+      "literalJapaneseGlossEn": "I stepped into the middle and told them: Listen, you both have a point.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Después le pregunté a Lars: Lars, tú decías que el recojo era a las 7, ¿verdad?",
+      "sourceEnglish": "Then I asked Lars: Lars, you were saying the pickup was at 7, right?",
+      "targetJapaneseDraft": "そのあとラースに尋ねた。「ラース、迎えは7時だと言っていたよね？」",
+      "literalJapaneseGlossEn": "Then I asked Lars: Lars, you were saying the pickup was at 7, right?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "Lars revisó el mensaje de la agencia y confirmó que la hora de recojo era a las 7 en la puerta del hostal.",
+      "sourceEnglish": "Lars checked the agency's message and confirmed that the pickup time was at 7 at the hostel door.",
+      "targetJapaneseDraft": "ラースは旅行会社からのメッセージを確認し、迎えは7時にホステルの入口だと確かめた。",
+      "literalJapaneseGlossEn": "Lars checked the agency's message and confirmed that the pickup time was at 7 at the hostel door.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:reader:10",
+      "candidatePosition": 10,
+      "speaker": "Narrator",
+      "sourceSpanish": "Entonces le pregunté a Wilber: Wilber, ¿me podría decir a qué hora abren en el mercado?",
+      "sourceEnglish": "Then I asked Wilber: Wilber, could you tell me what time the market opens?",
+      "targetJapaneseDraft": "それからウィルベルに尋ねた。「ウィルベルさん、市場は何時に開くか教えていただけますか？」",
+      "literalJapaneseGlossEn": "Then I asked Wilber: Wilber, could you tell me what time the market opens?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:reader:11",
+      "candidatePosition": 11,
+      "speaker": "Narrator",
+      "sourceSpanish": "Wilber nos explicó que el mercado abría a las 6.",
+      "sourceEnglish": "Wilber explained to us that the market opened at 6.",
+      "targetJapaneseDraft": "ウィルベルは市場が6時に開くと説明してくれた。",
+      "literalJapaneseGlossEn": "Wilber explained to us that the market opened at 6.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:reader:12",
+      "candidatePosition": 12,
+      "speaker": "Narrator",
+      "sourceSpanish": "Añadió que, después de la apertura, los puestos de caldo se llenaban rápido y que el mercado quedaba a 10 minutos a pie.",
+      "sourceEnglish": "He added that, after the opening, the broth stalls filled up quickly and that the market was a 10-minute walk away.",
+      "targetJapaneseDraft": "彼はさらに、開店後はスープの屋台がすぐに混み、市場は歩いて10分のところにあると付け加えた。",
+      "literalJapaneseGlossEn": "He added that, after the opening, the broth stalls filled up quickly and that the market was a 10-minute walk away.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:reader:13",
+      "candidatePosition": 13,
+      "speaker": "Narrator",
+      "sourceSpanish": "Wilber también dijo que el mate de coca ayudaba a muchos viajeros con el soroche, así que nos sirvió una taza a cada uno.",
+      "sourceEnglish": "Wilber also said that coca tea helped many travelers with altitude sickness, so he served each of us a cup.",
+      "targetJapaneseDraft": "ウィルベルはまた、コカ茶が高山病に役立つと言う旅行者が多いと話し、私たち一人ひとりに一杯ずつ出した。",
+      "literalJapaneseGlossEn": "Wilber also said that coca tea helped many travelers with altitude sickness, so he served each of us a cup.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:reader:14",
+      "candidatePosition": 14,
+      "speaker": "Narrator",
+      "sourceSpanish": "Con esos datos, propuse un punto medio: ¿Y si vamos al mercado y volvemos antes de las 7?",
+      "sourceEnglish": "With that information, I proposed a middle ground: What if we go to the market and come back before 7?",
+      "targetJapaneseDraft": "その情報を踏まえ、私は折衷案を提案した。「市場へ行って7時前に戻るのはどうかな？」",
+      "literalJapaneseGlossEn": "With that information, I proposed a middle ground: What if we go to the market and come back before 7?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:reader:15",
+      "candidatePosition": 15,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ana aceptó volver a las 6:45, y Lars dijo que estaba de acuerdo si dejábamos las mochilas listas en la recepción.",
+      "sourceEnglish": "Ana agreed to come back at 6:45, and Lars said he was on board if we left our backpacks ready at the front desk.",
+      "targetJapaneseDraft": "アナは6時45分までに戻ることに賛成し、ラースはリュックを受付に用意しておくなら賛成だと言った。",
+      "literalJapaneseGlossEn": "Ana agreed to come back at 6:45, and Lars said he was on board if we left our backpacks ready at the front desk.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:reader:16",
+      "candidatePosition": 16,
+      "speaker": "Narrator",
+      "sourceSpanish": "Para cerrar el acuerdo, lo resumí en voz alta: Entonces quedamos así: mercado rápido y mochilas listas antes.",
+      "sourceEnglish": "To close the agreement, I summed it up out loud: So it's settled: a quick market trip and backpacks ready beforehand.",
+      "targetJapaneseDraft": "合意を確かめるため、私は声に出してまとめた。「それではこうしよう。市場には短時間だけ行き、リュックは前もって準備しておく。」",
+      "literalJapaneseGlossEn": "To close the agreement, I summed it up out loud: So it's settled: a quick market trip and backpacks ready beforehand.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:10:ja-en:source-scene-v1:reader:17",
+      "candidatePosition": 17,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ana sonrió, Lars terminó su emoliente y salimos hacia San Pedro a las 6 en punto.",
+      "sourceEnglish": "Ana smiled, Lars finished his emoliente, and we headed out to San Pedro at 6 sharp.",
+      "targetJapaneseDraft": "アナは笑顔になり、ラースはエモリエンテを飲み終え、私たちは6時ちょうどにサン・ペドロへ向かった。",
+      "literalJapaneseGlossEn": "Ana smiled, Lars finished his emoliente, and we headed out to San Pedro at 6 sharp.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Report Ana and Lars fairly, confirm Wilber’s Cusco market facts and the 7 o’clock hostel pickup, and settle one pre-trek breakfast plan while retaining the direct 高山病 term.",
+  "speakingGoalInternal": "You are the friend in the middle, and the AI plays Ana, Lars and Wilber from the hostel: report each friend's position fairly with dijo que and decía que plus the imperfect, add Wilber's facts about the market, and help everyone agree on one plan.",
+  "speakingGoalJapaneseDraft": "あなたはアナとラースの間に入る友人です。ホステルのウィルベルも会話に加わります。アナが言ったこととラースが言っていたことを公平に伝え、市場の開店時刻、徒歩の時間、7時の迎えについてウィルベルに確認し、全員が合意できる一つの計画を提案してください。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "Current source follows Ana, Lars and Wilber at a Cusco hostel and San Pedro market, with a 6 o’clock opening, 10-minute walk, 7 o’clock pickup, named foods and source-attributed coca-tea claim. The archived shorter scene substitutes names and omits the source details; it remains separate evidence.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "pickup time",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "morning market",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "opening time",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "lodging",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "opinion",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "compromise",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "physical condition",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "luggage",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "shuttle vehicle",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "to verify",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "said that ...",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "on the other hand",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "if ...",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "not to push oneself",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 15,
+      "candidate": null,
+      "oldEnglish": "altitude sickness",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 16,
+      "candidate": null,
+      "oldEnglish": "coca tea",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Misaki said she wanted to eat breakfast at the morning market.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "On the other hand, Luca is worried about missing the shuttle.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "I think pickup is at seven. Let's check the booking message first.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "The message says to meet outside the lodge at seven.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Could we check the market opening time and distance from the lodge too?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "It opens at six, but I do not know how crowded it will be.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "If someone feels unwell, we should not push them.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Then let's prepare our bags first and ask how everyone feels.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "If we have enough time and everyone feels well, how about the market; otherwise, we can eat at the lodge?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "I agree on those conditions. Let's check the time again before leaving.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "The host said many travelers reported that coca tea helped with altitude sickness.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 6,
+      "candidatePosition": 11,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 16,
+      "candidatePosition": 6,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 40,
+    "twoVoiceClipDecisionsIfTextApproved": 80,
+    "twoVoiceSubmittedCharactersIfTextApproved": 1972,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.05916,
+    "archivedExactJapaneseCardTextOverlapsOnly": 2,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Qualified Japanese and clinical review must confirm 高山病（ソロチェ） as the direct term for the source's altitude sickness; do not euphemize it.",
+    "The coca-tea benefit is Wilber's source-attributed report about travelers, not independent medical advice or a verified treatment claim.",
+    "Qualified Japanese and Peruvian locale review must settle Cusco, San Pedro market, emoliente, caldo de gallina, pan chuta, quinoa and coca-tea wording.",
+    "Keep the 7 a.m. pickup, 6 a.m. opening, ten-minute walk and 6:45 return in source order; do not infer a guaranteed safety margin.",
+    "Qualified curriculum review should check how 言った and 言っていた convey the source's dijo que and decía que in context.",
+    "Pinned English meanings are source anchors, not approved exact glosses for Japanese faces; each contextual dictionary sense needs review.",
+    "Do not migrate saved items or audio from the older 16-card/11-turn scene by position or overlapping text; candidate IDs belong to source-scene-v1.",
+    "Refresh exact text and locale before any synthesis; each new recording needs technical checks and a separate listening decision before learner registration."
+  ],
+  "missing": [
+    "qualified Japanese/source/Peruvian food/locale/clinical/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

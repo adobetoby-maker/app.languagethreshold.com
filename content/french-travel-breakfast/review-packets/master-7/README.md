@@ -1,0 +1,13 @@
+# French Breakfast Master 7 — source-only review packet
+
+This inert French→English packet pins current Spanish Breakfast Master 7 for direct repository review. It contains 23 source-order cards and 18 aligned Reader turns, retains stable lesson key `master:7`, and assigns 41 revision-scoped candidate row IDs. The old Québec farm-café draft is retained as separate evidence; its positions are not silently mapped to this Salento scene. No owner page, catalog import, learner/scoring/audio/offline/progress flow or V4 code reads this packet. `reviewed` and every release gate remain false.
+
+The source scene has Emma's coffee-farm group finish breakfast at 7:30, a landslide move the minibus departure to 7:45, and Andrés's ten-minute warning. The order includes seven cheese arepas, nine tintos, two aguapanelas, eggs pericos and two calentados missing from the notebook. Four people already paid cash. Marleny states a 64,000-peso balance; Emma's 100,000-peso bills cannot be changed, so she transfers the balance through Nequi, shows proof and reaches the minibus. These facts are source anchors. The apparent time tension and 64,000-peso calculation cannot be independently resolved from the unit prices in the lesson and remain qualified source/locale questions.
+
+The French faces teach Colombian food and payment terms directly with short explanations. They are unapproved drafts. A qualified French, Colombian-food/locale and dictionary reviewer must decide the best phrasing for *tinto*, *huevos pericos*, *calentado*, *queso campesino*, *Nequi* and the register around *Doña Marleny*. The six cue/target pairs, five forms and speaking card in `master-7.json` are inert review candidates; Hear has no clip and none can score a learner.
+
+`haiku-cli-attempt.json` records that a safe-mode Haiku 5.5 CLI attempt returned `Not logged in`, zero tokens and empty `modelUsage`. No Haiku, Opus or Fable output contributed to this packet; the candidate was self-authored and checked against exact source rows. Structural checks and AI work are not qualified approval.
+
+The read-only audio inventory counts 41 French draft strings and 82 possible two-voice clip/listening decisions. It estimates submitted characters and gross historical cost without authorizing synthesis, reuse, technical media approval or listening approval. Every changed exact-text recording needs a distinct listening decision. Saved cards, progress, exact-pair learner runtime and independent V4 need separate migration and acceptance work.
+
+From the repository root run `python3 content/french-travel-breakfast/review-packets/master-7/build.py` and `python3 content/french-travel-breakfast/review-packets/master-7/validate.py`.

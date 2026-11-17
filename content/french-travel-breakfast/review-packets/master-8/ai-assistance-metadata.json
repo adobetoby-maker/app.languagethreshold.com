@@ -1,0 +1,30 @@
+{
+  "dateUtc": "2026-11-17",
+  "workflow": "Source-grounded self-authoring from exact pinned Spanish curriculum and full Reader; attempted direct Claude CLI safe-mode Haiku first",
+  "haikuCandidate": {
+    "requestedModel": "haiku",
+    "actualModel": null,
+    "attempted": true,
+    "command": "claude --safe-mode --model haiku --output-format json -p <bounded authentication probe>",
+    "exitCode": 1,
+    "durationApiMs": 0,
+    "inputTokens": 0,
+    "outputTokens": 0,
+    "result": "Not logged in · Please run /login",
+    "usedInCandidate": false
+  },
+  "opusCritique": {
+    "requestedModel": "opus",
+    "actualModel": null,
+    "attempted": false,
+    "reason": "Same CLI authentication unavailable; no read-only critique result"
+  },
+  "fableCorrection": {
+    "requestedModel": "fable",
+    "actualModel": null,
+    "attempted": false,
+    "reason": "Same CLI authentication unavailable; no correction result"
+  },
+  "selfCheck": "Compared all 23 French draft cards and 18 French Reader turns in exact source order against current Spanish and English source. Retained Saturday/Gràcia/Barcelona café, Kenji's severe tree-nut allergy, almond-covered coca, Jordi's scrape offer and Ana's refusal, shared almond worktable, Kenji's prior anaphylaxis, doctor-indicated antihistamine and auto-injector, source's 112 call, packaged-product trace warning, and conditional hot chocolate order only after ingredient and clean-utensil checks. The archived Paris bakery scene was excluded. Source/hash/identity/false-gate validator is separate from qualified review.",
+  "qualifiedApproval": false
+}

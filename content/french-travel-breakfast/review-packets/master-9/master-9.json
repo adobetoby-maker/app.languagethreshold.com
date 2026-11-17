@@ -1,0 +1,505 @@
+{
+  "schema": "lt.inert-source-review.v1",
+  "lessonKey": "master:9",
+  "pair": {
+    "target": "French",
+    "support": "English"
+  },
+  "source": {
+    "coursePath": "src/data/core60/es/master-travel-breakfast.json",
+    "courseSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "lessonSha256": "6215a386d67c35b0a8325a84f5d9d2ffb05ee2cdeb5f410ad10250a85ce04526",
+    "titleEnglish": "Give Honest Feedback to a New Café Owner",
+    "objectiveEnglish": "Give specific, kind feedback on coffee and menu clarity and make two concrete recommendations.",
+    "speakingEnglish": "You are a customer, and the AI is Camila, the new café owner in Barrio Italia: give honest, kind feedback on the cortado and the chalkboard menu, and make two concrete recommendations using le recomiendo que and ojalá que with the present subjunctive.",
+    "sourceGrammar": {
+      "focus": "Present subjunctive after wishes and recommendations (le recomiendo que ponga los precios; ojalá que el café salga más caliente)",
+      "examples": [
+        {
+          "es": "Le recomiendo que ponga los precios al lado de cada café.",
+          "en": "I recommend that you put the prices next to each coffee."
+        },
+        {
+          "es": "Ojalá que la leche salga más caliente mañana.",
+          "en": "I hope the milk comes out hotter tomorrow."
+        }
+      ]
+    },
+    "passageTitleSpanish": "Una opinión sincera en Barrio Italia"
+  },
+  "priorDraft": {
+    "archivePath": "content/review-archive/french-japanese-2026-11-15/french-breakfast/master-7-9-draft.json",
+    "archiveSha256": "d376f10d93130352cd8ed7c8defb64adc2f8cb5cf9677b12519d118c7c3bc7b0",
+    "runtimePath": "content/review-archive/french-japanese-2026-11-15/french-breakfast/private-runtime-candidate.json",
+    "runtimeSha256": "f58bb01321fa2e04ef1bbc802c7a776836c3ea9ac6c51fdbedfaca50fe764f26",
+    "oldScene": "Montréal/Camille generic coffee and berry cake rewrite",
+    "sourceScene": "Barrio Italia/Camila cortado, raspberry kuchen, cup warmer and chalkboard feedback",
+    "matchingPriorEnglishCards": 14,
+    "matchingPriorEnglishReaderTurns": 0,
+    "disposition": "Archived positions are trace references only; no saved-item or recording migration is authorized."
+  },
+  "titleFrenchDraft": "Donner un avis sincère à la propriétaire d’un nouveau café",
+  "focusFrenchDraft": "Formuler avec tact deux recommandations concrètes sur le cortado et la lisibilité du menu, puis souligner un point réussi.",
+  "cards": [
+    {
+      "id": "master:9:source-6215a386d67c:word:1",
+      "legacyDraftId": "master:9:word:1",
+      "sourceSpanish": "la temperatura",
+      "supportEnglish": "the temperature",
+      "targetFrenchDraft": "la température",
+      "kind": "term"
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:2",
+      "legacyDraftId": "master:9:word:2",
+      "sourceSpanish": "la máquina de espresso",
+      "supportEnglish": "the espresso machine",
+      "targetFrenchDraft": "la machine à expresso",
+      "kind": "term"
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:3",
+      "legacyDraftId": "master:9:word:3",
+      "sourceSpanish": "el molinillo",
+      "supportEnglish": "the grinder",
+      "targetFrenchDraft": "le moulin à café",
+      "kind": "term"
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:4",
+      "legacyDraftId": "master:9:word:4",
+      "sourceSpanish": "el calentador de tazas",
+      "supportEnglish": "the cup warmer",
+      "targetFrenchDraft": "le chauffe-tasses",
+      "kind": "term"
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:5",
+      "legacyDraftId": "master:9:word:5",
+      "sourceSpanish": "la leche vaporizada",
+      "supportEnglish": "the steamed milk",
+      "targetFrenchDraft": "le lait chauffé à la vapeur",
+      "kind": "term"
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:6",
+      "legacyDraftId": "master:9:word:6",
+      "sourceSpanish": "la crema",
+      "supportEnglish": "the crema",
+      "targetFrenchDraft": "la crema de l’expresso",
+      "kind": "term",
+      "sourceNoteEnglish": "The golden foam on top of an espresso."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:7",
+      "legacyDraftId": "master:9:word:7",
+      "sourceSpanish": "la letra",
+      "supportEnglish": "the handwriting",
+      "targetFrenchDraft": "l’écriture manuscrite",
+      "kind": "term"
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:8",
+      "legacyDraftId": "master:9:word:8",
+      "sourceSpanish": "la tiza",
+      "supportEnglish": "the chalk",
+      "targetFrenchDraft": "la craie",
+      "kind": "term"
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:9",
+      "legacyDraftId": "master:9:word:9",
+      "sourceSpanish": "las categorías",
+      "supportEnglish": "the categories",
+      "targetFrenchDraft": "les catégories",
+      "kind": "term"
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:10",
+      "legacyDraftId": "master:9:word:10",
+      "sourceSpanish": "legible",
+      "supportEnglish": "readable",
+      "targetFrenchDraft": "lisible",
+      "kind": "term"
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:11",
+      "legacyDraftId": "master:9:word:11",
+      "sourceSpanish": "confuso",
+      "supportEnglish": "confusing",
+      "targetFrenchDraft": "déroutant, déroutante",
+      "kind": "term",
+      "sourceNoteEnglish": "Agrees with the noun: un menú confuso, una lista confusa."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:12",
+      "legacyDraftId": "master:9:word:12",
+      "sourceSpanish": "la primera impresión",
+      "supportEnglish": "the first impression",
+      "targetFrenchDraft": "la première impression",
+      "kind": "term"
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:13",
+      "legacyDraftId": "master:9:word:13",
+      "sourceSpanish": "el kuchen",
+      "supportEnglish": "the kuchen (fruit cake)",
+      "targetFrenchDraft": "le kuchen (gâteau aux fruits)",
+      "kind": "term",
+      "sourceNoteEnglish": "A German-style fruit cake, very common in Chilean cafés."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:14",
+      "legacyDraftId": "master:9:word:14",
+      "sourceSpanish": "la sugerencia",
+      "supportEnglish": "the suggestion",
+      "targetFrenchDraft": "la suggestion",
+      "kind": "term"
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:15",
+      "legacyDraftId": "master:9:word:15",
+      "sourceSpanish": "la opinión sincera",
+      "supportEnglish": "the honest opinion",
+      "targetFrenchDraft": "l’avis sincère",
+      "kind": "term"
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:16",
+      "legacyDraftId": "master:9:word:16",
+      "sourceSpanish": "Si quiere mi opinión sincera, el cortado llegó un poco frío.",
+      "supportEnglish": "If you want my honest opinion, the cortado arrived a bit cold.",
+      "targetFrenchDraft": "Si vous voulez mon avis sincère, le cortado est arrivé un peu froid.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal: usted with the owner."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:17",
+      "legacyDraftId": "master:9:word:17",
+      "sourceSpanish": "Le recomiendo que caliente las tazas antes de servir.",
+      "supportEnglish": "I recommend that you warm the cups before serving.",
+      "targetFrenchDraft": "Je vous recommande de réchauffer les tasses avant de servir.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Recomendar que + subjunctive: caliente, not calienta."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:18",
+      "legacyDraftId": "master:9:word:18",
+      "sourceSpanish": "Ojalá que el cortado salga un poco más caliente.",
+      "supportEnglish": "I hope the cortado comes out a little hotter.",
+      "targetFrenchDraft": "J’espère que le cortado sera un peu plus chaud.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Ojalá que is always followed by the subjunctive."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:19",
+      "legacyDraftId": "master:9:word:19",
+      "sourceSpanish": "Le sugiero que separe los cafés de los dulces por categorías.",
+      "supportEnglish": "I suggest you separate the coffees from the sweets by category.",
+      "targetFrenchDraft": "Je vous suggère de séparer les cafés des pâtisseries par catégories.",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:20",
+      "legacyDraftId": "master:9:word:20",
+      "sourceSpanish": "Es mejor que escriba los precios con letra más grande.",
+      "supportEnglish": "It's better if you write the prices in bigger letters.",
+      "targetFrenchDraft": "Il vaudrait mieux écrire les prix en plus gros caractères.",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:21",
+      "legacyDraftId": "master:9:word:21",
+      "sourceSpanish": "Me encantó el kuchen, de verdad estaba riquísimo.",
+      "supportEnglish": "I loved the kuchen, it was truly delicious.",
+      "targetFrenchDraft": "J’ai adoré le kuchen, il était vraiment délicieux.",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:22",
+      "legacyDraftId": "master:9:word:22",
+      "sourceSpanish": "Espero que no le moleste lo que le digo.",
+      "supportEnglish": "I hope what I'm saying doesn't bother you.",
+      "targetFrenchDraft": "J’espère que ce que je vous dis ne vous dérange pas.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal; softens criticism before you give it."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:word:23",
+      "legacyDraftId": "master:9:word:23",
+      "sourceSpanish": "Ojalá que le vaya súper bien con el café, Camila.",
+      "supportEnglish": "I really hope things go great with the café, Camila.",
+      "targetFrenchDraft": "J’espère vraiment que votre café marchera très bien, Camila.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Súper bien is everyday Chilean speech."
+    }
+  ],
+  "reader": [
+    {
+      "id": "master:9:source-6215a386d67c:line:1",
+      "legacyDraftId": "master:9:line:1",
+      "sourceSpanish": "Daniel, un viajero canadiense, toma un cortado y come un kuchen de frambuesa en el café nuevo de Camila en Barrio Italia.",
+      "supportEnglish": "Daniel, a Canadian traveler, has a cortado and eats a raspberry kuchen at Camila's new café in Barrio Italia.",
+      "targetFrenchDraft": "Daniel, un voyageur canadien, boit un cortado et mange un kuchen aux framboises dans le nouveau café de Camila, à Barrio Italia."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:line:2",
+      "legacyDraftId": "master:9:line:2",
+      "sourceSpanish": "Camila abrió el local hace dos semanas y le pide a Daniel su opinión sincera sobre el café y el menú.",
+      "supportEnglish": "Camila opened the place two weeks ago and asks Daniel for his honest opinion about the coffee and the menu.",
+      "targetFrenchDraft": "Camila a ouvert son établissement il y a deux semaines et demande à Daniel son avis sincère sur le café et le menu."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:line:3",
+      "legacyDraftId": "master:9:line:3",
+      "sourceSpanish": "Daniel: Si quiere mi opinión sincera, el cortado llegó un poco frío.",
+      "supportEnglish": "Daniel: If you want my honest opinion, the cortado arrived a bit cold.",
+      "targetFrenchDraft": "Daniel : Si vous voulez mon avis sincère, le cortado est arrivé un peu froid."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:line:4",
+      "legacyDraftId": "master:9:line:4",
+      "sourceSpanish": "Daniel: La crema se veía muy bonita, pero la leche vaporizada llegó tibia.",
+      "supportEnglish": "Daniel: The crema looked very nice, but the steamed milk arrived lukewarm.",
+      "targetFrenchDraft": "Daniel : La crema était très belle, mais le lait chauffé à la vapeur est arrivé tiède."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:line:5",
+      "legacyDraftId": "master:9:line:5",
+      "sourceSpanish": "Camila explica que la máquina de espresso es nueva y que todavía está aprendiendo a controlar la temperatura.",
+      "supportEnglish": "Camila explains that the espresso machine is new and that she is still learning to control the temperature.",
+      "targetFrenchDraft": "Camila explique que la machine à expresso est neuve et qu’elle apprend encore à en maîtriser la température."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:line:6",
+      "legacyDraftId": "master:9:line:6",
+      "sourceSpanish": "Ella cuenta que ajusta el molinillo cada mañana para que el espresso salga bien.",
+      "supportEnglish": "She says that she adjusts the grinder every morning so that the espresso comes out well.",
+      "targetFrenchDraft": "Elle raconte qu’elle règle le moulin à café chaque matin pour que l’expresso soit réussi."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:line:7",
+      "legacyDraftId": "master:9:line:7",
+      "sourceSpanish": "Daniel nota que el calentador de tazas está apagado encima de la máquina.",
+      "supportEnglish": "Daniel notices that the cup warmer is turned off on top of the machine.",
+      "targetFrenchDraft": "Daniel remarque que le chauffe-tasses, au-dessus de la machine, est éteint."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:line:8",
+      "legacyDraftId": "master:9:line:8",
+      "sourceSpanish": "Daniel: Le recomiendo que caliente las tazas antes de servir.",
+      "supportEnglish": "Daniel: I recommend that you warm the cups before serving.",
+      "targetFrenchDraft": "Daniel : Je vous recommande de réchauffer les tasses avant de servir."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:line:9",
+      "legacyDraftId": "master:9:line:9",
+      "sourceSpanish": "Daniel: Ojalá que el cortado salga un poco más caliente.",
+      "supportEnglish": "Daniel: I hope the cortado comes out a little hotter.",
+      "targetFrenchDraft": "Daniel : J’espère que le cortado sera un peu plus chaud."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:line:10",
+      "legacyDraftId": "master:9:line:10",
+      "sourceSpanish": "Después, Daniel mira la pizarra del menú, escrita con tiza blanca, y la encuentra confusa.",
+      "supportEnglish": "Then Daniel looks at the menu board, written in white chalk, and finds it confusing.",
+      "targetFrenchDraft": "Ensuite, Daniel regarde le tableau du menu écrit à la craie blanche et le trouve déroutant."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:line:11",
+      "legacyDraftId": "master:9:line:11",
+      "sourceSpanish": "Daniel: La letra es muy pequeña y los precios no son legibles desde la caja.",
+      "supportEnglish": "Daniel: The handwriting is very small and the prices are not readable from the register.",
+      "targetFrenchDraft": "Daniel : L’écriture est très petite et les prix ne sont pas lisibles depuis la caisse."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:line:12",
+      "legacyDraftId": "master:9:line:12",
+      "sourceSpanish": "Daniel: Le sugiero que separe los cafés de los dulces por categorías.",
+      "supportEnglish": "Daniel: I suggest you separate the coffees from the sweets by category.",
+      "targetFrenchDraft": "Daniel : Je vous suggère de séparer les cafés des pâtisseries par catégories."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:line:13",
+      "legacyDraftId": "master:9:line:13",
+      "sourceSpanish": "Daniel: Es mejor que escriba los precios con letra más grande.",
+      "supportEnglish": "Daniel: It's better if you write the prices in bigger letters.",
+      "targetFrenchDraft": "Daniel : Il vaudrait mieux écrire les prix en plus gros caractères."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:line:14",
+      "legacyDraftId": "master:9:line:14",
+      "sourceSpanish": "Camila: Tiene razón, la primera impresión es muy importante en un local nuevo.",
+      "supportEnglish": "Camila: You're right, the first impression is very important in a new place.",
+      "targetFrenchDraft": "Camila : Vous avez raison, la première impression compte beaucoup dans un nouveau café."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:line:15",
+      "legacyDraftId": "master:9:line:15",
+      "sourceSpanish": "Daniel: Espero que no le moleste lo que le digo.",
+      "supportEnglish": "Daniel: I hope what I'm saying doesn't bother you.",
+      "targetFrenchDraft": "Daniel : J’espère que ce que je vous dis ne vous dérange pas."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:line:16",
+      "legacyDraftId": "master:9:line:16",
+      "sourceSpanish": "Camila: Para nada, le agradezco mucho la sugerencia.",
+      "supportEnglish": "Camila: Not at all, I really appreciate the suggestion.",
+      "targetFrenchDraft": "Camila : Pas du tout, je vous remercie beaucoup pour cette suggestion."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:line:17",
+      "legacyDraftId": "master:9:line:17",
+      "sourceSpanish": "Daniel: Me encantó el kuchen, de verdad estaba riquísimo.",
+      "supportEnglish": "Daniel: I loved the kuchen, it was truly delicious.",
+      "targetFrenchDraft": "Daniel : J’ai adoré le kuchen, il était vraiment délicieux."
+    },
+    {
+      "id": "master:9:source-6215a386d67c:line:18",
+      "legacyDraftId": "master:9:line:18",
+      "sourceSpanish": "Daniel: Ojalá que le vaya súper bien con el café, Camila.",
+      "supportEnglish": "Daniel: I really hope things go great with the café, Camila.",
+      "targetFrenchDraft": "Daniel : J’espère vraiment que votre café marchera très bien, Camila."
+    }
+  ],
+  "speakingDraft": {
+    "roleEnglish": "You are Daniel, a customer at Camila’s new café in Barrio Italia. Camila asks for honest feedback.",
+    "openingFrench": "Camila : Vous avez goûté le cortado et le kuchen. Qu’en pensez-vous sincèrement ?",
+    "objectivesEnglish": [
+      "State kindly that the cortado arrived a little cold although its crema looked good.",
+      "Recommend warming the cups before serving.",
+      "Explain that menu prices are hard to read from the register and suggest larger lettering and categories.",
+      "Praise the raspberry kuchen and wish Camila success."
+    ],
+    "closureFrench": "Daniel : Merci de m’avoir demandé mon avis. Je vous souhaite beaucoup de succès."
+  },
+  "formsDraft": [
+    {
+      "french": "Je vous recommande de réchauffer les tasses.",
+      "english": "I recommend that you warm the cups.",
+      "noteEnglish": "French recommend + de + infinitive; the Spanish source uses recomendar que + subjunctive."
+    },
+    {
+      "french": "Je souhaite que le cortado soit plus chaud.",
+      "english": "I hope the cortado is hotter.",
+      "noteEnglish": "French souhaiter que takes the subjunctive; this is a contextual contrast, not an exact source utterance."
+    },
+    {
+      "french": "J’espère que le cortado sera plus chaud.",
+      "english": "I hope the cortado comes out hotter.",
+      "noteEnglish": "French espérer que normally takes the indicative/future in this affirmative sentence."
+    },
+    {
+      "french": "Je vous suggère de séparer les cafés des pâtisseries.",
+      "english": "I suggest separating the coffees from the pastries.",
+      "noteEnglish": "French suggérer de + infinitive keeps the recommendation direct and polite."
+    },
+    {
+      "french": "Il vaudrait mieux écrire les prix en plus gros caractères.",
+      "english": "It would be better to write the prices in larger letters.",
+      "noteEnglish": "Conditional softens a concrete recommendation."
+    }
+  ],
+  "modeActivitiesDraft": [
+    {
+      "mode": "See",
+      "cueEnglish": "Read Daniel’s tactful opening feedback about the cortado.",
+      "sourceRef": "master:9:source-6215a386d67c:word:16",
+      "legacyDraftSourceRef": "master:9:word:16",
+      "targetFrenchDraft": "Si vous voulez mon avis sincère, le cortado est arrivé un peu froid.",
+      "supportEnglish": "If you want my honest opinion, the cortado arrived a bit cold.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Recall",
+      "cueEnglish": "Recall the recommendation to warm cups before serving.",
+      "sourceRef": "master:9:source-6215a386d67c:word:17",
+      "legacyDraftSourceRef": "master:9:word:17",
+      "targetFrenchDraft": "Je vous recommande de réchauffer les tasses avant de servir.",
+      "supportEnglish": "I recommend that you warm the cups before serving.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Hear",
+      "cueEnglish": "Listen for Daniel’s hope that the cortado comes out hotter. Recording pending.",
+      "sourceRef": "master:9:source-6215a386d67c:word:18",
+      "legacyDraftSourceRef": "master:9:word:18",
+      "targetFrenchDraft": "J’espère que le cortado sera un peu plus chaud.",
+      "supportEnglish": "I hope the cortado comes out a little hotter.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Type",
+      "cueEnglish": "Type the suggestion to separate coffees from sweets by category.",
+      "sourceRef": "master:9:source-6215a386d67c:word:19",
+      "legacyDraftSourceRef": "master:9:word:19",
+      "targetFrenchDraft": "Je vous suggère de séparer les cafés des pâtisseries par catégories.",
+      "supportEnglish": "I suggest you separate the coffees from the sweets by category.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Say",
+      "cueEnglish": "Tell Camila to write prices in larger letters.",
+      "sourceRef": "master:9:source-6215a386d67c:word:20",
+      "legacyDraftSourceRef": "master:9:word:20",
+      "targetFrenchDraft": "Il vaudrait mieux écrire les prix en plus gros caractères.",
+      "supportEnglish": "It's better if you write the prices in bigger letters.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Write",
+      "cueEnglish": "Close with a sincere wish for Camila’s new café.",
+      "sourceRef": "master:9:source-6215a386d67c:word:23",
+      "legacyDraftSourceRef": "master:9:word:23",
+      "targetFrenchDraft": "J’espère vraiment que votre café marchera très bien, Camila.",
+      "supportEnglish": "I really hope things go great with the café, Camila.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    }
+  ],
+  "dictionarySensesReviewed": false,
+  "reviewNotesEnglish": [
+    "A qualified French reviewer should decide whether to retain cortado and crema as loanwords, and whether a gloss should accompany each in the dictionary.",
+    "Kuchen is the source’s raspberry fruit cake in this Chilean café scene; do not replace it with a generic berry cake or move the café to Montréal.",
+    "The source’s Spanish subjunctive objectives require a French grammar adaptation: affirmative espérer que normally takes the indicative, while souhaiter que takes the subjunctive. The contextual form is separate from the exact Reader line.",
+    "Check whether chauffe-tasses, plus gros caractères and la crema suit the intended register and locale before learner release.",
+    "No archived card/Reader position or prior recording may migrate to this source-current candidate on text overlap alone."
+  ],
+  "audioScope": {
+    "status": "read-only estimate; no synthesis, technical verification, listening decision, reuse or registration",
+    "voices": 2,
+    "selectedFrenchStrings": 41,
+    "potentialClipDecisions": 82,
+    "submittedCharacters": 2199,
+    "rateUsdPerMillionCharacters": 30,
+    "estimatedGrossUsd": 0.06597
+  },
+  "aiAssistance": {
+    "currentRun": "Safe-mode Haiku CLI returned Not logged in with empty modelUsage and zero tokens; no AI output was used.",
+    "actualModelUsage": {},
+    "qualifiedApproval": false
+  },
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "learnerRegistered": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "audioApproved": false,
+    "listeningReviewed": false,
+    "playbackEnabled": false,
+    "progressTracking": false,
+    "progressWritesEnabled": false,
+    "offlineRegistered": false,
+    "v4Registered": false,
+    "released": false
+  }
+}

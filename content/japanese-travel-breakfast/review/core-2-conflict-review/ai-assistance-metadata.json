@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "date": "2026-11-17",
+  "requestedWorkflow": "Claude CLI --safe-mode Haiku candidate authoring, Opus read-only critique, Fable correction, then source-grounded self-check",
+  "authCheck": {
+    "command": "claude auth status",
+    "exitCode": 1,
+    "loggedIn": false,
+    "authMethod": "none"
+  },
+  "modelCalls": [],
+  "actualModelUsage": {},
+  "modelTokens": 0,
+  "claim": "No fresh Claude model contribution. The local CLI was logged out; alternatives were authored and checked against repository source directly.",
+  "selfCheck": [
+    "Pinned current Spanish lesson and existing Japanese packet SHA-256 values.",
+    "Compared card 1, Reader 3 and Reader 7 with their exact Spanish and English source positions.",
+    "Kept all three existing Japanese faces null and every review, learner, audio and progress gate false.",
+    "Kept Card 17 speaker-neutral pending the Reader 7 source decision; did not invent an oat-milk order."
+  ],
+  "qualifiedReview": false
+}

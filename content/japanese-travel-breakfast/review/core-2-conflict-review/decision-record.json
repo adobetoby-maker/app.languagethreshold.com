@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:2",
+  "stableLessonId": "travel-breakfast:2:ja-en",
+  "reviewRevision": "travel-breakfast:2:ja-en:conflict-review-v1",
+  "status": "source-only alternatives for qualified review",
+  "selectedAnswers": null,
+  "source": {
+    "lessonPath": "public/lesson-content/es/travel-breakfast.json",
+    "lessonSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "existingPacketPath": "content/japanese-travel-breakfast/review/core-2-source-scene/source-setting-candidate.json",
+    "existingPacketSha256": "259e26e2ffa84561599d75adafb12399ae01eba8cb3d851d67361b371f73f5c0"
+  },
+  "decisions": [
+    {
+      "rowId": "travel-breakfast:2:ja-en:source-scene-v1:card:01",
+      "rowKind": "card",
+      "position": 1,
+      "sourceSpanish": "café americano",
+      "sourceEnglish": "black coffee",
+      "sourceNoteInternal": "Usually espresso with hot water; the name can vary by place.",
+      "selectedJapanese": null,
+      "alternativesNotSelected": [
+        {
+          "option": "preserve Spanish menu term",
+          "japanese": "アメリカーノ",
+          "literalEnglishGloss": "Americano, a coffee menu item",
+          "sourceChangeNeeded": "The English card and Reader 3 would need to say Americano rather than black coffee."
+        },
+        {
+          "option": "preserve English broad coffee label",
+          "japanese": "ブラックコーヒー",
+          "literalEnglishGloss": "black coffee",
+          "sourceChangeNeeded": "The Spanish term and its espresso-with-water note would need source review before this becomes an answer."
+        }
+      ],
+      "qualifiedReviewQuestion": "Which beverage concept should this card teach, and which Spanish/English source fields should be revised together?"
+    },
+    {
+      "rowId": "travel-breakfast:2:ja-en:source-scene-v1:reader:03",
+      "rowKind": "reader",
+      "position": 3,
+      "sourceSpanish": "El barista dice que hay café americano y café con leche.",
+      "sourceEnglish": "The barista says there is black coffee and coffee with milk.",
+      "selectedJapanese": null,
+      "alternativesNotSelected": [
+        {
+          "option": "preserve Spanish menu term",
+          "japanese": "バリスタはアメリカーノとカフェオレがあると言います。",
+          "literalEnglishGloss": "The barista says Americano and coffee with milk are available.",
+          "sourceChangeNeeded": "The English Reader line and card 1 would need the same Americano concept."
+        },
+        {
+          "option": "preserve English broad coffee label",
+          "japanese": "バリスタはブラックコーヒーとカフェオレがあると言います。",
+          "literalEnglishGloss": "The barista says black coffee and coffee with milk are available.",
+          "sourceChangeNeeded": "The Spanish Reader line and card 1 would need source review before this becomes an answer."
+        }
+      ],
+      "qualifiedReviewQuestion": "Should Reader 3 and card 1 use a specific Americano menu item or the broader black-coffee category?"
+    },
+    {
+      "rowId": "travel-breakfast:2:ja-en:source-scene-v1:reader:07",
+      "rowKind": "reader",
+      "position": 7,
+      "sourceSpanish": "Ella pide el café caliente y pregunta: ¿Es para tomar aquí o para llevar?",
+      "sourceEnglish": "She asks for the coffee hot and asks: Is it to drink here or to go?",
+      "selectedJapanese": null,
+      "alternativesNotSelected": [
+        {
+          "option": "retain traveler as source speaker",
+          "japanese": "彼女はコーヒーをホットで頼み、「店内で飲めますか、それとも持ち帰りですか」と尋ねます。",
+          "literalEnglishGloss": "She orders the coffee hot and asks whether she can drink it here or take it away.",
+          "sourceChangeNeeded": "This interprets the traveler's question as checking her options. Both source Reader languages would need to clarify that intent before this becomes an answer."
+        },
+        {
+          "option": "correct speaker to barista",
+          "japanese": "彼女がコーヒーをホットで頼むと、バリスタは「店内でお召し上がりですか、それともお持ち帰りですか」と尋ねます。",
+          "literalEnglishGloss": "After she orders the coffee hot, the barista asks whether it is for here or takeaway.",
+          "sourceChangeNeeded": "The Spanish and English Reader line must both assign the question to the barista."
+        }
+      ],
+      "qualifiedReviewQuestion": "Who asks the here-or-to-go question in the lesson's intended exchange, and should card 17 be marked as a staff utterance?"
+    }
+  ],
+  "linkedSourceRow": {
+    "rowId": "travel-breakfast:2:ja-en:source-scene-v1:card:17",
+    "sourceSpanish": "¿Es para tomar aquí o para llevar?",
+    "sourceEnglish": "Is it to drink here or to go?",
+    "currentJapaneseDraft": "店内ですか、持ち帰りですか。",
+    "noteInternal": "The phrase is speaker-neutral by itself; its role depends on the Reader 7 source decision."
+  },
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

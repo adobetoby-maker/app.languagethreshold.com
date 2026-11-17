@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:6",
+  "stableLessonId": "travel-breakfast:6:ja-en",
+  "status": "source-only unresolved decision worksheet",
+  "reviewed": false,
+  "selectedAlternativeId": null,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "existingPacketPath": "content/japanese-travel-breakfast/review/core-6-source-scene/source-setting-candidate.json",
+    "existingPacketSha256": "5f493aa84fd05461f32f66c1e04c09bcf91920bbce0c3b988f2255c43665366f"
+  },
+  "heldRow": {
+    "existingId": "travel-breakfast:6:ja-en:source-scene-v1:reader:08",
+    "sourceSpanish": "Solo confirmo los ingredientes y no pido consejo médico.",
+    "sourceEnglish": "I only confirm the ingredients and I do not ask for medical advice.",
+    "targetJapaneseDraft": null,
+    "learnerFaceEnabled": false,
+    "reason": "Generic medical-advice line is outside the lesson's ingredient-confirmation teaching focus; source editorial retention is unresolved."
+  },
+  "unselectedAlternativesIfSourceRetained": [
+    {
+      "id": "reader-8-a",
+      "candidateJapanese": "材料だけを確認し、医療上の助言は求めません。",
+      "literalGlossEnglish": "I only check the ingredients and do not seek medical advice.",
+      "semanticNoteInternal": "Directly retains the source's first-person negative clause. 医療上の助言 is explicit medical advice, but may sound formal in this café scene.",
+      "approved": false,
+      "audioEligible": false
+    },
+    {
+      "id": "reader-8-b",
+      "candidateJapanese": "材料を確認するだけで、医療上のアドバイスは求めません。",
+      "literalGlossEnglish": "I only confirm the ingredients and do not ask for medical advice.",
+      "semanticNoteInternal": "Keeps the source's negative clause in more conversational phrasing. A qualified reviewer must decide whether アドバイス is suitable and whether the whole source line belongs.",
+      "approved": false,
+      "audioEligible": false
+    }
+  ],
+  "sourceEditorialAlternative": {
+    "id": "reader-8-source-revision",
+    "proposalInternal": "If the generic medical-advice clause is removed, revise the Spanish and English source Reader, objective and dependent practice assets together before any Japanese face is selected. No replacement source line is supplied here.",
+    "requiresSourceEdit": true,
+    "approved": false
+  },
+  "contextAnchors": [
+    {
+      "existingId": "travel-breakfast:6:ja-en:source-scene-v1:reader:03",
+      "sourceSpanish": "Luego pregunto: ¿Qué ingredientes tiene?",
+      "sourceEnglish": "Then I ask: What ingredients does it have?",
+      "currentJapaneseDraft": "次に「これにはどんな材料が使われていますか」と尋ねます。",
+      "issueInternal": "The food referred to by it/これ is not named until bread appears in Reader 5. Do not add a specific dish without coordinated source revision.",
+      "qualifiedDecision": "Decide whether the source intentionally leaves the referent implicit or should name the food in both source languages."
+    },
+    {
+      "existingId": "travel-breakfast:6:ja-en:source-scene-v1:reader:05",
+      "sourceSpanish": "Después me dice que, según la cocina, el pan no lleva frutos secos.",
+      "sourceEnglish": "Afterward he tells me that, according to the kitchen, the bread has no nuts.",
+      "currentJapaneseDraft": "その後、店員は厨房の話ではパンにナッツは入っていないと教えてくれます。",
+      "issueInternal": "The source attributes a bread-content statement to the kitchen. It does not verify shared tools, handling, cross-contact or clinical safety.",
+      "qualifiedDecision": "Review attribution and allergen terminology without adding a safety guarantee."
+    }
+  ],
+  "crossLessonDictionaryQuestionInternal": "Core 6 says nueces specifically means walnuts, while Core 18, 27 and 30 use it for nuts generally. Choose contextual headword senses before dictionary or learner release.",
+  "qualifiedReviewRequired": [
+    "Spanish/English source editorial decision for Reader 8 and the lesson objective",
+    "Fluent Japanese and register decision for any retained line",
+    "Food/allergen and clinical terminology review without adding a safety claim",
+    "Contextual dictionary decision for frutos secos, nueces and cacahuates",
+    "Saved-item, exact-text audio, per-clip listening and V4 acceptance after content is approved"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

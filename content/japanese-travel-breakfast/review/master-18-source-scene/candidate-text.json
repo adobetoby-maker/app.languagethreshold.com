@@ -1,0 +1,43 @@
+{
+  "cardsJapanese": [
+    "列車の遅延", "農村部の宿泊施設", "女性の宿主", "音声メッセージ", "携帯電話の電波", "トンネル", "不在着信", "到着時刻", "追加のベッド", "鍵の保管箱", "検札係", "乗り換え", "タクシー乗り場", "声が途切れる", "予定の変更",
+    "ベゴーニャさん、こんにちは。列車が遅れているのでご連絡しています。",
+    "結局、3人ではなく5人になりますが、ご都合はいかがでしょうか。",
+    "もしご迷惑でなければ、朝食を10時30分まで取っておいていただけますか。",
+    "すみません、声が途切れています。今トンネルを通っています。",
+    "電波が入るようになり次第、折り返しお電話します。",
+    "鍵を保管箱に入れておいていただけますか。",
+    "明日の朝食をもう少し遅い時間にしていただくことは可能でしょうか。",
+    "みんな、ベゴーニャさんが10時30分まで朝食を取っておいてくれるよ。"
+  ],
+  "readerJapanese": [
+    "ダニエルは友人たちと週末をカンガス・デ・オニスの農村部の宿泊施設で過ごすため、列車でアストゥリアスへ向かっています。",
+    "検札係が車両を回り、故障のため列車が1時間遅れていると告げました。",
+    "この遅れでオビエドでの乗り換えに間に合わないため、カンガス・デ・オニスへの到着時刻が大きく変わります。",
+    "また予定が変わり、ルシアと彼女の兄弟パブロが今朝旅行に加わったので、今は5人です。",
+    "ダニエルは宿主のベゴーニャにメッセージを書きました。『ベゴーニャさん、こんにちは。列車が遅れているのでご連絡しています。』",
+    "同じメッセージに、『結局、3人ではなく5人になりますが、ご都合はいかがでしょうか』と付け加えました。",
+    "ベゴーニャは音声メッセージで、各部屋に追加のベッドを1台ずつ置けるので問題ないと返事しました。",
+    "30分後、ダニエルはベゴーニャからの不在着信に気づき、すぐに折り返しました。",
+    "ダニエル：23時ごろの到着でもご都合はよろしいでしょうか。",
+    "ベゴーニャ：大丈夫ですが、その時間には私はもう宿にいません。",
+    "ダニエル：鍵を保管箱に入れておいていただけますか。",
+    "ベゴーニャは、鍵の保管箱がドアの横にあることを説明しました。また、カンガス・デ・オニスには鉄道駅がないため、アリオンダス駅からALSAのバスなら約15分、あるいは駅前のタクシー乗り場からタクシーで行けると伝えました。",
+    "ダニエルが朝食の時間を丁寧に尋ねると、ベゴーニャは通常8時から10時までだと答えました。",
+    "ダニエル：もしご迷惑でなければ、朝食を10時30分まで取っておいていただけますか。",
+    "突然、列車がトンネルに入ったため、ベゴーニャの声が途切れ途切れになりました。",
+    "ダニエル：すみません、声が途切れています。今トンネルを通っています。",
+    "再び電波が入るようになると、ダニエルはベゴーニャにもう一度電話し、朝食を取っておくと確認してもらいました。",
+    "ダニエル：みんな、ベゴーニャさんが10時30分まで朝食を取っておいてくれるよ。"
+  ],
+  "speakingGoalJapaneseDraft": "あなたはアストゥリアスへ向かう遅延した列車に乗るダニエルで、相手はカンガス・デ・オニスの農村部の宿泊施設の宿主ベゴーニャです。まず列車の遅れと旅行者が3人から5人に増えたことを丁寧なメッセージで伝え、次に電話で23時ごろの到着、鍵の保管箱、通常8時から10時の朝食を10時30分まで取っておけるか確認します。トンネルで電波が切れたら折り返し、確認できた内容だけを仲間に伝えます。",
+  "issues": [
+    "Qualified Japanese and Spanish locale review must decide a concise rendering of casa rural while preserving that the scene is a specific rural guesthouse in Cangas de Onís, Asturias.",
+    "The source grammar example says arrival around 22:00 but the source Reader asks about 23:00. This candidate follows the Reader scene at 23:00; reconcile the curriculum example before any six-mode answer is authored.",
+    "The source says the Arriondas ALSA bus takes about 15 minutes and mentions a taxi stand de enfrente. Japanese 駅前 conveys the source English 'out front'; qualified locale review should resolve whether 'across from' is required.",
+    "Japanese こんにちは does not encode the Spanish/English afternoon greeting. Choose an appropriate time-specific register with qualified Japanese review rather than claiming an exact literal gloss.",
+    "The source identifies Lucía's brother Pablo without an age relationship. Japanese 兄弟 retains that uncertainty; do not infer older or younger brother.",
+    "The archived generic 14-card/10-turn booking scene is different from the 23-card/18-turn current source. No saved-item, progress or recording migration is authorized.",
+    "Six authored mode prompt/answer pairs, source-aligned forms, contextual dictionary senses, complete speaking setup, exact-text audio and distinct per-clip listening remain open."
+  ]
+}

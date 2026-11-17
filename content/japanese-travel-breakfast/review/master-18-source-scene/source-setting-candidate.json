@@ -1,0 +1,760 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "master",
+  "lessonKey": "master:18",
+  "stableLessonId": "master-travel-breakfast:18:ja-en",
+  "candidateRevision": "master-travel-breakfast:18:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "curriculumVersion": 1,
+    "readerVersion": 1,
+    "curriculumReviewed": false,
+    "readerReviewed": false,
+    "titleEnglishInternal": "Text a Casa Rural Host When the Train Runs Late",
+    "objectiveEnglishInternal": "Text and then call a host to explain a delay, change the group size and ask politely about breakfast times.",
+    "speakingEnglishInternal": "You are on a delayed train to Asturias, and the AI is Begoña, the casa rural host: text her that the group grew from 3 to 5, then call to ask about breakfast times with le escribo porque…, ¿le vendría bien…? and ¿podría guardarnos el desayuno?",
+    "grammarEnglishExamplesInternal": [
+      "I'm writing because the train is 1 hour late.",
+      "Would it suit you if we arrived around 22:00?"
+    ],
+    "readerTitleSpanish": "Un tren con retraso",
+    "readerVerbExamples": [
+      {
+        "target": "Le escribo porque el tren va con retraso.",
+        "native": "I'm writing to you because the train is running late."
+      },
+      {
+        "target": "Daniel la llama enseguida.",
+        "native": "Daniel calls her right away."
+      },
+      {
+        "target": "Begoña nos guarda el desayuno hasta las 10:30.",
+        "native": "Begoña is saving breakfast for us until 10:30."
+      },
+      {
+        "target": "Llegamos hacia las 23:00.",
+        "native": "We arrive around 23:00."
+      },
+      {
+        "target": "Begoña puede poner una cama supletoria.",
+        "native": "Begoña can put in an extra bed."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/master-16-18-draft.json",
+    "sha256": "a566248455c3ff2ef12188ce7b7b824e38a0f9e6a850415e7ae60104b0bab6c9",
+    "scene": "A traveler on a delayed train texts a guesthouse, then calls when signal returns to clarify a larger booking and next morning's breakfast.",
+    "cardCount": 14,
+    "readerCount": 10
+  },
+  "sourceCards": [
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "el retraso",
+      "sourceEnglish": "the delay",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "列車の遅延",
+      "literalJapaneseGlossEn": "the delay",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "la casa rural",
+      "sourceEnglish": "the rural guesthouse",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "農村部の宿泊施設",
+      "literalJapaneseGlossEn": "the rural guesthouse",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "la dueña",
+      "sourceEnglish": "the owner (woman)",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "女性の宿主",
+      "literalJapaneseGlossEn": "the owner (woman)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "el audio",
+      "sourceEnglish": "the voice message",
+      "kind": "term",
+      "sourceNoteInternal": "Common word for a WhatsApp voice note.",
+      "targetJapaneseDraft": "音声メッセージ",
+      "literalJapaneseGlossEn": "the voice message",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "la cobertura",
+      "sourceEnglish": "the cell signal",
+      "kind": "term",
+      "sourceNoteInternal": "No tengo cobertura = I have no signal.",
+      "targetJapaneseDraft": "携帯電話の電波",
+      "literalJapaneseGlossEn": "the cell signal",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "el túnel",
+      "sourceEnglish": "the tunnel",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "トンネル",
+      "literalJapaneseGlossEn": "the tunnel",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "la llamada perdida",
+      "sourceEnglish": "the missed call",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "不在着信",
+      "literalJapaneseGlossEn": "the missed call",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "la hora de llegada",
+      "sourceEnglish": "the arrival time",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "到着時刻",
+      "literalJapaneseGlossEn": "the arrival time",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "la cama supletoria",
+      "sourceEnglish": "the extra bed",
+      "kind": "term",
+      "sourceNoteInternal": "Spain usage for a rollaway bed.",
+      "targetJapaneseDraft": "追加のベッド",
+      "literalJapaneseGlossEn": "the extra bed",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "la caja de llaves",
+      "sourceEnglish": "the key lockbox",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "鍵の保管箱",
+      "literalJapaneseGlossEn": "the key lockbox",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "el revisor",
+      "sourceEnglish": "the ticket inspector",
+      "kind": "term",
+      "sourceNoteInternal": "Spain usage on trains.",
+      "targetJapaneseDraft": "検札係",
+      "literalJapaneseGlossEn": "the ticket inspector",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "el transbordo",
+      "sourceEnglish": "the connection (change of train or bus)",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "乗り換え",
+      "literalJapaneseGlossEn": "the connection (change of train or bus)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "la parada de taxis",
+      "sourceEnglish": "the taxi stand",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "タクシー乗り場",
+      "literalJapaneseGlossEn": "the taxi stand",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "entrecortado",
+      "sourceEnglish": "breaking up",
+      "kind": "term",
+      "sourceNoteInternal": "Te oigo entrecortado = you're breaking up.",
+      "targetJapaneseDraft": "声が途切れる",
+      "literalJapaneseGlossEn": "breaking up",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "el cambio de planes",
+      "sourceEnglish": "the change of plans",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "予定の変更",
+      "literalJapaneseGlossEn": "the change of plans",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "Buenas tardes, Begoña, le escribo porque el tren va con retraso.",
+      "sourceEnglish": "Good afternoon, Begoña, I'm writing because the train is running late.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal (usted)",
+      "targetJapaneseDraft": "ベゴーニャさん、こんにちは。列車が遅れているのでご連絡しています。",
+      "literalJapaneseGlossEn": "Good afternoon, Begoña, I'm writing because the train is running late.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Al final seremos 5 en vez de 3, ¿le vendría bien?",
+      "sourceEnglish": "In the end we'll be 5 instead of 3, would that work for you?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal",
+      "targetJapaneseDraft": "結局、3人ではなく5人になりますが、ご都合はいかがでしょうか。",
+      "literalJapaneseGlossEn": "In the end we'll be 5 instead of 3, would that work for you?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "¿Podría guardarnos el desayuno hasta las 10:30, si no es molestia?",
+      "sourceEnglish": "Could you save breakfast for us until 10:30, if it's no trouble?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal",
+      "targetJapaneseDraft": "もしご迷惑でなければ、朝食を10時30分まで取っておいていただけますか。",
+      "literalJapaneseGlossEn": "Could you save breakfast for us until 10:30, if it's no trouble?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:19",
+      "candidatePosition": 19,
+      "sourceSpanish": "Perdone, se corta; estamos pasando por un túnel.",
+      "sourceEnglish": "Sorry, it's cutting out; we're going through a tunnel.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal",
+      "targetJapaneseDraft": "すみません、声が途切れています。今トンネルを通っています。",
+      "literalJapaneseGlossEn": "Sorry, it's cutting out; we're going through a tunnel.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:20",
+      "candidatePosition": 20,
+      "sourceSpanish": "Le vuelvo a llamar en cuanto tenga cobertura.",
+      "sourceEnglish": "I'll call you back as soon as I have signal.",
+      "kind": "phrase",
+      "sourceNoteInternal": "En cuanto + subjunctive for a future moment.",
+      "targetJapaneseDraft": "電波が入るようになり次第、折り返しお電話します。",
+      "literalJapaneseGlossEn": "I'll call you back as soon as I have signal.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:21",
+      "candidatePosition": 21,
+      "sourceSpanish": "¿Le importaría dejarnos las llaves en la caja?",
+      "sourceEnglish": "Would you mind leaving the keys in the lockbox for us?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal",
+      "targetJapaneseDraft": "鍵を保管箱に入れておいていただけますか。",
+      "literalJapaneseGlossEn": "Would you mind leaving the keys in the lockbox for us?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:22",
+      "candidatePosition": 22,
+      "sourceSpanish": "¿Sería posible desayunar un poco más tarde mañana?",
+      "sourceEnglish": "Would it be possible to have breakfast a little later tomorrow?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal",
+      "targetJapaneseDraft": "明日の朝食をもう少し遅い時間にしていただくことは可能でしょうか。",
+      "literalJapaneseGlossEn": "Would it be possible to have breakfast a little later tomorrow?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:card:23",
+      "candidatePosition": 23,
+      "sourceSpanish": "Chicos, Begoña nos guarda el desayuno hasta las 10:30.",
+      "sourceEnglish": "Guys, Begoña is saving breakfast for us until 10:30.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal, to the group",
+      "targetJapaneseDraft": "みんな、ベゴーニャさんが10時30分まで朝食を取っておいてくれるよ。",
+      "literalJapaneseGlossEn": "Guys, Begoña is saving breakfast for us until 10:30.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Daniel viaja en tren hacia Asturias con sus amigos para pasar el fin de semana en una casa rural de Cangas de Onís.",
+      "sourceEnglish": "Daniel is traveling by train to Asturias with his friends to spend the weekend at a rural guesthouse in Cangas de Onís.",
+      "targetJapaneseDraft": "ダニエルは友人たちと週末をカンガス・デ・オニスの農村部の宿泊施設で過ごすため、列車でアストゥリアスへ向かっています。",
+      "literalJapaneseGlossEn": "Daniel is traveling by train to Asturias with his friends to spend the weekend at a rural guesthouse in Cangas de Onís.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "El revisor pasa por el vagón y anuncia que el tren lleva 1 hora de retraso por una avería.",
+      "sourceEnglish": "The ticket inspector walks through the car and announces that the train is 1 hour late because of a breakdown.",
+      "targetJapaneseDraft": "検札係が車両を回り、故障のため列車が1時間遅れていると告げました。",
+      "literalJapaneseGlossEn": "The ticket inspector walks through the car and announces that the train is 1 hour late because of a breakdown.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Con este retraso van a perder el transbordo en Oviedo, así que la hora de llegada a Cangas de Onís cambia bastante.",
+      "sourceEnglish": "With this delay they are going to miss the train change in Oviedo, so the arrival time in Cangas de Onís changes quite a bit.",
+      "targetJapaneseDraft": "この遅れでオビエドでの乗り換えに間に合わないため、カンガス・デ・オニスへの到着時刻が大きく変わります。",
+      "literalJapaneseGlossEn": "With this delay they are going to miss the train change in Oviedo, so the arrival time in Cangas de Onís changes quite a bit.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Además, hay un cambio de planes, porque Lucía y su hermano Pablo se han apuntado al viaje esta mañana y ahora son 5.",
+      "sourceEnglish": "Also, there is a change of plans, because Lucía and her brother Pablo joined the trip this morning and now there are 5 of them.",
+      "targetJapaneseDraft": "また予定が変わり、ルシアと彼女の兄弟パブロが今朝旅行に加わったので、今は5人です。",
+      "literalJapaneseGlossEn": "Also, there is a change of plans, because Lucía and her brother Pablo joined the trip this morning and now there are 5 of them.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Daniel le escribe un mensaje a Begoña, la dueña de la casa: Buenas tardes, Begoña, le escribo porque el tren va con retraso.",
+      "sourceEnglish": "Daniel writes a message to Begoña, the owner of the house: Good afternoon, Begoña, I'm writing because the train is running late.",
+      "targetJapaneseDraft": "ダニエルは宿主のベゴーニャにメッセージを書きました。『ベゴーニャさん、こんにちは。列車が遅れているのでご連絡しています。』",
+      "literalJapaneseGlossEn": "Daniel writes a message to Begoña, the owner of the house: Good afternoon, Begoña, I'm writing because the train is running late.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "En el mismo mensaje añade: Al final seremos 5 en vez de 3, ¿le vendría bien?",
+      "sourceEnglish": "In the same message he adds: In the end we'll be 5 instead of 3, would that work for you?",
+      "targetJapaneseDraft": "同じメッセージに、『結局、3人ではなく5人になりますが、ご都合はいかがでしょうか』と付け加えました。",
+      "literalJapaneseGlossEn": "In the same message he adds: In the end we'll be 5 instead of 3, would that work for you?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Begoña contesta con un audio: no hay problema, porque puede poner una cama supletoria en cada habitación.",
+      "sourceEnglish": "Begoña answers with a voice message: no problem, because she can put an extra bed in each room.",
+      "targetJapaneseDraft": "ベゴーニャは音声メッセージで、各部屋に追加のベッドを1台ずつ置けるので問題ないと返事しました。",
+      "literalJapaneseGlossEn": "Begoña answers with a voice message: no problem, because she can put an extra bed in each room.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Media hora después, Daniel ve una llamada perdida de Begoña y la llama enseguida.",
+      "sourceEnglish": "Half an hour later, Daniel sees a missed call from Begoña and calls her right away.",
+      "targetJapaneseDraft": "30分後、ダニエルはベゴーニャからの不在着信に気づき、すぐに折り返しました。",
+      "literalJapaneseGlossEn": "Half an hour later, Daniel sees a missed call from Begoña and calls her right away.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: ¿Le vendría bien que llegáramos hacia las 23:00?",
+      "sourceEnglish": "Daniel: Would it suit you if we arrived around 23:00?",
+      "targetJapaneseDraft": "ダニエル：23時ごろの到着でもご都合はよろしいでしょうか。",
+      "literalJapaneseGlossEn": "Daniel: Would it suit you if we arrived around 23:00?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:reader:10",
+      "candidatePosition": 10,
+      "speaker": "Begoña",
+      "sourceSpanish": "Begoña: Me viene bien, pero a esa hora yo ya no estaré en la casa.",
+      "sourceEnglish": "Begoña: That works for me, but at that time I won't be at the house anymore.",
+      "targetJapaneseDraft": "ベゴーニャ：大丈夫ですが、その時間には私はもう宿にいません。",
+      "literalJapaneseGlossEn": "Begoña: That works for me, but at that time I won't be at the house anymore.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:reader:11",
+      "candidatePosition": 11,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: ¿Le importaría dejarnos las llaves en la caja?",
+      "sourceEnglish": "Daniel: Would you mind leaving the keys in the lockbox for us?",
+      "targetJapaneseDraft": "ダニエル：鍵を保管箱に入れておいていただけますか。",
+      "literalJapaneseGlossEn": "Daniel: Would you mind leaving the keys in the lockbox for us?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:reader:12",
+      "candidatePosition": 12,
+      "speaker": "Narrator",
+      "sourceSpanish": "Begoña le explica que la caja de llaves está junto a la puerta y que, como Cangas de Onís no tiene estación de tren, desde la estación de Arriondas pueden tomar el autobús de ALSA, unos 15 minutos, o un taxi de la parada de enfrente.",
+      "sourceEnglish": "Begoña explains to him that the key lockbox is next to the door and that, since Cangas de Onís has no train station, from the Arriondas station they can take the ALSA bus, about 15 minutes, or a taxi from the stand out front.",
+      "targetJapaneseDraft": "ベゴーニャは、鍵の保管箱がドアの横にあることを説明しました。また、カンガス・デ・オニスには鉄道駅がないため、アリオンダス駅からALSAのバスなら約15分、あるいは駅前のタクシー乗り場からタクシーで行けると伝えました。",
+      "literalJapaneseGlossEn": "Begoña explains to him that the key lockbox is next to the door and that, since Cangas de Onís has no train station, from the Arriondas station they can take the ALSA bus, about 15 minutes, or a taxi from the stand out front.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:reader:13",
+      "candidatePosition": 13,
+      "speaker": "Narrator",
+      "sourceSpanish": "Daniel le pregunta con educación a qué hora sirve el desayuno, y Begoña responde que normalmente de 8:00 a 10:00.",
+      "sourceEnglish": "Daniel politely asks her what time she serves breakfast, and Begoña answers that it is usually from 8:00 to 10:00.",
+      "targetJapaneseDraft": "ダニエルが朝食の時間を丁寧に尋ねると、ベゴーニャは通常8時から10時までだと答えました。",
+      "literalJapaneseGlossEn": "Daniel politely asks her what time she serves breakfast, and Begoña answers that it is usually from 8:00 to 10:00.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:reader:14",
+      "candidatePosition": 14,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: ¿Podría guardarnos el desayuno hasta las 10:30, si no es molestia?",
+      "sourceEnglish": "Daniel: Could you save breakfast for us until 10:30, if it's no trouble?",
+      "targetJapaneseDraft": "ダニエル：もしご迷惑でなければ、朝食を10時30分まで取っておいていただけますか。",
+      "literalJapaneseGlossEn": "Daniel: Could you save breakfast for us until 10:30, if it's no trouble?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:reader:15",
+      "candidatePosition": 15,
+      "speaker": "Narrator",
+      "sourceSpanish": "De repente, la voz de Begoña suena entrecortada porque el tren entra en un túnel.",
+      "sourceEnglish": "Suddenly, Begoña's voice sounds broken up because the train goes into a tunnel.",
+      "targetJapaneseDraft": "突然、列車がトンネルに入ったため、ベゴーニャの声が途切れ途切れになりました。",
+      "literalJapaneseGlossEn": "Suddenly, Begoña's voice sounds broken up because the train goes into a tunnel.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:reader:16",
+      "candidatePosition": 16,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Perdone, se corta; estamos pasando por un túnel.",
+      "sourceEnglish": "Daniel: Sorry, it's cutting out; we're going through a tunnel.",
+      "targetJapaneseDraft": "ダニエル：すみません、声が途切れています。今トンネルを通っています。",
+      "literalJapaneseGlossEn": "Daniel: Sorry, it's cutting out; we're going through a tunnel.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:reader:17",
+      "candidatePosition": 17,
+      "speaker": "Narrator",
+      "sourceSpanish": "Cuando vuelve a tener cobertura, Daniel la llama otra vez y Begoña le confirma que les guarda el desayuno.",
+      "sourceEnglish": "When he has signal again, Daniel calls her once more and Begoña confirms that she will save breakfast for them.",
+      "targetJapaneseDraft": "再び電波が入るようになると、ダニエルはベゴーニャにもう一度電話し、朝食を取っておくと確認してもらいました。",
+      "literalJapaneseGlossEn": "When he has signal again, Daniel calls her once more and Begoña confirms that she will save breakfast for them.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:18:ja-en:source-scene-v1:reader:18",
+      "candidatePosition": 18,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Chicos, Begoña nos guarda el desayuno hasta las 10:30.",
+      "sourceEnglish": "Daniel: Guys, Begoña is saving breakfast for us until 10:30.",
+      "targetJapaneseDraft": "ダニエル：みんな、ベゴーニャさんが10時30分まで朝食を取っておいてくれるよ。",
+      "literalJapaneseGlossEn": "Daniel: Guys, Begoña is saving breakfast for us until 10:30.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Practice a polite text and follow-up call about the delayed train, larger group, late arrival, keys and breakfast while retaining the Asturias source setting.",
+  "speakingGoalInternal": "You are on a delayed train to Asturias, and the AI is Begoña, the casa rural host: text her that the group grew from 3 to 5, then call to ask about breakfast times with le escribo porque…, ¿le vendría bien…? and ¿podría guardarnos el desayuno?",
+  "speakingGoalJapaneseDraft": "あなたはアストゥリアスへ向かう遅延した列車に乗るダニエルで、相手はカンガス・デ・オニスの農村部の宿泊施設の宿主ベゴーニャです。まず列車の遅れと旅行者が3人から5人に増えたことを丁寧なメッセージで伝え、次に電話で23時ごろの到着、鍵の保管箱、通常8時から10時の朝食を10時30分まで取っておけるか確認します。トンネルで電波が切れたら折り返し、確認できた内容だけを仲間に伝えます。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "Current source follows Daniel and host Begoña from an Asturias train delay through a 3-to-5 guest change, 23:00 arrival, Arriondas connection, key lockbox and 10:30 breakfast request. The archived generic booking scene omits most source details and has only 14 cards/10 turns; retain it as separate evidence. The grammar example says 22:00 while the Reader says 23:00.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "delay",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "guesthouse host",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "expected arrival time",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "change in group size",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "extra bedding",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "key pickup",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "breakfast time",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "signal",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "tunnel",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "to call back",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "to confirm",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "because of",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "from three to five people",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "would it be possible?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Because the train is delayed, we are likely to arrive later than planned.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Also, our group has changed from three to five. Could you confirm whether that is possible?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Thank you for letting me know. I will check the rooms and bedding and reply.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Our expected arrival is about ten in the evening. Could you tell us how to collect the keys?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Could we speak by phone to confirm the details?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "We are in a tunnel and may lose signal. I will call back when we come out.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Thank you for taking my call. Can you accommodate five guests?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Yes, we can prepare bedding for five. I will explain key pickup before you arrive.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Could you tell me tomorrow's breakfast hours? Is a slightly later time possible?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "Breakfast is from eight to ten. I will check the later time and get back to you.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 9,
+      "candidatePosition": 6,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 41,
+    "twoVoiceClipDecisionsIfTextApproved": 82,
+    "twoVoiceSubmittedCharactersIfTextApproved": 2278,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.06834,
+    "archivedExactJapaneseCardTextOverlapsOnly": 1,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Qualified Japanese and Spanish locale review must decide a concise rendering of casa rural while preserving that the scene is a specific rural guesthouse in Cangas de Onís, Asturias.",
+    "The source grammar example says arrival around 22:00 but the source Reader asks about 23:00. This candidate follows the Reader scene at 23:00; reconcile the curriculum example before any six-mode answer is authored.",
+    "The source says the Arriondas ALSA bus takes about 15 minutes and mentions a taxi stand de enfrente. Japanese 駅前 conveys the source English 'out front'; qualified locale review should resolve whether 'across from' is required.",
+    "Japanese こんにちは does not encode the Spanish/English afternoon greeting. Choose an appropriate time-specific register with qualified Japanese review rather than claiming an exact literal gloss.",
+    "The source identifies Lucía's brother Pablo without an age relationship. Japanese 兄弟 retains that uncertainty; do not infer older or younger brother.",
+    "The archived generic 14-card/10-turn booking scene is different from the 23-card/18-turn current source. No saved-item, progress or recording migration is authorized.",
+    "Six authored mode prompt/answer pairs, source-aligned forms, contextual dictionary senses, complete speaking setup, exact-text audio and distinct per-clip listening remain open."
+  ],
+  "missing": [
+    "qualified Japanese/source/Asturias locale/lodging/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

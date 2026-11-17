@@ -1,0 +1,803 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "master",
+  "lessonKey": "master:17",
+  "stableLessonId": "master-travel-breakfast:17:ja-en",
+  "candidateRevision": "master-travel-breakfast:17:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "curriculumVersion": 1,
+    "readerVersion": 1,
+    "curriculumReviewed": false,
+    "readerReviewed": false,
+    "titleEnglishInternal": "Email the Hotel a Written Incident Summary",
+    "objectiveEnglishInternal": "Write a clear, formal summary of the incident and your requests, sharing only the health details Lucía approved.",
+    "speakingEnglishInternal": "You are drafting the email to Inés Soler, and the AI is Lucía, your friend: read your summary aloud, check which health details she approves, and organize it with en primer lugar, a continuación, sin embargo, por lo tanto and por último.",
+    "grammarEnglishExamplesInternal": [
+      "First, my friend had an allergic reaction during breakfast.",
+      "However, no one told us the ingredients; therefore, we request a review."
+    ],
+    "readerTitleSpanish": "Un correo con consentimiento",
+    "readerVerbExamples": [
+      {
+        "target": "Le escribo en relación con lo ocurrido el martes.",
+        "native": "I am writing to you regarding what happened on Tuesday."
+      },
+      {
+        "target": "Lucía, ¿te parece bien si menciono que fuiste a urgencias?",
+        "native": "Lucía, is it OK if I mention that you went to the ER?"
+      },
+      {
+        "target": "A continuación, resumo brevemente lo que ocurrió durante el desayuno.",
+        "native": "Below, I briefly summarize what happened during breakfast."
+      },
+      {
+        "target": "Por lo tanto, les solicito una respuesta por escrito.",
+        "native": "Therefore, I request a written reply from you."
+      },
+      {
+        "target": "Adjunto una copia de la hoja de reclamaciones.",
+        "native": "I am attaching a copy of the official complaint form."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/master-16-18-draft.json",
+    "sha256": "a566248455c3ff2ef12188ce7b7b824e38a0f9e6a850415e7ae60104b0bab6c9",
+    "scene": "A traveler reads a draft incident email aloud to the affected friend and revises it to match the friend's disclosure choices.",
+    "cardCount": 16,
+    "readerCount": 10
+  },
+  "sourceCards": [
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "el asunto",
+      "sourceEnglish": "the subject line",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "件名",
+      "literalJapaneseGlossEn": "the subject line",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "el archivo adjunto",
+      "sourceEnglish": "the attachment",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "添付ファイル",
+      "literalJapaneseGlossEn": "the attachment",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "la despedida",
+      "sourceEnglish": "the sign-off",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "結びの挨拶",
+      "literalJapaneseGlossEn": "the sign-off",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "el resumen",
+      "sourceEnglish": "the summary",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "要約",
+      "literalJapaneseGlossEn": "the summary",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "la estancia",
+      "sourceEnglish": "the stay",
+      "kind": "term",
+      "sourceNoteInternal": "Spain usage; much of Latin America says la estadía.",
+      "targetJapaneseDraft": "滞在",
+      "literalJapaneseGlossEn": "the stay",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "la atención al cliente",
+      "sourceEnglish": "customer service",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "顧客対応",
+      "literalJapaneseGlossEn": "customer service",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "el informe médico",
+      "sourceEnglish": "the medical report",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "医療報告書",
+      "literalJapaneseGlossEn": "the medical report",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "el consentimiento",
+      "sourceEnglish": "the consent",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "同意",
+      "literalJapaneseGlossEn": "the consent",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "los datos de salud",
+      "sourceEnglish": "the health information",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "健康情報",
+      "literalJapaneseGlossEn": "the health information",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "la confidencialidad",
+      "sourceEnglish": "confidentiality",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "秘密保持",
+      "literalJapaneseGlossEn": "confidentiality",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "la hoja de reclamaciones",
+      "sourceEnglish": "the official complaint form",
+      "kind": "term",
+      "sourceNoteInternal": "Spain: businesses must provide this form on request.",
+      "targetJapaneseDraft": "正式な苦情申立書",
+      "literalJapaneseGlossEn": "the official complaint form",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "la carta de alérgenos",
+      "sourceEnglish": "the allergen menu",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アレルゲン一覧",
+      "literalJapaneseGlossEn": "the allergen menu",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "la respuesta por escrito",
+      "sourceEnglish": "the written reply",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "書面での回答",
+      "literalJapaneseGlossEn": "the written reply",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "el plazo",
+      "sourceEnglish": "the time frame",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "期限",
+      "literalJapaneseGlossEn": "the time frame",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "la disculpa",
+      "sourceEnglish": "the apology",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "謝罪",
+      "literalJapaneseGlossEn": "the apology",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "atentamente",
+      "sourceEnglish": "sincerely",
+      "kind": "term",
+      "sourceNoteInternal": "Standard formal sign-off before your name.",
+      "targetJapaneseDraft": "敬具",
+      "literalJapaneseGlossEn": "sincerely",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Estimada señora Soler: le escribo en relación con lo ocurrido el martes.",
+      "sourceEnglish": "Dear Ms. Soler: I am writing regarding what happened on Tuesday.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal. Spanish emails put a colon, not a comma, after the greeting.",
+      "targetJapaneseDraft": "ソレル様：火曜日に起きた件についてご連絡いたします。",
+      "literalJapaneseGlossEn": "Dear Ms. Soler: I am writing regarding what happened on Tuesday.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "En primer lugar, quisiera agradecer la rápida atención de su personal.",
+      "sourceEnglish": "First of all, I would like to thank your staff for their quick response.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal",
+      "targetJapaneseDraft": "まず、スタッフの迅速な対応に感謝申し上げます。",
+      "literalJapaneseGlossEn": "First of all, I would like to thank your staff for their quick response.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:19",
+      "candidatePosition": 19,
+      "sourceSpanish": "A continuación, resumo brevemente lo que ocurrió durante el desayuno.",
+      "sourceEnglish": "Below, I briefly summarize what happened during breakfast.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal",
+      "targetJapaneseDraft": "以下に、朝食中に起きたことを簡潔にまとめます。",
+      "literalJapaneseGlossEn": "Below, I briefly summarize what happened during breakfast.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:20",
+      "candidatePosition": 20,
+      "sourceSpanish": "Sin embargo, la carta de alérgenos no estaba a la vista.",
+      "sourceEnglish": "However, the allergen menu was not on display.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal",
+      "targetJapaneseDraft": "しかし、アレルゲン一覧は掲示されていませんでした。",
+      "literalJapaneseGlossEn": "However, the allergen menu was not on display.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:21",
+      "candidatePosition": 21,
+      "sourceSpanish": "Por lo tanto, les solicito una respuesta por escrito sobre lo sucedido.",
+      "sourceEnglish": "Therefore, I request a written reply about what happened.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal",
+      "targetJapaneseDraft": "そのため、今回の件について書面での回答をお願いいたします。",
+      "literalJapaneseGlossEn": "Therefore, I request a written reply about what happened.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:22",
+      "candidatePosition": 22,
+      "sourceSpanish": "Por último, quedo a la espera de su respuesta.",
+      "sourceEnglish": "Finally, I look forward to your reply.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal",
+      "targetJapaneseDraft": "最後に、ご返信をお待ちしております。",
+      "literalJapaneseGlossEn": "Finally, I look forward to your reply.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:23",
+      "candidatePosition": 23,
+      "sourceSpanish": "Lucía, ¿te parece bien si menciono que fuiste a urgencias?",
+      "sourceEnglish": "Lucía, is it OK if I mention that you went to the ER?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal, to a friend",
+      "targetJapaneseDraft": "ルシア、救急外来に行ったことを書いてもいい？",
+      "literalJapaneseGlossEn": "Lucía, is it OK if I mention that you went to the ER?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:card:24",
+      "candidatePosition": 24,
+      "sourceSpanish": "No pondré nada del informe médico sin tu permiso.",
+      "sourceEnglish": "I won't include anything from the medical report without your permission.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal",
+      "targetJapaneseDraft": "あなたの許可なく医療報告書の内容は一切書かないよ。",
+      "literalJapaneseGlossEn": "I won't include anything from the medical report without your permission.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "En su habitación del hotel de Valencia, Emma escribe el resumen del incidente para Inés Soler, responsable de atención al cliente.",
+      "sourceEnglish": "In her room at the hotel in Valencia, Emma writes the summary of the incident for Inés Soler, the customer service manager.",
+      "targetJapaneseDraft": "バレンシアのホテルの自室で、エマは顧客対応責任者のイネス・ソレルに宛てて、今回の出来事の要約を書いています。",
+      "literalJapaneseGlossEn": "In her room at the hotel in Valencia, Emma writes the summary of the incident for Inés Soler, the customer service manager.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "En el asunto pone: Reacción alérgica en el desayuno del martes 13 de octubre.",
+      "sourceEnglish": "In the subject line she puts: Allergic reaction at breakfast on Tuesday, October 13.",
+      "targetJapaneseDraft": "件名には「10月13日火曜日の朝食時のアレルギー反応」と書きます。",
+      "literalJapaneseGlossEn": "In the subject line she puts: Allergic reaction at breakfast on Tuesday, October 13.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Lucía, su amiga, está sentada en la cama y decide qué datos de salud quiere compartir con el hotel.",
+      "sourceEnglish": "Lucía, her friend, is sitting on the bed and decides which health information she wants to share with the hotel.",
+      "targetJapaneseDraft": "友人のルシアはベッドに座り、ホテルにどの健康情報を伝えるかを自分で決めています。",
+      "literalJapaneseGlossEn": "Lucía, her friend, is sitting on the bed and decides which health information she wants to share with the hotel.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: Lucía, ¿te parece bien si menciono que fuiste a urgencias?",
+      "sourceEnglish": "Emma: Lucía, is it OK if I mention that you went to the ER?",
+      "targetJapaneseDraft": "エマ：ルシア、救急外来に行ったことを書いてもいい？",
+      "literalJapaneseGlossEn": "Emma: Lucía, is it OK if I mention that you went to the ER?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Lucía",
+      "sourceSpanish": "Lucía: Sí, pero no menciones el diagnóstico ni los medicamentos, por favor.",
+      "sourceEnglish": "Lucía: Yes, but don't mention the diagnosis or the medications, please.",
+      "targetJapaneseDraft": "ルシア：うん。でも診断名や薬のことは書かないでね。",
+      "literalJapaneseGlossEn": "Lucía: Yes, but don't mention the diagnosis or the medications, please.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: No pondré nada del informe médico sin tu permiso.",
+      "sourceEnglish": "Emma: I won't include anything from the medical report without your permission.",
+      "targetJapaneseDraft": "エマ：あなたの許可なく医療報告書の内容は一切書かないよ。",
+      "literalJapaneseGlossEn": "Emma: I won't include anything from the medical report without your permission.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Para Lucía, la confidencialidad es importante, así que su consentimiento solo cubre la alergia a la almendra y la visita a urgencias.",
+      "sourceEnglish": "For Lucía, confidentiality is important, so her consent only covers the almond allergy and the visit to the ER.",
+      "targetJapaneseDraft": "ルシアにとって秘密保持は大切です。そのため、彼女が同意したのはアーモンドアレルギーと救急外来を受診したことだけです。",
+      "literalJapaneseGlossEn": "For Lucía, confidentiality is important, so her consent only covers the almond allergy and the visit to the ER.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Estimada señora Soler: le escribo en relación con lo ocurrido el martes.",
+      "sourceEnglish": "Dear Ms. Soler: I am writing regarding what happened on Tuesday.",
+      "targetJapaneseDraft": "ソレル様：火曜日に起きた件についてご連絡いたします。",
+      "literalJapaneseGlossEn": "Dear Ms. Soler: I am writing regarding what happened on Tuesday.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "En primer lugar, quisiera agradecer la rápida atención de su personal.",
+      "sourceEnglish": "First of all, I would like to thank your staff for their quick response.",
+      "targetJapaneseDraft": "まず、スタッフの迅速な対応に感謝申し上げます。",
+      "literalJapaneseGlossEn": "First of all, I would like to thank your staff for their quick response.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:reader:10",
+      "candidatePosition": 10,
+      "speaker": "Narrator",
+      "sourceSpanish": "A continuación, resumo brevemente lo que ocurrió durante el desayuno.",
+      "sourceEnglish": "Below, I briefly summarize what happened during breakfast.",
+      "targetJapaneseDraft": "以下に、朝食中に起きたことを簡潔にまとめます。",
+      "literalJapaneseGlossEn": "Below, I briefly summarize what happened during breakfast.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:reader:11",
+      "candidatePosition": 11,
+      "speaker": "Narrator",
+      "sourceSpanish": "Durante nuestra estancia, mi amiga comió un bizcocho con almendra, tuvo una reacción alérgica y fue a urgencias.",
+      "sourceEnglish": "During our stay, my friend ate a sponge cake with almond, had an allergic reaction and went to the ER.",
+      "targetJapaneseDraft": "滞在中、友人はアーモンド入りのスポンジケーキを食べ、アレルギー反応を起こして救急外来に行きました。",
+      "literalJapaneseGlossEn": "During our stay, my friend ate a sponge cake with almond, had an allergic reaction and went to the ER.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:reader:12",
+      "candidatePosition": 12,
+      "speaker": "Narrator",
+      "sourceSpanish": "Sin embargo, la carta de alérgenos no estaba a la vista.",
+      "sourceEnglish": "However, the allergen menu was not on display.",
+      "targetJapaneseDraft": "しかし、アレルゲン一覧は掲示されていませんでした。",
+      "literalJapaneseGlossEn": "However, the allergen menu was not on display.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:reader:13",
+      "candidatePosition": 13,
+      "speaker": "Narrator",
+      "sourceSpanish": "Por lo tanto, les solicito una respuesta por escrito sobre lo sucedido.",
+      "sourceEnglish": "Therefore, I request a written reply about what happened.",
+      "targetJapaneseDraft": "そのため、今回の件について書面での回答をお願いいたします。",
+      "literalJapaneseGlossEn": "Therefore, I request a written reply about what happened.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:reader:14",
+      "candidatePosition": 14,
+      "speaker": "Narrator",
+      "sourceSpanish": "También les pido una disculpa y una revisión de la carta de alérgenos en un plazo de 15 días.",
+      "sourceEnglish": "I also ask for an apology and a review of the allergen menu within a time frame of 15 days.",
+      "targetJapaneseDraft": "また、15日以内に謝罪とアレルゲン一覧の見直しをお願いいたします。",
+      "literalJapaneseGlossEn": "I also ask for an apology and a review of the allergen menu within a time frame of 15 days.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:reader:15",
+      "candidatePosition": 15,
+      "speaker": "Narrator",
+      "sourceSpanish": "Adjunto una copia de la hoja de reclamaciones que rellenamos en recepción.",
+      "sourceEnglish": "I am attaching a copy of the official complaint form that we filled out at the front desk.",
+      "targetJapaneseDraft": "フロントで記入した正式な苦情申立書の写しを添付します。",
+      "literalJapaneseGlossEn": "I am attaching a copy of the official complaint form that we filled out at the front desk.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:reader:16",
+      "candidatePosition": 16,
+      "speaker": "Narrator",
+      "sourceSpanish": "Por último, quedo a la espera de su respuesta.",
+      "sourceEnglish": "Finally, I look forward to your reply.",
+      "targetJapaneseDraft": "最後に、ご返信をお待ちしております。",
+      "literalJapaneseGlossEn": "Finally, I look forward to your reply.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:reader:17",
+      "candidatePosition": 17,
+      "speaker": "Narrator",
+      "sourceSpanish": "Antes de enviar el correo, Emma revisa el archivo adjunto y confirma que no incluye el informe médico.",
+      "sourceEnglish": "Before sending the email, Emma checks the attachment and confirms that it does not include the medical report.",
+      "targetJapaneseDraft": "メールを送る前に、エマは添付ファイルを確認し、医療報告書が含まれていないことを確かめます。",
+      "literalJapaneseGlossEn": "Before sending the email, Emma checks the attachment and confirms that it does not include the medical report.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:17:ja-en:source-scene-v1:reader:18",
+      "candidatePosition": 18,
+      "speaker": "Narrator",
+      "sourceSpanish": "Para la despedida, Emma escribe: Atentamente, Emma Clarke.",
+      "sourceEnglish": "For the sign-off, Emma writes: Sincerely, Emma Clarke.",
+      "targetJapaneseDraft": "結びの挨拶として、エマは「敬具、エマ・クラーク」と書きます。",
+      "literalJapaneseGlossEn": "For the sign-off, Emma writes: Sincerely, Emma Clarke.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Organize a formal Japanese email and ask Lucía which health details she permits sharing before sending it.",
+  "speakingGoalInternal": "You are drafting the email to Inés Soler, and the AI is Lucía, your friend: read your summary aloud, check which health details she approves, and organize it with en primer lugar, a continuación, sin embargo, por lo tanto and por último.",
+  "speakingGoalJapaneseDraft": "あなたはイネス・ソレル宛てのメールを書いているエマで、相手は友人のルシアです。事件の要約を読み上げ、ルシアがどの健康情報の共有に同意するか確認し、「まず」「以下に」「しかし」「そのため」「最後に」で順序立てて伝えます。診断名と薬は含めません。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "The current Valencia source is a 24-card, 18-turn consent-limited email to Inés Soler. The archived generic draft omits the dated subject line, almond cake, exact disclosure choices, official complaint attachment, 15-day request, and Emma's final attachment check. It remains separate evidence.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "subject line",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "recipient",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "attachment",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "summary",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "the person's consent",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "health information",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "personal information",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "written reply",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "inquiry",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "first",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "next",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "on the other hand",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "finally",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "check before sending",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 15,
+      "candidate": null,
+      "oldEnglish": "emergency department",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 16,
+      "candidate": null,
+      "oldEnglish": "allergic reaction",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "I will read my draft email to the hotel. How much health information may I include?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "You may say responders came, but please do not include a diagnosis or medication details.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Understood. I will not attach medical documents either.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "I will use 'About the breakfast incident' as the subject.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "First, I will thank the staff who responded.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Next, I will briefly summarize the timeline I verified.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "On the other hand, there are questions I would like answered about the food information.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "That wording is fine. Please do not include my diagnosis.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Finally, I will ask for a written reply. Before sending, I will check the recipient and attachments.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "Please show me the revised version once more. Send it only after I check it.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 1,
+      "candidatePosition": 1,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 3,
+      "candidatePosition": 2,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 6,
+      "candidatePosition": 9,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 8,
+      "candidatePosition": 13,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 42,
+    "twoVoiceClipDecisionsIfTextApproved": 84,
+    "twoVoiceSubmittedCharactersIfTextApproved": 1690,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.0507,
+    "archivedExactJapaneseCardTextOverlapsOnly": 4,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Spanish source addresses Inés Soler with Estimada señora Soler and a colon; Japanese ソレル様 is an adaptation of the formal address, not an exact punctuation transfer.",
+    "Source distinguishes Lucía's consent to disclose almond allergy and ER visit from her refusal to share diagnosis and medications; no medical report is attached.",
+    "Medical report, diagnosis, medication, confidentiality and consent terminology need qualified Japanese and clinical review without euphemizing the source.",
+    "The current source asks for an apology and allergen-menu review within 15 days; Japanese request register and its relation to Spanish official complaint procedure need qualified locale review.",
+    "Spanish carta de alérgenos may be an allergen menu/list; Japanese アレルゲン一覧 requires food-service and dictionary review.",
+    "Spanish formal email closure atentamente is adapted here as 敬具; qualified Japanese register review should decide the best email-specific equivalent.",
+    "The archived generic 16-card/10-turn email draft differs from the current 24-card/18-turn Valencia source; no saved-item or audio migration is authorized.",
+    "Six authored mode prompt/answer pairs, source-aligned forms and speaking setup, dictionary senses, exact-text audio and per-clip listening remain open."
+  ],
+  "missing": [
+    "qualified Japanese/source/Spanish locale/clinical/food/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

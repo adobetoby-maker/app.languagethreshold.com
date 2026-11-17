@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "qualifiedReview": false,
+  "sourceGroundedSelfCheck": true,
+  "calls": [
+    {
+      "role": "Claude CLI availability check before candidate authoring",
+      "requestedModel": "haiku",
+      "actualModel": null,
+      "outcome": "Claude CLI authentication status exited 1 with no error output. No model response or draft was received. Japanese candidate was written and source-checked independently.",
+      "qualifiedApproval": false
+    }
+  ],
+  "correctionsAfterAICritique": [],
+  "independentSelfCheck": [
+    "Compared all 24 Spanish/English cards and 18 aligned Reader turns in source order against current pinned Master 17 files.",
+    "Retained Valencia, Emma, Lucía, Inés Soler, the dated subject line, almond cake and ER visit, consent boundary, missing allergen menu, 15-day request, official complaint attachment and final medical-report exclusion.",
+    "Kept diagnosis and medication out of the email while naming those clinical terms directly in the friend's refusal.",
+    "Flagged formal Japanese greeting and sign-off, Spanish complaint procedure and allergen-menu terminology for qualified review.",
+    "Archived generic draft remains separate evidence; no saved-item, audio, owner-route, learner or V4 migration is authorized."
+  ]
+}

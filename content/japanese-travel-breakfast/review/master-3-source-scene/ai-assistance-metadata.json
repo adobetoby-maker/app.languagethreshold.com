@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "qualifiedReview": false,
+  "sourceGroundedSelfCheck": true,
+  "calls": [
+    {
+      "role": "candidate authoring",
+      "requestedModel": "haiku",
+      "actualModel": "claude-sonnet-5-5",
+      "sessionId": "4bb5928a-cabd-47ae-ad84-75ad6ef37c03",
+      "outcome": "Returned source-aligned candidate; the CLI substituted Sonnet for requested Haiku. Both calls in this session had nonzero output.",
+      "qualifiedApproval": false
+    },
+    {
+      "role": "read-only critique attempt",
+      "requestedModel": "opus",
+      "actualModel": null,
+      "outcome": "Timed out after 120 seconds; no critique or model identity claimed from this attempt.",
+      "qualifiedApproval": false
+    },
+    {
+      "role": "read-only critique retry",
+      "requestedModel": "opus",
+      "actualModel": "claude-opus-5-5",
+      "sessionId": "cd83c454-5b20-4a58-8bb9-99533999639f",
+      "outcome": "Compared all 18 Reader rows and identified Japanese wording refinements; no qualified approval.",
+      "qualifiedApproval": false
+    },
+    {
+      "role": "read-only correction critique",
+      "requestedModel": "fable",
+      "actualModel": "claude-fable-5-2",
+      "sessionId": "08060db1-c2dd-4176-af92-e8917016d1f4",
+      "outcome": "Proposed eight wording refinements. Applied selected source-faithful corrections, rejected the unproved unglazed-material implication, and left transliteration for qualified review.",
+      "qualifiedApproval": false
+    }
+  ],
+  "correctionsAfterAICritique": [
+    "Replaced awkward soil-mug wording with ceramic mug while retaining clay/mug source for qualified material review.",
+    "Kept the conditional no-piloncillo meaning and imperative rather than shifting it to permission.",
+    "Clarified mug rim and heat retention, and kept handle, steam and lukewarm instructions.",
+    "Kept Carmen's warm niece-directed voice, source speaker markers, market stall and Sofi's actual ordering outcome.",
+    "Reconciled source speaking goal's pan dulce with the Reader's specific pan de yema in the draft goal; left source decision open."
+  ]
+}

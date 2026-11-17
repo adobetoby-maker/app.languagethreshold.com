@@ -78,6 +78,7 @@ import { Route as ApiOwnerFrench101DraftsRouteImport } from './routes/api.owner-
 import { Route as ApiOwnerFrench101MasterConflictsRouteImport } from './routes/api.owner-french101-master-conflicts'
 import { Route as ApiOwnerJapaneseDraftsRouteImport } from './routes/api.owner-japanese-drafts'
 import { Route as ApiOwnerJapaneseLunchDraftsRouteImport } from './routes/api.owner-japanese-lunch-drafts'
+import { Route as ApiOwnerMarketingRouteImport } from './routes/api.owner-marketing'
 import { Route as ApiOwnerRedditRouteImport } from './routes/api.owner-reddit'
 import { Route as ApiOwnerStaffCouponRouteImport } from './routes/api.owner-staff-coupon'
 import { Route as ApiOwnerSupportRouteImport } from './routes/api.owner-support'
@@ -461,6 +462,11 @@ const ApiOwnerJapaneseLunchDraftsRoute =
     path: '/api/owner-japanese-lunch-drafts',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiOwnerMarketingRoute = ApiOwnerMarketingRouteImport.update({
+  id: '/api/owner-marketing',
+  path: '/api/owner-marketing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiOwnerRedditRoute = ApiOwnerRedditRouteImport.update({
   id: '/api/owner-reddit',
   path: '/api/owner-reddit',
@@ -687,6 +693,7 @@ export interface FileRoutesByFullPath {
   '/api/owner-french101-master-conflicts': typeof ApiOwnerFrench101MasterConflictsRoute
   '/api/owner-japanese-drafts': typeof ApiOwnerJapaneseDraftsRoute
   '/api/owner-japanese-lunch-drafts': typeof ApiOwnerJapaneseLunchDraftsRoute
+  '/api/owner-marketing': typeof ApiOwnerMarketingRoute
   '/api/owner-reddit': typeof ApiOwnerRedditRoute
   '/api/owner-staff-coupon': typeof ApiOwnerStaffCouponRoute
   '/api/owner-support': typeof ApiOwnerSupportRoute
@@ -789,6 +796,7 @@ export interface FileRoutesByTo {
   '/api/owner-french101-master-conflicts': typeof ApiOwnerFrench101MasterConflictsRoute
   '/api/owner-japanese-drafts': typeof ApiOwnerJapaneseDraftsRoute
   '/api/owner-japanese-lunch-drafts': typeof ApiOwnerJapaneseLunchDraftsRoute
+  '/api/owner-marketing': typeof ApiOwnerMarketingRoute
   '/api/owner-reddit': typeof ApiOwnerRedditRoute
   '/api/owner-staff-coupon': typeof ApiOwnerStaffCouponRoute
   '/api/owner-support': typeof ApiOwnerSupportRoute
@@ -892,6 +900,7 @@ export interface FileRoutesById {
   '/api/owner-french101-master-conflicts': typeof ApiOwnerFrench101MasterConflictsRoute
   '/api/owner-japanese-drafts': typeof ApiOwnerJapaneseDraftsRoute
   '/api/owner-japanese-lunch-drafts': typeof ApiOwnerJapaneseLunchDraftsRoute
+  '/api/owner-marketing': typeof ApiOwnerMarketingRoute
   '/api/owner-reddit': typeof ApiOwnerRedditRoute
   '/api/owner-staff-coupon': typeof ApiOwnerStaffCouponRoute
   '/api/owner-support': typeof ApiOwnerSupportRoute
@@ -996,6 +1005,7 @@ export interface FileRouteTypes {
     | '/api/owner-french101-master-conflicts'
     | '/api/owner-japanese-drafts'
     | '/api/owner-japanese-lunch-drafts'
+    | '/api/owner-marketing'
     | '/api/owner-reddit'
     | '/api/owner-staff-coupon'
     | '/api/owner-support'
@@ -1098,6 +1108,7 @@ export interface FileRouteTypes {
     | '/api/owner-french101-master-conflicts'
     | '/api/owner-japanese-drafts'
     | '/api/owner-japanese-lunch-drafts'
+    | '/api/owner-marketing'
     | '/api/owner-reddit'
     | '/api/owner-staff-coupon'
     | '/api/owner-support'
@@ -1200,6 +1211,7 @@ export interface FileRouteTypes {
     | '/api/owner-french101-master-conflicts'
     | '/api/owner-japanese-drafts'
     | '/api/owner-japanese-lunch-drafts'
+    | '/api/owner-marketing'
     | '/api/owner-reddit'
     | '/api/owner-staff-coupon'
     | '/api/owner-support'
@@ -1303,6 +1315,7 @@ export interface RootRouteChildren {
   ApiOwnerFrench101MasterConflictsRoute: typeof ApiOwnerFrench101MasterConflictsRoute
   ApiOwnerJapaneseDraftsRoute: typeof ApiOwnerJapaneseDraftsRoute
   ApiOwnerJapaneseLunchDraftsRoute: typeof ApiOwnerJapaneseLunchDraftsRoute
+  ApiOwnerMarketingRoute: typeof ApiOwnerMarketingRoute
   ApiOwnerRedditRoute: typeof ApiOwnerRedditRoute
   ApiOwnerStaffCouponRoute: typeof ApiOwnerStaffCouponRoute
   ApiOwnerSupportRoute: typeof ApiOwnerSupportRoute
@@ -1821,6 +1834,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiOwnerJapaneseLunchDraftsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/owner-marketing': {
+      id: '/api/owner-marketing'
+      path: '/api/owner-marketing'
+      fullPath: '/api/owner-marketing'
+      preLoaderRoute: typeof ApiOwnerMarketingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/owner-reddit': {
       id: '/api/owner-reddit'
       path: '/api/owner-reddit'
@@ -2111,6 +2131,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiOwnerFrench101MasterConflictsRoute: ApiOwnerFrench101MasterConflictsRoute,
   ApiOwnerJapaneseDraftsRoute: ApiOwnerJapaneseDraftsRoute,
   ApiOwnerJapaneseLunchDraftsRoute: ApiOwnerJapaneseLunchDraftsRoute,
+  ApiOwnerMarketingRoute: ApiOwnerMarketingRoute,
   ApiOwnerRedditRoute: ApiOwnerRedditRoute,
   ApiOwnerStaffCouponRoute: ApiOwnerStaffCouponRoute,
   ApiOwnerSupportRoute: ApiOwnerSupportRoute,

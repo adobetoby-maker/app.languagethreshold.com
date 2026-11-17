@@ -1,0 +1,17 @@
+# French Breakfast Master 6 — source-only review packet
+
+This packet pins the current Spanish Breakfast Master 6 lesson as a French→English **draft for repository review**. It is inert: no owner page, catalog import, learner activity, scoring, audio, offline pack, progress write or V4 registration reads it. `reviewed` and every release gate remain false.
+
+The source has 23 cards and 18 aligned Reader turns. In a San Telmo confitería, Nora orders for vegan Hannah and lactose-avoiding Dev while oat milk is unavailable until an afternoon delivery. Matías compares soy, almond and coconut drinks; Hannah chooses soy, Dev chooses lactose-free milk and a milk-forward *lágrima*. He also chooses two *medialunas de grasa* after Matías attributes their lack of butter and milk **to the baker** while explicitly naming beef fat. Hannah orders fruit salad. The archived French draft moved this to Brussels and changed the drinks and outcome. Its old runtime English card meanings match only 11 of 23 current positions, and none of its 18 Reader turns match by position. Repinning only hashes would lose the current scene.
+
+`master-6.json` retains stable lesson key `master:6`, pins the current source and archive hashes, and assigns revision-scoped candidate IDs to all 41 card/Reader positions. Prior draft IDs are trace references only; saved-item migration is undecided. `candidate-reconciled.json` is the earlier private lesson team's source-current French, form, speaking and six-mode handoff, preserved as review material. The six authored prompt/target pairs are draft inputs only; Hear has no recording and all modes have `readyForLearner:false`. The current source grammar is pinned separately because Spanish feminine *la de soja* maps to French masculine *celui de soja* after *lait*. A qualified reviewer still needs to settle *confitería*, *lágrima*, *cortado*, *medialuna de grasa*, dietary and register choices in context.
+
+## Authorship and self-check
+
+The private November 14 source-reconciliation team ran safe-mode Haiku 5.5, Opus 5.5 read-only critique and Fable 5.2 correction. Their raw prompts and CLI results are included under `historical-ai/`; `build.py` and `validate.py` check the **actual modelUsage metadata**, hashes, current source rows, candidate identity, mode references and false gates. The first Haiku output was rejected for Spanish text; the second authored French. Opus and Fable corrected the delivery future, baker attribution and masculine *celui*. The candidate was independently compared again with current source rows for this packet. A new safe-mode Haiku CLI attempt on November 17 returned `Not logged in` and empty model usage, so there is no new AI critique. Neither the earlier AI results nor these structural checks are qualified French, Argentine food, clinical or dictionary approval.
+
+## Audio and progress
+
+The 41 candidate French strings imply 82 distinct two-voice clip and listening decisions. The read-only inventory contains 2,349 submitted characters, approximately **$0.07047** gross at the earlier $30 per million-character rate. No synthesis, technical media check, reuse, listening approval or registration occurred. The changed exact text retires archived audio scope. Learner progress, saved cards and V3/V4 identity require separate exact-pair decisions before any registration.
+
+Run `python3 content/french-travel-breakfast/review-packets/master-6/build.py` and `python3 content/french-travel-breakfast/review-packets/master-6/validate.py` from the repository root.

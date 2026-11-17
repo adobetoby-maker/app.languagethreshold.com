@@ -1,0 +1,600 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:23",
+  "stableLessonId": "travel-breakfast:23:ja-en",
+  "candidateRevision": "travel-breakfast:23:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Find an early-opening bakery",
+    "objectiveEnglishInternal": "ask a local for a specific recommendation, opening hours, and walking directions",
+    "roleplayEnglishInternal": "Ask the hotel host where to find the best bakery open before 7 a.m. and how to walk there.",
+    "readerTitleSpanish": "Una panadería temprano",
+    "readerVerbExamples": [
+      {
+        "target": "Le recomiendo la Panadería Lupita.",
+        "native": "I recommend Panadería Lupita."
+      },
+      {
+        "target": "¿A qué hora abre la panadería?",
+        "native": "What time does the bakery open?"
+      },
+      {
+        "target": "¿Cómo llego a pie desde aquí?",
+        "native": "How do I get there on foot from here?"
+      },
+      {
+        "target": "Camine 3 cuadras por esta calle.",
+        "native": "Walk 3 blocks along this street."
+      },
+      {
+        "target": "Doble a la derecha en el semáforo.",
+        "native": "Turn right at the traffic light."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "Before breakfast, a hotel guest asks for an early bakery and repeats the route.",
+    "cardCount": 14,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "panadería",
+      "sourceEnglish": "bakery",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "パン屋",
+      "literalJapaneseGlossEn": "bakery",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "recepcionista",
+      "sourceEnglish": "receptionist",
+      "kind": "term",
+      "sourceNoteInternal": "The usual word for the person at a hotel front desk.",
+      "targetJapaneseDraft": "ホテルのフロント係",
+      "literalJapaneseGlossEn": "receptionist",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "pan dulce",
+      "sourceEnglish": "sweet bread",
+      "kind": "term",
+      "sourceNoteInternal": "In Mexico, the general word for sweet bakery pastries like conchas.",
+      "targetJapaneseDraft": "菓子パン",
+      "literalJapaneseGlossEn": "sweet bread",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "horario",
+      "sourceEnglish": "opening hours",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "営業時間",
+      "literalJapaneseGlossEn": "opening hours",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "mapa",
+      "sourceEnglish": "map",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "地図",
+      "literalJapaneseGlossEn": "map",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "cuadra",
+      "sourceEnglish": "block",
+      "kind": "term",
+      "sourceNoteInternal": "Latin American usage for a city block; in Spain you may hear manzana.",
+      "targetJapaneseDraft": "街区",
+      "literalJapaneseGlossEn": "block",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "calle",
+      "sourceEnglish": "street",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "通り",
+      "literalJapaneseGlossEn": "street",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "semáforo",
+      "sourceEnglish": "traffic light",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "信号",
+      "literalJapaneseGlossEn": "traffic light",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "esquina",
+      "sourceEnglish": "corner",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "街角",
+      "literalJapaneseGlossEn": "corner",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "plaza",
+      "sourceEnglish": "square",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "広場",
+      "literalJapaneseGlossEn": "square",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "¿Me puede recomendar una panadería cerca?",
+      "sourceEnglish": "Can you recommend a bakery nearby?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "近くのパン屋をおすすめしていただけますか。",
+      "literalJapaneseGlossEn": "Can you recommend a bakery nearby?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "¿A qué hora abre?",
+      "sourceEnglish": "What time does it open?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "何時に開きますか。",
+      "literalJapaneseGlossEn": "What time does it open?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "¿Está abierta antes de las 7?",
+      "sourceEnglish": "Is it open before 7?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "7時前に開いていますか。",
+      "literalJapaneseGlossEn": "Is it open before 7?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Cómo llego a pie desde aquí?",
+      "sourceEnglish": "How do I get there on foot from here?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ここから歩いてどう行けばいいですか。",
+      "literalJapaneseGlossEn": "How do I get there on foot from here?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "¿Cuántas cuadras son?",
+      "sourceEnglish": "How many blocks is it?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "何ブロック先ですか。",
+      "literalJapaneseGlossEn": "How many blocks is it?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿Me lo puede repetir, por favor?",
+      "sourceEnglish": "Can you repeat that, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": "A polite way to ask for clarification with usted.",
+      "targetJapaneseDraft": "もう一度言っていただけますか。",
+      "literalJapaneseGlossEn": "Can you repeat that, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Son las 6:30 de la mañana y Ana busca desayuno cerca del hotel.",
+      "sourceEnglish": "It is 6:30 in the morning and Ana is looking for breakfast near the hotel.",
+      "targetJapaneseDraft": "朝の6時半です。アナはホテルの近くで朝食を探しています。",
+      "literalJapaneseGlossEn": "It is 6:30 in the morning and Ana is looking for breakfast near the hotel.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ana le pregunta al recepcionista: ¿Me puede recomendar una panadería cerca que esté abierta antes de las 7?",
+      "sourceEnglish": "Ana asks the receptionist: Can you recommend a bakery nearby that is open before 7?",
+      "targetJapaneseDraft": "アナはホテルのフロント係に尋ねます。「7時前に開いている近くのパン屋をおすすめしていただけますか。」",
+      "literalJapaneseGlossEn": "Ana asks the receptionist: Can you recommend a bakery nearby that is open before 7?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "El recepcionista dice: Le recomiendo la Panadería Lupita, porque el pan dulce sale caliente muy temprano.",
+      "sourceEnglish": "The receptionist says: I recommend Panadería Lupita, because the sweet bread comes out hot very early.",
+      "targetJapaneseDraft": "フロント係は言います。「Panadería Lupitaをおすすめします。菓子パンが朝早くから温かい状態で出てくるからです。」",
+      "literalJapaneseGlossEn": "The receptionist says: I recommend Panadería Lupita, because the sweet bread comes out hot very early.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ana pregunta: ¿A qué hora abre?",
+      "sourceEnglish": "Ana asks: What time does it open?",
+      "targetJapaneseDraft": "アナは尋ねます。「何時に開きますか。」",
+      "literalJapaneseGlossEn": "Ana asks: What time does it open?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Él contesta: Según su horario, abre a las 6, pero los domingos abre más tarde.",
+      "sourceEnglish": "He answers: According to their hours, it opens at 6, but on Sundays it opens later.",
+      "targetJapaneseDraft": "彼は答えます。「営業時間によると6時に開きますが、日曜日はもっと遅く開きます。」",
+      "literalJapaneseGlossEn": "He answers: According to their hours, it opens at 6, but on Sundays it opens later.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Después Ana pregunta: ¿Cómo llego a pie desde aquí?",
+      "sourceEnglish": "Then Ana asks: How do I get there on foot from here?",
+      "targetJapaneseDraft": "それからアナは尋ねます。「ここから歩いてどう行けばいいですか。」",
+      "literalJapaneseGlossEn": "Then Ana asks: How do I get there on foot from here?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "El recepcionista le muestra el mapa y dice: Camine 3 cuadras por esta calle y doble a la derecha en el semáforo.",
+      "sourceEnglish": "The receptionist shows her the map and says: Walk 3 blocks along this street and turn right at the traffic light.",
+      "targetJapaneseDraft": "フロント係はアナに地図を見せて言います。「この通りを3ブロック歩き、信号を右に曲がってください。」",
+      "literalJapaneseGlossEn": "The receptionist shows her the map and says: Walk 3 blocks along this street and turn right at the traffic light.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ana no entiende todo y pregunta: ¿Me lo puede repetir, por favor?",
+      "sourceEnglish": "Ana does not understand everything and asks: Can you repeat that, please?",
+      "targetJapaneseDraft": "アナは全部は理解できず、尋ねます。「もう一度言っていただけますか。」",
+      "literalJapaneseGlossEn": "Ana does not understand everything and asks: Can you repeat that, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:23:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "Él repite con calma: La panadería está en la esquina, frente a la plaza.",
+      "sourceEnglish": "He calmly repeats: The bakery is on the corner, across from the square.",
+      "targetJapaneseDraft": "彼は落ち着いて繰り返します。「パン屋は街角にあり、広場の向かいです。」",
+      "literalJapaneseGlossEn": "He calmly repeats: The bakery is on the corner, across from the square.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Ask a hotel receptionist for a bakery open before 7, check its hours, request a walking route, and ask for the route to be repeated.",
+  "speakingGoalInternal": "Ask the hotel host where to find the best bakery open before 7 a.m. and how to walk there.",
+  "speakingGoalJapaneseDraft": "ホテルのフロント係に、7時前に開くおすすめのパン屋、営業時間、ここから歩いて行く道順を尋ねてください。道順が分からなければ、繰り返しを頼んでください。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "Current source: at 6:30 Ana asks a hotel receptionist for an early bakery. Panadería Lupita serves hot sweet bread early; listed opening is 6 except later on Sunday. Route is three blocks along this street, right at the traffic light, bakery at the corner across from the square. Archived draft instead says 6:30 listing, second light, no square and a map recheck. Do not migrate those differences or old positions.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "bakery",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "nearby",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "early in the morning",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "opening hours",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "what time",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "map",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "on foot",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "road",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "corner",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "traffic light",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "right",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "left",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "Please tell me about a nearby bakery",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "Please say that again",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Good morning. Is there a nearby bakery that opens early?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "There is one. Please look at this map.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "What time does it open?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "The listing says six thirty. Let us also check today’s hours.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Thank you. Can I walk there from here?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Yes. Go straight along this road.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Turn right at the second traffic light, and it is on the corner.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Excuse me. The second traffic light, right? Please say it again.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Yes. Right at the second traffic light. Please check the map too before leaving.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 1,
+      "candidatePosition": 1,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 4,
+      "candidatePosition": 4,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 6,
+      "candidatePosition": 5,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 10,
+      "candidatePosition": 8,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 25,
+    "twoVoiceClipDecisionsIfTextApproved": 50,
+    "twoVoiceSubmittedCharactersIfTextApproved": 934,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.02802,
+    "archivedExactJapaneseCardTextOverlapsOnly": 4,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    {
+      "ref": "card.2 / reader.2",
+      "note": "Receptionist is specifically a hotel front-desk person here. ホテルのフロント係 retains that context; qualified reviewer should confirm register and role term."
+    },
+    {
+      "ref": "card.3 / reader.3",
+      "note": "Mexican pan dulce denotes a range of sweet bakery pastries. 菓子パン is a contextual candidate; verify culinary/locale nuance and whether the source proper name Panadería Lupita should appear in Japanese script."
+    },
+    {
+      "ref": "card.6 / reader.7",
+      "note": "Cuadra is a Latin American city block; 街区 on the card and 3ブロック in walking directions need a coherent Japanese dictionary/teaching decision."
+    },
+    {
+      "ref": "reader.1-5",
+      "note": "The source starts at 6:30, says opens at 6 according to posted hours, but opens later on Sundays. It does not specify whether today is Sunday; the candidate does not claim the bakery is open now on Sundays."
+    },
+    {
+      "ref": "reader.7",
+      "note": "Source gives three blocks along this street and right at the traffic light. Archived draft says second traffic light; that detail is retired, not imported."
+    },
+    {
+      "ref": "reader.9",
+      "note": "The bakery is at the corner across from the square. Archived draft instead asks a map check before leaving. Candidate retains the source location and omits the added instruction."
+    },
+    {
+      "ref": "archive/progress/audio",
+      "note": "Archived 14-card/9-turn scene has different counts, route and hours. Old positions lack explicit row IDs and authorize no saved-item, scoring or audio migration."
+    },
+    {
+      "ref": "source Spanish notes",
+      "note": "Recepcionista, pan dulce, cuadra/manzana and the usted repetition note are Spanish-language facts, retained internally rather than presented as Japanese grammar."
+    }
+  ],
+  "missing": [
+    "qualified Japanese/source/restaurant/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "cards": [
+    {
+      "en": "bakery",
+      "ja": "パン屋",
+      "glossEn": "bakery"
+    },
+    {
+      "en": "receptionist",
+      "ja": "ホテルのフロント係",
+      "glossEn": "receptionist"
+    },
+    {
+      "en": "sweet bread",
+      "ja": "菓子パン",
+      "glossEn": "sweet bread"
+    },
+    {
+      "en": "opening hours",
+      "ja": "営業時間",
+      "glossEn": "opening hours"
+    },
+    {
+      "en": "map",
+      "ja": "地図",
+      "glossEn": "map"
+    },
+    {
+      "en": "block",
+      "ja": "街区",
+      "glossEn": "block"
+    },
+    {
+      "en": "street",
+      "ja": "通り",
+      "glossEn": "street"
+    },
+    {
+      "en": "traffic light",
+      "ja": "信号",
+      "glossEn": "traffic light"
+    },
+    {
+      "en": "corner",
+      "ja": "街角",
+      "glossEn": "corner"
+    },
+    {
+      "en": "square",
+      "ja": "広場",
+      "glossEn": "square"
+    },
+    {
+      "en": "Can you recommend a bakery nearby?",
+      "ja": "近くのパン屋をおすすめしていただけますか。",
+      "glossEn": "Can you recommend a bakery nearby?"
+    },
+    {
+      "en": "What time does it open?",
+      "ja": "何時に開きますか。",
+      "glossEn": "What time does it open?"
+    },
+    {
+      "en": "Is it open before 7?",
+      "ja": "7時前に開いていますか。",
+      "glossEn": "Is it open before 7?"
+    },
+    {
+      "en": "How do I get there on foot from here?",
+      "ja": "ここから歩いてどう行けばいいですか。",
+      "glossEn": "How do I get there on foot from here?"
+    },
+    {
+      "en": "How many blocks is it?",
+      "ja": "何ブロック先ですか。",
+      "glossEn": "How many blocks is it?"
+    },
+    {
+      "en": "Can you repeat that, please?",
+      "ja": "もう一度言っていただけますか。",
+      "glossEn": "Can you repeat that, please?"
+    }
+  ],
+  "reader": [
+    {
+      "en": "It is 6:30 in the morning and Ana is looking for breakfast near the hotel.",
+      "ja": "朝の6時半です。アナはホテルの近くで朝食を探しています。",
+      "glossEn": "It is 6:30 in the morning and Ana is looking for breakfast near the hotel."
+    },
+    {
+      "en": "Ana asks the receptionist: Can you recommend a bakery nearby that is open before 7?",
+      "ja": "アナはホテルのフロント係に尋ねます。「7時前に開いている近くのパン屋をおすすめしていただけますか。」",
+      "glossEn": "Ana asks the receptionist: Can you recommend a bakery nearby that is open before 7?"
+    },
+    {
+      "en": "The receptionist says: I recommend Panadería Lupita, because the sweet bread comes out hot very early.",
+      "ja": "フロント係は言います。「Panadería Lupitaをおすすめします。菓子パンが朝早くから温かい状態で出てくるからです。」",
+      "glossEn": "The receptionist says: I recommend Panadería Lupita, because the sweet bread comes out hot very early."
+    },
+    {
+      "en": "Ana asks: What time does it open?",
+      "ja": "アナは尋ねます。「何時に開きますか。」",
+      "glossEn": "Ana asks: What time does it open?"
+    },
+    {
+      "en": "He answers: According to their hours, it opens at 6, but on Sundays it opens later.",
+      "ja": "彼は答えます。「営業時間によると6時に開きますが、日曜日はもっと遅く開きます。」",
+      "glossEn": "He answers: According to their hours, it opens at 6, but on Sundays it opens later."
+    },
+    {
+      "en": "Then Ana asks: How do I get there on foot from here?",
+      "ja": "それからアナは尋ねます。「ここから歩いてどう行けばいいですか。」",
+      "glossEn": "Then Ana asks: How do I get there on foot from here?"
+    },
+    {
+      "en": "The receptionist shows her the map and says: Walk 3 blocks along this street and turn right at the traffic light.",
+      "ja": "フロント係はアナに地図を見せて言います。「この通りを3ブロック歩き、信号を右に曲がってください。」",
+      "glossEn": "The receptionist shows her the map and says: Walk 3 blocks along this street and turn right at the traffic light."
+    },
+    {
+      "en": "Ana does not understand everything and asks: Can you repeat that, please?",
+      "ja": "アナは全部は理解できず、尋ねます。「もう一度言っていただけますか。」",
+      "glossEn": "Ana does not understand everything and asks: Can you repeat that, please?"
+    },
+    {
+      "en": "He calmly repeats: The bakery is on the corner, across from the square.",
+      "ja": "彼は落ち着いて繰り返します。「パン屋は街角にあり、広場の向かいです。」",
+      "glossEn": "He calmly repeats: The bakery is on the corner, across from the square."
+    }
+  ],
+  "issues": [
+    {
+      "ref": "card.2 / reader.2",
+      "note": "Receptionist is specifically a hotel front-desk person here. ホテルのフロント係 retains that context; qualified reviewer should confirm register and role term."
+    },
+    {
+      "ref": "card.3 / reader.3",
+      "note": "Mexican pan dulce denotes a range of sweet bakery pastries. 菓子パン is a contextual candidate; verify culinary/locale nuance and whether the source proper name Panadería Lupita should appear in Japanese script."
+    },
+    {
+      "ref": "card.6 / reader.7",
+      "note": "Cuadra is a Latin American city block; 街区 on the card and 3ブロック in walking directions need a coherent Japanese dictionary/teaching decision."
+    },
+    {
+      "ref": "reader.1-5",
+      "note": "The source starts at 6:30, says opens at 6 according to posted hours, but opens later on Sundays. It does not specify whether today is Sunday; the candidate does not claim the bakery is open now on Sundays."
+    },
+    {
+      "ref": "reader.7",
+      "note": "Source gives three blocks along this street and right at the traffic light. Archived draft says second traffic light; that detail is retired, not imported."
+    },
+    {
+      "ref": "reader.9",
+      "note": "The bakery is at the corner across from the square. Archived draft instead asks a map check before leaving. Candidate retains the source location and omits the added instruction."
+    },
+    {
+      "ref": "archive/progress/audio",
+      "note": "Archived 14-card/9-turn scene has different counts, route and hours. Old positions lack explicit row IDs and authorize no saved-item, scoring or audio migration."
+    },
+    {
+      "ref": "source Spanish notes",
+      "note": "Recepcionista, pan dulce, cuadra/manzana and the usted repetition note are Spanish-language facts, retained internally rather than presented as Japanese grammar."
+    }
+  ]
+}

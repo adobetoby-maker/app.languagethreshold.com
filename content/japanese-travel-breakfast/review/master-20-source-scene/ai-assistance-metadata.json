@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "qualifiedReview": false,
+  "sourceGroundedSelfCheck": true,
+  "calls": [
+    {
+      "role": "Haiku candidate authoring attempt",
+      "requestedModel": "haiku",
+      "actualModel": null,
+      "outcome": "Claude CLI --safe-mode exited 1 with Not logged in, input_tokens:0, output_tokens:0 and empty modelUsage. No model response or draft was received; the candidate was written and checked independently.",
+      "qualifiedApproval": false
+    }
+  ],
+  "correctionsAfterAICritique": [],
+  "independentSelfCheck": [
+    "Compared all 23 source-order Spanish/English cards and all 18 Spanish/English Reader turns with the pinned current Master 20 source.",
+    "Preserved Puebla/Hotel Azulejo/Café Cholula, five relatives plus Daniel, Emilio/Brenda/Rosa/Lupita/Javier, the missing binder, sold-out mole, peanut-containing pipián, six-person order, 20-minute delay and conditional checkout feedback.",
+    "Preserved the kitchen's report that enfrijoladas do not contain peanuts without asserting cross-contact safety or inventing a reaction.",
+    "Kept the archived generic scene separate; no saved-item, audio, owner-route, learner or V4 migration is authorized."
+  ]
+}

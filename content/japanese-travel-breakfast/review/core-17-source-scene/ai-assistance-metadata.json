@@ -1,0 +1,41 @@
+{
+  "status": "AI-assisted source-only candidate; qualified Japanese, source, accessibility/locale and dictionary review remains open",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Exact source-card and Reader candidate authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "2737ad83-b078-43aa-85e2-30f26fc3cc33",
+      "mode": "Claude CLI --safe-mode --model haiku --tools empty --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false
+    },
+    {
+      "role": "Read-only source and Japanese critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "0a4d8f7b-cf9e-4465-8d80-d1de4424ad2e",
+      "mode": "Claude CLI --safe-mode --model opus --tools empty --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false
+    },
+    {
+      "role": "Read-only correction critique",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "ddeef685-df21-446e-bfd1-b0b0ed9b3d1e",
+      "mode": "Claude CLI --safe-mode --model fable --effort low --tools empty --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false
+    }
+  ],
+  "selfCheck": [
+    "Compared all 18 cards and nine Reader turns in order to pinned current Spanish/English source.",
+    "Restored Elena, wheelchair and crutches vocabulary, side-door ramp, window table with wider aisle, table height, chair removal and back restroom with grab bars.",
+    "Corrected Haiku source/person framing and English intrusion; applied Opus and Fable corrections to chair action, Reader 4 card alignment and the wider aisle reason.",
+    "Source notes and kind fields are preserved from source, but Spanish grammar notes are not presented as Japanese teaching.",
+    "All 27 candidate row IDs are revision-scoped; no archived row ID, saved-item mapping or audio approval is reused.",
+    "Independent validator checks hashes, exact source rows, stable lesson identity, false gates and read-only audio scope."
+  ]
+}

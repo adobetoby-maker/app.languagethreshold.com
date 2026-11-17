@@ -1,0 +1,600 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:17",
+  "stableLessonId": "travel-breakfast:17:ja-en",
+  "candidateRevision": "travel-breakfast:17:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Request an accessible table",
+    "objectiveEnglishInternal": "ask about step-free entry, table height, restroom access, and room for a wheelchair or crutches",
+    "roleplayEnglishInternal": "Your companion uses a wheelchair; find out whether the café can seat you comfortably before you sit down.",
+    "readerTitleSpanish": "Una mesa accesible",
+    "readerVerbExamples": [
+      {
+        "target": "Primero, le pregunto al mesero por la entrada.",
+        "native": "First, I ask the waiter about the entrance."
+      },
+      {
+        "target": "Mi amiga usa silla de ruedas.",
+        "native": "My friend uses a wheelchair."
+      },
+      {
+        "target": "¿Podemos ver la mesa primero?",
+        "native": "Can we see the table first?"
+      },
+      {
+        "target": "Nos sentamos en la mesa de la ventana.",
+        "native": "We sit at the table by the window."
+      },
+      {
+        "target": "Necesitamos una mesa con más espacio, por favor.",
+        "native": "We need a table with more room, please."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "Sam and friend Aya arrive at a café; Aya uses a wheelchair and checks the table herself.",
+    "cardCount": 12,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "silla de ruedas",
+      "sourceEnglish": "wheelchair",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "車いす",
+      "literalJapaneseGlossEn": "wheelchair",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "muletas",
+      "sourceEnglish": "crutches",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "松葉づえ",
+      "literalJapaneseGlossEn": "crutches",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "rampa",
+      "sourceEnglish": "ramp",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "スロープ",
+      "literalJapaneseGlossEn": "ramp",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "escalón",
+      "sourceEnglish": "step",
+      "kind": "term",
+      "sourceNoteInternal": "Plural is escalones; sin escalones means step-free.",
+      "targetJapaneseDraft": "段差",
+      "literalJapaneseGlossEn": "step",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "entrada",
+      "sourceEnglish": "entrance",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "入口",
+      "literalJapaneseGlossEn": "entrance",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "pasillo",
+      "sourceEnglish": "aisle",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "通路",
+      "literalJapaneseGlossEn": "aisle",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "altura",
+      "sourceEnglish": "height",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "高さ",
+      "literalJapaneseGlossEn": "height",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "espacio",
+      "sourceEnglish": "room",
+      "kind": "term",
+      "sourceNoteInternal": "Means space or room, as in room for a wheelchair, not a room in a building.",
+      "targetJapaneseDraft": "スペース",
+      "literalJapaneseGlossEn": "room",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "baño accesible",
+      "sourceEnglish": "accessible restroom",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "バリアフリートイレ",
+      "literalJapaneseGlossEn": "accessible restroom",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "barras de apoyo",
+      "sourceEnglish": "grab bars",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "手すり",
+      "literalJapaneseGlossEn": "grab bars",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "mesero",
+      "sourceEnglish": "waiter",
+      "kind": "term",
+      "sourceNoteInternal": "Common in Mexico and the US; in Spain you will hear camarero.",
+      "targetJapaneseDraft": "店員",
+      "literalJapaneseGlossEn": "waiter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "mesa",
+      "sourceEnglish": "table",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "テーブル",
+      "literalJapaneseGlossEn": "table",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "¿Hay entrada sin escalones?",
+      "sourceEnglish": "Is there a step-free entrance?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "段差のない入口はありますか。",
+      "literalJapaneseGlossEn": "Is there a step-free entrance?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Hay espacio para una silla de ruedas?",
+      "sourceEnglish": "Is there room for a wheelchair?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "車いすが入るスペースはありますか。",
+      "literalJapaneseGlossEn": "Is there room for a wheelchair?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "¿El baño es accesible?",
+      "sourceEnglish": "Is the restroom accessible?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "トイレはバリアフリーですか。",
+      "literalJapaneseGlossEn": "Is the restroom accessible?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿Tienen una mesa más baja?",
+      "sourceEnglish": "Do you have a lower table?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "もう少し低いテーブルはありますか。",
+      "literalJapaneseGlossEn": "Do you have a lower table?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "¿Podemos ver la mesa antes de sentarnos?",
+      "sourceEnglish": "Can we see the table before we sit down?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "座る前にテーブルを見てもいいですか。",
+      "literalJapaneseGlossEn": "Can we see the table before we sit down?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "Mi amiga usa muletas.",
+      "sourceEnglish": "My friend uses crutches.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "友だちは松葉づえを使っています。",
+      "literalJapaneseGlossEn": "My friend uses crutches.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Llego a un café con mi amiga Elena, que usa silla de ruedas.",
+      "sourceEnglish": "I arrive at a café with my friend Elena, who uses a wheelchair.",
+      "targetJapaneseDraft": "車いすを使っている友だちのエレナさんと、カフェに着きます。",
+      "literalJapaneseGlossEn": "I arrive at a café with my friend Elena, who uses a wheelchair.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Primero, le pregunto al mesero: ¿Hay entrada sin escalones?",
+      "sourceEnglish": "First, I ask the waiter: Is there a step-free entrance?",
+      "targetJapaneseDraft": "まず店員さんに聞きます。「段差のない入口はありますか。」",
+      "literalJapaneseGlossEn": "First, I ask the waiter: Is there a step-free entrance?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "El mesero dice: Sí, hay una rampa en la puerta de al lado.",
+      "sourceEnglish": "The waiter says: Yes, there is a ramp at the side door.",
+      "targetJapaneseDraft": "店員さんは「はい、横のドアにスロープがあります。」と言います。",
+      "literalJapaneseGlossEn": "The waiter says: Yes, there is a ramp at the side door.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Después pregunto: ¿Hay espacio para una silla de ruedas junto a la mesa?",
+      "sourceEnglish": "Then I ask: Is there room for a wheelchair next to the table?",
+      "targetJapaneseDraft": "次に聞きます。「テーブルのそばに車いすが入るスペースはありますか。」",
+      "literalJapaneseGlossEn": "Then I ask: Is there room for a wheelchair next to the table?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Él contesta: Les voy a dar la mesa de la ventana, porque el pasillo es más ancho.",
+      "sourceEnglish": "He answers: I am going to give you the table by the window, because the aisle is wider.",
+      "targetJapaneseDraft": "店員さんは「窓側のほうが通路が広いので、窓側のテーブルにご案内します。」と答えます。",
+      "literalJapaneseGlossEn": "He answers: I am going to give you the table by the window, because the aisle is wider.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Elena mira la altura de la mesa, y el mesero quita una silla para ella.",
+      "sourceEnglish": "Elena looks at the height of the table, and the waiter takes away a chair for her.",
+      "targetJapaneseDraft": "エレナさんがテーブルの高さを見て、店員さんはエレナさんのためにいすを一脚どけます。",
+      "literalJapaneseGlossEn": "Elena looks at the height of the table, and the waiter takes away a chair for her.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Luego pregunto: ¿El baño es accesible?",
+      "sourceEnglish": "Next I ask: Is the restroom accessible?",
+      "targetJapaneseDraft": "それから聞きます。「トイレはバリアフリーですか。」",
+      "literalJapaneseGlossEn": "Next I ask: Is the restroom accessible?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "El mesero dice: Sí, el baño accesible está al fondo y tiene barras de apoyo.",
+      "sourceEnglish": "The waiter says: Yes, the accessible restroom is at the back and it has grab bars.",
+      "targetJapaneseDraft": "店員さんは「はい、バリアフリートイレは奥にあって、手すりが付いています。」と言います。",
+      "literalJapaneseGlossEn": "The waiter says: Yes, the accessible restroom is at the back and it has grab bars.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:17:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "Entonces decimos: Perfecto, vamos a sentarnos aquí.",
+      "sourceEnglish": "Then we say: Perfect, we are going to sit here.",
+      "targetJapaneseDraft": "それで、私たちは「いいですね。では、ここに座りましょう。」と言います。",
+      "literalJapaneseGlossEn": "Then we say: Perfect, we are going to sit here.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Ask about step-free entrance, wheelchair room, table height, aisle width and an accessible restroom before sitting.",
+  "speakingGoalInternal": "Your companion uses a wheelchair; find out whether the café can seat you comfortably before you sit down.",
+  "sourceConflictInternal": "The current source is a first-person nine-turn café scene with friend Elena using a wheelchair, a ramp at the side door, a window table with a wider aisle, a table-height check, one chair removed, and an accessible restroom at the back with grab bars. The archived Aya scene omits or changes those details. The source setting is unspecified; do not assert a venue's accessibility beyond the dialogue. Qualified Japanese, accessibility terminology, source and dictionary review remains open.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "wheelchair",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "step",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "entrance",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "step-free entrance",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "aisle",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "table height",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "space",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "restroom",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "accessible restroom label",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "please show me",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "I would like to check",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "Can I sit here?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Excuse me. Is there a step-free entrance?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "I will show you the side entrance.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "I would like to see the table before deciding on a seat.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Of course. Please look here.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Is there room for my wheelchair?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "We can move a chair. I will check the aisle too.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Could you show me the route to the restroom too?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Yes, I will show you.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Thank you. I will decide after checking.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 1,
+      "candidatePosition": 1,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 2,
+      "candidatePosition": 4,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 3,
+      "candidatePosition": 5,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 5,
+      "candidatePosition": 6,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 7,
+      "candidatePosition": 8,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 9,
+      "candidatePosition": 9,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 27,
+    "twoVoiceClipDecisionsIfTextApproved": 54,
+    "twoVoiceSubmittedCharactersIfTextApproved": 890,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.0267,
+    "archivedExactJapaneseCardTextOverlapsOnly": 6,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Unapproved source-only Japanese candidate; no qualified Japanese, accessibility or dictionary approval is claimed.",
+    "Current source uses friend Elena and a wheelchair; the archived Aya scene is replaced, while familiar wheelchair phrasing overlaps textually without authorizing saved-item or audio reuse.",
+    "段差 means a level difference in this context; it is narrower than the English headword step and needs contextual dictionary review. 段差のない入口 asks for an available step-free entrance, not a guarantee about the current door.",
+    "バリアフリートイレ is a Japan-usage label taught as vocabulary for accessible restroom; the scene is not set in Japan, and the waiter’s line is a source statement, not a claim of facility compliance. Alternative labels and qualified terminology review remain open.",
+    "店員 is the card headword and 店員さん appears naturally in Reader staff address; source mesero/camarero regional note remains internal and is not Japanese instruction.",
+    "No pronunciation readings exist for any kanji item, including 入口, 段差, 通路, 高さ, 店員, 手すり, 松葉づえ, 窓側, 奥 and the counter 一脚 (いっきゃく), which is used without being taught. Spanish verb examples are not Japanese morphology lessons.",
+    "Wheelchair space, table height and chair removal are direct source details; naturalness of the Japanese speaker framing, wheelchair seating phrase and lower-table request needs qualified review.",
+    "No source country is specified; the candidate must not infer a Japan-specific accessibility or café policy. Six authored activities, forms, speaking setup and dictionary senses are still missing.",
+    "店員 is broader than waiter (any shop staff); 手すり covers handrails generally, not only grab bars; スペース is the room/space sense only. All need dictionary-sense review.",
+    "Japanese differs from verbatim glossEn in places: もう少し低い adds a little (card 16); ご案内します is guide you to rather than give you (Reader 5); いいですね is weaker than Perfect and 座りましょう is let’s sit rather than we are going to sit (Reader 9); 友だち does not mark my or gender (card 18, Reader 1)."
+  ],
+  "missing": [
+    "qualified Japanese/source/accessibility/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

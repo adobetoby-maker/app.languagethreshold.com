@@ -1,0 +1,31 @@
+{
+  "dateUtc": "2026-11-17",
+  "workflow": "Source-grounded self-authoring from exact pinned Spanish curriculum and full Reader after bounded Claude CLI authentication probe",
+  "haikuCandidate": {
+    "requestedModel": "claude-haiku-5-5",
+    "actualModel": null,
+    "attempted": true,
+    "command": "claude --safe-mode --model claude-haiku-5-5 -p <bounded translation probe> --output-format json",
+    "exitCode": 1,
+    "durationApiMs": 0,
+    "inputTokens": 0,
+    "outputTokens": 0,
+    "modelUsage": {},
+    "result": "Not logged in · Please run /login",
+    "usedInCandidate": false
+  },
+  "opusCritique": {
+    "requestedModel": "claude-opus-5-5",
+    "actualModel": null,
+    "attempted": false,
+    "reason": "The same CLI authentication was unavailable; no read-only critique result"
+  },
+  "fableCorrection": {
+    "requestedModel": "fable-5-2",
+    "actualModel": null,
+    "attempted": false,
+    "reason": "The same CLI authentication was unavailable; no correction result"
+  },
+  "selfCheck": "Compared all 23 French draft cards and 18 French Reader turns in exact source order against current Spanish and English rows. Preserved the El Chaltén lodge at 5 a.m., Mirta's twenty-minute bread delay, Argentine facturas/dulce de leche/mate, Felipe's mood, six-o'clock departure and two-hour hike, Noor's cheese-and-fruit packed lunches, Greta's jacket/headlamp, ten-minute trailhead walk, and Sam's future-tense commitments and encouragement. Kept the old Alpine refuge/Mireille scene as trace evidence only. Spanish voseo and Argentine encouragement remain internal register notes. Source/hash/identity/false-gate validation is distinct from qualified review.",
+  "qualifiedApproval": false
+}

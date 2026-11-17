@@ -1,0 +1,69 @@
+{
+  "titleFrenchDraft": "Trouver un accord avant la randonnée à Cusco",
+  "focusFrenchDraft": "Rapporter équitablement les propos de deux amis, vérifier l’heure de prise en charge et proposer un compromis pour le petit-déjeuner.",
+  "cardsFrench": [
+    "l’emoliente (boisson chaude péruvienne aux plantes)",
+    "le bouillon de poule",
+    "le pan chuta (pain rond et sucré de Cusco)",
+    "le quinoa",
+    "le mal des montagnes (soroche)",
+    "le maté de coca (infusion de feuilles de coca)",
+    "la randonnée",
+    "l’heure de prise en charge",
+    "l’auberge",
+    "la position (le point de vue)",
+    "le terrain d’entente",
+    "l’accord",
+    "l’ouverture",
+    "le sac à dos",
+    "le petit matin, avant l’aube",
+    "Ana a dit qu’elle voulait goûter le bouillon de poule au marché.",
+    "Lars disait qu’il n’y avait pas le temps avant la prise en charge.",
+    "Wilber, pourriez-vous me dire à quelle heure le marché ouvre ?",
+    "Wilber nous a expliqué que le marché ouvrait à six heures.",
+    "Écoutez, vous avez tous les deux raison sur un point.",
+    "Lars, tu disais que la prise en charge était à sept heures, c’est bien ça ?",
+    "Et si nous allions au marché et revenions avant sept heures ?",
+    "Alors, c’est entendu : un passage rapide au marché et les sacs à dos prêts d’avance."
+  ],
+  "readerFrench": [
+    "Il était cinq heures du matin à Cusco, et mes amis Ana et Lars se disputaient avant la randonnée.",
+    "Nous étions dans la cuisine de l’auberge, où Wilber, le responsable, préparait un emoliente chaud.",
+    "Ana a dit qu’elle voulait goûter le bouillon de poule au marché.",
+    "Elle disait aussi que le pan chuta du marché San Pedro était célèbre et qu’elle ne voulait pas quitter Cusco sans y goûter.",
+    "Lars disait qu’il n’y avait pas le temps avant la prise en charge.",
+    "Selon lui, le quinoa de l’auberge suffisait et se presser alors qu’on souffrait du mal des montagnes avant une longue randonnée était une mauvaise idée.",
+    "J’ai pris place entre eux et je leur ai dit : « Écoutez, vous avez tous les deux raison sur un point. »",
+    "Puis j’ai demandé à Lars : « Lars, tu disais que la prise en charge était à sept heures, c’est bien ça ? »",
+    "Lars a vérifié le message de l’agence et confirmé que l’heure de prise en charge était à sept heures devant la porte de l’auberge.",
+    "J’ai alors demandé à Wilber : « Wilber, pourriez-vous me dire à quelle heure le marché ouvre ? »",
+    "Wilber nous a expliqué que le marché ouvrait à six heures.",
+    "Il a ajouté qu’après l’ouverture, les stands de bouillon se remplissaient vite et que le marché se trouvait à dix minutes à pied.",
+    "Wilber a aussi dit que le maté de coca aidait de nombreux voyageurs à supporter le mal des montagnes, puis il nous a servi une tasse chacun.",
+    "Avec ces informations, j’ai proposé un terrain d’entente : « Et si nous allions au marché et revenions avant sept heures ? »",
+    "Ana a accepté de revenir à 6 h 45, et Lars a dit qu’il était d’accord si nous laissions nos sacs à dos prêts à la réception.",
+    "Pour conclure l’accord, j’ai résumé à voix haute : « Alors, c’est entendu : un passage rapide au marché et les sacs à dos prêts d’avance. »",
+    "Ana a souri, Lars a terminé son emoliente, et nous sommes partis pour San Pedro à six heures pile."
+  ],
+  "formsDraft": [
+    {"french": "Ana a dit qu’elle voulait goûter le bouillon", "english": "Ana said she wanted to try the broth", "noteEnglish": "French reported speech uses the imperfect voulait for the desire reported in the past; source Spanish says quería."},
+    {"french": "Lars disait qu’il n’y avait pas le temps", "english": "Lars was saying there wasn't time", "noteEnglish": "The imperfect disait and avait frame what Lars kept saying, rather than a newly settled fact."},
+    {"french": "le marché ouvrait à six heures", "english": "the market opened at six", "noteEnglish": "Imperfect ouvrait in Wilber's reported explanation; do not change the source opening time."},
+    {"french": "Et si nous allions au marché ?", "english": "What if we went to the market?", "noteEnglish": "French si plus imperfect proposes a plan without claiming that the group has already agreed."},
+    {"french": "Ana a accepté de revenir à 6 h 45", "english": "Ana agreed to come back at 6:45", "noteEnglish": "Completed agreement; keep it distinct from the seven o'clock pickup."}
+  ],
+  "speakingDraft": {
+    "openingFrench": "Ana a dit qu’elle voulait goûter le bouillon au marché. Lars disait qu’il n’y avait pas le temps avant la prise en charge. Wilber, pourriez-vous nous dire à quelle heure le marché ouvre ?",
+    "rolesEnglish": "Learner mediates between Ana and Lars; AI plays both friends and Wilber, the staff member at the Cusco hostel.",
+    "objectivesEnglish": ["Report both friends' positions fairly using French past reported speech", "Ask Wilber about San Pedro market opening and walking time", "Keep the seven o'clock pickup and 6:45 return separate", "Propose a quick market visit with backpacks ready beforehand"],
+    "closureEnglish": "Repeat the agreed plan aloud without changing the source speaker's altitude-sickness or coca-tea claims."
+  },
+  "modeChoices": [
+    {"mode": "See", "cueEnglish": "Inspect the direct French clinical term for the source's soroche.", "kind": "card", "index": 5},
+    {"mode": "Recall", "cueEnglish": "Recall how to report what Ana wanted to try at the market.", "kind": "card", "index": 16},
+    {"mode": "Hear", "cueEnglish": "Identify Wilber's attributed statement about coca tea and altitude sickness.", "kind": "reader", "index": 13},
+    {"mode": "Type", "cueEnglish": "Type the polite question to Wilber about market opening time.", "kind": "card", "index": 18},
+    {"mode": "Say", "cueEnglish": "Propose returning from the market before seven.", "kind": "card", "index": 22},
+    {"mode": "Write", "cueEnglish": "Write the final agreement with a quick market trip and backpacks ready.", "kind": "reader", "index": 16}
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "dateUtc": "2026-11-17",
+  "workflow": "Source-grounded self-authoring from exact pinned Spanish curriculum and full Reader; attempted direct Claude CLI safe-mode Haiku first",
+  "haikuCandidate": {
+    "requestedModel": "haiku",
+    "actualModel": null,
+    "attempted": true,
+    "command": "claude --safe-mode --permission-mode plan --model haiku -p <bounded source review request>",
+    "exitCode": 1,
+    "result": "Not logged in · Please run /login",
+    "usedInCandidate": false
+  },
+  "opusCritique": {
+    "requestedModel": "opus",
+    "actualModel": null,
+    "attempted": false,
+    "reason": "Same CLI authentication unavailable; no read-only critique result"
+  },
+  "fableCorrection": {
+    "requestedModel": "fable",
+    "actualModel": null,
+    "attempted": false,
+    "reason": "Same CLI authentication unavailable; no correction result"
+  },
+  "selfCheck": "Independently compared all 23 French cards and 18 French Reader turns against the exact ordered English/Spanish source. Retained Cartagena, Canadian Daniel, three prepaid nights, included terrace breakfast, 8 a.m. closure, no notice, overnight leak and repairs, no-refund preference, conditional voucher/bill deduction, manager approval, five-minute wait, full-breakfast voucher and separate 10% bill discount. The archived Québec City scene was excluded. Source/hash/identity/false-gate validator is separate from qualified review.",
+  "qualifiedApproval": false
+}

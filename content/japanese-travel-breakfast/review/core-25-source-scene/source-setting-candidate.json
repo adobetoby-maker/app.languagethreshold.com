@@ -1,0 +1,619 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:25",
+  "stableLessonId": "travel-breakfast:25:ja-en",
+  "candidateRevision": "travel-breakfast:25:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Handle a hot-drink spill",
+    "objectiveEnglishInternal": "ask for cold water, a first-aid kit, and napkins, and accept or decline an apology and offer",
+    "roleplayEnglishInternal": "A server spills hot coffee on your arm; ask for cold water and a first-aid kit, and respond graciously to the apology.",
+    "readerTitleSpanish": "Un accidente con el café",
+    "readerVerbExamples": [
+      {
+        "target": "¿Me trae agua fría, por favor?",
+        "native": "Could you bring me cold water, please?"
+      },
+      {
+        "target": "El mesero derrama café caliente sobre el brazo de Ana.",
+        "native": "The server spills hot coffee on Ana's arm."
+      },
+      {
+        "target": "Me duele un poco el brazo.",
+        "native": "My arm hurts a little."
+      },
+      {
+        "target": "El mesero se preocupa mucho por la quemadura.",
+        "native": "The server is very worried about the burn."
+      },
+      {
+        "target": "Acepto la oferta con gusto.",
+        "native": "I gladly accept the offer."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "Hot coffee spills on a guest’s arm; the guest requests help and cool running water.",
+    "cardCount": 19,
+    "readerCount": 11
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "agua fría",
+      "sourceEnglish": "cold water",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "冷たい水",
+      "literalJapaneseGlossEn": "cold water",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "botiquín",
+      "sourceEnglish": "first-aid kit",
+      "kind": "term",
+      "sourceNoteInternal": "Short for botiquín de primeros auxilios; the short form is what people say.",
+      "targetJapaneseDraft": "救急箱",
+      "literalJapaneseGlossEn": "first-aid kit",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "servilletas",
+      "sourceEnglish": "napkins",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ナプキン",
+      "literalJapaneseGlossEn": "napkins",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "quemadura",
+      "sourceEnglish": "burn",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "やけど",
+      "literalJapaneseGlossEn": "burn",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "brazo",
+      "sourceEnglish": "arm",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "腕",
+      "literalJapaneseGlossEn": "arm",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "piel",
+      "sourceEnglish": "skin",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "皮膚",
+      "literalJapaneseGlossEn": "skin",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "mesero",
+      "sourceEnglish": "server",
+      "kind": "term",
+      "sourceNoteInternal": "Mesero/mesera in Mexico; camarero in Spain.",
+      "targetJapaneseDraft": "店員",
+      "literalJapaneseGlossEn": "server",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "gerente",
+      "sourceEnglish": "manager",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "店長",
+      "literalJapaneseGlossEn": "manager",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "café caliente",
+      "sourceEnglish": "hot coffee",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "熱いコーヒー",
+      "literalJapaneseGlossEn": "hot coffee",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "mancha",
+      "sourceEnglish": "stain",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "染み",
+      "literalJapaneseGlossEn": "stain",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "desayuno",
+      "sourceEnglish": "breakfast",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "朝食",
+      "literalJapaneseGlossEn": "breakfast",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "¿Me trae agua fría, por favor?",
+      "sourceEnglish": "Could you bring me cold water, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "冷たいお水をお願いできますか。",
+      "literalJapaneseGlossEn": "Could you bring me cold water, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "¿Tiene un botiquín?",
+      "sourceEnglish": "Do you have a first-aid kit?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "救急箱はありますか。",
+      "literalJapaneseGlossEn": "Do you have a first-aid kit?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Me pasa más servilletas, por favor?",
+      "sourceEnglish": "Could you pass me more napkins, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ナプキンをもう少しいただけますか。",
+      "literalJapaneseGlossEn": "Could you pass me more napkins, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "No se preocupe, fue un accidente.",
+      "sourceEnglish": "Don't worry, it was an accident.",
+      "kind": "phrase",
+      "sourceNoteInternal": "A gracious way to accept an apology, using usted.",
+      "targetJapaneseDraft": "お気になさらないでください。わざとではありませんから。",
+      "literalJapaneseGlossEn": "Don't worry, it was an accident.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "Gracias, pero no es necesario.",
+      "sourceEnglish": "Thank you, but it's not necessary.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Polite way to decline an offer.",
+      "targetJapaneseDraft": "ありがとうございます。でも、その必要はありません。",
+      "literalJapaneseGlossEn": "Thank you, but it's not necessary.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "En un café de Oaxaca, el mesero tropieza y derrama café caliente sobre el brazo de Ana.",
+      "sourceEnglish": "In a café in Oaxaca, the server trips and spills hot coffee on Ana's arm.",
+      "targetJapaneseDraft": "オアハカのカフェで、店員がつまずき、アナの腕に熱いコーヒーをこぼしてしまいます。",
+      "literalJapaneseGlossEn": "In a café in Oaxaca, the server trips and spills hot coffee on Ana's arm.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ana respira y dice: ¿Me trae agua fría, por favor?",
+      "sourceEnglish": "Ana takes a breath and says: Could you bring me cold water, please?",
+      "targetJapaneseDraft": "アナは一呼吸おいて、「冷たいお水をお願いできますか」と言います。",
+      "literalJapaneseGlossEn": "Ana takes a breath and says: Could you bring me cold water, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "El mesero trae un vaso de agua fría y unas servilletas, y Ana se seca el brazo con cuidado.",
+      "sourceEnglish": "The server brings a glass of cold water and some napkins, and Ana carefully dries her arm.",
+      "targetJapaneseDraft": "店員はグラスに入った冷たい水とナプキンを持ってきて、アナは腕をそっと拭いて乾かします。",
+      "literalJapaneseGlossEn": "The server brings a glass of cold water and some napkins, and Ana carefully dries her arm.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Luego Ana pregunta si tienen un botiquín, porque la piel está un poco roja.",
+      "sourceEnglish": "Then Ana asks if they have a first-aid kit, because the skin is a little red.",
+      "targetJapaneseDraft": "それからアナは、皮膚が少し赤くなっているので、救急箱があるか尋ねます。",
+      "literalJapaneseGlossEn": "Then Ana asks if they have a first-aid kit, because the skin is a little red.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "La gerente trae el botiquín y dice: Si la quemadura le duele mucho, podemos llamar a un médico.",
+      "sourceEnglish": "The manager brings the first-aid kit and says: If the burn hurts a lot, we can call a doctor.",
+      "targetJapaneseDraft": "店長が救急箱を持ってきて、「やけどがとても痛むようなら、医者を呼べますよ」と言います。",
+      "literalJapaneseGlossEn": "The manager brings the first-aid kit and says: If the burn hurts a lot, we can call a doctor.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ana responde: Gracias, pero no es necesario, porque es una quemadura pequeña.",
+      "sourceEnglish": "Ana answers: Thank you, but it's not necessary, because it's a small burn.",
+      "targetJapaneseDraft": "アナは「ありがとうございます。でも、その必要はありません。小さなやけどですから」と答えます。",
+      "literalJapaneseGlossEn": "Ana answers: Thank you, but it's not necessary, because it's a small burn.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "El mesero se preocupa mucho y dice: Lo siento mucho, no le vamos a cobrar el desayuno.",
+      "sourceEnglish": "The server is very worried and says: I'm very sorry, we won't charge you for breakfast.",
+      "targetJapaneseDraft": "店員はとても心配して、「本当に申し訳ありません。朝食代はいただきません」と言います。",
+      "literalJapaneseGlossEn": "The server is very worried and says: I'm very sorry, we won't charge you for breakfast.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:25:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ana sonríe y dice: No se preocupe, fue un accidente, y acepto la oferta con gusto.",
+      "sourceEnglish": "Ana smiles and says: Don't worry, it was an accident, and I gladly accept the offer.",
+      "targetJapaneseDraft": "アナは笑顔で、「お気になさらないでください。わざとではありませんから。お言葉に喜んで甘えます」と言います。",
+      "literalJapaneseGlossEn": "Ana smiles and says: Don't worry, it was an accident, and I gladly accept the offer.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Report the hot-coffee spill on Ana’s arm, request cold water, napkins and a first-aid kit, and respond to the conditional doctor offer and waived breakfast charge.",
+  "speakingGoalInternal": "A server spills hot coffee on your arm; ask for cold water and a first-aid kit, and respond graciously to the apology.",
+  "speakingGoalJapaneseDraft": "カフェで熱いコーヒーが腕にこぼれました。冷たい水とナプキン、救急箱を頼み、店員の謝罪と申し出に答えてください。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "The current eight-turn Oaxaca source has a server trip and spill hot coffee on Ana’s arm; Ana requests cold water, dries her arm with napkins, asks for a first-aid kit because the skin is a little red, declines a conditional doctor offer because the burn is small, and accepts a breakfast-charge waiver. The archived Japanese scene adds running water, tap, medical service and changed roles/order absent from this source. Japanese burn, skin, apology, café role and dictionary senses need qualified review.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "hot",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "drink",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "spill",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "arm",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "tap",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "running water",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "cool",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "first-aid kit",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "staff member",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "person in charge",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "medical service",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "apology",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "Hot coffee spilled on my arm",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "I would like to cool it under running tap water",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 15,
+      "candidate": null,
+      "oldEnglish": "Do you have a first-aid kit?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 16,
+      "candidate": null,
+      "oldEnglish": "burn",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 17,
+      "candidate": null,
+      "oldEnglish": "skin",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 18,
+      "candidate": null,
+      "oldEnglish": "cold water",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 19,
+      "candidate": null,
+      "oldEnglish": "napkins",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Hot coffee spilled on my arm and I got a burn.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "I am sorry. I will help right away.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Could you bring me cold water, please?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Yes, I will bring cold water.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Do you have a first-aid kit?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Yes. I will also tell the person in charge.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Your skin is red. I brought the first-aid kit.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Could you pass me more napkins, please?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "I apologize again.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "As an apology, we will not charge you for breakfast.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "Thank you. I accept your offer.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 4,
+      "candidatePosition": 5,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 8,
+      "candidatePosition": 2,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 9,
+      "candidatePosition": 7,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 17,
+      "candidatePosition": 6,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 18,
+      "candidatePosition": 1,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 19,
+      "candidatePosition": 3,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 24,
+    "twoVoiceClipDecisionsIfTextApproved": 48,
+    "twoVoiceSubmittedCharactersIfTextApproved": 918,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.02754,
+    "archivedExactJapaneseCardTextOverlapsOnly": 6,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "やけど is written in kana to preserve the hot-liquid burn sense and avoid a かしょう reading; clinical wording and pain phrasing require qualified Japanese/clinical review.",
+    "The source Reader calls the burn small, not necessarily mild; 小さなやけど stays literal. This packet adds no treatment or first-aid instructions.",
+    "The source includes cold water, wiping/drying the arm, a first-aid kit, a conditional doctor offer, refusal of that offer, and breakfast-charge waiver. The archived running-water and medical-service additions are excluded.",
+    "The isolated stain card is not used in the Reader; 染み can also mean a skin blemish near 皮膚/やけど and needs a contextual dictionary sense before learner use.",
+    "Source mesero is masculine and gerente feminine; gender-neutral 店員 and 店長 are provisional Japanese roles. Verify role/register in Oaxaca café context.",
+    "お気になさらないでください。わざとではありませんから。 renders the accidental/apology sense; a qualified reviewer must decide whether the explicit intention clause matches source no se preocupe, fue un accidente.",
+    "Source English anchors copied in glossEn are not independent Japanese back-translations; no exact equivalence or scoring is claimed.",
+    "The waiver applies to breakfast only. Accepting it uses お言葉に甘えます; confirm register and wording with a qualified Japanese speaker.",
+    "Three older archived card faces overlap in concept or text, but old rows have no stable IDs; no saved-item or audio migration is authorized."
+  ],
+  "missing": [
+    "qualified Japanese/source/clinical/locale/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

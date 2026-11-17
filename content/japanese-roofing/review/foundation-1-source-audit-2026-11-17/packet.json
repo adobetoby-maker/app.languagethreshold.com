@@ -1,0 +1,289 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "foundation-roofing",
+  "lessonId": "foundation-roofing:1:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/foundation-roofing-curriculum.ts",
+      "sha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/foundation-roofing.json",
+      "sha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/foundation-1-3-draft.json",
+      "sha256": "fc08c463fd83f57adc7c10d0c9b3341703ebc335867373b37ed4bd9ec8e66e15"
+    }
+  },
+  "sourceEnglishObjective": "Say Spanish vowels and the sounds English speakers miss, and greet the crew",
+  "candidateObjective": "Greet a crew member, introduce yourself, and ask for a roofing tool by name.",
+  "candidateFocus": "おはようございます is a polite morning greeting. です marks a polite statement; ください makes a request. Katakana writes loanwords such as ハンマー and フルハーネス. Practice the long vowel in ロープ and the small っ in ゆっくり.",
+  "curriculumAdaptationNote": "Spanish-vowel objective is provenance; Japanese pronunciation and crew greeting need a qualified target-language objective decision.",
+  "cards": [
+    {
+      "id": "foundation-roofing:1:ja-en:card:1",
+      "legacySourceRef": "foundation-roofing:1:ja-en:cards:1",
+      "sourceSpanish": "el techo",
+      "sourceEnglish": "the roof",
+      "candidateJapanese": "屋根",
+      "archivedJapanese": "屋根",
+      "archivedEnglish": "the roof",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:card:2",
+      "legacySourceRef": "foundation-roofing:1:ja-en:cards:2",
+      "sourceSpanish": "la teja",
+      "sourceEnglish": "the shingle (also roof tile)",
+      "candidateJapanese": null,
+      "archivedJapanese": "シングル材",
+      "archivedEnglish": "the roof shingle material",
+      "reviewNote": "Source teja spans shingle and roof tile; シングル材 only names shingle material.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:card:3",
+      "legacySourceRef": "foundation-roofing:1:ja-en:cards:3",
+      "sourceSpanish": "el clavo",
+      "sourceEnglish": "the nail",
+      "candidateJapanese": "釘",
+      "archivedJapanese": "釘",
+      "archivedEnglish": "the nail",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:card:4",
+      "legacySourceRef": "foundation-roofing:1:ja-en:cards:4",
+      "sourceSpanish": "el martillo",
+      "sourceEnglish": "the hammer",
+      "candidateJapanese": "ハンマー",
+      "archivedJapanese": "ハンマー",
+      "archivedEnglish": "the hammer",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:card:5",
+      "legacySourceRef": "foundation-roofing:1:ja-en:cards:5",
+      "sourceSpanish": "la escalera",
+      "sourceEnglish": "the ladder",
+      "candidateJapanese": "はしご",
+      "archivedJapanese": "はしご",
+      "archivedEnglish": "the ladder",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:card:6",
+      "legacySourceRef": "foundation-roofing:1:ja-en:cards:6",
+      "sourceSpanish": "la carretilla",
+      "sourceEnglish": "the wheelbarrow",
+      "candidateJapanese": "手押し車",
+      "archivedJapanese": "手押し車",
+      "archivedEnglish": "the wheelbarrow",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:card:7",
+      "legacySourceRef": "foundation-roofing:1:ja-en:cards:7",
+      "sourceSpanish": "el arnés",
+      "sourceEnglish": "the harness",
+      "candidateJapanese": null,
+      "archivedJapanese": "フルハーネス",
+      "archivedEnglish": "the full-body harness",
+      "reviewNote": "Source arnés is generic; フルハーネス names a full-body harness.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:card:8",
+      "legacySourceRef": "foundation-roofing:1:ja-en:cards:8",
+      "sourceSpanish": "la cuerda",
+      "sourceEnglish": "the rope",
+      "candidateJapanese": "ロープ",
+      "archivedJapanese": "ロープ",
+      "archivedEnglish": "the rope",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:card:9",
+      "legacySourceRef": "foundation-roofing:1:ja-en:cards:9",
+      "sourceSpanish": "Buenos días.",
+      "sourceEnglish": "Good morning.",
+      "candidateJapanese": "おはようございます。",
+      "archivedJapanese": "おはようございます。",
+      "archivedEnglish": "Good morning.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:card:10",
+      "legacySourceRef": "foundation-roofing:1:ja-en:cards:10",
+      "sourceSpanish": "¿Cómo se dice…?",
+      "sourceEnglish": "How do you say…?",
+      "candidateJapanese": "日本語で何と言いますか。",
+      "archivedJapanese": "日本語で何と言いますか。",
+      "archivedEnglish": "How do you say it in Japanese?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:card:11",
+      "legacySourceRef": "foundation-roofing:1:ja-en:cards:11",
+      "sourceSpanish": "Más despacio, por favor.",
+      "sourceEnglish": "Slower, please.",
+      "candidateJapanese": "もう少しゆっくりお願いします。",
+      "archivedJapanese": "もう少しゆっくりお願いします。",
+      "archivedEnglish": "A little slower, please.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:card:12",
+      "legacySourceRef": "foundation-roofing:1:ja-en:cards:12",
+      "sourceSpanish": "Repita, por favor.",
+      "sourceEnglish": "Please repeat.",
+      "candidateJapanese": "もう一度お願いします。",
+      "archivedJapanese": "もう一度お願いします。",
+      "archivedEnglish": "One more time, please.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "foundation-roofing:1:ja-en:line:1",
+      "legacySourceRef": "foundation-roofing:1:ja-en:reader:1",
+      "sourceSpanish": "Buenos días, me llamo Luis y soy nuevo.",
+      "sourceEnglish": "Good morning, my name is Luis and I'm new.",
+      "candidateJapanese": "おはようございます。ルイスです。新人です。",
+      "archivedJapanese": "おはようございます。ルイスです。新人です。",
+      "archivedEnglish": "Good morning. I'm Luis. I'm new.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:line:2",
+      "legacySourceRef": "foundation-roofing:1:ja-en:reader:2",
+      "sourceSpanish": "Hoy subo al techo con la escalera.",
+      "sourceEnglish": "Today I go up to the roof with the ladder.",
+      "candidateJapanese": "今日は、はしごを使って屋根に上がります。",
+      "archivedJapanese": "今日は、はしごを使って屋根に上がります。",
+      "archivedEnglish": "Today I go up to the roof using the ladder.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:line:3",
+      "legacySourceRef": "foundation-roofing:1:ja-en:reader:3",
+      "sourceSpanish": "Necesito el arnés, la cuerda y el martillo.",
+      "sourceEnglish": "I need the harness, the rope and the hammer.",
+      "candidateJapanese": null,
+      "archivedJapanese": "フルハーネスとロープとハンマーが必要です。",
+      "archivedEnglish": "I need the full-body harness, the rope, and the hammer.",
+      "reviewNote": "Source arnés is generic; the archived Japanese specifies a full-body harness.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:line:4",
+      "legacySourceRef": "foundation-roofing:1:ja-en:reader:4",
+      "sourceSpanish": "La teja y el clavo están en la carretilla.",
+      "sourceEnglish": "The shingle and the nail are in the wheelbarrow.",
+      "candidateJapanese": null,
+      "archivedJapanese": "シングル材と釘は手押し車にあります。",
+      "archivedEnglish": "The shingle material and nails are in the wheelbarrow.",
+      "reviewNote": "Source teja can name shingle or roof tile; the archived Japanese selects shingle material.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:line:5",
+      "legacySourceRef": "foundation-roofing:1:ja-en:reader:5",
+      "sourceSpanish": "¿Cómo se dice ladder en español?",
+      "sourceEnglish": "How do you say ladder in Spanish?",
+      "candidateJapanese": "英語の「ladder」は日本語で何と言いますか。",
+      "archivedJapanese": "英語の「ladder」は日本語で何と言いますか。",
+      "archivedEnglish": "How do you say 'ladder' in Japanese?",
+      "reviewNote": "Adapts the source's in-Spanish question to Japanese-target instruction; preserve the source as provenance.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:line:6",
+      "legacySourceRef": "foundation-roofing:1:ja-en:reader:6",
+      "sourceSpanish": "Mi compañero habla muy rápido.",
+      "sourceEnglish": "My coworker talks very fast.",
+      "candidateJapanese": "同僚はとても速く話します。",
+      "archivedJapanese": "同僚の話す速さについていけません。",
+      "archivedEnglish": "I cannot keep up with how fast my coworker speaks.",
+      "reviewNote": "Corrects the archived cannot-keep-up sentence to the source coworker-speaks-fast meaning; needs fluent review.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:line:7",
+      "legacySourceRef": "foundation-roofing:1:ja-en:reader:7",
+      "sourceSpanish": "Más despacio, por favor.",
+      "sourceEnglish": "Slower, please.",
+      "candidateJapanese": "もう少しゆっくりお願いします。",
+      "archivedJapanese": "もう少しゆっくりお願いします。",
+      "archivedEnglish": "A little slower, please.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the greeting and the request to speak more slowly in the dialogue.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall the Japanese words for ladder, hammer, and rope.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish はしご from ハンマー when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type the polite request for someone to repeat.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Introduce yourself to a crew member and ask how to name a tool.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write two sentences: introduce yourself, then ask someone to speak more slowly.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

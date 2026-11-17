@@ -1,0 +1,285 @@
+{
+  "schema": 1,
+  "track": "construction-foreman",
+  "stage": "foundation",
+  "pairKey": "Japanese:English",
+  "lessonKey": "foundation:1",
+  "stableLessonId": "foundation-construction-foreman:1:ja-en",
+  "candidateRevision": "foundation-construction-foreman:1:ja-en:source-decision-v1",
+  "sourceCommit": "b6faff6b799e4c93aaefa83c9f22827a3c9352bb",
+  "source": {
+    "curriculumPath": "src/data/core60/es/foundation-construction-foreman.json",
+    "curriculumSha256": "d615822646bf94c386633b2bdc113ac1c7d0cdb310549181874d74aba5996df5",
+    "readerPath": "public/lesson-content/es/foundation-construction-foreman.json",
+    "readerSha256": "d8e2b50125606f19111889fe816a0733f9685e5933cbc2c86e17c4f08bcd8ded",
+    "japaneseDraftPath": "content/japanese-construction-foreman/foundation-draft.json",
+    "japaneseDraftSha256": "061c6bb30eae842e3c092c8dc69d279e0630fad2157db304499267ec263720ae",
+    "objectiveEnglish": "Say jobsite words clearly and greet your crew and coworkers in Spanish.",
+    "focusSpanish": "The five vowels, ch, j, ll, rr and the written accent in tool names; greetings",
+    "readerTitleSpanish": "Buenos días en la obra"
+  },
+  "archivedDraft": {
+    "title": "Meet the crew",
+    "scene": "A supervisor and carpenter meet at the morning check-in",
+    "termCount": 11,
+    "readerCount": 10,
+    "materialDrift": [
+      "Carlos/Luis changed to Sato/Tanaka",
+      "boss changed to site supervisor",
+      "hard-hat/wrench pronunciation scene replaced with a general introduction"
+    ]
+  },
+  "reviewed": false,
+  "cards": [
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:card:01",
+      "position": 1,
+      "sourceSpanish": "el casco",
+      "sourceEnglish": "the hard hat",
+      "kind": "term",
+      "japaneseDraft": "ヘルメット",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "Spanish vowels are short and pure: a as in 'father', o as in 'more'."
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:card:02",
+      "position": 2,
+      "sourceSpanish": "el chaleco",
+      "sourceEnglish": "the safety vest",
+      "kind": "term",
+      "japaneseDraft": "安全ベスト",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "ch sounds like English 'church'."
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:card:03",
+      "position": 3,
+      "sourceSpanish": "el jefe",
+      "sourceEnglish": "the boss",
+      "kind": "term",
+      "japaneseDraft": null,
+      "decisionOpen": true,
+      "sourceSpanishNoteInternal": "j is a strong breathy h: HEH-feh. For a woman: la jefa."
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:card:04",
+      "position": 4,
+      "sourceSpanish": "la llave",
+      "sourceEnglish": "the wrench",
+      "kind": "term",
+      "japaneseDraft": "レンチ",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "ll sounds like English y in Mexico: YAH-veh. Also means key or faucet."
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:card:05",
+      "position": 5,
+      "sourceSpanish": "la carretilla",
+      "sourceEnglish": "the wheelbarrow",
+      "kind": "term",
+      "japaneseDraft": "一輪車",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "rr is a rolled r; ll sounds like y: ca-rre-TI-ya."
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:card:06",
+      "position": 6,
+      "sourceSpanish": "el martillo",
+      "sourceEnglish": "the hammer",
+      "kind": "term",
+      "japaneseDraft": "金づち",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "Stress falls on -ti-: mar-TI-yo."
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:card:07",
+      "position": 7,
+      "sourceSpanish": "la escalera",
+      "sourceEnglish": "the ladder",
+      "kind": "term",
+      "japaneseDraft": "はしご",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "A single r between vowels is a quick tap, like the dd in 'ladder'."
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:card:08",
+      "position": 8,
+      "sourceSpanish": "el andamio",
+      "sourceEnglish": "the scaffold",
+      "kind": "term",
+      "japaneseDraft": "足場",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "Stress on -da-: an-DA-mio."
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:card:09",
+      "position": 9,
+      "sourceSpanish": "el camión",
+      "sourceEnglish": "the truck",
+      "kind": "term",
+      "japaneseDraft": "トラック",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "The written accent marks the stressed syllable: ca-MIÓN."
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:card:10",
+      "position": 10,
+      "sourceSpanish": "la obra",
+      "sourceEnglish": "the jobsite",
+      "kind": "term",
+      "japaneseDraft": "工事現場",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "b after a vowel is soft, with the lips barely touching: O-bra."
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:card:11",
+      "position": 11,
+      "sourceSpanish": "¡Buenos días a todos!",
+      "sourceEnglish": "Good morning, everyone!",
+      "kind": "phrase",
+      "japaneseDraft": "皆さん、おはようございます。",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:card:12",
+      "position": 12,
+      "sourceSpanish": "Me llamo Carlos.",
+      "sourceEnglish": "My name is Carlos.",
+      "kind": "phrase",
+      "japaneseDraft": "私はカルロスです。",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:card:13",
+      "position": 13,
+      "sourceSpanish": "Mucho gusto.",
+      "sourceEnglish": "Nice to meet you.",
+      "kind": "phrase",
+      "japaneseDraft": "はじめまして。",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:card:14",
+      "position": 14,
+      "sourceSpanish": "¿Cómo está usted?",
+      "sourceEnglish": "How are you?",
+      "kind": "phrase",
+      "japaneseDraft": "お元気ですか。",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "Formal. With a coworker you know well: ¿Cómo estás?"
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:card:15",
+      "position": 15,
+      "sourceSpanish": "¿Cómo se dice \"hard hat\" en español?",
+      "sourceEnglish": "How do you say \"hard hat\" in Spanish?",
+      "kind": "phrase",
+      "japaneseDraft": null,
+      "decisionOpen": true,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:card:16",
+      "position": 16,
+      "sourceSpanish": "Hasta mañana.",
+      "sourceEnglish": "See you tomorrow.",
+      "kind": "phrase",
+      "japaneseDraft": "また明日。",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    }
+  ],
+  "reader": [
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:reader:01",
+      "position": 1,
+      "sourceSpanish": "Carlos llega temprano a la obra con su casco y su chaleco.",
+      "sourceEnglish": "Carlos arrives early at the jobsite with his hard hat and his safety vest.",
+      "japaneseDraft": "カルロスはヘルメットと安全ベストを着けて、朝早く工事現場に来ます。",
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:reader:02",
+      "position": 2,
+      "sourceSpanish": "Carlos: ¡Buenos días a todos!",
+      "sourceEnglish": "Carlos: Good morning, everyone!",
+      "japaneseDraft": "カルロス：皆さん、おはようございます。",
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:reader:03",
+      "position": 3,
+      "sourceSpanish": "Luis, un trabajador nuevo, pone la escalera junto al andamio.",
+      "sourceEnglish": "Luis, a new worker, puts the ladder next to the scaffold.",
+      "japaneseDraft": "新しい作業員のルイスは、はしごを足場のそばに置きます。",
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:reader:04",
+      "position": 4,
+      "sourceSpanish": "Carlos le dice a Luis: Me llamo Carlos y soy el jefe.",
+      "sourceEnglish": "Carlos says to Luis: My name is Carlos and I am the boss.",
+      "japaneseDraft": null,
+      "decisionOpen": true
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:reader:05",
+      "position": 5,
+      "sourceSpanish": "Luis: Mucho gusto.",
+      "sourceEnglish": "Luis: Nice to meet you.",
+      "japaneseDraft": "ルイス：はじめまして。",
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:reader:06",
+      "position": 6,
+      "sourceSpanish": "Luis saca la carretilla y el martillo del camión.",
+      "sourceEnglish": "Luis takes the wheelbarrow and the hammer out of the truck.",
+      "japaneseDraft": "ルイスはトラックから一輪車と金づちを取り出します。",
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:reader:07",
+      "position": 7,
+      "sourceSpanish": "Carlos toma la llave y pregunta: ¿Cómo se dice wrench en español?",
+      "sourceEnglish": "Carlos picks up the wrench and asks: How do you say wrench in Spanish?",
+      "japaneseDraft": null,
+      "decisionOpen": true
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:reader:08",
+      "position": 8,
+      "sourceSpanish": "Luis: Se dice la llave.",
+      "sourceEnglish": "Luis: You say la llave.",
+      "japaneseDraft": null,
+      "decisionOpen": true
+    },
+    {
+      "id": "foundation-construction-foreman:1:ja-en:source-decision-v1:reader:09",
+      "position": 9,
+      "sourceSpanish": "Carlos repite despacio y claro: La llave.",
+      "sourceEnglish": "Carlos repeats slowly and clearly: La llave.",
+      "japaneseDraft": null,
+      "decisionOpen": true
+    }
+  ],
+  "decisionsNeeded": [
+    "Select Japanese construction role for English boss, distinct from site supervisor and crew foreman, then align card 3 and Reader 4.",
+    "Adapt the Spanish vowel/tool-name objective and metalinguistic question to a natural Japanese-target skill, then align card 15 and Reader 7–9.",
+    "Review Japanese tool terms, especially wrench and wheelbarrow, in this jobsite context.",
+    "Author six actual mode prompts and targets, forms, speaking, dictionary senses and saved-item mapping before any learner path."
+  ],
+  "gates": {
+    "ownerPage": false,
+    "learnerRegistered": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "progress": false,
+    "v4Imported": false
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "status": "Requested Haiku returned Sonnet 5.5 fallback; actual Opus 5.5 read-only critique and Fable 5.2 read-only correction, followed by independent source-grounded self-check; no qualified approval",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Safe-mode source candidate authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-sonnet-5-5",
+      "sessionId": "3db2ea97-f0d1-47fc-8bc6-c7ec0329e9ba",
+      "terminalReason": "completed",
+      "isError": false,
+      "inputTokens": 2,
+      "cacheCreationInputTokens": 6747,
+      "cacheReadInputTokens": 1670,
+      "outputTokens": 5912,
+      "costUSD": 0.086279
+    },
+    {
+      "role": "Safe-mode read-only critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "1b33c09e-ae0d-43a5-96fd-dd108b086a76",
+      "terminalReason": "completed",
+      "isError": false,
+      "inputTokens": 2,
+      "cacheCreationInputTokens": 11431,
+      "cacheReadInputTokens": 1670,
+      "outputTokens": 9062,
+      "costUSD": 0.27303
+    },
+    {
+      "role": "Safe-mode read-only correction",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "7c7bfb5a-4c39-4cdc-acbd-95cf451cfc02",
+      "terminalReason": "completed",
+      "isError": false,
+      "inputTokens": 2,
+      "cacheCreationInputTokens": 16244,
+      "cacheReadInputTokens": 1670,
+      "outputTokens": 10601,
+      "costUSD": 0.684294
+    }
+  ],
+  "selfCheck": [
+    "Compared all 23 exact-English cards and 18 Reader turns in source order against pinned Spanish/English source; source notes and stable lesson identity preserved.",
+    "Kept Triana/Seville, Ingrid and owner Rocío, half/whole and bread distinctions, reported house-bread correction, pork ingredient explanations, light toasting and final order.",
+    "Accepted critique fixes for pitufo/zurrapa transliteration, correction rather than teaching, owner register and pork-spread phrasing; rejected invented shape, added preparation method, exaggerated vowel length and other source additions.",
+    "The requested Haiku authoring call actually used Sonnet 5.5 according to CLI modelUsage; it is labeled as fallback, not Haiku 5.5 output.",
+    "Archived positions and text overlap authorize neither saved-item nor audio reuse; all review, learner, scoring, audio/listening, offline, progress, owner-route, V4 and release gates remain false."
+  ]
+}

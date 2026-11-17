@@ -1,0 +1,582 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:22",
+  "stableLessonId": "travel-breakfast:22:ja-en",
+  "candidateRevision": "travel-breakfast:22:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Follow café etiquette",
+    "objectiveEnglishInternal": "learn local habits about milky coffee, sugar, lingering, and paying first",
+    "roleplayEnglishInternal": "Ask a barista which café habits mark someone as a tourist and how long it is fine to stay at a table.",
+    "readerTitleSpanish": "Costumbres en el café",
+    "readerVerbExamples": [
+      {
+        "target": "En este café, primero paga en la caja.",
+        "native": "In this café, you pay first at the register."
+      },
+      {
+        "target": "Primero pago y después pido en la barra.",
+        "native": "First I pay and then I order at the counter."
+      },
+      {
+        "target": "En la mañana prefiero un cortado.",
+        "native": "In the morning I prefer a cortado."
+      },
+      {
+        "target": "Si hay mesas libres, me quedo un rato.",
+        "native": "If there are free tables, I stay for a while."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "A traveler asks staff about this café’s payment and seating rules before ordering.",
+    "cardCount": 14,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "café con leche",
+      "sourceEnglish": "coffee with milk",
+      "kind": "term",
+      "sourceNoteInternal": "Usually about half coffee, half hot milk; ask how it is made where you are.",
+      "targetJapaneseDraft": "ミルク入りのコーヒー",
+      "literalJapaneseGlossEn": "coffee with milk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "cortado",
+      "sourceEnglish": "espresso with a little milk",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "コルタード（ミルクを少し加えたエスプレッソ）",
+      "literalJapaneseGlossEn": "espresso with a little milk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "azúcar",
+      "sourceEnglish": "sugar",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "砂糖",
+      "literalJapaneseGlossEn": "sugar",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "barra",
+      "sourceEnglish": "counter",
+      "kind": "term",
+      "sourceNoteInternal": "In cafés, the bar or counter where you order and sometimes drink standing.",
+      "targetJapaneseDraft": "カウンター",
+      "literalJapaneseGlossEn": "counter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "mesa",
+      "sourceEnglish": "table",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "テーブル",
+      "literalJapaneseGlossEn": "table",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "caja",
+      "sourceEnglish": "register",
+      "kind": "term",
+      "sourceNoteInternal": "Where you pay; also used for the cashier's station.",
+      "targetJapaneseDraft": "レジ",
+      "literalJapaneseGlossEn": "register",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "cuenta",
+      "sourceEnglish": "bill",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "お会計の伝票",
+      "literalJapaneseGlossEn": "bill",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "propina",
+      "sourceEnglish": "tip",
+      "kind": "term",
+      "sourceNoteInternal": "Tipping customs vary by country and by café, so it is fine to ask.",
+      "targetJapaneseDraft": "チップ",
+      "literalJapaneseGlossEn": "tip",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "costumbre",
+      "sourceEnglish": "habit",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "習慣",
+      "literalJapaneseGlossEn": "habit",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "turista",
+      "sourceEnglish": "tourist",
+      "kind": "term",
+      "sourceNoteInternal": "Same form for a man or a woman: el turista, la turista.",
+      "targetJapaneseDraft": "観光客",
+      "literalJapaneseGlossEn": "tourist",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "¿Aquí se paga primero en la caja?",
+      "sourceEnglish": "Do you pay first at the register here?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "この店では、先にレジで支払いますか。",
+      "literalJapaneseGlossEn": "Do you pay first at the register here?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "¿El café ya viene con azúcar?",
+      "sourceEnglish": "Does the coffee already come with sugar?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "コーヒーには、最初から砂糖が入っていますか。",
+      "literalJapaneseGlossEn": "Does the coffee already come with sugar?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "¿Está bien quedarme un rato en la mesa?",
+      "sourceEnglish": "Is it okay to stay at the table for a while?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "テーブルにしばらくいてもいいですか。",
+      "literalJapaneseGlossEn": "Is it okay to stay at the table for a while?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Qué costumbres son típicas de los turistas aquí?",
+      "sourceEnglish": "What habits are typical of tourists here?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ここでは、観光客にはどんな習慣がよく見られますか。",
+      "literalJapaneseGlossEn": "What habits are typical of tourists here?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "¿Puedo pedir otro cortado después?",
+      "sourceEnglish": "Can I order another cortado later?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Asking ¿Puedo...? is a polite way to check what is allowed.",
+      "targetJapaneseDraft": "後でコルタードをもう一杯注文してもいいですか。",
+      "literalJapaneseGlossEn": "Can I order another cortado later?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Una viajera entra a un café pequeño y le pregunta al barista: ¿Aquí se paga primero en la caja?",
+      "sourceEnglish": "A traveler walks into a small café and asks the barista: Do you pay first at the register here?",
+      "targetJapaneseDraft": "旅行者の女性が小さなカフェに入り、バリスタに尋ねます。「この店では、先にレジで支払いますか。」",
+      "literalJapaneseGlossEn": "A traveler walks into a small café and asks the barista: Do you pay first at the register here?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "El barista sonríe y explica: En este café sí, primero paga en la caja y después pide en la barra.",
+      "sourceEnglish": "The barista smiles and explains: In this café, yes, you pay first at the register and then order at the counter.",
+      "targetJapaneseDraft": "バリスタはほほえんで説明します。「このカフェではそうです。まずレジで支払って、それからカウンターで注文します。」",
+      "literalJapaneseGlossEn": "The barista smiles and explains: In this café, yes, you pay first at the register and then order at the counter.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ella pide un cortado porque en la mañana prefiere menos leche que en un café con leche.",
+      "sourceEnglish": "She orders a cortado because in the morning she prefers less milk than in a café con leche.",
+      "targetJapaneseDraft": "彼女はコルタードを注文します。朝はカフェ・コン・レチェよりミルクが少ないほうが好きだからです。",
+      "literalJapaneseGlossEn": "She orders a cortado because in the morning she prefers less milk than in a café con leche.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Luego pregunta: ¿El café ya viene con azúcar?",
+      "sourceEnglish": "Then she asks: Does the coffee already come with sugar?",
+      "targetJapaneseDraft": "それから彼女は尋ねます。「コーヒーには、最初から砂糖が入っていますか。」",
+      "literalJapaneseGlossEn": "Then she asks: Does the coffee already come with sugar?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Él responde: No, el azúcar está en la barra, así que usted le pone la cantidad que quiera.",
+      "sourceEnglish": "He answers: No, the sugar is on the counter, so you add as much as you want.",
+      "targetJapaneseDraft": "彼は答えます。「いいえ。砂糖はカウンターにありますから、お好きな量を入れてください。」",
+      "literalJapaneseGlossEn": "He answers: No, the sugar is on the counter, so you add as much as you want.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "La viajera también quiere saber: ¿Qué costumbres son típicas de los turistas aquí?",
+      "sourceEnglish": "The traveler also wants to know: What habits are typical of tourists here?",
+      "targetJapaneseDraft": "旅行者はもう一つ尋ねます。「ここでは、観光客にはどんな習慣がよく見られますか。」",
+      "literalJapaneseGlossEn": "The traveler also wants to know: What habits are typical of tourists here?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "El barista dice: Muchos turistas esperan la cuenta en la mesa, pero aquí no hay cuenta al final, y si hay mesas libres, nadie les pide que se vayan.",
+      "sourceEnglish": "The barista says: Many tourists wait for the bill at the table, but here there is no bill at the end, and if there are free tables, nobody asks them to leave.",
+      "targetJapaneseDraft": "バリスタは言います。「観光客の方はテーブルで伝票を待つことが多いですが、ここでは最後に伝票は出ません。空いているテーブルがあれば、帰るように言われることもありません。」",
+      "literalJapaneseGlossEn": "The barista says: Many tourists wait for the bill at the table, but here there is no bill at the end, and if there are free tables, nobody asks them to leave.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Antes de sentarse, ella pregunta: ¿Está bien quedarme un rato en la mesa? ¿Puedo pedir otro cortado después?",
+      "sourceEnglish": "Before sitting down, she asks: Is it okay to stay at the table for a while? Can I order another cortado later?",
+      "targetJapaneseDraft": "席に着く前に彼女は尋ねます。「テーブルにしばらくいてもいいですか。後でコルタードをもう一杯注文してもいいですか。」",
+      "literalJapaneseGlossEn": "Before sitting down, she asks: Is it okay to stay at the table for a while? Can I order another cortado later?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:22:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "El barista contesta: Claro, quédese tranquila; si quiere otro cortado, lo paga en la caja, y la propina es opcional.",
+      "sourceEnglish": "The barista answers: Of course, take your time; if you want another cortado, you pay for it at the register, and the tip is optional.",
+      "targetJapaneseDraft": "バリスタは答えます。「もちろん、ごゆっくりどうぞ。コルタードをもう一杯注文したい場合は、レジでお支払いください。チップは任意です。」",
+      "literalJapaneseGlossEn": "The barista answers: Of course, take your time; if you want another cortado, you pay for it at the register, and the tip is optional.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Ask how payment and ordering work at this café, distinguish a cortado from café con leche, and ask about sugar, seating, repeat orders and optional tipping.",
+  "speakingGoalInternal": "Ask a barista which café habits mark someone as a tourist and how long it is fine to stay at a table.",
+  "speakingGoalJapaneseDraft": "カフェでバリスタに、先にレジで支払うのか、砂糖は入っているのか、テーブルにしばらくいてもよいのかを尋ねてください。後でコルタードを追加注文する手順とチップについても確認してください。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "The current source is a nine-turn small-café scene: a female traveler asks a male barista whether to pay at the register before ordering at the counter, orders a cortado rather than café con leche, asks about sugar and tourist habits, then confirms she may stay at a free table, order again by paying at the register, and leave an optional tip. The archived generic payment scene has 14 cards and omits cortado, tourist-habit and optional-tip details. Japanese coffee names, café conventions, bill/register senses and dictionary entries need qualified review.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "at this café",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "register",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "counter",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "table seat",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "pay first",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "pay later",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "sugar",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "milk",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "coffee",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "additional order",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "for a while",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "shop policy",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "Do I pay first?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "May I sit for a while?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Excuse me. Do I pay first at this café?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Yes. Please pay at the register first.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Do I order at the counter?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Yes. I will take your order.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "One coffee with milk, please.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Is sugar already added?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "No. The sugar is over there.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "May I sit at a table for a while?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Yes. We have space today. Please come to the register for another order.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 2,
+      "candidatePosition": 6,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 3,
+      "candidatePosition": 4,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 7,
+      "candidatePosition": 3,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 24,
+    "twoVoiceClipDecisionsIfTextApproved": 48,
+    "twoVoiceSubmittedCharactersIfTextApproved": 1282,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.03846,
+    "archivedExactJapaneseCardTextOverlapsOnly": 3,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    {
+      "ref": "card.1-2 / reader.3",
+      "note": "Spanish café con leche and cortado are distinct named coffee drinks. Candidate uses a descriptive Japanese card for cortado and the loanword in Reader; qualified Japanese/café/locale review must choose whether to retain or gloss both terms consistently."
+    },
+    {
+      "ref": "card.6-7 / reader.1-2,7,9",
+      "note": "Source café requires payment at the register before ordering at the counter, with no bill at the end. レジ is register, while 伝票 is a check/bill; お会計の伝票 in the card needs contextual dictionary review. Archived payment-policy dialogue omits several current source details."
+    },
+    {
+      "ref": "card.11 / reader.1-2",
+      "note": "The source asks whether one pays first at the register, then explicitly says pay first and order at the counter. Candidate preserves that unusual sequence without changing the café procedure."
+    },
+    {
+      "ref": "card.12 / reader.4-5",
+      "note": "The source asks if sugar is already in the coffee; barista says sugar is on the counter and traveler may add the amount desired. Japanese keeps self-addition and quantity choice."
+    },
+    {
+      "ref": "card.13 / reader.7-9",
+      "note": "Lingering at a table is allowed when free tables exist. There is no end-of-visit bill; a later cortado is paid at the register and tipping is optional. Japanese phrasing needs qualified café/register review."
+    },
+    {
+      "ref": "card.14 / reader.6-7",
+      "note": "The source asks about habits typical of tourists here, then gives waiting for a bill at a table as an example. Japanese 観光客にはどんな習慣がよく見られますか may sound broad; qualified reviewer should assess naturalness and pragmatic force."
+    },
+    {
+      "ref": "reader.1,3",
+      "note": "The source has a female traveler and male barista; Japanese first sentence says 旅行者の女性 and later uses 彼女/彼. Qualified reviewer should assess whether this gender marking is natural and source-faithful."
+    },
+    {
+      "ref": "source Spanish notes",
+      "note": "Spanish café con leche ratio, turista gender note and ¿Puedo...? grammar note are internal source notes. Do not present them as Japanese grammar rules. The coffee ratio and country-specific café customs require review rather than universal claims."
+    },
+    {
+      "ref": "archive/progress/audio",
+      "note": "Archived draft has 14 cards and nine dialogue turns. Current source has 15 cards and nine Reader turns with cortado, tourist-habit exchange, no final bill and optional tip. Old rows have no explicit IDs; overlaps are text-only and do not authorize saved-item or audio migration."
+    }
+  ],
+  "missing": [
+    "qualified Japanese/source/café/locale/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

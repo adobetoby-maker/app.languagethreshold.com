@@ -1,0 +1,28 @@
+{
+  "status": "Source-grounded self-authored candidate; CLI Haiku request reached account weekly usage limit before inference; no Opus or Fable critique occurred; qualified Japanese/source/café/locale/dictionary review remains open",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Attempted source-grounded Japanese café term clarification",
+      "requestedModel": "haiku",
+      "actualModelReported": null,
+      "sessionId": "d018fff1-cc83-4bff-830f-964a0b5d3fd2",
+      "mode": "Claude CLI --safe-mode --model haiku --output-format json",
+      "terminalReason": "usage_limit_reached; reset reported Nov 21 at noon America/Denver",
+      "apiErrorStatus": 429,
+      "isError": true,
+      "inputTokens": 0,
+      "outputTokens": 0
+    }
+  ],
+  "opusCritiquePerformed": false,
+  "fableCorrectionPerformed": false,
+  "selfCheck": [
+    "Compared all 15 cards and nine Reader turns in source order against pinned Spanish/English source and preserved exact English anchors.",
+    "Restored named cortado versus café con leche, pay-first register then counter ordering, self-added sugar, tourist bill expectation, free-table lingering, repeat payment and optional tip.",
+    "Did not import archived generic payment dialogue omissions or treat café etiquette as universal locale advice.",
+    "Kept Spanish-only coffee-ratio and grammar notes internal, and flagged Japanese coffee-name, bill/register, gender, locale and pragmatics choices for qualified review.",
+    "All 24 candidate row IDs are revision-scoped; three text-only overlaps authorize neither saved-item migration nor audio reuse.",
+    "Independent validator checks hashes, exact source rows, stable lesson identity, false gates and read-only audio scope."
+  ]
+}

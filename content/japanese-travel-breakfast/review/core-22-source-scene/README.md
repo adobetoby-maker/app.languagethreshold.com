@@ -1,0 +1,11 @@
+# Japanese Breakfast Core 22 source review
+
+This inert Japanese→English packet pins current Spanish Breakfast Core 22: 15 source-order cards and nine aligned Reader turns. It preserves lesson ID `travel-breakfast:22:ja-en` and assigns 24 revision-scoped candidate row IDs. Run `python3 build.py --check` and `python3 validate.py` here to check source hashes, exact English/Spanish rows, identity, read-only audio scope and false gates.
+
+The current scene is a traveler asking a barista how this small café works. She pays at the register **before** ordering at the counter, chooses a cortado because it has less milk than café con leche, asks about self-added sugar and tourist habits, then checks whether she may stay while tables are free. A later cortado is paid for at the register; tipping is optional. The archived generic payment dialogue has 14 cards and omits the named coffee contrast, tourist-bill exchange and optional tip.
+
+The Japanese is an **unapproved candidate**. `コルタード` retains the named Spanish drink, with a descriptive card gloss; `カフェ・コン・レチェ` remains a named comparison in Reader. `伝票` is a contextual bill/check candidate, and the Japanese tourist-habit question and gender marking need qualified Japanese, café, locale, source and dictionary review. Spanish-only coffee-ratio and grammar notes remain internal.
+
+The archived rows lack explicit IDs and were not learner-registered. Their positions are retired only for this candidate; three exact Japanese card-string overlaps do not authorize saved-item or audio migration. There are no authored six-mode prompt/answer pairs, Japanese forms, contextual dictionary senses, speaking runtime, offline pack, learner registration or V4 import. Review, scoring, audio/listening, progress, owner-route and release gates are all false.
+
+Read-only audio scope: 24 draft Japanese face placements, 48 potential two-voice clip and listening decisions, 1,282 submitted Japanese characters and about $0.03846 gross at the earlier $30 per million-character rate. No recording was synthesized, approved or registered. The safe-mode Haiku CLI request hit the account's weekly limit before any input or output tokens; no Opus or Fable critique was performed. The packet was authored and self-checked against the pinned source. AI and structural checks are not qualified approval.

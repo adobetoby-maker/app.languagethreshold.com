@@ -1,0 +1,52 @@
+{
+  "status": "Haiku 5.5 source-grounded candidate, Opus 5.5 read-only critique, Fable 5.2 read-only correction, followed by independent source-grounded self-check; no qualified approval",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Safe-mode Haiku source authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "e85ca812-00b9-45c2-8f14-a9f835e50711",
+      "terminalReason": "completed",
+      "isError": false,
+      "inputTokens": 2,
+      "cacheCreationInputTokens": 7406,
+      "cacheReadInputTokens": 13343,
+      "outputTokens": 6386,
+      "costUSD": 0.004807830000000001
+    },
+    {
+      "role": "Safe-mode Opus read-only critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "1e240057-58f0-432a-9d77-e831a9c4d5ff",
+      "terminalReason": "completed",
+      "isError": false,
+      "inputTokens": 2,
+      "cacheCreationInputTokens": 11489,
+      "cacheReadInputTokens": 12500,
+      "outputTokens": 5580,
+      "costUSD": 0.20601999999999998
+    },
+    {
+      "role": "Safe-mode Fable read-only correction",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "598af61b-fe4d-449f-af30-a49817294051",
+      "terminalReason": "completed",
+      "isError": false,
+      "inputTokens": 2,
+      "cacheCreationInputTokens": 12626,
+      "cacheReadInputTokens": 13974,
+      "outputTokens": 4071,
+      "costUSD": 0.36766679999999996
+    }
+  ],
+  "selfCheck": [
+    "Compared all 17 cards and nine Reader turns in source order against pinned Spanish/English source; exact English anchors and source notes preserved.",
+    "Restored two children, high chair, male table claimant, waiter resolution, daughter nut allergy and unanswered sweet-bread question, chef-reported no-nut claim only for the kids menu, local woman/downtown market chat, three-versus-two coffee correction, tip left on table, and farewell.",
+    "Corrected Haiku grammar typo, absent antecedent for the no-nut claim, table-case error, missing for-everything farewell, nonstandard sweet-bread term, counter assumption, male waiter/customer and female cashier details; rejected invented allergy-safe or cross-contact claim.",
+    "Source itself recommends the kids menu based on a reported no-nut claim, without cross-contact information; qualified allergy, food, source and Japanese review remains open before learner use.",
+    "Archived positions and any text overlap authorize neither saved-item migration nor audio reuse; all review, learner, scoring, audio/listening, offline, progress, owner-route, V4 and release gates false."
+  ]
+}

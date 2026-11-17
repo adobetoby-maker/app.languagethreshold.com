@@ -1,0 +1,31 @@
+{
+  "status": "Claude CLI unavailable; independent source-grounded draft and self-check only; no AI or qualified approval",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Attempted safe-mode Haiku source authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": null,
+      "sessionId": "45bd28b8-e657-4a5d-99b0-8e55c258bf14",
+      "terminalReason": "api_error",
+      "isError": true,
+      "result": "Not logged in · Please run /login",
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costUSD": 0
+    }
+  ],
+  "authStatus": {
+    "loggedIn": false,
+    "authMethod": "none",
+    "checkedWith": "claude auth status"
+  },
+  "selfCheck": [
+    "Compared all 23 exact English/Spanish source cards and 18 Reader turns in order, including the Miraflores/Lima setting, Elif/Renzo roles and March 3 versus September chart timeline.",
+    "Kept sliced-bread sesame seeds separate from the pan francés label's may-contain-traces statement, and did not assert that the offered eggs are safe.",
+    "Kept the chef's separate utensils and egg/salt/butter ingredients, epinephrine auto-injector, doctor-directed use and ambulance without inventing an emergency number or treatment steps.",
+    "Used provisional パン・フランセス for the Peruvian roll; Japanese, food/label, allergen, clinical and dictionary decisions remain with qualified reviewers.",
+    "The archived 17-card/11-Reader draft positions have no explicit row IDs; two identical Japanese card texts authorize neither saved-item migration nor audio reuse.",
+    "All review, learner, scoring, audio/listening, offline, progress, owner-route, V4 and release gates remain false."
+  ]
+}

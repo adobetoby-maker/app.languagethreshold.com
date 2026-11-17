@@ -1,0 +1,43 @@
+{
+  "status": "AI-assisted source-only candidate; qualified Japanese, source, food/locale and dictionary review remains open",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Exact source-card and Reader candidate authoring",
+      "requestedModel": "claude-haiku-5-5",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "3a19e598-8612-4139-917d-66a99d0e7c11",
+      "mode": "Claude CLI --safe-mode --model claude-haiku-5-5 --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false,
+      "note": "Proposed 18 source-order cards and nine Reader Japanese faces; no file edits by the model."
+    },
+    {
+      "role": "Read-only source and Japanese critique",
+      "requestedModel": "claude-opus-5-5",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "7b63c95a-f43b-43e3-a30a-cd49c84ac9ee",
+      "mode": "Claude CLI --safe-mode --model claude-opus-5-5 --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false,
+      "note": "Flagged bill-document versus payment-act sense, ungrammatical fastest-item request, narration subject, food/register and source-note omissions."
+    },
+    {
+      "role": "Source-grounded correction proposal",
+      "requestedModel": "claude-fable-5-2",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "95e6227a-8944-435b-bf75-3b37a8d90d8c",
+      "mode": "Claude CLI --safe-mode --model claude-fable-5-2 --effort low --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false,
+      "note": "Proposed corrected Japanese cards, literal glosses and Reader; the final packet was separately self-checked and Reader 6 clarified."
+    }
+  ],
+  "selfCheck": [
+    "Compared all 18 cards and nine Reader turns to the pinned current Spanish and English source, in order, without treating the separate Japanese gloss as an exact English-source copy.",
+    "Restored the source 8:00 entry, tour in 12 minutes, egg sandwich and americano, five-minute kitchen estimate, takeout, bill request and counter payment; removed archived rice ball and named Sam.",
+    "Corrected 伝票 as the requested bill document and 支払う as the payment act across card and Reader; kept the female waitress and preserved source note fields with Japanese usage-note candidates.",
+    "Archived positions have no matching revision-scoped IDs; exact text overlap authorizes neither saved-item nor audio migration.",
+    "Validated source SHA-256 pins, stable/revision IDs, closed gates and read-only audio estimate independently. Qualified review, six-mode/runtime/audio/V4 work remain open."
+  ]
+}

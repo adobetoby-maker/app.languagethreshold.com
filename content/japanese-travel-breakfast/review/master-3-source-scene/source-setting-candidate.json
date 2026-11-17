@@ -1,0 +1,795 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "master",
+  "lessonKey": "master:3",
+  "stableLessonId": "master-travel-breakfast:3:ja-en",
+  "candidateRevision": "master-travel-breakfast:3:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "curriculumVersion": 1,
+    "readerVersion": 1,
+    "curriculumReviewed": false,
+    "readerReviewed": false,
+    "titleEnglishInternal": "Coach Your Niece to Order Café de Olla Alone",
+    "objectiveEnglishInternal": "Coach a teenager to order café de olla and a pan dulce on her own, with clear tips about the hot clay cup.",
+    "speakingEnglishInternal": "You are the aunt or uncle, and the AI is your 15-year-old niece Sofi: coach her to order café de olla and a pan dulce on her own, using commands with pronouns like pídelo, agárralo por el asa and no lo toques todavía.",
+    "grammarEnglishExamplesInternal": [
+      "If it's very hot, leave it on the table for a little while.",
+      "Pick a pan de yema and ask doña Eustolia for it."
+    ],
+    "readerTitleSpanish": "Sofi pide sola en la fonda",
+    "readerVerbExamples": [
+      {
+        "target": "Pídelo sin piloncillo si no lo quieres tan dulce.",
+        "native": "Order it without piloncillo if you don't want it so sweet."
+      },
+      {
+        "target": "Agárralo por el asa, nunca por el borde.",
+        "native": "Hold it by the handle, never by the rim."
+      },
+      {
+        "target": "No lo toques todavía.",
+        "native": "Don't touch it yet."
+      },
+      {
+        "target": "Pruébalo despacito, porque el barro guarda el calor.",
+        "native": "Taste it slowly, because the clay holds the heat."
+      },
+      {
+        "target": "Págale con el billete de 50.",
+        "native": "Pay her with the 50-peso bill."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/master-1-3-draft.json",
+    "sha256": "84b7673fc72175428d48dbf211b41be75b7dac31320c7c82e708ab1c9803d224",
+    "scene": "An adult coaches a teenager to order a hot cocoa and bread at a café counter.",
+    "cardCount": 18,
+    "readerCount": 10
+  },
+  "sourceCards": [
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "el jarro de barro",
+      "sourceEnglish": "the clay mug",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "陶器のマグ（ハロ・デ・バロ）",
+      "literalJapaneseGlossEn": "the clay mug",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "el asa",
+      "sourceEnglish": "the handle",
+      "kind": "term",
+      "sourceNoteInternal": "Feminine noun that takes el: el asa, las asas.",
+      "targetJapaneseDraft": "取っ手",
+      "literalJapaneseGlossEn": "the handle",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "el borde",
+      "sourceEnglish": "the rim",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "縁（ふち）",
+      "literalJapaneseGlossEn": "the rim",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "el vapor",
+      "sourceEnglish": "the steam",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "湯気",
+      "literalJapaneseGlossEn": "the steam",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "el piloncillo",
+      "sourceEnglish": "the piloncillo (raw cane sugar cone)",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ピロンシージョ（円すい形の黒砂糖）",
+      "literalJapaneseGlossEn": "the piloncillo (raw cane sugar cone)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "la canela",
+      "sourceEnglish": "the cinnamon",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "シナモン",
+      "literalJapaneseGlossEn": "the cinnamon",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "el pan de yema",
+      "sourceEnglish": "the egg-yolk bread",
+      "kind": "term",
+      "sourceNoteInternal": "A classic Oaxacan sweet bread.",
+      "targetJapaneseDraft": "パン・デ・ジェマ（卵黄のパン）",
+      "literalJapaneseGlossEn": "the egg-yolk bread",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "el chocolate de agua",
+      "sourceEnglish": "the hot chocolate made with water",
+      "kind": "term",
+      "sourceNoteInternal": "Oaxacan style; also served de leche, with milk.",
+      "targetJapaneseDraft": "水で作るホットチョコレート（チョコラテ・デ・アグア）",
+      "literalJapaneseGlossEn": "the hot chocolate made with water",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "la fonda",
+      "sourceEnglish": "the small eatery",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "フォンダ（小さな食堂）",
+      "literalJapaneseGlossEn": "the small eatery",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "el puesto",
+      "sourceEnglish": "the stall",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "市場の売り場",
+      "literalJapaneseGlossEn": "the stall",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "la banca",
+      "sourceEnglish": "the bench",
+      "kind": "term",
+      "sourceNoteInternal": "Mexico says la banca for a bench.",
+      "targetJapaneseDraft": "ベンチ",
+      "literalJapaneseGlossEn": "the bench",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "el billete de 50",
+      "sourceEnglish": "the 50-peso bill",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "50ペソ札",
+      "literalJapaneseGlossEn": "the 50-peso bill",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "las monedas",
+      "sourceEnglish": "the coins",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "小銭",
+      "literalJapaneseGlossEn": "the coins",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "tibio",
+      "sourceEnglish": "lukewarm",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ぬるい",
+      "literalJapaneseGlossEn": "lukewarm",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "despacito",
+      "sourceEnglish": "slowly, little by little",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ゆっくり、少しずつ",
+      "literalJapaneseGlossEn": "slowly, little by little",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "Pídelo sin piloncillo si no lo quieres tan dulce.",
+      "sourceEnglish": "Order it without piloncillo if you don't want it so sweet.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal, to your niece.",
+      "targetJapaneseDraft": "あまり甘くないのがよければ、ピロンシージョなしで頼んでね。",
+      "literalJapaneseGlossEn": "Order it without piloncillo if you don't want it so sweet.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Agárralo por el asa, nunca por el borde.",
+      "sourceEnglish": "Hold it by the handle, never by the rim.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal.",
+      "targetJapaneseDraft": "取っ手を持って。マグのふちは絶対に持たないでね。",
+      "literalJapaneseGlossEn": "Hold it by the handle, never by the rim.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "No lo toques todavía; espera a que deje de echar vapor.",
+      "sourceEnglish": "Don't touch it yet; wait until it stops steaming.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal.",
+      "targetJapaneseDraft": "まだ触らないで。湯気が出なくなるまで待ってね。",
+      "literalJapaneseGlossEn": "Don't touch it yet; wait until it stops steaming.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:19",
+      "candidatePosition": 19,
+      "sourceSpanish": "Pruébalo despacito, porque el barro guarda el calor.",
+      "sourceEnglish": "Taste it slowly, because the clay holds the heat.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal.",
+      "targetJapaneseDraft": "ゆっくり少しずつ味わってね。陶器の器は熱を保つから。",
+      "literalJapaneseGlossEn": "Taste it slowly, because the clay holds the heat.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:20",
+      "candidatePosition": 20,
+      "sourceSpanish": "Salúdala primero y háblale de usted.",
+      "sourceEnglish": "Greet her first and speak to her formally.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Use usted with older vendors as a sign of respect.",
+      "targetJapaneseDraft": "まずあいさつして、それから丁寧な言葉で話しかけてね。",
+      "literalJapaneseGlossEn": "Greet her first and speak to her formally.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:21",
+      "candidatePosition": 21,
+      "sourceSpanish": "Pregúntale cuánto es y págale con el billete de 50.",
+      "sourceEnglish": "Ask her how much it is and pay her with the 50-peso bill.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "いくらか聞いて、50ペソ札で払ってね。",
+      "literalJapaneseGlossEn": "Ask her how much it is and pay her with the 50-peso bill.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:22",
+      "candidatePosition": 22,
+      "sourceSpanish": "Buenos días, doña Eustolia, ¿me da un café de olla?",
+      "sourceEnglish": "Good morning, doña Eustolia, may I have a café de olla?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal; doña goes before a first name.",
+      "targetJapaneseDraft": "おはようございます、ドニャ・エウストリア。カフェ・デ・オジャを一杯いただけますか。",
+      "literalJapaneseGlossEn": "Good morning, doña Eustolia, may I have a café de olla?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:card:23",
+      "candidatePosition": 23,
+      "sourceSpanish": "Tú puedes, yo te espero aquí en la banca.",
+      "sourceEnglish": "You've got this, I'll wait for you here on the bench.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal.",
+      "targetJapaneseDraft": "ソフィならできるよ。私はここのベンチで待ってるね。",
+      "literalJapaneseGlossEn": "You've got this, I'll wait for you here on the bench.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "La tía Carmen y su sobrina Sofi, de 15 años, llegan temprano a una fonda del mercado de Oaxaca.",
+      "sourceEnglish": "Aunt Carmen and her niece Sofi, 15 years old, arrive early at a small eatery in the Oaxaca market.",
+      "targetJapaneseDraft": "カルメンおばさんと姪のソフィ（15歳）は、朝早くオアハカの市場にある小さな食堂（フォンダ）に着きます。",
+      "literalJapaneseGlossEn": "Aunt Carmen and her niece Sofi, 15 years old, arrive early at a small eatery in the Oaxaca market.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "El puesto de doña Eustolia está al fondo, y ella sirve el café de olla bien caliente en un jarro de barro.",
+      "sourceEnglish": "Doña Eustolia's stall is at the back, and she serves the café de olla very hot in a clay mug.",
+      "targetJapaneseDraft": "ドニャ・エウストリアの売り場は市場の奥にあり、彼女はカフェ・デ・オジャを陶器のマグに入れ、とても熱い状態で出します。",
+      "literalJapaneseGlossEn": "Doña Eustolia's stall is at the back, and she serves the café de olla very hot in a clay mug.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Carmen quiere que Sofi pida sola por primera vez, así que la prepara en la banca de la fonda.",
+      "sourceEnglish": "Carmen wants Sofi to order alone for the first time, so she coaches her on the eatery's bench.",
+      "targetJapaneseDraft": "カルメンはソフィに初めて一人で注文してほしいので、食堂のベンチでやり方を教えます。",
+      "literalJapaneseGlossEn": "Carmen wants Sofi to order alone for the first time, so she coaches her on the eatery's bench.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Carmen",
+      "sourceSpanish": "Carmen: Salúdala primero y háblale de usted.",
+      "sourceEnglish": "Carmen: Greet her first and speak to her formally.",
+      "targetJapaneseDraft": "カルメン：まずあいさつして、それから丁寧な言葉で話しかけてね。",
+      "literalJapaneseGlossEn": "Carmen: Greet her first and speak to her formally.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Carmen",
+      "sourceSpanish": "Carmen: Dile así: Buenos días, doña Eustolia, ¿me da un café de olla?",
+      "sourceEnglish": "Carmen: Say it like this: Good morning, doña Eustolia, may I have a café de olla?",
+      "targetJapaneseDraft": "カルメン：こう言ってね。「おはようございます、ドニャ・エウストリア。カフェ・デ・オジャを一杯いただけますか。」",
+      "literalJapaneseGlossEn": "Carmen: Say it like this: Good morning, doña Eustolia, may I have a café de olla?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Sofi pregunta si el café es muy dulce, y Carmen le explica que doña Eustolia lo prepara con piloncillo y canela.",
+      "sourceEnglish": "Sofi asks if the coffee is very sweet, and Carmen explains that doña Eustolia makes it with piloncillo and cinnamon.",
+      "targetJapaneseDraft": "ソフィがそのコーヒーはとても甘いのかとたずねると、カルメンは、ドニャ・エウストリアはピロンシージョ（円すい形の黒砂糖）とシナモンで作っていると説明します。",
+      "literalJapaneseGlossEn": "Sofi asks if the coffee is very sweet, and Carmen explains that doña Eustolia makes it with piloncillo and cinnamon.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Carmen",
+      "sourceSpanish": "Carmen: Pídelo sin piloncillo si no lo quieres tan dulce.",
+      "sourceEnglish": "Carmen: Order it without piloncillo if you don't want it so sweet.",
+      "targetJapaneseDraft": "カルメン：あまり甘くないのがよければ、ピロンシージョなしで頼んでね。",
+      "literalJapaneseGlossEn": "Carmen: Order it without piloncillo if you don't want it so sweet.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Carmen",
+      "sourceSpanish": "Carmen: Si prefieres otra cosa, pide un chocolate de agua, que también es muy rico.",
+      "sourceEnglish": "Carmen: If you'd rather have something else, order a hot chocolate made with water, which is also really good.",
+      "targetJapaneseDraft": "カルメン：ほかのものがよければ、水で作るホットチョコレート（チョコラテ・デ・アグア）を頼んでね。それもすごくおいしいから。",
+      "literalJapaneseGlossEn": "Carmen: If you'd rather have something else, order a hot chocolate made with water, which is also really good.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Carmen",
+      "sourceSpanish": "Carmen: Escoge un pan de yema y pídeselo a doña Eustolia con el café.",
+      "sourceEnglish": "Carmen: Pick a pan de yema and ask doña Eustolia for it with the coffee.",
+      "targetJapaneseDraft": "カルメン：パン・デ・ジェマ（卵黄のパン）を選んで、コーヒーといっしょにドニャ・エウストリアに頼んでね。",
+      "literalJapaneseGlossEn": "Carmen: Pick a pan de yema and ask doña Eustolia for it with the coffee.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:reader:10",
+      "candidatePosition": 10,
+      "speaker": "Carmen",
+      "sourceSpanish": "Carmen: Pregúntale cuánto es y págale con el billete de 50.",
+      "sourceEnglish": "Carmen: Ask her how much it is and pay her with the 50-peso bill.",
+      "targetJapaneseDraft": "カルメン：いくらか聞いて、50ペソ札で払ってね。",
+      "literalJapaneseGlossEn": "Carmen: Ask her how much it is and pay her with the 50-peso bill.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:reader:11",
+      "candidatePosition": 11,
+      "speaker": "Carmen",
+      "sourceSpanish": "Carmen: Si te da monedas de cambio, guárdalas en la bolsa del pantalón.",
+      "sourceEnglish": "Carmen: If she gives you coins as change, put them away in your pants pocket.",
+      "targetJapaneseDraft": "カルメン：おつりに小銭をもらったら、ズボンのポケットにしまってね。",
+      "literalJapaneseGlossEn": "Carmen: If she gives you coins as change, put them away in your pants pocket.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:reader:12",
+      "candidatePosition": 12,
+      "speaker": "Carmen",
+      "sourceSpanish": "Carmen: Agárralo por el asa, nunca por el borde.",
+      "sourceEnglish": "Carmen: Hold it by the handle, never by the rim.",
+      "targetJapaneseDraft": "カルメン：取っ手を持って。マグのふちは絶対に持たないでね。",
+      "literalJapaneseGlossEn": "Carmen: Hold it by the handle, never by the rim.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:reader:13",
+      "candidatePosition": 13,
+      "speaker": "Carmen",
+      "sourceSpanish": "Carmen: No lo toques todavía; espera a que deje de echar vapor.",
+      "sourceEnglish": "Carmen: Don't touch it yet; wait until it stops steaming.",
+      "targetJapaneseDraft": "カルメン：まだ触らないで。湯気が出なくなるまで待ってね。",
+      "literalJapaneseGlossEn": "Carmen: Don't touch it yet; wait until it stops steaming.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:reader:14",
+      "candidatePosition": 14,
+      "speaker": "Carmen",
+      "sourceSpanish": "Carmen: Si sigue muy caliente, déjalo en la mesa hasta que esté tibio.",
+      "sourceEnglish": "Carmen: If it's still very hot, leave it on the table until it's lukewarm.",
+      "targetJapaneseDraft": "カルメン：まだすごく熱かったら、ぬるくなるまでテーブルに置いておいてね。",
+      "literalJapaneseGlossEn": "Carmen: If it's still very hot, leave it on the table until it's lukewarm.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:reader:15",
+      "candidatePosition": 15,
+      "speaker": "Carmen",
+      "sourceSpanish": "Carmen: Pruébalo despacito, porque el barro guarda el calor.",
+      "sourceEnglish": "Carmen: Taste it slowly, because the clay holds the heat.",
+      "targetJapaneseDraft": "カルメン：ゆっくり少しずつ味わってね。陶器の器は熱を保つから。",
+      "literalJapaneseGlossEn": "Carmen: Taste it slowly, because the clay holds the heat.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:reader:16",
+      "candidatePosition": 16,
+      "speaker": "Carmen",
+      "sourceSpanish": "Carmen: Tú puedes, yo te espero aquí en la banca.",
+      "sourceEnglish": "Carmen: You've got this, I'll wait for you here on the bench.",
+      "targetJapaneseDraft": "カルメン：ソフィならできるよ。私はここのベンチで待ってるね。",
+      "literalJapaneseGlossEn": "Carmen: You've got this, I'll wait for you here on the bench.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:reader:17",
+      "candidatePosition": 17,
+      "speaker": "Narrator",
+      "sourceSpanish": "Sofi camina sola al puesto, saluda a doña Eustolia y pide su café de olla con su pan de yema.",
+      "sourceEnglish": "Sofi walks to the stall alone, greets doña Eustolia and orders her café de olla with her pan de yema.",
+      "targetJapaneseDraft": "ソフィは一人で売り場まで歩いていき、ドニャ・エウストリアにあいさつして、カフェ・デ・オジャとパン・デ・ジェマを注文します。",
+      "literalJapaneseGlossEn": "Sofi walks to the stall alone, greets doña Eustolia and orders her café de olla with her pan de yema.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:3:ja-en:source-scene-v1:reader:18",
+      "candidatePosition": 18,
+      "speaker": "Narrator",
+      "sourceSpanish": "Minutos después, Sofi regresa a la banca con el jarro bien agarrado por el asa y su pan en la otra mano.",
+      "sourceEnglish": "Minutes later, Sofi comes back to the bench holding the mug firmly by the handle, with her bread in her other hand.",
+      "targetJapaneseDraft": "数分後、ソフィはマグの取っ手をしっかり持ち、もう片方の手にパンを持って、ベンチに戻ってきます。",
+      "literalJapaneseGlossEn": "Minutes later, Sofi comes back to the bench holding the mug firmly by the handle, with her bread in her other hand.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Coach Sofi in an Oaxaca market fonda to order café de olla and pan de yema politely, pay, and handle a very hot clay mug by its handle.",
+  "speakingGoalInternal": "You are the aunt or uncle, and the AI is your 15-year-old niece Sofi: coach her to order café de olla and a pan dulce on her own, using commands with pronouns like pídelo, agárralo por el asa and no lo toques todavía.",
+  "speakingGoalJapaneseDraft": "あなたはソフィのおばさん（またはおじさん）です。AIは15歳の姪のソフィです。ソフィが一人でカフェ・デ・オジャと甘いパン（この場面ではパン・デ・ジェマ）を注文できるように、「ピロンシージョなしで頼んでね」「取っ手を持ってね」「まだ触らないでね」のような短い指示で教えてあげてください。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "Current source follows Carmen coaching her 15-year-old niece Sofi at doña Eustolia's Oaxaca market fonda, including piloncillo/cinnamon, chocolate de agua, pan de yema, a 50-peso bill, change, a very hot clay mug, handle/rim and waiting for steam/lukewarm, then Sofi ordering and returning. The archived generic hot-cocoa counter scene changes names, foods, setting, payment and outcome; it remains separate evidence.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "order",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "greeting",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "staff member",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "hot cocoa",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "bread",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "price",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "cup",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "handle",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "hot",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "cool down",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "wait a little",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "be careful",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "Please greet them first",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "Please ask the price",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 15,
+      "candidate": null,
+      "oldEnglish": "Please be careful with the hot cup",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 16,
+      "candidate": null,
+      "oldEnglish": "rim",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 17,
+      "candidate": null,
+      "oldEnglish": "steam",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 18,
+      "candidate": null,
+      "oldEnglish": "lukewarm",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "First, try greeting the staff member.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Good morning. One hot cocoa, please.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Certainly. Would you like bread too?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Yes. One of this bread, please.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Please ask the price too.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "How much is it altogether?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "It is this amount. Please be careful; the drink is hot.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "The cup is hot. Let us check how to carry it safely before taking it.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "I will wait a little before drinking it.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "Well done. I will wait here.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 17,
+      "candidatePosition": 4,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 18,
+      "candidatePosition": 14,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 41,
+    "twoVoiceClipDecisionsIfTextApproved": 82,
+    "twoVoiceSubmittedCharactersIfTextApproved": 2232,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.06696,
+    "archivedExactJapaneseCardTextOverlapsOnly": 2,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Archive lessons[2] diverges from the Spanish source (hot cocoa at a generic café, no Oaxaca, no Carmen/Sofi/doña Eustolia, no pan de yema, no 50-peso bill, Adult/Teen/Staff speakers); not reused.",
+    "Card order follows the Spanish words array: 15 terms then 8 phrases; all glossEn values equal the exact English source rows.",
+    "Reader has 18 rows; Carmen rows keep the 'カルメン：' marker, narration rows have no speaker label; Sofi has no spoken Reader line.",
+    "Spanish usted has no direct Japanese equivalent; 'speak to her formally' is rendered 丁寧な言葉で話しかけて; reviewer should decide between 敬語 and 丁寧語 for a 15-year-old learner.",
+    "Carmen's lines to her niece use casual ～てね/～ないでね; the line to doña Eustolia uses polite いただけますか; reviewer to confirm tone.",
+    "The Spanish object-pronoun command grammar focus has no Japanese equivalent; the speaking goal teaches the same commands without pronoun morphology.",
+    "ドニャ is a draft katakana choice for doña; qualified review should choose the title's transliteration. Mexican food and locale names remain in katakana with English source anchors (ピロンシージョ, パン・デ・ジェマ, チョコラテ・デ・アグア, フォンダ).",
+    "The clay mug is drafted as 陶器のマグ（ハロ・デ・バロ）; qualified review should check material specificity and the Spanish name's katakana form. The market stall is drafted as 売り場, not a street cart.",
+    "'Taste it slowly' is drafted as ゆっくり少しずつ味わって and 'clay holds heat' as 陶器の器は熱を保つ. The draft adds no medical or injury claims.",
+    "The source speaking goal names pan dulce, while the specific Reader scene names pan de yema; the draft goal keeps both scopes visible for qualified source review.",
+    "Reader 13–14 keep the source's steam-stops and lukewarm waiting conditions; Reader 17–18 keep the source outcome that Sofi orders and returns, with nothing invented.",
+    "Unapproved draft: qualified Japanese review is required before any release, audio, saved-item or progress gate; Write-mode inputs were not authored."
+  ],
+  "missing": [
+    "qualified Japanese/source/Oaxaca food/locale/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

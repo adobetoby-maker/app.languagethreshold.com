@@ -1,0 +1,623 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:24",
+  "stableLessonId": "travel-breakfast:24:ja-en",
+  "candidateRevision": "travel-breakfast:24:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Get help in a café emergency",
+    "objectiveEnglishInternal": "alert staff, ask someone to call emergency services, give the location, and describe what you saw",
+    "roleplayEnglishInternal": "A guest at the next table collapses; alert the staff, ask for emergency help, and describe what happened.",
+    "readerTitleSpanish": "Emergencia en el café",
+    "readerVerbExamples": [
+      {
+        "target": "Llame a una ambulancia, por favor.",
+        "native": "Call an ambulance, please."
+      },
+      {
+        "target": "El cliente de la mesa de al lado se cae al piso.",
+        "native": "The customer at the next table falls to the floor."
+      },
+      {
+        "target": "La operadora pide la dirección.",
+        "native": "The operator asks for the address."
+      },
+      {
+        "target": "No sé si respira bien.",
+        "native": "I don't know if he is breathing well."
+      },
+      {
+        "target": "Le explico a la operadora qué pasó.",
+        "native": "I explain to the operator what happened."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "A guest sees another customer collapse and immediately alerts café staff.",
+    "cardCount": 17,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "emergencia",
+      "sourceEnglish": "emergency",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "緊急事態",
+      "literalJapaneseGlossEn": "emergency",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "ambulancia",
+      "sourceEnglish": "ambulance",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "救急車",
+      "literalJapaneseGlossEn": "ambulance",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "mesero",
+      "sourceEnglish": "waiter",
+      "kind": "term",
+      "sourceNoteInternal": "Mexican/US usage; mesera for a woman. In Spain: camarero.",
+      "targetJapaneseDraft": "ウェイター",
+      "literalJapaneseGlossEn": "waiter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "encargado",
+      "sourceEnglish": "manager",
+      "kind": "term",
+      "sourceNoteInternal": "The person in charge of the shift; encargada for a woman.",
+      "targetJapaneseDraft": "責任者",
+      "literalJapaneseGlossEn": "manager",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "cliente",
+      "sourceEnglish": "customer",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "客",
+      "literalJapaneseGlossEn": "customer",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "mesa de al lado",
+      "sourceEnglish": "next table",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "隣のテーブル",
+      "literalJapaneseGlossEn": "next table",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "piso",
+      "sourceEnglish": "floor",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "床",
+      "literalJapaneseGlossEn": "floor",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "número de emergencia",
+      "sourceEnglish": "emergency number",
+      "kind": "term",
+      "sourceNoteInternal": "In Mexico and the US it is 911; check the local number when you travel.",
+      "targetJapaneseDraft": "緊急通報番号",
+      "literalJapaneseGlossEn": "emergency number",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "dirección",
+      "sourceEnglish": "address",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "住所",
+      "literalJapaneseGlossEn": "address",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "esquina",
+      "sourceEnglish": "corner",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "交差点の角",
+      "literalJapaneseGlossEn": "corner",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "operadora",
+      "sourceEnglish": "operator",
+      "kind": "term",
+      "sourceNoteInternal": "The dispatcher who answers the emergency call; operador if male.",
+      "targetJapaneseDraft": "緊急通報のオペレーター",
+      "literalJapaneseGlossEn": "operator",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "paramédicos",
+      "sourceEnglish": "paramedics",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "救急隊員",
+      "literalJapaneseGlossEn": "paramedics",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "¡Ayuda, por favor, es una emergencia!",
+      "sourceEnglish": "Help, please, it's an emergency!",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "助けてください、緊急事態です！",
+      "literalJapaneseGlossEn": "Help, please, it's an emergency!",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Puede llamar a una ambulancia, por favor?",
+      "sourceEnglish": "Can you call an ambulance, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Polite usted form, right for staff you don't know.",
+      "targetJapaneseDraft": "救急車を呼んでいただけますか。",
+      "literalJapaneseGlossEn": "Can you call an ambulance, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "Un señor se cayó en la mesa de al lado.",
+      "sourceEnglish": "A man fell at the next table.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "隣のテーブルで男性が倒れました。",
+      "literalJapaneseGlossEn": "A man fell at the next table.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿Cuál es la dirección exacta del café?",
+      "sourceEnglish": "What is the exact address of the café?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "このカフェの正確な住所は何ですか。",
+      "literalJapaneseGlossEn": "What is the exact address of the café?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "No sé si respira bien.",
+      "sourceEnglish": "I don't know if he is breathing well.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Say only what you saw; let the operator ask the questions.",
+      "targetJapaneseDraft": "彼がちゃんと呼吸しているか分かりません。",
+      "literalJapaneseGlossEn": "I don't know if he is breathing well.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "Estamos en la esquina de Juárez y Madero.",
+      "sourceEnglish": "We are on the corner of Juárez and Madero.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "フアレス通りとマデロ通りの交差点の角にいます。",
+      "literalJapaneseGlossEn": "We are on the corner of Juárez and Madero.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Estoy desayunando en un café cuando el cliente de la mesa de al lado se cae al piso.",
+      "sourceEnglish": "I am having breakfast in a café when the customer at the next table falls to the floor.",
+      "targetJapaneseDraft": "カフェで朝食をとっていると、隣のテーブルの客が床に倒れます。",
+      "literalJapaneseGlossEn": "I am having breakfast in a café when the customer at the next table falls to the floor.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Me levanto y le digo al mesero: ¡Ayuda, por favor, es una emergencia!",
+      "sourceEnglish": "I stand up and say to the waiter: Help, please, it's an emergency!",
+      "targetJapaneseDraft": "私は立ち上がり、ウェイターに「助けてください、緊急事態です！」と言います。",
+      "literalJapaneseGlossEn": "I stand up and say to the waiter: Help, please, it's an emergency!",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "El encargado llega rápido y le pregunto: ¿Puede llamar a una ambulancia, por favor?",
+      "sourceEnglish": "The manager comes quickly and I ask him: Can you call an ambulance, please?",
+      "targetJapaneseDraft": "責任者がすぐに来たので、私は彼に「救急車を呼んでいただけますか」と尋ねます。",
+      "literalJapaneseGlossEn": "The manager comes quickly and I ask him: Can you call an ambulance, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Él marca el número de emergencia y la operadora le pide la dirección.",
+      "sourceEnglish": "He dials the emergency number and the operator asks him for the address.",
+      "targetJapaneseDraft": "彼が緊急通報番号に電話をかけると、オペレーターが住所を尋ねます。",
+      "literalJapaneseGlossEn": "He dials the emergency number and the operator asks him for the address.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "El encargado contesta: Estamos en la esquina de Juárez y Madero, junto al banco.",
+      "sourceEnglish": "The manager answers: We are on the corner of Juárez and Madero, next to the bank.",
+      "targetJapaneseDraft": "責任者は「フアレス通りとマデロ通りの交差点の角、銀行の隣です」と答えます。",
+      "literalJapaneseGlossEn": "The manager answers: We are on the corner of Juárez and Madero, next to the bank.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Después la operadora quiere saber qué pasó, porque esa información ayuda a los paramédicos.",
+      "sourceEnglish": "Then the operator wants to know what happened, because that information helps the paramedics.",
+      "targetJapaneseDraft": "その後、オペレーターは何が起きたか知りたがります。その情報が救急隊員の役に立つからです。",
+      "literalJapaneseGlossEn": "Then the operator wants to know what happened, because that information helps the paramedics.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Le explico: Un señor se cayó en la mesa de al lado y no contesta.",
+      "sourceEnglish": "I explain to her: A man fell at the next table and he isn't answering.",
+      "targetJapaneseDraft": "私は「隣のテーブルで男性が倒れ、返事がありません」と説明します。",
+      "literalJapaneseGlossEn": "I explain to her: A man fell at the next table and he isn't answering.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "También le digo: No sé si respira bien.",
+      "sourceEnglish": "I also tell her: I don't know if he is breathing well.",
+      "targetJapaneseDraft": "さらに「彼がちゃんと呼吸しているか分かりません」と伝えます。",
+      "literalJapaneseGlossEn": "I also tell her: I don't know if he is breathing well.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:24:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "Luego espero en la puerta para mostrarles la mesa a los paramédicos cuando lleguen.",
+      "sourceEnglish": "Then I wait at the door to show the table to the paramedics when they arrive.",
+      "targetJapaneseDraft": "そして、救急隊員が到着したらそのテーブルへ案内できるよう、入口で待ちます。",
+      "literalJapaneseGlossEn": "Then I wait at the door to show the table to the paramedics when they arrive.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Alert café staff about a guest who fell, ask for emergency help, give the Juárez and Madero location, and report only what was observed.",
+  "speakingGoalInternal": "A guest at the next table collapses; alert the staff, ask for emergency help, and describe what happened.",
+  "speakingGoalJapaneseDraft": "隣のテーブルの客が倒れました。店員に緊急事態を伝え、救急車を呼ぶよう頼み、カフェの場所と見たことを説明してください。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "The current nine-turn source shows a customer falling to the café floor, the witness alerting a waiter and manager, an emergency call, Juárez and Madero location next to a bank, the man not answering and breathing uncertainty, and the witness waiting at the door for paramedics. The archived Japanese scene omits the named intersection and bank, changes the roles and ordering, and adds a local-service instruction absent from source. Japanese clinical observation, locale, role and dictionary senses need qualified review.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Please help",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "It is an emergency",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "ambulance",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "staff member",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "person in charge",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "customer",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "next table",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "floor",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "address",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "shop name",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "location",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "emergency call",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "Please call an ambulance",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "The person at the next table collapsed",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 15,
+      "candidate": null,
+      "oldEnglish": "There is no response",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 16,
+      "candidate": null,
+      "oldEnglish": "paramedics",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 17,
+      "candidate": null,
+      "oldEnglish": "I do not know if the person is breathing well",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Please help. It is an emergency.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "What happened?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "The person at the next table fell to the floor.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Please call an ambulance.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "I will contact the local emergency service immediately.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "I will confirm the shop address and location.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "It is that table. I spoke to the person, but there was no response.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "I will tell the operator what we observed and listen to their instructions.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "I will guide the emergency team from the entrance.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 3,
+      "candidatePosition": 2,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 5,
+      "candidatePosition": 4,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 8,
+      "candidatePosition": 7,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 9,
+      "candidatePosition": 9,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 16,
+      "candidatePosition": 12,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 27,
+    "twoVoiceClipDecisionsIfTextApproved": 54,
+    "twoVoiceSubmittedCharactersIfTextApproved": 948,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.02844,
+    "archivedExactJapaneseCardTextOverlapsOnly": 5,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Qualified Japanese and clinical reviewers must choose whether 倒れる accurately expresses source se cayó / fell or whether a fall-specific verb better preserves the observed event without implying a diagnosis.",
+    "ウェイター and 責任者 are source roles; verify natural Japanese café role wording and when the source masculine labels are relevant.",
+    "緊急通報番号 and 緊急通報のオペレーター retain generic source terms; locale-specific emergency number and dispatcher labels require qualified review before a learner prompt.",
+    "Juárez and Madero street names are transliterated as フアレス and マデロ; confirm spelling and address rendering with a qualified locale reviewer.",
+    "「ちゃんと呼吸しているか分かりません」 is an observation, not a diagnosis; verify wording against source no sé si respira bien and clinical usage.",
+    "Source Card 15 says a man fell; Reader 7 adds that he does not answer. Confirm the card/Reader distinction and dictionary senses before any learner scoring or speaking.",
+    "The old archived dialogue gives local-service advice and a location-finding step absent from current source; review retired positions without carrying those into new activity answers."
+  ],
+  "missing": [
+    "qualified Japanese/source/clinical/locale/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

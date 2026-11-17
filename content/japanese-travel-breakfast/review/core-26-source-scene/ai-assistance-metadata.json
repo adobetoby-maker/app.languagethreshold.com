@@ -1,0 +1,47 @@
+{
+  "status": "Source-grounded candidate drafted with verified Haiku 5.5, read-only Opus 5.5 critique and Fable 5.2 correction, then independent self-check; qualified review remains open",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Source-grounded draft Japanese card and Reader candidate",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "7dd46350-95b4-47a8-b814-f94ec6e61b14",
+      "mode": "Claude CLI --safe-mode --model haiku --output-format json",
+      "stopReason": "end_turn",
+      "outputTokens": 6211,
+      "sourceOnly": true,
+      "qualifiedApproval": false
+    },
+    {
+      "role": "Read-only source/meaning critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "c417fcc7-988e-41ea-b458-aafe762e06fc",
+      "mode": "Claude CLI --safe-mode --model opus --output-format json",
+      "stopReason": "end_turn",
+      "outputTokens": 5528,
+      "sourceOnly": true,
+      "qualifiedApproval": false
+    },
+    {
+      "role": "Read-only correction pass on Haiku and Opus",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "9dcc2590-762f-4fd6-91ee-679fd354726c",
+      "mode": "Claude CLI --safe-mode --model fable --output-format json",
+      "stopReason": "end_turn",
+      "outputTokens": 5527,
+      "sourceOnly": true,
+      "qualifiedApproval": false
+    }
+  ],
+  "selfCheck": [
+    "Pinned all 17 exact English/Spanish cards and nine Reader turns in source order, keeping stable lesson ID and revision-scoped candidate row IDs.",
+    "Preserved Tuesday, Lena, female server, counter question before sitting, exact two-hour ask, lunch crowd, vacating the table, Wi-Fi paper slip, corner outlet, café con leche/sweet pastry, one-hour second-order question, half-hour table visits, bill and good tip.",
+    "Corrected Haiku additions and meaning changes: approximate two hours, remaining behind before sitting, lunch-crowd cause phrase, offered seat versus vacated table, escorted versus pointed to table, customer choice about when to order again.",
+    "Recorded café con leche/latte and pan dulce/sweet pastry source gloss conflicts and tipping-register uncertainty for qualified source/food/Japanese review.",
+    "Did not import archived generic dialogue, authorize saved-item or audio migration, synthesize audio, or open learner, owner-route, progress, V4 or release gates.",
+    "Independent validator checks source hashes, exact row order, source-scene anchors, stage-local identity, all false gates and read-only audio scope."
+  ]
+}

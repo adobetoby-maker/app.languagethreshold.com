@@ -1,0 +1,42 @@
+{
+  "cards": [
+    {"ja":"請求書","glossEn":"bill"},
+    {"ja":"ホテルのフロント","glossEn":"front desk"},
+    {"ja":"フロント係","glossEn":"receptionist"},
+    {"ja":"請求項目","glossEn":"charge"},
+    {"ja":"予約","glossEn":"booking"},
+    {"ja":"予約確認メール","glossEn":"confirmation email"},
+    {"ja":"朝食込み","glossEn":"breakfast included"},
+    {"ja":"宿泊料金","glossEn":"rate"},
+    {"ja":"客室","glossEn":"room"},
+    {"ja":"誤り","glossEn":"mistake"},
+    {"ja":"領収書","glossEn":"receipt"},
+    {"ja":"訂正後の請求書","glossEn":"corrected bill"},
+    {"ja":"請求書に誤りがあると思います。","glossEn":"I think there is a mistake on the bill."},
+    {"ja":"予約内容には朝食込みと書かれています。","glossEn":"My booking says breakfast is included."},
+    {"ja":"この請求項目について説明していただけますか。","glossEn":"Can you explain this charge to me?"},
+    {"ja":"この請求項目を取り消していただけますか。","glossEn":"Can you remove the charge, please?"},
+    {"ja":"新しい領収書をいただけますか。","glossEn":"Can you give me a new receipt, please?"}
+  ],
+  "reader": [
+    {"ja":"ホテルを出る前に、フロントで請求書を確認します。","glossEn":"Before leaving the hotel, I check the bill at the front desk."},
+    {"ja":"朝食代として36ドルの請求項目があります。","glossEn":"I see a charge of 36 dollars for breakfast."},
+    {"ja":"フロント係に落ち着いて「請求書に誤りがあると思います」と伝えます。","glossEn":"I calmly tell the receptionist: I think there is a mistake on the bill."},
+    {"ja":"まず携帯電話で予約確認メールを見せて、「予約内容には朝食込みと書かれています」と言います。","glossEn":"First I show him the confirmation email on my phone and say: My booking says breakfast is included."},
+    {"ja":"フロント係はコンピューターで私の客室の宿泊料金を確認します。","glossEn":"He checks my room rate on the computer."},
+    {"ja":"それから「おっしゃるとおりです。この請求項目を取り消します」と言います。","glossEn":"Then he says: You are right, I am going to remove the charge."},
+    {"ja":"「新しい領収書をいただけますか」と尋ねます。","glossEn":"I ask him: Can you give me a new receipt, please?"},
+    {"ja":"最後に、朝食代を除いた訂正後の請求書の金額を支払います。","glossEn":"In the end, I pay the corrected bill without the breakfast."}
+  ],
+  "issues": [
+    "Unapproved source-only Japanese candidate; no qualified Japanese, hotel-billing, locale or dictionary approval is claimed.",
+    "Current source has a first-person hotel bill review and exactly $36 breakfast charge; archived Sam dialogue differs in source order, bill/receipt outcome and payment, so saved positions and audio cannot transfer.",
+    "請求書, 明細, 領収書 and 請求項目 require hotel-context distinctions; the English source uses bill, charge and receipt, and Japanese expressions vary by document and jurisdiction.",
+    "朝食込み is one candidate for breakfast included in the booking. The archived 朝食付き and confirmation wording need qualified naturalness and dictionary review before selecting a learner face.",
+    "The source does not identify a country or local currency despite saying 36 dollars; do not infer Japanese hotel policies, currency conversion or tax treatment.",
+    "The source's final English 'without the breakfast' means the breakfast charge is absent from the corrected bill; the Japanese makes the omitted charge explicit. Qualified review should decide whether to correct the English anchor or retain the explanatory difference.",
+    "The source labels the receptionist masculine only in English pronouns; Japanese omits gender. No new person, location or verified legal entitlement is introduced.",
+    "Spanish verb examples and grammar notes are internal source anchors, not Japanese morphology teaching. Kanji readings, six authored activities, forms, speaking setup and contextual dictionary senses are missing.",
+    "The receptionist confirms the room rate before removing the charge; the draft does not assert an error before the desk's verification. The lesson teaches language for a calm question, not a hotel billing guarantee."
+  ]
+}

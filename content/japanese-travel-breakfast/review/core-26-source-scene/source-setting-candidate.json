@@ -1,0 +1,607 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:26",
+  "stableLessonId": "travel-breakfast:26:ja-en",
+  "candidateRevision": "travel-breakfast:26:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Work through a long breakfast",
+    "objectiveEnglishInternal": "ask whether staying is welcome, about Wi-Fi and outlets, and when to order again",
+    "roleplayEnglishInternal": "You need to work for two hours; ask whether that's acceptable, where to sit, and when to order a second round.",
+    "readerTitleSpanish": "Una mañana de trabajo en el café",
+    "readerVerbExamples": [
+      {
+        "target": "Me quedo a trabajar 2 horas, si no le molesta.",
+        "native": "I'm staying to work for 2 hours, if you don't mind."
+      },
+      {
+        "target": "Lena pide un café con leche y un pan dulce.",
+        "native": "Lena orders a latte and a sweet pastry."
+      },
+      {
+        "target": "¿Cuándo prefiere que vuelva a pedir?",
+        "native": "When would you prefer that I order again?"
+      },
+      {
+        "target": "Lena conecta su cargador en el enchufe del rincón.",
+        "native": "Lena plugs her charger into the outlet in the corner."
+      },
+      {
+        "target": "Si se llena, le dejo la mesa.",
+        "native": "If it fills up, I'll give up the table."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "A traveler with a laptop checks a café’s work and seating policy.",
+    "cardCount": 15,
+    "readerCount": 10
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "computadora portátil",
+      "sourceEnglish": "laptop",
+      "kind": "term",
+      "sourceNoteInternal": "Many people in Mexico and the US also just say \"laptop\".",
+      "targetJapaneseDraft": "ノートパソコン",
+      "literalJapaneseGlossEn": "laptop",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "mostrador",
+      "sourceEnglish": "counter",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カウンター",
+      "literalJapaneseGlossEn": "counter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "wifi",
+      "sourceEnglish": "Wi-Fi",
+      "kind": "term",
+      "sourceNoteInternal": "Usually pronounced \"wai-fai\" in Mexico and the US.",
+      "targetJapaneseDraft": "Wi-Fi",
+      "literalJapaneseGlossEn": "Wi-Fi",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "contraseña",
+      "sourceEnglish": "password",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "パスワード",
+      "literalJapaneseGlossEn": "password",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "enchufe",
+      "sourceEnglish": "outlet",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "コンセント",
+      "literalJapaneseGlossEn": "outlet",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "cargador",
+      "sourceEnglish": "charger",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "充電器",
+      "literalJapaneseGlossEn": "charger",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "mesa",
+      "sourceEnglish": "table",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "テーブル",
+      "literalJapaneseGlossEn": "table",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "rincón",
+      "sourceEnglish": "corner",
+      "kind": "term",
+      "sourceNoteInternal": "An inside corner of a room, the kind of place you'd sit.",
+      "targetJapaneseDraft": "隅",
+      "literalJapaneseGlossEn": "corner",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "café con leche",
+      "sourceEnglish": "latte",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カフェラテ",
+      "literalJapaneseGlossEn": "latte",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "pan dulce",
+      "sourceEnglish": "sweet pastry",
+      "kind": "term",
+      "sourceNoteInternal": "In Mexico this covers sweet breads like conchas.",
+      "targetJapaneseDraft": "甘いパン",
+      "literalJapaneseGlossEn": "sweet pastry",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "cuenta",
+      "sourceEnglish": "bill",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "お会計",
+      "literalJapaneseGlossEn": "bill",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "propina",
+      "sourceEnglish": "tip",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "チップ",
+      "literalJapaneseGlossEn": "tip",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "¿Le molesta si me quedo a trabajar 2 horas?",
+      "sourceEnglish": "Do you mind if I stay and work for 2 hours?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Using usted (le) keeps it polite with staff.",
+      "targetJapaneseDraft": "ここで2時間作業してもよろしいですか？",
+      "literalJapaneseGlossEn": "Do you mind if I stay and work for 2 hours?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Cuál es la contraseña del wifi?",
+      "sourceEnglish": "What is the Wi-Fi password?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "Wi-Fiのパスワードは何でしょうか？",
+      "literalJapaneseGlossEn": "What is the Wi-Fi password?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "¿Puedo sentarme cerca de un enchufe?",
+      "sourceEnglish": "Can I sit near an outlet?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "コンセントの近くの席に座ってもよろしいですか？",
+      "literalJapaneseGlossEn": "Can I sit near an outlet?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿Cuándo prefiere que vuelva a pedir?",
+      "sourceEnglish": "When would you prefer that I order again?",
+      "kind": "phrase",
+      "sourceNoteInternal": "After \"prefiere que\" the verb takes the subjunctive: vuelva.",
+      "targetJapaneseDraft": "次はいつ頃注文したらよろしいでしょうか？",
+      "literalJapaneseGlossEn": "When would you prefer that I order again?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Si se llena, le dejo la mesa.",
+      "sourceEnglish": "If it fills up, I'll give up the table.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Spanish uses the present tense here where English uses \"I'll\".",
+      "targetJapaneseDraft": "満席になったら、テーブルを空けます。",
+      "literalJapaneseGlossEn": "If it fills up, I'll give up the table.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Es martes por la mañana y Lena entra a un café pequeño con su computadora portátil.",
+      "sourceEnglish": "It is Tuesday morning and Lena walks into a small café with her laptop.",
+      "targetJapaneseDraft": "火曜日の朝、レナはノートパソコンを持って小さなカフェに入ります。",
+      "literalJapaneseGlossEn": "It is Tuesday morning and Lena walks into a small café with her laptop.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Antes de sentarse, va al mostrador y le pregunta a la mesera: ¿Le molesta si me quedo a trabajar 2 horas?",
+      "sourceEnglish": "Before sitting down, she goes to the counter and asks the server: Do you mind if I stay and work for 2 hours?",
+      "targetJapaneseDraft": "席に着く前に、レナはカウンターへ行き、女性の店員さんに尋ねます。「ここで2時間作業してもよろしいですか？」",
+      "literalJapaneseGlossEn": "Before sitting down, she goes to the counter and asks the server: Do you mind if I stay and work for 2 hours?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "La mesera sonríe y dice: No hay problema, pero a la hora del almuerzo se llena mucho.",
+      "sourceEnglish": "The server smiles and says: No problem, but at lunchtime it gets very full.",
+      "targetJapaneseDraft": "店員さんは笑顔で「大丈夫ですよ。ただ、お昼どきはとても混みます」と言います。",
+      "literalJapaneseGlossEn": "The server smiles and says: No problem, but at lunchtime it gets very full.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Lena contesta: Si se llena, le dejo la mesa, y luego pregunta: ¿Cuál es la contraseña del wifi?",
+      "sourceEnglish": "Lena answers: If it fills up, I'll give up the table, and then she asks: What is the Wi-Fi password?",
+      "targetJapaneseDraft": "レナは「満席になったら、テーブルを空けます」と答えてから、「Wi-Fiのパスワードは何でしょうか？」と尋ねます。",
+      "literalJapaneseGlossEn": "Lena answers: If it fills up, I'll give up the table, and then she asks: What is the Wi-Fi password?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "La mesera le da un papelito con la contraseña y le señala una mesa en el rincón con un enchufe.",
+      "sourceEnglish": "The server gives her a slip of paper with the password and points her to a table in the corner with an outlet.",
+      "targetJapaneseDraft": "店員さんは、パスワードを書いた小さな紙をレナに渡し、コンセントのある隅のテーブルを指し示します。",
+      "literalJapaneseGlossEn": "The server gives her a slip of paper with the password and points her to a table in the corner with an outlet.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Lena conecta su cargador, pide un café con leche y un pan dulce, y empieza a trabajar.",
+      "sourceEnglish": "Lena plugs in her charger, orders a latte and a sweet pastry, and starts working.",
+      "targetJapaneseDraft": "レナは充電器をコンセントに差し込み、カフェラテと甘いパンを注文して、作業を始めます。",
+      "literalJapaneseGlossEn": "Lena plugs in her charger, orders a latte and a sweet pastry, and starts working.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Después de 1 hora, levanta la mano y pregunta: ¿Cuándo prefiere que vuelva a pedir?",
+      "sourceEnglish": "After 1 hour, she raises her hand and asks: When would you prefer that I order again?",
+      "targetJapaneseDraft": "1時間後、レナは手を挙げて、「次はいつ頃注文したらよろしいでしょうか？」と尋ねます。",
+      "literalJapaneseGlossEn": "After 1 hour, she raises her hand and asks: When would you prefer that I order again?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "La mesera dice: Cuando usted quiera, porque yo paso por su mesa cada media hora.",
+      "sourceEnglish": "The server says: Whenever you like, because I come by your table every half hour.",
+      "targetJapaneseDraft": "店員さんは「お好きなときにどうぞ。30分ごとにお席に伺いますので」と言います。",
+      "literalJapaneseGlossEn": "The server says: Whenever you like, because I come by your table every half hour.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:26:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "Al final, Lena pide la cuenta y deja una buena propina por el tiempo y el espacio.",
+      "sourceEnglish": "At the end, Lena asks for the bill and leaves a good tip for the time and the space.",
+      "targetJapaneseDraft": "最後に、レナはお会計をお願いし、時間と場所の分として、多めのチップを置いていきます。",
+      "literalJapaneseGlossEn": "At the end, Lena asks for the bill and leaves a good tip for the time and the space.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Ask whether working for two hours is welcome, find the Wi-Fi password and an outlet table, check when to order again, and leave the table if the café fills.",
+  "speakingGoalInternal": "You need to work for two hours; ask whether that's acceptable, where to sit, and when to order a second round.",
+  "speakingGoalJapaneseDraft": "カフェで2時間仕事をしたいことを店員に伝え、席とコンセント、Wi-Fiのパスワード、次の注文のタイミングを尋ねてください。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "The current nine-turn source follows Lena on Tuesday: she asks the female server before sitting whether two hours of work is welcome; the server warns about lunch crowds; Lena offers to vacate the table, receives a paper slip with Wi-Fi password and a corner table with outlet, orders café con leche and pan dulce, asks after one hour when to order again, hears the server returns every half hour, and leaves a good tip with the bill. The archived generic laptop dialogue omits Lena, Tuesday, counter, slip, corner, both named foods, and the bill/tip ending. Japanese food, politeness, café and dictionary senses need qualified review.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "laptop",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "work",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "for about two hours",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "seat",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "power outlet",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "charger",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Wi-Fi",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "password",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "order",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "additional order",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "become busy",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "free up a seat",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "May I work here?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "May I use the outlet?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 15,
+      "candidate": null,
+      "oldEnglish": "When should I order again?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Excuse me. May I work here for about two hours?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "We have space now, but it sometimes gets busy at lunch.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "If it gets busy, I will free up the seat.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "May I use the Wi-Fi?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Yes. The password is written here.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Is there a seat where I may use an outlet?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "You may use it at that seat.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Then one coffee, please.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "When should I order again?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "There is no set rule. Please ask when you need something.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 1,
+      "candidatePosition": 1,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 5,
+      "candidatePosition": 5,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 6,
+      "candidatePosition": 6,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 7,
+      "candidatePosition": 3,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 8,
+      "candidatePosition": 4,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 26,
+    "twoVoiceClipDecisionsIfTextApproved": 52,
+    "twoVoiceSubmittedCharactersIfTextApproved": 1082,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.03246,
+    "archivedExactJapaneseCardTextOverlapsOnly": 5,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Source English latte corresponds to Spanish café con leche; カフェラテ follows the English headword, while カフェオレ may better reflect the Spanish drink. Qualified food/source decision needed.",
+    "Pan dulce / sweet pastry is provisionally 甘いパン; qualified Mexican-food and Japanese teaching review should decide whether to retain パン・ドゥルセ or a contextual note.",
+    "Good tip / buena propina is rendered 多めのチップ, interpreting good as generous in amount; Japanese café tipping is locale-specific and requires qualified review.",
+    "The Spanish mesera marks a female server; 女性の店員さん states it once, then 店員さん continues naturally. English server does not mark gender.",
+    "Papelito and slip of paper support 小さな紙; 指し示します preserves points to the table without implying that the server escorts Lena.",
+    "満席になったら、テーブルを空けます preserves giving up the table if it fills, instead of offering it to a named person.",
+    "Next-order timing is rendered 次はいつ頃注文したらよろしいでしょうか; pragmatic register and politeness need qualified Japanese review.",
+    "お会計 is natural café bill phrasing, while 伝票 would name a bill slip; the source simply says bill.",
+    "Lena is transliterated レナ; name rendering is provisional."
+  ],
+  "missing": [
+    "qualified Japanese/source/café/food/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

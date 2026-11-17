@@ -1,0 +1,557 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:16",
+  "stableLessonId": "travel-breakfast:16:ja-en",
+  "candidateRevision": "travel-breakfast:16:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Bring children to breakfast",
+    "objectiveEnglishInternal": "ask for a high chair, child portions, milder options, and space for a stroller",
+    "roleplayEnglishInternal": "Arrive with two young children and a stroller and arrange a table, a high chair, and kid-sized food.",
+    "readerTitleSpanish": "Desayuno con mis hijos",
+    "readerVerbExamples": [
+      {
+        "target": "¿Me trae una silla alta, por favor?",
+        "native": "Can you bring me a high chair, please?"
+      },
+      {
+        "target": "Pido el menú infantil para mi hijo.",
+        "native": "I ask for the kids' menu for my son."
+      },
+      {
+        "target": "Le pregunto al mesero si hay espacio para la carriola.",
+        "native": "I ask the waiter if there is room for the stroller."
+      },
+      {
+        "target": "¿Puede preparar los huevos sin chile?",
+        "native": "Can you make the eggs without chili?"
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "Sam arrives at a café with two children and asks about seating and food options.",
+    "cardCount": 13,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "silla alta",
+      "sourceEnglish": "high chair",
+      "kind": "term",
+      "sourceNoteInternal": "In Mexico you will also hear silla periquera.",
+      "targetJapaneseDraft": "子ども用のハイチェア",
+      "literalJapaneseGlossEn": "high chair for a child",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "carriola",
+      "sourceEnglish": "stroller",
+      "kind": "term",
+      "sourceNoteInternal": "Mexican usage; in Spain people say cochecito.",
+      "targetJapaneseDraft": "ベビーカー",
+      "literalJapaneseGlossEn": "stroller",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "menú infantil",
+      "sourceEnglish": "kids' menu",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "お子様メニュー",
+      "literalJapaneseGlossEn": "kids' menu",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "porción infantil",
+      "sourceEnglish": "child portion",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "お子様サイズ",
+      "literalJapaneseGlossEn": "child-size portion",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "mesa",
+      "sourceEnglish": "table",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "テーブル",
+      "literalJapaneseGlossEn": "table",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "babero",
+      "sourceEnglish": "bib",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "食事用エプロン",
+      "literalJapaneseGlossEn": "bib for meals",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "huevos revueltos",
+      "sourceEnglish": "scrambled eggs",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "スクランブルエッグ",
+      "literalJapaneseGlossEn": "scrambled eggs",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "picante",
+      "sourceEnglish": "spicy",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "辛い",
+      "literalJapaneseGlossEn": "spicy",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "chile",
+      "sourceEnglish": "chili pepper",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "唐辛子",
+      "literalJapaneseGlossEn": "chili pepper",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "leche",
+      "sourceEnglish": "milk",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "牛乳",
+      "literalJapaneseGlossEn": "milk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "rincón",
+      "sourceEnglish": "corner",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "隅",
+      "literalJapaneseGlossEn": "corner",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "¿Tienen una silla alta, por favor?",
+      "sourceEnglish": "Do you have a high chair, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "すみません、子ども用のハイチェアはありますか。",
+      "literalJapaneseGlossEn": "Excuse me, do you have a high chair for a child?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "¿Hay espacio para la carriola?",
+      "sourceEnglish": "Is there room for the stroller?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ベビーカーを置くスペースはありますか。",
+      "literalJapaneseGlossEn": "Is there space to put the stroller?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Hay porciones para niños?",
+      "sourceEnglish": "Are there portions for children?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "お子様サイズの料理はありますか。",
+      "literalJapaneseGlossEn": "Do you have child-size portions?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "¿Puede prepararlo sin chile?",
+      "sourceEnglish": "Can you make it without chili?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Use prepararla for a feminine dish, like la tortilla.",
+      "targetJapaneseDraft": "唐辛子抜きにできますか。",
+      "literalJapaneseGlossEn": "Can you make it without chili pepper?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿Esto es picante?",
+      "sourceEnglish": "Is this spicy?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "これは辛いですか。",
+      "literalJapaneseGlossEn": "Is this spicy?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Somos un adulto y dos niños.",
+      "sourceEnglish": "We are one adult and two children.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "大人1人と子ども2人です。",
+      "literalJapaneseGlossEn": "We are one adult and two children.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Llego a la cafetería a las 8 con mis 2 hijos y la carriola.",
+      "sourceEnglish": "I arrive at the café at 8 with my 2 children and the stroller.",
+      "targetJapaneseDraft": "8時に、子ども2人を連れて、ベビーカーと一緒にカフェに着きます。",
+      "literalJapaneseGlossEn": "At 8, I arrive at the café with my two children and the stroller.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Primero le pregunto al mesero: ¿Hay espacio para la carriola?",
+      "sourceEnglish": "First I ask the waiter: Is there room for the stroller?",
+      "targetJapaneseDraft": "まず店員さんに、「ベビーカーを置くスペースはありますか」と聞きます。",
+      "literalJapaneseGlossEn": "First, I ask the staff, 'Is there space to put the stroller?'",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "El mesero dice: Sí, les voy a dar una mesa en el rincón.",
+      "sourceEnglish": "The waiter says: Yes, I'm going to give you a table in the corner.",
+      "targetJapaneseDraft": "店員さんは「はい、隅のテーブルをご用意しますね」と言います。",
+      "literalJapaneseGlossEn": "The staff says, 'Yes, I will prepare a table in the corner for you.'",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Luego le pregunto: ¿Tienen una silla alta, por favor?",
+      "sourceEnglish": "Then I ask him: Do you have a high chair, please?",
+      "targetJapaneseDraft": "それから店員さんに、「すみません、子ども用のハイチェアはありますか」と聞きます。",
+      "literalJapaneseGlossEn": "Then I ask the staff, “Excuse me, do you have a high chair for a child?”",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "El mesero trae una silla alta y un babero para mi hija.",
+      "sourceEnglish": "The waiter brings a high chair and a bib for my daughter.",
+      "targetJapaneseDraft": "店員さんが、娘のために子ども用のハイチェアと食事用エプロンを持ってきてくれます。",
+      "literalJapaneseGlossEn": "The staff brings a high chair and a bib for meals for my daughter.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Después pido el menú infantil y mi hijo quiere una porción infantil de huevos revueltos.",
+      "sourceEnglish": "After that I ask for the kids' menu, and my son wants a child portion of scrambled eggs.",
+      "targetJapaneseDraft": "その後、お子様メニューを見せてくださいとお願いします。息子はお子様サイズのスクランブルエッグを食べたがっています。",
+      "literalJapaneseGlossEn": "After that, I ask to see the kids’ menu. My son wants a child-size portion of scrambled eggs.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "La salsa del plato es picante, entonces pregunto: ¿Puede prepararlo sin chile?",
+      "sourceEnglish": "The sauce on the dish is spicy, so I ask: Can you make it without chili?",
+      "targetJapaneseDraft": "料理のソースが辛いので、「唐辛子抜きにできますか」と聞きます。",
+      "literalJapaneseGlossEn": "The sauce on the dish is spicy, so I ask, “Can you make it without chili pepper?”",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:16:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Para tomar, voy a pedir 2 vasos de leche.",
+      "sourceEnglish": "To drink, I'm going to order 2 glasses of milk.",
+      "targetJapaneseDraft": "飲み物は、牛乳を2杯注文します。",
+      "literalJapaneseGlossEn": "For drinks, I order two glasses of milk.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Request space for a stroller, a high chair and bib, and a child portion without chili for a family breakfast.",
+  "speakingGoalInternal": "Arrive with two young children and a stroller and arrange a table, a high chair, and kid-sized food.",
+  "sourceConflictInternal": "The current source Reader follows a parent arriving at 8 with two children and a stroller, being seated in a corner, receiving a high chair and bib for a daughter, requesting a child portion of scrambled eggs without chili for a son, and ordering two glasses of milk. The archived Japanese draft substitutes Sam, an aisle-blocking concern, generic egg dish and bread, and a kitchen check, while omitting the daughter, son, bib, kids' menu, corner, time and milk order.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "stroller",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "high chair; child chair",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "two children",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "one adult",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "seat",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "aisle",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "smaller amount",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "spicy",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "please make it not spicy",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "egg dish",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "bread",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "milk",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "Is there room for a stroller?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "One adult and two children.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Is there a seat with room for a stroller?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "I will check for a seat that does not block the aisle.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "How about this seat?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Thank you. Do you have a high chair?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Yes, we have one.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Can you make a smaller portion of the egg dish?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "I will check with the kitchen.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Does it contain anything spicy?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 1,
+      "candidatePosition": 2,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 8,
+      "candidatePosition": 8,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 12,
+      "candidatePosition": 10,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 25,
+    "twoVoiceClipDecisionsIfTextApproved": 50,
+    "twoVoiceSubmittedCharactersIfTextApproved": 856,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.02568,
+    "archivedExactJapaneseCardTextOverlapsOnly": 3,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Qualified Japanese review: confirm 子ども用のハイチェア is the best family-café equivalent of high chair; compare ベビーチェア and 子ども用の椅子.",
+    "Qualified Japanese review: confirm 食事用エプロン as the daughter’s bib, and お子様サイズ as child portion.",
+    "Qualified Japanese/locale review: check 隅のテーブル for a corner table and the staff/customer politeness register.",
+    "Confirm 唐辛子抜きにできますか makes the no-chili request without assuming a specific sauce recipe.",
+    "Spanish-only regional notes for silla periquera, carriola/cochecito and prepararla feminine are internal source notes, not Japanese grammar instruction.",
+    "Check Japanese high-chair, bib, child-portion and no-chili vocabulary in the café and family context.",
+    "Check all 25 Japanese faces and literal glosses with a qualified Japanese reviewer before any audio or learner use."
+  ],
+  "missing": [
+    "qualified Japanese/source/food/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

@@ -1,0 +1,11 @@
+# Japanese Breakfast Core 16 source review
+
+This inert Japanese→English packet pins the current Spanish Breakfast Core 16 source: 17 cards and eight aligned Reader turns. It preserves the stage-local lesson ID `travel-breakfast:16:ja-en` and assigns revision-scoped candidate row IDs. Run `python3 build.py --check` and `python3 validate.py` in this directory to verify source hashes, order, IDs, audio estimate and closed gates.
+
+The archived Japanese draft follows Sam finding generic egg and bread with an aisle table. The current source follows a parent arriving at a café at eight with two children and a stroller. The parent asks about stroller space, is offered a corner table, requests a high chair and bib for a daughter, asks for a kids’ menu for a son who wants a child-size portion of scrambled eggs, asks for no chili in the spicy sauce, and orders two glasses of milk. The candidate follows that source scene. Literal English glosses of the Japanese are separate from pinned source English.
+
+Qualified Japanese, food/locale and dictionary review remains open for the high-chair term, bib, child-portion wording, corner-table phrasing, and café register. The Spanish regional vocabulary and grammar notes stay in internal source context. `辛い` means spicy here and needs the からい reading pinned before audio; `隅` needs すみ and `唐辛子` needs とうがらし.
+
+Archived rows have no explicit IDs and were not learner-registered. Position overlaps cannot authorize saved-item or audio migration. This candidate has no authored six-mode prompt/target pairs, contextual forms, dictionary senses, speaking runtime, offline pack, learner registration or V4 import. All review, scoring, audio/listening, progress, owner-route and release gates remain false.
+
+Read-only audio scope: 25 Japanese faces, 50 potential two-voice clip/listening decisions, 856 submitted Japanese characters and about $0.02568 gross at the earlier $30 per million-character rate. No recording was synthesized, approved or registered. Haiku 5.5 supplied a candidate; Opus 5.5 and Fable 5.2 gave read-only critiques; source-grounded corrections followed. Actual CLI metadata is in `ai-assistance-metadata.json`. AI is not qualified approval.

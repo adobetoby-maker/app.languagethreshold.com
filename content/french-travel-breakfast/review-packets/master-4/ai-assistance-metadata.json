@@ -1,0 +1,25 @@
+{
+  "state": "Source-grounded self-authored candidate; no AI or qualified approval",
+  "runs": [
+    {
+      "role": "candidate authoring attempt",
+      "requestedModel": "haiku",
+      "actualModel": null,
+      "canonicalModel": null,
+      "safeMode": true,
+      "tool": "Claude CLI --print --safe-mode --permission-mode plan --model haiku --output-format json",
+      "completed": false,
+      "metadataVerified": true,
+      "terminalReason": "api_error",
+      "result": "Not logged in · Please run /login",
+      "modelUsage": {},
+      "inputTokens": 0,
+      "outputTokens": 0
+    }
+  ],
+  "opusCritique": "Not run: Claude CLI was logged out.",
+  "fableCorrection": "Not run: Claude CLI was logged out.",
+  "selfCheck": "Compared every French face to 23 pinned current Spanish/English cards and 18 Reader turns. Preserved March 3 chart, September supplier, sesame seeds versus may-contain-traces label, limited chef offer, Elif's auto-injector and doctor-directed/ambulance statement. Separately recorded archived card 21 and Reader 11/16 source drift and did not promote an unqualified safety answer.",
+  "qualifiedReview": false,
+  "noAudioSynthesis": true
+}

@@ -1,0 +1,52 @@
+{
+  "status": "Haiku 5.5 source-grounded candidate, Opus 5.5 read-only critique, Fable 5.2 read-only correction, followed by independent source-grounded self-check; no qualified approval",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Safe-mode Haiku source authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "4f2bed31-6891-4996-a1bf-3080082867ca",
+      "terminalReason": "completed",
+      "isError": false,
+      "inputTokens": 2,
+      "cacheCreationInputTokens": 7095,
+      "cacheReadInputTokens": 13343,
+      "outputTokens": 6064,
+      "costUSD": 0.00458463
+    },
+    {
+      "role": "Safe-mode Opus read-only critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "424a35ff-fffb-4e8b-882a-cc31d9b74060",
+      "terminalReason": "completed",
+      "isError": false,
+      "inputTokens": 2,
+      "cacheCreationInputTokens": 10402,
+      "cacheReadInputTokens": 12500,
+      "outputTokens": 3990,
+      "costUSD": 0.165524
+    },
+    {
+      "role": "Safe-mode Fable read-only correction",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "10bc4651-ead7-4b4c-b0c3-536b3a1d7a4e",
+      "terminalReason": "completed",
+      "isError": false,
+      "inputTokens": 2,
+      "cacheCreationInputTokens": 13512,
+      "cacheReadInputTokens": 13974,
+      "outputTokens": 6451,
+      "costUSD": 0.4770428
+    }
+  ],
+  "selfCheck": [
+    "Compared all 16 cards and nine Reader turns in source order against pinned Spanish/English source; exact English anchors preserved.",
+    "Retained Ana arriving at 9 p.m., 5:30 a.m. airport transfer, breakfast opening at 7, 5 a.m. front-desk pickup, fruit/bread/juice paper bag, nut allergy noted with room number, and breakfast included in reservation.",
+    "No allergy-safe claim, ingredient substitution, room number, price amount or new service promise was invented.",
+    "Marked hotel register, dining room, rate, allergy/nut sense, 7 o’clock inference and source early-service gap for qualified review.",
+    "Archived rows and any text overlap authorize neither saved-item migration nor audio reuse; all review and learner/audio gates remain false."
+  ]
+}

@@ -1,0 +1,777 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "master",
+  "lessonKey": "master:6",
+  "stableLessonId": "master-travel-breakfast:6:ja-en",
+  "candidateRevision": "master-travel-breakfast:6:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "curriculumVersion": 1,
+    "readerVersion": 1,
+    "curriculumReviewed": false,
+    "readerReviewed": false,
+    "titleEnglishInternal": "No Oat Milk Today: Choose Substitutes for the Group",
+    "objectiveEnglishInternal": "Compare the available milk options for each person and agree on a plan until the delivery arrives.",
+    "speakingEnglishInternal": "You are ordering for your friends, and the AI is Matías, a server at a San Telmo confitería: compare the milk options with más/menos … que, pick one for vegan Hannah and one for lactose-avoiding Dev, and plan the rest with ir a and the future (va a llegar, volveremos).",
+    "grammarEnglishExamplesInternal": [
+      "The soy one is thicker than the almond one.",
+      "The delivery will arrive in the afternoon; meanwhile, Hannah is going to try the coconut one."
+    ],
+    "readerTitleSpanish": "Sin leche de avena",
+    "readerVerbExamples": [
+      {
+        "target": "El reparto llega a la tarde.",
+        "native": "The delivery arrives in the afternoon."
+      },
+      {
+        "target": "Hannah toma un café con leche de soja.",
+        "native": "Hannah has a coffee with soy milk."
+      },
+      {
+        "target": "Dev pide una lágrima con leche sin lactosa.",
+        "native": "Dev orders a lágrima with lactose-free milk."
+      },
+      {
+        "target": "Hannah prefiere la de soja porque hace más espuma.",
+        "native": "Hannah prefers the soy one because it makes more foam."
+      },
+      {
+        "target": "Volvemos a la tarde para la leche de avena.",
+        "native": "We come back in the afternoon for the oat milk."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/master-4-6-draft.json",
+    "sha256": "62e2ec4a86b1639f04241a0312acd3a6e06cb430950ec379964856d6d6fd5004",
+    "scene": "A group at a café learns that oat milk is out of stock and asks staff what can actually be prepared for each person.",
+    "cardCount": 14,
+    "readerCount": 10
+  },
+  "sourceCards": [
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "la leche de soja",
+      "sourceEnglish": "the soy milk",
+      "kind": "term",
+      "sourceNoteInternal": "Argentina says soja, not soya.",
+      "targetJapaneseDraft": "豆乳",
+      "literalJapaneseGlossEn": "the soy milk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "la leche sin lactosa",
+      "sourceEnglish": "the lactose-free milk",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "乳糖を含まない牛乳",
+      "literalJapaneseGlossEn": "the lactose-free milk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "la leche de coco",
+      "sourceEnglish": "the coconut milk",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ココナッツミルク",
+      "literalJapaneseGlossEn": "the coconut milk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "la bebida vegetal",
+      "sourceEnglish": "the plant-based drink",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "植物性の飲み物",
+      "literalJapaneseGlossEn": "the plant-based drink",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "el reparto",
+      "sourceEnglish": "the delivery",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "配達",
+      "literalJapaneseGlossEn": "the delivery",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "las medialunas",
+      "sourceEnglish": "the croissants",
+      "kind": "term",
+      "sourceNoteInternal": "Argentine word; de manteca uses butter, de grasa is usually made with beef fat.",
+      "targetJapaneseDraft": "メディアルナ（アルゼンチン風クロワッサン）",
+      "literalJapaneseGlossEn": "the croissants",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "la medialuna de grasa",
+      "sourceEnglish": "the beef-fat croissant",
+      "kind": "term",
+      "sourceNoteInternal": "Usually made with beef fat, so ask before ordering it for a vegan.",
+      "targetJapaneseDraft": "牛脂を使ったメディアルナ",
+      "literalJapaneseGlossEn": "the beef-fat croissant",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "la lágrima",
+      "sourceEnglish": "the milk with a drop of coffee",
+      "kind": "term",
+      "sourceNoteInternal": "Argentine café drink: mostly milk with just a little coffee.",
+      "targetJapaneseDraft": "ミルクにコーヒーを少し加えた飲み物（ラグリマ）",
+      "literalJapaneseGlossEn": "the milk with a drop of coffee",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "la espuma",
+      "sourceEnglish": "the foam",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "泡",
+      "literalJapaneseGlossEn": "the foam",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "el sabor",
+      "sourceEnglish": "the taste",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "味",
+      "literalJapaneseGlossEn": "the taste",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "la lactosa",
+      "sourceEnglish": "the lactose",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "乳糖",
+      "literalJapaneseGlossEn": "the lactose",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "la confitería",
+      "sourceEnglish": "the café-bakery",
+      "kind": "term",
+      "sourceNoteInternal": "In Buenos Aires, a classic café that also sells pastries.",
+      "targetJapaneseDraft": "カフェ兼菓子店（コンフィテリア）",
+      "literalJapaneseGlossEn": "the café-bakery",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "vegano",
+      "sourceEnglish": "vegan",
+      "kind": "term",
+      "sourceNoteInternal": "Use vegana for a woman: Hannah es vegana.",
+      "targetJapaneseDraft": "ヴィーガン",
+      "literalJapaneseGlossEn": "vegan",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "espeso",
+      "sourceEnglish": "thick",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "とろみがある",
+      "literalJapaneseGlossEn": "thick",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "mientras tanto",
+      "sourceEnglish": "meanwhile",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "その間に",
+      "literalJapaneseGlossEn": "meanwhile",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿A qué hora va a llegar el reparto?",
+      "sourceEnglish": "What time is the delivery going to arrive?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "配達は何時に届きますか。",
+      "literalJapaneseGlossEn": "What time is the delivery going to arrive?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "¿La de soja es más espesa que la de almendra?",
+      "sourceEnglish": "Is the soy one thicker than the almond one?",
+      "kind": "phrase",
+      "sourceNoteInternal": "La de soja = la leche de soja; no need to repeat leche.",
+      "targetJapaneseDraft": "豆乳のほうがアーモンドミルクよりとろみがありますか。",
+      "literalJapaneseGlossEn": "Is the soy one thicker than the almond one?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "Hannah es vegana, así que va a tomar la de soja.",
+      "sourceEnglish": "Hannah is vegan, so she's going to have the soy one.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ハンナはヴィーガンなので、豆乳のほうを飲みます。",
+      "literalJapaneseGlossEn": "Hannah is vegan, so she's going to have the soy one.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:19",
+      "candidatePosition": 19,
+      "sourceSpanish": "Las medialunas de manteca llevan lácteos, ¿no?",
+      "sourceEnglish": "The butter croissants contain dairy, right?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "バターを使ったメディアルナには乳製品が入っていますよね。",
+      "literalJapaneseGlossEn": "The butter croissants contain dairy, right?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:20",
+      "candidatePosition": 20,
+      "sourceSpanish": "¿Nos podría traer una de soja y una sin lactosa?",
+      "sourceEnglish": "Could you bring us one with soy and one lactose-free?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal (usted) to the server.",
+      "targetJapaneseDraft": "豆乳のものと乳糖を含まない牛乳のものを、一杯ずつ持ってきていただけますか。",
+      "literalJapaneseGlossEn": "Could you bring us one with soy and one lactose-free?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:21",
+      "candidatePosition": 21,
+      "sourceSpanish": "¿Qué te parece, Hannah? La de coco es menos espesa.",
+      "sourceEnglish": "What do you think, Hannah? The coconut one is less thick.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal, to a friend.",
+      "targetJapaneseDraft": "ハンナ、どう思う？ココナッツミルクのほうはとろみが少ないよ。",
+      "literalJapaneseGlossEn": "What do you think, Hannah? The coconut one is less thick.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:22",
+      "candidatePosition": 22,
+      "sourceSpanish": "Dev, ¿te sirve la sin lactosa por ahora?",
+      "sourceEnglish": "Dev, does the lactose-free one work for you for now?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal, to a friend.",
+      "targetJapaneseDraft": "デヴ、今のところ乳糖を含まない牛乳で大丈夫？",
+      "literalJapaneseGlossEn": "Dev, does the lactose-free one work for you for now?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:card:23",
+      "candidatePosition": 23,
+      "sourceSpanish": "Por ahora pedimos esto, y a la tarde volveremos.",
+      "sourceEnglish": "For now we'll order this, and we'll come back in the afternoon.",
+      "kind": "phrase",
+      "sourceNoteInternal": "A la tarde is the usual Argentine way to say in the afternoon.",
+      "targetJapaneseDraft": "とりあえずこれを注文して、午後にまた来ます。",
+      "literalJapaneseGlossEn": "For now we'll order this, and we'll come back in the afternoon.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Un sábado a las 10, Nora entra con sus amigos Hannah y Dev a una confitería de San Telmo para desayunar.",
+      "sourceEnglish": "One Saturday at 10, Nora walks into a café-bakery in San Telmo with her friends Hannah and Dev to have breakfast.",
+      "targetJapaneseDraft": "土曜日の朝10時、ノラは友人のハンナとデヴと一緒に、朝食をとるためサン・テルモのカフェ兼菓子店に入ります。",
+      "literalJapaneseGlossEn": "One Saturday at 10, Nora walks into a café-bakery in San Telmo with her friends Hannah and Dev to have breakfast.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "El mozo, Matías, les avisa que hoy no hay leche de avena porque el reparto todavía no llegó.",
+      "sourceEnglish": "The server, Matías, tells them that there is no oat milk today because the delivery hasn't arrived yet.",
+      "targetJapaneseDraft": "給仕のマティアスは、配達がまだ届いていないため、今日はオーツミルクがないと伝えます。",
+      "literalJapaneseGlossEn": "The server, Matías, tells them that there is no oat milk today because the delivery hasn't arrived yet.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Nora",
+      "sourceSpanish": "Nora: ¿A qué hora va a llegar el reparto?",
+      "sourceEnglish": "Nora: What time is the delivery going to arrive?",
+      "targetJapaneseDraft": "ノラ：配達は何時に届きますか。",
+      "literalJapaneseGlossEn": "Nora: What time is the delivery going to arrive?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Matías",
+      "sourceSpanish": "Matías: Llegará a la tarde, y mientras tanto les puedo ofrecer otra bebida vegetal.",
+      "sourceEnglish": "Matías: It will arrive in the afternoon, and meanwhile I can offer you another plant-based drink.",
+      "targetJapaneseDraft": "マティアス：午後に届きます。その間は、別の植物性の飲み物をご用意できます。",
+      "literalJapaneseGlossEn": "Matías: It will arrive in the afternoon, and meanwhile I can offer you another plant-based drink.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Matías",
+      "sourceSpanish": "Matías: Tenemos leche de soja y de almendra, que son las que más piden los clientes veganos.",
+      "sourceEnglish": "Matías: We have soy milk and almond milk, which are the ones vegan customers ask for most.",
+      "targetJapaneseDraft": "マティアス：豆乳とアーモンドミルクがあります。ヴィーガンのお客さまから最もよく注文されるものです。",
+      "literalJapaneseGlossEn": "Matías: We have soy milk and almond milk, which are the ones vegan customers ask for most.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Nora",
+      "sourceSpanish": "Nora: ¿La de soja es más espesa que la de almendra?",
+      "sourceEnglish": "Nora: Is the soy one thicker than the almond one?",
+      "targetJapaneseDraft": "ノラ：豆乳のほうがアーモンドミルクよりとろみがありますか。",
+      "literalJapaneseGlossEn": "Nora: Is the soy one thicker than the almond one?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Matías",
+      "sourceSpanish": "Matías: Sí, la de soja es más espesa, y la leche de coco tiene un sabor más dulce que las dos.",
+      "sourceEnglish": "Matías: Yes, the soy one is thicker, and the coconut milk has a sweeter taste than both.",
+      "targetJapaneseDraft": "マティアス：はい、豆乳のほうがとろみがあります。ココナッツミルクはその二つより甘い味がします。",
+      "literalJapaneseGlossEn": "Matías: Yes, the soy one is thicker, and the coconut milk has a sweeter taste than both.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Hannah",
+      "sourceSpanish": "Hannah: Prefiero la de soja, porque hace más espuma que la de coco.",
+      "sourceEnglish": "Hannah: I prefer the soy one, because it makes more foam than the coconut one.",
+      "targetJapaneseDraft": "ハンナ：豆乳のほうが好き。ココナッツミルクより泡がよく立つから。",
+      "literalJapaneseGlossEn": "Hannah: I prefer the soy one, because it makes more foam than the coconut one.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Nora",
+      "sourceSpanish": "Nora: Hannah es vegana, así que va a tomar la de soja.",
+      "sourceEnglish": "Nora: Hannah is vegan, so she's going to have the soy one.",
+      "targetJapaneseDraft": "ノラ：ハンナはヴィーガンなので、豆乳のほうを飲みます。",
+      "literalJapaneseGlossEn": "Nora: Hannah is vegan, so she's going to have the soy one.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:reader:10",
+      "candidatePosition": 10,
+      "speaker": "Narrator",
+      "sourceSpanish": "Dev evita la lactosa, así que Matías le recomienda la leche sin lactosa.",
+      "sourceEnglish": "Dev avoids lactose, so Matías recommends the lactose-free milk to him.",
+      "targetJapaneseDraft": "デヴは乳糖を避けているので、マティアスは乳糖を含まない牛乳を勧めます。",
+      "literalJapaneseGlossEn": "Dev avoids lactose, so Matías recommends the lactose-free milk to him.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:reader:11",
+      "candidatePosition": 11,
+      "speaker": "Nora",
+      "sourceSpanish": "Nora: Dev, ¿te sirve la sin lactosa por ahora?",
+      "sourceEnglish": "Nora: Dev, does the lactose-free one work for you for now?",
+      "targetJapaneseDraft": "ノラ：デヴ、今のところ乳糖を含まない牛乳で大丈夫？",
+      "literalJapaneseGlossEn": "Nora: Dev, does the lactose-free one work for you for now?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:reader:12",
+      "candidatePosition": 12,
+      "speaker": "Dev",
+      "sourceSpanish": "Dev: Sí, voy a pedir una lágrima, porque lleva menos café que un cortado.",
+      "sourceEnglish": "Dev: Yes, I'm going to order a lágrima, because it has less coffee than a cortado.",
+      "targetJapaneseDraft": "デヴ：うん。コルタードよりコーヒーが少ないラグリマを注文するよ。",
+      "literalJapaneseGlossEn": "Dev: Yes, I'm going to order a lágrima, because it has less coffee than a cortado.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:reader:13",
+      "candidatePosition": 13,
+      "speaker": "Nora",
+      "sourceSpanish": "Nora: Las medialunas de manteca llevan lácteos, ¿no?",
+      "sourceEnglish": "Nora: The butter croissants contain dairy, right?",
+      "targetJapaneseDraft": "ノラ：バターを使ったメディアルナには乳製品が入っていますよね。",
+      "literalJapaneseGlossEn": "Nora: The butter croissants contain dairy, right?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:reader:14",
+      "candidatePosition": 14,
+      "speaker": "Matías",
+      "sourceSpanish": "Matías: Sí, pero según el panadero, la medialuna de grasa no lleva manteca ni leche, aunque lleva grasa vacuna.",
+      "sourceEnglish": "Matías: Yes, but according to the baker, the beef-fat croissant has no butter or milk, although it does contain beef fat.",
+      "targetJapaneseDraft": "マティアス：はい。ただ、パン職人によると、牛脂を使ったメディアルナにはバターも牛乳も入っていません。でも牛脂は使っています。",
+      "literalJapaneseGlossEn": "Matías: Yes, but according to the baker, the beef-fat croissant has no butter or milk, although it does contain beef fat.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:reader:15",
+      "candidatePosition": 15,
+      "speaker": "Nora",
+      "sourceSpanish": "Nora: Entonces Dev va a comer dos medialunas de grasa, y Hannah va a pedir una ensalada de frutas.",
+      "sourceEnglish": "Nora: Then Dev is going to eat two beef-fat croissants, and Hannah is going to order a fruit salad.",
+      "targetJapaneseDraft": "ノラ：では、デヴは牛脂を使ったメディアルナを二つ食べて、ハンナはフルーツサラダを注文します。",
+      "literalJapaneseGlossEn": "Nora: Then Dev is going to eat two beef-fat croissants, and Hannah is going to order a fruit salad.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:reader:16",
+      "candidatePosition": 16,
+      "speaker": "Nora",
+      "sourceSpanish": "Nora: ¿Nos podría traer una de soja y una sin lactosa?",
+      "sourceEnglish": "Nora: Could you bring us one with soy and one lactose-free?",
+      "targetJapaneseDraft": "ノラ：豆乳のものと乳糖を含まない牛乳のものを、一杯ずつ持ってきていただけますか。",
+      "literalJapaneseGlossEn": "Nora: Could you bring us one with soy and one lactose-free?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:reader:17",
+      "candidatePosition": 17,
+      "speaker": "Matías",
+      "sourceSpanish": "Matías: Claro, y cuando llegue el reparto, les voy a guardar leche de avena.",
+      "sourceEnglish": "Matías: Of course, and when the delivery arrives, I'm going to save some oat milk for you.",
+      "targetJapaneseDraft": "マティアス：もちろんです。配達が届いたら、オーツミルクを取っておきますね。",
+      "literalJapaneseGlossEn": "Matías: Of course, and when the delivery arrives, I'm going to save some oat milk for you.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:6:ja-en:source-scene-v1:reader:18",
+      "candidatePosition": 18,
+      "speaker": "Nora",
+      "sourceSpanish": "Nora: Por ahora pedimos esto, y a la tarde volveremos.",
+      "sourceEnglish": "Nora: For now we'll order this, and we'll come back in the afternoon.",
+      "targetJapaneseDraft": "ノラ：とりあえずこれを注文して、午後にまた来ます。",
+      "literalJapaneseGlossEn": "Nora: For now we'll order this, and we'll come back in the afternoon.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Compare milk options and coordinate Nora’s San Telmo café-bakery breakfast order for vegan Hannah and lactose-avoiding Dev until the oat-milk delivery arrives.",
+  "speakingGoalInternal": "You are ordering for your friends, and the AI is Matías, a server at a San Telmo confitería: compare the milk options with más/menos … que, pick one for vegan Hannah and one for lactose-avoiding Dev, and plan the rest with ir a and the future (va a llegar, volveremos).",
+  "speakingGoalJapaneseDraft": "あなたは友人の注文をまとめるノラです。AIはサン・テルモのカフェ兼菓子店（コンフィテリア）の給仕マティアスです。豆乳、アーモンドミルク、ココナッツミルクを比べ、ヴィーガンのハンナには豆乳、乳糖を避けているデヴには乳糖を含まない牛乳を選び、配達が午後に届くまでの注文と戻る予定を伝えてください。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "Current source follows Nora, Hannah, Dev and server Matías at a San Telmo café-bakery, with an afternoon oat-milk delivery, soy/almond/coconut comparisons, vegan versus lactose-avoiding needs, a lágrima, butter croissant dairy, beef-fat croissant with beef fat, fruit salad, a promise to save oat milk and an afternoon return. The archived kitchen-verification scene changes people, food, decisions and outcome; it remains separate evidence.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "oat milk",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "soy milk",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "almond milk",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "lactose-free dairy milk",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "plant-based drink",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "out of stock",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "delivery",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "ingredients",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "preparation method",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "substitute",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "than (comparison)",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "until ... arrives",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "can I choose?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "please verify",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "We are out of oat milk today. A delivery is expected this afternoon.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Do you have soy milk and almond milk?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "We have both, but the options vary by drink.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "I am vegan. Could you check the ingredients and preparation of the soy drink?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "I will check with the kitchen. I cannot confirm suitability yet.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "I avoid lactose. Is lactose-free dairy milk an option?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "We have it, but it is dairy milk. I will check the ingredients too.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Let's wait to choose drinks until the checks are done.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Once you have checked, I would like to compare soy and almond milk.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "If we find a substitute until the delivery, I will order that today.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 2,
+      "candidatePosition": 1,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 4,
+      "candidatePosition": 2,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 5,
+      "candidatePosition": 4,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 41,
+    "twoVoiceClipDecisionsIfTextApproved": 82,
+    "twoVoiceSubmittedCharactersIfTextApproved": 1968,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.05904,
+    "archivedExactJapaneseCardTextOverlapsOnly": 3,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Current Spanish source is Nora, Hannah, Dev and Matías at a San Telmo café-bakery at 10 on Saturday. Archived draft uses Hana and an invented kitchen-verification scene; archived lines are not reused.",
+    "Card order follows the 23 source words exactly, and the Reader follows all 18 source English/Spanish turns; no learner-facing original Spanish grammar drill is imported.",
+    "Soy milk and almond milk are described by Matías as the options vegan customers request most. This is a source-reported order pattern, not an independent ingredient or handling guarantee.",
+    "Hannah is vegan and chooses soy milk, then fruit salad. Dev avoids lactose, chooses lactose-free dairy milk and two beef-fat croissants. These dietary needs are distinct.",
+    "The beef-fat croissant is reported by the baker to contain no butter or milk but to contain beef fat. The Japanese draft states all three facts and never presents it as vegan.",
+    "The source does not have an ingredient/preparation verification pause or provisional ordering hold. Those archived additions are not carried into this candidate.",
+    "Lágrima is a local milk-forward coffee drink with less coffee than a cortado; the Japanese draft retains the name and comparison.",
+    "Medialuna, medialuna de grasa, confitería and lágrima use draft loanword or descriptive choices; qualified Argentine-food and Japanese terminology review is required.",
+    "Coconut milk sweetness and soy foam/thickness are statements in this authored scene, not general food or nutrition claims.",
+    "Spanish más/menos … que and future/ir a grammar do not map word-for-word into Japanese. The draft uses natural ～より/～のほうが and arrival/return wording without claiming morphological parity.",
+    "Polite server-facing requests contrast with informal friend-directed questions. Qualified Japanese register review remains open.",
+    "The source says Matías will save oat milk when delivery arrives and the group will return in the afternoon; no actual delivery or return is shown."
+  ],
+  "missing": [
+    "qualified Japanese/source/Argentine food/locale/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

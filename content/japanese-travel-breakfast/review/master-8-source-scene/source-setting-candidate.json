@@ -1,0 +1,809 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "master",
+  "lessonKey": "master:8",
+  "stableLessonId": "master-travel-breakfast:8:ja-en",
+  "candidateRevision": "master-travel-breakfast:8:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "readerSourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Decline the Offer to Scrape the Almonds Off",
+    "objectiveEnglishInternal": "Refuse a well-meant but unsafe offer for an allergic friend and ask for a safe option or none at all.",
+    "speakingEnglishInternal": "You are with your friend Kenji, who has a tree-nut allergy, and the AI is Jordi, a server at a granja in Gràcia: thank him warmly but turn down his offer with negative commands like no la raspes and no recomiendo que + subjunctive, then ask for a safe option or nothing at all.",
+    "readerTitleSpanish": "No la raspes, Jordi",
+    "readerVerbExamples": [
+      {
+        "target": "Gracias, Jordi, pero no la raspes, por favor.",
+        "native": "Thanks, Jordi, but please don't scrape it."
+      },
+      {
+        "target": "No recomiendo que Kenji la pruebe.",
+        "native": "I don't recommend that Kenji try it."
+      },
+      {
+        "target": "Kenji no prueba la coca.",
+        "native": "Kenji doesn't try the coca."
+      },
+      {
+        "target": "Kenji, no te la comas.",
+        "native": "Kenji, don't eat it."
+      },
+      {
+        "target": "No insistas, Kenji; no merece la pena el riesgo.",
+        "native": "Don't push it, Kenji; it's not worth the risk."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/master-7-9-draft.json",
+    "sha256": "2df980428024f9bf436cbdd49d7b52cdcab5d9b49c6b670ba2988bb544b07337",
+    "scene": "At a bakery café, a server offers to remove almond pieces from a pastry; the guests decline and ask for current labeling and preparation information.",
+    "cardCount": 17,
+    "readerCount": 12
+  },
+  "sourceCards": [
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "la coca",
+      "sourceEnglish": "the coca",
+      "kind": "term",
+      "sourceNoteInternal": "Catalan flat sweet pastry, often topped with almonds or pine nuts.",
+      "targetJapaneseDraft": "コカ（カタルーニャの菓子パン）",
+      "literalJapaneseGlossEn": "the coca",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "las almendras",
+      "sourceEnglish": "the almonds",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アーモンド",
+      "literalJapaneseGlossEn": "the almonds",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "los frutos de cáscara",
+      "sourceEnglish": "the tree nuts",
+      "kind": "term",
+      "sourceNoteInternal": "The term Spanish allergen labels use for tree nuts.",
+      "targetJapaneseDraft": "木の実類",
+      "literalJapaneseGlossEn": "the tree nuts",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "la anafilaxia",
+      "sourceEnglish": "the anaphylaxis",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アナフィラキシー",
+      "literalJapaneseGlossEn": "the anaphylaxis",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "los restos",
+      "sourceEnglish": "the bits left behind",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "残ったかけら",
+      "literalJapaneseGlossEn": "the bits left behind",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "la superficie",
+      "sourceEnglish": "the surface",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "表面",
+      "literalJapaneseGlossEn": "the surface",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "la masa",
+      "sourceEnglish": "the dough",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "生地",
+      "literalJapaneseGlossEn": "the dough",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "el obrador",
+      "sourceEnglish": "the bakery kitchen",
+      "kind": "term",
+      "sourceNoteInternal": "Spain: the workshop where pastries are made.",
+      "targetJapaneseDraft": "製菓作業場",
+      "literalJapaneseGlossEn": "the bakery kitchen",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "la granja",
+      "sourceEnglish": "the traditional café",
+      "kind": "term",
+      "sourceNoteInternal": "In Barcelona, a café known for hot chocolate, dairy and pastries.",
+      "targetJapaneseDraft": "昔ながらのカフェ",
+      "literalJapaneseGlossEn": "the traditional café",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "el suizo",
+      "sourceEnglish": "the hot chocolate with whipped cream",
+      "kind": "term",
+      "sourceNoteInternal": "Classic order at a Barcelona granja.",
+      "targetJapaneseDraft": "ホイップクリーム入りのホットチョコレート",
+      "literalJapaneseGlossEn": "the hot chocolate with whipped cream",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "el producto envasado",
+      "sourceEnglish": "the packaged product",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "包装された商品",
+      "literalJapaneseGlossEn": "the packaged product",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "la opción segura",
+      "sourceEnglish": "the safe option",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "安全な選択肢",
+      "literalJapaneseGlossEn": "the safe option",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "el riesgo",
+      "sourceEnglish": "the risk",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "危険",
+      "literalJapaneseGlossEn": "the risk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "el antihistamínico",
+      "sourceEnglish": "the antihistamine",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "抗ヒスタミン薬",
+      "literalJapaneseGlossEn": "the antihistamine",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "la amabilidad",
+      "sourceEnglish": "the kindness",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "親切さ",
+      "literalJapaneseGlossEn": "the kindness",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "Gracias, Jordi, pero no la raspes, por favor.",
+      "sourceEnglish": "Thanks, Jordi, but please don't scrape it.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal (tú), normal with a server in Spain; la = la coca.",
+      "targetJapaneseDraft": "ありがとう、ジョルディ。でも、それを削り取らないでください。",
+      "literalJapaneseGlossEn": "Thanks, Jordi, but please don't scrape it.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Te lo agradezco mucho, de verdad, eres muy amable.",
+      "sourceEnglish": "I really appreciate it, honestly, you're very kind.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal.",
+      "targetJapaneseDraft": "本当にありがとうございます。とても親切ですね。",
+      "literalJapaneseGlossEn": "I really appreciate it, honestly, you're very kind.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "Tiene alergia grave a los frutos de cáscara.",
+      "sourceEnglish": "He has a severe tree-nut allergy.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "彼には重い木の実アレルギーがあります。",
+      "literalJapaneseGlossEn": "He has a severe tree-nut allergy.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:19",
+      "candidatePosition": 19,
+      "sourceSpanish": "No recomiendo que Kenji la pruebe, aunque quites las almendras.",
+      "sourceEnglish": "I don't recommend Kenji try it, even if you remove the almonds.",
+      "kind": "phrase",
+      "sourceNoteInternal": "No recomiendo que + subjunctive (pruebe).",
+      "targetJapaneseDraft": "アーモンドを取り除いても、ケンジがそれを食べてみることは勧めません。",
+      "literalJapaneseGlossEn": "I don't recommend Kenji try it, even if you remove the almonds.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:20",
+      "candidatePosition": 20,
+      "sourceSpanish": "Kenji, no te la comas; quedan restos en la masa.",
+      "sourceEnglish": "Kenji, don't eat it; there are bits left in the dough.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal negative command with pronouns: no te la comas.",
+      "targetJapaneseDraft": "ケンジ、それを食べないで。生地にかけらが残っているよ。",
+      "literalJapaneseGlossEn": "Kenji, don't eat it; there are bits left in the dough.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:21",
+      "candidatePosition": 21,
+      "sourceSpanish": "No insistas, Kenji; no merece la pena el riesgo.",
+      "sourceEnglish": "Don't push it, Kenji; it's not worth the risk.",
+      "kind": "phrase",
+      "sourceNoteInternal": "No merece la pena is the usual phrase in Spain.",
+      "targetJapaneseDraft": "ケンジ、無理に食べようとしないで。その危険を冒す価値はないよ。",
+      "literalJapaneseGlossEn": "Don't push it, Kenji; it's not worth the risk.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:22",
+      "candidatePosition": 22,
+      "sourceSpanish": "¿Tienen algo envasado, con la etiqueta de alérgenos?",
+      "sourceEnglish": "Do you have anything packaged, with the allergen label?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Ustedes when you address the staff.",
+      "targetJapaneseDraft": "アレルゲン表示のある包装済みの商品はありますか。",
+      "literalJapaneseGlossEn": "Do you have anything packaged, with the allergen label?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:card:23",
+      "candidatePosition": 23,
+      "sourceSpanish": "Si no hay una opción segura, prefiere no comer nada.",
+      "sourceEnglish": "If there's no safe option, he'd rather not eat anything.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "安全なものがなければ、彼は何も食べないほうを選びます。",
+      "literalJapaneseGlossEn": "If there's no safe option, he'd rather not eat anything.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ana y su amigo Kenji desayunan un sábado en una granja del barrio de Gràcia, en Barcelona.",
+      "sourceEnglish": "Ana and her friend Kenji are having breakfast on a Saturday at a traditional café in the Gràcia neighborhood, in Barcelona.",
+      "targetJapaneseDraft": "土曜日、アナと友人のケンジは、バルセロナのグラシア地区にある昔ながらのカフェで朝食をとっています。",
+      "literalJapaneseGlossEn": "Ana and her friend Kenji are having breakfast on a Saturday at a traditional café in the Gràcia neighborhood, in Barcelona.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Kenji pide un suizo, y Jordi, el camarero, les recomienda la coca de la casa, recién salida del horno.",
+      "sourceEnglish": "Kenji orders a hot chocolate with whipped cream, and Jordi, the server, recommends the house coca to them, fresh out of the oven.",
+      "targetJapaneseDraft": "ケンジはホイップクリーム入りのホットチョコレートを注文し、給仕のジョルディは焼きたての店のコカを二人に勧めます。",
+      "literalJapaneseGlossEn": "Kenji orders a hot chocolate with whipped cream, and Jordi, the server, recommends the house coca to them, fresh out of the oven.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ana mira la coca y ve que toda la superficie está cubierta de almendras.",
+      "sourceEnglish": "Ana looks at the coca and sees that the whole surface is covered in almonds.",
+      "targetJapaneseDraft": "アナがコカを見ると、表面全体がアーモンドで覆われています。",
+      "literalJapaneseGlossEn": "Ana looks at the coca and sees that the whole surface is covered in almonds.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ana señala a Kenji y le explica a Jordi: Tiene alergia grave a los frutos de cáscara.",
+      "sourceEnglish": "Ana points to Kenji and explains to Jordi: He has a severe tree-nut allergy.",
+      "targetJapaneseDraft": "アナはケンジを指してジョルディに説明します。「彼には重い木の実アレルギーがあります」。",
+      "literalJapaneseGlossEn": "Ana points to Kenji and explains to Jordi: He has a severe tree-nut allergy.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Jordi, con mucha amabilidad, se ofrece a raspar las almendras de una porción para Kenji.",
+      "sourceEnglish": "Jordi, with great kindness, offers to scrape the almonds off a slice for Kenji.",
+      "targetJapaneseDraft": "ジョルディは親切心から、ケンジのために一切れのアーモンドを削り取ることを申し出ます。",
+      "literalJapaneseGlossEn": "Jordi, with great kindness, offers to scrape the almonds off a slice for Kenji.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ana: Te lo agradezco mucho, de verdad, eres muy amable.",
+      "sourceEnglish": "Ana: I really appreciate it, honestly, you're very kind.",
+      "targetJapaneseDraft": "アナ：「本当にありがとうございます。とても親切ですね」。",
+      "literalJapaneseGlossEn": "Ana: I really appreciate it, honestly, you're very kind.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ana: Gracias, Jordi, pero no la raspes, por favor.",
+      "sourceEnglish": "Ana: Thanks, Jordi, but please don't scrape it.",
+      "targetJapaneseDraft": "アナ：「ありがとう、ジョルディ。でも、それを削り取らないでください」。",
+      "literalJapaneseGlossEn": "Ana: Thanks, Jordi, but please don't scrape it.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ana: No recomiendo que Kenji la pruebe, aunque quites las almendras.",
+      "sourceEnglish": "Ana: I don't recommend Kenji try it, even if you remove the almonds.",
+      "targetJapaneseDraft": "アナ：「アーモンドを取り除いても、ケンジがそれを食べてみることは勧めません」。",
+      "literalJapaneseGlossEn": "Ana: I don't recommend Kenji try it, even if you remove the almonds.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "Jordi admite que en el obrador preparan la masa en la misma mesa donde trabajan con almendras todo el día.",
+      "sourceEnglish": "Jordi admits that in the bakery kitchen they make the dough on the same table where they work with almonds all day.",
+      "targetJapaneseDraft": "ジョルディは、製菓作業場では一日中アーモンドを扱う同じ台で生地を作っていると認めます。",
+      "literalJapaneseGlossEn": "Jordi admits that in the bakery kitchen they make the dough on the same table where they work with almonds all day.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:reader:10",
+      "candidatePosition": 10,
+      "speaker": "Narrator",
+      "sourceSpanish": "Kenji duda y dice que un trocito pequeño no le va a hacer daño.",
+      "sourceEnglish": "Kenji hesitates and says that a small piece isn't going to hurt him.",
+      "targetJapaneseDraft": "ケンジはためらい、小さな一切れなら害はないだろうと言います。",
+      "literalJapaneseGlossEn": "Kenji hesitates and says that a small piece isn't going to hurt him.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:reader:11",
+      "candidatePosition": 11,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ana: Kenji, no te la comas; quedan restos en la masa.",
+      "sourceEnglish": "Ana: Kenji, don't eat it; there are bits left in the dough.",
+      "targetJapaneseDraft": "アナ：「ケンジ、それを食べないで。生地にかけらが残っているよ」。",
+      "literalJapaneseGlossEn": "Ana: Kenji, don't eat it; there are bits left in the dough.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:reader:12",
+      "candidatePosition": 12,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ana: No insistas, Kenji; no merece la pena el riesgo.",
+      "sourceEnglish": "Ana: Don't push it, Kenji; it's not worth the risk.",
+      "targetJapaneseDraft": "アナ：「ケンジ、無理に食べようとしないで。その危険を冒す価値はないよ」。",
+      "literalJapaneseGlossEn": "Ana: Don't push it, Kenji; it's not worth the risk.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:reader:13",
+      "candidatePosition": 13,
+      "speaker": "Narrator",
+      "sourceSpanish": "Kenji recuerda que el año pasado sufrió una anafilaxia por un trozo de turrón.",
+      "sourceEnglish": "Kenji remembers that last year he had anaphylaxis from a piece of nougat.",
+      "targetJapaneseDraft": "ケンジは、昨年ヌガーを一切れ食べてアナフィラキシーを起こしたことを思い出します。",
+      "literalJapaneseGlossEn": "Kenji remembers that last year he had anaphylaxis from a piece of nougat.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:reader:14",
+      "candidatePosition": 14,
+      "speaker": "Narrator",
+      "sourceSpanish": "Lleva su antihistamínico y su autoinyector, como le indicó su médico, y Ana sabe que, si hay síntomas, se usa el autoinyector y se llama al 112.",
+      "sourceEnglish": "He carries his antihistamine and his auto-injector, as his doctor told him, and Ana knows that, if there are symptoms, the auto-injector is used and 112 is called.",
+      "targetJapaneseDraft": "医師の指示どおり、彼は抗ヒスタミン薬と自己注射器を携帯しています。アナは、症状が出たら自己注射器を使い、112に電話することを知っています。",
+      "literalJapaneseGlossEn": "He carries his antihistamine and his auto-injector, as his doctor told him, and Ana knows that, if there are symptoms, the auto-injector is used and 112 is called.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:reader:15",
+      "candidatePosition": 15,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ana: ¿Tienen algo envasado, con la etiqueta de alérgenos?",
+      "sourceEnglish": "Ana: Do you have anything packaged, with the allergen label?",
+      "targetJapaneseDraft": "アナ：「アレルゲン表示のある包装済みの商品はありますか」。",
+      "literalJapaneseGlossEn": "Ana: Do you have anything packaged, with the allergen label?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:reader:16",
+      "candidatePosition": 16,
+      "speaker": "Narrator",
+      "sourceSpanish": "Jordi trae un producto envasado, pero la etiqueta dice que puede contener trazas de frutos de cáscara.",
+      "sourceEnglish": "Jordi brings a packaged product, but the label says it may contain traces of tree nuts.",
+      "targetJapaneseDraft": "ジョルディは包装済みの商品を持ってきますが、表示には「木の実類を微量に含む可能性があります」とあります。",
+      "literalJapaneseGlossEn": "Jordi brings a packaged product, but the label says it may contain traces of tree nuts.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:reader:17",
+      "candidatePosition": 17,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ana: Si no hay una opción segura, prefiere no comer nada.",
+      "sourceEnglish": "Ana: If there's no safe option, he'd rather not eat anything.",
+      "targetJapaneseDraft": "アナ：「安全なものがなければ、彼は何も食べないほうを選びます」。",
+      "literalJapaneseGlossEn": "Ana: If there's no safe option, he'd rather not eat anything.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:8:ja-en:source-scene-v1:reader:18",
+      "candidatePosition": 18,
+      "speaker": "Narrator",
+      "sourceSpanish": "Jordi consulta la carta de alérgenos y confirma que el suizo no lleva frutos de cáscara entre sus ingredientes; Ana pregunta si se prepara con utensilios limpios, y Kenji decide pedirlo solo si la cocina lo confirma.",
+      "sourceEnglish": "Jordi checks the allergen chart and confirms that the hot chocolate has no tree nuts among its ingredients; Ana asks whether it is prepared with clean utensils, and Kenji decides to order it only if the kitchen confirms.",
+      "targetJapaneseDraft": "ジョルディはアレルゲン一覧表を確認し、そのホットチョコレートの原材料に木の実類は含まれていないと伝えます。アナは清潔な器具で調理するか尋ね、ケンジは厨房が確認した場合にのみ注文することにします。",
+      "literalJapaneseGlossEn": "Jordi checks the allergen chart and confirms that the hot chocolate has no tree nuts among its ingredients; Ana asks whether it is prepared with clean utensils, and Kenji decides to order it only if the kitchen confirms.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Thank a server in a traditional Barcelona café, decline scraping almonds from coca for a friend with severe tree-nut allergy, ask about labeled packaged food, and check the hot chocolate preparation before ordering.",
+  "speakingGoalInternal": "You are with your friend Kenji, who has a tree-nut allergy, and the AI is Jordi, a server at a granja in Gràcia: thank him warmly but turn down his offer with negative commands like no la raspes and no recomiendo que + subjunctive, then ask for a safe option or nothing at all.",
+  "speakingGoalJapaneseDraft": "バルセロナのグラシア地区のカフェで、木の実アレルギーのある友人ケンジのために、給仕のジョルディに親切な提案へのお礼を伝え、アーモンドを削り取る方法は断り、アレルゲン表示と清潔な器具での調理を確認し、安全な選択肢がなければ何も注文しないと伝える。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "The current 18-turn source follows Ana and Kenji at a Saturday café breakfast in Barcelona’s Gràcia district. Jordi offers to scrape almonds from coca, but bakery dough is made on a surface used for almonds all day. Kenji has a severe tree-nut allergy and a prior anaphylaxis. The source specifies his antihistamine and auto-injector, and 112 for symptoms; a packaged item warns of tree-nut traces, while hot chocolate requires a separate clean-utensil check. The archived 12-turn draft compresses these source facts and is retained as distinct evidence, not an answer or migration source.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "tree nuts",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "almonds",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "allergy",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "sweet pastry",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "to remove",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "surface",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "dough",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "ingredient label",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "production area",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "cross-contact",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "cannot verify",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "I will decline",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "I appreciate the offer, but",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "I will not eat anything",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 15,
+      "candidate": null,
+      "oldEnglish": "anaphylaxis",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 16,
+      "candidate": null,
+      "oldEnglish": "antihistamine",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 17,
+      "candidate": null,
+      "oldEnglish": "epinephrine auto-injector",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "How about this pastry? It has almonds on top.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "My friend has a tree-nut allergy.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Shall I remove the almonds on top?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Thank you, but please don't scrape off the almonds.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Removing the visible pieces does not verify the ingredients or possible cross-contact.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Do you have another product with an ingredient label?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "This one is packaged, but I will check the production information too.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "If it cannot be verified, we will not order food.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "I will decide about a drink only after checking how it is prepared.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "Understood. I will tell you only what we can verify.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "I have had anaphylaxis from tree nuts before.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "I carry an antihistamine and an epinephrine auto-injector as my doctor instructed.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 2,
+      "candidatePosition": 2,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 6,
+      "candidatePosition": 6,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 7,
+      "candidatePosition": 7,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 15,
+      "candidatePosition": 4,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 16,
+      "candidatePosition": 14,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 41,
+    "twoVoiceClipDecisionsIfTextApproved": 82,
+    "twoVoiceSubmittedCharactersIfTextApproved": 2194,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.06582,
+    "archivedExactJapaneseCardTextOverlapsOnly": 5,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows lack explicit stable IDs and were not learner-registered. Revision-scoped candidate IDs do not authorize saved-item or audio migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "木の実類とナッツ類の範囲、アーモンドの位置づけと商品表示の語法を有資格の日本語・アレルギー用語レビュアーが確認する。",
+    "「重い木の実アレルギー」「アナフィラキシー」「抗ヒスタミン薬」「自己注射器」の文脈と、症状時の112への連絡というスペインの場面設定を専門家が確認する。",
+    "「コカ」「グランハ」「スイソ」のカタルーニャ・バルセロナ固有の食文化の表記と説明を確認する。",
+    "包装済み商品に木の実類を微量に含む可能性がある表示と、ホットチョコレートの原材料確認・清潔な器具確認という別の判断を混同しない。",
+    "否定命令と接続法のスペイン語文法目的は日本語に一対一対応しないため、自然な断りと非推奨の言い方として再設計する。",
+    "旧17カード・12ターンの草稿は源泉の23カード・18ターンより短い。既存位置からの保存項目や音声の移行は許可されていない。"
+  ],
+  "missing": [
+    "qualified Japanese/source/Catalonian-food/allergy/clinical/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

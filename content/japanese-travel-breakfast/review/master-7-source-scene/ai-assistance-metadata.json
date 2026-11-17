@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "qualifiedReview": false,
+  "sourceGroundedSelfCheck": true,
+  "calls": [
+    {
+      "role": "safe-mode Haiku availability check",
+      "requestedModel": "haiku",
+      "actualModel": null,
+      "outcome": "claude --safe-mode --model haiku --output-format json -p exited 1 with terminal_reason api_error and Not logged in; modelUsage empty and zero input/output tokens. No authoring or critique occurred.",
+      "qualifiedApproval": false
+    }
+  ],
+  "correctionsAfterAICritique": [],
+  "independentSelfCheck": [
+    "Compared all 23 card English anchors and 18 Reader English anchors in exact order to the pinned current source; the generator also pins Spanish rows and hashes.",
+    "Retained the Salento-area coffee farm, Emma, cook Marleny, guide Andrés, 7:30 finish, moved 7:45 departure and landslide.",
+    "Retained seven cheese arepas, nine tintos, two aguapanelas, two unrecorded calentados, eggs, four people already paid in cash and the remaining three tintos/two aguapanelas.",
+    "Retained 64,000 Colombian pesos owed, Emma's 100,000-peso notes, no change, Nequi transfer and proof of payment before the minibus departure.",
+    "Kept source timeline and cost assertions visible as review questions instead of silently reconciling them.",
+    "Checked all draft gates remain false and archived positions have no authorized saved-item or audio migration."
+  ]
+}

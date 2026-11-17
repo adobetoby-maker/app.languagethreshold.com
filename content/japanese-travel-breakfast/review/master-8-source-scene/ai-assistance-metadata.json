@@ -1,0 +1,20 @@
+{
+  "requestedWorkflow": "safe-mode Claude Haiku candidate, Opus read-only critique, Fable correction; source-grounded self-check",
+  "cliAvailable": false,
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "interface": "claude --safe-mode --permission-mode plan --model haiku --print --output-format json",
+      "requestedModel": "haiku",
+      "actualModelReported": null,
+      "isError": true,
+      "result": "Not logged in · Please run /login; terminal_reason api_error; zero input/output tokens",
+      "usedForAuthoredContent": false
+    }
+  ],
+  "opusCritiquePerformed": false,
+  "fableCorrectionPerformed": false,
+  "authorship": "Agent source-grounded self-authoring; no Claude model content was used",
+  "humanOrQualifiedApproval": false,
+  "selfCheck": "Exact source English/Spanish cards and Reader order are generated from pinned source files. Independent validator checks stable IDs, false gates, scene facts and read-only audio scope. Japanese wording remains unapproved."
+}

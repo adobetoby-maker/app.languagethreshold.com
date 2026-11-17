@@ -1,0 +1,591 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:14",
+  "stableLessonId": "travel-breakfast:14:ja-en",
+  "candidateRevision": "travel-breakfast:14:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Handle a rushed morning",
+    "objectiveEnglishInternal": "explain time pressure, ask what is fastest, and confirm preparation time",
+    "roleplayEnglishInternal": "You have twelve minutes before a tour; ask for a realistic fast option.",
+    "readerTitleSpanish": "Una mañana con prisa",
+    "readerVerbExamples": [
+      {
+        "target": "Tengo prisa porque mi tour sale en 12 minutos.",
+        "native": "I'm in a hurry because my tour leaves in 12 minutes."
+      },
+      {
+        "target": "El sándwich tarda unos 5 minutos.",
+        "native": "The sandwich takes about 5 minutes."
+      },
+      {
+        "target": "Él pide la cuenta ahora.",
+        "native": "He asks for the bill now."
+      },
+      {
+        "target": "Mi tour sale en 12 minutos.",
+        "native": "My tour leaves in 12 minutes."
+      },
+      {
+        "target": "La cocina prepara el café americano rápido.",
+        "native": "The kitchen prepares the americano coffee quickly."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "Sam has a tour meeting soon and asks a café worker for a realistic breakfast option.",
+    "cardCount": 12,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "desayuno",
+      "sourceEnglish": "breakfast",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "japaneseUsageNoteInternal": null,
+      "targetJapaneseDraft": "朝食",
+      "literalJapaneseGlossEn": "breakfast",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "mostrador",
+      "sourceEnglish": "counter",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "japaneseUsageNoteInternal": null,
+      "targetJapaneseDraft": "カウンター",
+      "literalJapaneseGlossEn": "counter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "cuenta",
+      "sourceEnglish": "bill",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "japaneseUsageNoteInternal": null,
+      "targetJapaneseDraft": "伝票",
+      "literalJapaneseGlossEn": "bill, check (the slip of paper showing what you owe)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "café americano",
+      "sourceEnglish": "americano coffee",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "japaneseUsageNoteInternal": null,
+      "targetJapaneseDraft": "アメリカーノ",
+      "literalJapaneseGlossEn": "americano (coffee)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "sándwich de huevo",
+      "sourceEnglish": "egg sandwich",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "japaneseUsageNoteInternal": null,
+      "targetJapaneseDraft": "エッグサンド",
+      "literalJapaneseGlossEn": "egg sandwich",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "para llevar",
+      "sourceEnglish": "to go",
+      "kind": "term",
+      "sourceNoteInternal": "Used after the food or drink you order.",
+      "japaneseUsageNoteInternal": "Place 持ち帰りで after the item ordered; テイクアウト is a common alternative.",
+      "targetJapaneseDraft": "持ち帰り",
+      "literalJapaneseGlossEn": "takeout, taking it with you (\"to go\")",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "prisa",
+      "sourceEnglish": "hurry",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "japaneseUsageNoteInternal": null,
+      "targetJapaneseDraft": "急ぎ",
+      "literalJapaneseGlossEn": "hurry, haste (noun)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "tour",
+      "sourceEnglish": "tour",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "japaneseUsageNoteInternal": null,
+      "targetJapaneseDraft": "ツアー",
+      "literalJapaneseGlossEn": "tour",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "mesera",
+      "sourceEnglish": "waitress",
+      "kind": "term",
+      "sourceNoteInternal": "Use mesero for a waiter.",
+      "japaneseUsageNoteInternal": "The source specifies a female waitress; ウェイター names a waiter.",
+      "targetJapaneseDraft": "ウェイトレス",
+      "literalJapaneseGlossEn": "waitress",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "preparación",
+      "sourceEnglish": "preparation",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "japaneseUsageNoteInternal": null,
+      "targetJapaneseDraft": "準備",
+      "literalJapaneseGlossEn": "preparation",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "minutos",
+      "sourceEnglish": "minutes",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "japaneseUsageNoteInternal": null,
+      "targetJapaneseDraft": "分",
+      "literalJapaneseGlossEn": "minute(s) (counter used after a number)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "cocina",
+      "sourceEnglish": "kitchen",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "japaneseUsageNoteInternal": null,
+      "targetJapaneseDraft": "厨房",
+      "literalJapaneseGlossEn": "kitchen (of a café or restaurant)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "Tengo prisa porque mi tour sale pronto.",
+      "sourceEnglish": "I'm in a hurry because my tour leaves soon.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "japaneseUsageNoteInternal": null,
+      "targetJapaneseDraft": "ツアーがもうすぐ出発するので、急いでいます。",
+      "literalJapaneseGlossEn": "(My) tour leaves soon, so I'm in a hurry.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Qué es lo más rápido que tienen?",
+      "sourceEnglish": "What is the fastest thing you have?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "japaneseUsageNoteInternal": null,
+      "targetJapaneseDraft": "一番早く出せるものは何ですか。",
+      "literalJapaneseGlossEn": "What is the thing you can serve the fastest?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "¿Cuánto tiempo tarda la preparación?",
+      "sourceEnglish": "How long does the preparation take?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "japaneseUsageNoteInternal": null,
+      "targetJapaneseDraft": "準備にはどのくらい時間がかかりますか。",
+      "literalJapaneseGlossEn": "How long does the preparation take?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿Podría ser para llevar, por favor?",
+      "sourceEnglish": "Could it be to go, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": "A polite request with podría.",
+      "japaneseUsageNoteInternal": "〜お願いできますか is a polite request; check register in the complete exchange.",
+      "targetJapaneseDraft": "持ち帰りでお願いできますか。",
+      "literalJapaneseGlossEn": "Could I ask for it to go?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Solo tengo 12 minutos.",
+      "sourceEnglish": "I only have 12 minutes.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "japaneseUsageNoteInternal": null,
+      "targetJapaneseDraft": "12分しかありません。",
+      "literalJapaneseGlossEn": "(I) have only 12 minutes.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "¿Me trae la cuenta ahora, por favor?",
+      "sourceEnglish": "Could you bring me the bill now, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "japaneseUsageNoteInternal": null,
+      "targetJapaneseDraft": "今、伝票を持ってきていただけますか。",
+      "literalJapaneseGlossEn": "Could you bring (me) the bill now?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Un viajero entra a un café a las 8:00 y habla con la mesera en el mostrador.",
+      "sourceEnglish": "A traveler walks into a café at 8:00 and talks with the waitress at the counter.",
+      "targetJapaneseDraft": "旅行者が8時にカフェに入り、カウンターでウェイトレスと話します。",
+      "literalJapaneseGlossEn": "A traveler enters a café at 8:00 and talks with the waitress at the counter.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Él dice: Tengo prisa porque mi tour sale en 12 minutos.",
+      "sourceEnglish": "He says: I'm in a hurry because my tour leaves in 12 minutes.",
+      "targetJapaneseDraft": "彼は「ツアーが12分後に出発するので、急いでいます」と言います。",
+      "literalJapaneseGlossEn": "He says, \"(My) tour leaves in 12 minutes, so I'm in a hurry.\"",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Pregunta: ¿Qué es lo más rápido que tienen para el desayuno?",
+      "sourceEnglish": "He asks: What is the fastest thing you have for breakfast?",
+      "targetJapaneseDraft": "「朝食に一番早く出せるものは何ですか」と尋ねます。",
+      "literalJapaneseGlossEn": "(He) asks, \"What is the thing you can serve the fastest for breakfast?\"",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "La mesera responde que un sándwich de huevo y un café americano salen rápido.",
+      "sourceEnglish": "The waitress answers that an egg sandwich and an americano come out quickly.",
+      "targetJapaneseDraft": "ウェイトレスは、エッグサンドとアメリカーノがすぐに出せると答えます。",
+      "literalJapaneseGlossEn": "The waitress answers that an egg sandwich and an americano can be served quickly.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "El viajero pregunta: ¿Cuánto tiempo tarda la preparación del sándwich?",
+      "sourceEnglish": "The traveler asks: How long does the sandwich take to prepare?",
+      "targetJapaneseDraft": "旅行者は「サンドイッチの準備にはどのくらい時間がかかりますか」と尋ねます。",
+      "literalJapaneseGlossEn": "The traveler asks, \"How long does the preparation of the sandwich take?\"",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ella dice que tarda unos 5 minutos, según la cocina.",
+      "sourceEnglish": "She says it takes about 5 minutes, according to the kitchen.",
+      "targetJapaneseDraft": "彼女は、厨房の話では5分ほどかかると言います。",
+      "literalJapaneseGlossEn": "She says that, according to the kitchen, it takes about five minutes.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Si es posible, él quiere el desayuno para llevar, porque no tiene tiempo para sentarse.",
+      "sourceEnglish": "If it is possible, he wants breakfast to go, because he has no time to sit down.",
+      "targetJapaneseDraft": "彼は座る時間がないので、できれば朝食を持ち帰りにしたいと思っています。",
+      "literalJapaneseGlossEn": "He has no time to sit down, so if possible he wants to have breakfast to go.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "También pide la cuenta ahora para pagar en el mostrador.",
+      "sourceEnglish": "He also asks for the bill now so he can pay at the counter.",
+      "targetJapaneseDraft": "また彼は、カウンターで支払えるように、今伝票を持ってきてほしいと頼みます。",
+      "literalJapaneseGlossEn": "He also asks (her) to bring the bill now so that he can pay at the counter.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:14:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "La mesera sonríe y dice: Con gusto, enseguida se lo preparo.",
+      "sourceEnglish": "The waitress smiles and says: My pleasure, I'll get it ready for you right away.",
+      "targetJapaneseDraft": "ウェイトレスはほほえんで、「はい、喜んで。すぐにご用意します」と言います。",
+      "literalJapaneseGlossEn": "The waitress smiles and says, \"Yes, gladly. I'll get it ready right away.\"",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Explain a 12-minute tour deadline; ask about the fastest egg-sandwich and americano order, five-minute preparation, takeout, and immediate bill.",
+  "speakingGoalInternal": "You have twelve minutes before a tour; ask for a realistic fast option.",
+  "sourceConflictInternal": "The current source has an unnamed traveler and female waitress at 8:00, an egg sandwich and americano, a five-minute kitchen estimate, takeout, and payment at the counter before a tour. The archived draft changes the food to a rice ball, invents Sam and a busy-kitchen caveat, and omits source lines. Keep source objective separate from Japanese literal glosses.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "I am in a hurry",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "twelve minutes left",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "tour",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "about how many minutes",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "will it take?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "soon",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "takeaway",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "rice ball",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "sandwich",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "the bill",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "Will it be in time?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "Can I pay first?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Excuse me. I have twelve minutes before my tour.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Is there a breakfast that can be ready quickly?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "We can hand you a rice ball soon.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "About how many minutes would a sandwich take?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "About five minutes, but it depends on how busy we are.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Then a rice ball to take away, please.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Can I pay first?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Yes, please pay here.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Thank you.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactJapaneseCardTextOverlapsInternal": [
+    {
+      "oldPosition": 3,
+      "candidatePosition": 8,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 7,
+      "candidatePosition": 6,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 27,
+    "twoVoiceClipDecisionsIfTextApproved": 54,
+    "twoVoiceSubmittedCharactersIfTextApproved": 864,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.02592,
+    "archivedExactJapaneseCardTextOverlapsOnly": 2,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "The source is an unnamed café with a female waitress; retain the 8:00 entry, tour in 12 minutes, egg sandwich and americano, five-minute preparation, takeout and counter payment without adding Japan-specific service facts.",
+    "Check 伝票 as the bill document against お会計 as the act of settling payment; Card 18 and Reader 8 use the same bill-document sense.",
+    "The source Spanish según la cocina and English according to the kitchen are retained as 厨房の話では; a source editor should confirm that intent rather than depending on kitchen workload.",
+    "Check ウェイトレス for dated register while preserving the source female staff reference; use ウェイター only for a waiter in a later note.",
+    "Add Japanese learner notes for 持ち帰りで after the item, 〜お願いできますか as a polite request, and 分 counter readings before any learner use.",
+    "Review エッグサンド and アメリカーノ as source food/drink names, without substituting rice balls or a local coffee style.",
+    "The archived draft has no stable card/Reader IDs and changes the food to a rice ball; old positions do not migrate to these candidates."
+  ],
+  "missing": [
+    "qualified Japanese/source/food/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

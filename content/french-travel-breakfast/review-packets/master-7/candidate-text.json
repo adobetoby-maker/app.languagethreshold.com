@@ -1,0 +1,70 @@
+{
+  "titleFrenchDraft": "Régler la commande de la finca avant le départ",
+  "focusFrenchDraft": "Raconter ce que le groupe a commandé et payé, compter les articles restants et régler le solde avant le départ du minibus.",
+  "cardsFrench": [
+    "l’arepa",
+    "le tinto (petit café noir colombien)",
+    "les œufs pericos (œufs brouillés à la tomate et à l’oignon)",
+    "l’aguapanela (boisson au sucre de canne)",
+    "le calentado (riz et haricots réchauffés pour le petit-déjeuner)",
+    "le queso campesino (fromage frais paysan)",
+    "le solde restant à payer",
+    "le guide",
+    "le minibus",
+    "le départ",
+    "le virement bancaire",
+    "la preuve de paiement",
+    "les gros billets",
+    "la finca (exploitation agricole)",
+    "le carnet",
+    "Nous avons commandé sept arepas au fromage et neuf tintos, de petits cafés noirs.",
+    "Doña Marleny, quatre personnes ont déjà payé en espèces.",
+    "Il reste trois tintos et deux aguapanelas à payer.",
+    "Andrés a dit que le minibus part dans dix minutes.",
+    "Les amis, qui a commandé les œufs pericos, brouillés à la tomate et à l’oignon ?",
+    "Pourriez-vous me confirmer le montant du solde restant, s’il vous plaît ?",
+    "Puis-je vous payer par virement bancaire ou seulement en espèces ?",
+    "Je vais payer ce qui reste et m’arranger avec eux plus tard."
+  ],
+  "readerFrench": [
+    "À 7 h 30, le groupe d’Emma a terminé son petit-déjeuner dans une finca caféière près de Salento.",
+    "Soudain, le guide Andrés a annoncé que le départ avait été avancé à 7 h 45 à cause d’un glissement de terrain sur la route.",
+    "Emma, l’organisatrice, est allée à la cuisine et a dit à la cuisinière : « Andrés a dit que le minibus part dans dix minutes. »",
+    "Doña Marleny a ouvert le carnet où elle avait noté les commandes du groupe ce matin-là.",
+    "Emma : « Nous avons commandé sept arepas au fromage et neuf tintos, de petits cafés noirs. »",
+    "Marleny : « Oui, et aussi deux aguapanelas pour les enfants de Priya. »",
+    "Emma : « Doña Marleny, quatre personnes ont déjà payé en espèces. »",
+    "Marleny : « D’accord, mais j’ai aussi servi deux calentados que personne n’a notés dans le carnet. »",
+    "Emma a demandé à ses compagnons : « Les amis, qui a commandé les œufs pericos, brouillés à la tomate et à l’oignon ? »",
+    "Tom et Priya ont levé la main, et Tom a reconnu qu’il avait aussi mangé un calentado avec du queso campesino.",
+    "Marleny a fait rapidement l’addition au crayon et a dit : « Il reste trois tintos et deux aguapanelas à payer. »",
+    "Emma : « Pourriez-vous me confirmer le montant du solde restant, s’il vous plaît ? »",
+    "Marleny : « Le solde restant à payer est de 64 000 pesos, avec les œufs pericos et les deux calentados. »",
+    "Emma n’avait que de gros billets de 100 000 pesos, et Marleny n’avait pas de monnaie si tôt.",
+    "Emma : « Puis-je vous payer par virement bancaire ou seulement en espèces ? »",
+    "Marleny lui a répondu qu’elle acceptait les virements par Nequi et lui a montré le numéro affiché au mur.",
+    "Emma lui a dit : « Je vais payer ce qui reste et m’arranger avec eux plus tard. »",
+    "Emma a effectué le virement de 64 000 pesos, lui a montré la preuve de paiement et a couru jusqu’au minibus juste à temps."
+  ],
+  "formsDraft": [
+    {"french": "nous avons commandé", "english": "we ordered", "noteEnglish": "French passé composé for a completed group order; Spanish source uses pedimos."},
+    {"french": "quatre personnes ont déjà payé", "english": "four have already paid", "noteEnglish": "Keep the completed payment separate from the remaining balance."},
+    {"french": "il reste trois tintos à payer", "english": "three black coffees are still to be paid for", "noteEnglish": "French il reste à payer corresponds to the source's faltan ... por pagar in this context."},
+    {"french": "le départ avait été avancé", "english": "the departure had been moved up", "noteEnglish": "Earlier change relative to the completed breakfast."},
+    {"french": "je vais payer ce qui reste", "english": "I'll pay what's left", "noteEnglish": "An immediate payment commitment, without implying the others have already reimbursed Emma."}
+  ],
+  "speakingDraft": {
+    "openingFrench": "Doña Marleny, nous avons commandé sept arepas au fromage et neuf tintos. Quatre personnes ont déjà payé en espèces. Pourriez-vous me confirmer le solde restant ?",
+    "rolesEnglish": "Learner is Emma, the group organizer; AI plays Marleny, the cook at a coffee farm near Salento.",
+    "objectivesEnglish": ["Recount the exact order and previously paid cash", "Check the three remaining tintos, two aguapanelas and the two unrecorded calentados", "Confirm the 64,000-peso balance and ask whether a Nequi transfer is accepted", "Show proof of payment before the minibus leaves"],
+    "closureEnglish": "Confirm the transfer and proof of payment, then leave for the minibus."
+  },
+  "modeChoices": [
+    {"mode": "See", "cueEnglish": "Inspect the source-specific term for the Colombian small black coffee.", "kind": "card", "index": 2},
+    {"mode": "Recall", "cueEnglish": "Recall how to say that four people have already paid in cash.", "kind": "card", "index": 17},
+    {"mode": "Hear", "cueEnglish": "Identify the amount of the outstanding balance after hearing Marleny.", "kind": "reader", "index": 13},
+    {"mode": "Type", "cueEnglish": "Type the request to confirm the remaining balance politely.", "kind": "card", "index": 21},
+    {"mode": "Say", "cueEnglish": "Tell Marleny that you will pay what remains and settle it with the group later.", "kind": "card", "index": 23},
+    {"mode": "Write", "cueEnglish": "Write the final transfer and proof-of-payment event before Emma reaches the minibus.", "kind": "reader", "index": 18}
+  ]
+}

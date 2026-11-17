@@ -1,0 +1,506 @@
+{
+  "schema": "lt.inert-source-review.v1",
+  "lessonKey": "master:7",
+  "pair": {
+    "target": "French",
+    "support": "English"
+  },
+  "source": {
+    "coursePath": "src/data/core60/es/master-travel-breakfast.json",
+    "courseSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "lessonSha256": "5379f4afeb214c9f0bfeddb8a984dd9e051a973f8ba42fc4fd03bdb6290fcc4f",
+    "titleEnglish": "The Guide Moves the Bus Up: Settle the Finca Order",
+    "objectiveEnglish": "Recount what the group ordered and paid, count items fast, and settle the bill before the bus leaves.",
+    "speakingEnglish": "You are the group's organizer, and the AI is Marleny, the cook at a coffee-farm breakfast near Salento: recount what the group ordered and who paid using the preterite (pedimos, pagaron), count what's still owed with faltan + numbers, and settle the bill before the bus leaves.",
+    "sourceGrammar": {
+      "focus": "Preterite narration; numbers under pressure (pedimos siete arepas, cuatro pagaron ya, faltan tres cafés)",
+      "examples": [
+        {
+          "es": "Pedimos 7 arepas, y 4 personas ya pagaron.",
+          "en": "We ordered 7 arepas, and 4 people already paid."
+        },
+        {
+          "es": "Marleny sirvió 2 calentados que nadie anotó en la libreta.",
+          "en": "Marleny served 2 calentados that nobody wrote down in the notebook."
+        }
+      ]
+    },
+    "passageTitleSpanish": "La cuenta antes de la buseta"
+  },
+  "priorDraft": {
+    "archivePath": "content/review-archive/french-japanese-2026-11-15/french-breakfast/master-7-9-draft.json",
+    "archiveSha256": "d376f10d93130352cd8ed7c8defb64adc2f8cb5cf9677b12519d118c7c3bc7b0",
+    "runtimePath": "content/review-archive/french-japanese-2026-11-15/french-breakfast/private-runtime-candidate.json",
+    "runtimeSha256": "f58bb01321fa2e04ef1bbc802c7a776836c3ea9ac6c51fdbedfaca50fe764f26",
+    "oldScene": "Québec farm café, toast and juice substituted for Salento's arepas, tintos and aguapanelas",
+    "sourceScene": "Salento coffee farm, moved minibus departure, exact Colombian food counts and 64,000-peso Nequi transfer",
+    "matchingPriorEnglishCards": 8,
+    "matchingPriorEnglishReaderTurns": 0,
+    "disposition": "Legacy IDs and positions are trace evidence only; no automatic saved-item or audio migration is authorized."
+  },
+  "titleFrenchDraft": "Régler la commande de la finca avant le départ",
+  "focusFrenchDraft": "Raconter ce que le groupe a commandé et payé, compter les articles restants et régler le solde avant le départ du minibus.",
+  "cards": [
+    {
+      "id": "master:7:source-5379f4afeb21:word:1",
+      "legacyDraftId": "master:7:word:1",
+      "sourceSpanish": "la arepa",
+      "supportEnglish": "the arepa",
+      "targetFrenchDraft": "l’arepa",
+      "kind": "term"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:2",
+      "legacyDraftId": "master:7:word:2",
+      "sourceSpanish": "el tinto",
+      "supportEnglish": "the small black coffee",
+      "targetFrenchDraft": "le tinto (petit café noir colombien)",
+      "kind": "term",
+      "sourceNoteEnglish": "In Colombia, un tinto is black coffee, not red wine."
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:3",
+      "legacyDraftId": "master:7:word:3",
+      "sourceSpanish": "los huevos pericos",
+      "supportEnglish": "the scrambled eggs with tomato and onion",
+      "targetFrenchDraft": "les œufs pericos (œufs brouillés à la tomate et à l’oignon)",
+      "kind": "term",
+      "sourceNoteEnglish": "Colombian breakfast classic."
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:4",
+      "legacyDraftId": "master:7:word:4",
+      "sourceSpanish": "la aguapanela",
+      "supportEnglish": "the cane-sugar drink",
+      "targetFrenchDraft": "l’aguapanela (boisson au sucre de canne)",
+      "kind": "term",
+      "sourceNoteEnglish": "Made from panela; served hot or cold."
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:5",
+      "legacyDraftId": "master:7:word:5",
+      "sourceSpanish": "el calentado",
+      "supportEnglish": "the reheated rice-and-beans breakfast",
+      "targetFrenchDraft": "le calentado (riz et haricots réchauffés pour le petit-déjeuner)",
+      "kind": "term",
+      "sourceNoteEnglish": "Colombian breakfast of the day before's rice and beans, reheated."
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:6",
+      "legacyDraftId": "master:7:word:6",
+      "sourceSpanish": "el queso campesino",
+      "supportEnglish": "the farmer's cheese",
+      "targetFrenchDraft": "le queso campesino (fromage frais paysan)",
+      "kind": "term"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:7",
+      "legacyDraftId": "master:7:word:7",
+      "sourceSpanish": "el saldo pendiente",
+      "supportEnglish": "the outstanding balance",
+      "targetFrenchDraft": "le solde restant à payer",
+      "kind": "term"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:8",
+      "legacyDraftId": "master:7:word:8",
+      "sourceSpanish": "el guía",
+      "supportEnglish": "the guide",
+      "targetFrenchDraft": "le guide",
+      "kind": "term",
+      "sourceNoteEnglish": "La guía for a woman."
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:9",
+      "legacyDraftId": "master:7:word:9",
+      "sourceSpanish": "la buseta",
+      "supportEnglish": "the minibus",
+      "targetFrenchDraft": "le minibus",
+      "kind": "term",
+      "sourceNoteEnglish": "Common Colombian word for a small bus."
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:10",
+      "legacyDraftId": "master:7:word:10",
+      "sourceSpanish": "la salida",
+      "supportEnglish": "the departure",
+      "targetFrenchDraft": "le départ",
+      "kind": "term"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:11",
+      "legacyDraftId": "master:7:word:11",
+      "sourceSpanish": "la transferencia",
+      "supportEnglish": "the bank transfer",
+      "targetFrenchDraft": "le virement bancaire",
+      "kind": "term"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:12",
+      "legacyDraftId": "master:7:word:12",
+      "sourceSpanish": "el comprobante de pago",
+      "supportEnglish": "the proof of payment",
+      "targetFrenchDraft": "la preuve de paiement",
+      "kind": "term"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:13",
+      "legacyDraftId": "master:7:word:13",
+      "sourceSpanish": "los billetes grandes",
+      "supportEnglish": "the large bills",
+      "targetFrenchDraft": "les gros billets",
+      "kind": "term"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:14",
+      "legacyDraftId": "master:7:word:14",
+      "sourceSpanish": "la finca",
+      "supportEnglish": "the farm",
+      "targetFrenchDraft": "la finca (exploitation agricole)",
+      "kind": "term"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:15",
+      "legacyDraftId": "master:7:word:15",
+      "sourceSpanish": "la libreta",
+      "supportEnglish": "the notebook",
+      "targetFrenchDraft": "le carnet",
+      "kind": "term"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:16",
+      "legacyDraftId": "master:7:word:16",
+      "sourceSpanish": "Pedimos 7 arepas con queso y 9 tintos.",
+      "supportEnglish": "We ordered 7 arepas with cheese and 9 small black coffees.",
+      "targetFrenchDraft": "Nous avons commandé sept arepas au fromage et neuf tintos, de petits cafés noirs.",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:17",
+      "legacyDraftId": "master:7:word:17",
+      "sourceSpanish": "Doña Marleny, 4 ya pagaron en efectivo.",
+      "supportEnglish": "Doña Marleny, 4 have already paid in cash.",
+      "targetFrenchDraft": "Doña Marleny, quatre personnes ont déjà payé en espèces.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Doña plus first name is respectful and warm in Colombia."
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:18",
+      "legacyDraftId": "master:7:word:18",
+      "sourceSpanish": "Faltan 3 tintos y 2 aguapanelas por pagar.",
+      "supportEnglish": "There are still 3 black coffees and 2 aguapanelas to pay for.",
+      "targetFrenchDraft": "Il reste trois tintos et deux aguapanelas à payer.",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:19",
+      "legacyDraftId": "master:7:word:19",
+      "sourceSpanish": "Andrés dijo que la buseta sale en 10 minutos.",
+      "supportEnglish": "Andrés said the minibus leaves in 10 minutes.",
+      "targetFrenchDraft": "Andrés a dit que le minibus part dans dix minutes.",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:20",
+      "legacyDraftId": "master:7:word:20",
+      "sourceSpanish": "Muchachos, ¿quién pidió los huevos pericos?",
+      "supportEnglish": "Guys, who ordered the scrambled eggs with tomato and onion?",
+      "targetFrenchDraft": "Les amis, qui a commandé les œufs pericos, brouillés à la tomate et à l’oignon ?",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Informal, to the group."
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:21",
+      "legacyDraftId": "master:7:word:21",
+      "sourceSpanish": "¿Me confirma cuánto queda del saldo, por favor?",
+      "supportEnglish": "Could you confirm how much of the balance is left, please?",
+      "targetFrenchDraft": "Pourriez-vous me confirmer le montant du solde restant, s’il vous plaît ?",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal (usted) to the cook."
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:22",
+      "legacyDraftId": "master:7:word:22",
+      "sourceSpanish": "¿Le puedo pagar por transferencia o solo en efectivo?",
+      "supportEnglish": "Can I pay you by bank transfer or only in cash?",
+      "targetFrenchDraft": "Puis-je vous payer par virement bancaire ou seulement en espèces ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:word:23",
+      "legacyDraftId": "master:7:word:23",
+      "sourceSpanish": "Yo pago lo que falta y después me arreglo con ellos.",
+      "supportEnglish": "I'll pay what's left and sort it out with them later.",
+      "targetFrenchDraft": "Je vais payer ce qui reste et m’arranger avec eux plus tard.",
+      "kind": "phrase"
+    }
+  ],
+  "reader": [
+    {
+      "id": "master:7:source-5379f4afeb21:line:1",
+      "legacyDraftId": "master:7:line:1",
+      "sourceSpanish": "A las 7:30, el grupo de Emma terminó de desayunar en una finca cafetera cerca de Salento.",
+      "supportEnglish": "At 7:30, Emma's group finished breakfast at a coffee farm near Salento.",
+      "targetFrenchDraft": "À 7 h 30, le groupe d’Emma a terminé son petit-déjeuner dans une finca caféière près de Salento."
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:line:2",
+      "legacyDraftId": "master:7:line:2",
+      "sourceSpanish": "De repente, el guía Andrés anunció que adelantaron la salida para las 7:45 por un derrumbe en la carretera.",
+      "supportEnglish": "Suddenly, the guide Andrés announced that they moved the departure up to 7:45 because of a landslide on the road.",
+      "targetFrenchDraft": "Soudain, le guide Andrés a annoncé que le départ avait été avancé à 7 h 45 à cause d’un glissement de terrain sur la route."
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:line:3",
+      "legacyDraftId": "master:7:line:3",
+      "sourceSpanish": "Emma, la organizadora, fue a la cocina y le dijo a la cocinera: Andrés dijo que la buseta sale en 10 minutos.",
+      "supportEnglish": "Emma, the organizer, went to the kitchen and told the cook: Andrés said the minibus leaves in 10 minutes.",
+      "targetFrenchDraft": "Emma, l’organisatrice, est allée à la cuisine et a dit à la cuisinière : « Andrés a dit que le minibus part dans dix minutes. »"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:line:4",
+      "legacyDraftId": "master:7:line:4",
+      "sourceSpanish": "Doña Marleny abrió la libreta donde anotó los pedidos del grupo esa mañana.",
+      "supportEnglish": "Doña Marleny opened the notebook where she wrote down the group's orders that morning.",
+      "targetFrenchDraft": "Doña Marleny a ouvert le carnet où elle avait noté les commandes du groupe ce matin-là."
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:line:5",
+      "legacyDraftId": "master:7:line:5",
+      "sourceSpanish": "Emma: Pedimos 7 arepas con queso y 9 tintos.",
+      "supportEnglish": "Emma: We ordered 7 arepas with cheese and 9 small black coffees.",
+      "targetFrenchDraft": "Emma : « Nous avons commandé sept arepas au fromage et neuf tintos, de petits cafés noirs. »"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:line:6",
+      "legacyDraftId": "master:7:line:6",
+      "sourceSpanish": "Marleny: Sí, y también 2 aguapanelas para los hijos de Priya.",
+      "supportEnglish": "Marleny: Yes, and also 2 aguapanelas for Priya's kids.",
+      "targetFrenchDraft": "Marleny : « Oui, et aussi deux aguapanelas pour les enfants de Priya. »"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:line:7",
+      "legacyDraftId": "master:7:line:7",
+      "sourceSpanish": "Emma: Doña Marleny, 4 ya pagaron en efectivo.",
+      "supportEnglish": "Emma: Doña Marleny, 4 have already paid in cash.",
+      "targetFrenchDraft": "Emma : « Doña Marleny, quatre personnes ont déjà payé en espèces. »"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:line:8",
+      "legacyDraftId": "master:7:line:8",
+      "sourceSpanish": "Marleny: Bueno, pero también serví 2 calentados que nadie anotó en la libreta.",
+      "supportEnglish": "Marleny: Okay, but I also served 2 calentados that nobody wrote down in the notebook.",
+      "targetFrenchDraft": "Marleny : « D’accord, mais j’ai aussi servi deux calentados que personne n’a notés dans le carnet. »"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:line:9",
+      "legacyDraftId": "master:7:line:9",
+      "sourceSpanish": "Emma les preguntó a sus compañeros: Muchachos, ¿quién pidió los huevos pericos?",
+      "supportEnglish": "Emma asked her companions: Guys, who ordered the scrambled eggs with tomato and onion?",
+      "targetFrenchDraft": "Emma a demandé à ses compagnons : « Les amis, qui a commandé les œufs pericos, brouillés à la tomate et à l’oignon ? »"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:line:10",
+      "legacyDraftId": "master:7:line:10",
+      "sourceSpanish": "Tom y Priya levantaron la mano, y Tom confesó que también se comió un calentado con queso campesino.",
+      "supportEnglish": "Tom and Priya raised their hands, and Tom admitted that he also ate a calentado with farmer's cheese.",
+      "targetFrenchDraft": "Tom et Priya ont levé la main, et Tom a reconnu qu’il avait aussi mangé un calentado avec du queso campesino."
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:line:11",
+      "legacyDraftId": "master:7:line:11",
+      "sourceSpanish": "Marleny sumó rápido con el lápiz y dijo: Faltan 3 tintos y 2 aguapanelas por pagar.",
+      "supportEnglish": "Marleny added it up quickly with her pencil and said: There are still 3 black coffees and 2 aguapanelas to pay for.",
+      "targetFrenchDraft": "Marleny a fait rapidement l’addition au crayon et a dit : « Il reste trois tintos et deux aguapanelas à payer. »"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:line:12",
+      "legacyDraftId": "master:7:line:12",
+      "sourceSpanish": "Emma: ¿Me confirma cuánto queda del saldo, por favor?",
+      "supportEnglish": "Emma: Could you confirm how much of the balance is left, please?",
+      "targetFrenchDraft": "Emma : « Pourriez-vous me confirmer le montant du solde restant, s’il vous plaît ? »"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:line:13",
+      "legacyDraftId": "master:7:line:13",
+      "sourceSpanish": "Marleny: El saldo pendiente es de 64 mil pesos, con los huevos pericos y los 2 calentados.",
+      "supportEnglish": "Marleny: The outstanding balance is 64 thousand pesos, with the scrambled eggs and the 2 calentados.",
+      "targetFrenchDraft": "Marleny : « Le solde restant à payer est de 64 000 pesos, avec les œufs pericos et les deux calentados. »"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:line:14",
+      "legacyDraftId": "master:7:line:14",
+      "sourceSpanish": "Emma solo tenía billetes grandes de 100 mil, y Marleny no tenía cambio tan temprano.",
+      "supportEnglish": "Emma only had large 100 thousand-peso bills, and Marleny didn't have change so early.",
+      "targetFrenchDraft": "Emma n’avait que de gros billets de 100 000 pesos, et Marleny n’avait pas de monnaie si tôt."
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:line:15",
+      "legacyDraftId": "master:7:line:15",
+      "sourceSpanish": "Emma: ¿Le puedo pagar por transferencia o solo en efectivo?",
+      "supportEnglish": "Emma: Can I pay you by bank transfer or only in cash?",
+      "targetFrenchDraft": "Emma : « Puis-je vous payer par virement bancaire ou seulement en espèces ? »"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:line:16",
+      "legacyDraftId": "master:7:line:16",
+      "sourceSpanish": "Marleny le respondió que sí recibe transferencias por Nequi y le mostró el número pegado en la pared.",
+      "supportEnglish": "Marleny answered that she does accept transfers through Nequi and showed her the number stuck on the wall.",
+      "targetFrenchDraft": "Marleny lui a répondu qu’elle acceptait les virements par Nequi et lui a montré le numéro affiché au mur."
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:line:17",
+      "legacyDraftId": "master:7:line:17",
+      "sourceSpanish": "Emma le dijo: Yo pago lo que falta y después me arreglo con ellos.",
+      "supportEnglish": "Emma told her: I'll pay what's left and sort it out with them later.",
+      "targetFrenchDraft": "Emma lui a dit : « Je vais payer ce qui reste et m’arranger avec eux plus tard. »"
+    },
+    {
+      "id": "master:7:source-5379f4afeb21:line:18",
+      "legacyDraftId": "master:7:line:18",
+      "sourceSpanish": "Emma hizo la transferencia de 64 mil pesos, le mostró el comprobante de pago y corrió a la buseta justo a tiempo.",
+      "supportEnglish": "Emma made the transfer of 64 thousand pesos, showed her the proof of payment, and ran to the minibus just in time.",
+      "targetFrenchDraft": "Emma a effectué le virement de 64 000 pesos, lui a montré la preuve de paiement et a couru jusqu’au minibus juste à temps."
+    }
+  ],
+  "formsDraft": [
+    {
+      "french": "nous avons commandé",
+      "english": "we ordered",
+      "noteEnglish": "French passé composé for a completed group order; Spanish source uses pedimos."
+    },
+    {
+      "french": "quatre personnes ont déjà payé",
+      "english": "four have already paid",
+      "noteEnglish": "Keep the completed payment separate from the remaining balance."
+    },
+    {
+      "french": "il reste trois tintos à payer",
+      "english": "three black coffees are still to be paid for",
+      "noteEnglish": "French il reste à payer corresponds to the source's faltan ... por pagar in this context."
+    },
+    {
+      "french": "le départ avait été avancé",
+      "english": "the departure had been moved up",
+      "noteEnglish": "Earlier change relative to the completed breakfast."
+    },
+    {
+      "french": "je vais payer ce qui reste",
+      "english": "I'll pay what's left",
+      "noteEnglish": "An immediate payment commitment, without implying the others have already reimbursed Emma."
+    }
+  ],
+  "speakingDraft": {
+    "openingFrench": "Doña Marleny, nous avons commandé sept arepas au fromage et neuf tintos. Quatre personnes ont déjà payé en espèces. Pourriez-vous me confirmer le solde restant ?",
+    "rolesEnglish": "Learner is Emma, the group organizer; AI plays Marleny, the cook at a coffee farm near Salento.",
+    "objectivesEnglish": [
+      "Recount the exact order and previously paid cash",
+      "Check the three remaining tintos, two aguapanelas and the two unrecorded calentados",
+      "Confirm the 64,000-peso balance and ask whether a Nequi transfer is accepted",
+      "Show proof of payment before the minibus leaves"
+    ],
+    "closureEnglish": "Confirm the transfer and proof of payment, then leave for the minibus."
+  },
+  "modeActivitiesDraft": [
+    {
+      "mode": "See",
+      "cueEnglish": "Inspect the source-specific term for the Colombian small black coffee.",
+      "sourceRef": "master:7:source-5379f4afeb21:word:2",
+      "targetFrenchDraft": "le tinto (petit café noir colombien)",
+      "supportEnglish": "the small black coffee",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Recall",
+      "cueEnglish": "Recall how to say that four people have already paid in cash.",
+      "sourceRef": "master:7:source-5379f4afeb21:word:17",
+      "targetFrenchDraft": "Doña Marleny, quatre personnes ont déjà payé en espèces.",
+      "supportEnglish": "Doña Marleny, 4 have already paid in cash.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Hear",
+      "cueEnglish": "Identify the amount of the outstanding balance after hearing Marleny.",
+      "sourceRef": "master:7:source-5379f4afeb21:line:13",
+      "targetFrenchDraft": "Marleny : « Le solde restant à payer est de 64 000 pesos, avec les œufs pericos et les deux calentados. »",
+      "supportEnglish": "Marleny: The outstanding balance is 64 thousand pesos, with the scrambled eggs and the 2 calentados.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Type",
+      "cueEnglish": "Type the request to confirm the remaining balance politely.",
+      "sourceRef": "master:7:source-5379f4afeb21:word:21",
+      "targetFrenchDraft": "Pourriez-vous me confirmer le montant du solde restant, s’il vous plaît ?",
+      "supportEnglish": "Could you confirm how much of the balance is left, please?",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Say",
+      "cueEnglish": "Tell Marleny that you will pay what remains and settle it with the group later.",
+      "sourceRef": "master:7:source-5379f4afeb21:word:23",
+      "targetFrenchDraft": "Je vais payer ce qui reste et m’arranger avec eux plus tard.",
+      "supportEnglish": "I'll pay what's left and sort it out with them later.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Write",
+      "cueEnglish": "Write the final transfer and proof-of-payment event before Emma reaches the minibus.",
+      "sourceRef": "master:7:source-5379f4afeb21:line:18",
+      "targetFrenchDraft": "Emma a effectué le virement de 64 000 pesos, lui a montré la preuve de paiement et a couru jusqu’au minibus juste à temps.",
+      "supportEnglish": "Emma made the transfer of 64 thousand pesos, showed her the proof of payment, and ran to the minibus just in time.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    }
+  ],
+  "dictionarySensesReviewed": false,
+  "reviewNotesEnglish": [
+    "The old Québec scene is not current source; this packet restores Salento, Emma, Andrés and Doña Marleny.",
+    "The source states 7:30 breakfast completion, 7:45 departure and an in-dialogue ten-minute warning; those times are retained, not silently reconciled.",
+    "The source's 64,000-peso balance is recorded as a source assertion, not recalculated from missing unit prices.",
+    "Nequi is named by the source. Whether bank transfer, app transfer or another French description best fits Colombian usage needs qualified locale review.",
+    "Food terms are taught directly with explanatory French glosses; qualified Colombian food and dictionary review remains open.",
+    "All six cue/target mode pairs, forms and speaking are review candidates. Hear has no recording and no answer is learner-scored."
+  ],
+  "unresolvedQuestions": [
+    "Qualified French/Colombian-food review of tinto, arepa, huevos pericos, aguapanela, calentado and queso campesino in context.",
+    "Qualified locale review of Nequi as a payment method and the source's three time statements.",
+    "Dictionary senses and saved-item mapping between the old Québec answer and the current source scene."
+  ],
+  "audioScope": {
+    "status": "read-only estimate; no synthesis, technical verification, listening decision, reuse or registration",
+    "voices": 2,
+    "selectedFrenchStrings": 41,
+    "potentialClipDecisions": 82,
+    "submittedCharacters": 2680,
+    "rateUsdPerMillionCharacters": 30,
+    "estimatedGrossUsd": 0.0804
+  },
+  "aiAssistance": {
+    "currentRun": "Safe-mode Haiku 5.5 CLI returned Not logged in, zero tokens and empty modelUsage. No Opus/Fable call or AI output was used.",
+    "actualModelUsage": {},
+    "qualifiedApproval": false
+  },
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "learnerRegistered": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "audioApproved": false,
+    "listeningReviewed": false,
+    "playbackEnabled": false,
+    "progressTracking": false,
+    "progressWritesEnabled": false,
+    "offlineRegistered": false,
+    "v4Registered": false,
+    "released": false
+  }
+}

@@ -45,7 +45,7 @@ export async function ownerMarketingStream(
   return {
     messages: page.data
       .filter((m) =>
-        /^[^<>\r\n]*<[^<>\s@]+@languagethreshold\.com>$|^[^<>\s@]+@languagethreshold\.com$/i.test(
+        /^[^<>\r\n]*<[^<>\s@]+@(?:languagethreshold\.com|medicalspanish\.app|constructionspanish\.app|juniorlinguist\.com)>$|^[^<>\s@]+@(?:languagethreshold\.com|medicalspanish\.app|constructionspanish\.app|juniorlinguist\.com)$/i.test(
           m.from.trim(),
         ),
       )

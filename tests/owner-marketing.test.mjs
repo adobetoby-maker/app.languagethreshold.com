@@ -7,8 +7,8 @@ test('owner marketing page reads only sender metadata, preserves provider cursor
  const old=process.env.RESEND_API_KEY;process.env.RESEND_API_KEY='private-test-only-key';
  try{
   const calls=[];
-  const page=await mod.ownerMarketingStream(null,new AbortController().signal,async(url,options)=>{calls.push({url,options});return new Response(JSON.stringify({has_more:true,data:[message,{...message,id:'22222222-2222-4222-8222-222222222222',from:'Other <other@unrelated.example>'}]}),{headers:{'Content-Type':'application/json'}});});
-  assert.equal(page.messages.length,1);assert.equal(page.messages[0].category,'Kids / parents');assert.equal(page.messages[0].html,undefined);assert.equal(page.messages[0].bcc,undefined);
+  const page=await mod.ownerMarketingStream(null,new AbortController().signal,async(url,options)=>{calls.push({url,options});return new Response(JSON.stringify({has_more:true,data:[message,{...message,id:'33333333-3333-4333-8333-333333333333',from:'Language Threshold <hello@medicalspanish.app>',subject:'Your free Medical Spanish starter trifold'},{...message,id:'22222222-2222-4222-8222-222222222222',from:'Other <other@unrelated.example>'}]}),{headers:{'Content-Type':'application/json'}});});
+  assert.equal(page.messages.length,2);assert.equal(page.messages[1].category,'Medical');assert.equal(page.messages[0].category,'Kids / parents');assert.equal(page.messages[0].html,undefined);assert.equal(page.messages[0].bcc,undefined);
   assert.equal(page.nextCursor,'22222222-2222-4222-8222-222222222222');assert.equal(calls[0].url.origin,'https://api.resend.com');assert.equal(calls[0].options.redirect,'error');assert.ok(!JSON.stringify(page).includes('private-test-only-key'));
   await assert.rejects(()=>mod.ownerMarketingStream('https://attacker.example',new AbortController().signal),error=>error.status===400);
  }finally{if(old===undefined)delete process.env.RESEND_API_KEY;else process.env.RESEND_API_KEY=old;}

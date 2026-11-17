@@ -1,0 +1,517 @@
+{
+  "schema": "lt.inert-source-review.v1",
+  "lessonKey": "master:19",
+  "pair": {
+    "target": "French",
+    "support": "English"
+  },
+  "source": {
+    "coursePath": "src/data/core60/es/master-travel-breakfast.json",
+    "courseSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "lessonSha256": "b17d13e92115b7526a3bca6fb05f5ea2bcb842fe6e43922790aa4186942c2011",
+    "titleEnglish": "Checkout Walkthrough: Breakfast Feedback to the Manager",
+    "objectiveEnglish": "Review the stay's breakfasts with the manager, give balanced feedback, and agree on conditions for returning.",
+    "speakingEnglish": "You are checking out of apartment 7B, and the AI is Gonzalo, the apart-hotel manager: review the stay's breakfasts, give balanced feedback, and set conditions for returning with volvería siempre que…, sería ideal que… and the conditional.",
+    "sourceGrammar": {
+      "focus": "Conditional; subjunctive in conditions (volvería siempre que haya pan sin gluten; sería ideal que…)",
+      "examples": [
+        {
+          "es": "Volvería siempre que haya pan sin gluten en el desayuno.",
+          "en": "I'd come back as long as there's gluten-free bread at breakfast."
+        },
+        {
+          "es": "Sería ideal que la manteca viniera en porciones individuales.",
+          "en": "It would be ideal if the butter came in individual portions."
+        }
+      ]
+    },
+    "passageTitleSpanish": "Comentarios al salir del 7B"
+  },
+  "priorDraft": {
+    "archivePath": "content/review-archive/french-japanese-2026-11-15/french-breakfast/master-19-20-draft.json",
+    "archiveSha256": "4f0e5bd14968aede704081dace0df135da3a06ee6888b89e19a101c7540fcd69",
+    "runtimePath": "content/review-archive/french-japanese-2026-11-15/french-breakfast/private-runtime-candidate.json",
+    "runtimeSha256": "f58bb01321fa2e04ef1bbc802c7a776836c3ea9ac6c51fdbedfaca50fe764f26",
+    "oldScene": "Québec City apart-hotel checkout; food suitability details and return conditions differed from the pinned source",
+    "sourceScene": "Pocitos apartment 7B checkout, Tomás's celiac disease and shared-butter cross-contamination risk, conditional March return",
+    "matchingPriorEnglishCards": 13,
+    "matchingPriorEnglishReaderTurns": 0,
+    "disposition": "Archived positions are trace references only; no saved-item or recording migration is authorized."
+  },
+  "titleFrenchDraft": "Faire le bilan du petit-déjeuner au départ",
+  "focusFrenchDraft": "Donner un retour équilibré sur les petits-déjeuners de l’appart-hôtel à Pocitos et poser des conditions précises pour une prochaine réservation.",
+  "cards": [
+    {
+      "id": "master:19:source-b17d13e92115:word:1",
+      "legacyDraftId": "master:19:word:1",
+      "sourceSpanish": "el apartamento",
+      "supportEnglish": "the apartment",
+      "targetFrenchDraft": "l’appartement",
+      "kind": "term"
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:2",
+      "legacyDraftId": "master:19:word:2",
+      "sourceSpanish": "el apart hotel",
+      "supportEnglish": "the apart-hotel",
+      "targetFrenchDraft": "l’appart-hôtel",
+      "kind": "term"
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:3",
+      "legacyDraftId": "master:19:word:3",
+      "sourceSpanish": "la estadía",
+      "supportEnglish": "the stay",
+      "targetFrenchDraft": "le séjour",
+      "kind": "term",
+      "sourceNoteEnglish": "Río de la Plata and Latin American usage."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:4",
+      "legacyDraftId": "master:19:word:4",
+      "sourceSpanish": "la reseña",
+      "supportEnglish": "the review",
+      "targetFrenchDraft": "l’avis",
+      "kind": "term"
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:5",
+      "legacyDraftId": "master:19:word:5",
+      "sourceSpanish": "la puntuación",
+      "supportEnglish": "the score",
+      "targetFrenchDraft": "la note",
+      "kind": "term"
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:6",
+      "legacyDraftId": "master:19:word:6",
+      "sourceSpanish": "los comentarios",
+      "supportEnglish": "the feedback",
+      "targetFrenchDraft": "les commentaires",
+      "kind": "term"
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:7",
+      "legacyDraftId": "master:19:word:7",
+      "sourceSpanish": "el punto fuerte",
+      "supportEnglish": "the strong point",
+      "targetFrenchDraft": "le point fort",
+      "kind": "term"
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:8",
+      "legacyDraftId": "master:19:word:8",
+      "sourceSpanish": "el punto débil",
+      "supportEnglish": "the weak point",
+      "targetFrenchDraft": "le point faible",
+      "kind": "term"
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:9",
+      "legacyDraftId": "master:19:word:9",
+      "sourceSpanish": "la manteca",
+      "supportEnglish": "the butter",
+      "targetFrenchDraft": "le beurre",
+      "kind": "term",
+      "sourceNoteEnglish": "Uruguay and Argentina say manteca; Mexico says mantequilla."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:10",
+      "legacyDraftId": "master:19:word:10",
+      "sourceSpanish": "la granola",
+      "supportEnglish": "the granola",
+      "targetFrenchDraft": "le granola",
+      "kind": "term"
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:11",
+      "legacyDraftId": "master:19:word:11",
+      "sourceSpanish": "la fruta de estación",
+      "supportEnglish": "the seasonal fruit",
+      "targetFrenchDraft": "les fruits de saison",
+      "kind": "term"
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:12",
+      "legacyDraftId": "master:19:word:12",
+      "sourceSpanish": "la variedad",
+      "supportEnglish": "the variety",
+      "targetFrenchDraft": "la variété",
+      "kind": "term"
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:13",
+      "legacyDraftId": "master:19:word:13",
+      "sourceSpanish": "el surtido",
+      "supportEnglish": "the selection",
+      "targetFrenchDraft": "l’assortiment",
+      "kind": "term"
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:14",
+      "legacyDraftId": "master:19:word:14",
+      "sourceSpanish": "la próxima visita",
+      "supportEnglish": "the next visit",
+      "targetFrenchDraft": "la prochaine visite",
+      "kind": "term"
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:15",
+      "legacyDraftId": "master:19:word:15",
+      "sourceSpanish": "la promoción",
+      "supportEnglish": "the special offer",
+      "targetFrenchDraft": "l’offre spéciale",
+      "kind": "term"
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:16",
+      "legacyDraftId": "master:19:word:16",
+      "sourceSpanish": "apto para celíacos",
+      "supportEnglish": "safe for celiacs",
+      "targetFrenchDraft": "adapté aux personnes atteintes de la maladie cœliaque",
+      "kind": "term",
+      "sourceNoteEnglish": "Common label on gluten-free products in Uruguay."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:17",
+      "legacyDraftId": "master:19:word:17",
+      "sourceSpanish": "En general, el desayuno nos encantó, sobre todo la fruta de estación.",
+      "supportEnglish": "Overall, we loved the breakfast, especially the seasonal fruit.",
+      "targetFrenchDraft": "Dans l’ensemble, nous avons adoré le petit-déjeuner, surtout les fruits de saison.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal enough for the manager"
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:18",
+      "legacyDraftId": "master:19:word:18",
+      "sourceSpanish": "Lo único que mejoraría es la variedad de opciones aptas para celíacos.",
+      "supportEnglish": "The only thing I'd improve is the variety of celiac-safe options.",
+      "targetFrenchDraft": "La seule chose que j’améliorerais, c’est la variété des options adaptées aux personnes atteintes de la maladie cœliaque.",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:19",
+      "legacyDraftId": "master:19:word:19",
+      "sourceSpanish": "Volveríamos siempre que haya pan sin gluten todos los días.",
+      "supportEnglish": "We'd come back as long as there's gluten-free bread every day.",
+      "targetFrenchDraft": "Nous reviendrions à condition qu’il y ait du pain sans gluten tous les jours.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Siempre que + subjunctive = as long as."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:20",
+      "legacyDraftId": "master:19:word:20",
+      "sourceSpanish": "Sería ideal que repusieran la fruta más seguido a la mañana.",
+      "supportEnglish": "It would be ideal if you restocked the fruit more often in the morning.",
+      "targetFrenchDraft": "Ce serait idéal si vous réapprovisionniez les fruits plus souvent le matin.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "A la mañana is Río de la Plata usage."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:21",
+      "legacyDraftId": "master:19:word:21",
+      "sourceSpanish": "Si nos dieran el 7B otra vez, reservaríamos encantados.",
+      "supportEnglish": "If you gave us 7B again, we'd gladly book.",
+      "targetFrenchDraft": "Si vous nous donniez de nouveau le 7B, nous réserverions avec plaisir.",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:22",
+      "legacyDraftId": "master:19:word:22",
+      "sourceSpanish": "Volveríamos en marzo con tal de que la tarifa sea parecida.",
+      "supportEnglish": "We'd come back in March provided the rate is similar.",
+      "targetFrenchDraft": "Nous reviendrions en mars à condition que le tarif soit similaire.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Con tal de que always takes the subjunctive."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:23",
+      "legacyDraftId": "master:19:word:23",
+      "sourceSpanish": "Gonzalo, con gusto le dejo una buena reseña en la plataforma.",
+      "supportEnglish": "Gonzalo, I'll gladly leave you a good review on the platform.",
+      "targetFrenchDraft": "Gonzalo, je vous laisserai volontiers un bon avis sur la plateforme.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal (usted)"
+    },
+    {
+      "id": "master:19:source-b17d13e92115:word:24",
+      "legacyDraftId": "master:19:word:24",
+      "sourceSpanish": "Chicos, ¿qué fue lo que más les gustó del desayuno?",
+      "supportEnglish": "Kids, what did you like most about the breakfast?",
+      "targetFrenchDraft": "Les enfants, qu’avez-vous préféré dans le petit-déjeuner ?",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Informal, to the family"
+    }
+  ],
+  "reader": [
+    {
+      "id": "master:19:source-b17d13e92115:line:1",
+      "legacyDraftId": "master:19:line:1",
+      "sourceSpanish": "El domingo a las 10, Laura entrega la llave del apartamento 7B en la recepción del apart hotel, en Pocitos.",
+      "supportEnglish": "On Sunday at 10, Laura hands in the key to apartment 7B at the front desk of the apart-hotel in Pocitos.",
+      "targetFrenchDraft": "Dimanche à 10 heures, Laura rend la clé de l’appartement 7B à la réception de l’appart-hôtel, à Pocitos."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:line:2",
+      "legacyDraftId": "master:19:line:2",
+      "sourceSpanish": "Gonzalo, el gerente, le pregunta cómo fue la estadía y qué haría falta para que la familia reserve otra vez.",
+      "supportEnglish": "Gonzalo, the manager, asks her how the stay went and what it would take for the family to book again.",
+      "targetFrenchDraft": "Gonzalo, le gérant, lui demande comment s’est passé le séjour et ce qu’il faudrait pour que la famille réserve de nouveau."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:line:3",
+      "legacyDraftId": "master:19:line:3",
+      "sourceSpanish": "Laura: En general, el desayuno nos encantó, sobre todo la fruta de estación.",
+      "supportEnglish": "Laura: Overall, we loved the breakfast, especially the seasonal fruit.",
+      "targetFrenchDraft": "Laura : Dans l’ensemble, nous avons adoré le petit-déjeuner, surtout les fruits de saison."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:line:4",
+      "legacyDraftId": "master:19:line:4",
+      "sourceSpanish": "Laura: Chicos, ¿qué fue lo que más les gustó del desayuno?",
+      "supportEnglish": "Laura: Kids, what did you like most about the breakfast?",
+      "targetFrenchDraft": "Laura : Les enfants, qu’avez-vous préféré dans le petit-déjeuner ?"
+    },
+    {
+      "id": "master:19:source-b17d13e92115:line:5",
+      "legacyDraftId": "master:19:line:5",
+      "sourceSpanish": "Sofía dice que la granola casera fue el punto fuerte, porque la comía todas las mañanas con yogur.",
+      "supportEnglish": "Sofía says the homemade granola was the strong point, because she ate it every morning with yogurt.",
+      "targetFrenchDraft": "Sofía dit que le granola maison était le point fort, car elle en mangeait tous les matins avec du yaourt."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:line:6",
+      "legacyDraftId": "master:19:line:6",
+      "sourceSpanish": "Gonzalo pregunta si alguien en la familia tiene alguna alergia o restricción alimentaria.",
+      "supportEnglish": "Gonzalo asks whether anyone in the family has an allergy or a dietary restriction.",
+      "targetFrenchDraft": "Gonzalo demande si quelqu’un dans la famille a une allergie ou une restriction alimentaire."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:line:7",
+      "legacyDraftId": "master:19:line:7",
+      "sourceSpanish": "Laura explica que Tomás es celíaco y que solo puede comer productos aptos para celíacos.",
+      "supportEnglish": "Laura explains that Tomás is celiac and can only eat products that are safe for celiacs.",
+      "targetFrenchDraft": "Laura explique que Tomás est atteint de la maladie cœliaque et qu’il ne peut manger que des produits adaptés aux personnes atteintes de cette maladie."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:line:8",
+      "legacyDraftId": "master:19:line:8",
+      "sourceSpanish": "Laura: Lo único que mejoraría es la variedad de opciones aptas para celíacos.",
+      "supportEnglish": "Laura: The only thing I'd improve is the variety of celiac-safe options.",
+      "targetFrenchDraft": "Laura : La seule chose que j’améliorerais, c’est la variété des options adaptées aux personnes atteintes de la maladie cœliaque."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:line:9",
+      "legacyDraftId": "master:19:line:9",
+      "sourceSpanish": "Ella cuenta que el surtido sin gluten era bueno el lunes, pero que el miércoles solo quedaban galletas.",
+      "supportEnglish": "She says the gluten-free selection was good on Monday, but on Wednesday there were only crackers left.",
+      "targetFrenchDraft": "Elle raconte que l’assortiment sans gluten était bon lundi, mais que mercredi il ne restait que des biscuits secs."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:line:10",
+      "legacyDraftId": "master:19:line:10",
+      "sourceSpanish": "Laura: Volveríamos siempre que haya pan sin gluten todos los días.",
+      "supportEnglish": "Laura: We'd come back as long as there's gluten-free bread every day.",
+      "targetFrenchDraft": "Laura : Nous reviendrions à condition qu’il y ait du pain sans gluten tous les jours."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:line:11",
+      "legacyDraftId": "master:19:line:11",
+      "sourceSpanish": "Otro punto débil fue la manteca, porque venía en un pote compartido y Tomás no podía usarla sin riesgo de contaminación.",
+      "supportEnglish": "Another weak point was the butter, because it came in a shared tub and Tomás couldn't use it without a risk of cross-contamination.",
+      "targetFrenchDraft": "Un autre point faible était le beurre : il était servi dans un pot partagé et Tomás ne pouvait pas en prendre sans risque de contamination croisée."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:line:12",
+      "legacyDraftId": "master:19:line:12",
+      "sourceSpanish": "Laura: Sería ideal que la manteca viniera en porciones individuales.",
+      "supportEnglish": "Laura: It would be ideal if the butter came in individual portions.",
+      "targetFrenchDraft": "Laura : Ce serait idéal que le beurre soit servi en portions individuelles."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:line:13",
+      "legacyDraftId": "master:19:line:13",
+      "sourceSpanish": "Gonzalo anota los comentarios y dice que va a hablar con la cocina esta semana.",
+      "supportEnglish": "Gonzalo writes down the feedback and says he is going to talk to the kitchen this week.",
+      "targetFrenchDraft": "Gonzalo prend note des commentaires et dit qu’il parlera à la cuisine cette semaine."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:line:14",
+      "legacyDraftId": "master:19:line:14",
+      "sourceSpanish": "Gonzalo: Para la próxima visita, tenemos una promoción con 15% de descuento en estadías de 5 noches o más.",
+      "supportEnglish": "Gonzalo: For your next visit, we have a special offer with a 15% discount on stays of 5 nights or more.",
+      "targetFrenchDraft": "Gonzalo : Pour votre prochaine visite, nous proposons une offre spéciale de 15 % de réduction sur les séjours de cinq nuits ou plus."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:line:15",
+      "legacyDraftId": "master:19:line:15",
+      "sourceSpanish": "Laura: Volveríamos en marzo con tal de que la tarifa sea parecida.",
+      "supportEnglish": "Laura: We'd come back in March provided the rate is similar.",
+      "targetFrenchDraft": "Laura : Nous reviendrions en mars à condition que le tarif soit similaire."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:line:16",
+      "legacyDraftId": "master:19:line:16",
+      "sourceSpanish": "Laura: Si nos dieran el 7B otra vez, reservaríamos encantados.",
+      "supportEnglish": "Laura: If you gave us 7B again, we'd gladly book.",
+      "targetFrenchDraft": "Laura : Si vous nous donniez de nouveau le 7B, nous réserverions avec plaisir."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:line:17",
+      "legacyDraftId": "master:19:line:17",
+      "sourceSpanish": "Gonzalo pregunta qué puntuación le daría al desayuno, y Laura responde que le daría un 9 de 10.",
+      "supportEnglish": "Gonzalo asks what score she would give the breakfast, and Laura answers that she would give it a 9 out of 10.",
+      "targetFrenchDraft": "Gonzalo lui demande quelle note elle donnerait au petit-déjeuner ; Laura répond qu’elle lui donnerait 9 sur 10."
+    },
+    {
+      "id": "master:19:source-b17d13e92115:line:18",
+      "legacyDraftId": "master:19:line:18",
+      "sourceSpanish": "Laura: Gonzalo, con gusto le dejo una buena reseña en la plataforma.",
+      "supportEnglish": "Laura: Gonzalo, I'll gladly leave you a good review on the platform.",
+      "targetFrenchDraft": "Laura : Gonzalo, je vous laisserai volontiers un bon avis sur la plateforme."
+    }
+  ],
+  "speakingDraft": {
+    "roleEnglish": "You are Laura checking out of apartment 7B in the Pocitos apart-hotel; Gonzalo is the manager and asks about breakfast and conditions for a return visit.",
+    "openingFrench": "Dans l’ensemble, nous avons adoré le petit-déjeuner, surtout les fruits de saison.",
+    "objectivesEnglish": [
+      "Give Gonzalo balanced feedback: seasonal fruit and Sofía’s homemade granola were strengths; the celiac-safe selection and shared butter were weak points.",
+      "Explain directly that Tomás has celiac disease and the shared butter posed a cross-contamination risk; do not claim that the kitchen has already fixed this.",
+      "Ask for gluten-free bread every day and individually portioned butter; use conditional requests and à condition que with the subjunctive.",
+      "Discuss the 15% offer for stays of five nights or more, say you would return in March if the rate is similar and apartment 7B is available, then give breakfast 9/10 and offer a platform review."
+    ],
+    "closureFrench": "Gonzalo, je vous laisserai volontiers un bon avis sur la plateforme."
+  },
+  "formsDraft": [
+    {
+      "french": "Nous reviendrions à condition qu’il y ait du pain sans gluten tous les jours.",
+      "english": "We’d come back as long as there’s gluten-free bread every day.",
+      "noteEnglish": "À condition que takes the subjunctive y ait; the sentence states a return condition, not a verified food-safety guarantee."
+    },
+    {
+      "french": "Ce serait idéal que le beurre soit servi en portions individuelles.",
+      "english": "It would be ideal if the butter came in individual portions.",
+      "noteEnglish": "Ce serait idéal que takes the subjunctive soit; the source points to the shared-butter cross-contamination concern."
+    },
+    {
+      "french": "Si vous nous donniez de nouveau le 7B, nous réserverions avec plaisir.",
+      "english": "If you gave us 7B again, we’d gladly book.",
+      "noteEnglish": "The hypothetical si clause uses imperfect donniez and the result uses conditional réserverions."
+    },
+    {
+      "french": "Nous reviendrions en mars à condition que le tarif soit similaire.",
+      "english": "We’d come back in March provided the rate is similar.",
+      "noteEnglish": "The source conditions March return on a similar rate; soit is subjunctive after à condition que."
+    },
+    {
+      "french": "Tomás est atteint de la maladie cœliaque ; il ne peut pas utiliser le beurre du pot partagé sans risque de contamination croisée.",
+      "english": "Tomás has celiac disease; he cannot use the shared butter without a risk of cross-contamination.",
+      "noteEnglish": "Teach maladie cœliaque and contamination croisée directly; the source reports a risk from a shared tub and does not say he ate it."
+    }
+  ],
+  "modeActivitiesDraft": [
+    {
+      "mode": "See",
+      "cueEnglish": "Read Laura’s balanced opening about breakfast and seasonal fruit.",
+      "sourceRef": "master:19:source-b17d13e92115:word:17",
+      "legacyDraftSourceRef": "master:19:word:17",
+      "targetFrenchDraft": "Dans l’ensemble, nous avons adoré le petit-déjeuner, surtout les fruits de saison.",
+      "supportEnglish": "Overall, we loved the breakfast, especially the seasonal fruit.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Recall",
+      "cueEnglish": "Recall Laura’s request for more celiac-safe options.",
+      "sourceRef": "master:19:source-b17d13e92115:word:18",
+      "legacyDraftSourceRef": "master:19:word:18",
+      "targetFrenchDraft": "La seule chose que j’améliorerais, c’est la variété des options adaptées aux personnes atteintes de la maladie cœliaque.",
+      "supportEnglish": "The only thing I'd improve is the variety of celiac-safe options.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Hear",
+      "cueEnglish": "Listen for the condition about daily gluten-free bread. Recording pending.",
+      "sourceRef": "master:19:source-b17d13e92115:word:19",
+      "legacyDraftSourceRef": "master:19:word:19",
+      "targetFrenchDraft": "Nous reviendrions à condition qu’il y ait du pain sans gluten tous les jours.",
+      "supportEnglish": "We'd come back as long as there's gluten-free bread every day.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Type",
+      "cueEnglish": "Type Laura’s suggestion to replenish fruit more often in the morning.",
+      "sourceRef": "master:19:source-b17d13e92115:word:20",
+      "legacyDraftSourceRef": "master:19:word:20",
+      "targetFrenchDraft": "Ce serait idéal si vous réapprovisionniez les fruits plus souvent le matin.",
+      "supportEnglish": "It would be ideal if you restocked the fruit more often in the morning.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Say",
+      "cueEnglish": "Tell Gonzalo you would gladly book if apartment 7B were available again.",
+      "sourceRef": "master:19:source-b17d13e92115:word:21",
+      "legacyDraftSourceRef": "master:19:word:21",
+      "targetFrenchDraft": "Si vous nous donniez de nouveau le 7B, nous réserverions avec plaisir.",
+      "supportEnglish": "If you gave us 7B again, we'd gladly book.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Write",
+      "cueEnglish": "Write Laura’s condition for a March return at a similar rate.",
+      "sourceRef": "master:19:source-b17d13e92115:word:22",
+      "legacyDraftSourceRef": "master:19:word:22",
+      "targetFrenchDraft": "Nous reviendrions en mars à condition que le tarif soit similaire.",
+      "supportEnglish": "We'd come back in March provided the rate is similar.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    }
+  ],
+  "dictionarySensesReviewed": false,
+  "reviewNotesEnglish": [
+    "Preserve the Pocitos apartment 7B checkout at 10 on Sunday, Gonzalo, Laura, Sofía and Tomás. The archived Québec scene is not source equivalent.",
+    "Preserve direct clinical terms for Tomás’s celiac disease and the shared-butter cross-contamination risk. The Reader says he could not use the butter safely; it does not say he ate it or had a reaction.",
+    "Distinguish the good Monday gluten-free selection from Wednesday’s crackers-only selection and the request for daily gluten-free bread. A translated suitability label is source language, not independent certification.",
+    "Preserve the 15% offer only for stays of five nights or more, Laura’s March/similar-rate condition, apartment 7B request, 9/10 breakfast score and review offer.",
+    "Qualified French/Uruguayan-locale/dictionary review should settle appart-hôtel, Pocitos, fruits de saison, granola, cœliaque, and the choice of à condition que plus subjunctive for Spanish siempre que/con tal de que. Archived rows cannot automatically transfer saved items or audio."
+  ],
+  "audioScope": {
+    "status": "read-only estimate; no synthesis, technical verification, listening decision, reuse or registration",
+    "voices": 2,
+    "selectedFrenchStrings": 42,
+    "potentialClipDecisions": 84,
+    "submittedCharacters": 2691,
+    "rateUsdPerMillionCharacters": 30,
+    "estimatedGrossUsd": 0.08073,
+    "submittedCharactersMeaning": "One-voice text length; billing for both voices may be twice this character count.",
+    "twoVoiceSubmittedCharacters": 5382,
+    "twoVoiceEstimatedGrossUsd": 0.16146
+  },
+  "aiAssistance": {
+    "currentRun": "Safe-mode Haiku CLI returned Not logged in with empty modelUsage and zero tokens; no AI output was used.",
+    "actualModelUsage": {},
+    "qualifiedApproval": false
+  },
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "learnerRegistered": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "audioApproved": false,
+    "listeningReviewed": false,
+    "playbackEnabled": false,
+    "progressTracking": false,
+    "progressWritesEnabled": false,
+    "offlineRegistered": false,
+    "v4Registered": false,
+    "released": false
+  }
+}

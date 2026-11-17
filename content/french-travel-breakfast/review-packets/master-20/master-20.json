@@ -1,0 +1,514 @@
+{
+  "schema": "lt.inert-source-review.v1",
+  "lessonKey": "master:20",
+  "pair": {
+    "target": "French",
+    "support": "English"
+  },
+  "source": {
+    "coursePath": "src/data/core60/es/master-travel-breakfast.json",
+    "courseSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "lessonSha256": "b0fc9e39aae907c8a53c2e6bfeb681500cf9cf6ab58bfa4ee56e88ed376cf900",
+    "titleEnglish": "Capstone: A Group Breakfast in Puebla Goes Sideways",
+    "objectiveEnglish": "Lead a group through a hard breakfast morning: teach, solve, refuse, report, message and close it out in Spanish.",
+    "speakingEnglish": "You are leading five relatives through a Puebla breakfast, and the AI is Emilio, server Brenda, the host and the manager: coach Emilio's order, check tía Rosa's allergens, order for all, text the host and give checkout feedback, using commands, conditionals and the subjunctive.",
+    "sourceGrammar": {
+      "focus": "Capstone: integrating the Master 20 grammar",
+      "examples": [
+        {
+          "es": "Pregúntale tú a Brenda, y si no sabe, que lo confirme en cocina.",
+          "en": "You ask Brenda, and if she doesn't know, have her check with the kitchen."
+        },
+        {
+          "es": "Si no hubiéramos revisado la carpeta, mi tía habría pedido el pipián.",
+          "en": "If we hadn't checked the binder, my aunt would have ordered the pipián."
+        }
+      ]
+    },
+    "passageTitleSpanish": "Un desayuno difícil en Puebla"
+  },
+  "priorDraft": {
+    "archivePath": "content/review-archive/french-japanese-2026-11-15/french-breakfast/master-19-20-draft.json",
+    "archiveSha256": "4f0e5bd14968aede704081dace0df135da3a06ee6888b89e19a101c7540fcd69",
+    "runtimePath": "content/review-archive/french-japanese-2026-11-15/french-breakfast/private-runtime-candidate.json",
+    "runtimeSha256": "f58bb01321fa2e04ef1bbc802c7a776836c3ea9ac6c51fdbedfaca50fe764f26",
+    "oldScene": "Archived Montréal group-breakfast capstone draft",
+    "sourceScene": "Puebla Hotel Azulejo breakfast for six, missing allergen binder, peanut-containing pipián and Café Cholula delay",
+    "matchingPriorEnglishCards": 0,
+    "matchingPriorEnglishReaderTurns": 0,
+    "disposition": "Archived positions are trace references only; no saved-item or recording migration is authorized."
+  },
+  "titleFrenchDraft": "Un petit-déjeuner de groupe à Puebla",
+  "focusFrenchDraft": "Guider six personnes lors d’un petit-déjeuner à Puebla : commander, vérifier les allergènes, refuser un plat incertain, prévenir le café et signaler le classeur manquant.",
+  "cards": [
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:1",
+      "legacyDraftId": "master:20:word:1",
+      "sourceSpanish": "las chalupas",
+      "supportEnglish": "the chalupas",
+      "targetFrenchDraft": "les chalupas",
+      "kind": "term",
+      "sourceNoteEnglish": "Puebla: small fried tortillas with salsa."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:2",
+      "legacyDraftId": "master:20:word:2",
+      "sourceSpanish": "el mole poblano",
+      "supportEnglish": "the mole poblano",
+      "targetFrenchDraft": "le mole poblano",
+      "kind": "term",
+      "sourceNoteEnglish": "Recipes vary and often include nuts or seeds; always ask."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:3",
+      "legacyDraftId": "master:20:word:3",
+      "sourceSpanish": "los molotes",
+      "supportEnglish": "the molotes",
+      "targetFrenchDraft": "les molotes",
+      "kind": "term"
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:4",
+      "legacyDraftId": "master:20:word:4",
+      "sourceSpanish": "las cemitas",
+      "supportEnglish": "the cemitas",
+      "targetFrenchDraft": "les cemitas",
+      "kind": "term",
+      "sourceNoteEnglish": "Puebla sandwich on a sesame roll."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:5",
+      "legacyDraftId": "master:20:word:5",
+      "sourceSpanish": "el champurrado",
+      "supportEnglish": "the champurrado",
+      "targetFrenchDraft": "le champurrado",
+      "kind": "term"
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:6",
+      "legacyDraftId": "master:20:word:6",
+      "sourceSpanish": "la carpeta de alérgenos",
+      "supportEnglish": "the allergen binder",
+      "targetFrenchDraft": "le classeur des allergènes",
+      "kind": "term"
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:7",
+      "legacyDraftId": "master:20:word:7",
+      "sourceSpanish": "agotado",
+      "supportEnglish": "sold out",
+      "targetFrenchDraft": "épuisé",
+      "kind": "term",
+      "sourceNoteEnglish": "Se agotó el mole = the mole sold out."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:8",
+      "legacyDraftId": "master:20:word:8",
+      "sourceSpanish": "el sustituto",
+      "supportEnglish": "the substitute",
+      "targetFrenchDraft": "le plat de remplacement",
+      "kind": "term"
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:9",
+      "legacyDraftId": "master:20:word:9",
+      "sourceSpanish": "el pipián",
+      "supportEnglish": "the pipián",
+      "targetFrenchDraft": "le pipián",
+      "kind": "term",
+      "sourceNoteEnglish": "Seed-based sauce; ingredients vary by cook."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:10",
+      "legacyDraftId": "master:20:word:10",
+      "sourceSpanish": "el sobrino",
+      "supportEnglish": "the nephew",
+      "targetFrenchDraft": "le neveu",
+      "kind": "term"
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:11",
+      "legacyDraftId": "master:20:word:11",
+      "sourceSpanish": "la tía",
+      "supportEnglish": "the aunt",
+      "targetFrenchDraft": "la tante",
+      "kind": "term"
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:12",
+      "legacyDraftId": "master:20:word:12",
+      "sourceSpanish": "la orden",
+      "supportEnglish": "the order",
+      "targetFrenchDraft": "la commande",
+      "kind": "term",
+      "sourceNoteEnglish": "Mexico: una orden de molotes = one serving of molotes."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:13",
+      "legacyDraftId": "master:20:word:13",
+      "sourceSpanish": "las enfrijoladas",
+      "supportEnglish": "the enfrijoladas",
+      "targetFrenchDraft": "les enfrijoladas",
+      "kind": "term",
+      "sourceNoteEnglish": "Tortillas in bean sauce; ask what the filling and topping are."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:14",
+      "legacyDraftId": "master:20:word:14",
+      "sourceSpanish": "la encuesta de satisfacción",
+      "supportEnglish": "the satisfaction survey",
+      "targetFrenchDraft": "le questionnaire de satisfaction",
+      "kind": "term"
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:15",
+      "legacyDraftId": "master:20:word:15",
+      "sourceSpanish": "el comal",
+      "supportEnglish": "the griddle",
+      "targetFrenchDraft": "le comal",
+      "kind": "term"
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:16",
+      "legacyDraftId": "master:20:word:16",
+      "sourceSpanish": "Emilio, saluda primero y luego pide tú, sin prisa.",
+      "supportEnglish": "Emilio, say hello first and then you order, no rush.",
+      "targetFrenchDraft": "Emilio, dis bonjour d’abord, puis passe ta commande, sans te presser.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Informal (tú) to the nephew"
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:17",
+      "legacyDraftId": "master:20:word:17",
+      "sourceSpanish": "Disculpe, Brenda, ¿nos podría traer la carpeta de alérgenos?",
+      "supportEnglish": "Excuse me, Brenda, could you bring us the allergen binder?",
+      "targetFrenchDraft": "Excusez-moi, Brenda, pourriez-vous nous apporter le classeur des allergènes ?",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal"
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:18",
+      "legacyDraftId": "master:20:word:18",
+      "sourceSpanish": "Tía, no pida nada hasta que confirmemos los ingredientes.",
+      "supportEnglish": "Auntie, don't order anything until we confirm the ingredients.",
+      "targetFrenchDraft": "Tatie, ne commandez rien avant que nous ayons vérifié les ingrédients.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Usted shows respect to an older relative."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:19",
+      "legacyDraftId": "master:20:word:19",
+      "sourceSpanish": "Si el mole está agotado, ¿qué nos recomienda en su lugar?",
+      "supportEnglish": "If the mole is sold out, what do you recommend instead?",
+      "targetFrenchDraft": "Si le mole est épuisé, que nous recommandez-vous à la place ?",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal"
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:20",
+      "legacyDraftId": "master:20:word:20",
+      "sourceSpanish": "Se lo agradezco, Brenda, pero sin ver los ingredientes no nos arriesgamos.",
+      "supportEnglish": "Thank you, Brenda, but without seeing the ingredients we won't risk it.",
+      "targetFrenchDraft": "Merci, Brenda, mais sans voir les ingrédients, nous ne prendrons pas ce risque.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal, polite refusal"
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:21",
+      "legacyDraftId": "master:20:word:21",
+      "sourceSpanish": "Le aviso que hoy faltaba la carpeta de alérgenos.",
+      "supportEnglish": "I'm letting you know the allergen binder was missing today.",
+      "targetFrenchDraft": "Je vous signale qu’aujourd’hui, le classeur des allergènes manquait.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal, to the manager"
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:22",
+      "legacyDraftId": "master:20:word:22",
+      "sourceSpanish": "Buenas, le escribo porque vamos a llegar 20 minutos tarde.",
+      "supportEnglish": "Hi, I'm writing because we're going to arrive 20 minutes late.",
+      "targetFrenchDraft": "Bonjour, je vous écris parce que nous arriverons avec vingt minutes de retard.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal text message"
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:word:23",
+      "legacyDraftId": "master:20:word:23",
+      "sourceSpanish": "Volveríamos siempre que la carpeta de alérgenos esté a la vista.",
+      "supportEnglish": "We'd come back as long as the allergen binder is on display.",
+      "targetFrenchDraft": "Nous reviendrions à condition que le classeur des allergènes soit bien visible.",
+      "kind": "phrase"
+    }
+  ],
+  "reader": [
+    {
+      "id": "master:20:source-b0fc9e39aae9:line:1",
+      "legacyDraftId": "master:20:line:1",
+      "sourceSpanish": "El domingo, Daniel lleva a cinco familiares a desayunar al Hotel Azulejo, en Puebla, antes de visitar el Café Cholula.",
+      "supportEnglish": "On Sunday, Daniel takes five relatives to have breakfast at the Hotel Azulejo, in Puebla, before visiting Café Cholula.",
+      "targetFrenchDraft": "Dimanche, Daniel emmène cinq membres de sa famille prendre le petit-déjeuner à l’Hotel Azulejo, à Puebla, avant d’aller au Café Cholula."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:line:2",
+      "legacyDraftId": "master:20:line:2",
+      "sourceSpanish": "Su sobrino Emilio quiere practicar español, así que Daniel le dice: Emilio, saluda primero y luego pide tú, sin prisa.",
+      "supportEnglish": "His nephew Emilio wants to practice Spanish, so Daniel tells him: Emilio, say hello first and then you order, no rush.",
+      "targetFrenchDraft": "Son neveu Emilio veut pratiquer l’espagnol ; Daniel lui dit donc : Emilio, dis bonjour d’abord, puis passe ta commande, sans te presser."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:line:3",
+      "legacyDraftId": "master:20:line:3",
+      "sourceSpanish": "Emilio pide las chalupas y un champurrado, y la cocinera las prepara en el comal junto a la barra.",
+      "supportEnglish": "Emilio orders the chalupas and a champurrado, and the cook makes them on the griddle next to the counter.",
+      "targetFrenchDraft": "Emilio commande des chalupas et un champurrado ; la cuisinière prépare les chalupas sur le comal, une plaque de cuisson, près du comptoir."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:line:4",
+      "legacyDraftId": "master:20:line:4",
+      "sourceSpanish": "Daniel busca la carpeta de alérgenos para su tía Rosa, que es alérgica al cacahuate, pero no está en la mesa.",
+      "supportEnglish": "Daniel looks for the allergen binder for his aunt Rosa, who is allergic to peanuts, but it isn't on the table.",
+      "targetFrenchDraft": "Daniel cherche le classeur des allergènes pour sa tante Rosa, qui est allergique aux cacahuètes, mais le classeur n’est pas sur la table."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:line:5",
+      "legacyDraftId": "master:20:line:5",
+      "sourceSpanish": "Daniel: Disculpe, Brenda, ¿nos podría traer la carpeta de alérgenos?",
+      "supportEnglish": "Daniel: Excuse me, Brenda, could you bring us the allergen binder?",
+      "targetFrenchDraft": "Daniel : Excusez-moi, Brenda, pourriez-vous nous apporter le classeur des allergènes ?"
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:line:6",
+      "legacyDraftId": "master:20:line:6",
+      "sourceSpanish": "Brenda busca en la entrada, pero regresa sin ella porque hoy nadie la encuentra.",
+      "supportEnglish": "Brenda looks at the entrance, but she comes back without it because nobody can find it today.",
+      "targetFrenchDraft": "Brenda le cherche à l’entrée, mais revient sans lui : aujourd’hui, personne ne le trouve."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:line:7",
+      "legacyDraftId": "master:20:line:7",
+      "sourceSpanish": "Daniel: Tía, no pida nada hasta que confirmemos los ingredientes.",
+      "supportEnglish": "Daniel: Auntie, don't order anything until we confirm the ingredients.",
+      "targetFrenchDraft": "Daniel : Tatie, ne commandez rien avant que nous ayons vérifié les ingrédients."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:line:8",
+      "legacyDraftId": "master:20:line:8",
+      "sourceSpanish": "La tía Rosa quería el mole poblano, pero Brenda explica que hoy está agotado.",
+      "supportEnglish": "Aunt Rosa wanted the mole poblano, but Brenda explains that it is sold out today.",
+      "targetFrenchDraft": "La tante Rosa voulait du mole poblano, mais Brenda explique qu’il est épuisé aujourd’hui."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:line:9",
+      "legacyDraftId": "master:20:line:9",
+      "sourceSpanish": "Daniel: Si el mole está agotado, ¿qué nos recomienda en su lugar?",
+      "supportEnglish": "Daniel: If the mole is sold out, what do you recommend instead?",
+      "targetFrenchDraft": "Daniel : Si le mole est épuisé, que nous recommandez-vous à la place ?"
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:line:10",
+      "legacyDraftId": "master:20:line:10",
+      "sourceSpanish": "Brenda ofrece el pipián como sustituto, pero no sabe si la salsa lleva cacahuate.",
+      "supportEnglish": "Brenda offers the pipián as a substitute, but she doesn't know if the sauce contains peanuts.",
+      "targetFrenchDraft": "Brenda propose le pipián comme plat de remplacement, mais elle ne sait pas si la sauce contient des cacahuètes."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:line:11",
+      "legacyDraftId": "master:20:line:11",
+      "sourceSpanish": "Daniel: Se lo agradezco, Brenda, pero sin ver los ingredientes no nos arriesgamos.",
+      "supportEnglish": "Daniel: Thank you, Brenda, but without seeing the ingredients we won't risk it.",
+      "targetFrenchDraft": "Daniel : Merci, Brenda, mais sans voir les ingrédients, nous ne prendrons pas ce risque."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:line:12",
+      "legacyDraftId": "master:20:line:12",
+      "sourceSpanish": "Brenda pregunta en la cocina y confirma que el pipián sí lleva cacahuate, pero las enfrijoladas no.",
+      "supportEnglish": "Brenda asks in the kitchen and confirms that the pipián does contain peanuts, but the enfrijoladas don't.",
+      "targetFrenchDraft": "Brenda demande à la cuisine et confirme que le pipián contient bien des cacahuètes, mais que les enfrijoladas n’en contiennent pas."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:line:13",
+      "legacyDraftId": "master:20:line:13",
+      "sourceSpanish": "Emilio: Si no hubiéramos esperado, la tía Rosa habría pedido el pipián.",
+      "supportEnglish": "Emilio: If we hadn't waited, aunt Rosa would have ordered the pipián.",
+      "targetFrenchDraft": "Emilio : Si nous n’avions pas attendu, tante Rosa aurait commandé le pipián."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:line:14",
+      "legacyDraftId": "master:20:line:14",
+      "sourceSpanish": "Daniel hace la orden para los seis y pide las enfrijoladas para la tía Rosa con una nota sobre su alergia.",
+      "supportEnglish": "Daniel places the order for the six of them and orders the enfrijoladas for aunt Rosa with a note about her allergy.",
+      "targetFrenchDraft": "Daniel passe commande pour les six et commande des enfrijoladas pour tante Rosa, avec une note concernant son allergie."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:line:15",
+      "legacyDraftId": "master:20:line:15",
+      "sourceSpanish": "Los primos piden los molotes de papa, y el tío Javier prefiere las cemitas de milanesa para llevar.",
+      "supportEnglish": "The cousins order the potato molotes, and uncle Javier prefers the breaded steak cemitas to go.",
+      "targetFrenchDraft": "Les cousins commandent des molotes aux pommes de terre, et l’oncle Javier préfère des cemitas à l’escalope panée à emporter."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:line:16",
+      "legacyDraftId": "master:20:line:16",
+      "sourceSpanish": "Después del desayuno, Daniel le escribe a Lupita, la anfitriona del café: Buenas, le escribo porque vamos a llegar 20 minutos tarde.",
+      "supportEnglish": "After breakfast, Daniel writes to Lupita, the café's host: Hi, I'm writing because we're going to arrive 20 minutes late.",
+      "targetFrenchDraft": "Après le petit-déjeuner, Daniel écrit à Lupita, l’hôtesse du café : Bonjour, je vous écris parce que nous arriverons avec vingt minutes de retard."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:line:17",
+      "legacyDraftId": "master:20:line:17",
+      "sourceSpanish": "Al entregar las llaves, Daniel le dice al gerente del hotel: Le aviso que hoy faltaba la carpeta de alérgenos.",
+      "supportEnglish": "When he hands in the keys, Daniel tells the hotel manager: I'm letting you know the allergen binder was missing today.",
+      "targetFrenchDraft": "En rendant les clés, Daniel dit au responsable de l’hôtel : Je vous signale qu’aujourd’hui, le classeur des allergènes manquait."
+    },
+    {
+      "id": "master:20:source-b0fc9e39aae9:line:18",
+      "legacyDraftId": "master:20:line:18",
+      "sourceSpanish": "El gerente le pide que llene la encuesta de satisfacción, y Daniel escribe: Volveríamos siempre que la carpeta de alérgenos esté a la vista.",
+      "supportEnglish": "The manager asks him to fill out the satisfaction survey, and Daniel writes: We'd come back as long as the allergen binder is on display.",
+      "targetFrenchDraft": "Le responsable lui demande de remplir le questionnaire de satisfaction ; Daniel écrit : Nous reviendrions à condition que le classeur des allergènes soit bien visible."
+    }
+  ],
+  "speakingDraft": {
+    "roleEnglish": "You are Daniel with five relatives at Hotel Azulejo in Puebla. Emilio is learning to order; aunt Rosa is allergic to peanuts. Brenda serves breakfast, Lupita hosts Café Cholula, and the hotel manager receives your feedback.",
+    "openingFrench": "Emilio, dis bonjour d’abord, puis passe ta commande, sans te presser.",
+    "objectivesEnglish": [
+      "Coach Emilio informally and let him order chalupas and champurrado.",
+      "Ask Brenda formally for the missing allergen binder; tell aunt Rosa not to order until ingredients are confirmed.",
+      "Decline uncertain pipián; after kitchen confirmation, order enfrijoladas for aunt Rosa with an allergy note and the remaining food for all six.",
+      "Tell Lupita at Café Cholula that the group will be twenty minutes late, then tell the hotel manager the binder was missing and complete the satisfaction survey."
+    ],
+    "closureFrench": "Nous reviendrions à condition que le classeur des allergènes soit bien visible."
+  },
+  "formsDraft": [
+    {
+      "french": "Emilio, dis bonjour d’abord, puis passe ta commande.",
+      "english": "Emilio, say hello first and then order.",
+      "noteEnglish": "Informal singular imperatives dis and passe match Daniel's tú address to his nephew."
+    },
+    {
+      "french": "Pourriez-vous nous apporter le classeur des allergènes ?",
+      "english": "Could you bring us the allergen binder?",
+      "noteEnglish": "Pourriez-vous is a polite conditional to Brenda; the binder is missing, so this is a request rather than confirmation that it exists."
+    },
+    {
+      "french": "Ne commandez rien avant que nous ayons vérifié les ingrédients.",
+      "english": "Don't order anything until we've checked the ingredients.",
+      "noteEnglish": "Daniel respectfully uses vous with aunt Rosa; avant que takes the subjunctive ayons vérifié."
+    },
+    {
+      "french": "Si nous n’avions pas attendu, tante Rosa aurait commandé le pipián.",
+      "english": "If we hadn't waited, aunt Rosa would have ordered the pipián.",
+      "noteEnglish": "A past counterfactual uses si plus plus-que-parfait, then past conditional; the source does not say she ate it."
+    },
+    {
+      "french": "Nous reviendrions à condition que le classeur des allergènes soit bien visible.",
+      "english": "We'd come back as long as the allergen binder is on display.",
+      "noteEnglish": "The condition is about the binder being visible; à condition que takes the subjunctive soit."
+    }
+  ],
+  "modeActivitiesDraft": [
+    {
+      "mode": "See",
+      "cueEnglish": "Read Daniel's informal instruction to Emilio before he orders.",
+      "sourceRef": "master:20:source-b0fc9e39aae9:word:16",
+      "legacyDraftSourceRef": "master:20:word:16",
+      "targetFrenchDraft": "Emilio, dis bonjour d’abord, puis passe ta commande, sans te presser.",
+      "supportEnglish": "Emilio, say hello first and then you order, no rush.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Recall",
+      "cueEnglish": "Recall the formal request for Brenda to bring the allergen binder.",
+      "sourceRef": "master:20:source-b0fc9e39aae9:word:17",
+      "legacyDraftSourceRef": "master:20:word:17",
+      "targetFrenchDraft": "Excusez-moi, Brenda, pourriez-vous nous apporter le classeur des allergènes ?",
+      "supportEnglish": "Excuse me, Brenda, could you bring us the allergen binder?",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Hear",
+      "cueEnglish": "Listen for Daniel's respectful instruction to aunt Rosa to wait for the ingredient check. Recording pending.",
+      "sourceRef": "master:20:source-b0fc9e39aae9:word:18",
+      "legacyDraftSourceRef": "master:20:word:18",
+      "targetFrenchDraft": "Tatie, ne commandez rien avant que nous ayons vérifié les ingrédients.",
+      "supportEnglish": "Auntie, don't order anything until we confirm the ingredients.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Type",
+      "cueEnglish": "Type Daniel's formal question about a replacement for the sold-out mole.",
+      "sourceRef": "master:20:source-b0fc9e39aae9:word:19",
+      "legacyDraftSourceRef": "master:20:word:19",
+      "targetFrenchDraft": "Si le mole est épuisé, que nous recommandez-vous à la place ?",
+      "supportEnglish": "If the mole is sold out, what do you recommend instead?",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Say",
+      "cueEnglish": "Politely decline the proposed dish while its ingredients are unknown.",
+      "sourceRef": "master:20:source-b0fc9e39aae9:word:20",
+      "legacyDraftSourceRef": "master:20:word:20",
+      "targetFrenchDraft": "Merci, Brenda, mais sans voir les ingrédients, nous ne prendrons pas ce risque.",
+      "supportEnglish": "Thank you, Brenda, but without seeing the ingredients we won't risk it.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Write",
+      "cueEnglish": "State the condition under which the group would return to the hotel.",
+      "sourceRef": "master:20:source-b0fc9e39aae9:word:23",
+      "legacyDraftSourceRef": "master:20:word:23",
+      "targetFrenchDraft": "Nous reviendrions à condition que le classeur des allergènes soit bien visible.",
+      "supportEnglish": "We'd come back as long as the allergen binder is on display.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    }
+  ],
+  "dictionarySensesReviewed": false,
+  "reviewNotesEnglish": [
+    "Keep the source's Puebla Hotel Azulejo and Café Cholula, Sunday breakfast for Daniel plus five relatives, Emilio's order, aunt Rosa's peanut allergy, Brenda's missing binder, Lupita's café message, manager feedback and satisfaction survey. Do not substitute a different food or locale scene.",
+    "Brenda first does not know whether pipián has peanuts. Only after consulting the kitchen does she confirm that it does, and that enfrijoladas do not. The source does not establish cross-contact safety; this packet must not claim it.",
+    "The source says aunt Rosa would have ordered pipián if they had not waited; it does not say she ate it or had a reaction. Preserve this counterfactual and the allergy note on her eventual order.",
+    "Qualified Puebla/Mexican-food and French dictionary review should settle contextual definitions for chalupas, mole poblano, molotes, cemitas, champurrado, pipián, enfrijoladas and comal. The card uses 'commande' for English 'order'; Mexico's una orden can also mean a serving, which needs a context note in the eventual dictionary.",
+    "Qualified French register review should check informal tu to Emilio, respectful vous to tante Rosa, and formal vous to Brenda, Lupita and the manager. Archived draft rows are trace evidence only; no saved-item or recording migration is authorized."
+  ],
+  "audioScope": {
+    "status": "read-only estimate; no synthesis, technical verification, listening decision, reuse or registration",
+    "voices": 2,
+    "selectedFrenchStrings": 41,
+    "potentialClipDecisions": 82,
+    "submittedCharacters": 2841,
+    "rateUsdPerMillionCharacters": 30,
+    "estimatedGrossUsd": 0.08523,
+    "estimatedGrossUsdBasis": "one-voice text baseline at historical $30/M; not a verified current price",
+    "twoVoiceSubmittedCharacters": 5682,
+    "twoVoiceEstimatedGrossUsd": 0.17046
+  },
+  "aiAssistance": {
+    "currentRun": "Safe-mode Haiku CLI returned Not logged in with empty modelUsage and zero tokens; no AI output was used.",
+    "actualModelUsage": {},
+    "qualifiedApproval": false
+  },
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "learnerRegistered": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "audioApproved": false,
+    "listeningReviewed": false,
+    "playbackEnabled": false,
+    "progressTracking": false,
+    "progressWritesEnabled": false,
+    "offlineRegistered": false,
+    "v4Registered": false,
+    "released": false
+  }
+}

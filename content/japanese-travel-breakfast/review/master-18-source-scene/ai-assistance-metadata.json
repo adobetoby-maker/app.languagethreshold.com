@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "qualifiedReview": false,
+  "sourceGroundedSelfCheck": true,
+  "calls": [
+    {
+      "role": "Haiku candidate authoring attempt",
+      "requestedModel": "haiku",
+      "actualModel": null,
+      "outcome": "Claude CLI --safe-mode exited 1 with Not logged in, input_tokens:0, output_tokens:0 and empty modelUsage. No model response or draft was received; the candidate was written and checked independently.",
+      "qualifiedApproval": false
+    }
+  ],
+  "correctionsAfterAICritique": [],
+  "independentSelfCheck": [
+    "Compared all 23 source-order Spanish/English cards and 18 Spanish/English Reader turns with pinned current Master 18 sources.",
+    "Kept Daniel, Begoña, Asturias, Cangas de Onís, Oviedo, Arriondas, ALSA, the 3-to-5 guest change, 23:00 arrival, lockbox and 10:30 breakfast in source sequence.",
+    "Kept the train breakdown, missed connection, extra beds in each room, lost phone signal in the tunnel and the later confirmed breakfast distinct.",
+    "Flagged the source grammar example's 22:00 versus Reader's 23:00, the Spanish de enfrente taxi-stand nuance and Japanese afternoon greeting for qualified review.",
+    "Preserved archived generic scene as separate evidence; no saved-item, audio, owner-route, learner or V4 migration is authorized."
+  ]
+}

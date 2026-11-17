@@ -1,0 +1,796 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "master",
+  "lessonKey": "master:16",
+  "stableLessonId": "master-travel-breakfast:16:ja-en",
+  "candidateRevision": "master-travel-breakfast:16:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "curriculumVersion": 1,
+    "readerVersion": 1,
+    "curriculumReviewed": false,
+    "readerReviewed": false,
+    "titleEnglishInternal": "Answer the Health Inspector About Lucía's Breakfast",
+    "objectiveEnglishInternal": "Answer formal questions about the breakfast incident and correct any errors in the written statement.",
+    "speakingEnglishInternal": "You are Lucía's friend, and the AI is food-safety inspector Amparo Ferrer: answer her formal questions about the breakfast using usted, and go through your written statement line by line to confirm or correct it, using passive se such as se sirvió and ¿cómo se comunica…?",
+    "grammarEnglishExamplesInternal": [
+      "The sponge cake was served at the buffet at 8:00, according to the hotel's schedule.",
+      "How is allergen information communicated to the dining-room staff?"
+    ],
+    "readerTitleSpanish": "La declaración ante la inspectora",
+    "readerVerbExamples": [
+      {
+        "target": "El bizcocho se sirve a las 8:00, según el horario del hotel.",
+        "native": "The sponge cake is served at 8:00, according to the hotel's schedule."
+      },
+      {
+        "target": "¿Cómo se comunica la información de alérgenos a los clientes?",
+        "native": "How is allergen information communicated to customers?"
+      },
+      {
+        "target": "¿Se revisa el registro de alérgenos cada mañana?",
+        "native": "Is the allergen record checked every morning?"
+      },
+      {
+        "target": "Es una errata y se corrige ahora mismo.",
+        "native": "It's a typo and it gets corrected right now."
+      },
+      {
+        "target": "Firmo la declaración con la hora corregida.",
+        "native": "I sign the statement with the corrected time."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/master-16-18-draft.json",
+    "sha256": "a566248455c3ff2ef12188ce7b7b824e38a0f9e6a850415e7ae60104b0bab6c9",
+    "scene": "A witness reads a hotel incident statement line by line with an inspector and corrects a mistaken time.",
+    "cardCount": 16,
+    "readerCount": 10
+  },
+  "sourceCards": [
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "la inspectora de sanidad",
+      "sourceEnglish": "the health inspector",
+      "kind": "term",
+      "sourceNoteInternal": "Feminine for Amparo Ferrer; a man is el inspector.",
+      "targetJapaneseDraft": "衛生検査官",
+      "literalJapaneseGlossEn": "the health inspector",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "el acta de inspección",
+      "sourceEnglish": "the inspection report",
+      "kind": "term",
+      "sourceNoteInternal": "Feminine noun that takes el: el acta, las actas.",
+      "targetJapaneseDraft": "衛生検査報告書",
+      "literalJapaneseGlossEn": "the inspection report",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "la declaración por escrito",
+      "sourceEnglish": "the written statement",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "書面による供述書",
+      "literalJapaneseGlossEn": "the written statement",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "la errata",
+      "sourceEnglish": "the typo",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "誤記",
+      "literalJapaneseGlossEn": "the typo",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "el apartado",
+      "sourceEnglish": "the section",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "項目",
+      "literalJapaneseGlossEn": "the section",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "la firma",
+      "sourceEnglish": "the signature",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "署名",
+      "literalJapaneseGlossEn": "the signature",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "la copia",
+      "sourceEnglish": "the copy",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "写し",
+      "literalJapaneseGlossEn": "the copy",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "la trazabilidad",
+      "sourceEnglish": "the traceability",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "トレーサビリティ",
+      "literalJapaneseGlossEn": "the traceability",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "el registro de alérgenos",
+      "sourceEnglish": "the allergen record",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アレルゲン記録",
+      "literalJapaneseGlossEn": "the allergen record",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "el lote",
+      "sourceEnglish": "the batch",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ロット",
+      "literalJapaneseGlossEn": "the batch",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "el protocolo",
+      "sourceEnglish": "the protocol",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "手順",
+      "literalJapaneseGlossEn": "the protocol",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "el personal de sala",
+      "sourceEnglish": "the dining-room staff",
+      "kind": "term",
+      "sourceNoteInternal": "Spain usage for front-of-house staff.",
+      "targetJapaneseDraft": "接客担当スタッフ",
+      "literalJapaneseGlossEn": "the dining-room staff",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "la formación",
+      "sourceEnglish": "the training",
+      "kind": "term",
+      "sourceNoteInternal": "Spain usage; Latin America often says la capacitación.",
+      "targetJapaneseDraft": "研修",
+      "literalJapaneseGlossEn": "the training",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "la hora de servicio",
+      "sourceEnglish": "the serving time",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "提供時刻",
+      "literalJapaneseGlossEn": "the serving time",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "conforme",
+      "sourceEnglish": "in agreement",
+      "kind": "term",
+      "sourceNoteInternal": "Used when signing in Spain: estoy conforme con la declaración.",
+      "targetJapaneseDraft": "内容に同意している",
+      "literalJapaneseGlossEn": "in agreement",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "Disculpe, en el segundo apartado hay una hora equivocada.",
+      "sourceEnglish": "Excuse me, there's a wrong time in the second section.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal: usted with the inspector.",
+      "targetJapaneseDraft": "失礼します。二つ目の項目の時刻が間違っています。",
+      "literalJapaneseGlossEn": "Excuse me, there's a wrong time in the second section.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Donde pone 8:30, debería poner 8:10.",
+      "sourceEnglish": "Where it says 8:30, it should say 8:10.",
+      "kind": "phrase",
+      "sourceNoteInternal": "In Spain, pone means 'it says' for written text.",
+      "targetJapaneseDraft": "8時30分と書いてありますが、8時10分が正しいです。",
+      "literalJapaneseGlossEn": "Where it says 8:30, it should say 8:10.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "¿Cómo se comunica la información de alérgenos a los clientes?",
+      "sourceEnglish": "How is allergen information communicated to customers?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アレルゲンに関する情報は、お客様にどのように伝えられますか。",
+      "literalJapaneseGlossEn": "How is allergen information communicated to customers?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:19",
+      "candidatePosition": 19,
+      "sourceSpanish": "¿Se podría corregir antes de que yo firme?",
+      "sourceEnglish": "Could it be corrected before I sign?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "署名する前に修正していただけますか。",
+      "literalJapaneseGlossEn": "Could it be corrected before I sign?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:20",
+      "candidatePosition": 20,
+      "sourceSpanish": "Con esa corrección, estoy conforme con la declaración.",
+      "sourceEnglish": "With that correction, I agree with the statement.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "その修正があれば、供述書の内容に同意します。",
+      "literalJapaneseGlossEn": "With that correction, I agree with the statement.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:21",
+      "candidatePosition": 21,
+      "sourceSpanish": "¿Me podrían facilitar una copia del acta, por favor?",
+      "sourceEnglish": "Could you provide me with a copy of the report, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal; facilitar is the polite official word for provide.",
+      "targetJapaneseDraft": "検査報告書の写しをいただけますか。",
+      "literalJapaneseGlossEn": "Could you provide me with a copy of the report, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:22",
+      "candidatePosition": 22,
+      "sourceSpanish": "Prefiero no afirmar nada que no vi personalmente.",
+      "sourceEnglish": "I'd rather not state anything I didn't see myself.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "自分で見ていないことは、断言したくありません。",
+      "literalJapaneseGlossEn": "I'd rather not state anything I didn't see myself.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:card:23",
+      "candidatePosition": 23,
+      "sourceSpanish": "¿Se revisa el registro de alérgenos cada mañana?",
+      "sourceEnglish": "Is the allergen record checked every morning?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アレルゲン記録は毎朝確認されていますか。",
+      "literalJapaneseGlossEn": "Is the allergen record checked every morning?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Dos días después, la inspectora de sanidad Amparo Ferrer se reúne con Emma y el gerente Vicente en el hotel.",
+      "sourceEnglish": "Two days later, the health inspector Amparo Ferrer meets with Emma and the manager Vicente at the hotel.",
+      "targetJapaneseDraft": "二日後、衛生検査官のアンパロ・フェレルは、ホテルでエマと支配人のビセンテに会いました。",
+      "literalJapaneseGlossEn": "Two days later, the health inspector Amparo Ferrer meets with Emma and the manager Vicente at the hotel.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Amparo trae la declaración por escrito de Emma sobre la reacción alérgica de su amiga Lucía al bizcocho de almendra.",
+      "sourceEnglish": "Amparo brings Emma's written statement about her friend Lucía's allergic reaction to the almond sponge cake.",
+      "targetJapaneseDraft": "アンパロは、友人ルシアがアーモンドのスポンジケーキでアレルギー反応を起こした件について、エマが書いた供述書を持ってきました。",
+      "literalJapaneseGlossEn": "Amparo brings Emma's written statement about her friend Lucía's allergic reaction to the almond sponge cake.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Amparo",
+      "sourceSpanish": "Amparo: Vamos a revisar su declaración apartado por apartado antes de cerrar el acta de inspección.",
+      "sourceEnglish": "Amparo: We are going to review your statement section by section before closing the inspection report.",
+      "targetJapaneseDraft": "アンパロ：検査報告書を締めくくる前に、供述書を項目ごとに確認しましょう。",
+      "literalJapaneseGlossEn": "Amparo: We are going to review your statement section by section before closing the inspection report.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: El primer apartado es correcto, porque Lucía avisó de su alergia a la almendra al llegar al bufé.",
+      "sourceEnglish": "Emma: The first section is correct, because Lucía mentioned her almond allergy when she arrived at the buffet.",
+      "targetJapaneseDraft": "エマ：最初の項目は正しいです。ルシアはビュッフェに来たとき、アーモンドアレルギーがあると伝えました。",
+      "literalJapaneseGlossEn": "Emma: The first section is correct, because Lucía mentioned her almond allergy when she arrived at the buffet.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: Disculpe, en el segundo apartado hay una hora equivocada.",
+      "sourceEnglish": "Emma: Excuse me, there's a wrong time in the second section.",
+      "targetJapaneseDraft": "エマ：失礼します。二つ目の項目の時刻が間違っています。",
+      "literalJapaneseGlossEn": "Emma: Excuse me, there's a wrong time in the second section.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: Donde pone 8:30, debería poner 8:10.",
+      "sourceEnglish": "Emma: Where it says 8:30, it should say 8:10.",
+      "targetJapaneseDraft": "エマ：8時30分と書いてありますが、8時10分が正しいです。",
+      "literalJapaneseGlossEn": "Emma: Where it says 8:30, it should say 8:10.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Vicente",
+      "sourceSpanish": "Vicente: Según el horario del hotel, el bizcocho se sirvió a las 8:00, que es su hora de servicio habitual.",
+      "sourceEnglish": "Vicente: According to the hotel's schedule, the sponge cake was served at 8:00, which is its usual serving time.",
+      "targetJapaneseDraft": "ビセンテ：ホテルの予定表によると、スポンジケーキは通常の提供時刻である8時にビュッフェに出されました。",
+      "literalJapaneseGlossEn": "Vicente: According to the hotel's schedule, the sponge cake was served at 8:00, which is its usual serving time.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: ¿Se podría corregir antes de que yo firme?",
+      "sourceEnglish": "Emma: Could it be corrected before I sign?",
+      "targetJapaneseDraft": "エマ：署名する前に修正していただけますか。",
+      "literalJapaneseGlossEn": "Emma: Could it be corrected before I sign?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Amparo",
+      "sourceSpanish": "Amparo: Por supuesto, es una errata y se corrige ahora mismo.",
+      "sourceEnglish": "Amparo: Of course, it's a typo and it gets corrected right now.",
+      "targetJapaneseDraft": "アンパロ：もちろんです。誤記ですので、今すぐ修正します。",
+      "literalJapaneseGlossEn": "Amparo: Of course, it's a typo and it gets corrected right now.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:reader:10",
+      "candidatePosition": 10,
+      "speaker": "Amparo",
+      "sourceSpanish": "Amparo: ¿Cómo se comunica la información de alérgenos a los clientes?",
+      "sourceEnglish": "Amparo: How is allergen information communicated to customers?",
+      "targetJapaneseDraft": "アンパロ：アレルゲンに関する情報は、お客様にどのように伝えられますか。",
+      "literalJapaneseGlossEn": "Amparo: How is allergen information communicated to customers?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:reader:11",
+      "candidatePosition": 11,
+      "speaker": "Vicente",
+      "sourceSpanish": "Vicente: Se pone una tarjeta con los alérgenos junto a cada plato del bufé.",
+      "sourceEnglish": "Vicente: A card listing the allergens is placed next to each dish at the buffet.",
+      "targetJapaneseDraft": "ビセンテ：ビュッフェの各料理の横に、アレルゲンを記載したカードを置いています。",
+      "literalJapaneseGlossEn": "Vicente: A card listing the allergens is placed next to each dish at the buffet.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:reader:12",
+      "candidatePosition": 12,
+      "speaker": "Vicente",
+      "sourceSpanish": "Vicente: Además, el personal de sala recibe formación mensual sobre nuestro protocolo de alérgenos.",
+      "sourceEnglish": "Vicente: In addition, the dining-room staff receives monthly training on our allergen protocol.",
+      "targetJapaneseDraft": "ビセンテ：さらに、接客担当スタッフはアレルゲンに関する当ホテルの手順について、毎月研修を受けています。",
+      "literalJapaneseGlossEn": "Vicente: In addition, the dining-room staff receives monthly training on our allergen protocol.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:reader:13",
+      "candidatePosition": 13,
+      "speaker": "Amparo",
+      "sourceSpanish": "Amparo: ¿Usted vio la tarjeta junto al bizcocho esa mañana?",
+      "sourceEnglish": "Amparo: Did you see the card next to the sponge cake that morning?",
+      "targetJapaneseDraft": "アンパロ：その朝、スポンジケーキの横にカードがあるのを、あなたは見ましたか。",
+      "literalJapaneseGlossEn": "Amparo: Did you see the card next to the sponge cake that morning?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:reader:14",
+      "candidatePosition": 14,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: Prefiero no afirmar nada que no vi personalmente.",
+      "sourceEnglish": "Emma: I'd rather not state anything I didn't see myself.",
+      "targetJapaneseDraft": "エマ：自分で見ていないことは、断言したくありません。",
+      "literalJapaneseGlossEn": "Emma: I'd rather not state anything I didn't see myself.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:reader:15",
+      "candidatePosition": 15,
+      "speaker": "Amparo",
+      "sourceSpanish": "Amparo: ¿Se revisa el registro de alérgenos cada mañana?",
+      "sourceEnglish": "Amparo: Is the allergen record checked every morning?",
+      "targetJapaneseDraft": "アンパロ：アレルゲン記録は毎朝確認されていますか。",
+      "literalJapaneseGlossEn": "Amparo: Is the allergen record checked every morning?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:reader:16",
+      "candidatePosition": 16,
+      "speaker": "Vicente",
+      "sourceSpanish": "Vicente: Sí, la jefa de cocina lo revisa y anota el lote de la harina de almendra para mantener la trazabilidad.",
+      "sourceEnglish": "Vicente: Yes, the head chef checks it and writes down the batch of the almond flour to maintain traceability.",
+      "targetJapaneseDraft": "ビセンテ：はい。料理長が確認し、トレーサビリティを保つためにアーモンド粉のロットを記録しています。",
+      "literalJapaneseGlossEn": "Vicente: Yes, the head chef checks it and writes down the batch of the almond flour to maintain traceability.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:reader:17",
+      "candidatePosition": 17,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: Con esa corrección, estoy conforme con la declaración.",
+      "sourceEnglish": "Emma: With that correction, I agree with the statement.",
+      "targetJapaneseDraft": "エマ：その修正があれば、供述書の内容に同意します。",
+      "literalJapaneseGlossEn": "Emma: With that correction, I agree with the statement.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:16:ja-en:source-scene-v1:reader:18",
+      "candidatePosition": 18,
+      "speaker": "Narrator",
+      "sourceSpanish": "Emma pone su firma al final y después pregunta: ¿Me podrían facilitar una copia del acta, por favor?",
+      "sourceEnglish": "Emma puts her signature at the end and then asks: Could you provide me with a copy of the report, please?",
+      "targetJapaneseDraft": "エマは末尾に署名し、それから「検査報告書の写しをいただけますか」と尋ねました。",
+      "literalJapaneseGlossEn": "Emma puts her signature at the end and then asks: Could you provide me with a copy of the report, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Practice formal Japanese questions and evidence-limited answers when correcting a written statement about an almond-allergy breakfast incident.",
+  "speakingGoalInternal": "You are Lucía's friend, and the AI is food-safety inspector Amparo Ferrer: answer her formal questions about the breakfast using usted, and go through your written statement line by line to confirm or correct it, using passive se such as se sirvió and ¿cómo se comunica…?",
+  "speakingGoalJapaneseDraft": "あなたはルシアの友人エマです。相手は衛生検査官のアンパロ・フェレルです。朝食中のアレルギー反応について丁寧に質問に答え、書面による供述書を項目ごとに確認します。8時30分を8時10分に直してもらい、自分で見ていないことは断言せず、署名する前に修正を確認して検査報告書の写しを求めます。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "Current source follows inspector Amparo, Emma and manager Vicente two days after Lucía's almond reaction. Emma corrects 8:30 to 8:10 while the hotel says cake service began at 8:00, declines to assert whether she saw the allergen card, then signs after correction and asks for a copy. The archived generic statement review adds an unsupported message-time record and unverified-cause deletion. It remains separate evidence; qualified Japanese, Spanish locale, clinical and food-inspection review remain open.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "health inspector",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "report",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "written statement",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "writing error",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "written entry",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "signature",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "copy",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "serving time",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "ingredient record",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "to verify",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "to correct",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "as far as I observed",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "I heard that ...",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "before signing",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 15,
+      "candidate": null,
+      "oldEnglish": "allergic reaction",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 16,
+      "candidate": null,
+      "oldEnglish": "allergen record",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Let us check the report entries together before you sign.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "There is an error in the time in the second section. It was about 8:10, not 8:30.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Can the exact time be checked against a record?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "I can check the time of my message. I will show the record.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Did you see the ingredient information for the breakfast item?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "As far as I observed, I could not confirm whether the information was displayed.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Then we will remove the entry that asserts something you did not see.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Thank you. Please let me read the corrected wording once more.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Here is the revised version. It does not state an unverified cause.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "I have reviewed it. If I sign, could I have a copy too?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 4,
+      "candidatePosition": 4,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 6,
+      "candidatePosition": 6,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 7,
+      "candidatePosition": 7,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 8,
+      "candidatePosition": 14,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 16,
+      "candidatePosition": 9,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 41,
+    "twoVoiceClipDecisionsIfTextApproved": 82,
+    "twoVoiceSubmittedCharactersIfTextApproved": 1854,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.05562,
+    "archivedExactJapaneseCardTextOverlapsOnly": 5,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "The Spanish source uses formal usted and procedural passive se. Japanese politeness and passive/procedural constructions need qualified Japanese review; they are not one-to-one grammar equivalents.",
+    "The source distinguishes the hotel schedule's 8:00 cake serving from Emma's correction of 8:30 to 8:10 in her statement. Do not collapse these three times.",
+    "Emma says Lucía disclosed an almond allergy on arriving at the buffet, but she refuses to claim she personally saw the allergen card next to the cake. Keep the evidentiary distinction.",
+    "The source calls Amparo Ferrer a health inspector and Vicente the manager; inspect Japanese job titles and Spanish-name transliteration with qualified locale review.",
+    "Inspection report, written statement, allergen record, almond-flour batch and traceability require qualified food-safety and dictionary review without changing their direct meanings.",
+    "The archived draft adds a message-time record, an unverified-cause deletion and a conditional signing decision absent from the current source. It remains separate evidence and must not replace this source scene.",
+    "Six authored mode prompt/answer pairs, source-aligned Japanese forms, contextual dictionary senses, speaking setup, exact-text audio and distinct listening decisions remain open."
+  ],
+  "missing": [
+    "qualified Japanese/source/Spanish locale/food-inspection/clinical/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

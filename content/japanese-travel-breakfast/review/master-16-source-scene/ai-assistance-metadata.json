@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "qualifiedReview": false,
+  "sourceGroundedSelfCheck": true,
+  "calls": [
+    {
+      "role": "Claude CLI authentication check before Haiku candidate authoring",
+      "requestedModel": "haiku",
+      "actualModel": null,
+      "outcome": "Claude CLI auth-status tool exited with code 1 and no error output. No model response or draft was received; this packet was written and checked independently.",
+      "qualifiedApproval": false
+    }
+  ],
+  "correctionsAfterAICritique": [],
+  "independentSelfCheck": [
+    "Compared all 23 source-order Spanish/English cards and 18 aligned Reader turns with pinned current Master 16 sources.",
+    "Preserved Amparo Ferrer, Emma, Vicente and Lucía; almond sponge cake reaction; 8:00 cake service; 8:30-to-8:10 statement correction; and the later signed copy request in source order.",
+    "Kept Emma's uncertainty about personally seeing the allergen card distinct from Vicente's statement about hotel card, staff training and almond-flour batch recording.",
+    "Flagged formal Japanese register, inspection terminology, clinical/allergen terminology and food-safety provenance for qualified review.",
+    "Preserved the older divergent generic statement review as separate evidence; no saved-item, audio, owner-route, learner or V4 migration is authorized."
+  ]
+}

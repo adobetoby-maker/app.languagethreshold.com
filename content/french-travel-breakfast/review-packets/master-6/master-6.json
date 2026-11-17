@@ -1,0 +1,546 @@
+{
+  "schema": "lt.inert-source-review.v1",
+  "lessonKey": "master:6",
+  "pair": {
+    "target": "French",
+    "support": "English"
+  },
+  "source": {
+    "coursePath": "src/data/core60/es/master-travel-breakfast.json",
+    "courseSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "lessonSha256": "3d88039d974f6e4a7ecb9e13f223ae81cb69d13c68cceaad052eb76d197cb36f",
+    "titleEnglish": "No Oat Milk Today: Choose Substitutes for the Group",
+    "objectiveEnglish": "Compare the available milk options for each person and agree on a plan until the delivery arrives.",
+    "speakingEnglish": "You are ordering for your friends, and the AI is Matías, a server at a San Telmo confitería: compare the milk options with más/menos … que, pick one for vegan Hannah and one for lactose-avoiding Dev, and plan the rest with ir a and the future (va a llegar, volveremos).",
+    "sourceGrammar": {
+      "focus": "Future and ir a; comparisons (la de soja es más espesa que la de almendra; el reparto va a llegar por la tarde)",
+      "examples": [
+        {
+          "es": "La de soja es más espesa que la de almendra.",
+          "en": "The soy one is thicker than the almond one."
+        },
+        {
+          "es": "El reparto llegará a la tarde; mientras tanto, Hannah va a probar la de coco.",
+          "en": "The delivery will arrive in the afternoon; meanwhile, Hannah is going to try the coconut one."
+        }
+      ]
+    },
+    "passageTitleSpanish": "Sin leche de avena"
+  },
+  "priorDraft": {
+    "archivePath": "content/review-archive/french-japanese-2026-11-15/french-breakfast/master-4-6-draft.json",
+    "archiveSha256": "2675de87e1145759bdbd3253014e42577fa45207229e872e12f91641f650cb0a",
+    "runtimePath": "content/review-archive/french-japanese-2026-11-15/french-breakfast/private-runtime-candidate.json",
+    "runtimeSha256": "f58bb01321fa2e04ef1bbc802c7a776836c3ea9ac6c51fdbedfaca50fe764f26",
+    "oldScene": "Brussels café rewrite with different drink/food outcome",
+    "sourceScene": "San Telmo confitería: oat-milk delivery, three plant drinks, vegan and lactose-avoiding friends, beef-fat medialunas",
+    "matchingPriorEnglishCards": 11,
+    "matchingPriorEnglishReaderTurns": 0,
+    "disposition": "The old answer and position scope is retired within this candidate only; no saved-item or audio migration is authorized."
+  },
+  "titleFrenchDraft": "Pas de lait d’avoine aujourd’hui : choisir pour le groupe",
+  "focusFrenchDraft": "Comparer les boissons disponibles et prévoir la commande jusqu’à l’arrivée de la livraison.",
+  "cards": [
+    {
+      "id": "master:6:source-3d88039d974f:word:1",
+      "legacyDraftId": "master:6:word:1",
+      "sourceSpanish": "la leche de soja",
+      "supportEnglish": "the soy milk",
+      "targetFrenchDraft": "le lait de soja",
+      "kind": "term",
+      "sourceNoteEnglish": "Argentina says soja, not soya."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:2",
+      "legacyDraftId": "master:6:word:2",
+      "sourceSpanish": "la leche sin lactosa",
+      "supportEnglish": "the lactose-free milk",
+      "targetFrenchDraft": "le lait sans lactose",
+      "kind": "term"
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:3",
+      "legacyDraftId": "master:6:word:3",
+      "sourceSpanish": "la leche de coco",
+      "supportEnglish": "the coconut milk",
+      "targetFrenchDraft": "le lait de coco",
+      "kind": "term"
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:4",
+      "legacyDraftId": "master:6:word:4",
+      "sourceSpanish": "la bebida vegetal",
+      "supportEnglish": "the plant-based drink",
+      "targetFrenchDraft": "la boisson végétale",
+      "kind": "term"
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:5",
+      "legacyDraftId": "master:6:word:5",
+      "sourceSpanish": "el reparto",
+      "supportEnglish": "the delivery",
+      "targetFrenchDraft": "la livraison",
+      "kind": "term"
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:6",
+      "legacyDraftId": "master:6:word:6",
+      "sourceSpanish": "las medialunas",
+      "supportEnglish": "the croissants",
+      "targetFrenchDraft": "les croissants",
+      "kind": "term",
+      "sourceNoteEnglish": "Argentine word; de manteca uses butter, de grasa is usually made with beef fat."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:7",
+      "legacyDraftId": "master:6:word:7",
+      "sourceSpanish": "la medialuna de grasa",
+      "supportEnglish": "the beef-fat croissant",
+      "targetFrenchDraft": "le croissant à la graisse bovine",
+      "kind": "term",
+      "sourceNoteEnglish": "Usually made with beef fat, so ask before ordering it for a vegan."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:8",
+      "legacyDraftId": "master:6:word:8",
+      "sourceSpanish": "la lágrima",
+      "supportEnglish": "the milk with a drop of coffee",
+      "targetFrenchDraft": "le lait avec une goutte de café",
+      "kind": "term",
+      "sourceNoteEnglish": "Argentine café drink: mostly milk with just a little coffee."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:9",
+      "legacyDraftId": "master:6:word:9",
+      "sourceSpanish": "la espuma",
+      "supportEnglish": "the foam",
+      "targetFrenchDraft": "la mousse",
+      "kind": "term"
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:10",
+      "legacyDraftId": "master:6:word:10",
+      "sourceSpanish": "el sabor",
+      "supportEnglish": "the taste",
+      "targetFrenchDraft": "le goût",
+      "kind": "term"
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:11",
+      "legacyDraftId": "master:6:word:11",
+      "sourceSpanish": "la lactosa",
+      "supportEnglish": "the lactose",
+      "targetFrenchDraft": "le lactose",
+      "kind": "term"
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:12",
+      "legacyDraftId": "master:6:word:12",
+      "sourceSpanish": "la confitería",
+      "supportEnglish": "the café-bakery",
+      "targetFrenchDraft": "le café-boulangerie",
+      "kind": "term",
+      "sourceNoteEnglish": "In Buenos Aires, a classic café that also sells pastries."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:13",
+      "legacyDraftId": "master:6:word:13",
+      "sourceSpanish": "vegano",
+      "supportEnglish": "vegan",
+      "targetFrenchDraft": "végétalien",
+      "kind": "term",
+      "sourceNoteEnglish": "Use vegana for a woman: Hannah es vegana."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:14",
+      "legacyDraftId": "master:6:word:14",
+      "sourceSpanish": "espeso",
+      "supportEnglish": "thick",
+      "targetFrenchDraft": "épais",
+      "kind": "term"
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:15",
+      "legacyDraftId": "master:6:word:15",
+      "sourceSpanish": "mientras tanto",
+      "supportEnglish": "meanwhile",
+      "targetFrenchDraft": "en attendant",
+      "kind": "term"
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:16",
+      "legacyDraftId": "master:6:word:16",
+      "sourceSpanish": "¿A qué hora va a llegar el reparto?",
+      "supportEnglish": "What time is the delivery going to arrive?",
+      "targetFrenchDraft": "À quelle heure la livraison va-t-elle arriver ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:17",
+      "legacyDraftId": "master:6:word:17",
+      "sourceSpanish": "¿La de soja es más espesa que la de almendra?",
+      "supportEnglish": "Is the soy one thicker than the almond one?",
+      "targetFrenchDraft": "Celui de soja est-il plus épais que celui d’amande ?",
+      "kind": "phrase",
+      "sourceNoteEnglish": "La de soja = la leche de soja; no need to repeat leche."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:18",
+      "legacyDraftId": "master:6:word:18",
+      "sourceSpanish": "Hannah es vegana, así que va a tomar la de soja.",
+      "supportEnglish": "Hannah is vegan, so she's going to have the soy one.",
+      "targetFrenchDraft": "Hannah est végétalienne, donc elle va prendre celui de soja.",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:19",
+      "legacyDraftId": "master:6:word:19",
+      "sourceSpanish": "Las medialunas de manteca llevan lácteos, ¿no?",
+      "supportEnglish": "The butter croissants contain dairy, right?",
+      "targetFrenchDraft": "Les croissants au beurre contiennent des produits laitiers, n’est-ce pas ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:20",
+      "legacyDraftId": "master:6:word:20",
+      "sourceSpanish": "¿Nos podría traer una de soja y una sin lactosa?",
+      "supportEnglish": "Could you bring us one with soy and one lactose-free?",
+      "targetFrenchDraft": "Pourriez-vous nous en apporter un au soja et un sans lactose ?",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal (usted) to the server."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:21",
+      "legacyDraftId": "master:6:word:21",
+      "sourceSpanish": "¿Qué te parece, Hannah? La de coco es menos espesa.",
+      "supportEnglish": "What do you think, Hannah? The coconut one is less thick.",
+      "targetFrenchDraft": "Qu’en penses-tu, Hannah ? Celui de coco est moins épais.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Informal, to a friend."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:22",
+      "legacyDraftId": "master:6:word:22",
+      "sourceSpanish": "Dev, ¿te sirve la sin lactosa por ahora?",
+      "supportEnglish": "Dev, does the lactose-free one work for you for now?",
+      "targetFrenchDraft": "Dev, celui sans lactose te convient-il pour l’instant ?",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Informal, to a friend."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:word:23",
+      "legacyDraftId": "master:6:word:23",
+      "sourceSpanish": "Por ahora pedimos esto, y a la tarde volveremos.",
+      "supportEnglish": "For now we'll order this, and we'll come back in the afternoon.",
+      "targetFrenchDraft": "Pour l’instant, on va commander ça, et on reviendra dans l’après-midi.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "A la tarde is the usual Argentine way to say in the afternoon."
+    }
+  ],
+  "reader": [
+    {
+      "id": "master:6:source-3d88039d974f:line:1",
+      "legacyDraftId": "master:6:line:1",
+      "sourceSpanish": "Un sábado a las 10, Nora entra con sus amigos Hannah y Dev a una confitería de San Telmo para desayunar.",
+      "supportEnglish": "One Saturday at 10, Nora walks into a café-bakery in San Telmo with her friends Hannah and Dev to have breakfast.",
+      "targetFrenchDraft": "Un samedi à 10 heures, Nora entre dans un café-boulangerie de San Telmo avec ses amis Hannah et Dev pour prendre le petit-déjeuner."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:line:2",
+      "legacyDraftId": "master:6:line:2",
+      "sourceSpanish": "El mozo, Matías, les avisa que hoy no hay leche de avena porque el reparto todavía no llegó.",
+      "supportEnglish": "The server, Matías, tells them that there is no oat milk today because the delivery hasn't arrived yet.",
+      "targetFrenchDraft": "Le serveur, Matías, leur dit qu’il n’y a pas de lait d’avoine aujourd’hui, car la livraison n’est pas encore arrivée."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:line:3",
+      "legacyDraftId": "master:6:line:3",
+      "sourceSpanish": "Nora: ¿A qué hora va a llegar el reparto?",
+      "supportEnglish": "Nora: What time is the delivery going to arrive?",
+      "targetFrenchDraft": "Nora : À quelle heure la livraison va-t-elle arriver ?"
+    },
+    {
+      "id": "master:6:source-3d88039d974f:line:4",
+      "legacyDraftId": "master:6:line:4",
+      "sourceSpanish": "Matías: Llegará a la tarde, y mientras tanto les puedo ofrecer otra bebida vegetal.",
+      "supportEnglish": "Matías: It will arrive in the afternoon, and meanwhile I can offer you another plant-based drink.",
+      "targetFrenchDraft": "Matías : Elle arrivera dans l’après-midi, et en attendant, je peux vous proposer une autre boisson végétale."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:line:5",
+      "legacyDraftId": "master:6:line:5",
+      "sourceSpanish": "Matías: Tenemos leche de soja y de almendra, que son las que más piden los clientes veganos.",
+      "supportEnglish": "Matías: We have soy milk and almond milk, which are the ones vegan customers ask for most.",
+      "targetFrenchDraft": "Matías : Nous avons du lait de soja et du lait d’amande, qui sont ceux que les clients végétaliens demandent le plus."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:line:6",
+      "legacyDraftId": "master:6:line:6",
+      "sourceSpanish": "Nora: ¿La de soja es más espesa que la de almendra?",
+      "supportEnglish": "Nora: Is the soy one thicker than the almond one?",
+      "targetFrenchDraft": "Nora : Celui de soja est-il plus épais que celui d’amande ?"
+    },
+    {
+      "id": "master:6:source-3d88039d974f:line:7",
+      "legacyDraftId": "master:6:line:7",
+      "sourceSpanish": "Matías: Sí, la de soja es más espesa, y la leche de coco tiene un sabor más dulce que las dos.",
+      "supportEnglish": "Matías: Yes, the soy one is thicker, and the coconut milk has a sweeter taste than both.",
+      "targetFrenchDraft": "Matías : Oui, celui de soja est plus épais, et le lait de coco a un goût plus sucré que les deux autres."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:line:8",
+      "legacyDraftId": "master:6:line:8",
+      "sourceSpanish": "Hannah: Prefiero la de soja, porque hace más espuma que la de coco.",
+      "supportEnglish": "Hannah: I prefer the soy one, because it makes more foam than the coconut one.",
+      "targetFrenchDraft": "Hannah : Je préfère celui de soja, parce qu’il fait plus de mousse que celui de coco."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:line:9",
+      "legacyDraftId": "master:6:line:9",
+      "sourceSpanish": "Nora: Hannah es vegana, así que va a tomar la de soja.",
+      "supportEnglish": "Nora: Hannah is vegan, so she's going to have the soy one.",
+      "targetFrenchDraft": "Nora : Hannah est végétalienne, donc elle va prendre celui de soja."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:line:10",
+      "legacyDraftId": "master:6:line:10",
+      "sourceSpanish": "Dev evita la lactosa, así que Matías le recomienda la leche sin lactosa.",
+      "supportEnglish": "Dev avoids lactose, so Matías recommends the lactose-free milk to him.",
+      "targetFrenchDraft": "Dev évite le lactose, donc Matías lui recommande le lait sans lactose."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:line:11",
+      "legacyDraftId": "master:6:line:11",
+      "sourceSpanish": "Nora: Dev, ¿te sirve la sin lactosa por ahora?",
+      "supportEnglish": "Nora: Dev, does the lactose-free one work for you for now?",
+      "targetFrenchDraft": "Nora : Dev, celui sans lactose te convient-il pour l’instant ?"
+    },
+    {
+      "id": "master:6:source-3d88039d974f:line:12",
+      "legacyDraftId": "master:6:line:12",
+      "sourceSpanish": "Dev: Sí, voy a pedir una lágrima, porque lleva menos café que un cortado.",
+      "supportEnglish": "Dev: Yes, I'm going to order a lágrima, because it has less coffee than a cortado.",
+      "targetFrenchDraft": "Dev : Oui, je vais commander une lágrima, parce qu’elle contient moins de café qu’un cortado."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:line:13",
+      "legacyDraftId": "master:6:line:13",
+      "sourceSpanish": "Nora: Las medialunas de manteca llevan lácteos, ¿no?",
+      "supportEnglish": "Nora: The butter croissants contain dairy, right?",
+      "targetFrenchDraft": "Nora : Les croissants au beurre contiennent des produits laitiers, n’est-ce pas ?"
+    },
+    {
+      "id": "master:6:source-3d88039d974f:line:14",
+      "legacyDraftId": "master:6:line:14",
+      "sourceSpanish": "Matías: Sí, pero según el panadero, la medialuna de grasa no lleva manteca ni leche, aunque lleva grasa vacuna.",
+      "supportEnglish": "Matías: Yes, but according to the baker, the beef-fat croissant has no butter or milk, although it does contain beef fat.",
+      "targetFrenchDraft": "Matías : Oui, mais selon le boulanger, le croissant à la graisse bovine ne contient ni beurre ni lait, bien qu’il contienne de la graisse bovine."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:line:15",
+      "legacyDraftId": "master:6:line:15",
+      "sourceSpanish": "Nora: Entonces Dev va a comer dos medialunas de grasa, y Hannah va a pedir una ensalada de frutas.",
+      "supportEnglish": "Nora: Then Dev is going to eat two beef-fat croissants, and Hannah is going to order a fruit salad.",
+      "targetFrenchDraft": "Nora : Alors Dev va manger deux croissants à la graisse bovine, et Hannah va commander une salade de fruits."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:line:16",
+      "legacyDraftId": "master:6:line:16",
+      "sourceSpanish": "Nora: ¿Nos podría traer una de soja y una sin lactosa?",
+      "supportEnglish": "Nora: Could you bring us one with soy and one lactose-free?",
+      "targetFrenchDraft": "Nora : Pourriez-vous nous en apporter un au soja et un sans lactose ?"
+    },
+    {
+      "id": "master:6:source-3d88039d974f:line:17",
+      "legacyDraftId": "master:6:line:17",
+      "sourceSpanish": "Matías: Claro, y cuando llegue el reparto, les voy a guardar leche de avena.",
+      "supportEnglish": "Matías: Of course, and when the delivery arrives, I'm going to save some oat milk for you.",
+      "targetFrenchDraft": "Matías : Bien sûr, et quand la livraison arrivera, je vais vous mettre de côté du lait d’avoine."
+    },
+    {
+      "id": "master:6:source-3d88039d974f:line:18",
+      "legacyDraftId": "master:6:line:18",
+      "sourceSpanish": "Nora: Por ahora pedimos esto, y a la tarde volveremos.",
+      "supportEnglish": "Nora: For now we'll order this, and we'll come back in the afternoon.",
+      "targetFrenchDraft": "Nora : Pour l’instant, on va commander ça, et on reviendra dans l’après-midi."
+    }
+  ],
+  "speakingDraft": {
+    "instructionEnglish": "You are ordering for Hannah and Dev; Matías is the server at a San Telmo café-bakery. Compare soy, almond and coconut options with plus/moins … que, choose soy for vegan Hannah and lactose-free milk for Dev, ask when the oat-milk delivery will arrive, then say what the group will order now and when it will return.",
+    "openingFrench": "Matías, à quelle heure la livraison de lait d’avoine va-t-elle arriver ? Celui de soja est-il plus épais que celui d’amande ? Hannah est végétalienne et Dev évite le lactose."
+  },
+  "formsDraft": [
+    {
+      "id": "master:6:form:arriver",
+      "infinitiveFrench": "arriver",
+      "meaningEnglish": "to arrive",
+      "exampleFrench": "La livraison arrive dans l’après-midi.",
+      "exampleEnglish": "The delivery arrives in the afternoon."
+    },
+    {
+      "id": "master:6:form:prendre",
+      "infinitiveFrench": "prendre",
+      "meaningEnglish": "to have (a drink), to drink",
+      "exampleFrench": "Hannah prend un café au lait de soja.",
+      "exampleEnglish": "Hannah has a coffee with soy milk."
+    },
+    {
+      "id": "master:6:form:commander",
+      "infinitiveFrench": "commander",
+      "meaningEnglish": "to order, to ask for",
+      "exampleFrench": "Dev commande une lágrima au lait sans lactose.",
+      "exampleEnglish": "Dev orders a lágrima with lactose-free milk."
+    },
+    {
+      "id": "master:6:form:preferer",
+      "infinitiveFrench": "préférer",
+      "meaningEnglish": "to prefer",
+      "exampleFrench": "Hannah préfère celui de soja parce qu’il fait plus de mousse.",
+      "exampleEnglish": "Hannah prefers the soy one because it makes more foam."
+    },
+    {
+      "id": "master:6:form:revenir",
+      "infinitiveFrench": "revenir",
+      "meaningEnglish": "to come back, to return",
+      "exampleFrench": "Nous revenons dans l’après-midi pour le lait d’avoine.",
+      "exampleEnglish": "We come back in the afternoon for the oat milk."
+    }
+  ],
+  "modeActivitiesDraft": [
+    {
+      "mode": "See",
+      "cueEnglish": "Find the two plant milks that vegan customers request most.",
+      "sourceRef": "master:6:source-3d88039d974f:line:5",
+      "legacyDraftSourceRef": "master:6:line:5",
+      "targetFrenchDraft": "Matías : Nous avons du lait de soja et du lait d’amande, qui sont ceux que les clients végétaliens demandent le plus.",
+      "supportEnglish": "Matías: We have soy milk and almond milk, which are the ones vegan customers ask for most.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Recall",
+      "cueEnglish": "Recall the French for lactose-free milk.",
+      "sourceRef": "master:6:source-3d88039d974f:word:2",
+      "legacyDraftSourceRef": "master:6:word:2",
+      "targetFrenchDraft": "le lait sans lactose",
+      "supportEnglish": "the lactose-free milk",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Hear",
+      "cueEnglish": "Listen for Nora’s statement about Hannah choosing soy.",
+      "sourceRef": "master:6:source-3d88039d974f:word:18",
+      "legacyDraftSourceRef": "master:6:word:18",
+      "targetFrenchDraft": "Hannah est végétalienne, donc elle va prendre celui de soja.",
+      "supportEnglish": "Hannah is vegan, so she's going to have the soy one.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Type",
+      "cueEnglish": "Type the French question about butter croissants and dairy.",
+      "sourceRef": "master:6:source-3d88039d974f:word:19",
+      "legacyDraftSourceRef": "master:6:word:19",
+      "targetFrenchDraft": "Les croissants au beurre contiennent des produits laitiers, n’est-ce pas ?",
+      "supportEnglish": "The butter croissants contain dairy, right?",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Say",
+      "cueEnglish": "Ask when the delivery is going to arrive.",
+      "sourceRef": "master:6:source-3d88039d974f:word:16",
+      "legacyDraftSourceRef": "master:6:word:16",
+      "targetFrenchDraft": "À quelle heure la livraison va-t-elle arriver ?",
+      "supportEnglish": "What time is the delivery going to arrive?",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Write",
+      "cueEnglish": "Write Nora’s plan for Dev’s croissants and Hannah’s fruit salad.",
+      "sourceRef": "master:6:source-3d88039d974f:line:15",
+      "legacyDraftSourceRef": "master:6:line:15",
+      "targetFrenchDraft": "Nora : Alors Dev va manger deux croissants à la graisse bovine, et Hannah va commander une salade de fruits.",
+      "supportEnglish": "Nora: Then Dev is going to eat two beef-fat croissants, and Hannah is going to order a fruit salad.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    }
+  ],
+  "dictionarySensesReviewed": false,
+  "reviewNotesEnglish": [
+    "The old Brussels answer is not source-current; this packet restores San Telmo, Matías, Nora, Hannah and Dev.",
+    "Hannah is vegan and chooses soy; Dev avoids lactose and orders lactose-free milk and two beef-fat pastries. The pastry is never described as vegan.",
+    "The no-butter/no-milk pastry claim is attributed to the baker; it is not a general ingredient or cross-contact guarantee.",
+    "The source-specific lágrima, cortado, medialuna de grasa and confitería senses need qualified French/Argentine food and dictionary review.",
+    "French masculine celui follows lait, unlike feminine Spanish la following leche. The earlier Opus/Fable correction and author check preserved that contrast.",
+    "All six mode prompt/target pairs, forms and speaking text are review candidates only; Hear has no recording and nothing is learner-scored."
+  ],
+  "unresolvedQuestions": [
+    "Qualified French/Argentine food and dietary terminology review pending",
+    "Exact-text audio and per-clip listening decisions pending",
+    "Exact-pair learner web/native/offline runtime and progress gates closed"
+  ],
+  "audioScope": {
+    "status": "read-only estimate; no synthesis, technical verification, listening decision, reuse or registration",
+    "voices": 2,
+    "selectedFrenchStrings": 41,
+    "potentialClipDecisions": 82,
+    "submittedCharacters": 2349,
+    "rateUsdPerMillionCharacters": 30,
+    "estimatedGrossUsd": 0.07047
+  },
+  "aiAssistance": {
+    "historicalPrivateTeam": {
+      "haiku-output": {
+        "file": "content/french-travel-breakfast/review-packets/master-6/historical-ai/haiku-output.json",
+        "sha256": "ba9836d5b02612fad6680b98916fce94905853c12157aa9a294b5e293605c740",
+        "actualModelUsage": [
+          "claude-haiku-5-5"
+        ]
+      },
+      "haiku-repair-output": {
+        "file": "content/french-travel-breakfast/review-packets/master-6/historical-ai/haiku-repair-output.json",
+        "sha256": "ec74c7387b885897342f7b34df851638ba823fa8f871d6e19f38e176c60f9c01",
+        "actualModelUsage": [
+          "claude-haiku-5-5"
+        ]
+      },
+      "opus-output": {
+        "file": "content/french-travel-breakfast/review-packets/master-6/historical-ai/opus-output.json",
+        "sha256": "05693aa2a94fb9885488731ed42b522fb75c0388bca26f7ef9f5abdda23d9459",
+        "actualModelUsage": [
+          "claude-opus-5-5"
+        ]
+      },
+      "fable-output": {
+        "file": "content/french-travel-breakfast/review-packets/master-6/historical-ai/fable-output.json",
+        "sha256": "8fa9935ded9e67ebf10dc02e883d5cc4970648cfa80e526e392cdd84ea7354de",
+        "actualModelUsage": [
+          "claude-fable-5-2"
+        ]
+      }
+    },
+    "currentRun": "Safe-mode Haiku CLI returned Not logged in with empty modelUsage; no new AI output was used.",
+    "qualifiedApproval": false
+  },
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "learnerRegistered": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "audioApproved": false,
+    "listeningReviewed": false,
+    "playbackEnabled": false,
+    "progressTracking": false,
+    "progressWritesEnabled": false,
+    "offlineRegistered": false,
+    "v4Registered": false,
+    "released": false
+  }
+}

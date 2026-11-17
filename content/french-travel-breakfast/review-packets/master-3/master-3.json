@@ -1,0 +1,419 @@
+{
+  "schema": "lt.inert-source-review.v1",
+  "lessonKey": "master:3",
+  "pair": {
+    "target": "French",
+    "support": "English"
+  },
+  "source": {
+    "coursePath": "src/data/core60/es/master-travel-breakfast.json",
+    "courseSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "lessonSha256": "d3f326c42752b77df65ed497c61ee19f401a2c7023f39751549ff3c9d8f4852a",
+    "titleEnglish": "Coach Your Niece to Order Café de Olla Alone",
+    "objectiveEnglish": "Coach a teenager to order café de olla and a pan dulce on her own, with clear tips about the hot clay cup.",
+    "speakingEnglish": "You are the aunt or uncle, and the AI is your 15-year-old niece Sofi: coach her to order café de olla and a pan dulce on her own, using commands with pronouns like pídelo, agárralo por el asa and no lo toques todavía.",
+    "sourceGrammar": {
+      "focus": "Commands with object pronouns (pídelo sin piloncillo, agárralo por el asa, no lo toques todavía)",
+      "examples": [
+        {
+          "es": "Si está muy caliente, déjalo en la mesa un ratito.",
+          "en": "If it's very hot, leave it on the table for a little while."
+        },
+        {
+          "es": "Escoge un pan de yema y pídeselo a doña Eustolia.",
+          "en": "Pick a pan de yema and ask doña Eustolia for it."
+        }
+      ]
+    },
+    "passageTitleSpanish": "Sofi pide sola en la fonda"
+  },
+  "priorDraft": {
+    "archivePath": "content/review-archive/french-japanese-2026-11-15/french-breakfast/master-1-3-draft.json",
+    "archiveSha256": "5dfe71824b841877266ae6afd9dd487e0d1953c1fcffa2203e42b17f37954b2d",
+    "runtimePath": "content/review-archive/french-japanese-2026-11-15/french-breakfast/private-runtime-candidate.json",
+    "runtimeSha256": "f58bb01321fa2e04ef1bbc802c7a776836c3ea9ac6c51fdbedfaca50fe764f26",
+    "oldScene": "Montréal café, hot chocolate, generic pastry, ten-dollar bill",
+    "sourceScene": "Oaxaca market fonda, café de olla, pan de yema, 50-peso bill",
+    "disposition": "Archived French answers and saved-item positions are superseded in this inert candidate only; no progress migration is authorized."
+  },
+  "titleFrenchDraft": "Préparer ta nièce à commander seule un café de olla",
+  "focusFrenchDraft": "Impératifs avec pronoms compléments (commande-le sans piloncillo, tiens-la par l’anse, n’y touche pas encore)",
+  "cards": [
+    {
+      "id": "master:3:source-d3f326c42752:word:1",
+      "legacyDraftId": "master:3:word:1",
+      "sourceSpanish": "el jarro de barro",
+      "supportEnglish": "the clay mug",
+      "targetFrenchDraft": "la tasse en terre cuite",
+      "kind": "term"
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:2",
+      "legacyDraftId": "master:3:word:2",
+      "sourceSpanish": "el asa",
+      "supportEnglish": "the handle",
+      "targetFrenchDraft": "l’anse",
+      "kind": "term",
+      "sourceNoteEnglish": "Feminine noun that takes el: el asa, las asas."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:3",
+      "legacyDraftId": "master:3:word:3",
+      "sourceSpanish": "el borde",
+      "supportEnglish": "the rim",
+      "targetFrenchDraft": "le bord",
+      "kind": "term"
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:4",
+      "legacyDraftId": "master:3:word:4",
+      "sourceSpanish": "el vapor",
+      "supportEnglish": "the steam",
+      "targetFrenchDraft": "la vapeur",
+      "kind": "term"
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:5",
+      "legacyDraftId": "master:3:word:5",
+      "sourceSpanish": "el piloncillo",
+      "supportEnglish": "the piloncillo (raw cane sugar cone)",
+      "targetFrenchDraft": "le piloncillo",
+      "kind": "term"
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:6",
+      "legacyDraftId": "master:3:word:6",
+      "sourceSpanish": "la canela",
+      "supportEnglish": "the cinnamon",
+      "targetFrenchDraft": "la cannelle",
+      "kind": "term"
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:7",
+      "legacyDraftId": "master:3:word:7",
+      "sourceSpanish": "el pan de yema",
+      "supportEnglish": "the egg-yolk bread",
+      "targetFrenchDraft": "le pan de yema",
+      "kind": "term",
+      "sourceNoteEnglish": "A classic Oaxacan sweet bread."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:8",
+      "legacyDraftId": "master:3:word:8",
+      "sourceSpanish": "el chocolate de agua",
+      "supportEnglish": "the hot chocolate made with water",
+      "targetFrenchDraft": "le chocolate de agua",
+      "kind": "term",
+      "sourceNoteEnglish": "Oaxacan style; also served de leche, with milk."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:9",
+      "legacyDraftId": "master:3:word:9",
+      "sourceSpanish": "la fonda",
+      "supportEnglish": "the small eatery",
+      "targetFrenchDraft": "la fonda",
+      "kind": "term"
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:10",
+      "legacyDraftId": "master:3:word:10",
+      "sourceSpanish": "el puesto",
+      "supportEnglish": "the stall",
+      "targetFrenchDraft": "l’étal",
+      "kind": "term"
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:11",
+      "legacyDraftId": "master:3:word:11",
+      "sourceSpanish": "la banca",
+      "supportEnglish": "the bench",
+      "targetFrenchDraft": "le banc",
+      "kind": "term",
+      "sourceNoteEnglish": "Mexico says la banca for a bench."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:12",
+      "legacyDraftId": "master:3:word:12",
+      "sourceSpanish": "el billete de 50",
+      "supportEnglish": "the 50-peso bill",
+      "targetFrenchDraft": "le billet de 50 pesos",
+      "kind": "term"
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:13",
+      "legacyDraftId": "master:3:word:13",
+      "sourceSpanish": "las monedas",
+      "supportEnglish": "the coins",
+      "targetFrenchDraft": "les pièces de monnaie",
+      "kind": "term"
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:14",
+      "legacyDraftId": "master:3:word:14",
+      "sourceSpanish": "tibio",
+      "supportEnglish": "lukewarm",
+      "targetFrenchDraft": "tiède",
+      "kind": "term"
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:15",
+      "legacyDraftId": "master:3:word:15",
+      "sourceSpanish": "despacito",
+      "supportEnglish": "slowly, little by little",
+      "targetFrenchDraft": "tout doucement",
+      "kind": "term"
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:16",
+      "legacyDraftId": "master:3:word:16",
+      "sourceSpanish": "Pídelo sin piloncillo si no lo quieres tan dulce.",
+      "supportEnglish": "Order it without piloncillo if you don't want it so sweet.",
+      "targetFrenchDraft": "Commande-le sans piloncillo si tu ne le veux pas aussi sucré.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Informal, to your niece."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:17",
+      "legacyDraftId": "master:3:word:17",
+      "sourceSpanish": "Agárralo por el asa, nunca por el borde.",
+      "supportEnglish": "Hold it by the handle, never by the rim.",
+      "targetFrenchDraft": "Tiens-la par l’anse, jamais par le bord.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Informal."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:18",
+      "legacyDraftId": "master:3:word:18",
+      "sourceSpanish": "No lo toques todavía; espera a que deje de echar vapor.",
+      "supportEnglish": "Don't touch it yet; wait until it stops steaming.",
+      "targetFrenchDraft": "N’y touche pas encore ; attends que le café ne fume plus.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Informal."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:19",
+      "legacyDraftId": "master:3:word:19",
+      "sourceSpanish": "Pruébalo despacito, porque el barro guarda el calor.",
+      "supportEnglish": "Taste it slowly, because the clay holds the heat.",
+      "targetFrenchDraft": "Goûte-le tout doucement, car la terre cuite garde la chaleur.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Informal."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:20",
+      "legacyDraftId": "master:3:word:20",
+      "sourceSpanish": "Salúdala primero y háblale de usted.",
+      "supportEnglish": "Greet her first and speak to her formally.",
+      "targetFrenchDraft": "Salue-la d’abord et vouvoie-la.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Use usted with older vendors as a sign of respect."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:21",
+      "legacyDraftId": "master:3:word:21",
+      "sourceSpanish": "Pregúntale cuánto es y págale con el billete de 50.",
+      "supportEnglish": "Ask her how much it is and pay her with the 50-peso bill.",
+      "targetFrenchDraft": "Demande-lui combien c’est et paie-la avec le billet de 50 pesos.",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:22",
+      "legacyDraftId": "master:3:word:22",
+      "sourceSpanish": "Buenos días, doña Eustolia, ¿me da un café de olla?",
+      "supportEnglish": "Good morning, doña Eustolia, may I have a café de olla?",
+      "targetFrenchDraft": "Bonjour, doña Eustolia, pourrais-je avoir un café de olla ?",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal; doña goes before a first name."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:word:23",
+      "legacyDraftId": "master:3:word:23",
+      "sourceSpanish": "Tú puedes, yo te espero aquí en la banca.",
+      "supportEnglish": "You've got this, I'll wait for you here on the bench.",
+      "targetFrenchDraft": "Tu vas y arriver, je t’attends ici sur le banc.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Informal."
+    }
+  ],
+  "reader": [
+    {
+      "id": "master:3:source-d3f326c42752:line:1",
+      "legacyDraftId": "master:3:line:1",
+      "sourceSpanish": "La tía Carmen y su sobrina Sofi, de 15 años, llegan temprano a una fonda del mercado de Oaxaca.",
+      "supportEnglish": "Aunt Carmen and her niece Sofi, 15 years old, arrive early at a small eatery in the Oaxaca market.",
+      "targetFrenchDraft": "Tante Carmen et sa nièce Sofi, 15 ans, arrivent tôt dans une fonda du marché d’Oaxaca."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:line:2",
+      "legacyDraftId": "master:3:line:2",
+      "sourceSpanish": "El puesto de doña Eustolia está al fondo, y ella sirve el café de olla bien caliente en un jarro de barro.",
+      "supportEnglish": "Doña Eustolia's stall is at the back, and she serves the café de olla very hot in a clay mug.",
+      "targetFrenchDraft": "L’étal de doña Eustolia est au fond, et elle sert le café de olla bien chaud dans une tasse en terre cuite."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:line:3",
+      "legacyDraftId": "master:3:line:3",
+      "sourceSpanish": "Carmen quiere que Sofi pida sola por primera vez, así que la prepara en la banca de la fonda.",
+      "supportEnglish": "Carmen wants Sofi to order alone for the first time, so she coaches her on the eatery's bench.",
+      "targetFrenchDraft": "Carmen veut que Sofi commande seule pour la première fois, alors elle la prépare sur le banc de la fonda."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:line:4",
+      "legacyDraftId": "master:3:line:4",
+      "sourceSpanish": "Carmen: Salúdala primero y háblale de usted.",
+      "supportEnglish": "Carmen: Greet her first and speak to her formally.",
+      "targetFrenchDraft": "Carmen : Salue-la d’abord et vouvoie-la."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:line:5",
+      "legacyDraftId": "master:3:line:5",
+      "sourceSpanish": "Carmen: Dile así: Buenos días, doña Eustolia, ¿me da un café de olla?",
+      "supportEnglish": "Carmen: Say it like this: Good morning, doña Eustolia, may I have a café de olla?",
+      "targetFrenchDraft": "Carmen : Dis-lui comme ça : « Bonjour, doña Eustolia, pourrais-je avoir un café de olla ? »"
+    },
+    {
+      "id": "master:3:source-d3f326c42752:line:6",
+      "legacyDraftId": "master:3:line:6",
+      "sourceSpanish": "Sofi pregunta si el café es muy dulce, y Carmen le explica que doña Eustolia lo prepara con piloncillo y canela.",
+      "supportEnglish": "Sofi asks if the coffee is very sweet, and Carmen explains that doña Eustolia makes it with piloncillo and cinnamon.",
+      "targetFrenchDraft": "Sofi demande si le café est très sucré, et Carmen lui explique que doña Eustolia le prépare avec du piloncillo et de la cannelle."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:line:7",
+      "legacyDraftId": "master:3:line:7",
+      "sourceSpanish": "Carmen: Pídelo sin piloncillo si no lo quieres tan dulce.",
+      "supportEnglish": "Carmen: Order it without piloncillo if you don't want it so sweet.",
+      "targetFrenchDraft": "Carmen : Commande-le sans piloncillo si tu ne le veux pas aussi sucré."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:line:8",
+      "legacyDraftId": "master:3:line:8",
+      "sourceSpanish": "Carmen: Si prefieres otra cosa, pide un chocolate de agua, que también es muy rico.",
+      "supportEnglish": "Carmen: If you'd rather have something else, order a hot chocolate made with water, which is also really good.",
+      "targetFrenchDraft": "Carmen : Si tu préfères autre chose, commande un chocolate de agua, un chocolat chaud préparé à l’eau, qui est aussi très bon."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:line:9",
+      "legacyDraftId": "master:3:line:9",
+      "sourceSpanish": "Carmen: Escoge un pan de yema y pídeselo a doña Eustolia con el café.",
+      "supportEnglish": "Carmen: Pick a pan de yema and ask doña Eustolia for it with the coffee.",
+      "targetFrenchDraft": "Carmen : Choisis un pan de yema et demande-le à doña Eustolia avec le café."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:line:10",
+      "legacyDraftId": "master:3:line:10",
+      "sourceSpanish": "Carmen: Pregúntale cuánto es y págale con el billete de 50.",
+      "supportEnglish": "Carmen: Ask her how much it is and pay her with the 50-peso bill.",
+      "targetFrenchDraft": "Carmen : Demande-lui combien c’est et paie-la avec le billet de 50 pesos."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:line:11",
+      "legacyDraftId": "master:3:line:11",
+      "sourceSpanish": "Carmen: Si te da monedas de cambio, guárdalas en la bolsa del pantalón.",
+      "supportEnglish": "Carmen: If she gives you coins as change, put them away in your pants pocket.",
+      "targetFrenchDraft": "Carmen : Si elle te rend la monnaie en pièces, range-les dans la poche de ton pantalon."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:line:12",
+      "legacyDraftId": "master:3:line:12",
+      "sourceSpanish": "Carmen: Agárralo por el asa, nunca por el borde.",
+      "supportEnglish": "Carmen: Hold it by the handle, never by the rim.",
+      "targetFrenchDraft": "Carmen : Tiens-la par l’anse, jamais par le bord."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:line:13",
+      "legacyDraftId": "master:3:line:13",
+      "sourceSpanish": "Carmen: No lo toques todavía; espera a que deje de echar vapor.",
+      "supportEnglish": "Carmen: Don't touch it yet; wait until it stops steaming.",
+      "targetFrenchDraft": "Carmen : N’y touche pas encore ; attends que le café ne fume plus."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:line:14",
+      "legacyDraftId": "master:3:line:14",
+      "sourceSpanish": "Carmen: Si sigue muy caliente, déjalo en la mesa hasta que esté tibio.",
+      "supportEnglish": "Carmen: If it's still very hot, leave it on the table until it's lukewarm.",
+      "targetFrenchDraft": "Carmen : S’il est encore très chaud, laisse-le sur la table jusqu’à ce qu’il soit tiède."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:line:15",
+      "legacyDraftId": "master:3:line:15",
+      "sourceSpanish": "Carmen: Pruébalo despacito, porque el barro guarda el calor.",
+      "supportEnglish": "Carmen: Taste it slowly, because the clay holds the heat.",
+      "targetFrenchDraft": "Carmen : Goûte-le tout doucement, car la terre cuite garde la chaleur."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:line:16",
+      "legacyDraftId": "master:3:line:16",
+      "sourceSpanish": "Carmen: Tú puedes, yo te espero aquí en la banca.",
+      "supportEnglish": "Carmen: You've got this, I'll wait for you here on the bench.",
+      "targetFrenchDraft": "Carmen : Tu vas y arriver, je t’attends ici sur le banc."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:line:17",
+      "legacyDraftId": "master:3:line:17",
+      "sourceSpanish": "Sofi camina sola al puesto, saluda a doña Eustolia y pide su café de olla con su pan de yema.",
+      "supportEnglish": "Sofi walks to the stall alone, greets doña Eustolia and orders her café de olla with her pan de yema.",
+      "targetFrenchDraft": "Sofi va seule jusqu’à l’étal, salue doña Eustolia et commande son café de olla avec son pan de yema."
+    },
+    {
+      "id": "master:3:source-d3f326c42752:line:18",
+      "legacyDraftId": "master:3:line:18",
+      "sourceSpanish": "Minutos después, Sofi regresa a la banca con el jarro bien agarrado por el asa y su pan en la otra mano.",
+      "supportEnglish": "Minutes later, Sofi comes back to the bench holding the mug firmly by the handle, with her bread in her other hand.",
+      "targetFrenchDraft": "Quelques minutes plus tard, Sofi revient au banc, tenant fermement la tasse par l’anse, son pan de yema dans l’autre main."
+    }
+  ],
+  "speakingDraft": null,
+  "authoredModeActivities": null,
+  "dictionarySensesReviewed": false,
+  "reviewNotesEnglish": [
+    "French candidate aligns the current Oaxaca source; the archived Montréal lesson is not used as a source.",
+    "Named food and place terms remain in the French answer; explanations belong to source notes or a future dictionary sense, not the answer string.",
+    "The Spanish lo changes referent between hot clay mug and coffee. French la/le/y choices in cards 17–19 and Reader 12–15 need qualified referent and hot-drink sequence review before learner use.",
+    "Cards 21/22 and Reader 10/5 correct the archived payment and formal-request patterns; qualified French and locale review remain open.",
+    "Author self-check added quotation marks to Reader 5, the water-made chocolate gloss to Reader 8, and the named bread to Reader 18 after Fable correction."
+  ],
+  "unresolvedQuestions": [
+    "Hot-mug sequence: 'la' is used only for la tasse (tiens-la). From 'n’y touche pas encore' onward, every pronoun (y, il, le) refers to le café, which card 18 / Reader 13 names once. No action is changed (hold, don't touch yet, wait, leave on the table, taste), but 'it stops steaming' becomes 'le café ne fume plus'. Reviewer should confirm this referent split is acceptable.",
+    "Grammar focus: 'n’y touche pas encore' uses 'y' (toucher à), not a direct-object pronoun like the Spanish 'no lo toques'. If the focus must stay strictly on le/la, the alternative is 'Ne le touche pas encore', or a masculine vessel noun so that 'le' works throughout as in Spanish.",
+    "Reader 12: 'Tiens-la' points back to 'une tasse en terre cuite' in Reader 2, ten lines earlier. The Spanish has the same distance (jarro, then agárralo). Confirm, or name the tasse in that line.",
+    "Formal request: 'pourrais-je avoir' is used identically on card 22 and Reader 5 and matches 'may I have' without adding 's’il vous plaît'. It contains no visible 'vous', unlike the usted form in '¿me da…?'. 'Pourriez-vous me donner un café de olla ?' would show the vouvoiement that card 20 teaches. Reviewer to choose.",
+    "Cards 5, 7, 8, 9, 15: answers are the bare term. The glosses (raw cane sugar cone; egg-yolk bread, classic Oaxacan sweet bread; hot chocolate made with water, also served de leche; small eatery; little by little) need to go in a note field, not the answer.",
+    "Card 8 / Reader 8: the English says 'hot chocolate made with water', while the Spanish names 'chocolate de agua'. The source name is kept. Confirm, or use 'le chocolat chaud à l’eau'.",
+    "Cards 16 / Reader 7: 'pas aussi sucré' renders 'so sweet' (tan dulce). Opus proposed 'trop sucré', which means 'too sweet' and shifts the meaning. Confirm the preference.",
+    "Card 10: 'l’étal' is now used on the card and in Reader 2 and 17. For a counter serving hot drinks, 'le stand' may be more natural. Confirm the term.",
+    "Card 23 / Reader 16: 'Tu vas y arriver' renders 'You've got this' (Tú puedes). Confirm it over 'Tu peux le faire'.",
+    "Reader 17: 'va seule jusqu’à l’étal' drops the explicit 'walks' (camina) to avoid the clumsy 'marche seule jusqu’à'. Confirm.",
+    "Source question: is doña Eustolia's puesto inside the fonda ('al fondo') or a separate market stall? Sofi walks to it from the fonda's bench.",
+    "Source question: 'agárralo por el asa' comes before 'no lo toques todavía'. Confirm the intended order of hold, wait, leave, taste.",
+    "Source question: the objective and speaking prompt mention 'pan dulce', but the cards and Reader only use pan de yema. No generic pastry is used in the French.",
+    "Status: corrected draft only. It has not had qualified or independent French review and is not recommended for learner release."
+  ],
+  "audioScope": {
+    "status": "read-only estimate; no synthesis, technical verification, listening decision, reuse or registration",
+    "voices": 2,
+    "selectedFrenchStrings": 41,
+    "potentialClipDecisions": 82,
+    "submittedCharacters": 2145,
+    "rateUsdPerMillionCharacters": 30,
+    "estimatedGrossUsd": 0.06435
+  },
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "learnerRegistered": false,
+    "audioRegistered": false,
+    "audioApproved": false,
+    "listeningReviewed": false,
+    "playbackEnabled": false,
+    "scoringEnabled": false,
+    "progressTracking": false,
+    "progressWritesEnabled": false,
+    "offlineRegistered": false,
+    "v4Registered": false,
+    "released": false
+  }
+}

@@ -1,0 +1,11 @@
+# French Breakfast Master 1: Madrid bar source review
+
+This is an inert French→English candidate for `travel-breakfast`, stable lesson key `master:1`. It pins the current Spanish curriculum and Reader files by SHA-256. The 22 English card meanings and 18 English Reader turns remain in exact source order, with the Spanish source alongside each unapproved French face. `build.py` creates the packet and `validate.py` independently checks every source row, source hash, unique revision-scoped candidate ID, and false release gate.
+
+The archived French draft had preserved the English source anchors but replaced the Madrid bar scene with a Paris café, substituted croissants for churros and porras, and changed the payment sequence. This candidate restores Lavapiés, Emma, Thiago, Paco, the three-euro coffee-and-churros formula, a pincho de tortilla, fresh orange juice, a receipt placed under Thiago's cup before payment, card terminal or cash change, and the optional coins in the tip jar. The source's Spanish register notes remain source evidence; the French draft uses **vous** to unfamiliar bar staff for natural French. Qualified French, Madrid food and dictionary review must decide that register choice and the precise terms before any learner use.
+
+The existing archived IDs are recorded for tracing only. These candidate row IDs are revision-scoped because the archived French row meanings differ. No saved-item alias or migration is authorized. `reviewed:false`, and all learner, scoring, audio, listening, offline, progress, V4 and release gates remain closed. Six authored modes, forms, speaking, dictionary senses, exact-pair runtime and native acceptance are absent here.
+
+Direct Claude CLI `--safe-mode` runs reported actual Haiku 5.5 candidate authoring, Opus 5.5 read-only critique, and Fable 5.2 correction metadata in `ai-assistance-metadata.json`. The final French was checked against the pinned source after those runs. AI critique is not qualified review.
+
+Read-only audio planning for these 40 distinct French strings is 80 potential two-voice clips and 5,190 submitted characters, about **$0.15570 gross** using the earlier $30 per million characters assumption. No synthesis, recording reuse, technical audio verification, or listening approval occurred. Any future exact-text recordings need distinct per-clip decisions.

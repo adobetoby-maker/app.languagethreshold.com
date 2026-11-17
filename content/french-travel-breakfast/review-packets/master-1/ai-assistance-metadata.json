@@ -1,0 +1,38 @@
+{
+  "state": "AI assistance only; no qualified approval",
+  "runs": [
+    {
+      "role": "candidate authoring",
+      "requestedModel": "haiku",
+      "actualModel": "claude-haiku-5-5",
+      "canonicalModel": "claude-haiku-5-5",
+      "safeMode": true,
+      "tool": "Claude CLI --print --safe-mode --output-format json",
+      "completed": true,
+      "metadataVerified": true
+    },
+    {
+      "role": "read-only critique",
+      "requestedModel": "opus",
+      "actualModel": "claude-opus-5-5",
+      "canonicalModel": "claude-opus-5-5",
+      "safeMode": true,
+      "tool": "Claude CLI --print --safe-mode --output-format json",
+      "completed": true,
+      "metadataVerified": true
+    },
+    {
+      "role": "correction proposal",
+      "requestedModel": "fable",
+      "actualModel": "claude-fable-5-2",
+      "canonicalModel": "claude-fable-5-2",
+      "safeMode": true,
+      "tool": "Claude CLI --print --safe-mode --output-format json",
+      "completed": true,
+      "metadataVerified": true
+    }
+  ],
+  "selfCheck": "Compared all 22 French cards and 18 Reader turns to pinned current Spanish and English source; restored Madrid bar, churros, porras, pincho de tortilla, 3-euro offer, receipt-before-payment and optional-tip sequence. Used natural French vous to unknown staff; recorded register decision for qualified review.",
+  "qualifiedReview": false,
+  "noAudioSynthesis": true
+}

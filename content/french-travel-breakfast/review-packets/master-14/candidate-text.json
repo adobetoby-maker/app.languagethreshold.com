@@ -1,0 +1,83 @@
+{
+  "titleFrenchDraft": "Expliquer le pain sans gluten mal étiqueté",
+  "focusFrenchDraft": "Raconter un incident évité de justesse, sans accuser la boulangère, puis convenir de mesures pour éviter une nouvelle confusion.",
+  "cardFrenchDrafts": [
+    "la maladie cœliaque",
+    "atteinte de la maladie cœliaque",
+    "le panneau",
+    "le plateau",
+    "le pain sans gluten",
+    "la farine de blé",
+    "la confusion",
+    "l’oubli",
+    "la frayeur",
+    "la faute",
+    "le code couleur",
+    "la zone séparée",
+    "la fournée",
+    "la mesure préventive",
+    "faillir",
+    "Excusez-moi, Itzel, le panneau « sans gluten » se trouve sur un autre plateau.",
+    "Priya, ne le mange pas encore ; attends-moi un instant.",
+    "Elle a failli le manger, mais j’ai d’abord lu l’étiquette.",
+    "Si je ne l’avais pas vu, elle aurait pu tomber malade.",
+    "Ne vous inquiétez pas, Itzel, personne n’est en faute.",
+    "Il a failli se passer quelque chose, mais nous l’avons vu à temps.",
+    "Que pensez-vous d’un code couleur pour les plateaux ?",
+    "Pourriez-vous garder le pain sans gluten dans une zone séparée ?"
+  ],
+  "readerFrenchDrafts": [
+    "Un samedi matin, Daniel et son amie Priya entrent dans la boulangerie d’Itzel à Coyoacán pour prendre le petit-déjeuner.",
+    "Priya est atteinte de la maladie cœliaque ; elle cherche donc toujours le pain sans gluten avant de commander.",
+    "Priya prend une concha sur le plateau qui porte le panneau « sans gluten ».",
+    "Daniel lit l’étiquette du pain et voit que la liste des ingrédients contient de la farine de blé.",
+    "Daniel : Priya, ne le mange pas encore ; attends-moi un instant.",
+    "Daniel : Excusez-moi, Itzel, le panneau « sans gluten » se trouve sur un autre plateau.",
+    "Itzel vérifie les plateaux et rougit : le pain sans gluten est sur le plateau d’à côté, sans panneau.",
+    "Itzel : Quelle honte, c’était un oubli de ma part !",
+    "Daniel : Elle a failli le manger, mais j’ai d’abord lu l’étiquette.",
+    "Daniel : Si je ne l’avais pas vu, elle aurait pu tomber malade.",
+    "Daniel explique calmement qu’en raison de la maladie cœliaque, Priya ne peut rien manger qui contienne de la farine de blé.",
+    "Daniel : Ne vous inquiétez pas, Itzel, personne n’est en faute.",
+    "Daniel : Il a failli se passer quelque chose, mais nous l’avons vu à temps.",
+    "Itzel raconte que la confusion a commencé quand elle a déplacé les plateaux pour sortir la nouvelle fournée.",
+    "Itzel : Cela nous a tous fait peur, et il nous faut une mesure préventive pour que cela ne se reproduise pas.",
+    "Daniel : Que pensez-vous d’un code couleur pour les plateaux ?",
+    "Daniel : Pourriez-vous garder le pain sans gluten dans une zone séparée ?",
+    "Itzel : Ce sont de bonnes idées. Dès demain, les plateaux de pain sans gluten seront verts et placés dans une zone séparée."
+  ],
+  "speakingDraft": {
+    "roleEnglish": "You are Daniel, Priya’s friend, speaking with Itzel at her bakery in Coyoacán after reading the wheat-flour ingredient label. Priya has not eaten the concha.",
+    "openingFrench": "Daniel : Excusez-moi, Itzel, le panneau « sans gluten » se trouve sur un autre plateau.",
+    "objectivesEnglish": [
+      "Tell Priya not to eat the concha yet; distinguish the concha’s wheat-flour label from the gluten-free bread on the neighboring unsigned tray.",
+      "Explain the near miss and potential illness using faillir and a French counterfactual while preserving that no ingestion occurred.",
+      "Explain Priya’s celiac disease directly and calmly without blaming Itzel.",
+      "Suggest a color code and separate area, and confirm Itzel’s plan for green gluten-free trays starting tomorrow."
+    ],
+    "closureFrench": "Daniel : Merci, Itzel. Les plateaux verts et la zone séparée aideront à éviter une nouvelle confusion."
+  },
+  "formsDraft": [
+    {"french": "Elle a failli manger la concha.", "english": "She almost ate the concha.", "noteEnglish": "French a failli + infinitive expresses the near miss; no ingestion is asserted."},
+    {"french": "Si je n’avais pas lu l’étiquette, elle aurait pu tomber malade.", "english": "If I had not read the label, she could have gotten sick.", "noteEnglish": "French pluperfect plus conditional past maps the source’s unreal past condition."},
+    {"french": "Priya est atteinte de la maladie cœliaque.", "english": "Priya has celiac disease.", "noteEnglish": "Keep the clinical diagnosis distinct from a generic food allergy."},
+    {"french": "Le panneau « sans gluten » se trouvait sur le mauvais plateau.", "english": "The gluten-free sign was on the wrong tray.", "noteEnglish": "The sign, not the bread’s ingredient label, was misplaced."},
+    {"french": "Dès demain, les plateaux de pain sans gluten seront verts.", "english": "Starting tomorrow, the gluten-free bread trays will be green.", "noteEnglish": "Future tense reports Itzel’s agreed preventive step in the source scene."}
+  ],
+  "modeSourceCards": {"See": 16, "Recall": 17, "Hear": 18, "Type": 19, "Say": 22, "Write": 23},
+  "modeCuesEnglish": {
+    "See": "Read Daniel’s polite correction about the misplaced gluten-free sign.",
+    "Recall": "Recall Daniel’s warning to Priya before she eats the concha.",
+    "Hear": "Listen for Daniel’s near-miss sentence about reading the label first. Recording pending.",
+    "Type": "Type Daniel’s counterfactual about what could have happened if he had not seen the label.",
+    "Say": "Suggest a color code for Itzel’s trays without accusing her.",
+    "Write": "Ask Itzel to keep gluten-free bread in a separate area."
+  },
+  "reviewQuestionsEnglish": [
+    "Qualified French and clinical review must check maladie cœliaque and the feminine descriptor for Priya; the source does not diagnose an allergy or say Priya ate the concha.",
+    "Keep Itzel’s bakery in Coyoacán, the concha, the wheat-flour ingredient label, the misplaced gluten-free sign, the neighboring unsigned tray and Itzel’s green-tray promise starting tomorrow. The older Paris scene is not a source-equivalent answer.",
+    "The source says nobody is to blame while Itzel acknowledges an oversight. Review the French wording for that pragmatic distinction and for formal vous to Itzel versus informal tu to Priya.",
+    "A color code and separate area are Itzel’s proposed steps in the scene, not proof that the bread is clinically safe or that cross-contact is eliminated.",
+    "Archived card/Reader IDs and audio cannot migrate to these revision-scoped candidates on text overlap alone."
+  ]
+}

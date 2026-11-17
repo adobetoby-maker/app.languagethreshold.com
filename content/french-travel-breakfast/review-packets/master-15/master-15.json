@@ -1,0 +1,504 @@
+{
+  "schema": "lt.inert-source-review.v1",
+  "lessonKey": "master:15",
+  "pair": {
+    "target": "French",
+    "support": "English"
+  },
+  "source": {
+    "coursePath": "src/data/core60/es/master-travel-breakfast.json",
+    "courseSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "lessonSha256": "543c5d95b970af2d4205c7206a6f54c2332d6a36bf4ad9243467f40a982a5f2f",
+    "titleEnglish": "Fire Alarm During Hotel Breakfast",
+    "objectiveEnglish": "Follow staff instructions, relay short clear commands to other guests, and phone reception from outside.",
+    "speakingEnglish": "You are a hotel guest at breakfast, and the AI is staff member Julián, guest doña Fabiola and the receptionist: follow Julián, relay commands like ¡salgan por aquí! and ¡no usen el ascensor!, guide Fabiola out with si + present → future, and phone reception from outside.",
+    "sourceGrammar": {
+      "focus": "Si + present → future; short radio or phone commands (si suena otra vez, saldremos; ¡salgan por aquí!, ¡no usen el ascensor!)",
+      "examples": [
+        {
+          "es": "Si suena otra vez la alarma, saldremos por las escaleras.",
+          "en": "If the alarm goes off again, we'll leave by the stairs."
+        },
+        {
+          "es": "¡Salgan por aquí y no usen el ascensor!",
+          "en": "Go out this way and don't use the elevator!"
+        }
+      ]
+    },
+    "passageTitleSpanish": "Alarma en el desayuno"
+  },
+  "priorDraft": {
+    "archivePath": "content/review-archive/french-japanese-2026-11-15/french-breakfast/master-13-15-draft.json",
+    "archiveSha256": "ae2b10eedbce8ad889007704b7b609c9f72f109cfea4bcf0bb8eaa2392f8ed50",
+    "runtimePath": "content/review-archive/french-japanese-2026-11-15/french-breakfast/private-runtime-candidate.json",
+    "runtimeSha256": "f58bb01321fa2e04ef1bbc802c7a776836c3ea9ac6c51fdbedfaca50fe764f26",
+    "oldScene": "Brussels hotel alarm with unspecified cause",
+    "sourceScene": "Bogotá Hotel Candelaria burnt-toaster smoke alarm and evacuation with Julián, Daniel, doña Fabiola and Carolina",
+    "matchingPriorEnglishCards": 5,
+    "matchingPriorEnglishReaderTurns": 0,
+    "disposition": "Archived positions are trace references only; no saved-item or recording migration is authorized."
+  },
+  "titleFrenchDraft": "Alarme incendie pendant le petit-déjeuner à Bogotá",
+  "focusFrenchDraft": "Suivre les consignes d’évacuation, les transmettre clairement aux autres clients et appeler la réception depuis l’extérieur ; employer si + présent, puis futur.",
+  "cards": [
+    {
+      "id": "master:15:source-543c5d95b970:word:1",
+      "legacyDraftId": "master:15:word:1",
+      "sourceSpanish": "la alarma de incendios",
+      "supportEnglish": "the fire alarm",
+      "targetFrenchDraft": "l’alarme incendie",
+      "kind": "term"
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:2",
+      "legacyDraftId": "master:15:word:2",
+      "sourceSpanish": "el humo",
+      "supportEnglish": "the smoke",
+      "targetFrenchDraft": "la fumée",
+      "kind": "term"
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:3",
+      "legacyDraftId": "master:15:word:3",
+      "sourceSpanish": "la salida de emergencia",
+      "supportEnglish": "the emergency exit",
+      "targetFrenchDraft": "la sortie de secours",
+      "kind": "term"
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:4",
+      "legacyDraftId": "master:15:word:4",
+      "sourceSpanish": "las escaleras",
+      "supportEnglish": "the stairs",
+      "targetFrenchDraft": "les escaliers",
+      "kind": "term"
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:5",
+      "legacyDraftId": "master:15:word:5",
+      "sourceSpanish": "el ascensor",
+      "supportEnglish": "the elevator",
+      "targetFrenchDraft": "l’ascenseur",
+      "kind": "term",
+      "sourceNoteEnglish": "Standard in Colombia; Mexico often says el elevador."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:6",
+      "legacyDraftId": "master:15:word:6",
+      "sourceSpanish": "el punto de encuentro",
+      "supportEnglish": "the meeting point",
+      "targetFrenchDraft": "le point de rassemblement",
+      "kind": "term"
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:7",
+      "legacyDraftId": "master:15:word:7",
+      "sourceSpanish": "la evacuación",
+      "supportEnglish": "the evacuation",
+      "targetFrenchDraft": "l’évacuation",
+      "kind": "term"
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:8",
+      "legacyDraftId": "master:15:word:8",
+      "sourceSpanish": "el extintor",
+      "supportEnglish": "the fire extinguisher",
+      "targetFrenchDraft": "l’extincteur",
+      "kind": "term"
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:9",
+      "legacyDraftId": "master:15:word:9",
+      "sourceSpanish": "el detector de humo",
+      "supportEnglish": "the smoke detector",
+      "targetFrenchDraft": "le détecteur de fumée",
+      "kind": "term"
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:10",
+      "legacyDraftId": "master:15:word:10",
+      "sourceSpanish": "el brigadista",
+      "supportEnglish": "the emergency team member",
+      "targetFrenchDraft": "le membre de l’équipe d’évacuation",
+      "kind": "term",
+      "sourceNoteEnglish": "Colombian word for staff trained in evacuations; a woman is la brigadista."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:11",
+      "legacyDraftId": "master:15:word:11",
+      "sourceSpanish": "la falsa alarma",
+      "supportEnglish": "the false alarm",
+      "targetFrenchDraft": "la fausse alerte",
+      "kind": "term"
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:12",
+      "legacyDraftId": "master:15:word:12",
+      "sourceSpanish": "la puerta cortafuego",
+      "supportEnglish": "the fire door",
+      "targetFrenchDraft": "la porte coupe-feu",
+      "kind": "term"
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:13",
+      "legacyDraftId": "master:15:word:13",
+      "sourceSpanish": "el andén",
+      "supportEnglish": "the sidewalk",
+      "targetFrenchDraft": "le trottoir",
+      "kind": "term",
+      "sourceNoteEnglish": "Colombian usage; in Mexico it's la banqueta."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:14",
+      "legacyDraftId": "master:15:word:14",
+      "sourceSpanish": "la lista de huéspedes",
+      "supportEnglish": "the guest list",
+      "targetFrenchDraft": "la liste des clients de l’hôtel",
+      "kind": "term"
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:15",
+      "legacyDraftId": "master:15:word:15",
+      "sourceSpanish": "afuera",
+      "supportEnglish": "outside",
+      "targetFrenchDraft": "à l’extérieur",
+      "kind": "term"
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:16",
+      "legacyDraftId": "master:15:word:16",
+      "sourceSpanish": "¡Salgan por aquí, por la salida de emergencia!",
+      "supportEnglish": "Go out this way, through the emergency exit!",
+      "targetFrenchDraft": "Sortez par ici, par la sortie de secours !",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Ustedes command to a group of guests."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:17",
+      "legacyDraftId": "master:15:word:17",
+      "sourceSpanish": "¡No usen el ascensor, bajen por las escaleras!",
+      "supportEnglish": "Don't use the elevator, go down the stairs!",
+      "targetFrenchDraft": "N’utilisez pas l’ascenseur, descendez par les escaliers !",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:18",
+      "legacyDraftId": "master:15:word:18",
+      "sourceSpanish": "Doña Fabiola, deje el café, por favor, y salgamos ya.",
+      "supportEnglish": "Doña Fabiola, please leave the coffee and let's go out now.",
+      "targetFrenchDraft": "Doña Fabiola, laissez votre café, s’il vous plaît, et sortons tout de suite.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal: usted with an older guest."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:19",
+      "legacyDraftId": "master:15:word:19",
+      "sourceSpanish": "Si salimos ya, después la invitaré a otro tinto.",
+      "supportEnglish": "If we leave now, I'll buy you another coffee afterward.",
+      "targetFrenchDraft": "Si nous sortons maintenant, je vous offrirai un autre café après.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:20",
+      "legacyDraftId": "master:15:word:20",
+      "sourceSpanish": "Julián, ¿dónde queda el punto de encuentro?",
+      "supportEnglish": "Julián, where is the meeting point?",
+      "targetFrenchDraft": "Julián, où se trouve le point de rassemblement ?",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:21",
+      "legacyDraftId": "master:15:word:21",
+      "sourceSpanish": "Aló, ¿recepción? Llamo de la habitación 504; ya estamos afuera.",
+      "supportEnglish": "Hello, reception? I'm calling from room 504; we're outside now.",
+      "targetFrenchDraft": "Allô, la réception ? Je vous appelle de la chambre 504 ; nous sommes dehors maintenant.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Aló is how Colombians answer or open a phone call."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:22",
+      "legacyDraftId": "master:15:word:22",
+      "sourceSpanish": "Estamos en el andén, con doña Fabiola y dos huéspedes más.",
+      "supportEnglish": "We're on the sidewalk, with doña Fabiola and two more guests.",
+      "targetFrenchDraft": "Nous sommes sur le trottoir, avec doña Fabiola et deux autres clients.",
+      "kind": "phrase"
+    },
+    {
+      "id": "master:15:source-543c5d95b970:word:23",
+      "legacyDraftId": "master:15:word:23",
+      "sourceSpanish": "Si suena otra vez, saldremos de inmediato.",
+      "supportEnglish": "If it goes off again, we'll leave immediately.",
+      "targetFrenchDraft": "Si elle retentit de nouveau, nous sortirons immédiatement.",
+      "kind": "phrase"
+    }
+  ],
+  "reader": [
+    {
+      "id": "master:15:source-543c5d95b970:line:1",
+      "legacyDraftId": "master:15:line:1",
+      "sourceSpanish": "Durante el desayuno en el comedor del quinto piso del Hotel Candelaria, en Bogotá, una tostadora se quema y el humo llega hasta el techo.",
+      "supportEnglish": "During breakfast in the fifth-floor dining room of the Hotel Candelaria, in Bogotá, a toaster burns and the smoke reaches the ceiling.",
+      "targetFrenchDraft": "Pendant le petit-déjeuner dans la salle à manger du cinquième étage de l’hôtel Candelaria, à Bogotá, un grille-pain brûle et la fumée atteint le plafond."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:line:2",
+      "legacyDraftId": "master:15:line:2",
+      "sourceSpanish": "El detector de humo se activa enseguida y suena la alarma de incendios en todo el edificio.",
+      "supportEnglish": "The smoke detector goes off right away and the fire alarm sounds throughout the building.",
+      "targetFrenchDraft": "Le détecteur de fumée se déclenche aussitôt et l’alarme incendie retentit dans tout le bâtiment."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:line:3",
+      "legacyDraftId": "master:15:line:3",
+      "sourceSpanish": "Julián, el brigadista del hotel, desconecta la tostadora y deja el extintor listo al lado del bufé, como indica el protocolo del hotel.",
+      "supportEnglish": "Julián, the hotel's emergency team member, unplugs the toaster and keeps the fire extinguisher ready next to the buffet, as the hotel protocol says.",
+      "targetFrenchDraft": "Julián, membre de l’équipe d’évacuation de l’hôtel, débranche le grille-pain et garde l’extincteur prêt à côté du buffet, comme le prévoit le protocole de l’hôtel."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:line:4",
+      "legacyDraftId": "master:15:line:4",
+      "sourceSpanish": "Julián: ¡Salgan por aquí, por la salida de emergencia!",
+      "supportEnglish": "Julián: Go out this way, through the emergency exit!",
+      "targetFrenchDraft": "Julián : Sortez par ici, par la sortie de secours !"
+    },
+    {
+      "id": "master:15:source-543c5d95b970:line:5",
+      "legacyDraftId": "master:15:line:5",
+      "sourceSpanish": "Daniel, el huésped de la habitación 504, repite la orden para los turistas de la mesa del fondo: ¡No usen el ascensor, bajen por las escaleras!",
+      "supportEnglish": "Daniel, the guest from room 504, repeats the order for the tourists at the back table: Don't use the elevator, go down the stairs!",
+      "targetFrenchDraft": "Daniel, client de la chambre 504, répète la consigne aux touristes de la table du fond : N’utilisez pas l’ascenseur, descendez par les escaliers !"
+    },
+    {
+      "id": "master:15:source-543c5d95b970:line:6",
+      "legacyDraftId": "master:15:line:6",
+      "sourceSpanish": "Doña Fabiola, una señora mayor, sigue sentada y dice que primero quiere terminar su café.",
+      "supportEnglish": "Doña Fabiola, an older lady, stays seated and says she wants to finish her coffee first.",
+      "targetFrenchDraft": "Doña Fabiola, une dame âgée, reste assise et dit qu’elle veut d’abord finir son café."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:line:7",
+      "legacyDraftId": "master:15:line:7",
+      "sourceSpanish": "Daniel: Doña Fabiola, deje el café, por favor, y salgamos ya.",
+      "supportEnglish": "Daniel: Doña Fabiola, please leave the coffee and let's go out now.",
+      "targetFrenchDraft": "Daniel : Doña Fabiola, laissez votre café, s’il vous plaît, et sortons tout de suite."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:line:8",
+      "legacyDraftId": "master:15:line:8",
+      "sourceSpanish": "Daniel: Si salimos ya, después la invitaré a otro tinto.",
+      "supportEnglish": "Daniel: If we leave now, I'll buy you another coffee afterward.",
+      "targetFrenchDraft": "Daniel : Si nous sortons maintenant, je vous offrirai un autre café après."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:line:9",
+      "legacyDraftId": "master:15:line:9",
+      "sourceSpanish": "Doña Fabiola sonríe, toma su bastón y camina con Daniel hacia la puerta cortafuego, que Julián cierra detrás de ellos.",
+      "supportEnglish": "Doña Fabiola smiles, takes her cane and walks with Daniel toward the fire door, which Julián closes behind them.",
+      "targetFrenchDraft": "Doña Fabiola sourit, prend sa canne et marche avec Daniel vers la porte coupe-feu, que Julián referme derrière eux."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:line:10",
+      "legacyDraftId": "master:15:line:10",
+      "sourceSpanish": "En las escaleras, Daniel pregunta: Julián, ¿dónde queda el punto de encuentro?",
+      "supportEnglish": "On the stairs, Daniel asks: Julián, where is the meeting point?",
+      "targetFrenchDraft": "Dans les escaliers, Daniel demande : Julián, où se trouve le point de rassemblement ?"
+    },
+    {
+      "id": "master:15:source-543c5d95b970:line:11",
+      "legacyDraftId": "master:15:line:11",
+      "sourceSpanish": "Julián: Queda en el andén, frente a la panadería de la esquina.",
+      "supportEnglish": "Julián: It's on the sidewalk, in front of the bakery on the corner.",
+      "targetFrenchDraft": "Julián : Il se trouve sur le trottoir, en face de la boulangerie du coin."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:line:12",
+      "legacyDraftId": "master:15:line:12",
+      "sourceSpanish": "Ya afuera, Daniel llama por celular a la recepción del hotel.",
+      "supportEnglish": "Once outside, Daniel calls the hotel reception on his cell phone.",
+      "targetFrenchDraft": "Une fois dehors, Daniel appelle la réception de l’hôtel sur son téléphone portable."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:line:13",
+      "legacyDraftId": "master:15:line:13",
+      "sourceSpanish": "La recepcionista, Carolina, revisa la lista de huéspedes para confirmar que nadie siga adentro.",
+      "supportEnglish": "The receptionist, Carolina, checks the guest list to confirm that nobody is still inside.",
+      "targetFrenchDraft": "La réceptionniste, Carolina, consulte la liste des clients de l’hôtel pour vérifier que personne ne se trouve encore à l’intérieur."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:line:14",
+      "legacyDraftId": "master:15:line:14",
+      "sourceSpanish": "Daniel: Aló, ¿recepción? Llamo de la habitación 504; ya estamos afuera.",
+      "supportEnglish": "Daniel: Hello, reception? I'm calling from room 504; we're outside now.",
+      "targetFrenchDraft": "Daniel : Allô, la réception ? Je vous appelle de la chambre 504 ; nous sommes dehors maintenant."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:line:15",
+      "legacyDraftId": "master:15:line:15",
+      "sourceSpanish": "Daniel: Estamos en el andén, con doña Fabiola y dos huéspedes más.",
+      "supportEnglish": "Daniel: We're on the sidewalk, with doña Fabiola and two more guests.",
+      "targetFrenchDraft": "Daniel : Nous sommes sur le trottoir, avec doña Fabiola et deux autres clients."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:line:16",
+      "legacyDraftId": "master:15:line:16",
+      "sourceSpanish": "Carolina: No es una falsa alarma, así que esperen en el punto de encuentro hasta que los bomberos revisen el comedor.",
+      "supportEnglish": "Carolina: It isn't a false alarm, so wait at the meeting point until the firefighters check the dining room.",
+      "targetFrenchDraft": "Carolina : Ce n’est pas une fausse alerte, alors attendez au point de rassemblement jusqu’à ce que les pompiers aient inspecté la salle à manger."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:line:17",
+      "legacyDraftId": "master:15:line:17",
+      "sourceSpanish": "Carolina: Si los bomberos lo autorizan, la evacuación terminará pronto y ustedes podrán volver a sus habitaciones.",
+      "supportEnglish": "Carolina: If the firefighters allow it, the evacuation will end soon and you will be able to go back to your rooms.",
+      "targetFrenchDraft": "Carolina : Si les pompiers l’autorisent, l’évacuation prendra bientôt fin et vous pourrez regagner vos chambres."
+    },
+    {
+      "id": "master:15:source-543c5d95b970:line:18",
+      "legacyDraftId": "master:15:line:18",
+      "sourceSpanish": "Daniel: Si suena otra vez, saldremos de inmediato.",
+      "supportEnglish": "Daniel: If it goes off again, we'll leave immediately.",
+      "targetFrenchDraft": "Daniel : Si elle retentit de nouveau, nous sortirons immédiatement."
+    }
+  ],
+  "speakingDraft": {
+    "roleEnglish": "You are Daniel, a guest at the Hotel Candelaria breakfast in Bogotá. Julián is an evacuation team member, doña Fabiola is an older guest, and Carolina is the receptionist.",
+    "openingFrench": "Julián : L’alarme incendie retentit. Sortez par ici, par la sortie de secours !",
+    "objectivesEnglish": [
+      "Follow Julián and relay the emergency-exit and no-elevator commands to other guests.",
+      "Ask doña Fabiola to leave her coffee and accompany her to the fire door without changing the source’s evacuation sequence.",
+      "Ask Julián where the meeting point is, then call reception from the sidewalk outside.",
+      "Report room 504, Fabiola and two other guests, and use si + present followed by future for a repeat alarm."
+    ],
+    "closureFrench": "Daniel : Si elle retentit de nouveau, nous sortirons immédiatement."
+  },
+  "formsDraft": [
+    {
+      "french": "Si elle retentit de nouveau, nous sortirons immédiatement.",
+      "english": "If it goes off again, we’ll leave immediately.",
+      "noteEnglish": "Si + present retentit introduces the condition; sortirons is future. The pronoun refers to the alarm."
+    },
+    {
+      "french": "Si nous sortons maintenant, je vous offrirai un autre café après.",
+      "english": "If we leave now, I’ll buy you another coffee afterward.",
+      "noteEnglish": "Sortons is present and offrirai is future; formal vous addresses doña Fabiola."
+    },
+    {
+      "french": "Sortez par ici, par la sortie de secours !",
+      "english": "Go out this way, through the emergency exit!",
+      "noteEnglish": "Sortez is a plural/formal imperative to guests."
+    },
+    {
+      "french": "N’utilisez pas l’ascenseur ; descendez par les escaliers !",
+      "english": "Don’t use the elevator; go down the stairs!",
+      "noteEnglish": "The negative and positive imperatives relay two distinct evacuation instructions."
+    },
+    {
+      "french": "Si les pompiers l’autorisent, vous pourrez regagner vos chambres.",
+      "english": "If the firefighters allow it, you will be able to return to your rooms.",
+      "noteEnglish": "The source conditions return on firefighter authorization; no return is promised before that."
+    }
+  ],
+  "modeActivitiesDraft": [
+    {
+      "mode": "See",
+      "cueEnglish": "Read Julián’s command directing guests through the emergency exit.",
+      "sourceRef": "master:15:source-543c5d95b970:word:16",
+      "legacyDraftSourceRef": "master:15:word:16",
+      "targetFrenchDraft": "Sortez par ici, par la sortie de secours !",
+      "supportEnglish": "Go out this way, through the emergency exit!",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Recall",
+      "cueEnglish": "Recall Daniel’s no-elevator and stairs command.",
+      "sourceRef": "master:15:source-543c5d95b970:word:17",
+      "legacyDraftSourceRef": "master:15:word:17",
+      "targetFrenchDraft": "N’utilisez pas l’ascenseur, descendez par les escaliers !",
+      "supportEnglish": "Don't use the elevator, go down the stairs!",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Hear",
+      "cueEnglish": "Listen for Daniel asking doña Fabiola to leave her coffee and go out now. Recording pending.",
+      "sourceRef": "master:15:source-543c5d95b970:word:18",
+      "legacyDraftSourceRef": "master:15:word:18",
+      "targetFrenchDraft": "Doña Fabiola, laissez votre café, s’il vous plaît, et sortons tout de suite.",
+      "supportEnglish": "Doña Fabiola, please leave the coffee and let's go out now.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Type",
+      "cueEnglish": "Type Daniel’s conditional offer of another coffee after leaving.",
+      "sourceRef": "master:15:source-543c5d95b970:word:19",
+      "legacyDraftSourceRef": "master:15:word:19",
+      "targetFrenchDraft": "Si nous sortons maintenant, je vous offrirai un autre café après.",
+      "supportEnglish": "If we leave now, I'll buy you another coffee afterward.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Say",
+      "cueEnglish": "Ask Julián where the meeting point is.",
+      "sourceRef": "master:15:source-543c5d95b970:word:20",
+      "legacyDraftSourceRef": "master:15:word:20",
+      "targetFrenchDraft": "Julián, où se trouve le point de rassemblement ?",
+      "supportEnglish": "Julián, where is the meeting point?",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Write",
+      "cueEnglish": "From outside, call reception and identify room 504.",
+      "sourceRef": "master:15:source-543c5d95b970:word:21",
+      "legacyDraftSourceRef": "master:15:word:21",
+      "targetFrenchDraft": "Allô, la réception ? Je vous appelle de la chambre 504 ; nous sommes dehors maintenant.",
+      "supportEnglish": "Hello, reception? I'm calling from room 504; we're outside now.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    }
+  ],
+  "dictionarySensesReviewed": false,
+  "reviewNotesEnglish": [
+    "Keep Bogotá, the Hotel Candelaria fifth-floor breakfast room, burnt toaster, smoke, Daniel in room 504, Julián, doña Fabiola, Carolina, the sidewalk and the bakery. Do not relocate the scene or invent fire, injuries, a return order or an emergency number.",
+    "The source says Julián unplugs the toaster and keeps the extinguisher ready under hotel protocol; it does not say he uses it. Qualified safety/domain review should confirm the French wording.",
+    "The Colombian source uses brigadista, andén, tinto and Aló. Review target-language equivalents without erasing the source’s locale; tinto refers to coffee here, not red wine.",
+    "The source says it is not a false alarm and that guests wait until firefighters inspect the room. Return is conditional on firefighter authorization.",
+    "The archived draft is evidence only; row IDs, saved items and exact-text audio cannot automatically migrate."
+  ],
+  "audioScope": {
+    "status": "read-only estimate; no synthesis, technical verification, listening decision, reuse or registration",
+    "voices": 2,
+    "selectedFrenchStrings": 41,
+    "potentialClipDecisions": 82,
+    "submittedCharacters": 2604,
+    "rateUsdPerMillionCharacters": 30,
+    "estimatedGrossUsd": 0.07812
+  },
+  "aiAssistance": {
+    "currentRun": "Safe-mode Haiku CLI returned Not logged in with empty modelUsage and zero tokens; no AI output was used.",
+    "actualModelUsage": {},
+    "qualifiedApproval": false
+  },
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "learnerRegistered": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "audioApproved": false,
+    "listeningReviewed": false,
+    "playbackEnabled": false,
+    "progressTracking": false,
+    "progressWritesEnabled": false,
+    "offlineRegistered": false,
+    "v4Registered": false,
+    "released": false
+  }
+}

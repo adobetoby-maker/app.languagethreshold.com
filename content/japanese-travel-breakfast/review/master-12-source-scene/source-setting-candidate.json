@@ -1,0 +1,761 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "master",
+  "lessonKey": "master:12",
+  "stableLessonId": "master-travel-breakfast:12:ja-en",
+  "candidateRevision": "master-travel-breakfast:12:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "curriculumVersion": 1,
+    "readerVersion": 1,
+    "curriculumReviewed": false,
+    "readerReviewed": false,
+    "titleEnglishInternal": "Usted or Tú: Coach a Friend at a Casa Particular",
+    "objectiveEnglishInternal": "Explain when to switch between usted and tú, then model it with the host, her grandson and an older guest.",
+    "speakingEnglishInternal": "You are coaching your friend Marcus, and the AI plays Marcus, host señora Odalys, her grandson Yandiel and guest don Rigoberto: explain when to use usted or tú, then model each with softeners like quisiera, ¿me podría…? and ¿te importa…?",
+    "grammarEnglishExamplesInternal": [
+      "Señora Odalys, could you pass me the coffee pot, please?",
+      "Yandiel, do you mind if I sit here?"
+    ],
+    "readerTitleSpanish": "Usted y tú en Trinidad",
+    "readerVerbExamples": [
+      {
+        "target": "A don Rigoberto le hablas de usted.",
+        "native": "You speak to don Rigoberto using usted."
+      },
+      {
+        "target": "Yandiel nos tutea desde el primer momento.",
+        "native": "Yandiel uses tú with us from the very first moment."
+      },
+      {
+        "target": "La señora Odalys sirve el café en el portal.",
+        "native": "Señora Odalys serves the coffee on the front porch."
+      },
+      {
+        "target": "Pídele el azúcar a don Rigoberto.",
+        "native": "Ask don Rigoberto for the sugar."
+      },
+      {
+        "target": "Yandiel me pasa la fruta bomba.",
+        "native": "Yandiel passes me the papaya."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/master-10-12-draft.json",
+    "sha256": "a8cc57c13ee9a3f37009e17b8495240a793ea9a308648f53705a067fe16d7f79",
+    "scene": "A traveler coaches a friend through breakfast requests to a guesthouse host, a new guest and a familiar travel companion.",
+    "cardCount": 14,
+    "readerCount": 10
+  },
+  "sourceCards": [
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "la casa particular",
+      "sourceEnglish": "the casa particular (private guesthouse)",
+      "kind": "term",
+      "sourceNoteInternal": "A licensed Cuban family home that rents rooms to travelers.",
+      "targetJapaneseDraft": "カサ・パルティクラール（個人経営の宿）",
+      "literalJapaneseGlossEn": "the casa particular (private guesthouse)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "la anfitriona",
+      "sourceEnglish": "the host (female)",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "女性の宿の主人",
+      "literalJapaneseGlossEn": "the host (female)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "el nieto",
+      "sourceEnglish": "the grandson",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "孫（男の子）",
+      "literalJapaneseGlossEn": "the grandson",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "el huésped",
+      "sourceEnglish": "the guest (male)",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "男性の宿泊客",
+      "literalJapaneseGlossEn": "the guest (male)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "el trato",
+      "sourceEnglish": "the way you address someone",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "相手への話し方",
+      "literalJapaneseGlossEn": "the way you address someone",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "el tuteo",
+      "sourceEnglish": "the use of tú",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "スペイン語で「tú」を使うこと",
+      "literalJapaneseGlossEn": "the use of tú",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "la confianza",
+      "sourceEnglish": "the familiarity, closeness",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "親しさ",
+      "literalJapaneseGlossEn": "the familiarity, closeness",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "el respeto",
+      "sourceEnglish": "the respect",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "敬意",
+      "literalJapaneseGlossEn": "the respect",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "don",
+      "sourceEnglish": "Mr. (title of respect)",
+      "kind": "term",
+      "sourceNoteInternal": "Used before a first name: don Rigoberto. Pair it with usted.",
+      "targetJapaneseDraft": "ドン（男性への敬称）",
+      "literalJapaneseGlossEn": "Mr. (title of respect)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "la fruta bomba",
+      "sourceEnglish": "the papaya",
+      "kind": "term",
+      "sourceNoteInternal": "Cuban word for papaya; in Cuba avoid saying papaya.",
+      "targetJapaneseDraft": "パパイヤ（キューバではフルタ・ボンバ）",
+      "literalJapaneseGlossEn": "the papaya",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "la guayaba",
+      "sourceEnglish": "the guava",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "グアバ",
+      "literalJapaneseGlossEn": "the guava",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "el batido",
+      "sourceEnglish": "the smoothie, milkshake",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "スムージー、ミルクセーキ",
+      "literalJapaneseGlossEn": "the smoothie, milkshake",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "la cafetera",
+      "sourceEnglish": "the coffee pot",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "コーヒーポット",
+      "literalJapaneseGlossEn": "the coffee pot",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "el portal",
+      "sourceEnglish": "the front porch",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "玄関のポーチ",
+      "literalJapaneseGlossEn": "the front porch",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "quisiera",
+      "sourceEnglish": "I would like",
+      "kind": "term",
+      "sourceNoteInternal": "Softer and more polite than quiero.",
+      "targetJapaneseDraft": "〜をいただきたいのですが",
+      "literalJapaneseGlossEn": "I would like",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "Marcus, a la señora Odalys háblale de usted.",
+      "sourceEnglish": "Marcus, speak to señora Odalys using usted.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal: tú with your friend.",
+      "targetJapaneseDraft": "マーカス、オダリスさんには「usted」で丁寧に話してね。",
+      "literalJapaneseGlossEn": "Marcus, speak to señora Odalys using usted.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Señora Odalys, ¿me podría servir un poco más de café?",
+      "sourceEnglish": "Señora Odalys, could you serve me a little more coffee?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal: usted with the host.",
+      "targetJapaneseDraft": "オダリスさん、コーヒーをもう少しいただけますか。",
+      "literalJapaneseGlossEn": "Señora Odalys, could you serve me a little more coffee?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "Yandiel, ¿te importa pasarme la fruta bomba?",
+      "sourceEnglish": "Yandiel, do you mind passing me the papaya?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal: tú with a young person.",
+      "targetJapaneseDraft": "ヤンディエル、パパイヤを取ってくれる？",
+      "literalJapaneseGlossEn": "Yandiel, do you mind passing me the papaya?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:19",
+      "candidatePosition": 19,
+      "sourceSpanish": "Don Rigoberto, ¿usted es de aquí, de Trinidad?",
+      "sourceEnglish": "Don Rigoberto, are you from here, from Trinidad?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal: usted with an older guest.",
+      "targetJapaneseDraft": "ドン・リゴベルト、こちらトリニダードのご出身ですか。",
+      "literalJapaneseGlossEn": "Don Rigoberto, are you from here, from Trinidad?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:20",
+      "candidatePosition": 20,
+      "sourceSpanish": "Quisiera otro batido de guayaba, si no es molestia.",
+      "sourceEnglish": "I'd like another guava smoothie, if it's no trouble.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal and soft; good with the host.",
+      "targetJapaneseDraft": "ご迷惑でなければ、グアバのスムージーをもう一杯いただきたいのですが。",
+      "literalJapaneseGlossEn": "I'd like another guava smoothie, if it's no trouble.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:21",
+      "candidatePosition": 21,
+      "sourceSpanish": "Con Yandiel puedes tutearlo, porque nos tuteó primero.",
+      "sourceEnglish": "You can use tú with Yandiel, because he used tú with us first.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ヤンディエルは先に私たちに「tú」で話しかけたから、あなたも親しく話していいよ。",
+      "literalJapaneseGlossEn": "You can use tú with Yandiel, because he used tú with us first.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:22",
+      "candidatePosition": 22,
+      "sourceSpanish": "Si ella te dice que la tutees, entonces cambias.",
+      "sourceEnglish": "If she tells you to use tú with her, then you switch.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "オダリスさんが「tú」で話していいと言ったら、そのときに話し方を変えるんだよ。",
+      "literalJapaneseGlossEn": "If she tells you to use tú with her, then you switch.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:card:23",
+      "candidatePosition": 23,
+      "sourceSpanish": "Ahora prueba tú: pídele el azúcar a don Rigoberto.",
+      "sourceEnglish": "Now you try: ask don Rigoberto for the sugar.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "さあ、あなたもやってみて。ドン・リゴベルトに砂糖を取ってもらうよう頼んでみて。",
+      "literalJapaneseGlossEn": "Now you try: ask don Rigoberto for the sugar.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Lucía y su amigo Marcus desayunan en el portal de una casa particular en Trinidad, Cuba.",
+      "sourceEnglish": "Lucía and her friend Marcus are having breakfast on the front porch of a casa particular in Trinidad, Cuba.",
+      "targetJapaneseDraft": "ルシアと友人マーカスは、キューバのトリニダードにあるカサ・パルティクラールの玄関ポーチで朝食をとっている。",
+      "literalJapaneseGlossEn": "Lucía and her friend Marcus are having breakfast on the front porch of a casa particular in Trinidad, Cuba.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "La anfitriona, la señora Odalys, pone en la mesa una cafetera de café recién colado.",
+      "sourceEnglish": "The host, señora Odalys, puts a coffee pot of freshly brewed coffee on the table.",
+      "targetJapaneseDraft": "宿の女性主人、オダリスさんは、いれたてのコーヒーが入ったポットをテーブルに置く。",
+      "literalJapaneseGlossEn": "The host, señora Odalys, puts a coffee pot of freshly brewed coffee on the table.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Marcus no sabe qué trato usar con cada persona de la mesa, así que Lucía le explica la diferencia.",
+      "sourceEnglish": "Marcus doesn't know which way of addressing people to use with each person at the table, so Lucía explains the difference to him.",
+      "targetJapaneseDraft": "マーカスはテーブルのそれぞれの人にどんな話し方をすればいいかわからず、ルシアが違いを説明する。",
+      "literalJapaneseGlossEn": "Marcus doesn't know which way of addressing people to use with each person at the table, so Lucía explains the difference to him.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Lucía",
+      "sourceSpanish": "Lucía: Marcus, a la señora Odalys háblale de usted.",
+      "sourceEnglish": "Lucía: Marcus, speak to señora Odalys using usted.",
+      "targetJapaneseDraft": "ルシア：「マーカス、オダリスさんには『usted』で丁寧に話してね。」",
+      "literalJapaneseGlossEn": "Lucía: Marcus, speak to señora Odalys using usted.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Lucía",
+      "sourceSpanish": "Lucía: Con la dueña de la casa o con una persona mayor, el usted muestra respeto.",
+      "sourceEnglish": "Lucía: With the owner of the house or with an older person, usted shows respect.",
+      "targetJapaneseDraft": "ルシア：「家の主人や年上の人には、『usted』で話すと敬意が伝わるの。」",
+      "literalJapaneseGlossEn": "Lucía: With the owner of the house or with an older person, usted shows respect.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Lucía",
+      "sourceSpanish": "Lucía: Si ella te dice que la tutees, entonces cambias.",
+      "sourceEnglish": "Lucía: If she tells you to use tú with her, then you switch.",
+      "targetJapaneseDraft": "ルシア：「彼女が『tú』で話していいと言ったら、そのときに変えればいいわ。」",
+      "literalJapaneseGlossEn": "Lucía: If she tells you to use tú with her, then you switch.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Luego Lucía da el ejemplo con una pregunta suave: Señora Odalys, ¿me podría servir un poco más de café?",
+      "sourceEnglish": "Then Lucía gives an example with a gentle question: Señora Odalys, could you serve me a little more coffee?",
+      "targetJapaneseDraft": "それからルシアは、やわらかい尋ね方の例を示す。「オダリスさん、コーヒーをもう少しいただけますか。」",
+      "literalJapaneseGlossEn": "Then Lucía gives an example with a gentle question: Señora Odalys, could you serve me a little more coffee?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Yandiel, el nieto de la anfitriona, llega al portal y le pregunta a Marcus: Oye, ¿tú eres americano?",
+      "sourceEnglish": "Yandiel, the host's grandson, comes out to the porch and asks Marcus: Hey, are you American?",
+      "targetJapaneseDraft": "宿の主人の孫ヤンディエルがポーチに来て、マーカスに「ねえ、君はアメリカ人？」と聞く。",
+      "literalJapaneseGlossEn": "Yandiel, the host's grandson, comes out to the porch and asks Marcus: Hey, are you American?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Lucía",
+      "sourceSpanish": "Lucía: Con Yandiel puedes tutearlo, porque nos tuteó primero.",
+      "sourceEnglish": "Lucía: You can use tú with Yandiel, because he used tú with us first.",
+      "targetJapaneseDraft": "ルシア：「ヤンディエルは先に私たちに『tú』で話しかけたから、あなたも親しく話していいよ。」",
+      "literalJapaneseGlossEn": "Lucía: You can use tú with Yandiel, because he used tú with us first.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:reader:10",
+      "candidatePosition": 10,
+      "speaker": "Lucía",
+      "sourceSpanish": "Lucía: Entre jóvenes, el tuteo muestra confianza y no es una falta de respeto.",
+      "sourceEnglish": "Lucía: Among young people, using tú shows closeness and is not a lack of respect.",
+      "targetJapaneseDraft": "ルシア：「若い人どうしでは、『tú』を使うと親しさが伝わるし、失礼ではないの。」",
+      "literalJapaneseGlossEn": "Lucía: Among young people, using tú shows closeness and is not a lack of respect.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:reader:11",
+      "candidatePosition": 11,
+      "speaker": "Narrator",
+      "sourceSpanish": "Lucía pone el ejemplo: Yandiel, ¿te importa pasarme la fruta bomba?",
+      "sourceEnglish": "Lucía gives the example: Yandiel, do you mind passing me the papaya?",
+      "targetJapaneseDraft": "ルシアは例を示す。「ヤンディエル、パパイヤを取ってくれる？」",
+      "literalJapaneseGlossEn": "Lucía gives the example: Yandiel, do you mind passing me the papaya?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:reader:12",
+      "candidatePosition": 12,
+      "speaker": "Narrator",
+      "sourceSpanish": "Don Rigoberto, un huésped de unos 70 años, sale de su cuarto y se sienta junto a Marcus.",
+      "sourceEnglish": "Don Rigoberto, a guest of about 70, comes out of his room and sits down next to Marcus.",
+      "targetJapaneseDraft": "70歳くらいの宿泊客、ドン・リゴベルトが部屋から出て、マーカスの隣に座る。",
+      "literalJapaneseGlossEn": "Don Rigoberto, a guest of about 70, comes out of his room and sits down next to Marcus.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:reader:13",
+      "candidatePosition": 13,
+      "speaker": "Lucía",
+      "sourceSpanish": "Lucía: A un señor mayor que llamas don, también le hablas de usted.",
+      "sourceEnglish": "Lucía: An older man you call don, you also address with usted.",
+      "targetJapaneseDraft": "ルシア：「『ドン』と呼ぶ年上の男性にも、『usted』で丁寧に話すのよ。」",
+      "literalJapaneseGlossEn": "Lucía: An older man you call don, you also address with usted.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:reader:14",
+      "candidatePosition": 14,
+      "speaker": "Narrator",
+      "sourceSpanish": "Marcus pregunta con cuidado: Don Rigoberto, ¿usted es de aquí, de Trinidad?",
+      "sourceEnglish": "Marcus asks carefully: Don Rigoberto, are you from here, from Trinidad?",
+      "targetJapaneseDraft": "マーカスは慎重に尋ねる。「ドン・リゴベルト、こちらトリニダードのご出身ですか。」",
+      "literalJapaneseGlossEn": "Marcus asks carefully: Don Rigoberto, are you from here, from Trinidad?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:reader:15",
+      "candidatePosition": 15,
+      "speaker": "Narrator",
+      "sourceSpanish": "Don Rigoberto sonríe y contesta: No, soy de Cienfuegos, pero vengo cada año a esta casa.",
+      "sourceEnglish": "Don Rigoberto smiles and answers: No, I'm from Cienfuegos, but I come to this house every year.",
+      "targetJapaneseDraft": "ドン・リゴベルトは微笑んで答える。「いいえ、シエンフエゴス出身ですが、毎年この宿に来ています。」",
+      "literalJapaneseGlossEn": "Don Rigoberto smiles and answers: No, I'm from Cienfuegos, but I come to this house every year.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:reader:16",
+      "candidatePosition": 16,
+      "speaker": "Lucía",
+      "sourceSpanish": "Lucía: Ahora prueba tú: pídele el azúcar a don Rigoberto.",
+      "sourceEnglish": "Lucía: Now you try: ask don Rigoberto for the sugar.",
+      "targetJapaneseDraft": "ルシア：「さあ、今度はあなたがやってみて。ドン・リゴベルトに砂糖を取ってもらうよう頼んでみて。」",
+      "literalJapaneseGlossEn": "Lucía: Now you try: ask don Rigoberto for the sugar.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:reader:17",
+      "candidatePosition": 17,
+      "speaker": "Marcus",
+      "sourceSpanish": "Marcus: Don Rigoberto, ¿me podría pasar el azúcar, por favor?",
+      "sourceEnglish": "Marcus: Don Rigoberto, could you pass me the sugar, please?",
+      "targetJapaneseDraft": "マーカス：「ドン・リゴベルト、砂糖を取っていただけますか。」",
+      "literalJapaneseGlossEn": "Marcus: Don Rigoberto, could you pass me the sugar, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:12:ja-en:source-scene-v1:reader:18",
+      "candidatePosition": 18,
+      "speaker": "Narrator",
+      "sourceSpanish": "Al final, Marcus le dice a la anfitriona con una sonrisa: Quisiera otro batido de guayaba, si no es molestia.",
+      "sourceEnglish": "At the end, Marcus says to the host with a smile: I'd like another guava smoothie, if it's no trouble.",
+      "targetJapaneseDraft": "最後にマーカスは笑顔で宿の主人に言う。「ご迷惑でなければ、グアバのスムージーをもう一杯いただきたいのですが。」",
+      "literalJapaneseGlossEn": "At the end, Marcus says to the host with a smile: I'd like another guava smoothie, if it's no trouble.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Explain the source scene’s usted/tú register distinction while practicing Japanese polite and familiar requests to a host, her grandson and an older guest at a casa particular in Trinidad.",
+  "speakingGoalInternal": "You are coaching your friend Marcus, and the AI plays Marcus, host señora Odalys, her grandson Yandiel and guest don Rigoberto: explain when to use usted or tú, then model each with softeners like quisiera, ¿me podría…? and ¿te importa…?",
+  "speakingGoalJapaneseDraft": "あなたは友人マーカスに助言するルシアです。AIはマーカス、宿の主人オダリスさん、孫のヤンディエル、年配の宿泊客ドン・リゴベルトを演じます。スペイン語の「usted」と「tú」の使い分けを場面の手がかりとして説明し、日本語では丁寧な頼み方と親しい相手へのくだけた頼み方を実演してください。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "Current source follows Lucía and Marcus at señora Odalys’s Trinidad, Cuba casa particular. It explicitly teaches Spanish usted/tú with Odalys, grandson Yandiel and older guest don Rigoberto. The archived generic host/friend scene omits named actors, food, register contrasts and source ordering; it remains separate evidence. Japanese polite/casual adaptation is unresolved qualified-review work.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "guesthouse host",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "guest",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "travel companion",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "polite way of speaking",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "casual way of speaking",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "relationship",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "form of address",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "coffee pot",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "sugar",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "could you please ...?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "could you ...? (casual)",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "excuse me",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "preference",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "to check",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "When meeting the guesthouse host for the first time, let's begin politely.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "How should I ask?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "You can say, 'Could I please have a little more coffee?'",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Excuse me. Could I please have a little more coffee?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Of course. Please call me by my name.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Let's follow the person's preference for how to address them. We can adjust formality to the situation too.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "How should I speak to a guest I have just met?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "You could begin by politely asking, 'Could you pass the sugar?'",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Can I speak more casually with my usual travel companion?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "If you already speak that way with each other, 'Could you pass the sugar?' in casual form is natural too.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 8,
+      "candidatePosition": 13,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 41,
+    "twoVoiceClipDecisionsIfTextApproved": 82,
+    "twoVoiceSubmittedCharactersIfTextApproved": 2272,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.06816,
+    "archivedExactJapaneseCardTextOverlapsOnly": 1,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Qualified Japanese/Cuban locale review must decide whether a Japanese learner lesson should retain source Spanish usted/tú labels, explain them as scene facts, or adapt the teaching objective to Japanese polite/casual register.",
+    "The source English card 'the use of tú' is a Spanish pronoun concept, not an approved literal gloss for a Japanese target phrase; keep the source anchor distinct from the Japanese face.",
+    "Confirm the cultural scope of politeness guidance: the source claims usted shows respect for an older host and don Rigoberto, and tú among young people shows closeness. Do not generalize it as a universal Cuban or Japanese rule.",
+    "Confirm casa particular, fruta bomba, batido, portal, don and guava food/guesthouse terminology in Japanese contextual dictionary senses.",
+    "Confirm that señora Odalys is the host and don Rigoberto a guest about 70, while Yandiel is her grandson; the draft preserves the source roles.",
+    "Confirm the coffee pot is freshly brewed and the guava smoothie request is a separate final order, not a request for coffee.",
+    "Qualified reviewer must decide whether Japanese polite request いただけますか and casual 取ってくれる capture the intended source register without implying direct morphological equivalence to Spanish pronouns.",
+    "Archived generic host/friend scene has 14 cards and 10 Reader turns without stable row IDs; no position, saved-item or audio migration is authorized."
+  ],
+  "missing": [
+    "qualified Japanese/source/Cuban guesthouse/food/locale/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

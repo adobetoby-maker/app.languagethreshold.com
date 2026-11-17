@@ -1,0 +1,754 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "master",
+  "lessonKey": "master:11",
+  "stableLessonId": "master-travel-breakfast:11:ja-en",
+  "candidateRevision": "master-travel-breakfast:11:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "readerSourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Keep a Tired Group Going at a Dawn Lodge Breakfast",
+    "objectiveEnglishInternal": "Encourage a sleepy, cranky group, commit to a clear plan, and keep spirits up while the bread finishes.",
+    "speakingEnglishInternal": "You are the group's organizer, and the AI plays cook Mirta and your sleepy companions Noor, Felipe and Greta: encourage them, commit to tasks with the future (me encargaré, saldremos), and keep spirits up with ¡vamos! and dale while the bread finishes.",
+    "readerTitleSpanish": "Desayuno al amanecer en El Chaltén",
+    "readerVerbExamples": [
+      {
+        "target": "Yo me encargo del termo y de la yerba.",
+        "native": "I take care of the thermos and the yerba."
+      },
+      {
+        "target": "Salimos a las 6 con las viandas.",
+        "native": "We leave at 6 with the packed lunches."
+      },
+      {
+        "target": "Llegamos al sendero antes del amanecer.",
+        "native": "We get to the trail before sunrise."
+      },
+      {
+        "target": "Greta, te cebo un mate mientras esperamos el pan.",
+        "native": "Greta, I'll pour you a mate while we wait for the bread."
+      },
+      {
+        "target": "Esperamos el pan con calma.",
+        "native": "We wait for the bread calmly."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/master-10-12-draft.json",
+    "sha256": "a8cc57c13ee9a3f37009e17b8495240a793ea9a308648f53705a067fe16d7f79",
+    "scene": "At a hiking lodge, bread is still baking and the group shares tasks while the cook confirms when breakfast will be ready.",
+    "cardCount": 14,
+    "readerCount": 10
+  },
+  "sourceCards": [
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "el termo",
+      "sourceEnglish": "the thermos",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "魔法瓶",
+      "literalJapaneseGlossEn": "the thermos",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "la pava",
+      "sourceEnglish": "the kettle",
+      "kind": "term",
+      "sourceNoteInternal": "Argentine word for kettle.",
+      "targetJapaneseDraft": "やかん",
+      "literalJapaneseGlossEn": "the kettle",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "la yerba",
+      "sourceEnglish": "the yerba mate (dried leaves)",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "マテ茶の茶葉",
+      "literalJapaneseGlossEn": "the yerba mate (dried leaves)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "el dulce de leche",
+      "sourceEnglish": "the dulce de leche",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ドゥルセ・デ・レチェ（ミルクの甘いペースト）",
+      "literalJapaneseGlossEn": "the dulce de leche",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "las facturas",
+      "sourceEnglish": "the pastries",
+      "kind": "term",
+      "sourceNoteInternal": "In Argentina, facturas are sweet breakfast pastries, not invoices.",
+      "targetJapaneseDraft": "ファクトゥーラス（アルゼンチンの菓子パン）",
+      "literalJapaneseGlossEn": "the pastries",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "el pan casero",
+      "sourceEnglish": "the homemade bread",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "自家製パン",
+      "literalJapaneseGlossEn": "the homemade bread",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "la vianda",
+      "sourceEnglish": "the packed lunch",
+      "kind": "term",
+      "sourceNoteInternal": "Common Argentine word for food you take with you.",
+      "targetJapaneseDraft": "持参する昼食",
+      "literalJapaneseGlossEn": "the packed lunch",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "la linterna frontal",
+      "sourceEnglish": "the headlamp",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ヘッドランプ",
+      "literalJapaneseGlossEn": "the headlamp",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "la campera",
+      "sourceEnglish": "the jacket",
+      "kind": "term",
+      "sourceNoteInternal": "Argentine word; elsewhere chaqueta or chamarra.",
+      "targetJapaneseDraft": "ジャケット",
+      "literalJapaneseGlossEn": "the jacket",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "el sendero",
+      "sourceEnglish": "the trail",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ハイキング道",
+      "literalJapaneseGlossEn": "the trail",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "el inicio del sendero",
+      "sourceEnglish": "the trailhead",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "登山口",
+      "literalJapaneseGlossEn": "the trailhead",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "el amanecer",
+      "sourceEnglish": "the sunrise",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "日の出",
+      "literalJapaneseGlossEn": "the sunrise",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "el ánimo",
+      "sourceEnglish": "the spirits (mood)",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "気分",
+      "literalJapaneseGlossEn": "the spirits (mood)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "el plan del día",
+      "sourceEnglish": "the plan for the day",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "今日の予定",
+      "literalJapaneseGlossEn": "the plan for the day",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "con calma",
+      "sourceEnglish": "calmly, without rushing",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "落ち着いて、急がずに",
+      "literalJapaneseGlossEn": "calmly, without rushing",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "Yo me encargaré del termo y de la yerba.",
+      "sourceEnglish": "I'll take care of the thermos and the yerba.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Future encargaré makes it a firm commitment.",
+      "targetJapaneseDraft": "私が魔法瓶とマテ茶の茶葉を担当します。",
+      "literalJapaneseGlossEn": "I'll take care of the thermos and the yerba.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "¡Vamos, que saldremos a tiempo igual!",
+      "sourceEnglish": "Come on, we'll still leave on time!",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "さあ、それでも時間どおりに出発できるよ！",
+      "literalJapaneseGlossEn": "Come on, we'll still leave on time!",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "Felipe, tranquilo, el pan estará listo en un ratito.",
+      "sourceEnglish": "Felipe, relax, the bread will be ready in a little while.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "フェリペ、落ち着いて。パンはもう少しで焼き上がるよ。",
+      "literalJapaneseGlossEn": "Felipe, relax, the bread will be ready in a little while.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:19",
+      "candidatePosition": 19,
+      "sourceSpanish": "Mirta, ¿cuánto le falta al pan, más o menos?",
+      "sourceEnglish": "Mirta, roughly how much longer does the bread need?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ミルタ、パンはだいたいあとどのくらいで焼けますか。",
+      "literalJapaneseGlossEn": "Mirta, roughly how much longer does the bread need?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:20",
+      "candidatePosition": 20,
+      "sourceSpanish": "Noor, ¿vos podés armar las viandas mientras esperamos?",
+      "sourceEnglish": "Noor, can you put the packed lunches together while we wait?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal Argentine voseo: vos podés instead of tú puedes.",
+      "targetJapaneseDraft": "ヌール、待っている間に持参する昼食を詰めてもらえる？",
+      "literalJapaneseGlossEn": "Noor, can you put the packed lunches together while we wait?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:21",
+      "candidatePosition": 21,
+      "sourceSpanish": "Greta, yo te cebaré un mate mientras se hace el pan.",
+      "sourceEnglish": "Greta, I'll make you a mate while the bread bakes.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Cebar is the verb for preparing and serving mate.",
+      "targetJapaneseDraft": "グレタ、パンが焼けるのを待つ間にマテ茶を淹れてあげるよ。",
+      "literalJapaneseGlossEn": "Greta, I'll make you a mate while the bread bakes.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:22",
+      "candidatePosition": 22,
+      "sourceSpanish": "Llegaremos al sendero antes del amanecer, ya van a ver.",
+      "sourceEnglish": "We'll get to the trail before sunrise, you'll see.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "日の出前にハイキング道に着くよ。きっとそうなる。",
+      "literalJapaneseGlossEn": "We'll get to the trail before sunrise, you'll see.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:card:23",
+      "candidatePosition": 23,
+      "sourceSpanish": "Dale, che, que el día va a estar hermoso.",
+      "sourceEnglish": "Come on, guys, the day is going to be beautiful.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal; dale and che are everyday Argentine encouragement.",
+      "targetJapaneseDraft": "さあ、みんな、今日はきっとすばらしい一日になるよ。",
+      "literalJapaneseGlossEn": "Come on, guys, the day is going to be beautiful.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "A las 5 de la mañana, Sam y sus compañeros Noor, Felipe y Greta desayunan en un albergue de El Chaltén antes de salir a caminar.",
+      "sourceEnglish": "At 5 in the morning, Sam and his companions Noor, Felipe and Greta are having breakfast at a lodge in El Chaltén before heading out to hike.",
+      "targetJapaneseDraft": "朝5時、サムと仲間のヌール、フェリペ、グレタは、ハイキングに出る前にエル・チャルテンの山小屋で朝食をとっています。",
+      "literalJapaneseGlossEn": "At 5 in the morning, Sam and his companions Noor, Felipe and Greta are having breakfast at a lodge in El Chaltén before heading out to hike.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Mirta, la cocinera, saca la pava del fuego y avisa que el pan casero necesita más tiempo en el horno.",
+      "sourceEnglish": "Mirta, the cook, takes the kettle off the stove and lets them know that the homemade bread needs more time in the oven.",
+      "targetJapaneseDraft": "料理人のミルタはコンロからやかんを下ろし、自家製パンはオーブンで焼くのにもう少し時間がかかると伝えます。",
+      "literalJapaneseGlossEn": "Mirta, the cook, takes the kettle off the stove and lets them know that the homemade bread needs more time in the oven.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Sam: Mirta, ¿cuánto le falta al pan, más o menos?",
+      "sourceEnglish": "Sam: Mirta, roughly how much longer does the bread need?",
+      "targetJapaneseDraft": "サム：「ミルタ、パンはだいたいあとどのくらいで焼けますか」。",
+      "literalJapaneseGlossEn": "Sam: Mirta, roughly how much longer does the bread need?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Mirta: Unos 20 minutos, pero mientras tanto pueden comer las facturas con dulce de leche.",
+      "sourceEnglish": "Mirta: About 20 minutes, but in the meantime you can eat the pastries with dulce de leche.",
+      "targetJapaneseDraft": "ミルタ：「20分ほどです。その間、ドゥルセ・デ・レチェを添えたファクトゥーラスを食べられますよ」。",
+      "literalJapaneseGlossEn": "Mirta: About 20 minutes, but in the meantime you can eat the pastries with dulce de leche.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Felipe está de mal humor porque quería salir ya y dice que van a perder el amanecer.",
+      "sourceEnglish": "Felipe is in a bad mood because he wanted to leave right away, and he says they are going to miss the sunrise.",
+      "targetJapaneseDraft": "フェリペはすぐ出発したかったので不機嫌になり、日の出を見逃すと言います。",
+      "literalJapaneseGlossEn": "Felipe is in a bad mood because he wanted to leave right away, and he says they are going to miss the sunrise.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Sam: Felipe, tranquilo, el pan estará listo en un ratito.",
+      "sourceEnglish": "Sam: Felipe, relax, the bread will be ready in a little while.",
+      "targetJapaneseDraft": "サム：「フェリペ、落ち着いて。パンはもう少しで焼き上がるよ」。",
+      "literalJapaneseGlossEn": "Sam: Felipe, relax, the bread will be ready in a little while.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Sam: Llegaremos al sendero antes del amanecer, ya van a ver.",
+      "sourceEnglish": "Sam: We'll get to the trail before sunrise, you'll see.",
+      "targetJapaneseDraft": "サム：「日の出前にハイキング道に着くよ。きっとそうなる」。",
+      "literalJapaneseGlossEn": "Sam: We'll get to the trail before sunrise, you'll see.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Sam explica el plan del día con calma: saldrán a las 6, caminarán 2 horas hasta la laguna y volverán al albergue a la tarde.",
+      "sourceEnglish": "Sam calmly explains the plan for the day: they will leave at 6, hike 2 hours to the lagoon and come back to the lodge in the afternoon.",
+      "targetJapaneseDraft": "サムは今日の予定を落ち着いて説明します。6時に出発し、ラグーンまで2時間歩き、午後に山小屋へ戻ります。",
+      "literalJapaneseGlossEn": "Sam calmly explains the plan for the day: they will leave at 6, hike 2 hours to the lagoon and come back to the lodge in the afternoon.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "Sam: Yo me encargaré del termo y de la yerba.",
+      "sourceEnglish": "Sam: I'll take care of the thermos and the yerba.",
+      "targetJapaneseDraft": "サム：「私が魔法瓶とマテ茶の茶葉を担当します」。",
+      "literalJapaneseGlossEn": "Sam: I'll take care of the thermos and the yerba.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:reader:10",
+      "candidatePosition": 10,
+      "speaker": "Narrator",
+      "sourceSpanish": "Sam: Noor, ¿vos podés armar las viandas mientras esperamos?",
+      "sourceEnglish": "Sam: Noor, can you put the packed lunches together while we wait?",
+      "targetJapaneseDraft": "サム：「ヌール、待っている間に持参する昼食を詰めてもらえる？」。",
+      "literalJapaneseGlossEn": "Sam: Noor, can you put the packed lunches together while we wait?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:reader:11",
+      "candidatePosition": 11,
+      "speaker": "Narrator",
+      "sourceSpanish": "Noor bosteza, pero prepara cada vianda con queso y fruta, y deja lugar para el pan.",
+      "sourceEnglish": "Noor yawns, but she fills each packed lunch with cheese and fruit and leaves room for the bread.",
+      "targetJapaneseDraft": "ヌールはあくびをしながら、それぞれの昼食にチーズと果物を詰め、パンを入れる場所を残します。",
+      "literalJapaneseGlossEn": "Noor yawns, but she fills each packed lunch with cheese and fruit and leaves room for the bread.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:reader:12",
+      "candidatePosition": 12,
+      "speaker": "Narrator",
+      "sourceSpanish": "Greta tiene frío y no encuentra ni su campera ni su linterna frontal.",
+      "sourceEnglish": "Greta is cold and can't find her jacket or her headlamp.",
+      "targetJapaneseDraft": "グレタは寒がっていて、ジャケットもヘッドランプも見つけられません。",
+      "literalJapaneseGlossEn": "Greta is cold and can't find her jacket or her headlamp.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:reader:13",
+      "candidatePosition": 13,
+      "speaker": "Narrator",
+      "sourceSpanish": "Felipe, ya más tranquilo, le dice: Greta, las dos cosas están en tu mochila.",
+      "sourceEnglish": "Felipe, calmer now, tells her: Greta, both things are in your backpack.",
+      "targetJapaneseDraft": "落ち着いたフェリペは、「グレタ、二つとも君のリュックに入っているよ」と伝えます。",
+      "literalJapaneseGlossEn": "Felipe, calmer now, tells her: Greta, both things are in your backpack.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:reader:14",
+      "candidatePosition": 14,
+      "speaker": "Narrator",
+      "sourceSpanish": "Sam: Greta, yo te cebaré un mate mientras se hace el pan.",
+      "sourceEnglish": "Sam: Greta, I'll make you a mate while the bread bakes.",
+      "targetJapaneseDraft": "サム：「グレタ、パンが焼けるのを待つ間にマテ茶を淹れてあげるよ」。",
+      "literalJapaneseGlossEn": "Sam: Greta, I'll make you a mate while the bread bakes.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:reader:15",
+      "candidatePosition": 15,
+      "speaker": "Narrator",
+      "sourceSpanish": "Con el mate caliente y las facturas, el ánimo del grupo mejora mucho.",
+      "sourceEnglish": "With the hot mate and the pastries, the group's spirits improve a lot.",
+      "targetJapaneseDraft": "温かいマテ茶とファクトゥーラスで、みんなの気分はずいぶん明るくなります。",
+      "literalJapaneseGlossEn": "With the hot mate and the pastries, the group's spirits improve a lot.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:reader:16",
+      "candidatePosition": 16,
+      "speaker": "Narrator",
+      "sourceSpanish": "Mirta saca el pan casero del horno y le dice al grupo: Ya está, chicos, el inicio del sendero queda a 10 minutos caminando.",
+      "sourceEnglish": "Mirta takes the homemade bread out of the oven and tells the group: It's ready, guys, the trailhead is a 10-minute walk away.",
+      "targetJapaneseDraft": "ミルタは自家製パンをオーブンから出し、みんなに伝えます。「できたわよ。登山口までは歩いて10分です」。",
+      "literalJapaneseGlossEn": "Mirta takes the homemade bread out of the oven and tells the group: It's ready, guys, the trailhead is a 10-minute walk away.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:reader:17",
+      "candidatePosition": 17,
+      "speaker": "Narrator",
+      "sourceSpanish": "Sam: ¡Vamos, que saldremos a tiempo igual!",
+      "sourceEnglish": "Sam: Come on, we'll still leave on time!",
+      "targetJapaneseDraft": "サム：「さあ、それでも時間どおりに出発できるよ！」。",
+      "literalJapaneseGlossEn": "Sam: Come on, we'll still leave on time!",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:11:ja-en:source-scene-v1:reader:18",
+      "candidatePosition": 18,
+      "speaker": "Narrator",
+      "sourceSpanish": "Sam: Dale, che, que el día va a estar hermoso.",
+      "sourceEnglish": "Sam: Come on, guys, the day is going to be beautiful.",
+      "targetJapaneseDraft": "サム：「さあ、みんな、今日はきっとすばらしい一日になるよ」。",
+      "literalJapaneseGlossEn": "Sam: Come on, guys, the day is going to be beautiful.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "At a dawn lodge breakfast in El Chaltén, encourage the sleepy group, assign the thermos, yerba and packed lunches, ask cook Mirta about the bread, and state the departure and trail plan.",
+  "speakingGoalInternal": "You are the group's organizer, and the AI plays cook Mirta and your sleepy companions Noor, Felipe and Greta: encourage them, commit to tasks with the future (me encargaré, saldremos), and keep spirits up with ¡vamos! and dale while the bread finishes.",
+  "speakingGoalJapaneseDraft": "エル・チャルテンの山小屋で、眠いヌール、フェリペ、グレタを励まし、料理人ミルタにパンの残り時間を尋ね、魔法瓶とマテ茶の茶葉を担当すると伝え、昼食を詰める役割を頼み、6時出発と日の出前の到着を確認する。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "The current 18-turn source is a 5 a.m. lodge breakfast in El Chaltén with Sam, Noor, Felipe, Greta and cook Mirta. It names the kettle, Argentine pastries with dulce de leche, mate, bread needing 20 more minutes, a 6 a.m. departure, a two-hour walk to the lagoon, packed lunches and a ten-minute walk to the trailhead. The archived 10-turn draft substitutes Misaki and generic weather/physical-condition checks; it is retained as evidence, not an answer or migration source. The source's timing relative to sunrise is unresolved and preserved, not independently verified.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "thermos",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "breakfast",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "packed lunch",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "jacket",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "headlamp",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "trailhead",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "planned departure",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "weather forecast",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "physical condition",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "to take charge of",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "how many more minutes",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "by ...",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "without pushing too hard",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "let's get ready",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "The bread is still baking. It is expected to take about fifteen more minutes.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Thank you. Please tell us when you know the exact time.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "I am sleepy, and I have not finished getting ready to leave.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Let's get ready one thing at a time without pushing too hard. I will take care of the thermos.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Misaki, could you check the packed lunches?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Yes. I will check the count and contents.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Let's check our jackets and headlamps before leaving too.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "I will also check the weather forecast and route to the trailhead.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "The bread is ready. It is hot, so please take care when receiving it.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "Let's decide when to leave after checking everyone's condition and readiness.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 6,
+      "candidatePosition": 11,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 41,
+    "twoVoiceClipDecisionsIfTextApproved": 82,
+    "twoVoiceSubmittedCharactersIfTextApproved": 1968,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.05904,
+    "archivedExactJapaneseCardTextOverlapsOnly": 1,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows lack explicit stable IDs and were not learner-registered. Revision-scoped candidate IDs do not authorize saved-item or audio migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "アルゼンチンのファクトゥーラス、ドゥルセ・デ・レチェ、マテ茶、セバール（淹れて注ぐ）の日本語表記と説明は、現地文化と辞書の有資格レビューが必要。",
+    "源泉の『朝5時に朝食、パンはあと20分、6時に出発、日の出前に着く』という時刻を保ち、日の出の実際の時刻はこの教材から推定しない。",
+    "『ハイキング道』『登山口』『ラグーン』の地形・経路語を日本語の自然さと原文の区別の両面から確認する。",
+    "スペイン語の未来形とアルゼンチンの呼びかけ『dale』『che』は、語形の一対一置換ではなく日本語の励ましと約束として設計する。",
+    "旧草稿の14カード・10ターンは源泉の23カード・18ターンより短く、人物名、エル・チャルテン、マテ茶と具体的な役割を欠く。位置や音声の自動移行を認めない。"
+  ],
+  "missing": [
+    "qualified Japanese/source/Argentine-food/locale/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

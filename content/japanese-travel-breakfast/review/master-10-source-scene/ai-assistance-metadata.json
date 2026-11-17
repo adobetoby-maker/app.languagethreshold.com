@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "qualifiedReview": false,
+  "sourceGroundedSelfCheck": true,
+  "calls": [
+    {
+      "role": "Requested Haiku 5.5 source-grounded authoring in Claude CLI safe mode",
+      "commandShape": "claude --safe-mode --model claude-haiku-5-5 -p --output-format json",
+      "requestedModel": "claude-haiku-5-5",
+      "actualModel": null,
+      "outcome": "CLI returned Not logged in with terminal_reason api_error, duration_api_ms 0, modelUsage {}, zero input/output tokens and no generated text. Opus and Fable were not run because the CLI was unauthenticated.",
+      "qualifiedApproval": false
+    }
+  ],
+  "correctionsAfterAICritique": [],
+  "independentSelfCheck": [
+    "Compared 23 source-order Spanish/English cards and 17 aligned Reader turns against pinned current files.",
+    "Preserved the Cusco hostel, 5 a.m. argument, Ana and Lars, Wilber, San Pedro market, 6 a.m. opening, 10-minute walk, 6:45 return and 7 a.m. pickup.",
+    "Kept seven lesson-specific foods and drinks without replacing the Peruvian setting with a generic café.",
+    "Rendered soroche as 高山病 directly in the card and Reader.",
+    "Attributed the claim about coca tea helping altitude sickness to Wilber's report about many travelers, as the source does, without adding a medical claim.",
+    "Kept each friend's reported position and the agreed market-and-backpack plan separate.",
+    "Left Japanese register, Peruvian food and clinical terminology, source timing, dictionary senses and morphology mapping for qualified review."
+  ]
+}

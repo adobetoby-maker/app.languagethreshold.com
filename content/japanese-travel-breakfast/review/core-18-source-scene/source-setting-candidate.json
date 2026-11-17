@@ -1,0 +1,610 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:18",
+  "stableLessonId": "travel-breakfast:18:ja-en",
+  "candidateRevision": "travel-breakfast:18:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Check for cross-contact at the counter",
+    "objectiveEnglishInternal": "ask how food is handled, whether tongs, toasters, or milk jugs are shared, and decide what to order",
+    "roleplayEnglishInternal": "Your friend has a serious nut allergy; ask how pastries are stored and handled before ordering anything for them.",
+    "readerTitleSpanish": "Preguntas en el mostrador",
+    "readerVerbExamples": [
+      {
+        "target": "¿Cómo guardan el pan dulce de la vitrina?",
+        "native": "How do you store the pastries in the display case?"
+      },
+      {
+        "target": "¿Comparten la tostadora y la jarra de leche?",
+        "native": "Do you share the toaster and the milk jug?"
+      },
+      {
+        "target": "A veces usamos las mismas pinzas.",
+        "native": "Sometimes we use the same tongs."
+      },
+      {
+        "target": "Elena pide un café negro, sin pan.",
+        "native": "Elena orders a black coffee, no pastry."
+      },
+      {
+        "target": "¿Lavan la jarra de leche entre bebidas?",
+        "native": "Do you wash the milk jug between drinks?"
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "Aya has a nut allergy and asks a café worker about pastry storage and shared tools before ordering.",
+    "cardCount": 12,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "mostrador",
+      "sourceEnglish": "counter",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カウンター",
+      "literalJapaneseGlossEn": "counter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "vitrina",
+      "sourceEnglish": "display case",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ショーケース",
+      "literalJapaneseGlossEn": "display case",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "pinzas",
+      "sourceEnglish": "tongs",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "トング",
+      "literalJapaneseGlossEn": "tongs",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "tostadora",
+      "sourceEnglish": "toaster",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "トースター",
+      "literalJapaneseGlossEn": "toaster",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "jarra de leche",
+      "sourceEnglish": "milk jug",
+      "kind": "term",
+      "sourceNoteInternal": "The metal pitcher used to steam milk for coffee drinks.",
+      "targetJapaneseDraft": "ミルクピッチャー",
+      "literalJapaneseGlossEn": "milk jug",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "nueces",
+      "sourceEnglish": "nuts",
+      "kind": "term",
+      "sourceNoteInternal": "Nueces can mean walnuts specifically or nuts in general; to be clear, name others too, like cacahuates (peanuts) or almendras (almonds).",
+      "targetJapaneseDraft": "ナッツ",
+      "literalJapaneseGlossEn": "nuts",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "alergia",
+      "sourceEnglish": "allergy",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アレルギー",
+      "literalJapaneseGlossEn": "allergy",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "contaminación cruzada",
+      "sourceEnglish": "cross-contact",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "交差接触",
+      "literalJapaneseGlossEn": "cross-contact",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "leche de almendra",
+      "sourceEnglish": "almond milk",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アーモンドミルク",
+      "literalJapaneseGlossEn": "almond milk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "pan dulce",
+      "sourceEnglish": "pastry",
+      "kind": "term",
+      "sourceNoteInternal": "In Mexico and the US, pan dulce is the everyday word for sweet bakery items.",
+      "targetJapaneseDraft": "ペストリー",
+      "literalJapaneseGlossEn": "pastry",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "café negro",
+      "sourceEnglish": "black coffee",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ブラックコーヒー",
+      "literalJapaneseGlossEn": "black coffee",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "Mi amiga tiene alergia a las nueces.",
+      "sourceEnglish": "My friend is allergic to nuts.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Use mi amigo for a male friend.",
+      "targetJapaneseDraft": "私の友人はナッツアレルギーがあります。",
+      "literalJapaneseGlossEn": "My friend is allergic to nuts.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "¿Cómo guardan el pan dulce?",
+      "sourceEnglish": "How do you store the pastries?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ペストリーはどのように保管していますか。",
+      "literalJapaneseGlossEn": "How do you store the pastries?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "¿Usan las mismas pinzas para todo?",
+      "sourceEnglish": "Do you use the same tongs for everything?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "全部同じトングを使っていますか。",
+      "literalJapaneseGlossEn": "Do you use the same tongs for everything?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "¿Comparten la tostadora y la jarra de leche?",
+      "sourceEnglish": "Do you share the toaster and the milk jug?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "トースターとミルクピッチャーは共用していますか。",
+      "literalJapaneseGlossEn": "Do you share the toaster and the milk jug?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿Me puede mostrar los ingredientes, por favor?",
+      "sourceEnglish": "Can you show me the ingredients, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "原材料を見せていただけますか。",
+      "literalJapaneseGlossEn": "Can you show me the ingredients, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Voy a pedir un café negro, sin pan.",
+      "sourceEnglish": "I'm going to order a black coffee, no pastry.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ブラックコーヒーを注文します。ペストリーはなしにします。",
+      "literalJapaneseGlossEn": "I'm going to order a black coffee, no pastry.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Esta mañana, Elena y yo llegamos al mostrador de una cafetería pequeña.",
+      "sourceEnglish": "This morning, Elena and I arrived at the counter of a small café.",
+      "targetJapaneseDraft": "今朝、エレナと私は小さなカフェのカウンターまで来ました。",
+      "literalJapaneseGlossEn": "This morning, Elena and I arrived at the counter of a small café.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Primero, le dije al barista: Mi amiga tiene alergia a las nueces.",
+      "sourceEnglish": "First, I told the barista: My friend is allergic to nuts.",
+      "targetJapaneseDraft": "まず、バリスタにこう伝えました。「私の友人はナッツアレルギーがあります。」",
+      "literalJapaneseGlossEn": "First, I told the barista: My friend is allergic to nuts.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Luego pregunté: ¿Cómo guardan el pan dulce de la vitrina?",
+      "sourceEnglish": "Then I asked: How do you store the pastries in the display case?",
+      "targetJapaneseDraft": "そのあと、こう尋ねました。「ショーケースのペストリーは、どのように保管していますか。」",
+      "literalJapaneseGlossEn": "Then I asked: How do you store the pastries in the display case?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "El barista explicó: El pan con nueces está en la misma vitrina, y a veces usamos las mismas pinzas.",
+      "sourceEnglish": "The barista explained: The bread with nuts is in the same display case, and sometimes we use the same tongs.",
+      "targetJapaneseDraft": "バリスタはこう説明しました。「ナッツ入りのパンは同じショーケースに入っていて、ときどき同じトングを使います。」",
+      "literalJapaneseGlossEn": "The barista explained: The bread with nuts is in the same display case, and sometimes we use the same tongs.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "También pregunté: ¿Comparten la tostadora y la jarra de leche?",
+      "sourceEnglish": "I also asked: Do you share the toaster and the milk jug?",
+      "targetJapaneseDraft": "また、こう尋ねました。「トースターとミルクピッチャーは共用していますか。」",
+      "literalJapaneseGlossEn": "I also asked: Do you share the toaster and the milk jug?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Él contestó: Sí, y usamos la misma jarra para la leche de almendra.",
+      "sourceEnglish": "He answered: Yes, and we use the same jug for the almond milk.",
+      "targetJapaneseDraft": "バリスタはこう答えました。「はい、アーモンドミルクにも同じミルクピッチャーを使っています。」",
+      "literalJapaneseGlossEn": "He answered: Yes, and we use the same jug for the almond milk.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Después dijo: Hay riesgo de contaminación cruzada en este mostrador.",
+      "sourceEnglish": "Then he said: There is a risk of cross-contact at this counter.",
+      "targetJapaneseDraft": "そのあと、バリスタはこう言いました。「このカウンターでは、交差接触のリスクがあります。」",
+      "literalJapaneseGlossEn": "Then he said: There is a risk of cross-contact at this counter.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:18:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Entonces Elena decidió: Voy a pedir un café negro, sin pan.",
+      "sourceEnglish": "So Elena decided: I'm going to order a black coffee, no pastry.",
+      "targetJapaneseDraft": "そこで、エレナはこう決めました。「ブラックコーヒーを注文します。ペストリーはなしにします。」",
+      "literalJapaneseGlossEn": "So Elena decided: I'm going to order a black coffee, no pastry.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Ask directly about a serious nut allergy, pastry storage, shared tongs, toaster and milk jug, and cross-contact before ordering.",
+  "speakingGoalInternal": "Your friend has a serious nut allergy; ask how pastries are stored and handled before ordering anything for them.",
+  "speakingGoalJapaneseDraft": "友人には重いナッツアレルギーがあります。友人のために何かを注文する前に、ペストリーの保管方法と取り扱い方を尋ねてください。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "The current source is an eight-turn café account with Elena and the narrator: the friend has a serious nut allergy, the display case and tongs are shared with nut bread, the toaster and milk jug are shared, the jug is also used for almond milk, the barista identifies a cross-contact risk, and Elena orders black coffee without pastry. The archived Aya scene drops those source facts and changes the decision. The source does not specify which nuts or declare black coffee safe. Japanese allergy terminology and food handling require qualified review.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "nut allergy",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "ingredients",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "shared use",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "tongs",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "toaster",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "milk jug",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "cooking tools",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "storage",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Can you verify?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "I will not order it",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "Do you use the same tongs?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "Are they handled separately?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "I have a nut allergy. I want to check before ordering.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "How do you store pastries with nuts?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "They are in the same display case as the other bread.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Do you use the same tongs?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Yes, the tongs are shared.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Are the toaster and milk jug shared too?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Yes. I cannot verify the handling in detail.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "I understand. I will not order here.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Understood.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 4,
+      "candidatePosition": 3,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 5,
+      "candidatePosition": 4,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 6,
+      "candidatePosition": 5,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 25,
+    "twoVoiceClipDecisionsIfTextApproved": 50,
+    "twoVoiceSubmittedCharactersIfTextApproved": 1036,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.03108,
+    "archivedExactJapaneseCardTextOverlapsOnly": 3,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    {
+      "ref": "cards.nuts / cards.My friend is allergic to nuts. / reader.2 / reader.4",
+      "note": "ナッツ is kept as the general term. The source does not say which nuts (tree nuts, peanuts or both), and ナッツ is similarly unspecified, so the scope is left open, not resolved. Reviewer background only, not learner text: Japanese allergen labeling names specific foods (e.g. 木の実類, 落花生) rather than a single 'nuts' category. Needs a source-side scope decision."
+    },
+    {
+      "ref": "cards.cross-contact / reader.7",
+      "note": "交差接触 is a direct allergen cross-contact term also used by Japanese public-health guidance; コンタミネーション is used in Japanese food-allergen guidance for unintended allergen mixing. The former is formal for café speech. These are not the distinct medical idea 交差反応 (cross-reactivity). Qualified Japanese and food-allergy review must choose the learner term; the source risk statement is retained without a safety claim."
+    },
+    {
+      "ref": "cards.pastry / cards.How do you store the pastries? / cards.I'm going to order a black coffee, no pastry. / reader.3 / reader.8",
+      "note": "Changed 菓子パン to ペストリー in all five places. 菓子パン is a specific Japanese bakery category and added a Japan-specific flavour. ペストリー is a loanword that can read narrowly as Danish-style pastry; nontrivial equivalence, reviewer to confirm. Reader 4 'bread with nuts' stays パン, so pastries and bread remain separate as in the English source. Sibling packets in this repo use both 菓子パン and ペストリー; packet-wide consistency is not settled here."
+    },
+    {
+      "ref": "cards.My friend is allergic to nuts. / reader.2",
+      "note": "私の友人 preserves “my friend” without assigning gender, and ナッツアレルギーがあります states the condition directly. The Spanish mi amiga/mi amigo note is Spanish-specific and stays internal. The source roleplay adds seriousness; see separate speaking candidate."
+    },
+    {
+      "ref": "cards.nuts / cards.pastry / cards.My friend is allergic to nuts. / cards.milk jug",
+      "note": "Source notes on nueces, pan dulce and mi amiga/mi amigo are Spanish grammar or locale notes. They are retained only in sourceNoteInternal and are not Japanese teaching. The milk-jug note describes a pitcher; its exact referent still needs contextual review."
+    },
+    {
+      "ref": "cards.milk jug / reader.6",
+      "note": "Reader 6 now uses the full ミルクピッチャー rather than the shortened ピッチャー, so it matches the card. The source connects the shared jug and almond milk only as a fact. Linking almond milk to Elena's allergy is an inference (almonds are tree nuts; scope unstated) and is kept out of learner text."
+    },
+    {
+      "ref": "cards.I'm going to order a black coffee, no pastry. / reader.8",
+      "note": "Changed to ブラックコーヒーを注文します。ペストリーはなしにします。 The order is still an order, and 'no pastry' is part of it rather than a refusal or cancellation. だけ was avoided because it adds exclusivity not in the source. No safety, ingredient or preparation claim is made about the black coffee. Reader 8 framing is now こう決めました before the quote."
+    },
+    {
+      "ref": "cards.Do you use the same tongs for everything?",
+      "note": "Changed to 全部同じトングを使っていますか for naturalness. No object is added beyond the source's 'everything'. This card and the ingredients card sit outside the Reader, as in the source."
+    },
+    {
+      "ref": "cards.Can you show me the ingredients, please?",
+      "note": "原材料 is kept; it is the formal food-labeling word. 材料 is a looser alternative that a sibling packet uses. Reviewer choice."
+    },
+    {
+      "ref": "reader.1",
+      "note": "Changed カウンターに着きました to カウンターまで来ました for naturalness. 'Arrived' is rendered as 'came up to'; minor nontrivial equivalence. 前 was not added. Scene is Elena and the narrator 'I', not the archived Aya scene, with no Japan-specific setting."
+    },
+    {
+      "ref": "reader.4",
+      "note": "Changed to ナッツ入りのパンは同じショーケースに入っていて to remove the repeated 入る. ときどき keeps 'sometimes'. Shared display case and shared tongs are kept as stated, with no added advice."
+    },
+    {
+      "ref": "reader.6 / reader.7",
+      "note": "The source's 'He' / 'he' is rendered as バリスタは instead of 彼は for natural Japanese. The barista's gender, stated in the source, is therefore not expressed in the Japanese; glossEn is unchanged. Reader 7 'Then' is そのあと. Reviewer to accept or restore 彼."
+    },
+    {
+      "ref": "reader.2-8 punctuation",
+      "note": "Closing quotes keep 。」. Sibling packets in this repo are mixed (some with 。」, some without). A packet-wide style decision is still needed."
+    },
+    {
+      "ref": "source objective / cards.My friend is allergic to nuts. / reader.2",
+      "note": "The current English roleplay explicitly says the friend has a serious nut allergy. The source card and Reader line state an allergy without severity, so this packet preserves those exact line meanings and renders serious directly in the separate source-aligned speaking setup. Qualified allergy/source review must decide whether the card and Reader should also carry severity; no line is silently changed."
+    },
+    {
+      "ref": "cards.pastry / reader.3 / reader.4 / reader.8",
+      "note": "The current English card says pastry/pastries and Reader distinguishes pastry from bread with nuts; Japanese ペストリー and パン preserve that English distinction. Spanish pan dulce/pan can overlap more closely. Qualified source and dictionary review should decide the exact pair semantics before any learner face."
+    }
+  ],
+  "missing": [
+    "qualified Japanese/source/food/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

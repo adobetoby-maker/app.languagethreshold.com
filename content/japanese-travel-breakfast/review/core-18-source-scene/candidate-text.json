@@ -1,0 +1,193 @@
+{
+  "cards": [
+    {
+      "en": "counter",
+      "ja": "カウンター",
+      "glossEn": "counter"
+    },
+    {
+      "en": "display case",
+      "ja": "ショーケース",
+      "glossEn": "display case"
+    },
+    {
+      "en": "tongs",
+      "ja": "トング",
+      "glossEn": "tongs"
+    },
+    {
+      "en": "toaster",
+      "ja": "トースター",
+      "glossEn": "toaster"
+    },
+    {
+      "en": "milk jug",
+      "ja": "ミルクピッチャー",
+      "glossEn": "milk jug"
+    },
+    {
+      "en": "nuts",
+      "ja": "ナッツ",
+      "glossEn": "nuts"
+    },
+    {
+      "en": "allergy",
+      "ja": "アレルギー",
+      "glossEn": "allergy"
+    },
+    {
+      "en": "cross-contact",
+      "ja": "交差接触",
+      "glossEn": "cross-contact"
+    },
+    {
+      "en": "almond milk",
+      "ja": "アーモンドミルク",
+      "glossEn": "almond milk"
+    },
+    {
+      "en": "pastry",
+      "ja": "ペストリー",
+      "glossEn": "pastry"
+    },
+    {
+      "en": "black coffee",
+      "ja": "ブラックコーヒー",
+      "glossEn": "black coffee"
+    },
+    {
+      "en": "My friend is allergic to nuts.",
+      "ja": "私の友人はナッツアレルギーがあります。",
+      "glossEn": "My friend is allergic to nuts."
+    },
+    {
+      "en": "How do you store the pastries?",
+      "ja": "ペストリーはどのように保管していますか。",
+      "glossEn": "How do you store the pastries?"
+    },
+    {
+      "en": "Do you use the same tongs for everything?",
+      "ja": "全部同じトングを使っていますか。",
+      "glossEn": "Do you use the same tongs for everything?"
+    },
+    {
+      "en": "Do you share the toaster and the milk jug?",
+      "ja": "トースターとミルクピッチャーは共用していますか。",
+      "glossEn": "Do you share the toaster and the milk jug?"
+    },
+    {
+      "en": "Can you show me the ingredients, please?",
+      "ja": "原材料を見せていただけますか。",
+      "glossEn": "Can you show me the ingredients, please?"
+    },
+    {
+      "en": "I'm going to order a black coffee, no pastry.",
+      "ja": "ブラックコーヒーを注文します。ペストリーはなしにします。",
+      "glossEn": "I'm going to order a black coffee, no pastry."
+    }
+  ],
+  "reader": [
+    {
+      "en": "This morning, Elena and I arrived at the counter of a small café.",
+      "ja": "今朝、エレナと私は小さなカフェのカウンターまで来ました。",
+      "glossEn": "This morning, Elena and I arrived at the counter of a small café."
+    },
+    {
+      "en": "First, I told the barista: My friend is allergic to nuts.",
+      "ja": "まず、バリスタにこう伝えました。「私の友人はナッツアレルギーがあります。」",
+      "glossEn": "First, I told the barista: My friend is allergic to nuts."
+    },
+    {
+      "en": "Then I asked: How do you store the pastries in the display case?",
+      "ja": "そのあと、こう尋ねました。「ショーケースのペストリーは、どのように保管していますか。」",
+      "glossEn": "Then I asked: How do you store the pastries in the display case?"
+    },
+    {
+      "en": "The barista explained: The bread with nuts is in the same display case, and sometimes we use the same tongs.",
+      "ja": "バリスタはこう説明しました。「ナッツ入りのパンは同じショーケースに入っていて、ときどき同じトングを使います。」",
+      "glossEn": "The barista explained: The bread with nuts is in the same display case, and sometimes we use the same tongs."
+    },
+    {
+      "en": "I also asked: Do you share the toaster and the milk jug?",
+      "ja": "また、こう尋ねました。「トースターとミルクピッチャーは共用していますか。」",
+      "glossEn": "I also asked: Do you share the toaster and the milk jug?"
+    },
+    {
+      "en": "He answered: Yes, and we use the same jug for the almond milk.",
+      "ja": "バリスタはこう答えました。「はい、アーモンドミルクにも同じミルクピッチャーを使っています。」",
+      "glossEn": "He answered: Yes, and we use the same jug for the almond milk."
+    },
+    {
+      "en": "Then he said: There is a risk of cross-contact at this counter.",
+      "ja": "そのあと、バリスタはこう言いました。「このカウンターでは、交差接触のリスクがあります。」",
+      "glossEn": "Then he said: There is a risk of cross-contact at this counter."
+    },
+    {
+      "en": "So Elena decided: I'm going to order a black coffee, no pastry.",
+      "ja": "そこで、エレナはこう決めました。「ブラックコーヒーを注文します。ペストリーはなしにします。」",
+      "glossEn": "So Elena decided: I'm going to order a black coffee, no pastry."
+    }
+  ],
+  "issues": [
+    {
+      "ref": "cards.nuts / cards.My friend is allergic to nuts. / reader.2 / reader.4",
+      "note": "ナッツ is kept as the general term. The source does not say which nuts (tree nuts, peanuts or both), and ナッツ is similarly unspecified, so the scope is left open, not resolved. Reviewer background only, not learner text: Japanese allergen labeling names specific foods (e.g. 木の実類, 落花生) rather than a single 'nuts' category. Needs a source-side scope decision."
+    },
+    {
+      "ref": "cards.cross-contact / reader.7",
+      "note": "交差接触 is a direct allergen cross-contact term also used by Japanese public-health guidance; コンタミネーション is used in Japanese food-allergen guidance for unintended allergen mixing. The former is formal for café speech. These are not the distinct medical idea 交差反応 (cross-reactivity). Qualified Japanese and food-allergy review must choose the learner term; the source risk statement is retained without a safety claim."
+    },
+    {
+      "ref": "cards.pastry / cards.How do you store the pastries? / cards.I'm going to order a black coffee, no pastry. / reader.3 / reader.8",
+      "note": "Changed 菓子パン to ペストリー in all five places. 菓子パン is a specific Japanese bakery category and added a Japan-specific flavour. ペストリー is a loanword that can read narrowly as Danish-style pastry; nontrivial equivalence, reviewer to confirm. Reader 4 'bread with nuts' stays パン, so pastries and bread remain separate as in the English source. Sibling packets in this repo use both 菓子パン and ペストリー; packet-wide consistency is not settled here."
+    },
+    {
+      "ref": "cards.My friend is allergic to nuts. / reader.2",
+      "note": "私の友人 preserves “my friend” without assigning gender, and ナッツアレルギーがあります states the condition directly. The Spanish mi amiga/mi amigo note is Spanish-specific and stays internal. The source roleplay adds seriousness; see separate speaking candidate."
+    },
+    {
+      "ref": "cards.nuts / cards.pastry / cards.My friend is allergic to nuts. / cards.milk jug",
+      "note": "Source notes on nueces, pan dulce and mi amiga/mi amigo are Spanish grammar or locale notes. They are retained only in sourceNoteInternal and are not Japanese teaching. The milk-jug note describes a pitcher; its exact referent still needs contextual review."
+    },
+    {
+      "ref": "cards.milk jug / reader.6",
+      "note": "Reader 6 now uses the full ミルクピッチャー rather than the shortened ピッチャー, so it matches the card. The source connects the shared jug and almond milk only as a fact. Linking almond milk to Elena's allergy is an inference (almonds are tree nuts; scope unstated) and is kept out of learner text."
+    },
+    {
+      "ref": "cards.I'm going to order a black coffee, no pastry. / reader.8",
+      "note": "Changed to ブラックコーヒーを注文します。ペストリーはなしにします。 The order is still an order, and 'no pastry' is part of it rather than a refusal or cancellation. だけ was avoided because it adds exclusivity not in the source. No safety, ingredient or preparation claim is made about the black coffee. Reader 8 framing is now こう決めました before the quote."
+    },
+    {
+      "ref": "cards.Do you use the same tongs for everything?",
+      "note": "Changed to 全部同じトングを使っていますか for naturalness. No object is added beyond the source's 'everything'. This card and the ingredients card sit outside the Reader, as in the source."
+    },
+    {
+      "ref": "cards.Can you show me the ingredients, please?",
+      "note": "原材料 is kept; it is the formal food-labeling word. 材料 is a looser alternative that a sibling packet uses. Reviewer choice."
+    },
+    {
+      "ref": "reader.1",
+      "note": "Changed カウンターに着きました to カウンターまで来ました for naturalness. 'Arrived' is rendered as 'came up to'; minor nontrivial equivalence. 前 was not added. Scene is Elena and the narrator 'I', not the archived Aya scene, with no Japan-specific setting."
+    },
+    {
+      "ref": "reader.4",
+      "note": "Changed to ナッツ入りのパンは同じショーケースに入っていて to remove the repeated 入る. ときどき keeps 'sometimes'. Shared display case and shared tongs are kept as stated, with no added advice."
+    },
+    {
+      "ref": "reader.6 / reader.7",
+      "note": "The source's 'He' / 'he' is rendered as バリスタは instead of 彼は for natural Japanese. The barista's gender, stated in the source, is therefore not expressed in the Japanese; glossEn is unchanged. Reader 7 'Then' is そのあと. Reviewer to accept or restore 彼."
+    },
+    {
+      "ref": "reader.2-8 punctuation",
+      "note": "Closing quotes keep 。」. Sibling packets in this repo are mixed (some with 。」, some without). A packet-wide style decision is still needed."
+    },
+    {
+      "ref": "source objective / cards.My friend is allergic to nuts. / reader.2",
+      "note": "The current English roleplay explicitly says the friend has a serious nut allergy. The source card and Reader line state an allergy without severity, so this packet preserves those exact line meanings and renders serious directly in the separate source-aligned speaking setup. Qualified allergy/source review must decide whether the card and Reader should also carry severity; no line is silently changed."
+    },
+    {
+      "ref": "cards.pastry / reader.3 / reader.4 / reader.8",
+      "note": "The current English card says pastry/pastries and Reader distinguishes pastry from bread with nuts; Japanese ペストリー and パン preserve that English distinction. Spanish pan dulce/pan can overlap more closely. Qualified source and dictionary review should decide the exact pair semantics before any learner face."
+    }
+  ]
+}

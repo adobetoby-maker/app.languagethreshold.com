@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "qualifiedReview": false,
+  "sourceGroundedSelfCheck": true,
+  "calls": [
+    {
+      "role": "candidate authoring attempt",
+      "requestedModel": "haiku",
+      "actualModel": null,
+      "outcome": "Read-only Claude CLI connector exited 1 with no model metadata or candidate.",
+      "qualifiedApproval": false
+    },
+    {
+      "role": "safe-mode CLI availability check",
+      "requestedModel": "haiku",
+      "actualModel": null,
+      "outcome": "claude --safe-mode --model haiku --output-format json -p returned terminal_reason api_error and Not logged in; zero input and output tokens. No authoring or critique from this call.",
+      "qualifiedApproval": false
+    }
+  ],
+  "correctionsAfterAICritique": [],
+  "independentSelfCheck": [
+    "Compared all 23 candidate card English anchors to the pinned curriculum in order and all 18 Reader English anchors to the pinned Reader in order.",
+    "Restored San Telmo, Saturday at 10, Nora, Hannah, Dev, Matías, oat-milk delivery timing and the agreed afternoon return.",
+    "Kept soy/almond/coconut thickness, sweetness and foam comparisons as scene statements without adding an ingredient guarantee.",
+    "Distinguished vegan Hannah from lactose-avoiding Dev; retained the baker-reported absence of butter and milk and presence of beef fat in the medialuna de grasa.",
+    "Kept the local lágrima versus cortado coffee-quantity comparison and the exact number of two beef-fat croissants.",
+    "Left phonetic spelling, food locale and Japanese register for qualified human review."
+  ]
+}

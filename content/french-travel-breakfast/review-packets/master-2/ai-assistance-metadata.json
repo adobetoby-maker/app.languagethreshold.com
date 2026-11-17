@@ -1,0 +1,31 @@
+{
+  "dateUtc": "2026-11-17",
+  "workflow": "direct Claude CLI with --safe-mode and no tools; source-grounded self-check after model responses",
+  "haikuCandidate": {
+    "requestedModel": "haiku",
+    "actualModel": "claude-haiku-5-5",
+    "durationMs": 28392,
+    "purpose": "first French candidate for exact source cards and Reader"
+  },
+  "opusCritique": {
+    "requestedModel": "opus",
+    "actualModel": "claude-opus-5-5",
+    "durationMs": 63228,
+    "mode": "read-only critique",
+    "checkedFindings": [
+      "French pain viennois falsely evokes a soft enriched loaf for the source's crunchy pan de viena",
+      "grillage is a false or awkward everyday equivalent for toast level",
+      "media and entera must stay visible as the taught menu labels",
+      "direct source advice and formal service register were lost in several first-candidate rows",
+      "the original narrator has no specified gender"
+    ]
+  },
+  "fableCorrection": {
+    "requestedModel": "fable",
+    "actualModel": "claude-fable-5-2",
+    "durationMs": 59143,
+    "purpose": "candidate corrections from source and checked Opus findings"
+  },
+  "selfCheck": "Compared each final French row with the pinned ordered Spanish and English source. Corrected Reader 17 after Fable for natural polite service wording; independent validator checks source files, hashes, all 41 rows, stable/revision IDs and false gates.",
+  "qualifiedApproval": false
+}

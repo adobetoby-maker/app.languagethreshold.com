@@ -1,0 +1,255 @@
+Read-only critique of French→English Breakfast Master 2 source-review candidate. The English and Spanish pairs are pinned source; French is unapproved candidate. Return JSON with keys issues (array of {scope, i, severity, explanationEnglish, proposedFrench}) and summaryEnglish. Focus on false equivalents, scene drift, proper names, natural French, food labels (media, entera, mollete, pan de viena, pitufo, manteca colorá, zurrapa de lomo), pork/ingredients, grammar, dialogue perspective. Do not add learner cautions or claim qualified review. Be exact and concise.
+
+SOURCE/CANDIDATE:
+{
+  "cards": [
+    {
+      "i": 1,
+      "es": "la media",
+      "en": "the half (half-roll toast)",
+      "candidate": "la media (tostada sur demi-petit pain)"
+    },
+    {
+      "i": 2,
+      "es": "la entera",
+      "en": "the whole (whole-roll toast)",
+      "candidate": "la entera (tostada sur petit pain entier)"
+    },
+    {
+      "i": 3,
+      "es": "el mollete",
+      "en": "the mollete (soft flat roll)",
+      "candidate": "le mollete (petit pain plat et moelleux)"
+    },
+    {
+      "i": 4,
+      "es": "el pan de viena",
+      "en": "the Vienna-style roll",
+      "candidate": "le pan de viena (petit pain de type viennois)"
+    },
+    {
+      "i": 5,
+      "es": "el pitufo",
+      "en": "the small roll",
+      "candidate": "le pitufo (petit pain)"
+    },
+    {
+      "i": 6,
+      "es": "el pan de la casa",
+      "en": "the house bread",
+      "candidate": "le pan de la casa (pain de la maison)"
+    },
+    {
+      "i": 7,
+      "es": "el aceite de oliva",
+      "en": "the olive oil",
+      "candidate": "l'huile d'olive"
+    },
+    {
+      "i": 8,
+      "es": "el tomate rallado",
+      "en": "the grated tomato",
+      "candidate": "la tomate râpée"
+    },
+    {
+      "i": 9,
+      "es": "el jamón serrano",
+      "en": "the cured ham",
+      "candidate": "le jamón serrano (jambon sec espagnol)"
+    },
+    {
+      "i": 10,
+      "es": "la manteca colorá",
+      "en": "the red pork-lard spread",
+      "candidate": "la manteca colorá (tartinade rouge de saindoux de porc au paprika)"
+    },
+    {
+      "i": 11,
+      "es": "la zurrapa de lomo",
+      "en": "the pork loin in lard spread",
+      "candidate": "la zurrapa de lomo (tartinade de longe de porc au saindoux)"
+    },
+    {
+      "i": 12,
+      "es": "la miga",
+      "en": "the soft inside of the bread",
+      "candidate": "la mie moelleuse du pain"
+    },
+    {
+      "i": 13,
+      "es": "la corteza",
+      "en": "the crust",
+      "candidate": "la croûte"
+    },
+    {
+      "i": 14,
+      "es": "el tueste",
+      "en": "the toasting (how toasted it is)",
+      "candidate": "le grillage (le degré de grillage)"
+    },
+    {
+      "i": 15,
+      "es": "el salero",
+      "en": "the salt shaker",
+      "candidate": "la salière"
+    },
+    {
+      "i": 16,
+      "es": "Aquí se pide media o entera, según el hambre que tengas.",
+      "en": "Here you order a half or a whole, depending on how hungry you are.",
+      "candidate": "Ici, on commande une demie ou une entière, selon la faim qu'on a."
+    },
+    {
+      "i": 17,
+      "es": "Si pides mollete, el pan queda tierno por dentro.",
+      "en": "If you order a mollete, the bread stays soft inside.",
+      "candidate": "Si on commande un mollete, le pain reste moelleux à l'intérieur."
+    },
+    {
+      "i": 18,
+      "es": "Si tienes mucha hambre, pide una entera.",
+      "en": "If you're really hungry, order a whole one.",
+      "candidate": "Si on a très faim, on commande une entière."
+    },
+    {
+      "i": 19,
+      "es": "Si no comes cerdo, evita la manteca colorá y la zurrapa.",
+      "en": "If you don't eat pork, avoid the manteca colorá and the zurrapa.",
+      "candidate": "Si on ne mange pas de porc, on évite la manteca colorá et la zurrapa."
+    },
+    {
+      "i": 20,
+      "es": "Perdone, ¿el pan de la casa es mollete o de viena?",
+      "en": "Excuse me, is the house bread a mollete or a Vienna roll?",
+      "candidate": "« Excusez-moi, le pan de la casa (pain de la maison) est-il un mollete ou un pan de viena (petit pain de type viennois) ? »"
+    },
+    {
+      "i": 21,
+      "es": "Gracias por corregirme, no lo sabía.",
+      "en": "Thanks for correcting me, I didn't know that.",
+      "candidate": "« Merci de m'avoir corrigé, je ne le savais pas. »"
+    },
+    {
+      "i": 22,
+      "es": "Para mí, media de tomate con aceite, por favor.",
+      "en": "For me, a half with tomato and oil, please.",
+      "candidate": "« Pour moi, une demie avec tomate et huile, s'il vous plaît. »"
+    },
+    {
+      "i": 23,
+      "es": "¿Cómo se pide aquí si la quiero poco tostada?",
+      "en": "How do you order it here if I want it lightly toasted?",
+      "candidate": "« Comment fait-on pour commander ici si je la veux peu grillée ? »"
+    }
+  ],
+  "reader": [
+    {
+      "i": 1,
+      "es": "Esta mañana, en un bar de tostadas de Triana, le explico a Ingrid cómo se piden las tostadas en Sevilla.",
+      "en": "This morning, at a tostada bar in Triana, I explain to Ingrid how tostadas are ordered in Seville.",
+      "candidate": "Ce matin, dans un bar à tostadas (tartines grillées) de Triana, j'explique à Ingrid comment on commande les tostadas à Séville."
+    },
+    {
+      "i": 2,
+      "es": "Yo: Aquí se pide primero el pan y luego lo que lleva encima.",
+      "en": "Me: Here you order the bread first and then the topping.",
+      "candidate": "Moi : « Ici, on commence par commander le pain, puis ce qui se met dessus. »"
+    },
+    {
+      "i": 3,
+      "es": "Yo: Aquí se pide media o entera, según el hambre que tengas.",
+      "en": "Me: Here you order a half or a whole, depending on how hungry you are.",
+      "candidate": "Moi : « Ici, on commande une demie ou une entière, selon la faim que tu as. »"
+    },
+    {
+      "i": 4,
+      "es": "Yo: Si tienes mucha hambre, pide una entera.",
+      "en": "Me: If you're really hungry, order a whole one.",
+      "candidate": "Moi : « Si tu as très faim, commande une entière. »"
+    },
+    {
+      "i": 5,
+      "es": "Yo: Si pides mollete, el pan queda tierno por dentro, porque tiene mucha miga.",
+      "en": "Me: If you order a mollete, the bread stays soft inside, because it has a lot of soft crumb.",
+      "candidate": "Moi : « Si tu commandes un mollete (petit pain plat et moelleux), le pain reste moelleux à l'intérieur, parce qu'il a beaucoup de mie. »"
+    },
+    {
+      "i": 6,
+      "es": "Yo: El pan de viena tiene la corteza más fina y crujiente, y mucha gente lo prefiere por eso.",
+      "en": "Me: The Vienna roll has a thinner, crunchier crust, and a lot of people prefer it for that reason.",
+      "candidate": "Moi : « Le pan de viena (petit pain de type viennois) a une croûte plus fine et plus croustillante, et beaucoup de gens le préfèrent pour cette raison. »"
+    },
+    {
+      "i": 7,
+      "es": "Yo: Si pides pitufo, te traen un pan más pequeño, perfecto para acompañar un café.",
+      "en": "Me: If you order a pitufo, they bring you a smaller roll, perfect to go with a coffee.",
+      "candidate": "Moi : « Si tu commandes un pitufo (petit pain), on t'apporte un petit pain plus petit, parfait pour accompagner un café. »"
+    },
+    {
+      "i": 8,
+      "es": "Yo: Creo que el pan de la casa es mollete, pero voy a preguntar.",
+      "en": "Me: I think the house bread is a mollete, but I'm going to ask.",
+      "candidate": "Moi : « Je crois que le pan de la casa (pain de la maison) est un mollete, mais je vais demander. »"
+    },
+    {
+      "i": 9,
+      "es": "Le digo a la dueña: Perdone, ¿el pan de la casa es mollete o de viena?",
+      "en": "I say to the owner: Excuse me, is the house bread a mollete or a Vienna roll?",
+      "candidate": "Je dis à la propriétaire : « Excusez-moi, le pan de la casa est-il un mollete ou un pan de viena (petit pain de type viennois) ? »"
+    },
+    {
+      "i": 10,
+      "es": "Rocío: El pan de la casa es de viena, y el mollete se pide aparte.",
+      "en": "Rocío: The house bread is a Vienna roll, and the mollete is ordered separately.",
+      "candidate": "Rocío : « Le pan de la casa est un pan de viena, et le mollete se commande à part. »"
+    },
+    {
+      "i": 11,
+      "es": "Yo: Gracias por corregirme, no lo sabía.",
+      "en": "Me: Thanks for correcting me, I didn't know that.",
+      "candidate": "Moi : « Merci de m'avoir corrigé, je ne le savais pas. »"
+    },
+    {
+      "i": 12,
+      "es": "Luego le cuento a Ingrid que lo más típico es el tomate rallado con un buen chorro de aceite de oliva, porque es ligero y fresco.",
+      "en": "Then I tell Ingrid that the most typical choice is grated tomato with a good drizzle of olive oil, because it is light and fresh.",
+      "candidate": "Ensuite, je dis à Ingrid que le choix le plus typique est la tomate râpée avec un bon filet d'huile d'olive, parce que c'est léger et frais."
+    },
+    {
+      "i": 13,
+      "es": "Yo: La manteca colorá es manteca de cerdo con pimentón, y la zurrapa de lomo lleva trocitos de lomo en manteca.",
+      "en": "Me: Manteca colorá is pork lard with paprika, and zurrapa de lomo has little pieces of pork loin in lard.",
+      "candidate": "Moi : « La manteca colorá (tartinade rouge de saindoux de porc au paprika) est du saindoux de porc au paprika, et la zurrapa de lomo (tartinade de longe de porc au saindoux) contient de petits morceaux de longe de porc dans du saindoux. »"
+    },
+    {
+      "i": 14,
+      "es": "Ingrid me dice que no come cerdo, y le explico que el jamón serrano también es de cerdo.",
+      "en": "Ingrid tells me she doesn't eat pork, and I explain that cured ham is pork too.",
+      "candidate": "Ingrid me dit qu'elle ne mange pas de porc, et j'explique que le jamón serrano (jambon sec espagnol) est aussi du porc."
+    },
+    {
+      "i": 15,
+      "es": "Yo: Si no comes cerdo, evita la manteca colorá y la zurrapa.",
+      "en": "Me: If you don't eat pork, avoid the manteca colorá and the zurrapa.",
+      "candidate": "Moi : « Si tu ne manges pas de porc, évite la manteca colorá et la zurrapa. »"
+    },
+    {
+      "i": 16,
+      "es": "Ingrid: ¿Cómo se pide aquí si la quiero poco tostada?",
+      "en": "Ingrid: How do you order it here if I want it lightly toasted?",
+      "candidate": "Ingrid : « Comment fait-on pour commander ici si je la veux peu grillée ? »"
+    },
+    {
+      "i": 17,
+      "es": "Rocío: Se pide con poco tueste, y se la sacamos más blandita.",
+      "en": "Rocío: You order it with light toasting, and we bring it out to you softer.",
+      "candidate": "Rocío : « On commande avec un grillage léger, et on te la sert plus moelleuse. »"
+    },
+    {
+      "i": 18,
+      "es": "Al final, Ingrid pide media de tomate con aceite y poco tueste, y Rocío le deja el salero en la mesa.",
+      "en": "In the end, Ingrid orders a half with tomato and oil, lightly toasted, and Rocío leaves the salt shaker on the table for her.",
+      "candidate": "À la fin, Ingrid commande une demie avec tomate et huile, peu grillée, et Rocío lui laisse la salière sur la table."
+    }
+  ]
+}

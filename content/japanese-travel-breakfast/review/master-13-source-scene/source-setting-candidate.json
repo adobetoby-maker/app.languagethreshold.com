@@ -1,0 +1,821 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "master",
+  "lessonKey": "master:13",
+  "stableLessonId": "master-travel-breakfast:13:ja-en",
+  "candidateRevision": "master-travel-breakfast:13:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "curriculumVersion": 1,
+    "readerVersion": 1,
+    "curriculumReviewed": false,
+    "readerReviewed": false,
+    "titleEnglishInternal": "Give the Hotel a Timeline of Lucía's Reaction",
+    "objectiveEnglishInternal": "Narrate in order what your friend ate, when symptoms began, who called for help, and what happened next.",
+    "speakingEnglishInternal": "You are Lucía's friend, and the AI is Vicente, the duty manager: give him a clear timeline of what Lucía ate, when her symptoms began, who called 112 and what happened next, using time markers like a las 8:10, unos minutos después and en cuanto.",
+    "grammarEnglishExamplesInternal": [
+      "At 8:10 she ate the sponge cake, and a few minutes later she said her throat was itchy.",
+      "As soon as the ambulance arrived, the medical responders treated her in the dining room."
+    ],
+    "readerTitleSpanish": "La cronología de Lucía",
+    "readerVerbExamples": [
+      {
+        "target": "Lucía no come frutos secos porque es alérgica.",
+        "native": "Lucía doesn't eat nuts because she is allergic."
+      },
+      {
+        "target": "Vicente empieza el informe de incidencias con la hora del desayuno.",
+        "native": "Vicente starts the incident report with the breakfast time."
+      },
+      {
+        "target": "Si alguien tiene dificultad para respirar, llame al 112.",
+        "native": "If someone has difficulty breathing, call 112."
+      },
+      {
+        "target": "Los sanitarios llegan al comedor con la camilla.",
+        "native": "The medical responders arrive at the dining room with the stretcher."
+      },
+      {
+        "target": "Por favor, avise a recepción ahora mismo.",
+        "native": "Please notify reception right now."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/master-13-15-draft.json",
+    "sha256": "b96284b91ef41e4f8c73ad65e9c2ee6eb6d70734e3ee526cabf5b1ca1729ea84",
+    "scene": "After emergency responders have taken a guest for care, a witness gives a hotel manager a careful chronology for an incident report.",
+    "cardCount": 20,
+    "readerCount": 11
+  },
+  "sourceCards": [
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "el informe de incidencias",
+      "sourceEnglish": "the incident report",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "事故報告書",
+      "literalJapaneseGlossEn": "the incident report",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "la cronología",
+      "sourceEnglish": "the timeline",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "出来事の時系列",
+      "literalJapaneseGlossEn": "the timeline",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "el responsable de turno",
+      "sourceEnglish": "the duty manager",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "当番責任者",
+      "literalJapaneseGlossEn": "the duty manager",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "los síntomas",
+      "sourceEnglish": "the symptoms",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "症状",
+      "literalJapaneseGlossEn": "the symptoms",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "el picor de garganta",
+      "sourceEnglish": "the itchy throat",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "喉のかゆみ",
+      "literalJapaneseGlossEn": "the itchy throat",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "la hinchazón",
+      "sourceEnglish": "the swelling",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "腫れ",
+      "literalJapaneseGlossEn": "the swelling",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "los labios",
+      "sourceEnglish": "the lips",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "唇",
+      "literalJapaneseGlossEn": "the lips",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "la urticaria",
+      "sourceEnglish": "the hives",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "じんましん",
+      "literalJapaneseGlossEn": "the hives",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "la dificultad para respirar",
+      "sourceEnglish": "difficulty breathing",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "呼吸困難",
+      "literalJapaneseGlossEn": "difficulty breathing",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "el 112",
+      "sourceEnglish": "112 (the emergency number)",
+      "kind": "term",
+      "sourceNoteInternal": "Emergency number in Spain and the EU. Say it as uno, uno, dos.",
+      "targetJapaneseDraft": "112番（スペイン・EUの緊急通報番号）",
+      "literalJapaneseGlossEn": "112 (the emergency number)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "el servicio de urgencias",
+      "sourceEnglish": "the emergency department",
+      "kind": "term",
+      "sourceNoteInternal": "In everyday speech: la llevaron a urgencias (no article).",
+      "targetJapaneseDraft": "救急外来",
+      "literalJapaneseGlossEn": "the emergency department",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "los sanitarios",
+      "sourceEnglish": "the medical responders",
+      "kind": "term",
+      "sourceNoteInternal": "Common word in Spain for ambulance and ER staff.",
+      "targetJapaneseDraft": "救急隊員",
+      "literalJapaneseGlossEn": "the medical responders",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "el bizcocho",
+      "sourceEnglish": "the sponge cake",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "スポンジケーキ",
+      "literalJapaneseGlossEn": "the sponge cake",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "mareada",
+      "sourceEnglish": "dizzy",
+      "kind": "term",
+      "sourceNoteInternal": "Agrees with the person: mareada for Lucía, mareado for a man.",
+      "targetJapaneseDraft": "めまいがしている",
+      "literalJapaneseGlossEn": "dizzy",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "unos minutos después",
+      "sourceEnglish": "a few minutes later",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "数分後",
+      "literalJapaneseGlossEn": "a few minutes later",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "A las 8:10, Lucía comió un trozo de bizcocho.",
+      "sourceEnglish": "At 8:10, Lucía ate a piece of sponge cake.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "8時10分に、ルシアはスポンジケーキを一切れ食べました。",
+      "literalJapaneseGlossEn": "At 8:10, Lucía ate a piece of sponge cake.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Unos minutos después, empezó a notar picor de garganta.",
+      "sourceEnglish": "A few minutes later, she started to feel an itchy throat.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "数分後、喉がかゆくなり始めました。",
+      "literalJapaneseGlossEn": "A few minutes later, she started to feel an itchy throat.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "En cuanto vi que se le hinchaban los labios, llamé al 112.",
+      "sourceEnglish": "As soon as I saw her lips swelling, I called 112.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "唇が腫れてきたのを見て、すぐに112番に電話しました。",
+      "literalJapaneseGlossEn": "As soon as I saw her lips swelling, I called 112.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:19",
+      "candidatePosition": 19,
+      "sourceSpanish": "El camarero le trajo agua y avisó a recepción.",
+      "sourceEnglish": "The waiter brought her water and notified reception.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ウェイターは彼女に水を持ってきて、フロントに知らせました。",
+      "literalJapaneseGlossEn": "The waiter brought her water and notified reception.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:20",
+      "candidatePosition": 20,
+      "sourceSpanish": "Cuando llegaron los sanitarios, estaba muy mareada.",
+      "sourceEnglish": "When the medical responders arrived, she was very dizzy.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "救急隊員が到着したとき、彼女はひどいめまいを感じていました。",
+      "literalJapaneseGlossEn": "When the medical responders arrived, she was very dizzy.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:21",
+      "candidatePosition": 21,
+      "sourceSpanish": "Hacia las 8:30, la llevaron a urgencias en ambulancia.",
+      "sourceEnglish": "Around 8:30, they took her to the ER by ambulance.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "8時30分ごろ、救急車で彼女を救急外来に搬送しました。",
+      "literalJapaneseGlossEn": "Around 8:30, they took her to the ER by ambulance.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:22",
+      "candidatePosition": 22,
+      "sourceSpanish": "No recuerdo la hora exacta, pero fue antes de las 9.",
+      "sourceEnglish": "I don't remember the exact time, but it was before 9.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "正確な時刻は覚えていませんが、9時より前でした。",
+      "literalJapaneseGlossEn": "I don't remember the exact time, but it was before 9.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:card:23",
+      "candidatePosition": 23,
+      "sourceSpanish": "Vicente, ¿quiere que se lo repita más despacio?",
+      "sourceEnglish": "Vicente, would you like me to repeat it more slowly?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal: usted with the hotel manager.",
+      "targetJapaneseDraft": "ビセンテさん、もっとゆっくり繰り返しましょうか。",
+      "literalJapaneseGlossEn": "Vicente, would you like me to repeat it more slowly?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "A las 10, en el Hotel Turia de Valencia, Vicente, el responsable de turno, se sienta con Emma en una sala junto a recepción.",
+      "sourceEnglish": "At 10, at the Hotel Turia in Valencia, Vicente, the duty manager, sits down with Emma in a room next to reception.",
+      "targetJapaneseDraft": "10時、バレンシアのホテル・トゥリアで、当番責任者のビセンテはフロントの隣の部屋にエマと座る。",
+      "literalJapaneseGlossEn": "At 10, at the Hotel Turia in Valencia, Vicente, the duty manager, sits down with Emma in a room next to reception.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Vicente",
+      "sourceSpanish": "Vicente: Necesito una cronología clara para el informe de incidencias sobre lo que le pasó a Lucía, de la habitación 312.",
+      "sourceEnglish": "Vicente: I need a clear timeline for the incident report about what happened to Lucía, from room 312.",
+      "targetJapaneseDraft": "ビセンテ：「312号室のルシアに何が起きたのか、事故報告書のために明確な時系列が必要です。」",
+      "literalJapaneseGlossEn": "Vicente: I need a clear timeline for the incident report about what happened to Lucía, from room 312.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: A las 8:10, Lucía comió un trozo de bizcocho.",
+      "sourceEnglish": "Emma: At 8:10, Lucía ate a piece of sponge cake.",
+      "targetJapaneseDraft": "エマ：「8時10分に、ルシアはスポンジケーキを一切れ食べました。」",
+      "literalJapaneseGlossEn": "Emma: At 8:10, Lucía ate a piece of sponge cake.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Vicente",
+      "sourceSpanish": "Vicente: ¿Sabe si el bizcocho llevaba algún ingrediente al que Lucía es alérgica?",
+      "sourceEnglish": "Vicente: Do you know if the sponge cake had any ingredient Lucía is allergic to?",
+      "targetJapaneseDraft": "ビセンテ：「そのケーキに、ルシアがアレルギーのある材料が入っていたか、ご存じですか。」",
+      "literalJapaneseGlossEn": "Vicente: Do you know if the sponge cake had any ingredient Lucía is allergic to?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: Sí, la cocina me confirmó que llevaba harina de almendra, y Lucía es alérgica a los frutos secos.",
+      "sourceEnglish": "Emma: Yes, the kitchen confirmed to me that it had almond flour, and Lucía is allergic to nuts.",
+      "targetJapaneseDraft": "エマ：「はい。厨房に確認したところ、アーモンド粉が入っていました。ルシアはナッツ類にアレルギーがあります。」",
+      "literalJapaneseGlossEn": "Emma: Yes, the kitchen confirmed to me that it had almond flour, and Lucía is allergic to nuts.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: Unos minutos después, empezó a notar picor de garganta.",
+      "sourceEnglish": "Emma: A few minutes later, she started to feel an itchy throat.",
+      "targetJapaneseDraft": "エマ：「数分後、喉がかゆくなり始めました。」",
+      "literalJapaneseGlossEn": "Emma: A few minutes later, she started to feel an itchy throat.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Vicente",
+      "sourceSpanish": "Vicente: ¿Alguien del personal la ayudó cuando empezaron los síntomas?",
+      "sourceEnglish": "Vicente: Did anyone on the staff help her when the symptoms began?",
+      "targetJapaneseDraft": "ビセンテ：「症状が出始めたとき、スタッフの誰かが彼女を助けましたか。」",
+      "literalJapaneseGlossEn": "Vicente: Did anyone on the staff help her when the symptoms began?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: El camarero le trajo agua y avisó a recepción.",
+      "sourceEnglish": "Emma: The waiter brought her water and notified reception.",
+      "targetJapaneseDraft": "エマ：「ウェイターが彼女に水を持ってきて、フロントに知らせました。」",
+      "literalJapaneseGlossEn": "Emma: The waiter brought her water and notified reception.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: Poco después le salió urticaria en los brazos y empezó a tener dificultad para respirar.",
+      "sourceEnglish": "Emma: Shortly after, she broke out in hives on her arms and started to have difficulty breathing.",
+      "targetJapaneseDraft": "エマ：「その少し後、腕にじんましんが出て、呼吸が苦しくなり始めました。」",
+      "literalJapaneseGlossEn": "Emma: Shortly after, she broke out in hives on her arms and started to have difficulty breathing.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:reader:10",
+      "candidatePosition": 10,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: En cuanto vi que se le hinchaban los labios, llamé al 112.",
+      "sourceEnglish": "Emma: As soon as I saw her lips swelling, I called 112.",
+      "targetJapaneseDraft": "エマ：「唇が腫れてきたのを見て、すぐに112番に電話しました。」",
+      "literalJapaneseGlossEn": "Emma: As soon as I saw her lips swelling, I called 112.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:reader:11",
+      "candidatePosition": 11,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: La operadora me pidió que no la dejara sola, porque la hinchazón podía empeorar muy rápido.",
+      "sourceEnglish": "Emma: The operator asked me not to leave her alone, because the swelling could get worse very quickly.",
+      "targetJapaneseDraft": "エマ：「電話のオペレーターには、腫れが急速に悪化する可能性があるので、彼女を一人にしないよう言われました。」",
+      "literalJapaneseGlossEn": "Emma: The operator asked me not to leave her alone, because the swelling could get worse very quickly.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:reader:12",
+      "candidatePosition": 12,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: Cuando llegaron los sanitarios, estaba muy mareada.",
+      "sourceEnglish": "Emma: When the medical responders arrived, she was very dizzy.",
+      "targetJapaneseDraft": "エマ：「救急隊員が到着したとき、彼女はひどいめまいを感じていました。」",
+      "literalJapaneseGlossEn": "Emma: When the medical responders arrived, she was very dizzy.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:reader:13",
+      "candidatePosition": 13,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: Los sanitarios la atendieron allí mismo, en el comedor, y le pusieron oxígeno.",
+      "sourceEnglish": "Emma: The medical responders treated her right there, in the dining room, and gave her oxygen.",
+      "targetJapaneseDraft": "エマ：「救急隊員はその場の食堂で彼女を処置し、酸素を投与しました。」",
+      "literalJapaneseGlossEn": "Emma: The medical responders treated her right there, in the dining room, and gave her oxygen.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:reader:14",
+      "candidatePosition": 14,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: Hacia las 8:30, la llevaron a urgencias en ambulancia.",
+      "sourceEnglish": "Emma: Around 8:30, they took her to the ER by ambulance.",
+      "targetJapaneseDraft": "エマ：「8時30分ごろ、救急車で彼女を救急外来に搬送しました。」",
+      "literalJapaneseGlossEn": "Emma: Around 8:30, they took her to the ER by ambulance.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:reader:15",
+      "candidatePosition": 15,
+      "speaker": "Vicente",
+      "sourceSpanish": "Vicente: ¿Ha tenido noticias del servicio de urgencias desde entonces?",
+      "sourceEnglish": "Vicente: Have you had any news from the emergency department since then?",
+      "targetJapaneseDraft": "ビセンテ：「その後、救急外来から何か連絡はありましたか。」",
+      "literalJapaneseGlossEn": "Vicente: Have you had any news from the emergency department since then?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:reader:16",
+      "candidatePosition": 16,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: Sí, una enfermera me llamó para decirme que Lucía estaba estable.",
+      "sourceEnglish": "Emma: Yes, a nurse called me to tell me that Lucía was stable.",
+      "targetJapaneseDraft": "エマ：「はい。看護師から電話があり、ルシアの容体は安定していると聞きました。」",
+      "literalJapaneseGlossEn": "Emma: Yes, a nurse called me to tell me that Lucía was stable.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:reader:17",
+      "candidatePosition": 17,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: No recuerdo la hora exacta, pero fue antes de las 9.",
+      "sourceEnglish": "Emma: I don't remember the exact time, but it was before 9.",
+      "targetJapaneseDraft": "エマ：「正確な時刻は覚えていませんが、9時より前でした。」",
+      "literalJapaneseGlossEn": "Emma: I don't remember the exact time, but it was before 9.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:13:ja-en:source-scene-v1:reader:18",
+      "candidatePosition": 18,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: Vicente, ¿quiere que se lo repita más despacio?",
+      "sourceEnglish": "Emma: Vicente, would you like me to repeat it more slowly?",
+      "targetJapaneseDraft": "エマ：「ビセンテさん、もっとゆっくり繰り返しましょうか。」",
+      "literalJapaneseGlossEn": "Emma: Vicente, would you like me to repeat it more slowly?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Tell a time-ordered witness account in Japanese using exact time markers and direct clinical terms. Keep the Spain-specific emergency number 112 tied to Valencia and avoid inventing missing timestamps.",
+  "speakingGoalInternal": "You are Lucía's friend, and the AI is Vicente, the duty manager: give him a clear timeline of what Lucía ate, when her symptoms began, who called 112 and what happened next, using time markers like a las 8:10, unos minutos después and en cuanto.",
+  "speakingGoalJapaneseDraft": "あなたはルシアの友人エマで、AIはホテル・トゥリアの当番責任者ビセンテです。ルシアが8時10分に食べたもの、数分後に始まった症状、あなたが112番に電話した時点、救急隊員による処置と8時30分ごろの搬送を、時系列に沿って丁寧に説明してください。時刻が不明な箇所は推測せず『9時より前』と伝えてください。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "Current source follows Emma reporting Lucía's reaction timeline to duty manager Vicente at Hotel Turia in Valencia, Spain. It specifies almond flour in the cake, a sequence of symptoms, Emma's 112 call, responders' oxygen and ambulance transfer. The archived generic manager scene omits named actors, exact times, food and clinical sequence; it remains separate evidence. Clinical and locale wording needs qualified review.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "incident report",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "timeline",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "duty manager",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "symptoms",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "rash",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "difficulty breathing",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "emergency responders",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "ambulance",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "emergency call",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "about what time",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "after that",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "I saw",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "I heard",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "I do not know the exact time",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 15,
+      "candidate": null,
+      "oldEnglish": "itchy throat",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 16,
+      "candidate": null,
+      "oldEnglish": "hives",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 17,
+      "candidate": null,
+      "oldEnglish": "lip swelling",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 18,
+      "candidate": null,
+      "oldEnglish": "difficulty breathing",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 19,
+      "candidate": null,
+      "oldEnglish": "dizziness",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 20,
+      "candidate": null,
+      "oldEnglish": "allergic reaction",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "For the incident report, please tell me what you saw in order.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "At about 8:10, my friend ate a slice of breakfast cake.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "A few minutes later, she said her throat was itchy.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "That is what she told you. What else did you observe?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "After that, she had hives on her arms, her lips swelled, and she said she had difficulty breathing.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "I called local emergency services right away. I will check the record for the exact time.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "What happened after the responders arrived?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "She was very dizzy when responders arrived, then was taken to hospital by ambulance.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "I cannot determine the cause. I will verify and provide information about what she ate.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "Thank you. We will not guess uncertain times and will record only verified information.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "According to the kitchen, the cake contained almond flour.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 1,
+      "candidatePosition": 1,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 4,
+      "candidatePosition": 4,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 16,
+      "candidatePosition": 8,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 18,
+      "candidatePosition": 9,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 41,
+    "twoVoiceClipDecisionsIfTextApproved": 82,
+    "twoVoiceSubmittedCharactersIfTextApproved": 1902,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.05706,
+    "archivedExactJapaneseCardTextOverlapsOnly": 4,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Qualified Japanese and clinical reviewers must approve direct terms for itchy throat, lip swelling, hives, difficulty breathing, dizziness, oxygen administration and emergency-department transport without softening symptom severity.",
+    "112 is the emergency number in the pinned Valencia, Spain source scene. It is not a Japanese emergency-number instruction and needs locale framing before learner use.",
+    "The source says almond flour in the sponge cake and Lucía is allergic to nuts; a qualified food-allergy reviewer should confirm Japanese contextual wording and whether the source broad category needs annotation.",
+    "The waiter brought water and notified reception; the source does not say water treated an allergic reaction. Keep the action factual, not advice.",
+    "The operator's request not to leave Lucía alone and the responders' oxygen administration are reported events in the source, not general medical guidance.",
+    "The source timeline distinguishes 8:10 cake, symptoms minutes later, the 112 call after lip swelling, approximately 8:30 ambulance transport and an unspecified nurse call before 9; do not invent timestamps.",
+    "Confirm Vicente as duty manager, Emma as witness/friend, Lucía in room 312, Hotel Turia in Valencia, and the dining-room treatment location.",
+    "Archived generic manager scene has 20 cards and 11 Reader turns without stable row IDs; no positional saved-item or audio migration is authorized."
+  ],
+  "missing": [
+    "qualified Japanese/source/clinical/allergen/Spain locale/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "qualifiedReview": false,
+  "sourceGroundedSelfCheck": true,
+  "calls": [
+    {
+      "role": "Haiku 5.5 source-grounded authoring attempt",
+      "requestedModel": "claude-haiku-5-5",
+      "actualModel": null,
+      "outcome": "Claude CLI --safe-mode returned Not logged in; input_tokens 0, output_tokens 0, modelUsage {} and duration_api_ms 0. No candidate text was produced.",
+      "qualifiedApproval": false
+    }
+  ],
+  "correctionsAfterAICritique": [],
+  "independentSelfCheck": [
+    "Compared all 23 card source anchors and all 18 aligned Reader source rows in exact order against pinned current Master 14 source.",
+    "Preserved Coyoacán bakery, Daniel, Priya, Itzel, gluten-free sign on the wrong tray, wheat flour on the ingredient label, and the neighboring unmarked tray.",
+    "Kept Priya's ingestion as a near miss and potential illness as a counterfactual; no reaction or treatment is invented.",
+    "Kept Itzel's agreement to green trays in a separate area starting tomorrow as source scene prevention, not a guarantee of safety.",
+    "Archived generic draft remains trace evidence; no saved-item or audio migration is authorized."
+  ]
+}

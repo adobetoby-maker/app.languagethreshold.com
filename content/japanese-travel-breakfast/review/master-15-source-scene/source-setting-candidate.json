@@ -1,0 +1,797 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "master",
+  "lessonKey": "master:15",
+  "stableLessonId": "master-travel-breakfast:15:ja-en",
+  "candidateRevision": "master-travel-breakfast:15:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "curriculumVersion": 1,
+    "readerVersion": 1,
+    "curriculumReviewed": false,
+    "readerReviewed": false,
+    "titleEnglishInternal": "Fire Alarm During Hotel Breakfast",
+    "objectiveEnglishInternal": "Follow staff instructions, relay short clear commands to other guests, and phone reception from outside.",
+    "speakingEnglishInternal": "You are a hotel guest at breakfast, and the AI is staff member Julián, guest doña Fabiola and the receptionist: follow Julián, relay commands like ¡salgan por aquí! and ¡no usen el ascensor!, guide Fabiola out with si + present → future, and phone reception from outside.",
+    "grammarEnglishExamplesInternal": [
+      "If the alarm goes off again, we'll leave by the stairs.",
+      "Go out this way and don't use the elevator!"
+    ],
+    "readerTitleSpanish": "Alarma en el desayuno",
+    "readerVerbExamples": [
+      {
+        "target": "¡Salgan por aquí, por la salida de emergencia!",
+        "native": "Go out this way, through the emergency exit!"
+      },
+      {
+        "target": "¡No usen el ascensor!",
+        "native": "Don't use the elevator!"
+      },
+      {
+        "target": "Bajamos por las escaleras con doña Fabiola.",
+        "native": "We go down the stairs with doña Fabiola."
+      },
+      {
+        "target": "La alarma de incendios suena en todo el edificio.",
+        "native": "The fire alarm sounds throughout the building."
+      },
+      {
+        "target": "Llamo de la habitación 504.",
+        "native": "I'm calling from room 504."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/master-13-15-draft.json",
+    "sha256": "b96284b91ef41e4f8c73ad65e9c2ee6eb6d70734e3ee526cabf5b1ca1729ea84",
+    "scene": "During a hotel breakfast alarm, guests follow an evacuation guide to a designated outside assembly point and account for companions.",
+    "cardCount": 14,
+    "readerCount": 10
+  },
+  "sourceCards": [
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "la alarma de incendios",
+      "sourceEnglish": "the fire alarm",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "火災警報",
+      "literalJapaneseGlossEn": "the fire alarm",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "el humo",
+      "sourceEnglish": "the smoke",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "煙",
+      "literalJapaneseGlossEn": "the smoke",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "la salida de emergencia",
+      "sourceEnglish": "the emergency exit",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "非常口",
+      "literalJapaneseGlossEn": "the emergency exit",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "las escaleras",
+      "sourceEnglish": "the stairs",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "階段",
+      "literalJapaneseGlossEn": "the stairs",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "el ascensor",
+      "sourceEnglish": "the elevator",
+      "kind": "term",
+      "sourceNoteInternal": "Standard in Colombia; Mexico often says el elevador.",
+      "targetJapaneseDraft": "エレベーター",
+      "literalJapaneseGlossEn": "the elevator",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "el punto de encuentro",
+      "sourceEnglish": "the meeting point",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "集合場所",
+      "literalJapaneseGlossEn": "the meeting point",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "la evacuación",
+      "sourceEnglish": "the evacuation",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "避難",
+      "literalJapaneseGlossEn": "the evacuation",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "el extintor",
+      "sourceEnglish": "the fire extinguisher",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "消火器",
+      "literalJapaneseGlossEn": "the fire extinguisher",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "el detector de humo",
+      "sourceEnglish": "the smoke detector",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "煙感知器",
+      "literalJapaneseGlossEn": "the smoke detector",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "el brigadista",
+      "sourceEnglish": "the emergency team member",
+      "kind": "term",
+      "sourceNoteInternal": "Colombian word for staff trained in evacuations; a woman is la brigadista.",
+      "targetJapaneseDraft": "避難誘導係",
+      "literalJapaneseGlossEn": "the emergency team member",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "la falsa alarma",
+      "sourceEnglish": "the false alarm",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "誤報",
+      "literalJapaneseGlossEn": "the false alarm",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "la puerta cortafuego",
+      "sourceEnglish": "the fire door",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "防火扉",
+      "literalJapaneseGlossEn": "the fire door",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "el andén",
+      "sourceEnglish": "the sidewalk",
+      "kind": "term",
+      "sourceNoteInternal": "Colombian usage; in Mexico it's la banqueta.",
+      "targetJapaneseDraft": "歩道",
+      "literalJapaneseGlossEn": "the sidewalk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "la lista de huéspedes",
+      "sourceEnglish": "the guest list",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "宿泊客名簿",
+      "literalJapaneseGlossEn": "the guest list",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "afuera",
+      "sourceEnglish": "outside",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "外に",
+      "literalJapaneseGlossEn": "outside",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¡Salgan por aquí, por la salida de emergencia!",
+      "sourceEnglish": "Go out this way, through the emergency exit!",
+      "kind": "phrase",
+      "sourceNoteInternal": "Ustedes command to a group of guests.",
+      "targetJapaneseDraft": "皆さん、こちらの非常口から外へ出てください！",
+      "literalJapaneseGlossEn": "Go out this way, through the emergency exit!",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "¡No usen el ascensor, bajen por las escaleras!",
+      "sourceEnglish": "Don't use the elevator, go down the stairs!",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "エレベーターは使わず、階段を下りてください！",
+      "literalJapaneseGlossEn": "Don't use the elevator, go down the stairs!",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "Doña Fabiola, deje el café, por favor, y salgamos ya.",
+      "sourceEnglish": "Doña Fabiola, please leave the coffee and let's go out now.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal: usted with an older guest.",
+      "targetJapaneseDraft": "ファビオラさん、コーヒーは置いて、今すぐ一緒に外へ出ましょう。",
+      "literalJapaneseGlossEn": "Doña Fabiola, please leave the coffee and let's go out now.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:19",
+      "candidatePosition": 19,
+      "sourceSpanish": "Si salimos ya, después la invitaré a otro tinto.",
+      "sourceEnglish": "If we leave now, I'll buy you another coffee afterward.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal.",
+      "targetJapaneseDraft": "今出れば、後でコーヒーをもう一杯ごちそうします。",
+      "literalJapaneseGlossEn": "If we leave now, I'll buy you another coffee afterward.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:20",
+      "candidatePosition": 20,
+      "sourceSpanish": "Julián, ¿dónde queda el punto de encuentro?",
+      "sourceEnglish": "Julián, where is the meeting point?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "フリアンさん、集合場所はどこですか？",
+      "literalJapaneseGlossEn": "Julián, where is the meeting point?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:21",
+      "candidatePosition": 21,
+      "sourceSpanish": "Aló, ¿recepción? Llamo de la habitación 504; ya estamos afuera.",
+      "sourceEnglish": "Hello, reception? I'm calling from room 504; we're outside now.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Aló is how Colombians answer or open a phone call.",
+      "targetJapaneseDraft": "もしもし、フロントですか？504号室の者です。もう外に出ています。",
+      "literalJapaneseGlossEn": "Hello, reception? I'm calling from room 504; we're outside now.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:22",
+      "candidatePosition": 22,
+      "sourceSpanish": "Estamos en el andén, con doña Fabiola y dos huéspedes más.",
+      "sourceEnglish": "We're on the sidewalk, with doña Fabiola and two more guests.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "私たちは歩道にいます。ファビオラさんと、ほかの宿泊客二人も一緒です。",
+      "literalJapaneseGlossEn": "We're on the sidewalk, with doña Fabiola and two more guests.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:card:23",
+      "candidatePosition": 23,
+      "sourceSpanish": "Si suena otra vez, saldremos de inmediato.",
+      "sourceEnglish": "If it goes off again, we'll leave immediately.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "また警報が鳴ったら、すぐに外へ出ます。",
+      "literalJapaneseGlossEn": "If it goes off again, we'll leave immediately.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Durante el desayuno en el comedor del quinto piso del Hotel Candelaria, en Bogotá, una tostadora se quema y el humo llega hasta el techo.",
+      "sourceEnglish": "During breakfast in the fifth-floor dining room of the Hotel Candelaria, in Bogotá, a toaster burns and the smoke reaches the ceiling.",
+      "targetJapaneseDraft": "ボゴタのホテル・カンデラリアの5階の食堂で朝食中、トースターが焦げ、煙が天井まで届きました。",
+      "literalJapaneseGlossEn": "During breakfast in the fifth-floor dining room of the Hotel Candelaria, in Bogotá, a toaster burns and the smoke reaches the ceiling.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "El detector de humo se activa enseguida y suena la alarma de incendios en todo el edificio.",
+      "sourceEnglish": "The smoke detector goes off right away and the fire alarm sounds throughout the building.",
+      "targetJapaneseDraft": "煙感知器がすぐに作動し、建物全体に火災警報が鳴り響きました。",
+      "literalJapaneseGlossEn": "The smoke detector goes off right away and the fire alarm sounds throughout the building.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Julián, el brigadista del hotel, desconecta la tostadora y deja el extintor listo al lado del bufé, como indica el protocolo del hotel.",
+      "sourceEnglish": "Julián, the hotel's emergency team member, unplugs the toaster and keeps the fire extinguisher ready next to the buffet, as the hotel protocol says.",
+      "targetJapaneseDraft": "ホテルの避難誘導係フリアンはトースターの電源プラグを抜き、ホテルの手順に従って、ビュッフェの横に消火器を使えるように準備しました。",
+      "literalJapaneseGlossEn": "Julián, the hotel's emergency team member, unplugs the toaster and keeps the fire extinguisher ready next to the buffet, as the hotel protocol says.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Julián",
+      "sourceSpanish": "Julián: ¡Salgan por aquí, por la salida de emergencia!",
+      "sourceEnglish": "Julián: Go out this way, through the emergency exit!",
+      "targetJapaneseDraft": "フリアン：皆さん、こちらの非常口から外へ出てください！",
+      "literalJapaneseGlossEn": "Julián: Go out this way, through the emergency exit!",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Daniel, el huésped de la habitación 504, repite la orden para los turistas de la mesa del fondo: ¡No usen el ascensor, bajen por las escaleras!",
+      "sourceEnglish": "Daniel, the guest from room 504, repeats the order for the tourists at the back table: Don't use the elevator, go down the stairs!",
+      "targetJapaneseDraft": "504号室の宿泊客ダニエルは、奥のテーブルの観光客に指示を繰り返しました。エレベーターは使わず、階段を下りてください！",
+      "literalJapaneseGlossEn": "Daniel, the guest from room 504, repeats the order for the tourists at the back table: Don't use the elevator, go down the stairs!",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Doña Fabiola, una señora mayor, sigue sentada y dice que primero quiere terminar su café.",
+      "sourceEnglish": "Doña Fabiola, an older lady, stays seated and says she wants to finish her coffee first.",
+      "targetJapaneseDraft": "年配のファビオラさんは座ったまま、まずコーヒーを飲み終えたいと言いました。",
+      "literalJapaneseGlossEn": "Doña Fabiola, an older lady, stays seated and says she wants to finish her coffee first.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Doña Fabiola, deje el café, por favor, y salgamos ya.",
+      "sourceEnglish": "Daniel: Doña Fabiola, please leave the coffee and let's go out now.",
+      "targetJapaneseDraft": "ダニエル：ファビオラさん、コーヒーは置いて、今すぐ一緒に外へ出ましょう。",
+      "literalJapaneseGlossEn": "Daniel: Doña Fabiola, please leave the coffee and let's go out now.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Si salimos ya, después la invitaré a otro tinto.",
+      "sourceEnglish": "Daniel: If we leave now, I'll buy you another coffee afterward.",
+      "targetJapaneseDraft": "ダニエル：今出れば、後でコーヒーをもう一杯ごちそうします。",
+      "literalJapaneseGlossEn": "Daniel: If we leave now, I'll buy you another coffee afterward.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "Doña Fabiola sonríe, toma su bastón y camina con Daniel hacia la puerta cortafuego, que Julián cierra detrás de ellos.",
+      "sourceEnglish": "Doña Fabiola smiles, takes her cane and walks with Daniel toward the fire door, which Julián closes behind them.",
+      "targetJapaneseDraft": "ファビオラさんはほほえみ、杖を持ってダニエルと防火扉へ向かいました。フリアンは二人の後ろでその扉を閉めました。",
+      "literalJapaneseGlossEn": "Doña Fabiola smiles, takes her cane and walks with Daniel toward the fire door, which Julián closes behind them.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:reader:10",
+      "candidatePosition": 10,
+      "speaker": "Narrator",
+      "sourceSpanish": "En las escaleras, Daniel pregunta: Julián, ¿dónde queda el punto de encuentro?",
+      "sourceEnglish": "On the stairs, Daniel asks: Julián, where is the meeting point?",
+      "targetJapaneseDraft": "階段でダニエルは尋ねました。フリアンさん、集合場所はどこですか？",
+      "literalJapaneseGlossEn": "On the stairs, Daniel asks: Julián, where is the meeting point?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:reader:11",
+      "candidatePosition": 11,
+      "speaker": "Julián",
+      "sourceSpanish": "Julián: Queda en el andén, frente a la panadería de la esquina.",
+      "sourceEnglish": "Julián: It's on the sidewalk, in front of the bakery on the corner.",
+      "targetJapaneseDraft": "フリアン：角のパン屋の前の歩道です。",
+      "literalJapaneseGlossEn": "Julián: It's on the sidewalk, in front of the bakery on the corner.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:reader:12",
+      "candidatePosition": 12,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ya afuera, Daniel llama por celular a la recepción del hotel.",
+      "sourceEnglish": "Once outside, Daniel calls the hotel reception on his cell phone.",
+      "targetJapaneseDraft": "外に出ると、ダニエルは携帯電話でホテルのフロントに電話しました。",
+      "literalJapaneseGlossEn": "Once outside, Daniel calls the hotel reception on his cell phone.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:reader:13",
+      "candidatePosition": 13,
+      "speaker": "Narrator",
+      "sourceSpanish": "La recepcionista, Carolina, revisa la lista de huéspedes para confirmar que nadie siga adentro.",
+      "sourceEnglish": "The receptionist, Carolina, checks the guest list to confirm that nobody is still inside.",
+      "targetJapaneseDraft": "フロント係のカロリナは、まだ中にいる人がいないか確認するため、宿泊客名簿を調べました。",
+      "literalJapaneseGlossEn": "The receptionist, Carolina, checks the guest list to confirm that nobody is still inside.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:reader:14",
+      "candidatePosition": 14,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Aló, ¿recepción? Llamo de la habitación 504; ya estamos afuera.",
+      "sourceEnglish": "Daniel: Hello, reception? I'm calling from room 504; we're outside now.",
+      "targetJapaneseDraft": "ダニエル：もしもし、フロントですか？504号室の者です。もう外に出ています。",
+      "literalJapaneseGlossEn": "Daniel: Hello, reception? I'm calling from room 504; we're outside now.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:reader:15",
+      "candidatePosition": 15,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Estamos en el andén, con doña Fabiola y dos huéspedes más.",
+      "sourceEnglish": "Daniel: We're on the sidewalk, with doña Fabiola and two more guests.",
+      "targetJapaneseDraft": "ダニエル：私たちは歩道にいます。ファビオラさんと、ほかの宿泊客二人も一緒です。",
+      "literalJapaneseGlossEn": "Daniel: We're on the sidewalk, with doña Fabiola and two more guests.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:reader:16",
+      "candidatePosition": 16,
+      "speaker": "Carolina",
+      "sourceSpanish": "Carolina: No es una falsa alarma, así que esperen en el punto de encuentro hasta que los bomberos revisen el comedor.",
+      "sourceEnglish": "Carolina: It isn't a false alarm, so wait at the meeting point until the firefighters check the dining room.",
+      "targetJapaneseDraft": "カロリナ：誤報ではありません。消防士が食堂を確認するまで、集合場所で待ってください。",
+      "literalJapaneseGlossEn": "Carolina: It isn't a false alarm, so wait at the meeting point until the firefighters check the dining room.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:reader:17",
+      "candidatePosition": 17,
+      "speaker": "Carolina",
+      "sourceSpanish": "Carolina: Si los bomberos lo autorizan, la evacuación terminará pronto y ustedes podrán volver a sus habitaciones.",
+      "sourceEnglish": "Carolina: If the firefighters allow it, the evacuation will end soon and you will be able to go back to your rooms.",
+      "targetJapaneseDraft": "カロリナ：消防士の許可が出れば、避難はまもなく終わり、皆さんは客室に戻れます。",
+      "literalJapaneseGlossEn": "Carolina: If the firefighters allow it, the evacuation will end soon and you will be able to go back to your rooms.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:15:ja-en:source-scene-v1:reader:18",
+      "candidatePosition": 18,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Si suena otra vez, saldremos de inmediato.",
+      "sourceEnglish": "Daniel: If it goes off again, we'll leave immediately.",
+      "targetJapaneseDraft": "ダニエル：また警報が鳴ったら、すぐに外へ出ます。",
+      "literalJapaneseGlossEn": "Daniel: If it goes off again, we'll leave immediately.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Practice concise Japanese group evacuation commands, respectful help to an older guest, and an outside status call to hotel reception while retaining Colombian source details.",
+  "speakingGoalInternal": "You are a hotel guest at breakfast, and the AI is staff member Julián, guest doña Fabiola and the receptionist: follow Julián, relay commands like ¡salgan por aquí! and ¡no usen el ascensor!, guide Fabiola out with si + present → future, and phone reception from outside.",
+  "speakingGoalJapaneseDraft": "ホテルの朝食中の火災警報で、あなたは504号室の宿泊客ダニエルです。避難誘導係フリアンの指示に従い、ほかの客に非常口と階段への短い指示を伝え、年配のファビオラさんと外へ出て、歩道からフロント係カロリナに電話で現在地と同行者を報告します。警報が再び鳴る場合の行動も伝えます。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "Current source follows Daniel, Julián, doña Fabiola and Carolina through a real fire alarm at Hotel Candelaria in Bogotá. The archived generic evacuation scene omits the toaster, fifth-floor dining room, room 504, named actors, cane, and reception call. It remains separate evidence; Colombian safety and locale terminology require qualified review.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "fire alarm",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "smoke",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "emergency exit",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "stairs",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "elevator",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "meeting point",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "evacuation",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "staff member",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "fire responders",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "room number",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "to confirm",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "this way",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "we are outside",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "please do not return",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "The fire alarm is sounding. Please follow the evacuation directions.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Everyone, please listen to staff. The emergency exit is this way.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Do not use the elevator; proceed to the stairs staff indicate.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Someone needs help moving. I will tell staff.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Understood. We will follow the evacuation plan.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Where is the meeting point?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "It is the designated area outside the building. Please proceed this way.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "We are outside. My two companions are with me.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Please tell me your room number and current location. Do not return until fire responders clear it.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "I am in room 504. We are waiting at the designated meeting point.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 1,
+      "candidatePosition": 1,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 2,
+      "candidatePosition": 2,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 3,
+      "candidatePosition": 3,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 4,
+      "candidatePosition": 4,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 5,
+      "candidatePosition": 5,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 6,
+      "candidatePosition": 6,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 7,
+      "candidatePosition": 7,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 41,
+    "twoVoiceClipDecisionsIfTextApproved": 82,
+    "twoVoiceSubmittedCharactersIfTextApproved": 1884,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.05652,
+    "archivedExactJapaneseCardTextOverlapsOnly": 7,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Qualified Japanese and Colombian locale review must decide how to represent brigadista without implying a firefighter or emergency-service credential.",
+    "Source uses doña Fabiola and a formal usted command; Japanese honorific choices require native review while retaining the named guest and respectful register.",
+    "Source Colombian tinto means a small black coffee here; Japanese generic coffee draft loses that regional nuance and needs a dictionary note.",
+    "Source Colombian andén means sidewalk; Japanese 歩道 must be checked in the location scene.",
+    "Fire door, fire extinguisher, smoke detector and evacuation terminology need qualified fire-safety and dictionary review; packet is not safety instruction.",
+    "The source says Carolina confirms this is not a false alarm and directs guests to wait until firefighters check the dining room; do not replace this with clearance to reenter.",
+    "Archived generic 14-card/10-turn evacuation draft has different sequence and lacks source details; no row or saved-item migration is authorized.",
+    "Six authored mode prompt/target pairs, source-aligned forms and audio exact-text listening remain open."
+  ],
+  "missing": [
+    "qualified Japanese/source/Colombian locale/fire safety/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

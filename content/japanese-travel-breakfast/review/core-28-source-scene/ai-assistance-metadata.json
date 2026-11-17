@@ -1,0 +1,78 @@
+{
+  "status": "source-grounded Haiku 5.5 candidate, Opus 5.5 read-only critique, Fable 5.2 read-only correction, then independent self-check; no qualified approval",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Initial safe-mode Haiku, unusable tool-format response",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "20667bb9-9d15-496b-bbf1-46ec21e5d70d",
+      "terminalReason": "completed",
+      "isError": false,
+      "inputTokens": 2,
+      "cacheCreationInputTokens": 3536,
+      "cacheReadInputTokens": 649,
+      "outputTokens": 1077,
+      "costUSD": 0.00125239
+    },
+    {
+      "role": "Requested Haiku, actual Sonnet candidate not selected",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-sonnet-5-5",
+      "sessionId": "375f6c85-5c51-49ec-aefb-a0b05cd438f9",
+      "terminalReason": "completed",
+      "isError": false,
+      "inputTokens": 2,
+      "cacheCreationInputTokens": 10970,
+      "cacheReadInputTokens": 11370,
+      "outputTokens": 3569,
+      "costUSD": 0.080711
+    },
+    {
+      "role": "Safe-mode Haiku source-grounded candidate authoring",
+      "requestedModel": "claude-haiku-5-5",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "993adb15-c544-4d85-9ef4-19df833cb22a",
+      "terminalReason": "completed",
+      "isError": false,
+      "inputTokens": 2,
+      "cacheCreationInputTokens": 9677,
+      "cacheReadInputTokens": 13343,
+      "outputTokens": 5316,
+      "costUSD": 0.00472703
+    },
+    {
+      "role": "Safe-mode Opus read-only critique",
+      "requestedModel": "claude-opus-5-5",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "727398b0-96cf-46e2-9f1f-441b0e42e69f",
+      "terminalReason": "completed",
+      "isError": false,
+      "inputTokens": 2,
+      "cacheCreationInputTokens": 11971,
+      "cacheReadInputTokens": 12500,
+      "outputTokens": 3782,
+      "costUSD": 0.17391600000000002
+    },
+    {
+      "role": "Safe-mode Fable read-only correction",
+      "requestedModel": "claude-fable-5-2",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "7375c91c-da52-4e40-8027-b68343492348",
+      "terminalReason": "completed",
+      "isError": false,
+      "inputTokens": 2,
+      "cacheCreationInputTokens": 13853,
+      "cacheReadInputTokens": 13974,
+      "outputTokens": 5027,
+      "costUSD": 0.4255388
+    }
+  ],
+  "selfCheck": [
+    "Compared all 18 cards and eight Reader turns against exact pinned English/Spanish source in source order; kept Don Ramón, Canada, two weeks, forty years, plaza school, Saturday pan dulce, downtown museum, bill payment and farewell.",
+    "Corrected Haiku card coffee from spurious カフェシート to コーヒー; corrected neighbor and Mexican sweet bread descriptions, and removed unnatural あなた from farewell.",
+    "Adopted Fable-supported Reader 7 what-question correction. Held Opus style rewrites that might shift alignment; recorded 市場 physical-market reading and register/food/title questions for qualified review.",
+    "Did not invent a Reader turn for the source-only what-do-you-do-for-a-living card, nor reuse archived park/station/early-closing facts.",
+    "Archived row positions and exact-text overlap authorize neither saved-item migration nor audio reuse. All review, learner, audio/listening, progress, owner-route and V4 gates remain false."
+  ]
+}

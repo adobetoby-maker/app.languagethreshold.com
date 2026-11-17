@@ -1,0 +1,757 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "master",
+  "lessonKey": "master:2",
+  "stableLessonId": "master-travel-breakfast:2:ja-en",
+  "candidateRevision": "master-travel-breakfast:2:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "readerSourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Explain Media or Entera at a Seville Tostada Bar",
+    "objectiveEnglishInternal": "Explain how tostadas are ordered by bread type, size and topping, and why locals choose each one.",
+    "speakingEnglishInternal": "You are explaining Seville's tostada system to the AI, hostel roommate Ingrid: walk her through bread type, size and toppings and why locals choose each, using impersonal se (se pide media o entera) and si + present (si pides mollete…).",
+    "readerTitleSpanish": "Media o entera en Triana",
+    "readerVerbExamples": [
+      {
+        "target": "Aquí se pide media o entera.",
+        "native": "Here you order a half or a whole."
+      },
+      {
+        "target": "Si tienes mucha hambre, pide una entera.",
+        "native": "If you're really hungry, order a whole one."
+      },
+      {
+        "target": "Mucha gente prefiere el pan de viena.",
+        "native": "A lot of people prefer the Vienna roll."
+      },
+      {
+        "target": "Si no comes cerdo, evita la manteca colorá.",
+        "native": "If you don't eat pork, avoid the manteca colorá."
+      },
+      {
+        "target": "Le explico a Ingrid cómo se piden las tostadas.",
+        "native": "I explain to Ingrid how tostadas are ordered."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/master-1-3-draft.json",
+    "sha256": "84b7673fc72175428d48dbf211b41be75b7dac31320c7c82e708ab1c9803d224",
+    "scene": "A traveler helps a friend understand a café’s bread menu without assuming ingredients.",
+    "cardCount": 15,
+    "readerCount": 10
+  },
+  "sourceCards": [
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "la media",
+      "sourceEnglish": "the half (half-roll toast)",
+      "kind": "term",
+      "sourceNoteInternal": "Seville: half a roll, toasted with a topping.",
+      "targetJapaneseDraft": "メディア（パン半分のトースト）",
+      "literalJapaneseGlossEn": "the half (half-roll toast)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "la entera",
+      "sourceEnglish": "the whole (whole-roll toast)",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "エンテラ（パン丸ごとのトースト）",
+      "literalJapaneseGlossEn": "the whole (whole-roll toast)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "el mollete",
+      "sourceEnglish": "the mollete (soft flat roll)",
+      "kind": "term",
+      "sourceNoteInternal": "Andalusian soft roll, typical for tostadas.",
+      "targetJapaneseDraft": "モジェテ（やわらかくて平たいパン）",
+      "literalJapaneseGlossEn": "the mollete (soft flat roll)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "el pan de viena",
+      "sourceEnglish": "the Vienna-style roll",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "パン・デ・ビエナ（ウィーン風の小型パン）",
+      "literalJapaneseGlossEn": "the Vienna-style roll",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "el pitufo",
+      "sourceEnglish": "the small roll",
+      "kind": "term",
+      "sourceNoteInternal": "Andalusian name for a small bread roll.",
+      "targetJapaneseDraft": "ピトゥフォ（小さなパン）",
+      "literalJapaneseGlossEn": "the small roll",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "el pan de la casa",
+      "sourceEnglish": "the house bread",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "お店のパン",
+      "literalJapaneseGlossEn": "the house bread",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "el aceite de oliva",
+      "sourceEnglish": "the olive oil",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "オリーブオイル",
+      "literalJapaneseGlossEn": "the olive oil",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "el tomate rallado",
+      "sourceEnglish": "the grated tomato",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "すりおろしトマト",
+      "literalJapaneseGlossEn": "the grated tomato",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "el jamón serrano",
+      "sourceEnglish": "the cured ham",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "生ハム（ハモン・セラーノ）",
+      "literalJapaneseGlossEn": "the cured ham",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "la manteca colorá",
+      "sourceEnglish": "the red pork-lard spread",
+      "kind": "term",
+      "sourceNoteInternal": "Andalusian spread with paprika; colorá is the local form of colorada.",
+      "targetJapaneseDraft": "赤い豚のラードのスプレッド（マンテカ・コロラ）",
+      "literalJapaneseGlossEn": "the red pork-lard spread",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "la zurrapa de lomo",
+      "sourceEnglish": "the pork loin in lard spread",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "豚ロース入りのラードのスプレッド（スラパ・デ・ロモ）",
+      "literalJapaneseGlossEn": "the pork loin in lard spread",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "la miga",
+      "sourceEnglish": "the soft inside of the bread",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "パンのやわらかい中身（ミガ）",
+      "literalJapaneseGlossEn": "the soft inside of the bread",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "la corteza",
+      "sourceEnglish": "the crust",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "パンの皮（外側）",
+      "literalJapaneseGlossEn": "the crust",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "el tueste",
+      "sourceEnglish": "the toasting (how toasted it is)",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "焼き加減（トーストの度合い）",
+      "literalJapaneseGlossEn": "the toasting (how toasted it is)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "el salero",
+      "sourceEnglish": "the salt shaker",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "塩入れ",
+      "literalJapaneseGlossEn": "the salt shaker",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "Aquí se pide media o entera, según el hambre que tengas.",
+      "sourceEnglish": "Here you order a half or a whole, depending on how hungry you are.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal, to your roommate.",
+      "targetJapaneseDraft": "ここでは、おなかの空き具合に合わせて、メディア（半分）かエンテラ（丸ごと）を頼むんだよ。",
+      "literalJapaneseGlossEn": "Here you order a half or a whole, depending on how hungry you are.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Si pides mollete, el pan queda tierno por dentro.",
+      "sourceEnglish": "If you order a mollete, the bread stays soft inside.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "モジェテを頼むと、パンの中はやわらかいままだよ。",
+      "literalJapaneseGlossEn": "If you order a mollete, the bread stays soft inside.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "Si tienes mucha hambre, pide una entera.",
+      "sourceEnglish": "If you're really hungry, order a whole one.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Hambre is feminine: mucha hambre.",
+      "targetJapaneseDraft": "すごくおなかが空いているなら、エンテラを頼んでね。",
+      "literalJapaneseGlossEn": "If you're really hungry, order a whole one.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:19",
+      "candidatePosition": 19,
+      "sourceSpanish": "Si no comes cerdo, evita la manteca colorá y la zurrapa.",
+      "sourceEnglish": "If you don't eat pork, avoid the manteca colorá and the zurrapa.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "豚肉を食べないなら、マンテカ・コロラとスラパは避けてね。",
+      "literalJapaneseGlossEn": "If you don't eat pork, avoid the manteca colorá and the zurrapa.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:20",
+      "candidatePosition": 20,
+      "sourceSpanish": "Perdone, ¿el pan de la casa es mollete o de viena?",
+      "sourceEnglish": "Excuse me, is the house bread a mollete or a Vienna roll?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal, to the owner.",
+      "targetJapaneseDraft": "すみません、お店のパンはモジェテですか、それともパン・デ・ビエナですか。",
+      "literalJapaneseGlossEn": "Excuse me, is the house bread a mollete or a Vienna roll?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:21",
+      "candidatePosition": 21,
+      "sourceSpanish": "Gracias por corregirme, no lo sabía.",
+      "sourceEnglish": "Thanks for correcting me, I didn't know that.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "訂正してくださってありがとうございます。知りませんでした。",
+      "literalJapaneseGlossEn": "Thanks for correcting me, I didn't know that.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:22",
+      "candidatePosition": 22,
+      "sourceSpanish": "Para mí, media de tomate con aceite, por favor.",
+      "sourceEnglish": "For me, a half with tomato and oil, please.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "私は、トマトとオイルのメディア（半分）をお願いします。",
+      "literalJapaneseGlossEn": "For me, a half with tomato and oil, please.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:card:23",
+      "candidatePosition": 23,
+      "sourceSpanish": "¿Cómo se pide aquí si la quiero poco tostada?",
+      "sourceEnglish": "How do you order it here if I want it lightly toasted?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "軽めに焼いてほしいときは、ここではどう頼めばいいですか。",
+      "literalJapaneseGlossEn": "How do you order it here if I want it lightly toasted?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Esta mañana, en un bar de tostadas de Triana, le explico a Ingrid cómo se piden las tostadas en Sevilla.",
+      "sourceEnglish": "This morning, at a tostada bar in Triana, I explain to Ingrid how tostadas are ordered in Seville.",
+      "targetJapaneseDraft": "今朝、トリアナにあるトスターダ（トースト）のバルで、セビリアでのトスターダの頼み方をイングリッドに説明します。",
+      "literalJapaneseGlossEn": "This morning, at a tostada bar in Triana, I explain to Ingrid how tostadas are ordered in Seville.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Yo: Aquí se pide primero el pan y luego lo que lleva encima.",
+      "sourceEnglish": "Me: Here you order the bread first and then the topping.",
+      "targetJapaneseDraft": "私：ここでは、先にパンを頼んで、そのあと上にのせるものを頼むんだよ。",
+      "literalJapaneseGlossEn": "Me: Here you order the bread first and then the topping.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Yo: Aquí se pide media o entera, según el hambre que tengas.",
+      "sourceEnglish": "Me: Here you order a half or a whole, depending on how hungry you are.",
+      "targetJapaneseDraft": "私：ここでは、おなかの空き具合に合わせて、メディア（半分）かエンテラ（丸ごと）を頼むんだよ。",
+      "literalJapaneseGlossEn": "Me: Here you order a half or a whole, depending on how hungry you are.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Yo: Si tienes mucha hambre, pide una entera.",
+      "sourceEnglish": "Me: If you're really hungry, order a whole one.",
+      "targetJapaneseDraft": "私：すごくおなかが空いているなら、エンテラを頼んでね。",
+      "literalJapaneseGlossEn": "Me: If you're really hungry, order a whole one.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Yo: Si pides mollete, el pan queda tierno por dentro, porque tiene mucha miga.",
+      "sourceEnglish": "Me: If you order a mollete, the bread stays soft inside, because it has a lot of soft crumb.",
+      "targetJapaneseDraft": "私：モジェテを頼むと、パンの中はやわらかいままだよ。中身（ミガ）がたっぷりあるからね。",
+      "literalJapaneseGlossEn": "Me: If you order a mollete, the bread stays soft inside, because it has a lot of soft crumb.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Yo: El pan de viena tiene la corteza más fina y crujiente, y mucha gente lo prefiere por eso.",
+      "sourceEnglish": "Me: The Vienna roll has a thinner, crunchier crust, and a lot of people prefer it for that reason.",
+      "targetJapaneseDraft": "私：パン・デ・ビエナのほうが皮が薄くてカリッとしているから、そっちを好む人が多いんだ。",
+      "literalJapaneseGlossEn": "Me: The Vienna roll has a thinner, crunchier crust, and a lot of people prefer it for that reason.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Yo: Si pides pitufo, te traen un pan más pequeño, perfecto para acompañar un café.",
+      "sourceEnglish": "Me: If you order a pitufo, they bring you a smaller roll, perfect to go with a coffee.",
+      "targetJapaneseDraft": "私：ピトゥフォを頼むと、小さめのパンが出てくるよ。コーヒーのお供にぴったりだよ。",
+      "literalJapaneseGlossEn": "Me: If you order a pitufo, they bring you a smaller roll, perfect to go with a coffee.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Yo: Creo que el pan de la casa es mollete, pero voy a preguntar.",
+      "sourceEnglish": "Me: I think the house bread is a mollete, but I'm going to ask.",
+      "targetJapaneseDraft": "私：お店のパンはモジェテだと思うけど、聞いてみるね。",
+      "literalJapaneseGlossEn": "Me: I think the house bread is a mollete, but I'm going to ask.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "Le digo a la dueña: Perdone, ¿el pan de la casa es mollete o de viena?",
+      "sourceEnglish": "I say to the owner: Excuse me, is the house bread a mollete or a Vienna roll?",
+      "targetJapaneseDraft": "私は店主の女性に言います。「すみません、お店のパンはモジェテですか、それともパン・デ・ビエナですか。」",
+      "literalJapaneseGlossEn": "I say to the owner: Excuse me, is the house bread a mollete or a Vienna roll?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:reader:10",
+      "candidatePosition": 10,
+      "speaker": "Narrator",
+      "sourceSpanish": "Rocío: El pan de la casa es de viena, y el mollete se pide aparte.",
+      "sourceEnglish": "Rocío: The house bread is a Vienna roll, and the mollete is ordered separately.",
+      "targetJapaneseDraft": "ロシオ：うちのパンはパン・デ・ビエナで、モジェテは別注文になります。",
+      "literalJapaneseGlossEn": "Rocío: The house bread is a Vienna roll, and the mollete is ordered separately.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:reader:11",
+      "candidatePosition": 11,
+      "speaker": "Narrator",
+      "sourceSpanish": "Yo: Gracias por corregirme, no lo sabía.",
+      "sourceEnglish": "Me: Thanks for correcting me, I didn't know that.",
+      "targetJapaneseDraft": "私：訂正してくださってありがとうございます。知りませんでした。",
+      "literalJapaneseGlossEn": "Me: Thanks for correcting me, I didn't know that.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:reader:12",
+      "candidatePosition": 12,
+      "speaker": "Narrator",
+      "sourceSpanish": "Luego le cuento a Ingrid que lo más típico es el tomate rallado con un buen chorro de aceite de oliva, porque es ligero y fresco.",
+      "sourceEnglish": "Then I tell Ingrid that the most typical choice is grated tomato with a good drizzle of olive oil, because it is light and fresh.",
+      "targetJapaneseDraft": "それからイングリッドに、いちばんの定番はすりおろしトマトにオリーブオイルをたっぷりかけたもので、軽くてさっぱりしているからだと話します。",
+      "literalJapaneseGlossEn": "Then I tell Ingrid that the most typical choice is grated tomato with a good drizzle of olive oil, because it is light and fresh.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:reader:13",
+      "candidatePosition": 13,
+      "speaker": "Narrator",
+      "sourceSpanish": "Yo: La manteca colorá es manteca de cerdo con pimentón, y la zurrapa de lomo lleva trocitos de lomo en manteca.",
+      "sourceEnglish": "Me: Manteca colorá is pork lard with paprika, and zurrapa de lomo has little pieces of pork loin in lard.",
+      "targetJapaneseDraft": "私：マンテカ・コロラはパプリカ（ピメントン）入りの豚のラードで、スラパ・デ・ロモはラードの中に豚ロースの小さなかけらが入っているんだ。",
+      "literalJapaneseGlossEn": "Me: Manteca colorá is pork lard with paprika, and zurrapa de lomo has little pieces of pork loin in lard.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:reader:14",
+      "candidatePosition": 14,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ingrid me dice que no come cerdo, y le explico que el jamón serrano también es de cerdo.",
+      "sourceEnglish": "Ingrid tells me she doesn't eat pork, and I explain that cured ham is pork too.",
+      "targetJapaneseDraft": "イングリッドが豚肉は食べないと言い、私は生ハムも豚肉だと説明します。",
+      "literalJapaneseGlossEn": "Ingrid tells me she doesn't eat pork, and I explain that cured ham is pork too.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:reader:15",
+      "candidatePosition": 15,
+      "speaker": "Narrator",
+      "sourceSpanish": "Yo: Si no comes cerdo, evita la manteca colorá y la zurrapa.",
+      "sourceEnglish": "Me: If you don't eat pork, avoid the manteca colorá and the zurrapa.",
+      "targetJapaneseDraft": "私：豚肉を食べないなら、マンテカ・コロラとスラパは避けてね。",
+      "literalJapaneseGlossEn": "Me: If you don't eat pork, avoid the manteca colorá and the zurrapa.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:reader:16",
+      "candidatePosition": 16,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ingrid: ¿Cómo se pide aquí si la quiero poco tostada?",
+      "sourceEnglish": "Ingrid: How do you order it here if I want it lightly toasted?",
+      "targetJapaneseDraft": "イングリッド：軽めに焼いてほしいときは、ここではどう頼めばいいですか。",
+      "literalJapaneseGlossEn": "Ingrid: How do you order it here if I want it lightly toasted?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:reader:17",
+      "candidatePosition": 17,
+      "speaker": "Narrator",
+      "sourceSpanish": "Rocío: Se pide con poco tueste, y se la sacamos más blandita.",
+      "sourceEnglish": "Rocío: You order it with light toasting, and we bring it out to you softer.",
+      "targetJapaneseDraft": "ロシオ：「軽めの焼き加減で」と頼んでいただければ、少しやわらかめにしてお出しします。",
+      "literalJapaneseGlossEn": "Rocío: You order it with light toasting, and we bring it out to you softer.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:2:ja-en:source-scene-v1:reader:18",
+      "candidatePosition": 18,
+      "speaker": "Narrator",
+      "sourceSpanish": "Al final, Ingrid pide media de tomate con aceite y poco tueste, y Rocío le deja el salero en la mesa.",
+      "sourceEnglish": "In the end, Ingrid orders a half with tomato and oil, lightly toasted, and Rocío leaves the salt shaker on the table for her.",
+      "targetJapaneseDraft": "最後に、イングリッドはトマトとオイルのメディア（半分）を軽めの焼き加減で注文し、ロシオはテーブルに塩入れを置いていってくれます。",
+      "literalJapaneseGlossEn": "In the end, Ingrid orders a half with tomato and oil, lightly toasted, and Rocío leaves the salt shaker on the table for her.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Explain Seville tostada bread, size, topping and pork ingredients to Ingrid, correct the house-bread assumption with owner Rocío, then order lightly toasted half tomato and oil.",
+  "speakingGoalInternal": "You are explaining Seville's tostada system to the AI, hostel roommate Ingrid: walk her through bread type, size and toppings and why locals choose each, using impersonal se (se pide media o entera) and si + present (si pides mollete…).",
+  "speakingGoalJapaneseDraft": "AIが演じるホステルのルームメイト、イングリッドに、セビリアのトスターダ（トースト）の頼み方を説明しましょう。パンの種類、サイズ、トッピングを順に案内し、地元の人がそれぞれを選ぶ理由も伝えます。スペイン語の非人称 se（se pide media o entera）と si＋現在形（si pides mollete…）の出典上の焦点は、追加の日本語文法指導として未承認です。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "Current 18-turn source takes a Triana teach-back through half/whole, mollete, Vienna roll, pitufo and toppings; owner Rocío corrects the house-bread assumption, Ingrid avoids pork, then orders a lightly toasted half with tomato and oil. Archived generic 10-turn scene omits these named breads, pork-ingredient distinctions, correction and final order; it remains separate evidence, not a replacement or migration source.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "bread type",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "the smaller one",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "the larger one",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "half",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "one whole item",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "toast",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "topping",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "butter",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "jam",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "ingredients",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "preparation method",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "vary by shop",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "If you want the smaller one, it is this one",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "What is in the topping?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 15,
+      "candidate": null,
+      "oldEnglish": "Could you check the ingredients?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "It looks like you can choose the bread size and topping separately.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Which one is smaller?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "The menu shows this one. But let us confirm with staff.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "This is the small size, and that is the large size.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Which toppings can we choose?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "We have butter and jam. Please see today’s menu for others.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "I avoid dairy. Can you check the ingredients?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "I will answer after checking with the kitchen.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "If it cannot be verified, we should not choose that bread.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "Understood. I will check size, topping and ingredients in that order.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 41,
+    "twoVoiceClipDecisionsIfTextApproved": 82,
+    "twoVoiceSubmittedCharactersIfTextApproved": 2424,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.07272,
+    "archivedExactJapaneseCardTextOverlapsOnly": 0,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows lack explicit stable IDs and were not learner-registered. Revision-scoped candidate IDs do not authorize saved-item or audio migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Qualified Japanese, Andalusian food, pork-ingredient, locale and contextual dictionary review remains open; this packet is unapproved and not learner-visible.",
+    "The source teaches Spanish impersonal se and si + present; Japanese renders the communicative purpose rather than claiming a direct grammar equivalent.",
+    "Media and entera are Spanish size names. Candidate Japanese uses メディア（半分） and エンテラ; a Japanese reviewer should check transliteration and first-use support.",
+    "Mollete, pan de viena, pitufo, manteca colorá and zurrapa de lomo require Andalusian food-name and Japanese transliteration review. The draft uses モジェテ, パン・デ・ビエナ, ピトゥフォ, マンテカ・コロラ and スラパ・デ・ロモ.",
+    "The pork-lard spreads and jamón serrano remain explicitly pork. 生ハム is a draft Japanese equivalent for cured ham; dictionary context still needs review.",
+    "Rocío is the female café owner; Ingrid is the hostel roommate. The house bread is corrected to pan de viena, and mollete is ordered separately. Japanese guest/owner register needs fluent review.",
+    "Tostada can imply another dish in Japanese. A first-use トースト gloss is a draft teaching aid, not a qualified terminology decision.",
+    "Archived card and Reader positions have no explicit stable row IDs. Candidate revision IDs do not authorize saved-item or audio migration.",
+    "No six authored modes, contextual forms, dictionary senses, full speaking setup, exact-text audio, listening approval, learner registration, offline pack or V4 import is supplied."
+  ],
+  "missing": [
+    "qualified Japanese/source/Andalusian-food/pork/locale/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

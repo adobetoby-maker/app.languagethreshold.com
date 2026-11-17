@@ -1,0 +1,754 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "master",
+  "lessonKey": "master:5",
+  "stableLessonId": "master-travel-breakfast:5:ja-en",
+  "candidateRevision": "master-travel-breakfast:5:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "readerSourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Breakfast Room Closed: Propose a Fair Alternative",
+    "objectiveEnglishInternal": "Explain what the booking promised and what you found, then propose a reasonable breakfast alternative.",
+    "speakingEnglishInternal": "You are a hotel guest, and the AI is Yesenia, the receptionist in Cartagena: explain what your booking included and what you found this morning with the preterite and imperfect (bajé, estaba cerrada), then propose a fair alternative with ¿sería posible…?",
+    "readerTitleSpanish": "Terraza cerrada en Cartagena",
+    "readerVerbExamples": [
+      {
+        "target": "La reserva incluye desayuno en la terraza.",
+        "native": "The booking includes breakfast on the terrace."
+      },
+      {
+        "target": "Bajo a desayunar a las 8.",
+        "native": "I go down to have breakfast at 8."
+      },
+      {
+        "target": "Yesenia consulta el caso con la administración.",
+        "native": "Yesenia checks the case with the management."
+      },
+      {
+        "target": "¿Me descuentan el desayuno de la cuenta?",
+        "native": "Will you take the breakfast off my bill?"
+      },
+      {
+        "target": "Le ofrecemos un descuento por el inconveniente.",
+        "native": "We're offering you a discount for the inconvenience."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/master-4-6-draft.json",
+    "sha256": "62e2ec4a86b1639f04241a0312acd3a6e06cb430950ec379964856d6d6fd5004",
+    "scene": "A guest calmly discusses an unexpectedly closed hotel breakfast room with the front-desk clerk.",
+    "cardCount": 14,
+    "readerCount": 10
+  },
+  "sourceCards": [
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "el vale",
+      "sourceEnglish": "the voucher",
+      "kind": "term",
+      "sourceNoteInternal": "Colombian hotels also say el bono for a voucher.",
+      "targetJapaneseDraft": "バウチャー（引換券）",
+      "literalJapaneseGlossEn": "the voucher",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "las reparaciones",
+      "sourceEnglish": "the repairs",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "修理工事",
+      "literalJapaneseGlossEn": "the repairs",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "el aviso",
+      "sourceEnglish": "the notice",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "お知らせ",
+      "literalJapaneseGlossEn": "the notice",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "el cierre temporal",
+      "sourceEnglish": "the temporary closure",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "一時閉鎖",
+      "literalJapaneseGlossEn": "the temporary closure",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "el reembolso",
+      "sourceEnglish": "the refund",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "返金",
+      "literalJapaneseGlossEn": "the refund",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "el descuento",
+      "sourceEnglish": "the discount",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "割引",
+      "literalJapaneseGlossEn": "the discount",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "la compensación",
+      "sourceEnglish": "the compensation",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "補償",
+      "literalJapaneseGlossEn": "the compensation",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "el café de al lado",
+      "sourceEnglish": "the café next door",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "隣のカフェ",
+      "literalJapaneseGlossEn": "the café next door",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "la alternativa",
+      "sourceEnglish": "the alternative",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "代替案",
+      "literalJapaneseGlossEn": "the alternative",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "el inconveniente",
+      "sourceEnglish": "the inconvenience",
+      "kind": "term",
+      "sourceNoteInternal": "Polite, common word for a problem in Colombian service Spanish.",
+      "targetJapaneseDraft": "ご不便",
+      "literalJapaneseGlossEn": "the inconvenience",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "la plataforma de reservas",
+      "sourceEnglish": "the booking platform",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "予約サイト",
+      "literalJapaneseGlossEn": "the booking platform",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "las condiciones",
+      "sourceEnglish": "the terms",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "予約条件",
+      "literalJapaneseGlossEn": "the terms",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "el valor",
+      "sourceEnglish": "the price",
+      "kind": "term",
+      "sourceNoteInternal": "In Colombia, ¿cuál es el valor? is a common way to ask the price.",
+      "targetJapaneseDraft": "料金",
+      "literalJapaneseGlossEn": "the price",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "la administración",
+      "sourceEnglish": "the management",
+      "kind": "term",
+      "sourceNoteInternal": "Colombian hotels often say la administración for the people in charge.",
+      "targetJapaneseDraft": "ホテルの管理部門",
+      "literalJapaneseGlossEn": "the management",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "razonable",
+      "sourceEnglish": "reasonable",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "妥当な",
+      "literalJapaneseGlossEn": "reasonable",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "Mi reserva incluía desayuno, y así lo decía la confirmación.",
+      "sourceEnglish": "My booking included breakfast, and the confirmation said so.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal; imperfect for what the booking stated.",
+      "targetJapaneseDraft": "私の予約には朝食が含まれていて、確認書にもそう書かれていました。",
+      "literalJapaneseGlossEn": "My booking included breakfast, and the confirmation said so.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Bajé a las 8 y la terraza estaba cerrada.",
+      "sourceEnglish": "I went down at 8 and the terrace was closed.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Preterite for the action, imperfect for the scene you found.",
+      "targetJapaneseDraft": "8時に下へ行くと、テラスは閉まっていました。",
+      "literalJapaneseGlossEn": "I went down at 8 and the terrace was closed.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "No había ningún aviso en el ascensor ni en la habitación.",
+      "sourceEnglish": "There was no notice in the elevator or in the room.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "エレベーターにも部屋にも、お知らせはありませんでした。",
+      "literalJapaneseGlossEn": "There was no notice in the elevator or in the room.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:19",
+      "candidatePosition": 19,
+      "sourceSpanish": "Entiendo que no fue culpa suya, no se preocupe.",
+      "sourceEnglish": "I understand it wasn't your fault, don't worry.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal (usted) to the receptionist.",
+      "targetJapaneseDraft": "あなたのせいではないと分かっています。気にしないでください。",
+      "literalJapaneseGlossEn": "I understand it wasn't your fault, don't worry.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:20",
+      "candidatePosition": 20,
+      "sourceSpanish": "¿Sería posible un vale para el café de al lado?",
+      "sourceEnglish": "Would a voucher for the café next door be possible?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Conditional makes the request polite.",
+      "targetJapaneseDraft": "隣のカフェで使えるバウチャーをいただくことはできますか。",
+      "literalJapaneseGlossEn": "Would a voucher for the café next door be possible?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:21",
+      "candidatePosition": 21,
+      "sourceSpanish": "¿Podría consultarlo con la administración, por favor?",
+      "sourceEnglish": "Could you check it with the management, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal.",
+      "targetJapaneseDraft": "管理部門に確認していただけますか。",
+      "literalJapaneseGlossEn": "Could you check it with the management, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:22",
+      "candidatePosition": 22,
+      "sourceSpanish": "Si no se puede, ¿me descontarían el desayuno de la cuenta?",
+      "sourceEnglish": "If that's not possible, would you take the breakfast off my bill?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "それが難しければ、請求額から朝食分を差し引いていただけますか。",
+      "literalJapaneseGlossEn": "If that's not possible, would you take the breakfast off my bill?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:card:23",
+      "candidatePosition": 23,
+      "sourceSpanish": "Me parece una solución justa, muchas gracias.",
+      "sourceEnglish": "That seems like a fair solution, thank you very much.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "それなら公平な解決策だと思います。どうもありがとうございます。",
+      "literalJapaneseGlossEn": "That seems like a fair solution, thank you very much.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Daniel, un viajero canadiense, pasa tres noches en un hotel boutique de la ciudad amurallada de Cartagena.",
+      "sourceEnglish": "Daniel, a Canadian traveler, is spending three nights at a boutique hotel in the walled city of Cartagena.",
+      "targetJapaneseDraft": "カナダ人旅行者のダニエルは、カルタヘナの城壁に囲まれた旧市街にあるブティックホテルに3泊します。",
+      "literalJapaneseGlossEn": "Daniel, a Canadian traveler, is spending three nights at a boutique hotel in the walled city of Cartagena.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Hizo la reserva en una plataforma de reservas y pagó el valor completo por adelantado.",
+      "sourceEnglish": "He made the booking on a booking platform and paid the full price in advance.",
+      "targetJapaneseDraft": "彼は予約サイトで予約し、料金の全額を前払いしました。",
+      "literalJapaneseGlossEn": "He made the booking on a booking platform and paid the full price in advance.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Según las condiciones de la reserva, el desayuno en la terraza estaba incluido todos los días.",
+      "sourceEnglish": "According to the terms of the booking, breakfast on the terrace was included every day.",
+      "targetJapaneseDraft": "予約条件によると、テラスでの朝食が毎日含まれていました。",
+      "literalJapaneseGlossEn": "According to the terms of the booking, breakfast on the terrace was included every day.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Esta mañana Daniel va a la recepción y habla con Yesenia, la recepcionista.",
+      "sourceEnglish": "This morning Daniel goes to the front desk and talks with Yesenia, the receptionist.",
+      "targetJapaneseDraft": "今朝、ダニエルはフロントへ行き、受付係のイェセニアと話します。",
+      "literalJapaneseGlossEn": "This morning Daniel goes to the front desk and talks with Yesenia, the receptionist.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Daniel: Mi reserva incluía desayuno, y así lo decía la confirmación.",
+      "sourceEnglish": "Daniel: My booking included breakfast, and the confirmation said so.",
+      "targetJapaneseDraft": "ダニエル：私の予約には朝食が含まれていて、確認書にもそう書かれていました。",
+      "literalJapaneseGlossEn": "Daniel: My booking included breakfast, and the confirmation said so.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Daniel: Bajé a las 8 y la terraza estaba cerrada.",
+      "sourceEnglish": "Daniel: I went down at 8 and the terrace was closed.",
+      "targetJapaneseDraft": "ダニエル：8時に下へ行くと、テラスは閉まっていました。",
+      "literalJapaneseGlossEn": "Daniel: I went down at 8 and the terrace was closed.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Daniel: No había ningún aviso en el ascensor ni en la habitación.",
+      "sourceEnglish": "Daniel: There was no notice in the elevator or in the room.",
+      "targetJapaneseDraft": "ダニエル：エレベーターにも部屋にも、お知らせはありませんでした。",
+      "literalJapaneseGlossEn": "Daniel: There was no notice in the elevator or in the room.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Yesenia: Lo siento mucho, anoche hubo una filtración y empezaron unas reparaciones urgentes en la terraza.",
+      "sourceEnglish": "Yesenia: I'm very sorry, last night there was a leak and some urgent repairs started on the terrace.",
+      "targetJapaneseDraft": "イェセニア：大変申し訳ありません。昨夜、水漏れがあり、テラスで緊急の修理工事が始まりました。",
+      "literalJapaneseGlossEn": "Yesenia: I'm very sorry, last night there was a leak and some urgent repairs started on the terrace.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "Yesenia: Es un cierre temporal, y nadie alcanzó a poner el aviso antes de las 7.",
+      "sourceEnglish": "Yesenia: It's a temporary closure, and nobody managed to put up the notice before 7.",
+      "targetJapaneseDraft": "イェセニア：一時的な閉鎖です。7時までに誰もお知らせを掲示できませんでした。",
+      "literalJapaneseGlossEn": "Yesenia: It's a temporary closure, and nobody managed to put up the notice before 7.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:reader:10",
+      "candidatePosition": 10,
+      "speaker": "Narrator",
+      "sourceSpanish": "Daniel: Entiendo que no fue culpa suya, no se preocupe.",
+      "sourceEnglish": "Daniel: I understand it wasn't your fault, don't worry.",
+      "targetJapaneseDraft": "ダニエル：あなたのせいではないと分かっています。気にしないでください。",
+      "literalJapaneseGlossEn": "Daniel: I understand it wasn't your fault, don't worry.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:reader:11",
+      "candidatePosition": 11,
+      "speaker": "Narrator",
+      "sourceSpanish": "Daniel: No busco un reembolso, solo necesito una alternativa para desayunar hoy.",
+      "sourceEnglish": "Daniel: I'm not looking for a refund, I just need an alternative for breakfast today.",
+      "targetJapaneseDraft": "ダニエル：返金を求めているわけではありません。ただ、今日の朝食の代替案が必要です。",
+      "literalJapaneseGlossEn": "Daniel: I'm not looking for a refund, I just need an alternative for breakfast today.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:reader:12",
+      "candidatePosition": 12,
+      "speaker": "Narrator",
+      "sourceSpanish": "Daniel: ¿Sería posible un vale para el café de al lado?",
+      "sourceEnglish": "Daniel: Would a voucher for the café next door be possible?",
+      "targetJapaneseDraft": "ダニエル：隣のカフェで使えるバウチャーをいただくことはできますか。",
+      "literalJapaneseGlossEn": "Daniel: Would a voucher for the café next door be possible?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:reader:13",
+      "candidatePosition": 13,
+      "speaker": "Narrator",
+      "sourceSpanish": "Daniel: Si no se puede, ¿me descontarían el desayuno de la cuenta?",
+      "sourceEnglish": "Daniel: If that's not possible, would you take the breakfast off my bill?",
+      "targetJapaneseDraft": "ダニエル：それが難しければ、請求額から朝食分を差し引いていただけますか。",
+      "literalJapaneseGlossEn": "Daniel: If that's not possible, would you take the breakfast off my bill?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:reader:14",
+      "candidatePosition": 14,
+      "speaker": "Narrator",
+      "sourceSpanish": "Yesenia: Me parece razonable, pero cualquier compensación la tiene que aprobar la administración.",
+      "sourceEnglish": "Yesenia: That seems reasonable to me, but any compensation has to be approved by the management.",
+      "targetJapaneseDraft": "イェセニア：妥当だと思いますが、補償にはすべて管理部門の承認が必要です。",
+      "literalJapaneseGlossEn": "Yesenia: That seems reasonable to me, but any compensation has to be approved by the management.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:reader:15",
+      "candidatePosition": 15,
+      "speaker": "Narrator",
+      "sourceSpanish": "Daniel: ¿Podría consultarlo con la administración, por favor?",
+      "sourceEnglish": "Daniel: Could you check it with the management, please?",
+      "targetJapaneseDraft": "ダニエル：管理部門に確認していただけますか。",
+      "literalJapaneseGlossEn": "Daniel: Could you check it with the management, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:reader:16",
+      "candidatePosition": 16,
+      "speaker": "Narrator",
+      "sourceSpanish": "Yesenia llama a su jefe y, a los 5 minutos, le entrega a Daniel un vale para un desayuno completo.",
+      "sourceEnglish": "Yesenia calls her boss and, after 5 minutes, hands Daniel a voucher for a full breakfast.",
+      "targetJapaneseDraft": "イェセニアは上司に電話し、5分後、朝食一食分のバウチャーをダニエルに渡します。",
+      "literalJapaneseGlossEn": "Yesenia calls her boss and, after 5 minutes, hands Daniel a voucher for a full breakfast.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:reader:17",
+      "candidatePosition": 17,
+      "speaker": "Narrator",
+      "sourceSpanish": "Yesenia: Además, le ofrecemos un descuento del 10 % en la cuenta por el inconveniente.",
+      "sourceEnglish": "Yesenia: In addition, we're offering you a 10% discount on the bill for the inconvenience.",
+      "targetJapaneseDraft": "イェセニア：加えて、ご不便をおかけしたお詫びとして、請求額を10％割り引きます。",
+      "literalJapaneseGlossEn": "Yesenia: In addition, we're offering you a 10% discount on the bill for the inconvenience.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:5:ja-en:source-scene-v1:reader:18",
+      "candidatePosition": 18,
+      "speaker": "Narrator",
+      "sourceSpanish": "Daniel: Me parece una solución justa, muchas gracias.",
+      "sourceEnglish": "Daniel: That seems like a fair solution, thank you very much.",
+      "targetJapaneseDraft": "ダニエル：それなら公平な解決策だと思います。どうもありがとうございます。",
+      "literalJapaneseGlossEn": "Daniel: That seems like a fair solution, thank you very much.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Explain the included terrace breakfast and unexpected closure at a Cartagena hotel, propose a neighboring-café voucher or breakfast bill deduction, and confirm management approval and the actual remedy.",
+  "speakingGoalInternal": "You are a hotel guest, and the AI is Yesenia, the receptionist in Cartagena: explain what your booking included and what you found this morning with the preterite and imperfect (bajé, estaba cerrada), then propose a fair alternative with ¿sería posible…?",
+  "speakingGoalJapaneseDraft": "カルタヘナのホテルで、予約に毎日のテラス朝食が含まれていたことと、8時に閉鎖を見つけたことを受付係イェセニアに説明する。隣のカフェのバウチャーを丁寧に提案し、難しければ請求額から朝食分を差し引けるか尋ねる。承認と実際の対応を確認する。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "Current 18-turn source follows Canadian guest Daniel through prepaid three-night Cartagena booking, daily terrace breakfast, 8am closure after an overnight leak, missing notice, voucher or breakfast-charge proposal, management approval, five-minute call, full-breakfast voucher and separate 10% discount. Archived generic 10-turn room-closure scene omits these facts and remains separate evidence, not a replacement or migration source.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "booking confirmation",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "breakfast included",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "breakfast room",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "closure",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "repairs",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "notice",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "alternative",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "meal voucher",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "billing adjustment",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "manager",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "to check",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "breakfast was included in the booking",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "may we discuss it?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "could you help resolve this?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "My booking confirmation says breakfast is included.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Yes. The breakfast room is closed this morning for urgent repairs.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "I went there at eight and found it closed, with no notice that I could find.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "I am sorry we were late to inform you.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Could we discuss an alternative for today's breakfast?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "I will ask the manager whether we can offer a voucher for a nearby café.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "If that is difficult, could the breakfast charge be adjusted?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "I will check which option is possible and let you know shortly.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Thank you. I will wait here until you can confirm.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "The manager approved a voucher. Here it is.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 6,
+      "candidatePosition": 3,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 41,
+    "twoVoiceClipDecisionsIfTextApproved": 82,
+    "twoVoiceSubmittedCharactersIfTextApproved": 1820,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.0546,
+    "archivedExactJapaneseCardTextOverlapsOnly": 1,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows lack explicit stable IDs and were not learner-registered. Revision-scoped candidate IDs do not authorize saved-item or audio migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Qualified Japanese service-register review: the guest-to-receptionist phrasing and 10% remedy should match the source without implying guaranteed entitlement.",
+    "Cartagena setting, hotel terms, and voucher versus refund/discount/compensation senses need qualified Colombian locale and contextual dictionary review.",
+    "Spanish preterite/imperfect and conditional examples are source notes only; Japanese target teaches observed past state versus polite proposal without claiming one-to-one grammar transfer.",
+    "The source says notice was not posted before 7 despite guest finding no notice at 8; preserve this chronology rather than silently repairing the source.",
+    "Archived generic room-closure dialogue is separate evidence; no saved-item or exact-text audio transfer is authorized."
+  ],
+  "missing": [
+    "qualified Japanese/source/Colombian-hotel/locale/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

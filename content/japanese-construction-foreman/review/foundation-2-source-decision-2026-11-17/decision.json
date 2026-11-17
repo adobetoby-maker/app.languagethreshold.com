@@ -1,0 +1,294 @@
+{
+  "schema": 1,
+  "track": "construction-foreman",
+  "stage": "foundation",
+  "pairKey": "Japanese:English",
+  "lessonKey": "foundation:2",
+  "stableLessonId": "foundation-construction-foreman:2:ja-en",
+  "candidateRevision": "foundation-construction-foreman:2:ja-en:source-decision-v1",
+  "sourceCommit": "b6faff6b799e4c93aaefa83c9f22827a3c9352bb",
+  "source": {
+    "curriculumPath": "src/data/core60/es/foundation-construction-foreman.json",
+    "curriculumSha256": "d615822646bf94c386633b2bdc113ac1c7d0cdb310549181874d74aba5996df5",
+    "readerPath": "public/lesson-content/es/foundation-construction-foreman.json",
+    "readerSha256": "d8e2b50125606f19111889fe816a0733f9685e5933cbc2c86e17c4f08bcd8ded",
+    "japaneseDraftPath": "content/japanese-construction-foreman/foundation-draft.json",
+    "japaneseDraftSha256": "061c6bb30eae842e3c092c8dc69d279e0630fad2157db304499267ec263720ae",
+    "objectiveEnglish": "Give start times, counts and lengths in feet and inches for boards, bags and concrete.",
+    "focusSpanish": "Numbers 0 to 1,000, clock time, and feet, inches, pounds and yards on site",
+    "readerTitleSpanish": "Horas y medidas en la obra"
+  },
+  "archivedDraft": {
+    "title": "Who is on site?",
+    "scene": "At the morning check-in, Yamada stands next to Sato; Sato asks Tanaka to introduce Yamada",
+    "termCount": 10,
+    "readerCount": 7,
+    "materialDrift": [
+      "Older Japanese lesson 2 teaches worker introductions; source lesson 2 teaches times, counts and imperial measures."
+    ]
+  },
+  "reviewed": false,
+  "cards": [
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:card:01",
+      "position": 1,
+      "sourceSpanish": "el pie",
+      "sourceEnglish": "the foot (length)",
+      "kind": "term",
+      "japaneseDraft": "フィート",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "Plural pies: 8 pies = 8 feet."
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:card:02",
+      "position": 2,
+      "sourceSpanish": "la pulgada",
+      "sourceEnglish": "the inch",
+      "kind": "term",
+      "japaneseDraft": "インチ",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:card:03",
+      "position": 3,
+      "sourceSpanish": "la yarda",
+      "sourceEnglish": "the yard (measure)",
+      "kind": "term",
+      "japaneseDraft": "ヤード",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "Concrete is ordered in yardas cúbicas (cubic yards)."
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:card:04",
+      "position": 4,
+      "sourceSpanish": "la libra",
+      "sourceEnglish": "the pound",
+      "kind": "term",
+      "japaneseDraft": "ポンド",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:card:05",
+      "position": 5,
+      "sourceSpanish": "la hora",
+      "sourceEnglish": "the hour",
+      "kind": "term",
+      "japaneseDraft": "時間",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:card:06",
+      "position": 6,
+      "sourceSpanish": "el minuto",
+      "sourceEnglish": "the minute",
+      "kind": "term",
+      "japaneseDraft": "分",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:card:07",
+      "position": 7,
+      "sourceSpanish": "la cinta de medir",
+      "sourceEnglish": "the tape measure",
+      "kind": "term",
+      "japaneseDraft": "巻尺",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "Many crews just say la cinta."
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:card:08",
+      "position": 8,
+      "sourceSpanish": "la tabla",
+      "sourceEnglish": "the board",
+      "kind": "term",
+      "japaneseDraft": "板",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:card:09",
+      "position": 9,
+      "sourceSpanish": "el saco de cemento",
+      "sourceEnglish": "the bag of cement",
+      "kind": "term",
+      "japaneseDraft": "セメント袋",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:card:10",
+      "position": 10,
+      "sourceSpanish": "el mediodía",
+      "sourceEnglish": "noon",
+      "kind": "term",
+      "japaneseDraft": "正午",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:card:11",
+      "position": 11,
+      "sourceSpanish": "Empezamos a las 7 de la mañana.",
+      "sourceEnglish": "We start at 7 in the morning.",
+      "kind": "phrase",
+      "japaneseDraft": "朝7時に始めます。",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:card:12",
+      "position": 12,
+      "sourceSpanish": "Son 20 tablas de 8 pies.",
+      "sourceEnglish": "That's 20 boards, 8 feet long.",
+      "kind": "phrase",
+      "japaneseDraft": "8フィートの板が20枚です。",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "Use de for a measurement: tablas de 8 pies."
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:card:13",
+      "position": 13,
+      "sourceSpanish": "La pared mide 10 pies y 6 pulgadas.",
+      "sourceEnglish": "The wall measures 10 feet 6 inches.",
+      "kind": "phrase",
+      "japaneseDraft": null,
+      "decisionOpen": true,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:card:14",
+      "position": 14,
+      "sourceSpanish": "El camión trae 9 yardas de concreto.",
+      "sourceEnglish": "The truck is bringing 9 yards of concrete.",
+      "kind": "phrase",
+      "japaneseDraft": null,
+      "decisionOpen": true,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:card:15",
+      "position": 15,
+      "sourceSpanish": "Cada saco pesa 94 libras, según la etiqueta.",
+      "sourceEnglish": "Each bag weighs 94 pounds, according to the label.",
+      "kind": "phrase",
+      "japaneseDraft": "ラベルによると、袋は1袋あたり94ポンドです。",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:card:16",
+      "position": 16,
+      "sourceSpanish": "Son 250 bloques para esta pared.",
+      "sourceEnglish": "That's 250 blocks for this wall.",
+      "kind": "phrase",
+      "japaneseDraft": "この壁用のブロックは250個です。",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    }
+  ],
+  "reader": [
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:reader:01",
+      "position": 1,
+      "sourceSpanish": "Carlos, el capataz, le dice a Luis: Empezamos a las 7 de la mañana.",
+      "sourceEnglish": "Carlos, the foreman, tells Luis: We start at 7 in the morning.",
+      "japaneseDraft": "職長のカルロスはルイスに「朝7時に始めます」と伝えます。",
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:reader:02",
+      "position": 2,
+      "sourceSpanish": "Carlos: Comemos al mediodía por 30 minutos.",
+      "sourceEnglish": "Carlos: We eat at noon for 30 minutes.",
+      "japaneseDraft": "カルロス：正午に30分間昼食をとります。",
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:reader:03",
+      "position": 3,
+      "sourceSpanish": "Carlos: Trabajamos 8 horas y terminamos a las 3:30.",
+      "sourceEnglish": "Carlos: We work 8 hours and finish at 3:30.",
+      "japaneseDraft": "カルロス：8時間働いて、3時半に終わります。",
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:reader:04",
+      "position": 4,
+      "sourceSpanish": "Carlos mide 3 tablas para Luis con la cinta de medir.",
+      "sourceEnglish": "Carlos measures 3 boards for Luis with the tape measure.",
+      "japaneseDraft": "カルロスは巻尺でルイスのために板を3枚測ります。",
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:reader:05",
+      "position": 5,
+      "sourceSpanish": "Carlos: La primera tabla mide 8 pies y 4 pulgadas.",
+      "sourceEnglish": "Carlos: The first board measures 8 feet and 4 inches.",
+      "japaneseDraft": "カルロス：1枚目の板は8フィート4インチです。",
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:reader:06",
+      "position": 6,
+      "sourceSpanish": "Carlos: La segunda mide 6 pies y 2 pulgadas.",
+      "sourceEnglish": "Carlos: The second one measures 6 feet and 2 inches.",
+      "japaneseDraft": "カルロス：2枚目は6フィート2インチです。",
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:reader:07",
+      "position": 7,
+      "sourceSpanish": "Carlos: La tercera mide 5 pies y 9 pulgadas.",
+      "sourceEnglish": "Carlos: The third one measures 5 feet and 9 inches.",
+      "japaneseDraft": "カルロス：3枚目は5フィート9インチです。",
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:reader:08",
+      "position": 8,
+      "sourceSpanish": "Carlos: El camión trae 9 yardas de concreto.",
+      "sourceEnglish": "Carlos: The truck is bringing 9 yards of concrete.",
+      "japaneseDraft": null,
+      "decisionOpen": true
+    },
+    {
+      "id": "foundation-construction-foreman:2:ja-en:source-decision-v1:reader:09",
+      "position": 9,
+      "sourceSpanish": "Carlos: Cada saco de cemento pesa 94 libras, según la etiqueta.",
+      "sourceEnglish": "Carlos: Each bag of cement weighs 94 pounds, according to the label.",
+      "japaneseDraft": "カルロス：ラベルによると、セメント袋は1袋あたり94ポンドの重さです。",
+      "decisionOpen": false
+    }
+  ],
+  "conditionalReviewOnly": {
+    "wallDimensionCard13": [
+      "壁は10フィート6インチです。",
+      "壁の高さは10フィート6インチです。",
+      "壁の長さは10フィート6インチです。"
+    ],
+    "concreteCard14AndReader8": [
+      "トラックはコンクリートを9ヤード運んできます。",
+      "トラックはコンクリートを9立方ヤード運んできます。"
+    ]
+  },
+  "decisionsNeeded": [
+    "Determine which wall dimension the source means before selecting card 13 Japanese text.",
+    "Confirm whether the source means cubic yards of concrete; then align card 14 and Reader 8 with the same technical unit.",
+    "Review imperial units, counters, clock style and foreman role for Japanese construction usage.",
+    "Author six actual mode prompts and targets, forms, speaking, contextual dictionary and saved-item mapping before learner use."
+  ],
+  "gates": {
+    "ownerPage": false,
+    "learnerRegistered": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "progress": false,
+    "v4Imported": false
+  }
+}

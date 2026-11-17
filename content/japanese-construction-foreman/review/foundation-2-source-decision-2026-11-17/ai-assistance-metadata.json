@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "requestedWorkflow": [
+    "Claude CLI --safe-mode Haiku 5.5 candidate",
+    "Opus 5.5 read-only critique",
+    "Fable 5.2 correction",
+    "source-grounded self-check"
+  ],
+  "cliAuthStatus": {
+    "loggedIn": false,
+    "authMethod": "none"
+  },
+  "actualModelCalls": [],
+  "actualTokenUse": 0,
+  "qualifiedReview": false,
+  "selfCheck": "Exact source card/Reader order, numerical values, and null technical decisions checked against pinned source files."
+}

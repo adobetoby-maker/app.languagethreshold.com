@@ -1,0 +1,26 @@
+{
+  "status": "Manually authored source-only candidate after CLI usage limit; qualified Japanese/source/food/locale/dictionary review remains open",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Attempted source-grounded candidate authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": null,
+      "sessionId": "b484c0a2-8999-4784-a96a-798358db97fc",
+      "mode": "Claude CLI --safe-mode --print --model haiku --output-format json --tools Read",
+      "terminalReason": "api_error",
+      "apiErrorType": "rate_limit_error",
+      "apiError": "usage_limit_reached; weekly reset Nov 21 at 12pm America/Denver",
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "isError": true
+    }
+  ],
+  "selfCheck": [
+    "Compared all 16 cards and eight Reader rows in order to current pinned Spanish/English source; retained exact source English and Spanish anchors.",
+    "Restored wall menu, milk coffee, 2/3/4 euro counter/table/terrace prices, waiter explanation, table service, terrace surcharge, hurry, counter payment and small tip.",
+    "Kept literal Japanese glosses distinct from source English and recorded vocabulary, locale and register questions for qualified review.",
+    "All 24 candidate IDs are revision-scoped; no archived row ID, saved-item mapping, audio placement or listening approval is reused.",
+    "Independent validator checks pinned source hashes, exact source rows, stable lesson identity, false gates and read-only audio scope."
+  ]
+}

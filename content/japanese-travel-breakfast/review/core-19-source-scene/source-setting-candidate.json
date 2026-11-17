@@ -1,0 +1,537 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:19",
+  "stableLessonId": "travel-breakfast:19:ja-en",
+  "candidateRevision": "travel-breakfast:19:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Understand counter and table prices",
+    "objectiveEnglishInternal": "ask why standing and sitting prices differ and choose where to drink your coffee",
+    "roleplayEnglishInternal": "You notice the table price is higher than the counter price; ask how pricing works and decide where to sit.",
+    "readerTitleSpanish": "¿Barra o mesa?",
+    "readerVerbExamples": [
+      {
+        "target": "Tomo el café en la barra.",
+        "native": "I have my coffee at the counter."
+      },
+      {
+        "target": "¿Cuánto cuesta en la terraza?",
+        "native": "How much does it cost on the terrace?"
+      },
+      {
+        "target": "Le pregunto al camarero por el precio.",
+        "native": "I ask the waiter about the price."
+      },
+      {
+        "target": "Hoy me siento en la terraza.",
+        "native": "Today I am sitting on the terrace."
+      },
+      {
+        "target": "Pago la cuenta en la barra.",
+        "native": "I pay the bill at the counter."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "A café menu displays one price at the counter and another at a table; Sam asks staff what applies.",
+    "cardCount": 12,
+    "readerCount": 9
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "barra",
+      "sourceEnglish": "counter",
+      "kind": "term",
+      "sourceNoteInternal": "In cafés and bars, barra is the counter where you stand to drink.",
+      "targetJapaneseDraft": "カウンター",
+      "literalJapaneseGlossEn": "counter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "mesa",
+      "sourceEnglish": "table",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "テーブル",
+      "literalJapaneseGlossEn": "table",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "terraza",
+      "sourceEnglish": "terrace",
+      "kind": "term",
+      "sourceNoteInternal": "Outdoor seating; it often has its own, higher price.",
+      "targetJapaneseDraft": "テラス席",
+      "literalJapaneseGlossEn": "terrace seating",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "carta",
+      "sourceEnglish": "menu",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "メニュー",
+      "literalJapaneseGlossEn": "menu",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "precio",
+      "sourceEnglish": "price",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "値段",
+      "literalJapaneseGlossEn": "price",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "café con leche",
+      "sourceEnglish": "coffee with milk",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ミルク入りコーヒー",
+      "literalJapaneseGlossEn": "coffee with milk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "camarero",
+      "sourceEnglish": "waiter",
+      "kind": "term",
+      "sourceNoteInternal": "In Mexico you will also hear mesero.",
+      "targetJapaneseDraft": "ウェイター",
+      "literalJapaneseGlossEn": "waiter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "servicio de mesa",
+      "sourceEnglish": "table service",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "テーブルサービス",
+      "literalJapaneseGlossEn": "table service",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "suplemento",
+      "sourceEnglish": "surcharge",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "追加料金",
+      "literalJapaneseGlossEn": "additional charge",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "cuenta",
+      "sourceEnglish": "bill",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "勘定",
+      "literalJapaneseGlossEn": "bill",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "propina",
+      "sourceEnglish": "tip",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "チップ",
+      "literalJapaneseGlossEn": "tip",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "¿Por qué es más caro en la mesa?",
+      "sourceEnglish": "Why is it more expensive at the table?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "テーブルだと、なぜもっと高いのですか。",
+      "literalJapaneseGlossEn": "Why is it more expensive at a table?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "¿Cuánto cuesta en la terraza?",
+      "sourceEnglish": "How much does it cost on the terrace?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "テラス席だと、いくらですか。",
+      "literalJapaneseGlossEn": "How much is it on the terrace?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "Voy a tomar el café en la barra.",
+      "sourceEnglish": "I am going to have my coffee at the counter.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "コーヒーはカウンターで飲むことにします。",
+      "literalJapaneseGlossEn": "I will have my coffee at the counter.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "¿Hay un suplemento por la terraza?",
+      "sourceEnglish": "Is there a surcharge for the terrace?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "テラス席には追加料金がかかりますか。",
+      "literalJapaneseGlossEn": "Is there an additional charge for terrace seating?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "Prefiero sentarme en una mesa, por favor.",
+      "sourceEnglish": "I prefer to sit at a table, please.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "テーブルに座りたいです。",
+      "literalJapaneseGlossEn": "I would like to sit at a table.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Entro en un café pequeño y miro la carta en la pared.",
+      "sourceEnglish": "I go into a small café and look at the menu on the wall.",
+      "targetJapaneseDraft": "小さなカフェに入り、壁に貼られたメニューを見ます。",
+      "literalJapaneseGlossEn": "I enter a small café and look at the menu posted on the wall.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "La carta dice: café con leche, 2 euros en la barra y 3 euros en la mesa.",
+      "sourceEnglish": "The menu says: coffee with milk, 2 euros at the counter and 3 euros at the table.",
+      "targetJapaneseDraft": "メニューには「ミルク入りコーヒーは、カウンターで2ユーロ、テーブルで3ユーロ」と書いてあります。",
+      "literalJapaneseGlossEn": "The menu says that coffee with milk costs 2 euros at the counter and 3 euros at a table.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Primero le pregunto al camarero: ¿Por qué es más caro en la mesa?",
+      "sourceEnglish": "First I ask the waiter: Why is it more expensive at the table?",
+      "targetJapaneseDraft": "まずウェイターに「テーブルだと、なぜもっと高いのですか」と聞きます。",
+      "literalJapaneseGlossEn": "First I ask the waiter why it is more expensive at a table.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Él explica: En la mesa hay servicio de mesa, y en la terraza hay un suplemento.",
+      "sourceEnglish": "He explains: At the table there is table service, and on the terrace there is a surcharge.",
+      "targetJapaneseDraft": "ウェイターは「テーブルではテーブルサービスがあり、テラス席には追加料金がかかります」と説明します。",
+      "literalJapaneseGlossEn": "The waiter explains that there is table service at a table and an additional charge for terrace seating.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Luego pregunto: ¿Cuánto cuesta en la terraza?",
+      "sourceEnglish": "Then I ask: How much does it cost on the terrace?",
+      "targetJapaneseDraft": "次に「テラス席だと、いくらですか」と聞きます。",
+      "literalJapaneseGlossEn": "Then I ask how much it costs on the terrace.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "El camarero responde: Según la carta, cuesta 4 euros.",
+      "sourceEnglish": "The waiter answers: According to the menu, it costs 4 euros.",
+      "targetJapaneseDraft": "ウェイターは「メニューによると、4ユーロです」と答えます。",
+      "literalJapaneseGlossEn": "The waiter answers that according to the menu it is 4 euros.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Tengo prisa, así que digo: Voy a tomar el café en la barra.",
+      "sourceEnglish": "I am in a hurry, so I say: I am going to have my coffee at the counter.",
+      "targetJapaneseDraft": "急いでいるので、「コーヒーはカウンターで飲むことにします」と言います。",
+      "literalJapaneseGlossEn": "I am in a hurry, so I say I will have my coffee at the counter.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:19:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Después pago la cuenta en la barra y dejo una pequeña propina.",
+      "sourceEnglish": "After that I pay the bill at the counter and leave a small tip.",
+      "targetJapaneseDraft": "その後、カウンターで勘定を払い、少額のチップを置きます。",
+      "literalJapaneseGlossEn": "After that, I pay the bill at the counter and leave a small tip.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Compare the posted euro prices for counter, table and terrace service; ask about the surcharge, then pay at the counter and leave a small tip.",
+  "speakingGoalInternal": "You notice the table price is higher than the counter price; ask how pricing works and decide where to sit.",
+  "sourceConflictInternal": "The current source Reader uses a small café wall menu with milk coffee priced at 2 euros at the counter, 3 at a table and 4 on the terrace. A waiter explains table service and a terrace surcharge. The hurried traveler chooses the counter, pays there and leaves a small tip. The archived Japanese draft substitutes Sam, yen prices, an invented tax total, and a different dialogue; it omits the terrace price, bill payment and tip.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "counter seat",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "table seat",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "for use inside the café",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "takeaway",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "price; charge",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "additional charge",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "menu",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "tax included",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "total",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "why",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "Why are the prices different?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "I will choose a counter seat",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "I would like to check the menu prices.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Of course.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Is the coffee five hundred yen at the counter and six hundred at a table?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Yes. At this shop, table seating has an additional charge.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Why are the prices different?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Because we bring orders to the table.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Then I will take a counter seat. Is the total five hundred yen?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Yes, five hundred yen including tax.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Thank you.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 6,
+      "candidatePosition": 9,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 7,
+      "candidatePosition": 4,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 24,
+    "twoVoiceClipDecisionsIfTextApproved": 48,
+    "twoVoiceSubmittedCharactersIfTextApproved": 808,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.02424,
+    "archivedExactJapaneseCardTextOverlapsOnly": 2,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Qualified Japanese review: check カウンター versus カウンター席 in the price listing and drinking location; the source refers to service location rather than a required seat.",
+    "Qualified Japanese/food review: check ミルク入りコーヒー against café con leche without asserting a Japanese menu recipe or ratio.",
+    "Qualified Japanese/locale review: the pinned source uses euro prices, table service, terrace surcharge and a small tip; do not convert prices to yen or claim these are Japanese national customs.",
+    "Qualified dictionary review: distinguish 勘定 as the bill/payment from the source's cuenta and check its register against お会計; distinguish 追加料金 from a gratuity.",
+    "Spanish-only tomar/costar/sentarse morphology and regional camarero/mesero note belong in internal source notes, not Japanese grammar instruction.",
+    "Check euro-price, table-service, terrace-surcharge and tip language without asserting Japanese café customs.",
+    "Check all 24 Japanese faces and literal glosses with a qualified Japanese reviewer before any audio or learner use."
+  ],
+  "missing": [
+    "qualified Japanese/source/food/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

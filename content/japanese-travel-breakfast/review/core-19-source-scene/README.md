@@ -1,0 +1,11 @@
+# Japanese Breakfast Core 19 source review
+
+This inert Japanese→English packet pins current Spanish Breakfast Core 19: 16 cards and eight aligned Reader turns. The stable lesson ID is `travel-breakfast:19:ja-en`; every candidate card and Reader row has a revision-scoped ID. Run `python3 build.py --check` and `python3 validate.py` here to check source hashes, exact source order, identity, audio estimate and closed gates.
+
+The current source has a small café with a wall menu. Milk coffee costs 2 euros at the counter, 3 at a table and 4 on the terrace. A waiter explains table service and the terrace surcharge. A hurried traveler chooses the counter, pays the bill there and leaves a small tip. The archived Japanese draft instead uses Sam, yen prices, an invented tax total and a different dialogue. It omits the terrace price, bill payment and tip. This candidate restores the source scene. Literal English glosses of the Japanese are separate from pinned source English.
+
+Qualified Japanese, food/locale and dictionary review remains open for counter versus counter seat, milk-coffee phrasing, waiter and bill register, surcharge versus tip, and the euro/terrace setting. Spanish verb morphology and regional notes remain internal source context. The teaching text does not claim that this pricing structure is a Japanese café custom.
+
+Archived rows have no explicit IDs and were not learner-registered. Text overlaps do not authorize saved-item or audio migration. This packet lacks six authored mode prompt/target pairs, contextual forms, dictionary senses, speaking runtime, offline pack, learner registration and V4 import. Review, scoring, audio/listening, progress, owner-route and release gates remain false.
+
+Read-only audio scope: 24 Japanese faces, 48 potential two-voice clip/listening decisions, 808 submitted Japanese characters and about $0.02424 gross at the earlier $30 per million-character rate. No recording was synthesized, approved or registered. The Claude CLI was attempted in safe mode for Haiku 5.5 but returned `usage_limit_reached` before model tokens; the candidate and source self-check are manual. `ai-assistance-metadata.json` records the attempt. AI is not qualified approval.

@@ -1,0 +1,84 @@
+{
+  "titleFrenchDraft": "Relire la déclaration sur la réaction de Lucía",
+  "focusFrenchDraft": "Répondre dans un registre formel, distinguer ce que l’on a vu de ce que l’on rapporte et demander une correction avant de signer ; employer les tournures de procédure avec on et la voix passive.",
+  "cardFrenchDrafts": [
+    "l’inspectrice sanitaire",
+    "le rapport d’inspection",
+    "la déclaration écrite",
+    "la coquille",
+    "la section",
+    "la signature",
+    "la copie",
+    "la traçabilité",
+    "le registre des allergènes",
+    "le lot",
+    "le protocole",
+    "le personnel de salle",
+    "la formation",
+    "l’heure de service",
+    "être d’accord",
+    "Excusez-moi, l’heure indiquée dans la deuxième section est erronée.",
+    "Là où il est écrit 8 h 30, il faudrait écrire 8 h 10.",
+    "Comment les informations sur les allergènes sont-elles communiquées aux clients ?",
+    "Pourrait-on corriger cela avant que je signe ?",
+    "Avec cette correction, je suis d’accord avec la déclaration.",
+    "Pourriez-vous me remettre une copie du rapport, s’il vous plaît ?",
+    "Je préfère ne rien affirmer sur ce que je n’ai pas vu personnellement.",
+    "Le registre des allergènes est-il vérifié chaque matin ?"
+  ],
+  "readerFrenchDrafts": [
+    "Deux jours plus tard, l’inspectrice sanitaire Amparo Ferrer rencontre Emma et le gérant Vicente à l’hôtel.",
+    "Amparo apporte la déclaration écrite d’Emma au sujet de la réaction allergique de son amie Lucía au gâteau moelleux aux amandes.",
+    "Amparo : Nous allons relire votre déclaration section par section avant de clore le rapport d’inspection.",
+    "Emma : La première section est correcte, car Lucía a signalé son allergie aux amandes en arrivant au buffet.",
+    "Emma : Excusez-moi, l’heure indiquée dans la deuxième section est erronée.",
+    "Emma : Là où il est écrit 8 h 30, il faudrait écrire 8 h 10.",
+    "Vicente : Selon les horaires de l’hôtel, le gâteau moelleux a été servi à 8 h 00, son heure de service habituelle.",
+    "Emma : Pourrait-on corriger cela avant que je signe ?",
+    "Amparo : Bien sûr, c’est une coquille et elle est corrigée tout de suite.",
+    "Amparo : Comment les informations sur les allergènes sont-elles communiquées aux clients ?",
+    "Vicente : On place une fiche indiquant les allergènes à côté de chaque plat du buffet.",
+    "Vicente : De plus, le personnel de salle suit chaque mois une formation sur notre protocole relatif aux allergènes.",
+    "Amparo : Avez-vous vu la fiche à côté du gâteau moelleux ce matin-là ?",
+    "Emma : Je préfère ne rien affirmer sur ce que je n’ai pas vu personnellement.",
+    "Amparo : Le registre des allergènes est-il vérifié chaque matin ?",
+    "Vicente : Oui, la cheffe de cuisine le vérifie et note le lot de farine d’amande pour assurer la traçabilité.",
+    "Emma : Avec cette correction, je suis d’accord avec la déclaration.",
+    "Emma appose sa signature à la fin, puis demande : Pourriez-vous me remettre une copie du rapport, s’il vous plaît ?"
+  ],
+  "speakingDraft": {
+    "roleEnglish": "You are Emma, Lucía’s friend. Health inspector Amparo Ferrer and hotel manager Vicente are reviewing your written statement two days after Lucía’s almond reaction.",
+    "openingFrench": "Amparo : Nous allons relire votre déclaration section par section avant de clore le rapport d’inspection.",
+    "objectivesEnglish": [
+      "Confirm only that Lucía disclosed her almond allergy on arrival at the buffet.",
+      "Point out the second-section typo: 8:30 should read 8:10. Keep Vicente’s separate 8:00 serving time distinct.",
+      "Ask that the statement be corrected before you sign; distinguish what Vicente reports about allergen cards from what you personally saw.",
+      "After the correction, state agreement, sign, and ask for a copy of the inspection report."
+    ],
+    "closureFrench": "Emma : Avec cette correction, je suis d’accord avec la déclaration. Pourriez-vous me remettre une copie du rapport, s’il vous plaît ?"
+  },
+  "formsDraft": [
+    {"french": "Le gâteau moelleux a été servi à 8 h 00, selon les horaires de l’hôtel.", "english": "The sponge cake was served at 8:00, according to the hotel’s schedule.", "noteEnglish": "Vicente reports a hotel serving time; this is distinct from Emma’s 8:30-to-8:10 correction."},
+    {"french": "Comment les informations sur les allergènes sont-elles communiquées aux clients ?", "english": "How is allergen information communicated to customers?", "noteEnglish": "The passive question asks about the procedure without claiming Emma observed it."},
+    {"french": "On place une fiche indiquant les allergènes à côté de chaque plat du buffet.", "english": "A card listing allergens is placed next to each dish at the buffet.", "noteEnglish": "On describes Vicente’s reported procedure; it does not establish that Emma saw the sponge-cake card."},
+    {"french": "Pourrait-on corriger cela avant que je signe ?", "english": "Could it be corrected before I sign?", "noteEnglish": "The conditional request is formal; signe follows avant que in the subjunctive."},
+    {"french": "Je préfère ne rien affirmer sur ce que je n’ai pas vu personnellement.", "english": "I’d rather not state anything I didn’t see myself.", "noteEnglish": "Emma limits the statement to her personal observation rather than asserting the card was present."}
+  ],
+  "modeSourceCards": {"See": 16, "Recall": 17, "Hear": 18, "Type": 19, "Say": 20, "Write": 21},
+  "modeCuesEnglish": {
+    "See": "Read Emma’s formal notice that the second section has the wrong time.",
+    "Recall": "Recall Emma’s correction from 8:30 to 8:10.",
+    "Hear": "Listen for Amparo asking how allergen information is communicated to customers. Recording pending.",
+    "Type": "Type Emma’s request to correct the text before she signs.",
+    "Say": "State agreement with the written statement after the correction.",
+    "Write": "Ask formally for a copy of the inspection report."
+  },
+  "reviewQuestionsEnglish": [
+    "Preserve Amparo Ferrer as the female health inspector, Emma as Lucía’s friend, Vicente as hotel manager, the almond sponge-cake reaction, and the two-days-later hotel meeting. The older Québec draft is not a source equivalent.",
+    "The 8:30-to-8:10 written-statement correction and Vicente’s 8:00 scheduled serving time are separate facts. Do not merge them or infer what event the corrected time denotes beyond the source.",
+    "Vicente describes allergen cards, monthly staff training, and head-chef batch logging. Emma explicitly refuses to claim she personally saw the sponge-cake card. Qualified food-safety review must preserve this observed/reported distinction.",
+    "The source speaks of an inspection report, a written statement, signing and a copy of the report. Review French document terms and the feminine inspectrice without implying a legal finding not in the source.",
+    "Check the French wording in Emma’s refusal, formal register, and the choice of fiche versus carte for an allergen card with a qualified French reviewer.",
+    "Archived IDs and exact-text audio are trace evidence only. Saved items and recordings cannot migrate automatically."
+  ]
+}

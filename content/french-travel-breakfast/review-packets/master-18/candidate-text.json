@@ -1,0 +1,110 @@
+{
+  "titleFrenchDraft": "Prévenir Begoña du retard du train",
+  "focusFrenchDraft": "Écrire puis appeler la propriétaire d’une maison d’hôtes rurale pour annoncer un retard, confirmer cinq voyageurs et demander poliment un petit-déjeuner à 10 h 30.",
+  "cardFrenchDrafts": [
+    "le retard",
+    "la maison d’hôtes rurale",
+    "la propriétaire",
+    "le message vocal",
+    "le réseau mobile",
+    "le tunnel",
+    "l’appel manqué",
+    "l’heure d’arrivée",
+    "le lit d’appoint",
+    "la boîte à clés",
+    "le contrôleur du train",
+    "la correspondance",
+    "la station de taxis",
+    "la communication hachée",
+    "le changement de programme",
+    "Bonjour Begoña, je vous écris parce que le train a du retard.",
+    "Finalement, nous serons cinq au lieu de trois ; cela vous conviendrait-il ?",
+    "Pourriez-vous nous garder le petit-déjeuner jusqu’à 10 h 30, si cela ne vous dérange pas ?",
+    "Excusez-moi, ça coupe ; nous traversons un tunnel.",
+    "Je vous rappellerai dès que j’aurai du réseau.",
+    "Est-ce que cela vous dérangerait de nous laisser les clés dans la boîte à clés ?",
+    "Serait-il possible de prendre le petit-déjeuner un peu plus tard demain ?",
+    "Les amis, Begoña nous garde le petit-déjeuner jusqu’à 10 h 30."
+  ],
+  "readerFrenchDrafts": [
+    "Daniel voyage en train vers les Asturies avec ses amis pour passer le week-end dans une maison d’hôtes rurale à Cangas de Onís.",
+    "Le contrôleur traverse la voiture et annonce que le train a une heure de retard à cause d’une panne.",
+    "Avec ce retard, ils vont manquer la correspondance à Oviedo ; l’heure d’arrivée à Cangas de Onís change donc beaucoup.",
+    "De plus, le programme a changé : Lucía et son frère Pablo se sont joints au voyage ce matin et ils sont maintenant cinq.",
+    "Daniel écrit un message à Begoña, la propriétaire de la maison : Bonjour Begoña, je vous écris parce que le train a du retard.",
+    "Dans le même message, il ajoute : Finalement, nous serons cinq au lieu de trois ; cela vous conviendrait-il ?",
+    "Begoña répond par un message vocal : aucun problème, car elle peut installer un lit d’appoint dans chaque chambre.",
+    "Une demi-heure plus tard, Daniel voit un appel manqué de Begoña et la rappelle aussitôt.",
+    "Daniel : Cela vous conviendrait-il si nous arrivions vers 23 h 00 ?",
+    "Begoña : Cela me convient, mais à cette heure-là, je ne serai plus à la maison.",
+    "Daniel : Est-ce que cela vous dérangerait de nous laisser les clés dans la boîte à clés ?",
+    "Begoña lui explique que la boîte à clés se trouve près de la porte et que, comme Cangas de Onís n’a pas de gare, ils peuvent prendre à la gare d’Arriondas le bus ALSA, qui met environ quinze minutes, ou un taxi à la station juste devant.",
+    "Daniel lui demande poliment à quelle heure elle sert le petit-déjeuner ; Begoña répond que c’est habituellement de 8 h 00 à 10 h 00.",
+    "Daniel : Pourriez-vous nous garder le petit-déjeuner jusqu’à 10 h 30, si cela ne vous dérange pas ?",
+    "Soudain, la voix de Begoña devient hachée parce que le train entre dans un tunnel.",
+    "Daniel : Excusez-moi, ça coupe ; nous traversons un tunnel.",
+    "Quand il retrouve du réseau, Daniel la rappelle et Begoña confirme qu’elle leur gardera le petit-déjeuner.",
+    "Daniel : Les amis, Begoña nous garde le petit-déjeuner jusqu’à 10 h 30."
+  ],
+  "speakingDraft": {
+    "roleEnglish": "You are Daniel on the delayed train to Asturias. Begoña owns the casa rural in Cangas de Onís; Lucía and Pablo have joined your group, which grew from three to five.",
+    "openingFrench": "Bonjour Begoña, je vous écris parce que le train a du retard.",
+    "objectivesEnglish": [
+      "Text Begoña that the train is late and ask whether five guests instead of three would suit her.",
+      "Call after her voice message and missed call; ask whether an arrival around 23:00 works and request the key lockbox.",
+      "Ask about the usual 8:00–10:00 breakfast hours and politely request breakfast until 10:30.",
+      "Explain the tunnel interruption, call back when signal returns, and tell the group only after Begoña confirms."
+    ],
+    "closureFrench": "Les amis, Begoña nous garde le petit-déjeuner jusqu’à 10 h 30."
+  },
+  "formsDraft": [
+    {
+      "french": "Je vous écris parce que le train a du retard.",
+      "english": "I'm writing because the train is running late.",
+      "noteEnglish": "Je vous écris keeps the source's formal address to Begoña; avoir du retard is idiomatic for a late train."
+    },
+    {
+      "french": "Cela vous conviendrait-il si nous arrivions vers 23 h 00 ?",
+      "english": "Would it suit you if we arrived around 23:00?",
+      "noteEnglish": "Conviendrait is a polite conditional; arrivions follows si in this hypothetical request. The Reader uses 23:00."
+    },
+    {
+      "french": "Pourriez-vous nous garder le petit-déjeuner jusqu’à 10 h 30 ?",
+      "english": "Could you save breakfast for us until 10:30?",
+      "noteEnglish": "Pourriez-vous is a polite conditional question; the request is for the source's 10:30 time."
+    },
+    {
+      "french": "Je vous rappellerai dès que j’aurai du réseau.",
+      "english": "I'll call you back as soon as I have signal.",
+      "noteEnglish": "French uses a future form after dès que for a future event; the Spanish source notes a subjunctive after en cuanto."
+    },
+    {
+      "french": "Les amis, Begoña nous garde le petit-déjeuner jusqu’à 10 h 30.",
+      "english": "Guys, Begoña is saving breakfast for us until 10:30.",
+      "noteEnglish": "Les amis addresses the group informally after Begoña confirms the arrangement."
+    }
+  ],
+  "modeSourceCards": {
+    "See": 16,
+    "Recall": 17,
+    "Hear": 18,
+    "Type": 19,
+    "Say": 20,
+    "Write": 21
+  },
+  "modeCuesEnglish": {
+    "See": "Read Daniel's formal message explaining the late train to Begoña.",
+    "Recall": "Recall the polite request asking whether five guests instead of three would work.",
+    "Hear": "Listen for Daniel's polite 10:30 breakfast request. Recording pending.",
+    "Type": "Type Daniel's explanation that the call is cutting out in a tunnel.",
+    "Say": "Tell Begoña you will call back as soon as you have cell signal.",
+    "Write": "Ask Begoña politely to leave the keys in the lockbox."
+  },
+  "reviewQuestionsEnglish": [
+    "Keep the Asturias/Cangas de Onís scene, Oviedo missed connection, Arriondas station, ALSA bus, taxi stand, Lucía and Pablo, Begoña, group change from 3 to 5, and two extra beds. Do not relocate this to a French TER or change the host and transportation facts.",
+    "The pinned Reader asks about arrival at 23:00, while a separate source grammar example asks about 22:00. This packet follows the Reader and leaves the source discrepancy visible for curriculum review.",
+    "The source says Cangas de Onís has no train station and that the ALSA bus from Arriondas takes about 15 minutes. Verify the French phrasing preserves that claim as source dialogue, not independently certified travel guidance.",
+    "The 8:00–10:00 regular breakfast window and 10:30 exception are distinct. Begoña confirms the later breakfast after Daniel calls back when signal returns.",
+    "Qualified French/Spanish locale and dictionary review should settle maison d’hôtes rurale versus casa rural, boîte à clés, lit d’appoint, and formal request register. Archived draft rows are evidence only; no saved-item or audio migration is authorized."
+  ]
+}

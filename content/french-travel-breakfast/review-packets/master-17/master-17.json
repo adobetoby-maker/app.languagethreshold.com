@@ -1,0 +1,517 @@
+{
+  "schema": "lt.inert-source-review.v1",
+  "lessonKey": "master:17",
+  "pair": {
+    "target": "French",
+    "support": "English"
+  },
+  "source": {
+    "coursePath": "src/data/core60/es/master-travel-breakfast.json",
+    "courseSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "lessonSha256": "a39e7d653bf478145bcf86b751f9e4fcd026c320d97034442ff31d8d3ada7793",
+    "titleEnglish": "Email the Hotel a Written Incident Summary",
+    "objectiveEnglish": "Write a clear, formal summary of the incident and your requests, sharing only the health details Lucía approved.",
+    "speakingEnglish": "You are drafting the email to Inés Soler, and the AI is Lucía, your friend: read your summary aloud, check which health details she approves, and organize it with en primer lugar, a continuación, sin embargo, por lo tanto and por último.",
+    "sourceGrammar": {
+      "focus": "Written register; report connectors (en primer lugar, a continuación, sin embargo, por lo tanto, por último)",
+      "examples": [
+        {
+          "es": "En primer lugar, mi amiga sufrió una reacción alérgica durante el desayuno.",
+          "en": "First, my friend had an allergic reaction during breakfast."
+        },
+        {
+          "es": "Sin embargo, nadie nos informó de los ingredientes; por lo tanto, solicitamos una revisión.",
+          "en": "However, no one told us the ingredients; therefore, we request a review."
+        }
+      ]
+    },
+    "passageTitleSpanish": "Un correo con consentimiento"
+  },
+  "priorDraft": {
+    "archivePath": "content/review-archive/french-japanese-2026-11-15/french-breakfast/master-16-18-draft.json",
+    "archiveSha256": "9d5c2ff37d596373a224382b752406b63c0f5d159c402461ca9a418b68c9099d",
+    "runtimePath": "content/review-archive/french-japanese-2026-11-15/french-breakfast/private-runtime-candidate.json",
+    "runtimeSha256": "f58bb01321fa2e04ef1bbc802c7a776836c3ea9ac6c51fdbedfaca50fe764f26",
+    "oldScene": "Montréal generic follow-up email to Ms. Roy about Léa, without the source’s Valencia incident facts",
+    "sourceScene": "Valencia hotel incident email to Inés Soler, with Lucía’s limited consent for almond allergy and ER visit, an official complaint-form attachment and a 15-day reply request",
+    "matchingPriorEnglishCards": 11,
+    "matchingPriorEnglishReaderTurns": 0,
+    "disposition": "Archived positions are trace references only; no saved-item or recording migration is authorized."
+  },
+  "titleFrenchDraft": "Un courriel sur l’incident, avec le consentement de Lucía",
+  "focusFrenchDraft": "Rédiger à l’hôtel de Valence un compte rendu formel de l’incident et de ses demandes, en ne communiquant que les données de santé approuvées par Lucía.",
+  "cards": [
+    {
+      "id": "master:17:source-a39e7d653bf4:word:1",
+      "legacyDraftId": "master:17:word:1",
+      "sourceSpanish": "el asunto",
+      "supportEnglish": "the subject line",
+      "targetFrenchDraft": "l’objet du courriel",
+      "kind": "term"
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:2",
+      "legacyDraftId": "master:17:word:2",
+      "sourceSpanish": "el archivo adjunto",
+      "supportEnglish": "the attachment",
+      "targetFrenchDraft": "la pièce jointe",
+      "kind": "term"
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:3",
+      "legacyDraftId": "master:17:word:3",
+      "sourceSpanish": "la despedida",
+      "supportEnglish": "the sign-off",
+      "targetFrenchDraft": "la formule de politesse finale",
+      "kind": "term"
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:4",
+      "legacyDraftId": "master:17:word:4",
+      "sourceSpanish": "el resumen",
+      "supportEnglish": "the summary",
+      "targetFrenchDraft": "le résumé",
+      "kind": "term"
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:5",
+      "legacyDraftId": "master:17:word:5",
+      "sourceSpanish": "la estancia",
+      "supportEnglish": "the stay",
+      "targetFrenchDraft": "le séjour",
+      "kind": "term",
+      "sourceNoteEnglish": "Spain usage; much of Latin America says la estadía."
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:6",
+      "legacyDraftId": "master:17:word:6",
+      "sourceSpanish": "la atención al cliente",
+      "supportEnglish": "customer service",
+      "targetFrenchDraft": "le service clientèle",
+      "kind": "term"
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:7",
+      "legacyDraftId": "master:17:word:7",
+      "sourceSpanish": "el informe médico",
+      "supportEnglish": "the medical report",
+      "targetFrenchDraft": "le rapport médical",
+      "kind": "term"
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:8",
+      "legacyDraftId": "master:17:word:8",
+      "sourceSpanish": "el consentimiento",
+      "supportEnglish": "the consent",
+      "targetFrenchDraft": "le consentement",
+      "kind": "term"
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:9",
+      "legacyDraftId": "master:17:word:9",
+      "sourceSpanish": "los datos de salud",
+      "supportEnglish": "the health information",
+      "targetFrenchDraft": "les données de santé",
+      "kind": "term"
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:10",
+      "legacyDraftId": "master:17:word:10",
+      "sourceSpanish": "la confidencialidad",
+      "supportEnglish": "confidentiality",
+      "targetFrenchDraft": "la confidentialité",
+      "kind": "term"
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:11",
+      "legacyDraftId": "master:17:word:11",
+      "sourceSpanish": "la hoja de reclamaciones",
+      "supportEnglish": "the official complaint form",
+      "targetFrenchDraft": "le formulaire officiel de réclamation",
+      "kind": "term",
+      "sourceNoteEnglish": "Spain: businesses must provide this form on request."
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:12",
+      "legacyDraftId": "master:17:word:12",
+      "sourceSpanish": "la carta de alérgenos",
+      "supportEnglish": "the allergen menu",
+      "targetFrenchDraft": "la carte des allergènes",
+      "kind": "term"
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:13",
+      "legacyDraftId": "master:17:word:13",
+      "sourceSpanish": "la respuesta por escrito",
+      "supportEnglish": "the written reply",
+      "targetFrenchDraft": "la réponse écrite",
+      "kind": "term"
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:14",
+      "legacyDraftId": "master:17:word:14",
+      "sourceSpanish": "el plazo",
+      "supportEnglish": "the time frame",
+      "targetFrenchDraft": "le délai",
+      "kind": "term"
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:15",
+      "legacyDraftId": "master:17:word:15",
+      "sourceSpanish": "la disculpa",
+      "supportEnglish": "the apology",
+      "targetFrenchDraft": "les excuses",
+      "kind": "term"
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:16",
+      "legacyDraftId": "master:17:word:16",
+      "sourceSpanish": "atentamente",
+      "supportEnglish": "sincerely",
+      "targetFrenchDraft": "cordialement",
+      "kind": "term",
+      "sourceNoteEnglish": "Standard formal sign-off before your name."
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:17",
+      "legacyDraftId": "master:17:word:17",
+      "sourceSpanish": "Estimada señora Soler: le escribo en relación con lo ocurrido el martes.",
+      "supportEnglish": "Dear Ms. Soler: I am writing regarding what happened on Tuesday.",
+      "targetFrenchDraft": "Madame Soler, je vous écris au sujet de ce qui s’est passé mardi.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal. Spanish emails put a colon, not a comma, after the greeting."
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:18",
+      "legacyDraftId": "master:17:word:18",
+      "sourceSpanish": "En primer lugar, quisiera agradecer la rápida atención de su personal.",
+      "supportEnglish": "First of all, I would like to thank your staff for their quick response.",
+      "targetFrenchDraft": "Tout d’abord, je tiens à remercier votre personnel pour sa réaction rapide.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal"
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:19",
+      "legacyDraftId": "master:17:word:19",
+      "sourceSpanish": "A continuación, resumo brevemente lo que ocurrió durante el desayuno.",
+      "supportEnglish": "Below, I briefly summarize what happened during breakfast.",
+      "targetFrenchDraft": "Ci-dessous, je résume brièvement ce qui s’est passé pendant le petit-déjeuner.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal"
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:20",
+      "legacyDraftId": "master:17:word:20",
+      "sourceSpanish": "Sin embargo, la carta de alérgenos no estaba a la vista.",
+      "supportEnglish": "However, the allergen menu was not on display.",
+      "targetFrenchDraft": "Cependant, la carte des allergènes n’était pas visible.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal"
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:21",
+      "legacyDraftId": "master:17:word:21",
+      "sourceSpanish": "Por lo tanto, les solicito una respuesta por escrito sobre lo sucedido.",
+      "supportEnglish": "Therefore, I request a written reply about what happened.",
+      "targetFrenchDraft": "Par conséquent, je vous demande une réponse écrite sur ce qui s’est passé.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal"
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:22",
+      "legacyDraftId": "master:17:word:22",
+      "sourceSpanish": "Por último, quedo a la espera de su respuesta.",
+      "supportEnglish": "Finally, I look forward to your reply.",
+      "targetFrenchDraft": "Enfin, j’attends votre réponse.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Formal"
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:23",
+      "legacyDraftId": "master:17:word:23",
+      "sourceSpanish": "Lucía, ¿te parece bien si menciono que fuiste a urgencias?",
+      "supportEnglish": "Lucía, is it OK if I mention that you went to the ER?",
+      "targetFrenchDraft": "Lucía, cela te convient-il si je mentionne que tu es allée aux urgences ?",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Informal, to a friend"
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:word:24",
+      "legacyDraftId": "master:17:word:24",
+      "sourceSpanish": "No pondré nada del informe médico sin tu permiso.",
+      "supportEnglish": "I won't include anything from the medical report without your permission.",
+      "targetFrenchDraft": "Je n’inclurai rien du rapport médical sans ton autorisation.",
+      "kind": "phrase",
+      "sourceNoteEnglish": "Informal"
+    }
+  ],
+  "reader": [
+    {
+      "id": "master:17:source-a39e7d653bf4:line:1",
+      "legacyDraftId": "master:17:line:1",
+      "sourceSpanish": "En su habitación del hotel de Valencia, Emma escribe el resumen del incidente para Inés Soler, responsable de atención al cliente.",
+      "supportEnglish": "In her room at the hotel in Valencia, Emma writes the summary of the incident for Inés Soler, the customer service manager.",
+      "targetFrenchDraft": "Dans sa chambre de l’hôtel à Valence, Emma rédige le résumé de l’incident à l’intention d’Inés Soler, responsable du service clientèle."
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:line:2",
+      "legacyDraftId": "master:17:line:2",
+      "sourceSpanish": "En el asunto pone: Reacción alérgica en el desayuno del martes 13 de octubre.",
+      "supportEnglish": "In the subject line she puts: Allergic reaction at breakfast on Tuesday, October 13.",
+      "targetFrenchDraft": "Dans l’objet, elle écrit : Réaction allergique au petit-déjeuner du mardi 13 octobre."
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:line:3",
+      "legacyDraftId": "master:17:line:3",
+      "sourceSpanish": "Lucía, su amiga, está sentada en la cama y decide qué datos de salud quiere compartir con el hotel.",
+      "supportEnglish": "Lucía, her friend, is sitting on the bed and decides which health information she wants to share with the hotel.",
+      "targetFrenchDraft": "Lucía, son amie, est assise sur le lit et décide quelles données de santé elle veut communiquer à l’hôtel."
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:line:4",
+      "legacyDraftId": "master:17:line:4",
+      "sourceSpanish": "Emma: Lucía, ¿te parece bien si menciono que fuiste a urgencias?",
+      "supportEnglish": "Emma: Lucía, is it OK if I mention that you went to the ER?",
+      "targetFrenchDraft": "Emma : Lucía, cela te convient-il si je mentionne que tu es allée aux urgences ?"
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:line:5",
+      "legacyDraftId": "master:17:line:5",
+      "sourceSpanish": "Lucía: Sí, pero no menciones el diagnóstico ni los medicamentos, por favor.",
+      "supportEnglish": "Lucía: Yes, but don't mention the diagnosis or the medications, please.",
+      "targetFrenchDraft": "Lucía : Oui, mais ne mentionne ni le diagnostic ni les médicaments, s’il te plaît."
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:line:6",
+      "legacyDraftId": "master:17:line:6",
+      "sourceSpanish": "Emma: No pondré nada del informe médico sin tu permiso.",
+      "supportEnglish": "Emma: I won't include anything from the medical report without your permission.",
+      "targetFrenchDraft": "Emma : Je n’inclurai rien du rapport médical sans ton autorisation."
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:line:7",
+      "legacyDraftId": "master:17:line:7",
+      "sourceSpanish": "Para Lucía, la confidencialidad es importante, así que su consentimiento solo cubre la alergia a la almendra y la visita a urgencias.",
+      "supportEnglish": "For Lucía, confidentiality is important, so her consent only covers the almond allergy and the visit to the ER.",
+      "targetFrenchDraft": "Pour Lucía, la confidentialité est importante ; son consentement ne couvre donc que l’allergie à l’amande et le passage aux urgences."
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:line:8",
+      "legacyDraftId": "master:17:line:8",
+      "sourceSpanish": "Estimada señora Soler: le escribo en relación con lo ocurrido el martes.",
+      "supportEnglish": "Dear Ms. Soler: I am writing regarding what happened on Tuesday.",
+      "targetFrenchDraft": "Madame Soler, je vous écris au sujet de ce qui s’est passé mardi."
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:line:9",
+      "legacyDraftId": "master:17:line:9",
+      "sourceSpanish": "En primer lugar, quisiera agradecer la rápida atención de su personal.",
+      "supportEnglish": "First of all, I would like to thank your staff for their quick response.",
+      "targetFrenchDraft": "Tout d’abord, je tiens à remercier votre personnel pour sa réaction rapide."
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:line:10",
+      "legacyDraftId": "master:17:line:10",
+      "sourceSpanish": "A continuación, resumo brevemente lo que ocurrió durante el desayuno.",
+      "supportEnglish": "Below, I briefly summarize what happened during breakfast.",
+      "targetFrenchDraft": "Ci-dessous, je résume brièvement ce qui s’est passé pendant le petit-déjeuner."
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:line:11",
+      "legacyDraftId": "master:17:line:11",
+      "sourceSpanish": "Durante nuestra estancia, mi amiga comió un bizcocho con almendra, tuvo una reacción alérgica y fue a urgencias.",
+      "supportEnglish": "During our stay, my friend ate a sponge cake with almond, had an allergic reaction and went to the ER.",
+      "targetFrenchDraft": "Pendant notre séjour, mon amie a mangé un gâteau à l’amande, a eu une réaction allergique et s’est rendue aux urgences."
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:line:12",
+      "legacyDraftId": "master:17:line:12",
+      "sourceSpanish": "Sin embargo, la carta de alérgenos no estaba a la vista.",
+      "supportEnglish": "However, the allergen menu was not on display.",
+      "targetFrenchDraft": "Cependant, la carte des allergènes n’était pas visible."
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:line:13",
+      "legacyDraftId": "master:17:line:13",
+      "sourceSpanish": "Por lo tanto, les solicito una respuesta por escrito sobre lo sucedido.",
+      "supportEnglish": "Therefore, I request a written reply about what happened.",
+      "targetFrenchDraft": "Par conséquent, je vous demande une réponse écrite sur ce qui s’est passé."
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:line:14",
+      "legacyDraftId": "master:17:line:14",
+      "sourceSpanish": "También les pido una disculpa y una revisión de la carta de alérgenos en un plazo de 15 días.",
+      "supportEnglish": "I also ask for an apology and a review of the allergen menu within a time frame of 15 days.",
+      "targetFrenchDraft": "Je vous demande également des excuses et une révision de la carte des allergènes dans un délai de 15 jours."
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:line:15",
+      "legacyDraftId": "master:17:line:15",
+      "sourceSpanish": "Adjunto una copia de la hoja de reclamaciones que rellenamos en recepción.",
+      "supportEnglish": "I am attaching a copy of the official complaint form that we filled out at the front desk.",
+      "targetFrenchDraft": "Je joins une copie du formulaire officiel de réclamation que nous avons rempli à la réception."
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:line:16",
+      "legacyDraftId": "master:17:line:16",
+      "sourceSpanish": "Por último, quedo a la espera de su respuesta.",
+      "supportEnglish": "Finally, I look forward to your reply.",
+      "targetFrenchDraft": "Enfin, j’attends votre réponse."
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:line:17",
+      "legacyDraftId": "master:17:line:17",
+      "sourceSpanish": "Antes de enviar el correo, Emma revisa el archivo adjunto y confirma que no incluye el informe médico.",
+      "supportEnglish": "Before sending the email, Emma checks the attachment and confirms that it does not include the medical report.",
+      "targetFrenchDraft": "Avant d’envoyer le courriel, Emma vérifie la pièce jointe et confirme qu’elle ne contient pas le rapport médical."
+    },
+    {
+      "id": "master:17:source-a39e7d653bf4:line:18",
+      "legacyDraftId": "master:17:line:18",
+      "sourceSpanish": "Para la despedida, Emma escribe: Atentamente, Emma Clarke.",
+      "supportEnglish": "For the sign-off, Emma writes: Sincerely, Emma Clarke.",
+      "targetFrenchDraft": "Pour terminer, Emma écrit : Cordialement, Emma Clarke."
+    }
+  ],
+  "speakingDraft": {
+    "roleEnglish": "You are Emma drafting the Valencia hotel email to Inés Soler. The AI plays Lucía, your friend, who chooses what health information she consents to share.",
+    "openingFrench": "Emma : Lucía, cela te convient-il si je mentionne que tu es allée aux urgences ?",
+    "objectivesEnglish": [
+      "Check Lucía’s consent before including the almond allergy and ER visit, and exclude diagnosis, medications and the medical report.",
+      "Read the factual Tuesday breakfast summary aloud using formal connectors in order.",
+      "Ask Inés Soler for an apology, a written reply and an allergen-menu review within 15 days.",
+      "Attach only the official complaint form and confirm the attachment contains no medical report."
+    ],
+    "closureFrench": "Emma : Je n’inclurai rien du rapport médical sans ton autorisation."
+  },
+  "formsDraft": [
+    {
+      "french": "Tout d’abord, je tiens à remercier votre personnel pour sa réaction rapide.",
+      "english": "First of all, I would like to thank your staff for their quick response.",
+      "noteEnglish": "Formal connector opens the report; votre addresses Ms. Soler formally."
+    },
+    {
+      "french": "Ci-dessous, je résume brièvement ce qui s’est passé pendant le petit-déjeuner.",
+      "english": "Below, I briefly summarize what happened during breakfast.",
+      "noteEnglish": "Je résume is present tense in a formal written report; ci-dessous refers to text that follows."
+    },
+    {
+      "french": "Cependant, la carte des allergènes n’était pas visible.",
+      "english": "However, the allergen menu was not on display.",
+      "noteEnglish": "Cependant introduces the contrast; n’était pas visible reports the source condition, not an inferred cause."
+    },
+    {
+      "french": "Par conséquent, je vous demande une réponse écrite sur ce qui s’est passé.",
+      "english": "Therefore, I request a written reply about what happened.",
+      "noteEnglish": "Par conséquent links the stated concern to Emma’s request; je vous demande uses formal vous."
+    },
+    {
+      "french": "Enfin, j’attends votre réponse.",
+      "english": "Finally, I look forward to your reply.",
+      "noteEnglish": "Enfin closes the sequence; the draft uses a formal written register."
+    }
+  ],
+  "modeActivitiesDraft": [
+    {
+      "mode": "See",
+      "cueEnglish": "Read Emma’s formal opening to Ms. Soler about Tuesday.",
+      "sourceRef": "master:17:source-a39e7d653bf4:word:17",
+      "legacyDraftSourceRef": "master:17:word:17",
+      "targetFrenchDraft": "Madame Soler, je vous écris au sujet de ce qui s’est passé mardi.",
+      "supportEnglish": "Dear Ms. Soler: I am writing regarding what happened on Tuesday.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Recall",
+      "cueEnglish": "Recall Emma’s first connector and thanks to the hotel staff.",
+      "sourceRef": "master:17:source-a39e7d653bf4:word:18",
+      "legacyDraftSourceRef": "master:17:word:18",
+      "targetFrenchDraft": "Tout d’abord, je tiens à remercier votre personnel pour sa réaction rapide.",
+      "supportEnglish": "First of all, I would like to thank your staff for their quick response.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Hear",
+      "cueEnglish": "Listen for Emma’s brief breakfast summary line. Recording pending.",
+      "sourceRef": "master:17:source-a39e7d653bf4:word:19",
+      "legacyDraftSourceRef": "master:17:word:19",
+      "targetFrenchDraft": "Ci-dessous, je résume brièvement ce qui s’est passé pendant le petit-déjeuner.",
+      "supportEnglish": "Below, I briefly summarize what happened during breakfast.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Type",
+      "cueEnglish": "Type the formal contrast about the allergen menu not being visible.",
+      "sourceRef": "master:17:source-a39e7d653bf4:word:20",
+      "legacyDraftSourceRef": "master:17:word:20",
+      "targetFrenchDraft": "Cependant, la carte des allergènes n’était pas visible.",
+      "supportEnglish": "However, the allergen menu was not on display.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Say",
+      "cueEnglish": "Ask Lucía whether she agrees to mention the ER visit.",
+      "sourceRef": "master:17:source-a39e7d653bf4:word:23",
+      "legacyDraftSourceRef": "master:17:word:23",
+      "targetFrenchDraft": "Lucía, cela te convient-il si je mentionne que tu es allée aux urgences ?",
+      "supportEnglish": "Lucía, is it OK if I mention that you went to the ER?",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    {
+      "mode": "Write",
+      "cueEnglish": "Promise Lucía that nothing from the medical report will be included without her permission.",
+      "sourceRef": "master:17:source-a39e7d653bf4:word:24",
+      "legacyDraftSourceRef": "master:17:word:24",
+      "targetFrenchDraft": "Je n’inclurai rien du rapport médical sans ton autorisation.",
+      "supportEnglish": "I won't include anything from the medical report without your permission.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    }
+  ],
+  "dictionarySensesReviewed": false,
+  "reviewNotesEnglish": [
+    "Keep Valencia, Inés Soler, Emma, Lucía, the Tuesday October 13 subject, almond-containing cake, allergic reaction and ER visit. The older Montréal/Léa scene is trace evidence only.",
+    "Lucía approves disclosure of only the almond allergy and ER visit; she excludes diagnosis, medications and anything from the medical report. Review privacy wording without broadening her consent.",
+    "Spain’s hoja de reclamaciones is an official complaint form in this source; check the French term against the Spanish administrative context rather than replacing it with a generic incident note.",
+    "The source asks for an apology and allergen-menu review within 15 days and a written reply; it does not promise a remedy or state a cause beyond the source facts.",
+    "Review formal email greeting and closing, the choice of cordialement for sincerely, and clinical/dictionary senses with a qualified French reviewer. Neither AI nor the structural validator grants approval.",
+    "Prior row IDs, saved items and exact-text recordings cannot automatically transfer to the revision-scoped rows."
+  ],
+  "audioScope": {
+    "status": "read-only estimate; no synthesis, technical verification, listening decision, reuse or registration",
+    "voices": 2,
+    "selectedFrenchStrings": 42,
+    "potentialClipDecisions": 84,
+    "submittedCharacters": 2345,
+    "rateUsdPerMillionCharacters": 30,
+    "estimatedGrossUsd": 0.07035
+  },
+  "aiAssistance": {
+    "currentRun": "Safe-mode Haiku CLI returned Not logged in with empty modelUsage and zero tokens; no AI output was used.",
+    "actualModelUsage": {},
+    "qualifiedApproval": false
+  },
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "learnerRegistered": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "audioApproved": false,
+    "listeningReviewed": false,
+    "playbackEnabled": false,
+    "progressTracking": false,
+    "progressWritesEnabled": false,
+    "offlineRegistered": false,
+    "v4Registered": false,
+    "released": false
+  }
+}

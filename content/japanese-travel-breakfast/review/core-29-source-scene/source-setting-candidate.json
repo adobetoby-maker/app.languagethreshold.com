@@ -1,0 +1,582 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "core",
+  "lessonKey": "core:29",
+  "stableLessonId": "travel-breakfast:29:ja-en",
+  "candidateRevision": "travel-breakfast:29:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "contentPath": "public/lesson-content/es/travel-breakfast.json",
+    "contentSha256": "8c00629a79532821ac7b554a4e0f828b25372500303b3dc70f9568c5aabb34cc",
+    "objectivesPath": "src/data/travel-zone.ts",
+    "objectivesSha256": "8ca7cacc58a272d5e2c9d55b06e265ec8f6b5102d412bc0382d448942e455fe8",
+    "sourceVersion": 1,
+    "sourceReviewed": false,
+    "sourceModelClaim": "claude-opus-5-5",
+    "titleEnglishInternal": "Settle who pays for the group",
+    "objectiveEnglishInternal": "offer to pay, respond when others insist, and follow local custom on treating",
+    "roleplayEnglishInternal": "Your new friends insist on paying for breakfast; negotiate politely, accept or decline, and agree how to settle.",
+    "readerTitleSpanish": "¿Quién paga el desayuno?",
+    "readerVerbExamples": [
+      {
+        "target": "Si ustedes pagan la cuenta, yo dejo la propina.",
+        "native": "If you pay the bill, I'll leave the tip."
+      },
+      {
+        "target": "La próxima vez invito yo.",
+        "native": "Next time it's on me."
+      },
+      {
+        "target": "Ellos normalmente dejan 10 por ciento.",
+        "native": "They usually leave 10 percent."
+      },
+      {
+        "target": "Mis amigos insisten en pagar el desayuno.",
+        "native": "My friends insist on paying for breakfast."
+      },
+      {
+        "target": "¿Dividimos la cuenta entre todos?",
+        "native": "Shall we split the bill among all of us?"
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/core-1-30-draft.json",
+    "sha256": "7a6ed4b3869c3599119ae74ea911f6c881bf87294342a060378a5a3f19de6112",
+    "scene": "Friends finish breakfast and politely agree on the bill.",
+    "cardCount": 15,
+    "readerCount": 10
+  },
+  "sourceCards": [
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "desayuno",
+      "sourceEnglish": "breakfast",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "朝ごはん",
+      "literalJapaneseGlossEn": "breakfast",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "cuenta",
+      "sourceEnglish": "bill",
+      "kind": "term",
+      "sourceNoteInternal": "Ask for it with: La cuenta, por favor.",
+      "targetJapaneseDraft": "お会計",
+      "literalJapaneseGlossEn": "bill",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "mesero",
+      "sourceEnglish": "waiter",
+      "kind": "term",
+      "sourceNoteInternal": "Common in Mexico; in Spain you hear camarero.",
+      "targetJapaneseDraft": "ウェイター",
+      "literalJapaneseGlossEn": "waiter",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "propina",
+      "sourceEnglish": "tip",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "チップ",
+      "literalJapaneseGlossEn": "tip",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "efectivo",
+      "sourceEnglish": "cash",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "現金",
+      "literalJapaneseGlossEn": "cash",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "tarjeta",
+      "sourceEnglish": "card",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カード",
+      "literalJapaneseGlossEn": "card",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "pan dulce",
+      "sourceEnglish": "sweet bread",
+      "kind": "term",
+      "sourceNoteInternal": "Mexican pastries like conchas, usually eaten with coffee.",
+      "targetJapaneseDraft": "菓子パン",
+      "literalJapaneseGlossEn": "sweet bread",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "cambio",
+      "sourceEnglish": "change",
+      "kind": "term",
+      "sourceNoteInternal": "The money you get back.",
+      "targetJapaneseDraft": "おつり",
+      "literalJapaneseGlossEn": "change",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "caja",
+      "sourceEnglish": "cash register",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "レジ",
+      "literalJapaneseGlossEn": "cash register",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "invitado",
+      "sourceEnglish": "guest",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ゲスト",
+      "literalJapaneseGlossEn": "guest",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "Yo invito el desayuno hoy.",
+      "sourceEnglish": "Breakfast is on me today.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Invitar means to treat someone; whoever says yo invito pays.",
+      "targetJapaneseDraft": "今日の朝ごはんは、わたしのおごりです。",
+      "literalJapaneseGlossEn": "Breakfast is on me today.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "No, de veras, déjenme pagar.",
+      "sourceEnglish": "No, really, let me pay.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "いいえ、本当に、わたしに払わせてください。",
+      "literalJapaneseGlossEn": "No, really, let me pay.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "Bueno, gracias, pero la próxima vez invito yo.",
+      "sourceEnglish": "OK, thanks, but next time it's on me.",
+      "kind": "phrase",
+      "sourceNoteInternal": "A polite way to accept when friends insist.",
+      "targetJapaneseDraft": "じゃあ、ありがとうございます。でも次は、わたしがおごります。",
+      "literalJapaneseGlossEn": "OK, thanks, but next time it's on me.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "Entonces yo dejo la propina.",
+      "sourceEnglish": "Then I'll leave the tip.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "それなら、わたしがチップを置きます。",
+      "literalJapaneseGlossEn": "Then I'll leave the tip.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "¿Aquí se acostumbra dejar propina?",
+      "sourceEnglish": "Is it customary to leave a tip here?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ここでは、チップを置く習慣がありますか？",
+      "literalJapaneseGlossEn": "Is it customary to leave a tip here?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "¿Dividimos la cuenta entre todos?",
+      "sourceEnglish": "Shall we split the bill among all of us?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "会計はみんなで割り勘にしましょうか？",
+      "literalJapaneseGlossEn": "Shall we split the bill among all of us?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Después de un desayuno con café y pan dulce en Oaxaca, el mesero trae la cuenta a nuestra mesa.",
+      "sourceEnglish": "After a breakfast of coffee and sweet bread in Oaxaca, the waiter brings the bill to our table.",
+      "targetJapaneseDraft": "オアハカで、コーヒーと菓子パンの朝ごはんを食べたあと、ウェイターがわたしたちのテーブルに伝票を持ってきます。",
+      "literalJapaneseGlossEn": "After a breakfast of coffee and sweet bread in Oaxaca, the waiter brings the bill to our table.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Yo saco mi tarjeta y digo: Yo invito el desayuno hoy, porque ustedes me enseñaron la ciudad.",
+      "sourceEnglish": "I take out my card and say: Breakfast is on me today, because you showed me the city.",
+      "targetJapaneseDraft": "わたしはカードを取り出して言います。「今日の朝ごはんは、わたしのおごりです。ふたりがこの街を案内してくれたから。」",
+      "literalJapaneseGlossEn": "I take out my card and say: Breakfast is on me today, because you showed me the city.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Mis nuevos amigos, Lucía y Andrés, insisten: No, aquí tú eres nuestro invitado.",
+      "sourceEnglish": "My new friends, Lucía and Andrés, insist: No, here you are our guest.",
+      "targetJapaneseDraft": "新しい友達のルシアとアンドレスは、こう言ってゆずりません。「いいえ、ここではあなたがわたしたちのゲストです。」",
+      "literalJapaneseGlossEn": "My new friends, Lucía and Andrés, insist: No, here you are our guest.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Les digo: No, de veras, déjenme pagar, pero Andrés ya le da efectivo al mesero.",
+      "sourceEnglish": "I tell them: No, really, let me pay, but Andrés is already giving cash to the waiter.",
+      "targetJapaneseDraft": "「いいえ、本当に、わたしに払わせてください」とふたりに言いますが、アンドレスはもうウェイターに現金を渡しています。",
+      "literalJapaneseGlossEn": "I tell them: No, really, let me pay, but Andrés is already giving cash to the waiter.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Entonces pregunto: ¿Aquí se acostumbra dejar propina?",
+      "sourceEnglish": "So I ask: Is it customary to leave a tip here?",
+      "targetJapaneseDraft": "そこで、わたしはたずねます。「ここでは、チップを置く習慣がありますか？」",
+      "literalJapaneseGlossEn": "So I ask: Is it customary to leave a tip here?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Lucía dice que ellos normalmente dejan 10 por ciento si el servicio es bueno.",
+      "sourceEnglish": "Lucía says that they usually leave 10 percent if the service is good.",
+      "targetJapaneseDraft": "ルシアは、サービスがよければ、自分たちはふだん10パーセントのチップを置くと言います。",
+      "literalJapaneseGlossEn": "Lucía says that they usually leave 10 percent if the service is good.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Les digo: Si ustedes pagan la cuenta, entonces yo dejo la propina, y ellos aceptan.",
+      "sourceEnglish": "I tell them: If you pay the bill, then I'll leave the tip, and they agree.",
+      "targetJapaneseDraft": "「ふたりがお会計をするなら、わたしがチップを置きます」と言うと、ふたりはそれを受け入れます。",
+      "literalJapaneseGlossEn": "I tell them: If you pay the bill, then I'll leave the tip, and they agree.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "travel-breakfast:29:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Narrator",
+      "sourceSpanish": "Al final digo: Bueno, gracias, pero la próxima vez invito yo, y todos se ríen.",
+      "sourceEnglish": "At the end I say: OK, thanks, but next time it's on me, and everyone laughs.",
+      "targetJapaneseDraft": "最後に、わたしは言います。「じゃあ、ありがとうございます。でも次は、わたしがおごります。」そして、みんなが笑います。",
+      "literalJapaneseGlossEn": "At the end I say: OK, thanks, but next time it's on me, and everyone laughs.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Offer to pay for breakfast, negotiate politely when friends insist on treating, and agree who leaves the tip.",
+  "speakingGoalInternal": "Your new friends insist on paying for breakfast; negotiate politely, accept or decline, and agree how to settle.",
+  "speakingGoalJapaneseDraft": "友達と朝食の会計について話し、支払いとチップの分担を丁寧に決めてください。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "The current eight-turn source follows a group breakfast in Oaxaca: narrator offers to pay by card because Lucía and Andrés showed the city; friends insist the narrator is their guest; Andrés gives the waiter cash; Lucía reports they usually leave 10 percent if service was good; narrator offers to leave the tip if friends pay and says next time is on them. The archived generic dialogue replaces this with register-vs-table and staff-check exchanges. Japanese invitation, guest, tip, locale and dictionary senses need qualified review.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "bill",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "pay",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "splitting the bill",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "cash",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "card",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "change",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "register",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "tip",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "treat someone",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "next time",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "I will politely decline",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "Thank you",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "I will pay today",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "Please let me pay next time",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 15,
+      "candidate": null,
+      "oldEnglish": "Is a tip needed?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "I will pay today. Thank you for showing me around.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "Thank you. But we will treat you today.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "I see. Thank you.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Then please let me pay next time.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Certainly. I look forward to our next breakfast.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Do we pay at the register or at the table?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "At this shop, we pay at the register.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Is a tip needed at this shop?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Let us ask the staff.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "All right. Thank you for treating me today.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 4,
+      "candidatePosition": 5,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 5,
+      "candidatePosition": 6,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 6,
+      "candidatePosition": 8,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 7,
+      "candidatePosition": 9,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 8,
+      "candidatePosition": 4,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 24,
+    "twoVoiceClipDecisionsIfTextApproved": 48,
+    "twoVoiceSubmittedCharactersIfTextApproved": 1128,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.03384,
+    "archivedExactJapaneseCardTextOverlapsOnly": 5,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "The source reports Lucía and Andrés usually leave a 10 percent tip if service is good; this is their stated practice, not an asserted Oaxaca-wide rule.",
+    "The waiter brings a table bill/伝票, while the bill-to-pay card uses お会計. Qualified Japanese/dictionary review should settle these contextual senses.",
+    "The source guest/invitado is rendered ゲスト, distinct from a café customer. Friends use tú in Spanish; the Japanese deliberately keeps polite learner-facing dialogue and あなた, pending naturalness review.",
+    "Pan dulce/sweet bread is rendered 菓子パン without naming a specific Mexican item; qualified food and Japanese review remains open.",
+    "Oaxaca, Lucía and Andrés katakana and café waiter terminology require locale/name/register review.",
+    "The card payment is only offered, never completed; Andrés is already handing cash to the waiter, with no amount or change added.",
+    "The 10 percent figure, if-service-is-good condition, narrator tip offer and next-time treat remain source reported and need contextual dictionary/speaking review.",
+    "The archive introduces register-vs-table and ask-staff dialogue absent from current source; no archive row or audio/progress position is imported."
+  ],
+  "missing": [
+    "qualified Japanese/source/café/locale/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "status": "AI-assisted source-only candidate; qualified Japanese, source, food/locale and dictionary review remains open",
+  "qualifiedReview": false,
+  "calls": [
+    {
+      "role": "Exact source-card and Reader candidate authoring",
+      "requestedModel": "haiku",
+      "actualModelReported": "claude-haiku-5-5",
+      "sessionId": "6b7261e1-4aa8-40a5-8fc1-714c1459b725",
+      "mode": "Claude CLI --safe-mode --model haiku --tools '' --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false,
+      "note": "Produced 17 cards and eight Reader turns; source order, child-portion wording, the high-chair request, and menu-request meaning needed correction."
+    },
+    {
+      "role": "Read-only source and Japanese critique",
+      "requestedModel": "opus",
+      "actualModelReported": "claude-opus-5-5",
+      "sessionId": "971fa235-1a42-4350-af24-da520eebed89",
+      "mode": "Claude CLI --safe-mode --model opus --tools '' --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false,
+      "note": "Flagged source-order, no-chili, menu-request, family-restaurant register and term-choice issues; candidate revised against source."
+    },
+    {
+      "role": "Read-only correction critique",
+      "requestedModel": "fable",
+      "actualModelReported": "claude-fable-5-2",
+      "sessionId": "256048ca-5588-4eaa-969f-f704a9e2fa09",
+      "mode": "Claude CLI --safe-mode --model fable --effort low --tools '' --print --output-format json",
+      "terminalReason": "completed",
+      "isError": false,
+      "note": "Flagged the ambiguous stroller attachment, menu request versus receipt, and naturalness of milk ordering. These were corrected; additional term choices remain for qualified review."
+    }
+  ],
+  "selfCheck": [
+    "Compared all 17 cards and eight Reader turns with the pinned current Spanish/English source in order; retained exact source separately from literal Japanese glosses.",
+    "Restored two children, stroller, corner table, daughter’s high chair and bib, son’s child portion of scrambled eggs, no-chili request and two glasses of milk without importing the archived Sam scene.",
+    "Archived row positions have no matching candidate IDs; exact text overlaps authorize neither saved-item nor audio migration.",
+    "Validated source SHA-256 pins, stable/revision IDs, false gates and read-only audio scope; qualified review and six-mode/runtime/audio work remain open."
+  ]
+}

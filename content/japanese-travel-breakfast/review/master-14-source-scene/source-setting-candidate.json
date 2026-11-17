@@ -1,0 +1,786 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "master",
+  "lessonKey": "master:14",
+  "stableLessonId": "master-travel-breakfast:14:ja-en",
+  "candidateRevision": "master-travel-breakfast:14:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "curriculumVersion": 1,
+    "readerVersion": 1,
+    "curriculumReviewed": false,
+    "readerReviewed": false,
+    "titleEnglishInternal": "Talk Through the Mislabeled Gluten-Free Bread",
+    "objectiveEnglishInternal": "Describe a near miss calmly, without blame, and agree with the baker on what will prevent it next time.",
+    "speakingEnglishInternal": "You are Priya's friend, and the AI is Itzel, the baker: calmly explain the misplaced sin gluten sign without blaming her, using por poco, casi and si no hubiera…, podría haber…, then agree with her on one or two steps to prevent it next time.",
+    "grammarEnglishExamplesInternal": [
+      "She almost ate the wheat-flour bread.",
+      "If I hadn't read the label, something serious could have happened."
+    ],
+    "readerTitleSpanish": "Un susto en la panadería",
+    "readerVerbExamples": [
+      {
+        "target": "Priya no come pan con harina de trigo.",
+        "native": "Priya doesn't eat bread with wheat flour."
+      },
+      {
+        "target": "Daniel lee la etiqueta del pan.",
+        "native": "Daniel reads the bread's label."
+      },
+      {
+        "target": "Itzel revisa las charolas.",
+        "native": "Itzel checks the trays."
+      },
+      {
+        "target": "¿Qué le parece si usan un código de colores?",
+        "native": "What do you think about using a color code?"
+      },
+      {
+        "target": "Dejamos el pan sin gluten en un área separada.",
+        "native": "We keep the gluten-free bread in a separate area."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/master-13-15-draft.json",
+    "sha256": "b96284b91ef41e4f8c73ad65e9c2ee6eb6d70734e3ee526cabf5b1ca1729ea84",
+    "scene": "At a bakery café, a friend notices a gluten-free sign beside bread whose ingredient label lists wheat and raises the discrepancy with staff.",
+    "cardCount": 15,
+    "readerCount": 10
+  },
+  "sourceCards": [
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "la celiaquía",
+      "sourceEnglish": "celiac disease",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "セリアック病",
+      "literalJapaneseGlossEn": "celiac disease",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "celíaca",
+      "sourceEnglish": "celiac",
+      "kind": "term",
+      "sourceNoteInternal": "Agrees with the person: Priya es celíaca; a man es celíaco.",
+      "targetJapaneseDraft": "セリアック病のある人",
+      "literalJapaneseGlossEn": "celiac",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "el letrero",
+      "sourceEnglish": "the sign",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "表示札",
+      "literalJapaneseGlossEn": "the sign",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "la charola",
+      "sourceEnglish": "the tray",
+      "kind": "term",
+      "sourceNoteInternal": "Mexican usage; Spain says la bandeja.",
+      "targetJapaneseDraft": "トレー",
+      "literalJapaneseGlossEn": "the tray",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "el pan sin gluten",
+      "sourceEnglish": "the gluten-free bread",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "グルテンフリーのパン",
+      "literalJapaneseGlossEn": "the gluten-free bread",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "la harina de trigo",
+      "sourceEnglish": "the wheat flour",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "小麦粉",
+      "literalJapaneseGlossEn": "the wheat flour",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "la confusión",
+      "sourceEnglish": "the mix-up",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "取り違え",
+      "literalJapaneseGlossEn": "the mix-up",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "el descuido",
+      "sourceEnglish": "the oversight",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "見落とし",
+      "literalJapaneseGlossEn": "the oversight",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "el susto",
+      "sourceEnglish": "the scare",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ひやりとした出来事",
+      "literalJapaneseGlossEn": "the scare",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "la culpa",
+      "sourceEnglish": "the blame",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "責任",
+      "literalJapaneseGlossEn": "the blame",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "el código de colores",
+      "sourceEnglish": "the color code",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "色分け",
+      "literalJapaneseGlossEn": "the color code",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "el área separada",
+      "sourceEnglish": "the separate area",
+      "kind": "term",
+      "sourceNoteInternal": "Feminine noun that takes el: el área, but separada.",
+      "targetJapaneseDraft": "別の場所",
+      "literalJapaneseGlossEn": "the separate area",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "la horneada",
+      "sourceEnglish": "the batch (of baking)",
+      "kind": "term",
+      "sourceNoteInternal": "Common in Mexico for one round out of the oven.",
+      "targetJapaneseDraft": "一回に焼き上がったパン",
+      "literalJapaneseGlossEn": "the batch (of baking)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "la medida preventiva",
+      "sourceEnglish": "the preventive measure",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "予防策",
+      "literalJapaneseGlossEn": "the preventive measure",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "por poco",
+      "sourceEnglish": "almost",
+      "kind": "term",
+      "sourceNoteInternal": "Use with present tense for a past near miss: por poco se lo come.",
+      "targetJapaneseDraft": "あやうく",
+      "literalJapaneseGlossEn": "almost",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "Disculpe, Itzel, el letrero de sin gluten está en otra charola.",
+      "sourceEnglish": "Excuse me, Itzel, the gluten-free sign is on another tray.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal: usted with the baker.",
+      "targetJapaneseDraft": "すみません、イツェルさん。グルテンフリーの表示札が別のトレーに付いています。",
+      "literalJapaneseGlossEn": "Excuse me, Itzel, the gluten-free sign is on another tray.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Priya, no te lo comas todavía; espérame tantito.",
+      "sourceEnglish": "Priya, don't eat it yet; wait a sec for me.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal: tú with your friend. Tantito is Mexican for 'a little bit'.",
+      "targetJapaneseDraft": "プリヤ、まだそれを食べないで。ちょっと待って。",
+      "literalJapaneseGlossEn": "Priya, don't eat it yet; wait a sec for me.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "Por poco se lo come, pero leí la etiqueta antes.",
+      "sourceEnglish": "She almost ate it, but I read the label first.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "彼女はあやうくそれを食べるところでしたが、先に私がラベルを読みました。",
+      "literalJapaneseGlossEn": "She almost ate it, but I read the label first.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:19",
+      "candidatePosition": 19,
+      "sourceSpanish": "Si no lo hubiera visto, podría haberse enfermado.",
+      "sourceEnglish": "If I hadn't seen it, she could have gotten sick.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "私が気づかなかったら、彼女は具合が悪くなっていたかもしれません。",
+      "literalJapaneseGlossEn": "If I hadn't seen it, she could have gotten sick.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:20",
+      "candidatePosition": 20,
+      "sourceSpanish": "No se preocupe, Itzel, nadie tiene la culpa.",
+      "sourceEnglish": "Don't worry, Itzel, nobody is to blame.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal.",
+      "targetJapaneseDraft": "気にしないでください、イツェルさん。誰のせいでもありません。",
+      "literalJapaneseGlossEn": "Don't worry, Itzel, nobody is to blame.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:21",
+      "candidatePosition": 21,
+      "sourceSpanish": "Casi pasa algo, pero lo vimos a tiempo.",
+      "sourceEnglish": "Something almost happened, but we caught it in time.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "もう少しで何か起きるところでしたが、間に合いました。",
+      "literalJapaneseGlossEn": "Something almost happened, but we caught it in time.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:22",
+      "candidatePosition": 22,
+      "sourceSpanish": "¿Qué le parece si usan un código de colores para las charolas?",
+      "sourceEnglish": "What do you think about using a color code for the trays?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "トレーを色分けするのはどうでしょうか。",
+      "literalJapaneseGlossEn": "What do you think about using a color code for the trays?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:card:23",
+      "candidatePosition": 23,
+      "sourceSpanish": "¿Podrían dejar el pan sin gluten en un área separada?",
+      "sourceEnglish": "Could you keep the gluten-free bread in a separate area?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "グルテンフリーのパンを別の場所に置いていただけますか。",
+      "literalJapaneseGlossEn": "Could you keep the gluten-free bread in a separate area?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Un sábado por la mañana, Daniel y su amiga Priya entran a la panadería de Itzel en Coyoacán para desayunar.",
+      "sourceEnglish": "One Saturday morning, Daniel and his friend Priya walk into Itzel's bakery in Coyoacán to have breakfast.",
+      "targetJapaneseDraft": "土曜日の朝、ダニエルと友人プリヤは朝食をとりにコヨアカンのイツェルのパン屋に入ります。",
+      "literalJapaneseGlossEn": "One Saturday morning, Daniel and his friend Priya walk into Itzel's bakery in Coyoacán to have breakfast.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Priya es celíaca, así que siempre busca el pan sin gluten antes de pedir.",
+      "sourceEnglish": "Priya is celiac, so she always looks for the gluten-free bread before ordering.",
+      "targetJapaneseDraft": "プリヤにはセリアック病があるので、注文する前に必ずグルテンフリーのパンを探します。",
+      "literalJapaneseGlossEn": "Priya is celiac, so she always looks for the gluten-free bread before ordering.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Priya toma una concha de la charola que tiene el letrero de sin gluten.",
+      "sourceEnglish": "Priya takes a concha from the tray that has the gluten-free sign.",
+      "targetJapaneseDraft": "プリヤは「グルテンフリー」と書かれた表示札のあるトレーからコンチャを一つ取ります。",
+      "literalJapaneseGlossEn": "Priya takes a concha from the tray that has the gluten-free sign.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Daniel lee la etiqueta del pan y ve que la lista de ingredientes incluye harina de trigo.",
+      "sourceEnglish": "Daniel reads the bread's label and sees that the ingredient list includes wheat flour.",
+      "targetJapaneseDraft": "ダニエルはパンのラベルを読み、原材料に小麦粉が含まれていることに気づきます。",
+      "literalJapaneseGlossEn": "Daniel reads the bread's label and sees that the ingredient list includes wheat flour.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Priya, no te lo comas todavía; espérame tantito.",
+      "sourceEnglish": "Daniel: Priya, don't eat it yet; wait a sec for me.",
+      "targetJapaneseDraft": "ダニエル：プリヤ、まだそれを食べないで。ちょっと待って。",
+      "literalJapaneseGlossEn": "Daniel: Priya, don't eat it yet; wait a sec for me.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Disculpe, Itzel, el letrero de sin gluten está en otra charola.",
+      "sourceEnglish": "Daniel: Excuse me, Itzel, the gluten-free sign is on another tray.",
+      "targetJapaneseDraft": "ダニエル：すみません、イツェルさん。グルテンフリーの表示札が別のトレーに付いています。",
+      "literalJapaneseGlossEn": "Daniel: Excuse me, Itzel, the gluten-free sign is on another tray.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Itzel revisa las charolas y se pone roja, porque el pan sin gluten está en la charola de al lado, sin letrero.",
+      "sourceEnglish": "Itzel checks the trays and turns red, because the gluten-free bread is on the tray next to it, without a sign.",
+      "targetJapaneseDraft": "イツェルはトレーを確認して顔を赤らめます。グルテンフリーのパンは隣の表示札のないトレーにあったからです。",
+      "literalJapaneseGlossEn": "Itzel checks the trays and turns red, because the gluten-free bread is on the tray next to it, without a sign.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Itzel",
+      "sourceSpanish": "Itzel: ¡Qué pena, fue un descuido mío!",
+      "sourceEnglish": "Itzel: How embarrassing, it was my oversight!",
+      "targetJapaneseDraft": "イツェル：なんて恥ずかしい、私の見落としでした！",
+      "literalJapaneseGlossEn": "Itzel: How embarrassing, it was my oversight!",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Por poco se lo come, pero leí la etiqueta antes.",
+      "sourceEnglish": "Daniel: She almost ate it, but I read the label first.",
+      "targetJapaneseDraft": "ダニエル：彼女はあやうくそれを食べるところでしたが、先に私がラベルを読みました。",
+      "literalJapaneseGlossEn": "Daniel: She almost ate it, but I read the label first.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:reader:10",
+      "candidatePosition": 10,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Si no lo hubiera visto, podría haberse enfermado.",
+      "sourceEnglish": "Daniel: If I hadn't seen it, she could have gotten sick.",
+      "targetJapaneseDraft": "ダニエル：私が気づかなかったら、彼女は具合が悪くなっていたかもしれません。",
+      "literalJapaneseGlossEn": "Daniel: If I hadn't seen it, she could have gotten sick.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:reader:11",
+      "candidatePosition": 11,
+      "speaker": "Narrator",
+      "sourceSpanish": "Daniel explica con calma que, por la celiaquía, Priya no puede comer nada con harina de trigo.",
+      "sourceEnglish": "Daniel calmly explains that, because of celiac disease, Priya can't eat anything with wheat flour.",
+      "targetJapaneseDraft": "ダニエルは、セリアック病のためプリヤは小麦粉を含むものを食べられないと、落ち着いて説明します。",
+      "literalJapaneseGlossEn": "Daniel calmly explains that, because of celiac disease, Priya can't eat anything with wheat flour.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:reader:12",
+      "candidatePosition": 12,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: No se preocupe, Itzel, nadie tiene la culpa.",
+      "sourceEnglish": "Daniel: Don't worry, Itzel, nobody is to blame.",
+      "targetJapaneseDraft": "ダニエル：気にしないでください、イツェルさん。誰のせいでもありません。",
+      "literalJapaneseGlossEn": "Daniel: Don't worry, Itzel, nobody is to blame.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:reader:13",
+      "candidatePosition": 13,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Casi pasa algo, pero lo vimos a tiempo.",
+      "sourceEnglish": "Daniel: Something almost happened, but we caught it in time.",
+      "targetJapaneseDraft": "ダニエル：もう少しで何か起きるところでしたが、間に合いました。",
+      "literalJapaneseGlossEn": "Daniel: Something almost happened, but we caught it in time.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:reader:14",
+      "candidatePosition": 14,
+      "speaker": "Narrator",
+      "sourceSpanish": "Itzel cuenta que la confusión empezó cuando movió las charolas para sacar la horneada nueva.",
+      "sourceEnglish": "Itzel says the mix-up started when she moved the trays to bring out the new batch.",
+      "targetJapaneseDraft": "イツェルは、新しく焼き上がったパンを出すためにトレーを動かしたときに、取り違えが起きたと話します。",
+      "literalJapaneseGlossEn": "Itzel says the mix-up started when she moved the trays to bring out the new batch.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:reader:15",
+      "candidatePosition": 15,
+      "speaker": "Itzel",
+      "sourceSpanish": "Itzel: Fue un susto para todos, y necesitamos una medida preventiva para que no se repita.",
+      "sourceEnglish": "Itzel: It was a scare for everyone, and we need a preventive measure so it doesn't happen again.",
+      "targetJapaneseDraft": "イツェル：みんなひやりとしました。同じことが起きないように予防策が必要です。",
+      "literalJapaneseGlossEn": "Itzel: It was a scare for everyone, and we need a preventive measure so it doesn't happen again.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:reader:16",
+      "candidatePosition": 16,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: ¿Qué le parece si usan un código de colores para las charolas?",
+      "sourceEnglish": "Daniel: What do you think about using a color code for the trays?",
+      "targetJapaneseDraft": "ダニエル：トレーを色分けするのはどうでしょうか。",
+      "literalJapaneseGlossEn": "Daniel: What do you think about using a color code for the trays?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:reader:17",
+      "candidatePosition": 17,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: ¿Podrían dejar el pan sin gluten en un área separada?",
+      "sourceEnglish": "Daniel: Could you keep the gluten-free bread in a separate area?",
+      "targetJapaneseDraft": "ダニエル：グルテンフリーのパンを別の場所に置いていただけますか。",
+      "literalJapaneseGlossEn": "Daniel: Could you keep the gluten-free bread in a separate area?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:14:ja-en:source-scene-v1:reader:18",
+      "candidatePosition": 18,
+      "speaker": "Itzel",
+      "sourceSpanish": "Itzel: Me parecen buenas ideas, así que desde mañana las charolas sin gluten van a ser verdes y van a estar en un área separada.",
+      "sourceEnglish": "Itzel: Those sound like good ideas, so starting tomorrow the gluten-free trays will be green and will be in a separate area.",
+      "targetJapaneseDraft": "イツェル：いい案ですね。明日からグルテンフリーのトレーは緑色にして、別の場所に置きます。",
+      "literalJapaneseGlossEn": "Itzel: Those sound like good ideas, so starting tomorrow the gluten-free trays will be green and will be in a separate area.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Explain a mislabeled gluten-free bread near miss calmly in Japanese, distinguish celiac disease from an actual reaction, and propose tray color coding and a separate bread area.",
+  "speakingGoalInternal": "You are Priya's friend, and the AI is Itzel, the baker: calmly explain the misplaced sin gluten sign without blaming her, using por poco, casi and si no hubiera…, podría haber…, then agree with her on one or two steps to prevent it next time.",
+  "speakingGoalJapaneseDraft": "あなたはプリヤの友人で、パン職人イツェルに、グルテンフリーの表示札が別のトレーにあり、プリヤが小麦粉入りのコンチャをあやうく食べるところだったと、責めずに落ち着いて説明する。次回のためにトレーの色分けと別の置き場所を提案し、合意する。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "Current source follows Daniel and Priya at Itzel’s Coyoacán bakery: a gluten-free sign sits on the wrong tray, Priya nearly eats a wheat-flour concha, Daniel reads the label first, and Itzel agrees to color-coded trays in a separate area. No ingestion or reaction occurs. The archived generic scene loses the exact source order and safety context; it remains separate evidence.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "gluten-free sign",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "wheat flour",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "ingredient label",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "tray",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "mix-up",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "near miss",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "preparation area",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "shared utensils",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "cross-contact",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "recheck",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "wait without eating",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "almost",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "might be",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "cannot verify",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 15,
+      "candidate": null,
+      "oldEnglish": "celiac disease",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Please wait. This tray has a gluten-free sign, but the ingredient list says wheat flour.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "I have celiac disease and almost ate it. I am glad I read the ingredients first.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "I will check the sign. We may have mixed up the trays when moving them.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "I am not trying to blame anyone. For now, we will not choose that bread.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "I will compare the signs with ingredients and check the other trays too.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "Could you also check the preparation area and shared utensils?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Yes. I will say clearly when something cannot be verified.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "For next time, how about rechecking the product and tray before placing a sign?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "We will review the process. We will not claim suitability based only on a sign.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "If it cannot be verified, I will not eat it today.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 2,
+      "candidatePosition": 6,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 4,
+      "candidatePosition": 4,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 5,
+      "candidatePosition": 7,
+      "textOnly": true,
+      "migrationAuthorized": false
+    },
+    {
+      "oldPosition": 15,
+      "candidatePosition": 1,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 41,
+    "twoVoiceClipDecisionsIfTextApproved": 82,
+    "twoVoiceSubmittedCharactersIfTextApproved": 1992,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.05976,
+    "archivedExactJapaneseCardTextOverlapsOnly": 4,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "セリアック病を小麦アレルギーと同一視しない。疾患名と小麦粉を含む食品の説明を資格ある専門家が確認する。",
+    "摂取は起きていない。体調不良も仮定の帰結であり、実際の症状や治療を追加しない。",
+    "スペイン語の celíaca は性一致を示すが、日本語のセリアック病のある人は性を表さない。語彙説明は別途審査する。",
+    "Coyoacán、concha、charola、tantito のメキシコ固有の場面・語感を確認する。",
+    "表示札の付いたトレーと隣の表示札のないトレーを混同しない。原材料ラベルを読んだ時点の発見を保持する。",
+    "por poco と casi の二つの近接表現、反実仮想 si no hubiera… podría haber… の対応を確認する。",
+    "色分けと別置きはイツェルが明日から行うと合意した提案であり、臨床的な安全保証に変えない。",
+    "責めない姿勢とイツェル本人による見落としの説明の両方を保持する。",
+    "日本語候補の訳語、読者向け語彙の意味、話し方とカードのみの語群は資格ある審査が未了。"
+  ],
+  "missing": [
+    "qualified Japanese/source/Mexican bakery/celiac/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

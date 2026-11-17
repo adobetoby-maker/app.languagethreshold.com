@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "qualifiedReview": false,
+  "sourceGroundedSelfCheck": true,
+  "calls": [
+    {
+      "role": "Haiku candidate authoring attempt",
+      "requestedModel": "haiku",
+      "actualModel": null,
+      "outcome": "Claude CLI returned exit 1 with no error output. No model response or draft was received; the candidate was written and checked independently.",
+      "qualifiedApproval": false
+    }
+  ],
+  "correctionsAfterAICritique": [],
+  "independentSelfCheck": [
+    "Compared all 23 source-order Spanish/English cards and 18 Spanish/English Reader turns with pinned current Master 15 sources.",
+    "Kept the Hotel Candelaria in Bogotá, fifth-floor dining room, toaster smoke, extinguisher, room 504, four named actors, cane, fire door, bakery-side sidewalk, and guest-list check in source sequence.",
+    "Kept Carolina's not-a-false-alarm statement, wait for firefighters to check the dining room, conditional reentry, and Daniel's repeat-alarm response distinct.",
+    "Flagged Colombian brigadista, andén and tinto and Japanese honorific/safety terminology for qualified review.",
+    "Preserved archived generic scene as separate evidence; no saved-item, audio, owner-route, learner or V4 migration is authorized."
+  ]
+}

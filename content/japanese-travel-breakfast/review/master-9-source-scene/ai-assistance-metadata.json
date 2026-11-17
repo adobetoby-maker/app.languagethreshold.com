@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "qualifiedReview": false,
+  "sourceGroundedSelfCheck": true,
+  "calls": [
+    {
+      "role": "Claude availability check for Haiku authoring, Opus critique and Fable correction",
+      "requestedModel": "haiku",
+      "actualModel": null,
+      "outcome": "Claude CLI 2.1.325 auth status reported loggedIn:false, authMethod:none; read-only Claude connector exited 1 with no model metadata. No model call, draft or critique occurred.",
+      "qualifiedApproval": false
+    }
+  ],
+  "correctionsAfterAICritique": [],
+  "independentSelfCheck": [
+    "Compared 23 source-order cards and 18 Spanish/English Reader turns against pinned source files.",
+    "Kept Daniel, Camila, Barrio Italia, new café opened two weeks ago, raspberry kuchen and cortado.",
+    "Separated crema appearance, lukewarm steamed milk, new espresso machine, morning grinder setting and off cup warmer.",
+    "Kept small chalkboard handwriting, unreadable prices from register and two concrete recommendations distinct from a wish.",
+    "Retained praise, Camila's acceptance of feedback and wish for the café's success.",
+    "Left Chilean café terminology, register, dictionary senses and morphology mapping for qualified review."
+  ]
+}

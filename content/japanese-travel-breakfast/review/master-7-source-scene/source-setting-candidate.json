@@ -1,0 +1,754 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "master",
+  "lessonKey": "master:7",
+  "stableLessonId": "master-travel-breakfast:7:ja-en",
+  "candidateRevision": "master-travel-breakfast:7:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "curriculumVersion": 1,
+    "readerVersion": 1,
+    "curriculumReviewed": false,
+    "readerReviewed": false,
+    "titleEnglishInternal": "The Guide Moves the Bus Up: Settle the Finca Order",
+    "objectiveEnglishInternal": "Recount what the group ordered and paid, count items fast, and settle the bill before the bus leaves.",
+    "speakingEnglishInternal": "You are the group's organizer, and the AI is Marleny, the cook at a coffee-farm breakfast near Salento: recount what the group ordered and who paid using the preterite (pedimos, pagaron), count what's still owed with faltan + numbers, and settle the bill before the bus leaves.",
+    "grammarEnglishExamplesInternal": [
+      "We ordered 7 arepas, and 4 people already paid.",
+      "Marleny served 2 calentados that nobody wrote down in the notebook."
+    ],
+    "readerTitleSpanish": "La cuenta antes de la buseta",
+    "readerVerbExamples": [
+      {
+        "target": "Muchachos, ¿quién pide otro tinto?",
+        "native": "Guys, who's ordering another black coffee?"
+      },
+      {
+        "target": "Yo pago lo que falta.",
+        "native": "I'll pay what's left."
+      },
+      {
+        "target": "Faltan 3 tintos y 2 aguapanelas por pagar.",
+        "native": "There are still 3 black coffees and 2 aguapanelas to pay for."
+      },
+      {
+        "target": "Doña Marleny sirve el calentado con queso campesino.",
+        "native": "Doña Marleny serves the calentado with farmer's cheese."
+      },
+      {
+        "target": "Marleny anota los pedidos en la libreta.",
+        "native": "Marleny writes the orders down in the notebook."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/master-7-9-draft.json",
+    "sha256": "2df980428024f9bf436cbdd49d7b52cdcab5d9b49c6b670ba2988bb544b07337",
+    "scene": "A group organizer checks a rural café's order ledger as an earlier shuttle departure approaches.",
+    "cardCount": 14,
+    "readerCount": 10
+  },
+  "sourceCards": [
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "la arepa",
+      "sourceEnglish": "the arepa",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アレパ",
+      "literalJapaneseGlossEn": "the arepa",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "el tinto",
+      "sourceEnglish": "the small black coffee",
+      "kind": "term",
+      "sourceNoteInternal": "In Colombia, un tinto is black coffee, not red wine.",
+      "targetJapaneseDraft": "ティント（小さなブラックコーヒー）",
+      "literalJapaneseGlossEn": "the small black coffee",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "los huevos pericos",
+      "sourceEnglish": "the scrambled eggs with tomato and onion",
+      "kind": "term",
+      "sourceNoteInternal": "Colombian breakfast classic.",
+      "targetJapaneseDraft": "ウエボス・ペリコス（トマトと玉ねぎ入りのスクランブルエッグ）",
+      "literalJapaneseGlossEn": "the scrambled eggs with tomato and onion",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "la aguapanela",
+      "sourceEnglish": "the cane-sugar drink",
+      "kind": "term",
+      "sourceNoteInternal": "Made from panela; served hot or cold.",
+      "targetJapaneseDraft": "アグアパネラ（サトウキビ糖の飲み物）",
+      "literalJapaneseGlossEn": "the cane-sugar drink",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "el calentado",
+      "sourceEnglish": "the reheated rice-and-beans breakfast",
+      "kind": "term",
+      "sourceNoteInternal": "Colombian breakfast of the day before's rice and beans, reheated.",
+      "targetJapaneseDraft": "カレンタード（温め直した米と豆の朝食）",
+      "literalJapaneseGlossEn": "the reheated rice-and-beans breakfast",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "el queso campesino",
+      "sourceEnglish": "the farmer's cheese",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ケソ・カンペシーノ（農家のチーズ）",
+      "literalJapaneseGlossEn": "the farmer's cheese",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "el saldo pendiente",
+      "sourceEnglish": "the outstanding balance",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "未払いの残額",
+      "literalJapaneseGlossEn": "the outstanding balance",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "el guía",
+      "sourceEnglish": "the guide",
+      "kind": "term",
+      "sourceNoteInternal": "La guía for a woman.",
+      "targetJapaneseDraft": "ガイド",
+      "literalJapaneseGlossEn": "the guide",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "la buseta",
+      "sourceEnglish": "the minibus",
+      "kind": "term",
+      "sourceNoteInternal": "Common Colombian word for a small bus.",
+      "targetJapaneseDraft": "小型バス",
+      "literalJapaneseGlossEn": "the minibus",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "la salida",
+      "sourceEnglish": "the departure",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "出発",
+      "literalJapaneseGlossEn": "the departure",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "la transferencia",
+      "sourceEnglish": "the bank transfer",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "銀行振込",
+      "literalJapaneseGlossEn": "the bank transfer",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "el comprobante de pago",
+      "sourceEnglish": "the proof of payment",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "支払いの証明",
+      "literalJapaneseGlossEn": "the proof of payment",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "los billetes grandes",
+      "sourceEnglish": "the large bills",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "高額紙幣",
+      "literalJapaneseGlossEn": "the large bills",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "la finca",
+      "sourceEnglish": "the farm",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "農園",
+      "literalJapaneseGlossEn": "the farm",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "la libreta",
+      "sourceEnglish": "the notebook",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "ノート",
+      "literalJapaneseGlossEn": "the notebook",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "Pedimos 7 arepas con queso y 9 tintos.",
+      "sourceEnglish": "We ordered 7 arepas with cheese and 9 small black coffees.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "チーズ入りのアレパを七つとティントを九杯注文しました。",
+      "literalJapaneseGlossEn": "We ordered 7 arepas with cheese and 9 small black coffees.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Doña Marleny, 4 ya pagaron en efectivo.",
+      "sourceEnglish": "Doña Marleny, 4 have already paid in cash.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Doña plus first name is respectful and warm in Colombia.",
+      "targetJapaneseDraft": "マルレニーさん、四人はもう現金で払いました。",
+      "literalJapaneseGlossEn": "Doña Marleny, 4 have already paid in cash.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "Faltan 3 tintos y 2 aguapanelas por pagar.",
+      "sourceEnglish": "There are still 3 black coffees and 2 aguapanelas to pay for.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "まだティント三杯とアグアパネラ二杯の支払いが残っています。",
+      "literalJapaneseGlossEn": "There are still 3 black coffees and 2 aguapanelas to pay for.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:19",
+      "candidatePosition": 19,
+      "sourceSpanish": "Andrés dijo que la buseta sale en 10 minutos.",
+      "sourceEnglish": "Andrés said the minibus leaves in 10 minutes.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "アンドレスは小型バスがあと十分で出ると言いました。",
+      "literalJapaneseGlossEn": "Andrés said the minibus leaves in 10 minutes.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:20",
+      "candidatePosition": 20,
+      "sourceSpanish": "Muchachos, ¿quién pidió los huevos pericos?",
+      "sourceEnglish": "Guys, who ordered the scrambled eggs with tomato and onion?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Informal, to the group.",
+      "targetJapaneseDraft": "みんな、ウエボス・ペリコスを注文したのは誰？",
+      "literalJapaneseGlossEn": "Guys, who ordered the scrambled eggs with tomato and onion?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:21",
+      "candidatePosition": 21,
+      "sourceSpanish": "¿Me confirma cuánto queda del saldo, por favor?",
+      "sourceEnglish": "Could you confirm how much of the balance is left, please?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal (usted) to the cook.",
+      "targetJapaneseDraft": "残額がいくらか確認していただけますか。",
+      "literalJapaneseGlossEn": "Could you confirm how much of the balance is left, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:22",
+      "candidatePosition": 22,
+      "sourceSpanish": "¿Le puedo pagar por transferencia o solo en efectivo?",
+      "sourceEnglish": "Can I pay you by bank transfer or only in cash?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "銀行振込で払えますか。それとも現金だけですか。",
+      "literalJapaneseGlossEn": "Can I pay you by bank transfer or only in cash?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:card:23",
+      "candidatePosition": 23,
+      "sourceSpanish": "Yo pago lo que falta y después me arreglo con ellos.",
+      "sourceEnglish": "I'll pay what's left and sort it out with them later.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "残りは私が払って、あとでみんなと精算します。",
+      "literalJapaneseGlossEn": "I'll pay what's left and sort it out with them later.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "A las 7:30, el grupo de Emma terminó de desayunar en una finca cafetera cerca de Salento.",
+      "sourceEnglish": "At 7:30, Emma's group finished breakfast at a coffee farm near Salento.",
+      "targetJapaneseDraft": "七時半、エマたちのグループはサレント近郊のコーヒー農園で朝食を食べ終えました。",
+      "literalJapaneseGlossEn": "At 7:30, Emma's group finished breakfast at a coffee farm near Salento.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "De repente, el guía Andrés anunció que adelantaron la salida para las 7:45 por un derrumbe en la carretera.",
+      "sourceEnglish": "Suddenly, the guide Andrés announced that they moved the departure up to 7:45 because of a landslide on the road.",
+      "targetJapaneseDraft": "突然、ガイドのアンドレスは道路の土砂崩れのため、出発が七時四十五分に早まったと告げました。",
+      "literalJapaneseGlossEn": "Suddenly, the guide Andrés announced that they moved the departure up to 7:45 because of a landslide on the road.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Narrator",
+      "sourceSpanish": "Emma, la organizadora, fue a la cocina y le dijo a la cocinera: Andrés dijo que la buseta sale en 10 minutos.",
+      "sourceEnglish": "Emma, the organizer, went to the kitchen and told the cook: Andrés said the minibus leaves in 10 minutes.",
+      "targetJapaneseDraft": "幹事のエマは厨房へ行き、料理人に言いました。「アンドレスは小型バスがあと十分で出ると言いました。」",
+      "literalJapaneseGlossEn": "Emma, the organizer, went to the kitchen and told the cook: Andrés said the minibus leaves in 10 minutes.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Narrator",
+      "sourceSpanish": "Doña Marleny abrió la libreta donde anotó los pedidos del grupo esa mañana.",
+      "sourceEnglish": "Doña Marleny opened the notebook where she wrote down the group's orders that morning.",
+      "targetJapaneseDraft": "マルレニーさんは、その朝のグループの注文を書き留めたノートを開きました。",
+      "literalJapaneseGlossEn": "Doña Marleny opened the notebook where she wrote down the group's orders that morning.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: Pedimos 7 arepas con queso y 9 tintos.",
+      "sourceEnglish": "Emma: We ordered 7 arepas with cheese and 9 small black coffees.",
+      "targetJapaneseDraft": "エマ：「チーズ入りのアレパを七つとティントを九杯注文しました。」",
+      "literalJapaneseGlossEn": "Emma: We ordered 7 arepas with cheese and 9 small black coffees.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Marleny",
+      "sourceSpanish": "Marleny: Sí, y también 2 aguapanelas para los hijos de Priya.",
+      "sourceEnglish": "Marleny: Yes, and also 2 aguapanelas for Priya's kids.",
+      "targetJapaneseDraft": "マルレニー：「そうです。それにプリヤの子どもたち用のアグアパネラが二杯です。」",
+      "literalJapaneseGlossEn": "Marleny: Yes, and also 2 aguapanelas for Priya's kids.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: Doña Marleny, 4 ya pagaron en efectivo.",
+      "sourceEnglish": "Emma: Doña Marleny, 4 have already paid in cash.",
+      "targetJapaneseDraft": "エマ：「マルレニーさん、四人はもう現金で払いました。」",
+      "literalJapaneseGlossEn": "Emma: Doña Marleny, 4 have already paid in cash.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Marleny",
+      "sourceSpanish": "Marleny: Bueno, pero también serví 2 calentados que nadie anotó en la libreta.",
+      "sourceEnglish": "Marleny: Okay, but I also served 2 calentados that nobody wrote down in the notebook.",
+      "targetJapaneseDraft": "マルレニー：「わかりました。でもノートに誰も記入しなかったカレンタードも二皿出しました。」",
+      "literalJapaneseGlossEn": "Marleny: Okay, but I also served 2 calentados that nobody wrote down in the notebook.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Narrator",
+      "sourceSpanish": "Emma les preguntó a sus compañeros: Muchachos, ¿quién pidió los huevos pericos?",
+      "sourceEnglish": "Emma asked her companions: Guys, who ordered the scrambled eggs with tomato and onion?",
+      "targetJapaneseDraft": "エマは仲間に尋ねました。「みんな、ウエボス・ペリコスを注文したのは誰？」",
+      "literalJapaneseGlossEn": "Emma asked her companions: Guys, who ordered the scrambled eggs with tomato and onion?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:reader:10",
+      "candidatePosition": 10,
+      "speaker": "Narrator",
+      "sourceSpanish": "Tom y Priya levantaron la mano, y Tom confesó que también se comió un calentado con queso campesino.",
+      "sourceEnglish": "Tom and Priya raised their hands, and Tom admitted that he also ate a calentado with farmer's cheese.",
+      "targetJapaneseDraft": "トムとプリヤが手を挙げ、トムはケソ・カンペシーノ入りのカレンタードも食べたと認めました。",
+      "literalJapaneseGlossEn": "Tom and Priya raised their hands, and Tom admitted that he also ate a calentado with farmer's cheese.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:reader:11",
+      "candidatePosition": 11,
+      "speaker": "Narrator",
+      "sourceSpanish": "Marleny sumó rápido con el lápiz y dijo: Faltan 3 tintos y 2 aguapanelas por pagar.",
+      "sourceEnglish": "Marleny added it up quickly with her pencil and said: There are still 3 black coffees and 2 aguapanelas to pay for.",
+      "targetJapaneseDraft": "マルレニーは鉛筆で素早く計算して言いました。「まだティント三杯とアグアパネラ二杯の支払いが残っています。」",
+      "literalJapaneseGlossEn": "Marleny added it up quickly with her pencil and said: There are still 3 black coffees and 2 aguapanelas to pay for.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:reader:12",
+      "candidatePosition": 12,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: ¿Me confirma cuánto queda del saldo, por favor?",
+      "sourceEnglish": "Emma: Could you confirm how much of the balance is left, please?",
+      "targetJapaneseDraft": "エマ：「残額がいくらか確認していただけますか。」",
+      "literalJapaneseGlossEn": "Emma: Could you confirm how much of the balance is left, please?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:reader:13",
+      "candidatePosition": 13,
+      "speaker": "Marleny",
+      "sourceSpanish": "Marleny: El saldo pendiente es de 64 mil pesos, con los huevos pericos y los 2 calentados.",
+      "sourceEnglish": "Marleny: The outstanding balance is 64 thousand pesos, with the scrambled eggs and the 2 calentados.",
+      "targetJapaneseDraft": "マルレニー：「ウエボス・ペリコスとカレンタード二皿を含めて、未払いの残額は六万四千ペソです。」",
+      "literalJapaneseGlossEn": "Marleny: The outstanding balance is 64 thousand pesos, with the scrambled eggs and the 2 calentados.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:reader:14",
+      "candidatePosition": 14,
+      "speaker": "Narrator",
+      "sourceSpanish": "Emma solo tenía billetes grandes de 100 mil, y Marleny no tenía cambio tan temprano.",
+      "sourceEnglish": "Emma only had large 100 thousand-peso bills, and Marleny didn't have change so early.",
+      "targetJapaneseDraft": "エマは十万ペソの高額紙幣しか持っておらず、マルレニーは朝早くてお釣りを用意できませんでした。",
+      "literalJapaneseGlossEn": "Emma only had large 100 thousand-peso bills, and Marleny didn't have change so early.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:reader:15",
+      "candidatePosition": 15,
+      "speaker": "Emma",
+      "sourceSpanish": "Emma: ¿Le puedo pagar por transferencia o solo en efectivo?",
+      "sourceEnglish": "Emma: Can I pay you by bank transfer or only in cash?",
+      "targetJapaneseDraft": "エマ：「銀行振込で払えますか。それとも現金だけですか。」",
+      "literalJapaneseGlossEn": "Emma: Can I pay you by bank transfer or only in cash?",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:reader:16",
+      "candidatePosition": 16,
+      "speaker": "Narrator",
+      "sourceSpanish": "Marleny le respondió que sí recibe transferencias por Nequi y le mostró el número pegado en la pared.",
+      "sourceEnglish": "Marleny answered that she does accept transfers through Nequi and showed her the number stuck on the wall.",
+      "targetJapaneseDraft": "マルレニーはネキ経由の送金を受け付けると答え、壁に貼ってある番号をエマに見せました。",
+      "literalJapaneseGlossEn": "Marleny answered that she does accept transfers through Nequi and showed her the number stuck on the wall.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:reader:17",
+      "candidatePosition": 17,
+      "speaker": "Narrator",
+      "sourceSpanish": "Emma le dijo: Yo pago lo que falta y después me arreglo con ellos.",
+      "sourceEnglish": "Emma told her: I'll pay what's left and sort it out with them later.",
+      "targetJapaneseDraft": "エマは彼女に言いました。「残りは私が払って、あとでみんなと精算します。」",
+      "literalJapaneseGlossEn": "Emma told her: I'll pay what's left and sort it out with them later.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:7:ja-en:source-scene-v1:reader:18",
+      "candidatePosition": 18,
+      "speaker": "Narrator",
+      "sourceSpanish": "Emma hizo la transferencia de 64 mil pesos, le mostró el comprobante de pago y corrió a la buseta justo a tiempo.",
+      "sourceEnglish": "Emma made the transfer of 64 thousand pesos, showed her the proof of payment, and ran to the minibus just in time.",
+      "targetJapaneseDraft": "エマは六万四千ペソを送金し、支払いの証明を見せて、ぎりぎり間に合うよう小型バスへ走りました。",
+      "literalJapaneseGlossEn": "Emma made the transfer of 64 thousand pesos, showed her the proof of payment, and ran to the minibus just in time.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Recount Emma’s group breakfast order and settle its remaining coffee-farm bill through a Nequi transfer before Andrés’s minibus leaves.",
+  "speakingGoalInternal": "You are the group's organizer, and the AI is Marleny, the cook at a coffee-farm breakfast near Salento: recount what the group ordered and who paid using the preterite (pedimos, pagaron), count what's still owed with faltan + numbers, and settle the bill before the bus leaves.",
+  "speakingGoalJapaneseDraft": "あなたはサレント近郊のコーヒー農園で朝食をとったグループの幹事エマです。相手は料理人マルレニーです。注文したアレパ七つ、ティント九杯、アグアパネラ二杯、カレンタード二皿、現金で支払った四人を確認し、未払いの残額六万四千ペソを聞いて、ガイドのアンドレスが早めた小型バスの出発前にネキで送金し、あとで仲間と精算してください。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "Current source follows Emma, cook Marleny and guide Andrés at a Salento-area coffee farm, with departure moved to 7:45 because of a landslide. The group ordered seven cheese arepas, nine tintos, two aguapanelas, eggs and two calentados; four people paid cash, but 64,000 pesos remain. Emma has only 100,000-peso notes, transfers 64,000 through Nequi and shows proof before reaching the minibus. The archived draft has different scene rows and stays separate evidence. The pinned timing of 7:30, 7:45 and 'in 10 minutes' requires source review without silent alteration.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "order sheet",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "unpaid amount",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "bill",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "receipt",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "shuttle vehicle",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "departure time",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "bank transfer",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "cash",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "payment method",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "to check the count",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "still remains",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "ordered",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "paid",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "how much remains?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "The shuttle departure has moved up. We have ten minutes.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "May we check the order sheet and payments together?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Yes. I recorded nine coffees and seven breakfasts.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Four people have already paid in cash.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "Thank you. Payment for two breakfasts still remains.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "I will ask everyone whether there were extra orders.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "I ordered one extra coffee. I have not paid for it yet.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "Could you tell me the total and remaining balance again?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Here is the itemized bill. You can pay with cash or card.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "I checked the itemization. I will pay the rest by card and take the receipt.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 41,
+    "twoVoiceClipDecisionsIfTextApproved": 82,
+    "twoVoiceSubmittedCharactersIfTextApproved": 2082,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.06246,
+    "archivedExactJapaneseCardTextOverlapsOnly": 0,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Japanese names and honorifics for Doña Marleny, Emma, Andrés and Priya need qualified register review.",
+    "Colombian food names are provisional transliterations and explanations; check arepa, tinto, huevos pericos, aguapanela, calentado and queso campesino with local food review.",
+    "Nequi brand pronunciation and the most natural Japanese description of its transfer mechanism need locale review.",
+    "The pinned source combines a 7:30 finish, 7:45 moved departure and the character's 'in 10 minutes' report; preserve the dialogue's timing without silently reconciling it.",
+    "Source English calls the payment method bank transfer; check Japanese 送金 versus 銀行振込 against Nequi payment behavior before learner-facing use.",
+    "The unpaid count and final 64,000-peso balance are source assertions; verify charge arithmetic and Colombian peso display with domain review.",
+    "Review Japanese counters for seven arepas, nine tintos, two aguapanelas and two calentados.",
+    "Review whether the phrase '四人はもう現金で払いました' clearly refers to people rather than four items."
+  ],
+  "missing": [
+    "qualified Japanese/source/Argentine food/locale/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

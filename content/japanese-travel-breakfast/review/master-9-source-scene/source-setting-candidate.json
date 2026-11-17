@@ -1,0 +1,761 @@
+{
+  "schema": 1,
+  "pairKey": "Japanese:English",
+  "track": "travel-breakfast",
+  "stage": "master",
+  "lessonKey": "master:9",
+  "stableLessonId": "master-travel-breakfast:9:ja-en",
+  "candidateRevision": "master-travel-breakfast:9:ja-en:source-scene-v1",
+  "status": "source-only Japanese candidate; unapproved",
+  "reviewed": false,
+  "source": {
+    "curriculumPath": "src/data/core60/es/master-travel-breakfast.json",
+    "curriculumSha256": "9403eb80ef58e72bcff62be5c6fac3b7c9a02b2e76acb237592fcc34ddb1f87b",
+    "readerPath": "public/lesson-content/es/master-travel-breakfast.json",
+    "readerSha256": "7cc91b0ca9a264ec20ac63a0e760e6df4b3cfc8ca7e931decc239c4329a74348",
+    "curriculumVersion": 1,
+    "readerVersion": 1,
+    "curriculumReviewed": false,
+    "readerReviewed": false,
+    "titleEnglishInternal": "Give Honest Feedback to a New Café Owner",
+    "objectiveEnglishInternal": "Give specific, kind feedback on coffee and menu clarity and make two concrete recommendations.",
+    "speakingEnglishInternal": "You are a customer, and the AI is Camila, the new café owner in Barrio Italia: give honest, kind feedback on the cortado and the chalkboard menu, and make two concrete recommendations using le recomiendo que and ojalá que with the present subjunctive.",
+    "grammarEnglishExamplesInternal": [
+      "I recommend that you put the prices next to each coffee.",
+      "I hope the milk comes out hotter tomorrow."
+    ],
+    "readerTitleSpanish": "Una opinión sincera en Barrio Italia",
+    "readerVerbExamples": [
+      {
+        "target": "Le recomiendo que caliente las tazas antes de servir.",
+        "native": "I recommend that you warm the cups before serving."
+      },
+      {
+        "target": "Le sugiero que separe los cafés de los dulces por categorías.",
+        "native": "I suggest you separate the coffees from the sweets by category."
+      },
+      {
+        "target": "Camila calienta las tazas antes de servir.",
+        "native": "Camila warms the cups before serving."
+      },
+      {
+        "target": "El cortado sale tibio de la máquina.",
+        "native": "The cortado comes out lukewarm from the machine."
+      },
+      {
+        "target": "Camila escribe el menú con tiza blanca.",
+        "native": "Camila writes the menu in white chalk."
+      }
+    ]
+  },
+  "archivedDraft": {
+    "path": "content/review-archive/french-japanese-2026-11-15/japanese-breakfast/master-7-9-draft.json",
+    "sha256": "2df980428024f9bf436cbdd49d7b52cdcab5d9b49c6b670ba2988bb544b07337",
+    "scene": "A regular customer gives a new café owner courteous feedback about a lukewarm drink and hard-to-read menu board.",
+    "cardCount": 14,
+    "readerCount": 10
+  },
+  "sourceCards": [
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:01",
+      "candidatePosition": 1,
+      "sourceSpanish": "la temperatura",
+      "sourceEnglish": "the temperature",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "温度",
+      "literalJapaneseGlossEn": "the temperature",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:02",
+      "candidatePosition": 2,
+      "sourceSpanish": "la máquina de espresso",
+      "sourceEnglish": "the espresso machine",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "エスプレッソマシン",
+      "literalJapaneseGlossEn": "the espresso machine",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:03",
+      "candidatePosition": 3,
+      "sourceSpanish": "el molinillo",
+      "sourceEnglish": "the grinder",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "コーヒーミル",
+      "literalJapaneseGlossEn": "the grinder",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:04",
+      "candidatePosition": 4,
+      "sourceSpanish": "el calentador de tazas",
+      "sourceEnglish": "the cup warmer",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カップウォーマー",
+      "literalJapaneseGlossEn": "the cup warmer",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:05",
+      "candidatePosition": 5,
+      "sourceSpanish": "la leche vaporizada",
+      "sourceEnglish": "the steamed milk",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "スチームミルク",
+      "literalJapaneseGlossEn": "the steamed milk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:06",
+      "candidatePosition": 6,
+      "sourceSpanish": "la crema",
+      "sourceEnglish": "the crema",
+      "kind": "term",
+      "sourceNoteInternal": "The golden foam on top of an espresso.",
+      "targetJapaneseDraft": "クレマ",
+      "literalJapaneseGlossEn": "the crema",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:07",
+      "candidatePosition": 7,
+      "sourceSpanish": "la letra",
+      "sourceEnglish": "the handwriting",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "手書きの文字",
+      "literalJapaneseGlossEn": "the handwriting",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:08",
+      "candidatePosition": 8,
+      "sourceSpanish": "la tiza",
+      "sourceEnglish": "the chalk",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "チョーク",
+      "literalJapaneseGlossEn": "the chalk",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:09",
+      "candidatePosition": 9,
+      "sourceSpanish": "las categorías",
+      "sourceEnglish": "the categories",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "カテゴリー",
+      "literalJapaneseGlossEn": "the categories",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:10",
+      "candidatePosition": 10,
+      "sourceSpanish": "legible",
+      "sourceEnglish": "readable",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "読みやすい",
+      "literalJapaneseGlossEn": "readable",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:11",
+      "candidatePosition": 11,
+      "sourceSpanish": "confuso",
+      "sourceEnglish": "confusing",
+      "kind": "term",
+      "sourceNoteInternal": "Agrees with the noun: un menú confuso, una lista confusa.",
+      "targetJapaneseDraft": "分かりにくい",
+      "literalJapaneseGlossEn": "confusing",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:12",
+      "candidatePosition": 12,
+      "sourceSpanish": "la primera impresión",
+      "sourceEnglish": "the first impression",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "第一印象",
+      "literalJapaneseGlossEn": "the first impression",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:13",
+      "candidatePosition": 13,
+      "sourceSpanish": "el kuchen",
+      "sourceEnglish": "the kuchen (fruit cake)",
+      "kind": "term",
+      "sourceNoteInternal": "A German-style fruit cake, very common in Chilean cafés.",
+      "targetJapaneseDraft": "クーヘン（フルーツケーキ）",
+      "literalJapaneseGlossEn": "the kuchen (fruit cake)",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:14",
+      "candidatePosition": 14,
+      "sourceSpanish": "la sugerencia",
+      "sourceEnglish": "the suggestion",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "提案",
+      "literalJapaneseGlossEn": "the suggestion",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:15",
+      "candidatePosition": 15,
+      "sourceSpanish": "la opinión sincera",
+      "sourceEnglish": "the honest opinion",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "率直な意見",
+      "literalJapaneseGlossEn": "the honest opinion",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:16",
+      "candidatePosition": 16,
+      "sourceSpanish": "Si quiere mi opinión sincera, el cortado llegó un poco frío.",
+      "sourceEnglish": "If you want my honest opinion, the cortado arrived a bit cold.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal: usted with the owner.",
+      "targetJapaneseDraft": "率直な意見をお求めでしたら、コルタードは少し冷めた状態で出てきました。",
+      "literalJapaneseGlossEn": "If you want my honest opinion, the cortado arrived a bit cold.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:17",
+      "candidatePosition": 17,
+      "sourceSpanish": "Le recomiendo que caliente las tazas antes de servir.",
+      "sourceEnglish": "I recommend that you warm the cups before serving.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Recomendar que + subjunctive: caliente, not calienta.",
+      "targetJapaneseDraft": "出す前にカップを温めることをお勧めします。",
+      "literalJapaneseGlossEn": "I recommend that you warm the cups before serving.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:18",
+      "candidatePosition": 18,
+      "sourceSpanish": "Ojalá que el cortado salga un poco más caliente.",
+      "sourceEnglish": "I hope the cortado comes out a little hotter.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Ojalá que is always followed by the subjunctive.",
+      "targetJapaneseDraft": "コルタードがもう少し熱い状態で出てくるといいですね。",
+      "literalJapaneseGlossEn": "I hope the cortado comes out a little hotter.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:19",
+      "candidatePosition": 19,
+      "sourceSpanish": "Le sugiero que separe los cafés de los dulces por categorías.",
+      "sourceEnglish": "I suggest you separate the coffees from the sweets by category.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "コーヒーと甘いものをカテゴリー別に分けることをお勧めします。",
+      "literalJapaneseGlossEn": "I suggest you separate the coffees from the sweets by category.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:20",
+      "candidatePosition": 20,
+      "sourceSpanish": "Es mejor que escriba los precios con letra más grande.",
+      "sourceEnglish": "It's better if you write the prices in bigger letters.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "値段をもっと大きな字で書くとよいと思います。",
+      "literalJapaneseGlossEn": "It's better if you write the prices in bigger letters.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:21",
+      "candidatePosition": 21,
+      "sourceSpanish": "Me encantó el kuchen, de verdad estaba riquísimo.",
+      "sourceEnglish": "I loved the kuchen, it was truly delicious.",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "targetJapaneseDraft": "クーヘンはとてもおいしかったです。本当に絶品でした。",
+      "literalJapaneseGlossEn": "I loved the kuchen, it was truly delicious.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:22",
+      "candidatePosition": 22,
+      "sourceSpanish": "Espero que no le moleste lo que le digo.",
+      "sourceEnglish": "I hope what I'm saying doesn't bother you.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Formal; softens criticism before you give it.",
+      "targetJapaneseDraft": "こんなことを言ってお気を悪くされないといいのですが。",
+      "literalJapaneseGlossEn": "I hope what I'm saying doesn't bother you.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:card:23",
+      "candidatePosition": 23,
+      "sourceSpanish": "Ojalá que le vaya súper bien con el café, Camila.",
+      "sourceEnglish": "I really hope things go great with the café, Camila.",
+      "kind": "phrase",
+      "sourceNoteInternal": "Súper bien is everyday Chilean speech.",
+      "targetJapaneseDraft": "カミラさん、このカフェがとてもうまくいくことを願っています。",
+      "literalJapaneseGlossEn": "I really hope things go great with the café, Camila.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false
+    }
+  ],
+  "sourceSettingReader": [
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:reader:01",
+      "candidatePosition": 1,
+      "speaker": "Narrator",
+      "sourceSpanish": "Daniel, un viajero canadiense, toma un cortado y come un kuchen de frambuesa en el café nuevo de Camila en Barrio Italia.",
+      "sourceEnglish": "Daniel, a Canadian traveler, has a cortado and eats a raspberry kuchen at Camila's new café in Barrio Italia.",
+      "targetJapaneseDraft": "カナダ人旅行者のダニエルは、バリオ・イタリアにあるカミラの新しいカフェでコルタードを飲み、ラズベリーのクーヘンを食べる。",
+      "literalJapaneseGlossEn": "Daniel, a Canadian traveler, has a cortado and eats a raspberry kuchen at Camila's new café in Barrio Italia.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:reader:02",
+      "candidatePosition": 2,
+      "speaker": "Narrator",
+      "sourceSpanish": "Camila abrió el local hace dos semanas y le pide a Daniel su opinión sincera sobre el café y el menú.",
+      "sourceEnglish": "Camila opened the place two weeks ago and asks Daniel for his honest opinion about the coffee and the menu.",
+      "targetJapaneseDraft": "カミラが店を開いたのは二週間前で、コーヒーとメニューについてダニエルに率直な意見を求める。",
+      "literalJapaneseGlossEn": "Camila opened the place two weeks ago and asks Daniel for his honest opinion about the coffee and the menu.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:reader:03",
+      "candidatePosition": 3,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Si quiere mi opinión sincera, el cortado llegó un poco frío.",
+      "sourceEnglish": "Daniel: If you want my honest opinion, the cortado arrived a bit cold.",
+      "targetJapaneseDraft": "ダニエル：率直な意見をお求めでしたら、コルタードは少し冷めた状態で出てきました。",
+      "literalJapaneseGlossEn": "Daniel: If you want my honest opinion, the cortado arrived a bit cold.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:reader:04",
+      "candidatePosition": 4,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: La crema se veía muy bonita, pero la leche vaporizada llegó tibia.",
+      "sourceEnglish": "Daniel: The crema looked very nice, but the steamed milk arrived lukewarm.",
+      "targetJapaneseDraft": "ダニエル：クレマはとてもきれいでしたが、スチームミルクはぬるかったです。",
+      "literalJapaneseGlossEn": "Daniel: The crema looked very nice, but the steamed milk arrived lukewarm.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:reader:05",
+      "candidatePosition": 5,
+      "speaker": "Narrator",
+      "sourceSpanish": "Camila explica que la máquina de espresso es nueva y que todavía está aprendiendo a controlar la temperatura.",
+      "sourceEnglish": "Camila explains that the espresso machine is new and that she is still learning to control the temperature.",
+      "targetJapaneseDraft": "カミラは、エスプレッソマシンが新しく、まだ温度の調整を学んでいるところだと説明する。",
+      "literalJapaneseGlossEn": "Camila explains that the espresso machine is new and that she is still learning to control the temperature.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:reader:06",
+      "candidatePosition": 6,
+      "speaker": "Narrator",
+      "sourceSpanish": "Ella cuenta que ajusta el molinillo cada mañana para que el espresso salga bien.",
+      "sourceEnglish": "She says that she adjusts the grinder every morning so that the espresso comes out well.",
+      "targetJapaneseDraft": "カミラは、エスプレッソがうまく抽出されるように、毎朝コーヒーミルを調整していると言う。",
+      "literalJapaneseGlossEn": "She says that she adjusts the grinder every morning so that the espresso comes out well.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:reader:07",
+      "candidatePosition": 7,
+      "speaker": "Narrator",
+      "sourceSpanish": "Daniel nota que el calentador de tazas está apagado encima de la máquina.",
+      "sourceEnglish": "Daniel notices that the cup warmer is turned off on top of the machine.",
+      "targetJapaneseDraft": "ダニエルは、マシンの上にあるカップウォーマーの電源が切れていることに気づく。",
+      "literalJapaneseGlossEn": "Daniel notices that the cup warmer is turned off on top of the machine.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:reader:08",
+      "candidatePosition": 8,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Le recomiendo que caliente las tazas antes de servir.",
+      "sourceEnglish": "Daniel: I recommend that you warm the cups before serving.",
+      "targetJapaneseDraft": "ダニエル：出す前にカップを温めることをお勧めします。",
+      "literalJapaneseGlossEn": "Daniel: I recommend that you warm the cups before serving.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:reader:09",
+      "candidatePosition": 9,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Ojalá que el cortado salga un poco más caliente.",
+      "sourceEnglish": "Daniel: I hope the cortado comes out a little hotter.",
+      "targetJapaneseDraft": "ダニエル：コルタードがもう少し熱い状態で出てくるといいですね。",
+      "literalJapaneseGlossEn": "Daniel: I hope the cortado comes out a little hotter.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:reader:10",
+      "candidatePosition": 10,
+      "speaker": "Narrator",
+      "sourceSpanish": "Después, Daniel mira la pizarra del menú, escrita con tiza blanca, y la encuentra confusa.",
+      "sourceEnglish": "Then Daniel looks at the menu board, written in white chalk, and finds it confusing.",
+      "targetJapaneseDraft": "その後、ダニエルは白いチョークで書かれたメニューの黒板を見て、分かりにくいと感じる。",
+      "literalJapaneseGlossEn": "Then Daniel looks at the menu board, written in white chalk, and finds it confusing.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:reader:11",
+      "candidatePosition": 11,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: La letra es muy pequeña y los precios no son legibles desde la caja.",
+      "sourceEnglish": "Daniel: The handwriting is very small and the prices are not readable from the register.",
+      "targetJapaneseDraft": "ダニエル：字がとても小さく、レジのところから値段が読めません。",
+      "literalJapaneseGlossEn": "Daniel: The handwriting is very small and the prices are not readable from the register.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:reader:12",
+      "candidatePosition": 12,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Le sugiero que separe los cafés de los dulces por categorías.",
+      "sourceEnglish": "Daniel: I suggest you separate the coffees from the sweets by category.",
+      "targetJapaneseDraft": "ダニエル：コーヒーと甘いものをカテゴリー別に分けることをお勧めします。",
+      "literalJapaneseGlossEn": "Daniel: I suggest you separate the coffees from the sweets by category.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:reader:13",
+      "candidatePosition": 13,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Es mejor que escriba los precios con letra más grande.",
+      "sourceEnglish": "Daniel: It's better if you write the prices in bigger letters.",
+      "targetJapaneseDraft": "ダニエル：値段をもっと大きな字で書くとよいと思います。",
+      "literalJapaneseGlossEn": "Daniel: It's better if you write the prices in bigger letters.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:reader:14",
+      "candidatePosition": 14,
+      "speaker": "Camila",
+      "sourceSpanish": "Camila: Tiene razón, la primera impresión es muy importante en un local nuevo.",
+      "sourceEnglish": "Camila: You're right, the first impression is very important in a new place.",
+      "targetJapaneseDraft": "カミラ：おっしゃるとおりです。新しい店では第一印象がとても大切です。",
+      "literalJapaneseGlossEn": "Camila: You're right, the first impression is very important in a new place.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:reader:15",
+      "candidatePosition": 15,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Espero que no le moleste lo que le digo.",
+      "sourceEnglish": "Daniel: I hope what I'm saying doesn't bother you.",
+      "targetJapaneseDraft": "ダニエル：こんなことを言ってお気を悪くされないといいのですが。",
+      "literalJapaneseGlossEn": "Daniel: I hope what I'm saying doesn't bother you.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:reader:16",
+      "candidatePosition": 16,
+      "speaker": "Camila",
+      "sourceSpanish": "Camila: Para nada, le agradezco mucho la sugerencia.",
+      "sourceEnglish": "Camila: Not at all, I really appreciate the suggestion.",
+      "targetJapaneseDraft": "カミラ：とんでもありません。ご提案にとても感謝しています。",
+      "literalJapaneseGlossEn": "Camila: Not at all, I really appreciate the suggestion.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:reader:17",
+      "candidatePosition": 17,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Me encantó el kuchen, de verdad estaba riquísimo.",
+      "sourceEnglish": "Daniel: I loved the kuchen, it was truly delicious.",
+      "targetJapaneseDraft": "ダニエル：クーヘンはとてもおいしかったです。本当に絶品でした。",
+      "literalJapaneseGlossEn": "Daniel: I loved the kuchen, it was truly delicious.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    },
+    {
+      "id": "master-travel-breakfast:9:ja-en:source-scene-v1:reader:18",
+      "candidatePosition": 18,
+      "speaker": "Daniel",
+      "sourceSpanish": "Daniel: Ojalá que le vaya súper bien con el café, Camila.",
+      "sourceEnglish": "Daniel: I really hope things go great with the café, Camila.",
+      "targetJapaneseDraft": "ダニエル：カミラさん、このカフェがとてもうまくいくことを願っています。",
+      "literalJapaneseGlossEn": "Daniel: I really hope things go great with the café, Camila.",
+      "sourceEnglishIsJapaneseGloss": false,
+      "learnerFaceEnabled": false,
+      "selectionStatus": "unapproved draft candidate"
+    }
+  ],
+  "japaneseSpecificFocusCandidate": "Give Camila specific and kind feedback about a lukewarm cortado and small, confusing chalkboard menu at her new Barrio Italia café, with two actionable recommendations.",
+  "speakingGoalInternal": "You are a customer, and the AI is Camila, the new café owner in Barrio Italia: give honest, kind feedback on the cortado and the chalkboard menu, and make two concrete recommendations using le recomiendo que and ojalá que with the present subjunctive.",
+  "speakingGoalJapaneseDraft": "あなたは客で、AIはバリオ・イタリアの新しいカフェのオーナー、カミラです。コルタードとチョークで書かれたメニューについて、具体的かつ丁寧に率直な意見を伝え、カップを温めることとメニューのカテゴリーや値段の文字を見やすくすることについて二つの提案をしてください。スペイン語の le recomiendo que と ojalá que に続く現在接続法の意味も確認してください。",
+  "speakingGoalLearnerEnabled": false,
+  "sourceConflictInternal": "Current source follows Canadian traveler Daniel giving owner Camila feedback two weeks after her new Barrio Italia café opened. He notes lukewarm steamed milk, an off cup warmer and unreadable chalkboard prices; recommends warming cups and separating menu categories with larger price lettering; praises raspberry kuchen. Archived draft compresses this to generic feedback and omits source-specific details; it remains separate evidence.",
+  "oldCardPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "feedback",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "drink temperature",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "lukewarm",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "menu board",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "price",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "lettering",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "easy to read",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "suggestion",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "improvement",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "what worked well",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 11,
+      "candidate": null,
+      "oldEnglish": "it was a little ...",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 12,
+      "candidate": null,
+      "oldEnglish": "how about doing ...?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 13,
+      "candidate": null,
+      "oldEnglish": "I think that ...",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 14,
+      "candidate": null,
+      "oldEnglish": "I am rooting for you",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "oldReaderPositionPlan": [
+    {
+      "old": 1,
+      "candidate": null,
+      "oldEnglish": "Could you tell me what you thought of the new café?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 2,
+      "candidate": null,
+      "oldEnglish": "The cake was delicious. I have two suggestions about the drink and menu.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 3,
+      "candidate": null,
+      "oldEnglish": "Please tell me.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 4,
+      "candidate": null,
+      "oldEnglish": "Today's café au lait felt a little lukewarm to me.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 5,
+      "candidate": null,
+      "oldEnglish": "How about checking the temperature before serving it?",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 6,
+      "candidate": null,
+      "oldEnglish": "I see. I will review our shop procedure.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 7,
+      "candidate": null,
+      "oldEnglish": "Also, the menu-board prices were hard to read from the register.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 8,
+      "candidate": null,
+      "oldEnglish": "I think separating drinks and sweets and writing prices larger would make it easier to read.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 9,
+      "candidate": null,
+      "oldEnglish": "Thank you for the specific suggestions.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    },
+    {
+      "old": 10,
+      "candidate": null,
+      "oldEnglish": "Thank you. I am rooting for your new café.",
+      "disposition": "retire from candidate only; retain archive; no saved-item migration"
+    }
+  ],
+  "archivedExactCardOverlapInternal": [
+    {
+      "oldPosition": 8,
+      "candidatePosition": 14,
+      "textOnly": true,
+      "migrationAuthorized": false
+    }
+  ],
+  "audioScopeReadOnly": {
+    "draftFacePlacements": 41,
+    "twoVoiceClipDecisionsIfTextApproved": 82,
+    "twoVoiceSubmittedCharactersIfTextApproved": 1914,
+    "grossEstimateUSDAt30PerMillionCharacters": 0.05742,
+    "archivedExactJapaneseCardTextOverlapsOnly": 1,
+    "candidateIDsMatchingArchive": 0,
+    "synthesized": false,
+    "listeningApproved": false,
+    "registered": false
+  },
+  "savedPositionPolicy": "Archived draft rows have no explicit stable row IDs and were not registered. Revision-scoped candidate IDs do not authorize saved-item or audio placement migration. Reordering requires a new revision.",
+  "reviewQuestionsInternal": [
+    "Qualified Japanese and Chilean café/locale review of Barrio Italia, cortado and kuchen forms is required.",
+    "The source's present subjunctive after recommendations and wishes has no one-to-one Japanese inflection; confirm the Japanese objective keeps the meaning without teaching a false morphological equivalence.",
+    "Confirm whether crema should be the espresso foam term クレマ and not dairy cream in contextual dictionary entries.",
+    "Confirm cup warmer location and off state; the draft does not say the machine itself was off.",
+    "Confirm 'the prices are not readable from the register' refers to visual legibility from the cashier point, not missing prices.",
+    "Confirm Daniel's two concrete recommendations remain distinct from his wish about hotter cortado.",
+    "Qualified dictionary and card-face review must decide whether source English glosses are suitable learner glosses for all Japanese faces.",
+    "No saved-item mapping or recording reuse is authorized from the older archived 14-card/10-turn draft."
+  ],
+  "missing": [
+    "qualified Japanese/source/Chilean food/locale/dictionary review",
+    "six authored mode prompt/target pairs",
+    "source-aligned Japanese forms",
+    "contextual dictionary senses",
+    "speaking setup and card-only word bank",
+    "authorized saved-item policy",
+    "exact-text audio and per-clip listening",
+    "learner/offline/native acceptance"
+  ],
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerVisible": false,
+    "scoringEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressWritesEnabled": false,
+    "released": false,
+    "runtimeImported": false,
+    "ownerRouteEnabled": false,
+    "v4Imported": false
+  }
+}

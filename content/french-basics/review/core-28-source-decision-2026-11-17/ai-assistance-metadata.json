@@ -1,0 +1,29 @@
+{
+  "schema": "source-review-ai-evidence-v1",
+  "newClaudeCallsForThisPacket": 0,
+  "newClaudeAuthCheck": "CLI exited with code 1 and no error output; authentication unavailable",
+  "priorPrivateEvidence": [
+    {
+      "role": "candidate authoring",
+      "canonicalModel": "claude-haiku-5-5",
+      "privateOutputSHA256": "d79ddc0a84ee2b1ea1fdb5e51b695d03883b8e68cfd2303b59266d75e6e64159",
+      "isError": false
+    },
+    {
+      "role": "read-only critique",
+      "canonicalModel": "claude-opus-5-5",
+      "privateOutputSHA256": "132c640cbe6b67653b8eea777f23aa58a22ac39ede95c34f9ef5367e952ded19",
+      "isError": false
+    },
+    {
+      "role": "correction review",
+      "canonicalModel": "claude-fable-5-2",
+      "privateOutputSHA256": "b11c1ec1ee3913490541007e4f42505b3973efac1c68d3f2cd46b04b7e09ce26",
+      "isError": false
+    }
+  ],
+  "selfCheck": "Rechecked the current Spanish Core and practice file bytes, all 14 source cards and six Reader turns; rejected positional preposition pairing and preserved the gender-neutral les distinction.",
+  "qualifiedFrenchReview": false,
+  "qualifiedDictionaryReview": false,
+  "qualifiedHumanApproval": false
+}

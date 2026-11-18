@@ -1,0 +1,460 @@
+{
+  "schema": "french101-master20-source-decision-v1",
+  "pairKey": "French:English",
+  "courseId": "french-basics",
+  "moduleId": "master-french-basics",
+  "stage": "master",
+  "n": 20,
+  "stableLessonId": "master-french-basics:20",
+  "stablePairId": "master-french-basics:20:fr-en",
+  "sourceFilesSha256": {
+    "src/data/core60/es/master-spanish-basics.json": "27084a65c51ef96ab6b74dd969de1c4b38cd670be1c4b148e2b66f4d9bb15ede",
+    "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe",
+    "content/review-archive/french-japanese-2026-11-15/french-101/master-19-20-redesign-draft.json": "c55e0d18a62f6c739746b493d21be0331d2f2000886f50bdc831ca5be616f9d7"
+  },
+  "sourceTitleEnglish": "Spanish 101 final conversation",
+  "sourceObjectiveEnglish": "Spanish 101 final conversation: Y adds an idea, pero contrasts it, porque explains a reason, and entonces signals a result or next step.",
+  "sourceFocusEnglish": "Spanish 101 final conversation",
+  "sourceSpeakingEnglish": "Role-play Un cambio de planes with a patient classmate. Practice spanish 101 final conversation. Use this lesson's grammar, ask a related question, answer the partner, and confirm understanding. Keep language at beginner level; explain unfamiliar words in English when asked.",
+  "sourceGrammarEnglish": {
+    "focus": "Y adds an idea, pero contrasts it, porque explains a reason, and entonces signals a result or next step. Join short accurate clauses before trying long sentences.",
+    "examples": [
+      {
+        "es": "Soy estudiante y vivo cerca de la escuela.",
+        "en": "I am a student and I live near the school."
+      },
+      {
+        "es": "Ayer estudié con mis amigos.",
+        "en": "Yesterday I studied with my friends."
+      }
+    ]
+  },
+  "sourceReaderTitleSpanish": "Un cambio de planes",
+  "cards": [
+    {
+      "id": "master-french-basics:20:card:1",
+      "sourceSpanish": "estudiante",
+      "sourceEnglish": "student",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source estudiante has no gender marker; French étudiant/étudiante does. A context-free scored face needs a qualified choice."
+    },
+    {
+      "id": "master-french-basics:20:card:2",
+      "sourceSpanish": "soy",
+      "sourceEnglish": "I am (identity)",
+      "kind": "term",
+      "proposedFrench": "je suis",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish soy states identity; French je suis can also express condition and location, so retain the identity explanation."
+    },
+    {
+      "id": "master-french-basics:20:card:3",
+      "sourceSpanish": "libro",
+      "sourceEnglish": "book",
+      "kind": "term",
+      "proposedFrench": "livre",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:20:card:4",
+      "sourceSpanish": "está",
+      "sourceEnglish": "is (condition/location)",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish está groups condition/location; French est does not preserve that source distinction by itself."
+    },
+    {
+      "id": "master-french-basics:20:card:5",
+      "sourceSpanish": "la",
+      "sourceEnglish": "the / it / her (feminine)",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish la groups feminine article, it and her; French la/l’ differs by grammatical role and elision."
+    },
+    {
+      "id": "master-french-basics:20:card:6",
+      "sourceSpanish": "un",
+      "sourceEnglish": "a (masculine)",
+      "kind": "term",
+      "proposedFrench": "un",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source un specifies a masculine article; French un aligns in a masculine-noun context only."
+    },
+    {
+      "id": "master-french-basics:20:card:7",
+      "sourceSpanish": "una",
+      "sourceEnglish": "a (feminine)",
+      "kind": "term",
+      "proposedFrench": "une",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source una specifies a feminine article; French une aligns in a feminine-noun context only."
+    },
+    {
+      "id": "master-french-basics:20:card:8",
+      "sourceSpanish": "en",
+      "sourceEnglish": "in / on / at",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source en groups in/on/at; French à, dans, sur and other forms depend on the phrase."
+    },
+    {
+      "id": "master-french-basics:20:card:9",
+      "sourceSpanish": "y",
+      "sourceEnglish": "and",
+      "kind": "term",
+      "proposedFrench": "et",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:20:card:10",
+      "sourceSpanish": "los",
+      "sourceEnglish": "the / them (masculine plural)",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish los is masculine plural article or object; French les is gender-neutral and role-dependent."
+    },
+    {
+      "id": "master-french-basics:20:card:11",
+      "sourceSpanish": "dos",
+      "sourceEnglish": "two",
+      "kind": "term",
+      "proposedFrench": "deux",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:20:card:12",
+      "sourceSpanish": "libros",
+      "sourceEnglish": "books",
+      "kind": "term",
+      "proposedFrench": "livres",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:20:card:13",
+      "sourceSpanish": "Soy estudiante y vivo cerca de la escuela.",
+      "sourceEnglish": "I am a student and I live near the school.",
+      "kind": "phrase",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "The source student is gender-neutral; French étudiant/étudiante requires a gender or a contextual rewrite. Keep the school, not the archived workshop."
+    },
+    {
+      "id": "master-french-basics:20:card:14",
+      "sourceSpanish": "Ayer estudié con mis amigos.",
+      "sourceEnglish": "Yesterday I studied with my friends.",
+      "kind": "phrase",
+      "proposedFrench": "Hier, j’ai étudié avec mes amis.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish completed past studied is proposed with French passé composé; confirm tense progression and saved-item identity."
+    },
+    {
+      "id": "master-french-basics:20:card:15",
+      "sourceSpanish": "Hoy estamos preparando un examen.",
+      "sourceEnglish": "Today we are preparing for an exam.",
+      "kind": "phrase",
+      "proposedFrench": "Aujourd’hui, nous préparons un examen.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish estamos preparando marks ongoing action; French present can express it, while en train de is an explicit progressive alternative."
+    },
+    {
+      "id": "master-french-basics:20:card:16",
+      "sourceSpanish": "Quiero ir a la biblioteca, pero está cerrada.",
+      "sourceEnglish": "I want to go to the library, but it is closed.",
+      "kind": "phrase",
+      "proposedFrench": "Je veux aller à la bibliothèque, mais elle est fermée.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "The second clause's Spanish está refers to the library; French elle est fermée keeps that antecedent."
+    },
+    {
+      "id": "master-french-basics:20:card:17",
+      "sourceSpanish": "Podemos estudiar en casa porque tenemos los libros.",
+      "sourceEnglish": "We can study at home because we have the books.",
+      "kind": "phrase",
+      "proposedFrench": "Nous pouvons étudier à la maison parce que nous avons les livres.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source los libros retains masculine plural; French les livres is gender-neutral but contextual noun is masculine."
+    },
+    {
+      "id": "master-french-basics:20:card:18",
+      "sourceSpanish": "Mañana vamos a practicar otra vez.",
+      "sourceEnglish": "Tomorrow we are going to practice again.",
+      "kind": "phrase",
+      "proposedFrench": "Demain, nous allons nous exercer encore une fois.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish vamos a practicar is a going-to plan. French allons nous exercer uses a different lexical choice; qualify practice sense."
+    },
+    {
+      "id": "master-french-basics:20:card:19",
+      "sourceSpanish": "Quiero estudiar, pero la biblioteca está cerrada.",
+      "sourceEnglish": "I want to study, but the library is closed.",
+      "kind": "phrase",
+      "proposedFrench": "Je veux étudier, mais la bibliothèque est fermée.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:20:card:20",
+      "sourceSpanish": "Ana tiene un libro y dos cuadernos.",
+      "sourceEnglish": "Ana has a book and two notebooks.",
+      "kind": "phrase",
+      "proposedFrench": "Ana a un livre et deux cahiers.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source dos cuadernos is two notebooks, not one; French deux cahiers preserves the number."
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-french-basics:20:reader:1",
+      "sourceSpanish": "Soy estudiante y vivo cerca de la escuela.",
+      "sourceEnglish": "I am a student and I live near the school.",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionNote": "Source student is unspecified gender. French étudiant/étudiante or a contextual rewrite needs qualified choice."
+    },
+    {
+      "id": "master-french-basics:20:reader:2",
+      "sourceSpanish": "Ayer estudié con mis amigos.",
+      "sourceEnglish": "Yesterday I studied with my friends.",
+      "proposedFrench": "Hier, j’ai étudié avec mes amis.",
+      "selectedFrench": null,
+      "decisionNote": "Source ayer estudié is completed past; French passé composé proposal needs curriculum progression review."
+    },
+    {
+      "id": "master-french-basics:20:reader:3",
+      "sourceSpanish": "Hoy estamos preparando un examen.",
+      "sourceEnglish": "Today we are preparing for an exam.",
+      "proposedFrench": "Aujourd’hui, nous préparons un examen.",
+      "selectedFrench": null,
+      "decisionNote": "Spanish estamos preparando marks an ongoing exam-preparation action; French present or en train de needs qualification."
+    },
+    {
+      "id": "master-french-basics:20:reader:4",
+      "sourceSpanish": "Quiero ir a la biblioteca, pero está cerrada.",
+      "sourceEnglish": "I want to go to the library, but it is closed.",
+      "proposedFrench": "Je veux aller à la bibliothèque, mais elle est fermée.",
+      "selectedFrench": null,
+      "decisionNote": "French elle refers to the library, retaining the source closed-library antecedent."
+    },
+    {
+      "id": "master-french-basics:20:reader:5",
+      "sourceSpanish": "Podemos estudiar en casa porque tenemos los libros.",
+      "sourceEnglish": "We can study at home because we have the books.",
+      "proposedFrench": "Nous pouvons étudier à la maison parce que nous avons les livres.",
+      "selectedFrench": null,
+      "decisionNote": "Spanish los is masculine plural, whereas French les is gender-neutral; contextual les livres retains books."
+    },
+    {
+      "id": "master-french-basics:20:reader:6",
+      "sourceSpanish": "Mañana vamos a practicar otra vez.",
+      "sourceEnglish": "Tomorrow we are going to practice again.",
+      "proposedFrench": "Demain, nous allons nous exercer encore une fois.",
+      "selectedFrench": null,
+      "decisionNote": "French allons nous exercer is a conditional equivalent for going to practice again."
+    },
+    {
+      "id": "master-french-basics:20:reader:7",
+      "sourceSpanish": "Quiero estudiar, pero la biblioteca está cerrada.",
+      "sourceEnglish": "I want to study, but the library is closed.",
+      "proposedFrench": "Je veux étudier, mais la bibliothèque est fermée.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:20:reader:8",
+      "sourceSpanish": "Ana tiene un libro y dos cuadernos.",
+      "sourceEnglish": "Ana has a book and two notebooks.",
+      "proposedFrench": "Ana a un livre et deux cahiers.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:20:reader:9",
+      "sourceSpanish": "Vamos al café porque está abierto.",
+      "sourceEnglish": "We are going to the café because it is open.",
+      "proposedFrench": "Nous allons au café parce qu’il est ouvert.",
+      "selectedFrench": null,
+      "decisionNote": "Café is the same place; French il est ouvert retains the café antecedent."
+    },
+    {
+      "id": "master-french-basics:20:reader:10",
+      "sourceSpanish": "Luis no tiene dinero, entonces Ana lo invita.",
+      "sourceEnglish": "Luis has no money, so Ana treats him.",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionNote": "Source English treats him means Ana pays for Luis after the café plan. Ana l’invite alone can mean invites him without payment; select an explicit payment wording only after qualified source/French review."
+    },
+    {
+      "id": "master-french-basics:20:reader:11",
+      "sourceSpanish": "Estudiamos una hora y después caminamos a casa.",
+      "sourceEnglish": "We study for an hour and then walk home.",
+      "proposedFrench": "Nous étudions pendant une heure, puis nous rentrons à pied.",
+      "selectedFrench": null,
+      "decisionNote": "Rentrons à pied implies returning home. Qualify against source walk home and preserve one-hour sequence."
+    },
+    {
+      "id": "master-french-basics:20:reader:12",
+      "sourceSpanish": "Mañana vamos a repasar juntos.",
+      "sourceEnglish": "Tomorrow we are going to review together.",
+      "proposedFrench": "Demain, nous allons réviser ensemble.",
+      "selectedFrench": null,
+      "decisionNote": "Repasser/revoir/réviser have different review senses; réviser ensemble is conditional for study review."
+    }
+  ],
+  "conditionalModeEvidence": [
+    {
+      "mode": "See",
+      "sourceRef": "master-french-basics:20:reader:1",
+      "sourceEnglish": "I am a student and I live near the school.",
+      "conditionalFrench": null,
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Recall",
+      "sourceRef": "master-french-basics:20:reader:3",
+      "sourceEnglish": "Today we are preparing for an exam.",
+      "conditionalFrench": "Aujourd’hui, nous préparons un examen.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Hear",
+      "sourceRef": "master-french-basics:20:reader:5",
+      "sourceEnglish": "We can study at home because we have the books.",
+      "conditionalFrench": "Nous pouvons étudier à la maison parce que nous avons les livres.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Type",
+      "sourceRef": "master-french-basics:20:reader:7",
+      "sourceEnglish": "I want to study, but the library is closed.",
+      "conditionalFrench": "Je veux étudier, mais la bibliothèque est fermée.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Say",
+      "sourceRef": "master-french-basics:20:reader:9",
+      "sourceEnglish": "We are going to the café because it is open.",
+      "conditionalFrench": "Nous allons au café parce qu’il est ouvert.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Write",
+      "sourceRef": "master-french-basics:20:reader:12",
+      "sourceEnglish": "Tomorrow we are going to review together.",
+      "conditionalFrench": "Demain, nous allons réviser ensemble.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    }
+  ],
+  "conditionalFormEvidence": [
+    {
+      "sourceRefs": [
+        "master-french-basics:20:reader:1",
+        "master-french-basics:20:reader:4",
+        "master-french-basics:20:reader:5"
+      ],
+      "focus": "and, but, because: short clause links with preserved reasons and contrasts",
+      "readyForLearner": false
+    },
+    {
+      "sourceRefs": [
+        "master-french-basics:20:reader:2",
+        "master-french-basics:20:reader:3",
+        "master-french-basics:20:reader:6",
+        "master-french-basics:20:reader:12"
+      ],
+      "focus": "completed past, ongoing preparation, tomorrow plan and review",
+      "readyForLearner": false
+    },
+    {
+      "sourceRefs": [
+        "master-french-basics:20:reader:9",
+        "master-french-basics:20:reader:10",
+        "master-french-basics:20:reader:11"
+      ],
+      "focus": "café consequence, explicit payment sense and then sequence",
+      "readyForLearner": false
+    }
+  ],
+  "conditionalSpeakingEvidence": {
+    "sourceScene": "Un cambio de planes",
+    "focus": "Discuss a changed library study plan with a classmate; connect an idea, contrast the closure, explain the home-study reason, and say what happens next without inventing a new scene.",
+    "sourceRefs": [
+      "master-french-basics:20:reader:1",
+      "master-french-basics:20:reader:3",
+      "master-french-basics:20:reader:4",
+      "master-french-basics:20:reader:5",
+      "master-french-basics:20:reader:6",
+      "master-french-basics:20:reader:7",
+      "master-french-basics:20:reader:9",
+      "master-french-basics:20:reader:10",
+      "master-french-basics:20:reader:11",
+      "master-french-basics:20:reader:12"
+    ],
+    "readyForLearner": false
+  },
+  "archivedRedesign": {
+    "title": "Mener une conversation complète en français",
+    "scene": "Deux collègues organisent un atelier. Une salle devient indisponible pendant l’échange; ils clarifient les besoins, comparent les options et conviennent d’un plan provisoire.",
+    "separateFromCurrentSource": true,
+    "reason": "The archived workshop-room negotiation changes the source beginner library, café and home-study conversation, characters and connective objective; it cannot inherit this lesson's saved positions or recordings."
+  },
+  "sourceDecisions": [
+    "The current source is a Spanish 101 final conversation at Master stage. It teaches y, pero, porque and entonces, not the archived French workshop negotiation; qualify the capstone's beginner progression before selecting content.",
+    "Source estudiante is gender-neutral; French étudiant/étudiante needs context. Spanish soy versus está distinguishes identity and condition/location, while French suis/est alone does not.",
+    "Source la, los and en group article/object and locative senses that need contextual French faces and saved-item/dictionary mapping; French les does not preserve the masculine plural marking of los.",
+    "Reader 10 treats Luis after he has no money. Ana l’invite can be an invitation without payment; a French answer must communicate the payment/treat meaning and preserve café context.",
+    "The source combines yesterday's completed study, today's ongoing exam preparation and tomorrow's plan. Qualify French tense/aspect and the final connective result, including walking home, before six modes or audio selection."
+  ],
+  "selectedDecision": null,
+  "normalProjectionAllowed": false,
+  "audioScript": null,
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedCurriculumReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "nativeV4Registered": false
+  }
+}

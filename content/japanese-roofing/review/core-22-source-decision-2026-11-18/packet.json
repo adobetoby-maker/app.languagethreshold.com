@@ -1,0 +1,423 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:22:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-21-23-draft.json",
+      "sha256": "f6ac0838c706af85fb07f66f665c9e0fa49736cdb5dbeafd2030f22f33831739"
+    }
+  },
+  "sourceEnglishTitle": "Anchor & Lifeline Check",
+  "sourceEnglishObjective": "Raise a concern about the anchor or lifeline",
+  "sourceEnglishSpeaking": "Stop work and ask the competent person to confirm the site-specific setup.",
+  "sourceSpanishReaderTitle": "Revisión del anclaje",
+  "candidateObjective": "アンカーや親綱に関する懸念を伝える。",
+  "candidateFocus": "～かどうか embeds an inspection question. ～たら marks the failure condition, and ～前に orders confirmation before continuing.",
+  "archivedForms": [
+    {
+      "base": "止める",
+      "exampleJa": "作業を止めてください。アンカーは安全ではありません。",
+      "meaningEnglish": "to stop",
+      "exampleEnglish": "Stop work. The anchor is not safe.",
+      "sourceInfinitiveSpanish": "detener"
+    },
+    {
+      "base": "確認する",
+      "exampleJa": "親綱に損傷がないか確認してください。",
+      "meaningEnglish": "to check / to inspect",
+      "exampleEnglish": "Check whether the lifeline has any damage.",
+      "sourceInfinitiveSpanish": "revisar"
+    },
+    {
+      "base": "確認する",
+      "exampleJa": "適任者がシステムの墜落距離を確認します。",
+      "meaningEnglish": "to confirm",
+      "exampleEnglish": "The competent person confirms the fall distance of the system.",
+      "sourceInfinitiveSpanish": "confirmar"
+    },
+    {
+      "base": "伝える",
+      "exampleJa": "作業員は立ち止まり、職長に伝えます。",
+      "meaningEnglish": "to notify / to tell (a warning)",
+      "exampleEnglish": "The worker stops and tells the foreman.",
+      "sourceInfinitiveSpanish": "avisar"
+    },
+    {
+      "base": "機能しない",
+      "exampleJa": "アンカーやランヤードが機能しなければ、ハーネスは役に立ちません。",
+      "meaningEnglish": "to fail",
+      "exampleEnglish": "A harness is no use if the anchor or the lanyard fails.",
+      "sourceInfinitiveSpanish": "fallar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "作業を止めてください。親綱に損傷があるようです。適任者にアンカーの設置状態と墜落距離を確認してもらってください。",
+    "goal": "Stop work and ask the competent person to confirm the site-specific setup."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the current source sequence: a worker sees a lifeline concern and stops; the foreman calls stop and says the anchor is unsafe; they ask for the competent person; the line is checked; that person confirms system fall distance and anchor setup before work resumes; the final line emphasizes that a harness depends on anchor/lanyard integrity. The source moves from a line concern to an anchor diagnosis without supporting inspection. Hold that diagnosis and any command implying an unspecified roof anchor is approved. Clarify the competent-person role, 親綱 versus generic lifeline/rope, site-specific fall-distance measure, and who may clear the setup. Archived Japanese, modes, forms and speaking are evidence, not selected safety instruction. Current curriculum has no authored verb-example list; no learner/audio/progress identity is created.",
+  "sourceVerbExamples": null,
+  "cards": [
+    {
+      "id": "roofing:22:ja-en:card:1",
+      "legacySourceRef": "roofing:22:ja-en:cards:1",
+      "sourceSpanish": "Anclaje",
+      "sourceEnglish": "anchor",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "アンカー",
+      "archivedJapanese": "アンカー",
+      "archivedEnglish": "anchor",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:22:ja-en:card:2",
+      "legacySourceRef": "roofing:22:ja-en:cards:2",
+      "sourceSpanish": "Línea de vida",
+      "sourceEnglish": "lifeline",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "親綱",
+      "archivedEnglish": "lifeline",
+      "reviewNote": "Archived 親綱 may imply a particular lifeline type. Confirm the actual fall-protection system and distinguish lifeline from generic rope; source does not specify vertical/horizontal configuration.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:22:ja-en:card:3",
+      "legacySourceRef": "roofing:22:ja-en:cards:3",
+      "sourceSpanish": "Distancia de caída",
+      "sourceEnglish": "fall distance",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "墜落距離",
+      "archivedEnglish": "fall distance",
+      "reviewNote": "Fall distance is a system calculation, not necessarily clearance. Confirm whether archived 墜落距離 conveys the intended measure and preserves site-specific verification.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:22:ja-en:card:4",
+      "legacySourceRef": "roofing:22:ja-en:cards:4",
+      "sourceSpanish": "Arnés",
+      "sourceEnglish": "harness",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "フルハーネス",
+      "archivedJapanese": "フルハーネス",
+      "archivedEnglish": "harness",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:22:ja-en:card:5",
+      "legacySourceRef": "roofing:22:ja-en:cards:5",
+      "sourceSpanish": "Eslinga",
+      "sourceEnglish": "lanyard",
+      "sourceNoteSpanish": "también: cuerda de seguridad",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "ランヤード",
+      "archivedJapanese": "ランヤード",
+      "archivedEnglish": "lanyard",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:22:ja-en:card:6",
+      "legacySourceRef": "roofing:22:ja-en:cards:6",
+      "sourceSpanish": "Persona competente",
+      "sourceEnglish": "competent person",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "適任者（competent person）",
+      "archivedEnglish": "competent person",
+      "reviewNote": "Competent person is a defined safety role in the source context. Archived 適任者 may not carry that qualification or local legal role; settle locale/role before scoring.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:22:ja-en:card:7",
+      "legacySourceRef": "roofing:22:ja-en:cards:7",
+      "sourceSpanish": "Inspección",
+      "sourceEnglish": "inspection",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "点検",
+      "archivedJapanese": "点検",
+      "archivedEnglish": "inspection",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:22:ja-en:card:8",
+      "legacySourceRef": "roofing:22:ja-en:cards:8",
+      "sourceSpanish": "Cuerda",
+      "sourceEnglish": "rope",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロープ",
+      "archivedJapanese": "ロープ",
+      "archivedEnglish": "rope",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:22:ja-en:card:9",
+      "legacySourceRef": "roofing:22:ja-en:cards:9",
+      "sourceSpanish": "Detener el trabajo",
+      "sourceEnglish": "stop work",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "作業を止める",
+      "archivedJapanese": "作業を止める",
+      "archivedEnglish": "stop work",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:22:ja-en:card:10",
+      "legacySourceRef": "roofing:22:ja-en:cards:10",
+      "sourceSpanish": "Usen el ancla de techo — nada de improvisar.",
+      "sourceEnglish": "Use the roof anchor — don't freelance.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根のアンカーを使ってください。自己判断で別の場所に接続しないでください。",
+      "archivedEnglish": "Use the roof anchor — don't freelance.",
+      "reviewNote": "Source says use the roof anchor and do not improvise, but does not establish that any roof anchor is approved for this system. Archived 自己判断で別の場所に接続しない is a plausible gloss; require site-specific approved anchor and competent-person review.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:22:ja-en:card:11",
+      "legacySourceRef": "roofing:22:ja-en:cards:11",
+      "sourceSpanish": "Detengan el trabajo. El anclaje no es seguro.",
+      "sourceEnglish": "Stop work. The anchor is not safe.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "作業を止めてください。アンカーは安全ではありません。",
+      "archivedEnglish": "Stop work. The anchor is not safe.",
+      "reviewNote": "The observed problem is with the lifeline, but the line declares the anchor unsafe before inspection. Preserve source claim as evidence and resolve whether the safety action should identify the system as suspect, without teaching an unsupported diagnosis.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:22:ja-en:card:12",
+      "legacySourceRef": "roofing:22:ja-en:cards:12",
+      "sourceSpanish": "¿Dónde está la persona competente?",
+      "sourceEnglish": "Where is the competent person?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "適任者はどこにいますか。",
+      "archivedEnglish": "Where is the competent person?",
+      "reviewNote": "Competent person role needs qualified locale/safety terminology; archived 適任者 is not automatically the defined role.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:22:ja-en:card:13",
+      "legacySourceRef": "roofing:22:ja-en:cards:13",
+      "sourceSpanish": "Revisen si la línea de vida tiene daños.",
+      "sourceEnglish": "Check the lifeline for damage.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "親綱に損傷がないか確認してください。",
+      "archivedEnglish": "Check the lifeline for damage.",
+      "reviewNote": "Lifeline damage check needs the specific system and inspection procedure; archived 親綱 may narrow line type, and a visual check alone does not clear use.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:22:ja-en:card:14",
+      "legacySourceRef": "roofing:22:ja-en:cards:14",
+      "sourceSpanish": "Confirmen la instalación del anclaje antes de continuar.",
+      "sourceEnglish": "Confirm the anchor setup before we continue.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "続ける前にアンカーの設置状態を確認してください。",
+      "archivedEnglish": "Confirm the anchor setup before we continue.",
+      "reviewNote": "Anchor setup confirmation must be by the qualified responsible person under the site-specific fall-protection plan. The isolated command could imply any crew member can clear it.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:22:ja-en:line:1",
+      "legacySourceRef": "roofing:22:ja-en:reader:1",
+      "sourceSpanish": "Mientras trabajan en el techo, un obrero ve algo raro en la línea de vida.",
+      "sourceEnglish": "While they work on the roof, a worker sees something wrong with the lifeline.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根で作業中、作業員が親綱の異常に気づきます。",
+      "archivedEnglish": "While they work on the roof, a worker sees something wrong with the lifeline.",
+      "reviewNote": "Archived 親綱 narrows lifeline type; confirm actual system and avoid an unsupported equipment assumption.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:22:ja-en:line:2",
+      "legacySourceRef": "roofing:22:ja-en:reader:2",
+      "sourceSpanish": "Se detiene y avisa al capataz.",
+      "sourceEnglish": "He stops and tells the foreman.",
+      "selectedJapanese": null,
+      "candidateJapanese": "作業員は立ち止まり、職長に伝えます。",
+      "archivedJapanese": "作業員は立ち止まり、職長に伝えます。",
+      "archivedEnglish": "He stops and tells the foreman.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:22:ja-en:line:3",
+      "legacySourceRef": "roofing:22:ja-en:reader:3",
+      "sourceSpanish": "El capataz dice: Detengan el trabajo. El anclaje no es seguro.",
+      "sourceEnglish": "The foreman says: Stop work. The anchor is not safe.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "職長は「作業を止めてください。アンカーは安全ではありません」と言います。",
+      "archivedEnglish": "The foreman says: Stop work. The anchor is not safe.",
+      "reviewNote": "Source observes a lifeline concern then declares anchor unsafe. Hold this diagnosis until qualified source/safety review while retaining exact source words.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:22:ja-en:line:4",
+      "legacySourceRef": "roofing:22:ja-en:reader:4",
+      "sourceSpanish": "El capataz pregunta: ¿Dónde está la persona competente?",
+      "sourceEnglish": "The foreman asks: Where is the competent person?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "職長は「適任者はどこにいますか」と尋ねます。",
+      "archivedEnglish": "The foreman asks: Where is the competent person?",
+      "reviewNote": "Competent person is a defined source role; settle 適任者 and locale/legal meaning.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:22:ja-en:line:5",
+      "legacySourceRef": "roofing:22:ja-en:reader:5",
+      "sourceSpanish": "Revisen si la línea de vida tiene daños.",
+      "sourceEnglish": "Check whether the lifeline has any damage.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "親綱に損傷がないか確認してください。",
+      "archivedEnglish": "Check whether the lifeline has any damage.",
+      "reviewNote": "Archived 親綱 may narrow line type; inspection of damage needs site-specific procedure and a qualified decision before reuse.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:22:ja-en:line:6",
+      "legacySourceRef": "roofing:22:ja-en:reader:6",
+      "sourceSpanish": "La persona competente hace la inspección y confirma la distancia de caída del sistema.",
+      "sourceEnglish": "The competent person does the inspection and confirms the fall distance of the system.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "適任者が点検し、墜落防止システムの墜落距離を確認します。",
+      "archivedEnglish": "The competent person does the inspection and confirms the fall distance of the system.",
+      "reviewNote": "Confirm whether 墜落距離 represents source fall distance and whether the source should address required clearance/site-specific geometry; the competent-person role also needs precise terminology.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:22:ja-en:line:7",
+      "legacySourceRef": "roofing:22:ja-en:reader:7",
+      "sourceSpanish": "Confirmen la instalación del anclaje antes de continuar.",
+      "sourceEnglish": "Confirm the anchor setup before we continue.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "続ける前にアンカーの設置状態を確認してください。",
+      "archivedEnglish": "Confirm the anchor setup before we continue.",
+      "reviewNote": "Anchor setup confirmation cannot be treated as a generic crew clearance. Preserve the qualified/site-specific gate.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:22:ja-en:line:8",
+      "legacySourceRef": "roofing:22:ja-en:reader:8",
+      "sourceSpanish": "Un arnés no sirve de nada si el anclaje o la eslinga fallan.",
+      "sourceEnglish": "A harness is no use if the anchor or the lanyard fails.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "アンカーやランヤードが機能しなければ、ハーネスは役に立ちません。",
+      "archivedEnglish": "A harness is no use if the anchor or the lanyard fails.",
+      "reviewNote": "A harness alone does not ensure protection, but source 'no use' is an absolute safety claim. Confirm a precise, non-misleading Japanese rendering of system failure.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Identify the damaged lifeline and the anchor setup.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall lifeline, competent person, fall distance, and inspection.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 親綱 from ロープ when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Where is the competent person?' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Raise a concern about the anchor and request an inspection.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write what must be confirmed before work continues.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

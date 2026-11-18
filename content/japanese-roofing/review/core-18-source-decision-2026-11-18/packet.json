@@ -1,0 +1,449 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:18:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-16-18-draft.json",
+      "sha256": "ef60bf977985351cfbfead1a89641d9d73440ad2f0e5fa43d33b1578184e9999"
+    }
+  },
+  "sourceEnglishTitle": "Avoid Overdriven Nails",
+  "sourceEnglishObjective": "Identify and correct overdriven fasteners",
+  "sourceEnglishSpeaking": "Stop installation when the nail gun is burying nails and ask for an adjustment.",
+  "sourceSpanishReaderTitle": "Clavos demasiado hundidos",
+  "candidateObjective": "釘が深く打ち込まれすぎた状態を見つけ、釘打ち機の調整を求める。",
+  "candidateFocus": "～すぎる describes excessive depth; ～ないでください gives a negative instruction. ～てから orders checking depth before continuing.",
+  "archivedForms": [
+    {
+      "base": "調整する",
+      "exampleJa": "釘打ち機を調整してください。",
+      "meaningEnglish": "to adjust",
+      "exampleEnglish": "Adjust the nail gun.",
+      "sourceInfinitiveSpanish": "ajustar"
+    },
+    {
+      "base": "確認する",
+      "exampleJa": "作業員はコンプレッサーとホースを確認します。",
+      "meaningEnglish": "to check",
+      "exampleEnglish": "A worker checks the compressor and the hose.",
+      "sourceInfinitiveSpanish": "revisar"
+    },
+    {
+      "base": "下げる",
+      "exampleJa": "空気圧を下げてください。",
+      "meaningEnglish": "to lower",
+      "exampleEnglish": "Lower the air pressure.",
+      "sourceInfinitiveSpanish": "bajar"
+    },
+    {
+      "base": "打つ",
+      "exampleJa": "その隣に新しい釘を打ってください。",
+      "meaningEnglish": "to put",
+      "exampleEnglish": "Put a new nail next to it.",
+      "sourceInfinitiveSpanish": "poner"
+    },
+    {
+      "base": "打ち込む",
+      "exampleJa": "釘を深く打ち込みすぎないでください。",
+      "meaningEnglish": "to nail, to drive a nail",
+      "exampleEnglish": "Don't over-drive the nails.",
+      "sourceInfinitiveSpanish": "clavar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "作業を止めてください。釘が深すぎます。釘打ち機を調整してください。",
+    "goal": "Stop installation when the nail gun is burying nails and ask for an adjustment."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the source sequence: foreman hears nail gun, notices overdriven nails, stops work, checks compressor and hose, gives lower-pressure and adjust-gun commands, proposes a nearby new nail, then checks depth on several shingles. These commands are source evidence, not approved universal repair or tool settings. Confirm the selected asphalt-shingle product, manufacturer instructions, nail-gun/compressor guidance, repair location and responsible operator before selecting Japanese instructions. Archived generic シングル材 needs product-specific review. Current source curriculum has no authored verb-example list; archived forms remain conditional evidence. No selected learner/audio text or progress identity is created.",
+  "sourceVerbExamples": null,
+  "cards": [
+    {
+      "id": "roofing:18:ja-en:card:1",
+      "legacySourceRef": "roofing:18:ja-en:cards:1",
+      "sourceSpanish": "Clavo demasiado hundido",
+      "sourceEnglish": "overdriven nail",
+      "sourceNoteSpanish": "también: clavo enterrado",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "深く打ち込みすぎた釘",
+      "archivedJapanese": "深く打ち込みすぎた釘",
+      "archivedEnglish": "overdriven nail",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:card:2",
+      "legacySourceRef": "roofing:18:ja-en:cards:2",
+      "sourceSpanish": "Teja asfáltica",
+      "sourceEnglish": "shingle",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "シングル材",
+      "archivedEnglish": "shingle",
+      "reviewNote": "Source Teja asfáltica specifies asphalt shingle, while archived シングル材 is generic. Confirm the precise product/material sense before selecting a learner face.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:card:3",
+      "legacySourceRef": "roofing:18:ja-en:cards:3",
+      "sourceSpanish": "Pistola de clavos",
+      "sourceEnglish": "nail gun",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "釘打ち機",
+      "archivedJapanese": "釘打ち機",
+      "archivedEnglish": "nail gun",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:card:4",
+      "legacySourceRef": "roofing:18:ja-en:cards:4",
+      "sourceSpanish": "Presión de aire",
+      "sourceEnglish": "air pressure",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "空気圧",
+      "archivedJapanese": "空気圧",
+      "archivedEnglish": "air pressure",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:card:5",
+      "legacySourceRef": "roofing:18:ja-en:cards:5",
+      "sourceSpanish": "Compresor",
+      "sourceEnglish": "compressor",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "コンプレッサー",
+      "archivedJapanese": "コンプレッサー",
+      "archivedEnglish": "compressor",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:card:6",
+      "legacySourceRef": "roofing:18:ja-en:cards:6",
+      "sourceSpanish": "Profundidad",
+      "sourceEnglish": "depth",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "深さ",
+      "archivedJapanese": "深さ",
+      "archivedEnglish": "depth",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:card:7",
+      "legacySourceRef": "roofing:18:ja-en:cards:7",
+      "sourceSpanish": "Cabeza del clavo",
+      "sourceEnglish": "nail head",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "釘の頭",
+      "archivedJapanese": "釘の頭",
+      "archivedEnglish": "nail head",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:card:8",
+      "legacySourceRef": "roofing:18:ja-en:cards:8",
+      "sourceSpanish": "Manguera",
+      "sourceEnglish": "hose",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "ホース",
+      "archivedJapanese": "ホース",
+      "archivedEnglish": "hose",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:card:9",
+      "legacySourceRef": "roofing:18:ja-en:cards:9",
+      "sourceSpanish": "Ajustar",
+      "sourceEnglish": "adjust",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "調整する",
+      "archivedJapanese": "調整する",
+      "archivedEnglish": "adjust",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:card:10",
+      "legacySourceRef": "roofing:18:ja-en:cards:10",
+      "sourceSpanish": "No claven de más — sin enterrar el clavo.",
+      "sourceEnglish": "Don't over-drive the nails.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "釘を深く打ち込みすぎないでください。",
+      "archivedJapanese": "釘を深く打ち込みすぎないでください。",
+      "archivedEnglish": "Don't over-drive the nails.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:card:11",
+      "legacySourceRef": "roofing:18:ja-en:cards:11",
+      "sourceSpanish": "Alto. Los clavos están muy hundidos.",
+      "sourceEnglish": "Stop. The nails are too deep.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "止めてください。釘が深すぎます。",
+      "archivedJapanese": "止めてください。釘が深すぎます。",
+      "archivedEnglish": "Stop. The nails are too deep.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:card:12",
+      "legacySourceRef": "roofing:18:ja-en:cards:12",
+      "sourceSpanish": "Bajen la presión de aire.",
+      "sourceEnglish": "Lower the air pressure.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "空気圧を下げてください。",
+      "archivedEnglish": "Lower the air pressure.",
+      "reviewNote": "Lower air pressure is a source command, not a universal nail-gun correction. Confirm compressor/tool/product instructions, settings and who may adjust them with qualified roofing/tool review.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:card:13",
+      "legacySourceRef": "roofing:18:ja-en:cards:13",
+      "sourceSpanish": "La cabeza del clavo tiene que quedar al ras.",
+      "sourceEnglish": "The nail head must sit flush.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "釘の頭は表面と同じ高さにしてください。",
+      "archivedEnglish": "The nail head must sit flush.",
+      "reviewNote": "Flush nail-head placement is a product-specific installation requirement. Confirm the approved shingle and manufacturer instructions before scoring this command.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:card:14",
+      "legacySourceRef": "roofing:18:ja-en:cards:14",
+      "sourceSpanish": "Pongan un clavo nuevo al lado.",
+      "sourceEnglish": "Put a new nail next to it.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "その隣に新しい釘を打ってください。",
+      "archivedEnglish": "Put a new nail next to it.",
+      "reviewNote": "A new nail next to an overdriven nail is not a universal repair. Confirm the manufacturer's approved fastener location, spacing, replacement and damaged-shingle procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:card:15",
+      "legacySourceRef": "roofing:18:ja-en:cards:15",
+      "sourceSpanish": "Ajusten la pistola de clavos.",
+      "sourceEnglish": "Adjust the nail gun.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "釘打ち機を調整してください。",
+      "archivedEnglish": "Adjust the nail gun.",
+      "reviewNote": "Adjust nail gun is a tool-specific safety command; identify approved adjustment and responsible operator before selecting Japanese imperative wording.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:18:ja-en:line:1",
+      "legacySourceRef": "roofing:18:ja-en:reader:1",
+      "sourceSpanish": "El capataz camina por el techo y escucha la pistola de clavos.",
+      "sourceEnglish": "The foreman walks the roof and listens to the nail gun.",
+      "selectedJapanese": null,
+      "candidateJapanese": "職長は屋根を歩きながら釘打ち機の音を聞きます。",
+      "archivedJapanese": "職長は屋根を歩きながら釘打ち機の音を聞きます。",
+      "archivedEnglish": "The foreman walks the roof and listens to the nail gun.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:line:2",
+      "legacySourceRef": "roofing:18:ja-en:reader:2",
+      "sourceSpanish": "Algunos clavos se ven demasiado hundidos.",
+      "sourceEnglish": "Some nails look overdriven.",
+      "selectedJapanese": null,
+      "candidateJapanese": "いくつかの釘は深く打ち込みすぎたように見えます。",
+      "archivedJapanese": "いくつかの釘は深く打ち込みすぎたように見えます。",
+      "archivedEnglish": "Some nails look overdriven.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:line:3",
+      "legacySourceRef": "roofing:18:ja-en:reader:3",
+      "sourceSpanish": "El capataz levanta la mano y dice: Alto. Los clavos están muy hundidos.",
+      "sourceEnglish": "The foreman raises his hand and says: Stop. The nails are too deep.",
+      "selectedJapanese": null,
+      "candidateJapanese": "職長は手を上げて「止めてください。釘が深すぎます」と言います。",
+      "archivedJapanese": "職長は手を上げて「止めてください。釘が深すぎます」と言います。",
+      "archivedEnglish": "The foreman raises his hand and says: Stop. The nails are too deep.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:line:4",
+      "legacySourceRef": "roofing:18:ja-en:reader:4",
+      "sourceSpanish": "La cabeza del clavo tiene que quedar al ras.",
+      "sourceEnglish": "The nail head has to sit flush.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "釘の頭は表面と同じ高さでなければなりません。",
+      "archivedEnglish": "The nail head has to sit flush.",
+      "reviewNote": "Flush nail-head placement is product specific; preserve source but require approved manufacturer detail before learner selection.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:line:5",
+      "legacySourceRef": "roofing:18:ja-en:reader:5",
+      "sourceSpanish": "Un obrero revisa el compresor y la manguera.",
+      "sourceEnglish": "A worker checks the compressor and the hose.",
+      "selectedJapanese": null,
+      "candidateJapanese": "作業員はコンプレッサーとホースを確認します。",
+      "archivedJapanese": "作業員はコンプレッサーとホースを確認します。",
+      "archivedEnglish": "A worker checks the compressor and the hose.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:line:6",
+      "legacySourceRef": "roofing:18:ja-en:reader:6",
+      "sourceSpanish": "Bajen la presión de aire.",
+      "sourceEnglish": "Lower the air pressure.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "空気圧を下げてください。",
+      "archivedEnglish": "Lower the air pressure.",
+      "reviewNote": "Lower air pressure cannot be treated as a universal repair. Confirm tool and compressor guidance before selecting a command.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:line:7",
+      "legacySourceRef": "roofing:18:ja-en:reader:7",
+      "sourceSpanish": "Ajusten la pistola de clavos.",
+      "sourceEnglish": "Adjust the nail gun.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "釘打ち機を調整してください。",
+      "archivedEnglish": "Adjust the nail gun.",
+      "reviewNote": "Adjust the nail gun needs product/tool-specific instructions and operator scope before learner selection.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:line:8",
+      "legacySourceRef": "roofing:18:ja-en:reader:8",
+      "sourceSpanish": "Pongan un clavo nuevo al lado.",
+      "sourceEnglish": "Put a new nail next to it.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "その隣に新しい釘を打ってください。",
+      "archivedEnglish": "Put a new nail next to it.",
+      "reviewNote": "Adjacent replacement nail may violate placement or repair instructions; confirm approved detail and avoid universalizing source command.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:18:ja-en:line:9",
+      "legacySourceRef": "roofing:18:ja-en:reader:9",
+      "sourceSpanish": "Revisen la profundidad en unas cuantas tejas antes de seguir.",
+      "sourceEnglish": "Check the depth on a few shingles before continuing.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "続ける前に、いくつかのシングル材で打ち込みの深さを確認してください。",
+      "archivedEnglish": "Check the depth on a few shingles before continuing.",
+      "reviewNote": "Tejas refers to the selected asphalt shingles. Archived シングル材 is generic; confirm product sense and testing sequence on representative shingles.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the overdriven nails in the scene.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall nail gun, air pressure, nail head, and depth.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 空気圧 from 深さ when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Stop. The nails are too deep.' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Stop installation and ask for the nail gun to be adjusted.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write what is checked before work continues.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

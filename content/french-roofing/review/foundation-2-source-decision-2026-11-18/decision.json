@@ -1,0 +1,372 @@
+{
+  "schema": 1,
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "sourceModuleId": "foundation-roofing",
+  "archivedHeaderModuleId": "roofing",
+  "proposedStageLocalLessonId": "foundation-roofing:2:fr-en",
+  "identityDecision": "The archived packet header uses moduleId roofing for Foundation, Core and Master. These row IDs are proposals for review, not app, saved-item or progress keys. Qualify one stage-specific migration before wiring; never alias existing learner progress to them automatically.",
+  "source": {
+    "curriculum": {
+      "path": "src/data/foundation-roofing-curriculum.ts",
+      "sha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/foundation-roofing.json",
+      "sha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/french-roofing/foundation-1-3-draft.json",
+      "sha256": "31321e12dd4b16d0f614d218d149280d8df01d053795fd784cfa190b5dace736"
+    }
+  },
+  "sourceTitleEnglish": "Numbers, Time and Measurements",
+  "sourceObjectiveEnglish": "Count, tell time, and give measurements and quantities on the job",
+  "sourceFocusEnglish": "numbers 0 to 1,000, clock time, feet, inches and pounds",
+  "sourceSpeakingEnglish": "Tell the crew lead what time you start, how many bundles you need, and one measurement.",
+  "archivedFrenchObjective": "Count, tell time, and give measurements and quantities on the job",
+  "archivedFrenchFocus": "French numbers 0 to 100, including soixante-dix, quatre-vingts and quatre-vingt-dix; telling time with il est and heures; quantities with de; US job measurements (feet, inches, pounds) and metric equivalents",
+  "cards": [
+    {
+      "proposedRowId": "foundation-roofing:2:fr-en:card:1",
+      "sourceSpanish": "el número",
+      "sourceEnglish": "the number",
+      "kind": "term",
+      "selectedFrench": null,
+      "conditionalFrench": "le nombre",
+      "archivedFrench": "le nombre",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:2:fr-en:card:2",
+      "sourceSpanish": "la hora",
+      "sourceEnglish": "the hour, the time",
+      "kind": "term",
+      "selectedFrench": null,
+      "conditionalFrench": "l'heure",
+      "archivedFrench": "l'heure",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:2:fr-en:card:3",
+      "sourceSpanish": "el pie",
+      "sourceEnglish": "the foot (measurement)",
+      "kind": "term",
+      "selectedFrench": null,
+      "conditionalFrench": "le pied",
+      "archivedFrench": "le pied",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:2:fr-en:card:4",
+      "sourceSpanish": "la pulgada",
+      "sourceEnglish": "the inch",
+      "kind": "term",
+      "selectedFrench": null,
+      "conditionalFrench": "le pouce",
+      "archivedFrench": "le pouce",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:2:fr-en:card:5",
+      "sourceSpanish": "la libra",
+      "sourceEnglish": "the pound",
+      "kind": "term",
+      "selectedFrench": null,
+      "conditionalFrench": null,
+      "archivedFrench": "la livre",
+      "reviewNote": "The source means a US pound in this job measurement. French livre can mean an imperial pound in Quebec and a colloquial 500 g in France; choose locale and exact unit notation before scoring or recording.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:2:fr-en:card:6",
+      "sourceSpanish": "el bulto",
+      "sourceEnglish": "the bundle",
+      "kind": "term",
+      "selectedFrench": null,
+      "conditionalFrench": null,
+      "archivedFrench": "le paquet",
+      "reviewNote": "The source means a bundle of shingles. Archived paquet is a general package; select the job/supplier headword and quantity context with qualified roofing terminology review.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:2:fr-en:card:7",
+      "sourceSpanish": "el metro",
+      "sourceEnglish": "the meter",
+      "kind": "term",
+      "selectedFrench": null,
+      "conditionalFrench": "le mètre",
+      "archivedFrench": "le mètre",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:2:fr-en:card:8",
+      "sourceSpanish": "el minuto",
+      "sourceEnglish": "the minute",
+      "kind": "term",
+      "selectedFrench": null,
+      "conditionalFrench": "la minute",
+      "archivedFrench": "la minute",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:2:fr-en:card:9",
+      "sourceSpanish": "¿Cuántos bultos?",
+      "sourceEnglish": "How many bundles?",
+      "kind": "phrase",
+      "selectedFrench": null,
+      "conditionalFrench": "Combien de paquets ?",
+      "archivedFrench": "Combien de paquets ?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:2:fr-en:card:10",
+      "sourceSpanish": "Son las siete.",
+      "sourceEnglish": "It's seven o'clock.",
+      "kind": "phrase",
+      "selectedFrench": null,
+      "conditionalFrench": "Il est sept heures.",
+      "archivedFrench": "Il est sept heures.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:2:fr-en:card:11",
+      "sourceSpanish": "Mide diez pies.",
+      "sourceEnglish": "It measures ten feet.",
+      "kind": "phrase",
+      "selectedFrench": null,
+      "conditionalFrench": "Ça mesure dix pieds.",
+      "archivedFrench": "Ça mesure dix pieds.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:2:fr-en:card:12",
+      "sourceSpanish": "Empezamos a las seis.",
+      "sourceEnglish": "We start at six.",
+      "kind": "phrase",
+      "selectedFrench": null,
+      "conditionalFrench": "On commence à six heures.",
+      "archivedFrench": "On commence à six heures.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "proposedRowId": "foundation-roofing:2:fr-en:line:1",
+      "sourceSpanish": "Empezamos a las seis de la mañana.",
+      "sourceEnglish": "We start at six in the morning.",
+      "selectedFrench": null,
+      "conditionalFrench": "On commence à six heures du matin.",
+      "archivedFrench": "On commence à six heures du matin.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:2:fr-en:line:2",
+      "sourceSpanish": "El camión llega en veinte minutos.",
+      "sourceEnglish": "The truck arrives in twenty minutes.",
+      "selectedFrench": null,
+      "conditionalFrench": "Le camion arrive dans vingt minutes.",
+      "archivedFrench": "Le camion arrive dans vingt minutes.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:2:fr-en:line:3",
+      "sourceSpanish": "¿Cuántos bultos necesitamos hoy?",
+      "sourceEnglish": "How many bundles do we need today?",
+      "selectedFrench": null,
+      "conditionalFrench": "On a besoin de combien de paquets aujourd’hui ?",
+      "archivedFrench": "On a besoin de combien de paquets aujourd’hui ?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:2:fr-en:line:4",
+      "sourceSpanish": "Necesitamos treinta bultos de tejas.",
+      "sourceEnglish": "We need thirty bundles of shingles.",
+      "selectedFrench": null,
+      "conditionalFrench": null,
+      "archivedFrench": "On a besoin de trente paquets de bardeaux.",
+      "reviewNote": "Thirty bundles of shingles uses the same unresolved trade headword as card 6; keep the source quantity and material exact.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:2:fr-en:line:5",
+      "sourceSpanish": "Cada bulto pesa unas setenta libras.",
+      "sourceEnglish": "Each bundle weighs about seventy pounds.",
+      "selectedFrench": null,
+      "conditionalFrench": null,
+      "archivedFrench": "Chaque paquet pèse environ soixante-dix livres.",
+      "reviewNote": "Seventy US pounds must not become an unqualified French 500 g livre; decide locale and unit expression before selecting a French line.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:2:fr-en:line:6",
+      "sourceSpanish": "La pared mide diez pies, o unos tres metros.",
+      "sourceEnglish": "The wall measures ten feet, or about three meters.",
+      "selectedFrench": null,
+      "conditionalFrench": "Le mur mesure dix pieds, ou à peu près trois mètres.",
+      "archivedFrench": "Le mur mesure dix pieds, ou à peu près trois mètres.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:2:fr-en:line:7",
+      "sourceSpanish": "El clavo mide una pulgada y media.",
+      "sourceEnglish": "The nail is one and a half inches long.",
+      "selectedFrench": null,
+      "conditionalFrench": "Le clou fait un pouce et demi de long.",
+      "archivedFrench": "Le clou fait un pouce et demi de long.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:2:fr-en:line:8",
+      "sourceSpanish": "Apunto el número y la hora en mi papel.",
+      "sourceEnglish": "I write down the number and the time on my paper.",
+      "selectedFrench": null,
+      "conditionalFrench": "J'écris le nombre et l'heure sur ma feuille.",
+      "archivedFrench": "J'écris le nombre et l'heure sur ma feuille.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "infinitive": "medir",
+      "native": "to measure",
+      "forms": {
+        "yo": "mido",
+        "tú": "mides",
+        "él_ella_usted": "mide",
+        "nosotros": "medimos",
+        "ellos_ustedes": "miden"
+      },
+      "example": {
+        "target": "La pared mide diez pies, o unos tres metros.",
+        "native": "The wall measures ten feet, or about three meters."
+      },
+      "note": "Stem change e to i: mido, mide."
+    },
+    {
+      "infinitive": "pesar",
+      "native": "to weigh",
+      "forms": {
+        "yo": "peso",
+        "tú": "pesas",
+        "él_ella_usted": "pesa",
+        "nosotros": "pesamos",
+        "ellos_ustedes": "pesan"
+      },
+      "example": {
+        "target": "Cada bulto pesa unas setenta libras.",
+        "native": "Each bundle weighs about seventy pounds."
+      }
+    },
+    {
+      "infinitive": "empezar",
+      "native": "to start",
+      "forms": {
+        "yo": "empiezo",
+        "tú": "empiezas",
+        "él_ella_usted": "empieza",
+        "nosotros": "empezamos",
+        "ellos_ustedes": "empiezan"
+      },
+      "example": {
+        "target": "Empezamos a las seis de la mañana.",
+        "native": "We start at six in the morning."
+      },
+      "note": "Stem change e to ie, but not in the nosotros form."
+    }
+  ],
+  "conditionalFrenchVerbExamples": [
+    {
+      "infinitiveFrench": "mesurer",
+      "meaningEnglish": "to measure",
+      "exampleFrench": "Le mur mesure dix pieds, ou à peu près trois mètres.",
+      "exampleEnglish": "The wall measures ten feet, or about three meters."
+    },
+    {
+      "infinitiveFrench": "peser",
+      "meaningEnglish": "to weigh",
+      "exampleFrench": "Chaque paquet pèse environ soixante-dix livres.",
+      "exampleEnglish": "Each bundle weighs about seventy pounds."
+    },
+    {
+      "infinitiveFrench": "commencer",
+      "meaningEnglish": "to start",
+      "exampleFrench": "On commence à six heures du matin.",
+      "exampleEnglish": "We start at six in the morning."
+    }
+  ],
+  "archivedRegionalNotesEnglish": [
+    "US crews may use feet, inches and pounds; French sites generally use metric, while Quebec construction often uses imperial measures. Confirm job documents and spoken units.",
+    "Belgian and Swiss number words may use septante/nonante; this lesson uses soixante-dix/quatre-vingt-dix.",
+    "The reading’s bundle weight is an example, not a product specification."
+  ],
+  "modeEvidence": {
+    "see": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "speakingEvidence": {
+    "archivedFrenchOpening": "On commence à sept heures. J’ai besoin de vingt paquets de bardeaux. Le clou fait un pouce et demi de long.",
+    "readyForLearner": false
+  },
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedFrench": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "stageIdentity": false,
+    "sixModes": false,
+    "speaking": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

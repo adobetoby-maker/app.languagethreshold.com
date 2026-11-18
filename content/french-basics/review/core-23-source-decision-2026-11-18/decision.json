@@ -1,0 +1,418 @@
+{
+  "schema": "french101-core23-source-decision-v1",
+  "state": "source-only-unapproved-review",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "sourcePair": "Spanish:English",
+  "moduleId": "french-basics",
+  "stage": "core",
+  "lesson": 23,
+  "stableLessonId": "french-basics:23",
+  "sourceFilesSha256": {
+    "src/data/spanish-basics-core.json": "d50c3e52a846331e9c0bcec19a5c91605585f4e285c62138941425390d160e38",
+    "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe",
+    "content/review-archive/french-japanese-2026-11-15/french-101/core-22-24-draft.json": "47da7b6429135e9fdf982c1186c090d106b5fce6081f0e9bd293604f74f4e41e"
+  },
+  "sourceTitleEnglish": "Direct object pronouns",
+  "sourceObjectiveEnglish": "Direct object pronouns: Lo, la, los and las replace a direct object and agree with it: el libro → lo; las llaves → las.",
+  "sourceSpeakingEnglish": "Role-play Preparar la mochila with a patient classmate. Practice direct object pronouns. Use this lesson's grammar, ask a related question, answer the partner, and confirm understanding. Keep language at beginner level; explain unfamiliar words in English when asked.",
+  "sourceReaderTitleSpanish": "Preparar la mochila",
+  "cards": [
+    {
+      "id": "french-basics:23:card:1",
+      "sourceSpanish": "mochila",
+      "sourceEnglish": "backpack",
+      "kind": "term",
+      "proposedFrench": "sac à dos",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:23:card:2",
+      "sourceSpanish": "libro",
+      "sourceEnglish": "book",
+      "kind": "term",
+      "proposedFrench": "livre",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:23:card:3",
+      "sourceSpanish": "el",
+      "sourceEnglish": "the (masculine singular)",
+      "kind": "term",
+      "proposedFrench": "le",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "proposalNote": "Le is also a direct-object pronoun: it / him (je le trouve)."
+    },
+    {
+      "id": "french-basics:23:card:4",
+      "sourceSpanish": "la",
+      "sourceEnglish": "the / it / her (feminine)",
+      "kind": "term",
+      "proposedFrench": "la",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "proposalNote": "La can be a feminine article, a feminine direct-object pronoun, or “her” as an object; identify its role from context."
+    },
+    {
+      "id": "french-basics:23:card:5",
+      "sourceSpanish": "y",
+      "sourceEnglish": "and",
+      "kind": "term",
+      "proposedFrench": "et",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:23:card:6",
+      "sourceSpanish": "tengo",
+      "sourceEnglish": "I have",
+      "kind": "term",
+      "proposedFrench": "j’ai",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:23:card:7",
+      "sourceSpanish": "necesito",
+      "sourceEnglish": "I need",
+      "kind": "term",
+      "proposedFrench": "j’ai besoin de",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "proposalNote": "J’ai besoin de means “I need”; the French construction includes de."
+    },
+    {
+      "id": "french-basics:23:card:8",
+      "sourceSpanish": "los",
+      "sourceEnglish": "the / them (masculine plural)",
+      "kind": "term",
+      "proposedFrench": "les",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "proposalNote": "Les is a plural article or direct-object pronoun for any gender; it can mean “them” in this lesson.",
+      "proposedFrenchMeaningEnglish": "the / them (plural, any gender)"
+    },
+    {
+      "id": "french-basics:23:card:9",
+      "sourceSpanish": "Busco el libro y lo encuentro.",
+      "sourceEnglish": "I look for the book and find it.",
+      "kind": "phrase",
+      "proposedFrench": "Je cherche le livre et je le trouve.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:23:card:10",
+      "sourceSpanish": "Tengo la mochila y la abro.",
+      "sourceEnglish": "I have the backpack and open it.",
+      "kind": "phrase",
+      "proposedFrench": "J’ai le sac à dos et je l’ouvre.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:23:card:11",
+      "sourceSpanish": "Compro los cuadernos y los guardo.",
+      "sourceEnglish": "I buy the notebooks and put them away.",
+      "kind": "phrase",
+      "proposedFrench": "J’achète les cahiers et je les range.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:23:card:12",
+      "sourceSpanish": "Necesito las llaves, pero no las veo.",
+      "sourceEnglish": "I need the keys, but I do not see them.",
+      "kind": "phrase",
+      "proposedFrench": "J’ai besoin des clés, mais je ne les vois pas.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:23:card:13",
+      "sourceSpanish": "Ana tiene el lápiz y lo usa.",
+      "sourceEnglish": "Ana has the pencil and uses it.",
+      "kind": "phrase",
+      "proposedFrench": "Ana a le crayon et elle l’utilise.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:23:card:14",
+      "sourceSpanish": "¿La tienes tú?",
+      "sourceEnglish": "Do you have it?",
+      "kind": "phrase",
+      "proposedFrench": "Tu l’as, toi ?",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "proposalNote": "Before as, le and la both become l’, so the pronoun does not show the item’s gender."
+    }
+  ],
+  "reader": [
+    {
+      "id": "french-basics:23:reader:1",
+      "sourceSpanish": "Busco el libro y lo encuentro.",
+      "sourceEnglish": "I look for the book and find it.",
+      "proposedFrench": "Je cherche le livre et je le trouve.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:23:reader:2",
+      "sourceSpanish": "Tengo la mochila y la abro.",
+      "sourceEnglish": "I have the backpack and open it.",
+      "proposedFrench": "J’ai le sac à dos et je l’ouvre.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:23:reader:3",
+      "sourceSpanish": "Compro los cuadernos y los guardo.",
+      "sourceEnglish": "I buy the notebooks and put them away.",
+      "proposedFrench": "J’achète les cahiers et je les range.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:23:reader:4",
+      "sourceSpanish": "Necesito las llaves, pero no las veo.",
+      "sourceEnglish": "I need the keys, but I do not see them.",
+      "proposedFrench": "J’ai besoin des clés, mais je ne les vois pas.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:23:reader:5",
+      "sourceSpanish": "Ana tiene el lápiz y lo usa.",
+      "sourceEnglish": "Ana has the pencil and uses it.",
+      "proposedFrench": "Ana a le crayon et elle l’utilise.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:23:reader:6",
+      "sourceSpanish": "¿La tienes tú?",
+      "sourceEnglish": "Do you have it?",
+      "proposedFrench": "Tu l’as, toi ?",
+      "selectedFrench": null,
+      "decisionRequired": true
+    }
+  ],
+  "candidateGrammar": {
+    "explanation": "French direct-object pronouns replace a person or thing receiving the action: le livre → je le trouve; la clé → je la trouve; le sac à dos → je l’ouvre; les cahiers → je les range. Put the pronoun before the conjugated verb. Le and la both become l’ before a vowel or mute h, so l’ does not show gender: je l’ouvre, elle l’utilise. Les works for plural objects of any gender. The article comes before a noun (le livre); the object pronoun replaces the article and noun together (je le trouve).",
+    "model": {
+      "book": "Je cherche le livre et je le trouve.",
+      "backpack": "J’ai le sac à dos et je l’ouvre.",
+      "notebooks": "J’achète les cahiers et je les range.",
+      "keys": "J’ai besoin des clés, mais je ne les vois pas."
+    },
+    "caution": "Les is plural for both masculine and feminine nouns. Avoir besoin de + les clés → j’ai besoin des clés (de + les = des); then les replaces les clés as the direct object of vois. In “Tu l’as, toi ?”, l’ could stand for le or la; context tells you which."
+  },
+  "candidateModes": {
+    "see": {
+      "prompt": "Read the book sentence and find the pronoun le before trouve; it replaces le livre.",
+      "targetText": "Je cherche le livre et je le trouve.",
+      "reviewKey": "french-basics:23:mode:see",
+      "sourceReaderTurn": 1,
+      "sourceCard": 9,
+      "readyForLearner": false
+    },
+    "recall": {
+      "prompt": "Recall the backpack sentence and the elided l’ before ouvre.",
+      "targetText": "J’ai le sac à dos et je l’ouvre.",
+      "reviewKey": "french-basics:23:mode:recall",
+      "sourceReaderTurn": 2,
+      "sourceCard": 10,
+      "readyForLearner": false
+    },
+    "hear": {
+      "prompt": "Listen for the noun naming the backpack being opened.",
+      "targetText": "sac à dos",
+      "recordedAudio": false,
+      "reviewKey": "french-basics:23:mode:hear",
+      "sourceReaderTurn": null,
+      "sourceCard": 1,
+      "readyForLearner": false
+    },
+    "type": {
+      "prompt": "Type the sentence that replaces plural cahiers with les after buying them.",
+      "targetText": "J’achète les cahiers et je les range.",
+      "reviewKey": "french-basics:23:mode:type",
+      "sourceReaderTurn": 3,
+      "sourceCard": 11,
+      "readyForLearner": false
+    },
+    "say": {
+      "prompt": "Say that you need the keys but cannot see them; use les before vois.",
+      "targetText": "J’ai besoin des clés, mais je ne les vois pas.",
+      "reviewKey": "french-basics:23:mode:say",
+      "sourceReaderTurn": 4,
+      "sourceCard": 12,
+      "readyForLearner": false
+    },
+    "write": {
+      "prompt": "Write Ana’s pencil sentence with l’ before utilise.",
+      "targetText": "Ana a le crayon et elle l’utilise.",
+      "reviewKey": "french-basics:23:mode:write",
+      "sourceReaderTurn": 5,
+      "sourceCard": 13,
+      "readyForLearner": false
+    }
+  },
+  "candidateForms": [
+    {
+      "id": "form-fr-en-af7b2388c445d379",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 1,
+      "focus": "reader-form-1",
+      "frenchAnswer": "Je cherche le livre et je le trouve.",
+      "englishPrompt": "I look for the book and find it.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Je cherche le livre et je le trouve."
+      ],
+      "readyForLearner": false
+    },
+    {
+      "id": "form-fr-en-9b3af775c0e58734",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 2,
+      "focus": "reader-form-2",
+      "frenchAnswer": "J’ai le sac à dos et je l’ouvre.",
+      "englishPrompt": "I have the backpack and open it.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "J’ai le sac à dos et je l’ouvre."
+      ],
+      "readyForLearner": false
+    },
+    {
+      "id": "form-fr-en-9688aecac360cf83",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 3,
+      "focus": "reader-form-3",
+      "frenchAnswer": "J’achète les cahiers et je les range.",
+      "englishPrompt": "I buy the notebooks and put them away.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "J’achète les cahiers et je les range."
+      ],
+      "readyForLearner": false
+    },
+    {
+      "id": "form-fr-en-a3ddbdff0d651035",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 4,
+      "focus": "reader-form-4",
+      "frenchAnswer": "J’ai besoin des clés, mais je ne les vois pas.",
+      "englishPrompt": "I need the keys, but I do not see them.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "J’ai besoin des clés, mais je ne les vois pas."
+      ],
+      "readyForLearner": false
+    },
+    {
+      "id": "form-fr-en-37a10241d4d8ee84",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 5,
+      "focus": "reader-form-5",
+      "frenchAnswer": "Ana a le crayon et elle l’utilise.",
+      "englishPrompt": "Ana has the pencil and uses it.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Ana a le crayon et elle l’utilise."
+      ],
+      "readyForLearner": false
+    },
+    {
+      "id": "form-fr-en-e9014e256621ffe1",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 6,
+      "focus": "reader-form-6",
+      "frenchAnswer": "Tu l’as, toi ?",
+      "englishPrompt": "Do you have it?",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Tu l’as, toi ?"
+      ],
+      "readyForLearner": false
+    },
+    {
+      "id": "form-fr-en-b787c18a25dad682",
+      "source": "authored-draft-contrast",
+      "focus": "feminine-direct-object-la",
+      "frenchAnswer": "Je cherche la clé et je la trouve.",
+      "englishPrompt": "I look for the key and find it.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Je cherche la clé et je la trouve."
+      ],
+      "readyForLearner": false
+    }
+  ],
+  "candidateSpeaking": {
+    "reviewKey": "french-basics:23:speaking",
+    "text": "Pack a school bag with a patient classmate. Ask about the book, backpack, notebooks, keys and pencil, and answer your partner’s questions. Name each object once, then replace it with le, la, l’ or les. Confirm whether your partner has the missing item. Keep language at beginner level; explain unfamiliar words in English when asked.",
+    "reviewed": false,
+    "readyForLearner": false
+  },
+  "sourceConflict": {
+    "card8": {
+      "sourceSpanish": "los",
+      "sourceEnglish": "the / them (masculine plural)",
+      "proposedFrench": "les",
+      "proposedFrenchMeaningEnglish": "the / them (plural, any gender)",
+      "reason": "Spanish los marks masculine plural. French les covers masculine and feminine plural. The Spanish source gloss cannot be scored as an exclusive French gloss."
+    },
+    "reader6": {
+      "sourceSpanish": "¿La tienes tú?",
+      "sourceEnglish": "Do you have it?",
+      "proposedFrench": "Tu l’as, toi ?",
+      "reason": "The feminine Spanish direct object has an unstated referent. French l’ does not reveal gender. A contextual teaching choice is required."
+    }
+  },
+  "selectedDecision": null,
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "v4Registered": false
+  }
+}

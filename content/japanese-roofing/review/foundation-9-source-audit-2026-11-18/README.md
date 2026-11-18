@@ -1,0 +1,11 @@
+# Japanese Roofing Foundation 9 source review
+
+This inert packet pins all **12** current Spanish/English cards and **six** aligned Reader turns for Roofing Foundation 9 with stable stage-local IDs. The archived Japanese remains conditional comparison material. No owner, learner, scoring, audio, offline, progress or independent V4 route imports this packet.
+
+Four Japanese candidates remain unset. Card 1's general **please** is narrower as request-specific `お願いします`. Card 5's alert **careful, watch out** becomes a complete instruction in `気をつけてください`. Reader 1's **con permiso / excuse me** while coming through with a ladder needs a passing/access sense that broad `すみません` may not carry alone. Reader 2 explicitly adds **por favor / please** to the hammer request; the archived polite Japanese question needs a qualified register decision. These faces have `candidateJapanese: null`, and every card and Reader `selectedJapanese` stays null.
+
+The archived draft has a seventh Reader turn in which a crew lead answers “Understood.” The current Spanish/English Reader has only six turns. The extra line is kept as separate archival evidence and cannot inherit a Reader, saved-item or recording ID. The current source objective teaches polite tool requests and short instructions. Japanese `～てください` and `～てもらえますか` are distinct request forms; qualified Japanese and roofing reviewers should resolve the alert, passing and tool-request contexts. The source roof-edge line remains attributed dialogue rather than a new procedure.
+
+Archived See, Recall, Hear, Type, Say and Write strings are labels, not six authored prompt/answer activities. Contextual dictionary senses, forms, speaking, saved-item mapping, exact-pair learner/offline/browser/native acceptance and exact-text audio with separate per-clip listening decisions remain open. Every review and release gate is false.
+
+Run `python3 content/japanese-roofing/review/foundation-9-source-audit-2026-11-18/build.py --check` and `python3 content/japanese-roofing/review/foundation-9-source-audit-2026-11-18/validate.py` from the app checkout. These checks establish source fidelity and closed gates only. Claude CLI 2.1.325 reported `loggedIn:false`; there were zero new Haiku, Opus or Fable calls, and no qualified approval is claimed.

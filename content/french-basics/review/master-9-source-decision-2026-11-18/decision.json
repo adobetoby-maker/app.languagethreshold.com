@@ -1,0 +1,662 @@
+{
+  "schema": "french101-master9-source-decision-v1",
+  "pairKey": "French:English",
+  "courseId": "french-basics",
+  "moduleId": "master-french-basics",
+  "stage": "master",
+  "n": 9,
+  "stableLessonId": "master-french-basics:9",
+  "stablePairId": "master-french-basics:9:fr-en",
+  "sourceFilesSha256": {
+    "src/data/core60/es/master-spanish-basics.json": "27084a65c51ef96ab6b74dd969de1c4b38cd670be1c4b148e2b66f4d9bb15ede",
+    "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe",
+    "content/review-archive/french-japanese-2026-11-15/french-101/master-7-9-redesign-draft.json": "69a69913548ffe3f41b51af7fbe2a63d443b1f416be9d29f154ca9e846703d61"
+  },
+  "sourceTitleEnglish": "Choose and describe an item",
+  "sourceObjectiveEnglish": "Choose and describe an item: Adjectives agree with the noun they describe: un libro rojo, unas mochilas rojas.",
+  "sourceFocusEnglish": "Choose and describe an item",
+  "sourceSpeakingEnglish": "Role-play Una compra pequeña with a patient classmate. Practice choose and describe an item. Use this lesson's grammar, ask a related question, answer the partner, and confirm understanding. Keep language at beginner level; explain unfamiliar words in English when asked.",
+  "sourceGrammarEnglish": {
+    "focus": "Adjectives agree with the noun they describe: un libro rojo, unas mochilas rojas. Many adjectives follow the noun; adjectives ending in -e often keep the same gender form.",
+    "examples": [
+      {
+        "es": "Busco un cuaderno pequeño.",
+        "en": "I am looking for a small notebook."
+      },
+      {
+        "es": "Esta tienda tiene cuadernos azules.",
+        "en": "This store has blue notebooks."
+      }
+    ]
+  },
+  "sourceReaderTitleSpanish": "Una compra pequeña",
+  "cards": [
+    {
+      "id": "master-french-basics:9:card:1",
+      "sourceSpanish": "me",
+      "sourceEnglish": "me / myself",
+      "kind": "term",
+      "proposedFrench": "me",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source me / myself groups object and reflexive uses; isolated French me needs context."
+    },
+    {
+      "id": "master-french-basics:9:card:2",
+      "sourceSpanish": "mochila",
+      "sourceEnglish": "backpack",
+      "kind": "term",
+      "proposedFrench": "sac à dos",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish mochila is feminine but French sac à dos is masculine; teach agreement explicitly."
+    },
+    {
+      "id": "master-french-basics:9:card:3",
+      "sourceSpanish": "cuaderno",
+      "sourceEnglish": "notebook",
+      "kind": "term",
+      "proposedFrench": "cahier",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:9:card:4",
+      "sourceSpanish": "es",
+      "sourceEnglish": "is (identity)",
+      "kind": "term",
+      "proposedFrench": "est",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish es labels identity; French est also expresses condition or location."
+    },
+    {
+      "id": "master-french-basics:9:card:5",
+      "sourceSpanish": "hay",
+      "sourceEnglish": "there is / there are",
+      "kind": "term",
+      "proposedFrench": "il y a",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:9:card:6",
+      "sourceSpanish": "el",
+      "sourceEnglish": "the (masculine singular)",
+      "kind": "term",
+      "proposedFrench": "le",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:9:card:7",
+      "sourceSpanish": "la",
+      "sourceEnglish": "the / it / her (feminine)",
+      "kind": "term",
+      "proposedFrench": "la",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish la groups article, object and person senses; French isolated face needs context."
+    },
+    {
+      "id": "master-french-basics:9:card:8",
+      "sourceSpanish": "un",
+      "sourceEnglish": "a (masculine)",
+      "kind": "term",
+      "proposedFrench": "un",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:9:card:9",
+      "sourceSpanish": "una",
+      "sourceEnglish": "a (feminine)",
+      "kind": "term",
+      "proposedFrench": "une",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish una is feminine; source-aligned backpack in French is masculine and takes un."
+    },
+    {
+      "id": "master-french-basics:9:card:10",
+      "sourceSpanish": "un cuaderno",
+      "sourceEnglish": "a notebook",
+      "kind": "term",
+      "proposedFrench": "un cahier",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:9:card:11",
+      "sourceSpanish": "una mochila",
+      "sourceEnglish": "a backpack",
+      "kind": "term",
+      "proposedFrench": "un sac à dos",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source feminine una mochila becomes masculine un sac à dos in French; scoring needs contextual form."
+    },
+    {
+      "id": "master-french-basics:9:card:12",
+      "sourceSpanish": "aquí",
+      "sourceEnglish": "here",
+      "kind": "term",
+      "proposedFrench": "ici",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:9:card:13",
+      "sourceSpanish": "Busco un cuaderno pequeño.",
+      "sourceEnglish": "I am looking for a small notebook.",
+      "kind": "phrase",
+      "proposedFrench": "Je cherche un petit cahier.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:9:card:14",
+      "sourceSpanish": "Esta tienda tiene cuadernos azules.",
+      "sourceEnglish": "This store has blue notebooks.",
+      "kind": "phrase",
+      "proposedFrench": "Cette boutique a des cahiers bleus.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:9:card:15",
+      "sourceSpanish": "También hay una mochila roja.",
+      "sourceEnglish": "There is also a red backpack.",
+      "kind": "phrase",
+      "proposedFrench": "Il y a aussi un sac à dos rouge.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:9:card:16",
+      "sourceSpanish": "La mochila roja es grande.",
+      "sourceEnglish": "The red backpack is large.",
+      "kind": "phrase",
+      "proposedFrench": "Le sac à dos rouge est grand.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:9:card:17",
+      "sourceSpanish": "Quiero dos lápices negros.",
+      "sourceEnglish": "I want two black pencils.",
+      "kind": "phrase",
+      "proposedFrench": "Je veux deux crayons noirs.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:9:card:18",
+      "sourceSpanish": "La dependienta amable me ayuda.",
+      "sourceEnglish": "The kind sales assistant helps me.",
+      "kind": "phrase",
+      "proposedFrench": "La vendeuse aimable m’aide.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:9:card:19",
+      "sourceSpanish": "Busco una mochila roja.",
+      "sourceEnglish": "I am looking for a red backpack.",
+      "kind": "phrase",
+      "proposedFrench": "Je cherche un sac à dos rouge.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:9:card:20",
+      "sourceSpanish": "Las mochilas rojas están aquí.",
+      "sourceEnglish": "The red backpacks are here.",
+      "kind": "phrase",
+      "proposedFrench": "Les sacs à dos rouges sont ici.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish las is feminine plural; French les is gender-neutral plural."
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-french-basics:9:reader:1",
+      "sourceSpanish": "Busco un cuaderno pequeño.",
+      "sourceEnglish": "I am looking for a small notebook.",
+      "proposedFrench": "Je cherche un petit cahier.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:9:reader:2",
+      "sourceSpanish": "Esta tienda tiene cuadernos azules.",
+      "sourceEnglish": "This store has blue notebooks.",
+      "proposedFrench": "Cette boutique a des cahiers bleus.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:9:reader:3",
+      "sourceSpanish": "También hay una mochila roja.",
+      "sourceEnglish": "There is also a red backpack.",
+      "proposedFrench": "Il y a aussi un sac à dos rouge.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:9:reader:4",
+      "sourceSpanish": "La mochila roja es grande.",
+      "sourceEnglish": "The red backpack is large.",
+      "proposedFrench": "Le sac à dos rouge est grand.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:9:reader:5",
+      "sourceSpanish": "Quiero dos lápices negros.",
+      "sourceEnglish": "I want two black pencils.",
+      "proposedFrench": "Je veux deux crayons noirs.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:9:reader:6",
+      "sourceSpanish": "La dependienta amable me ayuda.",
+      "sourceEnglish": "The kind sales assistant helps me.",
+      "proposedFrench": "La vendeuse aimable m’aide.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:9:reader:7",
+      "sourceSpanish": "Busco una mochila roja.",
+      "sourceEnglish": "I am looking for a red backpack.",
+      "proposedFrench": "Je cherche un sac à dos rouge.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:9:reader:8",
+      "sourceSpanish": "Las mochilas rojas están aquí.",
+      "sourceEnglish": "The red backpacks are here.",
+      "proposedFrench": "Les sacs à dos rouges sont ici.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:9:reader:9",
+      "sourceSpanish": "El cuaderno azul es pequeño.",
+      "sourceEnglish": "The blue notebook is small.",
+      "proposedFrench": "Le cahier bleu est petit.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:9:reader:10",
+      "sourceSpanish": "Los libros son interesantes.",
+      "sourceEnglish": "The books are interesting.",
+      "proposedFrench": "Les livres sont intéressants.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:9:reader:11",
+      "sourceSpanish": "La dependienta es amable.",
+      "sourceEnglish": "The sales assistant is kind.",
+      "proposedFrench": "La vendeuse est aimable.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:9:reader:12",
+      "sourceSpanish": "Quiero dos cuadernos pequeños.",
+      "sourceEnglish": "I want two small notebooks.",
+      "proposedFrench": "Je veux deux petits cahiers.",
+      "selectedFrench": null
+    }
+  ],
+  "conditionalSourceAlignedCandidate": {
+    "holdPath": "/Users/drive/lt-review/french101-lesson-teams-2026-11-14/french101-master9-normalized/hold-packet.json",
+    "holdSha256": "db55132bbe489627968437c287add2818fbeed68f258fab3e9af1ea2b4ad2731",
+    "formSpeakingPath": "/Users/drive/lt-review/french101-master9-audit-2026-11-15/candidate.json",
+    "formSpeakingSha256": "7b0d3066d1a601b26511b7c68dae47e5ac2b9a52acf131b649be6469552d1412",
+    "sourceAlignedButUnqualified": true
+  },
+  "conditionalArchivedRedesign": {
+    "path": "content/review-archive/french-japanese-2026-11-15/french-101/master-7-9-redesign-draft.json",
+    "lessonNumber": 9,
+    "titleFrench": "Comparer des options et justifier son choix",
+    "objectiveEnglish": "Compare two candidate items using relevant properties, give a reason for the choice and check the other person’s preference.",
+    "sourceMeaningAligned": false,
+    "description": "Lamp comparison redesign changes current shop/adjective lesson objective and English meanings."
+  },
+  "candidateModes": {
+    "see": {
+      "reviewKey": "master-french-basics:9:mode:see",
+      "prompt": "a backpack",
+      "proposedTargetText": "un sac à dos",
+      "sourceRefs": [
+        "master-french-basics:9:card:11"
+      ],
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    "recall": {
+      "reviewKey": "master-french-basics:9:mode:recall",
+      "prompt": "a notebook",
+      "proposedTargetText": "un cahier",
+      "sourceRefs": [
+        "master-french-basics:9:card:10"
+      ],
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    "hear": {
+      "reviewKey": "master-french-basics:9:mode:hear",
+      "prompt": "The kind sales assistant helps me.",
+      "proposedTargetText": "La vendeuse aimable m’aide.",
+      "sourceRefs": [
+        "master-french-basics:9:reader:6"
+      ],
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    "type": {
+      "reviewKey": "master-french-basics:9:mode:type",
+      "prompt": "The red backpacks are here.",
+      "proposedTargetText": "Les sacs à dos rouges sont ici.",
+      "sourceRefs": [
+        "master-french-basics:9:reader:8"
+      ],
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    "say": {
+      "reviewKey": "master-french-basics:9:mode:say",
+      "prompt": "I am looking for a red backpack. / The red backpack is large.",
+      "proposedTargetText": "Je cherche un sac à dos rouge. / Le sac à dos rouge est grand.",
+      "sourceRefs": [
+        "master-french-basics:9:reader:7",
+        "master-french-basics:9:reader:4"
+      ],
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    "write": {
+      "reviewKey": "master-french-basics:9:mode:write",
+      "prompt": "I want two small notebooks.",
+      "proposedTargetText": "Je veux deux petits cahiers.",
+      "sourceRefs": [
+        "master-french-basics:9:reader:12"
+      ],
+      "readyForLearner": false,
+      "recordedAudio": false
+    }
+  },
+  "candidateForms": [
+    {
+      "reviewKey": "master-french-basics:9:form-01",
+      "proposedFrench": "Je cherche un petit cahier.",
+      "sourceEnglish": "I am looking for a small notebook.",
+      "explanation": "'Un' is used before the masculine noun 'cahier'. 'Petit' describes the notebook and comes before the noun; it is in its masculine singular form to match 'cahier'.",
+      "readerRefs": [
+        "master-french-basics:9:reader:1"
+      ],
+      "phraseCardRefs": [
+        "master-french-basics:9:card:13"
+      ],
+      "headwordCardRefs": [
+        "master-french-basics:9:card:3",
+        "master-french-basics:9:card:8"
+      ],
+      "reviewed": false,
+      "readyForLearner": false
+    },
+    {
+      "reviewKey": "master-french-basics:9:form-02",
+      "proposedFrench": "Le sac à dos rouge est grand.",
+      "sourceEnglish": "The red backpack is large.",
+      "explanation": "'Le' is the masculine singular word for 'the'; 'sac à dos' is masculine in French. 'Rouge' comes after the noun (most colour adjectives follow the noun). 'Grand' is masculine singular to match 'sac'.",
+      "readerRefs": [
+        "master-french-basics:9:reader:4"
+      ],
+      "phraseCardRefs": [
+        "master-french-basics:9:card:16"
+      ],
+      "headwordCardRefs": [
+        "master-french-basics:9:card:2",
+        "master-french-basics:9:card:4",
+        "master-french-basics:9:card:6"
+      ],
+      "reviewed": false,
+      "readyForLearner": false
+    },
+    {
+      "reviewKey": "master-french-basics:9:form-03",
+      "proposedFrench": "Les sacs à dos rouges sont ici.",
+      "sourceEnglish": "The red backpacks are here.",
+      "explanation": "'Les' is the plural form of 'the'. The plural noun 'sacs à dos' takes the plural adjective 'rouges', and 'sont' means 'are'. In 'sacs à dos', only 'sac' becomes plural; 'à dos' does not change.",
+      "readerRefs": [
+        "master-french-basics:9:reader:8"
+      ],
+      "phraseCardRefs": [
+        "master-french-basics:9:card:20"
+      ],
+      "headwordCardRefs": [
+        "master-french-basics:9:card:2",
+        "master-french-basics:9:card:12"
+      ],
+      "reviewed": false,
+      "readyForLearner": false
+    },
+    {
+      "reviewKey": "master-french-basics:9:form-04",
+      "proposedFrench": "Il y a aussi un sac à dos rouge.",
+      "sourceEnglish": "There is also a red backpack.",
+      "explanation": "'Il y a' means 'there is' or 'there are'. 'Un' (not 'une') goes before the masculine noun 'sac à dos'. 'Rouge' comes after the noun and has the same form for masculine and feminine.",
+      "readerRefs": [
+        "master-french-basics:9:reader:3"
+      ],
+      "phraseCardRefs": [
+        "master-french-basics:9:card:15"
+      ],
+      "headwordCardRefs": [
+        "master-french-basics:9:card:2",
+        "master-french-basics:9:card:5",
+        "master-french-basics:9:card:8",
+        "master-french-basics:9:card:11"
+      ],
+      "reviewed": false,
+      "readyForLearner": false
+    },
+    {
+      "reviewKey": "master-french-basics:9:form-05",
+      "proposedFrench": "La vendeuse est aimable.",
+      "sourceEnglish": "The sales assistant is kind.",
+      "explanation": "'La' is used before the feminine noun 'vendeuse'. 'Est' means 'is', and the adjective 'aimable' describes her. 'Aimable' already ends in -e, so it does not change for a feminine noun.",
+      "readerRefs": [
+        "master-french-basics:9:reader:11"
+      ],
+      "phraseCardRefs": [],
+      "headwordCardRefs": [
+        "master-french-basics:9:card:4",
+        "master-french-basics:9:card:7"
+      ],
+      "reviewed": false,
+      "readyForLearner": false
+    },
+    {
+      "reviewKey": "master-french-basics:9:form-06",
+      "proposedFrench": "Je veux deux petits cahiers.",
+      "sourceEnglish": "I want two small notebooks.",
+      "explanation": "The noun is plural ('cahiers'), so the adjective is plural too: 'petit' becomes 'petits'. 'Petits' still comes before the noun.",
+      "readerRefs": [
+        "master-french-basics:9:reader:12"
+      ],
+      "phraseCardRefs": [],
+      "headwordCardRefs": [
+        "master-french-basics:9:card:3"
+      ],
+      "reviewed": false,
+      "readyForLearner": false
+    },
+    {
+      "reviewKey": "master-french-basics:9:form-07",
+      "proposedFrench": "Les livres sont intéressants.",
+      "sourceEnglish": "The books are interesting.",
+      "explanation": "An adjective after 'sont' still agrees with the noun it describes: 'livres' is plural, so 'intéressants' ends in -s.",
+      "readerRefs": [
+        "master-french-basics:9:reader:10"
+      ],
+      "phraseCardRefs": [],
+      "headwordCardRefs": [],
+      "reviewed": false,
+      "readyForLearner": false
+    }
+  ],
+  "candidateSpeaking": {
+    "roles": [
+      "shopper",
+      "sales assistant"
+    ],
+    "opening": {
+      "French": "Je cherche un petit cahier.",
+      "English": "I am looking for a small notebook.",
+      "readerRef": 1,
+      "cardRef": 13
+    },
+    "objectives": [
+      {
+        "id": "obj-01",
+        "text": "Choose an item: say what you want.",
+        "exampleFrench": "Je veux deux petits cahiers.",
+        "exampleEnglish": "I want two small notebooks.",
+        "readerRef": 12,
+        "cardRef": null
+      },
+      {
+        "id": "obj-02",
+        "text": "Describe an item.",
+        "exampleFrench": "Le sac à dos rouge est grand.",
+        "exampleEnglish": "The red backpack is large.",
+        "readerRef": 4,
+        "cardRef": 16
+      },
+      {
+        "id": "obj-03",
+        "text": "Make the adjective plural when the noun is plural.",
+        "exampleFrench": "Les sacs à dos rouges sont ici.",
+        "exampleEnglish": "The red backpacks are here.",
+        "readerRef": 8,
+        "cardRef": 20,
+        "compareFrench": "Je cherche un sac à dos rouge.",
+        "compareEnglish": "I am looking for a red backpack.",
+        "compareReaderRef": 7,
+        "compareCardRef": 19
+      }
+    ],
+    "closure": {
+      "French": "La vendeuse aimable m’aide.",
+      "English": "The kind sales assistant helps me.",
+      "readerRef": 6,
+      "cardRef": 18
+    },
+    "termCardVocabularyRefs": {
+      "cardOnlyHeadwordRefs": [
+        9,
+        10
+      ],
+      "headwordsWithReaderOccurrencesRefs": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12
+      ]
+    }
+  },
+  "candidateSpeakingReadyForLearner": false,
+  "sourceConflicts": [
+    {
+      "kind": "curriculum-stage",
+      "detail": "Current Master 9 teaches basic shopping and adjective agreement; qualified curriculum review must decide stage placement."
+    },
+    {
+      "kind": "archive-meaning",
+      "detail": "Archived lamp-comparison redesign does not preserve current source cards or Reader meanings."
+    },
+    {
+      "kind": "card-face",
+      "cardId": "master-french-basics:9:card:1",
+      "detail": "Source me / myself groups object and reflexive uses; isolated French me needs context."
+    },
+    {
+      "kind": "card-face",
+      "cardId": "master-french-basics:9:card:2",
+      "detail": "Spanish mochila is feminine but French sac à dos is masculine; teach agreement explicitly."
+    },
+    {
+      "kind": "card-face",
+      "cardId": "master-french-basics:9:card:4",
+      "detail": "Spanish es labels identity; French est also expresses condition or location."
+    },
+    {
+      "kind": "card-face",
+      "cardId": "master-french-basics:9:card:7",
+      "detail": "Spanish la groups article, object and person senses; French isolated face needs context."
+    },
+    {
+      "kind": "card-face",
+      "cardId": "master-french-basics:9:card:9",
+      "detail": "Spanish una is feminine; source-aligned backpack in French is masculine and takes un."
+    },
+    {
+      "kind": "card-face",
+      "cardId": "master-french-basics:9:card:11",
+      "detail": "Source feminine una mochila becomes masculine un sac à dos in French; scoring needs contextual form."
+    },
+    {
+      "kind": "card-face",
+      "cardId": "master-french-basics:9:card:20",
+      "detail": "Spanish las is feminine plural; French les is gender-neutral plural."
+    },
+    {
+      "kind": "adjective-scope",
+      "detail": "Source objective names gender and number agreement, but candidate Reader visibly demonstrates number contrast without a feminine adjective form contrast."
+    },
+    {
+      "kind": "mode-schema",
+      "detail": "Six source-linked text cues remain draft; Hear has no recorded or listening-reviewed audio and scoring variants are unspecified."
+    },
+    {
+      "kind": "dictionary-saved-items",
+      "detail": "Grouped senses, gender shifts, term versus phrase identity and saved-item continuity have not been validated."
+    },
+    {
+      "kind": "forms-speaking",
+      "detail": "Seven proposed forms and shop speaking card are conditional private candidates; exact-pair owner and learner schema checks remain."
+    }
+  ],
+  "normalCardProjectionAllowed": false,
+  "selectedDecision": null,
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "readyForLearner": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "progress": false,
+    "ownerRoute": false,
+    "v4": false
+  }
+}

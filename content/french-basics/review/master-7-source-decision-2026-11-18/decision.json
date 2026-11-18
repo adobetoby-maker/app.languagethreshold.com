@@ -1,0 +1,578 @@
+{
+  "schema": "lt.french101.source-decision.v1",
+  "packetKind": "inert-source-only-review",
+  "pairKey": "fr-en",
+  "stableLessonKey": "master-french-basics:7",
+  "stage": "master",
+  "lessonNumber": 7,
+  "reviewIdsAreSavedItemIds": false,
+  "sourceFiles": {
+    "core60": {
+      "path": "src/data/core60/es/master-spanish-basics.json",
+      "sha256": "27084a65c51ef96ab6b74dd969de1c4b38cd670be1c4b148e2b66f4d9bb15ede"
+    },
+    "practice": {
+      "path": "src/data/spanish-basics-practice.json",
+      "sha256": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe"
+    },
+    "divergentArchivedRedesign": {
+      "path": "content/review-archive/french-japanese-2026-11-15/french-101/master-7-9-redesign-draft.json",
+      "sha256": "69a69913548ffe3f41b51af7fbe2a63d443b1f416be9d29f154ca9e846703d61",
+      "useAsAlignedLesson": false
+    }
+  },
+  "privateProvenance": {
+    "path": "/Users/drive/lt-review/french101-lesson-teams-2026-11-14/french101-master7-normalized/packet.json",
+    "sha256": "7ec5c6ebc7c35c752469f994e2800345e0633d658129e81f96244f22908e662e",
+    "requiredAtValidation": false,
+    "qualifiedReview": false
+  },
+  "sourceLesson": {
+    "title": "Explain your study routine",
+    "objective": "Explain your study routine: Remove -ar and add -o, -as, -a, -amos, -an: hablo, hablas, habla, hablamos, hablan.",
+    "focus": "Explain your study routine",
+    "grammar": {
+      "focus": "Remove -ar and add -o, -as, -a, -amos, -an: hablo, hablas, habla, hablamos, hablan. Match the ending to the subject.",
+      "examples": [
+        {
+          "es": "Estudio español por la tarde.",
+          "en": "I study Spanish in the afternoon."
+        },
+        {
+          "es": "Mi hermana trabaja por la mañana.",
+          "en": "My sister works in the morning."
+        }
+      ]
+    },
+    "speaking": "Role-play Dos horarios with a patient classmate. Practice explain your study routine. Use this lesson's grammar, ask a related question, answer the partner, and confirm understanding. Keep language at beginner level; explain unfamiliar words in English when asked.",
+    "readerTitle": "Dos horarios"
+  },
+  "cards": [
+    {
+      "reviewId": "master-french-basics:7:card:1",
+      "order": 1,
+      "sourceSpanish": "la",
+      "sourceEnglish": "the / it / her (feminine)",
+      "kind": "term",
+      "conditionalFrench": "la",
+      "candidateNote": "Feminine 'the'. Before a vowel sound it becomes l'.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:card:2",
+      "order": 2,
+      "sourceSpanish": "en",
+      "sourceEnglish": "in / on / at",
+      "kind": "term",
+      "conditionalFrench": "en",
+      "candidateNote": "French en is used in some “in” phrases, such as en France or en classe. This lesson uses à la bibliothèque and à la maison for places.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:card:3",
+      "order": 3,
+      "sourceSpanish": "los",
+      "sourceEnglish": "the / them (masculine plural)",
+      "kind": "term",
+      "conditionalFrench": "les",
+      "candidateNote": "Les is the plural 'the' or 'them' for all genders.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:card:4",
+      "order": 4,
+      "sourceSpanish": "ella",
+      "sourceEnglish": "she",
+      "kind": "term",
+      "conditionalFrench": "elle",
+      "candidateNote": null,
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:card:5",
+      "order": 5,
+      "sourceSpanish": "nosotros",
+      "sourceEnglish": "we",
+      "kind": "term",
+      "conditionalFrench": "nous",
+      "candidateNote": null,
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:card:6",
+      "order": 6,
+      "sourceSpanish": "estudiantes",
+      "sourceEnglish": "students",
+      "kind": "term",
+      "conditionalFrench": "étudiants",
+      "candidateNote": "Use étudiantes for a group of only women.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:card:7",
+      "order": 7,
+      "sourceSpanish": "profesora",
+      "sourceEnglish": "female teacher",
+      "kind": "term",
+      "conditionalFrench": "professeure",
+      "candidateNote": "Professeure is the feminine form for a female teacher.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:card:8",
+      "order": 8,
+      "sourceSpanish": "amigos",
+      "sourceEnglish": "friends",
+      "kind": "term",
+      "conditionalFrench": "amis",
+      "candidateNote": null,
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:card:9",
+      "order": 9,
+      "sourceSpanish": "mi",
+      "sourceEnglish": "my (singular possession)",
+      "kind": "term",
+      "conditionalFrench": "mon",
+      "candidateNote": "Mon precedes a masculine singular noun or a feminine noun beginning with a vowel sound, such as mon amie; ma precedes most other feminine singular nouns, and mes precedes plural nouns.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:card:10",
+      "order": 10,
+      "sourceSpanish": "de",
+      "sourceEnglish": "of / from",
+      "kind": "term",
+      "conditionalFrench": "de",
+      "candidateNote": "De means of or from; de + le becomes du, as in emploi du temps.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:card:11",
+      "order": 11,
+      "sourceSpanish": "biblioteca",
+      "sourceEnglish": "library",
+      "kind": "term",
+      "conditionalFrench": "bibliothèque",
+      "candidateNote": null,
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:card:12",
+      "order": 12,
+      "sourceSpanish": "diez",
+      "sourceEnglish": "ten",
+      "kind": "term",
+      "conditionalFrench": "dix",
+      "candidateNote": null,
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:card:13",
+      "order": 13,
+      "sourceSpanish": "Estudio español por la tarde.",
+      "sourceEnglish": "I study Spanish in the afternoon.",
+      "kind": "phrase",
+      "conditionalFrench": "J’étudie l’espagnol l’après-midi.",
+      "candidateNote": "Étudier l'espagnol means 'to study Spanish'. Use l'après-midi for 'in the afternoon'.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:card:14",
+      "order": 14,
+      "sourceSpanish": "Mi hermana trabaja por la mañana.",
+      "sourceEnglish": "My sister works in the morning.",
+      "kind": "phrase",
+      "conditionalFrench": "Ma sœur travaille le matin.",
+      "candidateNote": "Ma is used before the feminine noun sœur.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:card:15",
+      "order": 15,
+      "sourceSpanish": "Hablamos después de la cena.",
+      "sourceEnglish": "We talk after dinner.",
+      "kind": "phrase",
+      "conditionalFrench": "Nous parlons après le dîner.",
+      "candidateNote": null,
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:card:16",
+      "order": 16,
+      "sourceSpanish": "Ella escucha mis preguntas.",
+      "sourceEnglish": "She listens to my questions.",
+      "kind": "phrase",
+      "conditionalFrench": "Elle écoute mes questions.",
+      "candidateNote": "Mes is the plural form of 'my'.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:card:17",
+      "order": 17,
+      "sourceSpanish": "Practicamos diez minutos cada día.",
+      "sourceEnglish": "We practice ten minutes every day.",
+      "kind": "phrase",
+      "conditionalFrench": "Nous nous entraînons dix minutes chaque jour.",
+      "candidateNote": "Nous nous entraînons means we practise; dix minutes chaque jour gives duration and frequency.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:card:18",
+      "order": 18,
+      "sourceSpanish": "Mis amigos estudian conmigo los viernes.",
+      "sourceEnglish": "My friends study with me on Fridays.",
+      "kind": "phrase",
+      "conditionalFrench": "Mes amis étudient avec moi le vendredi.",
+      "candidateNote": "Le vendredi means on Fridays as a recurring weekly routine.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:card:19",
+      "order": 19,
+      "sourceSpanish": "Estudio español por la mañana.",
+      "sourceEnglish": "I study Spanish in the morning.",
+      "kind": "phrase",
+      "conditionalFrench": "J’étudie l’espagnol le matin.",
+      "candidateNote": null,
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:card:20",
+      "order": 20,
+      "sourceSpanish": "Luis trabaja por la tarde.",
+      "sourceEnglish": "Luis works in the afternoon.",
+      "kind": "phrase",
+      "conditionalFrench": "Luis travaille l’après-midi.",
+      "candidateNote": null,
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    }
+  ],
+  "reader": [
+    {
+      "reviewId": "master-french-basics:7:reader:1",
+      "order": 1,
+      "sourceSpanish": "Estudio español por la tarde.",
+      "sourceEnglish": "I study Spanish in the afternoon.",
+      "conditionalFrench": "J’étudie l’espagnol l’après-midi.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:reader:2",
+      "order": 2,
+      "sourceSpanish": "Mi hermana trabaja por la mañana.",
+      "sourceEnglish": "My sister works in the morning.",
+      "conditionalFrench": "Ma sœur travaille le matin.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:reader:3",
+      "order": 3,
+      "sourceSpanish": "Hablamos después de la cena.",
+      "sourceEnglish": "We talk after dinner.",
+      "conditionalFrench": "Nous parlons après le dîner.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:reader:4",
+      "order": 4,
+      "sourceSpanish": "Ella escucha mis preguntas.",
+      "sourceEnglish": "She listens to my questions.",
+      "conditionalFrench": "Elle écoute mes questions.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:reader:5",
+      "order": 5,
+      "sourceSpanish": "Practicamos diez minutos cada día.",
+      "sourceEnglish": "We practice ten minutes every day.",
+      "conditionalFrench": "Nous nous entraînons dix minutes chaque jour.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:reader:6",
+      "order": 6,
+      "sourceSpanish": "Mis amigos estudian conmigo los viernes.",
+      "sourceEnglish": "My friends study with me on Fridays.",
+      "conditionalFrench": "Mes amis étudient avec moi le vendredi.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:reader:7",
+      "order": 7,
+      "sourceSpanish": "Estudio español por la mañana.",
+      "sourceEnglish": "I study Spanish in the morning.",
+      "conditionalFrench": "J’étudie l’espagnol le matin.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:reader:8",
+      "order": 8,
+      "sourceSpanish": "Luis trabaja por la tarde.",
+      "sourceEnglish": "Luis works in the afternoon.",
+      "conditionalFrench": "Luis travaille l’après-midi.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:reader:9",
+      "order": 9,
+      "sourceSpanish": "Hablamos en la biblioteca.",
+      "sourceEnglish": "We talk in the library.",
+      "conditionalFrench": "Nous parlons à la bibliothèque.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:reader:10",
+      "order": 10,
+      "sourceSpanish": "Ana escucha a la profesora.",
+      "sourceEnglish": "Ana listens to the teacher.",
+      "conditionalFrench": "Ana écoute la professeure.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:reader:11",
+      "order": 11,
+      "sourceSpanish": "Los estudiantes practican en casa.",
+      "sourceEnglish": "The students practice at home.",
+      "conditionalFrench": "Les étudiants s’entraînent à la maison.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:7:reader:12",
+      "order": 12,
+      "sourceSpanish": "¿Estudias con nosotros hoy?",
+      "sourceEnglish": "Are you studying with us today?",
+      "conditionalFrench": "Est-ce que tu étudies avec nous aujourd'hui ?",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    }
+  ],
+  "conditionalModes": [
+    {
+      "mode": "see",
+      "readerReviewId": "master-french-basics:7:reader:2",
+      "promptCandidate": "Read the French line about a morning work routine and identify its English meaning.",
+      "targetCandidate": "Ma sœur travaille le matin.",
+      "sourceEnglish": "My sister works in the morning.",
+      "selectedPrompt": null,
+      "selectedTarget": null,
+      "authoredForLearner": false,
+      "scoringEnabled": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "recall",
+      "readerReviewId": "master-french-basics:7:reader:1",
+      "promptCandidate": "Recall the French for: I study Spanish in the afternoon.",
+      "targetCandidate": "J’étudie l’espagnol l’après-midi.",
+      "sourceEnglish": "I study Spanish in the afternoon.",
+      "selectedPrompt": null,
+      "selectedTarget": null,
+      "authoredForLearner": false,
+      "scoringEnabled": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "hear",
+      "readerReviewId": "master-french-basics:7:reader:3",
+      "promptCandidate": "When exact-text audio is available, listen for the line about talking after dinner.",
+      "targetCandidate": "Nous parlons après le dîner.",
+      "sourceEnglish": "We talk after dinner.",
+      "selectedPrompt": null,
+      "selectedTarget": null,
+      "authoredForLearner": false,
+      "scoringEnabled": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "type",
+      "readerReviewId": "master-french-basics:7:reader:5",
+      "promptCandidate": "Type in French: We practice ten minutes every day. Use s’entraîner.",
+      "targetCandidate": "Nous nous entraînons dix minutes chaque jour.",
+      "sourceEnglish": "We practice ten minutes every day.",
+      "selectedPrompt": null,
+      "selectedTarget": null,
+      "authoredForLearner": false,
+      "scoringEnabled": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "say",
+      "readerReviewId": "master-french-basics:7:reader:4",
+      "promptCandidate": "Say in French: She listens to my questions.",
+      "targetCandidate": "Elle écoute mes questions.",
+      "sourceEnglish": "She listens to my questions.",
+      "selectedPrompt": null,
+      "selectedTarget": null,
+      "authoredForLearner": false,
+      "scoringEnabled": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "write",
+      "readerReviewId": "master-french-basics:7:reader:8",
+      "promptCandidate": "Write in French: Luis works in the afternoon.",
+      "targetCandidate": "Luis travaille l’après-midi.",
+      "sourceEnglish": "Luis works in the afternoon.",
+      "selectedPrompt": null,
+      "selectedTarget": null,
+      "authoredForLearner": false,
+      "scoringEnabled": false,
+      "recordedAudio": false
+    }
+  ],
+  "conditionalForms": [
+    {
+      "readerReviewId": "master-french-basics:7:reader:1",
+      "sourceEnglish": "I study Spanish in the afternoon.",
+      "conditionalFrench": "J’étudie l’espagnol l’après-midi.",
+      "selectedFrench": null,
+      "reviewed": false
+    },
+    {
+      "readerReviewId": "master-french-basics:7:reader:4",
+      "sourceEnglish": "She listens to my questions.",
+      "conditionalFrench": "Elle écoute mes questions.",
+      "selectedFrench": null,
+      "reviewed": false
+    },
+    {
+      "readerReviewId": "master-french-basics:7:reader:5",
+      "sourceEnglish": "We practice ten minutes every day.",
+      "conditionalFrench": "Nous nous entraînons dix minutes chaque jour.",
+      "selectedFrench": null,
+      "reviewed": false
+    },
+    {
+      "readerReviewId": "master-french-basics:7:reader:6",
+      "sourceEnglish": "My friends study with me on Fridays.",
+      "conditionalFrench": "Mes amis étudient avec moi le vendredi.",
+      "selectedFrench": null,
+      "reviewed": false
+    },
+    {
+      "readerReviewId": "master-french-basics:7:reader:12",
+      "sourceEnglish": "Are you studying with us today?",
+      "conditionalFrench": "Est-ce que tu étudies avec nous aujourd'hui ?",
+      "selectedFrench": null,
+      "reviewed": false
+    }
+  ],
+  "conditionalSpeaking": {
+    "candidate": "Role-play 'Deux emplois du temps' with a patient classmate. Describe when you study Spanish and when a friend studies, then compare morning, afternoon and Friday routines. Ask a related question, answer your partner and confirm understanding. Use this lesson's present forms and time expressions. Keep language at beginner level; explain unfamiliar words in English when asked.",
+    "selected": null,
+    "reviewed": false
+  },
+  "decisionsRequired": [
+    {
+      "scope": "curriculum-stage",
+      "detail": "Spanish source teaches regular -ar present endings. Conditional French adapts to -er endings; decide progression and whether studying Spanish remains appropriate in French 101."
+    },
+    {
+      "scope": "source-meaning",
+      "reviewIds": [
+        "master-french-basics:7:card:2",
+        "master-french-basics:7:card:3"
+      ],
+      "detail": "Grouped en prepositions need contextual French faces; Spanish masculine los maps conditionally to gender-neutral French les."
+    },
+    {
+      "scope": "french-faces-and-dictionary",
+      "detail": "Review s’entraîner reflexive form, first-person gender variants, professeure, apostrophe/spacing and answer variants before choosing any face or dictionary sense."
+    },
+    {
+      "scope": "modes-forms-speaking",
+      "detail": "Six text mode candidates and five forms are conditional. Hear has no recorded audio; no learner-scored mode or speaking objective approved."
+    },
+    {
+      "scope": "saved-items-and-progress",
+      "detail": "Review row IDs are not learner saved-item IDs; no saved-item mapping or progress migration is approved."
+    },
+    {
+      "scope": "archived-redesign",
+      "detail": "The archived revised-schedule redesign changes English pairs and is excluded from source parity."
+    }
+  ],
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReviewed": false,
+    "qualifiedDomainReviewed": false,
+    "dictionaryReviewed": false,
+    "learnerRegistered": false,
+    "normalProjectionEnabled": false,
+    "scoringEnabled": false,
+    "readerEnabled": false,
+    "cardsEnabled": false,
+    "speakingEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineEnabled": false,
+    "progressEnabled": false,
+    "v4Enabled": false,
+    "savedItemIdsApproved": false
+  }
+}

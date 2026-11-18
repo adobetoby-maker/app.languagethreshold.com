@@ -1,0 +1,389 @@
+{
+  "schema": 1,
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "sourceModuleId": "foundation-roofing",
+  "archivedHeaderModuleId": "roofing",
+  "proposedStageLocalLessonId": "foundation-roofing:3:fr-en",
+  "identityDecision": "The archived header uses roofing for Foundation, Core and Master. Proposed IDs here are review references only; no app, saved-item or progress key is changed. Qualify a stage-specific migration preserving existing learner progress before wiring.",
+  "source": {
+    "curriculum": {
+      "path": "src/data/foundation-roofing-curriculum.ts",
+      "sha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/foundation-roofing.json",
+      "sha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/french-roofing/foundation-1-3-draft.json",
+      "sha256": "31321e12dd4b16d0f614d218d149280d8df01d053795fd784cfa190b5dace736"
+    }
+  },
+  "sourceTitleEnglish": "Ser and Estar",
+  "sourceObjectiveEnglish": "Use the two verbs for 'to be' to describe people, conditions and safety",
+  "sourceFocusEnglish": "ser for what something is, estar for its condition or location",
+  "sourceSpeakingEnglish": "Describe the roof to a crew member: say whether it is wet, slippery or safe, and who the boss is.",
+  "archivedFrenchTitleEnglish": "Être: People, Conditions and Location",
+  "archivedFrenchObjectiveEnglish": "Use être to say who or what something is, and its condition or location, to describe people, conditions and safety",
+  "archivedFrenchFocusEnglish": "être for identity, condition and location; c’est versus il/elle est; avoir for feeling hot/cold and faire for weather",
+  "cards": [
+    {
+      "proposedRowId": "foundation-roofing:3:fr-en:card:1",
+      "sourceSpanish": "listo",
+      "sourceEnglish": "ready",
+      "kind": "term",
+      "selectedFrench": null,
+      "conditionalFrench": "prêt",
+      "archivedFrench": "prêt",
+      "archivedNoteEnglish": "Feminine prête. Use with être.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:3:fr-en:card:2",
+      "sourceSpanish": "seguro",
+      "sourceEnglish": "safe",
+      "kind": "term",
+      "selectedFrench": null,
+      "conditionalFrench": null,
+      "archivedFrench": "sans danger",
+      "archivedNoteEnglish": "For a condition, sans danger means safe. In Quebec, sécuritaire is common; sûr also means “sure/certain”. This is vocabulary, not safety approval.",
+      "reviewNote": "The bare source word 'safe' does not establish whether a roof or harness is safe. Archived 'sans danger' asserts absence of danger; qualify the intended dictionary sense and job context before selecting this face.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:3:fr-en:card:3",
+      "sourceSpanish": "peligroso",
+      "sourceEnglish": "dangerous",
+      "kind": "term",
+      "selectedFrench": null,
+      "conditionalFrench": "dangereux",
+      "archivedFrench": "dangereux",
+      "archivedNoteEnglish": "Feminine dangereuse.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:3:fr-en:card:4",
+      "sourceSpanish": "mojado",
+      "sourceEnglish": "wet",
+      "kind": "term",
+      "selectedFrench": null,
+      "conditionalFrench": "mouillé",
+      "archivedFrench": "mouillé",
+      "archivedNoteEnglish": "Feminine mouillée.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:3:fr-en:card:5",
+      "sourceSpanish": "resbaloso",
+      "sourceEnglish": "slippery",
+      "kind": "term",
+      "selectedFrench": null,
+      "conditionalFrench": "glissant",
+      "archivedFrench": "glissant",
+      "archivedNoteEnglish": "Feminine glissante.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:3:fr-en:card:6",
+      "sourceSpanish": "caliente",
+      "sourceEnglish": "hot",
+      "kind": "term",
+      "selectedFrench": null,
+      "conditionalFrench": "chaud",
+      "archivedFrench": "chaud",
+      "archivedNoteEnglish": "Feminine chaude. For a person say j’ai chaud, not je suis chaud, which has a different slang meaning.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:3:fr-en:card:7",
+      "sourceSpanish": "frío",
+      "sourceEnglish": "cold",
+      "kind": "term",
+      "selectedFrench": null,
+      "conditionalFrench": "froid",
+      "archivedFrench": "froid",
+      "archivedNoteEnglish": "Feminine froide. For a person say j’ai froid, not je suis froid.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:3:fr-en:card:8",
+      "sourceSpanish": "el jefe",
+      "sourceEnglish": "the boss",
+      "kind": "term",
+      "selectedFrench": null,
+      "conditionalFrench": "le chef",
+      "archivedFrench": "le chef",
+      "archivedNoteEnglish": "Chef d’équipe means crew lead; patron means employer/owner. In Quebec, boss is also heard informally.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:3:fr-en:card:9",
+      "sourceSpanish": "El techo está mojado.",
+      "sourceEnglish": "The roof is wet.",
+      "kind": "phrase",
+      "selectedFrench": null,
+      "conditionalFrench": "Le toit est mouillé.",
+      "archivedFrench": "Le toit est mouillé.",
+      "archivedNoteEnglish": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:3:fr-en:card:10",
+      "sourceSpanish": "Es peligroso.",
+      "sourceEnglish": "It's dangerous.",
+      "kind": "phrase",
+      "selectedFrench": null,
+      "conditionalFrench": "C'est dangereux.",
+      "archivedFrench": "C'est dangereux.",
+      "archivedNoteEnglish": "C'est is used for an evaluation with an adjective.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:3:fr-en:card:11",
+      "sourceSpanish": "¿Está listo?",
+      "sourceEnglish": "Is it ready?",
+      "kind": "phrase",
+      "selectedFrench": null,
+      "conditionalFrench": "Est-ce qu'il est prêt ?",
+      "archivedFrench": "Est-ce qu'il est prêt ?",
+      "archivedNoteEnglish": "Il refers to a masculine thing such as le matériel. Use elle for a feminine thing such as la corde.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:3:fr-en:card:12",
+      "sourceSpanish": "Estoy aquí.",
+      "sourceEnglish": "I'm here.",
+      "kind": "phrase",
+      "selectedFrench": null,
+      "conditionalFrench": "Je suis là.",
+      "archivedFrench": "Je suis là.",
+      "archivedNoteEnglish": null,
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "proposedRowId": "foundation-roofing:3:fr-en:line:1",
+      "sourceSpanish": "Soy Pedro y soy el jefe de la cuadrilla.",
+      "sourceEnglish": "I'm Pedro and I'm the crew boss.",
+      "selectedFrench": null,
+      "conditionalFrench": "Je suis Pedro et je suis le chef d'équipe.",
+      "archivedFrench": "Je suis Pedro et je suis le chef d'équipe.",
+      "archivedEnglish": "I'm Pedro and I'm the crew boss.",
+      "archivedEnglishDiffersFromSource": false,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:3:fr-en:line:2",
+      "sourceSpanish": "Hoy el techo está mojado.",
+      "sourceEnglish": "Today the roof is wet.",
+      "selectedFrench": null,
+      "conditionalFrench": "Aujourd'hui, le toit est mouillé.",
+      "archivedFrench": "Aujourd'hui, le toit est mouillé.",
+      "archivedEnglish": "Today the roof is wet.",
+      "archivedEnglishDiffersFromSource": false,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:3:fr-en:line:3",
+      "sourceSpanish": "Un techo mojado es resbaloso y peligroso.",
+      "sourceEnglish": "A wet roof is slippery and dangerous.",
+      "selectedFrench": null,
+      "conditionalFrench": "Un toit mouillé est glissant et dangereux.",
+      "archivedFrench": "Un toit mouillé est glissant et dangereux.",
+      "archivedEnglish": "A wet roof is slippery and dangerous.",
+      "archivedEnglishDiffersFromSource": false,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:3:fr-en:line:4",
+      "sourceSpanish": "El aire está frío por la mañana.",
+      "sourceEnglish": "The air is cold in the morning.",
+      "selectedFrench": null,
+      "conditionalFrench": null,
+      "archivedFrench": "Il fait froid le matin.",
+      "archivedEnglish": "It's cold in the morning.",
+      "archivedEnglishDiffersFromSource": true,
+      "reviewNote": "Source says the air is cold. Archived 'Il fait froid le matin' means the weather is cold and archived English changes 'The air' to 'It'. Retain air as grammatical subject in the eventual French line, or obtain an explicit source/curriculum decision.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:3:fr-en:line:5",
+      "sourceSpanish": "A las dos de la tarde el techo está caliente.",
+      "sourceEnglish": "At two in the afternoon the roof is hot.",
+      "selectedFrench": null,
+      "conditionalFrench": "À deux heures de l'après-midi, le toit est chaud.",
+      "archivedFrench": "À deux heures de l'après-midi, le toit est chaud.",
+      "archivedEnglish": "At two in the afternoon the roof is hot.",
+      "archivedEnglishDiffersFromSource": false,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:3:fr-en:line:6",
+      "sourceSpanish": "¿Está listo el equipo?",
+      "sourceEnglish": "Is the equipment ready?",
+      "selectedFrench": null,
+      "conditionalFrench": "Est-ce que le matériel est prêt ?",
+      "archivedFrench": "Est-ce que le matériel est prêt ?",
+      "archivedEnglish": "Is the equipment ready?",
+      "archivedEnglishDiffersFromSource": false,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:3:fr-en:line:7",
+      "sourceSpanish": "Sí, el arnés está listo y es seguro.",
+      "sourceEnglish": "Yes, the harness is ready and it's safe.",
+      "selectedFrench": null,
+      "conditionalFrench": null,
+      "archivedFrench": "Oui, le harnais est prêt et il est sans danger.",
+      "archivedEnglish": "Yes, the harness is ready and it's safe.",
+      "archivedEnglishDiffersFromSource": false,
+      "reviewNote": "Source claims a ready harness is safe. Archived 'il est sans danger' strengthens that to 'without danger'. A qualified roofing safety decision must resolve the equipment/inspection claim; no French line is selected.",
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "infinitive": "ser",
+      "native": "to be (what something is)",
+      "forms": {
+        "yo": "soy",
+        "tú": "eres",
+        "él_ella_usted": "es",
+        "nosotros": "somos",
+        "ellos_ustedes": "son"
+      },
+      "example": {
+        "target": "Soy Pedro y soy el jefe de la cuadrilla.",
+        "native": "I'm Pedro and I'm the crew boss."
+      },
+      "note": "Use ser for who someone is and what something is like by nature."
+    },
+    {
+      "infinitive": "estar",
+      "native": "to be (condition, location)",
+      "forms": {
+        "yo": "estoy",
+        "tú": "estás",
+        "él_ella_usted": "está",
+        "nosotros": "estamos",
+        "ellos_ustedes": "están"
+      },
+      "example": {
+        "target": "Hoy el techo está mojado.",
+        "native": "Today the roof is wet."
+      },
+      "note": "Use estar for a condition that can change and for location."
+    },
+    {
+      "infinitive": "subir",
+      "native": "to go up, to climb",
+      "forms": {
+        "yo": "subo",
+        "tú": "subes",
+        "él_ella_usted": "sube",
+        "nosotros": "subimos",
+        "ellos_ustedes": "suben"
+      },
+      "example": {
+        "target": "Subimos cuando el techo está seco.",
+        "native": "We go up when the roof is dry."
+      }
+    }
+  ],
+  "conditionalFrenchVerbExamples": [
+    {
+      "infinitiveFrench": "être",
+      "meaningEnglish": "to be (identity)",
+      "exampleFrench": "Je suis Pedro et je suis le chef d'équipe.",
+      "exampleEnglish": "I'm Pedro and I'm the crew boss."
+    },
+    {
+      "infinitiveFrench": "être",
+      "meaningEnglish": "to be (condition)",
+      "exampleFrench": "Aujourd'hui, le toit est mouillé.",
+      "exampleEnglish": "Today the roof is wet."
+    },
+    {
+      "infinitiveFrench": "monter",
+      "meaningEnglish": "to go up, to climb",
+      "exampleFrench": "On monte quand le toit est sec.",
+      "exampleEnglish": "We go up when the roof is dry."
+    }
+  ],
+  "archivedGrammarTeachingEnglish": "Être: je suis, tu es, il/elle est, on est, nous sommes, vous êtes, ils/elles sont. Use c’est with a name or noun phrase (c’est Pedro; c’est le chef), or an adjective for a general judgment (c’est dangereux). Use il/elle est with a specific person or thing (il est mouillé; elle est prête). Il est chef d’équipe has no article, while c’est le chef has one. Some feminine endings change the sound (prête, chaude, froide, glissante); mouillée differs only in spelling. For people, use avoir for feeling hot or cold: j’ai chaud, j’ai froid. Weather uses faire: il fait froid; il fait chaud. ",
+  "archivedRegionalNotesEnglish": [
+    "Crew-boss terms vary. Chef d'équipe is widely understood. Contremaître is used in some French and Quebec trades. Check which term the local crew uses.",
+    "Safety words here describe conditions only. Actual safety rules, certifications and inspection requirements must come from the employer and the local authority, not from this lesson."
+  ],
+  "modeEvidence": {
+    "see": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "speakingEvidence": {
+    "archivedFrenchOpening": "Attention, le toit est mouillé et glissant. Le chef, c'est Pedro.",
+    "readyForLearner": false
+  },
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedFrench": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "stageIdentity": false,
+    "sixModes": false,
+    "speaking": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

@@ -1,0 +1,737 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "master-roofing",
+  "lessonId": "master-roofing:12:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-12-draft.json",
+      "sha256": "01ceda8cb7df0b3ebbc273c12279bd9227157c48fc8178bd81abf5733e752487"
+    }
+  },
+  "sourceEnglishTitle": "Register: Homeowner, Crew, Boss, Inspector",
+  "sourceEnglishObjective": "Deliver the same news to a crew member, a homeowner, your manager and an inspector in the right register",
+  "sourceEnglishSpeaking": "You are the crew lead and the AI will play the people you work with, one after another: tell each of them that you found rotten deck, switching between tú and usted and using softeners like quisiera and me gustaría.",
+  "sourceSpanishReaderTitle": "One Message, Four Ways",
+  "sourceLessonType": "Teach-back",
+  "sourceBlock": "C",
+  "sourceGrammar": {
+    "focus": "Usted / tú switching; softeners (quisiera)",
+    "examples": [
+      {
+        "es": "Mira, encontramos madera podrida.",
+        "en": "Look, we found rotten wood."
+      },
+      {
+        "es": "Disculpe, señora; quisiera comentarle algo que encontramos.",
+        "en": "Excuse me, ma'am; I'd like to mention something we found."
+      }
+    ]
+  },
+  "sourceVerbExamples": [
+    {
+      "infinitive": "hablar",
+      "native": "to speak",
+      "forms": {
+        "yo": "hablo",
+        "tú": "hablas",
+        "él_ella_usted": "habla",
+        "nosotros": "hablamos",
+        "ellos_ustedes": "hablan"
+      },
+      "example": {
+        "target": "¿Le hablo de usted o de tú?",
+        "native": "Should I address you as usted or tú?"
+      },
+      "note": "Hablarle de usted means to address someone as usted; hablarle de tú, as tú."
+    },
+    {
+      "infinitive": "querer",
+      "native": "to want",
+      "forms": {
+        "yo": "quiero",
+        "tú": "quieres",
+        "él_ella_usted": "quiere",
+        "nosotros": "queremos",
+        "ellos_ustedes": "quieren"
+      },
+      "example": {
+        "target": "Kevin quiere saber cómo hablar con cada persona.",
+        "native": "Kevin wants to know how to talk to each person."
+      },
+      "note": "Softener: quisiera (I would like) is more polite than quiero."
+    },
+    {
+      "infinitive": "permitir",
+      "native": "to allow",
+      "forms": {
+        "yo": "permito",
+        "tú": "permites",
+        "él_ella_usted": "permite",
+        "nosotros": "permitimos",
+        "ellos_ustedes": "permiten"
+      },
+      "example": {
+        "target": "¿Me permitiría mostrarle el área?",
+        "native": "Would you allow me to show you the area?"
+      },
+      "note": "The conditional works as a softener: ¿me permitiría…?"
+    },
+    {
+      "infinitive": "mostrar",
+      "native": "to show",
+      "forms": {
+        "yo": "muestro",
+        "tú": "muestras",
+        "él_ella_usted": "muestra",
+        "nosotros": "mostramos",
+        "ellos_ustedes": "muestran"
+      },
+      "example": {
+        "target": "Rogelio le muestra las fotos al gerente.",
+        "native": "Rogelio shows the photos to the manager."
+      },
+      "note": "Stem change o to ue: muestro, but mostramos."
+    },
+    {
+      "infinitive": "cambiar",
+      "native": "to change",
+      "forms": {
+        "yo": "cambio",
+        "tú": "cambias",
+        "él_ella_usted": "cambia",
+        "nosotros": "cambiamos",
+        "ellos_ustedes": "cambian"
+      },
+      "example": {
+        "target": "El mensaje es el mismo, pero el tono cambia según la persona.",
+        "native": "The message is the same, but the tone changes depending on the person."
+      }
+    }
+  ],
+  "candidateObjective": "同じ野地板の損傷を作業員、家主、上司、検査員に適切な話し方で伝える。",
+  "candidateFocus": "普通体 and です・ます体 change register. お／ご～する and ～ていただけますか make a customer or inspector request polite; titles such as さん and 様 are chosen by relationship.",
+  "archivedForms": [
+    {
+      "base": "話す",
+      "exampleJa": "相手に合わせて丁寧に話します。",
+      "exampleEn": "We speak politely according to the listener.",
+      "sourceEnglish": {
+        "meaningEnglish": "to speak",
+        "exampleEnglish": "Should I address you as usted or tú?",
+        "sourceInfinitiveSpanish": "hablar"
+      }
+    },
+    {
+      "base": "知りたい",
+      "exampleJa": "ケビンは相手ごとの話し方を知りたいと思っています。",
+      "exampleEn": "Kevin wants to know how to speak to each person.",
+      "sourceEnglish": {
+        "meaningEnglish": "to want",
+        "exampleEnglish": "Kevin wants to know how to talk to each person.",
+        "sourceInfinitiveSpanish": "querer"
+      }
+    },
+    {
+      "base": "許可する",
+      "exampleJa": "その箇所をお見せしてもよろしいでしょうか。",
+      "exampleEn": "May I show you the area?",
+      "sourceEnglish": {
+        "meaningEnglish": "to allow",
+        "exampleEnglish": "Would you allow me to show you the area?",
+        "sourceInfinitiveSpanish": "permitir"
+      }
+    },
+    {
+      "base": "見せる",
+      "exampleJa": "ロヘリオは上司に写真を見せます。",
+      "exampleEn": "Rogelio shows the photos to the manager.",
+      "sourceEnglish": {
+        "meaningEnglish": "to show",
+        "exampleEnglish": "Rogelio shows the photos to the manager.",
+        "sourceInfinitiveSpanish": "mostrar"
+      }
+    },
+    {
+      "base": "変わる",
+      "exampleJa": "用件は同じでも、相手によって話し方は変わります。",
+      "exampleEn": "The message stays the same, but the tone changes with the listener.",
+      "sourceEnglish": {
+        "meaningEnglish": "to change",
+        "exampleEnglish": "The message is the same, but the tone changes depending on the person.",
+        "sourceInfinitiveSpanish": "cambiar"
+      }
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew lead",
+    "opening": "同じ野地板の損傷でも、作業仲間、家主、上司、検査員にはそれぞれ適切な話し方で伝えます。",
+    "goalEn": "Tell a crew member, homeowner, manager, and inspector about the same deck problem in appropriate Japanese register."
+  },
+  "cards": [
+    {
+      "id": "master-roofing:12:ja-en:card:1",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:1",
+      "sourceSpanish": "el trato de usted",
+      "sourceEnglish": "using usted with someone",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "丁寧語で話す",
+      "archivedEnglish": "to speak politely in Japanese",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:2",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:2",
+      "sourceSpanish": "el tuteo",
+      "sourceEnglish": "using tú with someone",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "普通体で話す",
+      "archivedEnglish": "to speak in the plain form",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:3",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:3",
+      "sourceSpanish": "el título",
+      "sourceEnglish": "the title (form of address)",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "呼び方",
+      "archivedEnglish": "form of address",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:4",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:4",
+      "sourceSpanish": "el tono",
+      "sourceEnglish": "the tone",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "話し方",
+      "archivedEnglish": "tone of speech",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:5",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:5",
+      "sourceSpanish": "la cortesía",
+      "sourceEnglish": "the courtesy",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "礼儀",
+      "archivedEnglish": "courtesy",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:6",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:6",
+      "sourceSpanish": "el mensaje",
+      "sourceEnglish": "the message",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "用件",
+      "archivedEnglish": "message or matter to convey",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:7",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:7",
+      "sourceSpanish": "señor / señora",
+      "sourceEnglish": "sir / ma'am",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "お客様／○○さん",
+      "archivedEnglish": "polite address for a customer or colleague",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:8",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:8",
+      "sourceSpanish": "don / doña",
+      "sourceEnglish": "respectful title before a first name",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "名前に「さん」や「様」を付ける",
+      "archivedEnglish": "to attach a respectful suffix to a name",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:9",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:9",
+      "sourceSpanish": "el gerente",
+      "sourceEnglish": "the manager",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "上司",
+      "archivedEnglish": "manager",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:10",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:10",
+      "sourceSpanish": "la formalidad",
+      "sourceEnglish": "the formality",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "丁寧さ",
+      "archivedEnglish": "formality",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:11",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:11",
+      "sourceSpanish": "la grosería",
+      "sourceEnglish": "the rudeness",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "失礼な言い方",
+      "archivedEnglish": "rude wording",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:12",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:12",
+      "sourceSpanish": "el apodo",
+      "sourceEnglish": "the nickname",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "あだ名",
+      "archivedEnglish": "nickname",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:13",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:13",
+      "sourceSpanish": "la petición",
+      "sourceEnglish": "the request",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "依頼",
+      "archivedEnglish": "request",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:14",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:14",
+      "sourceSpanish": "la jerga",
+      "sourceEnglish": "the slang",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "くだけた言葉",
+      "archivedEnglish": "casual or slang wording",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:15",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:15",
+      "sourceSpanish": "Mira, encontramos madera podrida.",
+      "sourceEnglish": "Look, we found rotten wood.",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "見て、腐朽した木材が見つかった。",
+      "archivedEnglish": "Look, we found rotten wood.",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:16",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:16",
+      "sourceSpanish": "Disculpe la molestia, señora.",
+      "sourceEnglish": "Sorry to bother you, ma'am.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "お忙しいところ失礼します、○○様。",
+      "archivedEnglish": "Excuse me for interrupting you, Ms. or Mr. [name].",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:17",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:17",
+      "sourceSpanish": "Quisiera comentarle algo que encontramos.",
+      "sourceEnglish": "I'd like to mention something we found.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "見つかった箇所についてお伝えしたいことがあります。",
+      "archivedEnglish": "I would like to tell you about something we found.",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:18",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:18",
+      "sourceSpanish": "¿Me permitiría mostrarle el área?",
+      "sourceEnglish": "Would you allow me to show you the area?",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "その箇所をお見せしてもよろしいでしょうか。",
+      "archivedEnglish": "May I show you the area?",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:19",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:19",
+      "sourceSpanish": "Le aviso que encontramos un problema.",
+      "sourceEnglish": "I'm letting you know that we found a problem.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "野地板に問題が見つかりましたので、ご報告します。",
+      "archivedEnglish": "I am reporting that we found a problem in the roof deck.",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:20",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:20",
+      "sourceSpanish": "Me gustaría que lo revisara usted.",
+      "sourceEnglish": "I'd like you to check it.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "覆う前にご確認いただけますか。",
+      "archivedEnglish": "Could you inspect it before we cover it?",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:21",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:21",
+      "sourceSpanish": "¿Le hablo de usted o de tú?",
+      "sourceEnglish": "Should I address you as usted or tú?",
+      "sourceNoteSpanish": "ask this when you are not sure",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "どのようにお呼びすればよいでしょうか。",
+      "archivedEnglish": "How would you like me to address you?",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:card:22",
+      "legacySourceRef": "master-roofing:12:ja-en:cards:22",
+      "sourceSpanish": "Háblame de tú, no hay problema.",
+      "sourceEnglish": "Use tú with me, no problem.",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "「さん」で大丈夫です。",
+      "archivedEnglish": "You can use -san with my name.",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:12:ja-en:line:1",
+      "legacySourceRef": "master-roofing:12:ja-en:reader:1",
+      "sourceSpanish": "Kevin quiere saber cómo hablar con cada persona en la obra, y Rogelio se lo explica con un ejemplo.",
+      "sourceEnglish": "Kevin wants to know how to talk to each person on the job, and Rogelio explains it to him with an example.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ケビンは現場で相手ごとにどう話せばよいか知りたくて、ロヘリオに尋ねます。",
+      "archivedEnglish": "Kevin asks Rogelio how to speak to different people at the job site.",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:line:2",
+      "legacySourceRef": "master-roofing:12:ja-en:reader:2",
+      "sourceSpanish": "Rogelio: El mensaje es el mismo, encontramos madera podrida, pero el tono cambia según la persona.",
+      "sourceEnglish": "Rogelio: The message is the same, we found rotten wood, but the tone changes depending on the person.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「用件は同じです。腐朽した木材が見つかりました。ただし、相手に合わせて話し方を変えます。」",
+      "archivedEnglish": "Rogelio: The news is the same: we found rotten wood. The tone changes with the listener.",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:line:3",
+      "legacySourceRef": "master-roofing:12:ja-en:reader:3",
+      "sourceSpanish": "Rogelio: Con la cuadrilla usamos el tuteo, a veces un apodo, pero nunca una grosería.",
+      "sourceEnglish": "Rogelio: With the crew we use tú, sometimes a nickname, but never anything rude.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「親しい作業仲間には普通体も使いますが、失礼な言い方はしません。」",
+      "archivedEnglish": "Rogelio: With a close crew member, plain speech may fit, but rude wording does not.",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:line:4",
+      "legacySourceRef": "master-roofing:12:ja-en:reader:4",
+      "sourceSpanish": "Rogelio: A la cuadrilla le digo: Mira, encontramos madera podrida; sube y te enseño.",
+      "sourceEnglish": "Rogelio: To the crew I say: Look, we found rotten wood; come up and I'll show you.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「作業仲間には『見て、腐朽した木材が見つかった。上がってきたら見せるよ』と言えます。」",
+      "archivedEnglish": "Rogelio: To a crew member I can say, 'Look, we found rotten wood. Come up and I'll show you.'",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:line:5",
+      "legacySourceRef": "master-roofing:12:ja-en:reader:5",
+      "sourceSpanish": "Rogelio: Con la dueña de la casa uso el trato de usted y un título, señora o doña Carmen; con su esposo, señor.",
+      "sourceEnglish": "Rogelio: With the homeowner I use usted and a title, señora or doña Carmen; with her husband, señor.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「家主には丁寧語を使い、名前が分かれば『○○様』と呼びます。」",
+      "archivedEnglish": "Rogelio: With the homeowner, use polite Japanese and an appropriate name and title.",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:line:6",
+      "legacySourceRef": "master-roofing:12:ja-en:reader:6",
+      "sourceSpanish": "Rogelio: A ella le digo: Disculpe la molestia, señora; quisiera comentarle algo que encontramos.",
+      "sourceEnglish": "Rogelio: To her I say: Sorry to bother you, ma'am; I'd like to mention something we found.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「『お忙しいところ失礼します。見つかった箇所についてお伝えしたいことがあります』と言います。」",
+      "archivedEnglish": "Rogelio: I say, 'Excuse the interruption. I would like to tell you about something we found.'",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:line:7",
+      "legacySourceRef": "master-roofing:12:ja-en:reader:7",
+      "sourceSpanish": "Rogelio: Y luego le pregunto: ¿Me permitiría mostrarle el área?",
+      "sourceEnglish": "Rogelio: And then I ask her: Would you allow me to show you the area?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「そして『その箇所をお見せしてもよろしいでしょうか』と尋ねます。」",
+      "archivedEnglish": "Rogelio: Then I ask, 'May I show you the area?'",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:line:8",
+      "legacySourceRef": "master-roofing:12:ja-en:reader:8",
+      "sourceSpanish": "Rogelio: Con el gerente de la compañía también uso usted, pero voy directo al punto.",
+      "sourceEnglish": "Rogelio: With the company manager I also use usted, but I go straight to the point.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「上司にも丁寧に話しますが、要点を先に伝えます。」",
+      "archivedEnglish": "Rogelio: I also speak politely to the manager, but lead with the point.",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:line:9",
+      "legacySourceRef": "master-roofing:12:ja-en:reader:9",
+      "sourceSpanish": "Rogelio: Le aviso que encontramos un problema en la cubierta, y le mando las fotos ahora.",
+      "sourceEnglish": "Rogelio: I'm letting you know that we found a problem in the deck, and I'm sending you the photos now.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「『野地板に問題が見つかりましたので、ご報告します。写真を今送ります』と伝えます。」",
+      "archivedEnglish": "Rogelio: 'I am reporting a problem in the roof deck. I am sending the photos now.'",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:line:10",
+      "legacySourceRef": "master-roofing:12:ja-en:reader:10",
+      "sourceSpanish": "Rogelio: Con el inspector hay más formalidad: nada de jerga y ninguna broma.",
+      "sourceEnglish": "Rogelio: With the inspector there's more formality: no slang and no jokes.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「検査員には、くだけた言葉や冗談を避け、さらに改まった言い方をします。」",
+      "archivedEnglish": "Rogelio: With the inspector, avoid slang and jokes and use a more formal tone.",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:line:11",
+      "legacySourceRef": "master-roofing:12:ja-en:reader:11",
+      "sourceSpanish": "Rogelio: A él le diría: Me gustaría que lo revisara usted antes de cubrirlo.",
+      "sourceEnglish": "Rogelio: To him I would say: I'd like you to check it before we cover it.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「『覆う前にご確認いただけますか』と依頼します。」",
+      "archivedEnglish": "Rogelio: I ask, 'Could you inspect it before we cover it?'",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:line:12",
+      "legacySourceRef": "master-roofing:12:ja-en:reader:12",
+      "sourceSpanish": "Rogelio: Quisiera, me gustaría y podría son palabras que suavizan una petición.",
+      "sourceEnglish": "Rogelio: Quisiera, me gustaría and podría are words that soften a request.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「『お見せします』『ご確認いただけますか』は、丁寧な説明や依頼に使えます。」",
+      "archivedEnglish": "Rogelio: 'I will show you' and 'Could you inspect it?' are polite ways to explain and ask.",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:line:13",
+      "legacySourceRef": "master-roofing:12:ja-en:reader:13",
+      "sourceSpanish": "Kevin: ¿Y si alguien de la cuadrilla es mayor, como don Ernesto?",
+      "sourceEnglish": "Kevin: And what if someone on the crew is older, like Don Ernesto?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ケビン「エルネストさんのような年上の作業員には、どう話しますか。」",
+      "archivedEnglish": "Kevin: How should I speak to an older crew member such as Ernesto?",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:line:14",
+      "legacySourceRef": "master-roofing:12:ja-en:reader:14",
+      "sourceSpanish": "Rogelio: Entonces pregúntale con cortesía: ¿Le hablo de usted o de tú?",
+      "sourceEnglish": "Rogelio: Then ask him politely: Should I address you as usted or tú?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「まず『どのようにお呼びすればよいでしょうか』と丁寧に尋ねます。」",
+      "archivedEnglish": "Rogelio: First ask politely, 'How would you like me to address you?'",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:line:15",
+      "legacySourceRef": "master-roofing:12:ja-en:reader:15",
+      "sourceSpanish": "Rogelio: Muchos te van a decir: Háblame de tú, no hay problema.",
+      "sourceEnglish": "Rogelio: Many will tell you: Use tú with me, no problem.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「『さんで大丈夫です』と言う人もいます。」",
+      "archivedEnglish": "Rogelio: Some people will say, 'Using -san is fine.'",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:ja-en:line:16",
+      "legacySourceRef": "master-roofing:12:ja-en:reader:16",
+      "sourceSpanish": "Rogelio: Pero si no estás seguro, empieza con usted, porque nadie se ofende por respeto.",
+      "sourceEnglish": "Rogelio: But if you're not sure, start with usted, because nobody gets offended by respect.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「迷ったら丁寧な言い方から始めて、相手の希望に合わせます。」",
+      "archivedEnglish": "Rogelio: When unsure, begin politely and adjust to the person's preference.",
+      "reviewNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Match each listener with an appropriate Japanese form of address.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall plain form, polite form, name suffixes, and formal requests.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 見せる from お見せする when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'May I show you the area?' in polite Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Report the same rotten-deck finding to four listeners in appropriate register.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write a crew version and an inspector version of the same message.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "curriculumAdaptationNote": "Spanish tú/usted and titles are pedagogical source content; archived Japanese rewrites the English Reader for Japanese register and removes exact source contrasts. Qualified Japanese/source/dictionary review must map those contrasts visibly without silently treating Japanese honorifics as equivalent.",
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

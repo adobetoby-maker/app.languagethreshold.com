@@ -1,0 +1,719 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "master-roofing",
+  "lessonId": "master-roofing:15:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-13-15-draft.json",
+      "sha256": "7c45fda6eb8d2b4e2ad6a5f4e106e5e2db8642d5d7426f481e7fd2b880028991"
+    }
+  },
+  "sourceEnglishTitle": "Weather Call: Stop Work and Tarp",
+  "sourceEnglishObjective": "Make the weather call over the radio: stop work, tarp the open section and get everyone off the roof",
+  "sourceEnglishSpeaking": "You are the crew lead on the radio and the AI is a crew member on the roof: announce the storm, give short commands to tarp the open section and clear the roof, and set the conditions with si + present (si empieza a llover, bajamos).",
+  "sourceSpanishReaderTitle": "Storm Cell on the Radar",
+  "sourceLessonType": "Case",
+  "sourceBlock": "D",
+  "sourceGrammar": {
+    "focus": "Si + present → future; short radio commands",
+    "examples": [
+      {
+        "es": "Si empieza a llover, bajamos.",
+        "en": "If it starts raining, we come down."
+      },
+      {
+        "es": "Si la celda sigue así, llegará en media hora.",
+        "en": "If the cell keeps going like this, it will arrive in half an hour."
+      }
+    ]
+  },
+  "sourceVerbExamples": [
+    {
+      "infinitive": "quedarse",
+      "native": "to stay",
+      "forms": {
+        "yo": "me quedo",
+        "tú": "te quedas",
+        "él_ella_usted": "se queda",
+        "nosotros": "nos quedamos",
+        "ellos_ustedes": "se quedan"
+      },
+      "example": {
+        "target": "Si truena, nadie se queda arriba.",
+        "native": "If it thunders, nobody stays up top."
+      },
+      "note": "Si + present, then present or future: si truena, nadie se queda arriba."
+    },
+    {
+      "infinitive": "juntar",
+      "native": "to gather",
+      "forms": {
+        "yo": "junto",
+        "tú": "juntas",
+        "él_ella_usted": "junta",
+        "nosotros": "juntamos",
+        "ellos_ustedes": "juntan"
+      },
+      "example": {
+        "target": "Marcos, junta el material suelto y bájalo.",
+        "native": "Marcos, gather the loose material and bring it down."
+      },
+      "note": "Short tú command for the radio: junta; with a pronoun: júntalo."
+    },
+    {
+      "infinitive": "tirar",
+      "native": "to knock off, to throw",
+      "forms": {
+        "yo": "tiro",
+        "tú": "tiras",
+        "él_ella_usted": "tira",
+        "nosotros": "tiramos",
+        "ellos_ustedes": "tiran"
+      },
+      "example": {
+        "target": "Una ráfaga lo puede tirar.",
+        "native": "A gust can knock it off."
+      }
+    },
+    {
+      "infinitive": "volver",
+      "native": "to come back",
+      "forms": {
+        "yo": "vuelvo",
+        "tú": "vuelves",
+        "él_ella_usted": "vuelve",
+        "nosotros": "volvemos",
+        "ellos_ustedes": "vuelven"
+      },
+      "example": {
+        "target": "Si mañana sale el sol, volveremos a las siete.",
+        "native": "If the sun comes out tomorrow, we'll be back at seven."
+      },
+      "note": "Future: volveré, volveremos; si + present, then the future."
+    },
+    {
+      "infinitive": "esperar",
+      "native": "to wait",
+      "forms": {
+        "yo": "espero",
+        "tú": "esperas",
+        "él_ella_usted": "espera",
+        "nosotros": "esperamos",
+        "ellos_ustedes": "esperan"
+      },
+      "example": {
+        "target": "No vamos a esperar a la lluvia.",
+        "native": "We're not going to wait for the rain."
+      }
+    }
+  ],
+  "candidateObjective": "天候の変化を無線で伝え、作業停止、開口部の養生、全員の退避を指示する。",
+  "candidateFocus": "～たら gives the rain or thunder condition. ～まで marks the return time; 了解 and 聞こえますか support concise radio exchanges.",
+  "archivedForms": [
+    {
+      "base": "残る",
+      "exampleJa": "雷が鳴ったら屋根には誰も残りません。",
+      "meaningEnglish": "to stay",
+      "exampleEnglish": "If it thunders, nobody stays up top.",
+      "sourceInfinitiveSpanish": "quedarse"
+    },
+    {
+      "base": "集める",
+      "exampleJa": "マルコス、固定されていない資材を集めて降ろしてください。",
+      "meaningEnglish": "to gather",
+      "exampleEnglish": "Marcos, gather the loose material and bring it down.",
+      "sourceInfinitiveSpanish": "juntar"
+    },
+    {
+      "base": "落とす",
+      "exampleJa": "突風で資材が落ちることがあります。",
+      "meaningEnglish": "to knock off, to throw",
+      "exampleEnglish": "A gust can knock it off.",
+      "sourceInfinitiveSpanish": "tirar"
+    },
+    {
+      "base": "戻る",
+      "exampleJa": "明日晴れたら七時に戻ります。",
+      "meaningEnglish": "to come back",
+      "exampleEnglish": "If the sun comes out tomorrow, we'll be back at seven.",
+      "sourceInfinitiveSpanish": "volver"
+    },
+    {
+      "base": "待つ",
+      "exampleJa": "雨は待ちません。",
+      "meaningEnglish": "to wait",
+      "exampleEnglish": "We're not going to wait for the rain.",
+      "sourceInfinitiveSpanish": "esperar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "作業班へ、雷雨の警報です。未施工の区画に防水シートを掛け、資材を地上へ降ろしてください。雷が鳴ったので全員すぐに降りてください。",
+    "goal": "Use short, clear Japanese radio calls to announce the storm alert, assign tarp and loose-material tasks, confirm receipt, and direct the crew down when thunder is heard."
+  },
+  "cards": [
+    {
+      "id": "master-roofing:15:ja-en:card:1",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:1",
+      "sourceSpanish": "el radar",
+      "sourceEnglish": "the radar",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "気象レーダー",
+      "archivedEnglish": "the radar",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:card:2",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:2",
+      "sourceSpanish": "la celda de tormenta",
+      "sourceEnglish": "the storm cell",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "雷雨の雨雲",
+      "archivedEnglish": "the storm cell",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:card:3",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:3",
+      "sourceSpanish": "el radio",
+      "sourceEnglish": "the radio (the device)",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "無線機",
+      "archivedEnglish": "the radio (the device)",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:card:4",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:4",
+      "sourceSpanish": "la lona",
+      "sourceEnglish": "the tarp",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "防水シート",
+      "archivedEnglish": "the tarp",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:card:5",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:5",
+      "sourceSpanish": "los listones",
+      "sourceEnglish": "the battens (wood strips)",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "押さえ木",
+      "archivedEnglish": "the battens (wood strips)",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:card:6",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:6",
+      "sourceSpanish": "la ráfaga",
+      "sourceEnglish": "the gust",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "突風",
+      "archivedEnglish": "the gust",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:card:7",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:7",
+      "sourceSpanish": "el aguacero",
+      "sourceEnglish": "the downpour",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "激しい雨",
+      "archivedEnglish": "the downpour",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:card:8",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:8",
+      "sourceSpanish": "la parte abierta",
+      "sourceEnglish": "the open section",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "未施工の区画",
+      "archivedEnglish": "the open section",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:card:9",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:9",
+      "sourceSpanish": "el suelo",
+      "sourceEnglish": "the ground",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "地上",
+      "archivedEnglish": "the ground",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:card:10",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:10",
+      "sourceSpanish": "la alerta",
+      "sourceEnglish": "the alert",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "警報",
+      "archivedEnglish": "the alert",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:card:11",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:11",
+      "sourceSpanish": "los clavos con tapa plástica",
+      "sourceEnglish": "the plastic cap nails",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "樹脂キャップ付きの釘",
+      "archivedEnglish": "the plastic cap nails",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:card:12",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:12",
+      "sourceSpanish": "el cielo",
+      "sourceEnglish": "the sky",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "空",
+      "archivedEnglish": "the sky",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:card:13",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:13",
+      "sourceSpanish": "el material suelto",
+      "sourceEnglish": "the loose material",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "固定されていない資材",
+      "archivedEnglish": "the loose material",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:card:14",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:14",
+      "sourceSpanish": "la camioneta",
+      "sourceEnglish": "the pickup truck",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ピックアップトラック",
+      "archivedEnglish": "the pickup truck",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:card:15",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:15",
+      "sourceSpanish": "Si empieza a llover, bajamos.",
+      "sourceEnglish": "If it starts raining, we come down.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "雨が降り始めたら降ります。",
+      "archivedEnglish": "If it starts raining, we come down.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:card:16",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:16",
+      "sourceSpanish": "Si truena, nadie se queda arriba.",
+      "sourceEnglish": "If it thunders, nobody stays up top.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "雷が鳴ったら屋根には誰も残りません。",
+      "archivedEnglish": "If it thunders, nobody stays up top.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:card:17",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:17",
+      "sourceSpanish": "Si truena, todos abajo ya.",
+      "sourceEnglish": "If it thunders, everyone down now.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "雷が鳴ったら全員すぐに降りてください。",
+      "archivedEnglish": "If it thunders, everyone down now.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:card:18",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:18",
+      "sourceSpanish": "Lona en la parte abierta, ya.",
+      "sourceEnglish": "Tarp on the open section, now.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "未施工の区画に今すぐ防水シートを掛けてください。",
+      "archivedEnglish": "Tarp on the open section, now.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:card:19",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:19",
+      "sourceSpanish": "Copiado, voy para abajo.",
+      "sourceEnglish": "Copy, heading down.",
+      "sourceNoteSpanish": "radio talk: copiado means understood",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "了解、降ります。",
+      "archivedEnglish": "Copy, heading down.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:card:20",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:20",
+      "sourceSpanish": "¿Me copias?",
+      "sourceEnglish": "Do you copy?",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "聞こえますか。",
+      "archivedEnglish": "Do you copy?",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:card:21",
+      "legacySourceRef": "master-roofing:15:ja-en:cards:21",
+      "sourceSpanish": "Le confirmo que paramos por el clima.",
+      "sourceEnglish": "I confirm that we stopped because of the weather.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "天候のため作業を止めたことを確認します。",
+      "archivedEnglish": "I confirm that we stopped because of the weather.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:15:ja-en:line:1",
+      "legacySourceRef": "master-roofing:15:ja-en:reader:1",
+      "sourceSpanish": "A la una y media, Rogelio revisó el radar en su teléfono y vio una celda de tormenta a unas 20 millas.",
+      "sourceEnglish": "At half past one, Rogelio checked the radar on his phone and saw a storm cell about 20 miles away.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "午後一時半、ロヘリオは携帯電話で気象レーダーを確認し、約二十マイル離れた雷雨の雨雲を見つけました。",
+      "archivedEnglish": "At half past one, Rogelio checked the radar on his phone and saw a storm cell about 20 miles away.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:line:2",
+      "legacySourceRef": "master-roofing:15:ja-en:reader:2",
+      "sourceSpanish": "El cielo todavía estaba claro, pero el viento empezaba a cambiar.",
+      "sourceEnglish": "The sky was still clear, but the wind was starting to change.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "空はまだ晴れていましたが、風向きが変わり始めていました。",
+      "archivedEnglish": "The sky was still clear, but the wind was starting to change.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:line:3",
+      "legacySourceRef": "master-roofing:15:ja-en:reader:3",
+      "sourceSpanish": "Rogelio por el radio: Atención, cuadrilla, tenemos alerta de tormenta; ¿me copias, Marcos?",
+      "sourceEnglish": "Rogelio on the radio: Attention, crew, we have a storm alert; do you copy, Marcos?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオは無線で「作業班へ。雷雨の警報です。マルコス、聞こえますか」と呼びかけました。",
+      "archivedEnglish": "Rogelio on the radio: Attention, crew, we have a storm alert; do you copy, Marcos?",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:line:4",
+      "legacySourceRef": "master-roofing:15:ja-en:reader:4",
+      "sourceSpanish": "Marcos: Copiado, te escucho.",
+      "sourceEnglish": "Marcos: Copy, I hear you.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "マルコス「了解、聞こえています。」",
+      "archivedEnglish": "Marcos: Copy, I hear you.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:line:5",
+      "legacySourceRef": "master-roofing:15:ja-en:reader:5",
+      "sourceSpanish": "Rogelio: Si la celda sigue así, llegará en media hora, y si empieza a llover, bajamos.",
+      "sourceEnglish": "Rogelio: If the cell keeps going like this, it will arrive in half an hour, and if it starts raining, we come down.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「このまま進めば雨雲は三十分ほどで着きます。雨が降り始めたら降ります。」",
+      "archivedEnglish": "Rogelio: If the cell keeps going like this, it will arrive in half an hour, and if it starts raining, we come down.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:line:6",
+      "legacySourceRef": "master-roofing:15:ja-en:reader:6",
+      "sourceSpanish": "Rogelio: Pero no vamos a esperar a la lluvia: empezamos a cerrar ahora.",
+      "sourceEnglish": "Rogelio: But we're not going to wait for the rain: we start closing up now.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「ただし雨は待ちません。今から片づけを始めます。」",
+      "archivedEnglish": "Rogelio: But we're not going to wait for the rain: we start closing up now.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:line:7",
+      "legacySourceRef": "master-roofing:15:ja-en:reader:7",
+      "sourceSpanish": "Rogelio: Kevin y Julio, lona en la parte abierta, ya.",
+      "sourceEnglish": "Rogelio: Kevin and Julio, tarp on the open section, now.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「ケビンとフリオ、未施工の区画に今すぐ防水シートを掛けてください。」",
+      "archivedEnglish": "Rogelio: Kevin and Julio, tarp on the open section, now.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:line:8",
+      "legacySourceRef": "master-roofing:15:ja-en:reader:8",
+      "sourceSpanish": "Rogelio: Pongan la lona desde la cumbrera hacia abajo y fíjenla con listones y clavos con tapa plástica.",
+      "sourceEnglish": "Rogelio: Put the tarp from the ridge down and secure it with battens and plastic cap nails.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「棟から下へ防水シートを掛け、押さえ木と樹脂キャップ付きの釘で固定してください。」",
+      "archivedEnglish": "Rogelio: Put the tarp from the ridge down and secure it with battens and plastic cap nails.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:line:9",
+      "legacySourceRef": "master-roofing:15:ja-en:reader:9",
+      "sourceSpanish": "Rogelio: Marcos, junta el material suelto y bájalo al suelo, porque una ráfaga lo puede tirar.",
+      "sourceEnglish": "Rogelio: Marcos, gather the loose material and take it down to the ground, because a gust can knock it off.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「マルコス、固定されていない資材を集めて地上へ降ろしてください。突風で落ちることがあります。」",
+      "archivedEnglish": "Rogelio: Marcos, gather the loose material and take it down to the ground, because a gust can knock it off.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:line:10",
+      "legacySourceRef": "master-roofing:15:ja-en:reader:10",
+      "sourceSpanish": "Rogelio por el radio: Atención, el radar marca rayos en la celda. Si truena, nadie se queda arriba. Si truena, todos abajo ya.",
+      "sourceEnglish": "Rogelio on the radio: Attention, the radar shows lightning in the cell. If it thunders, nobody stays up top. If it thunders, everyone down now.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオは無線で「レーダーには雨雲の中に雷が映っています。雷が鳴ったら屋根には誰も残りません。全員すぐに降りてください」と伝えました。",
+      "archivedEnglish": "Rogelio on the radio: Attention, the radar shows lightning in the cell. If it thunders, nobody stays up top. If it thunders, everyone down now.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:line:11",
+      "legacySourceRef": "master-roofing:15:ja-en:reader:11",
+      "sourceSpanish": "A las dos menos diez se escuchó el primer trueno.",
+      "sourceEnglish": "At ten to two the first thunder was heard.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "午後一時五十分、最初の雷鳴が聞こえました。",
+      "archivedEnglish": "At ten to two the first thunder was heard.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:line:12",
+      "legacySourceRef": "master-roofing:15:ja-en:reader:12",
+      "sourceSpanish": "Rogelio por el radio: Ya tronó: todos abajo ya.",
+      "sourceEnglish": "Rogelio on the radio: It thundered: everyone down now.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオは無線で「雷が鳴りました。全員すぐに降りてください」と指示しました。",
+      "archivedEnglish": "Rogelio on the radio: It thundered: everyone down now.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:line:13",
+      "legacySourceRef": "master-roofing:15:ja-en:reader:13",
+      "sourceSpanish": "Julio: Copiado, voy para abajo; la lona ya está fija.",
+      "sourceEnglish": "Julio: Copy, heading down; the tarp is secured.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "フリオ「了解、降ります。防水シートは固定しました。」",
+      "archivedEnglish": "Julio: Copy, heading down; the tarp is secured.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:line:14",
+      "legacySourceRef": "master-roofing:15:ja-en:reader:14",
+      "sourceSpanish": "Rogelio: Nadie se queda en la escalera; todos a la camioneta hasta que pase.",
+      "sourceEnglish": "Rogelio: Nobody stays on the ladder; everyone to the pickup until it passes.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「はしごにも誰も残らず、通り過ぎるまで全員ピックアップトラックへ移動してください。」",
+      "archivedEnglish": "Rogelio: Nobody stays on the ladder; everyone to the pickup until it passes.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:line:15",
+      "legacySourceRef": "master-roofing:15:ja-en:reader:15",
+      "sourceSpanish": "A las dos en punto empezó el aguacero, con mucho viento.",
+      "sourceEnglish": "At two o'clock sharp the downpour began, with a lot of wind.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "午後二時ちょうど、強風を伴う激しい雨が降り始めました。",
+      "archivedEnglish": "At two o'clock sharp the downpour began, with a lot of wind.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:line:16",
+      "legacySourceRef": "master-roofing:15:ja-en:reader:16",
+      "sourceSpanish": "Desde la camioneta, Rogelio llamó a la dueña: Le confirmo que paramos por el clima y que el techo quedó cubierto.",
+      "sourceEnglish": "From the pickup, Rogelio called the homeowner: I confirm that we stopped because of the weather and that the roof was left covered.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオはトラックから家主に電話し、「天候のため作業を止め、屋根を覆ってあります」と伝えました。",
+      "archivedEnglish": "From the pickup, Rogelio called the homeowner: I confirm that we stopped because of the weather and that the roof was left covered.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:ja-en:line:17",
+      "legacySourceRef": "master-roofing:15:ja-en:reader:17",
+      "sourceSpanish": "Rogelio: Si mañana sale el sol, volveremos a las siete y seguiremos con las tejas.",
+      "sourceEnglish": "Rogelio: If the sun comes out tomorrow, we'll be back at seven and continue with the shingles.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「明日晴れたら七時に戻り、シングル材の施工を続けます。」",
+      "archivedEnglish": "Rogelio: If the sun comes out tomorrow, we'll be back at seven and continue with the shingles.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Identify the radar, open roof section, tarp, and loose materials.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall storm cell, battens, cap nails, gust, and pickup truck.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 了解 from 聞こえますか in radio traffic.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'If it thunders, everyone down now' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Call a stop-work and tarp sequence over the radio.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write the times and the homeowner's closeout message.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "curriculumAdaptationNote": "Current source and archived Japanese remain separate evidence. All faces are held for qualified review of near-miss/public-protection claims, or weather stop-work, tarp and restart decisions as applicable. Source grammar and verbs are pinned; six archived mode labels are not authored activities. No learner/audio selection or progress migration is made.",
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

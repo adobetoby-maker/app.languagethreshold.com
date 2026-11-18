@@ -1,0 +1,709 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "master-roofing",
+  "lessonId": "master-roofing:17:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-16-18-draft.json",
+      "sha256": "98e4983f5cb1af020f7cf968215c3f17e07627fe0ace8262ac51d6c759c00211"
+    }
+  },
+  "sourceEnglishTitle": "Written Daily Report and Deck Repair Documentation",
+  "sourceEnglishObjective": "Write a clear daily report: work done, deck repairs with photos, materials used and open items",
+  "sourceEnglishSpeaking": "You are the crew lead and the AI is the office manager taking your end-of-day report by phone: give the hours, the squares completed, the deck repair and materials, and the open items, using report connectors like además, asimismo and por lo tanto.",
+  "sourceSpanishReaderTitle": "Daily Report, Ortega House",
+  "sourceLessonType": "Document",
+  "sourceBlock": "E",
+  "sourceGrammar": {
+    "focus": "Written register; report connectors",
+    "examples": [
+      {
+        "es": "Se completaron 14 cuadros; además, se terminó la limahoya.",
+        "en": "14 squares were completed; in addition, the valley was finished."
+      },
+      {
+        "es": "Asimismo, queda pendiente el caballete del lado oeste.",
+        "en": "Likewise, the ridge cap on the west side is still pending."
+      }
+    ]
+  },
+  "sourceVerbExamples": [
+    {
+      "infinitive": "completar",
+      "native": "to complete",
+      "forms": {
+        "yo": "completo",
+        "tú": "completas",
+        "él_ella_usted": "completa",
+        "nosotros": "completamos",
+        "ellos_ustedes": "completan"
+      },
+      "example": {
+        "target": "Se completaron 14 cuadros en el lado este.",
+        "native": "14 squares were completed on the east side."
+      },
+      "note": "Written report style, passive se with the preterite: se completó, se completaron."
+    },
+    {
+      "infinitive": "reemplazar",
+      "native": "to replace",
+      "forms": {
+        "yo": "reemplazo",
+        "tú": "reemplazas",
+        "él_ella_usted": "reemplaza",
+        "nosotros": "reemplazamos",
+        "ellos_ustedes": "reemplazan"
+      },
+      "example": {
+        "target": "Se reemplazaron tres hojas de cubierta podrida.",
+        "native": "Three sheets of rotten deck were replaced."
+      },
+      "note": "Preterite: reemplacé (z changes to c), reemplazó."
+    },
+    {
+      "infinitive": "adjuntar",
+      "native": "to attach",
+      "forms": {
+        "yo": "adjunto",
+        "tú": "adjuntas",
+        "él_ella_usted": "adjunta",
+        "nosotros": "adjuntamos",
+        "ellos_ustedes": "adjuntan"
+      },
+      "example": {
+        "target": "Se adjuntan fotos de antes y después.",
+        "native": "Before and after photos are attached."
+      },
+      "note": "Common in written reports and emails: adjunto las fotos (I attach the photos)."
+    },
+    {
+      "infinitive": "enviar",
+      "native": "to send",
+      "forms": {
+        "yo": "envío",
+        "tú": "envías",
+        "él_ella_usted": "envía",
+        "nosotros": "enviamos",
+        "ellos_ustedes": "envían"
+      },
+      "example": {
+        "target": "Antes de enviarlo, Rogelio leyó el reporte otra vez.",
+        "native": "Before sending it, Rogelio read the report again."
+      },
+      "note": "Written accent in the present: envío, envías, envían."
+    },
+    {
+      "infinitive": "faltar",
+      "native": "to be missing, still to be done",
+      "forms": {
+        "yo": "falto",
+        "tú": "faltas",
+        "él_ella_usted": "falta",
+        "nosotros": "faltamos",
+        "ellos_ustedes": "faltan"
+      },
+      "example": {
+        "target": "Además, falta limpiar la canaleta.",
+        "native": "In addition, the gutter still needs cleaning."
+      },
+      "note": "Falta + infinitive means something still has to be done."
+    }
+  ],
+  "candidateObjective": "作業時間、施工量、野地板の補修、使用資材、未完了項目を日報にまとめる。",
+  "candidateFocus": "また and さらに add report items; そのため links a finding to the documented repair. ～を添付します identifies the evidence attached to the report.",
+  "archivedForms": [
+    {
+      "base": "完了する",
+      "exampleJa": "東側で十四スクエアの施工を完了しました。",
+      "meaningEnglish": "to complete",
+      "exampleEnglish": "14 squares were completed on the east side.",
+      "sourceInfinitiveSpanish": "completar"
+    },
+    {
+      "base": "交換する",
+      "exampleJa": "腐った野地板を三枚交換しました。",
+      "meaningEnglish": "to replace",
+      "exampleEnglish": "Three sheets of rotten deck were replaced.",
+      "sourceInfinitiveSpanish": "reemplazar"
+    },
+    {
+      "base": "添付する",
+      "exampleJa": "補修前後の写真を添付します。",
+      "meaningEnglish": "to attach",
+      "exampleEnglish": "Before and after photos are attached.",
+      "sourceInfinitiveSpanish": "adjuntar"
+    },
+    {
+      "base": "送る",
+      "exampleJa": "送る前にロヘリオは日報を読み返しました。",
+      "meaningEnglish": "to send",
+      "exampleEnglish": "Before sending it, Rogelio read the report again.",
+      "sourceInfinitiveSpanish": "enviar"
+    },
+    {
+      "base": "残る",
+      "exampleJa": "さらに雨どいの清掃が残っています。",
+      "meaningEnglish": "to be missing, still to be done",
+      "exampleEnglish": "In addition, the gutter still needs cleaning.",
+      "sourceInfinitiveSpanish": "faltar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "本日の作業時間は午前七時から午後三時半です。東側で十四スクエアを施工し、野地板を三枚交換しました。使用資材と未完了項目も報告します。",
+    "goal": "Give the office manager a concise end-of-day report with hours, roofing squares completed, rotten-deck repair, materials used, photo evidence and open items. Use Japanese report connectors naturally."
+  },
+  "cards": [
+    {
+      "id": "master-roofing:17:ja-en:card:1",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:1",
+      "sourceSpanish": "el reporte diario",
+      "sourceEnglish": "the daily report",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "日報",
+      "archivedEnglish": "the daily report",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:card:2",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:2",
+      "sourceSpanish": "el resumen",
+      "sourceEnglish": "the summary",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "概要",
+      "archivedEnglish": "the summary",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:card:3",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:3",
+      "sourceSpanish": "la dirección",
+      "sourceEnglish": "the address",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "住所",
+      "archivedEnglish": "the address",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:card:4",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:4",
+      "sourceSpanish": "las horas trabajadas",
+      "sourceEnglish": "the hours worked",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "作業時間",
+      "archivedEnglish": "the hours worked",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:card:5",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:5",
+      "sourceSpanish": "el cuadro",
+      "sourceEnglish": "the square (roofing unit)",
+      "sourceNoteSpanish": "a roofing square covers 100 square feet",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "スクエア（屋根面積の単位）",
+      "archivedEnglish": "the square (roofing unit)",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:card:6",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:6",
+      "sourceSpanish": "la reparación de cubierta",
+      "sourceEnglish": "the deck repair",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "野地板の補修",
+      "archivedEnglish": "the deck repair",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:card:7",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:7",
+      "sourceSpanish": "la hoja reemplazada",
+      "sourceEnglish": "the replaced sheet",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "交換した板",
+      "archivedEnglish": "the replaced sheet",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:card:8",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:8",
+      "sourceSpanish": "los materiales usados",
+      "sourceEnglish": "the materials used",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "使用資材",
+      "archivedEnglish": "the materials used",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:card:9",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:9",
+      "sourceSpanish": "el rollo de sub-capa",
+      "sourceEnglish": "the roll of underlayment",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ルーフィング材のロール",
+      "archivedEnglish": "the roll of underlayment",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:card:10",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:10",
+      "sourceSpanish": "los pendientes",
+      "sourceEnglish": "the open items",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "未完了項目",
+      "archivedEnglish": "the open items",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:card:11",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:11",
+      "sourceSpanish": "la evidencia fotográfica",
+      "sourceEnglish": "the photo evidence",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "写真資料",
+      "archivedEnglish": "the photo evidence",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:card:12",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:12",
+      "sourceSpanish": "además",
+      "sourceEnglish": "in addition",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "さらに",
+      "archivedEnglish": "in addition",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:card:13",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:13",
+      "sourceSpanish": "asimismo",
+      "sourceEnglish": "likewise",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "同様に",
+      "archivedEnglish": "likewise",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:card:14",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:14",
+      "sourceSpanish": "por lo tanto",
+      "sourceEnglish": "therefore",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "そのため",
+      "archivedEnglish": "therefore",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:card:15",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:15",
+      "sourceSpanish": "Se completaron 14 cuadros en el lado este.",
+      "sourceEnglish": "14 squares were completed on the east side.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "東側で十四スクエアを施工しました。",
+      "archivedEnglish": "14 squares were completed on the east side.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:card:16",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:16",
+      "sourceSpanish": "Se reemplazaron tres hojas de cubierta podrida.",
+      "sourceEnglish": "Three sheets of rotten deck were replaced.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "腐った野地板を三枚交換しました。",
+      "archivedEnglish": "Three sheets of rotten deck were replaced.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:card:17",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:17",
+      "sourceSpanish": "Asimismo, se instaló la membrana en la limahoya.",
+      "sourceEnglish": "Likewise, the membrane was installed in the valley.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "同様に、谷部に防水シートを施工しました。",
+      "archivedEnglish": "Likewise, the membrane was installed in the valley.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:card:18",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:18",
+      "sourceSpanish": "Queda pendiente el caballete del lado oeste.",
+      "sourceEnglish": "The ridge cap on the west side is still pending.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "西側の棟包み材はまだ未施工です。",
+      "archivedEnglish": "The ridge cap on the west side is still pending.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:card:19",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:19",
+      "sourceSpanish": "Se adjuntan fotos de antes y después.",
+      "sourceEnglish": "Before and after photos are attached.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "補修前後の写真を添付します。",
+      "archivedEnglish": "Before and after photos are attached.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:card:20",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:20",
+      "sourceSpanish": "Sin otro particular, me despido.",
+      "sourceEnglish": "With nothing further, I sign off.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "以上、報告いたします。",
+      "archivedEnglish": "With nothing further, I sign off.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:card:21",
+      "legacySourceRef": "master-roofing:17:ja-en:cards:21",
+      "sourceSpanish": "Oye, mándame las fotos del triplay.",
+      "sourceEnglish": "Hey, send me the photos of the plywood.",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ねえ、合板の写真を送って。",
+      "archivedEnglish": "Hey, send me the photos of the plywood.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:17:ja-en:line:1",
+      "legacySourceRef": "master-roofing:17:ja-en:reader:1",
+      "sourceSpanish": "Al final del día, Rogelio se sentó en la camioneta para escribir el reporte diario.",
+      "sourceEnglish": "At the end of the day, Rogelio sat in the pickup to write the daily report.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "一日の終わりに、ロヘリオはピックアップトラックの中で日報を書きました。",
+      "archivedEnglish": "At the end of the day, Rogelio sat in the pickup to write the daily report.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:line:2",
+      "legacySourceRef": "master-roofing:17:ja-en:reader:2",
+      "sourceSpanish": "Primero le mandó un mensaje a Kevin: Oye, mándame las fotos del triplay.",
+      "sourceEnglish": "First he sent Kevin a message: Hey, send me the photos of the plywood.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "まずケビンに「ねえ、合板の写真を送って」とメッセージを送りました。",
+      "archivedEnglish": "First he sent Kevin a message: Hey, send me the photos of the plywood.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:line:3",
+      "legacySourceRef": "master-roofing:17:ja-en:reader:3",
+      "sourceSpanish": "Después escribió el reporte con un tono más formal que el de sus mensajes.",
+      "sourceEnglish": "Then he wrote the report in a more formal tone than his messages.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "その後、メッセージよりも改まった文体で日報を書きました。",
+      "archivedEnglish": "Then he wrote the report in a more formal tone than his messages.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:line:4",
+      "legacySourceRef": "master-roofing:17:ja-en:reader:4",
+      "sourceSpanish": "Reporte diario del 14 de octubre; dirección: 418 Pine Street, casa Ortega.",
+      "sourceEnglish": "Daily report for October 14; address: 418 Pine Street, Ortega house.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "「十月十四日の日報。住所：パイン通り四百十八番地、オルテガ様邸。」",
+      "archivedEnglish": "Daily report for October 14; address: 418 Pine Street, Ortega house.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:line:5",
+      "legacySourceRef": "master-roofing:17:ja-en:reader:5",
+      "sourceSpanish": "Horas trabajadas: de 7:00 a. m. a 3:30 p. m., con una cuadrilla de cinco personas.",
+      "sourceEnglish": "Hours worked: from 7:00 a.m. to 3:30 p.m., with a crew of five people.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "「作業時間：午前七時から午後三時半まで。作業員五名。」",
+      "archivedEnglish": "Hours worked: from 7:00 a.m. to 3:30 p.m., with a crew of five people.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:line:6",
+      "legacySourceRef": "master-roofing:17:ja-en:reader:6",
+      "sourceSpanish": "Resumen: se completaron 14 cuadros en el lado este y, además, se terminó la limahoya principal.",
+      "sourceEnglish": "Summary: 14 squares were completed on the east side and, in addition, the main valley was finished.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "「概要：東側で十四スクエアを施工し、さらに主要な谷部を仕上げた。」",
+      "archivedEnglish": "Summary: 14 squares were completed on the east side and, in addition, the main valley was finished.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:line:7",
+      "legacySourceRef": "master-roofing:17:ja-en:reader:7",
+      "sourceSpanish": "Durante el desmontaje se encontró cubierta podrida cerca del tragaluz.",
+      "sourceEnglish": "During the tear-off, rotten deck was found near the skylight.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "「既存屋根材の撤去中、天窓の近くに腐った野地板が見つかった。」",
+      "archivedEnglish": "During the tear-off, rotten deck was found near the skylight.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:line:8",
+      "legacySourceRef": "master-roofing:17:ja-en:reader:8",
+      "sourceSpanish": "Por lo tanto, se reemplazaron tres hojas de cubierta podrida, según la orden de cambio firmada por el cliente.",
+      "sourceEnglish": "Therefore, three sheets of rotten deck were replaced, according to the change order signed by the customer.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "「そのため、顧客が署名した変更指示書に従い、腐った野地板を三枚交換した。」",
+      "archivedEnglish": "Therefore, three sheets of rotten deck were replaced, according to the change order signed by the customer.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:line:9",
+      "legacySourceRef": "master-roofing:17:ja-en:reader:9",
+      "sourceSpanish": "Asimismo, se instaló la membrana en la limahoya y alrededor del tragaluz.",
+      "sourceEnglish": "Likewise, the membrane was installed in the valley and around the skylight.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "「同様に、谷部と天窓の周囲に防水シートを施工した。」",
+      "archivedEnglish": "Likewise, the membrane was installed in the valley and around the skylight.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:line:10",
+      "legacySourceRef": "master-roofing:17:ja-en:reader:10",
+      "sourceSpanish": "Se adjuntan fotos de antes y después de la reparación de cubierta y de cada hoja reemplazada, como evidencia fotográfica para el expediente.",
+      "sourceEnglish": "Before and after photos of the deck repair and of each replaced sheet are attached, as photo evidence for the file.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "「野地板補修と交換した各板の補修前後の写真を、記録用の写真資料として添付する。」",
+      "archivedEnglish": "Before and after photos of the deck repair and of each replaced sheet are attached, as photo evidence for the file.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:line:11",
+      "legacySourceRef": "master-roofing:17:ja-en:reader:11",
+      "sourceSpanish": "Materiales usados: 15 bultos de teja, 3 rollos de sub-capa y 3 hojas de triplay.",
+      "sourceEnglish": "Materials used: 15 bundles of shingles, 3 rolls of underlayment and 3 sheets of plywood.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "「使用資材：シングル材十五束、ルーフィング材三ロール、合板三枚。」",
+      "archivedEnglish": "Materials used: 15 bundles of shingles, 3 rolls of underlayment and 3 sheets of plywood.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:line:12",
+      "legacySourceRef": "master-roofing:17:ja-en:reader:12",
+      "sourceSpanish": "Pendientes: queda pendiente el caballete del lado oeste y, además, falta limpiar la canaleta.",
+      "sourceEnglish": "Open items: the ridge cap on the west side is still pending and, in addition, the gutter still needs cleaning.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "「未完了項目：西側の棟包み材はまだ未施工。さらに雨どいの清掃が必要。」",
+      "archivedEnglish": "Open items: the ridge cap on the west side is still pending and, in addition, the gutter still needs cleaning.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:line:13",
+      "legacySourceRef": "master-roofing:17:ja-en:reader:13",
+      "sourceSpanish": "Para mañana se espera lluvia por la tarde; por lo tanto, la cuadrilla empezará a las 6:30 a. m.",
+      "sourceEnglish": "Rain is expected tomorrow afternoon; therefore, the crew will start at 6:30 a.m.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "「明日の午後は雨の予報。そのため作業班は午前六時半に開始する。」",
+      "archivedEnglish": "Rain is expected tomorrow afternoon; therefore, the crew will start at 6:30 a.m.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:line:14",
+      "legacySourceRef": "master-roofing:17:ja-en:reader:14",
+      "sourceSpanish": "Sin otro particular, me despido.",
+      "sourceEnglish": "With nothing further, I sign off.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "「以上、報告いたします。」",
+      "archivedEnglish": "With nothing further, I sign off.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:line:15",
+      "legacySourceRef": "master-roofing:17:ja-en:reader:15",
+      "sourceSpanish": "Rogelio Mendoza, jefe de cuadrilla.",
+      "sourceEnglish": "Rogelio Mendoza, crew lead.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "「作業班長、ロヘリオ・メンドーサ。」",
+      "archivedEnglish": "Rogelio Mendoza, crew lead.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:17:ja-en:line:16",
+      "legacySourceRef": "master-roofing:17:ja-en:reader:16",
+      "sourceSpanish": "Antes de enviarlo, Rogelio leyó el reporte otra vez y corrigió dos números.",
+      "sourceEnglish": "Before sending it, Rogelio read the report again and corrected two numbers.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "送信前にロヘリオは日報を読み返し、二つの数字を修正しました。",
+      "archivedEnglish": "Before sending it, Rogelio read the report again and corrected two numbers.",
+      "reviewNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Identify the daily report, replaced deck sheets, material list, and attached photos.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall hours worked, squares completed, open items, and change order.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish さらに, 同様に, and そのため in the report.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Before and after photos are attached' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Give the office manager an end-of-day report by phone.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write the work summary, repair evidence, materials, and open items.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "curriculumAdaptationNote": "Roofing square, deck/sheet, ridge cap, membrane and materials quantities need exact product and locale senses. Preserve daily-report hours, quantities and signed-change-order evidence without treating the example as verified structural repair or weather authorization. Qualified Japanese, roofing and dictionary review remains open. No selected learner/audio text or progress identity is created.",
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

@@ -1,0 +1,385 @@
+{
+  "schema": 1,
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "sourceModuleId": "foundation-roofing",
+  "archivedHeaderModuleId": "roofing",
+  "proposedStageLocalLessonId": "foundation-roofing:9:fr-en",
+  "identityDecision": "Archived Foundation/Core/Master headers share moduleId roofing. These pair-scoped row IDs are review references only; preserve account progress and saved items through a separately qualified migration before runtime use.",
+  "source": {
+    "curriculum": {
+      "path": "src/data/foundation-roofing-curriculum.ts",
+      "sha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/foundation-roofing.json",
+      "sha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/french-roofing/foundation-7-10-draft.json",
+      "sha256": "811b1206f51bfddc62499b35e87c329283c997d9cc2133eed030f62def123b80"
+    }
+  },
+  "sourceRowsSha256": "14a7d07724fddea30e61b0b72936fcb9d18cd126de49c45cef23ea4a623ed030",
+  "sourceTitleEnglish": "Polite Requests and Commands",
+  "sourceObjectiveEnglish": "Ask politely and give short, clear instructions",
+  "sourceFocusEnglish": "¿Puede…? and usted commands for everyday verbs",
+  "sourceSpeakingEnglish": "Politely ask a crew member for two tools, then give three short instructions to set up the ladder.",
+  "sourceCard6NoteEnglish": "usted command of esperar",
+  "sourceCard7NoteEnglish": "usted command of venir",
+  "archivedFrenchFocusEnglish": "Pouvez-vous...? for polite requests; vous command forms for everyday verbs (attendez, apportez, faites attention); please (s'il vous plaît), thank you (merci), excuse me (pardon, excusez-moi) and sorry (désolé)",
+  "cards": [
+    {
+      "proposedRowId": "foundation-roofing:9:fr-en:card:1",
+      "sourcePosition": 1,
+      "sourceSpanish": "por favor",
+      "sourceEnglish": "please",
+      "kind": "term",
+      "archivedFrench": "s'il vous plaît",
+      "conditionalFrench": "s'il vous plaît",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:9:fr-en:card:2",
+      "sourcePosition": 2,
+      "sourceSpanish": "gracias",
+      "sourceEnglish": "thank you",
+      "kind": "term",
+      "archivedFrench": "merci",
+      "conditionalFrench": "merci",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:9:fr-en:card:3",
+      "sourcePosition": 3,
+      "sourceSpanish": "con permiso",
+      "sourceEnglish": "excuse me (to pass)",
+      "kind": "term",
+      "archivedFrench": "excusez-moi",
+      "conditionalFrench": "excusez-moi",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:9:fr-en:card:4",
+      "sourcePosition": 4,
+      "sourceSpanish": "perdón",
+      "sourceEnglish": "sorry, excuse me",
+      "kind": "term",
+      "archivedFrench": "désolé, pardon",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": "The source combines apology and excuse senses in one card. Archived 'désolé, pardon' gives two alternatives; speaker gender changes désolé/désolée. Select contextual answer and dictionary senses before scoring.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:9:fr-en:card:5",
+      "sourcePosition": 5,
+      "sourceSpanish": "cuidado",
+      "sourceEnglish": "careful, watch out",
+      "kind": "term",
+      "archivedFrench": "attention",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": "The source combines 'careful' and 'watch out'. Archived 'attention' is a warning, while 'faites attention' is an instruction to be careful. Choose the scored face in context.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:9:fr-en:card:6",
+      "sourcePosition": 6,
+      "sourceSpanish": "espere",
+      "sourceEnglish": "wait",
+      "kind": "term",
+      "archivedFrench": "attendez",
+      "conditionalFrench": "attendez",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:9:fr-en:card:7",
+      "sourcePosition": 7,
+      "sourceSpanish": "venga",
+      "sourceEnglish": "come",
+      "kind": "term",
+      "archivedFrench": "venez",
+      "conditionalFrench": "venez",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:9:fr-en:card:8",
+      "sourcePosition": 8,
+      "sourceSpanish": "aquí",
+      "sourceEnglish": "here",
+      "kind": "term",
+      "archivedFrench": "ici",
+      "conditionalFrench": "ici",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:9:fr-en:card:9",
+      "sourcePosition": 9,
+      "sourceSpanish": "¿Puede pasarme el martillo?",
+      "sourceEnglish": "Can you pass me the hammer?",
+      "kind": "phrase",
+      "archivedFrench": "Pouvez-vous me passer le marteau ?",
+      "conditionalFrench": "Pouvez-vous me passer le marteau ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:9:fr-en:card:10",
+      "sourcePosition": 10,
+      "sourceSpanish": "Tenga cuidado.",
+      "sourceEnglish": "Be careful.",
+      "kind": "phrase",
+      "archivedFrench": "Faites attention.",
+      "conditionalFrench": "Faites attention.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:9:fr-en:card:11",
+      "sourcePosition": 11,
+      "sourceSpanish": "Espere aquí, por favor.",
+      "sourceEnglish": "Wait here, please.",
+      "kind": "phrase",
+      "archivedFrench": "Attendez ici, s'il vous plaît.",
+      "conditionalFrench": "Attendez ici, s'il vous plaît.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:9:fr-en:card:12",
+      "sourcePosition": 12,
+      "sourceSpanish": "Traiga la escalera.",
+      "sourceEnglish": "Bring the ladder.",
+      "kind": "phrase",
+      "archivedFrench": "Apportez l'échelle.",
+      "conditionalFrench": "Apportez l'échelle.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "proposedRowId": "foundation-roofing:9:fr-en:line:1",
+      "sourcePosition": 1,
+      "sourceSpanish": "Con permiso, voy a pasar con la escalera.",
+      "sourceEnglish": "Excuse me, I'm coming through with the ladder.",
+      "archivedFrench": "Pardon, je passe avec l'échelle.",
+      "conditionalFrench": "Pardon, je passe avec l'échelle.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:9:fr-en:line:2",
+      "sourcePosition": 2,
+      "sourceSpanish": "¿Puede pasarme el martillo, por favor?",
+      "sourceEnglish": "Can you pass me the hammer, please?",
+      "archivedFrench": "Pouvez-vous me passer le marteau, s'il vous plaît ?",
+      "conditionalFrench": "Pouvez-vous me passer le marteau, s'il vous plaît ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:9:fr-en:line:3",
+      "sourcePosition": 3,
+      "sourceSpanish": "Gracias, y perdón por la espera.",
+      "sourceEnglish": "Thank you, and sorry for the wait.",
+      "archivedFrench": "Merci, et désolé pour l'attente.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": "Archived 'désolé' assumes a speaker gender that the source Reader does not fix. Choose speaker/context or a gender-neutral apology before recording.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:9:fr-en:line:4",
+      "sourcePosition": 4,
+      "sourceSpanish": "Venga aquí y traiga la escalera.",
+      "sourceEnglish": "Come here and bring the ladder.",
+      "archivedFrench": "Venez ici et apportez l'échelle.",
+      "conditionalFrench": "Venez ici et apportez l'échelle.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:9:fr-en:line:5",
+      "sourcePosition": 5,
+      "sourceSpanish": "Espere aquí, por favor.",
+      "sourceEnglish": "Wait here, please.",
+      "archivedFrench": "Attendez ici, s'il vous plaît.",
+      "conditionalFrench": "Attendez ici, s'il vous plaît.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:9:fr-en:line:6",
+      "sourcePosition": 6,
+      "sourceSpanish": "Tenga cuidado con el borde del techo.",
+      "sourceEnglish": "Be careful with the edge of the roof.",
+      "archivedFrench": "Faites attention au bord du toit.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": "The source names the roof edge. Archived 'Faites attention au bord du toit' preserves it, but this safety-critical instruction needs qualified roofing and locale review before audio or learner use.",
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "infinitive": "pasar",
+      "native": "to pass, to come through",
+      "forms": {
+        "yo": "paso",
+        "tú": "pasas",
+        "él_ella_usted": "pasa",
+        "nosotros": "pasamos",
+        "ellos_ustedes": "pasan"
+      },
+      "example": {
+        "target": "¿Puede pasarme el martillo, por favor?",
+        "native": "Can you pass me the hammer, please?"
+      }
+    },
+    {
+      "infinitive": "traer",
+      "native": "to bring",
+      "forms": {
+        "yo": "traigo",
+        "tú": "traes",
+        "él_ella_usted": "trae",
+        "nosotros": "traemos",
+        "ellos_ustedes": "traen"
+      },
+      "example": {
+        "target": "Venga aquí y traiga la escalera.",
+        "native": "Come here and bring the ladder."
+      },
+      "note": "Irregular yo form (traigo). The polite command is traiga."
+    },
+    {
+      "infinitive": "esperar",
+      "native": "to wait",
+      "forms": {
+        "yo": "espero",
+        "tú": "esperas",
+        "él_ella_usted": "espera",
+        "nosotros": "esperamos",
+        "ellos_ustedes": "esperan"
+      },
+      "example": {
+        "target": "Espere aquí, por favor.",
+        "native": "Wait here, please."
+      },
+      "note": "The polite command changes -ar to -e: espere."
+    }
+  ],
+  "archivedConditionalFrenchVerbExamples": [
+    {
+      "infinitiveFrench": "passer",
+      "meaningEnglish": "to pass, to come through",
+      "exampleFrench": "Pouvez-vous me passer le marteau, s'il vous plaît ?",
+      "exampleEnglish": "Can you pass me the hammer, please?"
+    },
+    {
+      "infinitiveFrench": "apporter",
+      "meaningEnglish": "to bring",
+      "exampleFrench": "Venez ici et apportez l'échelle.",
+      "exampleEnglish": "Come here and bring the ladder."
+    },
+    {
+      "infinitiveFrench": "attendre",
+      "meaningEnglish": "to wait",
+      "exampleFrench": "Attendez ici, s'il vous plaît.",
+      "exampleEnglish": "Wait here, please."
+    }
+  ],
+  "archivedSpeakingFrenchOpening": "Pardon, pouvez-vous me passer le marteau et la corde, s'il vous plaît ? Merci. Apportez l'échelle. Attendez ici, s'il vous plaît. Faites attention.",
+  "modeEvidence": {
+    "see": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "speakingEvidence": {
+    "readyForLearner": false
+  },
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedFrench": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "stageIdentity": false,
+    "sixModes": false,
+    "speaking": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

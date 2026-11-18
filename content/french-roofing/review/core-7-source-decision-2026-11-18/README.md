@@ -1,0 +1,9 @@
+# French Roofing Core 7 — source and tear-off scope decision
+
+This inert packet pins **15 exact current Spanish/English cards**, **nine aligned Reader turns**, five source verb examples, and source/archive hashes for *Tear-Off Scope*. Proposed `core-roofing:7:fr-en` IDs are review references only. The source header still uses `roofing`; stage-local progress and saved-item identity need a deliberate migration before runtime use.
+
+The archived French is separate evidence. Seven card faces and four Reader turns are held from even conditional selection: asphalt shingles versus generic *bardeaux*, structural roof deck versus *support de couverture*, old roof versus covering layers, and the source's all-layers/flashing tear-off commands. The source describes one fictional scope, not a general removal procedure. A qualified roofing reviewer must confirm what is in the approved scope, what remains in place, and the site safety plan. The source speaking task gives a tear-off command and asks for confirmation; the archive adds approved-scope and retention questions. These must stay distinct until source/roofing and French reviewers resolve the lesson meaning.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, listening, offline, saved-progress, browser and V4 gates are false. No audio was generated or approved; no owner page or runtime route imports this packet. Six authored See/Recall/Hear/Type/Say/Write prompt/target activities, forms, speaking, exact-pair dictionary and device acceptance remain open.
+
+`build.py --check` detects source drift; `validate.py` independently checks current source order, IDs, archived evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural checks and self-check are not qualified review.

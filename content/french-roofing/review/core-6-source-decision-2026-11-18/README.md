@@ -1,0 +1,9 @@
+# French Roofing Core 6 — morning crew brief source decision
+
+This inert packet pins **16 exact current Spanish/English cards**, **nine aligned Reader turns**, five source verb examples, and source/archive hashes for *Morning Crew Brief*. Proposed `core-roofing:6:fr-en` IDs are review references only. The source header still uses `roofing`; stage-local progress and saved-item identity need an explicit migration decision before any runtime use.
+
+The archived French is separate evidence. Six card faces and three Reader turns are held from even conditional selection. `zone de stockage`/`entreposer` may imply storage rather than temporary material staging; `dépose de l’ancienne couverture` may narrow tear-off to covering removal. Crew lead/foreman roles and the speaker attribution in the Reader need regional and site-role review. The archived speaking mission omits an explicit work-zone assignment, although the source asks for work zones and material staging during a two-minute brief. Qualified French, source and roofing reviewers should decide those linked terms and role relationships before scoring, speaking, dictionary or audio text is selected.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, listening, offline, saved-progress, browser and V4 gates are false. No audio was generated or approved; no owner page or runtime route imports this packet. Six authored See/Recall/Hear/Type/Say/Write prompt/target activities, forms, speaking, exact-pair dictionary and device acceptance remain open.
+
+`build.py --check` detects source drift; `validate.py` independently checks current source order, IDs, archived evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural checks and self-check are not qualified review.

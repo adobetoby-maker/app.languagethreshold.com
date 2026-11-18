@@ -1,0 +1,446 @@
+{
+  "schema": "french-roofing-core5-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:5",
+  "proposedPairId": "core-roofing:5:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-4-6-draft.json": "8593c38a18a3dd8bc93d489903b0035d121c3285c2b71ee784728aeb69365dae"
+  },
+  "orderedSourceRowsSha256": "0afd6de128a77b16faa0e7723377fd42dc4505ee61686aa8349cd362ded1fec1",
+  "sourceTitleEnglish": "Fasteners & Consumables",
+  "sourceObjectiveEnglish": "Request roofing fasteners and sealants clearly",
+  "sourceSpeakingEnglish": "Call a supplier and confirm the fasteners specified for this job.",
+  "sourceReaderTitleSpanish": "Pedido de clavos",
+  "cards": [
+    {
+      "id": "core-roofing:5:fr-en:card:1",
+      "legacySourceRef": "roofing:5:words:1",
+      "sourceSpanish": "Clavos para techo",
+      "sourceEnglish": "roofing nails",
+      "kind": "term",
+      "archivedFrenchEvidence": "les clous de toiture",
+      "conditionalFrench": "les clous de toiture",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:5:fr-en:card:2",
+      "legacySourceRef": "roofing:5:words:2",
+      "sourceSpanish": "Clavos con tapa plástica",
+      "sourceEnglish": "plastic cap nails",
+      "kind": "term",
+      "archivedFrenchEvidence": "les clous à rondelles de plastique",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:5:fr-en:card:3",
+      "legacySourceRef": "roofing:5:words:3",
+      "sourceSpanish": "Cemento plástico",
+      "sourceEnglish": "roofing cement",
+      "kind": "term",
+      "archivedFrenchEvidence": "le mastic bitumineux pour toiture",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:5:fr-en:card:4",
+      "legacySourceRef": "roofing:5:words:4",
+      "sourceSpanish": "Clavo",
+      "sourceEnglish": "nail",
+      "kind": "term",
+      "archivedFrenchEvidence": "le clou",
+      "conditionalFrench": "le clou",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:5:fr-en:card:5",
+      "legacySourceRef": "roofing:5:words:5",
+      "sourceSpanish": "Grapa",
+      "sourceEnglish": "staple",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’agrafe",
+      "conditionalFrench": "l’agrafe",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:5:fr-en:card:6",
+      "legacySourceRef": "roofing:5:words:6",
+      "sourceSpanish": "Tornillo",
+      "sourceEnglish": "screw",
+      "kind": "term",
+      "archivedFrenchEvidence": "la vis",
+      "conditionalFrench": "la vis",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:5:fr-en:card:7",
+      "legacySourceRef": "roofing:5:words:7",
+      "sourceSpanish": "Clavos galvanizados",
+      "sourceEnglish": "galvanized nails",
+      "kind": "term",
+      "archivedFrenchEvidence": "les clous galvanisés",
+      "conditionalFrench": "les clous galvanisés",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:5:fr-en:card:8",
+      "legacySourceRef": "roofing:5:words:8",
+      "sourceSpanish": "Caja",
+      "sourceEnglish": "box",
+      "kind": "term",
+      "archivedFrenchEvidence": "la boîte",
+      "conditionalFrench": "la boîte",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:5:fr-en:card:9",
+      "legacySourceRef": "roofing:5:words:9",
+      "sourceSpanish": "Sellador",
+      "sourceEnglish": "sealant",
+      "kind": "term",
+      "archivedFrenchEvidence": "le produit d’étanchéité",
+      "conditionalFrench": "le produit d’étanchéité",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:5:fr-en:card:10",
+      "legacySourceRef": "roofing:5:words:10",
+      "sourceSpanish": "Necesito dos cajas de clavos para techo.",
+      "sourceEnglish": "I need two boxes of roofing nails.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Il me faut deux boîtes de clous de toiture.",
+      "conditionalFrench": "Il me faut deux boîtes de clous de toiture.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:5:fr-en:card:11",
+      "legacySourceRef": "roofing:5:words:11",
+      "sourceSpanish": "¿Tienen clavos con tapa plástica?",
+      "sourceEnglish": "Do you have plastic cap nails?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Avez-vous des clous à rondelles de plastique ?",
+      "conditionalFrench": "Avez-vous des clous à rondelles de plastique ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:5:fr-en:card:12",
+      "legacySourceRef": "roofing:5:words:12",
+      "sourceSpanish": "¿Qué clavos pide el trabajo?",
+      "sourceEnglish": "Which nails does the job require?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Quels clous sont prévus pour ce chantier ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:5:fr-en:card:13",
+      "legacySourceRef": "roofing:5:words:13",
+      "sourceSpanish": "¿Cuándo los pueden entregar?",
+      "sourceEnglish": "When can you deliver them?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Quand pouvez-vous les livrer ?",
+      "conditionalFrench": "Quand pouvez-vous les livrer ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:5:fr-en:card:14",
+      "legacySourceRef": "roofing:5:words:14",
+      "sourceSpanish": "Por favor, confirmen el pedido.",
+      "sourceEnglish": "Please confirm the order.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Veuillez confirmer la commande.",
+      "conditionalFrench": "Veuillez confirmer la commande.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:5:fr-en:reader:1",
+      "legacySourceRef": "roofing:5:passage:1",
+      "sourceSpanish": "El capataz llama al proveedor.",
+      "sourceEnglish": "The foreman calls the supplier.",
+      "archivedFrenchEvidence": "Le contremaître appelle le fournisseur.",
+      "conditionalFrench": "Le contremaître appelle le fournisseur.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:5:fr-en:reader:2",
+      "legacySourceRef": "roofing:5:passage:2",
+      "sourceSpanish": "El capataz dice: Necesito dos cajas de clavos para techo.",
+      "sourceEnglish": "He says: I need two boxes of roofing nails.",
+      "archivedFrenchEvidence": "Il dit : « Il me faut deux boîtes de clous de toiture. »",
+      "conditionalFrench": "Il dit : « Il me faut deux boîtes de clous de toiture. »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:5:fr-en:reader:3",
+      "legacySourceRef": "roofing:5:passage:3",
+      "sourceSpanish": "¿Tienen clavos con tapa plástica?",
+      "sourceEnglish": "Do you have plastic cap nails?",
+      "archivedFrenchEvidence": "Avez-vous des clous à rondelles de plastique ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:5:fr-en:reader:4",
+      "legacySourceRef": "roofing:5:passage:4",
+      "sourceSpanish": "El capataz lee las especificaciones para ver qué clavos pide el trabajo.",
+      "sourceEnglish": "The foreman reads the job specifications to see which nails the job requires.",
+      "archivedFrenchEvidence": "Le contremaître lit les spécifications du chantier pour vérifier quels clous sont prévus.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:5:fr-en:reader:5",
+      "legacySourceRef": "roofing:5:passage:5",
+      "sourceSpanish": "También necesita cemento plástico y sellador.",
+      "sourceEnglish": "He also needs roofing cement and sealant.",
+      "archivedFrenchEvidence": "Il lui faut aussi du mastic bitumineux pour toiture et un produit d’étanchéité.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:5:fr-en:reader:6",
+      "legacySourceRef": "roofing:5:passage:6",
+      "sourceSpanish": "¿Cuándo los pueden entregar?",
+      "sourceEnglish": "When can you deliver them?",
+      "archivedFrenchEvidence": "Quand pouvez-vous les livrer ?",
+      "conditionalFrench": "Quand pouvez-vous les livrer ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:5:fr-en:reader:7",
+      "legacySourceRef": "roofing:5:passage:7",
+      "sourceSpanish": "El proveedor revisa su lista y da una fecha de entrega.",
+      "sourceEnglish": "The supplier checks his list and gives a delivery date.",
+      "archivedFrenchEvidence": "Le fournisseur consulte sa liste et annonce une date de livraison.",
+      "conditionalFrench": "Le fournisseur consulte sa liste et annonce une date de livraison.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:5:fr-en:reader:8",
+      "legacySourceRef": "roofing:5:passage:8",
+      "sourceSpanish": "Por favor, confirmen el pedido.",
+      "sourceEnglish": "Please confirm the order.",
+      "archivedFrenchEvidence": "Veuillez confirmer la commande.",
+      "conditionalFrench": "Veuillez confirmer la commande.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "necesitar",
+      "englishMeaning": "to need",
+      "sourceSpanish": "Necesito dos cajas de clavos para techo.",
+      "sourceEnglish": "I need two boxes of roofing nails."
+    },
+    {
+      "spanishInfinitive": "pedir",
+      "englishMeaning": "to ask for, to order",
+      "sourceSpanish": "¿Qué clavos pide el trabajo?",
+      "sourceEnglish": "Which nails does the job require?"
+    },
+    {
+      "spanishInfinitive": "poder",
+      "englishMeaning": "to be able to, can",
+      "sourceSpanish": "¿Cuándo los pueden entregar?",
+      "sourceEnglish": "When can you deliver them?"
+    },
+    {
+      "spanishInfinitive": "entregar",
+      "englishMeaning": "to deliver",
+      "sourceSpanish": "El proveedor entrega los clavos mañana.",
+      "sourceEnglish": "The supplier delivers the nails tomorrow."
+    },
+    {
+      "spanishInfinitive": "confirmar",
+      "englishMeaning": "to confirm",
+      "sourceSpanish": "Por favor, confirmen el pedido.",
+      "sourceEnglish": "Please confirm the order."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Fixations et consommables",
+    "objectiveFrench": "Demander au fournisseur les fixations et produits prévus pour ce chantier.",
+    "speakingFrenchInstruction": "Appelez le fournisseur, demandez les fixations indiquées dans les spécifications et faites confirmer les produits, quantités et la livraison.",
+    "speakingFrenchOpening": "Bonjour. Pourriez-vous confirmer les clous prévus dans les spécifications de ce chantier et leur date de livraison ?",
+    "grammarFocusFrench": "Il me faut + quantité; demande polie avec avez-vous / pouvez-vous / veuillez; vérifier les spécifications avant de commander.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to need",
+        "exampleEnglish": "I need two boxes of roofing nails.",
+        "sourceInfinitiveSpanish": "necesitar",
+        "infinitiveFrench": "avoir besoin de",
+        "exampleFrench": "Il me faut deux boîtes de clous de toiture."
+      },
+      {
+        "meaningEnglish": "to ask for, to order",
+        "exampleEnglish": "Which nails does the job require?",
+        "sourceInfinitiveSpanish": "pedir",
+        "infinitiveFrench": "demander",
+        "exampleFrench": "Quels clous sont prévus pour ce chantier ?"
+      },
+      {
+        "meaningEnglish": "to be able to, can",
+        "exampleEnglish": "When can you deliver them?",
+        "sourceInfinitiveSpanish": "poder",
+        "infinitiveFrench": "pouvoir",
+        "exampleFrench": "Quand pouvez-vous les livrer ?"
+      },
+      {
+        "meaningEnglish": "to deliver",
+        "exampleEnglish": "The supplier delivers the nails tomorrow.",
+        "sourceInfinitiveSpanish": "entregar",
+        "infinitiveFrench": "livrer",
+        "exampleFrench": "Le fournisseur livre les clous demain."
+      },
+      {
+        "meaningEnglish": "to confirm",
+        "exampleEnglish": "Please confirm the order.",
+        "sourceInfinitiveSpanish": "confirmar",
+        "infinitiveFrench": "confirmer",
+        "exampleFrench": "Veuillez confirmer la commande."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "France/Québec roofing terminology and job roles require qualified regional and trade review.",
+      "Confirm actual product and work sequence against the approved plan, manufacturer instructions and site safety procedures."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:5:fr-en:card:2",
+        "core-roofing:5:fr-en:reader:3"
+      ],
+      "question": "Verify whether archived clous à rondelles de plastique names source plastic cap nails precisely in this French locale; washer and cap products may differ."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:5:fr-en:card:3",
+        "core-roofing:5:fr-en:reader:5"
+      ],
+      "question": "Source roofing cement is generic. Archived mastic bitumineux selects a bituminous formulation; confirm the specified product and French trade term before scoring or audio."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:5:fr-en:card:12",
+        "core-roofing:5:fr-en:reader:4"
+      ],
+      "question": "Source asks which nails job specifications require. Archived prévu pour ce chantier can mean planned rather than required; preserve the specification decision."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:5:fr-en:card:13",
+        "core-roofing:5:fr-en:reader:6",
+        "core-roofing:5:fr-en:reader:7"
+      ],
+      "question": "The supplier gives a delivery date but the Reader does not state a day. Archived verb example demain belongs to a separate source verb example, not the Reader."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:5:fr-en:card:10",
+        "core-roofing:5:fr-en:reader:2",
+        "core-roofing:5:fr-en:card:14"
+      ],
+      "question": "Two boxes is a language-example quantity, not a job specification. The speaking task may confirm products, quantities and delivery without implying a universal fastener type or count."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

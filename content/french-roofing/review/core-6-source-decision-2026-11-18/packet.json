@@ -1,0 +1,497 @@
+{
+  "schema": "french-roofing-core6-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:6",
+  "proposedPairId": "core-roofing:6:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-4-6-draft.json": "8593c38a18a3dd8bc93d489903b0035d121c3285c2b71ee784728aeb69365dae"
+  },
+  "orderedSourceRowsSha256": "c87add6fc3db247ec17f08dbf0092b52d90d3a0222f3070c6a61b311dfe6fbca",
+  "sourceTitleEnglish": "Morning Crew Brief",
+  "sourceObjectiveEnglish": "Open the day with assignments and a clear plan",
+  "sourceSpeakingEnglish": "Run a two-minute morning brief covering work zones and material staging.",
+  "sourceReaderTitleSpanish": "Reunión de la mañana",
+  "cards": [
+    {
+      "id": "core-roofing:6:fr-en:card:1",
+      "legacySourceRef": "roofing:6:words:1",
+      "sourceSpanish": "Jefe de cuadrilla",
+      "sourceEnglish": "crew lead",
+      "kind": "term",
+      "archivedFrenchEvidence": "le chef d’équipe",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:card:2",
+      "legacySourceRef": "roofing:6:words:2",
+      "sourceSpanish": "Área de acopio",
+      "sourceEnglish": "staging area",
+      "kind": "term",
+      "archivedFrenchEvidence": "la zone de stockage des matériaux",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:card:3",
+      "legacySourceRef": "roofing:6:words:3",
+      "sourceSpanish": "Desmontaje",
+      "sourceEnglish": "tear-off",
+      "kind": "term",
+      "archivedFrenchEvidence": "la dépose de l’ancienne couverture",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:card:4",
+      "legacySourceRef": "roofing:6:words:4",
+      "sourceSpanish": "Cuadrilla",
+      "sourceEnglish": "crew",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’équipe",
+      "conditionalFrench": "l’équipe",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:card:5",
+      "legacySourceRef": "roofing:6:words:5",
+      "sourceSpanish": "Capataz",
+      "sourceEnglish": "foreman",
+      "kind": "term",
+      "archivedFrenchEvidence": "le contremaître",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:card:6",
+      "legacySourceRef": "roofing:6:words:6",
+      "sourceSpanish": "Zona de trabajo",
+      "sourceEnglish": "work zone",
+      "kind": "term",
+      "archivedFrenchEvidence": "la zone de travail",
+      "conditionalFrench": "la zone de travail",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:card:7",
+      "legacySourceRef": "roofing:6:words:7",
+      "sourceSpanish": "Tarea",
+      "sourceEnglish": "assignment",
+      "kind": "term",
+      "archivedFrenchEvidence": "la tâche attribuée",
+      "conditionalFrench": "la tâche attribuée",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:card:8",
+      "legacySourceRef": "roofing:6:words:8",
+      "sourceSpanish": "Plan del techo",
+      "sourceEnglish": "roof plan",
+      "kind": "term",
+      "archivedFrenchEvidence": "le plan de toiture",
+      "conditionalFrench": "le plan de toiture",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:card:9",
+      "legacySourceRef": "roofing:6:words:9",
+      "sourceSpanish": "Peligro",
+      "sourceEnglish": "hazard",
+      "kind": "term",
+      "archivedFrenchEvidence": "le danger",
+      "conditionalFrench": "le danger",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:card:10",
+      "legacySourceRef": "roofing:6:words:10",
+      "sourceSpanish": "Entrega",
+      "sourceEnglish": "delivery",
+      "kind": "term",
+      "archivedFrenchEvidence": "la livraison",
+      "conditionalFrench": "la livraison",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:card:11",
+      "legacySourceRef": "roofing:6:words:11",
+      "sourceSpanish": "Repasemos el plan del techo de hoy antes de empezar.",
+      "sourceEnglish": "Let's review today's roof plan before we start.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Passons en revue le plan de toiture du jour avant de commencer.",
+      "conditionalFrench": "Passons en revue le plan de toiture du jour avant de commencer.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:card:12",
+      "legacySourceRef": "roofing:6:words:12",
+      "sourceSpanish": "¿Quién dirige la cuadrilla de desmontaje?",
+      "sourceEnglish": "Who is leading the tear-off crew?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Qui dirige l’équipe chargée de la dépose ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:card:13",
+      "legacySourceRef": "roofing:6:words:13",
+      "sourceSpanish": "Muéstrenme dónde van a colocar los materiales.",
+      "sourceEnglish": "Show me where you will stage the materials.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Montrez-moi où vous entreposerez les matériaux.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:card:14",
+      "legacySourceRef": "roofing:6:words:14",
+      "sourceSpanish": "Avísenme si ven algún peligro.",
+      "sourceEnglish": "Tell me if you see any hazard.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Signalez-moi tout danger que vous remarquez.",
+      "conditionalFrench": "Signalez-moi tout danger que vous remarquez.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:card:15",
+      "legacySourceRef": "roofing:6:words:15",
+      "sourceSpanish": "¿Todos entienden el plan?",
+      "sourceEnglish": "Does everyone understand the plan?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Tout le monde a-t-il compris le plan ?",
+      "conditionalFrench": "Tout le monde a-t-il compris le plan ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:card:16",
+      "legacySourceRef": "roofing:6:words:16",
+      "sourceSpanish": "¿Hay preguntas antes de empezar?",
+      "sourceEnglish": "Any questions before we start?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Des questions avant de commencer ?",
+      "conditionalFrench": "Des questions avant de commencer ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:6:fr-en:reader:1",
+      "legacySourceRef": "roofing:6:passage:1",
+      "sourceSpanish": "Son las 7:00 de la mañana y la cuadrilla se reúne.",
+      "sourceEnglish": "It is 7:00 in the morning and the crew gathers.",
+      "archivedFrenchEvidence": "Il est sept heures du matin et l’équipe se rassemble.",
+      "conditionalFrench": "Il est sept heures du matin et l’équipe se rassemble.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:reader:2",
+      "legacySourceRef": "roofing:6:passage:2",
+      "sourceSpanish": "El capataz dice: Repasemos el plan del techo de hoy antes de empezar.",
+      "sourceEnglish": "The foreman says: Let's review today's roof plan before we start.",
+      "archivedFrenchEvidence": "Le contremaître dit : « Passons en revue le plan de toiture du jour avant de commencer. »",
+      "conditionalFrench": "Le contremaître dit : « Passons en revue le plan de toiture du jour avant de commencer. »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:reader:3",
+      "legacySourceRef": "roofing:6:passage:3",
+      "sourceSpanish": "El capataz pregunta: ¿Quién dirige la cuadrilla de desmontaje?",
+      "sourceEnglish": "The foreman asks: Who is leading the tear-off crew?",
+      "archivedFrenchEvidence": "Le contremaître demande : « Qui dirige l’équipe chargée de la dépose ? »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:reader:4",
+      "legacySourceRef": "roofing:6:passage:4",
+      "sourceSpanish": "Luis, el jefe de cuadrilla, levanta la mano.",
+      "sourceEnglish": "Luis, the crew lead, raises his hand.",
+      "archivedFrenchEvidence": "Luis, le chef d’équipe, lève la main.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:reader:5",
+      "legacySourceRef": "roofing:6:passage:5",
+      "sourceSpanish": "Cada persona tiene una tarea en una zona de trabajo.",
+      "sourceEnglish": "Each person has a task in a work zone.",
+      "archivedFrenchEvidence": "Chaque personne a une tâche dans une zone de travail.",
+      "conditionalFrench": "Chaque personne a une tâche dans une zone de travail.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:reader:6",
+      "legacySourceRef": "roofing:6:passage:6",
+      "sourceSpanish": "Muéstrenme dónde van a colocar los materiales.",
+      "sourceEnglish": "Show me where you will stage the materials.",
+      "archivedFrenchEvidence": "Montrez-moi où vous entreposerez les matériaux.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:reader:7",
+      "legacySourceRef": "roofing:6:passage:7",
+      "sourceSpanish": "Avísenme si ven algún peligro.",
+      "sourceEnglish": "Tell me if you see any hazard.",
+      "archivedFrenchEvidence": "Signalez-moi tout danger que vous remarquez.",
+      "conditionalFrench": "Signalez-moi tout danger que vous remarquez.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:reader:8",
+      "legacySourceRef": "roofing:6:passage:8",
+      "sourceSpanish": "¿Todos entienden el plan?",
+      "sourceEnglish": "Does everyone understand the plan?",
+      "archivedFrenchEvidence": "Tout le monde a-t-il compris le plan ?",
+      "conditionalFrench": "Tout le monde a-t-il compris le plan ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:reader:9",
+      "legacySourceRef": "roofing:6:passage:9",
+      "sourceSpanish": "¿Hay preguntas antes de empezar?",
+      "sourceEnglish": "Any questions before we start?",
+      "archivedFrenchEvidence": "Des questions avant de commencer ?",
+      "conditionalFrench": "Des questions avant de commencer ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "dirigir",
+      "englishMeaning": "to lead, to direct",
+      "sourceSpanish": "Luis dirige la cuadrilla de desmontaje.",
+      "sourceEnglish": "Luis leads the tear-off crew."
+    },
+    {
+      "spanishInfinitive": "entender",
+      "englishMeaning": "to understand",
+      "sourceSpanish": "¿Todos entienden el plan?",
+      "sourceEnglish": "Does everyone understand the plan?"
+    },
+    {
+      "spanishInfinitive": "tener",
+      "englishMeaning": "to have",
+      "sourceSpanish": "Cada persona tiene una tarea.",
+      "sourceEnglish": "Each person has an assignment."
+    },
+    {
+      "spanishInfinitive": "empezar",
+      "englishMeaning": "to start, to begin",
+      "sourceSpanish": "Empezamos con el desmontaje a las 7:30.",
+      "sourceEnglish": "We start the tear-off at 7:30."
+    },
+    {
+      "spanishInfinitive": "ver",
+      "englishMeaning": "to see",
+      "sourceSpanish": "Avísenme si ven algún peligro.",
+      "sourceEnglish": "Tell me if you see any hazard."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Réunion d’équipe du matin",
+    "objectiveFrench": "Présenter les tâches, les zones de travail et l’entreposage des matériaux.",
+    "speakingFrenchInstruction": "Animez une courte réunion : demandez qui dirige la dépose, où les matériaux seront entreposés et si quelqu’un a repéré un danger.",
+    "speakingFrenchOpening": "Bonjour à tous. Passons en revue le plan du jour. Qui dirige la dépose et où entreposons-nous les matériaux ?",
+    "grammarFocusFrench": "Nous + impératif inclusif; questions qui / où / tout le monde; signaler un danger et faire reformuler le plan.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to lead, to direct",
+        "exampleEnglish": "Luis leads the tear-off crew.",
+        "sourceInfinitiveSpanish": "dirigir",
+        "infinitiveFrench": "diriger",
+        "exampleFrench": "Luis dirige l’équipe chargée de la dépose."
+      },
+      {
+        "meaningEnglish": "to understand",
+        "exampleEnglish": "Does everyone understand the plan?",
+        "sourceInfinitiveSpanish": "entender",
+        "infinitiveFrench": "comprendre",
+        "exampleFrench": "Tout le monde a-t-il compris le plan ?"
+      },
+      {
+        "meaningEnglish": "to have",
+        "exampleEnglish": "Each person has an assignment.",
+        "sourceInfinitiveSpanish": "tener",
+        "infinitiveFrench": "avoir",
+        "exampleFrench": "Chaque personne a une tâche attribuée."
+      },
+      {
+        "meaningEnglish": "to start, to begin",
+        "exampleEnglish": "We start the tear-off at 7:30.",
+        "sourceInfinitiveSpanish": "empezar",
+        "infinitiveFrench": "commencer",
+        "exampleFrench": "Nous commençons la dépose à sept heures et demie."
+      },
+      {
+        "meaningEnglish": "to see",
+        "exampleEnglish": "Tell me if you see any hazard.",
+        "sourceInfinitiveSpanish": "ver",
+        "infinitiveFrench": "voir",
+        "exampleFrench": "Signalez-moi tout danger que vous remarquez."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "France/Québec roofing terminology and job roles require qualified regional and trade review.",
+      "Confirm actual product and work sequence against the approved plan, manufacturer instructions and site safety procedures."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:6:fr-en:card:1",
+        "core-roofing:6:fr-en:card:5",
+        "core-roofing:6:fr-en:reader:3",
+        "core-roofing:6:fr-en:reader:4"
+      ],
+      "question": "Source distinguishes crew lead Luis from foreman. Review chef d’équipe and contremaître roles by locale and employer, and preserve who asks, who answers and who leads the tear-off crew."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:6:fr-en:card:2",
+        "core-roofing:6:fr-en:card:13",
+        "core-roofing:6:fr-en:reader:6"
+      ],
+      "question": "Source staging area/stage materials is temporary placement for work; archived stockage/entreposer may imply storage. Choose a consistent regional trade expression without inventing a permanent storage instruction."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:6:fr-en:card:3",
+        "core-roofing:6:fr-en:card:12",
+        "core-roofing:6:fr-en:reader:3",
+        "core-roofing:6:fr-en:reader:4"
+      ],
+      "question": "Source tear-off/desmontaje identifies roof removal. Decide whether archived dépose de l’ancienne couverture narrows the operation to the covering and whether this fits the source job assignment."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:6:fr-en:card:7",
+        "core-roofing:6:fr-en:reader:5"
+      ],
+      "question": "Source assignment/tarea and each person has a task in a work zone. Archived tâche attribuée adds explicit assignment; align the card and Reader without changing the crew brief’s obligation."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:6:fr-en:card:9",
+        "core-roofing:6:fr-en:card:14",
+        "core-roofing:6:fr-en:reader:7"
+      ],
+      "question": "Keep hazard reporting as a direct worker instruction; decide register and whether archived signaler/aviser preserves tell me if you see any hazard."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:6:fr-en:card:6",
+        "core-roofing:6:fr-en:card:13",
+        "core-roofing:6:fr-en:reader:5",
+        "core-roofing:6:fr-en:reader:6"
+      ],
+      "question": "Source speaking task requires work zones and material staging in a two-minute morning brief. Archived speaking asks lead, staging and hazard but omits an explicit work-zone assignment; author the task only after role and staging wording are settled."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

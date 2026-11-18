@@ -1,0 +1,691 @@
+{
+  "schema": "french-roofing-master11-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "master-roofing",
+  "sourceHeaderModuleId": "master-roofing",
+  "proposedLessonId": "master-roofing:11",
+  "proposedPairId": "master-roofing:11:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/master-10-12-draft.json": "f1ea1e0f43fb36872017420a0350bfd8ca060c17128c735522ad56142f7fabbf"
+  },
+  "orderedSourceRowsSha256": "2b49aa0695f893b1e638db10bb02b43d82a74dd8b6543438c510a240539fc12f",
+  "sourceTitleEnglish": "Motivating the Crew Through a Hot Week",
+  "sourceObjectiveEnglish": "Keep a tired crew going through a heat wave with a clear plan, firm commitments and real encouragement",
+  "sourceFocusEnglish": "Future for commitments; encouragement register",
+  "sourceGrammarExamples": [
+    {
+      "es": "Empezaremos a las seis y habrá agua fría todo el día.",
+      "en": "We'll start at six and there will be cold water all day."
+    },
+    {
+      "es": "Vamos a terminar a tiempo, pero nadie trabajará sin descanso.",
+      "en": "We're going to finish on time, but nobody will work without a break."
+    }
+  ],
+  "sourceLessonType": "People",
+  "sourceBlock": "C",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is a tired crew member during a heat wave with a deadline: acknowledge the hard week, give the plan and your commitments with the future (empezaremos, habrá), and make water and breaks non-negotiable.",
+  "sourceReaderTitleSpanish": "Five Hot Days and One Deadline",
+  "cards": [
+    {
+      "id": "master-roofing:11:fr-en:card:1",
+      "legacySourceRef": "master-roofing:11:words:1",
+      "sourceSpanish": "la ola de calor",
+      "sourceEnglish": "the heat wave",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la vague de chaleur",
+      "conditionalFrench": "la vague de chaleur",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:2",
+      "legacySourceRef": "master-roofing:11:words:2",
+      "sourceSpanish": "el agotamiento por calor",
+      "sourceEnglish": "the heat exhaustion",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "l’épuisement dû à la chaleur",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:3",
+      "legacySourceRef": "master-roofing:11:words:3",
+      "sourceSpanish": "el golpe de calor",
+      "sourceEnglish": "the heatstroke",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le coup de chaleur",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:4",
+      "legacySourceRef": "master-roofing:11:words:4",
+      "sourceSpanish": "la hidratación",
+      "sourceEnglish": "the hydration",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "l’hydratation",
+      "conditionalFrench": "l’hydratation",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:5",
+      "legacySourceRef": "master-roofing:11:words:5",
+      "sourceSpanish": "la pausa para tomar agua",
+      "sourceEnglish": "the water break",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la pause pour boire de l’eau",
+      "conditionalFrench": "la pause pour boire de l’eau",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:6",
+      "legacySourceRef": "master-roofing:11:words:6",
+      "sourceSpanish": "la sombra",
+      "sourceEnglish": "the shade",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "l’ombre",
+      "conditionalFrench": "l’ombre",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:7",
+      "legacySourceRef": "master-roofing:11:words:7",
+      "sourceSpanish": "los electrolitos",
+      "sourceEnglish": "the electrolytes",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "les électrolytes",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:8",
+      "legacySourceRef": "master-roofing:11:words:8",
+      "sourceSpanish": "la hielera",
+      "sourceEnglish": "the cooler",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la glacière",
+      "conditionalFrench": "la glacière",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:9",
+      "legacySourceRef": "master-roofing:11:words:9",
+      "sourceSpanish": "el mareo",
+      "sourceEnglish": "the dizziness",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "les étourdissements",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:10",
+      "legacySourceRef": "master-roofing:11:words:10",
+      "sourceSpanish": "la fecha límite",
+      "sourceEnglish": "the deadline",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la date limite",
+      "conditionalFrench": "la date limite",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:11",
+      "legacySourceRef": "master-roofing:11:words:11",
+      "sourceSpanish": "la jornada",
+      "sourceEnglish": "the workday",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la journée de travail",
+      "conditionalFrench": "la journée de travail",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:12",
+      "legacySourceRef": "master-roofing:11:words:12",
+      "sourceSpanish": "el horario",
+      "sourceEnglish": "the schedule",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "l’horaire",
+      "conditionalFrench": "l’horaire",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:13",
+      "legacySourceRef": "master-roofing:11:words:13",
+      "sourceSpanish": "el esfuerzo",
+      "sourceEnglish": "the effort",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "l’effort",
+      "conditionalFrench": "l’effort",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:14",
+      "legacySourceRef": "master-roofing:11:words:14",
+      "sourceSpanish": "la madrugada",
+      "sourceEnglish": "the early morning",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le petit matin",
+      "conditionalFrench": "le petit matin",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:15",
+      "legacySourceRef": "master-roofing:11:words:15",
+      "sourceSpanish": "Sé que ha sido una semana dura.",
+      "sourceEnglish": "I know it's been a tough week.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Je sais que la semaine a été difficile.",
+      "conditionalFrench": "Je sais que la semaine a été difficile.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:16",
+      "legacySourceRef": "master-roofing:11:words:16",
+      "sourceSpanish": "Empezaremos a las seis y pararemos a las dos.",
+      "sourceEnglish": "We'll start at six and stop at two.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Nous prévoyons de commencer à six heures et d’arrêter à deux heures, selon le plan.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:17",
+      "legacySourceRef": "master-roofing:11:words:17",
+      "sourceSpanish": "Habrá agua fría en la hielera todo el día.",
+      "sourceEnglish": "There will be cold water in the cooler all day.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Il y aura de l’eau fraîche dans la glacière toute la journée.",
+      "conditionalFrench": "Il y aura de l’eau fraîche dans la glacière toute la journée.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:18",
+      "legacySourceRef": "master-roofing:11:words:18",
+      "sourceSpanish": "Nadie trabajará sin descanso.",
+      "sourceEnglish": "Nobody will work without a break.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Personne ne travaillera sans les pauses prévues.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:19",
+      "legacySourceRef": "master-roofing:11:words:19",
+      "sourceSpanish": "Si te mareas, me avisas en ese momento.",
+      "sourceEnglish": "If you get dizzy, tell me right away.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Si vous avez des étourdissements, prévenez-moi tout de suite.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:20",
+      "legacySourceRef": "master-roofing:11:words:20",
+      "sourceSpanish": "Terminaremos a tiempo, pero sin riesgos.",
+      "sourceEnglish": "We'll finish on time, but without risks.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Nous visons la date prévue, mais la sécurité passe avant le délai.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:21",
+      "legacySourceRef": "master-roofing:11:words:21",
+      "sourceSpanish": "¡Échenle ganas, muchachos!",
+      "sourceEnglish": "Give it your all, guys!",
+      "kind": "phrase",
+      "sourceNoteSpanish": "informal",
+      "archivedFrenchEvidence": "Courage, l’équipe !",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:card:22",
+      "legacySourceRef": "master-roofing:11:words:22",
+      "sourceSpanish": "Cuente con nosotros, señor.",
+      "sourceEnglish": "Count on us, sir.",
+      "kind": "phrase",
+      "sourceNoteSpanish": "formal",
+      "archivedFrenchEvidence": "Vous pouvez compter sur nous pour suivre le plan.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:11:fr-en:reader:1",
+      "legacySourceRef": "master-roofing:11:passage:1",
+      "sourceSpanish": "El pronóstico anunció una ola de calor para toda la semana, con más de 100 grados por la tarde.",
+      "sourceEnglish": "The forecast announced a heat wave for the whole week, with more than 100 degrees in the afternoon.",
+      "archivedFrenchEvidence": "Les prévisions annonçaient une vague de chaleur pour la semaine, avec plus de cent degrés Fahrenheit l’après-midi.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:reader:2",
+      "legacySourceRef": "master-roofing:11:passage:2",
+      "sourceSpanish": "La compañía tenía una fecha límite: el techo de la escuela tenía que estar listo el viernes.",
+      "sourceEnglish": "The company had a deadline: the school roof had to be ready by Friday.",
+      "archivedFrenchEvidence": "L’entreprise visait une échéance : terminer le toit de l’école d’ici vendredi.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:reader:3",
+      "legacySourceRef": "master-roofing:11:passage:3",
+      "sourceSpanish": "El miércoles, en la madrugada, Rogelio reunió a la cuadrilla antes de subir.",
+      "sourceEnglish": "On Wednesday, in the early morning, Rogelio gathered the crew before going up.",
+      "archivedFrenchEvidence": "Mercredi, au petit matin, Rogelio a réuni l’équipe avant la montée sur le toit.",
+      "conditionalFrench": "Mercredi, au petit matin, Rogelio a réuni l’équipe avant la montée sur le toit.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:reader:4",
+      "legacySourceRef": "master-roofing:11:passage:4",
+      "sourceSpanish": "Rogelio: Sé que ha sido una semana dura, y todavía faltan tres días.",
+      "sourceEnglish": "Rogelio: I know it's been a tough week, and there are still three days to go.",
+      "archivedFrenchEvidence": "Rogelio : « Je sais que la semaine a été difficile et qu’il reste trois jours. »",
+      "conditionalFrench": "Rogelio : « Je sais que la semaine a été difficile et qu’il reste trois jours. »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:reader:5",
+      "legacySourceRef": "master-roofing:11:passage:5",
+      "sourceSpanish": "Rogelio: Este es el plan: cambiaremos el horario hasta el viernes.",
+      "sourceEnglish": "Rogelio: Here's the plan: we'll change the schedule until Friday.",
+      "archivedFrenchEvidence": "Rogelio : « Voici le plan : nous adapterons l’horaire selon le plan chaleur du chantier. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:reader:6",
+      "legacySourceRef": "master-roofing:11:passage:6",
+      "sourceSpanish": "Rogelio: Empezaremos a las seis y pararemos a las dos, antes de lo peor del calor.",
+      "sourceEnglish": "Rogelio: We'll start at six and stop at two, before the worst of the heat.",
+      "archivedFrenchEvidence": "Rogelio : « Nous prévoyons de commencer à six heures et d’arrêter à deux heures, si les conditions le permettent. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:reader:7",
+      "legacySourceRef": "master-roofing:11:passage:7",
+      "sourceSpanish": "Rogelio: Habrá agua fría en la hielera todo el día, y también electrolitos.",
+      "sourceEnglish": "Rogelio: There will be cold water in the cooler all day, and electrolytes too.",
+      "archivedFrenchEvidence": "Rogelio : « Il y aura de l’eau fraîche dans la glacière toute la journée, ainsi que des électrolytes. »",
+      "conditionalFrench": "Rogelio : « Il y aura de l’eau fraîche dans la glacière toute la journée, ainsi que des électrolytes. »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:reader:8",
+      "legacySourceRef": "master-roofing:11:passage:8",
+      "sourceSpanish": "Rogelio: Cada hora haremos una pausa para tomar agua en la sombra, y nadie trabajará sin descanso.",
+      "sourceEnglish": "Rogelio: Every hour we'll take a water break in the shade, and nobody will work without a break.",
+      "archivedFrenchEvidence": "Rogelio : « Nous prendrons les pauses prévues à l’ombre; personne ne les sautera pour rattraper le temps. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:reader:9",
+      "legacySourceRef": "master-roofing:11:passage:9",
+      "sourceSpanish": "Rogelio: La hidratación no es opcional, aunque estemos atrasados.",
+      "sourceEnglish": "Rogelio: Hydration isn't optional, even if we're behind.",
+      "archivedFrenchEvidence": "Rogelio : « Boire de l’eau n’est pas facultatif, même si nous sommes en retard. »",
+      "conditionalFrench": "Rogelio : « Boire de l’eau n’est pas facultatif, même si nous sommes en retard. »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:reader:10",
+      "legacySourceRef": "master-roofing:11:passage:10",
+      "sourceSpanish": "Rogelio: Y tú, Kevin, que eres nuevo: si te mareas, me avisas en ese momento.",
+      "sourceEnglish": "Rogelio: And you, Kevin, since you're new: if you get dizzy, tell me right away.",
+      "archivedFrenchEvidence": "Rogelio : « Kevin, si tu as des étourdissements ou te sens mal, préviens-moi tout de suite. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:reader:11",
+      "legacySourceRef": "master-roofing:11:passage:11",
+      "sourceSpanish": "Rogelio: El mareo, el dolor de cabeza, la náusea y el sudor excesivo son señales de agotamiento por calor.",
+      "sourceEnglish": "Rogelio: Dizziness, headache, nausea and heavy sweating are signs of heat exhaustion.",
+      "archivedFrenchEvidence": "Rogelio : « Des étourdissements, un mal de tête ou des nausées peuvent signaler un problème lié à la chaleur. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:reader:12",
+      "legacySourceRef": "master-roofing:11:passage:12",
+      "sourceSpanish": "Rogelio: Un golpe de calor es una emergencia, y en ese caso llamaremos al 911 sin esperar.",
+      "sourceEnglish": "Rogelio: Heatstroke is an emergency, and in that case we'll call 911 without waiting.",
+      "archivedFrenchEvidence": "Rogelio : « Si quelqu’un présente des signes graves, nous arrêterons le travail et suivrons le protocole d’urgence du site, y compris l’appel aux secours locaux. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:reader:13",
+      "legacySourceRef": "master-roofing:11:passage:13",
+      "sourceSpanish": "Rogelio: Terminaremos a tiempo, pero sin riesgos; el esfuerzo de cada uno cuenta.",
+      "sourceEnglish": "Rogelio: We'll finish on time, but without risks; everyone's effort counts.",
+      "archivedFrenchEvidence": "Rogelio : « Nous visons vendredi, mais nous ne sacrifierons pas la sécurité pour tenir ce délai. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:reader:14",
+      "legacySourceRef": "master-roofing:11:passage:14",
+      "sourceSpanish": "Rogelio: Y el viernes, al final de la jornada, habrá tacos para todos.",
+      "sourceEnglish": "Rogelio: And on Friday, at the end of the workday, there will be tacos for everyone.",
+      "archivedFrenchEvidence": "Rogelio : « Vendredi, si tout se passe bien, nous partagerons des tacos après le travail. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:reader:15",
+      "legacySourceRef": "master-roofing:11:passage:15",
+      "sourceSpanish": "Rogelio: ¡Échenle ganas, muchachos!",
+      "sourceEnglish": "Rogelio: Give it your all, guys!",
+      "archivedFrenchEvidence": "Rogelio : « Courage, l’équipe ! »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:11:fr-en:reader:16",
+      "legacySourceRef": "master-roofing:11:passage:16",
+      "sourceSpanish": "Por la tarde, Rogelio llamó al jefe: Cuente con nosotros, señor; el viernes estará listo.",
+      "sourceEnglish": "In the afternoon, Rogelio called the boss: Count on us, sir; it will be ready on Friday.",
+      "archivedFrenchEvidence": "Plus tard, Rogelio a dit au responsable : « Nous suivrons le plan; je confirmerai l’avancement vendredi. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "parar",
+      "englishMeaning": "to stop",
+      "sourceSpanish": "Pararemos a las dos, antes de lo peor del calor.",
+      "sourceEnglish": "We'll stop at two, before the worst of the heat."
+    },
+    {
+      "spanishInfinitive": "avisar",
+      "englishMeaning": "to let someone know",
+      "sourceSpanish": "Si te mareas, me avisas en ese momento.",
+      "sourceEnglish": "If you get dizzy, tell me right away."
+    },
+    {
+      "spanishInfinitive": "marearse",
+      "englishMeaning": "to get dizzy",
+      "sourceSpanish": "Si te mareas, bajas a la sombra.",
+      "sourceEnglish": "If you get dizzy, you come down to the shade."
+    },
+    {
+      "spanishInfinitive": "hacer",
+      "englishMeaning": "to do, to make",
+      "sourceSpanish": "Hace mucho calor y hacemos una pausa cada hora.",
+      "sourceEnglish": "It's very hot and we take a break every hour."
+    },
+    {
+      "spanishInfinitive": "llamar",
+      "englishMeaning": "to call",
+      "sourceSpanish": "En ese caso llamaremos al 911 sin esperar.",
+      "sourceEnglish": "In that case we'll call 911 without waiting."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Soutenir l’équipe pendant une semaine de forte chaleur",
+    "objectiveFrench": "Reconnaître la fatigue de l’équipe, expliquer le plan de prévention de la chaleur et demander de signaler tout symptôme sans promettre un délai.",
+    "speakingFrenchInstruction": "Vous dirigez une équipe fatiguée pendant une vague de chaleur. Reconnaissez l’effort, expliquez que les horaires et pauses suivent le plan chaleur du site, assurez l’accès à l’eau et à l’ombre, et demandez de signaler immédiatement tout malaise. Ne garantissez pas la date de fin.",
+    "speakingFrenchOpening": "Je sais que la semaine a été difficile. Parlons du plan chaleur avant de monter.",
+    "grammarFocusFrench": "Futur simple pour annoncer un plan sous réserve des conditions; impératif pour demander de signaler un symptôme.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to stop",
+        "exampleEnglish": "We'll stop at two, before the worst of the heat.",
+        "sourceInfinitiveSpanish": "parar",
+        "infinitiveFrench": "arrêter",
+        "exampleFrench": "Nous arrêterons selon le plan et les conditions."
+      },
+      {
+        "meaningEnglish": "to let someone know",
+        "exampleEnglish": "If you get dizzy, tell me right away.",
+        "sourceInfinitiveSpanish": "avisar",
+        "infinitiveFrench": "prévenir",
+        "exampleFrench": "Si tu te sens mal, préviens-moi tout de suite."
+      },
+      {
+        "meaningEnglish": "to get dizzy",
+        "exampleEnglish": "If you get dizzy, you come down to the shade.",
+        "sourceInfinitiveSpanish": "marearse",
+        "infinitiveFrench": "avoir des étourdissements",
+        "exampleFrench": "Si tu as des étourdissements, préviens-moi et va à l’ombre avec de l’aide."
+      },
+      {
+        "meaningEnglish": "to do, to make",
+        "exampleEnglish": "It's very hot and we take a break every hour.",
+        "sourceInfinitiveSpanish": "hacer",
+        "infinitiveFrench": "faire",
+        "exampleFrench": "Il fait très chaud et nous suivons le plan de pauses."
+      },
+      {
+        "meaningEnglish": "to call",
+        "exampleEnglish": "In that case we'll call 911 without waiting.",
+        "sourceInfinitiveSpanish": "llamar",
+        "infinitiveFrench": "appeler",
+        "exampleFrench": "En cas d’urgence, nous appellerons les secours locaux selon le protocole du site."
+      }
+    ],
+    "reviewGapsEnglish": [
+      "Qualified occupational heat-safety and medical review required for symptom language, heat exhaustion/stroke distinction, hydration, electrolytes, break frequency, work hours and emergency response. US 911 in source must not be generalized to France/Québec without locale-specific routing.",
+      "Qualified labor/supervisor review required for scheduling and Friday commitment; neither draft nor source constitutes a safe work plan."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "master-roofing:11:fr-en:card:2",
+        "master-roofing:11:fr-en:card:3",
+        "master-roofing:11:fr-en:card:18",
+        "master-roofing:11:fr-en:reader:1",
+        "master-roofing:11:fr-en:reader:2"
+      ],
+      "question": "Review heat exhaustion versus heatstroke wording, symptom severity and the urgent response. Keep clinical vocabulary direct and obtain qualified medical and occupational heat-safety review before a scored answer."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:11:fr-en:card:7",
+        "master-roofing:11:fr-en:card:9",
+        "master-roofing:11:fr-en:card:16",
+        "master-roofing:11:fr-en:reader:5",
+        "master-roofing:11:fr-en:reader:6",
+        "master-roofing:11:fr-en:reader:8",
+        "master-roofing:11:fr-en:reader:10"
+      ],
+      "question": "Resolve exact source meaning for the six-to-two schedule, hourly shaded water breaks and electrolytes. The Spanish source does not provide a complete site-specific heat prevention plan."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:11:fr-en:card:19",
+        "master-roofing:11:fr-en:card:20",
+        "master-roofing:11:fr-en:reader:11",
+        "master-roofing:11:fr-en:reader:12",
+        "master-roofing:11:fr-en:reader:13"
+      ],
+      "question": "The source says more than 100 degrees without naming a temperature scale. Archived French supplies Fahrenheit. Require a source and locale decision before selecting that unit."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:11:fr-en:card:21",
+        "master-roofing:11:fr-en:reader:14",
+        "master-roofing:11:fr-en:reader:15"
+      ],
+      "question": "The source uses 911. Preserve the source context, and require locale review before presenting an emergency number as general French-language advice."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:11:fr-en:card:22",
+        "master-roofing:11:fr-en:reader:16"
+      ],
+      "question": "Review the Friday promise and motivational wording against the source while retaining the explicit no-risk safety condition. Author separate French speaking and six mode prompt/target pairs."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive mode labels are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedClinicalReview": false,
+    "qualifiedLocaleReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

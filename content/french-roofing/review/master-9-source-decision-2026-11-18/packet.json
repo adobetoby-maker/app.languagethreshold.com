@@ -1,0 +1,678 @@
+{
+  "schema": "french-roofing-master9-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "master-roofing",
+  "sourceHeaderModuleId": "master-roofing",
+  "proposedLessonId": "master-roofing:9",
+  "proposedPairId": "master-roofing:9:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/master-7-9-draft.json": "aac17166036d739fd1af9ca58bd57ccc95d4ea5337f998d639331f37de14b53c"
+  },
+  "orderedSourceRowsSha256": "8d6c95363f4c617a205305b1b92f62655b192865840b1589e8b6ace137b780d7",
+  "sourceTitleEnglish": "Feedback on a Bad Course",
+  "sourceObjectiveEnglish": "Give a crew member private, specific feedback on a crooked course and agree on the fix",
+  "sourceFocusEnglish": "Present subjunctive after wishes and recommendations",
+  "sourceGrammarExamples": [
+    {
+      "es": "Quiero que mires esta hilera conmigo.",
+      "en": "I want you to look at this course with me."
+    },
+    {
+      "es": "Es mejor que lo arreglemos ahora.",
+      "en": "It's better that we fix it now."
+    }
+  ],
+  "sourceLessonType": "People",
+  "sourceBlock": "C",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is a crew member whose course is off: talk privately, ask what happened, say what you want them to do with quiero que, es mejor que and te pido que, and get agreement on the fix.",
+  "sourceReaderTitleSpanish": "A Word in Private",
+  "cards": [
+    {
+      "id": "master-roofing:9:fr-en:card:1",
+      "legacySourceRef": "master-roofing:9:words:1",
+      "sourceSpanish": "la hilera torcida",
+      "sourceEnglish": "the crooked course",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le rang de bardeaux mal aligné",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:2",
+      "legacySourceRef": "master-roofing:9:words:2",
+      "sourceSpanish": "la exposición",
+      "sourceEnglish": "the exposure (visible part of the shingle)",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le pureau visible",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:3",
+      "legacySourceRef": "master-roofing:9:words:3",
+      "sourceSpanish": "el desnivel",
+      "sourceEnglish": "the unevenness",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "l’irrégularité",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:4",
+      "legacySourceRef": "master-roofing:9:words:4",
+      "sourceSpanish": "la medida",
+      "sourceEnglish": "the measurement",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la mesure",
+      "conditionalFrench": "la mesure",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:5",
+      "legacySourceRef": "master-roofing:9:words:5",
+      "sourceSpanish": "la cinta métrica",
+      "sourceEnglish": "the tape measure",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le mètre ruban",
+      "conditionalFrench": "le mètre ruban",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:6",
+      "legacySourceRef": "master-roofing:9:words:6",
+      "sourceSpanish": "el error",
+      "sourceEnglish": "the mistake",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "l’erreur",
+      "conditionalFrench": "l’erreur",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:7",
+      "legacySourceRef": "master-roofing:9:words:7",
+      "sourceSpanish": "la corrección",
+      "sourceEnglish": "the correction",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la correction",
+      "conditionalFrench": "la correction",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:8",
+      "legacySourceRef": "master-roofing:9:words:8",
+      "sourceSpanish": "la retroalimentación",
+      "sourceEnglish": "the feedback",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le retour d’information",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:9",
+      "legacySourceRef": "master-roofing:9:words:9",
+      "sourceSpanish": "en privado",
+      "sourceEnglish": "in private",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "en privé",
+      "conditionalFrench": "en privé",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:10",
+      "legacySourceRef": "master-roofing:9:words:10",
+      "sourceSpanish": "la calidad",
+      "sourceEnglish": "the quality",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la qualité",
+      "conditionalFrench": "la qualité",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:11",
+      "legacySourceRef": "master-roofing:9:words:11",
+      "sourceSpanish": "el alineamiento",
+      "sourceEnglish": "the alignment",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "l’alignement",
+      "conditionalFrench": "l’alignement",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:12",
+      "legacySourceRef": "master-roofing:9:words:12",
+      "sourceSpanish": "la confianza",
+      "sourceEnglish": "the trust",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la confiance",
+      "conditionalFrench": "la confiance",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:13",
+      "legacySourceRef": "master-roofing:9:words:13",
+      "sourceSpanish": "el ritmo",
+      "sourceEnglish": "the pace",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le rythme",
+      "conditionalFrench": "le rythme",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:14",
+      "legacySourceRef": "master-roofing:9:words:14",
+      "sourceSpanish": "el trabajador",
+      "sourceEnglish": "the worker",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "l’ouvrier",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:15",
+      "legacySourceRef": "master-roofing:9:words:15",
+      "sourceSpanish": "Quiero que mires esta hilera conmigo.",
+      "sourceEnglish": "I want you to look at this course with me.",
+      "kind": "phrase",
+      "sourceNoteSpanish": "informal",
+      "archivedFrenchEvidence": "Je voudrais que tu regardes ce rang avec moi.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:16",
+      "legacySourceRef": "master-roofing:9:words:16",
+      "sourceSpanish": "No es para regañarte.",
+      "sourceEnglish": "It's not to scold you.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Ce n’est pas pour te gronder.",
+      "conditionalFrench": "Ce n’est pas pour te gronder.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:17",
+      "legacySourceRef": "master-roofing:9:words:17",
+      "sourceSpanish": "¿Qué pasó aquí, según tú?",
+      "sourceEnglish": "What happened here, in your view?",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Que s’est-il passé ici, à ton avis ?",
+      "conditionalFrench": "Que s’est-il passé ici, à ton avis ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:18",
+      "legacySourceRef": "master-roofing:9:words:18",
+      "sourceSpanish": "Es mejor que lo arreglemos ahora.",
+      "sourceEnglish": "It's better that we fix it now.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Il vaut mieux corriger cela maintenant.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:19",
+      "legacySourceRef": "master-roofing:9:words:19",
+      "sourceSpanish": "Te pido que midas cada tres hileras.",
+      "sourceEnglish": "I'm asking you to measure every three courses.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Je te demande de mesurer tous les trois rangs.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:20",
+      "legacySourceRef": "master-roofing:9:words:20",
+      "sourceSpanish": "Prefiero que me preguntes antes.",
+      "sourceEnglish": "I'd rather you ask me first.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Je préférerais que tu me demandes d’abord.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:21",
+      "legacySourceRef": "master-roofing:9:words:21",
+      "sourceSpanish": "Le pido que revise la exposición.",
+      "sourceEnglish": "I'm asking you to check the exposure.",
+      "kind": "phrase",
+      "sourceNoteSpanish": "formal",
+      "archivedFrenchEvidence": "Je vous demande de vérifier le pureau visible.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:9:fr-en:reader:1",
+      "legacySourceRef": "master-roofing:9:passage:1",
+      "sourceSpanish": "Por la tarde, Rogelio notó que una hilera torcida subía hacia la izquierda en el lado de Julio.",
+      "sourceEnglish": "In the afternoon, Rogelio noticed that a crooked course was climbing to the left on Julio's side.",
+      "archivedFrenchEvidence": "L’après-midi, Rogelio a remarqué qu’un rang mal aligné montait vers la gauche du côté où travaillait Julio.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:reader:2",
+      "legacySourceRef": "master-roofing:9:passage:2",
+      "sourceSpanish": "Julio trabajaba rápido, pero la exposición cambiaba de una teja a otra.",
+      "sourceEnglish": "Julio was working fast, but the exposure changed from one shingle to the next.",
+      "archivedFrenchEvidence": "Julio travaillait vite, mais le pureau visible changeait d’un bardeau à l’autre.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:reader:3",
+      "legacySourceRef": "master-roofing:9:passage:3",
+      "sourceSpanish": "Rogelio no dijo nada delante de la cuadrilla y lo llamó aparte.",
+      "sourceEnglish": "Rogelio didn't say anything in front of the crew and called him aside.",
+      "archivedFrenchEvidence": "Rogelio n’a rien dit devant l’équipe et l’a appelé à l’écart.",
+      "conditionalFrench": "Rogelio n’a rien dit devant l’équipe et l’a appelé à l’écart.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:reader:4",
+      "legacySourceRef": "master-roofing:9:passage:4",
+      "sourceSpanish": "Rogelio: Julio, quiero que mires esta hilera conmigo, en privado.",
+      "sourceEnglish": "Rogelio: Julio, I want you to look at this course with me, in private.",
+      "archivedFrenchEvidence": "Rogelio : « Julio, je voudrais que tu regardes ce rang avec moi, en privé. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:reader:5",
+      "legacySourceRef": "master-roofing:9:passage:5",
+      "sourceSpanish": "Rogelio: No es para regañarte; tu ritmo es bueno y tengo confianza en ti.",
+      "sourceEnglish": "Rogelio: It's not to scold you; your pace is good and I trust you.",
+      "archivedFrenchEvidence": "Rogelio : « Ce n’est pas pour te gronder; ton rythme est bon et j’ai confiance en toi. »",
+      "conditionalFrench": "Rogelio : « Ce n’est pas pour te gronder; ton rythme est bon et j’ai confiance en toi. »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:reader:6",
+      "legacySourceRef": "master-roofing:9:passage:6",
+      "sourceSpanish": "Rogelio: ¿Qué pasó aquí, según tú?",
+      "sourceEnglish": "Rogelio: What happened here, in your view?",
+      "archivedFrenchEvidence": "Rogelio : « Que s’est-il passé ici, à ton avis ? »",
+      "conditionalFrench": "Rogelio : « Que s’est-il passé ici, à ton avis ? »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:reader:7",
+      "legacySourceRef": "master-roofing:9:passage:7",
+      "sourceSpanish": "Julio: Creo que no medí desde la última línea y lo hice a ojo.",
+      "sourceEnglish": "Julio: I think I didn't measure from the last line and I did it by eye.",
+      "archivedFrenchEvidence": "Julio : « Je crois que je n’ai pas mesuré depuis la dernière ligne et que j’ai travaillé à l’œil. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:reader:8",
+      "legacySourceRef": "master-roofing:9:passage:8",
+      "sourceSpanish": "Rogelio: Eso pasa, pero con este desnivel el error se ve desde la calle.",
+      "sourceEnglish": "Rogelio: That happens, but with this unevenness the mistake can be seen from the street.",
+      "archivedFrenchEvidence": "Rogelio : « Cela arrive, mais cette irrégularité est visible depuis la rue. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:reader:9",
+      "legacySourceRef": "master-roofing:9:passage:9",
+      "sourceSpanish": "Rogelio: Es mejor que lo arreglemos ahora, antes de que la hilera suba más.",
+      "sourceEnglish": "Rogelio: It's better that we fix it now, before the course climbs any higher.",
+      "archivedFrenchEvidence": "Rogelio : « Il vaut mieux corriger cela maintenant, avant que le rang ne monte davantage. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:reader:10",
+      "legacySourceRef": "master-roofing:9:passage:10",
+      "sourceSpanish": "Rogelio: Te pido que midas cada tres hileras con la cinta métrica y que marques la medida en la teja.",
+      "sourceEnglish": "Rogelio: I'm asking you to measure every three courses with the tape measure and to mark the measurement on the shingle.",
+      "archivedFrenchEvidence": "Rogelio : « Je te demande de mesurer tous les trois rangs avec le mètre et de marquer la mesure sur le bardeau. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:reader:11",
+      "legacySourceRef": "master-roofing:9:passage:11",
+      "sourceSpanish": "Rogelio: Prefiero que me preguntes antes, si no estás seguro del alineamiento.",
+      "sourceEnglish": "Rogelio: I'd rather you ask me first, if you're not sure about the alignment.",
+      "archivedFrenchEvidence": "Rogelio : « Si tu n’es pas sûr de l’alignement, je préférerais que tu me demandes d’abord. »",
+      "conditionalFrench": "Rogelio : « Si tu n’es pas sûr de l’alignement, je préférerais que tu me demandes d’abord. »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:reader:12",
+      "legacySourceRef": "master-roofing:9:passage:12",
+      "sourceSpanish": "Julio: Está bien, quito estas cuatro hileras y las vuelvo a poner.",
+      "sourceEnglish": "Julio: All right, I'll take off these four courses and put them back on.",
+      "archivedFrenchEvidence": "Julio : « D’accord, je vais déposer ces quatre rangs et les reposer. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:reader:13",
+      "legacySourceRef": "master-roofing:9:passage:13",
+      "sourceSpanish": "Rogelio: Gracias; la corrección es parte del trabajo, y la calidad es de todos.",
+      "sourceEnglish": "Rogelio: Thanks; correcting is part of the job, and quality belongs to everyone.",
+      "archivedFrenchEvidence": "Rogelio : « Merci; corriger fait partie du travail, et la qualité concerne toute l’équipe. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:reader:14",
+      "legacySourceRef": "master-roofing:9:passage:14",
+      "sourceSpanish": "Más tarde llegó el supervisor de la compañía, el señor Soto, y vio las tejas en el suelo.",
+      "sourceEnglish": "Later the company supervisor, Mr. Soto, arrived and saw the shingles on the ground.",
+      "archivedFrenchEvidence": "Plus tard, le responsable de l’entreprise, M. Soto, est arrivé et a vu les bardeaux au sol.",
+      "conditionalFrench": "Plus tard, le responsable de l’entreprise, M. Soto, est arrivé et a vu les bardeaux au sol.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:reader:15",
+      "legacySourceRef": "master-roofing:9:passage:15",
+      "sourceSpanish": "Rogelio: Señor Soto, le pido que revise la exposición conmigo; ya estamos corrigiendo una hilera.",
+      "sourceEnglish": "Rogelio: Mr. Soto, I'm asking you to check the exposure with me; we're already correcting a course.",
+      "archivedFrenchEvidence": "Rogelio : « Monsieur Soto, je vous demande de vérifier le pureau avec moi; nous corrigeons déjà un rang. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:fr-en:reader:16",
+      "legacySourceRef": "master-roofing:9:passage:16",
+      "sourceSpanish": "Para Rogelio, la retroalimentación funciona mejor así: clara, en privado y con una solución que el trabajador entienda.",
+      "sourceEnglish": "For Rogelio, feedback works best like this: clear, in private, and with a solution the worker understands.",
+      "archivedFrenchEvidence": "Pour Rogelio, un retour utile est clair, donné en privé et accompagné d’une solution comprise par l’ouvrier.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "mirar",
+      "englishMeaning": "to look at",
+      "sourceSpanish": "Quiero que mires esta hilera conmigo.",
+      "sourceEnglish": "I want you to look at this course with me."
+    },
+    {
+      "spanishInfinitive": "arreglar",
+      "englishMeaning": "to fix",
+      "sourceSpanish": "Es mejor que lo arreglemos ahora.",
+      "sourceEnglish": "It's better that we fix it now."
+    },
+    {
+      "spanishInfinitive": "pedir",
+      "englishMeaning": "to ask for",
+      "sourceSpanish": "Te pido que midas cada tres hileras.",
+      "sourceEnglish": "I'm asking you to measure every three courses."
+    },
+    {
+      "spanishInfinitive": "preguntar",
+      "englishMeaning": "to ask (a question)",
+      "sourceSpanish": "Si no estás seguro, pregúntame antes.",
+      "sourceEnglish": "If you're not sure, ask me first."
+    },
+    {
+      "spanishInfinitive": "preferir",
+      "englishMeaning": "to prefer",
+      "sourceSpanish": "Prefiero que me preguntes antes.",
+      "sourceEnglish": "I'd rather you ask me first."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Donner un retour privé sur un rang mal aligné",
+    "objectiveFrench": "Parler en privé d’un rang de bardeaux mal aligné, demander ce qui s’est passé et convenir d’une correction selon le produit.",
+    "speakingFrenchInstruction": "Vous êtes chef d’équipe. Parlez en privé au collègue, demandez ce qu’il a remarqué, indiquez l’écart observé et demandez de vérifier la méthode et le motif du fabricant avant toute reprise; évitez de fixer une mesure ou une dépose universelle.",
+    "speakingFrenchOpening": "Julio, pouvons-nous regarder ce rang ensemble, en privé ? Je voudrais comprendre ce qui s’est passé.",
+    "grammarFocusFrench": "Je voudrais que + subjonctif pour une demande; il vaut mieux + infinitif pour une recommandation prudente.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to look at",
+        "exampleEnglish": "I want you to look at this course with me.",
+        "sourceInfinitiveSpanish": "mirar",
+        "infinitiveFrench": "regarder",
+        "exampleFrench": "Je voudrais que tu regardes ce rang avec moi."
+      },
+      {
+        "meaningEnglish": "to fix",
+        "exampleEnglish": "It's better that we fix it now.",
+        "sourceInfinitiveSpanish": "arreglar",
+        "infinitiveFrench": "corriger",
+        "exampleFrench": "Il vaut mieux corriger cela maintenant."
+      },
+      {
+        "meaningEnglish": "to ask for",
+        "exampleEnglish": "I'm asking you to measure every three courses.",
+        "sourceInfinitiveSpanish": "pedir",
+        "infinitiveFrench": "demander",
+        "exampleFrench": "Je te demande de mesurer tous les trois rangs."
+      },
+      {
+        "meaningEnglish": "to ask (a question)",
+        "exampleEnglish": "If you're not sure, ask me first.",
+        "sourceInfinitiveSpanish": "preguntar",
+        "infinitiveFrench": "poser une question",
+        "exampleFrench": "Si tu n’es pas sûr, pose-moi d’abord une question."
+      },
+      {
+        "meaningEnglish": "to prefer",
+        "exampleEnglish": "I'd rather you ask me first.",
+        "sourceInfinitiveSpanish": "preferir",
+        "infinitiveFrench": "préférer",
+        "exampleFrench": "Je préférerais que tu me demandes d’abord."
+      }
+    ],
+    "reviewGapsEnglish": [
+      "Qualified roofing/product review is required for the every-three-course measurement, four-course removal, exposure tolerance and correction method before release.",
+      "Qualified French regional review is needed for pureau and crew-feedback register; the Spanish subjunctive source focus is adapted to French syntax, not copied as a rule."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "master-roofing:9:fr-en:card:1",
+        "master-roofing:9:fr-en:card:2",
+        "master-roofing:9:fr-en:card:3",
+        "master-roofing:9:fr-en:reader:1",
+        "master-roofing:9:fr-en:reader:2",
+        "master-roofing:9:fr-en:reader:15"
+      ],
+      "question": "Choose context-specific French roofing senses for course, shingle exposure/pureau and unevenness; preserve the source's distinction between an off line, varying visible shingle exposure and a measurement error. Check France and Québec usage."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:9:fr-en:card:15",
+        "master-roofing:9:fr-en:card:18",
+        "master-roofing:9:fr-en:card:20",
+        "master-roofing:9:fr-en:reader:4",
+        "master-roofing:9:fr-en:reader:9",
+        "master-roofing:9:fr-en:reader:11"
+      ],
+      "question": "Archived French softens source want to would like and some we-fix instructions to impersonal corrections. A qualified French/source decision must preserve the speaker, request strength and shared repair action while using natural grammar."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:9:fr-en:card:19",
+        "master-roofing:9:fr-en:reader:10",
+        "master-roofing:9:fr-en:reader:12"
+      ],
+      "question": "The fictional source asks for measurement every three courses, marking a shingle and removing four courses. Confirm product/system and safe rework scope before selecting these as scored field instructions; do not generalize them into universal nailing or removal procedure."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:9:fr-en:card:8",
+        "master-roofing:9:fr-en:card:14",
+        "master-roofing:9:fr-en:card:21",
+        "master-roofing:9:fr-en:reader:8",
+        "master-roofing:9:fr-en:reader:13",
+        "master-roofing:9:fr-en:reader:16"
+      ],
+      "question": "Keep the private feedback, visible error, worker trust and later formal address to Mr. Soto distinct. Archived wording changes some exact English claims or register; settle the contextual dictionary and dialogue senses before a learner answer is selected."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:9:fr-en:card:15",
+        "master-roofing:9:fr-en:card:18",
+        "master-roofing:9:fr-en:reader:4",
+        "master-roofing:9:fr-en:reader:9"
+      ],
+      "question": "The source teaches Spanish present subjunctive after wishes and recommendations. Author a French grammar objective and six actual prompt/target activities for this scenario; archived mode labels do not supply them."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive mode labels are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

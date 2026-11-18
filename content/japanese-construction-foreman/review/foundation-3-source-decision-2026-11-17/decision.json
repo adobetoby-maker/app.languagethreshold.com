@@ -1,0 +1,304 @@
+{
+  "schema": 1,
+  "track": "construction-foreman",
+  "stage": "foundation",
+  "pairKey": "Japanese:English",
+  "lessonKey": "foundation:3",
+  "stableLessonId": "foundation-construction-foreman:3:ja-en",
+  "candidateRevision": "foundation-construction-foreman:3:ja-en:source-decision-v1",
+  "sourceCommit": "6e1c745b0e8a6e234be33651a49fbf8606fd0618",
+  "source": {
+    "curriculumPath": "src/data/core60/es/foundation-construction-foreman.json",
+    "curriculumSha256": "d615822646bf94c386633b2bdc113ac1c7d0cdb310549181874d74aba5996df5",
+    "readerPath": "public/lesson-content/es/foundation-construction-foreman.json",
+    "readerSha256": "d8e2b50125606f19111889fe816a0733f9685e5933cbc2c86e17c4f08bcd8ded",
+    "japaneseDraftPath": "content/japanese-construction-foreman/foundation-draft.json",
+    "japaneseDraftSha256": "061c6bb30eae842e3c092c8dc69d279e0630fad2157db304499267ec263720ae",
+    "objectiveEnglish": "Say who people are on site and describe what is broken, loose, level or dry.",
+    "focusSpanish": "ser for what something or someone is, estar for its condition or location",
+    "readerTitleSpanish": "El primer día de Diego"
+  },
+  "archivedDraft": {
+    "title": "Name the tool",
+    "scene": "New helper Kobayashi checks tools with Sato at the morning storage area; the hammer is near Kobayashi and the box and saw are near Sato",
+    "termCount": 10,
+    "readerCount": 8,
+    "materialDrift": [
+      "Older Japanese Foundation 3 teaches demonstratives/tool ownership with Sato/Kobayashi; source teaches crew roles/observed conditions with Luis/Pedro/Ana/Diego."
+    ]
+  },
+  "reviewed": false,
+  "cards": [
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:card:01",
+      "position": 1,
+      "sourceSpanish": "el carpintero",
+      "sourceEnglish": "the carpenter",
+      "kind": "term",
+      "japaneseDraft": "大工",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "For a woman: la carpintera."
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:card:02",
+      "position": 2,
+      "sourceSpanish": "el electricista",
+      "sourceEnglish": "the electrician",
+      "kind": "term",
+      "japaneseDraft": "電気作業員",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "Same word for a woman, with la: la electricista."
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:card:03",
+      "position": 3,
+      "sourceSpanish": "el concreto",
+      "sourceEnglish": "the concrete",
+      "kind": "term",
+      "japaneseDraft": "コンクリート",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:card:04",
+      "position": 4,
+      "sourceSpanish": "roto",
+      "sourceEnglish": "broken",
+      "kind": "term",
+      "japaneseDraft": "壊れた",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "rota with feminine nouns: la escalera está rota."
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:card:05",
+      "position": 5,
+      "sourceSpanish": "suelto",
+      "sourceEnglish": "loose",
+      "kind": "term",
+      "japaneseDraft": "緩んでいる",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:card:06",
+      "position": 6,
+      "sourceSpanish": "nivelado",
+      "sourceEnglish": "level",
+      "kind": "term",
+      "japaneseDraft": null,
+      "decisionOpen": true,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:card:07",
+      "position": 7,
+      "sourceSpanish": "seco",
+      "sourceEnglish": "dry",
+      "kind": "term",
+      "japaneseDraft": "乾いている",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:card:08",
+      "position": 8,
+      "sourceSpanish": "fresco",
+      "sourceEnglish": "wet, not set yet (concrete)",
+      "kind": "term",
+      "japaneseDraft": "まだ固まっていない",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "Concreto fresco is concrete that has not set."
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:card:09",
+      "position": 9,
+      "sourceSpanish": "limpio",
+      "sourceEnglish": "clean",
+      "kind": "term",
+      "japaneseDraft": "きれいな",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:card:10",
+      "position": 10,
+      "sourceSpanish": "abierto",
+      "sourceEnglish": "open",
+      "kind": "term",
+      "japaneseDraft": "開いている",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:card:11",
+      "position": 11,
+      "sourceSpanish": "cerrado",
+      "sourceEnglish": "closed",
+      "kind": "term",
+      "japaneseDraft": "閉まっている",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:card:12",
+      "position": 12,
+      "sourceSpanish": "Soy el mayordomo de esta obra.",
+      "sourceEnglish": "I'm the foreman on this job.",
+      "kind": "phrase",
+      "japaneseDraft": "私はこの現場の職長です。",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "Mayordomo is common on US jobsites; capataz is also used. ser: who you are."
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:card:13",
+      "position": 13,
+      "sourceSpanish": "Él es carpintero y ella es electricista.",
+      "sourceEnglish": "He's a carpenter and she's an electrician.",
+      "kind": "phrase",
+      "japaneseDraft": "彼は大工で、彼女は電気作業員です。",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "No un or una after ser for a job."
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:card:14",
+      "position": 14,
+      "sourceSpanish": "El andamio está suelto aquí.",
+      "sourceEnglish": "The scaffold is loose here.",
+      "kind": "phrase",
+      "japaneseDraft": "ここの足場は緩んでいます。",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "estar: a condition that can change."
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:card:15",
+      "position": 15,
+      "sourceSpanish": "El concreto está fresco.",
+      "sourceEnglish": "The concrete is still wet.",
+      "kind": "phrase",
+      "japaneseDraft": "コンクリートはまだ固まっていません。",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": null
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:card:16",
+      "position": 16,
+      "sourceSpanish": "Las herramientas están en la troca.",
+      "sourceEnglish": "The tools are in the truck.",
+      "kind": "phrase",
+      "japaneseDraft": "道具はトラックの中にあります。",
+      "decisionOpen": false,
+      "sourceSpanishNoteInternal": "estar for location. Troca is common US Spanish for pickup truck."
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:card:17",
+      "position": 17,
+      "sourceSpanish": "¿Está nivelada la pared?",
+      "sourceEnglish": "Is the wall level?",
+      "kind": "phrase",
+      "japaneseDraft": null,
+      "decisionOpen": true,
+      "sourceSpanishNoteInternal": null
+    }
+  ],
+  "reader": [
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:reader:01",
+      "position": 1,
+      "sourceSpanish": "Luis: Soy el mayordomo de esta obra.",
+      "sourceEnglish": "Luis: I'm the foreman on this job.",
+      "japaneseDraft": "ルイス：私はこの現場の職長です。",
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:reader:02",
+      "position": 2,
+      "sourceSpanish": "Luis: Pedro es el carpintero y Ana es la electricista.",
+      "sourceEnglish": "Luis: Pedro is the carpenter and Ana is the electrician.",
+      "japaneseDraft": "ルイス：ペドロは大工で、アナは電気作業員です。",
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:reader:03",
+      "position": 3,
+      "sourceSpanish": "Luis: El andamio está suelto aquí.",
+      "sourceEnglish": "Luis: The scaffold is loose here.",
+      "japaneseDraft": "ルイス：ここの足場は緩んでいます。",
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:reader:04",
+      "position": 4,
+      "sourceSpanish": "Luis: Pedro repara una tabla rota del andamio.",
+      "sourceEnglish": "Luis: Pedro is repairing a broken board on the scaffold.",
+      "japaneseDraft": "ルイス：ペドロは足場の壊れた板を修理しています。",
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:reader:05",
+      "position": 5,
+      "sourceSpanish": "Diego: ¿Está nivelada la pared?",
+      "sourceEnglish": "Diego: Is the wall level?",
+      "japaneseDraft": null,
+      "decisionOpen": true
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:reader:06",
+      "position": 6,
+      "sourceSpanish": "Luis: Sí, la pared está nivelada y seca.",
+      "sourceEnglish": "Luis: Yes, the wall is level and dry.",
+      "japaneseDraft": null,
+      "decisionOpen": true
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:reader:07",
+      "position": 7,
+      "sourceSpanish": "Luis: El concreto está fresco.",
+      "sourceEnglish": "Luis: The concrete is still wet.",
+      "japaneseDraft": "ルイス：コンクリートはまだ固まっていません。",
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:reader:08",
+      "position": 8,
+      "sourceSpanish": "Luis: La troca está abierta y las herramientas están limpias.",
+      "sourceEnglish": "Luis: The truck is open and the tools are clean.",
+      "japaneseDraft": "ルイス：トラックは開いていて、道具はきれいです。",
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:3:ja-en:source-decision-v1:reader:09",
+      "position": 9,
+      "sourceSpanish": "Luis: El panel eléctrico está cerrado.",
+      "sourceEnglish": "Luis: The electrical panel is closed.",
+      "japaneseDraft": null,
+      "decisionOpen": true
+    }
+  ],
+  "conditionalReviewOnly": {
+    "wallLevel": [
+      "壁は水平ですか。",
+      "壁は垂直ですか。",
+      "壁は水平・垂直が合っていますか。"
+    ],
+    "electricalPanel": [
+      "分電盤は閉まっています。",
+      "電気盤は閉まっています。"
+    ]
+  },
+  "decisionsNeeded": [
+    "Decide whether source wall-level means horizontal level, vertical plumb or another construction check; align card 6, card 17 and Reader 5–6.",
+    "Identify what electrical panel the source scene means before selecting Reader 9 terminology.",
+    "Review the direct loose-scaffold, broken-board and unset-concrete reports for Japanese construction register without adding a technical procedure.",
+    "Author six actual mode prompts and targets, forms, speaking, contextual dictionary and saved-item mapping before learner use."
+  ],
+  "gates": {
+    "ownerPage": false,
+    "learnerRegistered": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "progress": false,
+    "v4Imported": false
+  }
+}

@@ -1,0 +1,11 @@
+# Japanese Roofing Foundation 3 source review
+
+This inert packet pins 12 Spanish/English curriculum cards and seven aligned Reader turns to the current Roofing Foundation 3 sources. It preserves the stage-local lesson ID and revision-scoped card/line IDs, and displays unapproved Japanese candidates from the archived draft. It supplies no learner answers or recording scripts.
+
+Five Japanese faces remain unset. Card 6's archived 暑いです means hot weather or air, while the Reader refers to a hot roof surface; card 7's 寒いです narrows the source's broad “cold”; card 8's 班長 is a crew lead while the source card says “the boss.” Reader 1 has the same crew-boss role issue. Reader 7 omits the source's explicit report that the harness is safe and narrows the generic harness to a full-body harness. These cards and turns keep `candidateJapanese: null` pending qualified Japanese and roofing decisions, including how to preserve the source's safety claim without implying a reviewed jobsite assessment.
+
+Reader 5 in the source says the roof **is hot** at two in the afternoon. The archived Japanese says it **becomes hot** then; the packet proposes a static-condition sentence for fluent review. Reader 6 proposes a broader equipment term than the archived tool term. The Spanish ser/estar objective remains source provenance; a Japanese identity, condition and location contrast needs its own qualified curriculum decision.
+
+The archived See, Recall, Hear, Type, Say and Write fields are task labels, not six authored prompt/target activities. Contextual dictionary senses, speaking alignment, exact-text audio, saved-item mapping, exact-pair learner behavior, offline, browser and independent V4 acceptance remain open. Every review and release gate is false. No runtime, owner route, audio registry or progress writer changes.
+
+Run `python3 content/japanese-roofing/review/foundation-3-source-audit-2026-11-17/build.py --check` and `python3 content/japanese-roofing/review/foundation-3-source-audit-2026-11-17/validate.py` from the repository root. These checks establish source and structural fidelity only, not qualified Japanese or roofing review. Claude CLI authentication failed, so no Haiku, Opus or Fable contribution is claimed.

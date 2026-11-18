@@ -1,0 +1,9 @@
+# French Roofing Core 5 — source and fastener decision
+
+This inert packet pins **14 exact current Spanish/English cards**, **eight aligned Reader turns**, five source verb examples and source/archive hashes for *Fasteners & Consumables*. Proposed `core-roofing:5:fr-en` IDs are review references only. The source header still uses `roofing`; stage-local progress and saved-item identity need a deliberate migration before runtime use.
+
+The archived French is separate evidence. Three card faces and three Reader turns are held from even conditional selection: `clous à rondelles de plastique` may name a washer rather than the source's plastic cap nail; `mastic bitumineux` selects a formulation for generic roofing cement; and `prévu pour ce chantier` may weaken the source's specification requirement. The Reader gives a delivery date but does not state a day. The archived verb example's *demain* belongs to the separate source verb example, not the Reader. The source's two boxes are a language example, not a universal job quantity or approved fastener choice. Qualified French and roofing reviewers should resolve these linked meanings before authored modes, speaking, dictionary entries or audio are selected.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, listening, offline, saved-progress, browser and V4 gates are false. No audio was generated or approved; no owner page or runtime route imports this packet. Six authored See/Recall/Hear/Type/Say/Write prompt/target activities, forms, speaking, exact-pair dictionary and device acceptance remain open.
+
+`build.py --check` detects source drift; `validate.py` independently checks current source order, IDs, archived evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural checks and self-check are not qualified review.

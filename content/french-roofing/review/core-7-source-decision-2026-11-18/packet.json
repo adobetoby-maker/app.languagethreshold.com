@@ -1,0 +1,484 @@
+{
+  "schema": "french-roofing-core7-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:7",
+  "proposedPairId": "core-roofing:7:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-7-9-draft.json": "83865c849df24719e2d7ce8b4ffd8ab2bedf9f33da4e052f611ebe7bc2c20c4f"
+  },
+  "orderedSourceRowsSha256": "5256464aa1794ac3606b3ba1776b87736ae91c6b40b0d5f1627feb02bf997d45",
+  "sourceTitleEnglish": "Tear-Off Scope",
+  "sourceObjectiveEnglish": "Tell the crew exactly what to remove",
+  "sourceSpeakingEnglish": "Give the command 'Tear off everything down to the deck' and ask for confirmation.",
+  "sourceReaderTitleSpanish": "Qué se quita hoy",
+  "cards": [
+    {
+      "id": "core-roofing:7:fr-en:card:1",
+      "legacySourceRef": "roofing:7:words:1",
+      "sourceSpanish": "Desmontaje",
+      "sourceEnglish": "tear-off",
+      "kind": "term",
+      "archivedFrenchEvidence": "la dépose de l’ancienne couverture",
+      "conditionalFrench": "la dépose de l’ancienne couverture",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:card:2",
+      "legacySourceRef": "roofing:7:words:2",
+      "sourceSpanish": "Tejas asfálticas",
+      "sourceEnglish": "shingles",
+      "kind": "term",
+      "archivedFrenchEvidence": "les bardeaux",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:card:3",
+      "legacySourceRef": "roofing:7:words:3",
+      "sourceSpanish": "Cubierta",
+      "sourceEnglish": "deck",
+      "kind": "term",
+      "archivedFrenchEvidence": "le support de couverture",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:card:4",
+      "legacySourceRef": "roofing:7:words:4",
+      "sourceSpanish": "Techo viejo",
+      "sourceEnglish": "old roof",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’ancienne couverture",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:card:5",
+      "legacySourceRef": "roofing:7:words:5",
+      "sourceSpanish": "Capa",
+      "sourceEnglish": "layer",
+      "kind": "term",
+      "archivedFrenchEvidence": "la couche",
+      "conditionalFrench": "la couche",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:card:6",
+      "legacySourceRef": "roofing:7:words:6",
+      "sourceSpanish": "Alcance del trabajo",
+      "sourceEnglish": "scope of work",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’étendue des travaux",
+      "conditionalFrench": "l’étendue des travaux",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:card:7",
+      "legacySourceRef": "roofing:7:words:7",
+      "sourceSpanish": "Sub-capa / Fieltro",
+      "sourceEnglish": "underlayment",
+      "kind": "term",
+      "archivedFrenchEvidence": "la sous-couche",
+      "conditionalFrench": "la sous-couche",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:card:8",
+      "legacySourceRef": "roofing:7:words:8",
+      "sourceSpanish": "Barreta",
+      "sourceEnglish": "pry bar",
+      "kind": "term",
+      "archivedFrenchEvidence": "le pied-de-biche",
+      "conditionalFrench": "le pied-de-biche",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:card:9",
+      "legacySourceRef": "roofing:7:words:9",
+      "sourceSpanish": "Tapajuntas / Flashing",
+      "sourceEnglish": "flashing",
+      "kind": "term",
+      "archivedFrenchEvidence": "le solin",
+      "conditionalFrench": "le solin",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:card:10",
+      "legacySourceRef": "roofing:7:words:10",
+      "sourceSpanish": "Quiten todo hasta llegar a la cubierta.",
+      "sourceEnglish": "Tear off everything down to the deck.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Déposez toute la couverture jusqu’au support.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:card:11",
+      "legacySourceRef": "roofing:7:words:11",
+      "sourceSpanish": "Tiren las tejas al contenedor.",
+      "sourceEnglish": "Throw the shingles into the dumpster.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Jetez les bardeaux dans la benne.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:card:12",
+      "legacySourceRef": "roofing:7:words:12",
+      "sourceSpanish": "Quiten todas las capas.",
+      "sourceEnglish": "Remove all the layers.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Retirez toutes les couches.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:card:13",
+      "legacySourceRef": "roofing:7:words:13",
+      "sourceSpanish": "Quiten también el tapajuntas.",
+      "sourceEnglish": "Tear off the flashing too.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Déposez aussi les solins.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:card:14",
+      "legacySourceRef": "roofing:7:words:14",
+      "sourceSpanish": "¿Entienden qué hay que quitar?",
+      "sourceEnglish": "Do you understand what must be removed?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Comprenez-vous ce qui doit être retiré ?",
+      "conditionalFrench": "Comprenez-vous ce qui doit être retiré ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:card:15",
+      "legacySourceRef": "roofing:7:words:15",
+      "sourceSpanish": "¿Está claro?",
+      "sourceEnglish": "Is that clear?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Est-ce clair ?",
+      "conditionalFrench": "Est-ce clair ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:7:fr-en:reader:1",
+      "legacySourceRef": "roofing:7:passage:1",
+      "sourceSpanish": "Hoy empieza el desmontaje del techo viejo.",
+      "sourceEnglish": "Today the tear-off of the old roof begins.",
+      "archivedFrenchEvidence": "Aujourd’hui, la dépose de l’ancienne couverture commence.",
+      "conditionalFrench": "Aujourd’hui, la dépose de l’ancienne couverture commence.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:reader:2",
+      "legacySourceRef": "roofing:7:passage:2",
+      "sourceSpanish": "El capataz explica el alcance del trabajo.",
+      "sourceEnglish": "The foreman explains the scope of work.",
+      "archivedFrenchEvidence": "Le contremaître explique l’étendue des travaux.",
+      "conditionalFrench": "Le contremaître explique l’étendue des travaux.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:reader:3",
+      "legacySourceRef": "roofing:7:passage:3",
+      "sourceSpanish": "Quiten todo hasta llegar a la cubierta.",
+      "sourceEnglish": "Tear off everything down to the deck.",
+      "archivedFrenchEvidence": "Déposez toute la couverture jusqu’au support.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:reader:4",
+      "legacySourceRef": "roofing:7:passage:4",
+      "sourceSpanish": "Quiten todas las capas, también la sub-capa.",
+      "sourceEnglish": "Remove all the layers, including the underlayment.",
+      "archivedFrenchEvidence": "Retirez toutes les couches, y compris la sous-couche.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:reader:5",
+      "legacySourceRef": "roofing:7:passage:5",
+      "sourceSpanish": "Quiten también el tapajuntas.",
+      "sourceEnglish": "Tear off the flashing too.",
+      "archivedFrenchEvidence": "Déposez aussi les solins.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:reader:6",
+      "legacySourceRef": "roofing:7:passage:6",
+      "sourceSpanish": "Usen la barreta con cuidado.",
+      "sourceEnglish": "Use the pry bar carefully.",
+      "archivedFrenchEvidence": "Utilisez le pied-de-biche avec précaution.",
+      "conditionalFrench": "Utilisez le pied-de-biche avec précaution.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:reader:7",
+      "legacySourceRef": "roofing:7:passage:7",
+      "sourceSpanish": "Tiren las tejas al contenedor.",
+      "sourceEnglish": "Throw the shingles into the dumpster.",
+      "archivedFrenchEvidence": "Jetez les bardeaux dans la benne.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:reader:8",
+      "legacySourceRef": "roofing:7:passage:8",
+      "sourceSpanish": "¿Entienden qué hay que quitar?",
+      "sourceEnglish": "Do you understand what must be removed?",
+      "archivedFrenchEvidence": "Comprenez-vous ce qui doit être retiré ?",
+      "conditionalFrench": "Comprenez-vous ce qui doit être retiré ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:reader:9",
+      "legacySourceRef": "roofing:7:passage:9",
+      "sourceSpanish": "¿Está claro?",
+      "sourceEnglish": "Is that clear?",
+      "archivedFrenchEvidence": "Est-ce clair ?",
+      "conditionalFrench": "Est-ce clair ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "quitar",
+      "englishMeaning": "to remove, to tear off",
+      "sourceSpanish": "Quiten todo hasta llegar a la cubierta.",
+      "sourceEnglish": "Tear off everything down to the deck."
+    },
+    {
+      "spanishInfinitive": "tirar",
+      "englishMeaning": "to throw, to toss",
+      "sourceSpanish": "Tiren las tejas al contenedor.",
+      "sourceEnglish": "Throw the shingles into the dumpster."
+    },
+    {
+      "spanishInfinitive": "usar",
+      "englishMeaning": "to use",
+      "sourceSpanish": "Usen la barreta con cuidado.",
+      "sourceEnglish": "Use the pry bar carefully."
+    },
+    {
+      "spanishInfinitive": "entender",
+      "englishMeaning": "to understand",
+      "sourceSpanish": "¿Entienden qué hay que quitar?",
+      "sourceEnglish": "Do you understand what must be removed?"
+    },
+    {
+      "spanishInfinitive": "empezar",
+      "englishMeaning": "to begin, to start",
+      "sourceSpanish": "Hoy empieza el desmontaje del techo viejo.",
+      "sourceEnglish": "Today the tear-off of the old roof begins."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Délimiter la dépose",
+    "objectiveFrench": "Expliquer à l’équipe ce qui doit être déposé selon l’étendue approuvée des travaux.",
+    "speakingFrenchInstruction": "À partir du devis, expliquez à l’équipe les éléments à retirer sur ce chantier précis. Demandez une reformulation et confirmez ce qui doit rester en place.",
+    "speakingFrenchOpening": "Selon le devis de ce chantier, que devons-nous déposer jusqu’au support ? Quels solins doivent rester en place ?",
+    "grammarFocusFrench": "Impératif de politesse pour décrire une tâche; devoir + infinitif; confirmation avec est-ce clair et comprenez-vous.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to remove, to tear off",
+        "exampleEnglish": "Tear off everything down to the deck.",
+        "sourceInfinitiveSpanish": "quitar",
+        "infinitiveFrench": "déposer",
+        "exampleFrench": "Déposez toute la couverture jusqu’au support."
+      },
+      {
+        "meaningEnglish": "to throw, to toss",
+        "exampleEnglish": "Throw the shingles into the dumpster.",
+        "sourceInfinitiveSpanish": "tirar",
+        "infinitiveFrench": "jeter",
+        "exampleFrench": "Jetez les bardeaux dans la benne."
+      },
+      {
+        "meaningEnglish": "to use",
+        "exampleEnglish": "Use the pry bar carefully.",
+        "sourceInfinitiveSpanish": "usar",
+        "infinitiveFrench": "utiliser",
+        "exampleFrench": "Utilisez le pied-de-biche avec précaution."
+      },
+      {
+        "meaningEnglish": "to understand",
+        "exampleEnglish": "Do you understand what must be removed?",
+        "sourceInfinitiveSpanish": "entender",
+        "infinitiveFrench": "comprendre",
+        "exampleFrench": "Comprenez-vous ce qui doit être retiré ?"
+      },
+      {
+        "meaningEnglish": "to begin, to start",
+        "exampleEnglish": "Today the tear-off of the old roof begins.",
+        "sourceInfinitiveSpanish": "empezar",
+        "infinitiveFrench": "commencer",
+        "exampleFrench": "Aujourd’hui, la dépose de l’ancienne couverture commence."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "France/Québec crew terminology, roof construction and site safety require qualified regional/trade review.",
+      "Use the approved scope, product instructions and site controls; this dialogue is not a work procedure."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:7:fr-en:card:2",
+        "core-roofing:7:fr-en:card:11",
+        "core-roofing:7:fr-en:reader:7"
+      ],
+      "question": "The source explicitly names asphalt shingles in Spanish and generic shingles in English. Archived French bardeaux omits asphalt. Decide whether the material specificity must carry through cards, Reader and disposal instruction."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:7:fr-en:card:3",
+        "core-roofing:7:fr-en:card:10",
+        "core-roofing:7:fr-en:reader:3"
+      ],
+      "question": "Deck is the structural roof deck in this tear-off scope. Archived support de couverture may imply a more general support; choose a consistent French trade term before giving the remove-to-deck command."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:7:fr-en:card:4",
+        "core-roofing:7:fr-en:card:10"
+      ],
+      "question": "Old roof is broad; archived ancienne couverture may narrow to covering layers. Decide whether it includes retained roof elements, and align the objective with the current source rather than a universal tear-off procedure."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:7:fr-en:card:12",
+        "core-roofing:7:fr-en:card:13",
+        "core-roofing:7:fr-en:reader:4",
+        "core-roofing:7:fr-en:reader:5"
+      ],
+      "question": "The source scene orders all layers, underlayment and flashing removed. This is a fictional job scope, not a universal instruction; qualify the actual approved scope, elements to retain and site safety plan before selecting scored French commands."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:7:fr-en:card:10",
+        "core-roofing:7:fr-en:reader:3",
+        "core-roofing:7:fr-en:reader:4",
+        "core-roofing:7:fr-en:reader:5"
+      ],
+      "question": "Archived French says toute la couverture, potentially narrowing source everything down to the deck. Resolve the precise scope across card, Reader, speaking command and six authored modes together."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:7:fr-en:card:14",
+        "core-roofing:7:fr-en:card:15",
+        "core-roofing:7:fr-en:reader:8",
+        "core-roofing:7:fr-en:reader:9"
+      ],
+      "question": "Source speaking requires the command and confirmation; archived speaking instead asks the crew to describe a job-specific approved scope and what remains. Preserve the two asks separately until source/roofing review resolves the scene."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

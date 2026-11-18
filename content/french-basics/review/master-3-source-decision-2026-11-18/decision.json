@@ -1,0 +1,725 @@
+{
+  "schema": "french101-master3-source-decision-v1",
+  "state": "source-only-unapproved-review",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "sourcePair": "Spanish:English",
+  "moduleId": "master-french-basics",
+  "stage": "master",
+  "lesson": 3,
+  "stableLessonId": "master-french-basics:3",
+  "sourceFilesSha256": {
+    "src/data/core60/es/master-spanish-basics.json": "27084a65c51ef96ab6b74dd969de1c4b38cd670be1c4b148e2b66f4d9bb15ede",
+    "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe",
+    "content/review-archive/french-japanese-2026-11-15/french-101/master-1-3-redesign-draft.json": "21dc4e7af37843ba92356ebddeb13e7e8b1c23a94e54210e4795734a412f70bb"
+  },
+  "sourceTitleEnglish": "Prepare materials for a group",
+  "sourceObjectiveEnglish": "Prepare materials for a group: Usually add -s after a vowel and -es after a consonant.",
+  "sourceSpeakingEnglish": "Role-play Cuatro compañeros with a patient classmate. Practice prepare materials for a group. Use this lesson's grammar, ask a related question, answer the partner, and confirm understanding. Keep language at beginner level; explain unfamiliar words in English when asked.",
+  "sourceReaderTitleSpanish": "Cuatro compañeros",
+  "cards": [
+    {
+      "id": "master-french-basics:3:card:1",
+      "sourceSpanish": "mesa",
+      "sourceEnglish": "table",
+      "kind": "term",
+      "proposedFrench": "table",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "proposalNote": "La table → les tables."
+    },
+    {
+      "id": "master-french-basics:3:card:2",
+      "sourceSpanish": "mochila",
+      "sourceEnglish": "backpack",
+      "kind": "term",
+      "proposedFrench": "sac à dos",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "proposalNote": "Sac à dos is masculine; its plural is sacs à dos."
+    },
+    {
+      "id": "master-french-basics:3:card:3",
+      "sourceSpanish": "clase",
+      "sourceEnglish": "class / classroom",
+      "kind": "term",
+      "proposedFrench": "cours / salle de classe",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "proposalNote": "Le cours → les cours (no extra -s); la salle de classe → les salles de classe."
+    },
+    {
+      "id": "master-french-basics:3:card:4",
+      "sourceSpanish": "hay",
+      "sourceEnglish": "there is / there are",
+      "kind": "term",
+      "proposedFrench": "il y a",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "proposalNote": "Il y a works for singular and plural."
+    },
+    {
+      "id": "master-french-basics:3:card:5",
+      "sourceSpanish": "el",
+      "sourceEnglish": "the (masculine singular)",
+      "kind": "term",
+      "proposedFrench": "le",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "master-french-basics:3:card:6",
+      "sourceSpanish": "la",
+      "sourceEnglish": "the / it / her (feminine)",
+      "kind": "term",
+      "proposedFrench": "la",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "proposalNote": "La is a feminine article or object pronoun by context."
+    },
+    {
+      "id": "master-french-basics:3:card:7",
+      "sourceSpanish": "aquí",
+      "sourceEnglish": "here",
+      "kind": "term",
+      "proposedFrench": "ici",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "master-french-basics:3:card:8",
+      "sourceSpanish": "en",
+      "sourceEnglish": "in / on / at",
+      "kind": "term",
+      "proposedFrench": "dans / sur / à",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "proposalNote": "Use dans for inside (dans le sac à dos), sur for on top (sur la table), and à with a place (à l’école)."
+    },
+    {
+      "id": "master-french-basics:3:card:9",
+      "sourceSpanish": "tengo",
+      "sourceEnglish": "I have",
+      "kind": "term",
+      "proposedFrench": "j’ai",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "master-french-basics:3:card:10",
+      "sourceSpanish": "son",
+      "sourceEnglish": "are (identity)",
+      "kind": "term",
+      "proposedFrench": "sont",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "proposalNote": "Sont can express identity, a condition, or a location; the surrounding words determine the meaning."
+    },
+    {
+      "id": "master-french-basics:3:card:11",
+      "sourceSpanish": "están",
+      "sourceEnglish": "are (condition/location)",
+      "kind": "term",
+      "proposedFrench": "sont / se trouvent",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "proposalNote": "Sont can express condition or location; se trouvent emphasizes location. These are contextual alternatives, not separate verb classes."
+    },
+    {
+      "id": "master-french-basics:3:card:12",
+      "sourceSpanish": "los",
+      "sourceEnglish": "the / them (masculine plural)",
+      "kind": "term",
+      "proposedFrench": "les",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "proposalNote": "Les is plural for any gender (les livres, les chaises); it can also mean them as an object pronoun."
+    },
+    {
+      "id": "master-french-basics:3:card:13",
+      "sourceSpanish": "Hay cuatro estudiantes en el grupo.",
+      "sourceEnglish": "There are four students in the group.",
+      "kind": "phrase",
+      "proposedFrench": "Il y a quatre étudiants dans le groupe.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "master-french-basics:3:card:14",
+      "sourceSpanish": "Necesitamos cuatro libros.",
+      "sourceEnglish": "We need four books.",
+      "kind": "phrase",
+      "proposedFrench": "Il nous faut quatre livres.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "proposalNote": "Il nous faut means we need; falloir is an impersonal verb."
+    },
+    {
+      "id": "master-french-basics:3:card:15",
+      "sourceSpanish": "Solo hay dos libros en la mesa.",
+      "sourceEnglish": "There are only two books on the table.",
+      "kind": "phrase",
+      "proposedFrench": "Il n’y a que deux livres sur la table.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "proposalNote": "Il n’y a que means there are only; it does not use pas."
+    },
+    {
+      "id": "master-french-basics:3:card:16",
+      "sourceSpanish": "Ana trae dos cuadernos.",
+      "sourceEnglish": "Ana brings two notebooks.",
+      "kind": "phrase",
+      "proposedFrench": "Ana apporte deux cahiers.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "master-french-basics:3:card:17",
+      "sourceSpanish": "Las mochilas están debajo de las sillas.",
+      "sourceEnglish": "The backpacks are under the chairs.",
+      "kind": "phrase",
+      "proposedFrench": "Les sacs à dos sont sous les chaises.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "master-french-basics:3:card:18",
+      "sourceSpanish": "Los lápices están cerca de los cuadernos.",
+      "sourceEnglish": "The pencils are near the notebooks.",
+      "kind": "phrase",
+      "proposedFrench": "Les crayons sont près des cahiers.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "proposalNote": "Près des = près de + les, meaning near the; compare indefinite des cahiers."
+    },
+    {
+      "id": "master-french-basics:3:card:19",
+      "sourceSpanish": "Tengo dos libros.",
+      "sourceEnglish": "I have two books.",
+      "kind": "phrase",
+      "proposedFrench": "J’ai deux livres.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "master-french-basics:3:card:20",
+      "sourceSpanish": "Los libros son para la clase.",
+      "sourceEnglish": "The books are for the class.",
+      "kind": "phrase",
+      "proposedFrench": "Les livres sont pour le cours.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-french-basics:3:reader:1",
+      "sourceSpanish": "Hay cuatro estudiantes en el grupo.",
+      "sourceEnglish": "There are four students in the group.",
+      "proposedFrench": "Il y a quatre étudiants dans le groupe.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:3:reader:2",
+      "sourceSpanish": "Necesitamos cuatro libros.",
+      "sourceEnglish": "We need four books.",
+      "proposedFrench": "Il nous faut quatre livres.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:3:reader:3",
+      "sourceSpanish": "Solo hay dos libros en la mesa.",
+      "sourceEnglish": "There are only two books on the table.",
+      "proposedFrench": "Il n’y a que deux livres sur la table.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:3:reader:4",
+      "sourceSpanish": "Ana trae dos cuadernos.",
+      "sourceEnglish": "Ana brings two notebooks.",
+      "proposedFrench": "Ana apporte deux cahiers.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:3:reader:5",
+      "sourceSpanish": "Las mochilas están debajo de las sillas.",
+      "sourceEnglish": "The backpacks are under the chairs.",
+      "proposedFrench": "Les sacs à dos sont sous les chaises.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:3:reader:6",
+      "sourceSpanish": "Los lápices están cerca de los cuadernos.",
+      "sourceEnglish": "The pencils are near the notebooks.",
+      "proposedFrench": "Les crayons sont près des cahiers.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:3:reader:7",
+      "sourceSpanish": "Tengo dos libros.",
+      "sourceEnglish": "I have two books.",
+      "proposedFrench": "J’ai deux livres.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:3:reader:8",
+      "sourceSpanish": "Los libros son para la clase.",
+      "sourceEnglish": "The books are for the class.",
+      "proposedFrench": "Les livres sont pour le cours.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:3:reader:9",
+      "sourceSpanish": "Hay tres cuadernos en la mesa.",
+      "sourceEnglish": "There are three notebooks on the table.",
+      "proposedFrench": "Il y a trois cahiers sur la table.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:3:reader:10",
+      "sourceSpanish": "Las sillas están aquí.",
+      "sourceEnglish": "The chairs are here.",
+      "proposedFrench": "Les chaises sont ici.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:3:reader:11",
+      "sourceSpanish": "Necesitamos dos lápices.",
+      "sourceEnglish": "We need two pencils.",
+      "proposedFrench": "Il nous faut deux crayons.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:3:reader:12",
+      "sourceSpanish": "Los lápices están en la mochila.",
+      "sourceEnglish": "The pencils are in the backpack.",
+      "proposedFrench": "Les crayons sont dans le sac à dos.",
+      "selectedFrench": null
+    }
+  ],
+  "candidateGrammar": {
+    "explanation": "French plural articles become les or des: le livre → les livres, une chaise → des chaises. Most nouns add written -s; nouns already ending in -s, -x or -z do not change (le cours → les cours). Nouns ending in -eau take -x (un tableau → des tableaux). In speech, plural is often heard in the article (le/la versus les) or liaison (les étudiants); the final -s is usually silent. Près des cahiers uses de + les, while des in des cahiers is an indefinite article. Il n’y a que means there are only, with no pas. Il nous faut means we need. Use il y a with singular or plural.",
+    "model": {
+      "group": "Il y a quatre étudiants dans le groupe.",
+      "need": "Il nous faut quatre livres.",
+      "shortage": "Il n’y a que deux livres sur la table.",
+      "bags": "Les sacs à dos sont sous les chaises."
+    },
+    "caution": "In sac à dos, only sac changes: un sac à dos → des sacs à dos. Most written plural -s and -x endings are silent; the article often carries the audible number contrast. Les is the plural article for any gender."
+  },
+  "candidateModes": {
+    "see": {
+      "reviewKey": "master-french-basics:3:mode:see",
+      "prompt": "Read the group count and identify the plural noun étudiants.",
+      "targetText": "Il y a quatre étudiants dans le groupe.",
+      "readyForLearner": false,
+      "sourceRefs": [
+        {
+          "kind": "reader",
+          "order": 1
+        },
+        {
+          "kind": "card",
+          "order": 13
+        }
+      ],
+      "supplementalFrenchForm": false
+    },
+    "recall": {
+      "reviewKey": "master-french-basics:3:mode:recall",
+      "prompt": "Recall that the pencils are near the notebooks; use près des.",
+      "targetText": "Les crayons sont près des cahiers.",
+      "readyForLearner": false,
+      "sourceRefs": [
+        {
+          "kind": "reader",
+          "order": 6
+        },
+        {
+          "kind": "card",
+          "order": 18
+        }
+      ],
+      "supplementalFrenchForm": false
+    },
+    "hear": {
+      "reviewKey": "master-french-basics:3:mode:hear",
+      "prompt": "Listen to Ana’s sentence and identify how many notebooks she brings.",
+      "targetText": "Ana apporte deux cahiers.",
+      "readyForLearner": false,
+      "recordedAudio": false,
+      "sourceRefs": [
+        {
+          "kind": "reader",
+          "order": 4
+        },
+        {
+          "kind": "card",
+          "order": 16
+        }
+      ],
+      "supplementalFrenchForm": false
+    },
+    "type": {
+      "reviewKey": "master-french-basics:3:mode:type",
+      "prompt": "Type that the group needs two pencils, using the plural of crayon.",
+      "targetText": "Il nous faut deux crayons.",
+      "readyForLearner": false,
+      "sourceRefs": [
+        {
+          "kind": "reader",
+          "order": 11
+        }
+      ],
+      "supplementalFrenchForm": false
+    },
+    "say": {
+      "reviewKey": "master-french-basics:3:mode:say",
+      "prompt": "Say that the backpacks are under the chairs, using the plural of sac à dos.",
+      "targetText": "Les sacs à dos sont sous les chaises.",
+      "readyForLearner": false,
+      "sourceRefs": [
+        {
+          "kind": "reader",
+          "order": 5
+        },
+        {
+          "kind": "card",
+          "order": 17
+        }
+      ],
+      "supplementalFrenchForm": false
+    },
+    "write": {
+      "reviewKey": "master-french-basics:3:mode:write",
+      "prompt": "Write that the books are for the class, using the plural article.",
+      "targetText": "Les livres sont pour le cours.",
+      "readyForLearner": false,
+      "sourceRefs": [
+        {
+          "kind": "reader",
+          "order": 8
+        },
+        {
+          "kind": "card",
+          "order": 20
+        }
+      ],
+      "supplementalFrenchForm": false
+    }
+  },
+  "candidateForms": [
+    {
+      "id": "form-fr-en-2ce44cc3ef9effaf",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 1,
+      "focus": "aligned-reader-1",
+      "frenchAnswer": "Il y a quatre étudiants dans le groupe.",
+      "englishPrompt": "There are four students in the group.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Il y a quatre étudiants dans le groupe.",
+        "Il y a quatre élèves dans le groupe."
+      ],
+      "readyForLearner": false,
+      "sourceEnglish": "There are four students in the group."
+    },
+    {
+      "id": "form-fr-en-635bfd9c392ccd91",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 2,
+      "focus": "aligned-reader-2",
+      "frenchAnswer": "Il nous faut quatre livres.",
+      "englishPrompt": "We need four books.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Il nous faut quatre livres.",
+        "Nous avons besoin de quatre livres."
+      ],
+      "readyForLearner": false,
+      "sourceEnglish": "We need four books."
+    },
+    {
+      "id": "form-fr-en-52c96a216d71d96f",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 3,
+      "focus": "aligned-reader-3",
+      "frenchAnswer": "Il n’y a que deux livres sur la table.",
+      "englishPrompt": "There are only two books on the table.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Il n’y a que deux livres sur la table.",
+        "Il y a seulement deux livres sur la table."
+      ],
+      "readyForLearner": false,
+      "sourceEnglish": "There are only two books on the table."
+    },
+    {
+      "id": "form-fr-en-00d8ef1c3cfc9339",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 4,
+      "focus": "aligned-reader-4",
+      "frenchAnswer": "Ana apporte deux cahiers.",
+      "englishPrompt": "Ana brings two notebooks.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Ana apporte deux cahiers."
+      ],
+      "readyForLearner": false,
+      "sourceEnglish": "Ana brings two notebooks."
+    },
+    {
+      "id": "form-fr-en-9f65a00eb700934f",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 5,
+      "focus": "aligned-reader-5",
+      "frenchAnswer": "Les sacs à dos sont sous les chaises.",
+      "englishPrompt": "The backpacks are under the chairs.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Les sacs à dos sont sous les chaises.",
+        "Les sacs à dos se trouvent sous les chaises."
+      ],
+      "readyForLearner": false,
+      "sourceEnglish": "The backpacks are under the chairs."
+    },
+    {
+      "id": "form-fr-en-1f84420c164ccba0",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 6,
+      "focus": "aligned-reader-6",
+      "frenchAnswer": "Les crayons sont près des cahiers.",
+      "englishPrompt": "The pencils are near the notebooks.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Les crayons sont près des cahiers.",
+        "Les crayons se trouvent près des cahiers."
+      ],
+      "readyForLearner": false,
+      "sourceEnglish": "The pencils are near the notebooks."
+    },
+    {
+      "id": "form-fr-en-3cf870343f81f645",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 7,
+      "focus": "aligned-reader-7",
+      "frenchAnswer": "J’ai deux livres.",
+      "englishPrompt": "I have two books.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "J’ai deux livres."
+      ],
+      "readyForLearner": false,
+      "sourceEnglish": "I have two books."
+    },
+    {
+      "id": "form-fr-en-e5c41b860aeceb26",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 8,
+      "focus": "aligned-reader-8",
+      "frenchAnswer": "Les livres sont pour le cours.",
+      "englishPrompt": "The books are for the class.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Les livres sont pour le cours.",
+        "Les livres sont pour la classe."
+      ],
+      "readyForLearner": false,
+      "sourceEnglish": "The books are for the class."
+    },
+    {
+      "id": "form-fr-en-daae06360aa5d004",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 9,
+      "focus": "aligned-reader-9",
+      "frenchAnswer": "Il y a trois cahiers sur la table.",
+      "englishPrompt": "There are three notebooks on the table.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Il y a trois cahiers sur la table."
+      ],
+      "readyForLearner": false,
+      "sourceEnglish": "There are three notebooks on the table."
+    },
+    {
+      "id": "form-fr-en-4a966889ba1d531f",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 10,
+      "focus": "aligned-reader-10",
+      "frenchAnswer": "Les chaises sont ici.",
+      "englishPrompt": "The chairs are here.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Les chaises sont ici.",
+        "Les chaises se trouvent ici."
+      ],
+      "readyForLearner": false,
+      "sourceEnglish": "The chairs are here."
+    },
+    {
+      "id": "form-fr-en-fa4cb594ffa1631f",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 11,
+      "focus": "aligned-reader-11",
+      "frenchAnswer": "Il nous faut deux crayons.",
+      "englishPrompt": "We need two pencils.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Il nous faut deux crayons.",
+        "Nous avons besoin de deux crayons."
+      ],
+      "readyForLearner": false,
+      "sourceEnglish": "We need two pencils."
+    },
+    {
+      "id": "form-fr-en-fedf58eedb1aa4d7",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 12,
+      "focus": "aligned-reader-12",
+      "frenchAnswer": "Les crayons sont dans le sac à dos.",
+      "englishPrompt": "The pencils are in the backpack.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Les crayons sont dans le sac à dos.",
+        "Les crayons se trouvent dans le sac à dos."
+      ],
+      "readyForLearner": false,
+      "sourceEnglish": "The pencils are in the backpack."
+    },
+    {
+      "id": "form-fr-en-41f5f3f405e5a8d1",
+      "source": "authored-contrast",
+      "focus": "plural-eau-x",
+      "frenchAnswer": "Il y a deux tableaux dans la salle de classe.",
+      "englishPrompt": "There are two chalkboards in the classroom.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Il y a deux tableaux dans la salle de classe."
+      ],
+      "readyForLearner": false
+    },
+    {
+      "id": "form-fr-en-a93ee68a61383b38",
+      "source": "authored-contrast",
+      "focus": "invariable-cours",
+      "frenchAnswer": "J’ai deux cours.",
+      "englishPrompt": "I have two classes.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "J’ai deux cours."
+      ],
+      "readyForLearner": false
+    }
+  ],
+  "candidateSpeaking": "Role-play Quatre camarades with a patient classmate. Count the books, notebooks and pencils; say what is on the table, under the chairs and in the backpack. Tell your partner what is missing, ask a related question, answer their question and confirm each plural quantity. Keep the language at beginner level; explain unfamiliar words in English on request.",
+  "candidateSpeakingReadyForLearner": false,
+  "sourceConflicts": [
+    {
+      "kind": "source-progression",
+      "source": "Spanish Master 3 counts school supplies with beginner plural mechanics",
+      "decision": "Decide whether this source-parity scene fits the Master stage; retain exact source English and stable ID meanwhile."
+    },
+    {
+      "kind": "card-face",
+      "card": 3,
+      "decision": "Split cours versus salle de classe into context-specific items before learner dictionary/scoring; source English groups class/classroom."
+    },
+    {
+      "kind": "card-face",
+      "card": 8,
+      "decision": "Provide context-specific mapping for in/on/at; grouped dans/sur/à cannot be scored as one free substitute."
+    },
+    {
+      "kind": "card-face",
+      "card": 10,
+      "decision": "French sont marks plural agreement but not Spanish ser identity; teach source contrast explicitly rather than implying a distinct French verb."
+    },
+    {
+      "kind": "card-face",
+      "card": 11,
+      "decision": "se trouvent conveys location, not condition; source English combines condition/location. Keep English exact and require qualified French/source decision before exposing face as approved."
+    },
+    {
+      "kind": "card-face",
+      "card": 12,
+      "decision": "French les is gender-neutral; Spanish los is masculine plural. Add visible contrast; les can also be article or object pronoun."
+    },
+    {
+      "kind": "scoring",
+      "decision": "Review plural liaison, French apostrophe variants, grouped headwords, and answer variants before six-mode scoring."
+    },
+    {
+      "kind": "audio",
+      "decision": "Hear is script-only. No exact-text clip, listening decision, or playback registration."
+    }
+  ],
+  "normalCardProjectionAllowed": false,
+  "selectedDecision": null,
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "v4Registered": false
+  }
+}

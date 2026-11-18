@@ -1,0 +1,607 @@
+{
+  "schema": "french101-master1-inert-source-decision-v1",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "stage": "master",
+  "lessonNumber": 1,
+  "stableLessonKey": "master-french-basics:1",
+  "candidatePairId": "master-french-basics:1:fr-en",
+  "status": "source-only-conditional-review",
+  "sourceRevision": "441c877dab982b5f9207b29d11620c3b9e00e555",
+  "sourceFilesSHA256": {
+    "src/data/core60/es/master-spanish-basics.json": "27084a65c51ef96ab6b74dd969de1c4b38cd670be1c4b148e2b66f4d9bb15ede",
+    "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe"
+  },
+  "sourceTitleEnglish": "Introduce a classmate",
+  "sourceObjective": "Introduce a classmate: Say each Spanish vowel clearly: a, e, i, o, u.",
+  "sourceFocus": "Introduce a classmate",
+  "sourceGrammar": {
+    "focus": "Say each Spanish vowel clearly: a, e, i, o, u. Hola has a silent h; gracias and por favor keep greetings polite.",
+    "examples": [
+      {
+        "es": "Hola, soy Elena.",
+        "en": "Hello, I am Elena."
+      },
+      {
+        "es": "Soy de Perú y estudio música.",
+        "en": "I am from Peru and I study music."
+      }
+    ]
+  },
+  "sourceSpeaking": "Role-play Una compañera nueva with a patient classmate. Practice introduce a classmate. Use this lesson's grammar, ask a related question, answer the partner, and confirm understanding. Keep language at beginner level; explain unfamiliar words in English when asked.",
+  "sourceReaderTitleSpanish": "Una compañera nueva",
+  "cards": [
+    {
+      "id": "master-french-basics:1:card:1",
+      "sourceSpanish": "estudiante",
+      "sourceEnglish": "student",
+      "sourceKind": "term",
+      "candidateFrench": "étudiant / étudiante",
+      "candidateNote": "Étudiant is masculine; étudiante feminine.",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:2",
+      "sourceSpanish": "hola",
+      "sourceEnglish": "hello",
+      "sourceKind": "term",
+      "candidateFrench": "bonjour",
+      "candidateNote": "",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:3",
+      "sourceSpanish": "buenos días",
+      "sourceEnglish": "good morning",
+      "sourceKind": "term",
+      "candidateFrench": "bonjour",
+      "candidateNote": "Bonjour covers both hello and good morning; French has no separate morning greeting.",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:4",
+      "sourceSpanish": "mucho gusto",
+      "sourceEnglish": "nice to meet you",
+      "sourceKind": "term",
+      "candidateFrench": "enchanté(e)",
+      "candidateNote": "Enchantée is written with -e for a female speaker. Longer forms: enchanté(e) de faire votre connaissance (formal) or ta connaissance (informal).",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:5",
+      "sourceSpanish": "me llamo",
+      "sourceEnglish": "my name is",
+      "sourceKind": "term",
+      "candidateFrench": "je m’appelle",
+      "candidateNote": "",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:6",
+      "sourceSpanish": "llamas",
+      "sourceEnglish": "you call",
+      "sourceKind": "term",
+      "candidateFrench": "tu appelles",
+      "candidateNote": "Appeler means to call. With te it becomes tu t’appelles (your name is), as in Comment tu t’appelles ?",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:7",
+      "sourceSpanish": "soy",
+      "sourceEnglish": "I am (identity)",
+      "sourceKind": "term",
+      "candidateFrench": "je suis",
+      "candidateNote": "",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:8",
+      "sourceSpanish": "me",
+      "sourceEnglish": "me / myself",
+      "sourceKind": "term",
+      "candidateFrench": "me (m’) / moi-même",
+      "candidateNote": "Me is an object or reflexive clitic: je m’appelle. Moi-même is emphatic: je le fais moi-même.",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:9",
+      "sourceSpanish": "te",
+      "sourceEnglish": "you / yourself",
+      "sourceKind": "term",
+      "candidateFrench": "te (t’) / toi-même",
+      "candidateNote": "Te is an object or reflexive clitic: tu t’appelles. Toi-même is emphatic.",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:10",
+      "sourceSpanish": "cómo",
+      "sourceEnglish": "how",
+      "sourceKind": "term",
+      "candidateFrench": "comment",
+      "candidateNote": "Comment tu t’appelles ? means “What is your name?”; word for word, “How do you call yourself?”",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:11",
+      "sourceSpanish": "es",
+      "sourceEnglish": "is (identity)",
+      "sourceKind": "term",
+      "candidateFrench": "est",
+      "candidateNote": "Est is the third-person singular form of être (il/elle est).",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:12",
+      "sourceSpanish": "y",
+      "sourceEnglish": "and",
+      "sourceKind": "term",
+      "candidateFrench": "et",
+      "candidateNote": "",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:13",
+      "sourceSpanish": "Hola, soy Elena.",
+      "sourceEnglish": "Hello, I am Elena.",
+      "sourceKind": "phrase",
+      "candidateFrench": "Bonjour, je suis Elena.",
+      "candidateNote": "",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:14",
+      "sourceSpanish": "Soy de Perú y estudio música.",
+      "sourceEnglish": "I am from Peru and I study music.",
+      "sourceKind": "phrase",
+      "candidateFrench": "Je viens du Pérou et j’étudie la musique.",
+      "candidateNote": "",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:15",
+      "sourceSpanish": "Mi compañero se llama Diego.",
+      "sourceEnglish": "My classmate's name is Diego.",
+      "sourceKind": "phrase",
+      "candidateFrench": "Mon camarade s’appelle Diego.",
+      "candidateNote": "",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:16",
+      "sourceSpanish": "Él es de Chile.",
+      "sourceEnglish": "He is from Chile.",
+      "sourceKind": "phrase",
+      "candidateFrench": "Il vient du Chili.",
+      "candidateNote": "",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:17",
+      "sourceSpanish": "Somos estudiantes de español.",
+      "sourceEnglish": "We are Spanish students.",
+      "sourceKind": "phrase",
+      "candidateFrench": "Nous sommes étudiants en espagnol.",
+      "candidateNote": "“Spanish students” means students of Spanish in this classroom context, not nationality.",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:18",
+      "sourceSpanish": "¿Cómo te llamas tú?",
+      "sourceEnglish": "What is your name?",
+      "sourceKind": "phrase",
+      "candidateFrench": "Comment tu t’appelles ?",
+      "candidateNote": "",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:19",
+      "sourceSpanish": "Hola, buenos días.",
+      "sourceEnglish": "Hello, good morning.",
+      "sourceKind": "phrase",
+      "candidateFrench": "Bonjour !",
+      "candidateNote": "French uses a single bonjour here for both parts of the English greeting.",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:20",
+      "sourceSpanish": "Me llamo Ana.",
+      "sourceEnglish": "My name is Ana.",
+      "sourceKind": "phrase",
+      "candidateFrench": "Je m’appelle Ana.",
+      "candidateNote": "",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-french-basics:1:reader:1",
+      "sourceSpanish": "Hola, soy Elena.",
+      "sourceEnglish": "Hello, I am Elena.",
+      "candidateFrench": "Bonjour, je suis Elena.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:1:reader:2",
+      "sourceSpanish": "Soy de Perú y estudio música.",
+      "sourceEnglish": "I am from Peru and I study music.",
+      "candidateFrench": "Je viens du Pérou et j’étudie la musique.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:1:reader:3",
+      "sourceSpanish": "Mi compañero se llama Diego.",
+      "sourceEnglish": "My classmate's name is Diego.",
+      "candidateFrench": "Mon camarade s’appelle Diego.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:1:reader:4",
+      "sourceSpanish": "Él es de Chile.",
+      "sourceEnglish": "He is from Chile.",
+      "candidateFrench": "Il vient du Chili.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:1:reader:5",
+      "sourceSpanish": "Somos estudiantes de español.",
+      "sourceEnglish": "We are Spanish students.",
+      "candidateFrench": "Nous sommes étudiants en espagnol.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:1:reader:6",
+      "sourceSpanish": "¿Cómo te llamas tú?",
+      "sourceEnglish": "What is your name?",
+      "candidateFrench": "Comment tu t’appelles ?",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:1:reader:7",
+      "sourceSpanish": "Hola, buenos días.",
+      "sourceEnglish": "Hello, good morning.",
+      "candidateFrench": "Bonjour !",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:1:reader:8",
+      "sourceSpanish": "Me llamo Ana.",
+      "sourceEnglish": "My name is Ana.",
+      "candidateFrench": "Je m’appelle Ana.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:1:reader:9",
+      "sourceSpanish": "Soy estudiante.",
+      "sourceEnglish": "I am a student.",
+      "candidateFrench": "Je suis étudiante.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:1:reader:10",
+      "sourceSpanish": "¿Cómo te llamas?",
+      "sourceEnglish": "What is your name?",
+      "candidateFrench": "Comment tu t’appelles ?",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:1:reader:11",
+      "sourceSpanish": "Me llamo Luis.",
+      "sourceEnglish": "My name is Luis.",
+      "candidateFrench": "Je m’appelle Luis.",
+      "selectedFrench": null
+    },
+    {
+      "id": "master-french-basics:1:reader:12",
+      "sourceSpanish": "Mucho gusto, Luis.",
+      "sourceEnglish": "Nice to meet you, Luis.",
+      "candidateFrench": "Enchantée de faire ta connaissance, Luis.",
+      "selectedFrench": null
+    }
+  ],
+  "disputedFaces": [
+    {
+      "id": "master-french-basics:1:card:2",
+      "sourceSpanish": "hola",
+      "sourceEnglish": "hello",
+      "candidateFrench": "bonjour",
+      "semanticNote": "bonjour also serves the source’s separate “good morning” card. Show the two English source senses together; do not score them as distinct French recall answers.",
+      "status": "same-french-face",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:3",
+      "sourceSpanish": "buenos días",
+      "sourceEnglish": "good morning",
+      "candidateFrench": "bonjour",
+      "semanticNote": "bonjour is the same French face as “hello”; the Spanish source has separate hola and buenos días cards. A visible note must preserve that source distinction.",
+      "status": "same-french-face",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:4",
+      "sourceSpanish": "mucho gusto",
+      "sourceEnglish": "nice to meet you",
+      "candidateFrench": "enchanté(e)",
+      "semanticNote": "enchanté/enchantée changes spelling with speaker gender; a first-meeting formula may use different tu/vous register. The parenthesized face is a teaching prompt, not one spoken target.",
+      "status": "speaker-gender-and-register",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:8",
+      "sourceSpanish": "me",
+      "sourceEnglish": "me / myself",
+      "candidateFrench": "me (m’) / moi-même",
+      "semanticNote": "me/m’ is a clitic, while moi-même is emphatic; the source combines “me / myself” under one card. Do not mark either French form as a universal answer.",
+      "status": "mixed-pronoun-functions",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:9",
+      "sourceSpanish": "te",
+      "sourceEnglish": "you / yourself",
+      "candidateFrench": "te (t’) / toi-même",
+      "semanticNote": "te/t’ is a clitic, while toi-même is emphatic; the source combines “you / yourself” under one card. Do not mark either French form as a universal answer.",
+      "status": "mixed-pronoun-functions",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:17",
+      "sourceSpanish": "Somos estudiantes de español.",
+      "sourceEnglish": "We are Spanish students.",
+      "candidateFrench": "Nous sommes étudiants en espagnol.",
+      "semanticNote": "“Spanish students” may mean students of Spanish or students from Spain. The French face chooses students of Spanish; show that interpretation and seek a source/editorial decision.",
+      "status": "english-sense-ambiguity",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:card:19",
+      "sourceSpanish": "Hola, buenos días.",
+      "sourceEnglish": "Hello, good morning.",
+      "candidateFrench": "Bonjour !",
+      "semanticNote": "The source says both “Hello” and “good morning”; a single Bonjour! compresses two Spanish greetings. Display the exact source English and the French compression, without treating this as two French expressions.",
+      "status": "two-source-greetings-one-french-face",
+      "selectedFrench": null,
+      "scoringEnabled": false
+    }
+  ],
+  "conditionalModePreviews": [
+    {
+      "id": "master-french-basics:1:mode:see",
+      "name": "see",
+      "sourceRefs": [
+        {
+          "kind": "reader",
+          "order": 1
+        },
+        {
+          "kind": "card",
+          "order": 13
+        }
+      ],
+      "candidatePrompt": "Read Elena’s opening and identify the phrase used to introduce herself.",
+      "candidateTarget": "Bonjour, je suis Elena.",
+      "supplementalFrenchForm": false,
+      "authoredForLearner": false,
+      "recordedAudio": false,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:mode:recall",
+      "name": "recall",
+      "sourceRefs": [
+        {
+          "kind": "reader",
+          "order": 2
+        },
+        {
+          "kind": "card",
+          "order": 14
+        }
+      ],
+      "candidatePrompt": "Recall how Elena says she is from Peru and studies music.",
+      "candidateTarget": "Je viens du Pérou et j’étudie la musique.",
+      "supplementalFrenchForm": false,
+      "authoredForLearner": false,
+      "recordedAudio": false,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:mode:hear",
+      "name": "hear",
+      "sourceRefs": [
+        {
+          "kind": "card",
+          "order": 2
+        },
+        {
+          "kind": "card",
+          "order": 3
+        }
+      ],
+      "candidatePrompt": "Listen for the greeting Elena uses in the opening.",
+      "candidateTarget": "bonjour",
+      "supplementalFrenchForm": false,
+      "authoredForLearner": false,
+      "recordedAudio": false,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:mode:type",
+      "name": "type",
+      "sourceRefs": [
+        {
+          "kind": "reader",
+          "order": 3
+        },
+        {
+          "kind": "card",
+          "order": 15
+        }
+      ],
+      "candidatePrompt": "Type how Elena introduces Diego as her classmate.",
+      "candidateTarget": "Mon camarade s’appelle Diego.",
+      "supplementalFrenchForm": false,
+      "authoredForLearner": false,
+      "recordedAudio": false,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:mode:say",
+      "name": "say",
+      "sourceRefs": [
+        {
+          "kind": "reader",
+          "order": 6
+        },
+        {
+          "kind": "reader",
+          "order": 10
+        },
+        {
+          "kind": "card",
+          "order": 18
+        }
+      ],
+      "candidatePrompt": "Ask a classmate their name informally with tu.",
+      "candidateTarget": "Comment tu t’appelles ?",
+      "supplementalFrenchForm": false,
+      "authoredForLearner": false,
+      "recordedAudio": false,
+      "scoringEnabled": false
+    },
+    {
+      "id": "master-french-basics:1:mode:write",
+      "name": "write",
+      "sourceRefs": [],
+      "candidatePrompt": "Write the formal name question for an unfamiliar adult, using vous.",
+      "candidateTarget": "Comment vous appelez-vous ?",
+      "supplementalFrenchForm": true,
+      "authoredForLearner": false,
+      "recordedAudio": false,
+      "scoringEnabled": false
+    }
+  ],
+  "conditionalFormPreviews": [
+    {
+      "id": "form-fr-en-18a9eebf6ef25b68",
+      "sourceReaderTurn": 2,
+      "sourceEnglish": "I am from Peru and I study music.",
+      "candidateFrench": "Je viens du Pérou et j’étudie la musique.",
+      "authoredForLearner": false,
+      "reviewed": false,
+      "scoringEnabled": false
+    },
+    {
+      "id": "form-fr-en-4312963c642af547",
+      "sourceReaderTurn": 3,
+      "sourceEnglish": "My classmate's name is Diego.",
+      "candidateFrench": "Mon camarade s’appelle Diego.",
+      "authoredForLearner": false,
+      "reviewed": false,
+      "scoringEnabled": false
+    },
+    {
+      "id": "form-fr-en-c4a466b90a65d925",
+      "sourceReaderTurn": 5,
+      "sourceEnglish": "We are Spanish students.",
+      "candidateFrench": "Nous sommes étudiants en espagnol.",
+      "authoredForLearner": false,
+      "reviewed": false,
+      "scoringEnabled": false
+    },
+    {
+      "id": "form-fr-en-43be08ab6afbb413",
+      "sourceReaderTurn": 6,
+      "sourceEnglish": "What is your name?",
+      "candidateFrench": "Comment tu t’appelles ?",
+      "authoredForLearner": false,
+      "reviewed": false,
+      "scoringEnabled": false
+    },
+    {
+      "id": "form-fr-en-5e5504d52b6288a4",
+      "sourceReaderTurn": 8,
+      "sourceEnglish": "My name is Ana.",
+      "candidateFrench": "Je m’appelle Ana.",
+      "authoredForLearner": false,
+      "reviewed": false,
+      "scoringEnabled": false
+    },
+    {
+      "id": "form-fr-en-4e4c48edb48acc8b",
+      "sourceReaderTurn": 12,
+      "sourceEnglish": "Nice to meet you, Luis.",
+      "candidateFrench": "Enchantée de faire ta connaissance, Luis.",
+      "authoredForLearner": false,
+      "reviewed": false,
+      "scoringEnabled": false
+    }
+  ],
+  "candidateSpeaking": "Introduce Elena and Diego to a patient new classmate, including their origins and Elena’s music studies. Ask the classmate’s name informally, then ask the same name question formally with vous for an unfamiliar adult. Clarify that the group studies Spanish, answer a related question, and close with a suitable nice-to-meet-you phrase.",
+  "candidateGrammar": {
+    "explanation": "French introductions use je suis for identity, venir de or être de for origin, and s’appeler for names: je m’appelle Ana, mon camarade s’appelle Diego. Tu is informal; vous is used with an unfamiliar adult or in a formal setting. Bonjour and enchanté(e) can make a first meeting more polite.",
+    "model": {
+      "introduce": "Bonjour, je suis Elena.",
+      "origin": "Je viens du Pérou et j’étudie la musique.",
+      "classmate": "Mon camarade s’appelle Diego.",
+      "formal question": "Comment vous appelez-vous ?"
+    },
+    "caution": "Use tu with a classmate and vous with an unfamiliar adult. Bonjour works in both settings. When asking a name, the reflexive form is Comment tu t’appelles ? or formally Comment vous appelez-vous ?"
+  },
+  "curriculumDecision": "The pinned Spanish Master 1 source objective teaches Spanish vowel sounds a/e/i/o/u. The French redesign candidate teaches introductions and register, with no source-equivalent vowel objective. Qualified curriculum review must choose an authored French-specific objective; no normal lesson projection follows from this packet.",
+  "reviewQuestions": [
+    "Resolve the Master 1 beginner-introduction level and Spanish-vowel-to-French objective mapping.",
+    "Resolve seven source-versus-French face conflicts, including shared bonjour, pronoun functions, Spanish-student meaning and compressed greeting.",
+    "Review conditional See/Recall/Hear/Type/Say/Write cues; Write is a supplemental formal question absent from the pinned Reader and Hear lacks a recording.",
+    "Review six conditional forms and speaking scenario against exact source and chosen French-specific objective.",
+    "Preserve prior saved-item/progress identities or define migration before any runtime replacement."
+  ],
+  "audioScope": {
+    "candidatePositions": 32,
+    "distinctCandidateStrings": 22,
+    "recordedAudio": false,
+    "listeningReviewed": false,
+    "reuseAuthorized": false
+  },
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "readyForLearner": false,
+    "normalCardProjectionAllowed": false,
+    "normalModeProjectionAllowed": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "scoringEnabled": false,
+    "offlineEnabled": false,
+    "progressEnabled": false,
+    "ownerRouteAdded": false,
+    "v4Registered": false,
+    "releaseApproved": false
+  }
+}

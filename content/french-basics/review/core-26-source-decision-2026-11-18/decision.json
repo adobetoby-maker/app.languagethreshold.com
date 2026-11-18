@@ -1,0 +1,413 @@
+{
+  "schema": "french101-core26-source-decision-v1",
+  "state": "source-only-unapproved-review",
+  "targetLanguage": "French",
+  "nativeLanguage": "English",
+  "sourcePair": "Spanish:English",
+  "moduleId": "french-basics",
+  "stage": "core",
+  "lesson": 26,
+  "stableLessonId": "french-basics:26",
+  "priorOwnerDraftStableId": "french-basics:26:fr-en",
+  "sourceFilesSha256": {
+    "src/data/spanish-basics-core.json": "d50c3e52a846331e9c0bcec19a5c91605585f4e285c62138941425390d160e38",
+    "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe",
+    "content/review-archive/french-japanese-2026-11-15/french-101/core-25-27-draft.json": "56d97eb4cb8212345bb82ac399ee5d15da401cd39bb6cb6bbd8bf489cc342b03"
+  },
+  "sourceTitleEnglish": "Regular completed past actions",
+  "sourceObjectiveEnglish": "Regular completed past actions: The preterite reports completed past actions.",
+  "sourceSpeakingEnglish": "Role-play Ayer en la escuela with a patient classmate. Practice regular completed past actions. Use this lesson's grammar, ask a related question, answer the partner, and confirm understanding. Keep language at beginner level; explain unfamiliar words in English when asked.",
+  "sourceReaderTitleSpanish": "Ayer en la escuela",
+  "cards": [
+    {
+      "id": "french-basics:26:word:1",
+      "sourceSpanish": "cuaderno",
+      "sourceEnglish": "notebook",
+      "kind": "term",
+      "proposedFrench": "cahier",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:26:word:2",
+      "sourceSpanish": "la",
+      "sourceEnglish": "the / it / her (feminine)",
+      "kind": "term",
+      "proposedFrench": "la",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:26:word:3",
+      "sourceSpanish": "un",
+      "sourceEnglish": "a (masculine)",
+      "kind": "term",
+      "proposedFrench": "un",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:26:word:4",
+      "sourceSpanish": "un cuaderno",
+      "sourceEnglish": "a notebook",
+      "kind": "term",
+      "proposedFrench": "un cahier",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:26:word:5",
+      "sourceSpanish": "en",
+      "sourceEnglish": "in / on / at",
+      "kind": "term",
+      "proposedFrench": "dans / sur / à",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "proposalNote": "French dans, sur and à are context-dependent, not interchangeable one-to-one translations of English in, on and at."
+    },
+    {
+      "id": "french-basics:26:word:6",
+      "sourceSpanish": "profesora",
+      "sourceEnglish": "female teacher",
+      "kind": "term",
+      "proposedFrench": "professeure",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "proposalNote": "Spanish profesora and English female teacher specify a woman; Reader 5 English teacher does not."
+    },
+    {
+      "id": "french-basics:26:word:7",
+      "sourceSpanish": "amigos",
+      "sourceEnglish": "friends",
+      "kind": "term",
+      "proposedFrench": "amis",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:26:word:8",
+      "sourceSpanish": "biblioteca",
+      "sourceEnglish": "library",
+      "kind": "term",
+      "proposedFrench": "bibliothèque",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:26:word:9",
+      "sourceSpanish": "Ayer estudié en la biblioteca.",
+      "sourceEnglish": "Yesterday I studied in the library.",
+      "kind": "phrase",
+      "proposedFrench": "Hier, j’ai étudié à la bibliothèque.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:26:word:10",
+      "sourceSpanish": "Ana compró un cuaderno.",
+      "sourceEnglish": "Ana bought a notebook.",
+      "kind": "phrase",
+      "proposedFrench": "Ana a acheté un cahier.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:26:word:11",
+      "sourceSpanish": "Comimos en la cafetería.",
+      "sourceEnglish": "We ate in the cafeteria.",
+      "kind": "phrase",
+      "proposedFrench": "Nous avons mangé à la cafétéria.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:26:word:12",
+      "sourceSpanish": "Luis escribió un mensaje.",
+      "sourceEnglish": "Luis wrote a message.",
+      "kind": "phrase",
+      "proposedFrench": "Luis a écrit un message.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:26:word:13",
+      "sourceSpanish": "Mis amigos hablaron con la profesora.",
+      "sourceEnglish": "My friends spoke with the teacher.",
+      "kind": "phrase",
+      "proposedFrench": "Mes amis ont parlé avec la professeure.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:26:word:14",
+      "sourceSpanish": "¿Terminaste la tarea ayer?",
+      "sourceEnglish": "Did you finish the homework yesterday?",
+      "kind": "phrase",
+      "proposedFrench": "Est-ce que tu as fini les devoirs hier ?",
+      "selectedFrench": null,
+      "decisionRequired": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "french-basics:26:line:1",
+      "sourceSpanish": "Ayer estudié en la biblioteca.",
+      "sourceEnglish": "Yesterday I studied in the library.",
+      "proposedFrench": "Hier, j’ai étudié à la bibliothèque.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:26:line:2",
+      "sourceSpanish": "Ana compró un cuaderno.",
+      "sourceEnglish": "Ana bought a notebook.",
+      "proposedFrench": "Ana a acheté un cahier.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:26:line:3",
+      "sourceSpanish": "Comimos en la cafetería.",
+      "sourceEnglish": "We ate in the cafeteria.",
+      "proposedFrench": "Nous avons mangé à la cafétéria.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:26:line:4",
+      "sourceSpanish": "Luis escribió un mensaje.",
+      "sourceEnglish": "Luis wrote a message.",
+      "proposedFrench": "Luis a écrit un message.",
+      "selectedFrench": null,
+      "decisionRequired": false
+    },
+    {
+      "id": "french-basics:26:line:5",
+      "sourceSpanish": "Mis amigos hablaron con la profesora.",
+      "sourceEnglish": "My friends spoke with the teacher.",
+      "proposedFrench": "Mes amis ont parlé avec la professeure.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "proposalNote": "The source Spanish profesora specifies a woman; English the teacher is generic. Proposed French professeure keeps the Spanish scene and needs labeled context."
+    },
+    {
+      "id": "french-basics:26:line:6",
+      "sourceSpanish": "¿Terminaste la tarea ayer?",
+      "sourceEnglish": "Did you finish the homework yesterday?",
+      "proposedFrench": "Est-ce que tu as fini les devoirs hier ?",
+      "selectedFrench": null,
+      "decisionRequired": false
+    }
+  ],
+  "candidateGrammar": {
+    "explanation": "For completed past actions like these, use the present of avoir plus a past participle: j’ai étudié, Ana a acheté, nous avons mangé, mes amis ont parlé. Regular -er verbs form -é (parler → parlé, étudier → étudié, acheter → acheté, manger → mangé). A regular -ir verb like finir forms -i (finir → fini). Écrire has the irregular past participle écrit. To ask a question, put est-ce que in front: Est-ce que tu as fini les devoirs hier ?",
+    "model": {
+      "study": "Hier, j’ai étudié à la bibliothèque.",
+      "buy": "Ana a acheté un cahier.",
+      "eat": "Nous avons mangé à la cafétéria.",
+      "write": "Luis a écrit un message."
+    },
+    "caution": "The passé composé looks like English “I have studied”, but it is also the normal way to say “I studied”: j’ai étudié can express both. A French question does not need English “did”: Est-ce que tu as fini… ? In these sentences, étudié, acheté, mangé, parlé and fini are regular; écrit is irregular. With avoir in these examples, participles do not change with a feminine or plural subject: Ana a acheté, mes amis ont parlé."
+  },
+  "candidateModes": {
+    "see": {
+      "id": "french-basics:26:mode:see",
+      "prompt": "Read yesterday’s library activity and identify j’ai étudié as the passé composé.",
+      "targetText": "Hier, j’ai étudié à la bibliothèque.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "id": "french-basics:26:mode:recall",
+      "prompt": "Recall Ana’s notebook purchase with a acheté, including its object.",
+      "targetText": "Ana a acheté un cahier.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "id": "french-basics:26:mode:hear",
+      "prompt": "Listen for the noun naming the notebook Ana bought.",
+      "targetText": "cahier",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "id": "french-basics:26:mode:type",
+      "prompt": "Type that we ate in the cafeteria, using avons mangé.",
+      "targetText": "Nous avons mangé à la cafétéria.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "id": "french-basics:26:mode:say",
+      "prompt": "Say that Luis wrote a message, using a écrit in the past.",
+      "targetText": "Luis a écrit un message.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "id": "french-basics:26:mode:write",
+      "prompt": "Write that my friends spoke with the female teacher, using ont parlé.",
+      "targetText": "Mes amis ont parlé avec la professeure.",
+      "recordedAudio": false,
+      "readyForLearner": false
+    }
+  },
+  "candidateForms": [
+    {
+      "id": "form-fr-en-287d291ed3abe043",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 1,
+      "focus": "reader-form-1",
+      "frenchAnswer": "Hier, j’ai étudié à la bibliothèque.",
+      "englishPrompt": "Yesterday I studied in the library.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Hier, j’ai étudié à la bibliothèque.",
+        "Hier j’ai étudié à la bibliothèque.",
+        "J’ai étudié à la bibliothèque hier."
+      ],
+      "readyForLearner": false
+    },
+    {
+      "id": "form-fr-en-692d7163fb01c08c",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 2,
+      "focus": "reader-form-2",
+      "frenchAnswer": "Ana a acheté un cahier.",
+      "englishPrompt": "Ana bought a notebook.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Ana a acheté un cahier."
+      ],
+      "readyForLearner": false
+    },
+    {
+      "id": "form-fr-en-f557076b37f992e6",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 3,
+      "focus": "reader-form-3",
+      "frenchAnswer": "Nous avons mangé à la cafétéria.",
+      "englishPrompt": "We ate in the cafeteria.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Nous avons mangé à la cafétéria."
+      ],
+      "readyForLearner": false
+    },
+    {
+      "id": "form-fr-en-69c24323a2c13615",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 4,
+      "focus": "reader-form-4",
+      "frenchAnswer": "Luis a écrit un message.",
+      "englishPrompt": "Luis wrote a message.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Luis a écrit un message."
+      ],
+      "readyForLearner": false
+    },
+    {
+      "id": "form-fr-en-70b3399ea1b031be",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 5,
+      "focus": "reader-form-5",
+      "frenchAnswer": "Mes amis ont parlé avec la professeure.",
+      "englishPrompt": "My friends spoke with the teacher.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Mes amis ont parlé avec la professeure."
+      ],
+      "readyForLearner": false
+    },
+    {
+      "id": "form-fr-en-e34b6aa7ad30dfe7",
+      "source": "aligned-reader",
+      "sourceReaderTurn": 6,
+      "focus": "reader-form-6",
+      "frenchAnswer": "Est-ce que tu as fini les devoirs hier ?",
+      "englishPrompt": "Did you finish the homework yesterday?",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Est-ce que tu as fini les devoirs hier ?",
+        "As-tu fini les devoirs hier ?",
+        "Tu as fini les devoirs hier ?"
+      ],
+      "readyForLearner": false
+    },
+    {
+      "id": "form-fr-en-6483e24082d635db",
+      "source": "authored-draft-contrast",
+      "focus": "past-participle-fini",
+      "frenchAnswer": "Nous avons fini les devoirs.",
+      "englishPrompt": "We finished the homework.",
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false,
+      "knownFrenchVariants": [
+        "Nous avons fini les devoirs."
+      ],
+      "readyForLearner": false
+    }
+  ],
+  "candidateSpeaking": "Tell a patient classmate about yesterday at school. Say where you studied, what Ana bought and where we ate; say that Luis wrote a message and that your friends spoke with the teacher. Ask whether your classmate finished the homework yesterday, answer a related question and confirm understanding. Keep language at beginner level; explain unfamiliar words in English when asked.",
+  "sourceQuestions": {
+    "card5": "Grouped French dans/sur/à are context-dependent, not positional equivalents of English in/on/at. Reader1 and Reader3 use à la for source English in. Ordinary unannotated grouped card projection and scoring remain held.",
+    "card6AndReader5": "The card is feminine Spanish profesora / English female teacher / French professeure. Reader5 exact English the teacher is generic; its French feminine target needs separate source-context metadata in any English-to-French owner cue.",
+    "sourceGrammar": "Spanish source completed-past teaching does not determine French participle regularity. The French Reader uses passé composé with avoir; étudié, acheté, mangé, parlé and fini are regular participles in this set, while écrit is irregular.",
+    "hearBinding": {
+      "modeId": "french-basics:26:mode:hear",
+      "oldTargetText": "cahier",
+      "newReaderTurn": 6,
+      "newTargetText": "Est-ce que tu as fini les devoirs hier ?",
+      "applied": false,
+      "audioAttachedInPacket": false,
+      "exercisedListeningMode": false
+    },
+    "writeContext": {
+      "exactEnglishPrompt": "My friends spoke with the teacher.",
+      "feminineContext": "Spanish source profesora and card6 female teacher support French la professeure; keep this as separate owner metadata, not a rewrite of exact English.",
+      "scoringEnabled": false
+    }
+  },
+  "selectedDecision": null,
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "v4Registered": false
+  },
+  "candidateSpeakingReadyForLearner": false
+}

@@ -1,0 +1,35 @@
+{
+  "schema": "french101-core24-assistance-metadata-v1",
+  "currentSessionClaudeCliAuth": {
+    "loggedIn": false,
+    "authMethod": "none"
+  },
+  "currentSessionModelCalls": [],
+  "currentSessionAIContribution": "none",
+  "historicalPrivateEvidence": "/Users/drive/lt-review/french101-lesson-teams-2026-11-14/french101-core24-face-remediation/CHECKPOINT.md",
+  "historicalEvidenceRole": "unapproved candidate and critique provenance only; qualified approval remains open",
+  "sourceGroundedSelfCheck": true,
+  "qualifiedFrenchReview": false,
+  "qualifiedDictionaryReview": false,
+  "qualifiedCurriculumReview": false,
+  "historicalPrivateModelEvidence": [
+    {
+      "role": "haiku",
+      "canonicalModel": "claude-haiku-5-5",
+      "privateOutputSHA256": "3eb50f4e5ba4305c3b8606c374062a9fa4780b68bde5438d364e9e19bcb17f51",
+      "isError": false
+    },
+    {
+      "role": "opus",
+      "canonicalModel": "claude-opus-5-5",
+      "privateOutputSHA256": "6aec741467138459dc13d1ae5a33c5730813930fff710bb9c2955648752aedff",
+      "isError": false
+    },
+    {
+      "role": "fable",
+      "canonicalModel": "claude-fable-5-2",
+      "privateOutputSHA256": "fe584f0056fdc4cc9c24d809fe6792578bd16e8e5997989fed686dd8ffb9a9c9",
+      "isError": false
+    }
+  ]
+}

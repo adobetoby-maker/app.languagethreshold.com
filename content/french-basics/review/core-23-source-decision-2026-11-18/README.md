@@ -1,0 +1,9 @@
+# French 101 Core 23 — source and meaning decision
+
+This inert review record pins all 14 Spanish/English source cards and six aligned Reader turns for Core 23. It keeps the stable `french-basics:23` lesson identity and stage-local child IDs. The proposed French text is displayed separately from the **source English gloss**; no French learner answer is selected. The old archived draft and private normalized work are evidence, not an installed course or audio script.
+
+Source card 8 is Spanish **los** → “the / them (masculine plural).” The candidate French **les** applies to masculine and feminine plural nouns, so the source gloss cannot be used as its exclusive French meaning. [decision.json](decision.json) labels the proposed French-specific meaning “the / them (plural, any gender)” while preserving the exact source gloss. Reader 6's Spanish **la** marks a feminine object with an unstated referent; proposed French **l’** obscures gender. A qualified French, dictionary and curriculum decision must settle how to teach and score both contrasts. No source card is silently repinned or rewritten.
+
+The six candidate modes, seven candidate forms and speaking scenario come from a private normalized draft; they are source-linked proposals only. Hear is script-only (`recordedAudio:false`). They do not prove learner runtime, audio, saved-item migration or independent V4 acceptance. Every review, learner, scoring, audio/listening, offline, progress and V4 gate stays false, with no owner page or route import.
+
+Run `python3 content/french-basics/review/core-23-source-decision-2026-11-18/validate.py` from the repository root. It checks source hashes, exact card/Reader order, child IDs, candidate links and closed gates. Structural checks and past AI critique are not qualified approval. Current Claude CLI authentication was unavailable, so this packet claims no new Haiku, Opus or Fable calls.

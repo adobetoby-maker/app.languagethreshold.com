@@ -1,0 +1,260 @@
+{
+  "schema": 1,
+  "state": "source-only-reader-gap-review",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "lesson": 12,
+  "moduleId": "master-construction-foreman-ja-en",
+  "source": {
+    "readerPath": "public/lesson-content/es/master-construction-foreman.json",
+    "curriculumPath": "src/data/core60/es/master-construction-foreman.json",
+    "translationDraftPath": "content/japanese-construction-foreman/master-translation-10-12-draft.json",
+    "readerSHA256": "549b47cf51253f5c5ac4f19bf2fdae52fa93ae8ea996377cc32e0c0fab896d11",
+    "curriculumSHA256": "96f86e3e51ba346918f539810bcc996cb41ceaaf9268af02fa595c333800dce2",
+    "translationDraftSHA256": "660a12a67db473b2e30b8b04674c7f6d9c1f9deb5b49a22db30da89ed2eb882f",
+    "sourceReaderTitleSpanish": "Una demora, cuatro conversaciones",
+    "sourceLessonTitleEnglish": "One Elevator Delay, Four Different Listeners",
+    "sourceObjectiveEnglish": "Explain the same delay to a laborer, the owner, your superintendent and the inspector, choosing tú or usted."
+  },
+  "historicalPrivateReader": {
+    "lesson12OriginalReaderDraftPresent": false,
+    "reuseDecision": null
+  },
+  "openDomainReview": [
+    {
+      "sourceLocation": "Reader 1–6",
+      "question": "Keep Calle Olmo, the failed emergency phone, inspector Raquel Méndez's inability to approve the elevator and Ramón Vega's four distinct listeners. A qualified Japanese/building reviewer must decide exact elevator-cab emergency phone and inspection terms without adding an independent code claim.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 4–17",
+      "question": "The Spanish objective contrasts tú and usted with Beto, owner Arturo Lozano, superintendent Diana Quiroga and inspector Méndez. Japanese register and role address cannot be copied mechanically from Spanish pronouns. Decide natural audience-specific register while preserving who is addressed and what each speaker actually says.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 9–12 and 18",
+      "question": "Keep Saturday tenant move-in, the scene's elevator certificate of operation before building certificate of occupancy, the emailed new date and Thursday follow-up. The inspector asks for a working emergency phone and a clean, dry elevator pit. Qualified trade/locale review must check document names and sequence without treating this dialogue as general permitting advice.",
+      "qualifiedDecision": null
+    }
+  ],
+  "rows": [
+    {
+      "id": "master-construction-foreman-ja-en:lesson:12:reader:line:1",
+      "sourceSpanish": "El lunes por la mañana, la inspección del elevador en el edificio de apartamentos de la Calle Olmo no se hizo como estaba programada.",
+      "sourceEnglish": "On Monday morning, the elevator inspection at the apartment building on Calle Olmo did not happen as scheduled.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:12:reader:line:2",
+      "sourceSpanish": "La compañía de elevadores avisó que el teléfono de emergencia de la cabina todavía no funciona, y la inspectora Raquel Méndez no puede aprobar el elevador sin él.",
+      "sourceEnglish": "The elevator company reported that the emergency phone in the cab still doesn't work, and inspector Raquel Méndez can't approve the elevator without it.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:12:reader:line:3",
+      "sourceSpanish": "El capataz, Ramón Vega, tiene que explicar la misma demora a cuatro personas, y con cada una decide si usa tú o usted.",
+      "sourceEnglish": "The foreman, Ramón Vega, has to explain the same delay to four people, and with each one he decides whether to use tú or usted.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:12:reader:line:4",
+      "sourceSpanish": "Primero busca a Beto Salas, un ayudante que está recogiendo basura cerca del cuarto de máquinas, y le habla de tú.",
+      "sourceEnglish": "First he finds Beto Salas, a laborer who is picking up trash near the machine room, and speaks to him with tú.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:12:reader:line:5",
+      "sourceSpanish": "Ramón: Beto, ¿podrías decirles a los demás que el elevador sigue cerrado?",
+      "sourceEnglish": "Ramón: Beto, could you tell the others the elevator is still closed?",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": "ベトさん、ほかの人たちに、エレベーターはまだ使えないって伝えてもらえる？",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:12:reader:line:6",
+      "sourceSpanish": "Ramón: Hasta que tengamos el certificado, nadie usa el elevador.",
+      "sourceEnglish": "Ramón: Until we have the certificate, nobody uses the elevator.",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": "必要な証明書が発行されるまでは、誰もエレベーターを使ってはいけません。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:12:reader:line:7",
+      "sourceSpanish": "Después, Ramón llama al propietario, Arturo Lozano, y le habla de usted con respeto.",
+      "sourceEnglish": "Next, Ramón calls the owner, Arturo Lozano, and respectfully speaks to him with usted.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:12:reader:line:8",
+      "sourceSpanish": "Ramón: Señor Lozano, quisiera explicarle por qué se movió la inspección.",
+      "sourceEnglish": "Ramón: Mr. Lozano, I'd like to explain why the inspection was moved.",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": "ロサノさん、検査日が変更になった理由をご説明したいのですが。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:12:reader:line:9",
+      "sourceSpanish": "El señor Lozano está preocupado, porque los inquilinos del tercer piso tienen la mudanza programada para el sábado.",
+      "sourceEnglish": "Mr. Lozano is worried, because the tenants on the third floor have their move-in scheduled for Saturday.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:12:reader:line:10",
+      "sourceSpanish": "Ramón: Entiendo que la mudanza de los inquilinos depende de esto, señor Lozano.",
+      "sourceEnglish": "Ramón: I understand the tenants' move-in depends on this, Mr. Lozano.",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": "ロサノさん、入居者の皆さんの引っ越しがこの件にかかっていることは承知しております。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:12:reader:line:11",
+      "sourceSpanish": "Ramón: Sin el certificado de operación del elevador, tampoco podemos pedir el certificado de ocupación del edificio.",
+      "sourceEnglish": "Ramón: Without the elevator's certificate of operation, we can't request the building's certificate of occupancy either.",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:12:reader:line:12",
+      "sourceSpanish": "Ramón: ¿Le parece si le mando la nueva fecha por correo hoy?",
+      "sourceEnglish": "Ramón: Would it be all right if I email you the new date today?",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": "本日中に、新しい日程をメールでお送りしてもよろしいでしょうか。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:12:reader:line:13",
+      "sourceSpanish": "Luego Ramón llama a la superintendente, Diana Quiroga, y la tutea porque trabajan juntos desde hace años.",
+      "sourceEnglish": "Then Ramón calls the superintendent, Diana Quiroga, and uses tú with her because they have worked together for years.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:12:reader:line:14",
+      "sourceSpanish": "Ramón: Diana, te aviso que la inspección del elevador no se hizo hoy.",
+      "sourceEnglish": "Ramón: Diana, I'm letting you know the elevator inspection didn't happen today.",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": "ディアナさん、今日のエレベーター検査は行われませんでした。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:12:reader:line:15",
+      "sourceSpanish": "Al final, Ramón llama a la inspectora Méndez, le ofrece una disculpa y le habla de usted.",
+      "sourceEnglish": "Finally, Ramón calls inspector Méndez, offers her an apology and speaks to her with usted.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:12:reader:line:16",
+      "sourceSpanish": "Ramón: Inspectora Méndez, ¿le parece bien reprogramar para el jueves?",
+      "sourceEnglish": "Ramón: Inspector Méndez, would it work for you to reschedule for Thursday?",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": "検査担当のメンデスさん、検査を木曜日に変更するということで、ご都合はいかがでしょうか。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:12:reader:line:17",
+      "sourceSpanish": "Ramón: Disculpe la molestia; ¿qué necesita que tengamos listo para la visita?",
+      "sourceEnglish": "Ramón: Sorry for the trouble; what do you need us to have ready for the visit?",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": "お手数をおかけして申し訳ありません。検査当日までに、こちらで何を準備しておけばよいか教えていただけますか。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:12:reader:line:18",
+      "sourceSpanish": "La inspectora Méndez acepta el jueves y pide el teléfono de emergencia funcionando y el foso del elevador limpio y seco.",
+      "sourceEnglish": "Inspector Méndez accepts Thursday and asks for the emergency phone working and the elevator pit clean and dry.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    }
+  ],
+  "reviewGates": {
+    "qualifiedJapaneseReview": false,
+    "qualifiedConstructionReview": false,
+    "sourceTechnicalQuestionsResolved": false,
+    "sourceParity": false,
+    "dictionarySenses": false,
+    "sixAuthoredModes": false,
+    "forms": false,
+    "speaking": false,
+    "audioText": false,
+    "audioListening": false,
+    "savedItemMigration": false,
+    "ownerRoute": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "progress": false,
+    "v4Native": false
+  }
+}

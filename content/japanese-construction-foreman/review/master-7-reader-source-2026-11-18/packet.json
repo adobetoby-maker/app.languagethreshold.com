@@ -1,0 +1,279 @@
+{
+  "schema": 1,
+  "state": "source-only-reader-gap-review",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "lesson": 7,
+  "moduleId": "master-construction-foreman-ja-en",
+  "source": {
+    "readerPath": "public/lesson-content/es/master-construction-foreman.json",
+    "curriculumPath": "src/data/core60/es/master-construction-foreman.json",
+    "translationDraftPath": "content/japanese-construction-foreman/master-translation-7-9-draft.json",
+    "readerSHA256": "549b47cf51253f5c5ac4f19bf2fdae52fa93ae8ea996377cc32e0c0fab896d11",
+    "curriculumSHA256": "96f86e3e51ba346918f539810bcc996cb41ceaaf9268af02fa595c333800dce2",
+    "translationDraftSHA256": "593c8bcb83ab68e8ee92eee177509058323b65ba12dba0762e1d7eb92129e741",
+    "sourceReaderTitleSpanish": "El reclamo del fin de semana",
+    "sourceLessonTitleEnglish": "Insurance Adjuster After the Weekend Leak",
+    "sourceObjectiveEnglish": "Tell an insurance adjuster what happened over the weekend and give clear quantities, times and locations."
+  },
+  "historicalPrivateReader": {
+    "commitSHA": "d13f46af8bf872742859ea60e582475505fde838",
+    "path": "content/japanese-construction-foreman/master-original-reader-7-9-draft.json",
+    "sha256": "4ed7a131097dfd36bd6326211b2a245bd04a9678f24abd37978350878261c563",
+    "title": "Records after the weekend leak",
+    "rows": [
+      {
+        "japanese": "月曜日の朝、保険の担当者が現場に来ました。",
+        "english": "On Monday morning, an insurance representative came to the site."
+      },
+      {
+        "japanese": "職長は、週末に見つかった水漏れについて説明しました。",
+        "english": "The foreman described the leak found over the weekend."
+      },
+      {
+        "japanese": "警備員の報告書には、発見した時刻が記録されています。",
+        "english": "The security guard’s report records the time of discovery."
+      },
+      {
+        "japanese": "二人は、報告書と現場の写真を見比べました。",
+        "english": "They compared the report with photographs of the site."
+      },
+      {
+        "japanese": "職長は、石膏ボードとタイルの箱があった場所を示しました。",
+        "english": "The foreman showed where the drywall and boxes of tile had been."
+      },
+      {
+        "japanese": "担当者は、確認できた数量を尋ねました。",
+        "english": "The representative asked for the quantities that had been confirmed."
+      },
+      {
+        "japanese": "職長は、確認済みの数字と未確認の数字を分けて伝えました。",
+        "english": "The foreman distinguished confirmed figures from those still unverified."
+      },
+      {
+        "japanese": "最後に、追加で必要な記録を一緒にリストにしました。",
+        "english": "Finally, they made a list of additional records needed."
+      }
+    ],
+    "reuseDecision": null
+  },
+  "openDomainReview": [
+    {
+      "sourceLocation": "Reader 1–10",
+      "question": "Preserve Monday 8:00 at La Fogata, adjuster Silvia Navarro, foreman Roberto Díaz, the company's policy number, Saturday coupling failure above the kitchen door, Sunday guard discovery and 6:10 shutoff, 6:15 call, guard report and 7:30 photos. A qualified Japanese/insurance reviewer must settle adjuster, claim, policy and incident-report terms without implying a claim decision.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 11–15",
+      "question": "Preserve the stated 600 square feet, power shutoff report, two industrial vacuums before 10:00 Sunday, 24 drywall sheets, nine tile boxes and three still-wet wall bottoms. Attribute actions and measurements to Roberto; a qualified construction/moisture reviewer must settle drywall, tile, standing-water and moisture-meter senses and source units. This is incident narration, not an independent electrical or water-removal procedure.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 16–18",
+      "question": "Preserve Roberto's report of two dehumidifiers and his stated mold-prevention purpose, his invoice question, and Silvia's request for invoices today plus photos and report added to the claim. A qualified Japanese/moisture/insurance reviewer must choose exact dehumidifier, mold and invoice language without presenting the character's prevention claim as verified outcome.",
+      "qualifiedDecision": null
+    }
+  ],
+  "rows": [
+    {
+      "id": "master-construction-foreman-ja-en:lesson:7:reader:line:1",
+      "sourceSpanish": "El lunes a las 8:00, la ajustadora Silvia Navarro llegó a la remodelación del restaurante La Fogata para revisar un reclamo por daños de agua.",
+      "sourceEnglish": "On Monday at 8:00, the adjuster Silvia Navarro arrived at the La Fogata restaurant remodel to review a water damage claim.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:7:reader:line:2",
+      "sourceSpanish": "Roberto Díaz, el encargado de la obra, le dio el número de póliza de la constructora.",
+      "sourceEnglish": "Roberto Díaz, the site foreman, gave her the construction company's policy number.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:7:reader:line:3",
+      "sourceSpanish": "Silvia: ¿Cuándo encontraron el agua, quién la cerró y cuánto material se dañó?",
+      "sourceEnglish": "Silvia: When did you find the water, who shut it off and how much material was damaged?",
+      "speaker": "Silvia",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:7:reader:line:4",
+      "sourceSpanish": "Roberto: El sábado se rompió un cople de la línea temporal.",
+      "sourceEnglish": "Roberto: On Saturday a coupling on the temporary line broke.",
+      "speaker": "Roberto",
+      "conditionalJapanesePhrase": "土曜日に、仮設の給水管の継手が破損しました。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:7:reader:line:5",
+      "sourceSpanish": "Roberto: El cople estaba en la línea de agua temporal, arriba de la puerta de la cocina.",
+      "sourceEnglish": "Roberto: The coupling was on the temporary water line, above the kitchen door.",
+      "speaker": "Roberto",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:7:reader:line:6",
+      "sourceSpanish": "Roberto: El domingo temprano el guardia de seguridad vio el agua durante su ronda.",
+      "sourceEnglish": "Roberto: Early on Sunday the security guard saw the water during his rounds.",
+      "speaker": "Roberto",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:7:reader:line:7",
+      "sourceSpanish": "Roberto: El guardia cerró la llave el domingo a las 6:10.",
+      "sourceEnglish": "Roberto: The guard shut the valve on Sunday at 6:10.",
+      "speaker": "Roberto",
+      "conditionalJapanesePhrase": "日曜日の6時10分に、警備員が止水弁を閉めました。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:7:reader:line:8",
+      "sourceSpanish": "Roberto: Usó la llave de paso de la entrada de atrás y me llamó a las 6:15.",
+      "sourceEnglish": "Roberto: He used the shutoff valve at the back entrance and called me at 6:15.",
+      "speaker": "Roberto",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:7:reader:line:9",
+      "sourceSpanish": "Roberto: Aquí tiene el reporte del guardia con las horas exactas.",
+      "sourceEnglish": "Roberto: Here is the guard's report with the exact times.",
+      "speaker": "Roberto",
+      "conditionalJapanesePhrase": "こちらが、正確な時刻を記載した警備員の報告書です。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:7:reader:line:10",
+      "sourceSpanish": "Roberto: Yo llegué a las 7:30 y tomé fotos de todo.",
+      "sourceEnglish": "Roberto: I arrived at 7:30 and took photos of everything.",
+      "speaker": "Roberto",
+      "conditionalJapanesePhrase": "7時30分に到着し、すべてを写真に撮りました。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:7:reader:line:11",
+      "sourceSpanish": "Roberto: El área afectada fue la cocina y el comedor, unos 600 pies cuadrados en total.",
+      "sourceEnglish": "Roberto: The affected area was the kitchen and the dining room, about 600 square feet in total.",
+      "speaker": "Roberto",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:7:reader:line:12",
+      "sourceSpanish": "Roberto: Primero cortamos la electricidad del área y después sacamos el agua estancada con 2 aspiradoras industriales antes de las 10:00 del domingo.",
+      "sourceEnglish": "Roberto: First we cut the power to the area, and then we removed the standing water with 2 industrial vacuums before 10:00 on Sunday.",
+      "speaker": "Roberto",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:7:reader:line:13",
+      "sourceSpanish": "Roberto: Se dañaron 24 hojas de tablaroca en la cocina y el comedor.",
+      "sourceEnglish": "Roberto: 24 sheets of drywall were damaged in the kitchen and dining room.",
+      "speaker": "Roberto",
+      "conditionalJapanesePhrase": "キッチンとダイニングの石膏ボード24枚が損傷しました。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:7:reader:line:14",
+      "sourceSpanish": "Roberto: También se mojaron 9 cajas de loseta que estaban en el piso.",
+      "sourceEnglish": "Roberto: 9 boxes of tile that were on the floor also got wet.",
+      "speaker": "Roberto",
+      "conditionalJapanesePhrase": "床に置いてあったタイル9箱も濡れました。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:7:reader:line:15",
+      "sourceSpanish": "Roberto: Hoy a las 7:00 medimos 3 paredes con el medidor de humedad, y las 3 todavía estaban mojadas por abajo.",
+      "sourceEnglish": "Roberto: Today at 7:00 we measured 3 walls with the moisture meter, and all 3 were still wet at the bottom.",
+      "speaker": "Roberto",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:7:reader:line:16",
+      "sourceSpanish": "Roberto: Pusimos 2 deshumidificadores para que no salga moho.",
+      "sourceEnglish": "Roberto: We set up 2 dehumidifiers so mold doesn't grow.",
+      "speaker": "Roberto",
+      "conditionalJapanesePhrase": "カビが生えないように、除湿機を2台設置しました。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:7:reader:line:17",
+      "sourceSpanish": "Roberto: ¿Quiere que le mande las facturas del material dañado?",
+      "sourceEnglish": "Roberto: Do you want me to send you the invoices for the damaged material?",
+      "speaker": "Roberto",
+      "conditionalJapanesePhrase": "損傷した材料の購入時の請求書をお送りしましょうか。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:7:reader:line:18",
+      "sourceSpanish": "Silvia: Sí, mándemelas hoy y yo agrego las fotos y el reporte al reclamo.",
+      "sourceEnglish": "Silvia: Yes, send them to me today and I will add the photos and the report to the claim.",
+      "speaker": "Silvia",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    }
+  ],
+  "reviewGates": {
+    "qualifiedJapaneseReview": false,
+    "qualifiedConstructionReview": false,
+    "sourceTechnicalQuestionsResolved": false,
+    "sourceParity": false,
+    "dictionarySenses": false,
+    "sixAuthoredModes": false,
+    "forms": false,
+    "speaking": false,
+    "audioText": false,
+    "audioListening": false,
+    "savedItemMigration": false,
+    "learnerRuntime": false,
+    "offline": false,
+    "progress": false,
+    "v4Native": false,
+    "qualifiedInsuranceReview": false,
+    "qualifiedMoistureReview": false
+  }
+}

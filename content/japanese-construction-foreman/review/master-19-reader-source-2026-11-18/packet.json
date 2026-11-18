@@ -1,0 +1,287 @@
+{
+  "schema": 1,
+  "state": "source-only-reader-gap-review",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "lesson": 19,
+  "moduleId": "master-construction-foreman-ja-en",
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false,
+  "source": {
+    "readerPath": "public/lesson-content/es/master-construction-foreman.json",
+    "curriculumPath": "src/data/core60/es/master-construction-foreman.json",
+    "translationDraftPath": "content/japanese-construction-foreman/master-translation-19-20-draft.json",
+    "readerSHA256": "549b47cf51253f5c5ac4f19bf2fdae52fa93ae8ea996377cc32e0c0fab896d11",
+    "curriculumSHA256": "96f86e3e51ba346918f539810bcc996cb41ceaaf9268af02fa595c333800dce2",
+    "translationDraftSHA256": "3d2ae5657fe382b6314a3f90732d34136593cbe9447456c9934839a8bccfb258",
+    "sourceReaderTitleSpanish": "Entrega de la guardería",
+    "sourceLessonTitleEnglish": "Turnover Walk: Warranty Limits at the Daycare",
+    "sourceObjectiveEnglish": "Walk an owner through turnover, explain what the warranty covers and under which conditions, and handle requests.",
+    "sourceSpeakingEnglish": "You are the foreman, and the AI is daycare director Claudia Benítez: walk her through turnover, explain what the warranty covers with siempre que and a menos que, and explain who must confirm wall loads, using the conditional (revisaríamos, le pediría)."
+  },
+  "historicalPrivateReader": {
+    "lesson19OriginalReaderDraftPresent": false,
+    "reuseDecision": null
+  },
+  "openDomainReview": [
+    {
+      "sourceLocation": "Reader 1–3; title and objective",
+      "question": "Preserve the Pequeños Pasos daycare, director Claudia Benítez, Monday turnover, the contract's one-year workmanship warranty and its start when Claudia signs. Review the Japanese legal/construction distinction between workmanship warranty, defect coverage and general building warranty without adding promises beyond the contract.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 4–10",
+      "question": "Preserve the infants' room, hairline concrete cracks, Ramón's statement that shrinkage is almost always the cause, free inspection unless the contract says otherwise, repair only if a workmanship defect, measuring a widening crack, and normal use versus misuse. The source's normality/causation claim and contract scope need qualified construction/warranty review; Japanese must not turn conditional inspection or repair into a guarantee.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 11–18",
+      "question": "Preserve the playroom's heavy book shelving, drywall partition, unknown in-wall blocking, bought wall anchors, unknown load capacity and the project engineer's written confirmation. Do not imply the purchased anchors alone prove capacity or allow hanging before engineer confirmation. Preserve preapproval for wall modification, possible warranty exclusion after unauthorized drilling and the handoff of the maintenance manual.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 6–7, 13–17; grammar and register",
+      "question": "Review polite foreman-to-director Japanese register and conditional scope for a menos que, siempre que, revisaríamos, le pediría and podría no cubrirlo. Distinguish source quotes from narrative, especially the embedded final quotation in Reader 18; validate concrete, drywall, blocking, anchors, load capacity and warranty terms before selecting Japanese or audio.",
+      "qualifiedDecision": null
+    }
+  ],
+  "rows": [
+    {
+      "id": "master-construction-foreman-ja-en:lesson:19:reader:line:1",
+      "sourceSpanish": "El lunes por la mañana, el capataz Ramón Ortiz hace la entrega del edificio de la guardería Pequeños Pasos con la directora Claudia Benítez.",
+      "sourceEnglish": "On Monday morning, foreman Ramón Ortiz does the building turnover of the Pequeños Pasos daycare with director Claudia Benítez.",
+      "speaker": null,
+      "embeddedSpeech": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:19:reader:line:2",
+      "sourceSpanish": "Ramón: Según el contrato, la garantía de obra es de 1 año.",
+      "sourceEnglish": "Ramón: According to the contract, the workmanship warranty is 1 year.",
+      "speaker": "Ramón",
+      "embeddedSpeech": null,
+      "conditionalJapanesePhrase": "契約書によると、施工の保証期間は1年です。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:19:reader:line:3",
+      "sourceSpanish": "Ramón: El período de garantía empieza en cuanto usted firme la entrega.",
+      "sourceEnglish": "Ramón: The warranty period starts as soon as you sign the turnover.",
+      "speaker": "Ramón",
+      "embeddedSpeech": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:19:reader:line:4",
+      "sourceSpanish": "En el salón de los bebés, Claudia señala unas fisuras finas en el piso de concreto y pregunta si la garantía las cubre.",
+      "sourceEnglish": "In the infants' room, Claudia points to some hairline cracks in the concrete floor and asks whether the warranty covers them.",
+      "speaker": null,
+      "embeddedSpeech": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:19:reader:line:5",
+      "sourceSpanish": "Ramón: Las fisuras finas son normales cuando el concreto se contrae.",
+      "sourceEnglish": "Ramón: Hairline cracks are normal when the concrete shrinks.",
+      "speaker": "Ramón",
+      "embeddedSpeech": null,
+      "conditionalJapanesePhrase": "コンクリートが収縮するときに細いひび割れが生じるのは、通常のことです。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:19:reader:line:6",
+      "sourceSpanish": "Ramón: Casi siempre vienen de la contracción del concreto, pero las revisaríamos sin costo, a menos que el contrato diga otra cosa.",
+      "sourceEnglish": "Ramón: They almost always come from concrete shrinkage, but we would check them at no cost, unless the contract says otherwise.",
+      "speaker": "Ramón",
+      "embeddedSpeech": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:19:reader:line:7",
+      "sourceSpanish": "Ramón: La reparamos siempre que la fisura sea por un defecto de obra.",
+      "sourceEnglish": "Ramón: We'll repair it as long as the crack comes from a workmanship defect.",
+      "speaker": "Ramón",
+      "embeddedSpeech": null,
+      "conditionalJapanesePhrase": "そのひび割れが施工不良によるものであれば、補修いたします。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:19:reader:line:8",
+      "sourceSpanish": "Ramón: Si la fisura se abre más, avíseme y la medimos.",
+      "sourceEnglish": "Ramón: If the crack gets wider, let me know and we'll measure it.",
+      "speaker": "Ramón",
+      "embeddedSpeech": null,
+      "conditionalJapanesePhrase": "ひび割れの幅が広がった場合は、ご連絡ください。幅を測定いたします。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:19:reader:line:9",
+      "sourceSpanish": "Luego Claudia pregunta cuál es la cobertura de la garantía con tantos niños usando el edificio todos los días.",
+      "sourceEnglish": "Then Claudia asks what the warranty coverage is with so many children using the building every day.",
+      "speaker": null,
+      "embeddedSpeech": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:19:reader:line:10",
+      "sourceSpanish": "Ramón: La garantía cubre los defectos que aparezcan con el uso normal, pero no los daños por el mal uso.",
+      "sourceEnglish": "Ramón: The warranty covers defects that appear with normal use, but not damage from misuse.",
+      "speaker": "Ramón",
+      "embeddedSpeech": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:19:reader:line:11",
+      "sourceSpanish": "En la sala de juegos, Claudia quiere colgar unos anaqueles pesados de libros en el muro divisorio con unos taquetes que compró.",
+      "sourceEnglish": "In the playroom, Claudia wants to hang some heavy book shelving units on the partition wall with some wall anchors she bought.",
+      "speaker": null,
+      "embeddedSpeech": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:19:reader:line:12",
+      "sourceSpanish": "Ramón: Ese muro es de tablaroca y no sé si lleva el refuerzo interno en esa zona.",
+      "sourceEnglish": "Ramón: That wall is drywall and I don't know if it has in-wall blocking in that area.",
+      "speaker": "Ramón",
+      "embeddedSpeech": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:19:reader:line:13",
+      "sourceSpanish": "Ramón: Con unos taquetes no sabemos la capacidad de carga del muro, y eso solo lo puede confirmar el ingeniero del proyecto.",
+      "sourceEnglish": "Ramón: With wall anchors we don't know the load capacity of the wall, and only the project engineer can confirm that.",
+      "speaker": "Ramón",
+      "embeddedSpeech": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:19:reader:line:14",
+      "sourceSpanish": "Ramón: Le pediría al ingeniero del proyecto que lo confirme por escrito.",
+      "sourceEnglish": "Ramón: I would ask the project engineer to confirm it in writing.",
+      "speaker": "Ramón",
+      "embeddedSpeech": null,
+      "conditionalJapanesePhrase": "担当技術者に書面で確認するよう依頼したいと思います。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:19:reader:line:15",
+      "sourceSpanish": "Ramón: No cuelgue los anaqueles hasta que el ingeniero confirme la carga.",
+      "sourceEnglish": "Ramón: Don't hang the shelving until the engineer confirms the load.",
+      "speaker": "Ramón",
+      "embeddedSpeech": null,
+      "conditionalJapanesePhrase": "担当技術者が耐荷重を確認するまで、棚を取り付けないでください。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:19:reader:line:16",
+      "sourceSpanish": "Ramón: Cualquier modificación del muro necesita la aprobación del ingeniero antes de empezar.",
+      "sourceEnglish": "Ramón: Any alteration to the wall needs the engineer's approval before starting.",
+      "speaker": "Ramón",
+      "embeddedSpeech": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:19:reader:line:17",
+      "sourceSpanish": "Ramón: Si perforan el muro sin aprobación, la garantía podría no cubrirlo.",
+      "sourceEnglish": "Ramón: If the wall is drilled without approval, the warranty might not cover it.",
+      "speaker": "Ramón",
+      "embeddedSpeech": null,
+      "conditionalJapanesePhrase": "承認を得ずに壁に穴を開けた場合、保証の対象外となる可能性があります。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:19:reader:line:18",
+      "sourceSpanish": "Al final, Ramón le da a Claudia el manual de mantenimiento y le dice: Aquí tiene el manual con las exclusiones de la garantía.",
+      "sourceEnglish": "At the end, Ramón gives Claudia the maintenance manual and tells her: Here is the manual with the warranty exclusions.",
+      "speaker": null,
+      "embeddedSpeech": "Here is the manual with the warranty exclusions.",
+      "conditionalJapanesePhrase": "こちらが、保証の適用除外事項を記載した維持管理マニュアルです。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    }
+  ],
+  "reviewGates": {
+    "qualifiedJapaneseReview": false,
+    "qualifiedConstructionReview": false,
+    "sourceTechnicalQuestionsResolved": false,
+    "sourceParity": false,
+    "dictionarySenses": false,
+    "sixAuthoredModes": false,
+    "forms": false,
+    "speaking": false,
+    "audioText": false,
+    "audioListening": false,
+    "savedItemMigration": false,
+    "ownerRoute": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "progress": false,
+    "v4Native": false
+  }
+}

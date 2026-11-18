@@ -1,0 +1,437 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:23:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-21-23-draft.json",
+      "sha256": "f6ac0838c706af85fb07f66f665c9e0fa49736cdb5dbeafd2030f22f33831739"
+    }
+  },
+  "sourceEnglishTitle": "Footing & Weather",
+  "sourceEnglishObjective": "Warn about slippery conditions and changing weather",
+  "sourceEnglishSpeaking": "Warn the crew about slick footing and bring them down when lightning approaches.",
+  "sourceSpanishReaderTitle": "Rocío y tormentas",
+  "candidateObjective": "滑りやすい状態と変わる天候について警告する。",
+  "candidateFocus": "～ので gives the reason for a warning. ～たら sets a weather-change condition; ～てください gives a direct instruction to come down.",
+  "archivedForms": [
+    {
+      "base": "降りる",
+      "exampleJa": "嵐が近づいています。今すぐ降りてください。",
+      "meaningEnglish": "to come down",
+      "exampleEnglish": "A storm is coming. Come down now.",
+      "sourceInfinitiveSpanish": "bajar"
+    },
+    {
+      "base": "止める",
+      "exampleJa": "天候が変わったら作業を止めて降りてください。",
+      "meaningEnglish": "to stop",
+      "exampleEnglish": "Stop work and come down if the weather changes.",
+      "sourceInfinitiveSpanish": "detener"
+    },
+    {
+      "base": "履く",
+      "exampleJa": "滑りにくい作業靴を履いてください。",
+      "meaningEnglish": "to use, to wear",
+      "exampleEnglish": "Wear boots with good grip.",
+      "sourceInfinitiveSpanish": "usar"
+    },
+    {
+      "base": "探す",
+      "exampleJa": "朝露で滑りやすいので、安定した足元を探します。",
+      "meaningEnglish": "to look for",
+      "exampleEnglish": "We look for solid footing because the dew is slick.",
+      "sourceInfinitiveSpanish": "buscar"
+    },
+    {
+      "base": "変わる",
+      "exampleJa": "天候が変わったら降りてください。",
+      "meaningEnglish": "to change",
+      "exampleEnglish": "Come down if the weather changes.",
+      "sourceInfinitiveSpanish": "cambiar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "屋根が朝露で滑りやすくなっています。足元に気をつけてください。嵐が近づいているので、今すぐ降りてください。",
+    "goal": "Warn the crew about slick footing and bring them down when lightning approaches."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the current source sequence: at 6:30 dew remains on the roof; foreman warns the roof is wet; crew seeks solid footing and wears grip boots; later wind rises and dark clouds appear; source prohibits roof work in lightning; foreman calls for immediate descent as a storm approaches; final line says stop and come down if weather changes. The source's broad weather-change trigger, roof work on dew and footwear claims require qualified roofing/weather safety review. The speaking objective explicitly says bring crew down when lightning approaches, while archived speaking opening mentions only an approaching storm; keep those cues coherent. Archived 雷 can mean thunder or lightning and 作業靴 is broader than boots. Current curriculum has no authored verb-example list; archived forms remain conditional evidence. No selected learner/audio text or progress identity is created.",
+  "sourceVerbExamples": null,
+  "cards": [
+    {
+      "id": "roofing:23:ja-en:card:1",
+      "legacySourceRef": "roofing:23:ja-en:cards:1",
+      "sourceSpanish": "Rocío",
+      "sourceEnglish": "dew",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "朝露",
+      "archivedJapanese": "朝露",
+      "archivedEnglish": "dew",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:card:2",
+      "legacySourceRef": "roofing:23:ja-en:cards:2",
+      "sourceSpanish": "Apoyo firme al pisar",
+      "sourceEnglish": "footing",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "足元の安定",
+      "archivedEnglish": "footing",
+      "reviewNote": "Footing / apoyo firme al pisar is secure placement and traction while stepping, not merely 足元の安定 as an abstract state. Confirm a natural Japanese term and the roof-work safety context.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:card:3",
+      "legacySourceRef": "roofing:23:ja-en:cards:3",
+      "sourceSpanish": "Relámpagos",
+      "sourceEnglish": "lightning",
+      "sourceNoteSpanish": "también: rayos",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "雷",
+      "archivedEnglish": "lightning",
+      "reviewNote": "雷 may denote thunder or lightning; source specifically means electrical lightning hazard. Confirm Japanese term and timing with qualified safety/Japanese review.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:card:4",
+      "legacySourceRef": "roofing:23:ja-en:cards:4",
+      "sourceSpanish": "Resbaloso",
+      "sourceEnglish": "slippery",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "滑りやすい",
+      "archivedJapanese": "滑りやすい",
+      "archivedEnglish": "slippery",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:card:5",
+      "legacySourceRef": "roofing:23:ja-en:cards:5",
+      "sourceSpanish": "Mojado",
+      "sourceEnglish": "wet",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "濡れている",
+      "archivedJapanese": "濡れている",
+      "archivedEnglish": "wet",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:card:6",
+      "legacySourceRef": "roofing:23:ja-en:cards:6",
+      "sourceSpanish": "Lluvia",
+      "sourceEnglish": "rain",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "雨",
+      "archivedJapanese": "雨",
+      "archivedEnglish": "rain",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:card:7",
+      "legacySourceRef": "roofing:23:ja-en:cards:7",
+      "sourceSpanish": "Viento",
+      "sourceEnglish": "wind",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "風",
+      "archivedJapanese": "風",
+      "archivedEnglish": "wind",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:card:8",
+      "legacySourceRef": "roofing:23:ja-en:cards:8",
+      "sourceSpanish": "Tormenta",
+      "sourceEnglish": "storm",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "嵐",
+      "archivedJapanese": "嵐",
+      "archivedEnglish": "storm",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:card:9",
+      "legacySourceRef": "roofing:23:ja-en:cards:9",
+      "sourceSpanish": "Botas",
+      "sourceEnglish": "boots",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "作業靴",
+      "archivedEnglish": "boots",
+      "reviewNote": "Boots / botas is footwear type, while archived 作業靴 covers work shoes broadly. Keep boot sense and grip-property claims distinct.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:card:10",
+      "legacySourceRef": "roofing:23:ja-en:cards:10",
+      "sourceSpanish": "Cuidado al pisar — el rocío resbala.",
+      "sourceEnglish": "Watch your footing — the dew is slick.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "足元に気をつけてください。朝露で滑りやすくなっています。",
+      "archivedJapanese": "足元に気をつけてください。朝露で滑りやすくなっています。",
+      "archivedEnglish": "Watch your footing — the dew is slick.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:card:11",
+      "legacySourceRef": "roofing:23:ja-en:cards:11",
+      "sourceSpanish": "No trabajen el techo con relámpagos.",
+      "sourceEnglish": "Don't work the roof in lightning.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "雷が発生している間は屋根で作業しないでください。",
+      "archivedEnglish": "Don't work the roof in lightning.",
+      "reviewNote": "The source prohibits roof work in lightning. Archived 雷が発生している間 can read as only while lightning is actively occurring; settle onset/approach and safe-stop timing before scoring.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:card:12",
+      "legacySourceRef": "roofing:23:ja-en:cards:12",
+      "sourceSpanish": "Detengan el trabajo y bajen si cambia el tiempo.",
+      "sourceEnglish": "Stop work and come down if the weather changes.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "天候が変わったら作業を止めて降りてください。",
+      "archivedEnglish": "Stop work and come down if the weather changes.",
+      "reviewNote": "Source says stop work and come down if weather changes. This broadly worded trigger needs qualified roofing/weather safety context; archived Japanese should not imply every harmless change or wait past lightning approach.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:card:13",
+      "legacySourceRef": "roofing:23:ja-en:cards:13",
+      "sourceSpanish": "El techo está mojado. Tengan cuidado.",
+      "sourceEnglish": "The roof is wet. Be careful.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "屋根が濡れています。気をつけてください。",
+      "archivedJapanese": "屋根が濡れています。気をつけてください。",
+      "archivedEnglish": "The roof is wet. Be careful.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:card:14",
+      "legacySourceRef": "roofing:23:ja-en:cards:14",
+      "sourceSpanish": "Viene una tormenta. Bajen ahora.",
+      "sourceEnglish": "A storm is coming. Come down now.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "嵐が近づいています。今すぐ降りてください。",
+      "archivedEnglish": "A storm is coming. Come down now.",
+      "reviewNote": "Source commands immediate descent for an approaching storm. Confirm timing, roof-exit sequence and lightning approach consistency with the speaking objective; do not treat isolated sentence as a complete emergency procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:card:15",
+      "legacySourceRef": "roofing:23:ja-en:cards:15",
+      "sourceSpanish": "Usen botas con buen agarre.",
+      "sourceEnglish": "Wear boots with good grip.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "滑りにくい作業靴を履いてください。",
+      "archivedEnglish": "Wear boots with good grip.",
+      "reviewNote": "Source specifies boots with good grip. Archived 滑りにくい作業靴 loses boots; qualified reviewer must ensure footwear is not presented as sufficient control for a wet roof.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:23:ja-en:line:1",
+      "legacySourceRef": "roofing:23:ja-en:reader:1",
+      "sourceSpanish": "Son las 6:30 de la mañana y todavía hay rocío en el techo.",
+      "sourceEnglish": "It is 6:30 in the morning and there is still dew on the roof.",
+      "selectedJapanese": null,
+      "candidateJapanese": "午前六時半、屋根にはまだ朝露が残っています。",
+      "archivedJapanese": "午前六時半、屋根にはまだ朝露が残っています。",
+      "archivedEnglish": "It is 6:30 in the morning and there is still dew on the roof.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:line:2",
+      "legacySourceRef": "roofing:23:ja-en:reader:2",
+      "sourceSpanish": "El capataz advierte: El techo está mojado. Tengan cuidado.",
+      "sourceEnglish": "The foreman warns: The roof is wet. Be careful.",
+      "selectedJapanese": null,
+      "candidateJapanese": "職長は「屋根が濡れています。気をつけてください」と警告します。",
+      "archivedJapanese": "職長は「屋根が濡れています。気をつけてください」と警告します。",
+      "archivedEnglish": "The foreman warns: The roof is wet. Be careful.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:line:3",
+      "legacySourceRef": "roofing:23:ja-en:reader:3",
+      "sourceSpanish": "Busquen un apoyo firme al pisar, porque el rocío hace resbaloso el techo.",
+      "sourceEnglish": "Look for solid footing, because the dew makes the roof slippery.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "朝露で屋根が滑りやすいため、安定した足元を探してください。",
+      "archivedEnglish": "Look for solid footing, because the dew makes the roof slippery.",
+      "reviewNote": "Look for solid footing on a dew-slick roof is source text, not a complete safe-work method. Confirm 足元 and 安定した足元 language and safety sequence before learner-facing instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:line:4",
+      "legacySourceRef": "roofing:23:ja-en:reader:4",
+      "sourceSpanish": "Usen botas con buen agarre.",
+      "sourceEnglish": "Wear boots with good grip.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "滑りにくい作業靴を履いてください。",
+      "archivedEnglish": "Wear boots with good grip.",
+      "reviewNote": "Source says boots with good grip; archived 作業靴 is broader work shoes, and footwear alone does not resolve wet-roof hazard.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:line:5",
+      "legacySourceRef": "roofing:23:ja-en:reader:5",
+      "sourceSpanish": "Más tarde, el viento sube y se ven nubes oscuras en el cielo.",
+      "sourceEnglish": "Later, the wind picks up and dark clouds appear in the sky.",
+      "selectedJapanese": null,
+      "candidateJapanese": "その後、風が強まり、空に暗い雲が現れます。",
+      "archivedJapanese": "その後、風が強まり、空に暗い雲が現れます。",
+      "archivedEnglish": "Later, the wind picks up and dark clouds appear in the sky.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:line:6",
+      "legacySourceRef": "roofing:23:ja-en:reader:6",
+      "sourceSpanish": "No trabajen el techo con relámpagos.",
+      "sourceEnglish": "Do not work the roof in lightning.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "雷が発生している間は屋根で作業しないでください。",
+      "archivedEnglish": "Do not work the roof in lightning.",
+      "reviewNote": "Do not work the roof in lightning; confirm Japanese 雷 sense and stop/evacuation timing before scoring or audio.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:line:7",
+      "legacySourceRef": "roofing:23:ja-en:reader:7",
+      "sourceSpanish": "El capataz grita: Viene una tormenta. Bajen ahora.",
+      "sourceEnglish": "The foreman shouts: A storm is coming. Come down now.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "職長は「嵐が近づいています。今すぐ降りてください」と叫びます。",
+      "archivedEnglish": "The foreman shouts: A storm is coming. Come down now.",
+      "reviewNote": "Storm coming / come down now must be coordinated with the speaking objective's lightning approach, not delayed until visible lightning or a storm already arrives.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:23:ja-en:line:8",
+      "legacySourceRef": "roofing:23:ja-en:reader:8",
+      "sourceSpanish": "Detengan el trabajo y bajen si cambia el tiempo.",
+      "sourceEnglish": "Stop work and come down if the weather changes.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "天候が変わったら作業を止めて降りてください。",
+      "archivedEnglish": "Stop work and come down if the weather changes.",
+      "reviewNote": "Broad 'if weather changes' trigger needs qualified safety context and must not weaken the immediate storm/lightning instruction in Reader 7.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the dew on the roof and the approaching dark clouds.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall dew, slippery footing, lightning, wind, and storm.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 朝露 from 雨 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'A storm is coming. Come down now' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Warn the crew about slippery footing and changing weather.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write the foreman's instruction when the weather changes.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

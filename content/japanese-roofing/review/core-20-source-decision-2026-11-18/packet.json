@@ -1,0 +1,423 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:20:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-19-20-draft.json",
+      "sha256": "b01a33473c8ed78df24fe70f1e3a8e10878e7a17061fe1614cebaf53ad5d6484"
+    }
+  },
+  "sourceEnglishTitle": "Ridge Caps & Finish",
+  "sourceEnglishObjective": "Discuss ridge-cap preparation and finish work",
+  "sourceEnglishSpeaking": "Give the guide's ridge-cap instruction and verify the chosen product's method.",
+  "sourceSpanishReaderTitle": "Caballetes y acabado",
+  "candidateObjective": "棟包み材の準備、取り付け、仕上げについて話す。",
+  "candidateFocus": "～に沿って marks the ridge installation path. ～なら gives the product condition for cutting caps from starter shingles; ～たら orders cleanup after finishing.",
+  "archivedForms": [
+    {
+      "base": "切る",
+      "exampleJa": "製品が認めているなら、スターターシングル材から棟包み材を切り出してください。",
+      "meaningEnglish": "to cut",
+      "exampleEnglish": "Cut the ridge caps from a starter shingle, if the product allows it.",
+      "sourceInfinitiveSpanish": "cortar"
+    },
+    {
+      "base": "確認する",
+      "exampleJa": "職長は棟換気材も確認します。",
+      "meaningEnglish": "to check",
+      "exampleEnglish": "The foreman also checks the ridge vent.",
+      "sourceInfinitiveSpanish": "revisar"
+    },
+    {
+      "base": "取り付ける",
+      "exampleJa": "棟に沿って棟包み材を取り付けてください。",
+      "meaningEnglish": "to install",
+      "exampleEnglish": "Install the ridge caps along the ridge.",
+      "sourceInfinitiveSpanish": "instalar"
+    },
+    {
+      "base": "シーリングする",
+      "exampleJa": "最後の棟包み材をシーリングしてください。",
+      "meaningEnglish": "to seal",
+      "exampleEnglish": "Seal the last cap.",
+      "sourceInfinitiveSpanish": "sellar"
+    },
+    {
+      "base": "清掃する",
+      "exampleJa": "作業が終わったら屋根を清掃してください。",
+      "meaningEnglish": "to clean",
+      "exampleEnglish": "When you finish, clean the roof.",
+      "sourceInfinitiveSpanish": "limpiar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "まず棟包み材の製品説明書を確認します。その後、棟に沿って取り付け、最後の一枚をシーリングします。",
+    "goal": "Give the guide's ridge-cap instruction and verify the chosen product's method."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the source sequence: the crew has ridge and hip finish work left; first check the selected ridge-cap product instructions; cut caps from a starter shingle only if the product permits; install caps along the ridge; the foreman checks the ridge vent; seal the final cap and clean up. The isolated source card 10 lacks Reader 4's product condition, and the last-cap sealant method is product-specific. Archived Japanese noun/verb and roof-component senses require qualified Japanese/roofing/dictionary review. Current curriculum has no authored verb-example list; archived forms remain conditional evidence. No selected learner/audio text or progress identity is created.",
+  "sourceVerbExamples": null,
+  "cards": [
+    {
+      "id": "roofing:20:ja-en:card:1",
+      "legacySourceRef": "roofing:20:ja-en:cards:1",
+      "sourceSpanish": "Caballete",
+      "sourceEnglish": "ridge cap",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "棟包み材",
+      "archivedEnglish": "ridge cap",
+      "reviewNote": "Ridge cap names a finish component, while archived 棟包み材 may name a material or assembly. Confirm the chosen product's Japanese trade term and dictionary sense.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:20:ja-en:card:2",
+      "legacySourceRef": "roofing:20:ja-en:cards:2",
+      "sourceSpanish": "Teja inicial",
+      "sourceEnglish": "starter shingle",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "スターターシングル材",
+      "archivedEnglish": "starter shingle",
+      "reviewNote": "The source starter shingle may be a distinct product from the selected ridge cap. Archived スターターシングル材 implies a material without checking the approved cap-cutting method.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:20:ja-en:card:3",
+      "legacySourceRef": "roofing:20:ja-en:cards:3",
+      "sourceSpanish": "Cumbrera",
+      "sourceEnglish": "ridge",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "棟",
+      "archivedEnglish": "ridge",
+      "reviewNote": "Ridge is the roof line here; archived 棟 can also mean a ridge assembly. Confirm context with ridge cap and ridge vent.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:20:ja-en:card:4",
+      "legacySourceRef": "roofing:20:ja-en:cards:4",
+      "sourceSpanish": "Limatesa",
+      "sourceEnglish": "hip",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "隅棟",
+      "archivedEnglish": "hip",
+      "reviewNote": "Hip / limatesa is a sloping roof intersection; confirm archived 隅棟 names the intended line rather than an installed cap.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:20:ja-en:card:5",
+      "legacySourceRef": "roofing:20:ja-en:cards:5",
+      "sourceSpanish": "Ventilación de caballete",
+      "sourceEnglish": "ridge vent",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "棟換気材",
+      "archivedEnglish": "ridge vent",
+      "reviewNote": "Ridge vent is a ventilation component at the ridge. Confirm archived 棟換気材 versus product/assembly term and its relationship to cap installation.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:20:ja-en:card:6",
+      "legacySourceRef": "roofing:20:ja-en:cards:6",
+      "sourceSpanish": "Cortar",
+      "sourceEnglish": "cut",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "切る",
+      "archivedJapanese": "切る",
+      "archivedEnglish": "cut",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:20:ja-en:card:7",
+      "legacySourceRef": "roofing:20:ja-en:cards:7",
+      "sourceSpanish": "Acabado",
+      "sourceEnglish": "finish",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "仕上げる",
+      "archivedEnglish": "finish",
+      "reviewNote": "Source finish / acabado is a noun, but archived 仕上げる is a verb. Reauthor noun sense before any card selection.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:20:ja-en:card:8",
+      "legacySourceRef": "roofing:20:ja-en:cards:8",
+      "sourceSpanish": "Sellador",
+      "sourceEnglish": "sealant",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "シーリング材",
+      "archivedJapanese": "シーリング材",
+      "archivedEnglish": "sealant",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:20:ja-en:card:9",
+      "legacySourceRef": "roofing:20:ja-en:cards:9",
+      "sourceSpanish": "Clavo",
+      "sourceEnglish": "nail",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "釘",
+      "archivedJapanese": "釘",
+      "archivedEnglish": "nail",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:20:ja-en:card:10",
+      "legacySourceRef": "roofing:20:ja-en:cards:10",
+      "sourceSpanish": "Corten los caballetes de una teja inicial.",
+      "sourceEnglish": "Cut the ridge caps from a starter shingle.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "スターターシングル材から棟包み材を切り出してください。",
+      "archivedEnglish": "Cut the ridge caps from a starter shingle.",
+      "reviewNote": "The source card commands cutting ridge caps from a starter shingle without a product condition, while Reader 4 adds 'if the product allows it'. Hold the isolated instruction until source/product scope is resolved.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:20:ja-en:card:11",
+      "legacySourceRef": "roofing:20:ja-en:cards:11",
+      "sourceSpanish": "Instalen los caballetes a lo largo de la cumbrera.",
+      "sourceEnglish": "Install the ridge caps along the ridge.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "棟に沿って棟包み材を取り付けてください。",
+      "archivedEnglish": "Install the ridge caps along the ridge.",
+      "reviewNote": "Installing caps along the ridge depends on the selected ridge-cap product and ridge-vent assembly; do not select a generic construction command before product review.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:20:ja-en:card:12",
+      "legacySourceRef": "roofing:20:ja-en:cards:12",
+      "sourceSpanish": "Revisen las instrucciones del producto para el caballete.",
+      "sourceEnglish": "Check the product instructions for the ridge cap.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "棟包み材の製品説明書を確認してください。",
+      "archivedEnglish": "Check the product instructions for the ridge cap.",
+      "reviewNote": "The source requires checking the product instructions for the ridge cap. Confirm that archived 製品説明書 identifies the chosen product and preserves this prerequisite.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:20:ja-en:card:13",
+      "legacySourceRef": "roofing:20:ja-en:cards:13",
+      "sourceSpanish": "Sellen el último caballete.",
+      "sourceEnglish": "Seal the last cap.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "最後の棟包み材をシーリングしてください。",
+      "archivedEnglish": "Seal the last cap.",
+      "reviewNote": "Sealing the last cap is presented as an unconditional instruction, but the selected product's fastening/sealant method must govern; hold the directive for qualified roofing review.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:20:ja-en:card:14",
+      "legacySourceRef": "roofing:20:ja-en:cards:14",
+      "sourceSpanish": "Limpien el techo cuando terminen.",
+      "sourceEnglish": "Clean the roof when you finish.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "作業が終わったら屋根を清掃してください。",
+      "archivedJapanese": "作業が終わったら屋根を清掃してください。",
+      "archivedEnglish": "Clean the roof when you finish.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:20:ja-en:line:1",
+      "legacySourceRef": "roofing:20:ja-en:reader:1",
+      "sourceSpanish": "La cuadrilla casi termina el techo.",
+      "sourceEnglish": "The crew is almost done with the roof.",
+      "selectedJapanese": null,
+      "candidateJapanese": "作業班の屋根工事はもうすぐ終わります。",
+      "archivedJapanese": "作業班の屋根工事はもうすぐ終わります。",
+      "archivedEnglish": "The crew is almost done with the roof.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:20:ja-en:line:2",
+      "legacySourceRef": "roofing:20:ja-en:reader:2",
+      "sourceSpanish": "Faltan la cumbrera y la limatesa.",
+      "sourceEnglish": "The ridge and the hip are still missing.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "棟と隅棟の施工がまだ残っています。",
+      "archivedEnglish": "The ridge and the hip are still missing.",
+      "reviewNote": "English says the ridge and hip are still missing; archived Japanese says their installation remains. The source likely means unfinished work, but confirm the exact roof state and preserve the source meaning.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:20:ja-en:line:3",
+      "legacySourceRef": "roofing:20:ja-en:reader:3",
+      "sourceSpanish": "Primero, revisen las instrucciones del producto para el caballete.",
+      "sourceEnglish": "First, check the product instructions for the ridge cap.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "まず、棟包み材の製品説明書を確認してください。",
+      "archivedEnglish": "First, check the product instructions for the ridge cap.",
+      "reviewNote": "Product instructions precede any cutting or installation; confirm which ridge-cap product and vent assembly the instruction covers.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:20:ja-en:line:4",
+      "legacySourceRef": "roofing:20:ja-en:reader:4",
+      "sourceSpanish": "Corten los caballetes de una teja inicial, si el producto lo permite.",
+      "sourceEnglish": "Cut the ridge caps from a starter shingle, if the product allows it.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "製品が認めているなら、スターターシングル材から棟包み材を切り出してください。",
+      "archivedEnglish": "Cut the ridge caps from a starter shingle, if the product allows it.",
+      "reviewNote": "Reader explicitly conditions cutting caps from a starter shingle on product permission; card 10 omits that condition. Hold both until source/product scope is aligned.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:20:ja-en:line:5",
+      "legacySourceRef": "roofing:20:ja-en:reader:5",
+      "sourceSpanish": "Instalen los caballetes a lo largo de la cumbrera.",
+      "sourceEnglish": "Install the ridge caps along the ridge.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "棟に沿って棟包み材を取り付けてください。",
+      "archivedEnglish": "Install the ridge caps along the ridge.",
+      "reviewNote": "Ridge-cap installation along the ridge is product and ridge-vent dependent. Do not present one generic fastening sequence as an approved method.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:20:ja-en:line:6",
+      "legacySourceRef": "roofing:20:ja-en:reader:6",
+      "sourceSpanish": "El capataz revisa también la ventilación de caballete.",
+      "sourceEnglish": "The foreman also checks the ridge vent.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "職長は棟換気材も確認します。",
+      "archivedEnglish": "The foreman also checks the ridge vent.",
+      "reviewNote": "Foreman checks ridge vent; confirm archived 棟換気材 identifies the component and does not imply ventilation performance approval.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:20:ja-en:line:7",
+      "legacySourceRef": "roofing:20:ja-en:reader:7",
+      "sourceSpanish": "Sellen el último caballete.",
+      "sourceEnglish": "Seal the last cap.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "最後の棟包み材をシーリングしてください。",
+      "archivedEnglish": "Seal the last cap.",
+      "reviewNote": "Sealing the last cap may not apply to every chosen product. Preserve source attribution but hold a learner-facing construction command until roofing review.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:20:ja-en:line:8",
+      "legacySourceRef": "roofing:20:ja-en:reader:8",
+      "sourceSpanish": "Cuando terminen, limpien el techo.",
+      "sourceEnglish": "When you finish, clean the roof.",
+      "selectedJapanese": null,
+      "candidateJapanese": "作業が終わったら屋根を清掃してください。",
+      "archivedJapanese": "作業が終わったら屋根を清掃してください。",
+      "archivedEnglish": "When you finish, clean the roof.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the ridge and hip still awaiting finish work.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall ridge cap, starter shingle, ridge vent, and hip.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 棟 from 隅棟 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Check the product instructions for the ridge cap' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Discuss the ridge-cap preparation and installation sequence.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write the final steps after installing the ridge caps.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

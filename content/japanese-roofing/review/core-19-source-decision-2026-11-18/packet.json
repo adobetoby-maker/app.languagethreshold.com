@@ -1,0 +1,423 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:19:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-19-20-draft.json",
+      "sha256": "b01a33473c8ed78df24fe70f1e3a8e10878e7a17061fe1614cebaf53ad5d6484"
+    }
+  },
+  "sourceEnglishTitle": "Step Flashing",
+  "sourceEnglishObjective": "Coordinate sidewall flashing one course at a time",
+  "sourceEnglishSpeaking": "Ask the installer to describe the sidewall flashing sequence.",
+  "sourceSpanishReaderTitle": "Tapajuntas en la pared",
+  "candidateObjective": "外壁際の段差水切りを、シングル材の段ごとに施工する手順を伝える。",
+  "candidateFocus": "～ごとに marks each shingle course. ～の下に and ～に沿って identify placement, while ～てから orders checking each piece before the next course.",
+  "archivedForms": [
+    {
+      "base": "取り付ける",
+      "exampleJa": "一段につき一枚取り付けてください。",
+      "meaningEnglish": "to install",
+      "exampleEnglish": "Install one piece per course.",
+      "sourceInfinitiveSpanish": "instalar"
+    },
+    {
+      "base": "曲げる",
+      "exampleJa": "水切り板金を壁に沿って曲げてください。",
+      "meaningEnglish": "to bend",
+      "exampleEnglish": "Bend the flashing against the wall.",
+      "sourceInfinitiveSpanish": "doblar"
+    },
+    {
+      "base": "説明する",
+      "exampleJa": "施工担当者は水切り板金の施工順序を説明します。",
+      "meaningEnglish": "to explain",
+      "exampleEnglish": "The installer explains the flashing sequence.",
+      "sourceInfinitiveSpanish": "explicar"
+    },
+    {
+      "base": "見せる",
+      "exampleJa": "施工担当者は水切り板金の重なり方を見せます。",
+      "meaningEnglish": "to show",
+      "exampleEnglish": "The installer shows how the flashing overlaps.",
+      "sourceInfinitiveSpanish": "mostrar"
+    },
+    {
+      "base": "確認する",
+      "exampleJa": "職長は次の段を敷く前に各部材を確認します。",
+      "meaningEnglish": "to check",
+      "exampleEnglish": "The foreman checks each piece before placing the next course.",
+      "sourceInfinitiveSpanish": "revisar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "各段のシングル材の下に段差水切りを入れます。一段につき一枚取り付け、重なり方を見せてください。",
+    "goal": "Ask the installer to describe the sidewall flashing sequence."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the current source sequence: crew at the sidewall; roof meets wall; foreman asks installers for step-flashing sequence; installers state step flashing under each shingle course; source then gives one piece per course, bending against wall and showing overlap; foreman checks each piece before placing the next course. Source does not identify a product, wall assembly or overlap geometry, so implementation commands need qualified roofing/manufacturer review. Archived Japanese changes the source card-10 fragment into an imperative, and its sidewall/location and shingle-course terms need review. Current curriculum has no authored verb-example list; archived forms remain conditional evidence. No selected learner/audio text or progress identity is created.",
+  "sourceVerbExamples": null,
+  "cards": [
+    {
+      "id": "roofing:19:ja-en:card:1",
+      "legacySourceRef": "roofing:19:ja-en:cards:1",
+      "sourceSpanish": "Tapajuntas escalonado",
+      "sourceEnglish": "step flashing",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "段差水切り",
+      "archivedEnglish": "step flashing",
+      "reviewNote": "Confirm 段差水切り denotes discrete step-flashing pieces at the roof-to-wall joint, not generic flashing or drip edge; pair with the source's wall detail.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:19:ja-en:card:2",
+      "legacySourceRef": "roofing:19:ja-en:cards:2",
+      "sourceSpanish": "Pared",
+      "sourceEnglish": "wall",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "壁",
+      "archivedJapanese": "壁",
+      "archivedEnglish": "wall",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:19:ja-en:card:3",
+      "legacySourceRef": "roofing:19:ja-en:cards:3",
+      "sourceSpanish": "Hilera de tejas",
+      "sourceEnglish": "shingle course",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "シングル材の段",
+      "archivedEnglish": "shingle course",
+      "reviewNote": "Source shingle course / hilera de tejas is one installed row. Archived シングル材の段 may read as material stage; settle trade term and shingle material scope.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:19:ja-en:card:4",
+      "legacySourceRef": "roofing:19:ja-en:cards:4",
+      "sourceSpanish": "Pared lateral",
+      "sourceEnglish": "sidewall",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "外壁際",
+      "archivedEnglish": "sidewall",
+      "reviewNote": "Source sidewall / pared lateral names the wall where roof and wall meet. Archived 外壁際 means the area beside the exterior wall; confirm whether this row should name the wall or location.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:19:ja-en:card:5",
+      "legacySourceRef": "roofing:19:ja-en:cards:5",
+      "sourceSpanish": "Tapajuntas / Flashing",
+      "sourceEnglish": "flashing",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "水切り板金",
+      "archivedEnglish": "flashing",
+      "reviewNote": "Source flashing is generic here, while step flashing is specific in card 1. Confirm 水切り板金 and 段差水切り senses and dictionary disambiguation.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:19:ja-en:card:6",
+      "legacySourceRef": "roofing:19:ja-en:cards:6",
+      "sourceSpanish": "Revestimiento de pared",
+      "sourceEnglish": "siding",
+      "sourceNoteSpanish": "también: siding",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "外壁材",
+      "archivedJapanese": "外壁材",
+      "archivedEnglish": "siding",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:19:ja-en:card:7",
+      "legacySourceRef": "roofing:19:ja-en:cards:7",
+      "sourceSpanish": "Sellador",
+      "sourceEnglish": "sealant",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "シーリング材",
+      "archivedJapanese": "シーリング材",
+      "archivedEnglish": "sealant",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:19:ja-en:card:8",
+      "legacySourceRef": "roofing:19:ja-en:cards:8",
+      "sourceSpanish": "Doblar",
+      "sourceEnglish": "bend",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "曲げる",
+      "archivedJapanese": "曲げる",
+      "archivedEnglish": "bend",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:19:ja-en:card:9",
+      "legacySourceRef": "roofing:19:ja-en:cards:9",
+      "sourceSpanish": "Traslape",
+      "sourceEnglish": "overlap",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "重なり",
+      "archivedJapanese": "重なり",
+      "archivedEnglish": "overlap",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:19:ja-en:card:10",
+      "legacySourceRef": "roofing:19:ja-en:cards:10",
+      "sourceSpanish": "Tapajuntas escalonado debajo de cada hilera.",
+      "sourceEnglish": "Step flashing under each shingle course.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "各段のシングル材の下に段差水切りを入れてください。",
+      "archivedEnglish": "Step flashing under each shingle course.",
+      "reviewNote": "Source is a fragment, 'Step flashing under each shingle course.' Archived Japanese turns it into a scored imperative and adds put/place. Preserve fragment versus command until source objective and approved detail are settled.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:19:ja-en:card:11",
+      "legacySourceRef": "roofing:19:ja-en:cards:11",
+      "sourceSpanish": "Instalen una pieza por cada hilera.",
+      "sourceEnglish": "Install one piece per course.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "一段につき一枚取り付けてください。",
+      "archivedEnglish": "Install one piece per course.",
+      "reviewNote": "One piece per course is a source instruction within this wall detail, not a universal product rule. Confirm actual step-flashing piece and course sequence before scored command.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:19:ja-en:card:12",
+      "legacySourceRef": "roofing:19:ja-en:cards:12",
+      "sourceSpanish": "Doblen el tapajuntas contra la pared.",
+      "sourceEnglish": "Bend the flashing against the wall.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "水切り板金を壁に沿って曲げてください。",
+      "archivedEnglish": "Bend the flashing against the wall.",
+      "reviewNote": "Bending flashing against the wall is product/detail-specific and may conflict with the approved wall interface; hold this installation command for qualified roofing/manufacturer review.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:19:ja-en:card:13",
+      "legacySourceRef": "roofing:19:ja-en:cards:13",
+      "sourceSpanish": "Expliquen la secuencia del tapajuntas de la pared lateral.",
+      "sourceEnglish": "Describe the sidewall flashing sequence.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "外壁際の水切り板金の施工順序を説明してください。",
+      "archivedEnglish": "Describe the sidewall flashing sequence.",
+      "reviewNote": "Archived 外壁際 refers to location whereas source sidewall can name wall; coordinate with card 4 before scored sequence prompt.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:19:ja-en:card:14",
+      "legacySourceRef": "roofing:19:ja-en:cards:14",
+      "sourceSpanish": "Muéstrenme cómo se traslapa el tapajuntas.",
+      "sourceEnglish": "Show me how the flashing overlaps.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "水切り板金がどのように重なるか見せてください。",
+      "archivedEnglish": "Show me how the flashing overlaps.",
+      "reviewNote": "How flashing overlaps depends on the approved wall/roof detail; retain the source as a request to show, not a prescribed overlap geometry.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:19:ja-en:line:1",
+      "legacySourceRef": "roofing:19:ja-en:reader:1",
+      "sourceSpanish": "Hoy la cuadrilla trabaja en la pared lateral de la casa.",
+      "sourceEnglish": "Today the crew is working on the sidewall of the house.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "今日、作業班は家の外壁際で作業しています。",
+      "archivedEnglish": "Today the crew is working on the sidewall of the house.",
+      "reviewNote": "Source says crew works on the sidewall, not merely nearby; coordinate the sidewall/location distinction with cards 4 and 13.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:19:ja-en:line:2",
+      "legacySourceRef": "roofing:19:ja-en:reader:2",
+      "sourceSpanish": "Aquí el techo se une con la pared.",
+      "sourceEnglish": "Here the roof meets the wall.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ここでは屋根が壁に接しています。",
+      "archivedJapanese": "ここでは屋根が壁に接しています。",
+      "archivedEnglish": "Here the roof meets the wall.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:19:ja-en:line:3",
+      "legacySourceRef": "roofing:19:ja-en:reader:3",
+      "sourceSpanish": "El capataz les pide a los instaladores: Expliquen la secuencia del tapajuntas de la pared lateral.",
+      "sourceEnglish": "The foreman asks the installers: Explain the sidewall flashing sequence.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "職長は施工担当者に「外壁際の水切り板金の施工順序を説明してください」と尋ねます。",
+      "archivedEnglish": "The foreman asks the installers: Explain the sidewall flashing sequence.",
+      "reviewNote": "The foreman asks installers to describe the sidewall flashing sequence. Archived Japanese uses one installer/担当者 later; keep speaker number and addressee coherent.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:19:ja-en:line:4",
+      "legacySourceRef": "roofing:19:ja-en:reader:4",
+      "sourceSpanish": "Ellos responden: tapajuntas escalonado debajo de cada hilera.",
+      "sourceEnglish": "They answer: step flashing under each course.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "担当者は「各段のシングル材の下に段差水切りを入れます」と答えます。",
+      "archivedEnglish": "They answer: step flashing under each course.",
+      "reviewNote": "Source answer is a fragment about step flashing under each course. Archived Japanese is a declarative answer; confirm sidewall detail and distinguish from card 10's added imperative.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:19:ja-en:line:5",
+      "legacySourceRef": "roofing:19:ja-en:reader:5",
+      "sourceSpanish": "Instalen una pieza por cada hilera.",
+      "sourceEnglish": "Install one piece per course.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "一段につき一枚取り付けてください。",
+      "archivedEnglish": "Install one piece per course.",
+      "reviewNote": "One step-flashing piece per course is a product/detail-specific installation instruction; qualify before learner-facing scored text or audio.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:19:ja-en:line:6",
+      "legacySourceRef": "roofing:19:ja-en:reader:6",
+      "sourceSpanish": "Doblen el tapajuntas contra la pared.",
+      "sourceEnglish": "Bend the flashing against the wall.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "水切り板金を壁に沿って曲げてください。",
+      "archivedEnglish": "Bend the flashing against the wall.",
+      "reviewNote": "Bending flashing against the wall is a technical command requiring approved wall/roof product detail and manufacturer review.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:19:ja-en:line:7",
+      "legacySourceRef": "roofing:19:ja-en:reader:7",
+      "sourceSpanish": "Muéstrenme cómo se traslapa el tapajuntas.",
+      "sourceEnglish": "Show me how the flashing overlaps.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "水切り板金がどのように重なるか見せてください。",
+      "archivedEnglish": "Show me how the flashing overlaps.",
+      "reviewNote": "Overlap geometry is not supplied by source; keep a request to show how pieces overlap rather than imply a generic approved pattern.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:19:ja-en:line:8",
+      "legacySourceRef": "roofing:19:ja-en:reader:8",
+      "sourceSpanish": "El capataz revisa cada pieza antes de colocar la siguiente hilera de tejas.",
+      "sourceEnglish": "The foreman checks each piece before placing the next course of shingles.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "職長は次の段のシングル材を敷く前に、一枚ずつ確認します。",
+      "archivedEnglish": "The foreman checks each piece before placing the next course of shingles.",
+      "reviewNote": "The foreman checks each piece before the next shingle course. Coordinate actual course terminology, sequence and step-flashing inspection scope.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the step-flashing piece at the sidewall.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall step flashing, sidewall, and shingle course.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 段差水切り from 水切り板金 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Install one piece per course' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Explain the sidewall flashing sequence one course at a time.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write what the foreman checks before the next shingle course.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

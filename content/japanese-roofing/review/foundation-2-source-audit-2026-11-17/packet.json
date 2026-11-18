@@ -1,0 +1,300 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "foundation-roofing",
+  "lessonId": "foundation-roofing:2:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/foundation-roofing-curriculum.ts",
+      "sha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/foundation-roofing.json",
+      "sha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/foundation-1-3-draft.json",
+      "sha256": "fc08c463fd83f57adc7c10d0c9b3341703ebc335867373b37ed4bd9ec8e66e15"
+    }
+  },
+  "sourceEnglishObjective": "Count, tell time, and give measurements and quantities on the job",
+  "candidateObjective": "Ask for a quantity, state a start time, and report feet, inches, pounds, and metric equivalents.",
+  "candidateFocus": "時 marks clock time; 分 marks minutes. 束 counts bundles. フィート, インチ, and ポンド are loanwords for U.S. measurements; メートル is metric. Use 何束 for 'how many bundles?' and ～です for a polite report.",
+  "curriculumAdaptationNote": "The Spanish source teaches numbers, clock time and U.S. units; the Japanese candidate uses Japanese counters and loanwords. Confirm unit, quantity and clock-time senses in context.",
+  "cards": [
+    {
+      "id": "foundation-roofing:2:ja-en:card:1",
+      "legacySourceRef": "foundation-roofing:2:ja-en:cards:1",
+      "sourceSpanish": "el número",
+      "sourceEnglish": "the number",
+      "candidateJapanese": "数",
+      "archivedJapanese": "数",
+      "archivedEnglish": "the number",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:card:2",
+      "legacySourceRef": "foundation-roofing:2:ja-en:cards:2",
+      "sourceSpanish": "la hora",
+      "sourceEnglish": "the hour, the time",
+      "candidateJapanese": null,
+      "archivedJapanese": "時間",
+      "archivedEnglish": "the time",
+      "reviewNote": "Source la hora includes clock time and an hour; archived 時間 alone does not teach the clock-time sense clearly.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:card:3",
+      "legacySourceRef": "foundation-roofing:2:ja-en:cards:3",
+      "sourceSpanish": "el pie",
+      "sourceEnglish": "the foot (measurement)",
+      "candidateJapanese": "フィート",
+      "archivedJapanese": "フィート",
+      "archivedEnglish": "the foot (measurement)",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:card:4",
+      "legacySourceRef": "foundation-roofing:2:ja-en:cards:4",
+      "sourceSpanish": "la pulgada",
+      "sourceEnglish": "the inch",
+      "candidateJapanese": "インチ",
+      "archivedJapanese": "インチ",
+      "archivedEnglish": "the inch",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:card:5",
+      "legacySourceRef": "foundation-roofing:2:ja-en:cards:5",
+      "sourceSpanish": "la libra",
+      "sourceEnglish": "the pound",
+      "candidateJapanese": "ポンド",
+      "archivedJapanese": "ポンド",
+      "archivedEnglish": "the pound (weight)",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:card:6",
+      "legacySourceRef": "foundation-roofing:2:ja-en:cards:6",
+      "sourceSpanish": "el bulto",
+      "sourceEnglish": "the bundle",
+      "candidateJapanese": null,
+      "archivedJapanese": "一束",
+      "archivedEnglish": "one bundle",
+      "reviewNote": "Source el bulto is a bundle of shingles; archived 一束 adds the quantity one and needs a contextual term decision.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:card:7",
+      "legacySourceRef": "foundation-roofing:2:ja-en:cards:7",
+      "sourceSpanish": "el metro",
+      "sourceEnglish": "the meter",
+      "candidateJapanese": "メートル",
+      "archivedJapanese": "メートル",
+      "archivedEnglish": "the meter",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:card:8",
+      "legacySourceRef": "foundation-roofing:2:ja-en:cards:8",
+      "sourceSpanish": "el minuto",
+      "sourceEnglish": "the minute",
+      "candidateJapanese": "分",
+      "archivedJapanese": "分",
+      "archivedEnglish": "the minute",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:card:9",
+      "legacySourceRef": "foundation-roofing:2:ja-en:cards:9",
+      "sourceSpanish": "¿Cuántos bultos?",
+      "sourceEnglish": "How many bundles?",
+      "candidateJapanese": "何束ですか。",
+      "archivedJapanese": "何束必要ですか。",
+      "archivedEnglish": "How many bundles do we need?",
+      "reviewNote": "Candidate removes the archived need clause absent from the source's quantity question.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:card:10",
+      "legacySourceRef": "foundation-roofing:2:ja-en:cards:10",
+      "sourceSpanish": "Son las siete.",
+      "sourceEnglish": "It's seven o'clock.",
+      "candidateJapanese": "七時です。",
+      "archivedJapanese": "七時です。",
+      "archivedEnglish": "It's seven o'clock.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:card:11",
+      "legacySourceRef": "foundation-roofing:2:ja-en:cards:11",
+      "sourceSpanish": "Mide diez pies.",
+      "sourceEnglish": "It measures ten feet.",
+      "candidateJapanese": "長さは十フィートです。",
+      "archivedJapanese": "十フィートです。",
+      "archivedEnglish": "It measures ten feet.",
+      "reviewNote": "Candidate states the measurement relation explicitly.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:card:12",
+      "legacySourceRef": "foundation-roofing:2:ja-en:cards:12",
+      "sourceSpanish": "Empezamos a las seis.",
+      "sourceEnglish": "We start at six.",
+      "candidateJapanese": "六時に始めます。",
+      "archivedJapanese": "六時に始めます。",
+      "archivedEnglish": "We start at six.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "foundation-roofing:2:ja-en:line:1",
+      "legacySourceRef": "foundation-roofing:2:ja-en:reader:1",
+      "sourceSpanish": "Empezamos a las seis de la mañana.",
+      "sourceEnglish": "We start at six in the morning.",
+      "candidateJapanese": "朝六時に始めます。",
+      "archivedJapanese": "朝六時に始めます。",
+      "archivedEnglish": "We start at six in the morning.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:line:2",
+      "legacySourceRef": "foundation-roofing:2:ja-en:reader:2",
+      "sourceSpanish": "El camión llega en veinte minutos.",
+      "sourceEnglish": "The truck arrives in twenty minutes.",
+      "candidateJapanese": "トラックは二十分後に来ます。",
+      "archivedJapanese": "トラックは二十分後に来ます。",
+      "archivedEnglish": "The truck arrives in twenty minutes.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:line:3",
+      "legacySourceRef": "foundation-roofing:2:ja-en:reader:3",
+      "sourceSpanish": "¿Cuántos bultos necesitamos hoy?",
+      "sourceEnglish": "How many bundles do we need today?",
+      "candidateJapanese": "今日は何束必要ですか。",
+      "archivedJapanese": "今日はシングル材が何束必要ですか。",
+      "archivedEnglish": "How many bundles of shingles do we need today?",
+      "reviewNote": "Archived Japanese specifies shingles before the source question does; candidate preserves source order.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:line:4",
+      "legacySourceRef": "foundation-roofing:2:ja-en:reader:4",
+      "sourceSpanish": "Necesitamos treinta bultos de tejas.",
+      "sourceEnglish": "We need thirty bundles of shingles.",
+      "candidateJapanese": "シングル材が三十束必要です。",
+      "archivedJapanese": "三十束必要です。",
+      "archivedEnglish": "We need thirty bundles.",
+      "reviewNote": "Archived Japanese omits the source's shingles; candidate restores them. Confirm シングル材 with a roofing reviewer.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:line:5",
+      "legacySourceRef": "foundation-roofing:2:ja-en:reader:5",
+      "sourceSpanish": "Cada bulto pesa unas setenta libras.",
+      "sourceEnglish": "Each bundle weighs about seventy pounds.",
+      "candidateJapanese": "一束の重さは約七十ポンドです。",
+      "archivedJapanese": "一束は約七十ポンドです。",
+      "archivedEnglish": "Each bundle weighs about seventy pounds.",
+      "reviewNote": "Candidate states the source's weighs relationship explicitly; validate weight phrasing.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:line:6",
+      "legacySourceRef": "foundation-roofing:2:ja-en:reader:6",
+      "sourceSpanish": "La pared mide diez pies, o unos tres metros.",
+      "sourceEnglish": "The wall measures ten feet, or about three meters.",
+      "candidateJapanese": "壁は十フィート、約三メートルです。",
+      "archivedJapanese": "壁は十フィート、約三メートルです。",
+      "archivedEnglish": "The wall measures ten feet, about three meters.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:line:7",
+      "legacySourceRef": "foundation-roofing:2:ja-en:reader:7",
+      "sourceSpanish": "El clavo mide una pulgada y media.",
+      "sourceEnglish": "The nail is one and a half inches long.",
+      "candidateJapanese": "釘の長さは一インチ半です。",
+      "archivedJapanese": "釘の長さは一インチ半です。",
+      "archivedEnglish": "The nail is one and a half inches long.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:line:8",
+      "legacySourceRef": "foundation-roofing:2:ja-en:reader:8",
+      "sourceSpanish": "Apunto el número y la hora en mi papel.",
+      "sourceEnglish": "I write down the number and the time on my paper.",
+      "candidateJapanese": "数と時刻を手元の紙に書き留めます。",
+      "archivedJapanese": "数と時間を紙に書きます。",
+      "archivedEnglish": "I write the number and time on paper.",
+      "reviewNote": "Candidate restores clock time, writing down, and a paper at hand; validate natural Japanese.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the start time, bundle count, and nail length in the reading.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall how to ask how many bundles are needed.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 二十分 from 三十束 in spoken Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type the Japanese sentence 'We start at six.'",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Tell a colleague the start time and bundle count.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write a short job note with a time, quantity, and measurement.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

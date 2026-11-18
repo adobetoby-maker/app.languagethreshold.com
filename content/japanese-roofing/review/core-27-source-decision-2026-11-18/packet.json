@@ -1,0 +1,437 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:27:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-27-30-draft.json",
+      "sha256": "bbded38ccbf62e844d27598d5da3565300b3e73afcce1b2f5cf54f52b674afdd"
+    }
+  },
+  "sourceEnglishTitle": "Inspect Vents & Flashing",
+  "sourceEnglishObjective": "Check roof penetrations with the lead",
+  "sourceEnglishSpeaking": "Walk each penetration and ask the lead what has been checked.",
+  "sourceSpanishReaderTitle": "Penetraciones y tapajuntas",
+  "candidateObjective": "班長と一緒に屋根の貫通部を点検する。",
+  "candidateFocus": "～の周り marks the flashing location. ～か asks about a crack, and ～てから can order photos before final closeout.",
+  "archivedForms": [
+    {
+      "base": "確認する",
+      "exampleJa": "この換気口の周りの水切り板金を確認してください。",
+      "meaningEnglish": "to check",
+      "exampleEnglish": "Check the flashing around this vent.",
+      "sourceInfinitiveSpanish": "revisar"
+    },
+    {
+      "base": "シーリングする",
+      "exampleJa": "露出した釘をシーリングしてください。",
+      "meaningEnglish": "to seal",
+      "exampleEnglish": "Seal the exposed nails.",
+      "sourceInfinitiveSpanish": "sellar"
+    },
+    {
+      "base": "撮る",
+      "exampleJa": "各貫通部の周りの水切り板金を撮影してください。",
+      "meaningEnglish": "to take",
+      "exampleEnglish": "Take a photo of the flashing around each penetration.",
+      "sourceInfinitiveSpanish": "tomar"
+    },
+    {
+      "base": "見て回る",
+      "exampleJa": "貫通部を一つずつ一緒に見て回ります。",
+      "meaningEnglish": "to walk through / to go over",
+      "exampleEnglish": "We walk through each penetration together.",
+      "sourceInfinitiveSpanish": "recorrer"
+    },
+    {
+      "base": "尋ねる",
+      "exampleJa": "職長は班長に、何を確認したか尋ねます。",
+      "meaningEnglish": "to ask (a question)",
+      "exampleEnglish": "The foreman asks the crew lead what they have checked.",
+      "sourceInfinitiveSpanish": "preguntar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "貫通部を一つずつ一緒に見て回りましょう。換気口の周りの水切り板金を確認し、写真を撮ってください。",
+    "goal": "Walk each penetration and ask the lead what has been checked."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the source sequence: before finishing, the foreman and crew lead walk every roof penetration, ask what was checked, inspect vent flashing and a possible cracked pipe boot, photograph flashing around each penetration, and seal exposed nails. The source asks for a complete check but does not specify a roof system, sealant, repair procedure, inspection access plan or photo acceptance rule. Keep vent subtype, pipe-boot and flashing senses under qualified Japanese/roofing/dictionary review; do not invent a universal repair rule. Current curriculum has no authored verb-example list; archived forms remain conditional evidence. No selected learner/audio text or progress identity is created.",
+  "sourceVerbExamples": null,
+  "cards": [
+    {
+      "id": "roofing:27:ja-en:card:1",
+      "legacySourceRef": "roofing:27:ja-en:cards:1",
+      "sourceSpanish": "Ventilación (de caballete / de caja)",
+      "sourceEnglish": "vent",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "換気口",
+      "archivedEnglish": "vent",
+      "reviewNote": "Ventilación de caballete/de caja is a ridge/box vent in the source card; archived 換気口 is generic. Confirm whether the subtype must appear in the Japanese face and linked Reader context.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:card:2",
+      "legacySourceRef": "roofing:27:ja-en:cards:2",
+      "sourceSpanish": "Tapajuntas para tubo",
+      "sourceEnglish": "pipe boot",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "配管貫通部用ブーツ",
+      "archivedEnglish": "pipe boot",
+      "reviewNote": "Pipe boot / tapajuntas para tubo is a roof-penetration flashing component. Confirm 配管貫通部用ブーツ with a roofing specialist and dictionary sense, not a generic plumbing boot.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:card:3",
+      "legacySourceRef": "roofing:27:ja-en:cards:3",
+      "sourceSpanish": "Tapajuntas / Flashing",
+      "sourceEnglish": "flashing",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "水切り板金",
+      "archivedEnglish": "flashing",
+      "reviewNote": "Flashing / tapajuntas has product-specific forms around vents, pipe boots and other penetrations. Confirm 水切り板金 is the right generic Japanese headword for this source scope.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:card:4",
+      "legacySourceRef": "roofing:27:ja-en:cards:4",
+      "sourceSpanish": "Penetración",
+      "sourceEnglish": "penetration",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "貫通部",
+      "archivedJapanese": "貫通部",
+      "archivedEnglish": "penetration",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:card:5",
+      "legacySourceRef": "roofing:27:ja-en:cards:5",
+      "sourceSpanish": "Sellador",
+      "sourceEnglish": "sealant",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "シーリング材",
+      "archivedEnglish": "sealant",
+      "reviewNote": "Sealant / sellador is a product-specific material; do not equate the source with one approved sealant type or universal repair method.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:card:6",
+      "legacySourceRef": "roofing:27:ja-en:cards:6",
+      "sourceSpanish": "Grieta",
+      "sourceEnglish": "crack",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "ひび割れ",
+      "archivedJapanese": "ひび割れ",
+      "archivedEnglish": "crack",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:card:7",
+      "legacySourceRef": "roofing:27:ja-en:cards:7",
+      "sourceSpanish": "Gotera",
+      "sourceEnglish": "leak",
+      "sourceNoteSpanish": "también: filtración",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "雨漏り",
+      "archivedJapanese": "雨漏り",
+      "archivedEnglish": "leak",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:card:8",
+      "legacySourceRef": "roofing:27:ja-en:cards:8",
+      "sourceSpanish": "Tragaluz",
+      "sourceEnglish": "skylight",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "天窓",
+      "archivedJapanese": "天窓",
+      "archivedEnglish": "skylight",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:card:9",
+      "legacySourceRef": "roofing:27:ja-en:cards:9",
+      "sourceSpanish": "Chimenea",
+      "sourceEnglish": "chimney",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "煙突",
+      "archivedJapanese": "煙突",
+      "archivedEnglish": "chimney",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:card:10",
+      "legacySourceRef": "roofing:27:ja-en:cards:10",
+      "sourceSpanish": "Revisen el tapajuntas alrededor de esta ventilación.",
+      "sourceEnglish": "Check the flashing around this vent.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "この換気口の周りの水切り板金を確認してください。",
+      "archivedEnglish": "Check the flashing around this vent.",
+      "reviewNote": "The imperative to inspect flashing around this vent depends on the flashing/vent sense and safe roof access; confirm the Japanese trade term and site inspection context.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:card:11",
+      "legacySourceRef": "roofing:27:ja-en:cards:11",
+      "sourceSpanish": "Tomen una foto del tapajuntas alrededor de cada penetración.",
+      "sourceEnglish": "Take a photo of the flashing around each penetration.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "各貫通部の周りの水切り板金を撮影してください。",
+      "archivedEnglish": "Take a photo of the flashing around each penetration.",
+      "reviewNote": "The photo record covers flashing around each penetration. Confirm product and dictionary scope of 水切り板金, and preserve each penetration rather than a sample-only check.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:card:12",
+      "legacySourceRef": "roofing:27:ja-en:cards:12",
+      "sourceSpanish": "Recorramos cada penetración juntos.",
+      "sourceEnglish": "Walk each penetration with me.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "貫通部を一つずつ一緒に見て回りましょう。",
+      "archivedJapanese": "貫通部を一つずつ一緒に見て回りましょう。",
+      "archivedEnglish": "Walk each penetration with me.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:card:13",
+      "legacySourceRef": "roofing:27:ja-en:cards:13",
+      "sourceSpanish": "¿El tapajuntas para tubo está agrietado?",
+      "sourceEnglish": "Is the pipe boot cracked?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "配管貫通部用ブーツにひび割れはありますか。",
+      "archivedEnglish": "Is the pipe boot cracked?",
+      "reviewNote": "Cracked pipe boot is a specific component condition. Confirm Japanese boot terminology and crack inspection sense before a scored question.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:card:14",
+      "legacySourceRef": "roofing:27:ja-en:cards:14",
+      "sourceSpanish": "¿Qué han revisado ya?",
+      "sourceEnglish": "What have you already checked?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "すでに何を確認しましたか。",
+      "archivedJapanese": "すでに何を確認しましたか。",
+      "archivedEnglish": "What have you already checked?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:card:15",
+      "legacySourceRef": "roofing:27:ja-en:cards:15",
+      "sourceSpanish": "Sellen los clavos expuestos.",
+      "sourceEnglish": "Seal the exposed nails.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "露出した釘をシーリングしてください。",
+      "archivedEnglish": "Seal the exposed nails.",
+      "reviewNote": "Seal exposed nails is a source command. Confirm the approved roof system, fastener condition, sealant and repair procedure before selecting a scored instruction.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:27:ja-en:line:1",
+      "legacySourceRef": "roofing:27:ja-en:reader:1",
+      "sourceSpanish": "Antes de terminar, el capataz quiere revisar todo lo que atraviesa el techo.",
+      "sourceEnglish": "Before finishing, the foreman wants to check everything that goes through the roof.",
+      "selectedJapanese": null,
+      "candidateJapanese": "仕上げる前に、職長は屋根を貫くものをすべて確認したいと考えています。",
+      "archivedJapanese": "仕上げる前に、職長は屋根を貫くものをすべて確認したいと考えています。",
+      "archivedEnglish": "Before finishing, the foreman wants to check everything that goes through the roof.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:line:2",
+      "legacySourceRef": "roofing:27:ja-en:reader:2",
+      "sourceSpanish": "Recorramos cada penetración juntos.",
+      "sourceEnglish": "Let's walk each penetration together.",
+      "selectedJapanese": null,
+      "candidateJapanese": "貫通部を一つずつ一緒に見て回りましょう。",
+      "archivedJapanese": "貫通部を一つずつ一緒に見て回りましょう。",
+      "archivedEnglish": "Let's walk each penetration together.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:line:3",
+      "legacySourceRef": "roofing:27:ja-en:reader:3",
+      "sourceSpanish": "Le pregunta al jefe de cuadrilla: ¿Qué han revisado ya?",
+      "sourceEnglish": "He asks the crew lead: What have you already checked?",
+      "selectedJapanese": null,
+      "candidateJapanese": "職長は班長に「すでに何を確認しましたか」と尋ねます。",
+      "archivedJapanese": "職長は班長に「すでに何を確認しましたか」と尋ねます。",
+      "archivedEnglish": "He asks the crew lead: What have you already checked?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:line:4",
+      "legacySourceRef": "roofing:27:ja-en:reader:4",
+      "sourceSpanish": "Revisen el tapajuntas alrededor de esta ventilación.",
+      "sourceEnglish": "Check the flashing around this vent.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "この換気口の周りの水切り板金を確認してください。",
+      "archivedEnglish": "Check the flashing around this vent.",
+      "reviewNote": "The vent flashing inspection command uses a product-specific term and depends on safe access; qualified roofing and Japanese review needed.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:line:5",
+      "legacySourceRef": "roofing:27:ja-en:reader:5",
+      "sourceSpanish": "¿El tapajuntas para tubo está agrietado?",
+      "sourceEnglish": "Is the pipe boot cracked?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "配管貫通部用ブーツにひび割れはありますか。",
+      "archivedEnglish": "Is the pipe boot cracked?",
+      "reviewNote": "Pipe-boot crack question needs the same component/dictionary sense as card 13 and an inspection decision.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:line:6",
+      "legacySourceRef": "roofing:27:ja-en:reader:6",
+      "sourceSpanish": "Si hay una grieta, el agua puede causar una gotera.",
+      "sourceEnglish": "If there is a crack, water can cause a leak.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ひび割れがあると、水が入り雨漏りにつながることがあります。",
+      "archivedEnglish": "If there is a crack, water can cause a leak.",
+      "reviewNote": "Archived Japanese adds an explicit water-entry mechanism to the source's possible leak claim. Confirm the intended conditional scope without strengthening the source.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:line:7",
+      "legacySourceRef": "roofing:27:ja-en:reader:7",
+      "sourceSpanish": "Tomen una foto del tapajuntas alrededor de cada penetración.",
+      "sourceEnglish": "Take a photo of the flashing around each penetration.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "各貫通部の周りの水切り板金を撮影してください。",
+      "archivedEnglish": "Take a photo of the flashing around each penetration.",
+      "reviewNote": "The source asks for a photo around each penetration; preserve the full inspection/documentation scope and flashing sense.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:27:ja-en:line:8",
+      "legacySourceRef": "roofing:27:ja-en:reader:8",
+      "sourceSpanish": "Sellen los clavos expuestos.",
+      "sourceEnglish": "Seal the exposed nails.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "露出した釘をシーリングしてください。",
+      "archivedEnglish": "Seal the exposed nails.",
+      "reviewNote": "Exposed-nail sealing is a repair command with unspecified product and condition. Hold it for qualified roofing safety/product review.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Identify the vent, pipe boot, skylight, and chimney penetrations.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall flashing, crack, leak, and exposed nails.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 換気口 from 貫通部 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Is the pipe boot cracked?' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Walk the penetrations with the crew lead and ask what was checked.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write what is photographed at each penetration.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

@@ -1,0 +1,11 @@
+# Japanese Roofing Core 26 — deck-repair record source decision
+
+This inert packet pins **14 exact current Spanish/English cards** and **nine aligned Reader turns** for *Document Deck Repairs*. `packet.json` preserves source and archive hashes, exact source text, archived Japanese proposals and proposed `roofing:26:ja-en` row IDs. These IDs are review references only; no learner, saved-item, audio or progress key changed. `build.py --check` detects source drift, and `validate.py` independently checks rows, IDs, archive alignment and closed gates.
+
+Five card and four Reader Japanese faces are held. The source distinguishes structural roof *deck* from *sheathing* and uses *covered area* for the section that will be covered after repair; archived 野地板, 下地板 and 覆われる範囲 need contextual technical and timing decisions. The photo is a record of what will become hidden, not proof that the repair is adequate. The scene requires a foreman check before covering; qualified roofing review must settle the inspection and authorization scope before a scored instruction is selected. Archived speaking adds measurement to a source objective that asks for a photo. These are internal source and domain questions, separate from learner-facing teaching text.
+
+The source sequence stays exact: tear-off reveals damage; the foreman asks to see the area and requests before/after photos; workers replace damaged plywood; a worker measures; the crew photographs the repair before covering; the foreman checks before covering; the photo records the hidden area. The curriculum has no authored verb-example list, so archived forms are conditional evidence. Six archived mode labels lack authored prompt/target pairs.
+
+All 23 card/Reader positions have `selectedJapanese:null`; `audioScript:null`, `reviewed:false`, registration false and all learner, scoring, audio/listening, offline, saved-progress, browser and V4 gates false. No synthesis, listening approval or recording reuse occurred. Qualified Japanese/source/roofing/dictionary review, six authored modes, forms/speaking, saved-item mapping and exact-pair web/offline/native checks remain.
+
+Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural validation is not qualified approval.

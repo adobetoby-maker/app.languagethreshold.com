@@ -1,0 +1,463 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:30:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-27-30-draft.json",
+      "sha256": "bbded38ccbf62e844d27598d5da3565300b3e73afcce1b2f5cf54f52b674afdd"
+    }
+  },
+  "sourceEnglishTitle": "Full Roofing Day",
+  "sourceEnglishObjective": "Lead a complete roofing day in Spanish",
+  "sourceEnglishSpeaking": "Roleplay the day from morning brief through tear-off, installation checks, weather decision, and closeout.",
+  "sourceSpanishReaderTitle": "Un día completo de techo",
+  "candidateObjective": "日本語で屋根工事の一日を通して作業班を指揮する。",
+  "candidateFocus": "～前に orders the briefing and tie-off before work. ～てから sequences tear-off and installation; ～たら triggers the weather response and closeout.",
+  "archivedForms": [
+    {
+      "base": "接続する",
+      "exampleJa": "屋根に上がる前に必ずハーネスをアンカーに接続します。",
+      "meaningEnglish": "to tie off / to anchor",
+      "exampleEnglish": "We always tie off the harness before going up on the roof.",
+      "sourceInfinitiveSpanish": "anclar"
+    },
+    {
+      "base": "確認する",
+      "exampleJa": "班長は施工の各工程を確認します。",
+      "meaningEnglish": "to check / to inspect",
+      "exampleEnglish": "The crew lead checks each step of the installation.",
+      "sourceInfinitiveSpanish": "revisar"
+    },
+    {
+      "base": "止める",
+      "exampleJa": "天候が変わったら作業を止めて降りてください。",
+      "meaningEnglish": "to stop",
+      "exampleEnglish": "Stop work and come down if the weather changes.",
+      "sourceInfinitiveSpanish": "detener"
+    },
+    {
+      "base": "覆う",
+      "exampleJa": "作業班は未完了の区画を防水シートで覆います。",
+      "meaningEnglish": "to cover",
+      "exampleEnglish": "The crew covers the unfinished section with a tarp.",
+      "sourceInfinitiveSpanish": "cubrir"
+    },
+    {
+      "base": "見て回る",
+      "exampleJa": "工事を完了とする前に、一緒に屋根を見て回りましょう。",
+      "meaningEnglish": "to walk through / to go over (a roof, a site)",
+      "exampleEnglish": "Walk the roof with me before we call the job complete.",
+      "sourceInfinitiveSpanish": "recorrer"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "始める前に計画を確認しましょう。まず撤去、次に施工です。天候が変わったら作業を止め、残った項目は残工事リストに記録してください。",
+    "goal": "Roleplay the day from morning brief through tear-off, installation checks, weather decision, and closeout."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "The current source objective explicitly says lead a complete roofing day in Spanish, while this exact Japanese-to-English adaptation proposes Japanese. Preserve the source's capstone sequence and flag that curriculum-language change for approval. Morning briefing and tie-off precede tear-off; a ready deck leads to underlayment/flashing checks; a storm warning arrives, the foreman gives a conditional stop/descent command, the crew covers an unfinished section, and final roof walk plus punch list close the day. The source does not identify an approved anchor, weather threshold, temporary-tarp procedure or product system. Hold fall-protection, storm response, roof-walk and installation commands for qualified safety/product review; do not silently register the archived Japanese as scored text. Current curriculum has no authored verb-example list; archived forms are conditional evidence. No selected learner/audio text or progress identity is created.",
+  "sourceVerbExamples": null,
+  "cards": [
+    {
+      "id": "roofing:30:ja-en:card:1",
+      "legacySourceRef": "roofing:30:ja-en:cards:1",
+      "sourceSpanish": "Reunión informativa",
+      "sourceEnglish": "briefing",
+      "sourceNoteSpanish": "también: reunión de arranque",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "作業前の打ち合わせ",
+      "archivedJapanese": "作業前の打ち合わせ",
+      "archivedEnglish": "briefing",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:card:2",
+      "legacySourceRef": "roofing:30:ja-en:cards:2",
+      "sourceSpanish": "Desmontaje",
+      "sourceEnglish": "tear-off",
+      "sourceNoteSpanish": "también: retiro del techo viejo",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "既存屋根材の撤去",
+      "archivedJapanese": "既存屋根材の撤去",
+      "archivedEnglish": "tear-off",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:card:3",
+      "legacySourceRef": "roofing:30:ja-en:cards:3",
+      "sourceSpanish": "Instalación",
+      "sourceEnglish": "install",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "施工する",
+      "archivedEnglish": "install",
+      "reviewNote": "Spanish Instalación is a noun while the English card says install and archived 施工する is a verb. Settle the part-of-speech and practice target rather than silently grading a different form.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:card:4",
+      "legacySourceRef": "roofing:30:ja-en:cards:4",
+      "sourceSpanish": "Seguridad",
+      "sourceEnglish": "safety",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "安全",
+      "archivedJapanese": "安全",
+      "archivedEnglish": "safety",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:card:5",
+      "legacySourceRef": "roofing:30:ja-en:cards:5",
+      "sourceSpanish": "Cierre de obra",
+      "sourceEnglish": "closeout",
+      "sourceNoteSpanish": "también: cierre del trabajo",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "完了確認",
+      "archivedEnglish": "closeout",
+      "reviewNote": "Closeout / cierre de obra is the job closeout process, while archived 完了確認 is a final check. Confirm whether outstanding items and documentation belong in this sense.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:card:6",
+      "legacySourceRef": "roofing:30:ja-en:cards:6",
+      "sourceSpanish": "Jefe de cuadrilla",
+      "sourceEnglish": "crew lead",
+      "sourceNoteSpanish": "también: líder de cuadrilla",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "班長",
+      "archivedJapanese": "班長",
+      "archivedEnglish": "crew lead",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:card:7",
+      "legacySourceRef": "roofing:30:ja-en:cards:7",
+      "sourceSpanish": "Sub-capa / Fieltro",
+      "sourceEnglish": "underlayment",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "下葺き材",
+      "archivedJapanese": "下葺き材",
+      "archivedEnglish": "underlayment",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:card:8",
+      "legacySourceRef": "roofing:30:ja-en:cards:8",
+      "sourceSpanish": "Tapajuntas / Flashing",
+      "sourceEnglish": "flashing",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "水切り板金",
+      "archivedEnglish": "flashing",
+      "reviewNote": "Generic flashing / tapajuntas has several roof-system forms. Confirm archived 水切り板金 for this lesson's installation scope and contextual dictionary entry.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:card:9",
+      "legacySourceRef": "roofing:30:ja-en:cards:9",
+      "sourceSpanish": "Lona",
+      "sourceEnglish": "tarp",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "防水シート",
+      "archivedEnglish": "tarp",
+      "reviewNote": "Tarp / lona is a temporary covering, while archived 防水シート can denote installed waterproofing material. Confirm the emergency-covering sense before a scored weather instruction.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:card:10",
+      "legacySourceRef": "roofing:30:ja-en:cards:10",
+      "sourceSpanish": "Lista de pendientes",
+      "sourceEnglish": "punch list",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "残工事リスト",
+      "archivedEnglish": "punch list",
+      "reviewNote": "Punch list / lista de pendientes records work remaining for closeout. Confirm 残工事リスト and whether it covers more than construction work in this scene.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:card:11",
+      "legacySourceRef": "roofing:30:ja-en:cards:11",
+      "sourceSpanish": "Repasemos el plan del techo de hoy antes de empezar.",
+      "sourceEnglish": "Let's review today's roof plan before we start.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "始める前に今日の屋根工事の計画を確認しましょう。",
+      "archivedJapanese": "始める前に今日の屋根工事の計画を確認しましょう。",
+      "archivedEnglish": "Let's review today's roof plan before we start.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:card:12",
+      "legacySourceRef": "roofing:30:ja-en:cards:12",
+      "sourceSpanish": "Anclen el arnés antes de subir al techo.",
+      "sourceEnglish": "Tie off before you go on the roof.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根に上がる前にハーネスをアンカーに接続してください。",
+      "archivedEnglish": "Tie off before you go on the roof.",
+      "reviewNote": "Source says tie off before going on the roof. Archived Japanese specifies connecting a harness to an anchor, which the source does not approve or identify; hold for qualified fall-protection review.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:card:13",
+      "legacySourceRef": "roofing:30:ja-en:cards:13",
+      "sourceSpanish": "Detengan el trabajo y bajen si cambia el tiempo.",
+      "sourceEnglish": "Stop work and come down if the weather changes.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "天候が変わったら作業を止めて降りてください。",
+      "archivedEnglish": "Stop work and come down if the weather changes.",
+      "reviewNote": "Source orders stop and descent if weather changes, but the scene later has a storm warning. Confirm the site weather trigger, descent and communication sequence without inventing an unsafe universal rule.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:card:14",
+      "legacySourceRef": "roofing:30:ja-en:cards:14",
+      "sourceSpanish": "Recorran el techo conmigo antes de dar el trabajo por terminado.",
+      "sourceEnglish": "Walk the roof with me before we call the job complete.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "工事を完了とする前に、一緒に屋根を見て回りましょう。",
+      "archivedEnglish": "Walk the roof with me before we call the job complete.",
+      "reviewNote": "The closing roof walk requires safe access after a storm warning and a partially covered section. Hold any scored command until qualified site/roof safety review.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:card:15",
+      "legacySourceRef": "roofing:30:ja-en:cards:15",
+      "sourceSpanish": "Primero el desmontaje, luego la instalación.",
+      "sourceEnglish": "Tear-off first, then installation.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "まず既存屋根材を撤去し、その後に施工します。",
+      "archivedEnglish": "Tear-off first, then installation.",
+      "reviewNote": "Tear-off then installation is the source's broad sequence. Keep it contextual; do not imply installation proceeds during unsafe weather or before deck/underlayment checks.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:card:16",
+      "legacySourceRef": "roofing:30:ja-en:cards:16",
+      "sourceSpanish": "La seguridad es lo primero hoy.",
+      "sourceEnglish": "Safety comes first today.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "今日は安全を最優先にします。",
+      "archivedJapanese": "今日は安全を最優先にします。",
+      "archivedEnglish": "Safety comes first today.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:30:ja-en:line:1",
+      "legacySourceRef": "roofing:30:ja-en:reader:1",
+      "sourceSpanish": "Por la mañana, el capataz abre la reunión informativa: Repasemos el plan del techo de hoy antes de empezar.",
+      "sourceEnglish": "In the morning, the foreman opens the briefing: Let's review today's roof plan before we start.",
+      "selectedJapanese": null,
+      "candidateJapanese": "朝、職長は打ち合わせを始め、「始める前に今日の屋根工事の計画を確認しましょう」と言います。",
+      "archivedJapanese": "朝、職長は打ち合わせを始め、「始める前に今日の屋根工事の計画を確認しましょう」と言います。",
+      "archivedEnglish": "In the morning, the foreman opens the briefing: Let's review today's roof plan before we start.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:line:2",
+      "legacySourceRef": "roofing:30:ja-en:reader:2",
+      "sourceSpanish": "La seguridad es lo primero hoy.",
+      "sourceEnglish": "Safety comes first today.",
+      "selectedJapanese": null,
+      "candidateJapanese": "今日は安全を最優先にします。",
+      "archivedJapanese": "今日は安全を最優先にします。",
+      "archivedEnglish": "Safety comes first today.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:line:3",
+      "legacySourceRef": "roofing:30:ja-en:reader:3",
+      "sourceSpanish": "Anclen el arnés antes de subir al techo.",
+      "sourceEnglish": "Tie off before you go on the roof.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根に上がる前にハーネスをアンカーに接続してください。",
+      "archivedEnglish": "Tie off before you go on the roof.",
+      "reviewNote": "The tie-off command has no identified approved anchor or roof-access method; archived Japanese adds a specific harness-to-anchor action. Qualified fall-protection review needed.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:line:4",
+      "legacySourceRef": "roofing:30:ja-en:reader:4",
+      "sourceSpanish": "Primero el desmontaje, luego la instalación.",
+      "sourceEnglish": "Tear-off first, then installation.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "まず既存屋根材を撤去し、その後に施工します。",
+      "archivedEnglish": "Tear-off first, then installation.",
+      "reviewNote": "Tear-off then installation is a broad sequence and must remain conditional on the later deck and weather checks in this source scene.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:line:5",
+      "legacySourceRef": "roofing:30:ja-en:reader:5",
+      "sourceSpanish": "Cuando la cubierta está lista, la cuadrilla pone la sub-capa y el tapajuntas, y el jefe de cuadrilla revisa cada paso.",
+      "sourceEnglish": "When the deck is ready, the crew puts down the underlayment and the flashing, and the crew lead checks each step.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "野地板の準備ができたら、作業班は下葺き材と水切り板金を取り付け、班長が各工程を確認します。",
+      "archivedEnglish": "When the deck is ready, the crew puts down the underlayment and the flashing, and the crew lead checks each step.",
+      "reviewNote": "Source deck is broader than archived 野地板 if the roof system differs; flashing/underlayment order and product-specific scope need qualified trade review.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:line:6",
+      "legacySourceRef": "roofing:30:ja-en:reader:6",
+      "sourceSpanish": "Por la tarde llega un aviso de tormenta, y el capataz ordena: Detengan el trabajo y bajen si cambia el tiempo.",
+      "sourceEnglish": "In the afternoon a storm warning arrives, and the foreman orders: Stop work and come down if the weather changes.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "午後に嵐の警報が届き、職長は「天候が変わったら作業を止めて降りてください」と指示します。",
+      "archivedEnglish": "In the afternoon a storm warning arrives, and the foreman orders: Stop work and come down if the weather changes.",
+      "reviewNote": "A storm warning arrives before the quoted conditional weather-change command. Confirm the timing and whether work stops immediately under the site weather plan.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:line:7",
+      "legacySourceRef": "roofing:30:ja-en:reader:7",
+      "sourceSpanish": "La cuadrilla cubre con una lona la sección sin terminar.",
+      "sourceEnglish": "The crew covers the unfinished section with a tarp.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "作業班は未完了の区画を防水シートで覆います。",
+      "archivedEnglish": "The crew covers the unfinished section with a tarp.",
+      "reviewNote": "The crew tarps an unfinished section after the storm warning. Confirm safe access, tie-off, wind and temporary-covering procedure; archived 防水シート may imply installed membrane.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:line:8",
+      "legacySourceRef": "roofing:30:ja-en:reader:8",
+      "sourceSpanish": "Al final del día, el capataz pide: Recorran el techo conmigo antes de dar el trabajo por terminado.",
+      "sourceEnglish": "At the end of the day, the foreman asks: Walk the roof with me before we call the job complete.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "一日の終わりに職長は「工事を完了とする前に、一緒に屋根を見て回りましょう」と言います。",
+      "archivedEnglish": "At the end of the day, the foreman asks: Walk the roof with me before we call the job complete.",
+      "reviewNote": "The end-of-day roof walk follows a storm warning and temporary tarp. Confirm safe roof access and exact closeout authority before a scored command.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:30:ja-en:line:9",
+      "legacySourceRef": "roofing:30:ja-en:reader:9",
+      "sourceSpanish": "Lo que falta queda en la lista de pendientes para el cierre de obra.",
+      "sourceEnglish": "Whatever is left stays on the punch list for the closeout.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "残った項目は完了確認のため残工事リストに記録します。",
+      "archivedEnglish": "Whatever is left stays on the punch list for the closeout.",
+      "reviewNote": "Punch-list and closeout senses must preserve unresolved work rather than imply final acceptance. Confirm Japanese terms and documentation context.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Identify the briefing, tear-off, installation, tarp, and closeout scenes.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall underlayment, flashing, crew lead, and punch list.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 下葺き材 from 水切り板金 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Let's review today's roof plan before we start' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Lead a complete roofing day in Japanese from briefing to closeout.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write the work sequence and the response to the storm warning.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

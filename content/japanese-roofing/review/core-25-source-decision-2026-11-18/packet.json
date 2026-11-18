@@ -1,0 +1,437 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:25:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-24-26-draft.json",
+      "sha256": "81375e82aaf0b1fce1956eb8c5b3efda62a3d990789d20c904ae4d267a4179fc"
+    }
+  },
+  "sourceEnglishTitle": "Falling Debris",
+  "sourceEnglishObjective": "Keep workers below clear of debris",
+  "sourceEnglishSpeaking": "Tell the ground crew to move clear before tear-off resumes.",
+  "sourceSpanishReaderTitle": "Cuidado con los escombros",
+  "candidateObjective": "地上班が落下する廃材に近づかないよう伝える。",
+  "candidateFocus": "～の下に identifies a prohibited location. ～まで marks how long the crew waits, and ～前に orders warning before using the chute.",
+  "archivedForms": [
+    {
+      "base": "張る",
+      "exampleJa": "立入禁止区域の周りに警告テープを張ります。",
+      "meaningEnglish": "to put (up), to place",
+      "exampleEnglish": "We put up the warning tape around the exclusion area.",
+      "sourceInfinitiveSpanish": "poner"
+    },
+    {
+      "base": "離れる",
+      "exampleJa": "撤去作業の前に全員が家から離れます。",
+      "meaningEnglish": "to move away",
+      "exampleEnglish": "Everyone moves away from the house before the tear-off.",
+      "sourceInfinitiveSpanish": "alejarse"
+    },
+    {
+      "base": "待つ",
+      "exampleJa": "職長が安全を確認したと言うまで待ちます。",
+      "meaningEnglish": "to wait",
+      "exampleEnglish": "We wait until the foreman says it's clear.",
+      "sourceInfinitiveSpanish": "esperar"
+    },
+    {
+      "base": "知らせる",
+      "exampleJa": "廃材用シュートを使うなら先に周囲の人に知らせます。",
+      "meaningEnglish": "to warn, to let know",
+      "exampleEnglish": "If we use the debris chute, we warn people first.",
+      "sourceInfinitiveSpanish": "avisar"
+    },
+    {
+      "base": "落ちる",
+      "exampleJa": "頭上注意！廃材が落ちます！",
+      "meaningEnglish": "to fall",
+      "exampleEnglish": "Heads up! Debris coming down!",
+      "sourceInfinitiveSpanish": "caer"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "地上班は家から離れてください。警告テープを張り、私が安全を確認したと言うまで待ってください。",
+    "goal": "Tell the ground crew to move clear before tear-off resumes."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the source scene in order: before tear-off resumes, the foreman addresses the ground crew; falling debris can injure people below; warning tape marks the exclusion area; workers move away and do not stand below even with hard hats; if a debris chute is used, warn people first with an immediate heads-up; then wait for the source speaker's all-clear. Archived Japanese narrows tear-off, adds cone color and safety-verification claims, and softens the immediate warning. Product/site boundary and release authority need qualified review. Current curriculum has no authored verb-example list; archived forms remain conditional evidence. No selected learner/audio text or progress identity is created.",
+  "sourceVerbExamples": null,
+  "cards": [
+    {
+      "id": "roofing:25:ja-en:card:1",
+      "legacySourceRef": "roofing:25:ja-en:cards:1",
+      "sourceSpanish": "Cuadrilla de tierra",
+      "sourceEnglish": "ground crew",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "地上班",
+      "archivedJapanese": "地上班",
+      "archivedEnglish": "ground crew",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:card:2",
+      "legacySourceRef": "roofing:25:ja-en:cards:2",
+      "sourceSpanish": "Escombros",
+      "sourceEnglish": "debris",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "廃材",
+      "archivedJapanese": "廃材",
+      "archivedEnglish": "debris",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:card:3",
+      "legacySourceRef": "roofing:25:ja-en:cards:3",
+      "sourceSpanish": "Zona restringida",
+      "sourceEnglish": "exclusion area",
+      "sourceNoteSpanish": "también: zona de exclusión",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "立入禁止区域",
+      "archivedEnglish": "exclusion area",
+      "reviewNote": "Exclusion area is an established boundary around falling-debris work. Archived 立入禁止区域 implies a full entry ban; confirm the site-zone sense and marking before selecting a scored term.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:card:4",
+      "legacySourceRef": "roofing:25:ja-en:cards:4",
+      "sourceSpanish": "Casco",
+      "sourceEnglish": "hard hat",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "ヘルメット",
+      "archivedJapanese": "ヘルメット",
+      "archivedEnglish": "hard hat",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:card:5",
+      "legacySourceRef": "roofing:25:ja-en:cards:5",
+      "sourceSpanish": "Cinta de precaución",
+      "sourceEnglish": "warning tape",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "警告テープ",
+      "archivedEnglish": "warning tape",
+      "reviewNote": "Warning tape is an unspecified site control in the source. Confirm 警告テープ and the site-specific warning/marking sense, without inventing a particular tape specification.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:card:6",
+      "legacySourceRef": "roofing:25:ja-en:cards:6",
+      "sourceSpanish": "Peligro",
+      "sourceEnglish": "danger",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "危険",
+      "archivedJapanese": "危険",
+      "archivedEnglish": "danger",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:card:7",
+      "legacySourceRef": "roofing:25:ja-en:cards:7",
+      "sourceSpanish": "Ducto de escombros",
+      "sourceEnglish": "chute",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "廃材用シュート",
+      "archivedEnglish": "chute",
+      "reviewNote": "Chute means debris chute in this source. Confirm 廃材用シュート against the actual debris-control equipment and usage before a site instruction.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:card:8",
+      "legacySourceRef": "roofing:25:ja-en:cards:8",
+      "sourceSpanish": "Cono",
+      "sourceEnglish": "cone",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "カラーコーン",
+      "archivedEnglish": "cone",
+      "reviewNote": "Source cone is generic; archived カラーコーン specifies a colored cone. Remove the added attribute or confirm source intent.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:card:9",
+      "legacySourceRef": "roofing:25:ja-en:cards:9",
+      "sourceSpanish": "Desmontaje",
+      "sourceEnglish": "tear-off",
+      "sourceNoteSpanish": "también: retiro del techo viejo",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "既存屋根材の撤去",
+      "archivedEnglish": "tear-off",
+      "reviewNote": "Tear-off / desmontaje may cover more than 既存屋根材の撤去. Confirm the removal scope against source objective and site work sequence.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:card:10",
+      "legacySourceRef": "roofing:25:ja-en:cards:10",
+      "sourceSpanish": "Mantengan a la cuadrilla de tierra lejos de los escombros que caen.",
+      "sourceEnglish": "Keep the ground crew clear of falling debris.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "落下する廃材から地上班を離してください。",
+      "archivedJapanese": "落下する廃材から地上班を離してください。",
+      "archivedEnglish": "Keep the ground crew clear of falling debris.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:card:11",
+      "legacySourceRef": "roofing:25:ja-en:cards:11",
+      "sourceSpanish": "Aléjense de la casa.",
+      "sourceEnglish": "Move away from the house.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "家から離れてください。",
+      "archivedJapanese": "家から離れてください。",
+      "archivedEnglish": "Move away from the house.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:card:12",
+      "legacySourceRef": "roofing:25:ja-en:cards:12",
+      "sourceSpanish": "No se paren debajo del trabajo.",
+      "sourceEnglish": "Don't stand under the work.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "作業している場所の下に立たないでください。",
+      "archivedJapanese": "作業している場所の下に立たないでください。",
+      "archivedEnglish": "Don't stand under the work.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:card:13",
+      "legacySourceRef": "roofing:25:ja-en:cards:13",
+      "sourceSpanish": "Esperen hasta que yo diga que está despejado.",
+      "sourceEnglish": "Wait until I say it's clear.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "私が安全を確認したと言うまで待ってください。",
+      "archivedEnglish": "Wait until I say it's clear.",
+      "reviewNote": "Wait until I say it's clear names speaker authority and an all-clear. Archived 安全を確認したと言う adds a safety-verification claim; settle who may release the exclusion area and exact all-clear wording.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:card:14",
+      "legacySourceRef": "roofing:25:ja-en:cards:14",
+      "sourceSpanish": "Pongan la cinta de precaución.",
+      "sourceEnglish": "Put up the warning tape.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "警告テープを張ってください。",
+      "archivedJapanese": "警告テープを張ってください。",
+      "archivedEnglish": "Put up the warning tape.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:card:15",
+      "legacySourceRef": "roofing:25:ja-en:cards:15",
+      "sourceSpanish": "¡Cuidado abajo! ¡Caen escombros!",
+      "sourceEnglish": "Heads up! Debris coming down!",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "頭上注意！廃材が落ちます！",
+      "archivedEnglish": "Heads up! Debris coming down!",
+      "reviewNote": "Heads up! Debris coming down! is an immediate warning. Archived 廃材が落ちます sounds future or generic; confirm immediate hazard wording and audience below.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:25:ja-en:line:1",
+      "legacySourceRef": "roofing:25:ja-en:reader:1",
+      "sourceSpanish": "Antes de seguir con el desmontaje, el capataz habla con la cuadrilla de tierra.",
+      "sourceEnglish": "Before continuing with the tear-off, the foreman talks to the ground crew.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "既存屋根材の撤去を続ける前に、職長は地上班に話します。",
+      "archivedEnglish": "Before continuing with the tear-off, the foreman talks to the ground crew.",
+      "reviewNote": "Source tear-off scope is broad; archived 既存屋根材の撤去 may narrow it to covering removal. Confirm site task and foreman role.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:line:2",
+      "legacySourceRef": "roofing:25:ja-en:reader:2",
+      "sourceSpanish": "Los escombros pueden caer del techo y lastimar a alguien que esté abajo.",
+      "sourceEnglish": "Debris can fall from the roof and hurt someone below.",
+      "selectedJapanese": null,
+      "candidateJapanese": "廃材が屋根から落ち、下にいる人がけがをすることがあります。",
+      "archivedJapanese": "廃材が屋根から落ち、下にいる人がけがをすることがあります。",
+      "archivedEnglish": "Debris can fall from the roof and hurt someone below.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:line:3",
+      "legacySourceRef": "roofing:25:ja-en:reader:3",
+      "sourceSpanish": "Pongan la cinta de precaución alrededor de la zona restringida.",
+      "sourceEnglish": "Put up the warning tape around the exclusion area.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "立入禁止区域の周りに警告テープを張ってください。",
+      "archivedEnglish": "Put up the warning tape around the exclusion area.",
+      "reviewNote": "Warning tape around the exclusion area is a source scene instruction. Confirm Japanese boundary and tape terms against the site control before scored deployment.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:line:4",
+      "legacySourceRef": "roofing:25:ja-en:reader:4",
+      "sourceSpanish": "Aléjense de la casa.",
+      "sourceEnglish": "Move away from the house.",
+      "selectedJapanese": null,
+      "candidateJapanese": "家から離れてください。",
+      "archivedJapanese": "家から離れてください。",
+      "archivedEnglish": "Move away from the house.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:line:5",
+      "legacySourceRef": "roofing:25:ja-en:reader:5",
+      "sourceSpanish": "No se paren debajo del trabajo, aunque lleven casco.",
+      "sourceEnglish": "Don't stand under the work, even if you are wearing a hard hat.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ヘルメットをかぶっていても、作業している場所の下に立たないでください。",
+      "archivedJapanese": "ヘルメットをかぶっていても、作業している場所の下に立たないでください。",
+      "archivedEnglish": "Don't stand under the work, even if you are wearing a hard hat.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:line:6",
+      "legacySourceRef": "roofing:25:ja-en:reader:6",
+      "sourceSpanish": "Mantengan a la cuadrilla de tierra lejos de los escombros que caen.",
+      "sourceEnglish": "Keep the ground crew clear of falling debris.",
+      "selectedJapanese": null,
+      "candidateJapanese": "落下する廃材から地上班を離してください。",
+      "archivedJapanese": "落下する廃材から地上班を離してください。",
+      "archivedEnglish": "Keep the ground crew clear of falling debris.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:line:7",
+      "legacySourceRef": "roofing:25:ja-en:reader:7",
+      "sourceSpanish": "Si usan el ducto de escombros, avisen primero: ¡Cuidado abajo! ¡Caen escombros!",
+      "sourceEnglish": "If you use the debris chute, warn people first: Heads up! Debris coming down!",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "廃材用シュートを使うなら、先に「頭上注意！廃材が落ちます！」と知らせてください。",
+      "archivedEnglish": "If you use the debris chute, warn people first: Heads up! Debris coming down!",
+      "reviewNote": "Source conditions the debris-chute use and requires warning people first. Archived warning uses a future/generic 落ちます; preserve immediate hazard timing and equipment context.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:25:ja-en:line:8",
+      "legacySourceRef": "roofing:25:ja-en:reader:8",
+      "sourceSpanish": "Esperen hasta que yo diga que está despejado.",
+      "sourceEnglish": "Wait until I say it's clear.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "私が安全を確認したと言うまで待ってください。",
+      "archivedEnglish": "Wait until I say it's clear.",
+      "reviewNote": "Wait until I say it's clear requires an explicit all-clear from the source speaker. Archived 安全を確認した adds verification not stated; settle speaker authority and release phrase.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the exclusion area and the ground crew below.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall falling debris, chute, warning tape, and ground crew.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 廃材 from 廃材用シュート when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Don't stand under the work' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Warn the ground crew before debris comes down.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write what the crew does before using the debris chute.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

@@ -1,0 +1,463 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:28:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-27-30-draft.json",
+      "sha256": "bbded38ccbf62e844d27598d5da3565300b3e73afcce1b2f5cf54f52b674afdd"
+    }
+  },
+  "sourceEnglishTitle": "Ground Cleanup",
+  "sourceEnglishObjective": "Assign gutters and site cleanup",
+  "sourceEnglishSpeaking": "Assign a final gutter check and ground cleanup before leaving.",
+  "sourceSpanishReaderTitle": "Limpieza final",
+  "candidateObjective": "雨どいと現場の清掃作業を割り当てる。",
+  "candidateFocus": "～前に sets cleanup before leaving. ～たら asks for a completion report, while ～より compares the yard's before and after state.",
+  "archivedForms": [
+    {
+      "base": "確認する",
+      "exampleJa": "帰る前に雨どいを確認します。",
+      "meaningEnglish": "to check",
+      "exampleEnglish": "We check the gutters before leaving.",
+      "sourceInfinitiveSpanish": "revisar"
+    },
+    {
+      "base": "拾う",
+      "exampleJa": "家の周りの釘をすべて拾います。",
+      "meaningEnglish": "to pick up",
+      "exampleEnglish": "We pick up every nail around the house.",
+      "sourceInfinitiveSpanish": "recoger"
+    },
+    {
+      "base": "清掃する",
+      "exampleJa": "帰る前に現場を清掃します。",
+      "meaningEnglish": "to clean",
+      "exampleEnglish": "We clean the site before leaving.",
+      "sourceInfinitiveSpanish": "limpiar"
+    },
+    {
+      "base": "伝える",
+      "exampleJa": "廃材コンテナがいっぱいなら職長に伝えます。",
+      "meaningEnglish": "to let (someone) know",
+      "exampleEnglish": "If the dumpster is full, I let the foreman know.",
+      "sourceInfinitiveSpanish": "avisar"
+    },
+    {
+      "base": "して帰る",
+      "exampleJa": "庭を作業前よりきれいにして帰ります。",
+      "meaningEnglish": "to leave (something in a state)",
+      "exampleEnglish": "We leave the yard cleaner than we found it.",
+      "sourceInfinitiveSpanish": "dejar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "帰る前に雨どいの釘や廃材を確認してください。磁石での釘拾いが終わったら教えてください。",
+    "goal": "Assign a final gutter check and ground cleanup before leaving."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the source sequence: finished roof still needs cleanup; foreman assigns gutter and site check; nails and debris in gutters can obstruct the downspout; crew picks up nails around the house, reports when the magnetic nail sweep is finished, checks dumpster fullness, sweeps the yard and disposes of trash, then leaves the exterior area cleaner than found. Archived Japanese may narrow yard/patio to garden and debris/dumpster to building material, and may lose the systematic sweep sense. Confirm site waste stream and cleanup verification before scored commands. Current curriculum has no authored verb-example list; archived forms remain conditional evidence. No selected learner/audio text or progress identity is created.",
+  "sourceVerbExamples": null,
+  "cards": [
+    {
+      "id": "roofing:28:ja-en:card:1",
+      "legacySourceRef": "roofing:28:ja-en:cards:1",
+      "sourceSpanish": "Canal / Canalón",
+      "sourceEnglish": "gutter",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "雨どい",
+      "archivedJapanese": "雨どい",
+      "archivedEnglish": "gutter",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:card:2",
+      "legacySourceRef": "roofing:28:ja-en:cards:2",
+      "sourceSpanish": "Contenedor de escombros",
+      "sourceEnglish": "dumpster",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "廃材コンテナ",
+      "archivedEnglish": "dumpster",
+      "reviewNote": "Source dumpster / contenedor de escombros is a debris container. Confirm 廃材コンテナ against the site's actual waste stream and avoid assuming every trash item belongs in it.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:card:3",
+      "legacySourceRef": "roofing:28:ja-en:cards:3",
+      "sourceSpanish": "Clavo",
+      "sourceEnglish": "nail",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "釘",
+      "archivedJapanese": "釘",
+      "archivedEnglish": "nail",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:card:4",
+      "legacySourceRef": "roofing:28:ja-en:cards:4",
+      "sourceSpanish": "Limpieza",
+      "sourceEnglish": "cleanup",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "清掃",
+      "archivedJapanese": "清掃",
+      "archivedEnglish": "cleanup",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:card:5",
+      "legacySourceRef": "roofing:28:ja-en:cards:5",
+      "sourceSpanish": "Imán",
+      "sourceEnglish": "magnet",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "磁石",
+      "archivedJapanese": "磁石",
+      "archivedEnglish": "magnet",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:card:6",
+      "legacySourceRef": "roofing:28:ja-en:cards:6",
+      "sourceSpanish": "Escoba",
+      "sourceEnglish": "broom",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "ほうき",
+      "archivedJapanese": "ほうき",
+      "archivedEnglish": "broom",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:card:7",
+      "legacySourceRef": "roofing:28:ja-en:cards:7",
+      "sourceSpanish": "Escombros",
+      "sourceEnglish": "debris",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "廃材",
+      "archivedEnglish": "debris",
+      "reviewNote": "Source debris / escombros can include construction waste beyond reusable or discarded building material. Archived 廃材 may narrow the sense; confirm contextual dictionary entry.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:card:8",
+      "legacySourceRef": "roofing:28:ja-en:cards:8",
+      "sourceSpanish": "Patio",
+      "sourceEnglish": "yard",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "庭",
+      "archivedEnglish": "yard",
+      "reviewNote": "Yard / patio is the exterior space around this house. Archived 庭 may imply garden rather than the work area; confirm site/location sense.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:card:9",
+      "legacySourceRef": "roofing:28:ja-en:cards:9",
+      "sourceSpanish": "Basura",
+      "sourceEnglish": "trash",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "ごみ",
+      "archivedJapanese": "ごみ",
+      "archivedEnglish": "trash",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:card:10",
+      "legacySourceRef": "roofing:28:ja-en:cards:10",
+      "sourceSpanish": "Bajada de agua",
+      "sourceEnglish": "downspout",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "縦どい",
+      "archivedJapanese": "縦どい",
+      "archivedEnglish": "downspout",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:card:11",
+      "legacySourceRef": "roofing:28:ja-en:cards:11",
+      "sourceSpanish": "Revisemos las canaletas y limpiemos el sitio antes de irnos.",
+      "sourceEnglish": "Let's check the gutters and clean the site before leaving.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "帰る前に雨どいを確認し、現場を清掃しましょう。",
+      "archivedJapanese": "帰る前に雨どいを確認し、現場を清掃しましょう。",
+      "archivedEnglish": "Let's check the gutters and clean the site before leaving.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:card:12",
+      "legacySourceRef": "roofing:28:ja-en:cards:12",
+      "sourceSpanish": "Avísenme cuando terminen de recoger los clavos con el imán.",
+      "sourceEnglish": "Tell me when the magnetic nail sweep is finished.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "磁石での釘拾いが終わったら教えてください。",
+      "archivedEnglish": "Tell me when the magnetic nail sweep is finished.",
+      "reviewNote": "Magnetic nail sweep denotes a systematic cleanup pass, not just picking up nails with a magnet. Archived 磁石での釘拾い may lose sweep coverage and completion meaning.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:card:13",
+      "legacySourceRef": "roofing:28:ja-en:cards:13",
+      "sourceSpanish": "Revisen si hay clavos y escombros en las canaletas.",
+      "sourceEnglish": "Check the gutters for nails and debris.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "雨どいに釘や廃材がないか確認してください。",
+      "archivedJapanese": "雨どいに釘や廃材がないか確認してください。",
+      "archivedEnglish": "Check the gutters for nails and debris.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:card:14",
+      "legacySourceRef": "roofing:28:ja-en:cards:14",
+      "sourceSpanish": "Recojan todos los clavos alrededor de la casa.",
+      "sourceEnglish": "Pick up every nail around the house.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "家の周りの釘をすべて拾ってください。",
+      "archivedEnglish": "Pick up every nail around the house.",
+      "reviewNote": "Pick up every nail is the direct source command. Confirm how the absolute cleanup target is expressed without implying an unverified completed sweep.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:card:15",
+      "legacySourceRef": "roofing:28:ja-en:cards:15",
+      "sourceSpanish": "¿Está lleno el contenedor?",
+      "sourceEnglish": "Is the dumpster full?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "廃材コンテナはいっぱいですか。",
+      "archivedEnglish": "Is the dumpster full?",
+      "reviewNote": "Source asks if the dumpster is full. Archived 廃材コンテナ narrows container and waste-stream sense; align with card 2 and Reader 8.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:card:16",
+      "legacySourceRef": "roofing:28:ja-en:cards:16",
+      "sourceSpanish": "Dejen el patio más limpio que como lo encontraron.",
+      "sourceEnglish": "Leave the yard cleaner than you found it.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "庭を作業前よりきれいにして帰ってください。",
+      "archivedEnglish": "Leave the yard cleaner than you found it.",
+      "reviewNote": "Leave the yard cleaner than you found it refers to the source's exterior work area. Archived 庭を作業前よりきれいにして帰る adds before-work comparison; confirm reference and site scope.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:28:ja-en:line:1",
+      "legacySourceRef": "roofing:28:ja-en:reader:1",
+      "sourceSpanish": "El techo ya está terminado, pero todavía falta la limpieza.",
+      "sourceEnglish": "The roof is already finished, but the cleanup is still missing.",
+      "selectedJapanese": null,
+      "candidateJapanese": "屋根はすでに仕上がりましたが、清掃がまだ残っています。",
+      "archivedJapanese": "屋根はすでに仕上がりましたが、清掃がまだ残っています。",
+      "archivedEnglish": "The roof is already finished, but the cleanup is still missing.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:line:2",
+      "legacySourceRef": "roofing:28:ja-en:reader:2",
+      "sourceSpanish": "El capataz dice: Revisemos las canaletas y limpiemos el sitio antes de irnos.",
+      "sourceEnglish": "The foreman says: Let's check the gutters and clean the site before leaving.",
+      "selectedJapanese": null,
+      "candidateJapanese": "職長は「帰る前に雨どいを確認し、現場を清掃しましょう」と言います。",
+      "archivedJapanese": "職長は「帰る前に雨どいを確認し、現場を清掃しましょう」と言います。",
+      "archivedEnglish": "The foreman says: Let's check the gutters and clean the site before leaving.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:line:3",
+      "legacySourceRef": "roofing:28:ja-en:reader:3",
+      "sourceSpanish": "Revisen si hay clavos y escombros en las canaletas.",
+      "sourceEnglish": "Check the gutters for nails and debris.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "雨どいに釘や廃材がないか確認してください。",
+      "archivedEnglish": "Check the gutters for nails and debris.",
+      "reviewNote": "Source nails and debris in gutters; archived 廃材 may narrow debris. Align with card 7 and gutter/downspout maintenance scope.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:line:4",
+      "legacySourceRef": "roofing:28:ja-en:reader:4",
+      "sourceSpanish": "Una canaleta llena puede tapar la bajada de agua.",
+      "sourceEnglish": "A full gutter can block the downspout.",
+      "selectedJapanese": null,
+      "candidateJapanese": "雨どいがいっぱいになると、縦どいが詰まることがあります。",
+      "archivedJapanese": "雨どいがいっぱいになると、縦どいが詰まることがあります。",
+      "archivedEnglish": "A full gutter can block the downspout.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:line:5",
+      "legacySourceRef": "roofing:28:ja-en:reader:5",
+      "sourceSpanish": "Recojan todos los clavos alrededor de la casa.",
+      "sourceEnglish": "Pick up every nail around the house.",
+      "selectedJapanese": null,
+      "candidateJapanese": "家の周りの釘をすべて拾ってください。",
+      "archivedJapanese": "家の周りの釘をすべて拾ってください。",
+      "archivedEnglish": "Pick up every nail around the house.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:line:6",
+      "legacySourceRef": "roofing:28:ja-en:reader:6",
+      "sourceSpanish": "Avísenme cuando terminen de recoger los clavos con el imán.",
+      "sourceEnglish": "Tell me when you finish picking up the nails with the magnet.",
+      "selectedJapanese": null,
+      "candidateJapanese": "磁石で釘を拾い終わったら教えてください。",
+      "archivedJapanese": "磁石で釘を拾い終わったら教えてください。",
+      "archivedEnglish": "Tell me when you finish picking up the nails with the magnet.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:line:7",
+      "legacySourceRef": "roofing:28:ja-en:reader:7",
+      "sourceSpanish": "¿Está lleno el contenedor?",
+      "sourceEnglish": "Is the dumpster full?",
+      "selectedJapanese": null,
+      "candidateJapanese": "廃材コンテナはいっぱいですか。",
+      "archivedJapanese": "廃材コンテナはいっぱいですか。",
+      "archivedEnglish": "Is the dumpster full?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:line:8",
+      "legacySourceRef": "roofing:28:ja-en:reader:8",
+      "sourceSpanish": "Usen la escoba en el patio y pongan la basura en el contenedor.",
+      "sourceEnglish": "Use the broom on the yard and put the trash in the dumpster.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "庭をほうきで掃き、ごみを廃材コンテナに入れてください。",
+      "archivedEnglish": "Use the broom on the yard and put the trash in the dumpster.",
+      "reviewNote": "Source directs putting trash in the dumpster. Archived 廃材コンテナ implies a particular debris-only waste stream; confirm site disposal rule before scoring an instruction.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:28:ja-en:line:9",
+      "legacySourceRef": "roofing:28:ja-en:reader:9",
+      "sourceSpanish": "Dejen el patio más limpio que como lo encontraron.",
+      "sourceEnglish": "Leave the yard cleaner than you found it.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "庭を作業前よりきれいにして帰ってください。",
+      "archivedEnglish": "Leave the yard cleaner than you found it.",
+      "reviewNote": "Source compares the yard to its found condition. Archived 庭 and 作業前 may narrow the exterior location and add a work-start baseline.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the gutter, downspout, magnet, and dumpster.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall nail pickup, gutter check, and site cleanup.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 雨どい from 縦どい when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Is the dumpster full?' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Assign gutter and ground cleanup before leaving.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write what the crew reports after the magnetic nail sweep.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

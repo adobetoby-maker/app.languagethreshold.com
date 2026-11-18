@@ -1,0 +1,9 @@
+# French Roofing Core 25 — falling debris source decision
+
+This inert packet pins **15 exact current Spanish/English cards**, **eight aligned Reader turns**, five source verb examples and current-source/archive hashes for *Falling Debris*. Proposed `core-roofing:25:fr-en` IDs are review references only. The source header still says `roofing`; stage-local saved-item and progress identity require a deliberate decision before learner use.
+
+The archived French is separate evidence. Nine card faces and six Reader turns are held from conditional selection. The source commands warning tape around an exclusion area without proving tape alone is an approved barrier. *Tear-off*, *debris chute*, *ground crew* and *under the work* need contextual French and site-control senses. The source's “Wait until I say it's clear” assigns the release statement to the speaker; archived French turns it into a confirmation that the area is clear. “Heads up! Debris coming down!” is an immediate alert, while archived French predicts falling debris. Archived speaking adds an approved zone, stop-work and explicit reply beyond the source objective. These are internal source, trade and safety questions, not learner instructions.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, listening, offline, saved-progress, browser and V4 gates are false. No audio was generated or approved; no owner page or runtime route imports this packet. Six authored See/Recall/Hear/Type/Say/Write prompt/target activities, forms, speaking, exact-pair dictionary and device acceptance remain open.
+
+`build.py --check` detects source drift; `validate.py` independently checks source order, IDs, archived evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural checks and self-check are not qualified review.

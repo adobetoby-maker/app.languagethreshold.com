@@ -1,0 +1,463 @@
+{
+  "schema": "french-roofing-core25-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:25",
+  "proposedPairId": "core-roofing:25:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-25-27-draft.json": "f4e60539ac60e36a67ed93c6f09faabe531968f23d9e45b53b4375912bf66f29"
+  },
+  "orderedSourceRowsSha256": "bfc77a26b0c0bcd40e065b9344751d0cd7f898495f0053e7fefc0114edf8f0ee",
+  "sourceTitleEnglish": "Falling Debris",
+  "sourceObjectiveEnglish": "Keep workers below clear of debris",
+  "sourceSpeakingEnglish": "Tell the ground crew to move clear before tear-off resumes.",
+  "sourceReaderTitleSpanish": "Cuidado con los escombros",
+  "cards": [
+    {
+      "id": "core-roofing:25:fr-en:card:1",
+      "legacySourceRef": "roofing:25:words:1",
+      "sourceSpanish": "Cuadrilla de tierra",
+      "sourceEnglish": "ground crew",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’équipe au sol",
+      "conditionalFrench": "l’équipe au sol",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:card:2",
+      "legacySourceRef": "roofing:25:words:2",
+      "sourceSpanish": "Escombros",
+      "sourceEnglish": "debris",
+      "kind": "term",
+      "archivedFrenchEvidence": "les débris",
+      "conditionalFrench": "les débris",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:card:3",
+      "legacySourceRef": "roofing:25:words:3",
+      "sourceSpanish": "Zona restringida",
+      "sourceEnglish": "exclusion area",
+      "kind": "term",
+      "archivedFrenchEvidence": "la zone d’exclusion",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:card:4",
+      "legacySourceRef": "roofing:25:words:4",
+      "sourceSpanish": "Casco",
+      "sourceEnglish": "hard hat",
+      "kind": "term",
+      "archivedFrenchEvidence": "le casque de chantier",
+      "conditionalFrench": "le casque de chantier",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:card:5",
+      "legacySourceRef": "roofing:25:words:5",
+      "sourceSpanish": "Cinta de precaución",
+      "sourceEnglish": "warning tape",
+      "kind": "term",
+      "archivedFrenchEvidence": "le ruban de signalisation",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:card:6",
+      "legacySourceRef": "roofing:25:words:6",
+      "sourceSpanish": "Peligro",
+      "sourceEnglish": "danger",
+      "kind": "term",
+      "archivedFrenchEvidence": "le danger",
+      "conditionalFrench": "le danger",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:card:7",
+      "legacySourceRef": "roofing:25:words:7",
+      "sourceSpanish": "Ducto de escombros",
+      "sourceEnglish": "chute",
+      "kind": "term",
+      "archivedFrenchEvidence": "la goulotte à débris",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:card:8",
+      "legacySourceRef": "roofing:25:words:8",
+      "sourceSpanish": "Cono",
+      "sourceEnglish": "cone",
+      "kind": "term",
+      "archivedFrenchEvidence": "le cône de signalisation",
+      "conditionalFrench": "le cône de signalisation",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:card:9",
+      "legacySourceRef": "roofing:25:words:9",
+      "sourceSpanish": "Desmontaje",
+      "sourceEnglish": "tear-off",
+      "kind": "term",
+      "archivedFrenchEvidence": "la dépose",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:card:10",
+      "legacySourceRef": "roofing:25:words:10",
+      "sourceSpanish": "Mantengan a la cuadrilla de tierra lejos de los escombros que caen.",
+      "sourceEnglish": "Keep the ground crew clear of falling debris.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Tenez l’équipe au sol à l’écart des débris qui tombent.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:card:11",
+      "legacySourceRef": "roofing:25:words:11",
+      "sourceSpanish": "Aléjense de la casa.",
+      "sourceEnglish": "Move away from the house.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Éloignez-vous de la maison.",
+      "conditionalFrench": "Éloignez-vous de la maison.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:card:12",
+      "legacySourceRef": "roofing:25:words:12",
+      "sourceSpanish": "No se paren debajo del trabajo.",
+      "sourceEnglish": "Don't stand under the work.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Ne restez pas sous la zone de travail.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:card:13",
+      "legacySourceRef": "roofing:25:words:13",
+      "sourceSpanish": "Esperen hasta que yo diga que está despejado.",
+      "sourceEnglish": "Wait until I say it's clear.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Attendez que je confirme que la zone est dégagée.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:card:14",
+      "legacySourceRef": "roofing:25:words:14",
+      "sourceSpanish": "Pongan la cinta de precaución.",
+      "sourceEnglish": "Put up the warning tape.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Installez le ruban de signalisation.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:card:15",
+      "legacySourceRef": "roofing:25:words:15",
+      "sourceSpanish": "¡Cuidado abajo! ¡Caen escombros!",
+      "sourceEnglish": "Heads up! Debris coming down!",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Attention en bas ! Des débris vont tomber !",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:25:fr-en:reader:1",
+      "legacySourceRef": "roofing:25:passage:1",
+      "sourceSpanish": "Antes de seguir con el desmontaje, el capataz habla con la cuadrilla de tierra.",
+      "sourceEnglish": "Before continuing with the tear-off, the foreman talks to the ground crew.",
+      "archivedFrenchEvidence": "Avant de poursuivre la dépose, le contremaître parle à l’équipe au sol.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:reader:2",
+      "legacySourceRef": "roofing:25:passage:2",
+      "sourceSpanish": "Los escombros pueden caer del techo y lastimar a alguien que esté abajo.",
+      "sourceEnglish": "Debris can fall from the roof and hurt someone below.",
+      "archivedFrenchEvidence": "Des débris peuvent tomber du toit et blesser une personne en bas.",
+      "conditionalFrench": "Des débris peuvent tomber du toit et blesser une personne en bas.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:reader:3",
+      "legacySourceRef": "roofing:25:passage:3",
+      "sourceSpanish": "Pongan la cinta de precaución alrededor de la zona restringida.",
+      "sourceEnglish": "Put up the warning tape around the exclusion area.",
+      "archivedFrenchEvidence": "Installez le ruban de signalisation autour de la zone d’exclusion.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:reader:4",
+      "legacySourceRef": "roofing:25:passage:4",
+      "sourceSpanish": "Aléjense de la casa.",
+      "sourceEnglish": "Move away from the house.",
+      "archivedFrenchEvidence": "Éloignez-vous de la maison.",
+      "conditionalFrench": "Éloignez-vous de la maison.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:reader:5",
+      "legacySourceRef": "roofing:25:passage:5",
+      "sourceSpanish": "No se paren debajo del trabajo, aunque lleven casco.",
+      "sourceEnglish": "Don't stand under the work, even if you are wearing a hard hat.",
+      "archivedFrenchEvidence": "Ne restez pas sous la zone de travail, même avec un casque de chantier.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:reader:6",
+      "legacySourceRef": "roofing:25:passage:6",
+      "sourceSpanish": "Mantengan a la cuadrilla de tierra lejos de los escombros que caen.",
+      "sourceEnglish": "Keep the ground crew clear of falling debris.",
+      "archivedFrenchEvidence": "Tenez l’équipe au sol à l’écart des débris qui tombent.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:reader:7",
+      "legacySourceRef": "roofing:25:passage:7",
+      "sourceSpanish": "Si usan el ducto de escombros, avisen primero: ¡Cuidado abajo! ¡Caen escombros!",
+      "sourceEnglish": "If you use the debris chute, warn people first: Heads up! Debris coming down!",
+      "archivedFrenchEvidence": "Si vous utilisez la goulotte à débris, prévenez d’abord les personnes en bas : « Attention ! Des débris vont tomber ! »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:25:fr-en:reader:8",
+      "legacySourceRef": "roofing:25:passage:8",
+      "sourceSpanish": "Esperen hasta que yo diga que está despejado.",
+      "sourceEnglish": "Wait until I say it's clear.",
+      "archivedFrenchEvidence": "Attendez que je confirme que la zone est dégagée.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "poner",
+      "englishMeaning": "to put (up), to place",
+      "sourceSpanish": "Ponemos la cinta de precaución alrededor de la zona restringida.",
+      "sourceEnglish": "We put up the warning tape around the exclusion area."
+    },
+    {
+      "spanishInfinitive": "alejarse",
+      "englishMeaning": "to move away",
+      "sourceSpanish": "Todos se alejan de la casa antes del desmontaje.",
+      "sourceEnglish": "Everyone moves away from the house before the tear-off."
+    },
+    {
+      "spanishInfinitive": "esperar",
+      "englishMeaning": "to wait",
+      "sourceSpanish": "Esperamos hasta que el capataz diga que está despejado.",
+      "sourceEnglish": "We wait until the foreman says it's clear."
+    },
+    {
+      "spanishInfinitive": "avisar",
+      "englishMeaning": "to warn, to let know",
+      "sourceSpanish": "Si usamos el ducto de escombros, avisamos primero.",
+      "sourceEnglish": "If we use the debris chute, we warn people first."
+    },
+    {
+      "spanishInfinitive": "caer",
+      "englishMeaning": "to fall",
+      "sourceSpanish": "¡Cuidado abajo! ¡Caen escombros!",
+      "sourceEnglish": "Heads up! Debris coming down!"
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Écarter l’équipe des débris qui tombent",
+    "objectiveFrench": "Avertir l’équipe au sol et faire dégager la zone d’exclusion avant la reprise de la dépose.",
+    "speakingFrenchInstruction": "Avant de reprendre la dépose, demandez l’arrêt et la confirmation que la zone d’exclusion approuvée est dégagée. Prévenez l’équipe au sol, puis demandez une réponse explicite.",
+    "speakingFrenchOpening": "On suspend la dépose : l’équipe au sol a-t-elle quitté la zone d’exclusion ?",
+    "grammarFocusFrench": "Impératif négatif pour interdire l’accès; avant de + infinitif; jusqu’à ce que pour attendre la confirmation.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to put (up), to place",
+        "exampleEnglish": "We put up the warning tape around the exclusion area.",
+        "sourceInfinitiveSpanish": "poner",
+        "infinitiveFrench": "installer",
+        "exampleFrench": "Nous installons le ruban de signalisation autour de la zone d’exclusion."
+      },
+      {
+        "meaningEnglish": "to move away",
+        "exampleEnglish": "Everyone moves away from the house before the tear-off.",
+        "sourceInfinitiveSpanish": "alejarse",
+        "infinitiveFrench": "s’éloigner",
+        "exampleFrench": "Tout le monde s’éloigne de la maison avant la dépose."
+      },
+      {
+        "meaningEnglish": "to wait",
+        "exampleEnglish": "We wait until the foreman says it's clear.",
+        "sourceInfinitiveSpanish": "esperar",
+        "infinitiveFrench": "attendre",
+        "exampleFrench": "Nous attendons que le contremaître confirme que la zone est dégagée."
+      },
+      {
+        "meaningEnglish": "to warn, to let know",
+        "exampleEnglish": "If we use the debris chute, we warn people first.",
+        "sourceInfinitiveSpanish": "avisar",
+        "infinitiveFrench": "prévenir",
+        "exampleFrench": "Si nous utilisons la goulotte à débris, nous prévenons d’abord les personnes en bas."
+      },
+      {
+        "meaningEnglish": "to fall",
+        "exampleEnglish": "Heads up! Debris coming down!",
+        "sourceInfinitiveSpanish": "caer",
+        "infinitiveFrench": "tomber",
+        "exampleFrench": "Attention en bas ! Des débris vont tomber !"
+      }
+    ],
+    "regionalNotesEnglish": [
+      "Qualified falling-object and exclusion-zone safety review is required before release; warning tape, a hard hat and a shouted warning are not sufficient controls by themselves.",
+      "France/Québec terminology for tear-off, debris chute and exclusion area requires regional roofing review."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:25:fr-en:card:3",
+        "core-roofing:25:fr-en:card:5",
+        "core-roofing:25:fr-en:card:7",
+        "core-roofing:25:fr-en:card:14",
+        "core-roofing:25:fr-en:reader:3",
+        "core-roofing:25:fr-en:reader:7"
+      ],
+      "question": "Exclusion area, warning tape and debris chute need site-specific control and French trade senses. The source tells the crew to put tape around an area but does not establish that tape alone is an approved barrier. Resolve the applicable falling-object control with a qualified roofer/safety reviewer before selecting a command."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:25:fr-en:card:9",
+        "core-roofing:25:fr-en:reader:1"
+      ],
+      "question": "Tear-off/démontage and archived dépose need a specific demolition scope. The source scene resumes only after the foreman speaks with the ground crew; archived speaking adds a separate stop-work and approved-zone step. Keep those additions as evidence rather than source-equivalent learner instructions."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:25:fr-en:card:10",
+        "core-roofing:25:fr-en:card:12",
+        "core-roofing:25:fr-en:reader:5",
+        "core-roofing:25:fr-en:reader:6"
+      ],
+      "question": "Ground crew clear of falling debris and no standing under the work even with a hard hat are the source's safety sequence. Archived zone de travail may broaden the location. Confirm command, exclusion boundary and hard-hat sense in context; do not imply PPE makes overhead work safe."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:25:fr-en:card:13",
+        "core-roofing:25:fr-en:reader:8"
+      ],
+      "question": "Source Wait until I say it's clear assigns the release statement to the speaker. Archived French changes this to confirmation that the zone is clear. Determine who is authorized to release the area and preserve that speaker/clearance meaning consistently across card, Reader, speaking and future audio."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:25:fr-en:card:15",
+        "core-roofing:25:fr-en:reader:7"
+      ],
+      "question": "Source Heads up! Debris coming down! is an immediate falling-debris alert. Archived French uses a future va/vont tomber; review urgency and whom to warn, while preserving the conditional chute setup and warning-before-use sequence."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

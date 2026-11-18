@@ -1,0 +1,9 @@
+# French Roofing Core 22 — anchor and lifeline source decision
+
+This inert packet pins **14 exact current Spanish/English cards**, **eight aligned Reader turns**, five source verb examples, and current-source/archive hashes for *Anchor & Lifeline Check*. Proposed `core-roofing:22:fr-en` IDs are review references only. The source header still says `roofing`; saved-item and progress identity require a deliberate stage-specific decision before learner use.
+
+The archived French is separate evidence. Nine card faces and seven Reader turns are held from conditional selection. The source's *fall distance* is not automatically the archived *distance libre de chute* (clearance), and the archived Reader adds “required” clearance. The source says to use the roof anchor without proving approval; the archived card adds *approuvé*. The source declares the anchor unsafe before inspection, whereas the archived French changes that to “seems dangerous.” Anchor/anchorage, lifeline, lanyard and competent-person terms need site and jurisdiction context. Archived speaking adds equipment, clearance and rescue-plan checks beyond the source objective. These source, dictionary and fall-protection questions are internal review notes, not learner instructions.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, listening, offline, saved-progress, browser and V4 gates are false. No audio was generated or approved; no owner page or runtime route imports this packet. Six authored See/Recall/Hear/Type/Say/Write prompt/target activities, forms, speaking, exact-pair dictionary and device acceptance remain open.
+
+`build.py --check` detects source drift; `validate.py` independently checks current source order, IDs, archived evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural checks and self-check are not qualified review.

@@ -1,0 +1,465 @@
+{
+  "schema": "french-roofing-core23-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:23",
+  "proposedPairId": "core-roofing:23:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-22-24-draft.json": "cadabba5ca13abb281b614218a524ec647d795e9fbbdbf8ccaa4117da0bcb45e"
+  },
+  "orderedSourceRowsSha256": "41f5a43c61d696bba4be10c6ab4ae87498632107a95ee3d387f6f7abe8491a2d",
+  "sourceTitleEnglish": "Footing & Weather",
+  "sourceObjectiveEnglish": "Warn about slippery conditions and changing weather",
+  "sourceSpeakingEnglish": "Warn the crew about slick footing and bring them down when lightning approaches.",
+  "sourceReaderTitleSpanish": "Rocío y tormentas",
+  "cards": [
+    {
+      "id": "core-roofing:23:fr-en:card:1",
+      "legacySourceRef": "roofing:23:words:1",
+      "sourceSpanish": "Rocío",
+      "sourceEnglish": "dew",
+      "kind": "term",
+      "archivedFrenchEvidence": "la rosée",
+      "conditionalFrench": "la rosée",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:card:2",
+      "legacySourceRef": "roofing:23:words:2",
+      "sourceSpanish": "Apoyo firme al pisar",
+      "sourceEnglish": "footing",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’appui",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:card:3",
+      "legacySourceRef": "roofing:23:words:3",
+      "sourceSpanish": "Relámpagos",
+      "sourceEnglish": "lightning",
+      "kind": "term",
+      "archivedFrenchEvidence": "la foudre",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:card:4",
+      "legacySourceRef": "roofing:23:words:4",
+      "sourceSpanish": "Resbaloso",
+      "sourceEnglish": "slippery",
+      "kind": "term",
+      "archivedFrenchEvidence": "glissant",
+      "conditionalFrench": "glissant",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:card:5",
+      "legacySourceRef": "roofing:23:words:5",
+      "sourceSpanish": "Mojado",
+      "sourceEnglish": "wet",
+      "kind": "term",
+      "archivedFrenchEvidence": "mouillé",
+      "conditionalFrench": "mouillé",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:card:6",
+      "legacySourceRef": "roofing:23:words:6",
+      "sourceSpanish": "Lluvia",
+      "sourceEnglish": "rain",
+      "kind": "term",
+      "archivedFrenchEvidence": "la pluie",
+      "conditionalFrench": "la pluie",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:card:7",
+      "legacySourceRef": "roofing:23:words:7",
+      "sourceSpanish": "Viento",
+      "sourceEnglish": "wind",
+      "kind": "term",
+      "archivedFrenchEvidence": "le vent",
+      "conditionalFrench": "le vent",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:card:8",
+      "legacySourceRef": "roofing:23:words:8",
+      "sourceSpanish": "Tormenta",
+      "sourceEnglish": "storm",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’orage",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:card:9",
+      "legacySourceRef": "roofing:23:words:9",
+      "sourceSpanish": "Botas",
+      "sourceEnglish": "boots",
+      "kind": "term",
+      "archivedFrenchEvidence": "les bottes",
+      "conditionalFrench": "les bottes",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:card:10",
+      "legacySourceRef": "roofing:23:words:10",
+      "sourceSpanish": "Cuidado al pisar — el rocío resbala.",
+      "sourceEnglish": "Watch your footing — the dew is slick.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Attention à votre appui : la rosée rend le toit glissant.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:card:11",
+      "legacySourceRef": "roofing:23:words:11",
+      "sourceSpanish": "No trabajen el techo con relámpagos.",
+      "sourceEnglish": "Don't work the roof in lightning.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Ne travaillez pas sur le toit quand il y a de la foudre.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:card:12",
+      "legacySourceRef": "roofing:23:words:12",
+      "sourceSpanish": "Detengan el trabajo y bajen si cambia el tiempo.",
+      "sourceEnglish": "Stop work and come down if the weather changes.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Arrêtez le travail et descendez si la météo change.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:card:13",
+      "legacySourceRef": "roofing:23:words:13",
+      "sourceSpanish": "El techo está mojado. Tengan cuidado.",
+      "sourceEnglish": "The roof is wet. Be careful.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Le toit est mouillé. Faites attention.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:card:14",
+      "legacySourceRef": "roofing:23:words:14",
+      "sourceSpanish": "Viene una tormenta. Bajen ahora.",
+      "sourceEnglish": "A storm is coming. Come down now.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Un orage arrive. Descendez maintenant.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:card:15",
+      "legacySourceRef": "roofing:23:words:15",
+      "sourceSpanish": "Usen botas con buen agarre.",
+      "sourceEnglish": "Wear boots with good grip.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Portez des bottes offrant une bonne adhérence.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:23:fr-en:reader:1",
+      "legacySourceRef": "roofing:23:passage:1",
+      "sourceSpanish": "Son las 6:30 de la mañana y todavía hay rocío en el techo.",
+      "sourceEnglish": "It is 6:30 in the morning and there is still dew on the roof.",
+      "archivedFrenchEvidence": "Il est six heures trente du matin et il y a encore de la rosée sur le toit.",
+      "conditionalFrench": "Il est six heures trente du matin et il y a encore de la rosée sur le toit.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:reader:2",
+      "legacySourceRef": "roofing:23:passage:2",
+      "sourceSpanish": "El capataz advierte: El techo está mojado. Tengan cuidado.",
+      "sourceEnglish": "The foreman warns: The roof is wet. Be careful.",
+      "archivedFrenchEvidence": "Le contremaître prévient l’équipe : « Le toit est mouillé. Faites attention. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:reader:3",
+      "legacySourceRef": "roofing:23:passage:3",
+      "sourceSpanish": "Busquen un apoyo firme al pisar, porque el rocío hace resbaloso el techo.",
+      "sourceEnglish": "Look for solid footing, because the dew makes the roof slippery.",
+      "archivedFrenchEvidence": "Cherchez un appui stable, car la rosée rend le toit glissant.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:reader:4",
+      "legacySourceRef": "roofing:23:passage:4",
+      "sourceSpanish": "Usen botas con buen agarre.",
+      "sourceEnglish": "Wear boots with good grip.",
+      "archivedFrenchEvidence": "Portez des bottes offrant une bonne adhérence.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:reader:5",
+      "legacySourceRef": "roofing:23:passage:5",
+      "sourceSpanish": "Más tarde, el viento sube y se ven nubes oscuras en el cielo.",
+      "sourceEnglish": "Later, the wind picks up and dark clouds appear in the sky.",
+      "archivedFrenchEvidence": "Plus tard, le vent se lève et des nuages sombres apparaissent dans le ciel.",
+      "conditionalFrench": "Plus tard, le vent se lève et des nuages sombres apparaissent dans le ciel.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:reader:6",
+      "legacySourceRef": "roofing:23:passage:6",
+      "sourceSpanish": "No trabajen el techo con relámpagos.",
+      "sourceEnglish": "Do not work the roof in lightning.",
+      "archivedFrenchEvidence": "Ne travaillez pas sur le toit quand il y a de la foudre.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:reader:7",
+      "legacySourceRef": "roofing:23:passage:7",
+      "sourceSpanish": "El capataz grita: Viene una tormenta. Bajen ahora.",
+      "sourceEnglish": "The foreman shouts: A storm is coming. Come down now.",
+      "archivedFrenchEvidence": "Le contremaître crie : « Un orage arrive. Descendez maintenant. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:23:fr-en:reader:8",
+      "legacySourceRef": "roofing:23:passage:8",
+      "sourceSpanish": "Detengan el trabajo y bajen si cambia el tiempo.",
+      "sourceEnglish": "Stop work and come down if the weather changes.",
+      "archivedFrenchEvidence": "Arrêtez le travail et descendez si la météo change.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "bajar",
+      "englishMeaning": "to come down",
+      "sourceSpanish": "Viene una tormenta. Bajen ahora.",
+      "sourceEnglish": "A storm is coming. Come down now."
+    },
+    {
+      "spanishInfinitive": "detener",
+      "englishMeaning": "to stop",
+      "sourceSpanish": "Detengan el trabajo y bajen si cambia el tiempo.",
+      "sourceEnglish": "Stop work and come down if the weather changes."
+    },
+    {
+      "spanishInfinitive": "usar",
+      "englishMeaning": "to use, to wear",
+      "sourceSpanish": "Usen botas con buen agarre.",
+      "sourceEnglish": "Wear boots with good grip."
+    },
+    {
+      "spanishInfinitive": "buscar",
+      "englishMeaning": "to look for",
+      "sourceSpanish": "Buscamos un apoyo firme al pisar porque el rocío resbala.",
+      "sourceEnglish": "We look for solid footing because the dew is slick."
+    },
+    {
+      "spanishInfinitive": "cambiar",
+      "englishMeaning": "to change",
+      "sourceSpanish": "Bajen si cambia el tiempo.",
+      "sourceEnglish": "Come down if the weather changes."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Appui et changement de météo",
+    "objectiveFrench": "Avertir l’équipe d’une surface glissante et demander l’arrêt et la descente selon le plan météo du chantier.",
+    "speakingFrenchInstruction": "Signalez la rosée et la perte d’adhérence. Si un orage approche, faites arrêter le travail et appliquer le plan d’évacuation du chantier; demandez une confirmation de chaque membre de l’équipe.",
+    "speakingFrenchOpening": "La toiture est glissante et l’orage approche : on arrête le travail, tout le monde a compris ?",
+    "grammarFocusFrench": "Impératif de sécurité; si + présent; parce que pour expliquer un risque observable.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to come down",
+        "exampleEnglish": "A storm is coming. Come down now.",
+        "sourceInfinitiveSpanish": "bajar",
+        "infinitiveFrench": "descendre",
+        "exampleFrench": "Un orage arrive. Descendez maintenant."
+      },
+      {
+        "meaningEnglish": "to stop",
+        "exampleEnglish": "Stop work and come down if the weather changes.",
+        "sourceInfinitiveSpanish": "detener",
+        "infinitiveFrench": "arrêter",
+        "exampleFrench": "Arrêtez le travail et descendez si la météo change."
+      },
+      {
+        "meaningEnglish": "to use, to wear",
+        "exampleEnglish": "Wear boots with good grip.",
+        "sourceInfinitiveSpanish": "usar",
+        "infinitiveFrench": "porter",
+        "exampleFrench": "Portez des bottes offrant une bonne adhérence."
+      },
+      {
+        "meaningEnglish": "to look for",
+        "exampleEnglish": "We look for solid footing because the dew is slick.",
+        "sourceInfinitiveSpanish": "buscar",
+        "infinitiveFrench": "chercher",
+        "exampleFrench": "Nous cherchons un appui stable parce que la rosée rend le toit glissant."
+      },
+      {
+        "meaningEnglish": "to change",
+        "exampleEnglish": "Come down if the weather changes.",
+        "sourceInfinitiveSpanish": "cambiar",
+        "infinitiveFrench": "changer",
+        "exampleFrench": "Descendez si la météo change."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "Qualified site-safety review is required for slippery roofs, lightning, stop-work triggers and descent/evacuation procedures.",
+      "Boot grip and any time or weather threshold in the English scene are not a universal safety clearance."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:23:fr-en:card:2",
+        "core-roofing:23:fr-en:card:10",
+        "core-roofing:23:fr-en:reader:3"
+      ],
+      "question": "Footing/apoyo firme is physical stability on a roof, not a generic support or safe-condition certification. Archived appui and appui stable need qualified contextual French and roofing safety review before scored use."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:23:fr-en:card:3",
+        "core-roofing:23:fr-en:card:11",
+        "core-roofing:23:fr-en:reader:6"
+      ],
+      "question": "Spanish relámpagos and English lightning may mean visible lightning activity; archived foudre can imply a strike or the phenomenon. Set a consistent French weather term without changing the source stop-work claim, and obtain qualified lightning safety review."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:23:fr-en:card:8",
+        "core-roofing:23:fr-en:card:14",
+        "core-roofing:23:fr-en:reader:7"
+      ],
+      "question": "Source tormenta/storm is contextual; archived orage narrows to a thunderstorm. Confirm the intended weather event and descent message with source and qualified safety reviewers."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:23:fr-en:card:10",
+        "core-roofing:23:fr-en:card:12",
+        "core-roofing:23:fr-en:card:13",
+        "core-roofing:23:fr-en:card:15",
+        "core-roofing:23:fr-en:reader:2",
+        "core-roofing:23:fr-en:reader:4",
+        "core-roofing:23:fr-en:reader:8"
+      ],
+      "question": "Dew/wet-roof footing, grip boots and stop-if-weather-changes commands are source examples, not general clearance to work on a wet roof or a universal stop threshold. Obtain qualified site/weather procedure review before selecting learner commands; keep any site plan in internal notes."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:23:fr-en:reader:7",
+        "core-roofing:23:fr-en:reader:8"
+      ],
+      "question": "Archived speaking adds a site evacuation plan and confirmation from every member, beyond source speaking's warning about slick footing and descent when lightning approaches. Preserve source scope; separate proposed site procedure from learner-facing answer."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

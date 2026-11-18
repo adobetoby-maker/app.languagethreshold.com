@@ -1,0 +1,9 @@
+# French Roofing Core 24 — heat and water source decision
+
+This inert packet pins **15 exact current Spanish/English cards**, **nine aligned Reader turns**, five source verb examples and current-source/archive hashes for *Heat & Water*. Proposed `core-roofing:24:fr-en` IDs are review references only. The source header still says `roofing`; stage-local saved-item and progress identity require a deliberate migration before learner use.
+
+The archived French is separate evidence. Eight card faces and five Reader turns are held from conditional selection. The source's hourly water break belongs to its scene and must not be presented as a universal interval. *Dizzy*, *heat exhaustion* and *rest* need precise French clinical and grammatical senses; Raúl's reported dizziness is a symptom, while the scene does not establish a diagnosis. The source tells a symptomatic worker to go to shade, rest, drink water and follow the site heat plan. Qualified French, occupational-health and source reviewers must assess that response and any escalation before selecting a scored or audio instruction. Archived speaking adds stopping work and seeking help beyond the source objective. These factual and domain questions are internal; learner text remains source-pinned.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, listening, offline, saved-progress, browser and V4 gates are false. No audio was generated or approved; no owner page or runtime route imports this packet. Six authored See/Recall/Hear/Type/Say/Write prompt/target activities, forms, speaking, exact-pair dictionary and device acceptance remain open.
+
+`build.py --check` detects source drift; `validate.py` independently checks current source order, IDs, archived evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural checks and self-check are not qualified review.

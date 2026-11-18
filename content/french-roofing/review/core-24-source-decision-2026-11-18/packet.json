@@ -1,0 +1,473 @@
+{
+  "schema": "french-roofing-core24-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:24",
+  "proposedPairId": "core-roofing:24:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-22-24-draft.json": "cadabba5ca13abb281b614218a524ec647d795e9fbbdbf8ccaa4117da0bcb45e"
+  },
+  "orderedSourceRowsSha256": "24fe2a791e7be59780c81d0b16fb52beaf771ac62c963dac11734bd4ae3f7694",
+  "sourceTitleEnglish": "Heat & Water",
+  "sourceObjectiveEnglish": "Check on crew hydration and heat symptoms",
+  "sourceSpeakingEnglish": "Ask a worker how they feel and direct a water break under the site heat plan.",
+  "sourceReaderTitleSpanish": "Revisión por calor",
+  "cards": [
+    {
+      "id": "core-roofing:24:fr-en:card:1",
+      "legacySourceRef": "roofing:24:words:1",
+      "sourceSpanish": "Pausa para tomar agua",
+      "sourceEnglish": "water break",
+      "kind": "term",
+      "archivedFrenchEvidence": "la pause pour boire de l’eau",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:card:2",
+      "legacySourceRef": "roofing:24:words:2",
+      "sourceSpanish": "Calor",
+      "sourceEnglish": "heat",
+      "kind": "term",
+      "archivedFrenchEvidence": "la chaleur",
+      "conditionalFrench": "la chaleur",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:card:3",
+      "legacySourceRef": "roofing:24:words:3",
+      "sourceSpanish": "Sombra",
+      "sourceEnglish": "shade",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’ombre",
+      "conditionalFrench": "l’ombre",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:card:4",
+      "legacySourceRef": "roofing:24:words:4",
+      "sourceSpanish": "Agua",
+      "sourceEnglish": "water",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’eau",
+      "conditionalFrench": "l’eau",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:card:5",
+      "legacySourceRef": "roofing:24:words:5",
+      "sourceSpanish": "Mareado",
+      "sourceEnglish": "dizzy",
+      "kind": "term",
+      "archivedFrenchEvidence": "étourdi",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:card:6",
+      "legacySourceRef": "roofing:24:words:6",
+      "sourceSpanish": "Agotamiento por calor",
+      "sourceEnglish": "heat exhaustion",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’épuisement dû à la chaleur",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:card:7",
+      "legacySourceRef": "roofing:24:words:7",
+      "sourceSpanish": "Descansar",
+      "sourceEnglish": "rest",
+      "kind": "term",
+      "archivedFrenchEvidence": "le repos",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:card:8",
+      "legacySourceRef": "roofing:24:words:8",
+      "sourceSpanish": "Hidratación",
+      "sourceEnglish": "hydration",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’hydratation",
+      "conditionalFrench": "l’hydratation",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:card:9",
+      "legacySourceRef": "roofing:24:words:9",
+      "sourceSpanish": "Protector solar",
+      "sourceEnglish": "sunscreen",
+      "kind": "term",
+      "archivedFrenchEvidence": "la crème solaire",
+      "conditionalFrench": "la crème solaire",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:card:10",
+      "legacySourceRef": "roofing:24:words:10",
+      "sourceSpanish": "Tomen agua cada hora.",
+      "sourceEnglish": "Take a water break every hour.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Prenez une pause pour boire de l’eau toutes les heures.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:card:11",
+      "legacySourceRef": "roofing:24:words:11",
+      "sourceSpanish": "¿Cómo se siente?",
+      "sourceEnglish": "How do you feel?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Comment vous sentez-vous ?",
+      "conditionalFrench": "Comment vous sentez-vous ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:card:12",
+      "legacySourceRef": "roofing:24:words:12",
+      "sourceSpanish": "¿Está mareado?",
+      "sourceEnglish": "Are you dizzy?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Avez-vous des vertiges ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:card:13",
+      "legacySourceRef": "roofing:24:words:13",
+      "sourceSpanish": "Vaya a la sombra y descanse.",
+      "sourceEnglish": "Go to the shade and rest.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Allez à l’ombre et reposez-vous.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:card:14",
+      "legacySourceRef": "roofing:24:words:14",
+      "sourceSpanish": "Tome agua ahora.",
+      "sourceEnglish": "Drink water now.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Buvez de l’eau maintenant.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:card:15",
+      "legacySourceRef": "roofing:24:words:15",
+      "sourceSpanish": "Avíseme si se siente mal.",
+      "sourceEnglish": "Tell me if you feel sick.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Dites-moi si vous vous sentez mal.",
+      "conditionalFrench": "Dites-moi si vous vous sentez mal.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:24:fr-en:reader:1",
+      "legacySourceRef": "roofing:24:passage:1",
+      "sourceSpanish": "Hace mucho calor y el sol pega fuerte en el techo.",
+      "sourceEnglish": "It is very hot and the sun beats down on the roof.",
+      "archivedFrenchEvidence": "Il fait très chaud et le soleil tape sur le toit.",
+      "conditionalFrench": "Il fait très chaud et le soleil tape sur le toit.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:reader:2",
+      "legacySourceRef": "roofing:24:passage:2",
+      "sourceSpanish": "El capataz dice: Tomen agua cada hora.",
+      "sourceEnglish": "The foreman says: Take a water break every hour.",
+      "archivedFrenchEvidence": "Le contremaître dit : « Prenez une pause pour boire de l’eau toutes les heures. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:reader:3",
+      "legacySourceRef": "roofing:24:passage:3",
+      "sourceSpanish": "Pero Raúl no se ve bien, y el capataz se acerca.",
+      "sourceEnglish": "But Raúl does not look well, and the foreman walks over.",
+      "archivedFrenchEvidence": "Mais Raúl n’a pas l’air bien, alors le contremaître s’approche.",
+      "conditionalFrench": "Mais Raúl n’a pas l’air bien, alors le contremaître s’approche.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:reader:4",
+      "legacySourceRef": "roofing:24:passage:4",
+      "sourceSpanish": "El capataz le pregunta: ¿Cómo se siente?",
+      "sourceEnglish": "The foreman asks him: How do you feel?",
+      "archivedFrenchEvidence": "Il lui demande : « Comment vous sentez-vous ? »",
+      "conditionalFrench": "Il lui demande : « Comment vous sentez-vous ? »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:reader:5",
+      "legacySourceRef": "roofing:24:passage:5",
+      "sourceSpanish": "¿Está mareado?",
+      "sourceEnglish": "Are you dizzy?",
+      "archivedFrenchEvidence": "« Avez-vous des vertiges ? »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:reader:6",
+      "legacySourceRef": "roofing:24:passage:6",
+      "sourceSpanish": "Raúl contesta que sí, un poco.",
+      "sourceEnglish": "Raúl answers yes, a little.",
+      "archivedFrenchEvidence": "Raúl répond que oui, un peu.",
+      "conditionalFrench": "Raúl répond que oui, un peu.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:reader:7",
+      "legacySourceRef": "roofing:24:passage:7",
+      "sourceSpanish": "El capataz le dice: Vaya a la sombra y descanse. Tome agua ahora.",
+      "sourceEnglish": "The foreman tells him: Go to the shade and rest. Drink water now.",
+      "archivedFrenchEvidence": "Le contremaître lui dit : « Allez à l’ombre et reposez-vous. Buvez de l’eau maintenant. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:reader:8",
+      "legacySourceRef": "roofing:24:passage:8",
+      "sourceSpanish": "Avíseme si se siente mal, y vamos a seguir el plan de calor del sitio.",
+      "sourceEnglish": "Tell me if you feel sick, and we will follow the site heat plan.",
+      "archivedFrenchEvidence": "« Dites-moi si vous vous sentez mal, et nous suivrons le plan chaleur du chantier. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:reader:9",
+      "legacySourceRef": "roofing:24:passage:9",
+      "sourceSpanish": "La hidratación y el descanso en la sombra ayudan a evitar el agotamiento por calor.",
+      "sourceEnglish": "Hydration and rest in the shade help prevent heat exhaustion.",
+      "archivedFrenchEvidence": "S’hydrater et se reposer à l’ombre aident à prévenir l’épuisement dû à la chaleur.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "tomar",
+      "englishMeaning": "to take, to drink",
+      "sourceSpanish": "Raúl toma agua cada hora.",
+      "sourceEnglish": "Raúl drinks water every hour."
+    },
+    {
+      "spanishInfinitive": "descansar",
+      "englishMeaning": "to rest",
+      "sourceSpanish": "Raúl descansa en la sombra porque se siente mareado.",
+      "sourceEnglish": "Raúl rests in the shade because he feels dizzy."
+    },
+    {
+      "spanishInfinitive": "sentirse",
+      "englishMeaning": "to feel",
+      "sourceSpanish": "¿Cómo se siente, Raúl?",
+      "sourceEnglish": "How do you feel, Raúl?"
+    },
+    {
+      "spanishInfinitive": "avisar",
+      "englishMeaning": "to let know, to tell, to notify",
+      "sourceSpanish": "Raúl avisa al capataz si se siente mal.",
+      "sourceEnglish": "Raúl tells the foreman if he feels sick."
+    },
+    {
+      "spanishInfinitive": "ir",
+      "englishMeaning": "to go",
+      "sourceSpanish": "Raúl va a la sombra para descansar.",
+      "sourceEnglish": "Raúl goes to the shade to rest."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Chaleur et pauses d’eau",
+    "objectiveFrench": "Demander comment va un collègue, reconnaître un malaise possible et appliquer le plan chaleur du chantier.",
+    "speakingFrenchInstruction": "Demandez à un collègue comment il se sent. S’il a des vertiges ou semble malade, arrêtez l’activité, faites appliquer le plan chaleur du chantier et demandez l’aide prévue par ce plan; ne posez pas de diagnostic.",
+    "speakingFrenchOpening": "Vous n’avez pas l’air bien : comment vous sentez-vous ? On arrête et on suit le plan chaleur.",
+    "grammarFocusFrench": "Se sentir + adjectif; avoir des vertiges; impératif et condition si pour demander de l’aide.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to take, to drink",
+        "exampleEnglish": "Raúl drinks water every hour.",
+        "sourceInfinitiveSpanish": "tomar",
+        "infinitiveFrench": "boire",
+        "exampleFrench": "Raúl boit de l’eau toutes les heures."
+      },
+      {
+        "meaningEnglish": "to rest",
+        "exampleEnglish": "Raúl rests in the shade because he feels dizzy.",
+        "sourceInfinitiveSpanish": "descansar",
+        "infinitiveFrench": "se reposer",
+        "exampleFrench": "Raúl se repose à l’ombre parce qu’il a des vertiges."
+      },
+      {
+        "meaningEnglish": "to feel",
+        "exampleEnglish": "How do you feel, Raúl?",
+        "sourceInfinitiveSpanish": "sentirse",
+        "infinitiveFrench": "se sentir",
+        "exampleFrench": "Comment vous sentez-vous, Raúl ?"
+      },
+      {
+        "meaningEnglish": "to let know, to tell, to notify",
+        "exampleEnglish": "Raúl tells the foreman if he feels sick.",
+        "sourceInfinitiveSpanish": "avisar",
+        "infinitiveFrench": "prévenir",
+        "exampleFrench": "Raúl prévient le contremaître s’il se sent mal."
+      },
+      {
+        "meaningEnglish": "to go",
+        "exampleEnglish": "Raúl goes to the shade to rest.",
+        "sourceInfinitiveSpanish": "ir",
+        "infinitiveFrench": "aller",
+        "exampleFrench": "Raúl va à l’ombre pour se reposer."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "Qualified heat-illness/occupational-health review is required for symptom response, hydration schedule and emergency escalation before release.",
+      "The English source's hourly water break is a fictional scene, not a universal prevention interval; sunscreen does not replace the site heat plan."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:24:fr-en:card:1",
+        "core-roofing:24:fr-en:card:10",
+        "core-roofing:24:fr-en:reader:2"
+      ],
+      "question": "The source's every-hour water break is a fictional site-scene instruction, not a universal prevention interval. The archived French follows that schedule; qualified occupational/site-plan review must decide how to teach it without silently generalizing or changing the pinned source meaning."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:24:fr-en:card:5",
+        "core-roofing:24:fr-en:card:6",
+        "core-roofing:24:fr-en:card:7",
+        "core-roofing:24:fr-en:card:12",
+        "core-roofing:24:fr-en:reader:5",
+        "core-roofing:24:fr-en:reader:6",
+        "core-roofing:24:fr-en:reader:9"
+      ],
+      "question": "Dizzy, heat exhaustion and rest need distinct clinical and grammatical French senses. Archived étourdi, avoir des vertiges, épuisement dû à la chaleur and le repos may not all fit the source term/verb pairs or locale. Raúl says yes, a little, but the scene does not establish a diagnosis; qualified French and occupational-health review must settle the vocabulary and symptom/condition distinction."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:24:fr-en:card:13",
+        "core-roofing:24:fr-en:card:14",
+        "core-roofing:24:fr-en:reader:7",
+        "core-roofing:24:fr-en:reader:8",
+        "core-roofing:24:fr-en:reader:9"
+      ],
+      "question": "The source directs a symptomatic worker to shade, rest, drink water and follow the site heat plan. Qualified occupational/clinical review must assess that exact response and any escalation before a scored or audio instruction is selected. Archived speaking adds stopping work and seeking help; keep those additions separate until source and saved-item decisions are made."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:24:fr-en:card:11",
+        "core-roofing:24:fr-en:card:15",
+        "core-roofing:24:fr-en:reader:3",
+        "core-roofing:24:fr-en:reader:4"
+      ],
+      "question": "Preserve the source's respectful symptom question, Raúl's actual answer and the observation that he does not look well. Do not introduce an invented visual sign, a diagnostic conclusion or an unapproved site procedure in the French Reader or mode prompts."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

@@ -1,0 +1,309 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "foundation-roofing",
+  "lessonId": "foundation-roofing:10:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/foundation-roofing-curriculum.ts",
+      "sha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/foundation-roofing.json",
+      "sha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/foundation-7-10-draft.json",
+      "sha256": "a77687f79bc60d725bf692cd0168f9216eceb04d6f0f3f54ffebeb402ed46f10"
+    }
+  },
+  "sourceEnglishObjective": "Use Spanish words that look like English and ask for help when you are stuck",
+  "candidateObjective": "Name an accident, ambulance, inspection, and hospital; ask for help or a word's meaning.",
+  "candidateFocus": "Japanese compounds such as 救急車, 病院, and 点検 build meaning from kanji. ～とはどういう意味ですか asks what a word means; ～が必要です states what is needed. The number 911 is retained for the U.S. jobsite in this scene.",
+  "audioScript": null,
+  "curriculumAdaptationNote": "Current source objective teaches Spanish-English cognates and asking for help. Japanese is not a cognate lesson; the archived kanji-compound objective is a proposed replacement that needs a qualified curriculum decision. Preserve the source 911 line without asserting a locale the source does not name; it is not a Japanese emergency-number claim. Keep accident, ambulance, inspection, fall protection and hospital meanings exact.",
+  "cards": [
+    {
+      "id": "foundation-roofing:10:ja-en:card:1",
+      "legacySourceRef": "foundation-roofing:10:ja-en:cards:1",
+      "sourceSpanish": "la emergencia",
+      "sourceEnglish": "the emergency",
+      "selectedJapanese": null,
+      "candidateJapanese": "緊急事態",
+      "archivedJapanese": "緊急事態",
+      "archivedEnglish": "emergency",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:ja-en:card:2",
+      "legacySourceRef": "foundation-roofing:10:ja-en:cards:2",
+      "sourceSpanish": "el accidente",
+      "sourceEnglish": "the accident",
+      "selectedJapanese": null,
+      "candidateJapanese": "事故",
+      "archivedJapanese": "事故",
+      "archivedEnglish": "accident",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:ja-en:card:3",
+      "legacySourceRef": "foundation-roofing:10:ja-en:cards:3",
+      "sourceSpanish": "la ambulancia",
+      "sourceEnglish": "the ambulance",
+      "selectedJapanese": null,
+      "candidateJapanese": "救急車",
+      "archivedJapanese": "救急車",
+      "archivedEnglish": "ambulance",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:ja-en:card:4",
+      "legacySourceRef": "foundation-roofing:10:ja-en:cards:4",
+      "sourceSpanish": "la construcción",
+      "sourceEnglish": "the construction",
+      "selectedJapanese": null,
+      "candidateJapanese": "建設",
+      "archivedJapanese": "建設",
+      "archivedEnglish": "construction",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:ja-en:card:5",
+      "legacySourceRef": "foundation-roofing:10:ja-en:cards:5",
+      "sourceSpanish": "la inspección",
+      "sourceEnglish": "the inspection",
+      "selectedJapanese": null,
+      "candidateJapanese": "点検",
+      "archivedJapanese": "点検",
+      "archivedEnglish": "inspection",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:ja-en:card:6",
+      "legacySourceRef": "foundation-roofing:10:ja-en:cards:6",
+      "sourceSpanish": "la protección",
+      "sourceEnglish": "the protection",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "墜落防止",
+      "archivedEnglish": "fall protection",
+      "reviewNote": "Source la protección is general protection; archived 墜落防止 means fall prevention. The Reader separately specifies fall protection. Keep the card's broader source sense until a qualified dictionary decision.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:ja-en:card:7",
+      "legacySourceRef": "foundation-roofing:10:ja-en:cards:7",
+      "sourceSpanish": "la seguridad",
+      "sourceEnglish": "the safety",
+      "selectedJapanese": null,
+      "candidateJapanese": "安全",
+      "archivedJapanese": "安全",
+      "archivedEnglish": "safety",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:ja-en:card:8",
+      "legacySourceRef": "foundation-roofing:10:ja-en:cards:8",
+      "sourceSpanish": "el hospital",
+      "sourceEnglish": "the hospital",
+      "selectedJapanese": null,
+      "candidateJapanese": "病院",
+      "archivedJapanese": "病院",
+      "archivedEnglish": "hospital",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:ja-en:card:9",
+      "legacySourceRef": "foundation-roofing:10:ja-en:cards:9",
+      "sourceSpanish": "¿Qué significa…?",
+      "sourceEnglish": "What does … mean?",
+      "selectedJapanese": null,
+      "candidateJapanese": "～とはどういう意味ですか。",
+      "archivedJapanese": "～とはどういう意味ですか。",
+      "archivedEnglish": "What does ... mean?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:ja-en:card:10",
+      "legacySourceRef": "foundation-roofing:10:ja-en:cards:10",
+      "sourceSpanish": "Necesito ayuda.",
+      "sourceEnglish": "I need help.",
+      "selectedJapanese": null,
+      "candidateJapanese": "助けが必要です。",
+      "archivedJapanese": "助けが必要です。",
+      "archivedEnglish": "I need help.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:ja-en:card:11",
+      "legacySourceRef": "foundation-roofing:10:ja-en:cards:11",
+      "sourceSpanish": "Llame al 911.",
+      "sourceEnglish": "Call 911.",
+      "selectedJapanese": null,
+      "candidateJapanese": "911に電話してください。",
+      "archivedJapanese": "911に電話してください。",
+      "archivedEnglish": "Call 911.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:ja-en:card:12",
+      "legacySourceRef": "foundation-roofing:10:ja-en:cards:12",
+      "sourceSpanish": "¿Habla inglés?",
+      "sourceEnglish": "Do you speak English?",
+      "selectedJapanese": null,
+      "candidateJapanese": "英語を話せますか。",
+      "archivedJapanese": "英語を話せますか。",
+      "archivedEnglish": "Do you speak English?",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "foundation-roofing:10:ja-en:line:1",
+      "legacySourceRef": "foundation-roofing:10:ja-en:reader:1",
+      "sourceSpanish": "En la construcción, la seguridad es lo primero.",
+      "sourceEnglish": "In construction, safety comes first.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "建設現場では、安全が第一です。",
+      "archivedEnglish": "At a construction site, safety comes first.",
+      "reviewNote": "Source says in construction; archived 建設現場では adds an explicit construction-site setting. Confirm whether that narrower setting is intended before selecting Japanese.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:ja-en:line:2",
+      "legacySourceRef": "foundation-roofing:10:ja-en:reader:2",
+      "sourceSpanish": "Hoy hay una inspección de protección contra caídas.",
+      "sourceEnglish": "Today there's a fall protection inspection.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "今日は墜落防止設備の点検があります。",
+      "archivedEnglish": "Today there's a fall-protection equipment inspection.",
+      "reviewNote": "Source says fall protection inspection; archived Japanese adds equipment. Confirm whether the inspection concerns equipment or the broader fall-protection program before selecting Japanese.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:ja-en:line:3",
+      "legacySourceRef": "foundation-roofing:10:ja-en:reader:3",
+      "sourceSpanish": "Un compañero tiene un accidente pequeño en la escalera.",
+      "sourceEnglish": "A coworker has a small accident on the ladder.",
+      "selectedJapanese": null,
+      "candidateJapanese": "同僚がはしごで軽い事故に遭いました。",
+      "archivedJapanese": "同僚がはしごで軽い事故に遭いました。",
+      "archivedEnglish": "A coworker has a minor accident on the ladder.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:ja-en:line:4",
+      "legacySourceRef": "foundation-roofing:10:ja-en:reader:4",
+      "sourceSpanish": "No es una emergencia, pero necesito ayuda.",
+      "sourceEnglish": "It's not an emergency, but I need help.",
+      "selectedJapanese": null,
+      "candidateJapanese": "緊急事態ではありませんが、助けが必要です。",
+      "archivedJapanese": "緊急事態ではありませんが、助けが必要です。",
+      "archivedEnglish": "It's not an emergency, but I need help.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:ja-en:line:5",
+      "legacySourceRef": "foundation-roofing:10:ja-en:reader:5",
+      "sourceSpanish": "Si es grave, llame al 911 y pida una ambulancia.",
+      "sourceEnglish": "If it's serious, call 911 and ask for an ambulance.",
+      "selectedJapanese": null,
+      "candidateJapanese": "深刻な場合は911に電話して、救急車を呼んでください。",
+      "archivedJapanese": "深刻な場合は911に電話して、救急車を呼んでください。",
+      "archivedEnglish": "If it's serious, call 911 and ask for an ambulance.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:ja-en:line:6",
+      "legacySourceRef": "foundation-roofing:10:ja-en:reader:6",
+      "sourceSpanish": "La ambulancia va al hospital.",
+      "sourceEnglish": "The ambulance goes to the hospital.",
+      "selectedJapanese": null,
+      "candidateJapanese": "救急車は病院に向かいます。",
+      "archivedJapanese": "救急車は病院に向かいます。",
+      "archivedEnglish": "The ambulance goes to the hospital.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:ja-en:line:7",
+      "legacySourceRef": "foundation-roofing:10:ja-en:reader:7",
+      "sourceSpanish": "¿Qué significa la palabra caída?",
+      "sourceEnglish": "What does the word caída mean?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "「転落」とはどういう意味ですか。",
+      "archivedEnglish": "What does the word 'fall' mean?",
+      "reviewNote": "Source asks the meaning of the Spanish word caída; archived Japanese asks about 転落 and archived English substitutes 'fall'. Decide whether the learner asks about the Spanish term, a Japanese term, or a translated fall term, keeping the source objective visible.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the inspection, accident, and request for help in the reading.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall the Japanese words for accident, ambulance, hospital, and inspection.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 事故 from 救急車 in spoken Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'I need help.' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Report the accident and ask a coworker for help.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write two sentences: identify the accident and ask what a word means.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

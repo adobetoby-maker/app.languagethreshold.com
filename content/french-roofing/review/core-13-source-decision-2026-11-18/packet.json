@@ -1,0 +1,447 @@
+{
+  "schema": "french-roofing-core13-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:13",
+  "proposedPairId": "core-roofing:13:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-13-15-draft.json": "8d0c24caf1828662873ac4ec3be0c131ce9eb4a9523ee16a90b2af13de121a7a"
+  },
+  "orderedSourceRowsSha256": "ceb45b7c57eab877a61b70735d79934f0d18ffed6a60b165670323bf49aacbab",
+  "sourceTitleEnglish": "Drip Edge Sequence",
+  "sourceObjectiveEnglish": "Discuss edge placement with the installer",
+  "sourceSpeakingEnglish": "Ask the installer to explain the approved drip-edge sequence for this roof.",
+  "sourceReaderTitleSpanish": "Orden del goterón",
+  "cards": [
+    {
+      "id": "core-roofing:13:fr-en:card:1",
+      "legacySourceRef": "roofing:13:words:1",
+      "sourceSpanish": "Goterón / Vierteaguas",
+      "sourceEnglish": "drip edge",
+      "kind": "term",
+      "archivedFrenchEvidence": "le larmier",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:card:2",
+      "legacySourceRef": "roofing:13:words:2",
+      "sourceSpanish": "Alero",
+      "sourceEnglish": "eave",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’avant-toit",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:card:3",
+      "legacySourceRef": "roofing:13:words:3",
+      "sourceSpanish": "Borde de hastial",
+      "sourceEnglish": "rake",
+      "kind": "term",
+      "archivedFrenchEvidence": "la rive latérale du toit",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:card:4",
+      "legacySourceRef": "roofing:13:words:4",
+      "sourceSpanish": "Sub-capa / Fieltro",
+      "sourceEnglish": "underlayment",
+      "kind": "term",
+      "archivedFrenchEvidence": "la sous-couche",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:card:5",
+      "legacySourceRef": "roofing:13:words:5",
+      "sourceSpanish": "Borde",
+      "sourceEnglish": "edge",
+      "kind": "term",
+      "archivedFrenchEvidence": "le bord",
+      "conditionalFrench": "le bord",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:card:6",
+      "legacySourceRef": "roofing:13:words:6",
+      "sourceSpanish": "Secuencia",
+      "sourceEnglish": "sequence",
+      "kind": "term",
+      "archivedFrenchEvidence": "la séquence",
+      "conditionalFrench": "la séquence",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:card:7",
+      "legacySourceRef": "roofing:13:words:7",
+      "sourceSpanish": "Traslape",
+      "sourceEnglish": "overlap",
+      "kind": "term",
+      "archivedFrenchEvidence": "le recouvrement",
+      "conditionalFrench": "le recouvrement",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:card:8",
+      "legacySourceRef": "roofing:13:words:8",
+      "sourceSpanish": "Esquina",
+      "sourceEnglish": "corner",
+      "kind": "term",
+      "archivedFrenchEvidence": "le coin",
+      "conditionalFrench": "le coin",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:card:9",
+      "legacySourceRef": "roofing:13:words:9",
+      "sourceSpanish": "Instalar",
+      "sourceEnglish": "install",
+      "kind": "term",
+      "archivedFrenchEvidence": "poser",
+      "conditionalFrench": "poser",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:card:10",
+      "legacySourceRef": "roofing:13:words:10",
+      "sourceSpanish": "Instalen el goterón primero.",
+      "sourceEnglish": "Install the drip edge first.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Posez d’abord le larmier.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:card:11",
+      "legacySourceRef": "roofing:13:words:11",
+      "sourceSpanish": "¿El goterón va debajo o encima de la sub-capa?",
+      "sourceEnglish": "Does the drip edge go under or over the underlayment?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Le larmier se pose-t-il sous la sous-couche ou par-dessus ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:card:12",
+      "legacySourceRef": "roofing:13:words:12",
+      "sourceSpanish": "Empiecen el goterón en el alero.",
+      "sourceEnglish": "Start the drip edge at the eave.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Commencez le larmier à l’avant-toit.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:card:13",
+      "legacySourceRef": "roofing:13:words:13",
+      "sourceSpanish": "Corten el goterón en la esquina.",
+      "sourceEnglish": "Cut the drip edge at the corner.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Coupez le larmier au coin.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:card:14",
+      "legacySourceRef": "roofing:13:words:14",
+      "sourceSpanish": "Expliquen la secuencia del goterón para este techo.",
+      "sourceEnglish": "Explain the drip-edge sequence for this roof.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Expliquez la séquence de pose du larmier pour ce toit.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:13:fr-en:reader:1",
+      "legacySourceRef": "roofing:13:passage:1",
+      "sourceSpanish": "Hoy la cuadrilla va a instalar el goterón.",
+      "sourceEnglish": "Today the crew is going to install the drip edge.",
+      "archivedFrenchEvidence": "Aujourd’hui, l’équipe va poser le larmier.",
+      "conditionalFrench": "Aujourd’hui, l’équipe va poser le larmier.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:reader:2",
+      "legacySourceRef": "roofing:13:passage:2",
+      "sourceSpanish": "Antes de empezar, el capataz habla con los instaladores.",
+      "sourceEnglish": "Before starting, the foreman talks to the installers.",
+      "archivedFrenchEvidence": "Avant de commencer, le contremaître parle aux couvreurs.",
+      "conditionalFrench": "Avant de commencer, le contremaître parle aux couvreurs.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:reader:3",
+      "legacySourceRef": "roofing:13:passage:3",
+      "sourceSpanish": "Expliquen la secuencia del goterón para este techo.",
+      "sourceEnglish": "Explain the drip-edge sequence for this roof.",
+      "archivedFrenchEvidence": "Expliquez la séquence de pose du larmier pour ce toit.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:reader:4",
+      "legacySourceRef": "roofing:13:passage:4",
+      "sourceSpanish": "¿El goterón va debajo o encima de la sub-capa?",
+      "sourceEnglish": "Does the drip edge go under or over the underlayment?",
+      "archivedFrenchEvidence": "Le larmier se pose-t-il sous la sous-couche ou par-dessus ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:reader:5",
+      "legacySourceRef": "roofing:13:passage:5",
+      "sourceSpanish": "Los instaladores revisan las instrucciones del fabricante antes de contestar.",
+      "sourceEnglish": "The installers check the manufacturer's instructions before answering.",
+      "archivedFrenchEvidence": "Les couvreurs vérifient les instructions du fabricant avant de répondre.",
+      "conditionalFrench": "Les couvreurs vérifient les instructions du fabricant avant de répondre.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:reader:6",
+      "legacySourceRef": "roofing:13:passage:6",
+      "sourceSpanish": "Según el plano, empiecen el goterón en el alero.",
+      "sourceEnglish": "According to the plan, start the drip edge at the eave.",
+      "archivedFrenchEvidence": "Selon le plan, commencez le larmier à l’avant-toit.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:reader:7",
+      "legacySourceRef": "roofing:13:passage:7",
+      "sourceSpanish": "Corten el goterón en la esquina.",
+      "sourceEnglish": "Cut the drip edge at the corner.",
+      "archivedFrenchEvidence": "Coupez le larmier au coin.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "instalar",
+      "englishMeaning": "to install",
+      "sourceSpanish": "Los instaladores instalan el goterón primero.",
+      "sourceEnglish": "The installers install the drip edge first."
+    },
+    {
+      "spanishInfinitive": "empezar",
+      "englishMeaning": "to start",
+      "sourceSpanish": "La cuadrilla empieza el goterón en el alero.",
+      "sourceEnglish": "The crew starts the drip edge at the eave."
+    },
+    {
+      "spanishInfinitive": "cortar",
+      "englishMeaning": "to cut",
+      "sourceSpanish": "El instalador corta el goterón en la esquina.",
+      "sourceEnglish": "The installer cuts the drip edge at the corner."
+    },
+    {
+      "spanishInfinitive": "explicar",
+      "englishMeaning": "to explain",
+      "sourceSpanish": "El instalador explica la secuencia del goterón.",
+      "sourceEnglish": "The installer explains the drip-edge sequence."
+    },
+    {
+      "spanishInfinitive": "revisar",
+      "englishMeaning": "to check",
+      "sourceSpanish": "Los instaladores revisan las instrucciones del fabricante.",
+      "sourceEnglish": "The installers check the manufacturer's instructions."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Confirmer la séquence du larmier",
+    "objectiveFrench": "Demander au couvreur d’expliquer la séquence de pose du larmier approuvée pour ce toit.",
+    "speakingFrenchInstruction": "Demandez au couvreur de vous expliquer, plan et produit en main, où le larmier va sous ou sur la sous-couche et quelle séquence a été approuvée.",
+    "speakingFrenchOpening": "Sur ce toit, quelle séquence de pose du larmier est approuvée ? Pouvez-vous me montrer les instructions du fabricant ?",
+    "grammarFocusFrench": "Question alternative sous ou par-dessus; ordre avant de + infinitif; selon le plan pour attribuer la séquence.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to install",
+        "exampleEnglish": "The installers install the drip edge first.",
+        "sourceInfinitiveSpanish": "instalar",
+        "infinitiveFrench": "poser",
+        "exampleFrench": "Les couvreurs posent d’abord le larmier."
+      },
+      {
+        "meaningEnglish": "to start",
+        "exampleEnglish": "The crew starts the drip edge at the eave.",
+        "sourceInfinitiveSpanish": "empezar",
+        "infinitiveFrench": "commencer",
+        "exampleFrench": "L’équipe commence la pose du larmier à l’avant-toit."
+      },
+      {
+        "meaningEnglish": "to cut",
+        "exampleEnglish": "The installer cuts the drip edge at the corner.",
+        "sourceInfinitiveSpanish": "cortar",
+        "infinitiveFrench": "couper",
+        "exampleFrench": "Le couvreur coupe le larmier au coin."
+      },
+      {
+        "meaningEnglish": "to explain",
+        "exampleEnglish": "The installer explains the drip-edge sequence.",
+        "sourceInfinitiveSpanish": "explicar",
+        "infinitiveFrench": "expliquer",
+        "exampleFrench": "Le couvreur explique la séquence de pose du larmier."
+      },
+      {
+        "meaningEnglish": "to check",
+        "exampleEnglish": "The installers check the manufacturer's instructions.",
+        "sourceInfinitiveSpanish": "revisar",
+        "infinitiveFrench": "vérifier",
+        "exampleFrench": "Les couvreurs vérifient les instructions du fabricant."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "France/Québec roofing terminology and site/product rules require qualified regional/trade review.",
+      "Confirm approved plans, manufacturer instructions and site safety controls; this scene is not a work procedure."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:13:fr-en:card:1",
+        "core-roofing:13:fr-en:card:3",
+        "core-roofing:13:fr-en:reader:3",
+        "core-roofing:13:fr-en:reader:4"
+      ],
+      "question": "Goterón/vierteaguas names the drip edge; archived larmier is plausible but regional trade usage needs confirmation. Rake/borde de hastial becomes rive latérale du toit, which may cover a broader edge. Resolve term senses together with dictionary entries."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:13:fr-en:card:2",
+        "core-roofing:13:fr-en:card:12",
+        "core-roofing:13:fr-en:reader:6"
+      ],
+      "question": "Alero/eave is the lower roof edge; archived avant-toit may mean the entire overhang. Select a precise French trade term for the installation point under this plan."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:13:fr-en:card:4",
+        "core-roofing:13:fr-en:card:11",
+        "core-roofing:13:fr-en:reader:4"
+      ],
+      "question": "Sub-capa/fieltro and underlayment may name different materials across roof systems. Archived sous-couche is generic; choose the source and product-specific dictionary sense before scoring the under/over question."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:13:fr-en:card:10",
+        "core-roofing:13:fr-en:card:11",
+        "core-roofing:13:fr-en:card:12",
+        "core-roofing:13:fr-en:reader:4",
+        "core-roofing:13:fr-en:reader:6"
+      ],
+      "question": "The source card says install drip edge first, while the Reader asks under versus over underlayment and requires checking manufacturer instructions; the Reader 6 eave command is explicitly according to the plan. Do not promote an unconditional construction sequence without qualified roof-system and plan review."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:13:fr-en:card:13",
+        "core-roofing:13:fr-en:reader:7"
+      ],
+      "question": "Cutting drip edge at the corner is this source scene's instruction, not a general cut detail. Confirm the actual approved product and corner detail before a scored imperative or audio script."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:13:fr-en:card:14",
+        "core-roofing:13:fr-en:reader:3",
+        "core-roofing:13:fr-en:reader:5"
+      ],
+      "question": "The source speaking ask is to have the installer explain the approved sequence; archived speaking adds a request to show manufacturer instructions. Keep the extra ask as domain evidence and maintain the exact source objective in scored modes until reviewed."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

@@ -1,0 +1,468 @@
+{
+  "schema": "french-roofing-core9-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:9",
+  "proposedPairId": "core-roofing:9:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-7-9-draft.json": "83865c849df24719e2d7ce8b4ffd8ab2bedf9f33da4e052f611ebe7bc2c20c4f"
+  },
+  "orderedSourceRowsSha256": "1b532bf348c50a10b9977cd94dd0d5e91856a92cdb483f8e7f3a309ab5ab6301",
+  "sourceTitleEnglish": "Debris & Old Nails",
+  "sourceObjectiveEnglish": "Coordinate debris removal and deck cleanup",
+  "sourceSpeakingEnglish": "Assign one worker to collect shingles and another to pull old nails.",
+  "sourceReaderTitleSpanish": "Escombros y clavos viejos",
+  "cards": [
+    {
+      "id": "core-roofing:9:fr-en:card:1",
+      "legacySourceRef": "roofing:9:words:1",
+      "sourceSpanish": "Contenedor de escombros",
+      "sourceEnglish": "dumpster",
+      "kind": "term",
+      "archivedFrenchEvidence": "la benne à déchets",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:card:2",
+      "legacySourceRef": "roofing:9:words:2",
+      "sourceSpanish": "Clavos viejos",
+      "sourceEnglish": "old nails",
+      "kind": "term",
+      "archivedFrenchEvidence": "les vieux clous",
+      "conditionalFrench": "les vieux clous",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:card:3",
+      "legacySourceRef": "roofing:9:words:3",
+      "sourceSpanish": "Barrer",
+      "sourceEnglish": "sweep",
+      "kind": "term",
+      "archivedFrenchEvidence": "balayer",
+      "conditionalFrench": "balayer",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:card:4",
+      "legacySourceRef": "roofing:9:words:4",
+      "sourceSpanish": "Escombros",
+      "sourceEnglish": "debris",
+      "kind": "term",
+      "archivedFrenchEvidence": "les débris",
+      "conditionalFrench": "les débris",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:card:5",
+      "legacySourceRef": "roofing:9:words:5",
+      "sourceSpanish": "Imán",
+      "sourceEnglish": "magnet",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’aimant",
+      "conditionalFrench": "l’aimant",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:card:6",
+      "legacySourceRef": "roofing:9:words:6",
+      "sourceSpanish": "Escoba",
+      "sourceEnglish": "broom",
+      "kind": "term",
+      "archivedFrenchEvidence": "le balai",
+      "conditionalFrench": "le balai",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:card:7",
+      "legacySourceRef": "roofing:9:words:7",
+      "sourceSpanish": "Carretilla",
+      "sourceEnglish": "wheelbarrow",
+      "kind": "term",
+      "archivedFrenchEvidence": "la brouette",
+      "conditionalFrench": "la brouette",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:card:8",
+      "legacySourceRef": "roofing:9:words:8",
+      "sourceSpanish": "Pala",
+      "sourceEnglish": "shovel",
+      "kind": "term",
+      "archivedFrenchEvidence": "la pelle",
+      "conditionalFrench": "la pelle",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:card:9",
+      "legacySourceRef": "roofing:9:words:9",
+      "sourceSpanish": "Guantes",
+      "sourceEnglish": "gloves",
+      "kind": "term",
+      "archivedFrenchEvidence": "les gants",
+      "conditionalFrench": "les gants",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:card:10",
+      "legacySourceRef": "roofing:9:words:10",
+      "sourceSpanish": "Tiren las tejas al contenedor.",
+      "sourceEnglish": "Throw the shingles into the dumpster.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Jetez les bardeaux dans la benne.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:card:11",
+      "legacySourceRef": "roofing:9:words:11",
+      "sourceSpanish": "Saquen todos los clavos viejos.",
+      "sourceEnglish": "Pull all the old nails.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Retirez tous les vieux clous.",
+      "conditionalFrench": "Retirez tous les vieux clous.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:card:12",
+      "legacySourceRef": "roofing:9:words:12",
+      "sourceSpanish": "Barran la cubierta antes de la sub-capa.",
+      "sourceEnglish": "Sweep the deck before underlayment.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Balayez le support avant de poser la sous-couche.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:card:13",
+      "legacySourceRef": "roofing:9:words:13",
+      "sourceSpanish": "Avísenme cuando terminen de recoger los clavos con el imán.",
+      "sourceEnglish": "Tell me when the magnetic nail sweep is finished.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Dites-moi quand le ramassage magnétique des clous est terminé.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:card:14",
+      "legacySourceRef": "roofing:9:words:14",
+      "sourceSpanish": "Recojan todos los pedazos de teja.",
+      "sourceEnglish": "Pick up all the shingle pieces.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Ramassez tous les morceaux de bardeaux.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:card:15",
+      "legacySourceRef": "roofing:9:words:15",
+      "sourceSpanish": "Pónganse los guantes.",
+      "sourceEnglish": "Put on your gloves.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Mettez vos gants.",
+      "conditionalFrench": "Mettez vos gants.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:9:fr-en:reader:1",
+      "legacySourceRef": "roofing:9:passage:1",
+      "sourceSpanish": "Después del desmontaje hay escombros por todos lados.",
+      "sourceEnglish": "After the tear-off there is debris everywhere.",
+      "archivedFrenchEvidence": "Après la dépose, il y a des débris partout.",
+      "conditionalFrench": "Après la dépose, il y a des débris partout.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:reader:2",
+      "legacySourceRef": "roofing:9:passage:2",
+      "sourceSpanish": "Pónganse los guantes.",
+      "sourceEnglish": "Put on your gloves.",
+      "archivedFrenchEvidence": "Mettez vos gants.",
+      "conditionalFrench": "Mettez vos gants.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:reader:3",
+      "legacySourceRef": "roofing:9:passage:3",
+      "sourceSpanish": "Tiren las tejas al contenedor de escombros.",
+      "sourceEnglish": "Throw the shingles into the debris dumpster.",
+      "archivedFrenchEvidence": "Jetez les bardeaux dans la benne à déchets.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:reader:4",
+      "legacySourceRef": "roofing:9:passage:4",
+      "sourceSpanish": "Un obrero usa la pala y otro usa la carretilla.",
+      "sourceEnglish": "One worker uses the shovel and another uses the wheelbarrow.",
+      "archivedFrenchEvidence": "Un ouvrier utilise la pelle et un autre la brouette.",
+      "conditionalFrench": "Un ouvrier utilise la pelle et un autre la brouette.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:reader:5",
+      "legacySourceRef": "roofing:9:passage:5",
+      "sourceSpanish": "Saquen todos los clavos viejos.",
+      "sourceEnglish": "Pull all the old nails.",
+      "archivedFrenchEvidence": "Retirez tous les vieux clous.",
+      "conditionalFrench": "Retirez tous les vieux clous.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:reader:6",
+      "legacySourceRef": "roofing:9:passage:6",
+      "sourceSpanish": "Después pasen el imán por el patio.",
+      "sourceEnglish": "Then run the magnet over the yard.",
+      "archivedFrenchEvidence": "Passez ensuite l’aimant dans la cour.",
+      "conditionalFrench": "Passez ensuite l’aimant dans la cour.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:reader:7",
+      "legacySourceRef": "roofing:9:passage:7",
+      "sourceSpanish": "Barran la cubierta antes de la sub-capa.",
+      "sourceEnglish": "Sweep the deck before the underlayment.",
+      "archivedFrenchEvidence": "Balayez le support avant de poser la sous-couche.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:reader:8",
+      "legacySourceRef": "roofing:9:passage:8",
+      "sourceSpanish": "Avísenme cuando terminen de recoger los clavos con el imán.",
+      "sourceEnglish": "Tell me when you finish picking up the nails with the magnet.",
+      "archivedFrenchEvidence": "Dites-moi quand vous aurez fini de ramasser les clous avec l’aimant.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "barrer",
+      "englishMeaning": "to sweep",
+      "sourceSpanish": "Nosotros barremos la cubierta antes de la sub-capa.",
+      "sourceEnglish": "We sweep the deck before the underlayment."
+    },
+    {
+      "spanishInfinitive": "tirar",
+      "englishMeaning": "to throw",
+      "sourceSpanish": "Ellos tiran las tejas al contenedor de escombros.",
+      "sourceEnglish": "They throw the shingles into the debris dumpster."
+    },
+    {
+      "spanishInfinitive": "sacar",
+      "englishMeaning": "to pull out",
+      "sourceSpanish": "Un obrero saca todos los clavos viejos.",
+      "sourceEnglish": "One worker pulls out all the old nails."
+    },
+    {
+      "spanishInfinitive": "recoger",
+      "englishMeaning": "to pick up",
+      "sourceSpanish": "Ellos recogen todos los pedazos de teja.",
+      "sourceEnglish": "They pick up all the shingle pieces."
+    },
+    {
+      "spanishInfinitive": "usar",
+      "englishMeaning": "to use",
+      "sourceSpanish": "Un obrero usa la pala y otro usa la carretilla.",
+      "sourceEnglish": "One worker uses the shovel and another uses the wheelbarrow."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Évacuer les débris et les vieux clous",
+    "objectiveFrench": "Répartir les tâches de collecte des débris et de retrait des vieux clous.",
+    "speakingFrenchInstruction": "Répartissez la collecte des bardeaux et le retrait des clous. Demandez comment l’équipe isolera la zone et confirmera la fin du nettoyage.",
+    "speakingFrenchOpening": "Qui ramasse les bardeaux et qui retire les vieux clous ? Comment protégerons-nous la zone au sol ?",
+    "grammarFocusFrench": "Impératif pluriel (retirez, balayez, ramassez); quand + futur antérieur dans une demande de suivi.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to sweep",
+        "exampleEnglish": "We sweep the deck before the underlayment.",
+        "sourceInfinitiveSpanish": "barrer",
+        "infinitiveFrench": "balayer",
+        "exampleFrench": "Nous balayons le support avant de poser la sous-couche."
+      },
+      {
+        "meaningEnglish": "to throw",
+        "exampleEnglish": "They throw the shingles into the debris dumpster.",
+        "sourceInfinitiveSpanish": "tirar",
+        "infinitiveFrench": "jeter",
+        "exampleFrench": "Ils jettent les bardeaux dans la benne à déchets."
+      },
+      {
+        "meaningEnglish": "to pull out",
+        "exampleEnglish": "One worker pulls out all the old nails.",
+        "sourceInfinitiveSpanish": "sacar",
+        "infinitiveFrench": "retirer",
+        "exampleFrench": "Un ouvrier retire tous les vieux clous."
+      },
+      {
+        "meaningEnglish": "to pick up",
+        "exampleEnglish": "They pick up all the shingle pieces.",
+        "sourceInfinitiveSpanish": "recoger",
+        "infinitiveFrench": "ramasser",
+        "exampleFrench": "Ils ramassent tous les morceaux de bardeaux."
+      },
+      {
+        "meaningEnglish": "to use",
+        "exampleEnglish": "One worker uses the shovel and another uses the wheelbarrow.",
+        "sourceInfinitiveSpanish": "usar",
+        "infinitiveFrench": "utiliser",
+        "exampleFrench": "Un ouvrier utilise la pelle et un autre la brouette."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "France/Québec crew terminology, roof construction and site safety require qualified regional/trade review.",
+      "Use the approved scope, product instructions and site controls; this dialogue is not a work procedure."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:9:fr-en:card:1",
+        "core-roofing:9:fr-en:reader:3"
+      ],
+      "question": "The source names a debris dumpster, but archived French uses generic benne à déchets. Choose the site-appropriate dumpster/container term and ensure the disposal destination is not broadened to all waste."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:9:fr-en:card:10",
+        "core-roofing:9:fr-en:card:14",
+        "core-roofing:9:fr-en:reader:3"
+      ],
+      "question": "The English source specifies shingles while Spanish tejas can also mean roof tiles. Archived bardeaux may imply asphalt or wood shingles depending on locale. Preserve the source job material consistently in disposal instructions after qualified source/trade review."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:9:fr-en:card:12",
+        "core-roofing:9:fr-en:reader:7"
+      ],
+      "question": "Source deck is the roof deck before underlayment. Archived support may be broader; choose the regional structural roof-deck and underlayment terms before scoring or narrating the cleanup step."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:9:fr-en:card:13",
+        "core-roofing:9:fr-en:reader:8"
+      ],
+      "question": "Source card names the magnetic nail sweep operation; Reader asks for completion of picking up nails with a magnet. Archived ramassage magnétique is less explicit about the tool and scope. Align card, Reader and Say target without inventing a clearance certification."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:9:fr-en:card:5",
+        "core-roofing:9:fr-en:reader:6",
+        "core-roofing:9:fr-en:reader:8"
+      ],
+      "question": "The source says run the magnet over the yard and report nail pickup. Confirm local ground-control scope; this dialogue alone is not a complete debris, sharp-object or public-area safety procedure."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:9:fr-en:card:10",
+        "core-roofing:9:fr-en:card:11",
+        "core-roofing:9:fr-en:reader:3",
+        "core-roofing:9:fr-en:reader:5"
+      ],
+      "question": "Source speaking only assigns one worker to shingles and another to old nails. Archived speaking adds ground-zone isolation and cleanup confirmation. Keep those safety/domain notes separate until qualified review determines what belongs in the lesson and authored modes."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

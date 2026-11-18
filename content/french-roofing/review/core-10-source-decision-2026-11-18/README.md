@@ -1,0 +1,9 @@
+# French Roofing Core 10 — tarp and weather source decision
+
+This inert packet pins **14 exact current Spanish/English cards**, **nine aligned Reader turns**, five source verb examples, and current-source/archive hashes for *Tarp the Unfinished Roof*. Proposed `core-roofing:10:fr-en` IDs are review references only. The source header still says `roofing`; stage-local saved-item and progress identity require a deliberate migration before learner use.
+
+The archived French is separate evidence. Five card faces and five Reader turns are held from even conditional selection: *gotera* as a roof leak rather than generic *fuite*; the source's scene-specific tarp command in wind; *amarren* / tie-down with rope versus generic *fixez*; structural open deck versus broader *support de couverture*; and *tonight* versus *ce soir*. The archived speaking instruction adds consultation about weather and work at height; the current source asks which section needs a tarp and that the crew repeat the plan. A qualified roofing reviewer must decide the actual site-weather and fall-protection conditions before those archived commands become scored answers. These factual/domain questions are review notes, separate from the learner text.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, listening, offline, saved-progress, browser and V4 gates are false. No audio was generated or approved; no owner page or runtime route imports this packet. Six authored See/Recall/Hear/Type/Say/Write prompt/target activities, forms, speaking, exact-pair dictionary and device acceptance remain open.
+
+`build.py --check` detects source drift; `validate.py` independently checks current source order, IDs, archived evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural checks and self-check are not qualified review.

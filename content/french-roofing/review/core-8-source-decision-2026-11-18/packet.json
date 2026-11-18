@@ -1,0 +1,469 @@
+{
+  "schema": "french-roofing-core8-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:8",
+  "proposedPairId": "core-roofing:8:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-7-9-draft.json": "83865c849df24719e2d7ce8b4ffd8ab2bedf9f33da4e052f611ebe7bc2c20c4f"
+  },
+  "orderedSourceRowsSha256": "da73aa689ee4e0aed29072b57c3cbe4c47504055f101fcbeea31d20c3f67d2b5",
+  "sourceTitleEnglish": "Protect the Sheathing",
+  "sourceObjectiveEnglish": "Ask workers to prevent and report deck damage",
+  "sourceSpeakingEnglish": "Stop a worker who is about to cover a soft panel and request a repair.",
+  "sourceReaderTitleSpanish": "Cuidado con la cubierta",
+  "cards": [
+    {
+      "id": "core-roofing:8:fr-en:card:1",
+      "legacySourceRef": "roofing:7:words:1",
+      "sourceSpanish": "Forro de techo",
+      "sourceEnglish": "sheathing",
+      "kind": "term",
+      "archivedFrenchEvidence": "le platelage de toiture",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:card:2",
+      "legacySourceRef": "roofing:7:words:2",
+      "sourceSpanish": "Cubierta blanda o podrida",
+      "sourceEnglish": "soft deck",
+      "kind": "term",
+      "archivedFrenchEvidence": "le support de couverture affaibli",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:card:3",
+      "legacySourceRef": "roofing:7:words:3",
+      "sourceSpanish": "Daño",
+      "sourceEnglish": "damage",
+      "kind": "term",
+      "archivedFrenchEvidence": "les dommages",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:card:4",
+      "legacySourceRef": "roofing:7:words:4",
+      "sourceSpanish": "Madera podrida",
+      "sourceEnglish": "rotten wood",
+      "kind": "term",
+      "archivedFrenchEvidence": "le bois pourri",
+      "conditionalFrench": "le bois pourri",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:card:5",
+      "legacySourceRef": "roofing:7:words:5",
+      "sourceSpanish": "Reparación",
+      "sourceEnglish": "repair",
+      "kind": "term",
+      "archivedFrenchEvidence": "la réparation",
+      "conditionalFrench": "la réparation",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:card:6",
+      "legacySourceRef": "roofing:7:words:6",
+      "sourceSpanish": "Reemplazar",
+      "sourceEnglish": "replace",
+      "kind": "term",
+      "archivedFrenchEvidence": "remplacer",
+      "conditionalFrench": "remplacer",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:card:7",
+      "legacySourceRef": "roofing:7:words:7",
+      "sourceSpanish": "Panel",
+      "sourceEnglish": "panel",
+      "kind": "term",
+      "archivedFrenchEvidence": "le panneau",
+      "conditionalFrench": "le panneau",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:card:8",
+      "legacySourceRef": "roofing:7:words:8",
+      "sourceSpanish": "Triplay",
+      "sourceEnglish": "plywood",
+      "kind": "term",
+      "archivedFrenchEvidence": "le contreplaqué",
+      "conditionalFrench": "le contreplaqué",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:card:9",
+      "legacySourceRef": "roofing:7:words:9",
+      "sourceSpanish": "Marcar",
+      "sourceEnglish": "mark",
+      "kind": "term",
+      "archivedFrenchEvidence": "marquer",
+      "conditionalFrench": "marquer",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:card:10",
+      "legacySourceRef": "roofing:7:words:10",
+      "sourceSpanish": "No dañen el forro de techo.",
+      "sourceEnglish": "Don't damage the sheathing.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "N’abîmez pas le platelage.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:card:11",
+      "legacySourceRef": "roofing:7:words:11",
+      "sourceSpanish": "Avísenme si la cubierta se siente blanda o dañada.",
+      "sourceEnglish": "Tell me if the deck feels soft or damaged.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Prévenez-moi si le support semble affaibli ou endommagé.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:card:12",
+      "legacySourceRef": "roofing:7:words:12",
+      "sourceSpanish": "Deténganse aquí; hay que reparar la cubierta antes de continuar.",
+      "sourceEnglish": "Stop here; the deck needs repair before we continue.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Arrêtez ici ; le support doit être réparé avant de continuer.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:card:13",
+      "legacySourceRef": "roofing:7:words:13",
+      "sourceSpanish": "No cubran el panel blando.",
+      "sourceEnglish": "Do not cover the soft panel.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Ne recouvrez pas le panneau affaibli.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:card:14",
+      "legacySourceRef": "roofing:7:words:14",
+      "sourceSpanish": "Marquen el área dañada.",
+      "sourceEnglish": "Mark the damaged area.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Marquez la zone endommagée.",
+      "conditionalFrench": "Marquez la zone endommagée.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:card:15",
+      "legacySourceRef": "roofing:7:words:15",
+      "sourceSpanish": "Hay que reemplazar este triplay.",
+      "sourceEnglish": "We need to replace this plywood.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Nous devons remplacer ce contreplaqué.",
+      "conditionalFrench": "Nous devons remplacer ce contreplaqué.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:8:fr-en:reader:1",
+      "legacySourceRef": "roofing:7:passage:1",
+      "sourceSpanish": "La cuadrilla quita las tejas del techo.",
+      "sourceEnglish": "The crew removes the shingles from the roof.",
+      "archivedFrenchEvidence": "L’équipe retire les bardeaux du toit.",
+      "conditionalFrench": "L’équipe retire les bardeaux du toit.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:reader:2",
+      "legacySourceRef": "roofing:7:passage:2",
+      "sourceSpanish": "No dañen el forro de techo.",
+      "sourceEnglish": "Don't damage the sheathing.",
+      "archivedFrenchEvidence": "N’abîmez pas le platelage.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:reader:3",
+      "legacySourceRef": "roofing:7:passage:3",
+      "sourceSpanish": "Avísenme si la cubierta se siente blanda o dañada.",
+      "sourceEnglish": "Tell me if the deck feels soft or damaged.",
+      "archivedFrenchEvidence": "Prévenez-moi si le support semble affaibli ou endommagé.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:reader:4",
+      "legacySourceRef": "roofing:7:passage:4",
+      "sourceSpanish": "Un obrero pisa un panel y siente que la madera está podrida.",
+      "sourceEnglish": "A worker steps on a panel and feels that the wood is rotten.",
+      "archivedFrenchEvidence": "Un ouvrier marche sur un panneau et constate que le bois est pourri.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:reader:5",
+      "legacySourceRef": "roofing:7:passage:5",
+      "sourceSpanish": "El capataz dice: Deténganse aquí; hay que reparar la cubierta antes de continuar.",
+      "sourceEnglish": "The foreman says: Stop here; the deck needs repair before we continue.",
+      "archivedFrenchEvidence": "Le contremaître dit : « Arrêtez ici ; le support doit être réparé avant de continuer. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:reader:6",
+      "legacySourceRef": "roofing:7:passage:6",
+      "sourceSpanish": "No cubran el panel blando.",
+      "sourceEnglish": "Do not cover the soft panel.",
+      "archivedFrenchEvidence": "Ne recouvrez pas le panneau affaibli.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:reader:7",
+      "legacySourceRef": "roofing:7:passage:7",
+      "sourceSpanish": "Marquen el área dañada.",
+      "sourceEnglish": "Mark the damaged area.",
+      "archivedFrenchEvidence": "Marquez la zone endommagée.",
+      "conditionalFrench": "Marquez la zone endommagée.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:reader:8",
+      "legacySourceRef": "roofing:7:passage:8",
+      "sourceSpanish": "Hay que reemplazar este triplay.",
+      "sourceEnglish": "We need to replace this plywood.",
+      "archivedFrenchEvidence": "Nous devons remplacer ce contreplaqué.",
+      "conditionalFrench": "Nous devons remplacer ce contreplaqué.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "reparar",
+      "englishMeaning": "to repair",
+      "sourceSpanish": "La cuadrilla repara la cubierta hoy.",
+      "sourceEnglish": "The crew repairs the deck today."
+    },
+    {
+      "spanishInfinitive": "marcar",
+      "englishMeaning": "to mark",
+      "sourceSpanish": "El obrero marca el área dañada.",
+      "sourceEnglish": "The worker marks the damaged area."
+    },
+    {
+      "spanishInfinitive": "reemplazar",
+      "englishMeaning": "to replace",
+      "sourceSpanish": "Reemplazamos este triplay hoy.",
+      "sourceEnglish": "We replace this plywood today."
+    },
+    {
+      "spanishInfinitive": "cubrir",
+      "englishMeaning": "to cover",
+      "sourceSpanish": "El obrero no cubre el panel blando.",
+      "sourceEnglish": "The worker does not cover the soft panel."
+    },
+    {
+      "spanishInfinitive": "avisar",
+      "englishMeaning": "to tell, to let know",
+      "sourceSpanish": "El obrero avisa al capataz.",
+      "sourceEnglish": "The worker tells the foreman."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Signaler un support endommagé",
+    "objectiveFrench": "Faire arrêter le recouvrement d’un panneau affaibli et demander une vérification de la réparation.",
+    "speakingFrenchInstruction": "Un panneau semble affaibli. Demandez l’arrêt du recouvrement, faites signaler et marquer la zone, puis demandez la vérification de la réparation prévue.",
+    "speakingFrenchOpening": "Arrêtez ici : ce panneau semble affaibli. Pouvez-vous marquer la zone et faire vérifier la réparation prévue ?",
+    "grammarFocusFrench": "Négation à l’impératif (ne recouvrez pas); si + présent; demander l’arrêt et la vérification avant de poursuivre.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to repair",
+        "exampleEnglish": "The crew repairs the deck today.",
+        "sourceInfinitiveSpanish": "reparar",
+        "infinitiveFrench": "réparer",
+        "exampleFrench": "L’équipe répare le support aujourd’hui."
+      },
+      {
+        "meaningEnglish": "to mark",
+        "exampleEnglish": "The worker marks the damaged area.",
+        "sourceInfinitiveSpanish": "marcar",
+        "infinitiveFrench": "marquer",
+        "exampleFrench": "L’ouvrier marque la zone endommagée."
+      },
+      {
+        "meaningEnglish": "to replace",
+        "exampleEnglish": "We replace this plywood today.",
+        "sourceInfinitiveSpanish": "reemplazar",
+        "infinitiveFrench": "remplacer",
+        "exampleFrench": "Nous remplaçons ce contreplaqué aujourd’hui."
+      },
+      {
+        "meaningEnglish": "to cover",
+        "exampleEnglish": "The worker does not cover the soft panel.",
+        "sourceInfinitiveSpanish": "cubrir",
+        "infinitiveFrench": "recouvrir",
+        "exampleFrench": "L’ouvrier ne recouvre pas le panneau affaibli."
+      },
+      {
+        "meaningEnglish": "to tell, to let know",
+        "exampleEnglish": "The worker tells the foreman.",
+        "sourceInfinitiveSpanish": "avisar",
+        "infinitiveFrench": "prévenir",
+        "exampleFrench": "L’ouvrier prévient le contremaître."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "France/Québec crew terminology, roof construction and site safety require qualified regional/trade review.",
+      "Use the approved scope, product instructions and site controls; this dialogue is not a work procedure."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:8:fr-en:card:1",
+        "core-roofing:8:fr-en:card:10",
+        "core-roofing:8:fr-en:reader:2"
+      ],
+      "question": "Sheathing and deck refer to roof substrate in the source scene, while archived platelage de toiture and support de couverture may imply different structural layers. Choose approved French trade terms and align the imperatives before scored use."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:8:fr-en:card:2",
+        "core-roofing:8:fr-en:card:11",
+        "core-roofing:8:fr-en:card:13",
+        "core-roofing:8:fr-en:reader:3",
+        "core-roofing:8:fr-en:reader:6"
+      ],
+      "question": "The source says soft or damaged deck and soft panel. Archived affaibli weakens the tactile soft condition, and semble replaces feels. Retain the observed condition without diagnosing a repair method."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:8:fr-en:card:3"
+      ],
+      "question": "The source term damage is singular or mass; archived les dommages is plural. Resolve the dictionary sense and article for a field-reporting card."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:8:fr-en:reader:4",
+        "core-roofing:8:fr-en:reader:5",
+        "core-roofing:8:fr-en:card:12"
+      ],
+      "question": "The worker feels rotten wood while stepping on a panel; archived constate changes tactile observation into a conclusion. Preserve the source observation and stop/work-hold command. A qualified person must assess the damaged deck before any repair procedure is taught."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:8:fr-en:card:12",
+        "core-roofing:8:fr-en:reader:5",
+        "core-roofing:8:fr-en:reader:7"
+      ],
+      "question": "Source speaking asks the supervisor to stop a worker about to cover a soft panel and request a repair. Archived speaking adds marking and verification of a planned repair. Keep those extra actions separate from scored source meaning until source and roofing review decide the objective."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:8:fr-en:card:15",
+        "core-roofing:8:fr-en:reader:8"
+      ],
+      "question": "The source says this plywood needs replacement, not that the dialogue alone determines an approved structural repair. Keep any competent-person assessment as a separate domain note rather than silently changing the direct learner vocabulary."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

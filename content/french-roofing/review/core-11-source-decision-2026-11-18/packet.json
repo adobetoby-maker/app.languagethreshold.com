@@ -1,0 +1,449 @@
+{
+  "schema": "french-roofing-core11-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:11",
+  "proposedPairId": "core-roofing:11:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-10-12-draft.json": "cfaf60f90688d445f56132ab038af704a7e49a36fe95b7a53c5312e6225f02c0"
+  },
+  "orderedSourceRowsSha256": "7e343eefd2d610faf99f41c4cd6be1dec8fa210954a1b58c52d566fd2aca7d0f",
+  "sourceTitleEnglish": "First-Course Layout",
+  "sourceObjectiveEnglish": "Describe the chalk line and first course",
+  "sourceSpeakingEnglish": "Show a new worker where to run the first-course chalk line.",
+  "sourceReaderTitleSpanish": "La línea de tiza",
+  "cards": [
+    {
+      "id": "core-roofing:11:fr-en:card:1",
+      "legacySourceRef": "roofing:7:words:1",
+      "sourceSpanish": "Línea de tiza",
+      "sourceEnglish": "chalk line",
+      "kind": "term",
+      "archivedFrenchEvidence": "le cordeau traceur",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:card:2",
+      "legacySourceRef": "roofing:7:words:2",
+      "sourceSpanish": "Primera hilera",
+      "sourceEnglish": "first course",
+      "kind": "term",
+      "archivedFrenchEvidence": "le premier rang",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:card:3",
+      "legacySourceRef": "roofing:7:words:3",
+      "sourceSpanish": "Hilera inicial",
+      "sourceEnglish": "starter strip",
+      "kind": "term",
+      "archivedFrenchEvidence": "la bande de départ",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:card:4",
+      "legacySourceRef": "roofing:7:words:4",
+      "sourceSpanish": "Alero",
+      "sourceEnglish": "eave",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’avant-toit",
+      "conditionalFrench": "l’avant-toit",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:card:5",
+      "legacySourceRef": "roofing:7:words:5",
+      "sourceSpanish": "Cinta métrica",
+      "sourceEnglish": "tape measure",
+      "kind": "term",
+      "archivedFrenchEvidence": "le ruban à mesurer",
+      "conditionalFrench": "le ruban à mesurer",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:card:6",
+      "legacySourceRef": "roofing:7:words:6",
+      "sourceSpanish": "Medida",
+      "sourceEnglish": "measurement",
+      "kind": "term",
+      "archivedFrenchEvidence": "la mesure",
+      "conditionalFrench": "la mesure",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:card:7",
+      "legacySourceRef": "roofing:7:words:7",
+      "sourceSpanish": "Recto",
+      "sourceEnglish": "straight",
+      "kind": "term",
+      "archivedFrenchEvidence": "droit",
+      "conditionalFrench": "droit",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:card:8",
+      "legacySourceRef": "roofing:7:words:8",
+      "sourceSpanish": "Vuelo",
+      "sourceEnglish": "overhang",
+      "kind": "term",
+      "archivedFrenchEvidence": "le débord",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:card:9",
+      "legacySourceRef": "roofing:7:words:9",
+      "sourceSpanish": "Tracen una línea de tiza para la primera hilera.",
+      "sourceEnglish": "Run a chalk line for the first course.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Tracez une ligne au cordeau pour le premier rang.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:card:10",
+      "legacySourceRef": "roofing:7:words:10",
+      "sourceSpanish": "Empiecen aquí en el alero.",
+      "sourceEnglish": "Start here at the eave.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Commencez ici, à l’avant-toit.",
+      "conditionalFrench": "Commencez ici, à l’avant-toit.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:card:11",
+      "legacySourceRef": "roofing:7:words:11",
+      "sourceSpanish": "¿La línea está recta?",
+      "sourceEnglish": "Is the line straight?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "La ligne est-elle droite ?",
+      "conditionalFrench": "La ligne est-elle droite ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:card:12",
+      "legacySourceRef": "roofing:7:words:12",
+      "sourceSpanish": "Midan desde el borde.",
+      "sourceEnglish": "Measure from the edge.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Mesurez à partir du bord.",
+      "conditionalFrench": "Mesurez à partir du bord.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:card:13",
+      "legacySourceRef": "roofing:7:words:13",
+      "sourceSpanish": "Pongan la hilera inicial a lo largo del alero.",
+      "sourceEnglish": "Put the starter strip along the eave.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Placez la bande de départ le long de l’avant-toit.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:11:fr-en:reader:1",
+      "legacySourceRef": "roofing:7:passage:1",
+      "sourceSpanish": "Primero, el capataz saca la cinta métrica.",
+      "sourceEnglish": "First, the foreman takes out the tape measure.",
+      "archivedFrenchEvidence": "D’abord, le contremaître sort le ruban à mesurer.",
+      "conditionalFrench": "D’abord, le contremaître sort le ruban à mesurer.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:reader:2",
+      "legacySourceRef": "roofing:7:passage:2",
+      "sourceSpanish": "Mide desde el borde del alero y marca los puntos del plano.",
+      "sourceEnglish": "He measures from the edge of the eave and marks the points on the plan.",
+      "archivedFrenchEvidence": "Il mesure à partir du bord de l’avant-toit et marque les points sur le plan.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:reader:3",
+      "legacySourceRef": "roofing:7:passage:3",
+      "sourceSpanish": "Después dice: Tracen una línea de tiza para la primera hilera.",
+      "sourceEnglish": "Then he says: Run a chalk line for the first course.",
+      "archivedFrenchEvidence": "Puis il dit : « Tracez une ligne au cordeau pour le premier rang. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:reader:4",
+      "legacySourceRef": "roofing:7:passage:4",
+      "sourceSpanish": "Dos obreros estiran la línea y la sueltan.",
+      "sourceEnglish": "Two workers stretch the line and snap it.",
+      "archivedFrenchEvidence": "Deux ouvriers tendent le cordeau et le font claquer.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:reader:5",
+      "legacySourceRef": "roofing:7:passage:5",
+      "sourceSpanish": "¿La línea está recta?",
+      "sourceEnglish": "Is the line straight?",
+      "archivedFrenchEvidence": "La ligne est-elle droite ?",
+      "conditionalFrench": "La ligne est-elle droite ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:reader:6",
+      "legacySourceRef": "roofing:7:passage:6",
+      "sourceSpanish": "El capataz revisa la medida otra vez.",
+      "sourceEnglish": "The foreman checks the measurement again.",
+      "archivedFrenchEvidence": "Le contremaître vérifie de nouveau la mesure.",
+      "conditionalFrench": "Le contremaître vérifie de nouveau la mesure.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:reader:7",
+      "legacySourceRef": "roofing:7:passage:7",
+      "sourceSpanish": "Empiecen aquí en el alero.",
+      "sourceEnglish": "Start here at the eave.",
+      "archivedFrenchEvidence": "Commencez ici, à l’avant-toit.",
+      "conditionalFrench": "Commencez ici, à l’avant-toit.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:reader:8",
+      "legacySourceRef": "roofing:7:passage:8",
+      "sourceSpanish": "Pongan la hilera inicial a lo largo del alero.",
+      "sourceEnglish": "Put the starter strip along the eave.",
+      "archivedFrenchEvidence": "Placez la bande de départ le long de l’avant-toit.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:reader:9",
+      "legacySourceRef": "roofing:7:passage:9",
+      "sourceSpanish": "La medida del vuelo está en el plano del trabajo.",
+      "sourceEnglish": "The overhang measurement is on the job plan.",
+      "archivedFrenchEvidence": "La mesure du débord figure sur le plan du chantier.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "medir",
+      "englishMeaning": "to measure",
+      "sourceSpanish": "El capataz mide desde el borde del alero.",
+      "sourceEnglish": "The foreman measures from the edge of the eave."
+    },
+    {
+      "spanishInfinitive": "trazar",
+      "englishMeaning": "to run (a line), to mark out",
+      "sourceSpanish": "Los obreros trazan una línea de tiza para la primera hilera.",
+      "sourceEnglish": "The workers run a chalk line for the first course."
+    },
+    {
+      "spanishInfinitive": "empezar",
+      "englishMeaning": "to start",
+      "sourceSpanish": "Los obreros empiezan aquí en el alero.",
+      "sourceEnglish": "The workers start here at the eave."
+    },
+    {
+      "spanishInfinitive": "poner",
+      "englishMeaning": "to put, to place",
+      "sourceSpanish": "Ellos ponen la hilera inicial a lo largo del alero.",
+      "sourceEnglish": "They put the starter strip along the eave."
+    },
+    {
+      "spanishInfinitive": "revisar",
+      "englishMeaning": "to check",
+      "sourceSpanish": "El capataz revisa la medida otra vez.",
+      "sourceEnglish": "The foreman checks the measurement again."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Tracer le premier rang",
+    "objectiveFrench": "Décrire le cordeau et le premier rang en demandant la mesure prévue sur le plan.",
+    "speakingFrenchInstruction": "Montrez sur le plan le premier rang et l’emplacement du cordeau. Demandez la mesure de débord et la méthode approuvée pour ce produit.",
+    "speakingFrenchOpening": "Voici le bord de l’avant-toit. Quelle mesure de débord figure sur le plan pour ce produit ?",
+    "grammarFocusFrench": "D’abord / puis / de nouveau pour l’ordre des étapes; où et à partir de pour les repères de mesure; impératif pluriel.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to measure",
+        "exampleEnglish": "The foreman measures from the edge of the eave.",
+        "sourceInfinitiveSpanish": "medir",
+        "infinitiveFrench": "mesurer",
+        "exampleFrench": "Le contremaître mesure à partir du bord de l’avant-toit."
+      },
+      {
+        "meaningEnglish": "to run (a line), to mark out",
+        "exampleEnglish": "The workers run a chalk line for the first course.",
+        "sourceInfinitiveSpanish": "trazar",
+        "infinitiveFrench": "tracer",
+        "exampleFrench": "Les ouvriers tracent une ligne au cordeau pour le premier rang."
+      },
+      {
+        "meaningEnglish": "to start",
+        "exampleEnglish": "The workers start here at the eave.",
+        "sourceInfinitiveSpanish": "empezar",
+        "infinitiveFrench": "commencer",
+        "exampleFrench": "Les ouvriers commencent ici, à l’avant-toit."
+      },
+      {
+        "meaningEnglish": "to put, to place",
+        "exampleEnglish": "They put the starter strip along the eave.",
+        "sourceInfinitiveSpanish": "poner",
+        "infinitiveFrench": "placer",
+        "exampleFrench": "Ils placent la bande de départ le long de l’avant-toit."
+      },
+      {
+        "meaningEnglish": "to check",
+        "exampleEnglish": "The foreman checks the measurement again.",
+        "sourceInfinitiveSpanish": "revisar",
+        "infinitiveFrench": "vérifier",
+        "exampleFrench": "Le contremaître vérifie de nouveau la mesure."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "France/Québec roofing terminology and site safety require qualified regional/trade review.",
+      "Confirm the approved plan, manufacturer instructions and weather/fall-protection controls; this scene is not a work procedure."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:11:fr-en:card:1",
+        "core-roofing:11:fr-en:card:9",
+        "core-roofing:11:fr-en:reader:3",
+        "core-roofing:11:fr-en:reader:4"
+      ],
+      "question": "The source uses a chalk line (línea de tiza) and describes workers stretching and snapping it. Archived cordeau traceur may not explicitly distinguish chalk from another line-marking system. Confirm French trade and regional sense before scored/audio use."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:11:fr-en:card:2",
+        "core-roofing:11:fr-en:card:3",
+        "core-roofing:11:fr-en:card:13",
+        "core-roofing:11:fr-en:reader:8"
+      ],
+      "question": "First course and starter strip are distinct source concepts. Archived premier rang and bande de départ must be checked against the approved roof product and regional terminology; do not collapse the strip into a generic first row."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:11:fr-en:reader:2",
+        "core-roofing:11:fr-en:card:8",
+        "core-roofing:11:fr-en:reader:9"
+      ],
+      "question": "The foreman marks points on the plan and the overhang measurement is on the job plan. Confirm whether the intended points are physical marks on a drawing or site layout marks made according to it; do not invent a numeric overhang or universal placement dimension."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:11:fr-en:card:8",
+        "core-roofing:11:fr-en:reader:9"
+      ],
+      "question": "Source overhang is roof eave projection in this job plan; archived débord may be broader. Confirm the French dictionary sense and the approved plan/product detail before using as an installation command."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:11:fr-en:card:9",
+        "core-roofing:11:fr-en:reader:3",
+        "core-roofing:11:fr-en:reader:8"
+      ],
+      "question": "Source speaking asks only to show a worker where to run the first-course chalk line. Archived speaking adds the overhang measurement and approved product method. Keep extra process questions separate from this direct learner objective."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

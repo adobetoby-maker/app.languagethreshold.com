@@ -1,0 +1,9 @@
+# French Roofing Core 8 — sheathing and deck condition decision
+
+This inert packet pins **15 exact current Spanish/English cards**, **eight aligned Reader turns**, five source verb examples, and source/archive hashes for *Protect the Sheathing*. Proposed `core-roofing:8:fr-en` IDs are review references only. The source header still uses `roofing`; stage-local progress and saved-item identity need a deliberate decision before runtime use.
+
+The archived French is separate evidence. Seven card faces and five Reader turns are held from even conditional selection. *Sheathing*, *deck* and *soft panel* refer to different construction conditions that the archive renders as *platelage*, *support* and *affaibli*; a roofing and French reviewer must settle the trade terms and preserve the source's tactile “feels soft” and “feels that the wood is rotten.” The archived *constate* changes observation to a conclusion. The source scene calls for stopping coverage and requesting a repair, while archived speaking adds marking and verification of a planned repair. That extra task remains separate from the direct learner objective. A qualified person should assess repair scope; this domain note does not replace the source language or authorize a work procedure.
+
+Every `selectedFrench` and `audioScript` is null, `reviewed:false`, and learner, scoring, listening, offline, progress, saved-item, browser and native V4 gates are false. No owner route, learner registration, audio synthesis, clip listening decision or progress migration is included. Six authored practice modes, contextual forms, speaking, dictionary senses and qualified source/French/roofing review remain. Claude CLI 2.1.325 reported `loggedIn:false`; no Haiku, Opus or Fable call was made.
+
+Run `python3 build.py --check` and `python3 validate.py` from this directory or with their repository paths.

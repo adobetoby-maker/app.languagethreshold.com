@@ -1,0 +1,464 @@
+{
+  "schema": "french-roofing-core10-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:10",
+  "proposedPairId": "core-roofing:10:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-10-12-draft.json": "cfaf60f90688d445f56132ab038af704a7e49a36fe95b7a53c5312e6225f02c0"
+  },
+  "orderedSourceRowsSha256": "01a4ffa5eb83c9ea1135a5668792ad17361eefcf7da1573e94d28a0414290506",
+  "sourceTitleEnglish": "Tarp the Unfinished Roof",
+  "sourceObjectiveEnglish": "Close an unfinished work area before departure",
+  "sourceSpeakingEnglish": "Explain which section needs a tarp and have the crew repeat the plan.",
+  "sourceReaderTitleSpanish": "Lona antes de la lluvia",
+  "cards": [
+    {
+      "id": "core-roofing:10:fr-en:card:1",
+      "legacySourceRef": "roofing:10:words:1",
+      "sourceSpanish": "Lona",
+      "sourceEnglish": "tarp",
+      "kind": "term",
+      "archivedFrenchEvidence": "la bâche",
+      "conditionalFrench": "la bâche",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:card:2",
+      "legacySourceRef": "roofing:10:words:2",
+      "sourceSpanish": "Sección sin terminar",
+      "sourceEnglish": "unfinished section",
+      "kind": "term",
+      "archivedFrenchEvidence": "la partie inachevée",
+      "conditionalFrench": "la partie inachevée",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:card:3",
+      "legacySourceRef": "roofing:10:words:3",
+      "sourceSpanish": "Clima",
+      "sourceEnglish": "weather",
+      "kind": "term",
+      "archivedFrenchEvidence": "la météo",
+      "conditionalFrench": "la météo",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:card:4",
+      "legacySourceRef": "roofing:10:words:4",
+      "sourceSpanish": "Lluvia",
+      "sourceEnglish": "rain",
+      "kind": "term",
+      "archivedFrenchEvidence": "la pluie",
+      "conditionalFrench": "la pluie",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:card:5",
+      "legacySourceRef": "roofing:10:words:5",
+      "sourceSpanish": "Viento",
+      "sourceEnglish": "wind",
+      "kind": "term",
+      "archivedFrenchEvidence": "le vent",
+      "conditionalFrench": "le vent",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:card:6",
+      "legacySourceRef": "roofing:10:words:6",
+      "sourceSpanish": "Pronóstico del tiempo",
+      "sourceEnglish": "forecast",
+      "kind": "term",
+      "archivedFrenchEvidence": "les prévisions météorologiques",
+      "conditionalFrench": "les prévisions météorologiques",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:card:7",
+      "legacySourceRef": "roofing:10:words:7",
+      "sourceSpanish": "Cuerda",
+      "sourceEnglish": "rope",
+      "kind": "term",
+      "archivedFrenchEvidence": "la corde",
+      "conditionalFrench": "la corde",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:card:8",
+      "legacySourceRef": "roofing:10:words:8",
+      "sourceSpanish": "Gotera",
+      "sourceEnglish": "leak",
+      "kind": "term",
+      "archivedFrenchEvidence": "la fuite",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:card:9",
+      "legacySourceRef": "roofing:10:words:9",
+      "sourceSpanish": "Cubran con lona lo que no terminen hoy.",
+      "sourceEnglish": "Tarp anything you can't finish today.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Protégez avec une bâche ce que vous ne pouvez pas terminer aujourd’hui.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:card:10",
+      "legacySourceRef": "roofing:10:words:10",
+      "sourceSpanish": "Detengan el trabajo y bajen si cambia el tiempo.",
+      "sourceEnglish": "Stop work and come down if the weather changes.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Arrêtez le travail et descendez si la météo change.",
+      "conditionalFrench": "Arrêtez le travail et descendez si la météo change.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:card:11",
+      "legacySourceRef": "roofing:10:words:11",
+      "sourceSpanish": "Cubran esta sección antes de irnos.",
+      "sourceEnglish": "Cover this section before we leave.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Couvrez cette partie avant de partir.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:card:12",
+      "legacySourceRef": "roofing:10:words:12",
+      "sourceSpanish": "Amarren bien la lona.",
+      "sourceEnglish": "Tie down the tarp well.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Fixez bien la bâche.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:card:13",
+      "legacySourceRef": "roofing:10:words:13",
+      "sourceSpanish": "Esta noche va a llover.",
+      "sourceEnglish": "Rain is coming tonight.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Il va pleuvoir ce soir.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:card:14",
+      "legacySourceRef": "roofing:10:words:14",
+      "sourceSpanish": "Repitan el plan para confirmar.",
+      "sourceEnglish": "Repeat the plan to confirm.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Répétez le plan pour confirmer.",
+      "conditionalFrench": "Répétez le plan pour confirmer.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:10:fr-en:reader:1",
+      "legacySourceRef": "roofing:10:passage:1",
+      "sourceSpanish": "Son las 4:00 de la tarde y hay viento.",
+      "sourceEnglish": "It is 4:00 in the afternoon and it is windy.",
+      "archivedFrenchEvidence": "Il est seize heures et il y a du vent.",
+      "conditionalFrench": "Il est seize heures et il y a du vent.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:reader:2",
+      "legacySourceRef": "roofing:10:passage:2",
+      "sourceSpanish": "El pronóstico del tiempo dice que esta noche va a llover.",
+      "sourceEnglish": "The weather forecast says it will rain tonight.",
+      "archivedFrenchEvidence": "Les prévisions météorologiques annoncent de la pluie ce soir.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:reader:3",
+      "legacySourceRef": "roofing:10:passage:3",
+      "sourceSpanish": "Hay una sección sin terminar en la parte de atrás.",
+      "sourceEnglish": "There is an unfinished section at the back.",
+      "archivedFrenchEvidence": "Une partie à l’arrière n’est pas terminée.",
+      "conditionalFrench": "Une partie à l’arrière n’est pas terminée.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:reader:4",
+      "legacySourceRef": "roofing:10:passage:4",
+      "sourceSpanish": "La lluvia puede mojar la cubierta abierta.",
+      "sourceEnglish": "Rain can wet the open deck.",
+      "archivedFrenchEvidence": "La pluie peut mouiller le support de couverture exposé.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:reader:5",
+      "legacySourceRef": "roofing:10:passage:5",
+      "sourceSpanish": "Cubran esta sección antes de irnos.",
+      "sourceEnglish": "Cover this section before we leave.",
+      "archivedFrenchEvidence": "Couvrez cette partie avant de partir.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:reader:6",
+      "legacySourceRef": "roofing:10:passage:6",
+      "sourceSpanish": "Cubran con lona lo que no terminen hoy.",
+      "sourceEnglish": "Tarp anything you can't finish today.",
+      "archivedFrenchEvidence": "Protégez avec une bâche ce que vous ne pouvez pas terminer aujourd’hui.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:reader:7",
+      "legacySourceRef": "roofing:10:passage:7",
+      "sourceSpanish": "Amarren bien la lona con la cuerda.",
+      "sourceEnglish": "Tie the tarp down well with the rope.",
+      "archivedFrenchEvidence": "Fixez bien la bâche avec la corde.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:reader:8",
+      "legacySourceRef": "roofing:10:passage:8",
+      "sourceSpanish": "Detengan el trabajo y bajen si cambia el tiempo.",
+      "sourceEnglish": "Stop work and come down if the weather changes.",
+      "archivedFrenchEvidence": "Arrêtez le travail et descendez si la météo change.",
+      "conditionalFrench": "Arrêtez le travail et descendez si la météo change.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:reader:9",
+      "legacySourceRef": "roofing:10:passage:9",
+      "sourceSpanish": "Repitan el plan para confirmar.",
+      "sourceEnglish": "Repeat the plan to confirm.",
+      "archivedFrenchEvidence": "Répétez le plan pour confirmer.",
+      "conditionalFrench": "Répétez le plan pour confirmer.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "cubrir",
+      "englishMeaning": "to cover",
+      "sourceSpanish": "Cubran esta sección antes de irnos.",
+      "sourceEnglish": "Cover this section before we leave."
+    },
+    {
+      "spanishInfinitive": "amarrar",
+      "englishMeaning": "to tie down",
+      "sourceSpanish": "Amarren bien la lona con la cuerda.",
+      "sourceEnglish": "Tie the tarp down well with the rope."
+    },
+    {
+      "spanishInfinitive": "detener",
+      "englishMeaning": "to stop",
+      "sourceSpanish": "Detengan el trabajo si cambia el tiempo.",
+      "sourceEnglish": "Stop work if the weather changes."
+    },
+    {
+      "spanishInfinitive": "bajar",
+      "englishMeaning": "to come down",
+      "sourceSpanish": "Bajamos del techo si cambia el tiempo.",
+      "sourceEnglish": "We come down off the roof if the weather changes."
+    },
+    {
+      "spanishInfinitive": "repetir",
+      "englishMeaning": "to repeat",
+      "sourceSpanish": "Repetimos el plan para confirmar.",
+      "sourceEnglish": "We repeat the plan to confirm."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Protéger la toiture inachevée",
+    "objectiveFrench": "Expliquer quelle partie inachevée doit être protégée et faire reformuler le plan en tenant compte de la météo.",
+    "speakingFrenchInstruction": "Expliquez quelle partie reste ouverte, demandez à l’équipe de reformuler le plan et consultez la personne responsable sur la météo avant d’ordonner un travail en hauteur.",
+    "speakingFrenchOpening": "Cette partie n’est pas terminée. Que prévoit notre plan météo et qui confirme si nous pouvons encore travailler ?",
+    "grammarFocusFrench": "Si + présent pour une condition de météo; impératif de politesse; faire répéter une consigne avant de quitter la zone.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to cover",
+        "exampleEnglish": "Cover this section before we leave.",
+        "sourceInfinitiveSpanish": "cubrir",
+        "infinitiveFrench": "couvrir",
+        "exampleFrench": "Couvrez cette partie avant de partir."
+      },
+      {
+        "meaningEnglish": "to tie down",
+        "exampleEnglish": "Tie the tarp down well with the rope.",
+        "sourceInfinitiveSpanish": "amarrar",
+        "infinitiveFrench": "fixer",
+        "exampleFrench": "Fixez bien la bâche avec la corde."
+      },
+      {
+        "meaningEnglish": "to stop",
+        "exampleEnglish": "Stop work if the weather changes.",
+        "sourceInfinitiveSpanish": "detener",
+        "infinitiveFrench": "arrêter",
+        "exampleFrench": "Arrêtez le travail si la météo change."
+      },
+      {
+        "meaningEnglish": "to come down",
+        "exampleEnglish": "We come down off the roof if the weather changes.",
+        "sourceInfinitiveSpanish": "bajar",
+        "infinitiveFrench": "descendre",
+        "exampleFrench": "Nous descendons du toit si la météo change."
+      },
+      {
+        "meaningEnglish": "to repeat",
+        "exampleEnglish": "We repeat the plan to confirm.",
+        "sourceInfinitiveSpanish": "repetir",
+        "infinitiveFrench": "répéter",
+        "exampleFrench": "Nous répétons le plan pour confirmer."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "France/Québec roofing terminology and site safety require qualified regional/trade review.",
+      "Confirm the approved plan, manufacturer instructions and weather/fall-protection controls; this scene is not a work procedure."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:10:fr-en:card:8"
+      ],
+      "question": "Spanish gotera is a roof leak or drip; archived French la fuite is broader. Confirm the roofing dictionary sense before selecting a scored face."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:10:fr-en:card:9",
+        "core-roofing:10:fr-en:card:11",
+        "core-roofing:10:fr-en:reader:5",
+        "core-roofing:10:fr-en:reader:6"
+      ],
+      "question": "The source orders covering an unfinished section in this windy 4:00 scene. The archived French paraphrases tarp as protect with a tarp and could read as universal high-wind work instruction. Keep the scene-specific source meaning and approved site-weather/fall-protection decision distinct before scoring."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:10:fr-en:card:12",
+        "core-roofing:10:fr-en:reader:7"
+      ],
+      "question": "Source amarren/tie down the tarp with rope implies securing by tying. Archived fixez bien is broader; select a French form that preserves rope tie-down semantics after qualified trade and safety review."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:10:fr-en:reader:4"
+      ],
+      "question": "Open deck names the exposed structural roof deck. Archived support de couverture exposé may denote a broader substrate; align with Core 1/7 deck terminology."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:10:fr-en:card:13",
+        "core-roofing:10:fr-en:reader:2"
+      ],
+      "question": "Tonight may include overnight rain; archived ce soir can mean this evening. Check source time scope and a natural French forecast expression together."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:10:fr-en:card:9",
+        "core-roofing:10:fr-en:reader:8",
+        "core-roofing:10:fr-en:reader:9"
+      ],
+      "question": "Source speaking asks which section needs a tarp and for the crew to repeat the plan. Archived speaking adds consultation about weather and working at height. Keep that domain-review note separate from the source learner objective until the approved plan is established."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

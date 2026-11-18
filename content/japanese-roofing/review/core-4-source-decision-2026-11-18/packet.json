@@ -1,0 +1,436 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:4:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-4-6-draft.json",
+      "sha256": "db0666acc7b9cf7b8da6522e5caa97e0a65d1319341d43b0e35d43983050c4aa"
+    }
+  },
+  "sourceEnglishTitle": "Ridge, Vents & Drainage",
+  "sourceEnglishObjective": "Name ridge and drainage components",
+  "sourceEnglishSpeaking": "Describe where the ridge vent and downspouts belong.",
+  "sourceSpanishReaderTitle": "Cumbrera, ventilación y canaletas",
+  "candidateObjective": "棟と屋根の排水部材を日本語で示す。",
+  "candidateFocus": "～に沿って describes placement along the ridge. ～から離れて describes water moving away from a house. ～はどこに付きますか asks where a component goes.",
+  "archivedForms": [
+    {
+      "base": "必要である",
+      "exampleJa": "小屋裏には換気が必要です。",
+      "meaningEnglish": "to need",
+      "exampleEnglish": "The attic needs ventilation.",
+      "sourceInfinitiveSpanish": "necesitar"
+    },
+    {
+      "base": "沿う",
+      "exampleJa": "棟換気口は棟に沿っています。",
+      "meaningEnglish": "to go",
+      "exampleEnglish": "The ridge vent goes along the ridge.",
+      "sourceInfinitiveSpanish": "ir"
+    },
+    {
+      "base": "聞く",
+      "exampleJa": "職長は「竪どいはどこに付きますか」と聞きます。",
+      "meaningEnglish": "to ask",
+      "exampleEnglish": "The foreman asks: Where does the downspout go?",
+      "sourceInfinitiveSpanish": "preguntar"
+    },
+    {
+      "base": "指す",
+      "exampleJa": "作業員は家の角にある竪どいを指します。",
+      "meaningEnglish": "to point to",
+      "exampleEnglish": "A worker points to it at the corner of the house.",
+      "sourceInfinitiveSpanish": "señalar"
+    },
+    {
+      "base": "流れる",
+      "exampleJa": "水は家から離れる方向に流れます。",
+      "meaningEnglish": "to run, to flow",
+      "exampleEnglish": "The water runs away from the house.",
+      "sourceInfinitiveSpanish": "correr"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "棟換気口は棟に沿って設置します。竪どいはどこに付きますか。",
+    "goal": "Describe where the ridge vent and downspouts belong."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the exact ridge, ridge-vent, gutter, downspout, fascia and soffit distinctions and the away-from-house drainage scene. Resolve Japanese component senses and placement-versus-installation wording with qualified Japanese and roofing reviewers before selecting learner answers. The archived draft is evidence only; this packet creates no lesson, score, audio or progress identity.",
+  "cards": [
+    {
+      "id": "roofing:4:ja-en:card:1",
+      "legacySourceRef": "roofing:4:ja-en:cards:1",
+      "sourceSpanish": "Caballete",
+      "sourceEnglish": "ridge cap",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "棟包み材",
+      "archivedEnglish": "ridge cap",
+      "reviewNote": "棟包み材 may narrow generic ridge cap to a particular material or cap component. Distinguish it from ridge and confirm the roofing dictionary sense.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:card:2",
+      "legacySourceRef": "roofing:4:ja-en:cards:2",
+      "sourceSpanish": "Ventilación (de caballete / de caja)",
+      "sourceEnglish": "vent",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "換気口",
+      "archivedJapanese": "換気口",
+      "archivedEnglish": "vent",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:card:3",
+      "legacySourceRef": "roofing:4:ja-en:cards:3",
+      "sourceSpanish": "Canal / Canalón",
+      "sourceEnglish": "gutter",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "雨どい",
+      "archivedJapanese": "雨どい",
+      "archivedEnglish": "gutter",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:card:4",
+      "legacySourceRef": "roofing:4:ja-en:cards:4",
+      "sourceSpanish": "Bajada de agua",
+      "sourceEnglish": "downspout",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "竪どい",
+      "archivedJapanese": "竪どい",
+      "archivedEnglish": "downspout",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:card:5",
+      "legacySourceRef": "roofing:4:ja-en:cards:5",
+      "sourceSpanish": "Fascia / Borde",
+      "sourceEnglish": "fascia",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "鼻隠し板",
+      "archivedEnglish": "fascia",
+      "reviewNote": "鼻隠し板 may narrow fascia to a board while the Spanish source also says Borde. Confirm trade and regional sense.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:card:6",
+      "legacySourceRef": "roofing:4:ja-en:cards:6",
+      "sourceSpanish": "Cumbrera",
+      "sourceEnglish": "ridge",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "棟",
+      "archivedJapanese": "棟",
+      "archivedEnglish": "ridge",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:card:7",
+      "legacySourceRef": "roofing:4:ja-en:cards:7",
+      "sourceSpanish": "Ventilación de caballete",
+      "sourceEnglish": "ridge vent",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "棟換気口",
+      "archivedEnglish": "ridge vent",
+      "reviewNote": "Confirm 棟換気口 as the component sense of ridge vent, distinct from generic ridge ventilation.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:card:8",
+      "legacySourceRef": "roofing:4:ja-en:cards:8",
+      "sourceSpanish": "Ventilación de caja",
+      "sourceEnglish": "box vent",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "箱形換気口",
+      "archivedEnglish": "box vent",
+      "reviewNote": "箱形換気口 is a literal box-vent rendering; verify the roof-vent taxonomy and common trade term.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:card:9",
+      "legacySourceRef": "roofing:4:ja-en:cards:9",
+      "sourceSpanish": "Sofito",
+      "sourceEnglish": "soffit",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "軒裏",
+      "archivedEnglish": "soffit",
+      "reviewNote": "軒裏 can mean the broad underside of an eave. Confirm whether this names the soffit component in the source scene.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:card:10",
+      "legacySourceRef": "roofing:4:ja-en:cards:10",
+      "sourceSpanish": "Ático",
+      "sourceEnglish": "attic",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "小屋裏",
+      "archivedJapanese": "小屋裏",
+      "archivedEnglish": "attic",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:card:11",
+      "legacySourceRef": "roofing:4:ja-en:cards:11",
+      "sourceSpanish": "La ventilación de caballete va a lo largo de la cumbrera.",
+      "sourceEnglish": "The ridge vent goes along the ridge.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "棟換気口は棟に沿って設置します。",
+      "archivedEnglish": "The ridge vent goes along the ridge.",
+      "reviewNote": "The source locates the ridge vent along the ridge; 設置します explicitly instructs installation. Confirm the intended placement wording and safety scope.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:card:12",
+      "legacySourceRef": "roofing:4:ja-en:cards:12",
+      "sourceSpanish": "¿Dónde va la bajada de agua?",
+      "sourceEnglish": "Where does the downspout go?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "竪どいはどこに付きますか。",
+      "archivedEnglish": "Where does the downspout go?",
+      "reviewNote": "The source asks where the downspout goes; どこに付きますか asks where it attaches and may omit its drainage route. Resolve the exact intended sense.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:card:13",
+      "legacySourceRef": "roofing:4:ja-en:cards:13",
+      "sourceSpanish": "La canaleta está tapada.",
+      "sourceEnglish": "The gutter is clogged.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "雨どいが詰まっています。",
+      "archivedJapanese": "雨どいが詰まっています。",
+      "archivedEnglish": "The gutter is clogged.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:card:14",
+      "legacySourceRef": "roofing:4:ja-en:cards:14",
+      "sourceSpanish": "El agua tiene que correr lejos de la casa.",
+      "sourceEnglish": "The water must drain away from the house.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "水は家から離れる方向に流れなければなりません。",
+      "archivedJapanese": "水は家から離れる方向に流れなければなりません。",
+      "archivedEnglish": "The water must drain away from the house.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:card:15",
+      "legacySourceRef": "roofing:4:ja-en:cards:15",
+      "sourceSpanish": "El ático necesita ventilación.",
+      "sourceEnglish": "The attic needs ventilation.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "小屋裏には換気が必要です。",
+      "archivedJapanese": "小屋裏には換気が必要です。",
+      "archivedEnglish": "The attic needs ventilation.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:4:ja-en:line:1",
+      "legacySourceRef": "roofing:4:ja-en:reader:1",
+      "sourceSpanish": "En la parte más alta del techo está la cumbrera.",
+      "sourceEnglish": "At the highest part of the roof is the ridge.",
+      "selectedJapanese": null,
+      "candidateJapanese": "屋根の一番高いところが棟です。",
+      "archivedJapanese": "屋根の一番高いところが棟です。",
+      "archivedEnglish": "At the highest part of the roof is the ridge.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:line:2",
+      "legacySourceRef": "roofing:4:ja-en:reader:2",
+      "sourceSpanish": "La ventilación de caballete va a lo largo de la cumbrera.",
+      "sourceEnglish": "The ridge vent goes along the ridge.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "棟換気口は棟に沿って設置します。",
+      "archivedEnglish": "The ridge vent goes along the ridge.",
+      "reviewNote": "Inherits card 11's distinction between location and an installation instruction, and card 7's ridge-vent sense.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:line:3",
+      "legacySourceRef": "roofing:4:ja-en:reader:3",
+      "sourceSpanish": "El ático necesita ventilación.",
+      "sourceEnglish": "The attic needs ventilation.",
+      "selectedJapanese": null,
+      "candidateJapanese": "小屋裏には換気が必要です。",
+      "archivedJapanese": "小屋裏には換気が必要です。",
+      "archivedEnglish": "The attic needs ventilation.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:line:4",
+      "legacySourceRef": "roofing:4:ja-en:reader:4",
+      "sourceSpanish": "Abajo, en el borde del techo, están la fascia y el sofito.",
+      "sourceEnglish": "Below, at the edge of the roof, are the fascia and the soffit.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "その下の屋根の端には、鼻隠し板と軒裏があります。",
+      "archivedEnglish": "Below, at the edge of the roof, are the fascia and the soffit.",
+      "reviewNote": "Inherits card 5's fascia and card 9's soffit component-sense decisions.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:line:5",
+      "legacySourceRef": "roofing:4:ja-en:reader:5",
+      "sourceSpanish": "La canaleta está tapada.",
+      "sourceEnglish": "The gutter is clogged.",
+      "selectedJapanese": null,
+      "candidateJapanese": "雨どいが詰まっています。",
+      "archivedJapanese": "雨どいが詰まっています。",
+      "archivedEnglish": "The gutter is clogged.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:line:6",
+      "legacySourceRef": "roofing:4:ja-en:reader:6",
+      "sourceSpanish": "El agua tiene que correr lejos de la casa.",
+      "sourceEnglish": "The water has to run away from the house.",
+      "selectedJapanese": null,
+      "candidateJapanese": "水は家から離れる方向に流れなければなりません。",
+      "archivedJapanese": "水は家から離れる方向に流れなければなりません。",
+      "archivedEnglish": "The water has to run away from the house.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:line:7",
+      "legacySourceRef": "roofing:4:ja-en:reader:7",
+      "sourceSpanish": "El capataz pregunta: ¿Dónde va la bajada de agua?",
+      "sourceEnglish": "The foreman asks: Where does the downspout go?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "職長は「竪どいはどこに付きますか」と聞きます。",
+      "archivedEnglish": "The foreman asks: Where does the downspout go?",
+      "reviewNote": "Inherits card 12's downspout placement-versus-drainage-route decision.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:4:ja-en:line:8",
+      "legacySourceRef": "roofing:4:ja-en:reader:8",
+      "sourceSpanish": "Un obrero la señala en la esquina de la casa.",
+      "sourceEnglish": "A worker points to it at the corner of the house.",
+      "selectedJapanese": null,
+      "candidateJapanese": "作業員は家の角にある竪どいを指します。",
+      "archivedJapanese": "作業員は家の角にある竪どいを指します。",
+      "archivedEnglish": "A worker points to it at the corner of the house.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the ridge vent and downspout in the scene.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall ridge, gutter, fascia, and soffit in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 雨どい from 竪どい when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'The gutter is clogged.' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Describe where the ridge vent and downspout go.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write two sentences about ventilation and water drainage.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

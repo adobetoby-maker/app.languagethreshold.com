@@ -1,0 +1,9 @@
+# Japanese Roofing Core 4 — source and technical decision
+
+This inert packet pins **15 current Spanish/English cards** and **eight aligned Reader turns** for *Ridge, Vents & Drainage*. `packet.json` records four source-file SHA-256 hashes, exact source text, archived Japanese proposals and `roofing:4:ja-en` stage-local row IDs. `build.py --check` detects source or archive drift; `validate.py` independently checks current rows, order, IDs and closed gates. These IDs are review references. No runtime, saved-item, audio or progress key changed.
+
+Seven card and three Reader Japanese faces are held. Qualified Japanese and roofing reviewers must settle ridge cap material and component sense, fascia, ridge vent, box vent and soffit trade terms, the difference between a vent *going along* a ridge and an instruction to install it, and whether a downspout's destination or attachment point is intended. The source's away-from-house drainage line is preserved without an invented slope or discharge detail. These are internal review notes; learner vocabulary can use direct technical terms once selected.
+
+The archived six mode labels have no authored prompt/target pairs. Forms and speaking are archived evidence, not selected activities. Every `selectedJapanese` and `audioScript` is null; `reviewed:false`, registration false and every learner, scoring, audio/listening, offline, saved-progress, browser and V4 gate is false. No synthesis, listening approval or recording reuse occurred. Qualified source/Japanese/roofing/dictionary review, six modes, forms/speaking, saved-item mapping, exact-pair web/offline/native checks and per-clip listening remain open.
+
+Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural validation is not qualified approval.

@@ -1,0 +1,269 @@
+{
+  "schema": 1,
+  "state": "source-only-reader-gap-review",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "lesson": 17,
+  "moduleId": "master-construction-foreman-ja-en",
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false,
+  "source": {
+    "readerPath": "public/lesson-content/es/master-construction-foreman.json",
+    "curriculumPath": "src/data/core60/es/master-construction-foreman.json",
+    "translationDraftPath": "content/japanese-construction-foreman/master-translation-16-18-draft.json",
+    "readerSHA256": "549b47cf51253f5c5ac4f19bf2fdae52fa93ae8ea996377cc32e0c0fab896d11",
+    "curriculumSHA256": "96f86e3e51ba346918f539810bcc996cb41ceaaf9268af02fa595c333800dce2",
+    "translationDraftSHA256": "26df8b535afb74bfb88b800ac9a28b61973542ffa05d3e71370d49e9b91772e4",
+    "sourceReaderTitleSpanish": "Bitácora del colado cancelado",
+    "sourceLessonTitleEnglish": "Daily Log After the Pump Truck No-Show",
+    "sourceObjectiveEnglish": "Write the daily log in clear written Spanish: work done, lost hours and cause, who was notified and next steps.",
+    "sourceSpeakingEnglish": "You are the foreman, and the AI is project manager Elena Cruz: read her your daily log on the pump truck no-show, covering work done, lost hours and cause, who was notified and next steps, using debido a, por lo tanto, sin embargo and cabe señalar que."
+  },
+  "historicalPrivateReader": {
+    "lesson17OriginalReaderDraftPresent": false,
+    "reuseDecision": null
+  },
+  "openDomainReview": [
+    {
+      "sourceLocation": "Reader 1–7 and lesson speaking",
+      "question": "Preserve Raúl Medina as foreman of a dental-clinic build and Elena Cruz as project manager. The concrete pump truck was due at 7:00, eight workers were ready at 6:30, and dispatch reported at 8:00 that its operator was sick with no substitute. Attribute the delay to staffing, not weather. Review Japanese trade and reporting terms with qualified construction personnel.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 8–13",
+      "question": "Distinguish ready-mix concrete ordered for 7:30 from the plant holding its trucks before departure, avoiding the feared waste. Four hours of work were lost due to the missing pump truck, and Raúl records each worker's hours. During downtime the crew tied missing rebar in the north corner, checked formwork and cleaned the pour area. Review Japanese terms for pump truck, ready-mix, rebar, formwork and pour.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 14–18",
+      "question": "Elena was notified by phone at 8:15, and Raúl requested written confirmation of the new schedule from the pump company. The pour moved to tomorrow. He will call dispatch at 6:00 to confirm the pump truck is on its way, then sends Elena the daily log for forwarding to the owner. Preserve who was notified, the written-confirmation request and the next-step ownership.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 2, 4–5, 7, 9–10, 13–18; lesson grammar",
+      "question": "The source teaches formal written daily-log connectors debido a, por lo tanto, sin embargo and cabe señalar que, with some passive or impersonal constructions. Review how Japanese written-log register conveys these meanings before selecting full Reader turns, authored mode targets or recording scripts. The eight phrase fragments omit narrative context and are not full Reader translations.",
+      "qualifiedDecision": null
+    }
+  ],
+  "rows": [
+    {
+      "id": "master-construction-foreman-ja-en:lesson:17:reader:line:1",
+      "sourceSpanish": "Raúl Medina, el capataz de la obra de una clínica dental, escribe la bitácora diaria para la gerente de proyecto Elena Cruz.",
+      "sourceEnglish": "Raúl Medina, the foreman on a dental clinic build, writes the daily log for project manager Elena Cruz.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:17:reader:line:2",
+      "sourceSpanish": "Raúl empieza con el hecho principal: La bomba estaba programada para las 7:00 y no llegó.",
+      "sourceEnglish": "Raúl starts with the main fact: The pump truck was scheduled for 7:00 and did not arrive.",
+      "speaker": "Raúl starts with the main fact",
+      "conditionalJapanesePhrase": "ポンプ車の予定時刻は7:00でしたが、到着しませんでした。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:17:reader:line:3",
+      "sourceSpanish": "La bomba de concreto iba a colar la losa del área de recepción, y la cuadrilla de 8 trabajadores estaba lista desde las 6:30.",
+      "sourceEnglish": "The concrete pump truck was going to pour the slab for the reception area, and the crew of 8 workers had been ready since 6:30.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:17:reader:line:4",
+      "sourceSpanish": "Raúl anota: Cabe señalar que se llamó al despacho 3 veces.",
+      "sourceEnglish": "Raúl notes: It should be noted that dispatch was called 3 times.",
+      "speaker": "Raúl notes",
+      "conditionalJapanesePhrase": "なお、配車センターへは3回電話しました。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:17:reader:line:5",
+      "sourceSpanish": "Sin embargo, la compañía de bombeo nunca avisó del retraso antes de la hora programada.",
+      "sourceEnglish": "However, the pump company never gave notice of the delay before the scheduled time.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:17:reader:line:6",
+      "sourceSpanish": "A las 8:00, el despacho informó que el operador de la bomba se reportó enfermo y no había otro operador disponible.",
+      "sourceEnglish": "At 8:00, the dispatch office reported that the pump operator had called in sick and no other operator was available.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:17:reader:line:7",
+      "sourceSpanish": "Por lo tanto, el motivo del retraso fue la falta de personal, no las condiciones del clima, que fueron buenas.",
+      "sourceEnglish": "Therefore, the reason for the delay was a lack of staff, not the weather conditions, which were good.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:17:reader:line:8",
+      "sourceSpanish": "El concreto premezclado ya estaba pedido para las 7:30, y Raúl temía que se desperdiciara.",
+      "sourceEnglish": "The ready-mix concrete had already been ordered for 7:30, and Raúl was afraid it would go to waste.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:17:reader:line:9",
+      "sourceSpanish": "Sin embargo, la planta detuvo los camiones antes de que salieran.",
+      "sourceEnglish": "However, the plant held the trucks before they left.",
+      "speaker": null,
+      "conditionalJapanesePhrase": "しかし、生コン工場は出発前に生コン車の出荷を止めました。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:17:reader:line:10",
+      "sourceSpanish": "Raúl escribe: Debido a la falta de bomba, se perdieron 4 horas de trabajo.",
+      "sourceEnglish": "Raúl writes: Due to the missing pump truck, 4 hours of work were lost.",
+      "speaker": "Raúl writes",
+      "conditionalJapanesePhrase": "ポンプ車の未着により、作業時間を4時間ロスしました。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:17:reader:line:11",
+      "sourceSpanish": "Él anota las horas perdidas de cada trabajador porque Elena tiene que explicarle el costo al dueño de la obra.",
+      "sourceEnglish": "He records the lost hours for each worker because Elena has to explain the cost to the owner.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:17:reader:line:12",
+      "sourceSpanish": "En las actividades realizadas, Raúl anota que durante el tiempo muerto la cuadrilla amarró el acero que faltaba en la esquina norte.",
+      "sourceEnglish": "Under the work performed, Raúl notes that during the downtime the crew tied the missing rebar in the north corner.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:17:reader:line:13",
+      "sourceSpanish": "Además, la cuadrilla revisó la cimbra y limpió el área de colado.",
+      "sourceEnglish": "In addition, the crew checked the formwork and cleaned the pour area.",
+      "speaker": null,
+      "conditionalJapanesePhrase": "また、作業班は型枠を点検し、打設箇所を清掃しました。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:17:reader:line:14",
+      "sourceSpanish": "Se notificó a Elena Cruz por teléfono a las 8:15.",
+      "sourceEnglish": "Elena Cruz was notified by phone at 8:15.",
+      "speaker": null,
+      "conditionalJapanesePhrase": "8:15、エレナ・クルス氏に電話で連絡しました。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:17:reader:line:15",
+      "sourceSpanish": "También, Raúl le pidió a la compañía de bombeo una confirmación por escrito del nuevo horario.",
+      "sourceEnglish": "Also, Raúl asked the pump company for written confirmation of the new schedule.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:17:reader:line:16",
+      "sourceSpanish": "Por lo tanto, el colado se reprogramó para mañana.",
+      "sourceEnglish": "Therefore, the pour was rescheduled for tomorrow.",
+      "speaker": null,
+      "conditionalJapanesePhrase": "したがって、打設の日程を明日に変更しました。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:17:reader:line:17",
+      "sourceSpanish": "En los próximos pasos, Raúl anota que llamará al despacho a las 6:00 para confirmar que la bomba de concreto va en camino.",
+      "sourceEnglish": "Under the next steps, Raúl notes that he will call the dispatch office at 6:00 to confirm that the concrete pump truck is on its way.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:17:reader:line:18",
+      "sourceSpanish": "Al terminar, Raúl le dice por teléfono: Elena, le mando la bitácora para que la reenvíe al dueño.",
+      "sourceEnglish": "When he finishes, Raúl tells her by phone: Elena, I'm sending you the log so you can forward it to the owner.",
+      "speaker": "When he finishes, Raúl tells her by phone",
+      "conditionalJapanesePhrase": "クルスさん、発注者へ転送していただけるよう、作業日誌をお送りします。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    }
+  ],
+  "reviewGates": {
+    "qualifiedJapaneseReview": false,
+    "qualifiedConstructionReview": false,
+    "sourceTechnicalQuestionsResolved": false,
+    "sourceParity": false,
+    "dictionarySenses": false,
+    "sixAuthoredModes": false,
+    "forms": false,
+    "speaking": false,
+    "audioText": false,
+    "audioListening": false,
+    "savedItemMigration": false,
+    "ownerRoute": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "progress": false,
+    "v4Native": false
+  }
+}

@@ -1,0 +1,514 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:7:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "verbs": {
+      "path": "public/lesson-content/es/roofing.json",
+      "sha256": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-7-9-draft.json",
+      "sha256": "ee8b5cf7f84737304290cb829d471df26484e25cd32c937fdbcacb63f5e91aaa"
+    }
+  },
+  "orderedSourceRowsSha256": "5256464aa1794ac3606b3ba1776b87736ae91c6b40b0d5f1627feb02bf997d45",
+  "sourceEnglishTitle": "Tear-Off Scope",
+  "sourceEnglishObjective": "Tell the crew exactly what to remove",
+  "sourceEnglishSpeaking": "Give the command 'Tear off everything down to the deck' and ask for confirmation.",
+  "sourceSpanishReaderTitle": "Qué se quita hoy",
+  "candidateObjective": "撤去する層と材料を作業班に具体的に伝える。",
+  "candidateFocus": "～まで marks the removal endpoint; ～も adds another component. ～を撤去してください gives an instruction, and ～を理解しましたか checks understanding.",
+  "archivedForms": [
+    {
+      "base": "撤去する",
+      "exampleJa": "屋根下地まで全て撤去してください。",
+      "meaningEnglish": "to remove, to tear off",
+      "exampleEnglish": "Tear off everything down to the deck.",
+      "sourceInfinitiveSpanish": "quitar"
+    },
+    {
+      "base": "投げ入れる",
+      "exampleJa": "シングル材を廃材用コンテナに投げ入れてください。",
+      "meaningEnglish": "to throw, to toss",
+      "exampleEnglish": "Throw the shingles into the dumpster.",
+      "sourceInfinitiveSpanish": "tirar"
+    },
+    {
+      "base": "使う",
+      "exampleJa": "バールは注意して使ってください。",
+      "meaningEnglish": "to use",
+      "exampleEnglish": "Use the pry bar carefully.",
+      "sourceInfinitiveSpanish": "usar"
+    },
+    {
+      "base": "理解する",
+      "exampleJa": "何を撤去するか理解しましたか。",
+      "meaningEnglish": "to understand",
+      "exampleEnglish": "Do you understand what must be removed?",
+      "sourceInfinitiveSpanish": "entender"
+    },
+    {
+      "base": "始まる",
+      "exampleJa": "今日、既存の屋根の撤去が始まります。",
+      "meaningEnglish": "to begin, to start",
+      "exampleEnglish": "Today the tear-off of the old roof begins.",
+      "sourceInfinitiveSpanish": "empezar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "屋根下地まで全て撤去してください。何を撤去するか理解しましたか。",
+    "goal": "Give the command 'Tear off everything down to the deck' and ask for confirmation."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the nine-turn tear-off scene and exact 15-card source order: old roof, all layers including underlayment, flashing, pry bar, designated dumpster, and the foreman's two confirmation questions. Spanish source specifies asphalt shingles while English is generic; resolve material, structural deck, underlayment/felt and flashing senses with qualified Japanese/roofing reviewers. These commands describe this job's stated scope, not a universal tear-off method or approval to remove retained components. Archived Japanese and forms/speaking are evidence only; this packet creates no learner, audio, scoring or saved-progress identity.",
+  "cards": [
+    {
+      "id": "roofing:7:ja-en:card:1",
+      "legacySourceRef": "roofing:7:ja-en:cards:1",
+      "sourceSpanish": "Desmontaje",
+      "sourceEnglish": "tear-off",
+      "sourceNoteSpanish": "también: retiro del techo viejo",
+      "kind": "term",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "既存屋根材の撤去",
+      "archivedJapanese": "既存屋根材の撤去",
+      "archivedEnglish": "tear-off",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:card:2",
+      "legacySourceRef": "roofing:7:ja-en:cards:2",
+      "sourceSpanish": "Tejas asfálticas",
+      "sourceEnglish": "shingles",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "シングル材",
+      "archivedEnglish": "shingles",
+      "reviewNote": "Spanish Tejas asfálticas specifies asphalt shingles; archived シングル材 is generic. Decide whether material specificity belongs in the Japanese face, Reader disposal line, dictionary and modes.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:card:3",
+      "legacySourceRef": "roofing:7:ja-en:cards:3",
+      "sourceSpanish": "Cubierta",
+      "sourceEnglish": "deck",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根下地",
+      "archivedEnglish": "deck",
+      "reviewNote": "Deck is the structural roof deck at the tear-off endpoint; archived 屋根下地 could mean underlayment or general substrate. Choose a trade-precise term before scored commands.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:card:4",
+      "legacySourceRef": "roofing:7:ja-en:cards:4",
+      "sourceSpanish": "Techo viejo",
+      "sourceEnglish": "old roof",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "既存の屋根",
+      "archivedEnglish": "old roof",
+      "reviewNote": "Old roof in the source is broader than archived 既存の屋根 (existing roof). Confirm whether old/age and complete roof versus covering must be explicit.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:card:5",
+      "legacySourceRef": "roofing:7:ja-en:cards:5",
+      "sourceSpanish": "Capa",
+      "sourceEnglish": "layer",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "層",
+      "archivedJapanese": "層",
+      "archivedEnglish": "layer",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:card:6",
+      "legacySourceRef": "roofing:7:ja-en:cards:6",
+      "sourceSpanish": "Alcance del trabajo",
+      "sourceEnglish": "scope of work",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "作業範囲",
+      "archivedJapanese": "作業範囲",
+      "archivedEnglish": "scope of work",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:card:7",
+      "legacySourceRef": "roofing:7:ja-en:cards:7",
+      "sourceSpanish": "Sub-capa / Fieltro",
+      "sourceEnglish": "underlayment",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ルーフィング",
+      "archivedEnglish": "underlayment",
+      "reviewNote": "Sub-capa / Fieltro may imply felt or underlayment, while archived ルーフィング can name roofing material more broadly. Resolve layer/material scope.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:card:8",
+      "legacySourceRef": "roofing:7:ja-en:cards:8",
+      "sourceSpanish": "Barreta",
+      "sourceEnglish": "pry bar",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "バール",
+      "archivedJapanese": "バール",
+      "archivedEnglish": "pry bar",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:card:9",
+      "legacySourceRef": "roofing:7:ja-en:cards:9",
+      "sourceSpanish": "Tapajuntas / Flashing",
+      "sourceEnglish": "flashing",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "水切り板金",
+      "archivedEnglish": "flashing",
+      "reviewNote": "Tapajuntas / flashing is a broad component; archived 水切り板金 may narrow to edge flashing. Confirm the component before removal instruction.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:card:10",
+      "legacySourceRef": "roofing:7:ja-en:cards:10",
+      "sourceSpanish": "Quiten todo hasta llegar a la cubierta.",
+      "sourceEnglish": "Tear off everything down to the deck.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根下地まで全て撤去してください。",
+      "archivedEnglish": "Tear off everything down to the deck.",
+      "reviewNote": "This scene's command removes everything down to the structural deck; archived 屋根下地 and 全て must not silently approve universal full tear-off or change the endpoint.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:card:11",
+      "legacySourceRef": "roofing:7:ja-en:cards:11",
+      "sourceSpanish": "Tiren las tejas al contenedor.",
+      "sourceEnglish": "Throw the shingles into the dumpster.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "シングル材を廃材用コンテナに投げ入れてください。",
+      "archivedEnglish": "Throw the shingles into the dumpster.",
+      "reviewNote": "Inherits asphalt-shingle specificity from card 2; disposal command is scene-specific and must match the source's designated dumpster.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:card:12",
+      "legacySourceRef": "roofing:7:ja-en:cards:12",
+      "sourceSpanish": "Quiten todas las capas.",
+      "sourceEnglish": "Remove all the layers.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "全ての層を撤去してください。",
+      "archivedEnglish": "Remove all the layers.",
+      "reviewNote": "Remove all the layers is the source scene's scope, not a universal procedure; confirm with site-approved work scope and safety review.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:card:13",
+      "legacySourceRef": "roofing:7:ja-en:cards:13",
+      "sourceSpanish": "Quiten también el tapajuntas.",
+      "sourceEnglish": "Tear off the flashing too.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "水切り板金も撤去してください。",
+      "archivedEnglish": "Tear off the flashing too.",
+      "reviewNote": "The source explicitly removes flashing too in this job. Preserve scope without implying all projects remove flashing; align with card 9 and Reader 5.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:card:14",
+      "legacySourceRef": "roofing:7:ja-en:cards:14",
+      "sourceSpanish": "¿Entienden qué hay que quitar?",
+      "sourceEnglish": "Do you understand what must be removed?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "何を撤去するか理解しましたか。",
+      "archivedJapanese": "何を撤去するか理解しましたか。",
+      "archivedEnglish": "Do you understand what must be removed?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:card:15",
+      "legacySourceRef": "roofing:7:ja-en:cards:15",
+      "sourceSpanish": "¿Está claro?",
+      "sourceEnglish": "Is that clear?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "分かりましたか。",
+      "archivedJapanese": "分かりましたか。",
+      "archivedEnglish": "Is that clear?",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:7:ja-en:line:1",
+      "legacySourceRef": "roofing:7:ja-en:reader:1",
+      "sourceSpanish": "Hoy empieza el desmontaje del techo viejo.",
+      "sourceEnglish": "Today the tear-off of the old roof begins.",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "今日、既存の屋根の撤去が始まります。",
+      "archivedEnglish": "Today the tear-off of the old roof begins.",
+      "reviewNote": "Archived 既存の屋根 says existing roof; source says old roof. Confirm old/age and removal scope in the scene.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:line:2",
+      "legacySourceRef": "roofing:7:ja-en:reader:2",
+      "sourceSpanish": "El capataz explica el alcance del trabajo.",
+      "sourceEnglish": "The foreman explains the scope of work.",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "職長が作業範囲を説明します。",
+      "archivedJapanese": "職長が作業範囲を説明します。",
+      "archivedEnglish": "The foreman explains the scope of work.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:line:3",
+      "legacySourceRef": "roofing:7:ja-en:reader:3",
+      "sourceSpanish": "Quiten todo hasta llegar a la cubierta.",
+      "sourceEnglish": "Tear off everything down to the deck.",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根下地まで全て撤去してください。",
+      "archivedEnglish": "Tear off everything down to the deck.",
+      "reviewNote": "Structural deck endpoint and all-material scope inherit card 10's unresolved terminology and job-specific safety decision.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:line:4",
+      "legacySourceRef": "roofing:7:ja-en:reader:4",
+      "sourceSpanish": "Quiten todas las capas, también la sub-capa.",
+      "sourceEnglish": "Remove all the layers, including the underlayment.",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ルーフィングを含め、全ての層を撤去してください。",
+      "archivedEnglish": "Remove all the layers, including the underlayment.",
+      "reviewNote": "All layers including underlayment must preserve source scope; resolve ルーフィング versus felt and approved tear-off plan.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:line:5",
+      "legacySourceRef": "roofing:7:ja-en:reader:5",
+      "sourceSpanish": "Quiten también el tapajuntas.",
+      "sourceEnglish": "Tear off the flashing too.",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "水切り板金も撤去してください。",
+      "archivedEnglish": "Tear off the flashing too.",
+      "reviewNote": "Flashing removal is explicit in this scene, but Japanese component wording and actual work scope require source/trade review.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:line:6",
+      "legacySourceRef": "roofing:7:ja-en:reader:6",
+      "sourceSpanish": "Usen la barreta con cuidado.",
+      "sourceEnglish": "Use the pry bar carefully.",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "バールは注意して使ってください。",
+      "archivedJapanese": "バールは注意して使ってください。",
+      "archivedEnglish": "Use the pry bar carefully.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:line:7",
+      "legacySourceRef": "roofing:7:ja-en:reader:7",
+      "sourceSpanish": "Tiren las tejas al contenedor.",
+      "sourceEnglish": "Throw the shingles into the dumpster.",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "シングル材を廃材用コンテナに投げ入れてください。",
+      "archivedEnglish": "Throw the shingles into the dumpster.",
+      "reviewNote": "Shingles are asphalt in Spanish source; archived シングル材 omits asphalt. Keep the designated dumpster, not a new disposal method.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:line:8",
+      "legacySourceRef": "roofing:7:ja-en:reader:8",
+      "sourceSpanish": "¿Entienden qué hay que quitar?",
+      "sourceEnglish": "Do you understand what must be removed?",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "何を撤去するか理解しましたか。",
+      "archivedJapanese": "何を撤去するか理解しましたか。",
+      "archivedEnglish": "Do you understand what must be removed?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:7:ja-en:line:9",
+      "legacySourceRef": "roofing:7:ja-en:reader:9",
+      "sourceSpanish": "¿Está claro?",
+      "sourceEnglish": "Is that clear?",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "分かりましたか。",
+      "archivedJapanese": "分かりましたか。",
+      "archivedEnglish": "Is that clear?",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "quitar",
+      "englishMeaning": "to remove, to tear off",
+      "sourceSpanish": "Quiten todo hasta llegar a la cubierta.",
+      "sourceEnglish": "Tear off everything down to the deck.",
+      "sourceNote": "Regular -ar verb. Foreman to the crew: use the ustedes command quiten."
+    },
+    {
+      "spanishInfinitive": "tirar",
+      "englishMeaning": "to throw, to toss",
+      "sourceSpanish": "Tiren las tejas al contenedor.",
+      "sourceEnglish": "Throw the shingles into the dumpster.",
+      "sourceNote": "Regular -ar verb. Ustedes command: tiren."
+    },
+    {
+      "spanishInfinitive": "usar",
+      "englishMeaning": "to use",
+      "sourceSpanish": "Usen la barreta con cuidado.",
+      "sourceEnglish": "Use the pry bar carefully.",
+      "sourceNote": "Regular -ar verb. Ustedes command: usen."
+    },
+    {
+      "spanishInfinitive": "entender",
+      "englishMeaning": "to understand",
+      "sourceSpanish": "¿Entienden qué hay que quitar?",
+      "sourceEnglish": "Do you understand what must be removed?",
+      "sourceNote": "Stem change e to ie in every form except nosotros."
+    },
+    {
+      "spanishInfinitive": "empezar",
+      "englishMeaning": "to begin, to start",
+      "sourceSpanish": "Hoy empieza el desmontaje del techo viejo.",
+      "sourceEnglish": "Today the tear-off of the old roof begins.",
+      "sourceNote": "Stem change e to ie in every form except nosotros."
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find every layer named for removal in the reading.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall the terms for tear-off, roof deck, and flashing.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 屋根下地 from 水切り板金 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Tear off everything down to the deck.' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Give the removal instruction and ask the crew to confirm it.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write which layers and components the scope includes.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

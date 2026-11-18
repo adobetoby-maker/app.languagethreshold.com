@@ -1,0 +1,499 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:10:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "verbs": {
+      "path": "public/lesson-content/es/roofing.json",
+      "sha256": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-10-12-draft.json",
+      "sha256": "3656b886a0b2072b1b6adad6418248cf641d3f41861bcb563d2ebb2a7bcafc38"
+    }
+  },
+  "orderedSourceRowsSha256": "01a4ffa5eb83c9ea1135a5668792ad17361eefcf7da1573e94d28a0414290506",
+  "sourceEnglishTitle": "Tarp the Unfinished Roof",
+  "sourceEnglishObjective": "Close an unfinished work area before departure",
+  "sourceEnglishSpeaking": "Explain which section needs a tarp and have the crew repeat the plan.",
+  "sourceSpanishReaderTitle": "Lona antes de la lluvia",
+  "candidateObjective": "帰る前に未完成の屋根部分を示し、養生の段取りを作業班に伝える。",
+  "candidateFocus": "～前に places an action before departure; ～ない部分 identifies unfinished work. ～たら expresses a change in conditions, and ～てください gives a direct crew instruction.",
+  "archivedForms": [
+    {
+      "base": "覆う",
+      "exampleJa": "帰る前にこの部分を覆ってください。",
+      "meaningEnglish": "to cover",
+      "exampleEnglish": "Cover this section before we leave.",
+      "sourceInfinitiveSpanish": "cubrir"
+    },
+    {
+      "base": "固定する",
+      "exampleJa": "ロープで養生シートをしっかり固定してください。",
+      "meaningEnglish": "to tie down",
+      "exampleEnglish": "Tie the tarp down well with the rope.",
+      "sourceInfinitiveSpanish": "amarrar"
+    },
+    {
+      "base": "止める",
+      "exampleJa": "天候が変わったら作業を止めてください。",
+      "meaningEnglish": "to stop",
+      "exampleEnglish": "Stop work if the weather changes.",
+      "sourceInfinitiveSpanish": "detener"
+    },
+    {
+      "base": "下りる",
+      "exampleJa": "天候が変わったら屋根から下ります。",
+      "meaningEnglish": "to come down",
+      "exampleEnglish": "We come down off the roof if the weather changes.",
+      "sourceInfinitiveSpanish": "bajar"
+    },
+    {
+      "base": "繰り返す",
+      "exampleJa": "確認のため、段取りを繰り返します。",
+      "meaningEnglish": "to repeat",
+      "exampleEnglish": "We repeat the plan to confirm.",
+      "sourceInfinitiveSpanish": "repetir"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "裏側の未完成部分に養生シートを掛けてください。段取りを繰り返して確認しましょう。",
+    "goal": "Explain which section needs a tarp and have the crew repeat the plan."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the exact nine-turn 4:00 windy scene: forecast rain tonight, unfinished rear section, open deck at risk, cover before leaving, tarp unfinished work, tie tarp with rope, stop work and come down if conditions change, and repeat the plan. The source teaches conditional commands for this scene, not a universal roof-weather threshold. Resolve structural deck, tarp securement and safe weather egress with qualified Japanese/roofing reviewers before selecting scored answers. Archived Japanese, forms and speaking are evidence only; this packet creates no learner, audio, score or saved-progress identity.",
+  "cards": [
+    {
+      "id": "roofing:10:ja-en:card:1",
+      "legacySourceRef": "roofing:10:ja-en:cards:1",
+      "sourceSpanish": "Lona",
+      "sourceEnglish": "tarp",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "養生シート",
+      "archivedJapanese": "養生シート",
+      "archivedEnglish": "tarp",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:card:2",
+      "legacySourceRef": "roofing:10:ja-en:cards:2",
+      "sourceSpanish": "Sección sin terminar",
+      "sourceEnglish": "unfinished section",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "未完成の部分",
+      "archivedJapanese": "未完成の部分",
+      "archivedEnglish": "unfinished section",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:card:3",
+      "legacySourceRef": "roofing:10:ja-en:cards:3",
+      "sourceSpanish": "Clima",
+      "sourceEnglish": "weather",
+      "sourceNoteSpanish": "también: tiempo",
+      "kind": "term",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "天候",
+      "archivedJapanese": "天候",
+      "archivedEnglish": "weather",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:card:4",
+      "legacySourceRef": "roofing:10:ja-en:cards:4",
+      "sourceSpanish": "Lluvia",
+      "sourceEnglish": "rain",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "雨",
+      "archivedJapanese": "雨",
+      "archivedEnglish": "rain",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:card:5",
+      "legacySourceRef": "roofing:10:ja-en:cards:5",
+      "sourceSpanish": "Viento",
+      "sourceEnglish": "wind",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "風",
+      "archivedJapanese": "風",
+      "archivedEnglish": "wind",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:card:6",
+      "legacySourceRef": "roofing:10:ja-en:cards:6",
+      "sourceSpanish": "Pronóstico del tiempo",
+      "sourceEnglish": "forecast",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "天気予報",
+      "archivedJapanese": "天気予報",
+      "archivedEnglish": "forecast",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:card:7",
+      "legacySourceRef": "roofing:10:ja-en:cards:7",
+      "sourceSpanish": "Cuerda",
+      "sourceEnglish": "rope",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "ロープ",
+      "archivedJapanese": "ロープ",
+      "archivedEnglish": "rope",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:card:8",
+      "legacySourceRef": "roofing:10:ja-en:cards:8",
+      "sourceSpanish": "Gotera",
+      "sourceEnglish": "leak",
+      "sourceNoteSpanish": "también: filtración",
+      "kind": "term",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "雨漏り",
+      "archivedJapanese": "雨漏り",
+      "archivedEnglish": "leak",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:card:9",
+      "legacySourceRef": "roofing:10:ja-en:cards:9",
+      "sourceSpanish": "Cubran con lona lo que no terminen hoy.",
+      "sourceEnglish": "Tarp anything you can't finish today.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "今日終えられない部分には養生シートを掛けてください。",
+      "archivedEnglish": "Tarp anything you can't finish today.",
+      "reviewNote": "The source directs tarping anything unfinished today in this weather scene. Confirm the job-specific work scope and safe method; archived 養生シート may not convey a secured weather tarp in every roofing context.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:card:10",
+      "legacySourceRef": "roofing:10:ja-en:cards:10",
+      "sourceSpanish": "Detengan el trabajo y bajen si cambia el tiempo.",
+      "sourceEnglish": "Stop work and come down if the weather changes.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "天候が変わったら作業を止めて屋根から下りてください。",
+      "archivedEnglish": "Stop work and come down if the weather changes.",
+      "reviewNote": "The source commands stopping work and coming down if weather changes. The real decision depends on site weather/egress/fall-protection plan; do not convert this into a universal threshold or imply descending during unsafe conditions is always safe.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:card:11",
+      "legacySourceRef": "roofing:10:ja-en:cards:11",
+      "sourceSpanish": "Cubran esta sección antes de irnos.",
+      "sourceEnglish": "Cover this section before we leave.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "帰る前にこの部分を覆ってください。",
+      "archivedEnglish": "Cover this section before we leave.",
+      "reviewNote": "Cover this section before leaving refers to the unfinished rear area; qualified safety review must check that it can be covered safely in current wind.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:card:12",
+      "legacySourceRef": "roofing:10:ja-en:cards:12",
+      "sourceSpanish": "Amarren bien la lona.",
+      "sourceEnglish": "Tie down the tarp well.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "養生シートをしっかり固定してください。",
+      "archivedEnglish": "Tie down the tarp well.",
+      "reviewNote": "Tie down the tarp well is a rope-securement action; archived 固定してください omits tying and may imply an unspecified fastening method. Align with Reader 7.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:card:13",
+      "legacySourceRef": "roofing:10:ja-en:cards:13",
+      "sourceSpanish": "Esta noche va a llover.",
+      "sourceEnglish": "Rain is coming tonight.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "今夜は雨が降ります。",
+      "archivedJapanese": "今夜は雨が降ります。",
+      "archivedEnglish": "Rain is coming tonight.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:card:14",
+      "legacySourceRef": "roofing:10:ja-en:cards:14",
+      "sourceSpanish": "Repitan el plan para confirmar.",
+      "sourceEnglish": "Repeat the plan to confirm.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "確認のため、段取りを繰り返してください。",
+      "archivedJapanese": "確認のため、段取りを繰り返してください。",
+      "archivedEnglish": "Repeat the plan to confirm.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:10:ja-en:line:1",
+      "legacySourceRef": "roofing:10:ja-en:reader:1",
+      "sourceSpanish": "Son las 4:00 de la tarde y hay viento.",
+      "sourceEnglish": "It is 4:00 in the afternoon and it is windy.",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "午後四時で、風が吹いています。",
+      "archivedJapanese": "午後四時で、風が吹いています。",
+      "archivedEnglish": "It is 4:00 in the afternoon and it is windy.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:line:2",
+      "legacySourceRef": "roofing:10:ja-en:reader:2",
+      "sourceSpanish": "El pronóstico del tiempo dice que esta noche va a llover.",
+      "sourceEnglish": "The weather forecast says it will rain tonight.",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "天気予報では今夜は雨が降るそうです。",
+      "archivedJapanese": "天気予報では今夜は雨が降るそうです。",
+      "archivedEnglish": "The weather forecast says it will rain tonight.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:line:3",
+      "legacySourceRef": "roofing:10:ja-en:reader:3",
+      "sourceSpanish": "Hay una sección sin terminar en la parte de atrás.",
+      "sourceEnglish": "There is an unfinished section at the back.",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "裏側には未完成の部分があります。",
+      "archivedJapanese": "裏側には未完成の部分があります。",
+      "archivedEnglish": "There is an unfinished section at the back.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:line:4",
+      "legacySourceRef": "roofing:10:ja-en:reader:4",
+      "sourceSpanish": "La lluvia puede mojar la cubierta abierta.",
+      "sourceEnglish": "Rain can wet the open deck.",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "雨で露出した屋根下地が濡れることがあります。",
+      "archivedEnglish": "Rain can wet the open deck.",
+      "reviewNote": "Open deck is the exposed structural deck, not generic underlayment. Archived 屋根下地 needs a trade-term decision before weather/damage claim is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:line:5",
+      "legacySourceRef": "roofing:10:ja-en:reader:5",
+      "sourceSpanish": "Cubran esta sección antes de irnos.",
+      "sourceEnglish": "Cover this section before we leave.",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "帰る前にこの部分を覆ってください。",
+      "archivedEnglish": "Cover this section before we leave.",
+      "reviewNote": "The rear unfinished section must be covered before departure; ensure the Japanese line stays inside the scene's safe work plan and does not become generic roofing advice.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:line:6",
+      "legacySourceRef": "roofing:10:ja-en:reader:6",
+      "sourceSpanish": "Cubran con lona lo que no terminen hoy.",
+      "sourceEnglish": "Tarp anything you can't finish today.",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "今日終えられない部分には養生シートを掛けてください。",
+      "archivedEnglish": "Tarp anything you can't finish today.",
+      "reviewNote": "The source calls for tarping unfinished work today; weather, wind and safe tarp installation method need qualified roofing review.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:line:7",
+      "legacySourceRef": "roofing:10:ja-en:reader:7",
+      "sourceSpanish": "Amarren bien la lona con la cuerda.",
+      "sourceEnglish": "Tie the tarp down well with the rope.",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロープで養生シートをしっかり固定してください。",
+      "archivedEnglish": "Tie the tarp down well with the rope.",
+      "reviewNote": "Amarren with rope explicitly means tie down. Archived 固定 may not preserve the rope action or adequate securement, and wind makes safety context important.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:line:8",
+      "legacySourceRef": "roofing:10:ja-en:reader:8",
+      "sourceSpanish": "Detengan el trabajo y bajen si cambia el tiempo.",
+      "sourceEnglish": "Stop work and come down if the weather changes.",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "天候が変わったら作業を止めて屋根から下りてください。",
+      "archivedEnglish": "Stop work and come down if the weather changes.",
+      "reviewNote": "Stop work and come down if weather changes is a source instruction requiring site-specific weather/egress/fall-protection review; do not invent a universal threshold.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:10:ja-en:line:9",
+      "legacySourceRef": "roofing:10:ja-en:reader:9",
+      "sourceSpanish": "Repitan el plan para confirmar.",
+      "sourceEnglish": "Repeat the plan to confirm.",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "candidateJapanese": "確認のため、段取りを繰り返してください。",
+      "archivedJapanese": "確認のため、段取りを繰り返してください。",
+      "archivedEnglish": "Repeat the plan to confirm.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "cubrir",
+      "englishMeaning": "to cover",
+      "sourceSpanish": "Cubran esta sección antes de irnos.",
+      "sourceEnglish": "Cover this section before we leave.",
+      "sourceNote": "Regular in the present. Crew command: cubran. The past participle is irregular (cubierto), but you don't need it yet."
+    },
+    {
+      "spanishInfinitive": "amarrar",
+      "englishMeaning": "to tie down",
+      "sourceSpanish": "Amarren bien la lona con la cuerda.",
+      "sourceEnglish": "Tie the tarp down well with the rope.",
+      "sourceNote": "Regular verb. Crew command: amarren."
+    },
+    {
+      "spanishInfinitive": "detener",
+      "englishMeaning": "to stop",
+      "sourceSpanish": "Detengan el trabajo si cambia el tiempo.",
+      "sourceEnglish": "Stop work if the weather changes.",
+      "sourceNote": "Irregular: yo detengo. Stem change e to ie (detienes, detiene, detienen). Crew command: detengan."
+    },
+    {
+      "spanishInfinitive": "bajar",
+      "englishMeaning": "to come down",
+      "sourceSpanish": "Bajamos del techo si cambia el tiempo.",
+      "sourceEnglish": "We come down off the roof if the weather changes.",
+      "sourceNote": "Regular verb. Crew command: bajen."
+    },
+    {
+      "spanishInfinitive": "repetir",
+      "englishMeaning": "to repeat",
+      "sourceSpanish": "Repetimos el plan para confirmar.",
+      "sourceEnglish": "We repeat the plan to confirm.",
+      "sourceNote": "Stem change e to i (repito, repites, repite, repiten). Nosotros stays regular. Crew command: repitan."
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the unfinished section in the scene.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall tarp, forecast, rope, and leak.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 雨 from 風 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Cover this section before we leave.' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Explain which section needs a tarp and ask the crew to repeat the plan.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write the covering sequence before departure.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

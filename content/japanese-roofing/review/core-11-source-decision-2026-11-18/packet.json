@@ -1,0 +1,421 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:11:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-10-12-draft.json",
+      "sha256": "3656b886a0b2072b1b6adad6418248cf641d3f41861bcb563d2ebb2a7bcafc38"
+    }
+  },
+  "sourceEnglishTitle": "First-Course Layout",
+  "sourceEnglishObjective": "Describe the chalk line and first course",
+  "sourceEnglishSpeaking": "Show a new worker where to run the first-course chalk line.",
+  "sourceSpanishReaderTitle": "La línea de tiza",
+  "candidateObjective": "最初の段の墨線、軒先、スターター材の位置を説明する。",
+  "candidateFocus": "～から marks the measurement starting point; ～に沿って marks placement along an edge. ～てから orders measuring and marking before laying the first course.",
+  "archivedForms": [
+    {
+      "base": "測る",
+      "exampleJa": "職長は軒先の端から測ります。",
+      "meaningEnglish": "to measure",
+      "exampleEnglish": "The foreman measures from the edge of the eave.",
+      "sourceInfinitiveSpanish": "medir"
+    },
+    {
+      "base": "墨線を引く",
+      "exampleJa": "作業員は最初の段のために墨線を引きます。",
+      "meaningEnglish": "to run (a line), to mark out",
+      "exampleEnglish": "The workers run a chalk line for the first course.",
+      "sourceInfinitiveSpanish": "trazar"
+    },
+    {
+      "base": "始める",
+      "exampleJa": "作業員はここ、軒先から始めます。",
+      "meaningEnglish": "to start",
+      "exampleEnglish": "The workers start here at the eave.",
+      "sourceInfinitiveSpanish": "empezar"
+    },
+    {
+      "base": "置く",
+      "exampleJa": "スターター材を軒先に沿って置きます。",
+      "meaningEnglish": "to put, to place",
+      "exampleEnglish": "They put the starter strip along the eave.",
+      "sourceInfinitiveSpanish": "poner"
+    },
+    {
+      "base": "確認する",
+      "exampleJa": "職長はもう一度寸法を確認します。",
+      "meaningEnglish": "to check",
+      "exampleEnglish": "The foreman checks the measurement again.",
+      "sourceInfinitiveSpanish": "revisar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "最初の段の墨線はここに引いてください。軒先の端から測ります。",
+    "goal": "Show a new worker where to run the first-course chalk line."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the current first-course layout: tape measure from the eave edge, points associated with the plan, a chalk line for the first shingle row, two workers stretching/snapping it, a straightness check, starter placement along the eave, and the specified overhang measurement on the job plan. Source English/Spanish have a plan-point ambiguity; hold it for source/roofing review. Archived ink-line, generic tier, material strip and eave-projection senses are conditional only. The source curriculum has no authored verb-example list; archived forms remain conditional evidence. No selected learner/audio text or progress identity is created.",
+  "sourceVerbExamples": null,
+  "cards": [
+    {
+      "id": "roofing:11:ja-en:card:1",
+      "legacySourceRef": "roofing:11:ja-en:cards:1",
+      "sourceSpanish": "Línea de tiza",
+      "sourceEnglish": "chalk line",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "墨線",
+      "archivedEnglish": "chalk line",
+      "reviewNote": "Source specifies a chalk line (línea de tiza). Archived 墨線 is an ink line; confirm Japanese chalk-line terminology and avoid changing the layout medium.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:11:ja-en:card:2",
+      "legacySourceRef": "roofing:11:ja-en:cards:2",
+      "sourceSpanish": "Primera hilera",
+      "sourceEnglish": "first course",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "最初の段",
+      "archivedEnglish": "first course",
+      "reviewNote": "First course / primera hilera is the first shingle row; archived 最初の段 may mean a generic stage or tier. Confirm trade wording.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:11:ja-en:card:3",
+      "legacySourceRef": "roofing:11:ja-en:cards:3",
+      "sourceSpanish": "Hilera inicial",
+      "sourceEnglish": "starter strip",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "スターター材",
+      "archivedEnglish": "starter strip",
+      "reviewNote": "Source pairs starter strip with hilera inicial (starter row). Archived スターター材 names a material; confirm whether a manufactured strip or installed starter course is intended.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:11:ja-en:card:4",
+      "legacySourceRef": "roofing:11:ja-en:cards:4",
+      "sourceSpanish": "Alero",
+      "sourceEnglish": "eave",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "軒先",
+      "archivedJapanese": "軒先",
+      "archivedEnglish": "eave",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:11:ja-en:card:5",
+      "legacySourceRef": "roofing:11:ja-en:cards:5",
+      "sourceSpanish": "Cinta métrica",
+      "sourceEnglish": "tape measure",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "巻き尺",
+      "archivedJapanese": "巻き尺",
+      "archivedEnglish": "tape measure",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:11:ja-en:card:6",
+      "legacySourceRef": "roofing:11:ja-en:cards:6",
+      "sourceSpanish": "Medida",
+      "sourceEnglish": "measurement",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "寸法",
+      "archivedJapanese": "寸法",
+      "archivedEnglish": "measurement",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:11:ja-en:card:7",
+      "legacySourceRef": "roofing:11:ja-en:cards:7",
+      "sourceSpanish": "Recto",
+      "sourceEnglish": "straight",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "まっすぐ",
+      "archivedJapanese": "まっすぐ",
+      "archivedEnglish": "straight",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:11:ja-en:card:8",
+      "legacySourceRef": "roofing:11:ja-en:cards:8",
+      "sourceSpanish": "Vuelo",
+      "sourceEnglish": "overhang",
+      "sourceNoteSpanish": "del alero",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "軒先の出幅",
+      "archivedEnglish": "overhang",
+      "reviewNote": "Overhang / vuelo del alero is a plan measurement. Archived 軒先の出幅 may mean the eave's building projection rather than the starter/shingle overhang; source/trade decision needed.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:11:ja-en:card:9",
+      "legacySourceRef": "roofing:11:ja-en:cards:9",
+      "sourceSpanish": "Tracen una línea de tiza para la primera hilera.",
+      "sourceEnglish": "Run a chalk line for the first course.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "最初の段のために墨線を引いてください。",
+      "archivedEnglish": "Run a chalk line for the first course.",
+      "reviewNote": "Inherits card 1 chalk-versus-ink and card 2 first-course meaning; do not select a layout instruction until both are resolved.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:11:ja-en:card:10",
+      "legacySourceRef": "roofing:11:ja-en:cards:10",
+      "sourceSpanish": "Empiecen aquí en el alero.",
+      "sourceEnglish": "Start here at the eave.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "ここ、軒先から始めてください。",
+      "archivedJapanese": "ここ、軒先から始めてください。",
+      "archivedEnglish": "Start here at the eave.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:11:ja-en:card:11",
+      "legacySourceRef": "roofing:11:ja-en:cards:11",
+      "sourceSpanish": "¿La línea está recta?",
+      "sourceEnglish": "Is the line straight?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "線はまっすぐですか。",
+      "archivedJapanese": "線はまっすぐですか。",
+      "archivedEnglish": "Is the line straight?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:11:ja-en:card:12",
+      "legacySourceRef": "roofing:11:ja-en:cards:12",
+      "sourceSpanish": "Midan desde el borde.",
+      "sourceEnglish": "Measure from the edge.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "端から測ってください。",
+      "archivedJapanese": "端から測ってください。",
+      "archivedEnglish": "Measure from the edge.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:11:ja-en:card:13",
+      "legacySourceRef": "roofing:11:ja-en:cards:13",
+      "sourceSpanish": "Pongan la hilera inicial a lo largo del alero.",
+      "sourceEnglish": "Put the starter strip along the eave.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "スターター材を軒先に沿って置いてください。",
+      "archivedEnglish": "Put the starter strip along the eave.",
+      "reviewNote": "Inherits card 3 starter-strip-versus-starter-course question. Preserve placement along the eave without adding an installation specification.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:11:ja-en:line:1",
+      "legacySourceRef": "roofing:11:ja-en:reader:1",
+      "sourceSpanish": "Primero, el capataz saca la cinta métrica.",
+      "sourceEnglish": "First, the foreman takes out the tape measure.",
+      "selectedJapanese": null,
+      "candidateJapanese": "まず、職長が巻き尺を取り出します。",
+      "archivedJapanese": "まず、職長が巻き尺を取り出します。",
+      "archivedEnglish": "First, the foreman takes out the tape measure.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:11:ja-en:line:2",
+      "legacySourceRef": "roofing:11:ja-en:reader:2",
+      "sourceSpanish": "Mide desde el borde del alero y marca los puntos del plano.",
+      "sourceEnglish": "He measures from the edge of the eave and marks the points on the plan.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "軒先の端から測り、図面に測定点を書き込みます。",
+      "archivedEnglish": "He measures from the edge of the eave and marks the points on the plan.",
+      "reviewNote": "Current English says the foreman marks points on the plan after measuring from the eave; source Spanish can mean plan points. Confirm whether the plan or roof surface receives marks before teaching the action.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:11:ja-en:line:3",
+      "legacySourceRef": "roofing:11:ja-en:reader:3",
+      "sourceSpanish": "Después dice: Tracen una línea de tiza para la primera hilera.",
+      "sourceEnglish": "Then he says: Run a chalk line for the first course.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "そして「最初の段のために墨線を引いてください」と言います。",
+      "archivedEnglish": "Then he says: Run a chalk line for the first course.",
+      "reviewNote": "Inherits card 9 chalk-line medium and first-course wording questions.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:11:ja-en:line:4",
+      "legacySourceRef": "roofing:11:ja-en:reader:4",
+      "sourceSpanish": "Dos obreros estiran la línea y la sueltan.",
+      "sourceEnglish": "Two workers stretch the line and snap it.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "二人の作業員が墨つぼの糸を張り、はじきます。",
+      "archivedEnglish": "Two workers stretch the line and snap it.",
+      "reviewNote": "Source says workers stretch and snap the line. Archived 墨つぼの糸 specifies an ink snap line, which conflicts with source chalk/tiza.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:11:ja-en:line:5",
+      "legacySourceRef": "roofing:11:ja-en:reader:5",
+      "sourceSpanish": "¿La línea está recta?",
+      "sourceEnglish": "Is the line straight?",
+      "selectedJapanese": null,
+      "candidateJapanese": "線はまっすぐですか。",
+      "archivedJapanese": "線はまっすぐですか。",
+      "archivedEnglish": "Is the line straight?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:11:ja-en:line:6",
+      "legacySourceRef": "roofing:11:ja-en:reader:6",
+      "sourceSpanish": "El capataz revisa la medida otra vez.",
+      "sourceEnglish": "The foreman checks the measurement again.",
+      "selectedJapanese": null,
+      "candidateJapanese": "職長がもう一度寸法を確認します。",
+      "archivedJapanese": "職長がもう一度寸法を確認します。",
+      "archivedEnglish": "The foreman checks the measurement again.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:11:ja-en:line:7",
+      "legacySourceRef": "roofing:11:ja-en:reader:7",
+      "sourceSpanish": "Empiecen aquí en el alero.",
+      "sourceEnglish": "Start here at the eave.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ここ、軒先から始めてください。",
+      "archivedJapanese": "ここ、軒先から始めてください。",
+      "archivedEnglish": "Start here at the eave.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:11:ja-en:line:8",
+      "legacySourceRef": "roofing:11:ja-en:reader:8",
+      "sourceSpanish": "Pongan la hilera inicial a lo largo del alero.",
+      "sourceEnglish": "Put the starter strip along the eave.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "スターター材を軒先に沿って置いてください。",
+      "archivedEnglish": "Put the starter strip along the eave.",
+      "reviewNote": "Inherits card 13 starter-strip-versus-starter-course decision.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:11:ja-en:line:9",
+      "legacySourceRef": "roofing:11:ja-en:reader:9",
+      "sourceSpanish": "La medida del vuelo está en el plano del trabajo.",
+      "sourceEnglish": "The overhang measurement is on the job plan.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "軒先の出幅の寸法は作業図面に記されています。",
+      "archivedEnglish": "The overhang measurement is on the job plan.",
+      "reviewNote": "The source's overhang measurement is on the job plan; archived 軒先の出幅 may refer to the building eave projection rather than specified shingle/starter overhang.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find where the foreman marks measurement points.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall chalk line, first course, eave, and starter strip.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 墨線 from 巻き尺 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Is the line straight?' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Show a new worker where to run the first-course chalk line.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write where the overhang measurement is recorded.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

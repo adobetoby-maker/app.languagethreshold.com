@@ -1,0 +1,9 @@
+# French Roofing Core 20 — ridge-cap and finish source decision
+
+This inert packet pins **14 exact current Spanish/English cards**, **eight aligned Reader turns**, five source verb examples, and current-source/archive hashes for *Ridge Caps & Finish*. Proposed `core-roofing:20:fr-en` IDs are review references only. The source header still says `roofing`; stage-local saved-item and progress identity need a deliberate migration before learner use.
+
+The archived French is separate evidence. Eight card faces and four Reader turns are held from conditional selection. Ridge cap, starter shingle, hip and ridge vent require product and regional trade senses. Source card 10 unconditionally tells the crew to cut ridge caps from a starter shingle, while Reader turn 4 allows that only if the selected product permits it. This conflict must be resolved in the source card, Reader, six-mode prompts and any audio script together. Ridge-cap placement, vent treatment and sealing the final cap require the approved roof system and manufacturer's instructions. The archived speaking asks for product-permission detail beyond the short source objective. These are internal source and domain questions, separate from learner text.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, listening, offline, saved-progress, browser and V4 gates are false. No audio was generated or approved; no owner page or runtime route imports this packet. Six authored See/Recall/Hear/Type/Say/Write prompt/target activities, forms, speaking, exact-pair dictionary and device acceptance remain open.
+
+`build.py --check` detects source drift; `validate.py` independently checks current source order, IDs, archived evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural checks and self-check are not qualified review.

@@ -1,0 +1,453 @@
+{
+  "schema": "french-roofing-core22-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:22",
+  "proposedPairId": "core-roofing:22:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-22-24-draft.json": "cadabba5ca13abb281b614218a524ec647d795e9fbbdbf8ccaa4117da0bcb45e"
+  },
+  "orderedSourceRowsSha256": "d09cc45b906728c20248e3cc17399a45ff2d7035ded599ae3d7c57a3798690aa",
+  "sourceTitleEnglish": "Anchor & Lifeline Check",
+  "sourceObjectiveEnglish": "Raise a concern about the anchor or lifeline",
+  "sourceSpeakingEnglish": "Stop work and ask the competent person to confirm the site-specific setup.",
+  "sourceReaderTitleSpanish": "Revisión del anclaje",
+  "cards": [
+    {
+      "id": "core-roofing:22:fr-en:card:1",
+      "legacySourceRef": "roofing:22:words:1",
+      "sourceSpanish": "Anclaje",
+      "sourceEnglish": "anchor",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’ancrage",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:card:2",
+      "legacySourceRef": "roofing:22:words:2",
+      "sourceSpanish": "Línea de vida",
+      "sourceEnglish": "lifeline",
+      "kind": "term",
+      "archivedFrenchEvidence": "la ligne de vie",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:card:3",
+      "legacySourceRef": "roofing:22:words:3",
+      "sourceSpanish": "Distancia de caída",
+      "sourceEnglish": "fall distance",
+      "kind": "term",
+      "archivedFrenchEvidence": "la distance libre de chute",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:card:4",
+      "legacySourceRef": "roofing:22:words:4",
+      "sourceSpanish": "Arnés",
+      "sourceEnglish": "harness",
+      "kind": "term",
+      "archivedFrenchEvidence": "le harnais",
+      "conditionalFrench": "le harnais",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:card:5",
+      "legacySourceRef": "roofing:22:words:5",
+      "sourceSpanish": "Eslinga",
+      "sourceEnglish": "lanyard",
+      "kind": "term",
+      "archivedFrenchEvidence": "la longe",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:card:6",
+      "legacySourceRef": "roofing:22:words:6",
+      "sourceSpanish": "Persona competente",
+      "sourceEnglish": "competent person",
+      "kind": "term",
+      "archivedFrenchEvidence": "la personne compétente",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:card:7",
+      "legacySourceRef": "roofing:22:words:7",
+      "sourceSpanish": "Inspección",
+      "sourceEnglish": "inspection",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’inspection",
+      "conditionalFrench": "l’inspection",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:card:8",
+      "legacySourceRef": "roofing:22:words:8",
+      "sourceSpanish": "Cuerda",
+      "sourceEnglish": "rope",
+      "kind": "term",
+      "archivedFrenchEvidence": "la corde",
+      "conditionalFrench": "la corde",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:card:9",
+      "legacySourceRef": "roofing:22:words:9",
+      "sourceSpanish": "Detener el trabajo",
+      "sourceEnglish": "stop work",
+      "kind": "term",
+      "archivedFrenchEvidence": "arrêter le travail",
+      "conditionalFrench": "arrêter le travail",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:card:10",
+      "legacySourceRef": "roofing:22:words:10",
+      "sourceSpanish": "Usen el ancla de techo — nada de improvisar.",
+      "sourceEnglish": "Use the roof anchor — don't freelance.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Utilisez l’ancrage approuvé; n’improvisez pas.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:card:11",
+      "legacySourceRef": "roofing:22:words:11",
+      "sourceSpanish": "Detengan el trabajo. El anclaje no es seguro.",
+      "sourceEnglish": "Stop work. The anchor is not safe.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Arrêtez le travail. Cet ancrage semble dangereux.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:card:12",
+      "legacySourceRef": "roofing:22:words:12",
+      "sourceSpanish": "¿Dónde está la persona competente?",
+      "sourceEnglish": "Where is the competent person?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Où est la personne compétente ?",
+      "conditionalFrench": "Où est la personne compétente ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:card:13",
+      "legacySourceRef": "roofing:22:words:13",
+      "sourceSpanish": "Revisen si la línea de vida tiene daños.",
+      "sourceEnglish": "Check the lifeline for damage.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Vérifiez que la ligne de vie n’est pas endommagée.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:card:14",
+      "legacySourceRef": "roofing:22:words:14",
+      "sourceSpanish": "Confirmen la instalación del anclaje antes de continuar.",
+      "sourceEnglish": "Confirm the anchor setup before we continue.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Faites confirmer l’installation de l’ancrage avant de reprendre.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:22:fr-en:reader:1",
+      "legacySourceRef": "roofing:22:passage:1",
+      "sourceSpanish": "Mientras trabajan en el techo, un obrero ve algo raro en la línea de vida.",
+      "sourceEnglish": "While they work on the roof, a worker sees something wrong with the lifeline.",
+      "archivedFrenchEvidence": "Pendant le travail sur le toit, un ouvrier remarque un problème avec la ligne de vie.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:reader:2",
+      "legacySourceRef": "roofing:22:passage:2",
+      "sourceSpanish": "Se detiene y avisa al capataz.",
+      "sourceEnglish": "He stops and tells the foreman.",
+      "archivedFrenchEvidence": "Il s’arrête et prévient le contremaître.",
+      "conditionalFrench": "Il s’arrête et prévient le contremaître.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:reader:3",
+      "legacySourceRef": "roofing:22:passage:3",
+      "sourceSpanish": "El capataz dice: Detengan el trabajo. El anclaje no es seguro.",
+      "sourceEnglish": "The foreman says: Stop work. The anchor is not safe.",
+      "archivedFrenchEvidence": "Le contremaître dit : « Arrêtez le travail. Cet ancrage semble dangereux. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:reader:4",
+      "legacySourceRef": "roofing:22:passage:4",
+      "sourceSpanish": "El capataz pregunta: ¿Dónde está la persona competente?",
+      "sourceEnglish": "The foreman asks: Where is the competent person?",
+      "archivedFrenchEvidence": "Il demande : « Où est la personne compétente ? »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:reader:5",
+      "legacySourceRef": "roofing:22:passage:5",
+      "sourceSpanish": "Revisen si la línea de vida tiene daños.",
+      "sourceEnglish": "Check whether the lifeline has any damage.",
+      "archivedFrenchEvidence": "Vérifiez que la ligne de vie n’est pas endommagée.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:reader:6",
+      "legacySourceRef": "roofing:22:passage:6",
+      "sourceSpanish": "La persona competente hace la inspección y confirma la distancia de caída del sistema.",
+      "sourceEnglish": "The competent person does the inspection and confirms the fall distance of the system.",
+      "archivedFrenchEvidence": "La personne compétente inspecte le système et confirme la distance libre de chute requise.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:reader:7",
+      "legacySourceRef": "roofing:22:passage:7",
+      "sourceSpanish": "Confirmen la instalación del anclaje antes de continuar.",
+      "sourceEnglish": "Confirm the anchor setup before we continue.",
+      "archivedFrenchEvidence": "Faites confirmer l’installation de l’ancrage avant de reprendre.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:reader:8",
+      "legacySourceRef": "roofing:22:passage:8",
+      "sourceSpanish": "Un arnés no sirve de nada si el anclaje o la eslinga fallan.",
+      "sourceEnglish": "A harness is no use if the anchor or the lanyard fails.",
+      "archivedFrenchEvidence": "Un harnais ne protège pas si l’ancrage ou la longe fait défaut.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "detener",
+      "englishMeaning": "to stop",
+      "sourceSpanish": "Detengan el trabajo. El anclaje no es seguro.",
+      "sourceEnglish": "Stop work. The anchor is not safe."
+    },
+    {
+      "spanishInfinitive": "revisar",
+      "englishMeaning": "to check / to inspect",
+      "sourceSpanish": "Revisen si la línea de vida tiene daños.",
+      "sourceEnglish": "Check whether the lifeline has any damage."
+    },
+    {
+      "spanishInfinitive": "confirmar",
+      "englishMeaning": "to confirm",
+      "sourceSpanish": "La persona competente confirma la distancia de caída del sistema.",
+      "sourceEnglish": "The competent person confirms the fall distance of the system."
+    },
+    {
+      "spanishInfinitive": "avisar",
+      "englishMeaning": "to notify / to tell (a warning)",
+      "sourceSpanish": "El obrero se detiene y avisa al capataz.",
+      "sourceEnglish": "The worker stops and tells the foreman."
+    },
+    {
+      "spanishInfinitive": "fallar",
+      "englishMeaning": "to fail",
+      "sourceSpanish": "Un arnés no sirve si el anclaje o la eslinga fallan.",
+      "sourceEnglish": "A harness is no use if the anchor or the lanyard fails."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Vérifier l’ancrage et la ligne de vie",
+    "objectiveFrench": "Signaler un doute sur l’ancrage ou la ligne de vie et demander une vérification avant la reprise.",
+    "speakingFrenchInstruction": "Interrompez l’accès et signalez le doute. Demandez à la personne compétente de vérifier l’installation, le matériel, la distance libre de chute et le plan de sauvetage du chantier avant toute reprise.",
+    "speakingFrenchOpening": "On arrête le travail : qui peut vérifier cet ancrage et cette ligne de vie ?",
+    "grammarFocusFrench": "Question avec qui/ où; avant de + infinitif; si + présent pour une condition non vérifiée.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to stop",
+        "exampleEnglish": "Stop work. The anchor is not safe.",
+        "sourceInfinitiveSpanish": "detener",
+        "infinitiveFrench": "arrêter",
+        "exampleFrench": "Arrêtez le travail. Cet ancrage semble dangereux."
+      },
+      {
+        "meaningEnglish": "to check / to inspect",
+        "exampleEnglish": "Check whether the lifeline has any damage.",
+        "sourceInfinitiveSpanish": "revisar",
+        "infinitiveFrench": "vérifier",
+        "exampleFrench": "Vérifiez que la ligne de vie n’est pas endommagée."
+      },
+      {
+        "meaningEnglish": "to confirm",
+        "exampleEnglish": "The competent person confirms the fall distance of the system.",
+        "sourceInfinitiveSpanish": "confirmar",
+        "infinitiveFrench": "confirmer",
+        "exampleFrench": "La personne compétente confirme la distance libre de chute requise."
+      },
+      {
+        "meaningEnglish": "to notify / to tell (a warning)",
+        "exampleEnglish": "The worker stops and tells the foreman.",
+        "sourceInfinitiveSpanish": "avisar",
+        "infinitiveFrench": "prévenir",
+        "exampleFrench": "L’ouvrier s’arrête et prévient le contremaître."
+      },
+      {
+        "meaningEnglish": "to fail",
+        "exampleEnglish": "A harness is no use if the anchor or the lanyard fails.",
+        "sourceInfinitiveSpanish": "fallar",
+        "infinitiveFrench": "faire défaut",
+        "exampleFrench": "Un harnais ne protège pas si l’ancrage ou la longe fait défaut."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "Qualified fall-protection review is required for anchorage, lifeline setup, clearance, rescue, and the exact English safety source before release.",
+      "France/Québec terms for competent person, lifeline and fall clearance need qualified regional review."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:22:fr-en:card:1",
+        "core-roofing:22:fr-en:card:2",
+        "core-roofing:22:fr-en:card:3",
+        "core-roofing:22:fr-en:card:5",
+        "core-roofing:22:fr-en:reader:1",
+        "core-roofing:22:fr-en:reader:6",
+        "core-roofing:22:fr-en:reader:8"
+      ],
+      "question": "Anchor/anchorage, lifeline, lanyard and fall distance need exact site-system and French technical senses. Archived distance libre de chute can mean fall clearance rather than source fall distance; Reader 6 adds required clearance absent from the source. Confirm terms with qualified roofing/fall-protection and dictionary reviewers."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:22:fr-en:card:10",
+        "core-roofing:22:fr-en:card:11",
+        "core-roofing:22:fr-en:reader:3"
+      ],
+      "question": "The source says use the roof anchor without stating it is approved, and declares the anchor unsafe before the inspection. Archived French adds approuvé to card 10 and softens unsafe to semble dangereux in card 11/Reader 3. Preserve the source claims as evidence; a qualified safety/source reviewer must decide the approved site-specific wording before selection."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:22:fr-en:card:6",
+        "core-roofing:22:fr-en:reader:4",
+        "core-roofing:22:fr-en:reader:6"
+      ],
+      "question": "Competent person is a defined site role. Archived personne compétente is only conditional until the applicable jurisdiction, designation, inspection authority and clearance wording are confirmed."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:22:fr-en:card:13",
+        "core-roofing:22:fr-en:card:14",
+        "core-roofing:22:fr-en:reader:5",
+        "core-roofing:22:fr-en:reader:7"
+      ],
+      "question": "The source asks for lifeline damage check and confirmation of the anchor setup before continuing. Archived French turns the latter into a request to have someone confirm it, and may imply inspection or safe return without a documented result. Resolve the site-specific sequence and source meaning before scoring or audio."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:22:fr-en:card:14",
+        "core-roofing:22:fr-en:reader:7"
+      ],
+      "question": "Archived speaking adds checking equipment, fall clearance and the rescue plan beyond the source's stop-work and competent-person setup confirmation. Keep these as internal domain review notes, not learner script or authoritative site procedure."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

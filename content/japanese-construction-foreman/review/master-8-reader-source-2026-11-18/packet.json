@@ -1,0 +1,279 @@
+{
+  "schema": 1,
+  "state": "source-only-reader-gap-review",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "lesson": 8,
+  "moduleId": "master-construction-foreman-ja-en",
+  "source": {
+    "readerPath": "public/lesson-content/es/master-construction-foreman.json",
+    "curriculumPath": "src/data/core60/es/master-construction-foreman.json",
+    "translationDraftPath": "content/japanese-construction-foreman/master-translation-7-9-draft.json",
+    "readerSHA256": "549b47cf51253f5c5ac4f19bf2fdae52fa93ae8ea996377cc32e0c0fab896d11",
+    "curriculumSHA256": "96f86e3e51ba346918f539810bcc996cb41ceaaf9268af02fa595c333800dce2",
+    "translationDraftSHA256": "593c8bcb83ab68e8ee92eee177509058323b65ba12dba0762e1d7eb92129e741",
+    "sourceReaderTitleSpanish": "El barandal no se quita",
+    "sourceLessonTitleEnglish": "Saying No to Pulling the Guardrail for Speed",
+    "sourceObjectiveEnglish": "Refuse an owner's rep's request to remove the guardrail, explain the risk and offer a safe way to keep the schedule."
+  },
+  "historicalPrivateReader": {
+    "commitSHA": "d13f46af8bf872742859ea60e582475505fde838",
+    "path": "content/japanese-construction-foreman/master-original-reader-7-9-draft.json",
+    "sha256": "4ed7a131097dfd36bd6326211b2a245bd04a9678f24abd37978350878261c563",
+    "title": "A question about the roof edge",
+    "rows": [
+      {
+        "japanese": "朝の会議で、屋上の設備について話し合いました。",
+        "english": "At the morning meeting, they discussed the rooftop equipment."
+      },
+      {
+        "japanese": "発注者の担当者は、搬入経路を尋ねました。",
+        "english": "The owner’s representative asked about the delivery route."
+      },
+      {
+        "japanese": "職長は、端に手すりがあることを図面で示しました。",
+        "english": "The foreman showed the guardrail at the edge on the drawing."
+      },
+      {
+        "japanese": "担当者は、手すりを動かせるか質問しました。",
+        "english": "The representative asked whether the guardrail could be moved."
+      },
+      {
+        "japanese": "職長は、その場で決められないと答えました。",
+        "english": "The foreman answered that he could not decide that on the spot."
+      },
+      {
+        "japanese": "二人は、安全担当者に確認する事項を記録しました。",
+        "english": "They recorded the questions to take to the safety contact."
+      },
+      {
+        "japanese": "クレーンの計画についても、担当者からの確認が必要です。",
+        "english": "The crane plan also needs confirmation from the responsible personnel."
+      },
+      {
+        "japanese": "会議の終わりに、未承認の案を承認済みの計画と分けて記しました。",
+        "english": "At the end of the meeting, they marked the unapproved idea separately from the approved plan."
+      }
+    ],
+    "reuseDecision": null
+  },
+  "openDomainReview": [
+    {
+      "sourceLocation": "Reader 1–9",
+      "question": "Preserve Tuesday warehouse retrofit, foreman Tomás Herrera, owner's rep Ricardo Peña, Javier and Luis, temporary north-side guardrail, the request to remove it for faster HVAC placement, and Tomás's refusal. A qualified Japanese/construction safety reviewer must settle guardrail, open edge, fall protection and OSHA fine terms; attribute the financial and safety claims to Tomás rather than presenting them as independent guidance.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 10–16",
+      "question": "Preserve the planned Thursday 7:00 crane lift, rigger's sling inspection, signal person's radio guidance, exclusion zone below the load, warning line and fall protection remaining according to the safety plan, and preparation of bases and connections while waiting. A qualified Japanese/rigging reviewer must choose terms and confirm context without converting this narrated plan into instructions for performing a lift.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 17–18",
+      "question": "Preserve Tomás's repeated instruction to Javier and Luis that the guardrail stays and his exact tied-off warning. A qualified Japanese/fall-protection reviewer must resolve the draft's lanyard-hook specificity against the source's general 'tied off' wording and confirm locale/OSHA context before any learner or audio use.",
+      "qualifiedDecision": null
+    }
+  ],
+  "rows": [
+    {
+      "id": "master-construction-foreman-ja-en:lesson:8:reader:line:1",
+      "sourceSpanish": "Es martes por la mañana, y el capataz Tomás Herrera revisa el techo de una bodega en remodelación con su cuadrilla.",
+      "sourceEnglish": "It is Tuesday morning, and foreman Tomás Herrera is checking the roof of a warehouse retrofit with his crew.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:8:reader:line:2",
+      "sourceSpanish": "Ricardo Peña, el representante del dueño, sube porque quiere instalar las unidades HVAC más rápido.",
+      "sourceEnglish": "Ricardo Peña, the owner's rep, comes up because he wants to set the HVAC units faster.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:8:reader:line:3",
+      "sourceSpanish": "Ricardo: Tomás, dígales a Javier y a Luis que quiten el barandal provisional del lado norte hoy mismo.",
+      "sourceEnglish": "Ricardo: Tomás, tell Javier and Luis to take down the temporary guardrail on the north side today.",
+      "speaker": "Ricardo",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:8:reader:line:4",
+      "sourceSpanish": "Tomás: Lo siento, señor Peña, pero el barandal no se quita.",
+      "sourceEnglish": "Tomás: I'm sorry, Mr. Peña, but the guardrail doesn't come down.",
+      "speaker": "Tomás",
+      "conditionalJapanesePhrase": "ペーニャさん、申し訳ありませんが、仮設の手すりは外せません。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:8:reader:line:5",
+      "sourceSpanish": "Tomás: No recomiendo que trabajen cerca del borde abierto sin el barandal, porque el riesgo de caída es muy alto.",
+      "sourceEnglish": "Tomás: I don't recommend that they work near the open edge without the guardrail, because the fall risk is very high.",
+      "speaker": "Tomás",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:8:reader:line:6",
+      "sourceSpanish": "Tomás: No recomiendo que suban sin protección contra caídas.",
+      "sourceEnglish": "Tomás: I don't recommend that they go up without fall protection.",
+      "speaker": "Tomás",
+      "conditionalJapanesePhrase": "墜落防止措置なしで上がらせることはお勧めしません。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:8:reader:line:7",
+      "sourceSpanish": "Ricardo: El dueño tiene prisa, y cada día de retraso le cuesta dinero.",
+      "sourceEnglish": "Ricardo: The owner is in a hurry, and every day of delay costs him money.",
+      "speaker": "Ricardo",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:8:reader:line:8",
+      "sourceSpanish": "Tomás: Entiendo la prisa, pero no voy a arriesgar a mi gente.",
+      "sourceEnglish": "Tomás: I understand the rush, but I'm not going to put my people at risk.",
+      "speaker": "Tomás",
+      "conditionalJapanesePhrase": "急ぎたいお気持ちはわかりますが、作業員を危険にさらすわけにはいきません。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:8:reader:line:9",
+      "sourceSpanish": "Tomás: Si alguien se cae, se para toda la obra, y la multa de OSHA cuesta más que cualquier retraso.",
+      "sourceEnglish": "Tomás: If someone falls, the whole job shuts down, and the OSHA fine costs more than any delay.",
+      "speaker": "Tomás",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:8:reader:line:10",
+      "sourceSpanish": "Tomás: Le propongo esperar el izaje programado con la protección lista.",
+      "sourceEnglish": "Tomás: I suggest we wait for the planned lift with the protection in place.",
+      "speaker": "Tomás",
+      "conditionalJapanesePhrase": "手すりをそのままにして、予定している揚重作業まで待つことを提案します。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:8:reader:line:11",
+      "sourceSpanish": "Tomás: Según el plan de izaje, la grúa llega el jueves a las 7:00 de la mañana.",
+      "sourceEnglish": "Tomás: According to the lift plan, the crane arrives Thursday at 7:00 in the morning.",
+      "speaker": "Tomás",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:8:reader:line:12",
+      "sourceSpanish": "Tomás: Ese día el maniobrista revisa cada eslinga, y el señalero guía al operador de la grúa por radio.",
+      "sourceEnglish": "Tomás: That day the rigger checks every sling, and the signal person guides the crane operator by radio.",
+      "speaker": "Tomás",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:8:reader:line:13",
+      "sourceSpanish": "Tomás: Abajo marcamos la zona de exclusión para que nadie pase debajo de la carga.",
+      "sourceEnglish": "Tomás: Down below we mark the exclusion zone so that nobody walks under the load.",
+      "speaker": "Tomás",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:8:reader:line:14",
+      "sourceSpanish": "Tomás: Arriba, la protección contra caídas y la línea de advertencia se quedan en su lugar, según el plan de seguridad.",
+      "sourceEnglish": "Tomás: Up top, the fall protection and the warning line stay in place, according to the safety plan.",
+      "speaker": "Tomás",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:8:reader:line:15",
+      "sourceSpanish": "Tomás: Mientras llega la grúa, preparamos las bases y las conexiones.",
+      "sourceEnglish": "Tomás: While the crane gets here, we'll prepare the bases and connections.",
+      "speaker": "Tomás",
+      "conditionalJapanesePhrase": "クレーンが到着するまでの間に、架台と接続部の準備を進めておきます。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:8:reader:line:16",
+      "sourceSpanish": "Ricardo: Está bien, esperamos el jueves, pero mañana quiero ver las bases terminadas.",
+      "sourceEnglish": "Ricardo: All right, we'll wait for Thursday, but tomorrow I want to see the bases finished.",
+      "speaker": "Ricardo",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:8:reader:line:17",
+      "sourceSpanish": "Tomás llama a Javier y a Luis y les dice: Muchachos, no quiten el barandal; se queda donde está.",
+      "sourceEnglish": "Tomás calls Javier and Luis over and tells them: Guys, don't remove the guardrail; it stays where it is.",
+      "speaker": "Tomás calls Javier and Luis over and tells them",
+      "conditionalJapanesePhrase": "みなさん、仮設の手すりは外さないでください。そのままの位置に残します。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:8:reader:line:18",
+      "sourceSpanish": "Tomás: No se acerquen al borde sin estar enganchados.",
+      "sourceEnglish": "Tomás: Don't go near the edge without being tied off.",
+      "speaker": "Tomás",
+      "conditionalJapanesePhrase": "ランヤードのフックを掛けずに、端部に近づかないでください。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    }
+  ],
+  "reviewGates": {
+    "qualifiedJapaneseReview": false,
+    "qualifiedConstructionReview": false,
+    "sourceTechnicalQuestionsResolved": false,
+    "sourceParity": false,
+    "dictionarySenses": false,
+    "sixAuthoredModes": false,
+    "forms": false,
+    "speaking": false,
+    "audioText": false,
+    "audioListening": false,
+    "savedItemMigration": false,
+    "learnerRuntime": false,
+    "offline": false,
+    "progress": false,
+    "v4Native": false,
+    "qualifiedFallProtectionReview": false,
+    "qualifiedRiggingReview": false
+  }
+}

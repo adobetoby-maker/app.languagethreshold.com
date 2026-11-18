@@ -1,0 +1,422 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:5:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-4-6-draft.json",
+      "sha256": "db0666acc7b9cf7b8da6522e5caa97e0a65d1319341d43b0e35d43983050c4aa"
+    }
+  },
+  "sourceEnglishTitle": "Fasteners & Consumables",
+  "sourceEnglishObjective": "Request roofing fasteners and sealants clearly",
+  "sourceEnglishSpeaking": "Call a supplier and confirm the fasteners specified for this job.",
+  "sourceSpanishReaderTitle": "Pedido de clavos",
+  "candidateObjective": "屋根用の釘とシーリング材を明確に発注する。",
+  "candidateFocus": "～が必要です states a need; ～はありますか checks stock. ～を届けられますか asks about delivery, and ～を確認してください requests confirmation.",
+  "archivedForms": [
+    {
+      "base": "必要である",
+      "exampleJa": "屋根用釘が二箱必要です。",
+      "meaningEnglish": "to need",
+      "exampleEnglish": "I need two boxes of roofing nails.",
+      "sourceInfinitiveSpanish": "necesitar"
+    },
+    {
+      "base": "注文する",
+      "exampleJa": "この現場ではどの釘を注文する必要がありますか。",
+      "meaningEnglish": "to ask for, to order",
+      "exampleEnglish": "Which nails does the job require?",
+      "sourceInfinitiveSpanish": "pedir"
+    },
+    {
+      "base": "できる",
+      "exampleJa": "いつ届けられますか。",
+      "meaningEnglish": "to be able to, can",
+      "exampleEnglish": "When can you deliver them?",
+      "sourceInfinitiveSpanish": "poder"
+    },
+    {
+      "base": "届ける",
+      "exampleJa": "仕入れ先は明日、釘を届けます。",
+      "meaningEnglish": "to deliver",
+      "exampleEnglish": "The supplier delivers the nails tomorrow.",
+      "sourceInfinitiveSpanish": "entregar"
+    },
+    {
+      "base": "確認する",
+      "exampleJa": "注文を確認してください。",
+      "meaningEnglish": "to confirm",
+      "exampleEnglish": "Please confirm the order.",
+      "sourceInfinitiveSpanish": "confirmar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "屋根用釘が二箱必要です。指定された釘はありますか。",
+    "goal": "Call a supplier and confirm the fasteners specified for this job."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the exact supplier call, two boxes of roofing nails, plastic cap nails stock question, job-specification check, roofing cement plus sealant, supplier-provided delivery date and explicit order confirmation. Do not turn the glossary into a fastener-approval claim or invent tomorrow as the delivery date. Resolve roofing-cement formulation and specification semantics before selecting Japanese learner answers. Archived draft is evidence only; this packet creates no learner, audio, score or progress identity.",
+  "cards": [
+    {
+      "id": "roofing:5:ja-en:card:1",
+      "legacySourceRef": "roofing:5:ja-en:cards:1",
+      "sourceSpanish": "Clavos para techo",
+      "sourceEnglish": "roofing nails",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "屋根用釘",
+      "archivedJapanese": "屋根用釘",
+      "archivedEnglish": "roofing nails",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:5:ja-en:card:2",
+      "legacySourceRef": "roofing:5:ja-en:cards:2",
+      "sourceSpanish": "Clavos con tapa plástica",
+      "sourceEnglish": "plastic cap nails",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "樹脂キャップ付き釘",
+      "archivedJapanese": "樹脂キャップ付き釘",
+      "archivedEnglish": "plastic cap nails",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:5:ja-en:card:3",
+      "legacySourceRef": "roofing:5:ja-en:cards:3",
+      "sourceSpanish": "Cemento plástico",
+      "sourceEnglish": "roofing cement",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根用アスファルトセメント",
+      "archivedEnglish": "roofing cement",
+      "reviewNote": "Cemento plástico / roofing cement does not specify an asphalt formulation, while archived 屋根用アスファルトセメント does. Confirm the material and Japanese trade term before selecting a learner answer.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:5:ja-en:card:4",
+      "legacySourceRef": "roofing:5:ja-en:cards:4",
+      "sourceSpanish": "Clavo",
+      "sourceEnglish": "nail",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "釘",
+      "archivedJapanese": "釘",
+      "archivedEnglish": "nail",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:5:ja-en:card:5",
+      "legacySourceRef": "roofing:5:ja-en:cards:5",
+      "sourceSpanish": "Grapa",
+      "sourceEnglish": "staple",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "ステープル",
+      "archivedJapanese": "ステープル",
+      "archivedEnglish": "staple",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:5:ja-en:card:6",
+      "legacySourceRef": "roofing:5:ja-en:cards:6",
+      "sourceSpanish": "Tornillo",
+      "sourceEnglish": "screw",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "ねじ",
+      "archivedJapanese": "ねじ",
+      "archivedEnglish": "screw",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:5:ja-en:card:7",
+      "legacySourceRef": "roofing:5:ja-en:cards:7",
+      "sourceSpanish": "Clavos galvanizados",
+      "sourceEnglish": "galvanized nails",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "亜鉛めっき釘",
+      "archivedJapanese": "亜鉛めっき釘",
+      "archivedEnglish": "galvanized nails",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:5:ja-en:card:8",
+      "legacySourceRef": "roofing:5:ja-en:cards:8",
+      "sourceSpanish": "Caja",
+      "sourceEnglish": "box",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "箱",
+      "archivedJapanese": "箱",
+      "archivedEnglish": "box",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:5:ja-en:card:9",
+      "legacySourceRef": "roofing:5:ja-en:cards:9",
+      "sourceSpanish": "Sellador",
+      "sourceEnglish": "sealant",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "シーリング材",
+      "archivedJapanese": "シーリング材",
+      "archivedEnglish": "sealant",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:5:ja-en:card:10",
+      "legacySourceRef": "roofing:5:ja-en:cards:10",
+      "sourceSpanish": "Necesito dos cajas de clavos para techo.",
+      "sourceEnglish": "I need two boxes of roofing nails.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "屋根用釘が二箱必要です。",
+      "archivedJapanese": "屋根用釘が二箱必要です。",
+      "archivedEnglish": "I need two boxes of roofing nails.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:5:ja-en:card:11",
+      "legacySourceRef": "roofing:5:ja-en:cards:11",
+      "sourceSpanish": "¿Tienen clavos con tapa plástica?",
+      "sourceEnglish": "Do you have plastic cap nails?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "樹脂キャップ付き釘はありますか。",
+      "archivedJapanese": "樹脂キャップ付き釘はありますか。",
+      "archivedEnglish": "Do you have plastic cap nails?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:5:ja-en:card:12",
+      "legacySourceRef": "roofing:5:ja-en:cards:12",
+      "sourceSpanish": "¿Qué clavos pide el trabajo?",
+      "sourceEnglish": "Which nails does the job require?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "この現場ではどの釘が指定されていますか。",
+      "archivedEnglish": "Which nails does the job require?",
+      "reviewNote": "The source asks which nails the job requires from its specifications. Archived 指定されていますか is plausible but a qualified source/roofing reviewer must confirm whether it states the requirement precisely without implying approval of a particular fastener.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:5:ja-en:card:13",
+      "legacySourceRef": "roofing:5:ja-en:cards:13",
+      "sourceSpanish": "¿Cuándo los pueden entregar?",
+      "sourceEnglish": "When can you deliver them?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "いつ届けられますか。",
+      "archivedJapanese": "いつ届けられますか。",
+      "archivedEnglish": "When can you deliver them?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:5:ja-en:card:14",
+      "legacySourceRef": "roofing:5:ja-en:cards:14",
+      "sourceSpanish": "Por favor, confirmen el pedido.",
+      "sourceEnglish": "Please confirm the order.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "注文を確認してください。",
+      "archivedJapanese": "注文を確認してください。",
+      "archivedEnglish": "Please confirm the order.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:5:ja-en:line:1",
+      "legacySourceRef": "roofing:5:ja-en:reader:1",
+      "sourceSpanish": "El capataz llama al proveedor.",
+      "sourceEnglish": "The foreman calls the supplier.",
+      "selectedJapanese": null,
+      "candidateJapanese": "職長は仕入れ先に電話します。",
+      "archivedJapanese": "職長は仕入れ先に電話します。",
+      "archivedEnglish": "The foreman calls the supplier.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:5:ja-en:line:2",
+      "legacySourceRef": "roofing:5:ja-en:reader:2",
+      "sourceSpanish": "El capataz dice: Necesito dos cajas de clavos para techo.",
+      "sourceEnglish": "He says: I need two boxes of roofing nails.",
+      "selectedJapanese": null,
+      "candidateJapanese": "職長は「屋根用釘が二箱必要です」と言います。",
+      "archivedJapanese": "職長は「屋根用釘が二箱必要です」と言います。",
+      "archivedEnglish": "He says: I need two boxes of roofing nails.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:5:ja-en:line:3",
+      "legacySourceRef": "roofing:5:ja-en:reader:3",
+      "sourceSpanish": "¿Tienen clavos con tapa plástica?",
+      "sourceEnglish": "Do you have plastic cap nails?",
+      "selectedJapanese": null,
+      "candidateJapanese": "樹脂キャップ付き釘はありますか。",
+      "archivedJapanese": "樹脂キャップ付き釘はありますか。",
+      "archivedEnglish": "Do you have plastic cap nails?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:5:ja-en:line:4",
+      "legacySourceRef": "roofing:5:ja-en:reader:4",
+      "sourceSpanish": "El capataz lee las especificaciones para ver qué clavos pide el trabajo.",
+      "sourceEnglish": "The foreman reads the job specifications to see which nails the job requires.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "職長は現場の仕様書を読み、指定された釘を確認します。",
+      "archivedEnglish": "The foreman reads the job specifications to see which nails the job requires.",
+      "reviewNote": "The archived check of specified nails may compress the source's purpose: read the job specifications to see which nails are required. Preserve the inquiry before any supplier order.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:5:ja-en:line:5",
+      "legacySourceRef": "roofing:5:ja-en:reader:5",
+      "sourceSpanish": "También necesita cemento plástico y sellador.",
+      "sourceEnglish": "He also needs roofing cement and sealant.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根用アスファルトセメントとシーリング材も必要です。",
+      "archivedEnglish": "He also needs roofing cement and sealant.",
+      "reviewNote": "Inherits card 3's unresolved roofing-cement formulation and Japanese trade-name narrowing.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:5:ja-en:line:6",
+      "legacySourceRef": "roofing:5:ja-en:reader:6",
+      "sourceSpanish": "¿Cuándo los pueden entregar?",
+      "sourceEnglish": "When can you deliver them?",
+      "selectedJapanese": null,
+      "candidateJapanese": "いつ届けられますか。",
+      "archivedJapanese": "いつ届けられますか。",
+      "archivedEnglish": "When can you deliver them?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:5:ja-en:line:7",
+      "legacySourceRef": "roofing:5:ja-en:reader:7",
+      "sourceSpanish": "El proveedor revisa su lista y da una fecha de entrega.",
+      "sourceEnglish": "The supplier checks his list and gives a delivery date.",
+      "selectedJapanese": null,
+      "candidateJapanese": "仕入れ先は一覧を確認し、納品日を伝えます。",
+      "archivedJapanese": "仕入れ先は一覧を確認し、納品日を伝えます。",
+      "archivedEnglish": "The supplier checks his list and gives a delivery date.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:5:ja-en:line:8",
+      "legacySourceRef": "roofing:5:ja-en:reader:8",
+      "sourceSpanish": "Por favor, confirmen el pedido.",
+      "sourceEnglish": "Please confirm the order.",
+      "selectedJapanese": null,
+      "candidateJapanese": "注文を確認してください。",
+      "archivedJapanese": "注文を確認してください。",
+      "archivedEnglish": "Please confirm the order.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the specified fastener and the delivery date in the reading.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall roofing nails, sealant, and plastic cap nails.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 釘 from ねじ when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'When can you deliver them?' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Call a supplier and ask about specified nails and delivery.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write a short order for nails and sealant.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

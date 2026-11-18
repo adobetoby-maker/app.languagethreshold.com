@@ -1,0 +1,269 @@
+{
+  "schema": 1,
+  "state": "source-only-reader-gap-review",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "lesson": 20,
+  "moduleId": "master-construction-foreman-ja-en",
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false,
+  "source": {
+    "readerPath": "public/lesson-content/es/master-construction-foreman.json",
+    "curriculumPath": "src/data/core60/es/master-construction-foreman.json",
+    "translationDraftPath": "content/japanese-construction-foreman/master-translation-19-20-draft.json",
+    "readerSHA256": "549b47cf51253f5c5ac4f19bf2fdae52fa93ae8ea996377cc32e0c0fab896d11",
+    "curriculumSHA256": "96f86e3e51ba346918f539810bcc996cb41ceaaf9268af02fa595c333800dce2",
+    "translationDraftSHA256": "3d2ae5657fe382b6314a3f90732d34136593cbe9447456c9934839a8bccfb258",
+    "sourceReaderTitleSpanish": "Un día difícil en el gimnasio",
+    "sourceLessonTitleEnglish": "Capstone: A Hard Day on the Community Gym Job",
+    "sourceObjectiveEnglish": "Lead a full day: train, solve a shortage, refuse a shortcut, handle a near miss, meet the inspector and report.",
+    "sourceSpeakingEnglish": "You are the foreman, and the AI is Lupita, Gerardo, Felipe and inspector Arce: coach Lupita with tú commands, request the missing joists, refuse the guardrail shortcut (no voy a permitir que...), review the near miss and report using debido a and sin embargo."
+  },
+  "historicalPrivateReader": {
+    "lesson20OriginalReaderDraftPresent": false,
+    "reuseDecision": null
+  },
+  "openDomainReview": [
+    {
+      "sourceLocation": "Reader 1–5; source objective and speaking",
+      "question": "Preserve Ramón Ortiz training new hire Lupita Navas at the community gym, already two weeks behind schedule. His direct demonstration and clip-in warning precede the 9:00 steel-joist delivery. Review whether the source's clip-in instruction requires explicit approved anchor and competent-person context before use as safety teaching; do not silently expand the selected Reader translation.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 4–8; procurement and chronology",
+      "question": "Ramón counts a short delivery against the purchase order for 48 steel joists, states that 12 are missing according to the delivery ticket, and asks Gerardo Ponce for the missing joists today. Gerardo has no stock and promises a rush shipment Thursday morning. Do not make the shortage a count of 12 delivered, make the shipment a confirmed same-day delivery, or confuse the Mexican remisión with a purchase order.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 9–14; fall-protection refusal and falling object",
+      "question": "Felipe Cano asks to remove a section of perimeter fall protection to lift materials faster; Ramón refuses and points to the site safety plan's crane method. After lunch, a wrench falls from the second level without striking anyone; Ramón stops work, records a no-injury incident, tells the crew to tie off tools and bars work below until the area is roped off. Require qualified construction/safety review of perimeter protection, crane, tool tether and exclusion-zone wording. Do not imply that no injury means no hazard or that removal was approved.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 15–18; inspector and daily report; lesson grammar",
+      "question": "At 3:00 building inspector Dolores Arce checks each weld against structural plans and records two correction-list items. Ramón's daily report says the roof will finish Friday because of the short delivery and records his refusal of Felipe's perimeter-protection shortcut. Review inspector honorific, crew/supplier/subcontractor register, written-report tense and cause/concession connectors before selecting Japanese turns or recording scripts. Do not present the two correction items as already fixed or the Friday finish as a completed fact.",
+      "qualifiedDecision": null
+    }
+  ],
+  "rows": [
+    {
+      "id": "master-construction-foreman-ja-en:lesson:20:reader:line:1",
+      "sourceSpanish": "El capataz Ramón Ortiz entrenó a Lupita Navas, la trabajadora nueva, en el gimnasio comunitario, una obra con dos semanas de atraso.",
+      "sourceEnglish": "Foreman Ramón Ortiz trained Lupita Navas, the new hire, at the community gym, a job that was two weeks behind schedule.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:20:reader:line:2",
+      "sourceSpanish": "Ramón: Lupita, fíjate cómo lo hago y luego hazlo tú.",
+      "sourceEnglish": "Ramón: Lupita, watch how I do it and then you do it.",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": "ルピタ、私のやり方を見てて。そのあと、自分でやってみて。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:20:reader:line:3",
+      "sourceSpanish": "Ramón: No te acerques al borde hasta que te enganches.",
+      "sourceEnglish": "Ramón: Don't go near the edge until you clip in.",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:20:reader:line:4",
+      "sourceSpanish": "A las 9 llegaron las viguetas de acero, pero Ramón contó las piezas y vio que era una entrega incompleta.",
+      "sourceEnglish": "At 9 the steel joists arrived, but Ramón counted the pieces and saw that it was a short delivery.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:20:reader:line:5",
+      "sourceSpanish": "Ramón comparó la remisión con la orden de compra, que pedía 48 viguetas, y llamó al proveedor Gerardo Ponce.",
+      "sourceEnglish": "Ramón compared the delivery ticket with the purchase order, which called for 48 joists, and called the supplier Gerardo Ponce.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:20:reader:line:6",
+      "sourceSpanish": "Ramón: Gerardo, según la remisión, nos faltan 12 viguetas.",
+      "sourceEnglish": "Ramón: Gerardo, according to the delivery ticket, we're missing 12 joists.",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": "ゲラルドさん、納品書によると、鉄骨ジョイストが12本不足しています。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:20:reader:line:7",
+      "sourceSpanish": "Ramón: ¿Me podría mandar las que faltan hoy mismo?",
+      "sourceEnglish": "Ramón: Could you send me the missing ones today?",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": "不足分を本日中にお送りいただけますか。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:20:reader:line:8",
+      "sourceSpanish": "Gerardo no tenía más viguetas en el almacén, pero prometió un envío urgente para el jueves en la mañana.",
+      "sourceEnglish": "Gerardo didn't have any more joists in the warehouse, but he promised a rush shipment for Thursday morning.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:20:reader:line:9",
+      "sourceSpanish": "Más tarde, debido al atraso, el subcontratista Felipe Cano pidió quitar un tramo de la protección perimetral para subir material más rápido.",
+      "sourceEnglish": "Later, because of the schedule slip, the subcontractor Felipe Cano asked to remove a section of the perimeter fall protection to bring material up faster.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:20:reader:line:10",
+      "sourceSpanish": "Ramón: Felipe, no voy a permitir que quiten la protección perimetral.",
+      "sourceEnglish": "Ramón: Felipe, I'm not going to allow the perimeter protection to be removed.",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": "フェリペ、外周の墜落防止設備を取り外すことは認めません。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:20:reader:line:11",
+      "sourceSpanish": "Ramón le explicó que sería más seguro subir el material con la grúa, como indica el plan de seguridad del sitio.",
+      "sourceEnglish": "Ramón explained to him that it would be safer to lift the material with the crane, as the site safety plan indicates.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:20:reader:line:12",
+      "sourceSpanish": "Después del almuerzo, una llave cayó del segundo nivel, pero no le pegó a nadie, y Ramón paró el trabajo de inmediato.",
+      "sourceEnglish": "After lunch, a wrench fell from the second level, but it didn't hit anyone, and Ramón stopped work immediately.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:20:reader:line:13",
+      "sourceSpanish": "Ramón lo registró como un incidente sin lesionados y le habló a la cuadrilla del riesgo de caída de objetos.",
+      "sourceEnglish": "Ramón recorded it as a no-injury incident and talked to the crew about the risk of falling objects.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:20:reader:line:14",
+      "sourceSpanish": "Ramón: Amarren sus herramientas y no trabajen debajo del segundo nivel hasta que acordonemos la zona.",
+      "sourceEnglish": "Ramón: Tie off your tools and don't work under the second level until we rope off the area.",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:20:reader:line:15",
+      "sourceSpanish": "A las 3 llegó Dolores Arce, la inspectora de construcción, y Ramón le preguntó: Inspectora Arce, ¿desea empezar por las conexiones de las viguetas?",
+      "sourceEnglish": "At 3 Dolores Arce, the building inspector, arrived, and Ramón asked her: Inspector Arce, would you like to start with the joist connections?",
+      "speaker": "At 3 Dolores Arce, the building inspector, arrived, and Ramón asked her",
+      "conditionalJapanesePhrase": "アルセ検査官、まず鉄骨ジョイストの接合部からご確認になりますか。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:20:reader:line:16",
+      "sourceSpanish": "La inspectora revisó cada soldadura con los planos estructurales y anotó dos detalles en la lista de correcciones.",
+      "sourceEnglish": "The inspector checked each weld against the structural plans and wrote down two items on the correction list.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:20:reader:line:17",
+      "sourceSpanish": "Al final del día, Ramón escribió en el informe diario: Debido a la entrega incompleta, el techo se terminará el viernes.",
+      "sourceEnglish": "At the end of the day, Ramón wrote in the daily report: Due to the short delivery, the roof will be finished on Friday.",
+      "speaker": "At the end of the day, Ramón wrote in the daily report",
+      "conditionalJapanesePhrase": "納品数量の不足のため、屋根工事は金曜日に完了する予定です。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:20:reader:line:18",
+      "sourceSpanish": "También escribió: Debido al atraso, el subcontratista pidió quitar un tramo de la protección perimetral; sin embargo, no se lo permití.",
+      "sourceEnglish": "He also wrote: Because of the schedule slip, the subcontractor asked to remove a section of the perimeter protection; however, I didn't allow it.",
+      "speaker": "He also wrote",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    }
+  ],
+  "reviewGates": {
+    "qualifiedJapaneseReview": false,
+    "qualifiedConstructionReview": false,
+    "sourceTechnicalQuestionsResolved": false,
+    "sourceParity": false,
+    "dictionarySenses": false,
+    "sixAuthoredModes": false,
+    "forms": false,
+    "speaking": false,
+    "audioText": false,
+    "audioListening": false,
+    "savedItemMigration": false,
+    "ownerRoute": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "progress": false,
+    "v4Native": false
+  }
+}

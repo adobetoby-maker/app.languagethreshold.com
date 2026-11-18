@@ -1,0 +1,721 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "master-roofing",
+  "lessonId": "master-roofing:6:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-4-6-draft.json",
+      "sha256": "4b08dda641541c9bba9eaea7bddad381917015b877a3e9509028b607bc2de05c"
+    }
+  },
+  "sourceEnglishTitle": "Material Shortage and Substitution",
+  "sourceEnglishObjective": "Handle a short delivery: get dates from the supplier, compare a substitute, and give the new plan",
+  "sourceEnglishSpeaking": "You are the crew lead and the AI is the supplier: find out what is missing and when it will arrive, compare the substitute with the original product, and say what you will do next using the future and ir a.",
+  "sourceSpanishReaderTitle": "The Shingle That Didn't Come",
+  "sourceLessonType": "Case",
+  "sourceBlock": "B",
+  "sourceGrammar": {
+    "focus": "Future and ir a; comparisons",
+    "examples": [
+      {
+        "es": "El resto llegará el jueves; hoy vamos a terminar la sub-capa.",
+        "en": "The rest will arrive Thursday; today we're going to finish the underlayment."
+      },
+      {
+        "es": "Esta teja es más pesada que la otra, pero igual de resistente.",
+        "en": "This shingle is heavier than the other one, but just as durable."
+      }
+    ]
+  },
+  "sourceVerbExamples": [
+    {
+      "infinitive": "llegar",
+      "native": "to arrive",
+      "forms": {
+        "yo": "llego",
+        "tú": "llegas",
+        "él_ella_usted": "llega",
+        "nosotros": "llegamos",
+        "ellos_ustedes": "llegan"
+      },
+      "example": {
+        "target": "El pedido no llegará completo.",
+        "native": "The order won't arrive complete."
+      },
+      "note": "Future: llegaré, llegará, llegarán."
+    },
+    {
+      "infinitive": "mandar",
+      "native": "to send",
+      "forms": {
+        "yo": "mando",
+        "tú": "mandas",
+        "él_ella_usted": "manda",
+        "nosotros": "mandamos",
+        "ellos_ustedes": "mandan"
+      },
+      "example": {
+        "target": "Le voy a mandar la foto del color.",
+        "native": "I'm going to send you the photo of the color."
+      },
+      "note": "Ir a + infinitive for a near plan: voy a mandar."
+    },
+    {
+      "infinitive": "usar",
+      "native": "to use",
+      "forms": {
+        "yo": "uso",
+        "tú": "usas",
+        "él_ella_usted": "usa",
+        "nosotros": "usamos",
+        "ellos_ustedes": "usan"
+      },
+      "example": {
+        "target": "Vamos a usar otra marca.",
+        "native": "We're going to use another brand."
+      },
+      "note": "Future: usaré, usaremos."
+    },
+    {
+      "infinitive": "aprobar",
+      "native": "to approve",
+      "forms": {
+        "yo": "apruebo",
+        "tú": "apruebas",
+        "él_ella_usted": "aprueba",
+        "nosotros": "aprobamos",
+        "ellos_ustedes": "aprueban"
+      },
+      "example": {
+        "target": "Si usted lo aprueba, la entrega será mañana temprano.",
+        "native": "If you approve it, the delivery will be early tomorrow."
+      },
+      "note": "Stem change o to ue: apruebo, but aprobamos."
+    },
+    {
+      "infinitive": "terminar",
+      "native": "to finish",
+      "forms": {
+        "yo": "termino",
+        "tú": "terminas",
+        "él_ella_usted": "termina",
+        "nosotros": "terminamos",
+        "ellos_ustedes": "terminan"
+      },
+      "example": {
+        "target": "Hoy vamos a terminar la sub-capa y el goterón.",
+        "native": "Today we're going to finish the underlayment and the drip edge."
+      },
+      "note": "Future: terminaré, terminaremos; with ir a: vamos a terminar."
+    }
+  ],
+  "candidateObjective": "不足した納品について入荷予定を確認し、代替品を比較して新しい作業計画を伝える。",
+  "candidateFocus": "～予定です gives a revised plan. ～なら makes customer approval the delivery condition; ～と言っています attributes uncertain supplier timing and product claims.",
+  "archivedForms": [
+    {
+      "base": "届く",
+      "exampleJa": "注文品は全部そろって届きません。",
+      "meaningEnglish": "to arrive",
+      "exampleEnglish": "The order won't arrive complete.",
+      "sourceInfinitiveSpanish": "llegar"
+    },
+    {
+      "base": "送る",
+      "exampleJa": "色の写真をお送りします。",
+      "meaningEnglish": "to send",
+      "exampleEnglish": "I'm going to send you the photo of the color.",
+      "sourceInfinitiveSpanish": "mandar"
+    },
+    {
+      "base": "使う",
+      "exampleJa": "別のブランドを使う予定です。",
+      "meaningEnglish": "to use",
+      "exampleEnglish": "We're going to use another brand.",
+      "sourceInfinitiveSpanish": "usar"
+    },
+    {
+      "base": "承認する",
+      "exampleJa": "承認いただければ、明日の早い時間に納品されます。",
+      "meaningEnglish": "to approve",
+      "exampleEnglish": "If you approve it, the delivery will be early tomorrow.",
+      "sourceInfinitiveSpanish": "aprobar"
+    },
+    {
+      "base": "仕上げる",
+      "exampleJa": "今日は下葺き材と軒先の水切り板金を仕上げます。",
+      "meaningEnglish": "to finish",
+      "exampleEnglish": "Today we're going to finish the underlayment and the drip edge.",
+      "sourceInfinitiveSpanish": "terminar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "仕入先から納品不足の連絡がありました。代替品の仕様書と色の写真をお送りします。承認いただければ、明日納品し、作業計画を変更します。",
+    "goal": "Ask the supplier what is missing and when it may arrive. Compare the proposed substitute with the contracted product, request its specification, and explain the approval and delivery plan."
+  },
+  "cards": [
+    {
+      "id": "master-roofing:6:ja-en:card:1",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:1",
+      "sourceSpanish": "el proveedor",
+      "sourceEnglish": "the supplier",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "仕入先",
+      "archivedJapanese": "仕入先",
+      "archivedEnglish": "the supplier",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:card:2",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:2",
+      "sourceSpanish": "el pedido",
+      "sourceEnglish": "the order",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "注文",
+      "archivedJapanese": "注文",
+      "archivedEnglish": "the order",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:card:3",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:3",
+      "sourceSpanish": "la entrega",
+      "sourceEnglish": "the delivery",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "納品",
+      "archivedJapanese": "納品",
+      "archivedEnglish": "the delivery",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:card:4",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:4",
+      "sourceSpanish": "el sustituto",
+      "sourceEnglish": "the substitute",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "代替品",
+      "archivedJapanese": "代替品",
+      "archivedEnglish": "the substitute",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:card:5",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:5",
+      "sourceSpanish": "la tarima",
+      "sourceEnglish": "the pallet",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "パレット",
+      "archivedJapanese": "パレット",
+      "archivedEnglish": "the pallet",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:card:6",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:6",
+      "sourceSpanish": "la bodega",
+      "sourceEnglish": "the warehouse",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "倉庫",
+      "archivedJapanese": "倉庫",
+      "archivedEnglish": "the warehouse",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:card:7",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:7",
+      "sourceSpanish": "en existencia",
+      "sourceEnglish": "in stock",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "在庫がある",
+      "archivedJapanese": "在庫がある",
+      "archivedEnglish": "in stock",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:card:8",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:8",
+      "sourceSpanish": "el retraso",
+      "sourceEnglish": "the delay",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "遅れ",
+      "archivedJapanese": "遅れ",
+      "archivedEnglish": "the delay",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:card:9",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:9",
+      "sourceSpanish": "la marca",
+      "sourceEnglish": "the brand",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "ブランド",
+      "archivedJapanese": "ブランド",
+      "archivedEnglish": "the brand",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:card:10",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:10",
+      "sourceSpanish": "la teja arquitectónica",
+      "sourceEnglish": "the architectural shingle",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ラミネートシングル材（architectural shingle）",
+      "archivedEnglish": "the architectural shingle",
+      "reviewNote": "Architectural-shingle product term and equivalence with another brand need roofing/Japanese review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:card:11",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:11",
+      "sourceSpanish": "la teja de tres lengüetas",
+      "sourceEnglish": "the three-tab shingle",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "三枚タブシングル材",
+      "archivedEnglish": "the three-tab shingle",
+      "reviewNote": "Three-tab shingle differs from the contracted architectural product; confirm Japanese product term.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:card:12",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:12",
+      "sourceSpanish": "el color",
+      "sourceEnglish": "the color",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "色",
+      "archivedJapanese": "色",
+      "archivedEnglish": "the color",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:card:13",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:13",
+      "sourceSpanish": "la factura",
+      "sourceEnglish": "the invoice",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "請求書",
+      "archivedJapanese": "請求書",
+      "archivedEnglish": "the invoice",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:card:14",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:14",
+      "sourceSpanish": "el precio",
+      "sourceEnglish": "the price",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "価格",
+      "archivedJapanese": "価格",
+      "archivedEnglish": "the price",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:card:15",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:15",
+      "sourceSpanish": "El pedido no llegará completo.",
+      "sourceEnglish": "The order won't arrive complete.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "注文品は全部そろって届きません。",
+      "archivedJapanese": "注文品は全部そろって届きません。",
+      "archivedEnglish": "The order won't arrive complete.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:card:16",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:16",
+      "sourceSpanish": "¿Cuándo llegará el resto?",
+      "sourceEnglish": "When will the rest arrive?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "残りはいつ届きますか。",
+      "archivedJapanese": "残りはいつ届きますか。",
+      "archivedEnglish": "When will the rest arrive?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:card:17",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:17",
+      "sourceSpanish": "Vamos a usar otra marca.",
+      "sourceEnglish": "We're going to use another brand.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "別のブランドを使う予定です。",
+      "archivedJapanese": "別のブランドを使う予定です。",
+      "archivedEnglish": "We're going to use another brand.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:card:18",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:18",
+      "sourceSpanish": "Es igual de resistente, pero más pesada.",
+      "sourceEnglish": "It's just as durable, but heavier.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "耐久性は同じですが、より重いです。",
+      "archivedEnglish": "It's just as durable, but heavier.",
+      "reviewNote": "Same durability but heavier is a supplier claim, not established product equivalence.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:card:19",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:19",
+      "sourceSpanish": "Este color se parece más al original.",
+      "sourceEnglish": "This color is closer to the original.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "この色は元の色により近いです。",
+      "archivedJapanese": "この色は元の色により近いです。",
+      "archivedEnglish": "This color is closer to the original.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:card:20",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:20",
+      "sourceSpanish": "Le voy a mandar la foto del color.",
+      "sourceEnglish": "I'm going to send you the photo of the color.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "色の写真をお送りします。",
+      "archivedJapanese": "色の写真をお送りします。",
+      "archivedEnglish": "I'm going to send you the photo of the color.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:card:21",
+      "legacySourceRef": "master-roofing:6:ja-en:cards:21",
+      "sourceSpanish": "¿Me echas la mano?",
+      "sourceEnglish": "Can you give me a hand?",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "手を貸してもらえますか。",
+      "archivedEnglish": "Can you give me a hand?",
+      "reviewNote": "Source labels this phrase informal; archived Japanese is polite and needs register review.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:6:ja-en:line:1",
+      "legacySourceRef": "master-roofing:6:ja-en:reader:1",
+      "sourceSpanish": "A las siete, el proveedor llamó a Rogelio con malas noticias.",
+      "sourceEnglish": "At seven, the supplier called Rogelio with bad news.",
+      "selectedJapanese": null,
+      "candidateJapanese": "午前七時、仕入先からロヘリオに悪い知らせの電話がありました。",
+      "archivedJapanese": "午前七時、仕入先からロヘリオに悪い知らせの電話がありました。",
+      "archivedEnglish": "At seven, the supplier called Rogelio with bad news.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:line:2",
+      "legacySourceRef": "master-roofing:6:ja-en:reader:2",
+      "sourceSpanish": "Proveedor: Lo siento, el pedido no llegará completo, porque no tenemos ese color en existencia.",
+      "sourceEnglish": "Supplier: I'm sorry, the order won't arrive complete, because we don't have that color in stock.",
+      "selectedJapanese": null,
+      "candidateJapanese": "仕入先「申し訳ありません。あの色の在庫がないため、注文品は全部そろって届きません。」",
+      "archivedJapanese": "仕入先「申し訳ありません。あの色の在庫がないため、注文品は全部そろって届きません。」",
+      "archivedEnglish": "Supplier: I'm sorry, the order won't arrive complete, because we don't have that color in stock.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:line:3",
+      "legacySourceRef": "master-roofing:6:ja-en:reader:3",
+      "sourceSpanish": "Rogelio: ¿Cuándo llegará el resto?",
+      "sourceEnglish": "Rogelio: When will the rest arrive?",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「残りはいつ届きますか。」",
+      "archivedJapanese": "ロヘリオ「残りはいつ届きますか。」",
+      "archivedEnglish": "Rogelio: When will the rest arrive?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:line:4",
+      "legacySourceRef": "master-roofing:6:ja-en:reader:4",
+      "sourceSpanish": "Proveedor: La fábrica dice que llegará a la bodega el jueves, pero no es seguro.",
+      "sourceEnglish": "Supplier: The factory says it will arrive at the warehouse on Thursday, but it's not certain.",
+      "selectedJapanese": null,
+      "candidateJapanese": "仕入先「工場は木曜日に倉庫へ届くと言っていますが、確実ではありません。」",
+      "archivedJapanese": "仕入先「工場は木曜日に倉庫へ届くと言っていますが、確実ではありません。」",
+      "archivedEnglish": "Supplier: The factory says it will arrive at the warehouse on Thursday, but it's not certain.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:line:5",
+      "legacySourceRef": "master-roofing:6:ja-en:reader:5",
+      "sourceSpanish": "Rogelio: Eso sería un retraso de cuatro días, y la clienta quiere terminar antes.",
+      "sourceEnglish": "Rogelio: That would be a four-day delay, and the customer wants to finish sooner.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「それでは四日の遅れになります。お客様はもっと早い完成を望んでいます。」",
+      "archivedEnglish": "Rogelio: That would be a four-day delay, and the customer wants to finish sooner.",
+      "reviewNote": "Source says would be a four-day delay; preserve conditional timing, not certainty.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:line:6",
+      "legacySourceRef": "master-roofing:6:ja-en:reader:6",
+      "sourceSpanish": "Proveedor: Tengo la misma teja arquitectónica de otra marca, al mismo precio.",
+      "sourceEnglish": "Supplier: I have the same architectural shingle from another brand, at the same price.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "仕入先「別のブランドに同じラミネートシングル材があり、価格も同じです。」",
+      "archivedEnglish": "Supplier: I have the same architectural shingle from another brand, at the same price.",
+      "reviewNote": "Another-brand architectural shingle at the same price is a supplier product claim.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:line:7",
+      "legacySourceRef": "master-roofing:6:ja-en:reader:7",
+      "sourceSpanish": "Proveedor: Es igual de resistente, pero más pesada, y el color se parece mucho.",
+      "sourceEnglish": "Supplier: It's just as durable, but heavier, and the color is very similar.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "仕入先「耐久性は同じですが、より重く、色もよく似ています。」",
+      "archivedEnglish": "Supplier: It's just as durable, but heavier, and the color is very similar.",
+      "reviewNote": "Equal durability, higher weight and similar color require product/specification review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:line:8",
+      "legacySourceRef": "master-roofing:6:ja-en:reader:8",
+      "sourceSpanish": "Rogelio: La arquitectónica de otra marca me sirve, pero no voy a aceptar teja de tres lengüetas; el contrato dice arquitectónica.",
+      "sourceEnglish": "Rogelio: The architectural one from another brand works for me, but I'm not going to accept three-tab shingle; the contract says architectural.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「別ブランドのラミネート材なら使えますが、三枚タブシングル材は受け入れません。契約書にはラミネート材とあります。」",
+      "archivedEnglish": "Rogelio: The architectural one from another brand works for me, but I'm not going to accept three-tab shingle; the contract says architectural.",
+      "reviewNote": "Contract distinguishes architectural from three-tab; Japanese product terms and authority need review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:line:9",
+      "legacySourceRef": "master-roofing:6:ja-en:reader:9",
+      "sourceSpanish": "Rogelio: Mándeme la hoja técnica, y antes de decidir voy a hablar con la clienta.",
+      "sourceEnglish": "Rogelio: Send me the spec sheet, and before deciding I'm going to talk to the customer.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「仕様書を送ってください。決める前にお客様と話します。」",
+      "archivedEnglish": "Rogelio: Send me the spec sheet, and before deciding I'm going to talk to the customer.",
+      "reviewNote": "Spec-sheet comparison must precede a substitute decision; confirm workflow and term.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:line:10",
+      "legacySourceRef": "master-roofing:6:ja-en:reader:10",
+      "sourceSpanish": "Luego Rogelio llamó a la señora Díaz, la dueña de la casa.",
+      "sourceEnglish": "Then Rogelio called Mrs. Díaz, the homeowner.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "その後、ロヘリオは家主のディアスさんに電話しました。",
+      "archivedEnglish": "Then Rogelio called Mrs. Díaz, the homeowner.",
+      "reviewNote": "Mrs. Díaz is a female homeowner; archived Japanese loses the source honorific and gender context.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:line:11",
+      "legacySourceRef": "master-roofing:6:ja-en:reader:11",
+      "sourceSpanish": "Rogelio: Señora, el proveedor tiene un sustituto, y este color se parece más al original que los otros.",
+      "sourceEnglish": "Rogelio: Ma'am, the supplier has a substitute, and this color is closer to the original than the others.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「仕入先に代替品があり、この色はほかの候補より元の色に近いです。」",
+      "archivedEnglish": "Rogelio: Ma'am, the supplier has a substitute, and this color is closer to the original than the others.",
+      "reviewNote": "Source address Maam is omitted in the archived Japanese; customer register needs review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:line:12",
+      "legacySourceRef": "master-roofing:6:ja-en:reader:12",
+      "sourceSpanish": "Rogelio: Le voy a mandar la foto del color, y si usted lo aprueba, la entrega será mañana temprano.",
+      "sourceEnglish": "Rogelio: I'm going to send you the photo of the color, and if you approve it, the delivery will be early tomorrow.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「色の写真をお送りします。承認いただければ、明日の早い時間に納品されます。」",
+      "archivedEnglish": "Rogelio: I'm going to send you the photo of the color, and if you approve it, the delivery will be early tomorrow.",
+      "reviewNote": "Next-day delivery depends on homeowner approval and supplier availability; hold promise wording.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:line:13",
+      "legacySourceRef": "master-roofing:6:ja-en:reader:13",
+      "sourceSpanish": "La señora Díaz aprobó el cambio por mensaje, y Rogelio pidió una nueva factura.",
+      "sourceEnglish": "Mrs. Díaz approved the change by text, and Rogelio asked for a new invoice.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ディアスさんはメッセージで変更を承認し、ロヘリオは新しい請求書を依頼しました。",
+      "archivedEnglish": "Mrs. Díaz approved the change by text, and Rogelio asked for a new invoice.",
+      "reviewNote": "Text approval and revised invoice may not complete contract authorization in every locale.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:line:14",
+      "legacySourceRef": "master-roofing:6:ja-en:reader:14",
+      "sourceSpanish": "Después reunió a la cuadrilla junto al camión.",
+      "sourceEnglish": "Then he gathered the crew next to the truck.",
+      "selectedJapanese": null,
+      "candidateJapanese": "その後、ロヘリオはトラックの横に作業班を集めました。",
+      "archivedJapanese": "その後、ロヘリオはトラックの横に作業班を集めました。",
+      "archivedEnglish": "Then he gathered the crew next to the truck.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:line:15",
+      "legacySourceRef": "master-roofing:6:ja-en:reader:15",
+      "sourceSpanish": "Rogelio: Vamos a usar otra marca, y mañana llegarán dos tarimas.",
+      "sourceEnglish": "Rogelio: We're going to use another brand, and tomorrow two pallets will arrive.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「別のブランドを使います。明日はパレット二つが届きます。」",
+      "archivedJapanese": "ロヘリオ「別のブランドを使います。明日はパレット二つが届きます。」",
+      "archivedEnglish": "Rogelio: We're going to use another brand, and tomorrow two pallets will arrive.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:line:16",
+      "legacySourceRef": "master-roofing:6:ja-en:reader:16",
+      "sourceSpanish": "Rogelio: Hoy vamos a terminar la sub-capa y el goterón, y mañana empezaremos con las tejas.",
+      "sourceEnglish": "Rogelio: Today we're going to finish the underlayment and the drip edge, and tomorrow we'll start on the shingles.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「今日は下葺き材と軒先の水切り板金を仕上げ、明日シングル材の施工を始めます。」",
+      "archivedEnglish": "Rogelio: Today we're going to finish the underlayment and the drip edge, and tomorrow we'll start on the shingles.",
+      "reviewNote": "Underlayment and drip-edge sequencing requires roofing/product review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:ja-en:line:17",
+      "legacySourceRef": "master-roofing:6:ja-en:reader:17",
+      "sourceSpanish": "Rogelio: Kevin, ¿me echas la mano con estos rollos?",
+      "sourceEnglish": "Rogelio: Kevin, can you give me a hand with these rolls?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「ケビン、この巻き物を運ぶのを手伝ってもらえますか。」",
+      "archivedEnglish": "Rogelio: Kevin, can you give me a hand with these rolls?",
+      "reviewNote": "Source is an informal crew request; archived Japanese changes register and adds carrying.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Identify the substitute shingle, two pallets, and color photo.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall supplier, delivery delay, brand, invoice, and contract type.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish ラミネートシングル材 from 三枚タブシングル材 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'When will the rest arrive?' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Discuss the short delivery, substitute, customer approval, and revised plan.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write today's and tomorrow's work after the delivery changes.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "curriculumAdaptationNote": "The source's Thursday factory delivery is uncertain; a same-price architectural-shingle substitute from another brand is a supplier claim, not verified equivalence. Rogelio rejects three-tab under the contract, requests the spec sheet, consults Mrs. Díaz, receives text approval and a new invoice, then re-sequences underlayment and drip edge. Preserve conditional delivery, heavier-versus-durable comparison, product identity, source register and homeowner authorization. Roofing product/contract and Japanese review are needed before scored text or audio. Five source verbs and grammar examples remain pinned separately; archived forms and mode labels are conditional evidence. No learner or saved-progress identity is created.",
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

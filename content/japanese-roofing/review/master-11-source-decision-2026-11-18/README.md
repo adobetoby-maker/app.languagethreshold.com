@@ -1,0 +1,9 @@
+# Japanese Roofing Master 11 — hot-week source and clinical terminology decision
+
+This inert packet pins **22 exact current Spanish/English cards**, **16 aligned Reader turns**, five source verbs and two grammar examples for *Motivating the Crew Through a Hot Week*. `packet.json` records current-source and archived-draft hashes, source rows, archived Japanese evidence and proposed `master-roofing:11:ja-en` row IDs. The IDs are review references; no learner, saved-item or progress key changed.
+
+Ten card and 11 Reader Japanese faces are held. The source says *more than 100 degrees* without naming a scale, while the archived Japanese adds Fahrenheit. It distinguishes **heat exhaustion** and **heatstroke**, names dizziness, headache, nausea and heavy sweating, and uses 911 in the scene. Qualified Japanese, clinical, source and locale review must settle the two medical terms, temperature unit, emergency number context and break/schedule claims. The source's on-time and no-risk promises and final exhortation need safety and tone review. Teach the clinical terms directly once settled; keep these factual/domain questions outside learner text.
+
+Every `selectedJapanese` and `audioScript` is null; `reviewed:false`, registration false and learner, scoring, audio/listening, offline, progress, browser and V4 gates false. The archived six mode labels are not authored prompt/target activities. No synthesis, listening approval, owner page or recording reuse occurred.
+
+Run `python3 content/japanese-roofing/review/master-11-source-decision-2026-11-18/build.py --check` and `python3 content/japanese-roofing/review/master-11-source-decision-2026-11-18/validate.py` to check source drift, alignment, IDs and gates. Claude CLI 2.1.325 was logged out (`authMethod:none`); zero Haiku, Opus or Fable calls were made. Deterministic checks are not qualified approval.

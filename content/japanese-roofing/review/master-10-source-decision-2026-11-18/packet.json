@@ -1,0 +1,709 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "master-roofing",
+  "lessonId": "master-roofing:10:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-10-11-draft.json",
+      "sha256": "9a66b76f82a3b34ecd267c69bab99d73f5d55fc54f538f696b7e550aaffddd44"
+    }
+  },
+  "sourceEnglishTitle": "Conflict Between Two Crew Members",
+  "sourceEnglishObjective": "Hear both sides of a crew conflict, report what each person said, and settle it with a clear rule",
+  "sourceEnglishSpeaking": "You are the crew lead and the AI plays two crew members arguing about a job that went wrong: hear each version, repeat back what each one said with dijo que, and settle it with a fair new rule and assignments.",
+  "sourceSpanishReaderTitle": "Two Versions of One Tarp",
+  "sourceLessonType": "People",
+  "sourceBlock": "C",
+  "sourceGrammar": {
+    "focus": "Reported speech; imperfect for background",
+    "examples": [
+      {
+        "es": "Marcos dijo que la lona no era su tarea.",
+        "en": "Marcos said the tarp wasn't his job."
+      },
+      {
+        "es": "Llovía fuerte cuando la lona se levantó.",
+        "en": "It was raining hard when the tarp lifted."
+      }
+    ]
+  },
+  "sourceVerbExamples": [
+    {
+      "infinitive": "decir",
+      "native": "to say",
+      "forms": {
+        "yo": "digo",
+        "tú": "dices",
+        "él_ella_usted": "dice",
+        "nosotros": "decimos",
+        "ellos_ustedes": "dicen"
+      },
+      "example": {
+        "target": "Kevin dice que nadie revisó la lona.",
+        "native": "Kevin says that nobody checked the tarp."
+      },
+      "note": "Preterite: dije, dijo, dijeron; reported speech uses dijo que."
+    },
+    {
+      "infinitive": "escuchar",
+      "native": "to listen",
+      "forms": {
+        "yo": "escucho",
+        "tú": "escuchas",
+        "él_ella_usted": "escucha",
+        "nosotros": "escuchamos",
+        "ellos_ustedes": "escuchan"
+      },
+      "example": {
+        "target": "Rogelio escuchó a los dos sin interrumpir.",
+        "native": "Rogelio listened to both without interrupting."
+      },
+      "note": "Preterite: escuché, escuchó."
+    },
+    {
+      "infinitive": "interrumpir",
+      "native": "to interrupt",
+      "forms": {
+        "yo": "interrumpo",
+        "tú": "interrumpes",
+        "él_ella_usted": "interrumpe",
+        "nosotros": "interrumpimos",
+        "ellos_ustedes": "interrumpen"
+      },
+      "example": {
+        "target": "Uno a la vez; no interrumpan, por favor.",
+        "native": "One at a time; don't interrupt, please."
+      },
+      "note": "Negative command: no interrumpas (tú), no interrumpan (ustedes)."
+    },
+    {
+      "infinitive": "reunir",
+      "native": "to gather",
+      "forms": {
+        "yo": "reúno",
+        "tú": "reúnes",
+        "él_ella_usted": "reúne",
+        "nosotros": "reunimos",
+        "ellos_ustedes": "reúnen"
+      },
+      "example": {
+        "target": "Rogelio reunió a la cuadrilla.",
+        "native": "Rogelio gathered the crew."
+      },
+      "note": "Written accent in the present: reúno, reúne, reúnen."
+    },
+    {
+      "infinitive": "asignar",
+      "native": "to assign",
+      "forms": {
+        "yo": "asigno",
+        "tú": "asignas",
+        "él_ella_usted": "asigna",
+        "nosotros": "asignamos",
+        "ellos_ustedes": "asignan"
+      },
+      "example": {
+        "target": "Rogelio asigna un lado del techo a cada uno.",
+        "native": "Rogelio assigns one side of the roof to each of them."
+      },
+      "note": "Imperfect for background: nadie tenía la tarea asignada."
+    }
+  ],
+  "candidateObjective": "作業員双方の話を聞き、それぞれの発言を伝え、明確な決まりで対立を収める。",
+  "candidateFocus": "～と言いました reports another person's words. ～によると attributes each account; 一人ずつ orders the discussion, and ～ことにします sets the new rule.",
+  "archivedForms": [
+    {
+      "base": "言う",
+      "exampleJa": "ケビンは誰も防水シートを確認しなかったと言います。",
+      "meaningEnglish": "to say",
+      "exampleEnglish": "Kevin says that nobody checked the tarp.",
+      "sourceInfinitiveSpanish": "decir"
+    },
+    {
+      "base": "聞く",
+      "exampleJa": "ロヘリオは二人の話を遮らずに聞きました。",
+      "meaningEnglish": "to listen",
+      "exampleEnglish": "Rogelio listened to both without interrupting.",
+      "sourceInfinitiveSpanish": "escuchar"
+    },
+    {
+      "base": "遮る",
+      "exampleJa": "一人ずつ話してください。遮らないでください。",
+      "meaningEnglish": "to interrupt",
+      "exampleEnglish": "One at a time; don't interrupt, please.",
+      "sourceInfinitiveSpanish": "interrumpir"
+    },
+    {
+      "base": "集める",
+      "exampleJa": "ロヘリオは作業班を集めました。",
+      "meaningEnglish": "to gather",
+      "exampleEnglish": "Rogelio gathered the crew.",
+      "sourceInfinitiveSpanish": "reunir"
+    },
+    {
+      "base": "割り当てる",
+      "exampleJa": "ロヘリオは二人に屋根の片側ずつを割り当てます。",
+      "meaningEnglish": "to assign",
+      "exampleEnglish": "Rogelio assigns one side of the roof to each of them.",
+      "sourceInfinitiveSpanish": "asignar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "一人ずつ話してください。まず双方の言い分を聞きます。今日から、最後に降りる人が固定ひもを確認して写真を送ることにします。",
+    "goal": "Hear each crew member's account of the loose tarp, report their statements accurately to the boss, and set a fair tie-down check and assignment for the next shift."
+  },
+  "cards": [
+    {
+      "id": "master-roofing:10:ja-en:card:1",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:1",
+      "sourceSpanish": "la lona suelta",
+      "sourceEnglish": "the loose tarp",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "緩んだ防水シート",
+      "archivedEnglish": "the loose tarp",
+      "reviewNote": "Roof tarp sense needs Japanese roofing terminology and system-specific temporary-cover review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:card:2",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:2",
+      "sourceSpanish": "la discusión",
+      "sourceEnglish": "the argument",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "口論",
+      "archivedJapanese": "口論",
+      "archivedEnglish": "the argument",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:card:3",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:3",
+      "sourceSpanish": "el malentendido",
+      "sourceEnglish": "the misunderstanding",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "行き違い",
+      "archivedJapanese": "行き違い",
+      "archivedEnglish": "the misunderstanding",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:card:4",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:4",
+      "sourceSpanish": "la versión",
+      "sourceEnglish": "the version (one side of the story)",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "一方の言い分",
+      "archivedJapanese": "一方の言い分",
+      "archivedEnglish": "the version (one side of the story)",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:card:5",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:5",
+      "sourceSpanish": "la culpa",
+      "sourceEnglish": "the blame",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "責任の押し付け",
+      "archivedJapanese": "責任の押し付け",
+      "archivedEnglish": "the blame",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:card:6",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:6",
+      "sourceSpanish": "el turno",
+      "sourceEnglish": "the shift",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "担当時間",
+      "archivedEnglish": "the shift",
+      "reviewNote": "Source shift refers to garage-side assignment, not necessarily working hours; archived 担当時間 changes the sense.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:card:7",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:7",
+      "sourceSpanish": "la tarea",
+      "sourceEnglish": "the task",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "作業",
+      "archivedJapanese": "作業",
+      "archivedEnglish": "the task",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:card:8",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:8",
+      "sourceSpanish": "el respeto",
+      "sourceEnglish": "the respect",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "敬意",
+      "archivedJapanese": "敬意",
+      "archivedEnglish": "the respect",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:card:9",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:9",
+      "sourceSpanish": "el acuerdo",
+      "sourceEnglish": "the agreement",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "合意",
+      "archivedJapanese": "合意",
+      "archivedEnglish": "the agreement",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:card:10",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:10",
+      "sourceSpanish": "la regla",
+      "sourceEnglish": "the rule",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "決まり",
+      "archivedJapanese": "決まり",
+      "archivedEnglish": "the rule",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:card:11",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:11",
+      "sourceSpanish": "el testigo",
+      "sourceEnglish": "the witness",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "目撃者",
+      "archivedEnglish": "the witness",
+      "reviewNote": "Witness of the end-of-day condition needs a contextual Japanese sense, not an assumed eyewitness to the failure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:card:12",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:12",
+      "sourceSpanish": "la queja",
+      "sourceEnglish": "the complaint",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "苦情",
+      "archivedJapanese": "苦情",
+      "archivedEnglish": "the complaint",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:card:13",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:13",
+      "sourceSpanish": "el amarre",
+      "sourceEnglish": "the tie-down",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "固定ひも",
+      "archivedEnglish": "the tie-down",
+      "reviewNote": "Tie-down is a roofing tarp restraint; do not present one hardware method as universally suitable.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:card:14",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:14",
+      "sourceSpanish": "el responsable",
+      "sourceEnglish": "the person responsible",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "担当者",
+      "archivedEnglish": "the person responsible",
+      "reviewNote": "The person responsible is an assigned role; preserve the lesson conflict about nobody being assigned.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:card:15",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:15",
+      "sourceSpanish": "Dijo que la lona no era su tarea.",
+      "sourceEnglish": "He said the tarp wasn't his job.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "彼は防水シートは自分の仕事ではないと言いました。",
+      "archivedJapanese": "彼は防水シートは自分の仕事ではないと言いました。",
+      "archivedEnglish": "He said the tarp wasn't his job.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:card:16",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:16",
+      "sourceSpanish": "Me explicó que ya estaba oscuro.",
+      "sourceEnglish": "He explained to me that it was already dark.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "彼はもう暗かったと私に説明しました。",
+      "archivedJapanese": "彼はもう暗かったと私に説明しました。",
+      "archivedEnglish": "He explained to me that it was already dark.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:card:17",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:17",
+      "sourceSpanish": "Uno a la vez, por favor.",
+      "sourceEnglish": "One at a time, please.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "一人ずつ話してください。",
+      "archivedJapanese": "一人ずつ話してください。",
+      "archivedEnglish": "One at a time, please.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:card:18",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:18",
+      "sourceSpanish": "A ver, cuéntame tu versión.",
+      "sourceEnglish": "OK, tell me your side.",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "分かりました。あなたの言い分を聞かせてください。",
+      "archivedJapanese": "分かりました。あなたの言い分を聞かせてください。",
+      "archivedEnglish": "OK, tell me your side.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:card:19",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:19",
+      "sourceSpanish": "Cálmate, compa.",
+      "sourceEnglish": "Calm down, buddy.",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "落ち着いてください、二人とも。",
+      "archivedEnglish": "Calm down, buddy.",
+      "reviewNote": "Archived Japanese addresses both crew members while this card addresses buddy singular; align with Reader context.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:card:20",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:20",
+      "sourceSpanish": "Aquí no buscamos culpables.",
+      "sourceEnglish": "Here we don't look for someone to blame.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "ここでは責任を押し付ける相手を探しません。",
+      "archivedJapanese": "ここでは責任を押し付ける相手を探しません。",
+      "archivedEnglish": "Here we don't look for someone to blame.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:card:21",
+      "legacySourceRef": "master-roofing:10:ja-en:cards:21",
+      "sourceSpanish": "Con todo respeto, no fue así.",
+      "sourceEnglish": "With all due respect, that's not how it was.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "失礼ですが、実際はそうではありません。",
+      "archivedJapanese": "失礼ですが、実際はそうではありません。",
+      "archivedEnglish": "With all due respect, that's not how it was.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:10:ja-en:line:1",
+      "legacySourceRef": "master-roofing:10:ja-en:reader:1",
+      "sourceSpanish": "El lunes por la mañana, el ático de la casa Martínez estaba mojado en una esquina.",
+      "sourceEnglish": "On Monday morning, the attic of the Martínez house was wet in one corner.",
+      "selectedJapanese": null,
+      "candidateJapanese": "月曜日の朝、マルティネス家の屋根裏の一角が濡れていました。",
+      "archivedJapanese": "月曜日の朝、マルティネス家の屋根裏の一角が濡れていました。",
+      "archivedEnglish": "On Monday morning, the attic of the Martínez house was wet in one corner.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:line:2",
+      "legacySourceRef": "master-roofing:10:ja-en:reader:2",
+      "sourceSpanish": "La noche anterior llovía fuerte, y la lona suelta se levantó con el viento.",
+      "sourceEnglish": "The night before it was raining hard, and the loose tarp lifted in the wind.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "前の晩は強い雨で、緩んだ防水シートが風で持ち上がりました。",
+      "archivedEnglish": "The night before it was raining hard, and the loose tarp lifted in the wind.",
+      "reviewNote": "Temporary roof tarp and rain/wind mechanism need trade/safety terminology review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:line:3",
+      "legacySourceRef": "master-roofing:10:ja-en:reader:3",
+      "sourceSpanish": "Cuando Rogelio llegó, Julio y Marcos tenían una discusión fuerte junto al camión.",
+      "sourceEnglish": "When Rogelio arrived, Julio and Marcos were having a heated argument next to the truck.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオが着くと、フリオとマルコスがトラックの横で激しく口論していました。",
+      "archivedJapanese": "ロヘリオが着くと、フリオとマルコスがトラックの横で激しく口論していました。",
+      "archivedEnglish": "When Rogelio arrived, Julio and Marcos were having a heated argument next to the truck.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:line:4",
+      "legacySourceRef": "master-roofing:10:ja-en:reader:4",
+      "sourceSpanish": "Rogelio: Cálmate, compa, y tú también, Marcos; uno a la vez, por favor.",
+      "sourceEnglish": "Rogelio: Calm down, buddy, and you too, Marcos; one at a time, please.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「落ち着いてください。マルコスも。一人ずつ話してください。」",
+      "archivedEnglish": "Rogelio: Calm down, buddy, and you too, Marcos; one at a time, please.",
+      "reviewNote": "Preserve the address to one person followed by Marcos; archived dialogue compresses this.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:line:5",
+      "legacySourceRef": "master-roofing:10:ja-en:reader:5",
+      "sourceSpanish": "Rogelio: Marcos, a ver, cuéntame tu versión.",
+      "sourceEnglish": "Rogelio: Marcos, OK, tell me your side.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「マルコス、分かりました。あなたの言い分を聞かせてください。」",
+      "archivedJapanese": "ロヘリオ「マルコス、分かりました。あなたの言い分を聞かせてください。」",
+      "archivedEnglish": "Rogelio: Marcos, OK, tell me your side.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:line:6",
+      "legacySourceRef": "master-roofing:10:ja-en:reader:6",
+      "sourceSpanish": "Marcos dijo que la lona no era su tarea, porque ese día él estaba en el turno del garaje.",
+      "sourceEnglish": "Marcos said the tarp wasn't his job, because that day he was on the garage shift.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "マルコスは、その日はガレージ側の担当だったので防水シートは自分の仕事ではないと言いました。",
+      "archivedEnglish": "Marcos said the tarp wasn't his job, because that day he was on the garage shift.",
+      "reviewNote": "Garage shift means assigned garage-side work here; archived wording may imply hours.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:line:7",
+      "legacySourceRef": "master-roofing:10:ja-en:reader:7",
+      "sourceSpanish": "Luego Julio contó que ya estaba oscuro, que no había amarres en el camión y que él puso piedras en la orilla.",
+      "sourceEnglish": "Then Julio said that it was already dark, that there were no tie-downs on the truck and that he put rocks on the edge.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "次にフリオは、もう暗く、トラックに固定ひもがなかったので、端に石を置いたと言いました。",
+      "archivedEnglish": "Then Julio said that it was already dark, that there were no tie-downs on the truck and that he put rocks on the edge.",
+      "reviewNote": "Rocks on the edge are a reported improvised act, not an approved tarp-securing instruction; tie-downs were absent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:line:8",
+      "legacySourceRef": "master-roofing:10:ja-en:reader:8",
+      "sourceSpanish": "Rogelio escuchó a los dos sin interrumpir y después habló con Kevin, que era testigo.",
+      "sourceEnglish": "Rogelio listened to both without interrupting and then talked with Kevin, who was a witness.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオは二人の話を遮らずに聞き、目撃者のケビンにも話を聞きました。",
+      "archivedEnglish": "Rogelio listened to both without interrupting and then talked with Kevin, who was a witness.",
+      "reviewNote": "Kevin is a witness to end-of-day circumstances; confirm contextual Japanese witness wording.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:line:9",
+      "legacySourceRef": "master-roofing:10:ja-en:reader:9",
+      "sourceSpanish": "Kevin dijo que al final del día todos estaban cansados y que nadie revisó la lona.",
+      "sourceEnglish": "Kevin said that at the end of the day everyone was tired and that nobody checked the tarp.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ケビンは、一日の終わりには皆疲れていて、誰も防水シートを確認しなかったと言いました。",
+      "archivedEnglish": "Kevin said that at the end of the day everyone was tired and that nobody checked the tarp.",
+      "reviewNote": "Nobody checked the tarp is Kevin’s report; do not turn it into a verified universal fact.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:line:10",
+      "legacySourceRef": "master-roofing:10:ja-en:reader:10",
+      "sourceSpanish": "Más tarde, Rogelio llamó al jefe: Julio me explicó que ya estaba oscuro, y Marcos dijo que no era su tarea.",
+      "sourceEnglish": "Later, Rogelio called the boss: Julio explained to me that it was already dark, and Marcos said it wasn't his job.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "その後、ロヘリオは上司に電話しました。「フリオはもう暗かったと説明し、マルコスは自分の仕事ではないと言いました。」",
+      "archivedEnglish": "Later, Rogelio called the boss: Julio explained to me that it was already dark, and Marcos said it wasn't his job.",
+      "reviewNote": "Preserve who reported what and the distinct Julio and Marcos claims in the boss summary.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:line:11",
+      "legacySourceRef": "master-roofing:10:ja-en:reader:11",
+      "sourceSpanish": "Jefe: ¿Y quién era el responsable de la lona?",
+      "sourceEnglish": "Boss: And who was responsible for the tarp?",
+      "selectedJapanese": null,
+      "candidateJapanese": "上司「では、防水シートの担当者は誰だったのですか。」",
+      "archivedJapanese": "上司「では、防水シートの担当者は誰だったのですか。」",
+      "archivedEnglish": "Boss: And who was responsible for the tarp?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:line:12",
+      "legacySourceRef": "master-roofing:10:ja-en:reader:12",
+      "sourceSpanish": "Rogelio: Con todo respeto, no fue así de simple; fue un malentendido, porque nadie tenía esa tarea asignada.",
+      "sourceEnglish": "Rogelio: With all due respect, it wasn't that simple; it was a misunderstanding, because nobody had that task assigned.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「失礼ですが、単純な話ではありません。誰にもその作業が割り当てられていなかったため、行き違いが起きました。」",
+      "archivedJapanese": "ロヘリオ「失礼ですが、単純な話ではありません。誰にもその作業が割り当てられていなかったため、行き違いが起きました。」",
+      "archivedEnglish": "Rogelio: With all due respect, it wasn't that simple; it was a misunderstanding, because nobody had that task assigned.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:line:13",
+      "legacySourceRef": "master-roofing:10:ja-en:reader:13",
+      "sourceSpanish": "Rogelio reunió a la cuadrilla y les dijo: Aquí no buscamos culpables, buscamos soluciones; la culpa no arregla nada.",
+      "sourceEnglish": "Rogelio gathered the crew and told them: Here we don't look for someone to blame, we look for solutions; blame fixes nothing.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオは作業班を集め、「ここでは責任を押し付ける相手ではなく解決策を探します。責任の押し付けでは何も直りません」と伝えました。",
+      "archivedJapanese": "ロヘリオは作業班を集め、「ここでは責任を押し付ける相手ではなく解決策を探します。責任の押し付けでは何も直りません」と伝えました。",
+      "archivedEnglish": "Rogelio gathered the crew and told them: Here we don't look for someone to blame, we look for solutions; blame fixes nothing.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:line:14",
+      "legacySourceRef": "master-roofing:10:ja-en:reader:14",
+      "sourceSpanish": "Rogelio: Desde hoy, la regla es esta: el último en bajar revisa cada amarre de la lona y me manda una foto.",
+      "sourceEnglish": "Rogelio: From today, the rule is this: the last one down checks every tie-down on the tarp and sends me a photo.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「今日からの決まりです。最後に屋根から降りる人が防水シートの固定ひもをすべて確認し、私に写真を送ります。」",
+      "archivedEnglish": "Rogelio: From today, the rule is this: the last one down checks every tie-down on the tarp and sends me a photo.",
+      "reviewNote": "The last-person-down tie-down/photo rule is the story’s proposed assignment, not a complete safe-tarp or fall-protection procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:line:15",
+      "legacySourceRef": "master-roofing:10:ja-en:reader:15",
+      "sourceSpanish": "Rogelio: Julio, mañana tú revisas el lado norte, y Marcos, tú revisas el lado sur.",
+      "sourceEnglish": "Rogelio: Julio, tomorrow you check the north side, and Marcos, you check the south side.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「フリオは明日北側を、マルコスは南側を確認してください。」",
+      "archivedJapanese": "ロヘリオ「フリオは明日北側を、マルコスは南側を確認してください。」",
+      "archivedEnglish": "Rogelio: Julio, tomorrow you check the north side, and Marcos, you check the south side.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:10:ja-en:line:16",
+      "legacySourceRef": "master-roofing:10:ja-en:reader:16",
+      "sourceSpanish": "Al final, los dos llegaron a un acuerdo y no hubo más quejas.",
+      "sourceEnglish": "In the end, the two reached an agreement and there were no more complaints.",
+      "selectedJapanese": null,
+      "candidateJapanese": "最後に二人は合意し、苦情はそれ以上出ませんでした。",
+      "archivedJapanese": "最後に二人は合意し、苦情はそれ以上出ませんでした。",
+      "archivedEnglish": "In the end, the two reached an agreement and there were no more complaints.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Identify the loose tarp, truck, and two crew members.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall misunderstanding, witness, task assignment, and tie-down.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 言い分 from 行き違い when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'One at a time, please' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Hear both sides, report each account, and state the new rule.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write what the witness said and who checks the tarp next time.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "curriculumAdaptationNote": "The story reports a loose tarp after heavy rain, Julio’s improvised use of rocks when tie-downs were missing, a crew dispute and Rogelio’s new assignment/photo rule. Preserve the two separate claims, Kevin’s account and the reported-speech teaching objective. Do not turn rocks or the last-person-down photo rule into universal tarp or fall-protection instructions; qualified roofing safety and Japanese review must settle the task and hardware language. Grammar and five Spanish verbs are pinned separately. No selected learner/audio text or progress identity is created.",
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

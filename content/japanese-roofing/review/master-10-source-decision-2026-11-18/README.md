@@ -1,0 +1,9 @@
+# Japanese Roofing Master 10 — crew conflict source decision
+
+This inert packet pins **21 exact current Spanish/English cards**, **16 aligned Reader turns**, five source verbs and two grammar examples for *Conflict Between Two Crew Members*. `packet.json` records current-source and archived-draft hashes, source rows, archived Japanese evidence and proposed `master-roofing:10:ja-en` row IDs. The IDs are review references; no learner, saved-item or progress key changed.
+
+Six card and eight Reader Japanese faces are held. The source distinguishes Marcos's garage-side assignment from a time shift, reports Julio's improvised use of rocks when tarp tie-downs were missing, and records Kevin's account before Rogelio assigns a new check-and-photo task. The rocks and photo rule are story facts, not approved temporary-cover or fall-protection instructions. The archived Japanese for *shift* implies hours; the address in *Calm down, buddy* changes number. Qualified Japanese, roofing safety and contextual dictionary review must resolve these before scored text is selected. Internal source/domain notes stay separate from learner language.
+
+Every `selectedJapanese` and `audioScript` is null; `reviewed:false`, registration false and learner, scoring, audio/listening, offline, progress, browser and V4 gates false. The archived six mode labels are not authored prompt/target activities. No synthesis, listening approval, owner page or recording reuse occurred.
+
+Run `python3 content/japanese-roofing/review/master-10-source-decision-2026-11-18/build.py --check` and `python3 content/japanese-roofing/review/master-10-source-decision-2026-11-18/validate.py` to check source drift, alignment, IDs and gates. Claude CLI 2.1.325 was logged out (`authMethod:none`); zero Haiku, Opus or Fable calls were made. Deterministic checks are not qualified approval.

@@ -1,0 +1,709 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "master-roofing",
+  "lessonId": "master-roofing:8:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-7-9-draft.json",
+      "sha256": "700ee6ee5f7853e3ec58889d8ce977dc54c0ffd6fce8043d8352add5738ac423"
+    }
+  },
+  "sourceEnglishTitle": "Saying No: Unsafe Request from the Homeowner",
+  "sourceEnglishObjective": "Refuse an unsafe or improper request from a homeowner politely and firmly, and offer a safe alternative",
+  "sourceEnglishSpeaking": "You are the crew lead and the AI is a homeowner in a hurry who asks for something unsafe: refuse politely and firmly with no recomiendo que and no es posible que, explain the risk, and offer a safe alternative.",
+  "sourceSpanishReaderTitle": "Not in Lightning, Not Without Underlayment",
+  "sourceLessonType": "People",
+  "sourceBlock": "B",
+  "sourceGrammar": {
+    "focus": "Negative commands; subjunctive after no recomiendo que",
+    "examples": [
+      {
+        "es": "No suban al techo con relámpagos.",
+        "en": "Don't go up on the roof in lightning."
+      },
+      {
+        "es": "No recomiendo que trabajemos con la superficie mojada.",
+        "en": "I don't recommend that we work on a wet surface."
+      }
+    ]
+  },
+  "sourceVerbExamples": [
+    {
+      "infinitive": "trabajar",
+      "native": "to work",
+      "forms": {
+        "yo": "trabajo",
+        "tú": "trabajas",
+        "él_ella_usted": "trabaja",
+        "nosotros": "trabajamos",
+        "ellos_ustedes": "trabajan"
+      },
+      "example": {
+        "target": "No recomiendo que trabajemos con relámpagos.",
+        "native": "I don't recommend that we work in lightning."
+      },
+      "note": "Subjunctive after no recomiendo que: trabajemos."
+    },
+    {
+      "infinitive": "subir",
+      "native": "to go up",
+      "forms": {
+        "yo": "subo",
+        "tú": "subes",
+        "él_ella_usted": "sube",
+        "nosotros": "subimos",
+        "ellos_ustedes": "suben"
+      },
+      "example": {
+        "target": "No suban hasta que yo diga.",
+        "native": "Don't go up until I say so."
+      },
+      "note": "Negative command: no suban (ustedes), no subas (tú)."
+    },
+    {
+      "infinitive": "dejar",
+      "native": "to leave (something)",
+      "forms": {
+        "yo": "dejo",
+        "tú": "dejas",
+        "él_ella_usted": "deja",
+        "nosotros": "dejamos",
+        "ellos_ustedes": "dejan"
+      },
+      "example": {
+        "target": "No dejen herramientas de metal en el techo.",
+        "native": "Don't leave metal tools on the roof."
+      },
+      "note": "Negative command: no dejen (ustedes), no dejes (tú)."
+    },
+    {
+      "infinitive": "saltarse",
+      "native": "to skip",
+      "forms": {
+        "yo": "me salto",
+        "tú": "te saltas",
+        "él_ella_usted": "se salta",
+        "nosotros": "nos saltamos",
+        "ellos_ustedes": "se saltan"
+      },
+      "example": {
+        "target": "Aquí nunca nos saltamos la sub-capa.",
+        "native": "Here we never skip the underlayment."
+      },
+      "note": "Subjunctive after no es posible que: nos saltemos."
+    },
+    {
+      "infinitive": "poder",
+      "native": "can, to be able to",
+      "forms": {
+        "yo": "puedo",
+        "tú": "puedes",
+        "él_ella_usted": "puede",
+        "nosotros": "podemos",
+        "ellos_ustedes": "pueden"
+      },
+      "example": {
+        "target": "Lo que sí podemos hacer es cubrir el techo con lona.",
+        "native": "What we can do is cover the roof with a tarp."
+      },
+      "note": "Stem change o to ue, except in the nosotros form: podemos."
+    }
+  ],
+  "candidateObjective": "家主からの危険または不適切な依頼を丁寧に断り、代案を伝える。",
+  "candidateFocus": "お気持ちは分かりますが acknowledges the customer before refusal. ～ことはできません states the limit, and ～なら gives a conditional finish time.",
+  "archivedForms": [
+    {
+      "base": "作業する",
+      "exampleJa": "雷が発生している間の作業はお勧めしません。",
+      "meaningEnglish": "to work",
+      "exampleEnglish": "I don't recommend that we work in lightning.",
+      "sourceInfinitiveSpanish": "trabajar"
+    },
+    {
+      "base": "上がる",
+      "exampleJa": "私が指示するまで屋根に上がらないでください。",
+      "meaningEnglish": "to go up",
+      "exampleEnglish": "Don't go up until I say so.",
+      "sourceInfinitiveSpanish": "subir"
+    },
+    {
+      "base": "置いておく",
+      "exampleJa": "金属工具を屋根に置いたままにしないでください。",
+      "meaningEnglish": "to leave (something)",
+      "exampleEnglish": "Don't leave metal tools on the roof.",
+      "sourceInfinitiveSpanish": "dejar"
+    },
+    {
+      "base": "省く",
+      "exampleJa": "ここでは下葺き材を省きません。",
+      "meaningEnglish": "to skip",
+      "exampleEnglish": "Here we never skip the underlayment.",
+      "sourceInfinitiveSpanish": "saltarse"
+    },
+    {
+      "base": "できる",
+      "exampleJa": "代わりに屋根を防水シートで覆うことはできます。",
+      "meaningEnglish": "can, to be able to",
+      "exampleEnglish": "What we can do is cover the roof with a tarp.",
+      "sourceInfinitiveSpanish": "poder"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "お急ぎなのは分かりますが、雷の中での作業や下葺き材を省くことはできません。屋根を防水シートで覆い、雷雨が過ぎたら再開します。",
+    "goal": "Respond to a homeowner who asks the crew to work during a storm and omit underlayment. Decline both requests politely and directly, explain why the crew will not do either, and offer the tarp-and-return alternative."
+  },
+  "cards": [
+    {
+      "id": "master-roofing:8:ja-en:card:1",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:1",
+      "sourceSpanish": "los relámpagos",
+      "sourceEnglish": "the lightning",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "雷",
+      "archivedEnglish": "the lightning",
+      "reviewNote": "Japanese 雷 can mean thunder or lightning; confirm the precise source lightning sense.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:card:2",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:2",
+      "sourceSpanish": "el trueno",
+      "sourceEnglish": "the thunder",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "雷鳴",
+      "archivedJapanese": "雷鳴",
+      "archivedEnglish": "the thunder",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:card:3",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:3",
+      "sourceSpanish": "la tormenta eléctrica",
+      "sourceEnglish": "the thunderstorm",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "雷雨",
+      "archivedJapanese": "雷雨",
+      "archivedEnglish": "the thunderstorm",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:card:4",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:4",
+      "sourceSpanish": "la descarga eléctrica",
+      "sourceEnglish": "the lightning strike (electric shock)",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "落雷による電撃",
+      "archivedEnglish": "the lightning strike (electric shock)",
+      "reviewNote": "The source gloss conflates lightning strike and electric shock; preserve the physical hazard accurately.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:card:5",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:5",
+      "sourceSpanish": "la superficie mojada",
+      "sourceEnglish": "the wet surface",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "濡れた表面",
+      "archivedEnglish": "the wet surface",
+      "reviewNote": "Wet surface is a roof-access hazard in context; confirm precise Japanese trade wording.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:card:6",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:6",
+      "sourceSpanish": "el atajo",
+      "sourceEnglish": "the shortcut",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "近道",
+      "archivedJapanese": "近道",
+      "archivedEnglish": "the shortcut",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:card:7",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:7",
+      "sourceSpanish": "el riesgo",
+      "sourceEnglish": "the risk",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "危険",
+      "archivedJapanese": "危険",
+      "archivedEnglish": "the risk",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:card:8",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:8",
+      "sourceSpanish": "la norma de seguridad",
+      "sourceEnglish": "the safety rule",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "安全規則",
+      "archivedJapanese": "安全規則",
+      "archivedEnglish": "the safety rule",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:card:9",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:9",
+      "sourceSpanish": "la responsabilidad",
+      "sourceEnglish": "the responsibility",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "責任",
+      "archivedJapanese": "責任",
+      "archivedEnglish": "the responsibility",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:card:10",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:10",
+      "sourceSpanish": "el ahorro",
+      "sourceEnglish": "the savings",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "節約",
+      "archivedJapanese": "節約",
+      "archivedEnglish": "the savings",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:card:11",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:11",
+      "sourceSpanish": "la garantía del fabricante",
+      "sourceEnglish": "the manufacturer warranty",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "メーカー保証",
+      "archivedEnglish": "the manufacturer warranty",
+      "reviewNote": "Manufacturer-warranty condition requires an identified roofing product/system.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:card:12",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:12",
+      "sourceSpanish": "la alternativa",
+      "sourceEnglish": "the alternative",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "代案",
+      "archivedJapanese": "代案",
+      "archivedEnglish": "the alternative",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:card:13",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:13",
+      "sourceSpanish": "la prisa",
+      "sourceEnglish": "the hurry",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "急ぎ",
+      "archivedJapanese": "急ぎ",
+      "archivedEnglish": "the hurry",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:card:14",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:14",
+      "sourceSpanish": "la decisión",
+      "sourceEnglish": "the decision",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "判断",
+      "archivedJapanese": "判断",
+      "archivedEnglish": "the decision",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:card:15",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:15",
+      "sourceSpanish": "No recomiendo que trabajemos con relámpagos.",
+      "sourceEnglish": "I don't recommend that we work in lightning.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "雷が発生している間の作業はお勧めしません。",
+      "archivedEnglish": "I don't recommend that we work in lightning.",
+      "reviewNote": "Lightning-work refusal is a safety instruction requiring qualified source and trade review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:card:16",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:16",
+      "sourceSpanish": "No es posible que nos saltemos la sub-capa.",
+      "sourceEnglish": "It isn't possible for us to skip the underlayment.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "下葺き材を省くことはできません。",
+      "archivedEnglish": "It isn't possible for us to skip the underlayment.",
+      "reviewNote": "Skipping underlayment and warranty consequences depend on the specified system.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:card:17",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:17",
+      "sourceSpanish": "Entiendo su prisa, pero no puedo hacerlo.",
+      "sourceEnglish": "I understand your hurry, but I can't do it.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "お急ぎなのは分かりますが、それはできません。",
+      "archivedJapanese": "お急ぎなのは分かりますが、それはできません。",
+      "archivedEnglish": "I understand your hurry, but I can't do it.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:card:18",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:18",
+      "sourceSpanish": "Lamentablemente, eso no lo podemos hacer.",
+      "sourceEnglish": "Unfortunately, that's something we can't do.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "申し訳ありませんが、それはできません。",
+      "archivedJapanese": "申し訳ありませんが、それはできません。",
+      "archivedEnglish": "Unfortunately, that's something we can't do.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:card:19",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:19",
+      "sourceSpanish": "Lo que sí podemos hacer es cubrir el techo con lona.",
+      "sourceEnglish": "What we can do is cover the roof with a tarp.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根を防水シートで覆うことはできます。",
+      "archivedEnglish": "What we can do is cover the roof with a tarp.",
+      "reviewNote": "Temporary tarp work must not imply access during lightning or premature reentry.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:card:20",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:20",
+      "sourceSpanish": "No suban hasta que yo diga.",
+      "sourceEnglish": "Don't go up until I say so.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "私が指示するまで屋根に上がらないでください。",
+      "archivedEnglish": "Don't go up until I say so.",
+      "reviewNote": "Roof-access command needs a site-specific authorization and safe reentry decision.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:card:21",
+      "legacySourceRef": "master-roofing:8:ja-en:cards:21",
+      "sourceSpanish": "No te arriesgues por nadie.",
+      "sourceEnglish": "Don't take risks for anyone.",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "誰のためにも危険を冒さないでください。",
+      "archivedEnglish": "Don't take risks for anyone.",
+      "reviewNote": "Absolute safety command needs a qualified trade and register decision.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:8:ja-en:line:1",
+      "legacySourceRef": "master-roofing:8:ja-en:reader:1",
+      "sourceSpanish": "Eran las dos de la tarde, y se escuchaba un trueno lejos, hacia el oeste.",
+      "sourceEnglish": "It was two in the afternoon, and thunder could be heard far off, to the west.",
+      "selectedJapanese": null,
+      "candidateJapanese": "午後二時、西の遠くから雷鳴が聞こえました。",
+      "archivedJapanese": "午後二時、西の遠くから雷鳴が聞こえました。",
+      "archivedEnglish": "It was two in the afternoon, and thunder could be heard far off, to the west.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:line:2",
+      "legacySourceRef": "master-roofing:8:ja-en:reader:2",
+      "sourceSpanish": "La señora Flores salió de la casa con prisa y habló con Rogelio.",
+      "sourceEnglish": "Mrs. Flores came out of the house in a hurry and spoke with Rogelio.",
+      "selectedJapanese": null,
+      "candidateJapanese": "フローレスさんは急いで家から出て、ロヘリオに話しかけました。",
+      "archivedJapanese": "フローレスさんは急いで家から出て、ロヘリオに話しかけました。",
+      "archivedEnglish": "Mrs. Flores came out of the house in a hurry and spoke with Rogelio.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:line:3",
+      "legacySourceRef": "master-roofing:8:ja-en:reader:3",
+      "sourceSpanish": "Señora Flores: Mis hijos llegan el sábado, así que quiero que sigan trabajando aunque llueva.",
+      "sourceEnglish": "Mrs. Flores: My children arrive on Saturday, so I want you to keep working even if it rains.",
+      "selectedJapanese": null,
+      "candidateJapanese": "フローレスさん「子どもたちが土曜日に来るので、雨が降っても作業を続けてください。」",
+      "archivedJapanese": "フローレスさん「子どもたちが土曜日に来るので、雨が降っても作業を続けてください。」",
+      "archivedEnglish": "Mrs. Flores: My children arrive on Saturday, so I want you to keep working even if it rains.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:line:4",
+      "legacySourceRef": "master-roofing:8:ja-en:reader:4",
+      "sourceSpanish": "Señora Flores: Y para ahorrar, pongan las tejas sin la sub-capa.",
+      "sourceEnglish": "Mrs. Flores: And to save money, put the shingles on without the underlayment.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "フローレスさん「費用を節約するため、下葺き材なしでシングル材を敷いてください。」",
+      "archivedEnglish": "Mrs. Flores: And to save money, put the shingles on without the underlayment.",
+      "reviewNote": "Homeowner requests omission of underlayment; preserve this as a refused request, not a recommendation.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:line:5",
+      "legacySourceRef": "master-roofing:8:ja-en:reader:5",
+      "sourceSpanish": "Rogelio: Entiendo su prisa, pero no puedo hacerlo.",
+      "sourceEnglish": "Rogelio: I understand your hurry, but I can't do it.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「お急ぎなのは分かりますが、それはできません。」",
+      "archivedJapanese": "ロヘリオ「お急ぎなのは分かりますが、それはできません。」",
+      "archivedEnglish": "Rogelio: I understand your hurry, but I can't do it.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:line:6",
+      "legacySourceRef": "master-roofing:8:ja-en:reader:6",
+      "sourceSpanish": "Rogelio: Con relámpagos, el techo es el peor lugar, y no recomiendo que trabajemos con relámpagos ni con la superficie mojada.",
+      "sourceEnglish": "Rogelio: In lightning, the roof is the worst place, and I don't recommend that we work in lightning or on a wet surface.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「雷が発生しているとき、屋根は最も危険な場所です。雷の中や濡れた表面での作業はお勧めしません。」",
+      "archivedEnglish": "Rogelio: In lightning, the roof is the worst place, and I don't recommend that we work in lightning or on a wet surface.",
+      "reviewNote": "Lightning and wet-roof work refusal is safety-critical; review source intensity and natural Japanese.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:line:7",
+      "legacySourceRef": "master-roofing:8:ja-en:reader:7",
+      "sourceSpanish": "Rogelio: Una descarga eléctrica puede matar a una persona, y ese riesgo no lo voy a aceptar.",
+      "sourceEnglish": "Rogelio: A lightning strike can kill a person, and I'm not going to accept that risk.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「落雷による電撃は命に関わります。その危険は受け入れません。」",
+      "archivedEnglish": "Rogelio: A lightning strike can kill a person, and I'm not going to accept that risk.",
+      "reviewNote": "Lightning strike fatality and electric-shock wording need exact physical and clinical senses.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:line:8",
+      "legacySourceRef": "master-roofing:8:ja-en:reader:8",
+      "sourceSpanish": "Rogelio: Sobre la sub-capa, lamentablemente, eso no lo podemos hacer.",
+      "sourceEnglish": "Rogelio: About the underlayment, unfortunately, that's something we can't do.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「下葺き材についても、申し訳ありませんが、それはできません。」",
+      "archivedJapanese": "ロヘリオ「下葺き材についても、申し訳ありませんが、それはできません。」",
+      "archivedEnglish": "Rogelio: About the underlayment, unfortunately, that's something we can't do.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:line:9",
+      "legacySourceRef": "master-roofing:8:ja-en:reader:9",
+      "sourceSpanish": "Rogelio: No es posible que nos saltemos la sub-capa, porque el fabricante la pide para la garantía.",
+      "sourceEnglish": "Rogelio: It isn't possible for us to skip the underlayment, because the manufacturer requires it for the warranty.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「メーカーが保証の条件として求めているので、下葺き材を省くことはできません。」",
+      "archivedEnglish": "Rogelio: It isn't possible for us to skip the underlayment, because the manufacturer requires it for the warranty.",
+      "reviewNote": "Manufacturer warranty condition cannot be universal without a specified product/system.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:line:10",
+      "legacySourceRef": "master-roofing:8:ja-en:reader:10",
+      "sourceSpanish": "Rogelio: Ese atajo parece un ahorro hoy, pero más adelante sería una gotera y un gasto mucho mayor.",
+      "sourceEnglish": "Rogelio: That shortcut looks like savings today, but later it would be a leak and a much bigger expense.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「この近道は今日の節約に見えても、後で雨漏りとさらに大きな出費につながります。」",
+      "archivedEnglish": "Rogelio: That shortcut looks like savings today, but later it would be a leak and a much bigger expense.",
+      "reviewNote": "The source predicts a future leak and greater expense; review the categorical claim.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:line:11",
+      "legacySourceRef": "master-roofing:8:ja-en:reader:11",
+      "sourceSpanish": "Rogelio: Lo que sí podemos hacer es cubrir el techo con lona y volver en cuanto pase la tormenta eléctrica.",
+      "sourceEnglish": "Rogelio: What we can do is cover the roof with a tarp and come back as soon as the thunderstorm passes.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「代わりに屋根を防水シートで覆い、雷雨が過ぎたら戻ることができます。」",
+      "archivedEnglish": "Rogelio: What we can do is cover the roof with a tarp and come back as soon as the thunderstorm passes.",
+      "reviewNote": "Tarp placement and return after the storm require a safe-access sequence not specified in source.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:line:12",
+      "legacySourceRef": "master-roofing:8:ja-en:reader:12",
+      "sourceSpanish": "Rogelio: Así terminaríamos el viernes, si el pronóstico ayuda, y usted tendría su techo antes del sábado.",
+      "sourceEnglish": "Rogelio: That way we would finish on Friday, if the forecast helps, and you would have your roof before Saturday.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「予報が良ければ金曜日に仕上がり、土曜日までに屋根が完成します。」",
+      "archivedEnglish": "Rogelio: That way we would finish on Friday, if the forecast helps, and you would have your roof before Saturday.",
+      "reviewNote": "Friday finish is conditional on forecast; archived Japanese must not guarantee the date.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:line:13",
+      "legacySourceRef": "master-roofing:8:ja-en:reader:13",
+      "sourceSpanish": "La señora Flores pensó un momento y aceptó la alternativa.",
+      "sourceEnglish": "Mrs. Flores thought for a moment and accepted the alternative.",
+      "selectedJapanese": null,
+      "candidateJapanese": "フローレスさんは少し考え、代案を受け入れました。",
+      "archivedJapanese": "フローレスさんは少し考え、代案を受け入れました。",
+      "archivedEnglish": "Mrs. Flores thought for a moment and accepted the alternative.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:line:14",
+      "legacySourceRef": "master-roofing:8:ja-en:reader:14",
+      "sourceSpanish": "Rogelio habló con la cuadrilla: No suban hasta que yo diga, y no dejen herramientas de metal en el techo.",
+      "sourceEnglish": "Rogelio talked to the crew: Don't go up until I say so, and don't leave metal tools on the roof.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオは作業班に「私が指示するまで屋根に上がらず、金属工具を屋根に置いたままにしないでください」と伝えました。",
+      "archivedEnglish": "Rogelio talked to the crew: Don't go up until I say so, and don't leave metal tools on the roof.",
+      "reviewNote": "Do not leave metal tools on the roof, but retrieval timing and storm procedure are unspecified.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:line:15",
+      "legacySourceRef": "master-roofing:8:ja-en:reader:15",
+      "sourceSpanish": "Rogelio: La decisión es mía, y la responsabilidad también.",
+      "sourceEnglish": "Rogelio: The decision is mine, and so is the responsibility.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「判断するのは私です。責任も私が負います。」",
+      "archivedEnglish": "Rogelio: The decision is mine, and so is the responsibility.",
+      "reviewNote": "The foreman claims personal responsibility; legal/contract authority varies by locale.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:ja-en:line:16",
+      "legacySourceRef": "master-roofing:8:ja-en:reader:16",
+      "sourceSpanish": "Rogelio: Kevin, no te arriesgues por nadie; la norma de seguridad es la misma para todos.",
+      "sourceEnglish": "Rogelio: Kevin, don't take risks for anyone; the safety rule is the same for everyone.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「ケビン、誰のためにも危険を冒さないでください。安全規則は全員同じです。」",
+      "archivedEnglish": "Rogelio: Kevin, don't take risks for anyone; the safety rule is the same for everyone.",
+      "reviewNote": "Safety rule and command to Kevin require qualified jobsite register and authority review.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Identify the wet roof, lightning, underlayment, and tarp.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall thunderstorm, manufacturer warranty, shortcut, and alternative.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 雷 from 雷鳴 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'It isn't possible for us to skip the underlayment' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Politely refuse the homeowner's request and offer the tarp alternative.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write the crew instruction after the homeowner accepts the alternative.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "curriculumAdaptationNote": "The source portrays an unsafe homeowner request to keep working in rain and omit underlayment. Preserve Rogelio’s refusal and the order of lightning/wet-roof risk, warranty explanation, proposed tarp after the storm and conditional Friday finish. Do not present the tarp, metal-tool instruction, reentry timing, manufacturer warranty or personal liability as universal jobsite directions without an identified system and qualified safety/product/contract review. The lightning-strike card conflates electrical injury and strike terminology. Grammar and Spanish verbs are pinned separately. No selected learner/audio text or progress identity is created.",
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

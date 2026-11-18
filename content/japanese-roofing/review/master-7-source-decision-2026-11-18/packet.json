@@ -1,0 +1,709 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "master-roofing",
+  "lessonId": "master-roofing:7:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-7-9-draft.json",
+      "sha256": "700ee6ee5f7853e3ec58889d8ce977dc54c0ffd6fce8043d8352add5738ac423"
+    }
+  },
+  "sourceEnglishTitle": "Hail Damage Inspection with an Adjuster",
+  "sourceEnglishObjective": "Walk an adjuster across a hail-damaged roof, narrate the storm and findings, and agree on the scope",
+  "sourceEnglishSpeaking": "You are the crew lead and the AI is the insurance adjuster: say when the storm came through, show the hits you marked, give counts and measurements clearly, and agree on the scope of work.",
+  "sourceSpanishReaderTitle": "Counting Hits with the Adjuster",
+  "sourceLessonType": "Case",
+  "sourceBlock": "B",
+  "sourceGrammar": {
+    "focus": "Preterite narration; numbers under pressure",
+    "examples": [
+      {
+        "es": "La tormenta pasó el martes y el granizo cayó 15 minutos.",
+        "en": "The storm came through on Tuesday and the hail fell for 15 minutes."
+      },
+      {
+        "es": "Contamos 12 golpes en el cuadro de prueba.",
+        "en": "We counted 12 hits in the test square."
+      }
+    ]
+  },
+  "sourceVerbExamples": [
+    {
+      "infinitive": "pasar",
+      "native": "to pass, to come through",
+      "forms": {
+        "yo": "paso",
+        "tú": "pasas",
+        "él_ella_usted": "pasa",
+        "nosotros": "pasamos",
+        "ellos_ustedes": "pasan"
+      },
+      "example": {
+        "target": "La tormenta pasó el martes por la noche.",
+        "native": "The storm came through Tuesday night."
+      },
+      "note": "Preterite: pasé, pasó, pasaron."
+    },
+    {
+      "infinitive": "caer",
+      "native": "to fall",
+      "forms": {
+        "yo": "caigo",
+        "tú": "caes",
+        "él_ella_usted": "cae",
+        "nosotros": "caemos",
+        "ellos_ustedes": "caen"
+      },
+      "example": {
+        "target": "El granizo cayó durante unos 15 minutos.",
+        "native": "The hail fell for about 15 minutes."
+      },
+      "note": "Preterite: caí, cayó, cayeron (i changes to y)."
+    },
+    {
+      "infinitive": "contar",
+      "native": "to count",
+      "forms": {
+        "yo": "cuento",
+        "tú": "cuentas",
+        "él_ella_usted": "cuenta",
+        "nosotros": "contamos",
+        "ellos_ustedes": "cuentan"
+      },
+      "example": {
+        "target": "Contamos 12 golpes en este cuadro.",
+        "native": "We counted 12 hits in this square."
+      },
+      "note": "Preterite: conté, contó; contamos is the same in the present and the preterite."
+    },
+    {
+      "infinitive": "marcar",
+      "native": "to mark",
+      "forms": {
+        "yo": "marco",
+        "tú": "marcas",
+        "él_ella_usted": "marca",
+        "nosotros": "marcamos",
+        "ellos_ustedes": "marcan"
+      },
+      "example": {
+        "target": "Marcaron un cuadro de prueba de 10 por 10 pies.",
+        "native": "They marked a test square of 10 by 10 feet."
+      },
+      "note": "Preterite: marqué (c changes to qu), marcó, marcaron."
+    },
+    {
+      "infinitive": "medir",
+      "native": "to measure",
+      "forms": {
+        "yo": "mido",
+        "tú": "mides",
+        "él_ella_usted": "mide",
+        "nosotros": "medimos",
+        "ellos_ustedes": "miden"
+      },
+      "example": {
+        "target": "El lado oeste mide 1,200 pies cuadrados.",
+        "native": "The west side measures 1,200 square feet."
+      },
+      "note": "Stem change e to i: mido, mide; preterite: medí, midió."
+    }
+  ],
+  "candidateObjective": "損害査定人に嵐の経過と屋根の損傷を説明し、工事範囲を確認する。",
+  "candidateFocus": "～により attributes damage to the storm. ～では and ～に対して compare roof faces; ～平方フィート preserves the source measurement unit.",
+  "archivedForms": [
+    {
+      "base": "通る",
+      "exampleJa": "火曜日の夜に嵐が通りました。",
+      "meaningEnglish": "to pass, to come through",
+      "exampleEnglish": "The storm came through Tuesday night.",
+      "sourceInfinitiveSpanish": "pasar"
+    },
+    {
+      "base": "降る",
+      "exampleJa": "ひょうは約十五分間降りました。",
+      "meaningEnglish": "to fall",
+      "exampleEnglish": "The hail fell for about 15 minutes.",
+      "sourceInfinitiveSpanish": "caer"
+    },
+    {
+      "base": "数える",
+      "exampleJa": "この区画では衝突痕を十二個数えました。",
+      "meaningEnglish": "to count",
+      "exampleEnglish": "We counted 12 hits in this square.",
+      "sourceInfinitiveSpanish": "contar"
+    },
+    {
+      "base": "印を付ける",
+      "exampleJa": "十フィート四方の試験区画に印を付けました。",
+      "meaningEnglish": "to mark",
+      "exampleEnglish": "They marked a test square of 10 by 10 feet.",
+      "sourceInfinitiveSpanish": "marcar"
+    },
+    {
+      "base": "測る",
+      "exampleJa": "西側は千二百平方フィートあります。",
+      "meaningEnglish": "to measure",
+      "exampleEnglish": "The west side measures 1,200 square feet.",
+      "sourceInfinitiveSpanish": "medir"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "火曜日の夜にひょうが降りました。西側の十フィート四方の区画では衝突痕を十二個数えました。雨どいを含む工事範囲を確認しましょう。",
+    "goal": "Walk an insurance adjuster through the observed hail marks. Give the storm time, test-square location, counts and measurements clearly, then discuss the proposed scope of work."
+  },
+  "cards": [
+    {
+      "id": "master-roofing:7:ja-en:card:1",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:1",
+      "sourceSpanish": "el ajustador",
+      "sourceEnglish": "the adjuster",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "損害査定人",
+      "archivedEnglish": "the adjuster",
+      "reviewNote": "Insurance adjuster has a specialized Japanese role/sense requiring locale review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:card:2",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:2",
+      "sourceSpanish": "la aseguradora",
+      "sourceEnglish": "the insurance company",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "保険会社",
+      "archivedJapanese": "保険会社",
+      "archivedEnglish": "the insurance company",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:card:3",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:3",
+      "sourceSpanish": "el granizo",
+      "sourceEnglish": "the hail",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "ひょう",
+      "archivedJapanese": "ひょう",
+      "archivedEnglish": "the hail",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:card:4",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:4",
+      "sourceSpanish": "el golpe",
+      "sourceEnglish": "the hit (impact mark)",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "衝突痕",
+      "archivedEnglish": "the hit (impact mark)",
+      "reviewNote": "Impact mark/hail hit is an observed roof condition; confirm trade term.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:card:5",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:5",
+      "sourceSpanish": "el cuadro de prueba",
+      "sourceEnglish": "the test square",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "試験区画",
+      "archivedEnglish": "the test square",
+      "reviewNote": "Test square is a hail-assessment sampling area, not a generic experiment.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:card:6",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:6",
+      "sourceSpanish": "el reclamo",
+      "sourceEnglish": "the claim",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "保険請求",
+      "archivedEnglish": "the claim",
+      "reviewNote": "Insurance claim sense needs contextual Japanese term.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:card:7",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:7",
+      "sourceSpanish": "la tormenta",
+      "sourceEnglish": "the storm",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "嵐",
+      "archivedJapanese": "嵐",
+      "archivedEnglish": "the storm",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:card:8",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:8",
+      "sourceSpanish": "el gránulo",
+      "sourceEnglish": "the granule",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "表面粒",
+      "archivedEnglish": "the granule",
+      "reviewNote": "Granule loss on a shingle requires specific roofing terminology.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:card:9",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:9",
+      "sourceSpanish": "la abolladura",
+      "sourceEnglish": "the dent",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "へこみ",
+      "archivedJapanese": "へこみ",
+      "archivedEnglish": "the dent",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:card:10",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:10",
+      "sourceSpanish": "la canaleta",
+      "sourceEnglish": "the gutter",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "雨どい",
+      "archivedJapanese": "雨どい",
+      "archivedEnglish": "the gutter",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:card:11",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:11",
+      "sourceSpanish": "la cara del techo",
+      "sourceEnglish": "the roof slope (one face of the roof)",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根面",
+      "archivedEnglish": "the roof slope (one face of the roof)",
+      "reviewNote": "Roof slope means one face of the roof, not merely any roof surface.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:card:12",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:12",
+      "sourceSpanish": "el alcance del trabajo",
+      "sourceEnglish": "the scope of work",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "工事範囲",
+      "archivedEnglish": "the scope of work",
+      "reviewNote": "Scope of work needs insurance/contract sense.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:card:13",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:13",
+      "sourceSpanish": "el círculo de tiza",
+      "sourceEnglish": "the chalk circle",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "チョークの丸印",
+      "archivedJapanese": "チョークの丸印",
+      "archivedEnglish": "the chalk circle",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:card:14",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:14",
+      "sourceSpanish": "el pie cuadrado",
+      "sourceEnglish": "the square foot",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "平方フィート",
+      "archivedEnglish": "the square foot",
+      "reviewNote": "Square foot is a unit; preserve numerical measurements.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:card:15",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:15",
+      "sourceSpanish": "La tormenta pasó el martes por la noche.",
+      "sourceEnglish": "The storm came through Tuesday night.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "火曜日の夜に嵐が通りました。",
+      "archivedJapanese": "火曜日の夜に嵐が通りました。",
+      "archivedEnglish": "The storm came through Tuesday night.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:card:16",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:16",
+      "sourceSpanish": "Contamos 12 golpes en este cuadro.",
+      "sourceEnglish": "We counted 12 hits in this square.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "この区画では衝突痕を十二個数えました。",
+      "archivedEnglish": "We counted 12 hits in this square.",
+      "reviewNote": "Twelve hits in one test square is scene evidence, not a general threshold.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:card:17",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:17",
+      "sourceSpanish": "Aquí la teja perdió gránulos.",
+      "sourceEnglish": "Here the shingle lost granules.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ここではシングル材の表面粒が失われています。",
+      "archivedEnglish": "Here the shingle lost granules.",
+      "reviewNote": "Granule-loss claim needs source and roofing review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:card:18",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:18",
+      "sourceSpanish": "Marca cada golpe con tiza.",
+      "sourceEnglish": "Mark each hit with chalk.",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "衝突痕を一つずつチョークで印してください。",
+      "archivedEnglish": "Mark each hit with chalk.",
+      "reviewNote": "Marking hail impacts with chalk needs inspection/safety context.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:card:19",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:19",
+      "sourceSpanish": "¿Cuántos golpes cuenta usted?",
+      "sourceEnglish": "How many hits do you count?",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "衝突痕はいくつ数えましたか。",
+      "archivedEnglish": "How many hits do you count?",
+      "reviewNote": "Counted impacts depend on observation, not an automatic coverage decision.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:card:20",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:20",
+      "sourceSpanish": "¿Me lo puede repetir más despacio?",
+      "sourceEnglish": "Can you repeat that more slowly?",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "もう少しゆっくり繰り返していただけますか。",
+      "archivedJapanese": "もう少しゆっくり繰り返していただけますか。",
+      "archivedEnglish": "Can you repeat that more slowly?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:card:21",
+      "legacySourceRef": "master-roofing:7:ja-en:cards:21",
+      "sourceSpanish": "¿Está de acuerdo con el alcance?",
+      "sourceEnglish": "Do you agree with the scope?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "この工事範囲に同意しますか。",
+      "archivedEnglish": "Do you agree with the scope?",
+      "reviewNote": "Agreement on scope is not authorization or insurer coverage approval.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:7:ja-en:line:1",
+      "legacySourceRef": "master-roofing:7:ja-en:reader:1",
+      "sourceSpanish": "La tormenta pasó el martes por la noche, y el granizo cayó durante unos 15 minutos.",
+      "sourceEnglish": "The storm came through Tuesday night, and the hail fell for about 15 minutes.",
+      "selectedJapanese": null,
+      "candidateJapanese": "火曜日の夜に嵐が通り、ひょうは約十五分間降りました。",
+      "archivedJapanese": "火曜日の夜に嵐が通り、ひょうは約十五分間降りました。",
+      "archivedEnglish": "The storm came through Tuesday night, and the hail fell for about 15 minutes.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:line:2",
+      "legacySourceRef": "master-roofing:7:ja-en:reader:2",
+      "sourceSpanish": "El jueves, el ajustador de la aseguradora llegó a las 10 para revisar el reclamo de la familia Ortiz.",
+      "sourceEnglish": "On Thursday, the insurance company's adjuster arrived at 10 to review the Ortiz family's claim.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "木曜日の午前十時、保険会社の損害査定人がオルティス家の請求を確認しに来ました。",
+      "archivedEnglish": "On Thursday, the insurance company's adjuster arrived at 10 to review the Ortiz family's claim.",
+      "reviewNote": "Adjuster arrives to review the Ortiz family claim; insurance role and claim sense need review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:line:3",
+      "legacySourceRef": "master-roofing:7:ja-en:reader:3",
+      "sourceSpanish": "Rogelio y Kevin subieron con él, con la cinta métrica y la tiza.",
+      "sourceEnglish": "Rogelio and Kevin went up with him, with the tape measure and the chalk.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオとケビンは巻き尺とチョークを持って査定人と屋根に上がりました。",
+      "archivedEnglish": "Rogelio and Kevin went up with him, with the tape measure and the chalk.",
+      "reviewNote": "Roof access with the adjuster requires site-specific fall-protection review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:line:4",
+      "legacySourceRef": "master-roofing:7:ja-en:reader:4",
+      "sourceSpanish": "Primero revisaron la canaleta y encontraron abolladuras en todo el lado oeste.",
+      "sourceEnglish": "First they checked the gutter and found dents along the whole west side.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "まず雨どいを確認すると、西側の全体にへこみがありました。",
+      "archivedEnglish": "First they checked the gutter and found dents along the whole west side.",
+      "reviewNote": "Dents along the gutter are observations, not proof of covered damage.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:line:5",
+      "legacySourceRef": "master-roofing:7:ja-en:reader:5",
+      "sourceSpanish": "En la cara del techo que da al oeste, marcaron un cuadro de prueba de 10 por 10 pies.",
+      "sourceEnglish": "On the roof slope that faces west, they marked a test square of 10 by 10 feet.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "西向きの屋根面に、十フィート四方の試験区画を印しました。",
+      "archivedEnglish": "On the roof slope that faces west, they marked a test square of 10 by 10 feet.",
+      "reviewNote": "Ten-by-ten-foot test square and roof-slope measurement must remain exact.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:line:6",
+      "legacySourceRef": "master-roofing:7:ja-en:reader:6",
+      "sourceSpanish": "Rogelio: Kevin, marca cada golpe con tiza, por favor.",
+      "sourceEnglish": "Rogelio: Kevin, mark each hit with chalk, please.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「ケビン、衝突痕を一つずつチョークで印してください。」",
+      "archivedEnglish": "Rogelio: Kevin, mark each hit with chalk, please.",
+      "reviewNote": "Marking each hit needs trade/inspection and roof-access review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:line:7",
+      "legacySourceRef": "master-roofing:7:ja-en:reader:7",
+      "sourceSpanish": "Kevin hizo un círculo de tiza alrededor de cada golpe.",
+      "sourceEnglish": "Kevin drew a chalk circle around each hit.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ケビンは各衝突痕をチョークの丸で囲みました。",
+      "archivedEnglish": "Kevin drew a chalk circle around each hit.",
+      "reviewNote": "Chalk circles distinguish marked observations from a claim decision.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:line:8",
+      "legacySourceRef": "master-roofing:7:ja-en:reader:8",
+      "sourceSpanish": "Rogelio: Contamos 12 golpes en este cuadro, y aquí la teja perdió gránulos.",
+      "sourceEnglish": "Rogelio: We counted 12 hits in this square, and here the shingle lost granules.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「この区画では衝突痕を十二個数えました。ここではシングル材の表面粒も失われています。」",
+      "archivedEnglish": "Rogelio: We counted 12 hits in this square, and here the shingle lost granules.",
+      "reviewNote": "Twelve hits and granule loss are scene observations; do not imply an automatic insurance threshold.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:line:9",
+      "legacySourceRef": "master-roofing:7:ja-en:reader:9",
+      "sourceSpanish": "Ajustador: ¿Cuántos golpes cuenta usted en el lado norte?",
+      "sourceEnglish": "Adjuster: How many hits do you count on the north side?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "査定人「北側では衝突痕をいくつ数えましたか。」",
+      "archivedEnglish": "Adjuster: How many hits do you count on the north side?",
+      "reviewNote": "North-side count is the adjusters question, not an established finding.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:line:10",
+      "legacySourceRef": "master-roofing:7:ja-en:reader:10",
+      "sourceSpanish": "Rogelio: En el lado norte contamos solo 3, porque el viento venía del oeste.",
+      "sourceEnglish": "Rogelio: On the north side we counted only 3, because the wind was coming from the west.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「北側では三個だけです。風は西から吹いていました。」",
+      "archivedEnglish": "Rogelio: On the north side we counted only 3, because the wind was coming from the west.",
+      "reviewNote": "Wind-direction explanation is the characters inference and needs source fidelity.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:line:11",
+      "legacySourceRef": "master-roofing:7:ja-en:reader:11",
+      "sourceSpanish": "El ajustador habló rápido y dio varias medidas en pies cuadrados.",
+      "sourceEnglish": "The adjuster spoke fast and gave several measurements in square feet.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "査定人は早口で、平方フィート単位の寸法をいくつか伝えました。",
+      "archivedEnglish": "The adjuster spoke fast and gave several measurements in square feet.",
+      "reviewNote": "Square-foot measurements must retain the unit and numerical meaning.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:line:12",
+      "legacySourceRef": "master-roofing:7:ja-en:reader:12",
+      "sourceSpanish": "Rogelio: Perdón, ¿me lo puede repetir más despacio?",
+      "sourceEnglish": "Rogelio: Sorry, can you repeat that more slowly?",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「すみません、もう少しゆっくり繰り返していただけますか。」",
+      "archivedJapanese": "ロヘリオ「すみません、もう少しゆっくり繰り返していただけますか。」",
+      "archivedEnglish": "Rogelio: Sorry, can you repeat that more slowly?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:line:13",
+      "legacySourceRef": "master-roofing:7:ja-en:reader:13",
+      "sourceSpanish": "Ajustador: Claro, el lado oeste mide 1,200 pies cuadrados y el lado norte mide 800.",
+      "sourceEnglish": "Adjuster: Sure, the west side measures 1,200 square feet and the north side measures 800.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "査定人「はい。西側は千二百平方フィート、北側は八百平方フィートです。」",
+      "archivedEnglish": "Adjuster: Sure, the west side measures 1,200 square feet and the north side measures 800.",
+      "reviewNote": "The west and north area measurements are 1,200 and 800 square feet, respectively.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:line:14",
+      "legacySourceRef": "master-roofing:7:ja-en:reader:14",
+      "sourceSpanish": "Ajustador: Según la aseguradora, el lado oeste se cambia completo y el lado norte se repara.",
+      "sourceEnglish": "Adjuster: According to the insurance company, the west side gets fully replaced and the north side gets repaired.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "査定人「保険会社によると、西側は全面交換、北側は補修です。」",
+      "archivedEnglish": "Adjuster: According to the insurance company, the west side gets fully replaced and the north side gets repaired.",
+      "reviewNote": "Insurer-stated replacement/repair scope is attributed to the company, not the crew.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:line:15",
+      "legacySourceRef": "master-roofing:7:ja-en:reader:15",
+      "sourceSpanish": "Rogelio: ¿Está de acuerdo con el alcance del trabajo, también en la canaleta?",
+      "sourceEnglish": "Rogelio: Do you agree with the scope of work, including the gutter?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「雨どいを含む工事範囲に同意しますか。」",
+      "archivedEnglish": "Rogelio: Do you agree with the scope of work, including the gutter?",
+      "reviewNote": "Scope question includes the gutter; agreement is not a coverage guarantee.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:ja-en:line:16",
+      "legacySourceRef": "master-roofing:7:ja-en:reader:16",
+      "sourceSpanish": "Ajustador: Sí, lo voy a anotar en el reporte, y la aseguradora le mandará una copia al dueño.",
+      "sourceEnglish": "Adjuster: Yes, I'm going to note it in the report, and the insurance company will send a copy to the owner.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "査定人「はい。報告書に記載し、保険会社から所有者へ写しを送ります。」",
+      "archivedEnglish": "Adjuster: Yes, I'm going to note it in the report, and the insurance company will send a copy to the owner.",
+      "reviewNote": "Adjuster promises report note and insurer copy; preserve who sends the report.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Identify the hail hits, chalk circles, test square, and dented gutter.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall adjuster, claim, roof slope, scope of work, and square foot.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 衝突痕 from へこみ when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'We counted 12 hits in this square' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Walk an adjuster through the storm findings and agree on the scope.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write the west and north roof measurements with their source units.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "curriculumAdaptationNote": "The source records a Tuesday-night hailstorm, a Thursday 10:00 Ortiz-family claim inspection, west-side gutter dents, a 10-by-10-foot test square, twelve marked hits west and three north, granule loss, 1,200 versus 800 square feet, and the insurer's replacement/repair scope including a gutter question. Keep observations, the crew's wind inference, the adjuster's insurer attribution and the report-copy promise distinct. The scene is not a general hail threshold or coverage rule. Roof access, impact marking, terminology, measurements, insurance/contract scope and Japanese register need qualified review before scored text or audio. Five verbs and grammar examples are pinned separately; archived forms and mode labels are conditional evidence. No learner or saved-progress identity is created.",
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

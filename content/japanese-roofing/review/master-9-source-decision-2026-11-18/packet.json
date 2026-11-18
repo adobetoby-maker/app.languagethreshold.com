@@ -1,0 +1,709 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "master-roofing",
+  "lessonId": "master-roofing:9:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-7-9-draft.json",
+      "sha256": "700ee6ee5f7853e3ec58889d8ce977dc54c0ffd6fce8043d8352add5738ac423"
+    }
+  },
+  "sourceEnglishTitle": "Feedback on a Bad Course",
+  "sourceEnglishObjective": "Give a crew member private, specific feedback on a crooked course and agree on the fix",
+  "sourceEnglishSpeaking": "You are the crew lead and the AI is a crew member whose course is off: talk privately, ask what happened, say what you want them to do with quiero que, es mejor que and te pido que, and get agreement on the fix.",
+  "sourceSpanishReaderTitle": "A Word in Private",
+  "sourceLessonType": "People",
+  "sourceBlock": "C",
+  "sourceGrammar": {
+    "focus": "Present subjunctive after wishes and recommendations",
+    "examples": [
+      {
+        "es": "Quiero que mires esta hilera conmigo.",
+        "en": "I want you to look at this course with me."
+      },
+      {
+        "es": "Es mejor que lo arreglemos ahora.",
+        "en": "It's better that we fix it now."
+      }
+    ]
+  },
+  "sourceVerbExamples": [
+    {
+      "infinitive": "mirar",
+      "native": "to look at",
+      "forms": {
+        "yo": "miro",
+        "tú": "miras",
+        "él_ella_usted": "mira",
+        "nosotros": "miramos",
+        "ellos_ustedes": "miran"
+      },
+      "example": {
+        "target": "Quiero que mires esta hilera conmigo.",
+        "native": "I want you to look at this course with me."
+      },
+      "note": "Subjunctive after quiero que: mires."
+    },
+    {
+      "infinitive": "arreglar",
+      "native": "to fix",
+      "forms": {
+        "yo": "arreglo",
+        "tú": "arreglas",
+        "él_ella_usted": "arregla",
+        "nosotros": "arreglamos",
+        "ellos_ustedes": "arreglan"
+      },
+      "example": {
+        "target": "Es mejor que lo arreglemos ahora.",
+        "native": "It's better that we fix it now."
+      },
+      "note": "Subjunctive after es mejor que: arreglemos."
+    },
+    {
+      "infinitive": "pedir",
+      "native": "to ask for",
+      "forms": {
+        "yo": "pido",
+        "tú": "pides",
+        "él_ella_usted": "pide",
+        "nosotros": "pedimos",
+        "ellos_ustedes": "piden"
+      },
+      "example": {
+        "target": "Te pido que midas cada tres hileras.",
+        "native": "I'm asking you to measure every three courses."
+      },
+      "note": "Stem change e to i: pido, pides; te pido que is followed by the subjunctive."
+    },
+    {
+      "infinitive": "preguntar",
+      "native": "to ask (a question)",
+      "forms": {
+        "yo": "pregunto",
+        "tú": "preguntas",
+        "él_ella_usted": "pregunta",
+        "nosotros": "preguntamos",
+        "ellos_ustedes": "preguntan"
+      },
+      "example": {
+        "target": "Si no estás seguro, pregúntame antes.",
+        "native": "If you're not sure, ask me first."
+      },
+      "note": "Subjunctive after prefiero que: preguntes."
+    },
+    {
+      "infinitive": "preferir",
+      "native": "to prefer",
+      "forms": {
+        "yo": "prefiero",
+        "tú": "prefieres",
+        "él_ella_usted": "prefiere",
+        "nosotros": "preferimos",
+        "ellos_ustedes": "prefieren"
+      },
+      "example": {
+        "target": "Prefiero que me preguntes antes.",
+        "native": "I'd rather you ask me first."
+      },
+      "note": "Stem change e to ie: prefiero, but preferimos."
+    }
+  ],
+  "candidateObjective": "曲がったシングル材の段を具体的に示し、作業員と修正方法を決める。",
+  "candidateFocus": "～と思いますか invites the worker's view. ～てほしいです requests a correction, while ～より先に asks for consultation before an uncertain step.",
+  "archivedForms": [
+    {
+      "base": "見る",
+      "exampleJa": "この段を一緒に見てほしいです。",
+      "meaningEnglish": "to look at",
+      "exampleEnglish": "I want you to look at this course with me.",
+      "sourceInfinitiveSpanish": "mirar"
+    },
+    {
+      "base": "直す",
+      "exampleJa": "今直した方がよいです。",
+      "meaningEnglish": "to fix",
+      "exampleEnglish": "It's better that we fix it now.",
+      "sourceInfinitiveSpanish": "arreglar"
+    },
+    {
+      "base": "頼む",
+      "exampleJa": "三段ごとに測るよう頼みます。",
+      "meaningEnglish": "to ask for",
+      "exampleEnglish": "I'm asking you to measure every three courses.",
+      "sourceInfinitiveSpanish": "pedir"
+    },
+    {
+      "base": "尋ねる",
+      "exampleJa": "分からなければ先に私に尋ねてください。",
+      "meaningEnglish": "to ask (a question)",
+      "exampleEnglish": "If you're not sure, ask me first.",
+      "sourceInfinitiveSpanish": "preguntar"
+    },
+    {
+      "base": "望む",
+      "exampleJa": "先に私に聞いてほしいです。",
+      "meaningEnglish": "to prefer",
+      "exampleEnglish": "I'd rather you ask me first.",
+      "sourceInfinitiveSpanish": "preferir"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "この段を個別に一緒に見てほしいです。叱るためではありません。三段ごとに露出幅を測り、この四段を直しましょう。",
+    "goal": "Speak privately with a worker about a crooked course. Ask what happened, describe the exposure and alignment, request a specific measurement-based correction, and confirm the plan."
+  },
+  "cards": [
+    {
+      "id": "master-roofing:9:ja-en:card:1",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:1",
+      "sourceSpanish": "la hilera torcida",
+      "sourceEnglish": "the crooked course",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "曲がった段",
+      "archivedEnglish": "the crooked course",
+      "reviewNote": "Course means a row of shingles, not a training course; archived 段 needs trade confirmation.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:card:2",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:2",
+      "sourceSpanish": "la exposición",
+      "sourceEnglish": "the exposure (visible part of the shingle)",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "露出幅",
+      "archivedEnglish": "the exposure (visible part of the shingle)",
+      "reviewNote": "Source gloss is visible part of a shingle; archived 露出幅 denotes exposed width and needs product-context review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:card:3",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:3",
+      "sourceSpanish": "el desnivel",
+      "sourceEnglish": "the unevenness",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "不ぞろい",
+      "archivedJapanese": "不ぞろい",
+      "archivedEnglish": "the unevenness",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:card:4",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:4",
+      "sourceSpanish": "la medida",
+      "sourceEnglish": "the measurement",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "寸法",
+      "archivedJapanese": "寸法",
+      "archivedEnglish": "the measurement",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:card:5",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:5",
+      "sourceSpanish": "la cinta métrica",
+      "sourceEnglish": "the tape measure",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "巻き尺",
+      "archivedJapanese": "巻き尺",
+      "archivedEnglish": "the tape measure",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:card:6",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:6",
+      "sourceSpanish": "el error",
+      "sourceEnglish": "the mistake",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "間違い",
+      "archivedJapanese": "間違い",
+      "archivedEnglish": "the mistake",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:card:7",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:7",
+      "sourceSpanish": "la corrección",
+      "sourceEnglish": "the correction",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "修正",
+      "archivedJapanese": "修正",
+      "archivedEnglish": "the correction",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:card:8",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:8",
+      "sourceSpanish": "la retroalimentación",
+      "sourceEnglish": "the feedback",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "フィードバック",
+      "archivedJapanese": "フィードバック",
+      "archivedEnglish": "the feedback",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:card:9",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:9",
+      "sourceSpanish": "en privado",
+      "sourceEnglish": "in private",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "個別に",
+      "archivedJapanese": "個別に",
+      "archivedEnglish": "in private",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:card:10",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:10",
+      "sourceSpanish": "la calidad",
+      "sourceEnglish": "the quality",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "品質",
+      "archivedJapanese": "品質",
+      "archivedEnglish": "the quality",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:card:11",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:11",
+      "sourceSpanish": "el alineamiento",
+      "sourceEnglish": "the alignment",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "通り",
+      "archivedEnglish": "the alignment",
+      "reviewNote": "Alignment 通り is a trade sense requiring qualified Japanese roofing review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:card:12",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:12",
+      "sourceSpanish": "la confianza",
+      "sourceEnglish": "the trust",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "信頼",
+      "archivedJapanese": "信頼",
+      "archivedEnglish": "the trust",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:card:13",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:13",
+      "sourceSpanish": "el ritmo",
+      "sourceEnglish": "the pace",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "作業ペース",
+      "archivedJapanese": "作業ペース",
+      "archivedEnglish": "the pace",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:card:14",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:14",
+      "sourceSpanish": "el trabajador",
+      "sourceEnglish": "the worker",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "作業員",
+      "archivedJapanese": "作業員",
+      "archivedEnglish": "the worker",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:card:15",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:15",
+      "sourceSpanish": "Quiero que mires esta hilera conmigo.",
+      "sourceEnglish": "I want you to look at this course with me.",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "この段を一緒に見てほしいです。",
+      "archivedJapanese": "この段を一緒に見てほしいです。",
+      "archivedEnglish": "I want you to look at this course with me.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:card:16",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:16",
+      "sourceSpanish": "No es para regañarte.",
+      "sourceEnglish": "It's not to scold you.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "叱るためではありません。",
+      "archivedJapanese": "叱るためではありません。",
+      "archivedEnglish": "It's not to scold you.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:card:17",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:17",
+      "sourceSpanish": "¿Qué pasó aquí, según tú?",
+      "sourceEnglish": "What happened here, in your view?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "ここで何が起きたと思いますか。",
+      "archivedJapanese": "ここで何が起きたと思いますか。",
+      "archivedEnglish": "What happened here, in your view?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:card:18",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:18",
+      "sourceSpanish": "Es mejor que lo arreglemos ahora.",
+      "sourceEnglish": "It's better that we fix it now.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "今直した方がよいです。",
+      "archivedJapanese": "今直した方がよいです。",
+      "archivedEnglish": "It's better that we fix it now.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:card:19",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:19",
+      "sourceSpanish": "Te pido que midas cada tres hileras.",
+      "sourceEnglish": "I'm asking you to measure every three courses.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "三段ごとに測ってください。",
+      "archivedEnglish": "I'm asking you to measure every three courses.",
+      "reviewNote": "Every three courses is a scene-specific measurement instruction, not a universal product rule.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:card:20",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:20",
+      "sourceSpanish": "Prefiero que me preguntes antes.",
+      "sourceEnglish": "I'd rather you ask me first.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "先に私に聞いてほしいです。",
+      "archivedJapanese": "先に私に聞いてほしいです。",
+      "archivedEnglish": "I'd rather you ask me first.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:card:21",
+      "legacySourceRef": "master-roofing:9:ja-en:cards:21",
+      "sourceSpanish": "Le pido que revise la exposición.",
+      "sourceEnglish": "I'm asking you to check the exposure.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "露出幅を確認してください。",
+      "archivedEnglish": "I'm asking you to check the exposure.",
+      "reviewNote": "Exposure sense and inspection authority need qualified trade review.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:9:ja-en:line:1",
+      "legacySourceRef": "master-roofing:9:ja-en:reader:1",
+      "sourceSpanish": "Por la tarde, Rogelio notó que una hilera torcida subía hacia la izquierda en el lado de Julio.",
+      "sourceEnglish": "In the afternoon, Rogelio noticed that a crooked course was climbing to the left on Julio's side.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "午後、ロヘリオはフリオの担当側で、曲がった段が左へ向かって上がっていることに気づきました。",
+      "archivedEnglish": "In the afternoon, Rogelio noticed that a crooked course was climbing to the left on Julio's side.",
+      "reviewNote": "Crooked course climbing left is a visual roof-layout description; confirm Japanese direction and course sense.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:line:2",
+      "legacySourceRef": "master-roofing:9:ja-en:reader:2",
+      "sourceSpanish": "Julio trabajaba rápido, pero la exposición cambiaba de una teja a otra.",
+      "sourceEnglish": "Julio was working fast, but the exposure changed from one shingle to the next.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "フリオは速く作業していましたが、露出幅がシングル材ごとに変わっていました。",
+      "archivedEnglish": "Julio was working fast, but the exposure changed from one shingle to the next.",
+      "reviewNote": "Visible shingle exposure versus exposed width must remain precise.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:line:3",
+      "legacySourceRef": "master-roofing:9:ja-en:reader:3",
+      "sourceSpanish": "Rogelio no dijo nada delante de la cuadrilla y lo llamó aparte.",
+      "sourceEnglish": "Rogelio didn't say anything in front of the crew and called him aside.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオは作業班の前では何も言わず、フリオを脇に呼びました。",
+      "archivedJapanese": "ロヘリオは作業班の前では何も言わず、フリオを脇に呼びました。",
+      "archivedEnglish": "Rogelio didn't say anything in front of the crew and called him aside.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:line:4",
+      "legacySourceRef": "master-roofing:9:ja-en:reader:4",
+      "sourceSpanish": "Rogelio: Julio, quiero que mires esta hilera conmigo, en privado.",
+      "sourceEnglish": "Rogelio: Julio, I want you to look at this course with me, in private.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「フリオ、この段を個別に一緒に見てほしいです。」",
+      "archivedJapanese": "ロヘリオ「フリオ、この段を個別に一緒に見てほしいです。」",
+      "archivedEnglish": "Rogelio: Julio, I want you to look at this course with me, in private.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:line:5",
+      "legacySourceRef": "master-roofing:9:ja-en:reader:5",
+      "sourceSpanish": "Rogelio: No es para regañarte; tu ritmo es bueno y tengo confianza en ti.",
+      "sourceEnglish": "Rogelio: It's not to scold you; your pace is good and I trust you.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「叱るためではありません。作業ペースは良いですし、あなたを信頼しています。」",
+      "archivedJapanese": "ロヘリオ「叱るためではありません。作業ペースは良いですし、あなたを信頼しています。」",
+      "archivedEnglish": "Rogelio: It's not to scold you; your pace is good and I trust you.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:line:6",
+      "legacySourceRef": "master-roofing:9:ja-en:reader:6",
+      "sourceSpanish": "Rogelio: ¿Qué pasó aquí, según tú?",
+      "sourceEnglish": "Rogelio: What happened here, in your view?",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「ここで何が起きたと思いますか。」",
+      "archivedJapanese": "ロヘリオ「ここで何が起きたと思いますか。」",
+      "archivedEnglish": "Rogelio: What happened here, in your view?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:line:7",
+      "legacySourceRef": "master-roofing:9:ja-en:reader:7",
+      "sourceSpanish": "Julio: Creo que no medí desde la última línea y lo hice a ojo.",
+      "sourceEnglish": "Julio: I think I didn't measure from the last line and I did it by eye.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "フリオ「最後の墨線から測らず、目分量でやったと思います。」",
+      "archivedEnglish": "Julio: I think I didn't measure from the last line and I did it by eye.",
+      "reviewNote": "The source says last line; archived 墨線 specifies a chalk line not expressly stated.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:line:8",
+      "legacySourceRef": "master-roofing:9:ja-en:reader:8",
+      "sourceSpanish": "Rogelio: Eso pasa, pero con este desnivel el error se ve desde la calle.",
+      "sourceEnglish": "Rogelio: That happens, but with this unevenness the mistake can be seen from the street.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「そういうこともありますが、この不ぞろいは道路から見える間違いになります。」",
+      "archivedEnglish": "Rogelio: That happens, but with this unevenness the mistake can be seen from the street.",
+      "reviewNote": "The claim that the defect is visible from the street depends on this scene; do not generalize.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:line:9",
+      "legacySourceRef": "master-roofing:9:ja-en:reader:9",
+      "sourceSpanish": "Rogelio: Es mejor que lo arreglemos ahora, antes de que la hilera suba más.",
+      "sourceEnglish": "Rogelio: It's better that we fix it now, before the course climbs any higher.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「段がさらに上がる前に、今直した方がよいです。」",
+      "archivedJapanese": "ロヘリオ「段がさらに上がる前に、今直した方がよいです。」",
+      "archivedEnglish": "Rogelio: It's better that we fix it now, before the course climbs any higher.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:line:10",
+      "legacySourceRef": "master-roofing:9:ja-en:reader:10",
+      "sourceSpanish": "Rogelio: Te pido que midas cada tres hileras con la cinta métrica y que marques la medida en la teja.",
+      "sourceEnglish": "Rogelio: I'm asking you to measure every three courses with the tape measure and to mark the measurement on the shingle.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「巻き尺で三段ごとに測り、寸法をシングル材に印してください。」",
+      "archivedEnglish": "Rogelio: I'm asking you to measure every three courses with the tape measure and to mark the measurement on the shingle.",
+      "reviewNote": "Measure every three courses and mark a shingle is scene-specific, product-dependent guidance.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:line:11",
+      "legacySourceRef": "master-roofing:9:ja-en:reader:11",
+      "sourceSpanish": "Rogelio: Prefiero que me preguntes antes, si no estás seguro del alineamiento.",
+      "sourceEnglish": "Rogelio: I'd rather you ask me first, if you're not sure about the alignment.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「通りが分からなければ、先に私に聞いてほしいです。」",
+      "archivedJapanese": "ロヘリオ「通りが分からなければ、先に私に聞いてほしいです。」",
+      "archivedEnglish": "Rogelio: I'd rather you ask me first, if you're not sure about the alignment.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:line:12",
+      "legacySourceRef": "master-roofing:9:ja-en:reader:12",
+      "sourceSpanish": "Julio: Está bien, quito estas cuatro hileras y las vuelvo a poner.",
+      "sourceEnglish": "Julio: All right, I'll take off these four courses and put them back on.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "フリオ「分かりました。この四段を外して、もう一度取り付けます。」",
+      "archivedEnglish": "Julio: All right, I'll take off these four courses and put them back on.",
+      "reviewNote": "Removing and reinstalling four courses requires product and safety review before instruction.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:line:13",
+      "legacySourceRef": "master-roofing:9:ja-en:reader:13",
+      "sourceSpanish": "Rogelio: Gracias; la corrección es parte del trabajo, y la calidad es de todos.",
+      "sourceEnglish": "Rogelio: Thanks; correcting is part of the job, and quality belongs to everyone.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「ありがとう。修正も仕事の一部です。品質は全員で守るものです。」",
+      "archivedJapanese": "ロヘリオ「ありがとう。修正も仕事の一部です。品質は全員で守るものです。」",
+      "archivedEnglish": "Rogelio: Thanks; correcting is part of the job, and quality belongs to everyone.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:line:14",
+      "legacySourceRef": "master-roofing:9:ja-en:reader:14",
+      "sourceSpanish": "Más tarde llegó el supervisor de la compañía, el señor Soto, y vio las tejas en el suelo.",
+      "sourceEnglish": "Later the company supervisor, Mr. Soto, arrived and saw the shingles on the ground.",
+      "selectedJapanese": null,
+      "candidateJapanese": "その後、会社の監督者のソトさんが来て、地面に置かれたシングル材を見ました。",
+      "archivedJapanese": "その後、会社の監督者のソトさんが来て、地面に置かれたシングル材を見ました。",
+      "archivedEnglish": "Later the company supervisor, Mr. Soto, arrived and saw the shingles on the ground.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:line:15",
+      "legacySourceRef": "master-roofing:9:ja-en:reader:15",
+      "sourceSpanish": "Rogelio: Señor Soto, le pido que revise la exposición conmigo; ya estamos corrigiendo una hilera.",
+      "sourceEnglish": "Rogelio: Mr. Soto, I'm asking you to check the exposure with me; we're already correcting a course.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「ソトさん、露出幅を一緒に確認してください。今、段を修正しています。」",
+      "archivedEnglish": "Rogelio: Mr. Soto, I'm asking you to check the exposure with me; we're already correcting a course.",
+      "reviewNote": "Supervisor exposure check needs precise shingle sense and authority context.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:9:ja-en:line:16",
+      "legacySourceRef": "master-roofing:9:ja-en:reader:16",
+      "sourceSpanish": "Para Rogelio, la retroalimentación funciona mejor así: clara, en privado y con una solución que el trabajador entienda.",
+      "sourceEnglish": "For Rogelio, feedback works best like this: clear, in private, and with a solution the worker understands.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオにとって、フィードバックは明確に個別に伝え、作業員が分かる解決策を示すときに最も効果的です。",
+      "archivedJapanese": "ロヘリオにとって、フィードバックは明確に個別に伝え、作業員が分かる解決策を示すときに最も効果的です。",
+      "archivedEnglish": "For Rogelio, feedback works best like this: clear, in private, and with a solution the worker understands.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the crooked course and changing exposure.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall alignment, tape measure, feedback, and correction.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 露出幅 from 寸法 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'What happened here, in your view?' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Give private, specific feedback and agree on the fix.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write the agreed measurement and four-course correction.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "curriculumAdaptationNote": "The source has Rogelio give Julio private feedback about a crooked shingle course, varying exposure and measurement by eye, then ask for a three-course check and four-course correction. Preserve the narrative distinction between observed defect, Julio’s explanation, Rogelio’s instruction and the company supervisor’s later check. The archive adds 墨線 for an unspecified last line and uses 露出幅 for the source gloss visible shingle part; confirm those senses and the manufacturer-specific layout/rework method before selecting scored Japanese. Grammar and five Spanish verbs are pinned separately. No selected learner/audio text or progress identity is created.",
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

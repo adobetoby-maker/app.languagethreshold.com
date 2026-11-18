@@ -1,0 +1,448 @@
+{
+  "schema": "french101-master14-source-decision-v1",
+  "pairKey": "French:English",
+  "courseId": "french-basics",
+  "moduleId": "master-french-basics",
+  "stage": "master",
+  "n": 14,
+  "stableLessonId": "master-french-basics:14",
+  "stablePairId": "master-french-basics:14:fr-en",
+  "sourceFilesSha256": {
+    "src/data/core60/es/master-spanish-basics.json": "27084a65c51ef96ab6b74dd969de1c4b38cd670be1c4b148e2b66f4d9bb15ede",
+    "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe",
+    "content/review-archive/french-japanese-2026-11-15/french-101/master-13-15-redesign-draft.json": "c85ab7131d6d9967dbcfdc93f7f4e3e875c6e5a8af94fa7fde5e5c83c7f029a4"
+  },
+  "sourceTitleEnglish": "Tell a daily routine in order",
+  "sourceObjectiveEnglish": "Tell a daily routine in order: A reflexive pronoun changes with the person: me, te, se, nos, se.",
+  "sourceFocusEnglish": "Tell a daily routine in order",
+  "sourceSpeakingEnglish": "Role-play La mañana de Julia with a patient classmate. Practice tell a daily routine in order. Use this lesson's grammar, ask a related question, answer the partner, and confirm understanding. Keep language at beginner level; explain unfamiliar words in English when asked.",
+  "sourceGrammarEnglish": {
+    "focus": "A reflexive pronoun changes with the person: me, te, se, nos, se. In me levanto, the person getting up is also the subject. Put the pronoun before a conjugated verb.",
+    "examples": [
+      {
+        "es": "Julia se despierta a las seis.",
+        "en": "Julia wakes up at six."
+      },
+      {
+        "es": "Se levanta y abre la ventana.",
+        "en": "She gets up and opens the window."
+      }
+    ]
+  },
+  "sourceReaderTitleSpanish": "La mañana de Julia",
+  "cards": [
+    {
+      "id": "master-french-basics:14:card:1",
+      "sourceSpanish": "me",
+      "sourceEnglish": "me / myself",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish me groups object and reflexive senses. French me/m' needs verb and pronoun role context."
+    },
+    {
+      "id": "master-french-basics:14:card:2",
+      "sourceSpanish": "te",
+      "sourceEnglish": "you / yourself",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish te groups object and reflexive senses. French te/t' also requires register and verb context."
+    },
+    {
+      "id": "master-french-basics:14:card:3",
+      "sourceSpanish": "clase",
+      "sourceEnglish": "class / classroom",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source clase groups class and classroom; French cours/classe/salle de classe are context-specific."
+    },
+    {
+      "id": "master-french-basics:14:card:4",
+      "sourceSpanish": "la",
+      "sourceEnglish": "the / it / her (feminine)",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source la groups feminine article and object/person pronouns; French la/l' needs grammatical role and elision context."
+    },
+    {
+      "id": "master-french-basics:14:card:5",
+      "sourceSpanish": "y",
+      "sourceEnglish": "and",
+      "kind": "term",
+      "proposedFrench": "et",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:14:card:6",
+      "sourceSpanish": "las",
+      "sourceEnglish": "the / them (feminine plural)",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish las marks feminine plural article/object; French les does not preserve that gender contrast."
+    },
+    {
+      "id": "master-french-basics:14:card:7",
+      "sourceSpanish": "para",
+      "sourceEnglish": "for / in order to",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source para groups for and purpose; French pour requires an object or infinitive context."
+    },
+    {
+      "id": "master-french-basics:14:card:8",
+      "sourceSpanish": "yo",
+      "sourceEnglish": "I",
+      "kind": "term",
+      "proposedFrench": "je",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:14:card:9",
+      "sourceSpanish": "de",
+      "sourceEnglish": "of / from",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source de groups of and from; French de needs phrase-level sense and contractions."
+    },
+    {
+      "id": "master-french-basics:14:card:10",
+      "sourceSpanish": "diez",
+      "sourceEnglish": "ten",
+      "kind": "term",
+      "proposedFrench": "dix",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:14:card:11",
+      "sourceSpanish": "sí",
+      "sourceEnglish": "yes",
+      "kind": "term",
+      "proposedFrench": "oui",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:14:card:12",
+      "sourceSpanish": "por",
+      "sourceEnglish": "through / because of",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source por groups through and because of; the nighttime phrase is temporal, not either isolated glossary sense."
+    },
+    {
+      "id": "master-french-basics:14:card:13",
+      "sourceSpanish": "Julia se despierta a las seis.",
+      "sourceEnglish": "Julia wakes up at six.",
+      "kind": "phrase",
+      "proposedFrench": "Julia se réveille à six heures.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:14:card:14",
+      "sourceSpanish": "Se levanta y abre la ventana.",
+      "sourceEnglish": "She gets up and opens the window.",
+      "kind": "phrase",
+      "proposedFrench": "Elle se lève et ouvre la fenêtre.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:14:card:15",
+      "sourceSpanish": "Se ducha antes del desayuno.",
+      "sourceEnglish": "She showers before breakfast.",
+      "kind": "phrase",
+      "proposedFrench": "Elle se douche avant le petit déjeuner.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:14:card:16",
+      "sourceSpanish": "Se prepara para la clase.",
+      "sourceEnglish": "She gets ready for class.",
+      "kind": "phrase",
+      "proposedFrench": "Elle se prépare pour le cours.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "French cours is a conditional class-session choice; compare source clase with Reader setting."
+    },
+    {
+      "id": "master-french-basics:14:card:17",
+      "sourceSpanish": "Por la noche se acuesta temprano.",
+      "sourceEnglish": "At night she goes to bed early.",
+      "kind": "phrase",
+      "proposedFrench": "Le soir, elle se couche tôt.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:14:card:18",
+      "sourceSpanish": "Yo me acuesto después de estudiar.",
+      "sourceEnglish": "I go to bed after studying.",
+      "kind": "phrase",
+      "proposedFrench": "Je me couche après avoir étudié.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "After studying is rendered après avoir étudié; review this infinitive construction at the intended level."
+    },
+    {
+      "id": "master-french-basics:14:card:19",
+      "sourceSpanish": "Me levanto a las siete.",
+      "sourceEnglish": "I get up at seven.",
+      "kind": "phrase",
+      "proposedFrench": "Je me lève à sept heures.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:14:card:20",
+      "sourceSpanish": "Ana se ducha por la mañana.",
+      "sourceEnglish": "Ana showers in the morning.",
+      "kind": "phrase",
+      "proposedFrench": "Ana se douche le matin.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-french-basics:14:reader:1",
+      "sourceSpanish": "Julia se despierta a las seis.",
+      "sourceEnglish": "Julia wakes up at six.",
+      "proposedFrench": "Julia se réveille à six heures.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:14:reader:2",
+      "sourceSpanish": "Se levanta y abre la ventana.",
+      "sourceEnglish": "She gets up and opens the window.",
+      "proposedFrench": "Elle se lève et ouvre la fenêtre.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:14:reader:3",
+      "sourceSpanish": "Se ducha antes del desayuno.",
+      "sourceEnglish": "She showers before breakfast.",
+      "proposedFrench": "Elle se douche avant le petit déjeuner.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:14:reader:4",
+      "sourceSpanish": "Se prepara para la clase.",
+      "sourceEnglish": "She gets ready for class.",
+      "proposedFrench": "Elle se prépare pour le cours.",
+      "selectedFrench": null,
+      "decisionNote": "Course/session sense of class is conditional; do not silently substitute classroom."
+    },
+    {
+      "id": "master-french-basics:14:reader:5",
+      "sourceSpanish": "Por la noche se acuesta temprano.",
+      "sourceEnglish": "At night she goes to bed early.",
+      "proposedFrench": "Le soir, elle se couche tôt.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:14:reader:6",
+      "sourceSpanish": "Yo me acuesto después de estudiar.",
+      "sourceEnglish": "I go to bed after studying.",
+      "proposedFrench": "Je me couche après avoir étudié.",
+      "selectedFrench": null,
+      "decisionNote": "Après avoir étudié preserves the after-studying relation; requires curriculum/form review."
+    },
+    {
+      "id": "master-french-basics:14:reader:7",
+      "sourceSpanish": "Me levanto a las siete.",
+      "sourceEnglish": "I get up at seven.",
+      "proposedFrench": "Je me lève à sept heures.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:14:reader:8",
+      "sourceSpanish": "Ana se ducha por la mañana.",
+      "sourceEnglish": "Ana showers in the morning.",
+      "proposedFrench": "Ana se douche le matin.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:14:reader:9",
+      "sourceSpanish": "Nos preparamos para la clase.",
+      "sourceEnglish": "We get ready for class.",
+      "proposedFrench": "Nous nous préparons pour le cours.",
+      "selectedFrench": null,
+      "decisionNote": "Cours is a conditional class-session choice."
+    },
+    {
+      "id": "master-french-basics:14:reader:10",
+      "sourceSpanish": "Luis se acuesta a las diez.",
+      "sourceEnglish": "Luis goes to bed at ten.",
+      "proposedFrench": "Luis se couche à dix heures.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:14:reader:11",
+      "sourceSpanish": "¿Te despiertas temprano?",
+      "sourceEnglish": "Do you wake up early?",
+      "proposedFrench": "Tu te réveilles tôt ?",
+      "selectedFrench": null,
+      "decisionNote": "Spanish te indicates informal singular; French tu is proposed pending role/register review."
+    },
+    {
+      "id": "master-french-basics:14:reader:12",
+      "sourceSpanish": "Sí, me despierto antes de las siete.",
+      "sourceEnglish": "Yes, I wake up before seven.",
+      "proposedFrench": "Oui, je me réveille avant sept heures.",
+      "selectedFrench": null,
+      "decisionNote": "French je preserves the first-person reply and reflexive me."
+    }
+  ],
+  "conditionalModeEvidence": [
+    {
+      "mode": "See",
+      "sourceRef": "master-french-basics:14:reader:1",
+      "sourceEnglish": "Julia wakes up at six.",
+      "conditionalFrench": "Julia se réveille à six heures.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Recall",
+      "sourceRef": "master-french-basics:14:reader:2",
+      "sourceEnglish": "She gets up and opens the window.",
+      "conditionalFrench": "Elle se lève et ouvre la fenêtre.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Hear",
+      "sourceRef": "master-french-basics:14:reader:3",
+      "sourceEnglish": "She showers before breakfast.",
+      "conditionalFrench": "Elle se douche avant le petit déjeuner.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Type",
+      "sourceRef": "master-french-basics:14:reader:4",
+      "sourceEnglish": "She gets ready for class.",
+      "conditionalFrench": "Elle se prépare pour le cours.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Say",
+      "sourceRef": "master-french-basics:14:reader:11",
+      "sourceEnglish": "Do you wake up early?",
+      "conditionalFrench": "Tu te réveilles tôt ?",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Write",
+      "sourceRef": "master-french-basics:14:reader:12",
+      "sourceEnglish": "Yes, I wake up before seven.",
+      "conditionalFrench": "Oui, je me réveille avant sept heures.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    }
+  ],
+  "conditionalFormEvidence": [
+    {
+      "sourceRefs": [
+        "master-french-basics:14:reader:1",
+        "master-french-basics:14:reader:2",
+        "master-french-basics:14:reader:3",
+        "master-french-basics:14:reader:4"
+      ],
+      "focus": "se with Julia/elle in routine verbs",
+      "readyForLearner": false
+    },
+    {
+      "sourceRefs": [
+        "master-french-basics:14:reader:6",
+        "master-french-basics:14:reader:7",
+        "master-french-basics:14:reader:9",
+        "master-french-basics:14:reader:11",
+        "master-french-basics:14:reader:12"
+      ],
+      "focus": "me/nous/te person contrast and register",
+      "readyForLearner": false
+    }
+  ],
+  "conditionalSpeakingEvidence": {
+    "sourceScene": "La mañana de Julia",
+    "focus": "Tell Julia's morning routine in order and answer an early-waking question.",
+    "sourceRefs": [
+      "master-french-basics:14:reader:1",
+      "master-french-basics:14:reader:2",
+      "master-french-basics:14:reader:3",
+      "master-french-basics:14:reader:4",
+      "master-french-basics:14:reader:5",
+      "master-french-basics:14:reader:11",
+      "master-french-basics:14:reader:12"
+    ],
+    "readyForLearner": false
+  },
+  "archivedRedesign": {
+    "title": "Raconter une habitude et son interruption",
+    "scene": "Une équipe prépare une présentation comme d’habitude, mais le projecteur cesse de fonctionner avant la répétition.",
+    "separateFromCurrentSource": true,
+    "reason": "The archived interrupted-projector rehearsal teaches past routine and interruption; the current source is a simple reflexive morning routine."
+  },
+  "sourceDecisions": [
+    "The pinned Spanish objective teaches me/te/se/nos/se before a conjugated reflexive verb; French me/te/se/nous/se has elision and person-specific morphology, so write a French objective instead of translating the Spanish paradigm mechanically.",
+    "The current source places a beginner morning-routine/reflexive-pronoun lesson at Master 14; qualified curriculum review must decide placement without changing saved identity silently.",
+    "Grouped article, pronoun, class/classroom and preposition faces require contextual dictionary senses; Spanish feminine plural las does not map to a French gender distinction in les.",
+    "The source's te question is informal singular. French tu is conditional pending a speaking-role/register decision."
+  ],
+  "selectedDecision": null,
+  "normalProjectionAllowed": false,
+  "audioScript": null,
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "nativeV4Registered": false
+  }
+}

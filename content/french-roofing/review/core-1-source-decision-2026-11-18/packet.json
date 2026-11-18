@@ -1,0 +1,471 @@
+{
+  "schema": "french-roofing-core1-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:1",
+  "proposedPairId": "core-roofing:1:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-1-3-draft.json": "038aedc570836c42e331b748e598a50ffa46268d6b750dab0e08f294592ea3aa"
+  },
+  "orderedSourceRowsSha256": "c7a49f2d8a0d454697595206f6001c01621e5097f8fba3b87b1b1cde26542367",
+  "sourceTitleEnglish": "Name the Roof System",
+  "sourceObjectiveEnglish": "Identify the job's roof system and main materials",
+  "sourceSpeakingEnglish": "Tell a crew member which roof system and materials today's job uses.",
+  "sourceReaderTitleSpanish": "Primer día en el techo",
+  "cards": [
+    {
+      "id": "core-roofing:1:fr-en:card:1",
+      "legacySourceRef": "roofing:1:words:1",
+      "sourceSpanish": "Teja asfáltica",
+      "sourceEnglish": "shingle",
+      "kind": "term",
+      "archivedFrenchEvidence": "le bardeau",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:card:2",
+      "legacySourceRef": "roofing:1:words:2",
+      "sourceSpanish": "Teja (de barro/concreto)",
+      "sourceEnglish": "tile",
+      "kind": "term",
+      "archivedFrenchEvidence": "la tuile",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:card:3",
+      "legacySourceRef": "roofing:1:words:3",
+      "sourceSpanish": "Lámina metálica",
+      "sourceEnglish": "metal panel",
+      "kind": "term",
+      "archivedFrenchEvidence": "le panneau métallique",
+      "conditionalFrench": "le panneau métallique",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:card:4",
+      "legacySourceRef": "roofing:1:words:4",
+      "sourceSpanish": "Cubierta / Forro de techo",
+      "sourceEnglish": "roof deck",
+      "kind": "term",
+      "archivedFrenchEvidence": "le support de couverture",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:card:5",
+      "legacySourceRef": "roofing:1:words:5",
+      "sourceSpanish": "Techo",
+      "sourceEnglish": "roof",
+      "kind": "term",
+      "archivedFrenchEvidence": "le toit",
+      "conditionalFrench": "le toit",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:card:6",
+      "legacySourceRef": "roofing:1:words:6",
+      "sourceSpanish": "Sistema de techo",
+      "sourceEnglish": "roof system",
+      "kind": "term",
+      "archivedFrenchEvidence": "le système de couverture",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:card:7",
+      "legacySourceRef": "roofing:1:words:7",
+      "sourceSpanish": "Techo plano",
+      "sourceEnglish": "flat roof",
+      "kind": "term",
+      "archivedFrenchEvidence": "le toit plat",
+      "conditionalFrench": "le toit plat",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:card:8",
+      "legacySourceRef": "roofing:1:words:8",
+      "sourceSpanish": "Techo inclinado",
+      "sourceEnglish": "sloped roof",
+      "kind": "term",
+      "archivedFrenchEvidence": "le toit en pente",
+      "conditionalFrench": "le toit en pente",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:card:9",
+      "legacySourceRef": "roofing:1:words:9",
+      "sourceSpanish": "Pendiente del techo",
+      "sourceEnglish": "roof pitch",
+      "kind": "term",
+      "archivedFrenchEvidence": "la pente du toit",
+      "conditionalFrench": "la pente du toit",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:card:10",
+      "legacySourceRef": "roofing:1:words:10",
+      "sourceSpanish": "Tragaluz",
+      "sourceEnglish": "skylight",
+      "kind": "term",
+      "archivedFrenchEvidence": "la fenêtre de toit",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:card:11",
+      "legacySourceRef": "roofing:1:words:11",
+      "sourceSpanish": "¿Qué material tiene este techo?",
+      "sourceEnglish": "What material does this roof have?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Quel matériau couvre ce toit ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:card:12",
+      "legacySourceRef": "roofing:1:words:12",
+      "sourceSpanish": "Hoy vamos a instalar tejas asfálticas.",
+      "sourceEnglish": "Today we are installing asphalt shingles.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Aujourd’hui, nous posons des bardeaux d’asphalte.",
+      "conditionalFrench": "Aujourd’hui, nous posons des bardeaux d’asphalte.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:card:13",
+      "legacySourceRef": "roofing:1:words:13",
+      "sourceSpanish": "Este techo es de lámina metálica.",
+      "sourceEnglish": "This roof is metal panel.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Ce toit est couvert de panneaux métalliques.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:card:14",
+      "legacySourceRef": "roofing:1:words:14",
+      "sourceSpanish": "¿El techo es plano o inclinado?",
+      "sourceEnglish": "Is the roof flat or sloped?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Le toit est-il plat ou en pente ?",
+      "conditionalFrench": "Le toit est-il plat ou en pente ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:card:15",
+      "legacySourceRef": "roofing:1:words:15",
+      "sourceSpanish": "Revisen la pendiente del techo antes de empezar.",
+      "sourceEnglish": "Check the roof pitch before we start.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Vérifiez la pente du toit avant de commencer.",
+      "conditionalFrench": "Vérifiez la pente du toit avant de commencer.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:1:fr-en:reader:1",
+      "legacySourceRef": "roofing:1:passage:1",
+      "sourceSpanish": "Hoy es el primer día en la obra nueva.",
+      "sourceEnglish": "Today is the first day at the new job site.",
+      "archivedFrenchEvidence": "Aujourd’hui, c’est le premier jour sur le nouveau chantier.",
+      "conditionalFrench": "Aujourd’hui, c’est le premier jour sur le nouveau chantier.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:reader:2",
+      "legacySourceRef": "roofing:1:passage:2",
+      "sourceSpanish": "El capataz camina por el techo con la cuadrilla.",
+      "sourceEnglish": "The foreman walks the roof with the crew.",
+      "archivedFrenchEvidence": "Le chef d’équipe parcourt le toit avec son équipe.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:reader:3",
+      "legacySourceRef": "roofing:1:passage:3",
+      "sourceSpanish": "Este techo es inclinado, no es plano.",
+      "sourceEnglish": "This roof is sloped, not flat.",
+      "archivedFrenchEvidence": "Ce toit est en pente, pas plat.",
+      "conditionalFrench": "Ce toit est en pente, pas plat.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:reader:4",
+      "legacySourceRef": "roofing:1:passage:4",
+      "sourceSpanish": "Es un sistema de techo con tejas asfálticas.",
+      "sourceEnglish": "It is a roof system with asphalt shingles.",
+      "archivedFrenchEvidence": "C’est un système de couverture en bardeaux d’asphalte.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:reader:5",
+      "legacySourceRef": "roofing:1:passage:5",
+      "sourceSpanish": "El capataz pregunta: ¿Qué material tiene este techo?",
+      "sourceEnglish": "The foreman asks: What material does this roof have?",
+      "archivedFrenchEvidence": "Le chef d’équipe demande : « Quel matériau couvre ce toit ? »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:reader:6",
+      "legacySourceRef": "roofing:1:passage:6",
+      "sourceSpanish": "Un obrero mira el techo y contesta que son tejas asfálticas.",
+      "sourceEnglish": "A worker looks at the roof and answers that they are asphalt shingles.",
+      "archivedFrenchEvidence": "Un ouvrier regarde le toit et répond que ce sont des bardeaux d’asphalte.",
+      "conditionalFrench": "Un ouvrier regarde le toit et répond que ce sont des bardeaux d’asphalte.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:reader:7",
+      "legacySourceRef": "roofing:1:passage:7",
+      "sourceSpanish": "También hay un tragaluz en la parte de atrás.",
+      "sourceEnglish": "There is also a skylight at the back.",
+      "archivedFrenchEvidence": "Il y a aussi une fenêtre de toit à l’arrière.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:reader:8",
+      "legacySourceRef": "roofing:1:passage:8",
+      "sourceSpanish": "Revisen la pendiente del techo antes de empezar.",
+      "sourceEnglish": "Check the roof pitch before we start.",
+      "archivedFrenchEvidence": "Vérifiez la pente du toit avant de commencer.",
+      "conditionalFrench": "Vérifiez la pente du toit avant de commencer.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "revisar",
+      "englishMeaning": "to check",
+      "sourceSpanish": "Revisen la pendiente del techo antes de empezar.",
+      "sourceEnglish": "Check the roof pitch before we start."
+    },
+    {
+      "spanishInfinitive": "tener",
+      "englishMeaning": "to have",
+      "sourceSpanish": "¿Qué material tiene este techo?",
+      "sourceEnglish": "What material does this roof have?"
+    },
+    {
+      "spanishInfinitive": "instalar",
+      "englishMeaning": "to install",
+      "sourceSpanish": "Hoy instalamos tejas asfálticas.",
+      "sourceEnglish": "Today we install asphalt shingles."
+    },
+    {
+      "spanishInfinitive": "mirar",
+      "englishMeaning": "to look at",
+      "sourceSpanish": "Un obrero mira el techo.",
+      "sourceEnglish": "A worker looks at the roof."
+    },
+    {
+      "spanishInfinitive": "caminar",
+      "englishMeaning": "to walk",
+      "sourceSpanish": "El capataz camina por el techo.",
+      "sourceEnglish": "The foreman walks on the roof."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Nommer le système de couverture",
+    "objectiveFrench": "Identifier le système de couverture prévu sur le chantier et ses principaux matériaux.",
+    "speakingFrenchInstruction": "Votre équipe pose des bardeaux d’asphalte sur ce chantier. Demandez au chef d’équipe de confirmer le système et les matériaux indiqués sur le plan.",
+    "speakingFrenchOpening": "Bonjour. Sur ce chantier, quel système de couverture est prévu ? Est-ce que nous posons des bardeaux d’asphalte ?",
+    "grammarFocusFrench": "Présent de l’indicatif pour nommer les matériaux; c’est / ce sont; question avec quel et est-ce que; impératif de politesse pour vérifier.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to check",
+        "exampleEnglish": "Check the roof pitch before we start.",
+        "sourceInfinitiveSpanish": "revisar",
+        "infinitiveFrench": "vérifier",
+        "exampleFrench": "Vérifiez la pente du toit avant de commencer."
+      },
+      {
+        "meaningEnglish": "to have",
+        "exampleEnglish": "What material does this roof have?",
+        "sourceInfinitiveSpanish": "tener",
+        "infinitiveFrench": "avoir",
+        "exampleFrench": "Quel matériau ce toit a-t-il ?"
+      },
+      {
+        "meaningEnglish": "to install",
+        "exampleEnglish": "Today we install asphalt shingles.",
+        "sourceInfinitiveSpanish": "instalar",
+        "infinitiveFrench": "poser",
+        "exampleFrench": "Aujourd’hui, nous posons des bardeaux d’asphalte."
+      },
+      {
+        "meaningEnglish": "to look at",
+        "exampleEnglish": "A worker looks at the roof.",
+        "sourceInfinitiveSpanish": "mirar",
+        "infinitiveFrench": "regarder",
+        "exampleFrench": "Un ouvrier regarde le toit."
+      },
+      {
+        "meaningEnglish": "to walk",
+        "exampleEnglish": "The foreman walks on the roof.",
+        "sourceInfinitiveSpanish": "caminar",
+        "infinitiveFrench": "parcourir",
+        "exampleFrench": "Le chef d’équipe parcourt le toit."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "Quebec/France and individual crew terminology require qualified French roofing review.",
+      "Confirm local code, approved plan and product instructions before treating an installation phrase as a work instruction."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:1:fr-en:card:1",
+        "core-roofing:1:fr-en:card:2",
+        "core-roofing:1:fr-en:reader:4"
+      ],
+      "question": "Select the roof-product and locale senses: generic shingle/tile cards versus Spanish asphalt and clay/concrete qualifiers; keep Reader 4's asphalt shingles explicit."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:1:fr-en:card:4",
+        "core-roofing:1:fr-en:card:6",
+        "core-roofing:1:fr-en:reader:4"
+      ],
+      "question": "Decide whether the archived support de couverture and système de couverture distinguish structural roof deck from the whole roof system in this trade context."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:1:fr-en:card:10",
+        "core-roofing:1:fr-en:reader:7"
+      ],
+      "question": "Select a contextual French skylight term; fenêtre de toit may narrow the type of opening compared with source tragaluz/skylight."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:1:fr-en:card:11",
+        "core-roofing:1:fr-en:reader:5"
+      ],
+      "question": "The source asks what material the roof has; decide whether the archived question about what covers the roof preserves the intended material distinction and card/Reader alignment."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:1:fr-en:card:13"
+      ],
+      "question": "Decide whether this metal-panel roof phrase denotes the roof material or a count of panels before selecting a scored French form."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:1:fr-en:reader:2"
+      ],
+      "question": "The source has a foreman walking the roof with the crew; qualified roofing/source review must retain the attributed scene and decide whether any access or protection context needs a source revision before using it as teaching or audio."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:1:fr-en:reader:4",
+        "core-roofing:1:fr-en:reader:5"
+      ],
+      "question": "Archived speaking changes the source task of telling a crew member into asking a lead to confirm a plan. Set the lesson speaking objective and term senses together without silently replacing the source."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

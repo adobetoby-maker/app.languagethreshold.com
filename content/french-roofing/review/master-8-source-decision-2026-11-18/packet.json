@@ -1,0 +1,679 @@
+{
+  "schema": "french-roofing-master8-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "master-roofing",
+  "sourceHeaderModuleId": "master-roofing",
+  "proposedLessonId": "master-roofing:8",
+  "proposedPairId": "master-roofing:8:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/master-7-9-draft.json": "aac17166036d739fd1af9ca58bd57ccc95d4ea5337f998d639331f37de14b53c"
+  },
+  "orderedSourceRowsSha256": "586991e47e2e42c0d969ca669c46115a808e0a7885fc7717995736a2dce9f711",
+  "sourceTitleEnglish": "Saying No: Unsafe Request from the Homeowner",
+  "sourceObjectiveEnglish": "Refuse an unsafe or improper request from a homeowner politely and firmly, and offer a safe alternative",
+  "sourceFocusEnglish": "Negative commands; subjunctive after no recomiendo que",
+  "sourceGrammarExamples": [
+    {
+      "es": "No suban al techo con relámpagos.",
+      "en": "Don't go up on the roof in lightning."
+    },
+    {
+      "es": "No recomiendo que trabajemos con la superficie mojada.",
+      "en": "I don't recommend that we work on a wet surface."
+    }
+  ],
+  "sourceLessonType": "People",
+  "sourceBlock": "B",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is a homeowner in a hurry who asks for something unsafe: refuse politely and firmly with no recomiendo que and no es posible que, explain the risk, and offer a safe alternative.",
+  "sourceReaderTitleSpanish": "Not in Lightning, Not Without Underlayment",
+  "cards": [
+    {
+      "id": "master-roofing:8:fr-en:card:1",
+      "legacySourceRef": "master-roofing:8:words:1",
+      "sourceSpanish": "los relámpagos",
+      "sourceEnglish": "the lightning",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la foudre",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:2",
+      "legacySourceRef": "master-roofing:8:words:2",
+      "sourceSpanish": "el trueno",
+      "sourceEnglish": "the thunder",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le tonnerre",
+      "conditionalFrench": "le tonnerre",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:3",
+      "legacySourceRef": "master-roofing:8:words:3",
+      "sourceSpanish": "la tormenta eléctrica",
+      "sourceEnglish": "the thunderstorm",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "l’orage",
+      "conditionalFrench": "l’orage",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:4",
+      "legacySourceRef": "master-roofing:8:words:4",
+      "sourceSpanish": "la descarga eléctrica",
+      "sourceEnglish": "the lightning strike (electric shock)",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la décharge due à la foudre",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:5",
+      "legacySourceRef": "master-roofing:8:words:5",
+      "sourceSpanish": "la superficie mojada",
+      "sourceEnglish": "the wet surface",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la surface mouillée",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:6",
+      "legacySourceRef": "master-roofing:8:words:6",
+      "sourceSpanish": "el atajo",
+      "sourceEnglish": "the shortcut",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le raccourci",
+      "conditionalFrench": "le raccourci",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:7",
+      "legacySourceRef": "master-roofing:8:words:7",
+      "sourceSpanish": "el riesgo",
+      "sourceEnglish": "the risk",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le risque",
+      "conditionalFrench": "le risque",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:8",
+      "legacySourceRef": "master-roofing:8:words:8",
+      "sourceSpanish": "la norma de seguridad",
+      "sourceEnglish": "the safety rule",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la règle de sécurité",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:9",
+      "legacySourceRef": "master-roofing:8:words:9",
+      "sourceSpanish": "la responsabilidad",
+      "sourceEnglish": "the responsibility",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la responsabilité",
+      "conditionalFrench": "la responsabilité",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:10",
+      "legacySourceRef": "master-roofing:8:words:10",
+      "sourceSpanish": "el ahorro",
+      "sourceEnglish": "the savings",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "l’économie",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:11",
+      "legacySourceRef": "master-roofing:8:words:11",
+      "sourceSpanish": "la garantía del fabricante",
+      "sourceEnglish": "the manufacturer warranty",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la garantie du fabricant",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:12",
+      "legacySourceRef": "master-roofing:8:words:12",
+      "sourceSpanish": "la alternativa",
+      "sourceEnglish": "the alternative",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la solution de rechange",
+      "conditionalFrench": "la solution de rechange",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:13",
+      "legacySourceRef": "master-roofing:8:words:13",
+      "sourceSpanish": "la prisa",
+      "sourceEnglish": "the hurry",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "l’urgence",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:14",
+      "legacySourceRef": "master-roofing:8:words:14",
+      "sourceSpanish": "la decisión",
+      "sourceEnglish": "the decision",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la décision",
+      "conditionalFrench": "la décision",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:15",
+      "legacySourceRef": "master-roofing:8:words:15",
+      "sourceSpanish": "No recomiendo que trabajemos con relámpagos.",
+      "sourceEnglish": "I don't recommend that we work in lightning.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Je ne recommande pas de travailler quand il y a de la foudre.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:16",
+      "legacySourceRef": "master-roofing:8:words:16",
+      "sourceSpanish": "No es posible que nos saltemos la sub-capa.",
+      "sourceEnglish": "It isn't possible for us to skip the underlayment.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Nous ne pouvons pas omettre la sous-couche prévue.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:17",
+      "legacySourceRef": "master-roofing:8:words:17",
+      "sourceSpanish": "Entiendo su prisa, pero no puedo hacerlo.",
+      "sourceEnglish": "I understand your hurry, but I can't do it.",
+      "kind": "phrase",
+      "sourceNoteSpanish": "formal",
+      "archivedFrenchEvidence": "Je comprends votre urgence, mais je ne peux pas le faire.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:18",
+      "legacySourceRef": "master-roofing:8:words:18",
+      "sourceSpanish": "Lamentablemente, eso no lo podemos hacer.",
+      "sourceEnglish": "Unfortunately, that's something we can't do.",
+      "kind": "phrase",
+      "sourceNoteSpanish": "formal",
+      "archivedFrenchEvidence": "Malheureusement, nous ne pouvons pas faire cela.",
+      "conditionalFrench": "Malheureusement, nous ne pouvons pas faire cela.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:19",
+      "legacySourceRef": "master-roofing:8:words:19",
+      "sourceSpanish": "Lo que sí podemos hacer es cubrir el techo con lona.",
+      "sourceEnglish": "What we can do is cover the roof with a tarp.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Nous pourrions protéger le toit avec une bâche quand le plan et les conditions le permettent.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:20",
+      "legacySourceRef": "master-roofing:8:words:20",
+      "sourceSpanish": "No suban hasta que yo diga.",
+      "sourceEnglish": "Don't go up until I say so.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Ne montez pas avant mon autorisation.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:21",
+      "legacySourceRef": "master-roofing:8:words:21",
+      "sourceSpanish": "No te arriesgues por nadie.",
+      "sourceEnglish": "Don't take risks for anyone.",
+      "kind": "phrase",
+      "sourceNoteSpanish": "informal",
+      "archivedFrenchEvidence": "Ne prenez pas de risques pour qui que ce soit.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:8:fr-en:reader:1",
+      "legacySourceRef": "master-roofing:8:passage:1",
+      "sourceSpanish": "Eran las dos de la tarde, y se escuchaba un trueno lejos, hacia el oeste.",
+      "sourceEnglish": "It was two in the afternoon, and thunder could be heard far off, to the west.",
+      "archivedFrenchEvidence": "Il était quatorze heures et on entendait le tonnerre au loin, vers l’ouest.",
+      "conditionalFrench": "Il était quatorze heures et on entendait le tonnerre au loin, vers l’ouest.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:reader:2",
+      "legacySourceRef": "master-roofing:8:passage:2",
+      "sourceSpanish": "La señora Flores salió de la casa con prisa y habló con Rogelio.",
+      "sourceEnglish": "Mrs. Flores came out of the house in a hurry and spoke with Rogelio.",
+      "archivedFrenchEvidence": "Mme Flores est sortie de la maison à la hâte pour parler à Rogelio.",
+      "conditionalFrench": "Mme Flores est sortie de la maison à la hâte pour parler à Rogelio.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:reader:3",
+      "legacySourceRef": "master-roofing:8:passage:3",
+      "sourceSpanish": "Señora Flores: Mis hijos llegan el sábado, así que quiero que sigan trabajando aunque llueva.",
+      "sourceEnglish": "Mrs. Flores: My children arrive on Saturday, so I want you to keep working even if it rains.",
+      "archivedFrenchEvidence": "Mme Flores : « Mes enfants arrivent samedi; je voudrais que vous continuiez même s’il pleut. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:reader:4",
+      "legacySourceRef": "master-roofing:8:passage:4",
+      "sourceSpanish": "Señora Flores: Y para ahorrar, pongan las tejas sin la sub-capa.",
+      "sourceEnglish": "Mrs. Flores: And to save money, put the shingles on without the underlayment.",
+      "archivedFrenchEvidence": "Mme Flores : « Et pour économiser, posez les bardeaux sans la sous-couche. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:reader:5",
+      "legacySourceRef": "master-roofing:8:passage:5",
+      "sourceSpanish": "Rogelio: Entiendo su prisa, pero no puedo hacerlo.",
+      "sourceEnglish": "Rogelio: I understand your hurry, but I can't do it.",
+      "archivedFrenchEvidence": "Rogelio : « Je comprends votre urgence, mais je ne peux pas le faire. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:reader:6",
+      "legacySourceRef": "master-roofing:8:passage:6",
+      "sourceSpanish": "Rogelio: Con relámpagos, el techo es el peor lugar, y no recomiendo que trabajemos con relámpagos ni con la superficie mojada.",
+      "sourceEnglish": "Rogelio: In lightning, the roof is the worst place, and I don't recommend that we work in lightning or on a wet surface.",
+      "archivedFrenchEvidence": "Rogelio : « Avec la foudre, le toit présente un danger; je ne recommande pas de travailler pendant l’orage ni sur une surface mouillée. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:reader:7",
+      "legacySourceRef": "master-roofing:8:passage:7",
+      "sourceSpanish": "Rogelio: Una descarga eléctrica puede matar a una persona, y ese riesgo no lo voy a aceptar.",
+      "sourceEnglish": "Rogelio: A lightning strike can kill a person, and I'm not going to accept that risk.",
+      "archivedFrenchEvidence": "Rogelio : « La foudre peut tuer, et je n’accepterai pas ce risque. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:reader:8",
+      "legacySourceRef": "master-roofing:8:passage:8",
+      "sourceSpanish": "Rogelio: Sobre la sub-capa, lamentablemente, eso no lo podemos hacer.",
+      "sourceEnglish": "Rogelio: About the underlayment, unfortunately, that's something we can't do.",
+      "archivedFrenchEvidence": "Rogelio : « Quant à la sous-couche, malheureusement, nous ne pouvons pas l’omettre. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:reader:9",
+      "legacySourceRef": "master-roofing:8:passage:9",
+      "sourceSpanish": "Rogelio: No es posible que nos saltemos la sub-capa, porque el fabricante la pide para la garantía.",
+      "sourceEnglish": "Rogelio: It isn't possible for us to skip the underlayment, because the manufacturer requires it for the warranty.",
+      "archivedFrenchEvidence": "Rogelio : « Nous ne pouvons pas supprimer la sous-couche prévue; vérifions les exigences du système et de la garantie. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:reader:10",
+      "legacySourceRef": "master-roofing:8:passage:10",
+      "sourceSpanish": "Rogelio: Ese atajo parece un ahorro hoy, pero más adelante sería una gotera y un gasto mucho mayor.",
+      "sourceEnglish": "Rogelio: That shortcut looks like savings today, but later it would be a leak and a much bigger expense.",
+      "archivedFrenchEvidence": "Rogelio : « Ce raccourci semble économique aujourd’hui, mais pourrait entraîner une fuite et des coûts plus élevés. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:reader:11",
+      "legacySourceRef": "master-roofing:8:passage:11",
+      "sourceSpanish": "Rogelio: Lo que sí podemos hacer es cubrir el techo con lona y volver en cuanto pase la tormenta eléctrica.",
+      "sourceEnglish": "Rogelio: What we can do is cover the roof with a tarp and come back as soon as the thunderstorm passes.",
+      "archivedFrenchEvidence": "Rogelio : « Une protection temporaire par bâche pourrait être envisagée seulement quand les conditions sont sûres et selon le plan approuvé. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:reader:12",
+      "legacySourceRef": "master-roofing:8:passage:12",
+      "sourceSpanish": "Rogelio: Así terminaríamos el viernes, si el pronóstico ayuda, y usted tendría su techo antes del sábado.",
+      "sourceEnglish": "Rogelio: That way we would finish on Friday, if the forecast helps, and you would have your roof before Saturday.",
+      "archivedFrenchEvidence": "Rogelio : « Nous pourrions alors terminer vendredi si la météo et les contrôles le permettent, sans le promettre. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:reader:13",
+      "legacySourceRef": "master-roofing:8:passage:13",
+      "sourceSpanish": "La señora Flores pensó un momento y aceptó la alternativa.",
+      "sourceEnglish": "Mrs. Flores thought for a moment and accepted the alternative.",
+      "archivedFrenchEvidence": "Mme Flores y a réfléchi un moment et a accepté la solution de rechange.",
+      "conditionalFrench": "Mme Flores y a réfléchi un moment et a accepté la solution de rechange.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:reader:14",
+      "legacySourceRef": "master-roofing:8:passage:14",
+      "sourceSpanish": "Rogelio habló con la cuadrilla: No suban hasta que yo diga, y no dejen herramientas de metal en el techo.",
+      "sourceEnglish": "Rogelio talked to the crew: Don't go up until I say so, and don't leave metal tools on the roof.",
+      "archivedFrenchEvidence": "Rogelio dit à l’équipe : « Ne montez pas avant mon autorisation et ne laissez pas d’outils métalliques sur le toit. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:reader:15",
+      "legacySourceRef": "master-roofing:8:passage:15",
+      "sourceSpanish": "Rogelio: La decisión es mía, y la responsabilidad también.",
+      "sourceEnglish": "Rogelio: The decision is mine, and so is the responsibility.",
+      "archivedFrenchEvidence": "Rogelio : « J’assume cette décision et la responsabilité de la communiquer. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:8:fr-en:reader:16",
+      "legacySourceRef": "master-roofing:8:passage:16",
+      "sourceSpanish": "Rogelio: Kevin, no te arriesgues por nadie; la norma de seguridad es la misma para todos.",
+      "sourceEnglish": "Rogelio: Kevin, don't take risks for anyone; the safety rule is the same for everyone.",
+      "archivedFrenchEvidence": "Rogelio : « Kevin, ne prends de risques pour personne; la règle de sécurité vaut pour tous. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "trabajar",
+      "englishMeaning": "to work",
+      "sourceSpanish": "No recomiendo que trabajemos con relámpagos.",
+      "sourceEnglish": "I don't recommend that we work in lightning."
+    },
+    {
+      "spanishInfinitive": "subir",
+      "englishMeaning": "to go up",
+      "sourceSpanish": "No suban hasta que yo diga.",
+      "sourceEnglish": "Don't go up until I say so."
+    },
+    {
+      "spanishInfinitive": "dejar",
+      "englishMeaning": "to leave (something)",
+      "sourceSpanish": "No dejen herramientas de metal en el techo.",
+      "sourceEnglish": "Don't leave metal tools on the roof."
+    },
+    {
+      "spanishInfinitive": "saltarse",
+      "englishMeaning": "to skip",
+      "sourceSpanish": "Aquí nunca nos saltamos la sub-capa.",
+      "sourceEnglish": "Here we never skip the underlayment."
+    },
+    {
+      "spanishInfinitive": "poder",
+      "englishMeaning": "can, to be able to",
+      "sourceSpanish": "Lo que sí podemos hacer es cubrir el techo con lona.",
+      "sourceEnglish": "What we can do is cover the roof with a tarp."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Refuser une demande dangereuse du propriétaire",
+    "objectiveFrench": "Refuser poliment et fermement une demande dangereuse, puis proposer une suite conforme au plan de sécurité.",
+    "speakingFrenchInstruction": "Vous êtes chef d’équipe et le propriétaire veut accélérer le chantier malgré l’orage et supprimer une couche prévue au système. Refusez, expliquez le risque, arrêtez l’accès et indiquez que toute protection temporaire doit attendre des conditions sûres et suivre le plan approuvé.",
+    "speakingFrenchOpening": "Je comprends l’urgence, mais nous devons arrêter le travail et suivre le plan météo du chantier.",
+    "grammarFocusFrench": "Négation et conditionnel pour refuser avec tact : je ne recommande pas de; ce ne serait pas possible; nous pourrions.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to work",
+        "exampleEnglish": "I don't recommend that we work in lightning.",
+        "sourceInfinitiveSpanish": "trabajar",
+        "infinitiveFrench": "travailler",
+        "exampleFrench": "Je ne recommande pas de travailler quand il y a de la foudre."
+      },
+      {
+        "meaningEnglish": "to go up",
+        "exampleEnglish": "Don't go up until I say so.",
+        "sourceInfinitiveSpanish": "subir",
+        "infinitiveFrench": "monter",
+        "exampleFrench": "Ne montez pas avant mon autorisation."
+      },
+      {
+        "meaningEnglish": "to leave (something)",
+        "exampleEnglish": "Don't leave metal tools on the roof.",
+        "sourceInfinitiveSpanish": "dejar",
+        "infinitiveFrench": "laisser",
+        "exampleFrench": "Ne laissez pas d’outils métalliques sur le toit."
+      },
+      {
+        "meaningEnglish": "to skip",
+        "exampleEnglish": "Here we never skip the underlayment.",
+        "sourceInfinitiveSpanish": "saltarse",
+        "infinitiveFrench": "omettre",
+        "exampleFrench": "Ici, nous n’omettons pas la sous-couche prévue."
+      },
+      {
+        "meaningEnglish": "can, to be able to",
+        "exampleEnglish": "What we can do is cover the roof with a tarp.",
+        "sourceInfinitiveSpanish": "poder",
+        "infinitiveFrench": "pouvoir",
+        "exampleFrench": "Nous pourrions protéger le toit avec une bâche quand le plan et les conditions le permettent."
+      }
+    ],
+    "reviewGapsEnglish": [
+      "Qualified site-safety review is required for lightning stop-work, reentry timing, metal tools and temporary tarping; the English storm-to-tarp and Friday promises are unsafe/unsupported as universal instructions.",
+      "Qualified roofing/product and consumer-contract review is required for the underlayment-warranty claim and date promise; France/Québec regional language review remains open."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "master-roofing:8:fr-en:card:1",
+        "master-roofing:8:fr-en:card:4",
+        "master-roofing:8:fr-en:reader:6",
+        "master-roofing:8:fr-en:reader:7"
+      ],
+      "question": "Distinguish lightning, a lightning strike and electric shock in French. The source refusal and fatality language must remain direct, but this fictional dialogue is not a universal lightning safety procedure."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:8:fr-en:card:5",
+        "master-roofing:8:fr-en:card:15",
+        "master-roofing:8:fr-en:card:20",
+        "master-roofing:8:fr-en:reader:3",
+        "master-roofing:8:fr-en:reader:6",
+        "master-roofing:8:fr-en:reader:14"
+      ],
+      "question": "Review stop-work, wet-surface and reentry commands. The archived French narrows some source claims; neither text specifies a site-specific all-clear, safe access or metal-tool retrieval plan."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:8:fr-en:card:11",
+        "master-roofing:8:fr-en:card:16",
+        "master-roofing:8:fr-en:reader:4",
+        "master-roofing:8:fr-en:reader:8",
+        "master-roofing:8:fr-en:reader:9"
+      ],
+      "question": "The source says the manufacturer requires underlayment for warranty, while archived French makes that conditional on the system. Identify the actual product requirement before selecting a scored warranty or installation claim."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:8:fr-en:card:10",
+        "master-roofing:8:fr-en:card:13",
+        "master-roofing:8:fr-en:card:17",
+        "master-roofing:8:fr-en:card:19",
+        "master-roofing:8:fr-en:reader:10",
+        "master-roofing:8:fr-en:reader:11",
+        "master-roofing:8:fr-en:reader:12"
+      ],
+      "question": "The source offers a tarp after the storm and a conditional Friday finish; archived French adds safety and plan conditions and removes the date promise. Resolve the source/safety/contract teaching decision, avoiding an unsafe storm-to-tarp instruction or guaranteed schedule."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:8:fr-en:card:8",
+        "master-roofing:8:fr-en:card:21",
+        "master-roofing:8:fr-en:reader:15",
+        "master-roofing:8:fr-en:reader:16"
+      ],
+      "question": "Author natural French refusal and negative-command practice, speaking and six prompt/target mode pairs for the homeowner and crew. The source's Spanish subjunctive focus cannot be treated as an identical French exercise."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive mode labels are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

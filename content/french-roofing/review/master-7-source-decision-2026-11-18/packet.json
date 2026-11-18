@@ -1,0 +1,679 @@
+{
+  "schema": "french-roofing-master7-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "master-roofing",
+  "sourceHeaderModuleId": "master-roofing",
+  "proposedLessonId": "master-roofing:7",
+  "proposedPairId": "master-roofing:7:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/master-7-9-draft.json": "aac17166036d739fd1af9ca58bd57ccc95d4ea5337f998d639331f37de14b53c"
+  },
+  "orderedSourceRowsSha256": "0321ec3cdd2ecf009324e109ca6f78ca97c94f06a40f4225ab52473d10289a1d",
+  "sourceTitleEnglish": "Hail Damage Inspection with an Adjuster",
+  "sourceObjectiveEnglish": "Walk an adjuster across a hail-damaged roof, narrate the storm and findings, and agree on the scope",
+  "sourceFocusEnglish": "Preterite narration; numbers under pressure",
+  "sourceGrammarExamples": [
+    {
+      "es": "La tormenta pasó el martes y el granizo cayó 15 minutos.",
+      "en": "The storm came through on Tuesday and the hail fell for 15 minutes."
+    },
+    {
+      "es": "Contamos 12 golpes en el cuadro de prueba.",
+      "en": "We counted 12 hits in the test square."
+    }
+  ],
+  "sourceLessonType": "Case",
+  "sourceBlock": "B",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the insurance adjuster: say when the storm came through, show the hits you marked, give counts and measurements clearly, and agree on the scope of work.",
+  "sourceReaderTitleSpanish": "Counting Hits with the Adjuster",
+  "cards": [
+    {
+      "id": "master-roofing:7:fr-en:card:1",
+      "legacySourceRef": "master-roofing:7:words:1",
+      "sourceSpanish": "el ajustador",
+      "sourceEnglish": "the adjuster",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "l’expert d’assurance",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:2",
+      "legacySourceRef": "master-roofing:7:words:2",
+      "sourceSpanish": "la aseguradora",
+      "sourceEnglish": "the insurance company",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la compagnie d’assurance",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:3",
+      "legacySourceRef": "master-roofing:7:words:3",
+      "sourceSpanish": "el granizo",
+      "sourceEnglish": "the hail",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la grêle",
+      "conditionalFrench": "la grêle",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:4",
+      "legacySourceRef": "master-roofing:7:words:4",
+      "sourceSpanish": "el golpe",
+      "sourceEnglish": "the hit (impact mark)",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "l’impact",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:5",
+      "legacySourceRef": "master-roofing:7:words:5",
+      "sourceSpanish": "el cuadro de prueba",
+      "sourceEnglish": "the test square",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le carré d’essai",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:6",
+      "legacySourceRef": "master-roofing:7:words:6",
+      "sourceSpanish": "el reclamo",
+      "sourceEnglish": "the claim",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la réclamation",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:7",
+      "legacySourceRef": "master-roofing:7:words:7",
+      "sourceSpanish": "la tormenta",
+      "sourceEnglish": "the storm",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "l’orage",
+      "conditionalFrench": "l’orage",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:8",
+      "legacySourceRef": "master-roofing:7:words:8",
+      "sourceSpanish": "el gránulo",
+      "sourceEnglish": "the granule",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le granule",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:9",
+      "legacySourceRef": "master-roofing:7:words:9",
+      "sourceSpanish": "la abolladura",
+      "sourceEnglish": "the dent",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la bosse",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:10",
+      "legacySourceRef": "master-roofing:7:words:10",
+      "sourceSpanish": "la canaleta",
+      "sourceEnglish": "the gutter",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la gouttière",
+      "conditionalFrench": "la gouttière",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:11",
+      "legacySourceRef": "master-roofing:7:words:11",
+      "sourceSpanish": "la cara del techo",
+      "sourceEnglish": "the roof slope (one face of the roof)",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le versant du toit",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:12",
+      "legacySourceRef": "master-roofing:7:words:12",
+      "sourceSpanish": "el alcance del trabajo",
+      "sourceEnglish": "the scope of work",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la portée des travaux",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:13",
+      "legacySourceRef": "master-roofing:7:words:13",
+      "sourceSpanish": "el círculo de tiza",
+      "sourceEnglish": "the chalk circle",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le cercle à la craie",
+      "conditionalFrench": "le cercle à la craie",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:14",
+      "legacySourceRef": "master-roofing:7:words:14",
+      "sourceSpanish": "el pie cuadrado",
+      "sourceEnglish": "the square foot",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le pied carré",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:15",
+      "legacySourceRef": "master-roofing:7:words:15",
+      "sourceSpanish": "La tormenta pasó el martes por la noche.",
+      "sourceEnglish": "The storm came through Tuesday night.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "L’orage est passé mardi soir.",
+      "conditionalFrench": "L’orage est passé mardi soir.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:16",
+      "legacySourceRef": "master-roofing:7:words:16",
+      "sourceSpanish": "Contamos 12 golpes en este cuadro.",
+      "sourceEnglish": "We counted 12 hits in this square.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Nous avons compté douze impacts dans ce carré.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:17",
+      "legacySourceRef": "master-roofing:7:words:17",
+      "sourceSpanish": "Aquí la teja perdió gránulos.",
+      "sourceEnglish": "Here the shingle lost granules.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Ici, le bardeau a perdu des granules.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:18",
+      "legacySourceRef": "master-roofing:7:words:18",
+      "sourceSpanish": "Marca cada golpe con tiza.",
+      "sourceEnglish": "Mark each hit with chalk.",
+      "kind": "phrase",
+      "sourceNoteSpanish": "informal",
+      "archivedFrenchEvidence": "Marquez chaque impact à la craie.",
+      "conditionalFrench": "Marquez chaque impact à la craie.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:19",
+      "legacySourceRef": "master-roofing:7:words:19",
+      "sourceSpanish": "¿Cuántos golpes cuenta usted?",
+      "sourceEnglish": "How many hits do you count?",
+      "kind": "phrase",
+      "sourceNoteSpanish": "formal",
+      "archivedFrenchEvidence": "Combien d’impacts comptez-vous ?",
+      "conditionalFrench": "Combien d’impacts comptez-vous ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:20",
+      "legacySourceRef": "master-roofing:7:words:20",
+      "sourceSpanish": "¿Me lo puede repetir más despacio?",
+      "sourceEnglish": "Can you repeat that more slowly?",
+      "kind": "phrase",
+      "sourceNoteSpanish": "formal",
+      "archivedFrenchEvidence": "Pouvez-vous répéter plus lentement ?",
+      "conditionalFrench": "Pouvez-vous répéter plus lentement ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:21",
+      "legacySourceRef": "master-roofing:7:words:21",
+      "sourceSpanish": "¿Está de acuerdo con el alcance?",
+      "sourceEnglish": "Do you agree with the scope?",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Êtes-vous d’accord avec la portée des travaux ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:7:fr-en:reader:1",
+      "legacySourceRef": "master-roofing:7:passage:1",
+      "sourceSpanish": "La tormenta pasó el martes por la noche, y el granizo cayó durante unos 15 minutos.",
+      "sourceEnglish": "The storm came through Tuesday night, and the hail fell for about 15 minutes.",
+      "archivedFrenchEvidence": "L’orage est passé mardi soir et la grêle est tombée pendant environ quinze minutes.",
+      "conditionalFrench": "L’orage est passé mardi soir et la grêle est tombée pendant environ quinze minutes.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:reader:2",
+      "legacySourceRef": "master-roofing:7:passage:2",
+      "sourceSpanish": "El jueves, el ajustador de la aseguradora llegó a las 10 para revisar el reclamo de la familia Ortiz.",
+      "sourceEnglish": "On Thursday, the insurance company's adjuster arrived at 10 to review the Ortiz family's claim.",
+      "archivedFrenchEvidence": "Jeudi, l’expert de la compagnie d’assurance est arrivé à dix heures pour examiner la réclamation de la famille Ortiz.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:reader:3",
+      "legacySourceRef": "master-roofing:7:passage:3",
+      "sourceSpanish": "Rogelio y Kevin subieron con él, con la cinta métrica y la tiza.",
+      "sourceEnglish": "Rogelio and Kevin went up with him, with the tape measure and the chalk.",
+      "archivedFrenchEvidence": "Rogelio et Kevin sont montés avec lui, munis du mètre ruban et de la craie.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:reader:4",
+      "legacySourceRef": "master-roofing:7:passage:4",
+      "sourceSpanish": "Primero revisaron la canaleta y encontraron abolladuras en todo el lado oeste.",
+      "sourceEnglish": "First they checked the gutter and found dents along the whole west side.",
+      "archivedFrenchEvidence": "Ils ont d’abord examiné la gouttière et trouvé des bosses sur tout le côté ouest.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:reader:5",
+      "legacySourceRef": "master-roofing:7:passage:5",
+      "sourceSpanish": "En la cara del techo que da al oeste, marcaron un cuadro de prueba de 10 por 10 pies.",
+      "sourceEnglish": "On the roof slope that faces west, they marked a test square of 10 by 10 feet.",
+      "archivedFrenchEvidence": "Sur le versant ouest, ils ont marqué un carré d’essai de dix pieds sur dix.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:reader:6",
+      "legacySourceRef": "master-roofing:7:passage:6",
+      "sourceSpanish": "Rogelio: Kevin, marca cada golpe con tiza, por favor.",
+      "sourceEnglish": "Rogelio: Kevin, mark each hit with chalk, please.",
+      "archivedFrenchEvidence": "Rogelio : « Kevin, marque chaque impact à la craie, s’il te plaît. »",
+      "conditionalFrench": "Rogelio : « Kevin, marque chaque impact à la craie, s’il te plaît. »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:reader:7",
+      "legacySourceRef": "master-roofing:7:passage:7",
+      "sourceSpanish": "Kevin hizo un círculo de tiza alrededor de cada golpe.",
+      "sourceEnglish": "Kevin drew a chalk circle around each hit.",
+      "archivedFrenchEvidence": "Kevin a tracé un cercle de craie autour de chaque impact.",
+      "conditionalFrench": "Kevin a tracé un cercle de craie autour de chaque impact.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:reader:8",
+      "legacySourceRef": "master-roofing:7:passage:8",
+      "sourceSpanish": "Rogelio: Contamos 12 golpes en este cuadro, y aquí la teja perdió gránulos.",
+      "sourceEnglish": "Rogelio: We counted 12 hits in this square, and here the shingle lost granules.",
+      "archivedFrenchEvidence": "Rogelio : « Nous avons compté douze impacts dans ce carré; ici, le bardeau a perdu des granules. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:reader:9",
+      "legacySourceRef": "master-roofing:7:passage:9",
+      "sourceSpanish": "Ajustador: ¿Cuántos golpes cuenta usted en el lado norte?",
+      "sourceEnglish": "Adjuster: How many hits do you count on the north side?",
+      "archivedFrenchEvidence": "L’expert : « Combien d’impacts comptez-vous du côté nord ? »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:reader:10",
+      "legacySourceRef": "master-roofing:7:passage:10",
+      "sourceSpanish": "Rogelio: En el lado norte contamos solo 3, porque el viento venía del oeste.",
+      "sourceEnglish": "Rogelio: On the north side we counted only 3, because the wind was coming from the west.",
+      "archivedFrenchEvidence": "Rogelio : « Du côté nord, nous n’en avons compté que trois, car le vent venait de l’ouest. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:reader:11",
+      "legacySourceRef": "master-roofing:7:passage:11",
+      "sourceSpanish": "El ajustador habló rápido y dio varias medidas en pies cuadrados.",
+      "sourceEnglish": "The adjuster spoke fast and gave several measurements in square feet.",
+      "archivedFrenchEvidence": "L’expert a parlé vite et donné plusieurs mesures en pieds carrés.",
+      "conditionalFrench": "L’expert a parlé vite et donné plusieurs mesures en pieds carrés.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:reader:12",
+      "legacySourceRef": "master-roofing:7:passage:12",
+      "sourceSpanish": "Rogelio: Perdón, ¿me lo puede repetir más despacio?",
+      "sourceEnglish": "Rogelio: Sorry, can you repeat that more slowly?",
+      "archivedFrenchEvidence": "Rogelio : « Pardon, pouvez-vous répéter plus lentement ? »",
+      "conditionalFrench": "Rogelio : « Pardon, pouvez-vous répéter plus lentement ? »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:reader:13",
+      "legacySourceRef": "master-roofing:7:passage:13",
+      "sourceSpanish": "Ajustador: Claro, el lado oeste mide 1,200 pies cuadrados y el lado norte mide 800.",
+      "sourceEnglish": "Adjuster: Sure, the west side measures 1,200 square feet and the north side measures 800.",
+      "archivedFrenchEvidence": "L’expert : « Bien sûr : le côté ouest mesure mille deux cents pieds carrés et le côté nord, huit cents. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:reader:14",
+      "legacySourceRef": "master-roofing:7:passage:14",
+      "sourceSpanish": "Ajustador: Según la aseguradora, el lado oeste se cambia completo y el lado norte se repara.",
+      "sourceEnglish": "Adjuster: According to the insurance company, the west side gets fully replaced and the north side gets repaired.",
+      "archivedFrenchEvidence": "L’expert : « Selon la compagnie d’assurance, le côté ouest sera remplacé entièrement et le côté nord sera réparé. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:reader:15",
+      "legacySourceRef": "master-roofing:7:passage:15",
+      "sourceSpanish": "Rogelio: ¿Está de acuerdo con el alcance del trabajo, también en la canaleta?",
+      "sourceEnglish": "Rogelio: Do you agree with the scope of work, including the gutter?",
+      "archivedFrenchEvidence": "Rogelio : « Êtes-vous d’accord avec la portée des travaux, y compris la gouttière ? »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:reader:16",
+      "legacySourceRef": "master-roofing:7:passage:16",
+      "sourceSpanish": "Ajustador: Sí, lo voy a anotar en el reporte, y la aseguradora le mandará una copia al dueño.",
+      "sourceEnglish": "Adjuster: Yes, I'm going to note it in the report, and the insurance company will send a copy to the owner.",
+      "archivedFrenchEvidence": "L’expert : « Oui, je vais le noter dans le rapport; la compagnie enverra une copie au propriétaire. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "pasar",
+      "englishMeaning": "to pass, to come through",
+      "sourceSpanish": "La tormenta pasó el martes por la noche.",
+      "sourceEnglish": "The storm came through Tuesday night."
+    },
+    {
+      "spanishInfinitive": "caer",
+      "englishMeaning": "to fall",
+      "sourceSpanish": "El granizo cayó durante unos 15 minutos.",
+      "sourceEnglish": "The hail fell for about 15 minutes."
+    },
+    {
+      "spanishInfinitive": "contar",
+      "englishMeaning": "to count",
+      "sourceSpanish": "Contamos 12 golpes en este cuadro.",
+      "sourceEnglish": "We counted 12 hits in this square."
+    },
+    {
+      "spanishInfinitive": "marcar",
+      "englishMeaning": "to mark",
+      "sourceSpanish": "Marcaron un cuadro de prueba de 10 por 10 pies.",
+      "sourceEnglish": "They marked a test square of 10 by 10 feet."
+    },
+    {
+      "spanishInfinitive": "medir",
+      "englishMeaning": "to measure",
+      "sourceSpanish": "El lado oeste mide 1,200 pies cuadrados.",
+      "sourceEnglish": "The west side measures 1,200 square feet."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Constater des dommages de grêle avec un expert d’assurance",
+    "objectiveFrench": "Décrire une tempête, relever des impacts et des mesures, puis clarifier la portée proposée avec l’expert.",
+    "speakingFrenchInstruction": "Vous êtes chef d’équipe et votre partenaire est l’expert d’assurance. Décrivez les constats et les mesures, demandez-lui de répéter les chiffres et faites préciser par écrit la portée proposée; ne présentez pas le carré d’essai comme une règle de couverture universelle.",
+    "speakingFrenchOpening": "Reprenons les mesures ensemble : combien d’impacts comptez-vous sur ce versant ?",
+    "grammarFocusFrench": "Passé composé pour raconter les faits; nombres, unités et demande de répétition pour confirmer les mesures.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to pass, to come through",
+        "exampleEnglish": "The storm came through Tuesday night.",
+        "sourceInfinitiveSpanish": "pasar",
+        "infinitiveFrench": "passer",
+        "exampleFrench": "L’orage est passé mardi soir."
+      },
+      {
+        "meaningEnglish": "to fall",
+        "exampleEnglish": "The hail fell for about 15 minutes.",
+        "sourceInfinitiveSpanish": "caer",
+        "infinitiveFrench": "tomber",
+        "exampleFrench": "La grêle est tombée pendant environ quinze minutes."
+      },
+      {
+        "meaningEnglish": "to count",
+        "exampleEnglish": "We counted 12 hits in this square.",
+        "sourceInfinitiveSpanish": "contar",
+        "infinitiveFrench": "compter",
+        "exampleFrench": "Nous avons compté douze impacts dans ce carré."
+      },
+      {
+        "meaningEnglish": "to mark",
+        "exampleEnglish": "They marked a test square of 10 by 10 feet.",
+        "sourceInfinitiveSpanish": "marcar",
+        "infinitiveFrench": "marquer",
+        "exampleFrench": "Ils ont marqué un carré d’essai de dix pieds sur dix."
+      },
+      {
+        "meaningEnglish": "to measure",
+        "exampleEnglish": "The west side measures 1,200 square feet.",
+        "sourceInfinitiveSpanish": "medir",
+        "infinitiveFrench": "mesurer",
+        "exampleFrench": "Le côté ouest mesure mille deux cents pieds carrés."
+      }
+    ],
+    "reviewGapsEnglish": [
+      "Qualified roofing/insurance review is required for hail-hit counting, the 10-by-10-foot test square, damage attribution, replacement-versus-repair and promised claim scope.",
+      "Roof access with an adjuster and unit conversion require site-safety and France/Québec regional review; no insurer approval is established by this fictional dialogue."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "master-roofing:7:fr-en:card:1",
+        "master-roofing:7:fr-en:card:2",
+        "master-roofing:7:fr-en:card:6",
+        "master-roofing:7:fr-en:reader:2",
+        "master-roofing:7:fr-en:reader:14",
+        "master-roofing:7:fr-en:reader:16"
+      ],
+      "question": "Determine the exact France/Québec insurance-adjuster, insurer, claim and scope terms. The fictional adjuster's report and insurer communication do not establish approval or payment of a claim."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:7:fr-en:card:4",
+        "master-roofing:7:fr-en:card:5",
+        "master-roofing:7:fr-en:card:8",
+        "master-roofing:7:fr-en:card:14",
+        "master-roofing:7:fr-en:reader:5",
+        "master-roofing:7:fr-en:reader:8",
+        "master-roofing:7:fr-en:reader:13"
+      ],
+      "question": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:7:fr-en:card:11",
+        "master-roofing:7:fr-en:card:12",
+        "master-roofing:7:fr-en:reader:3",
+        "master-roofing:7:fr-en:reader:4",
+        "master-roofing:7:fr-en:reader:14",
+        "master-roofing:7:fr-en:reader:15"
+      ],
+      "question": "Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:7:fr-en:card:16",
+        "master-roofing:7:fr-en:card:17",
+        "master-roofing:7:fr-en:reader:9",
+        "master-roofing:7:fr-en:reader:10"
+      ],
+      "question": "Keep the 12 west-side versus three north-side counts and the source's stated west-wind explanation. Check whether archived French loses the test-square scope or presents the attribution as verified fact."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:7:fr-en:card:21",
+        "master-roofing:7:fr-en:reader:15",
+        "master-roofing:7:fr-en:reader:16"
+      ],
+      "question": "Author French narration/number practice and six prompt/target mode pairs for the adjuster conversation. Archived mode descriptions and speaking text are only evidence, not selected learner activities."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive mode labels are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

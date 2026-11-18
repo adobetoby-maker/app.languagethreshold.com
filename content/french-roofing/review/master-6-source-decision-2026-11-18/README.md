@@ -1,0 +1,9 @@
+# French Roofing Master 6 — source decision
+
+This inert packet pins **21 exact current Spanish/English cards**, **17 aligned Reader turns**, two grammar examples, five verb examples and source/archive hashes for *Material Shortage and Substitution*. Proposed French-native/English-target `master-roofing:6:fr-en` IDs are review references only. Existing saved items and progress are untouched; there is no learner or V4 migration.
+
+The source distinguishes an uncertain Thursday factory delivery from a next-day substitute after Mrs. Díaz approves the color by text. It excludes three-tab shingles under the architectural-shingle contract and compares weight and durability. Archived French changes customer gender in two Reader turns, turns a firm conditional delivery into a possibility, and adds supplier attribution to the durability card. Product equivalence, load, spec sheet, contract, client approval and regional French terms need qualified review. These are internal notes, separate from learner text. The archived French remains separate, unapproved evidence; **25 card/Reader faces** are held from conditional selection. Six archived mode labels are not authored prompt/target activities.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, audio/listening, offline, saved-progress, browser and V4 gates are false. No audio was generated or approved; no owner page or runtime route imports this packet. Forms, speaking, exact-pair dictionary and device acceptance remain open.
+
+`build.py --check` detects source drift; `validate.py` independently checks current source order, IDs, archived evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural checks and self-check are not qualified review.

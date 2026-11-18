@@ -1,0 +1,662 @@
+{
+  "schema": "french-roofing-master6-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "master-roofing",
+  "sourceHeaderModuleId": "master-roofing",
+  "proposedLessonId": "master-roofing:6",
+  "proposedPairId": "master-roofing:6:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/master-4-6-draft.json": "5104d836f6b1020adc803ed96bd8dee5ee93f21251bc920394066dbe3159f3f9"
+  },
+  "orderedSourceRowsSha256": "28600888b3ac57a7df0249dfae97426c95decde978fd435c9f79cb6f3484d34f",
+  "sourceTitleEnglish": "Material Shortage and Substitution",
+  "sourceObjectiveEnglish": "Handle a short delivery: get dates from the supplier, compare a substitute, and give the new plan",
+  "sourceFocusEnglish": "Future and ir a; comparisons",
+  "sourceGrammarExamples": [
+    {
+      "es": "El resto llegará el jueves; hoy vamos a terminar la sub-capa.",
+      "en": "The rest will arrive Thursday; today we're going to finish the underlayment."
+    },
+    {
+      "es": "Esta teja es más pesada que la otra, pero igual de resistente.",
+      "en": "This shingle is heavier than the other one, but just as durable."
+    }
+  ],
+  "sourceLessonType": "Case",
+  "sourceBlock": "B",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the supplier: find out what is missing and when it will arrive, compare the substitute with the original product, and say what you will do next using the future and ir a.",
+  "sourceReaderTitleSpanish": "The Shingle That Didn't Come",
+  "cards": [
+    {
+      "id": "master-roofing:6:fr-en:card:1",
+      "legacySourceRef": "master-roofing:6:words:1",
+      "sourceSpanish": "el proveedor",
+      "sourceEnglish": "the supplier",
+      "kind": "term",
+      "archivedFrenchEvidence": "le fournisseur",
+      "conditionalFrench": "le fournisseur",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:2",
+      "legacySourceRef": "master-roofing:6:words:2",
+      "sourceSpanish": "el pedido",
+      "sourceEnglish": "the order",
+      "kind": "term",
+      "archivedFrenchEvidence": "la commande",
+      "conditionalFrench": "la commande",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:3",
+      "legacySourceRef": "master-roofing:6:words:3",
+      "sourceSpanish": "la entrega",
+      "sourceEnglish": "the delivery",
+      "kind": "term",
+      "archivedFrenchEvidence": "la livraison",
+      "conditionalFrench": "la livraison",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:4",
+      "legacySourceRef": "master-roofing:6:words:4",
+      "sourceSpanish": "el sustituto",
+      "sourceEnglish": "the substitute",
+      "kind": "term",
+      "archivedFrenchEvidence": "le produit de remplacement",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:5",
+      "legacySourceRef": "master-roofing:6:words:5",
+      "sourceSpanish": "la tarima",
+      "sourceEnglish": "the pallet",
+      "kind": "term",
+      "archivedFrenchEvidence": "la palette",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:6",
+      "legacySourceRef": "master-roofing:6:words:6",
+      "sourceSpanish": "la bodega",
+      "sourceEnglish": "the warehouse",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’entrepôt",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:7",
+      "legacySourceRef": "master-roofing:6:words:7",
+      "sourceSpanish": "en existencia",
+      "sourceEnglish": "in stock",
+      "kind": "term",
+      "archivedFrenchEvidence": "en stock",
+      "conditionalFrench": "en stock",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:8",
+      "legacySourceRef": "master-roofing:6:words:8",
+      "sourceSpanish": "el retraso",
+      "sourceEnglish": "the delay",
+      "kind": "term",
+      "archivedFrenchEvidence": "le retard",
+      "conditionalFrench": "le retard",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:9",
+      "legacySourceRef": "master-roofing:6:words:9",
+      "sourceSpanish": "la marca",
+      "sourceEnglish": "the brand",
+      "kind": "term",
+      "archivedFrenchEvidence": "la marque",
+      "conditionalFrench": "la marque",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:10",
+      "legacySourceRef": "master-roofing:6:words:10",
+      "sourceSpanish": "la teja arquitectónica",
+      "sourceEnglish": "the architectural shingle",
+      "kind": "term",
+      "archivedFrenchEvidence": "le bardeau architectural",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:11",
+      "legacySourceRef": "master-roofing:6:words:11",
+      "sourceSpanish": "la teja de tres lengüetas",
+      "sourceEnglish": "the three-tab shingle",
+      "kind": "term",
+      "archivedFrenchEvidence": "le bardeau à trois pattes",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:12",
+      "legacySourceRef": "master-roofing:6:words:12",
+      "sourceSpanish": "el color",
+      "sourceEnglish": "the color",
+      "kind": "term",
+      "archivedFrenchEvidence": "la couleur",
+      "conditionalFrench": "la couleur",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:13",
+      "legacySourceRef": "master-roofing:6:words:13",
+      "sourceSpanish": "la factura",
+      "sourceEnglish": "the invoice",
+      "kind": "term",
+      "archivedFrenchEvidence": "la facture",
+      "conditionalFrench": "la facture",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:14",
+      "legacySourceRef": "master-roofing:6:words:14",
+      "sourceSpanish": "el precio",
+      "sourceEnglish": "the price",
+      "kind": "term",
+      "archivedFrenchEvidence": "le prix",
+      "conditionalFrench": "le prix",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:15",
+      "legacySourceRef": "master-roofing:6:words:15",
+      "sourceSpanish": "El pedido no llegará completo.",
+      "sourceEnglish": "The order won't arrive complete.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "La commande n’arrivera pas au complet.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:16",
+      "legacySourceRef": "master-roofing:6:words:16",
+      "sourceSpanish": "¿Cuándo llegará el resto?",
+      "sourceEnglish": "When will the rest arrive?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Quand arrivera le reste ?",
+      "conditionalFrench": "Quand arrivera le reste ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:17",
+      "legacySourceRef": "master-roofing:6:words:17",
+      "sourceSpanish": "Vamos a usar otra marca.",
+      "sourceEnglish": "We're going to use another brand.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Nous allons utiliser une autre marque.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:18",
+      "legacySourceRef": "master-roofing:6:words:18",
+      "sourceSpanish": "Es igual de resistente, pero más pesada.",
+      "sourceEnglish": "It's just as durable, but heavier.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Le fournisseur affirme qu’il est tout aussi durable, mais plus lourd.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:19",
+      "legacySourceRef": "master-roofing:6:words:19",
+      "sourceSpanish": "Este color se parece más al original.",
+      "sourceEnglish": "This color is closer to the original.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Cette couleur se rapproche davantage de l’originale.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:20",
+      "legacySourceRef": "master-roofing:6:words:20",
+      "sourceSpanish": "Le voy a mandar la foto del color.",
+      "sourceEnglish": "I'm going to send you the photo of the color.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Je vais vous envoyer la photo de la couleur.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:21",
+      "legacySourceRef": "master-roofing:6:words:21",
+      "sourceSpanish": "¿Me echas la mano?",
+      "sourceEnglish": "Can you give me a hand?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Pouvez-vous me donner un coup de main ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:6:fr-en:reader:1",
+      "legacySourceRef": "master-roofing:6:passage:1",
+      "sourceSpanish": "A las siete, el proveedor llamó a Rogelio con malas noticias.",
+      "sourceEnglish": "At seven, the supplier called Rogelio with bad news.",
+      "archivedFrenchEvidence": "À sept heures, le fournisseur a appelé Rogelio avec une mauvaise nouvelle.",
+      "conditionalFrench": "À sept heures, le fournisseur a appelé Rogelio avec une mauvaise nouvelle.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:reader:2",
+      "legacySourceRef": "master-roofing:6:passage:2",
+      "sourceSpanish": "Proveedor: Lo siento, el pedido no llegará completo, porque no tenemos ese color en existencia.",
+      "sourceEnglish": "Supplier: I'm sorry, the order won't arrive complete, because we don't have that color in stock.",
+      "archivedFrenchEvidence": "Le fournisseur : « Désolé, la commande n’arrivera pas au complet, car cette couleur n’est pas en stock. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:reader:3",
+      "legacySourceRef": "master-roofing:6:passage:3",
+      "sourceSpanish": "Rogelio: ¿Cuándo llegará el resto?",
+      "sourceEnglish": "Rogelio: When will the rest arrive?",
+      "archivedFrenchEvidence": "Rogelio : « Quand arrivera le reste ? »",
+      "conditionalFrench": "Rogelio : « Quand arrivera le reste ? »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:reader:4",
+      "legacySourceRef": "master-roofing:6:passage:4",
+      "sourceSpanish": "Proveedor: La fábrica dice que llegará a la bodega el jueves, pero no es seguro.",
+      "sourceEnglish": "Supplier: The factory says it will arrive at the warehouse on Thursday, but it's not certain.",
+      "archivedFrenchEvidence": "Le fournisseur : « L’usine annonce une arrivée à l’entrepôt jeudi, mais ce n’est pas certain. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:reader:5",
+      "legacySourceRef": "master-roofing:6:passage:5",
+      "sourceSpanish": "Rogelio: Eso sería un retraso de cuatro días, y la clienta quiere terminar antes.",
+      "sourceEnglish": "Rogelio: That would be a four-day delay, and the customer wants to finish sooner.",
+      "archivedFrenchEvidence": "Rogelio : « Ce serait quatre jours de retard, et le client souhaite finir plus tôt. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:reader:6",
+      "legacySourceRef": "master-roofing:6:passage:6",
+      "sourceSpanish": "Proveedor: Tengo la misma teja arquitectónica de otra marca, al mismo precio.",
+      "sourceEnglish": "Supplier: I have the same architectural shingle from another brand, at the same price.",
+      "archivedFrenchEvidence": "Le fournisseur : « J’ai le même type de bardeau architectural d’une autre marque, au même prix. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:reader:7",
+      "legacySourceRef": "master-roofing:6:passage:7",
+      "sourceSpanish": "Proveedor: Es igual de resistente, pero más pesada, y el color se parece mucho.",
+      "sourceEnglish": "Supplier: It's just as durable, but heavier, and the color is very similar.",
+      "archivedFrenchEvidence": "Le fournisseur : « Il est tout aussi durable, mais plus lourd, et sa couleur est très proche. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:reader:8",
+      "legacySourceRef": "master-roofing:6:passage:8",
+      "sourceSpanish": "Rogelio: La arquitectónica de otra marca me sirve, pero no voy a aceptar teja de tres lengüetas; el contrato dice arquitectónica.",
+      "sourceEnglish": "Rogelio: The architectural one from another brand works for me, but I'm not going to accept three-tab shingle; the contract says architectural.",
+      "archivedFrenchEvidence": "Rogelio : « Un bardeau architectural d’une autre marque pourrait convenir, mais je n’accepterai pas un bardeau à trois pattes : le contrat prévoit un bardeau architectural. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:reader:9",
+      "legacySourceRef": "master-roofing:6:passage:9",
+      "sourceSpanish": "Rogelio: Mándeme la hoja técnica, y antes de decidir voy a hablar con la clienta.",
+      "sourceEnglish": "Rogelio: Send me the spec sheet, and before deciding I'm going to talk to the customer.",
+      "archivedFrenchEvidence": "Rogelio : « Envoyez-moi la fiche technique; avant de décider, je parlerai au client. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:reader:10",
+      "legacySourceRef": "master-roofing:6:passage:10",
+      "sourceSpanish": "Luego Rogelio llamó a la señora Díaz, la dueña de la casa.",
+      "sourceEnglish": "Then Rogelio called Mrs. Díaz, the homeowner.",
+      "archivedFrenchEvidence": "Ensuite Rogelio a appelé la propriétaire, Mme Díaz.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:reader:11",
+      "legacySourceRef": "master-roofing:6:passage:11",
+      "sourceSpanish": "Rogelio: Señora, el proveedor tiene un sustituto, y este color se parece más al original que los otros.",
+      "sourceEnglish": "Rogelio: Ma'am, the supplier has a substitute, and this color is closer to the original than the others.",
+      "archivedFrenchEvidence": "Rogelio : « Madame, le fournisseur propose un produit de remplacement dont la couleur se rapproche davantage de l’originale. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:reader:12",
+      "legacySourceRef": "master-roofing:6:passage:12",
+      "sourceSpanish": "Rogelio: Le voy a mandar la foto del color, y si usted lo aprueba, la entrega será mañana temprano.",
+      "sourceEnglish": "Rogelio: I'm going to send you the photo of the color, and if you approve it, the delivery will be early tomorrow.",
+      "archivedFrenchEvidence": "Rogelio : « Je vais vous envoyer la photo de la couleur; si vous l’approuvez, la livraison pourrait avoir lieu tôt demain. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:reader:13",
+      "legacySourceRef": "master-roofing:6:passage:13",
+      "sourceSpanish": "La señora Díaz aprobó el cambio por mensaje, y Rogelio pidió una nueva factura.",
+      "sourceEnglish": "Mrs. Díaz approved the change by text, and Rogelio asked for a new invoice.",
+      "archivedFrenchEvidence": "Mme Díaz a accepté le changement par message, et Rogelio a demandé une nouvelle facture.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:reader:14",
+      "legacySourceRef": "master-roofing:6:passage:14",
+      "sourceSpanish": "Después reunió a la cuadrilla junto al camión.",
+      "sourceEnglish": "Then he gathered the crew next to the truck.",
+      "archivedFrenchEvidence": "Puis il a rassemblé l’équipe près du camion.",
+      "conditionalFrench": "Puis il a rassemblé l’équipe près du camion.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:reader:15",
+      "legacySourceRef": "master-roofing:6:passage:15",
+      "sourceSpanish": "Rogelio: Vamos a usar otra marca, y mañana llegarán dos tarimas.",
+      "sourceEnglish": "Rogelio: We're going to use another brand, and tomorrow two pallets will arrive.",
+      "archivedFrenchEvidence": "Rogelio : « Nous allons utiliser une autre marque, et deux palettes arriveront demain. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:reader:16",
+      "legacySourceRef": "master-roofing:6:passage:16",
+      "sourceSpanish": "Rogelio: Hoy vamos a terminar la sub-capa y el goterón, y mañana empezaremos con las tejas.",
+      "sourceEnglish": "Rogelio: Today we're going to finish the underlayment and the drip edge, and tomorrow we'll start on the shingles.",
+      "archivedFrenchEvidence": "Rogelio : « Aujourd’hui, nous terminerons la sous-couche et le larmier; demain, nous commencerons les bardeaux. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:reader:17",
+      "legacySourceRef": "master-roofing:6:passage:17",
+      "sourceSpanish": "Rogelio: Kevin, ¿me echas la mano con estos rollos?",
+      "sourceEnglish": "Rogelio: Kevin, can you give me a hand with these rolls?",
+      "archivedFrenchEvidence": "Rogelio : « Kevin, peux-tu me donner un coup de main avec ces rouleaux ? »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "llegar",
+      "englishMeaning": "to arrive",
+      "sourceSpanish": "El pedido no llegará completo.",
+      "sourceEnglish": "The order won't arrive complete."
+    },
+    {
+      "spanishInfinitive": "mandar",
+      "englishMeaning": "to send",
+      "sourceSpanish": "Le voy a mandar la foto del color.",
+      "sourceEnglish": "I'm going to send you the photo of the color."
+    },
+    {
+      "spanishInfinitive": "usar",
+      "englishMeaning": "to use",
+      "sourceSpanish": "Vamos a usar otra marca.",
+      "sourceEnglish": "We're going to use another brand."
+    },
+    {
+      "spanishInfinitive": "aprobar",
+      "englishMeaning": "to approve",
+      "sourceSpanish": "Si usted lo aprueba, la entrega será mañana temprano.",
+      "sourceEnglish": "If you approve it, the delivery will be early tomorrow."
+    },
+    {
+      "spanishInfinitive": "terminar",
+      "englishMeaning": "to finish",
+      "sourceSpanish": "Hoy vamos a terminar la sub-capa y el goterón.",
+      "sourceEnglish": "Today we're going to finish the underlayment and the drip edge."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Livraison incomplète et produit de remplacement",
+    "objectiveFrench": "Confirmer une rupture de stock, comparer une solution proposée avec le produit prévu et transmettre un plan conditionnel.",
+    "speakingFrenchInstruction": "Vous êtes chef d’équipe et votre partenaire joue le fournisseur. Vérifiez ce qui manque, la date de livraison et la fiche du substitut; comparez seulement les caractéristiques documentées, puis demandez l’accord requis du client et du contrat avant de changer de produit.",
+    "speakingFrenchOpening": "Quelle partie de la commande manque, et pouvez-vous envoyer la fiche du produit proposé ?",
+    "grammarFocusFrench": "Futur simple et futur proche pour le calendrier; aussi… que et plus… que pour comparer sans supposer l’équivalence.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to arrive",
+        "exampleEnglish": "The order won't arrive complete.",
+        "sourceInfinitiveSpanish": "llegar",
+        "infinitiveFrench": "arriver",
+        "exampleFrench": "La commande n’arrivera pas au complet."
+      },
+      {
+        "meaningEnglish": "to send",
+        "exampleEnglish": "I'm going to send you the photo of the color.",
+        "sourceInfinitiveSpanish": "mandar",
+        "infinitiveFrench": "envoyer",
+        "exampleFrench": "Je vais vous envoyer la photo de la couleur."
+      },
+      {
+        "meaningEnglish": "to use",
+        "exampleEnglish": "We're going to use another brand.",
+        "sourceInfinitiveSpanish": "usar",
+        "infinitiveFrench": "utiliser",
+        "exampleFrench": "Nous allons utiliser une autre marque."
+      },
+      {
+        "meaningEnglish": "to approve",
+        "exampleEnglish": "If you approve it, the delivery will be early tomorrow.",
+        "sourceInfinitiveSpanish": "aprobar",
+        "infinitiveFrench": "approuver",
+        "exampleFrench": "Si vous l’approuvez, la livraison pourrait avoir lieu tôt demain."
+      },
+      {
+        "meaningEnglish": "to finish",
+        "exampleEnglish": "Today we're going to finish the underlayment and the drip edge.",
+        "sourceInfinitiveSpanish": "terminar",
+        "infinitiveFrench": "terminer",
+        "exampleFrench": "Aujourd’hui, nous terminerons la sous-couche et le larmier."
+      }
+    ],
+    "reviewGapsEnglish": [
+      "Qualified roofing/product review is required for unverified 'just as durable' and substitute-compatibility claims, weights, sequencing and early-delivery promises.",
+      "Qualified contract/consumer review is required for text-message approval as a change authorization; France/Québec product and contract terminology need regional review."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "master-roofing:6:fr-en:card:10",
+        "master-roofing:6:fr-en:card:11",
+        "master-roofing:6:fr-en:card:18",
+        "master-roofing:6:fr-en:reader:6",
+        "master-roofing:6:fr-en:reader:7",
+        "master-roofing:6:fr-en:reader:8",
+        "master-roofing:6:fr-en:reader:9"
+      ],
+      "question": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:6:fr-en:card:4",
+        "master-roofing:6:fr-en:card:19",
+        "master-roofing:6:fr-en:card:20",
+        "master-roofing:6:fr-en:reader:10",
+        "master-roofing:6:fr-en:reader:11",
+        "master-roofing:6:fr-en:reader:12",
+        "master-roofing:6:fr-en:reader:13"
+      ],
+      "question": "Preserve Mrs. Díaz as the female homeowner, comparison with other available colors, the photo, her conditional approval and text-message approval. Archived Reader 5/9 masculinizes the customer and Reader 12 changes source future delivery to a possibility; reconcile the factual sequence without silently substituting a different condition."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:6:fr-en:card:15",
+        "master-roofing:6:fr-en:card:17",
+        "master-roofing:6:fr-en:reader:2",
+        "master-roofing:6:fr-en:reader:4",
+        "master-roofing:6:fr-en:reader:5",
+        "master-roofing:6:fr-en:reader:15",
+        "master-roofing:6:fr-en:reader:16"
+      ],
+      "question": "Source order is incomplete because the color is out of stock; factory Thursday arrival is uncertain, while the alternative is planned for next-day delivery after approval. Review future versus near-future French and the four-day delay, pallet, underlayment and drip-edge terms."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:6:fr-en:card:21",
+        "master-roofing:6:fr-en:reader:17"
+      ],
+      "question": "The source uses informal crew speech to Kevin after a formal supplier/customer conversation. Confirm French register and six authored activities and speaking aligned to supplier inquiry and revised crew plan before selecting a scored answer."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

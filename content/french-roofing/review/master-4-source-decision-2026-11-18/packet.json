@@ -1,0 +1,675 @@
+{
+  "schema": "french-roofing-master4-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "master-roofing",
+  "sourceHeaderModuleId": "master-roofing",
+  "proposedLessonId": "master-roofing:4",
+  "proposedPairId": "master-roofing:4:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/master-4-6-draft.json": "5104d836f6b1020adc803ed96bd8dee5ee93f21251bc920394066dbe3159f3f9"
+  },
+  "orderedSourceRowsSha256": "21812a570d62aa7f18c4a9d8af9b4da669ed10743e55ec094d818084557e48b7",
+  "sourceTitleEnglish": "Read the Manufacturer Sheet Before the Flashing Goes On",
+  "sourceObjectiveEnglish": "Read a manufacturer instruction sheet, find the key specs, and explain the steps to the crew",
+  "sourceFocusEnglish": "Antes de / después de + infinitive; hay que",
+  "sourceGrammarExamples": [
+    {
+      "es": "Antes de instalar el tapajuntas, hay que leer la hoja.",
+      "en": "Before installing the flashing, you have to read the sheet."
+    },
+    {
+      "es": "Después de leer cada paso, tenemos que revisar el material.",
+      "en": "After reading each step, we have to check the material."
+    }
+  ],
+  "sourceLessonType": "Document",
+  "sourceBlock": "A",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is a crew member ready to install flashing from habit: read the key steps of the manufacturer sheet aloud, explain what has to happen before and after each step, and get agreement to follow the sheet.",
+  "sourceReaderTitleSpanish": "The Sheet Rules",
+  "cards": [
+    {
+      "id": "master-roofing:4:fr-en:card:1",
+      "legacySourceRef": "master-roofing:4:words:1",
+      "sourceSpanish": "la hoja técnica",
+      "sourceEnglish": "the spec sheet",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "la fiche technique",
+      "conditionalFrench": "la fiche technique",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:2",
+      "legacySourceRef": "master-roofing:4:words:2",
+      "sourceSpanish": "las instrucciones del fabricante",
+      "sourceEnglish": "the manufacturer instructions",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "les instructions du fabricant",
+      "conditionalFrench": "les instructions du fabricant",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:3",
+      "legacySourceRef": "master-roofing:4:words:3",
+      "sourceSpanish": "el tapajuntas escalonado",
+      "sourceEnglish": "the step flashing",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "le solin à gradins",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:4",
+      "legacySourceRef": "master-roofing:4:words:4",
+      "sourceSpanish": "el tapajuntas para tubo",
+      "sourceEnglish": "the pipe boot",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "le manchon d’étanchéité du tuyau",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:5",
+      "legacySourceRef": "master-roofing:4:words:5",
+      "sourceSpanish": "el sujetador",
+      "sourceEnglish": "the fastener",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "la fixation",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:6",
+      "legacySourceRef": "master-roofing:4:words:6",
+      "sourceSpanish": "la especificación",
+      "sourceEnglish": "the specification",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "la spécification",
+      "conditionalFrench": "la spécification",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:7",
+      "legacySourceRef": "master-roofing:4:words:7",
+      "sourceSpanish": "el traslape mínimo",
+      "sourceEnglish": "the minimum overlap",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "le recouvrement minimal",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:8",
+      "legacySourceRef": "master-roofing:4:words:8",
+      "sourceSpanish": "el sellador",
+      "sourceEnglish": "the sealant",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "le produit d’étanchéité",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:9",
+      "legacySourceRef": "master-roofing:4:words:9",
+      "sourceSpanish": "la pared lateral",
+      "sourceEnglish": "the sidewall",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "le mur latéral",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:10",
+      "legacySourceRef": "master-roofing:4:words:10",
+      "sourceSpanish": "el revestimiento de pared",
+      "sourceEnglish": "the siding",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "le revêtement mural",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:11",
+      "legacySourceRef": "master-roofing:4:words:11",
+      "sourceSpanish": "la advertencia",
+      "sourceEnglish": "the warning",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "l’avertissement",
+      "conditionalFrench": "l’avertissement",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:12",
+      "legacySourceRef": "master-roofing:4:words:12",
+      "sourceSpanish": "el paso",
+      "sourceEnglish": "the step (in a procedure)",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "l’étape d’une procédure",
+      "conditionalFrench": "l’étape d’une procédure",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:13",
+      "legacySourceRef": "master-roofing:4:words:13",
+      "sourceSpanish": "la costumbre",
+      "sourceEnglish": "the habit",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "l’habitude",
+      "conditionalFrench": "l’habitude",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:14",
+      "legacySourceRef": "master-roofing:4:words:14",
+      "sourceSpanish": "la chimenea",
+      "sourceEnglish": "the chimney",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "la cheminée",
+      "conditionalFrench": "la cheminée",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:15",
+      "legacySourceRef": "master-roofing:4:words:15",
+      "sourceSpanish": "Antes de instalar, hay que leer la hoja.",
+      "sourceEnglish": "Before installing, you have to read the sheet.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Avant de poser, il faut lire la fiche.",
+      "conditionalFrench": "Avant de poser, il faut lire la fiche.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:16",
+      "legacySourceRef": "master-roofing:4:words:16",
+      "sourceSpanish": "La hoja manda, no la costumbre.",
+      "sourceEnglish": "The sheet rules, not habit.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "archivedFrenchEvidence": "C’est la fiche qui prévaut, pas l’habitude.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:17",
+      "legacySourceRef": "master-roofing:4:words:17",
+      "sourceSpanish": "¿Qué dice la hoja sobre el traslape?",
+      "sourceEnglish": "What does the sheet say about the overlap?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Que dit la fiche sur le recouvrement ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:18",
+      "legacySourceRef": "master-roofing:4:words:18",
+      "sourceSpanish": "No lo hagas de memoria.",
+      "sourceEnglish": "Don't do it from memory.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Ne le faites pas de mémoire.",
+      "conditionalFrench": "Ne le faites pas de mémoire.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:19",
+      "legacySourceRef": "master-roofing:4:words:19",
+      "sourceSpanish": "Así lo pide el fabricante.",
+      "sourceEnglish": "That's what the manufacturer asks for.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "archivedFrenchEvidence": "C’est ce que demande le fabricant.",
+      "conditionalFrench": "C’est ce que demande le fabricant.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:20",
+      "legacySourceRef": "master-roofing:4:words:20",
+      "sourceSpanish": "Oye, ¿tú ya lo leíste?",
+      "sourceEnglish": "Hey, have you already read it?",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Au fait, l’avez-vous déjà lue ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:21",
+      "legacySourceRef": "master-roofing:4:words:21",
+      "sourceSpanish": "¿Me permite un momento, por favor?",
+      "sourceEnglish": "Could you give me a moment, please?",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Pourriez-vous me laisser un instant, s’il vous plaît ?",
+      "conditionalFrench": "Pourriez-vous me laisser un instant, s’il vous plaît ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:4:fr-en:reader:1",
+      "legacySourceRef": "master-roofing:4:passage:1",
+      "sourceSpanish": "Antes de poner el tapajuntas escalonado en la pared lateral, Rogelio saca la hoja técnica de la caja.",
+      "sourceEnglish": "Before putting the step flashing on the sidewall, Rogelio takes the spec sheet out of the box.",
+      "archivedFrenchEvidence": "Avant de poser le solin à gradins contre le mur latéral, Rogelio sort la fiche technique de la boîte.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:reader:2",
+      "legacySourceRef": "master-roofing:4:passage:2",
+      "sourceSpanish": "Rogelio: Antes de instalar, hay que leer la hoja, aunque llevemos años haciendo esto.",
+      "sourceEnglish": "Rogelio: Before installing, you have to read the sheet, even if we've been doing this for years.",
+      "archivedFrenchEvidence": "Rogelio : « Avant de poser, il faut lire la fiche, même si nous faisons ce travail depuis des années. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:reader:3",
+      "legacySourceRef": "master-roofing:4:passage:3",
+      "sourceSpanish": "Rogelio: La hoja manda, no la costumbre.",
+      "sourceEnglish": "Rogelio: The sheet rules, not habit.",
+      "archivedFrenchEvidence": "Rogelio : « C’est la fiche qui prévaut, pas l’habitude. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:reader:4",
+      "legacySourceRef": "master-roofing:4:passage:4",
+      "sourceSpanish": "Rogelio lee en voz alta el paso 1 de las instrucciones del fabricante.",
+      "sourceEnglish": "Rogelio reads step 1 of the manufacturer instructions out loud.",
+      "archivedFrenchEvidence": "Rogelio lit à voix haute la première étape des instructions du fabricant.",
+      "conditionalFrench": "Rogelio lit à voix haute la première étape des instructions du fabricant.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:reader:5",
+      "legacySourceRef": "master-roofing:4:passage:5",
+      "sourceSpanish": "Paso 1: Antes de colocar el tapajuntas, instale la sub-capa sobre la cubierta y súbala por la pared lateral según la especificación.",
+      "sourceEnglish": "Step 1: Before placing the flashing, install the underlayment over the deck and run it up the sidewall according to the specification.",
+      "archivedFrenchEvidence": "Première étape : avant de poser le solin, placez la sous-couche sur le platelage et faites-la remonter le long du mur selon la spécification.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:reader:6",
+      "legacySourceRef": "master-roofing:4:passage:6",
+      "sourceSpanish": "Paso 2: Coloque una pieza de tapajuntas escalonado en cada hilera, con el traslape mínimo que indica esta hoja.",
+      "sourceEnglish": "Step 2: Place one piece of step flashing on each course, with the minimum overlap this sheet indicates.",
+      "archivedFrenchEvidence": "Deuxième étape : posez un solin à gradins par rang, avec le recouvrement minimal indiqué sur cette fiche.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:reader:7",
+      "legacySourceRef": "master-roofing:4:passage:7",
+      "sourceSpanish": "Paso 3: Fije cada pieza solo a la cubierta, nunca a la pared, con el sujetador indicado.",
+      "sourceEnglish": "Step 3: Fasten each piece only to the deck, never to the wall, with the specified fastener.",
+      "archivedFrenchEvidence": "Troisième étape : fixez chaque pièce seulement au platelage, jamais au mur, avec la fixation spécifiée.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:reader:8",
+      "legacySourceRef": "master-roofing:4:passage:8",
+      "sourceSpanish": "Paso 4: Después de colocar el tapajuntas, el revestimiento de pared debe cubrirlo; no use sellador en lugar de tapajuntas.",
+      "sourceEnglish": "Step 4: After placing the flashing, the siding must cover it; do not use sealant instead of flashing.",
+      "archivedFrenchEvidence": "Quatrième étape : après la pose, le revêtement mural doit recouvrir le solin; n’utilisez pas de mastic à sa place.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:reader:9",
+      "legacySourceRef": "master-roofing:4:passage:9",
+      "sourceSpanish": "Advertencia: Si no sigue estos pasos, el producto puede fallar y el fabricante puede no cubrir el daño.",
+      "sourceEnglish": "Warning: If you do not follow these steps, the product may fail and the manufacturer may not cover the damage.",
+      "archivedFrenchEvidence": "Avertissement : si ces étapes ne sont pas suivies, le produit peut présenter une défaillance et le fabricant peut refuser de couvrir les dommages.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:reader:10",
+      "legacySourceRef": "master-roofing:4:passage:10",
+      "sourceSpanish": "Kevin: Oye, ¿tú ya lo leíste todo?",
+      "sourceEnglish": "Kevin: Hey, have you already read all of it?",
+      "archivedFrenchEvidence": "Kevin : « Au fait, avez-vous déjà tout lu ? »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:reader:11",
+      "legacySourceRef": "master-roofing:4:passage:11",
+      "sourceSpanish": "Rogelio: Sí, y tú también tienes que leerlo; no lo hagas de memoria.",
+      "sourceEnglish": "Rogelio: Yes, and you have to read it too; don't do it from memory.",
+      "archivedFrenchEvidence": "Rogelio : « Oui, et tu dois le lire aussi; ne travaille pas de mémoire. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:reader:12",
+      "legacySourceRef": "master-roofing:4:passage:12",
+      "sourceSpanish": "Rogelio: Después de leer cada paso, hay que revisar si el material del camión es el mismo de la hoja.",
+      "sourceEnglish": "Rogelio: After reading each step, you have to check whether the material on the truck is the same as on the sheet.",
+      "archivedFrenchEvidence": "Rogelio : « Après chaque étape, vérifie que le matériau dans le camion correspond à celui de la fiche. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:reader:13",
+      "legacySourceRef": "master-roofing:4:passage:13",
+      "sourceSpanish": "Rogelio: ¿Qué dice la hoja sobre el traslape?",
+      "sourceEnglish": "Rogelio: What does the sheet say about the overlap?",
+      "archivedFrenchEvidence": "Rogelio : « Que dit la fiche sur le recouvrement ? »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:reader:14",
+      "legacySourceRef": "master-roofing:4:passage:14",
+      "sourceSpanish": "Kevin: Dice que hay que usar el traslape mínimo de la hoja, y que la chimenea y el tapajuntas para tubo tienen otra sección.",
+      "sourceEnglish": "Kevin: It says you have to use the sheet's minimum overlap, and that the chimney and the pipe boot have another section.",
+      "archivedFrenchEvidence": "Kevin : « Elle indique son recouvrement minimal; la cheminée et le manchon du tuyau ont une autre rubrique. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:reader:15",
+      "legacySourceRef": "master-roofing:4:passage:15",
+      "sourceSpanish": "Luego el dueño de la casa pregunta cuándo empiezan, y Rogelio contesta: ¿Me permite un momento, por favor?",
+      "sourceEnglish": "Then the homeowner asks when they're starting, and Rogelio answers: Could you give me a moment, please?",
+      "archivedFrenchEvidence": "La propriétaire demande quand ils commenceront, et Rogelio répond : « Pourriez-vous me laisser un instant, s’il vous plaît ? »",
+      "conditionalFrench": "La propriétaire demande quand ils commenceront, et Rogelio répond : « Pourriez-vous me laisser un instant, s’il vous plaît ? »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:fr-en:reader:16",
+      "legacySourceRef": "master-roofing:4:passage:16",
+      "sourceSpanish": "Rogelio: Así lo pide el fabricante, y así lo hacemos.",
+      "sourceEnglish": "Rogelio: That's what the manufacturer asks for, and that's how we do it.",
+      "archivedFrenchEvidence": "Rogelio : « C’est ce que demande le fabricant; nous suivons sa fiche. »",
+      "conditionalFrench": "Rogelio : « C’est ce que demande le fabricant; nous suivons sa fiche. »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "leer",
+      "englishMeaning": "to read",
+      "sourceSpanish": "Rogelio lee en voz alta el paso 1 de las instrucciones del fabricante.",
+      "sourceEnglish": "Rogelio reads step 1 of the manufacturer instructions out loud."
+    },
+    {
+      "spanishInfinitive": "instalar",
+      "englishMeaning": "to install",
+      "sourceSpanish": "Antes de instalar, hay que leer la hoja.",
+      "sourceEnglish": "Before installing, you have to read the sheet."
+    },
+    {
+      "spanishInfinitive": "colocar",
+      "englishMeaning": "to place",
+      "sourceSpanish": "Rogelio coloca una pieza de tapajuntas escalonado en cada hilera.",
+      "sourceEnglish": "Rogelio places one piece of step flashing on each course."
+    },
+    {
+      "spanishInfinitive": "fijar",
+      "englishMeaning": "to fasten",
+      "sourceSpanish": "Fije cada pieza solo a la cubierta.",
+      "sourceEnglish": "Fasten each piece only to the deck."
+    },
+    {
+      "spanishInfinitive": "seguir",
+      "englishMeaning": "to follow",
+      "sourceSpanish": "Si no sigue estos pasos, el producto puede fallar.",
+      "sourceEnglish": "If you do not follow these steps, the product may fail."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Lire la fiche du fabricant avant la pose des solins",
+    "objectiveFrench": "Repérer les exigences d’une fiche du fabricant et en expliquer les étapes à l’équipe avant la pose.",
+    "speakingFrenchInstruction": "Vous dirigez une équipe prête à poser des solins selon ses habitudes. Demandez la fiche réelle du produit, lisez les exigences qui s’appliquent, faites confirmer le recouvrement et les fixations indiqués, puis demandez à l’équipe de reformuler avant la pose.",
+    "speakingFrenchOpening": "Avant de poser le solin, ouvrons la fiche du produit : que prévoit-elle pour ce raccord ?",
+    "grammarFocusFrench": "Avant de et après + infinitif passé; il faut + infinitif pour exprimer une obligation du document.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to read",
+        "exampleEnglish": "Rogelio reads step 1 of the manufacturer instructions out loud.",
+        "sourceInfinitiveSpanish": "leer",
+        "infinitiveFrench": "lire",
+        "exampleFrench": "Rogelio lit à voix haute la première étape des instructions du fabricant."
+      },
+      {
+        "meaningEnglish": "to install",
+        "exampleEnglish": "Before installing, you have to read the sheet.",
+        "sourceInfinitiveSpanish": "instalar",
+        "infinitiveFrench": "poser",
+        "exampleFrench": "Avant de poser, il faut lire la fiche."
+      },
+      {
+        "meaningEnglish": "to place",
+        "exampleEnglish": "Rogelio places one piece of step flashing on each course.",
+        "sourceInfinitiveSpanish": "colocar",
+        "infinitiveFrench": "placer",
+        "exampleFrench": "Rogelio place un solin à gradins à chaque rang."
+      },
+      {
+        "meaningEnglish": "to fasten",
+        "exampleEnglish": "Fasten each piece only to the deck.",
+        "sourceInfinitiveSpanish": "fijar",
+        "infinitiveFrench": "fixer",
+        "exampleFrench": "Fixez chaque pièce seulement au platelage."
+      },
+      {
+        "meaningEnglish": "to follow",
+        "exampleEnglish": "If you do not follow these steps, the product may fail.",
+        "sourceInfinitiveSpanish": "seguir",
+        "infinitiveFrench": "suivre",
+        "exampleFrench": "Si ces étapes ne sont pas suivies, le produit peut présenter une défaillance."
+      }
+    ],
+    "reviewGapsEnglish": [
+      "Qualified roofing/product review is required for all sample flashing steps, especially fasten-only-to-deck, underlayment rise, siding coverage, sealant substitution and the warranty claim.",
+      "The fictional sheet must not be represented as an actual manufacturer specification; France/Québec terms for step flashing, pipe boot and siding require regional review."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "master-roofing:4:fr-en:card:3",
+        "master-roofing:4:fr-en:card:4",
+        "master-roofing:4:fr-en:card:7",
+        "master-roofing:4:fr-en:card:9",
+        "master-roofing:4:fr-en:card:10",
+        "master-roofing:4:fr-en:reader:1",
+        "master-roofing:4:fr-en:reader:5",
+        "master-roofing:4:fr-en:reader:6",
+        "master-roofing:4:fr-en:reader:8",
+        "master-roofing:4:fr-en:reader:14"
+      ],
+      "question": "Step flashing, pipe boot, minimum overlap, sidewall and siding require exact French roofing senses. The source presents a fictional manufacturer sheet; identify an actual system before these steps become scored product instructions."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:4:fr-en:card:5",
+        "master-roofing:4:fr-en:card:8",
+        "master-roofing:4:fr-en:reader:5",
+        "master-roofing:4:fr-en:reader:6",
+        "master-roofing:4:fr-en:reader:7",
+        "master-roofing:4:fr-en:reader:8",
+        "master-roofing:4:fr-en:reader:9"
+      ],
+      "question": "The source orders underlayment, fastening to deck only, siding coverage and no sealant substitution, and makes a conditional manufacturer-damage claim. Qualified product and safety review must resolve each before selecting French answers."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:4:fr-en:card:16",
+        "master-roofing:4:fr-en:card:17",
+        "master-roofing:4:fr-en:reader:2",
+        "master-roofing:4:fr-en:reader:3",
+        "master-roofing:4:fr-en:reader:11",
+        "master-roofing:4:fr-en:reader:12",
+        "master-roofing:4:fr-en:reader:13"
+      ],
+      "question": "The source says to follow the sheet, not habit, and verify truck material against the sheet. Preserve those relationships while avoiding a universal claim that one fictional sheet governs every system."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:4:fr-en:card:20",
+        "master-roofing:4:fr-en:reader:10",
+        "master-roofing:4:fr-en:reader:11"
+      ],
+      "question": "Kevin's question to Rogelio and Rogelio's answer use a familiar work relationship in the Spanish scene. The archived French mixes vous and tu; resolve dialogue register before selecting a scored turn."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

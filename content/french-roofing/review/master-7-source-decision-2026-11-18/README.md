@@ -1,0 +1,9 @@
+# French Roofing Master 7 — hail inspection source decision
+
+This inert packet pins **21 exact current Spanish/English cards**, **16 aligned Reader turns**, two current grammar examples, five current verb examples, and source/archive hashes for *Hail Damage Inspection with an Adjuster*. Proposed French-native/English-target `master-roofing:7:fr-en` IDs are review references only; existing saved items and progress are untouched.
+
+Archived French remains separate, unapproved evidence. Thirteen card faces and 11 Reader turns are held from conditional selection. The source's Tuesday storm, Thursday 10:00 inspection, Ortiz family, Rogelio and Kevin, west-facing 10-by-10-foot test square, 12 versus three impact counts, 1,200 versus 800 square feet, and west-replace/north-repair distinction stay visible in source order. Qualified French, roofing, insurance and regional dictionary review must settle impact counting, granule loss, roof access, unit wording and the fictional adjuster's scope. His report is not an insurer's claim or payment approval. These are internal source/domain notes, separate from learner content.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, audio/listening, offline, saved-progress, browser and V4 gates are false. The six archived mode descriptions do not supply authored prompt/target activities. Forms, speaking, exact-pair dictionary and device acceptance remain open. No synthesis, recording approval, owner page or runtime route imports this packet.
+
+`build.py --check` detects source drift; `validate.py` independently checks current source order, IDs, archived evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural checks and self-check are not qualified review.

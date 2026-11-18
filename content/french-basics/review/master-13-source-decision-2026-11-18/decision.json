@@ -1,0 +1,451 @@
+{
+  "schema": "french101-master13-source-decision-v1",
+  "pairKey": "French:English",
+  "courseId": "french-basics",
+  "moduleId": "master-french-basics",
+  "stage": "master",
+  "n": 13,
+  "stableLessonId": "master-french-basics:13",
+  "stablePairId": "master-french-basics:13:fr-en",
+  "sourceFilesSha256": {
+    "src/data/core60/es/master-spanish-basics.json": "27084a65c51ef96ab6b74dd969de1c4b38cd670be1c4b148e2b66f4d9bb15ede",
+    "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe",
+    "content/review-archive/french-japanese-2026-11-15/french-101/master-13-15-redesign-draft.json": "c85ab7131d6d9967dbcfdc93f7f4e3e875c6e5a8af94fa7fde5e5c83c7f029a4"
+  },
+  "sourceTitleEnglish": "Explain what needs doing",
+  "sourceObjectiveEnglish": "Explain what needs doing: Necesitar + infinitive expresses a need.",
+  "sourceFocusEnglish": "Explain what needs doing",
+  "sourceSpeakingEnglish": "Role-play Preparar un examen with a patient classmate. Practice explain what needs doing. Use this lesson's grammar, ask a related question, answer the partner, and confirm understanding. Keep language at beginner level; explain unfamiliar words in English when asked.",
+  "sourceGrammarEnglish": {
+    "focus": "Necesitar + infinitive expresses a need. Tener que + infinitive expresses an obligation: necesito estudiar; tengo que estudiar. Keep que after tener.",
+    "examples": [
+      {
+        "es": "Tenemos que estudiar para el examen.",
+        "en": "We have to study for the exam."
+      },
+      {
+        "es": "Necesito repasar las preguntas.",
+        "en": "I need to review the questions."
+      }
+    ]
+  },
+  "sourceReaderTitleSpanish": "Preparar un examen",
+  "cards": [
+    {
+      "id": "master-french-basics:13:card:1",
+      "sourceSpanish": "cuaderno",
+      "sourceEnglish": "notebook",
+      "kind": "term",
+      "proposedFrench": "cahier",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:13:card:2",
+      "sourceSpanish": "libro",
+      "sourceEnglish": "book",
+      "kind": "term",
+      "proposedFrench": "livre",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:13:card:3",
+      "sourceSpanish": "el",
+      "sourceEnglish": "the (masculine singular)",
+      "kind": "term",
+      "proposedFrench": "le",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish el marks masculine singular; French le has elision and contextual article behavior."
+    },
+    {
+      "id": "master-french-basics:13:card:4",
+      "sourceSpanish": "la",
+      "sourceEnglish": "the / it / her (feminine)",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source la groups feminine article, object it and her; no one French isolated face preserves all roles."
+    },
+    {
+      "id": "master-french-basics:13:card:5",
+      "sourceSpanish": "un",
+      "sourceEnglish": "a (masculine)",
+      "kind": "term",
+      "proposedFrench": "un",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:13:card:6",
+      "sourceSpanish": "un cuaderno",
+      "sourceEnglish": "a notebook",
+      "kind": "term",
+      "proposedFrench": "un cahier",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:13:card:7",
+      "sourceSpanish": "en",
+      "sourceEnglish": "in / on / at",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source en groups in/on/at; French choice depends on location, time and phrase."
+    },
+    {
+      "id": "master-french-basics:13:card:8",
+      "sourceSpanish": "tengo",
+      "sourceEnglish": "I have",
+      "kind": "term",
+      "proposedFrench": "j’ai",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source tengo is stand-alone I have; French j’ai needs a subject and clitic agreement context."
+    },
+    {
+      "id": "master-french-basics:13:card:9",
+      "sourceSpanish": "necesito",
+      "sourceEnglish": "I need",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source necesito is stand-alone I need; French avoir besoin de needs a complement, while devoir can signal obligation."
+    },
+    {
+      "id": "master-french-basics:13:card:10",
+      "sourceSpanish": "los",
+      "sourceEnglish": "the / them (masculine plural)",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish los is masculine plural article/object; French les loses the source gender marking."
+    },
+    {
+      "id": "master-french-basics:13:card:11",
+      "sourceSpanish": "las",
+      "sourceEnglish": "the / them (feminine plural)",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish las is feminine plural article/object; French les loses the source gender marking."
+    },
+    {
+      "id": "master-french-basics:13:card:12",
+      "sourceSpanish": "para",
+      "sourceEnglish": "for / in order to",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source para groups for and in order to; French pour needs a phrase-level object or infinitive context."
+    },
+    {
+      "id": "master-french-basics:13:card:13",
+      "sourceSpanish": "Tenemos que estudiar para el examen.",
+      "sourceEnglish": "We have to study for the exam.",
+      "kind": "phrase",
+      "proposedFrench": "Nous devons étudier pour l’examen.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:13:card:14",
+      "sourceSpanish": "Necesito repasar las preguntas.",
+      "sourceEnglish": "I need to review the questions.",
+      "kind": "phrase",
+      "proposedFrench": "J’ai besoin de réviser les questions.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Need in the source is distinct from obligation; review avoir besoin de plus infinitive in this classroom idiom."
+    },
+    {
+      "id": "master-french-basics:13:card:15",
+      "sourceSpanish": "Julia tiene que terminar dos páginas.",
+      "sourceEnglish": "Julia has to finish two pages.",
+      "kind": "phrase",
+      "proposedFrench": "Julia doit terminer deux pages.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:13:card:16",
+      "sourceSpanish": "Diego necesita su libro.",
+      "sourceEnglish": "Diego needs his book.",
+      "kind": "phrase",
+      "proposedFrench": "Diego a besoin de son livre.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish su may be his or her; Diego's ownership supports son livre in this scene, subject to source review."
+    },
+    {
+      "id": "master-french-basics:13:card:17",
+      "sourceSpanish": "Podemos practicar juntos en casa.",
+      "sourceEnglish": "We can practice together at home.",
+      "kind": "phrase",
+      "proposedFrench": "Nous pouvons nous entraîner ensemble à la maison.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Practice together is conditional as nous entraîner ensemble; a general pratiquer translation may shift the classroom sense."
+    },
+    {
+      "id": "master-french-basics:13:card:18",
+      "sourceSpanish": "No tenemos que aprender todo hoy.",
+      "sourceEnglish": "We do not have to learn everything today.",
+      "kind": "phrase",
+      "proposedFrench": "Nous n’avons pas besoin de tout apprendre aujourd’hui.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "No tenemos que expresses lack of obligation, not prohibition. French n’avons pas besoin de keeps that distinction."
+    },
+    {
+      "id": "master-french-basics:13:card:19",
+      "sourceSpanish": "Necesito repasar los verbos.",
+      "sourceEnglish": "I need to review the verbs.",
+      "kind": "phrase",
+      "proposedFrench": "J’ai besoin de réviser les verbes.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:13:card:20",
+      "sourceSpanish": "Tengo que terminar la tarea.",
+      "sourceEnglish": "I have to finish the homework.",
+      "kind": "phrase",
+      "proposedFrench": "Je dois finir les devoirs.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source la tarea is the homework; French les devoirs plural changes noun number convention, not task count."
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-french-basics:13:reader:1",
+      "sourceSpanish": "Tenemos que estudiar para el examen.",
+      "sourceEnglish": "We have to study for the exam.",
+      "proposedFrench": "Nous devons étudier pour l’examen.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:13:reader:2",
+      "sourceSpanish": "Necesito repasar las preguntas.",
+      "sourceEnglish": "I need to review the questions.",
+      "proposedFrench": "J’ai besoin de réviser les questions.",
+      "selectedFrench": null,
+      "decisionNote": "Need versus obligation distinction requires explicit French objective and qualified review."
+    },
+    {
+      "id": "master-french-basics:13:reader:3",
+      "sourceSpanish": "Julia tiene que terminar dos páginas.",
+      "sourceEnglish": "Julia has to finish two pages.",
+      "proposedFrench": "Julia doit terminer deux pages.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:13:reader:4",
+      "sourceSpanish": "Diego necesita su libro.",
+      "sourceEnglish": "Diego needs his book.",
+      "proposedFrench": "Diego a besoin de son livre.",
+      "selectedFrench": null,
+      "decisionNote": "Spanish su is context-dependent; proposed son livre follows Diego, not a universal su gloss."
+    },
+    {
+      "id": "master-french-basics:13:reader:5",
+      "sourceSpanish": "Podemos practicar juntos en casa.",
+      "sourceEnglish": "We can practice together at home.",
+      "proposedFrench": "Nous pouvons nous entraîner ensemble à la maison.",
+      "selectedFrench": null,
+      "decisionNote": "Practice together may call for nous entraîner or réviser together; decide from the source task."
+    },
+    {
+      "id": "master-french-basics:13:reader:6",
+      "sourceSpanish": "No tenemos que aprender todo hoy.",
+      "sourceEnglish": "We do not have to learn everything today.",
+      "proposedFrench": "Nous n’avons pas besoin de tout apprendre aujourd’hui.",
+      "selectedFrench": null,
+      "decisionNote": "Source says do not have to, not must not; keep non-obligation explicit."
+    },
+    {
+      "id": "master-french-basics:13:reader:7",
+      "sourceSpanish": "Necesito repasar los verbos.",
+      "sourceEnglish": "I need to review the verbs.",
+      "proposedFrench": "J’ai besoin de réviser les verbes.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:13:reader:8",
+      "sourceSpanish": "Tengo que terminar la tarea.",
+      "sourceEnglish": "I have to finish the homework.",
+      "proposedFrench": "Je dois finir les devoirs.",
+      "selectedFrench": null,
+      "decisionNote": "French les devoirs is the idiomatic homework noun; confirm number and saved card sense."
+    },
+    {
+      "id": "master-french-basics:13:reader:9",
+      "sourceSpanish": "Ana necesita un cuaderno.",
+      "sourceEnglish": "Ana needs a notebook.",
+      "proposedFrench": "Ana a besoin d’un cahier.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:13:reader:10",
+      "sourceSpanish": "Tenemos que llegar a las ocho.",
+      "sourceEnglish": "We have to arrive at eight.",
+      "proposedFrench": "Nous devons arriver à huit heures.",
+      "selectedFrench": null,
+      "decisionNote": "Llegar a las ocho means arrive at eight, not study at eight."
+    },
+    {
+      "id": "master-french-basics:13:reader:11",
+      "sourceSpanish": "Luis tiene que leer dos páginas.",
+      "sourceEnglish": "Luis has to read two pages.",
+      "proposedFrench": "Luis doit lire deux pages.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:13:reader:12",
+      "sourceSpanish": "¿Necesitas ayuda con esta pregunta?",
+      "sourceEnglish": "Do you need help with this question?",
+      "proposedFrench": "As-tu besoin d’aide pour cette question ?",
+      "selectedFrench": null,
+      "decisionNote": "Spanish necesitas is informal singular; tu is conditional on the source speaking relationship."
+    }
+  ],
+  "conditionalModeEvidence": [
+    {
+      "mode": "See",
+      "sourceRef": "master-french-basics:13:reader:1",
+      "sourceEnglish": "We have to study for the exam.",
+      "conditionalFrench": "Nous devons étudier pour l’examen.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Recall",
+      "sourceRef": "master-french-basics:13:reader:2",
+      "sourceEnglish": "I need to review the questions.",
+      "conditionalFrench": "J’ai besoin de réviser les questions.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Hear",
+      "sourceRef": "master-french-basics:13:reader:3",
+      "sourceEnglish": "Julia has to finish two pages.",
+      "conditionalFrench": "Julia doit terminer deux pages.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Type",
+      "sourceRef": "master-french-basics:13:reader:4",
+      "sourceEnglish": "Diego needs his book.",
+      "conditionalFrench": "Diego a besoin de son livre.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Say",
+      "sourceRef": "master-french-basics:13:reader:6",
+      "sourceEnglish": "We do not have to learn everything today.",
+      "conditionalFrench": "Nous n’avons pas besoin de tout apprendre aujourd’hui.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Write",
+      "sourceRef": "master-french-basics:13:reader:12",
+      "sourceEnglish": "Do you need help with this question?",
+      "conditionalFrench": "As-tu besoin d’aide pour cette question ?",
+      "readyForLearner": false,
+      "recordedAudio": false
+    }
+  ],
+  "conditionalFormEvidence": [
+    {
+      "sourceRefs": [
+        "master-french-basics:13:reader:1",
+        "master-french-basics:13:reader:3",
+        "master-french-basics:13:reader:8"
+      ],
+      "focus": "devoir + infinitive expresses obligation; preserve the source having-to-do meaning",
+      "readyForLearner": false
+    },
+    {
+      "sourceRefs": [
+        "master-french-basics:13:reader:2",
+        "master-french-basics:13:reader:4",
+        "master-french-basics:13:reader:7",
+        "master-french-basics:13:reader:9"
+      ],
+      "focus": "avoir besoin de + noun/infinitive expresses need; distinguish it from devoir",
+      "readyForLearner": false
+    },
+    {
+      "sourceRefs": [
+        "master-french-basics:13:reader:6"
+      ],
+      "focus": "lack of obligation is not prohibition: n’avons pas besoin de versus ne devons pas",
+      "readyForLearner": false
+    }
+  ],
+  "conditionalSpeakingEvidence": {
+    "sourceScene": "Preparar un examen",
+    "focus": "Prepare for an exam by separating needs from obligations and asking for help.",
+    "sourceRefs": [
+      "master-french-basics:13:reader:1",
+      "master-french-basics:13:reader:2",
+      "master-french-basics:13:reader:3",
+      "master-french-basics:13:reader:6",
+      "master-french-basics:13:reader:12"
+    ],
+    "readyForLearner": false
+  },
+  "archivedRedesign": {
+    "title": "Transformer une demande en tâches prioritaires",
+    "scene": "Une coordinatrice prépare une petite exposition. L’équipe doit séparer les tâches obligatoires des améliorations facultatives et définir qui valide le résultat.",
+    "separateFromCurrentSource": true,
+    "reason": "The archived small-exhibition coordinator task changes the source exam-preparation scene and objective."
+  },
+  "sourceDecisions": [
+    "The Spanish source contrasts necesitar + infinitive (need) with tener que + infinitive (obligation). French avoir besoin de and devoir need distinct authored grammar and non-obligation examples.",
+    "The source places a beginner need/obligation lesson at Master 13; curriculum placement needs review without changing saved lesson identity.",
+    "Grouped articles, object pronouns, en, para and gendered Spanish plurals require contextual French dictionary and scoring senses.",
+    "The source's informal necesitas and possessive su require person/register/context decisions before French answers are selected."
+  ],
+  "selectedDecision": null,
+  "normalProjectionAllowed": false,
+  "audioScript": null,
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "nativeV4Registered": false
+  }
+}

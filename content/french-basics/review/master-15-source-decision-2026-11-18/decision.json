@@ -1,0 +1,454 @@
+{
+  "schema": "french101-master15-source-decision-v1",
+  "pairKey": "French:English",
+  "courseId": "french-basics",
+  "moduleId": "master-french-basics",
+  "stage": "master",
+  "n": 15,
+  "stableLessonId": "master-french-basics:15",
+  "stablePairId": "master-french-basics:15:fr-en",
+  "sourceFilesSha256": {
+    "src/data/core60/es/master-spanish-basics.json": "27084a65c51ef96ab6b74dd969de1c4b38cd670be1c4b148e2b66f4d9bb15ede",
+    "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe",
+    "content/review-archive/french-japanese-2026-11-15/french-101/master-13-15-redesign-draft.json": "c85ab7131d6d9967dbcfdc93f7f4e3e875c6e5a8af94fa7fde5e5c83c7f029a4"
+  },
+  "sourceTitleEnglish": "Give directions on campus",
+  "sourceObjectiveEnglish": "Give directions on campus: Use en for in/on/at as context requires.",
+  "sourceFocusEnglish": "Give directions on campus",
+  "sourceSpeakingEnglish": "Role-play Ayudar a un visitante with a patient classmate. Practice give directions on campus. Use this lesson's grammar, ask a related question, answer the partner, and confirm understanding. Keep language at beginner level; explain unfamiliar words in English when asked.",
+  "sourceGrammarEnglish": {
+    "focus": "Use en for in/on/at as context requires. Cerca de, lejos de, delante de and detrás de locate things. De + el becomes del.",
+    "examples": [
+      {
+        "es": "La biblioteca está al lado del café.",
+        "en": "The library is next to the café."
+      },
+      {
+        "es": "La sala de estudio está detrás de la biblioteca.",
+        "en": "The study room is behind the library."
+      }
+    ]
+  },
+  "sourceReaderTitleSpanish": "Ayudar a un visitante",
+  "cards": [
+    {
+      "id": "master-french-basics:15:card:1",
+      "sourceSpanish": "mesa",
+      "sourceEnglish": "table",
+      "kind": "term",
+      "proposedFrench": "table",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:15:card:2",
+      "sourceSpanish": "mochila",
+      "sourceEnglish": "backpack",
+      "kind": "term",
+      "proposedFrench": "sac à dos",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish mochila is feminine, while French sac à dos is masculine; downstream article and possessive choices need contextual review."
+    },
+    {
+      "id": "master-french-basics:15:card:3",
+      "sourceSpanish": "clase",
+      "sourceEnglish": "class / classroom",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source clase groups a class session with a classroom; French cours, classe and salle de classe are distinct."
+    },
+    {
+      "id": "master-french-basics:15:card:4",
+      "sourceSpanish": "está",
+      "sourceEnglish": "is (condition/location)",
+      "kind": "term",
+      "proposedFrench": "est",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish está marks condition/location; French est also expresses identity, so an isolated card changes the contrast."
+    },
+    {
+      "id": "master-french-basics:15:card:5",
+      "sourceSpanish": "hay",
+      "sourceEnglish": "there is / there are",
+      "kind": "term",
+      "proposedFrench": "il y a",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:15:card:6",
+      "sourceSpanish": "el",
+      "sourceEnglish": "the (masculine singular)",
+      "kind": "term",
+      "proposedFrench": "le",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish el marks masculine singular; French le can elide and must be linked to a noun."
+    },
+    {
+      "id": "master-french-basics:15:card:7",
+      "sourceSpanish": "la",
+      "sourceEnglish": "the / it / her (feminine)",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish la groups feminine article, object it and person her; one French la face hides role and elision."
+    },
+    {
+      "id": "master-french-basics:15:card:8",
+      "sourceSpanish": "una",
+      "sourceEnglish": "a (feminine)",
+      "kind": "term",
+      "proposedFrench": "une",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish una is feminine singular; French une depends on the noun selected."
+    },
+    {
+      "id": "master-french-basics:15:card:9",
+      "sourceSpanish": "una mesa",
+      "sourceEnglish": "a table",
+      "kind": "term",
+      "proposedFrench": "une table",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:15:card:10",
+      "sourceSpanish": "en",
+      "sourceEnglish": "in / on / at",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source en groups in/on/at; French dans, sur, à and au depend on the location phrase."
+    },
+    {
+      "id": "master-french-basics:15:card:11",
+      "sourceSpanish": "mi",
+      "sourceEnglish": "my (singular possession)",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish mi is gender-neutral; French mon/ma/mes depend on the possessed noun and phonology."
+    },
+    {
+      "id": "master-french-basics:15:card:12",
+      "sourceSpanish": "de",
+      "sourceEnglish": "of / from",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish de groups of/from and contracts with el; French de/du/des and locative de need phrase context."
+    },
+    {
+      "id": "master-french-basics:15:card:13",
+      "sourceSpanish": "La biblioteca está al lado del café.",
+      "sourceEnglish": "The library is next to the café.",
+      "kind": "phrase",
+      "proposedFrench": "La bibliothèque est à côté du café.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:15:card:14",
+      "sourceSpanish": "La sala de estudio está detrás de la biblioteca.",
+      "sourceEnglish": "The study room is behind the library.",
+      "kind": "phrase",
+      "proposedFrench": "La salle d’étude est derrière la bibliothèque.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:15:card:15",
+      "sourceSpanish": "Hay una mesa delante de la ventana.",
+      "sourceEnglish": "There is a table in front of the window.",
+      "kind": "phrase",
+      "proposedFrench": "Il y a une table devant la fenêtre.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:15:card:16",
+      "sourceSpanish": "Mi mochila está debajo de esa mesa.",
+      "sourceEnglish": "My backpack is under that table.",
+      "kind": "phrase",
+      "proposedFrench": "Mon sac à dos est sous cette table.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source feminine mochila becomes masculine sac à dos; mon agrees with sac, not the speaker."
+    },
+    {
+      "id": "master-french-basics:15:card:17",
+      "sourceSpanish": "La clase está cerca de la puerta principal.",
+      "sourceEnglish": "The classroom is near the main door.",
+      "kind": "phrase",
+      "proposedFrench": "La salle de classe est près de la porte principale.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source la clase means the classroom here; salle de classe preserves that room sense."
+    },
+    {
+      "id": "master-french-basics:15:card:18",
+      "sourceSpanish": "El parque está lejos de este edificio.",
+      "sourceEnglish": "The park is far from this building.",
+      "kind": "phrase",
+      "proposedFrench": "Le parc est loin de ce bâtiment.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:15:card:19",
+      "sourceSpanish": "La clase está en el segundo piso.",
+      "sourceEnglish": "The classroom is on the second floor.",
+      "kind": "phrase",
+      "proposedFrench": "La salle de classe est au deuxième étage.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source segundo piso is the second floor; French deuxième étage is a conditional locale choice."
+    },
+    {
+      "id": "master-french-basics:15:card:20",
+      "sourceSpanish": "La biblioteca está cerca del café.",
+      "sourceEnglish": "The library is near the café.",
+      "kind": "phrase",
+      "proposedFrench": "La bibliothèque est près du café.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-french-basics:15:reader:1",
+      "sourceSpanish": "La biblioteca está al lado del café.",
+      "sourceEnglish": "The library is next to the café.",
+      "proposedFrench": "La bibliothèque est à côté du café.",
+      "selectedFrench": null,
+      "decisionNote": "Spanish al lado del café and French à côté du café both use contractions; teach the French contraction directly."
+    },
+    {
+      "id": "master-french-basics:15:reader:2",
+      "sourceSpanish": "La sala de estudio está detrás de la biblioteca.",
+      "sourceEnglish": "The study room is behind the library.",
+      "proposedFrench": "La salle d’étude est derrière la bibliothèque.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:15:reader:3",
+      "sourceSpanish": "Hay una mesa delante de la ventana.",
+      "sourceEnglish": "There is a table in front of the window.",
+      "proposedFrench": "Il y a une table devant la fenêtre.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:15:reader:4",
+      "sourceSpanish": "Mi mochila está debajo de esa mesa.",
+      "sourceEnglish": "My backpack is under that table.",
+      "proposedFrench": "Mon sac à dos est sous cette table.",
+      "selectedFrench": null,
+      "decisionNote": "Mon agrees with masculine sac à dos despite feminine Spanish mochila."
+    },
+    {
+      "id": "master-french-basics:15:reader:5",
+      "sourceSpanish": "La clase está cerca de la puerta principal.",
+      "sourceEnglish": "The classroom is near the main door.",
+      "proposedFrench": "La salle de classe est près de la porte principale.",
+      "selectedFrench": null,
+      "decisionNote": "Source means classroom, not class session; salle de classe is a conditional room-specific choice."
+    },
+    {
+      "id": "master-french-basics:15:reader:6",
+      "sourceSpanish": "El parque está lejos de este edificio.",
+      "sourceEnglish": "The park is far from this building.",
+      "proposedFrench": "Le parc est loin de ce bâtiment.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:15:reader:7",
+      "sourceSpanish": "La clase está en el segundo piso.",
+      "sourceEnglish": "The classroom is on the second floor.",
+      "proposedFrench": "La salle de classe est au deuxième étage.",
+      "selectedFrench": null,
+      "decisionNote": "Piso means floor; French étage and floor-number conventions need locale review."
+    },
+    {
+      "id": "master-french-basics:15:reader:8",
+      "sourceSpanish": "La biblioteca está cerca del café.",
+      "sourceEnglish": "The library is near the café.",
+      "proposedFrench": "La bibliothèque est près du café.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:15:reader:9",
+      "sourceSpanish": "La tienda está lejos de la escuela.",
+      "sourceEnglish": "The store is far from the school.",
+      "proposedFrench": "Le magasin est loin de l’école.",
+      "selectedFrench": null,
+      "decisionNote": "Source tienda is a store; magasin preserves the source without introducing a new destination."
+    },
+    {
+      "id": "master-french-basics:15:reader:10",
+      "sourceSpanish": "La mochila está debajo de la mesa.",
+      "sourceEnglish": "The backpack is under the table.",
+      "proposedFrench": "Le sac à dos est sous la table.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:15:reader:11",
+      "sourceSpanish": "Ana está delante de la puerta.",
+      "sourceEnglish": "Ana is in front of the door.",
+      "proposedFrench": "Ana est devant la porte.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:15:reader:12",
+      "sourceSpanish": "Luis está detrás de Ana.",
+      "sourceEnglish": "Luis is behind Ana.",
+      "proposedFrench": "Luis est derrière Ana.",
+      "selectedFrench": null,
+      "decisionNote": null
+    }
+  ],
+  "conditionalModeEvidence": [
+    {
+      "mode": "See",
+      "sourceRef": "master-french-basics:15:reader:1",
+      "sourceEnglish": "The library is next to the café.",
+      "conditionalFrench": "La bibliothèque est à côté du café.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Recall",
+      "sourceRef": "master-french-basics:15:reader:3",
+      "sourceEnglish": "There is a table in front of the window.",
+      "conditionalFrench": "Il y a une table devant la fenêtre.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Hear",
+      "sourceRef": "master-french-basics:15:reader:5",
+      "sourceEnglish": "The classroom is near the main door.",
+      "conditionalFrench": "La salle de classe est près de la porte principale.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Type",
+      "sourceRef": "master-french-basics:15:reader:7",
+      "sourceEnglish": "The classroom is on the second floor.",
+      "conditionalFrench": "La salle de classe est au deuxième étage.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Say",
+      "sourceRef": "master-french-basics:15:reader:9",
+      "sourceEnglish": "The store is far from the school.",
+      "conditionalFrench": "Le magasin est loin de l’école.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Write",
+      "sourceRef": "master-french-basics:15:reader:12",
+      "sourceEnglish": "Luis is behind Ana.",
+      "conditionalFrench": "Luis est derrière Ana.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    }
+  ],
+  "conditionalFormEvidence": [
+    {
+      "sourceRefs": [
+        "master-french-basics:15:reader:1",
+        "master-french-basics:15:reader:2",
+        "master-french-basics:15:reader:8"
+      ],
+      "focus": "à côté de, derrière, près de; contractions and place",
+      "readyForLearner": false
+    },
+    {
+      "sourceRefs": [
+        "master-french-basics:15:reader:3",
+        "master-french-basics:15:reader:4",
+        "master-french-basics:15:reader:10"
+      ],
+      "focus": "il y a versus est; under/in front and noun gender",
+      "readyForLearner": false
+    },
+    {
+      "sourceRefs": [
+        "master-french-basics:15:reader:5",
+        "master-french-basics:15:reader:6",
+        "master-french-basics:15:reader:7"
+      ],
+      "focus": "classroom, distance and second-floor locale",
+      "readyForLearner": false
+    }
+  ],
+  "conditionalSpeakingEvidence": {
+    "sourceScene": "Ayudar a un visitante",
+    "focus": "Give campus directions using the library, study room, café, classroom and park.",
+    "sourceRefs": [
+      "master-french-basics:15:reader:1",
+      "master-french-basics:15:reader:2",
+      "master-french-basics:15:reader:3",
+      "master-french-basics:15:reader:5",
+      "master-french-basics:15:reader:6",
+      "master-french-basics:15:reader:7",
+      "master-french-basics:15:reader:8"
+    ],
+    "readyForLearner": false
+  },
+  "archivedRedesign": {
+    "title": "Guider vers une entrée de remplacement",
+    "scene": "L’entrée habituelle de la bibliothèque est fermée. Un visiteur doit suivre un trajet différent et reformuler les étapes.",
+    "separateFromCurrentSource": true,
+    "reason": "The archived replacement-entrance guidance changes the source campus locations and objective; it cannot inherit this lesson's saved positions or recordings."
+  },
+  "sourceDecisions": [
+    "The source Spanish objective uses en as in/on/at by context; French requires phrase-specific à, dans, sur and au, not a slash string scored as one answer.",
+    "Source cerca de, lejos de, delante de, detrás de and de + el contraction need a French spatial-language sequence with direct grammatical examples.",
+    "Source class/classroom, mochila/sac à dos and gendered articles/possessives need contextual dictionary and saved-item decisions.",
+    "The source is an elementary directions lesson placed at Master 15; qualified curriculum review must decide progression without silently changing the stable progress identity."
+  ],
+  "selectedDecision": null,
+  "normalProjectionAllowed": false,
+  "audioScript": null,
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "nativeV4Registered": false
+  }
+}

@@ -1,0 +1,464 @@
+{
+  "schema": "french-roofing-core3-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:3",
+  "proposedPairId": "core-roofing:3:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-1-3-draft.json": "038aedc570836c42e331b748e598a50ffa46268d6b750dab0e08f294592ea3aa"
+  },
+  "orderedSourceRowsSha256": "bda20d81c3d5b95bdef8f062f0655fec30031d0c8425315178fd7d36638d1c1a",
+  "sourceTitleEnglish": "Flashing & Valleys",
+  "sourceObjectiveEnglish": "Identify common water-entry details",
+  "sourceSpeakingEnglish": "Ask the lead to show you each flashing and valley location.",
+  "sourceReaderTitleSpanish": "Por dónde entra el agua",
+  "cards": [
+    {
+      "id": "core-roofing:3:fr-en:card:1",
+      "legacySourceRef": "roofing:3:words:1",
+      "sourceSpanish": "Tapajuntas / Flashing",
+      "sourceEnglish": "flashing",
+      "kind": "term",
+      "archivedFrenchEvidence": "le solin",
+      "conditionalFrench": "le solin",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:card:2",
+      "legacySourceRef": "roofing:3:words:2",
+      "sourceSpanish": "Tapajuntas escalonado",
+      "sourceEnglish": "step flashing",
+      "kind": "term",
+      "archivedFrenchEvidence": "le solin à gradins",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:card:3",
+      "legacySourceRef": "roofing:3:words:3",
+      "sourceSpanish": "Limahoya / Valle",
+      "sourceEnglish": "valley",
+      "kind": "term",
+      "archivedFrenchEvidence": "la noue",
+      "conditionalFrench": "la noue",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:card:4",
+      "legacySourceRef": "roofing:3:words:4",
+      "sourceSpanish": "Membrana impermeable",
+      "sourceEnglish": "ice and water shield",
+      "kind": "term",
+      "archivedFrenchEvidence": "la membrane de protection contre l’eau et la glace",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:card:5",
+      "legacySourceRef": "roofing:3:words:5",
+      "sourceSpanish": "Chimenea",
+      "sourceEnglish": "chimney",
+      "kind": "term",
+      "archivedFrenchEvidence": "la cheminée",
+      "conditionalFrench": "la cheminée",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:card:6",
+      "legacySourceRef": "roofing:3:words:6",
+      "sourceSpanish": "Pared",
+      "sourceEnglish": "wall",
+      "kind": "term",
+      "archivedFrenchEvidence": "le mur",
+      "conditionalFrench": "le mur",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:card:7",
+      "legacySourceRef": "roofing:3:words:7",
+      "sourceSpanish": "Gotera",
+      "sourceEnglish": "leak",
+      "kind": "term",
+      "archivedFrenchEvidence": "la fuite",
+      "conditionalFrench": "la fuite",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:card:8",
+      "legacySourceRef": "roofing:3:words:8",
+      "sourceSpanish": "Sellador",
+      "sourceEnglish": "sealant",
+      "kind": "term",
+      "archivedFrenchEvidence": "le mastic d’étanchéité",
+      "conditionalFrench": "le mastic d’étanchéité",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:card:9",
+      "legacySourceRef": "roofing:3:words:9",
+      "sourceSpanish": "Cemento plástico",
+      "sourceEnglish": "roofing cement",
+      "kind": "term",
+      "archivedFrenchEvidence": "le ciment de couverture",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:card:10",
+      "legacySourceRef": "roofing:3:words:10",
+      "sourceSpanish": "Tapajuntas escalonado debajo de cada hilera.",
+      "sourceEnglish": "Step flashing under each shingle course.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Posez le solin à gradins sous chaque rang de bardeaux.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:card:11",
+      "legacySourceRef": "roofing:3:words:11",
+      "sourceSpanish": "Pongan la membrana impermeable por la limahoya.",
+      "sourceEnglish": "Run ice and water shield up the valley.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Posez la membrane de protection contre l’eau et la glace dans la noue.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:card:12",
+      "legacySourceRef": "roofing:3:words:12",
+      "sourceSpanish": "Muéstrenme dónde va el tapajuntas.",
+      "sourceEnglish": "Show me where the flashing goes.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Montrez-moi où doit aller le solin.",
+      "conditionalFrench": "Montrez-moi où doit aller le solin.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:card:13",
+      "legacySourceRef": "roofing:3:words:13",
+      "sourceSpanish": "¿Dónde están las limahoyas en este techo?",
+      "sourceEnglish": "Where are the valleys on this roof?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Où se trouvent les noues sur ce toit ?",
+      "conditionalFrench": "Où se trouvent les noues sur ce toit ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:card:14",
+      "legacySourceRef": "roofing:3:words:14",
+      "sourceSpanish": "Sellen alrededor de la chimenea.",
+      "sourceEnglish": "Seal around the chimney.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Réalisez l’étanchéité autour de la cheminée.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:card:15",
+      "legacySourceRef": "roofing:3:words:15",
+      "sourceSpanish": "Revisen si hay goteras en la limahoya.",
+      "sourceEnglish": "Check for leaks at the valley.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Vérifiez s’il y a des fuites dans la noue.",
+      "conditionalFrench": "Vérifiez s’il y a des fuites dans la noue.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:3:fr-en:reader:1",
+      "legacySourceRef": "roofing:3:passage:1",
+      "sourceSpanish": "El agua entra con frecuencia por las uniones del techo.",
+      "sourceEnglish": "Water often gets in at the joints of the roof.",
+      "archivedFrenchEvidence": "L’eau pénètre souvent aux jonctions de la toiture.",
+      "conditionalFrench": "L’eau pénètre souvent aux jonctions de la toiture.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:reader:2",
+      "legacySourceRef": "roofing:3:passage:2",
+      "sourceSpanish": "Esas uniones están en las limahoyas, las chimeneas y las paredes.",
+      "sourceEnglish": "Those joints are at the valleys, the chimneys, and the walls.",
+      "archivedFrenchEvidence": "Ces jonctions se trouvent aux noues, près des cheminées et le long des murs.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:reader:3",
+      "legacySourceRef": "roofing:3:passage:3",
+      "sourceSpanish": "El tapajuntas ayuda a que el agua no pase.",
+      "sourceEnglish": "Flashing helps keep the water out.",
+      "archivedFrenchEvidence": "Le solin aide à empêcher l’eau de pénétrer.",
+      "conditionalFrench": "Le solin aide à empêcher l’eau de pénétrer.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:reader:4",
+      "legacySourceRef": "roofing:3:passage:4",
+      "sourceSpanish": "Aquí hay tapajuntas escalonado junto a la pared.",
+      "sourceEnglish": "Here there is step flashing next to the wall.",
+      "archivedFrenchEvidence": "Ici, un solin à gradins est posé près du mur.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:reader:5",
+      "legacySourceRef": "roofing:3:passage:5",
+      "sourceSpanish": "El capataz pregunta: ¿Dónde están las limahoyas en este techo?",
+      "sourceEnglish": "The foreman asks: Where are the valleys on this roof?",
+      "archivedFrenchEvidence": "Le chef d’équipe demande : « Où se trouvent les noues sur ce toit ? »",
+      "conditionalFrench": "Le chef d’équipe demande : « Où se trouvent les noues sur ce toit ? »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:reader:6",
+      "legacySourceRef": "roofing:3:passage:6",
+      "sourceSpanish": "Una obrera señala la limahoya del frente.",
+      "sourceEnglish": "A worker points to the valley at the front.",
+      "archivedFrenchEvidence": "Une ouvrière montre la noue à l’avant.",
+      "conditionalFrench": "Une ouvrière montre la noue à l’avant.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:reader:7",
+      "legacySourceRef": "roofing:3:passage:7",
+      "sourceSpanish": "Muéstrenme dónde va el tapajuntas.",
+      "sourceEnglish": "Show me where the flashing goes.",
+      "archivedFrenchEvidence": "Montrez-moi où doit aller le solin.",
+      "conditionalFrench": "Montrez-moi où doit aller le solin.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:reader:8",
+      "legacySourceRef": "roofing:3:passage:8",
+      "sourceSpanish": "Revisen si hay goteras en la limahoya.",
+      "sourceEnglish": "Check for leaks at the valley.",
+      "archivedFrenchEvidence": "Vérifiez s’il y a des fuites dans la noue.",
+      "conditionalFrench": "Vérifiez s’il y a des fuites dans la noue.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "revisar",
+      "englishMeaning": "to check",
+      "sourceSpanish": "Nosotros revisamos si hay goteras en la limahoya.",
+      "sourceEnglish": "We check for leaks at the valley."
+    },
+    {
+      "spanishInfinitive": "mostrar",
+      "englishMeaning": "to show",
+      "sourceSpanish": "La obrera muestra dónde va el tapajuntas.",
+      "sourceEnglish": "The worker shows where the flashing goes."
+    },
+    {
+      "spanishInfinitive": "sellar",
+      "englishMeaning": "to seal",
+      "sourceSpanish": "Ellos sellan alrededor de la chimenea.",
+      "sourceEnglish": "They seal around the chimney."
+    },
+    {
+      "spanishInfinitive": "poner",
+      "englishMeaning": "to put, to place",
+      "sourceSpanish": "Ellos ponen la membrana impermeable por la limahoya.",
+      "sourceEnglish": "They run ice and water shield up the valley."
+    },
+    {
+      "spanishInfinitive": "preguntar",
+      "englishMeaning": "to ask",
+      "sourceSpanish": "El capataz pregunta dónde están las limahoyas.",
+      "sourceEnglish": "The foreman asks where the valleys are."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Solins et noues",
+    "objectiveFrench": "Repérer les détails où l’eau peut pénétrer et demander où se trouvent les solins et les noues.",
+    "speakingFrenchInstruction": "Demandez au chef d’équipe de vous montrer les noues et chaque emplacement de solin. Confirmez le détail approuvé avant de décrire une pose.",
+    "speakingFrenchOpening": "Où se trouvent les noues et les solins sur ce toit ? Pouvez-vous me montrer le détail prévu ?",
+    "grammarFocusFrench": "Où se trouvent… ? pour situer les noues; solin et noue dans une description; impératif pour demander une vérification, sans prescrire une méthode universelle.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to check",
+        "exampleEnglish": "We check for leaks at the valley.",
+        "sourceInfinitiveSpanish": "revisar",
+        "infinitiveFrench": "vérifier",
+        "exampleFrench": "Nous vérifions s’il y a des fuites dans la noue."
+      },
+      {
+        "meaningEnglish": "to show",
+        "exampleEnglish": "The worker shows where the flashing goes.",
+        "sourceInfinitiveSpanish": "mostrar",
+        "infinitiveFrench": "montrer",
+        "exampleFrench": "L’ouvrière montre où doit aller le solin."
+      },
+      {
+        "meaningEnglish": "to seal",
+        "exampleEnglish": "They seal around the chimney.",
+        "sourceInfinitiveSpanish": "sellar",
+        "infinitiveFrench": "réaliser l’étanchéité",
+        "exampleFrench": "Ils réalisent l’étanchéité autour de la cheminée."
+      },
+      {
+        "meaningEnglish": "to put, to place",
+        "exampleEnglish": "They run ice and water shield up the valley.",
+        "sourceInfinitiveSpanish": "poner",
+        "infinitiveFrench": "poser",
+        "exampleFrench": "Ils posent la membrane de protection contre l’eau et la glace dans la noue."
+      },
+      {
+        "meaningEnglish": "to ask",
+        "exampleEnglish": "The foreman asks where the valleys are.",
+        "sourceInfinitiveSpanish": "preguntar",
+        "infinitiveFrench": "demander",
+        "exampleFrench": "Le chef d’équipe demande où se trouvent les noues."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "Quebec/France and individual crew terminology require qualified French roofing review.",
+      "Confirm local code, approved plan and product instructions before treating an installation phrase as a work instruction."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:3:fr-en:card:2",
+        "core-roofing:3:fr-en:reader:4"
+      ],
+      "question": "Confirm the trade and locale sense of step flashing/solin à gradins, including whether the Reader says merely that it is present rather than that it was installed."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:3:fr-en:card:4",
+        "core-roofing:3:fr-en:card:11"
+      ],
+      "question": "Select a French term for ice and water shield that preserves the product's water/ice role, and decide whether the archived phrase in the valley loses the source's up-the-valley direction."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:3:fr-en:card:9"
+      ],
+      "question": "Resolve roofing cement/cemento plástico: archived ciment de couverture may suggest cement rather than the intended bituminous roofing compound; confirm the product and locale sense."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:3:fr-en:card:10",
+        "core-roofing:3:fr-en:card:11",
+        "core-roofing:3:fr-en:card:14"
+      ],
+      "question": "Source imperative installation/sealing lines need qualified roofing and product-detail review before use as scored work instructions; preserve the source wording and do not add an unapproved universal method."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:3:fr-en:reader:2"
+      ],
+      "question": "The source places roof joints at valleys, chimneys and walls; archived French near chimneys and along walls changes the spatial relationship. Select a source-aligned sentence."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:3:fr-en:card:7",
+        "core-roofing:3:fr-en:card:15",
+        "core-roofing:3:fr-en:reader:8"
+      ],
+      "question": "Confirm leak/gotera versus fuite in this roof-water context and make the card, Reader, and dictionary sense consistent."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

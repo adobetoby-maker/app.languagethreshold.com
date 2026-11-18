@@ -1,0 +1,443 @@
+{
+  "schema": "french-roofing-core2-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:2",
+  "proposedPairId": "core-roofing:2:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-1-3-draft.json": "038aedc570836c42e331b748e598a50ffa46268d6b750dab0e08f294592ea3aa"
+  },
+  "orderedSourceRowsSha256": "a55a9549af8d46d805311d3acb683811dd72d64baa8eeeedfd6285fb15be7c40",
+  "sourceTitleEnglish": "Deck, Underlayment & Edges",
+  "sourceObjectiveEnglish": "Name the layers beneath the finished roof",
+  "sourceSpeakingEnglish": "Point out the deck, underlayment, and edge on a roof plan.",
+  "sourceReaderTitleSpanish": "Capas debajo del techo",
+  "cards": [
+    {
+      "id": "core-roofing:2:fr-en:card:1",
+      "legacySourceRef": "roofing:2:words:1",
+      "sourceSpanish": "Cubierta / Forro de techo",
+      "sourceEnglish": "roof deck",
+      "kind": "term",
+      "archivedFrenchEvidence": "le support de couverture",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:card:2",
+      "legacySourceRef": "roofing:2:words:2",
+      "sourceSpanish": "Sub-capa / Fieltro",
+      "sourceEnglish": "underlayment",
+      "kind": "term",
+      "archivedFrenchEvidence": "la sous-couche",
+      "conditionalFrench": "la sous-couche",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:card:3",
+      "legacySourceRef": "roofing:2:words:3",
+      "sourceSpanish": "Papel de fieltro",
+      "sourceEnglish": "felt paper",
+      "kind": "term",
+      "archivedFrenchEvidence": "le feutre bitumé",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:card:4",
+      "legacySourceRef": "roofing:2:words:4",
+      "sourceSpanish": "Goterón / Vierteaguas",
+      "sourceEnglish": "drip edge",
+      "kind": "term",
+      "archivedFrenchEvidence": "le larmier",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:card:5",
+      "legacySourceRef": "roofing:2:words:5",
+      "sourceSpanish": "Forro de techo",
+      "sourceEnglish": "sheathing",
+      "kind": "term",
+      "archivedFrenchEvidence": "le platelage de toiture",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:card:6",
+      "legacySourceRef": "roofing:2:words:6",
+      "sourceSpanish": "Alero",
+      "sourceEnglish": "eave",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’avant-toit",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:card:7",
+      "legacySourceRef": "roofing:2:words:7",
+      "sourceSpanish": "Borde de hastial",
+      "sourceEnglish": "rake",
+      "kind": "term",
+      "archivedFrenchEvidence": "la rive de toit",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:card:8",
+      "legacySourceRef": "roofing:2:words:8",
+      "sourceSpanish": "Triplay",
+      "sourceEnglish": "plywood",
+      "kind": "term",
+      "archivedFrenchEvidence": "le contreplaqué",
+      "conditionalFrench": "le contreplaqué",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:card:9",
+      "legacySourceRef": "roofing:2:words:9",
+      "sourceSpanish": "Sub-capa sintética",
+      "sourceEnglish": "synthetic underlayment",
+      "kind": "term",
+      "archivedFrenchEvidence": "la sous-couche synthétique",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:card:10",
+      "legacySourceRef": "roofing:2:words:10",
+      "sourceSpanish": "Instalen el goterón primero.",
+      "sourceEnglish": "Install the drip edge first.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Posez d’abord le larmier.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:card:11",
+      "legacySourceRef": "roofing:2:words:11",
+      "sourceSpanish": "Barran la cubierta antes de la sub-capa.",
+      "sourceEnglish": "Sweep the deck before underlayment.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Balayez le support avant de poser la sous-couche.",
+      "conditionalFrench": "Balayez le support avant de poser la sous-couche.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:card:12",
+      "legacySourceRef": "roofing:2:words:12",
+      "sourceSpanish": "La cubierta tiene que estar seca y limpia.",
+      "sourceEnglish": "The deck must be dry and clean.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Le support doit être sec et propre.",
+      "conditionalFrench": "Le support doit être sec et propre.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:card:13",
+      "legacySourceRef": "roofing:2:words:13",
+      "sourceSpanish": "Desenrollen la sub-capa.",
+      "sourceEnglish": "Roll out the underlayment.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Déroulez la sous-couche.",
+      "conditionalFrench": "Déroulez la sous-couche.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:card:14",
+      "legacySourceRef": "roofing:2:words:14",
+      "sourceSpanish": "¿Dónde va el goterón?",
+      "sourceEnglish": "Where does the drip edge go?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Où doit-on poser le larmier ?",
+      "conditionalFrench": "Où doit-on poser le larmier ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:2:fr-en:reader:1",
+      "legacySourceRef": "roofing:2:passage:1",
+      "sourceSpanish": "La cuadrilla mira las capas debajo de las tejas.",
+      "sourceEnglish": "The crew looks at the layers under the shingles.",
+      "archivedFrenchEvidence": "L’équipe observe les couches sous les bardeaux.",
+      "conditionalFrench": "L’équipe observe les couches sous les bardeaux.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:reader:2",
+      "legacySourceRef": "roofing:2:passage:2",
+      "sourceSpanish": "Abajo está la cubierta, que es de triplay.",
+      "sourceEnglish": "At the bottom is the roof deck, which is plywood.",
+      "archivedFrenchEvidence": "En bas se trouve le support de couverture, en contreplaqué.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:reader:3",
+      "legacySourceRef": "roofing:2:passage:3",
+      "sourceSpanish": "La cubierta tiene que estar seca y limpia.",
+      "sourceEnglish": "The deck has to be dry and clean.",
+      "archivedFrenchEvidence": "Le support doit être sec et propre.",
+      "conditionalFrench": "Le support doit être sec et propre.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:reader:4",
+      "legacySourceRef": "roofing:2:passage:4",
+      "sourceSpanish": "Encima va la sub-capa, por ejemplo el papel de fieltro.",
+      "sourceEnglish": "The underlayment goes on top, for example felt paper.",
+      "archivedFrenchEvidence": "La sous-couche se pose par-dessus, par exemple du feutre bitumé.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:reader:5",
+      "legacySourceRef": "roofing:2:passage:5",
+      "sourceSpanish": "El capataz pregunta: ¿Dónde va el goterón?",
+      "sourceEnglish": "The foreman asks: Where does the drip edge go?",
+      "archivedFrenchEvidence": "Le chef d’équipe demande : « Où doit-on poser le larmier ? »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:reader:6",
+      "legacySourceRef": "roofing:2:passage:6",
+      "sourceSpanish": "Un obrero señala el borde del alero y el borde de hastial.",
+      "sourceEnglish": "A worker points to the eave edge and the rake edge.",
+      "archivedFrenchEvidence": "Un ouvrier montre le bord de l’avant-toit et la rive de toit.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:reader:7",
+      "legacySourceRef": "roofing:2:passage:7",
+      "sourceSpanish": "Luego el capataz ordena: desenrollen la sub-capa.",
+      "sourceEnglish": "Then the foreman orders: unroll the underlayment.",
+      "archivedFrenchEvidence": "Puis le chef d’équipe demande : « Déroulez la sous-couche. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "instalar",
+      "englishMeaning": "to install",
+      "sourceSpanish": "Instalen el goterón primero.",
+      "sourceEnglish": "Install the drip edge first."
+    },
+    {
+      "spanishInfinitive": "barrer",
+      "englishMeaning": "to sweep",
+      "sourceSpanish": "Barran la cubierta antes de la sub-capa.",
+      "sourceEnglish": "Sweep the deck before the underlayment."
+    },
+    {
+      "spanishInfinitive": "desenrollar",
+      "englishMeaning": "to unroll",
+      "sourceSpanish": "Luego el capataz ordena: desenrollen la sub-capa.",
+      "sourceEnglish": "Then the foreman orders: unroll the underlayment."
+    },
+    {
+      "spanishInfinitive": "señalar",
+      "englishMeaning": "to point out",
+      "sourceSpanish": "Un obrero señala el borde del alero.",
+      "sourceEnglish": "A worker points to the eave edge."
+    },
+    {
+      "spanishInfinitive": "preguntar",
+      "englishMeaning": "to ask",
+      "sourceSpanish": "El capataz pregunta: ¿Dónde va el goterón?",
+      "sourceEnglish": "The foreman asks: Where does the drip edge go?"
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Support, sous-couche et rives",
+    "objectiveFrench": "Nommer les couches sous le revêtement et demander où se placent les rives.",
+    "speakingFrenchInstruction": "Montrez le support, la sous-couche et le larmier sur un plan. Demandez à la personne responsable de confirmer l’ordre de pose prévu pour ce toit.",
+    "speakingFrenchOpening": "Voici le support de couverture et la sous-couche. Où doit-on poser le larmier selon le plan ?",
+    "grammarFocusFrench": "Repères spatiaux en haut / en bas / par-dessus; devoir + infinitif pour une exigence du chantier; impératif de politesse.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to install",
+        "exampleEnglish": "Install the drip edge first.",
+        "sourceInfinitiveSpanish": "instalar",
+        "infinitiveFrench": "poser",
+        "exampleFrench": "Posez d’abord le larmier."
+      },
+      {
+        "meaningEnglish": "to sweep",
+        "exampleEnglish": "Sweep the deck before the underlayment.",
+        "sourceInfinitiveSpanish": "barrer",
+        "infinitiveFrench": "balayer",
+        "exampleFrench": "Balayez le support avant de poser la sous-couche."
+      },
+      {
+        "meaningEnglish": "to unroll",
+        "exampleEnglish": "Then the foreman orders: unroll the underlayment.",
+        "sourceInfinitiveSpanish": "desenrollar",
+        "infinitiveFrench": "dérouler",
+        "exampleFrench": "Puis le chef d’équipe demande : « Déroulez la sous-couche. »"
+      },
+      {
+        "meaningEnglish": "to point out",
+        "exampleEnglish": "A worker points to the eave edge.",
+        "sourceInfinitiveSpanish": "señalar",
+        "infinitiveFrench": "montrer",
+        "exampleFrench": "Un ouvrier montre le bord de l’avant-toit."
+      },
+      {
+        "meaningEnglish": "to ask",
+        "exampleEnglish": "The foreman asks: Where does the drip edge go?",
+        "sourceInfinitiveSpanish": "preguntar",
+        "infinitiveFrench": "demander",
+        "exampleFrench": "Le chef d’équipe demande : « Où doit-on poser le larmier ? »"
+      }
+    ],
+    "regionalNotesEnglish": [
+      "Quebec/France and individual crew terminology require qualified French roofing review.",
+      "Confirm local code, approved plan and product instructions before treating an installation phrase as a work instruction."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:2:fr-en:card:1",
+        "core-roofing:2:fr-en:card:5",
+        "core-roofing:2:fr-en:reader:2"
+      ],
+      "question": "Distinguish structural roof deck and sheathing in this source: the archive uses support de couverture and platelage de toiture; decide the pair's trade and regional senses before scoring."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:2:fr-en:card:3",
+        "core-roofing:2:fr-en:card:9",
+        "core-roofing:2:fr-en:reader:4"
+      ],
+      "question": "The source distinguishes felt paper from synthetic underlayment; verify whether feutre bitumé adds an unsupported bitumen specification and whether sous-couche consistently names the layer rather than one product."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:2:fr-en:card:4",
+        "core-roofing:2:fr-en:card:6",
+        "core-roofing:2:fr-en:card:7",
+        "core-roofing:2:fr-en:reader:5",
+        "core-roofing:2:fr-en:reader:6"
+      ],
+      "question": "Confirm contextual and regional French roof-edge terms for drip edge, eave and rake; keep eave edge and rake edge distinct in Reader 6."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:2:fr-en:card:10"
+      ],
+      "question": "The source commands installing the drip edge first, but edge sequence depends on the approved detail and manufacturer; qualified roofing/source review must decide whether this can remain a teaching example without implying a universal sequence."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:2:fr-en:reader:7"
+      ],
+      "question": "The source says the foreman orders the crew to unroll underlayment; the archive changes this to asks. Preserve the command force or obtain a source change."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:2:fr-en:card:1",
+        "core-roofing:2:fr-en:card:2",
+        "core-roofing:2:fr-en:card:4"
+      ],
+      "question": "Archived speaking asks a supervisor to confirm installation order, while source speaking asks the learner to point out deck, underlayment and edge on a roof plan. Resolve objective parity before authoring a scored speaking scene."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

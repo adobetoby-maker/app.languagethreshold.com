@@ -1,0 +1,9 @@
+# French Roofing Core 4 — source and trade-term decision
+
+This inert packet pins **15 exact current Spanish/English cards**, **eight aligned Reader turns**, five source verb examples, and source/archive hashes for *Ridge, Vents & Drainage*. Proposed `core-roofing:4:fr-en` IDs are review references only. The source header still uses `roofing`; stage-local progress and saved-item identity need a deliberate migration before any runtime use.
+
+The archived French is separate evidence. Eight card faces and three Reader turns are held from even conditional selection: `bardeau de faîtage` narrows generic *ridge cap* to a shingle, `évent de toit` may erase the *box vent* type, and fascia/soffit terms need regional trade review. The attic/combles sense, ridge-vent placement wording and Reader's downspout reference also need source and dictionary decisions. The source speaking task describes where the ridge vent and downspouts belong; the archive adds plan confirmation. Qualified French and roofing reviewers should resolve these linked meanings before authored modes, speaking, dictionary entries or audio are selected.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, listening, offline, saved-progress, browser and V4 gates are false. No audio was generated or approved; no owner page or runtime route imports this packet. Six authored See/Recall/Hear/Type/Say/Write prompt/target activities, forms, speaking, exact-pair dictionary and device acceptance remain open.
+
+`build.py --check` detects source drift; `validate.py` independently checks current source order, IDs, archived evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural checks and self-check are not qualified review.

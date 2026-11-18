@@ -1,0 +1,473 @@
+{
+  "schema": "french-roofing-core4-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:4",
+  "proposedPairId": "core-roofing:4:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-4-6-draft.json": "8593c38a18a3dd8bc93d489903b0035d121c3285c2b71ee784728aeb69365dae"
+  },
+  "orderedSourceRowsSha256": "06045be1fc6b677110d63b98259449e8b5f9656a6afb880a7d42c4fe6571ff6b",
+  "sourceTitleEnglish": "Ridge, Vents & Drainage",
+  "sourceObjectiveEnglish": "Name ridge and drainage components",
+  "sourceSpeakingEnglish": "Describe where the ridge vent and downspouts belong.",
+  "sourceReaderTitleSpanish": "Cumbrera, ventilación y canaletas",
+  "cards": [
+    {
+      "id": "core-roofing:4:fr-en:card:1",
+      "legacySourceRef": "roofing:4:words:1",
+      "sourceSpanish": "Caballete",
+      "sourceEnglish": "ridge cap",
+      "kind": "term",
+      "archivedFrenchEvidence": "le bardeau de faîtage",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:card:2",
+      "legacySourceRef": "roofing:4:words:2",
+      "sourceSpanish": "Ventilación (de caballete / de caja)",
+      "sourceEnglish": "vent",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’évent",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:card:3",
+      "legacySourceRef": "roofing:4:words:3",
+      "sourceSpanish": "Canal / Canalón",
+      "sourceEnglish": "gutter",
+      "kind": "term",
+      "archivedFrenchEvidence": "la gouttière",
+      "conditionalFrench": "la gouttière",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:card:4",
+      "legacySourceRef": "roofing:4:words:4",
+      "sourceSpanish": "Bajada de agua",
+      "sourceEnglish": "downspout",
+      "kind": "term",
+      "archivedFrenchEvidence": "la descente pluviale",
+      "conditionalFrench": "la descente pluviale",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:card:5",
+      "legacySourceRef": "roofing:4:words:5",
+      "sourceSpanish": "Fascia / Borde",
+      "sourceEnglish": "fascia",
+      "kind": "term",
+      "archivedFrenchEvidence": "la planche de rive",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:card:6",
+      "legacySourceRef": "roofing:4:words:6",
+      "sourceSpanish": "Cumbrera",
+      "sourceEnglish": "ridge",
+      "kind": "term",
+      "archivedFrenchEvidence": "le faîtage",
+      "conditionalFrench": "le faîtage",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:card:7",
+      "legacySourceRef": "roofing:4:words:7",
+      "sourceSpanish": "Ventilación de caballete",
+      "sourceEnglish": "ridge vent",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’évent de faîtage",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:card:8",
+      "legacySourceRef": "roofing:4:words:8",
+      "sourceSpanish": "Ventilación de caja",
+      "sourceEnglish": "box vent",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’évent de toit",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:card:9",
+      "legacySourceRef": "roofing:4:words:9",
+      "sourceSpanish": "Sofito",
+      "sourceEnglish": "soffit",
+      "kind": "term",
+      "archivedFrenchEvidence": "la sous-face de débord de toit",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:card:10",
+      "legacySourceRef": "roofing:4:words:10",
+      "sourceSpanish": "Ático",
+      "sourceEnglish": "attic",
+      "kind": "term",
+      "archivedFrenchEvidence": "les combles",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:card:11",
+      "legacySourceRef": "roofing:4:words:11",
+      "sourceSpanish": "La ventilación de caballete va a lo largo de la cumbrera.",
+      "sourceEnglish": "The ridge vent goes along the ridge.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "L’évent de faîtage longe le faîtage.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:card:12",
+      "legacySourceRef": "roofing:4:words:12",
+      "sourceSpanish": "¿Dónde va la bajada de agua?",
+      "sourceEnglish": "Where does the downspout go?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Où se place la descente pluviale ?",
+      "conditionalFrench": "Où se place la descente pluviale ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:card:13",
+      "legacySourceRef": "roofing:4:words:13",
+      "sourceSpanish": "La canaleta está tapada.",
+      "sourceEnglish": "The gutter is clogged.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "La gouttière est bouchée.",
+      "conditionalFrench": "La gouttière est bouchée.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:card:14",
+      "legacySourceRef": "roofing:4:words:14",
+      "sourceSpanish": "El agua tiene que correr lejos de la casa.",
+      "sourceEnglish": "The water must drain away from the house.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "L’eau doit s’écouler loin de la maison.",
+      "conditionalFrench": "L’eau doit s’écouler loin de la maison.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:card:15",
+      "legacySourceRef": "roofing:4:words:15",
+      "sourceSpanish": "El ático necesita ventilación.",
+      "sourceEnglish": "The attic needs ventilation.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Les combles ont besoin d’une ventilation.",
+      "conditionalFrench": "Les combles ont besoin d’une ventilation.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:4:fr-en:reader:1",
+      "legacySourceRef": "roofing:4:passage:1",
+      "sourceSpanish": "En la parte más alta del techo está la cumbrera.",
+      "sourceEnglish": "At the highest part of the roof is the ridge.",
+      "archivedFrenchEvidence": "Au point le plus haut du toit se trouve le faîtage.",
+      "conditionalFrench": "Au point le plus haut du toit se trouve le faîtage.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:reader:2",
+      "legacySourceRef": "roofing:4:passage:2",
+      "sourceSpanish": "La ventilación de caballete va a lo largo de la cumbrera.",
+      "sourceEnglish": "The ridge vent goes along the ridge.",
+      "archivedFrenchEvidence": "L’évent de faîtage longe le faîtage.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:reader:3",
+      "legacySourceRef": "roofing:4:passage:3",
+      "sourceSpanish": "El ático necesita ventilación.",
+      "sourceEnglish": "The attic needs ventilation.",
+      "archivedFrenchEvidence": "Les combles ont besoin d’une ventilation.",
+      "conditionalFrench": "Les combles ont besoin d’une ventilation.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:reader:4",
+      "legacySourceRef": "roofing:4:passage:4",
+      "sourceSpanish": "Abajo, en el borde del techo, están la fascia y el sofito.",
+      "sourceEnglish": "Below, at the edge of the roof, are the fascia and the soffit.",
+      "archivedFrenchEvidence": "Plus bas, au bord du toit, se trouvent la planche de rive et la sous-face du débord de toit.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:reader:5",
+      "legacySourceRef": "roofing:4:passage:5",
+      "sourceSpanish": "La canaleta está tapada.",
+      "sourceEnglish": "The gutter is clogged.",
+      "archivedFrenchEvidence": "La gouttière est bouchée.",
+      "conditionalFrench": "La gouttière est bouchée.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:reader:6",
+      "legacySourceRef": "roofing:4:passage:6",
+      "sourceSpanish": "El agua tiene que correr lejos de la casa.",
+      "sourceEnglish": "The water has to run away from the house.",
+      "archivedFrenchEvidence": "L’eau doit s’écouler loin de la maison.",
+      "conditionalFrench": "L’eau doit s’écouler loin de la maison.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:reader:7",
+      "legacySourceRef": "roofing:4:passage:7",
+      "sourceSpanish": "El capataz pregunta: ¿Dónde va la bajada de agua?",
+      "sourceEnglish": "The foreman asks: Where does the downspout go?",
+      "archivedFrenchEvidence": "Le contremaître demande : « Où se place la descente pluviale ? »",
+      "conditionalFrench": "Le contremaître demande : « Où se place la descente pluviale ? »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:reader:8",
+      "legacySourceRef": "roofing:4:passage:8",
+      "sourceSpanish": "Un obrero la señala en la esquina de la casa.",
+      "sourceEnglish": "A worker points to it at the corner of the house.",
+      "archivedFrenchEvidence": "Un ouvrier montre l’emplacement au coin de la maison.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "necesitar",
+      "englishMeaning": "to need",
+      "sourceSpanish": "El ático necesita ventilación.",
+      "sourceEnglish": "The attic needs ventilation."
+    },
+    {
+      "spanishInfinitive": "ir",
+      "englishMeaning": "to go",
+      "sourceSpanish": "La ventilación de caballete va a lo largo de la cumbrera.",
+      "sourceEnglish": "The ridge vent goes along the ridge."
+    },
+    {
+      "spanishInfinitive": "preguntar",
+      "englishMeaning": "to ask",
+      "sourceSpanish": "El capataz pregunta: ¿Dónde va la bajada de agua?",
+      "sourceEnglish": "The foreman asks: Where does the downspout go?"
+    },
+    {
+      "spanishInfinitive": "señalar",
+      "englishMeaning": "to point to",
+      "sourceSpanish": "Un obrero la señala en la esquina de la casa.",
+      "sourceEnglish": "A worker points to it at the corner of the house."
+    },
+    {
+      "spanishInfinitive": "correr",
+      "englishMeaning": "to run, to flow",
+      "sourceSpanish": "El agua corre lejos de la casa.",
+      "sourceEnglish": "The water runs away from the house."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Faîtage, ventilation et drainage",
+    "objectiveFrench": "Nommer les éléments du faîtage et du drainage, puis vérifier leur emplacement sur le plan.",
+    "speakingFrenchInstruction": "Décrivez le faîtage, les évents et les descentes pluviales sur un plan; demandez à la personne responsable de confirmer les emplacements.",
+    "speakingFrenchOpening": "Sur le plan, voici le faîtage. Où se place l’évent de faîtage et où sont les descentes pluviales ?",
+    "grammarFocusFrench": "Prépositions de lieu (au sommet, au bord, au coin); demander où se place un élément; avoir besoin de + nom.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to need",
+        "exampleEnglish": "The attic needs ventilation.",
+        "sourceInfinitiveSpanish": "necesitar",
+        "infinitiveFrench": "avoir besoin de",
+        "exampleFrench": "Les combles ont besoin d’une ventilation."
+      },
+      {
+        "meaningEnglish": "to go",
+        "exampleEnglish": "The ridge vent goes along the ridge.",
+        "sourceInfinitiveSpanish": "ir",
+        "infinitiveFrench": "longer",
+        "exampleFrench": "L’évent de faîtage longe le faîtage."
+      },
+      {
+        "meaningEnglish": "to ask",
+        "exampleEnglish": "The foreman asks: Where does the downspout go?",
+        "sourceInfinitiveSpanish": "preguntar",
+        "infinitiveFrench": "demander",
+        "exampleFrench": "Le contremaître demande : « Où se place la descente pluviale ? »"
+      },
+      {
+        "meaningEnglish": "to point to",
+        "exampleEnglish": "A worker points to it at the corner of the house.",
+        "sourceInfinitiveSpanish": "señalar",
+        "infinitiveFrench": "montrer",
+        "exampleFrench": "Un ouvrier montre l’emplacement au coin de la maison."
+      },
+      {
+        "meaningEnglish": "to run, to flow",
+        "exampleEnglish": "The water runs away from the house.",
+        "sourceInfinitiveSpanish": "correr",
+        "infinitiveFrench": "s’écouler",
+        "exampleFrench": "L’eau s’écoule loin de la maison."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "France/Québec roofing terminology and job roles require qualified regional and trade review.",
+      "Confirm actual product and work sequence against the approved plan, manufacturer instructions and site safety procedures."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:4:fr-en:card:1"
+      ],
+      "question": "The source ridge cap is generic; archived bardeau de faîtage selects a shingle product. Decide material/product sense before using a scored term."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:4:fr-en:card:2",
+        "core-roofing:4:fr-en:card:7",
+        "core-roofing:4:fr-en:card:8",
+        "core-roofing:4:fr-en:reader:2"
+      ],
+      "question": "Distinguish generic vent, ridge vent and box vent products. Archived évent de toit for box vent is broad and may erase the source type; verify French regional trade terms and the approved design context."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:4:fr-en:card:5",
+        "core-roofing:4:fr-en:card:9",
+        "core-roofing:4:fr-en:reader:4"
+      ],
+      "question": "Choose fascia and soffit senses for this roof edge; archived planche de rive and sous-face de débord de toit need regional/trade review and exact card-to-Reader consistency."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:4:fr-en:card:10"
+      ],
+      "question": "Decide whether archived les combles conveys source attic in this scene without implying a finished room or a different building space."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:4:fr-en:card:11",
+        "core-roofing:4:fr-en:reader:2"
+      ],
+      "question": "The source states where the ridge vent goes. Keep it a location description; confirm ventilation and drainage placements from the approved design before treating it as installation guidance."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:4:fr-en:reader:8"
+      ],
+      "question": "Source worker points to the downspout at the corner. Archived French points to its location; decide whether this preserves the object reference and the intended placement meaning."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:4:fr-en:card:7",
+        "core-roofing:4:fr-en:card:4",
+        "core-roofing:4:fr-en:reader:2",
+        "core-roofing:4:fr-en:reader:7"
+      ],
+      "question": "The source speaking task describes where ridge vent and downspouts belong; archived speaking adds plan confirmation. Review objective and card/Reader terms together before authoring speaking or six scored modes."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

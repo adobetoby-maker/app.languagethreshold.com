@@ -1,0 +1,309 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "foundation-roofing",
+  "lessonId": "foundation-roofing:8:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/foundation-roofing-curriculum.ts",
+      "sha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/foundation-roofing.json",
+      "sha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/foundation-7-10-draft.json",
+      "sha256": "a77687f79bc60d725bf692cd0168f9216eceb04d6f0f3f54ffebeb402ed46f10"
+    }
+  },
+  "sourceEnglishObjective": "Say no, not yet and never, and ask for more or less",
+  "candidateObjective": "Use Japanese negative expressions and compare quantities while reporting jobsite supplies.",
+  "candidateFocus": "まだ～ていません means not yet; 誰も～ません and 何も～ません pair an indefinite word with a negative ending. 決して～ません means never. もっと requests more; ～より少ない compares quantities.",
+  "audioScript": null,
+  "curriculumAdaptationNote": "Source contrasts never, nobody, nothing, not yet and more/less while reporting supplies. Japanese negative-polarity expressions such as 決して～ません, 誰も～ません and 何も～ません require a complete negative predicate, not standalone scored words. Confirm the countable-material and equipment senses.",
+  "cards": [
+    {
+      "id": "foundation-roofing:8:ja-en:card:1",
+      "legacySourceRef": "foundation-roofing:8:ja-en:cards:1",
+      "sourceSpanish": "nunca",
+      "sourceEnglish": "never",
+      "selectedJapanese": null,
+      "candidateJapanese": "決して～ません",
+      "archivedJapanese": "決して～ません",
+      "archivedEnglish": "never",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:ja-en:card:2",
+      "legacySourceRef": "foundation-roofing:8:ja-en:cards:2",
+      "sourceSpanish": "nadie",
+      "sourceEnglish": "nobody",
+      "selectedJapanese": null,
+      "candidateJapanese": "誰も～ません",
+      "archivedJapanese": "誰も～ません",
+      "archivedEnglish": "nobody",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:ja-en:card:3",
+      "legacySourceRef": "foundation-roofing:8:ja-en:cards:3",
+      "sourceSpanish": "nada",
+      "sourceEnglish": "nothing",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "何もありません",
+      "archivedEnglish": "nothing",
+      "reviewNote": "Source nada is general 'nothing'; archived 何もありません asserts that nothing exists. The isolated card needs a context-neutral or qualified phrase decision.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:ja-en:card:4",
+      "legacySourceRef": "foundation-roofing:8:ja-en:cards:4",
+      "sourceSpanish": "más",
+      "sourceEnglish": "more",
+      "selectedJapanese": null,
+      "candidateJapanese": "もっと",
+      "archivedJapanese": "もっと",
+      "archivedEnglish": "more",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:ja-en:card:5",
+      "legacySourceRef": "foundation-roofing:8:ja-en:cards:5",
+      "sourceSpanish": "menos",
+      "sourceEnglish": "less",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "少なく",
+      "archivedEnglish": "less, fewer",
+      "reviewNote": "Source menos is 'less' and can also apply to countable items in context; archived 少なく is an adverbial form. Choose a contextual headword, especially beside source fewer shingles.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:ja-en:card:6",
+      "legacySourceRef": "foundation-roofing:8:ja-en:cards:6",
+      "sourceSpanish": "otro",
+      "sourceEnglish": "another, other",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "もう一つ",
+      "archivedEnglish": "another one",
+      "reviewNote": "Source otro covers 'another' and 'other'; archived もう一つ is one more item. Keep the isolated face null until its full range is represented or a specific sense is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:ja-en:card:7",
+      "legacySourceRef": "foundation-roofing:8:ja-en:cards:7",
+      "sourceSpanish": "todavía",
+      "sourceEnglish": "still, yet",
+      "selectedJapanese": null,
+      "candidateJapanese": "まだ",
+      "archivedJapanese": "まだ",
+      "archivedEnglish": "still, yet",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:ja-en:card:8",
+      "legacySourceRef": "foundation-roofing:8:ja-en:cards:8",
+      "sourceSpanish": "un poco",
+      "sourceEnglish": "a little",
+      "selectedJapanese": null,
+      "candidateJapanese": "少し",
+      "archivedJapanese": "少し",
+      "archivedEnglish": "a little",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:ja-en:card:9",
+      "legacySourceRef": "foundation-roofing:8:ja-en:cards:9",
+      "sourceSpanish": "No entiendo.",
+      "sourceEnglish": "I don't understand.",
+      "selectedJapanese": null,
+      "candidateJapanese": "分かりません。",
+      "archivedJapanese": "分かりません。",
+      "archivedEnglish": "I don't understand.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:ja-en:card:10",
+      "legacySourceRef": "foundation-roofing:8:ja-en:cards:10",
+      "sourceSpanish": "Todavía no.",
+      "sourceEnglish": "Not yet.",
+      "selectedJapanese": null,
+      "candidateJapanese": "まだです。",
+      "archivedJapanese": "まだです。",
+      "archivedEnglish": "Not yet.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:ja-en:card:11",
+      "legacySourceRef": "foundation-roofing:8:ja-en:cards:11",
+      "sourceSpanish": "Nadie sube sin arnés.",
+      "sourceEnglish": "Nobody goes up without a harness.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "フルハーネスなしで上がる人はいません。",
+      "archivedEnglish": "Nobody goes up without a full-body harness.",
+      "reviewNote": "Source says only harness; archived フルハーネス adds full-body specificity. A qualified roofing/source reviewer must decide the equipment term before selecting it.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:ja-en:card:12",
+      "legacySourceRef": "foundation-roofing:8:ja-en:cards:12",
+      "sourceSpanish": "Necesito otro bulto.",
+      "sourceEnglish": "I need another bundle.",
+      "selectedJapanese": null,
+      "candidateJapanese": "もう一束必要です。",
+      "archivedJapanese": "もう一束必要です。",
+      "archivedEnglish": "I need another bundle.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "foundation-roofing:8:ja-en:line:1",
+      "legacySourceRef": "foundation-roofing:8:ja-en:reader:1",
+      "sourceSpanish": "El techo todavía no está listo.",
+      "sourceEnglish": "The roof isn't ready yet.",
+      "selectedJapanese": null,
+      "candidateJapanese": "屋根の準備はまだできていません。",
+      "archivedJapanese": "屋根の準備はまだできていません。",
+      "archivedEnglish": "The roof isn't ready yet.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:ja-en:line:2",
+      "legacySourceRef": "foundation-roofing:8:ja-en:reader:2",
+      "sourceSpanish": "Nadie sube sin arnés.",
+      "sourceEnglish": "Nobody goes up without a harness.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "フルハーネスなしで屋根に上がる人はいません。",
+      "archivedEnglish": "Nobody goes up on the roof without a full-body harness.",
+      "reviewNote": "Source says nobody goes up without a harness; archived text adds roof destination and full-body harness specificity. Keep both additions visible for source and roofing review.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:ja-en:line:3",
+      "legacySourceRef": "foundation-roofing:8:ja-en:reader:3",
+      "sourceSpanish": "Nunca trabajamos en un techo mojado.",
+      "sourceEnglish": "We never work on a wet roof.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ぬれた屋根では決して作業しません。",
+      "archivedJapanese": "ぬれた屋根では決して作業しません。",
+      "archivedEnglish": "We never work on a wet roof.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:ja-en:line:4",
+      "legacySourceRef": "foundation-roofing:8:ja-en:reader:4",
+      "sourceSpanish": "No hay nada en la carretilla.",
+      "sourceEnglish": "There's nothing in the wheelbarrow.",
+      "selectedJapanese": null,
+      "candidateJapanese": "手押し車には何もありません。",
+      "archivedJapanese": "手押し車には何もありません。",
+      "archivedEnglish": "There's nothing in the wheelbarrow.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:ja-en:line:5",
+      "legacySourceRef": "foundation-roofing:8:ja-en:reader:5",
+      "sourceSpanish": "Necesito otro bulto y un poco más de clavos.",
+      "sourceEnglish": "I need another bundle and a few more nails.",
+      "selectedJapanese": null,
+      "candidateJapanese": "もう一束と釘がもう少し必要です。",
+      "archivedJapanese": "もう一束と釘がもう少し必要です。",
+      "archivedEnglish": "I need another bundle and a few more nails.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:ja-en:line:6",
+      "legacySourceRef": "foundation-roofing:8:ja-en:reader:6",
+      "sourceSpanish": "Hoy usamos menos tejas que ayer.",
+      "sourceEnglish": "Today we use fewer shingles than yesterday.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "今日は昨日より少ないシングル材を使います。",
+      "archivedEnglish": "Today we use fewer shingles than yesterday.",
+      "reviewNote": "English source says shingles while Spanish tejas can name roof tiles. Archived シングル材 selects shingles. Resolve the intended material and quantity expression with a qualified source/roofing reviewer.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:ja-en:line:7",
+      "legacySourceRef": "foundation-roofing:8:ja-en:reader:7",
+      "sourceSpanish": "No entiendo, ¿puede hablar más despacio?",
+      "sourceEnglish": "I don't understand, can you speak more slowly?",
+      "selectedJapanese": null,
+      "candidateJapanese": "分かりません。もう少しゆっくり話してもらえますか。",
+      "archivedJapanese": "分かりません。もう少しゆっくり話してもらえますか。",
+      "archivedEnglish": "I don't understand. Can you speak more slowly?",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find what is absent from the wheelbarrow.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall the expressions for not yet, nothing, and another bundle.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish まだです from 分かりません when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'I need another bundle.' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Tell a coworker what is not ready and ask for more nails.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write one sentence with 何も～ません and another comparing today's quantity with yesterday's.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

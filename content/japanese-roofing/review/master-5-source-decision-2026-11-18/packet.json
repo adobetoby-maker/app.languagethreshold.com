@@ -1,0 +1,709 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "master-roofing",
+  "lessonId": "master-roofing:5:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-4-6-draft.json",
+      "sha256": "4b08dda641541c9bba9eaea7bddad381917015b877a3e9509028b607bc2de05c"
+    }
+  },
+  "sourceEnglishTitle": "Unexpected Rotten Deck: Change Order with the Homeowner",
+  "sourceEnglishObjective": "Tell a homeowner what you found under the old roof, propose the repair, and get a signed change order",
+  "sourceEnglishSpeaking": "You are the crew lead and the AI is the homeowner: describe what you found during the tear-off and what it looked like, propose the repair with its cost and extra time using the conditional, and ask for a signature on the change order.",
+  "sourceSpanishReaderTitle": "What We Found Under the Shingles",
+  "sourceLessonType": "Case",
+  "sourceBlock": "B",
+  "sourceGrammar": {
+    "focus": "Preterite vs imperfect; conditional for the proposal",
+    "examples": [
+      {
+        "es": "Cuando quitamos las tejas, encontramos madera podrida.",
+        "en": "When we removed the shingles, we found rotten wood."
+      },
+      {
+        "es": "La cubierta estaba blanda; cambiarla costaría más.",
+        "en": "The deck was soft; replacing it would cost more."
+      }
+    ]
+  },
+  "sourceVerbExamples": [
+    {
+      "infinitive": "encontrar",
+      "native": "to find",
+      "forms": {
+        "yo": "encuentro",
+        "tú": "encuentras",
+        "él_ella_usted": "encuentra",
+        "nosotros": "encontramos",
+        "ellos_ustedes": "encuentran"
+      },
+      "example": {
+        "target": "Rogelio encuentra madera podrida cerca de la chimenea.",
+        "native": "Rogelio finds rotten wood near the chimney."
+      },
+      "note": "Preterite: encontré, encontramos. The o to ue change happens only in the present."
+    },
+    {
+      "infinitive": "quitar",
+      "native": "to remove",
+      "forms": {
+        "yo": "quito",
+        "tú": "quitas",
+        "él_ella_usted": "quita",
+        "nosotros": "quitamos",
+        "ellos_ustedes": "quitan"
+      },
+      "example": {
+        "target": "Cuando quitamos las tejas, encontramos madera podrida.",
+        "native": "When we removed the shingles, we found rotten wood."
+      },
+      "note": "Preterite for a finished action: quitamos, quité."
+    },
+    {
+      "infinitive": "estar",
+      "native": "to be (condition)",
+      "forms": {
+        "yo": "estoy",
+        "tú": "estás",
+        "él_ella_usted": "está",
+        "nosotros": "estamos",
+        "ellos_ustedes": "están"
+      },
+      "example": {
+        "target": "La cubierta estaba blanda en esta sección.",
+        "native": "The deck was soft in this section."
+      },
+      "note": "Imperfect for what things were like: estaba, había, parecía."
+    },
+    {
+      "infinitive": "costar",
+      "native": "to cost",
+      "forms": {
+        "yo": "cuesto",
+        "tú": "cuestas",
+        "él_ella_usted": "cuesta",
+        "nosotros": "costamos",
+        "ellos_ustedes": "cuestan"
+      },
+      "example": {
+        "target": "Costaría más y tomaría un día extra.",
+        "native": "It would cost more and take an extra day."
+      },
+      "note": "Conditional for a proposal: costaría, tomaría."
+    },
+    {
+      "infinitive": "recomendar",
+      "native": "to recommend",
+      "forms": {
+        "yo": "recomiendo",
+        "tú": "recomiendas",
+        "él_ella_usted": "recomienda",
+        "nosotros": "recomendamos",
+        "ellos_ustedes": "recomiendan"
+      },
+      "example": {
+        "target": "Le recomendaría cambiar tres hojas de triplay.",
+        "native": "I would recommend replacing three sheets of plywood."
+      },
+      "note": "The conditional softens advice: le recomendaría."
+    }
+  ],
+  "candidateObjective": "家主に撤去後に見つかった腐朽箇所を説明し、補修案と署名付き変更注文書を扱う。",
+  "candidateFocus": "～たとき places the discovery after tear-off. ～ことをお勧めします makes a polite proposal; ～ため states why signed authorization precedes repair.",
+  "archivedForms": [
+    {
+      "base": "見つける",
+      "exampleJa": "ロヘリオは煙突の近くで腐朽した木材を見つけます。",
+      "meaningEnglish": "to find",
+      "exampleEnglish": "Rogelio finds rotten wood near the chimney.",
+      "sourceInfinitiveSpanish": "encontrar"
+    },
+    {
+      "base": "撤去する",
+      "exampleJa": "シングル材を撤去したとき、腐朽した木材が見つかりました。",
+      "meaningEnglish": "to remove",
+      "exampleEnglish": "When we removed the shingles, we found rotten wood.",
+      "sourceInfinitiveSpanish": "quitar"
+    },
+    {
+      "base": "柔らかい",
+      "exampleJa": "この区画の野地板は柔らかくなっていました。",
+      "meaningEnglish": "to be (condition)",
+      "exampleEnglish": "The deck was soft in this section.",
+      "sourceInfinitiveSpanish": "estar"
+    },
+    {
+      "base": "かかる",
+      "exampleJa": "費用が増え、もう一日かかります。",
+      "meaningEnglish": "to cost",
+      "exampleEnglish": "It would cost more and take an extra day.",
+      "sourceInfinitiveSpanish": "costar"
+    },
+    {
+      "base": "勧める",
+      "exampleJa": "合板三枚の交換をお勧めします。",
+      "meaningEnglish": "to recommend",
+      "exampleEnglish": "I would recommend replacing three sheets of plywood.",
+      "sourceInfinitiveSpanish": "recomendar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "シングル材を撤去したとき、腐朽した木材が見つかりました。写真をお見せし、合板三枚の交換と追加費用を変更注文書でご説明します。",
+    "goal": "Tell the homeowner about rotten deck found during tear-off. Show the photos, explain the proposed repair, added cost and time, and request authorization on the change order politely."
+  },
+  "cards": [
+    {
+      "id": "master-roofing:5:ja-en:card:1",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:1",
+      "sourceSpanish": "la cubierta blanda o podrida",
+      "sourceEnglish": "the soft or rotten deck",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "柔らかい、または腐朽した野地板",
+      "archivedEnglish": "the soft or rotten deck",
+      "reviewNote": "Soft or rotten deck is an observation and repair scope, not a confirmed structural diagnosis.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:card:2",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:2",
+      "sourceSpanish": "la madera podrida",
+      "sourceEnglish": "the rotten wood",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "腐朽した木材",
+      "archivedJapanese": "腐朽した木材",
+      "archivedEnglish": "the rotten wood",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:card:3",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:3",
+      "sourceSpanish": "la orden de cambio",
+      "sourceEnglish": "the change order",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "変更注文書（change order）",
+      "archivedEnglish": "the change order",
+      "reviewNote": "Change order is a contract document; confirm Japanese legal/business sense in context.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:card:4",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:4",
+      "sourceSpanish": "el presupuesto",
+      "sourceEnglish": "the estimate",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "見積書",
+      "archivedJapanese": "見積書",
+      "archivedEnglish": "the estimate",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:card:5",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:5",
+      "sourceSpanish": "el costo adicional",
+      "sourceEnglish": "the extra cost",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "追加費用",
+      "archivedJapanese": "追加費用",
+      "archivedEnglish": "the extra cost",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:card:6",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:6",
+      "sourceSpanish": "la hoja de triplay",
+      "sourceEnglish": "the sheet of plywood",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "合板一枚",
+      "archivedJapanese": "合板一枚",
+      "archivedEnglish": "the sheet of plywood",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:card:7",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:7",
+      "sourceSpanish": "la firma",
+      "sourceEnglish": "the signature",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "署名",
+      "archivedJapanese": "署名",
+      "archivedEnglish": "the signature",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:card:8",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:8",
+      "sourceSpanish": "el contrato",
+      "sourceEnglish": "the contract",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "契約書",
+      "archivedJapanese": "契約書",
+      "archivedEnglish": "the contract",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:card:9",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:9",
+      "sourceSpanish": "la autorización",
+      "sourceEnglish": "the authorization",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "承認",
+      "archivedEnglish": "the authorization",
+      "reviewNote": "Authorization and signature workflow depends on contract and locale.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:card:10",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:10",
+      "sourceSpanish": "la foto del daño",
+      "sourceEnglish": "the photo of the damage",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "損傷箇所の写真",
+      "archivedJapanese": "損傷箇所の写真",
+      "archivedEnglish": "the photo of the damage",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:card:11",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:11",
+      "sourceSpanish": "el desmontaje",
+      "sourceEnglish": "the tear-off",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "既存屋根材の撤去",
+      "archivedJapanese": "既存屋根材の撤去",
+      "archivedEnglish": "the tear-off",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:card:12",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:12",
+      "sourceSpanish": "la viga",
+      "sourceEnglish": "the rafter",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "垂木",
+      "archivedEnglish": "the rafter",
+      "reviewNote": "Rafter staining is observed, not proof the rafter needs replacement.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:card:13",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:13",
+      "sourceSpanish": "el día extra",
+      "sourceEnglish": "the extra day",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "追加の一日",
+      "archivedJapanese": "追加の一日",
+      "archivedEnglish": "the extra day",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:card:14",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:14",
+      "sourceSpanish": "el dueño de la casa",
+      "sourceEnglish": "the homeowner",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "家主",
+      "archivedJapanese": "家主",
+      "archivedEnglish": "the homeowner",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:card:15",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:15",
+      "sourceSpanish": "Cuando quitamos las tejas, encontramos madera podrida.",
+      "sourceEnglish": "When we removed the shingles, we found rotten wood.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "シングル材を撤去したとき、腐朽した木材が見つかりました。",
+      "archivedJapanese": "シングル材を撤去したとき、腐朽した木材が見つかりました。",
+      "archivedEnglish": "When we removed the shingles, we found rotten wood.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:card:16",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:16",
+      "sourceSpanish": "La cubierta estaba blanda en esta sección.",
+      "sourceEnglish": "The deck was soft in this section.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "この区画の野地板は柔らかくなっていました。",
+      "archivedJapanese": "この区画の野地板は柔らかくなっていました。",
+      "archivedEnglish": "The deck was soft in this section.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:card:17",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:17",
+      "sourceSpanish": "Le recomendaría cambiar tres hojas.",
+      "sourceEnglish": "I would recommend replacing three sheets.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "合板三枚の交換をお勧めします。",
+      "archivedEnglish": "I would recommend replacing three sheets.",
+      "reviewNote": "Three-sheet proposal depends on qualified assessment and owner approval.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:card:18",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:18",
+      "sourceSpanish": "Costaría más y tomaría un día extra.",
+      "sourceEnglish": "It would cost more and take an extra day.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "費用が増え、もう一日かかります。",
+      "archivedEnglish": "It would cost more and take an extra day.",
+      "reviewNote": "Extra cost/time are estimates, not universal outcomes.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:card:19",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:19",
+      "sourceSpanish": "¿Le muestro las fotos?",
+      "sourceEnglish": "Shall I show you the photos?",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "写真をお見せしましょうか。",
+      "archivedJapanese": "写真をお見せしましょうか。",
+      "archivedEnglish": "Shall I show you the photos?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:card:20",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:20",
+      "sourceSpanish": "Necesito su firma en la orden de cambio.",
+      "sourceEnglish": "I need your signature on the change order.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "変更注文書にご署名をお願いします。",
+      "archivedEnglish": "I need your signature on the change order.",
+      "reviewNote": "Signature requirement depends on contract and local process.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:card:21",
+      "legacySourceRef": "master-roofing:5:ja-en:cards:21",
+      "sourceSpanish": "Oye, ven a ver esto.",
+      "sourceEnglish": "Hey, come look at this.",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "ねえ、これを見に来てください。",
+      "archivedJapanese": "ねえ、これを見に来てください。",
+      "archivedEnglish": "Hey, come look at this.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:5:ja-en:line:1",
+      "legacySourceRef": "master-roofing:5:ja-en:reader:1",
+      "sourceSpanish": "A las nueve de la mañana, la cuadrilla terminó el desmontaje del lado norte.",
+      "sourceEnglish": "At nine in the morning, the crew finished the tear-off on the north side.",
+      "selectedJapanese": null,
+      "candidateJapanese": "午前九時、作業班は北側の既存屋根材の撤去を終えました。",
+      "archivedJapanese": "午前九時、作業班は北側の既存屋根材の撤去を終えました。",
+      "archivedEnglish": "At nine in the morning, the crew finished the tear-off on the north side.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:line:2",
+      "legacySourceRef": "master-roofing:5:ja-en:reader:2",
+      "sourceSpanish": "Kevin pisaba con cuidado cuando sintió que la cubierta se hundía.",
+      "sourceEnglish": "Kevin was stepping carefully when he felt the deck sinking.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ケビンは慎重に歩いているとき、野地板が沈むのを感じました。",
+      "archivedEnglish": "Kevin was stepping carefully when he felt the deck sinking.",
+      "reviewNote": "Deck felt soft underfoot; safe access around damaged structure needs qualified review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:line:3",
+      "legacySourceRef": "master-roofing:5:ja-en:reader:3",
+      "sourceSpanish": "Kevin: Oye, ven a ver esto.",
+      "sourceEnglish": "Kevin: Hey, come look at this.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ケビン「ねえ、これを見に来てください。」",
+      "archivedJapanese": "ケビン「ねえ、これを見に来てください。」",
+      "archivedEnglish": "Kevin: Hey, come look at this.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:line:4",
+      "legacySourceRef": "master-roofing:5:ja-en:reader:4",
+      "sourceSpanish": "Rogelio revisó el área con la barreta: la madera estaba negra y húmeda, y una viga tenía manchas.",
+      "sourceEnglish": "Rogelio checked the area with the pry bar: the wood was black and damp, and a rafter had stains.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオはバールでその場所を確認しました。木材は黒く湿っており、垂木にも染みがありました。",
+      "archivedEnglish": "Rogelio checked the area with the pry bar: the wood was black and damp, and a rafter had stains.",
+      "reviewNote": "Pry-bar inspection and rafter staining are observations, not structural clearance.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:line:5",
+      "legacySourceRef": "master-roofing:5:ja-en:reader:5",
+      "sourceSpanish": "Rogelio tomó fotos del daño y marcó la orilla con pintura.",
+      "sourceEnglish": "Rogelio took photos of the damage and marked the edge with paint.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオは損傷箇所を撮影し、塗料で縁に印を付けました。",
+      "archivedEnglish": "Rogelio took photos of the damage and marked the edge with paint.",
+      "reviewNote": "Marking damaged edge and photo process require site safety review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:line:6",
+      "legacySourceRef": "master-roofing:5:ja-en:reader:6",
+      "sourceSpanish": "Después bajó a hablar con el dueño de la casa, el señor Ramírez.",
+      "sourceEnglish": "Then he went down to talk with the homeowner, Mr. Ramírez.",
+      "selectedJapanese": null,
+      "candidateJapanese": "その後、家主のラミレスさんと話すために下へ降りました。",
+      "archivedJapanese": "その後、家主のラミレスさんと話すために下へ降りました。",
+      "archivedEnglish": "Then he went down to talk with the homeowner, Mr. Ramírez.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:line:7",
+      "legacySourceRef": "master-roofing:5:ja-en:reader:7",
+      "sourceSpanish": "Rogelio: Señor Ramírez, cuando quitamos las tejas, encontramos madera podrida.",
+      "sourceEnglish": "Rogelio: Mr. Ramírez, when we removed the shingles, we found rotten wood.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「ラミレスさん、シングル材を撤去したとき、腐朽した木材が見つかりました。」",
+      "archivedJapanese": "ロヘリオ「ラミレスさん、シングル材を撤去したとき、腐朽した木材が見つかりました。」",
+      "archivedEnglish": "Rogelio: Mr. Ramírez, when we removed the shingles, we found rotten wood.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:line:8",
+      "legacySourceRef": "master-roofing:5:ja-en:reader:8",
+      "sourceSpanish": "Rogelio: La cubierta estaba blanda en esta sección, cerca de la chimenea, y parecía que el agua entraba desde hacía años.",
+      "sourceEnglish": "Rogelio: The deck was soft in this section, near the chimney, and it looked like water had been getting in for years.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「煙突の近くのこの区画では野地板が柔らかく、何年も水が入っていたように見えました。」",
+      "archivedEnglish": "Rogelio: The deck was soft in this section, near the chimney, and it looked like water had been getting in for years.",
+      "reviewNote": "Years of water entry is a visual inference, not confirmed duration.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:line:9",
+      "legacySourceRef": "master-roofing:5:ja-en:reader:9",
+      "sourceSpanish": "Rogelio: ¿Le muestro las fotos?",
+      "sourceEnglish": "Rogelio: Shall I show you the photos?",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「写真をお見せしましょうか。」",
+      "archivedJapanese": "ロヘリオ「写真をお見せしましょうか。」",
+      "archivedEnglish": "Rogelio: Shall I show you the photos?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:line:10",
+      "legacySourceRef": "master-roofing:5:ja-en:reader:10",
+      "sourceSpanish": "Sr. Ramírez: Sí, por favor. ¿Y eso no estaba en el presupuesto?",
+      "sourceEnglish": "Mr. Ramírez: Yes, please. And that wasn't in the estimate?",
+      "selectedJapanese": null,
+      "candidateJapanese": "ラミレスさん「はい、お願いします。それは見積書に入っていなかったのですか。」",
+      "archivedJapanese": "ラミレスさん「はい、お願いします。それは見積書に入っていなかったのですか。」",
+      "archivedEnglish": "Mr. Ramírez: Yes, please. And that wasn't in the estimate?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:line:11",
+      "legacySourceRef": "master-roofing:5:ja-en:reader:11",
+      "sourceSpanish": "Rogelio: No, porque nadie podía verlo antes del desmontaje; para eso sirve la orden de cambio.",
+      "sourceEnglish": "Rogelio: No, because nobody could see it before the tear-off; that's what the change order is for.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「はい。撤去する前は誰にも見えなかったため、変更注文書で扱います。」",
+      "archivedEnglish": "Rogelio: No, because nobody could see it before the tear-off; that's what the change order is for.",
+      "reviewNote": "Change-order contractual explanation is locale/contract dependent.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:line:12",
+      "legacySourceRef": "master-roofing:5:ja-en:reader:12",
+      "sourceSpanish": "Rogelio: Le recomendaría cambiar tres hojas de triplay y revisar la viga.",
+      "sourceEnglish": "Rogelio: I would recommend replacing three sheets of plywood and checking the rafter.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「合板三枚を交換し、垂木を確認することをお勧めします。」",
+      "archivedEnglish": "Rogelio: I would recommend replacing three sheets of plywood and checking the rafter.",
+      "reviewNote": "Three-sheet replacement and rafter check are proposed, not approved scope.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:line:13",
+      "legacySourceRef": "master-roofing:5:ja-en:reader:13",
+      "sourceSpanish": "Rogelio: Costaría más y tomaría un día extra, y el costo adicional aparece aquí, por escrito, como dice el contrato.",
+      "sourceEnglish": "Rogelio: It would cost more and take an extra day, and the extra cost appears here, in writing, as the contract says.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「費用が増え、もう一日かかります。契約書にあるとおり、追加費用はここに書面で示しています。」",
+      "archivedEnglish": "Rogelio: It would cost more and take an extra day, and the extra cost appears here, in writing, as the contract says.",
+      "reviewNote": "Cost and timeline depend on a written estimate and contract.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:line:14",
+      "legacySourceRef": "master-roofing:5:ja-en:reader:14",
+      "sourceSpanish": "Rogelio: No podemos tapar madera podrida, porque los clavos nuevos no agarrarían bien.",
+      "sourceEnglish": "Rogelio: We can't cover rotten wood, because the new nails wouldn't hold well.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「腐朽した木材を覆うことはできません。新しい釘が十分に効かないからです。」",
+      "archivedEnglish": "Rogelio: We can't cover rotten wood, because the new nails wouldn't hold well.",
+      "reviewNote": "Do not cover rotten wood is a source command requiring qualified structural/roofing review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:line:15",
+      "legacySourceRef": "master-roofing:5:ja-en:reader:15",
+      "sourceSpanish": "Sr. Ramírez: Está bien, entonces hágalo.",
+      "sourceEnglish": "Mr. Ramírez: All right, then do it.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ラミレスさん「分かりました。では、お願いします。」",
+      "archivedJapanese": "ラミレスさん「分かりました。では、お願いします。」",
+      "archivedEnglish": "Mr. Ramírez: All right, then do it.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:ja-en:line:16",
+      "legacySourceRef": "master-roofing:5:ja-en:reader:16",
+      "sourceSpanish": "Rogelio: Gracias; necesito su firma en la orden de cambio, porque sin su autorización no podemos empezar la reparación.",
+      "sourceEnglish": "Rogelio: Thank you; I need your signature on the change order, because without your authorization we can't start the repair.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「ありがとうございます。補修を始めるには承認が必要ですので、変更注文書にご署名をお願いします。」",
+      "archivedEnglish": "Rogelio: Thank you; I need your signature on the change order, because without your authorization we can't start the repair.",
+      "reviewNote": "Signature and authorization procedure depends on contract and locale.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Identify the soft deck, damaged plywood, photo, and change order.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall estimate, extra cost, signature, rafter, and authorization.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 見積書 from 変更注文書 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'I need your signature on the change order' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Explain the rotten deck, proposed repair, extra cost, and signed change order to the homeowner.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write what the crew found and why it was not in the original estimate.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "curriculumAdaptationNote": "The source shows suspected rotten deck under shingles, photographs, a proposed three-sheet repair, extra time/cost and a change-order signature before starting. Preserve observed damage versus inferred water history, proposal versus authorization, and contract-specific workflow. Safe access around a soft deck and rafter assessment require qualified review. Grammar and five Spanish verbs are pinned separately. No selected learner/audio text or progress identity is created.",
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

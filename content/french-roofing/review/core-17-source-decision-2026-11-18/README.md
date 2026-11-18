@@ -1,0 +1,9 @@
+# French Roofing Core 17 — fastener pattern source decision
+
+This inert packet pins **15 exact current Spanish/English cards**, **eight aligned Reader turns**, five source verb examples and current-source/archive hashes for *Fastener Pattern*. Proposed `core-roofing:17:fr-en` IDs are review references only. The source header still says `roofing`; stage-local saved-item and progress identity need a deliberate migration before learner use.
+
+The archived French remains separate evidence. Five card faces and two Reader turns are held from even conditional selection: *nail pattern* versus generic *fastener* senses, the card's broad “shingle” against the Reader's asphalt shingle, and the guide's four-nail example versus this product's actual manufacturer-specified count and pattern. The source asks the crew to read the wrapper, confirm product instructions, then use the same pattern on each shingle of that product. A qualified trade, source, French and dictionary reviewer must settle product scope and terminology before any scored command or recording is selected. These are internal source/domain questions, separate from learner text.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, listening, offline, saved-progress, browser and V4 gates are false. No audio was generated or approved; no owner page or runtime route imports this packet. Six authored See/Recall/Hear/Type/Say/Write prompt/target activities, forms, speaking, exact-pair dictionary and device acceptance remain open.
+
+`build.py --check` detects source drift; `validate.py` independently checks current source order, IDs, archived evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural checks and self-check are not qualified review.

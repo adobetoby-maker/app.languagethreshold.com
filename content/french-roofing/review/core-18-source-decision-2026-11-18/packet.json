@@ -1,0 +1,491 @@
+{
+  "schema": "french-roofing-core18-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:18",
+  "proposedPairId": "core-roofing:18:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-16-18-draft.json": "ccdf464e2f27eabede94177db95909e71cda055740712e1ab63dae16aa3e653d"
+  },
+  "orderedSourceRowsSha256": "d775c4b81a9f64c43c8859dde7874fa95863d17b5a5078f1efd4d9d64ff25549",
+  "sourceTitleEnglish": "Avoid Overdriven Nails",
+  "sourceObjectiveEnglish": "Identify and correct overdriven fasteners",
+  "sourceSpeakingEnglish": "Stop installation when the nail gun is burying nails and ask for an adjustment.",
+  "sourceReaderTitleSpanish": "Clavos demasiado hundidos",
+  "cards": [
+    {
+      "id": "core-roofing:18:fr-en:card:1",
+      "legacySourceRef": "roofing:18:words:1",
+      "sourceSpanish": "Clavo demasiado hundido",
+      "sourceEnglish": "overdriven nail",
+      "kind": "term",
+      "archivedFrenchEvidence": "le clou trop enfoncé",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:card:2",
+      "legacySourceRef": "roofing:18:words:2",
+      "sourceSpanish": "Teja asfáltica",
+      "sourceEnglish": "shingle",
+      "kind": "term",
+      "archivedFrenchEvidence": "le bardeau",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:card:3",
+      "legacySourceRef": "roofing:18:words:3",
+      "sourceSpanish": "Pistola de clavos",
+      "sourceEnglish": "nail gun",
+      "kind": "term",
+      "archivedFrenchEvidence": "la cloueuse",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:card:4",
+      "legacySourceRef": "roofing:18:words:4",
+      "sourceSpanish": "Presión de aire",
+      "sourceEnglish": "air pressure",
+      "kind": "term",
+      "archivedFrenchEvidence": "la pression d’air",
+      "conditionalFrench": "la pression d’air",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:card:5",
+      "legacySourceRef": "roofing:18:words:5",
+      "sourceSpanish": "Compresor",
+      "sourceEnglish": "compressor",
+      "kind": "term",
+      "archivedFrenchEvidence": "le compresseur",
+      "conditionalFrench": "le compresseur",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:card:6",
+      "legacySourceRef": "roofing:18:words:6",
+      "sourceSpanish": "Profundidad",
+      "sourceEnglish": "depth",
+      "kind": "term",
+      "archivedFrenchEvidence": "la profondeur",
+      "conditionalFrench": "la profondeur",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:card:7",
+      "legacySourceRef": "roofing:18:words:7",
+      "sourceSpanish": "Cabeza del clavo",
+      "sourceEnglish": "nail head",
+      "kind": "term",
+      "archivedFrenchEvidence": "la tête du clou",
+      "conditionalFrench": "la tête du clou",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:card:8",
+      "legacySourceRef": "roofing:18:words:8",
+      "sourceSpanish": "Manguera",
+      "sourceEnglish": "hose",
+      "kind": "term",
+      "archivedFrenchEvidence": "le tuyau",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:card:9",
+      "legacySourceRef": "roofing:18:words:9",
+      "sourceSpanish": "Ajustar",
+      "sourceEnglish": "adjust",
+      "kind": "term",
+      "archivedFrenchEvidence": "régler",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:card:10",
+      "legacySourceRef": "roofing:18:words:10",
+      "sourceSpanish": "No claven de más — sin enterrar el clavo.",
+      "sourceEnglish": "Don't over-drive the nails.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "N’enfoncez pas trop les clous.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:card:11",
+      "legacySourceRef": "roofing:18:words:11",
+      "sourceSpanish": "Alto. Los clavos están muy hundidos.",
+      "sourceEnglish": "Stop. The nails are too deep.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Arrêtez. Les clous sont trop enfoncés.",
+      "conditionalFrench": "Arrêtez. Les clous sont trop enfoncés.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:card:12",
+      "legacySourceRef": "roofing:18:words:12",
+      "sourceSpanish": "Bajen la presión de aire.",
+      "sourceEnglish": "Lower the air pressure.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Réduisez la pression d’air.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:card:13",
+      "legacySourceRef": "roofing:18:words:13",
+      "sourceSpanish": "La cabeza del clavo tiene que quedar al ras.",
+      "sourceEnglish": "The nail head must sit flush.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "La tête du clou doit affleurer.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:card:14",
+      "legacySourceRef": "roofing:18:words:14",
+      "sourceSpanish": "Pongan un clavo nuevo al lado.",
+      "sourceEnglish": "Put a new nail next to it.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Placez un nouveau clou à côté.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:card:15",
+      "legacySourceRef": "roofing:18:words:15",
+      "sourceSpanish": "Ajusten la pistola de clavos.",
+      "sourceEnglish": "Adjust the nail gun.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Réglez la cloueuse.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:18:fr-en:reader:1",
+      "legacySourceRef": "roofing:18:passage:1",
+      "sourceSpanish": "El capataz camina por el techo y escucha la pistola de clavos.",
+      "sourceEnglish": "The foreman walks the roof and listens to the nail gun.",
+      "archivedFrenchEvidence": "Le contremaître parcourt le toit et écoute la cloueuse.",
+      "conditionalFrench": "Le contremaître parcourt le toit et écoute la cloueuse.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:reader:2",
+      "legacySourceRef": "roofing:18:passage:2",
+      "sourceSpanish": "Algunos clavos se ven demasiado hundidos.",
+      "sourceEnglish": "Some nails look overdriven.",
+      "archivedFrenchEvidence": "Certains clous semblent trop enfoncés.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:reader:3",
+      "legacySourceRef": "roofing:18:passage:3",
+      "sourceSpanish": "El capataz levanta la mano y dice: Alto. Los clavos están muy hundidos.",
+      "sourceEnglish": "The foreman raises his hand and says: Stop. The nails are too deep.",
+      "archivedFrenchEvidence": "Le contremaître lève la main et dit : « Arrêtez. Les clous sont trop enfoncés. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:reader:4",
+      "legacySourceRef": "roofing:18:passage:4",
+      "sourceSpanish": "La cabeza del clavo tiene que quedar al ras.",
+      "sourceEnglish": "The nail head has to sit flush.",
+      "archivedFrenchEvidence": "La tête du clou doit affleurer.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:reader:5",
+      "legacySourceRef": "roofing:18:passage:5",
+      "sourceSpanish": "Un obrero revisa el compresor y la manguera.",
+      "sourceEnglish": "A worker checks the compressor and the hose.",
+      "archivedFrenchEvidence": "Un ouvrier vérifie le compresseur et le tuyau.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:reader:6",
+      "legacySourceRef": "roofing:18:passage:6",
+      "sourceSpanish": "Bajen la presión de aire.",
+      "sourceEnglish": "Lower the air pressure.",
+      "archivedFrenchEvidence": "Réduisez la pression d’air.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:reader:7",
+      "legacySourceRef": "roofing:18:passage:7",
+      "sourceSpanish": "Ajusten la pistola de clavos.",
+      "sourceEnglish": "Adjust the nail gun.",
+      "archivedFrenchEvidence": "Réglez la cloueuse.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:reader:8",
+      "legacySourceRef": "roofing:18:passage:8",
+      "sourceSpanish": "Pongan un clavo nuevo al lado.",
+      "sourceEnglish": "Put a new nail next to it.",
+      "archivedFrenchEvidence": "Placez un nouveau clou à côté.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:18:fr-en:reader:9",
+      "legacySourceRef": "roofing:18:passage:9",
+      "sourceSpanish": "Revisen la profundidad en unas cuantas tejas antes de seguir.",
+      "sourceEnglish": "Check the depth on a few shingles before continuing.",
+      "archivedFrenchEvidence": "Vérifiez la profondeur sur quelques bardeaux avant de continuer.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "ajustar",
+      "englishMeaning": "to adjust",
+      "sourceSpanish": "Ajusten la pistola de clavos.",
+      "sourceEnglish": "Adjust the nail gun."
+    },
+    {
+      "spanishInfinitive": "revisar",
+      "englishMeaning": "to check",
+      "sourceSpanish": "Un obrero revisa el compresor y la manguera.",
+      "sourceEnglish": "A worker checks the compressor and the hose."
+    },
+    {
+      "spanishInfinitive": "bajar",
+      "englishMeaning": "to lower",
+      "sourceSpanish": "Bajen la presión de aire.",
+      "sourceEnglish": "Lower the air pressure."
+    },
+    {
+      "spanishInfinitive": "poner",
+      "englishMeaning": "to put",
+      "sourceSpanish": "Pongan un clavo nuevo al lado.",
+      "sourceEnglish": "Put a new nail next to it."
+    },
+    {
+      "spanishInfinitive": "clavar",
+      "englishMeaning": "to nail, to drive a nail",
+      "sourceSpanish": "No claven de más.",
+      "sourceEnglish": "Don't over-drive the nails."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Arrêter en cas de clous trop enfoncés",
+    "objectiveFrench": "Arrêter la pose lorsque les clous semblent trop enfoncés et demander la vérification de l’outil et de la réparation.",
+    "speakingFrenchInstruction": "Arrêtez la pose si les clous semblent trop enfoncés. Demandez à une personne qualifiée de vérifier l’outil et la méthode de correction prévue par le fabricant.",
+    "speakingFrenchOpening": "Arrêtons la pose : ces clous semblent trop enfoncés. Qui peut vérifier la cloueuse et la correction approuvée ?",
+    "grammarFocusFrench": "Négation à l’impératif; sembler + adjectif; demander une vérification sans prescrire un réglage ou une réparation non approuvés.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to adjust",
+        "exampleEnglish": "Adjust the nail gun.",
+        "sourceInfinitiveSpanish": "ajustar",
+        "infinitiveFrench": "régler",
+        "exampleFrench": "Réglez la cloueuse."
+      },
+      {
+        "meaningEnglish": "to check",
+        "exampleEnglish": "A worker checks the compressor and the hose.",
+        "sourceInfinitiveSpanish": "revisar",
+        "infinitiveFrench": "vérifier",
+        "exampleFrench": "Un ouvrier vérifie le compresseur et le tuyau."
+      },
+      {
+        "meaningEnglish": "to lower",
+        "exampleEnglish": "Lower the air pressure.",
+        "sourceInfinitiveSpanish": "bajar",
+        "infinitiveFrench": "réduire",
+        "exampleFrench": "Réduisez la pression d’air."
+      },
+      {
+        "meaningEnglish": "to put",
+        "exampleEnglish": "Put a new nail next to it.",
+        "sourceInfinitiveSpanish": "poner",
+        "infinitiveFrench": "placer",
+        "exampleFrench": "Placez un nouveau clou à côté."
+      },
+      {
+        "meaningEnglish": "to nail, to drive a nail",
+        "exampleEnglish": "Don't over-drive the nails.",
+        "sourceInfinitiveSpanish": "clavar",
+        "infinitiveFrench": "enfoncer",
+        "exampleFrench": "N’enfoncez pas trop les clous."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "France/Québec roofing terminology and power-tool safety require qualified regional/trade review.",
+      "Confirm manufacturer nailing zones, fastener pattern, repair and tool settings; this scene is not a work procedure."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:18:fr-en:card:1",
+        "core-roofing:18:fr-en:reader:2",
+        "core-roofing:18:fr-en:reader:3"
+      ],
+      "question": "Overdriven nail describes excessive fastener penetration; French clou trop enfoncé is plausible but must preserve the observable depth condition. Confirm the diagnostic criterion and dictionary sense with the approved shingle system."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:18:fr-en:card:2",
+        "core-roofing:18:fr-en:reader:9"
+      ],
+      "question": "Spanish teja asfáltica is an asphalt shingle. Archived French bardeau alone may name another product; select a contextual asphalt-shingle term before scoring the depth check."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:18:fr-en:card:3",
+        "core-roofing:18:fr-en:card:8",
+        "core-roofing:18:fr-en:card:9",
+        "core-roofing:18:fr-en:reader:5"
+      ],
+      "question": "Confirm nail gun/cloueuse, hose/tuyau and adjust/régler terms for the specific pneumatic tool; source Reader 5 checks compressor and hose, but does not prescribe any setting."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:18:fr-en:card:10",
+        "core-roofing:18:fr-en:card:13",
+        "core-roofing:18:fr-en:reader:4"
+      ],
+      "question": "The source says do not over-drive nails and that the head must sit flush. Confirm approved fastening depth/nailing-zone wording; 'flush' alone is not a universal fastener specification."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:18:fr-en:card:12",
+        "core-roofing:18:fr-en:card:15",
+        "core-roofing:18:fr-en:reader:6",
+        "core-roofing:18:fr-en:reader:7"
+      ],
+      "question": "The source commands lowering air pressure and adjusting the nail gun. These are source dialogue, not a universal tool setting; qualified tool/product review must establish the applicable method before scored commands or audio."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:18:fr-en:card:14",
+        "core-roofing:18:fr-en:reader:8",
+        "core-roofing:18:fr-en:reader:9"
+      ],
+      "question": "The source says put a new nail next to an overdriven one and check depth on a few shingles. This may conflict with manufacturer repair/nailing pattern requirements; hold as a quoted scene, not an approved repair instruction."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:18:fr-en:reader:3",
+        "core-roofing:18:fr-en:reader:6",
+        "core-roofing:18:fr-en:reader:7"
+      ],
+      "question": "Archived French speaking asks for a qualified person and manufacturer method, whereas the exact source objective asks the learner to stop installation and request an adjustment. Resolve how to preserve the source objective without suggesting an unapproved adjustment or repair."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

@@ -1,0 +1,9 @@
+# French Roofing Core 14 — underlayment overlap source decision
+
+This inert packet pins **14 exact current Spanish/English cards**, **nine aligned Reader turns**, five source verb examples, and current-source/archive hashes for *Underlayment Overlap*. Proposed `core-roofing:14:fr-en` IDs are review references only. The source header still says `roofing`; stage-local saved-item and progress identity need a deliberate migration before learner use.
+
+The archived French remains separate evidence. Six card faces and three Reader turns are held from even conditional selection: the source groups underlayment and felt while the archived French specifies *feutre bitumé*; the guide's six-inch overlap is an attributed example followed by a manufacturer-instruction check, not a universal requirement; and the archive's plastic cap nail term may name a different washer or cap. The approved roof product, overlap, fastening method and regional French trade terms need qualified source, French and roofing review before any scored command or recording is selected. These are internal source/domain questions, separate from learner text.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, listening, offline, saved-progress, browser and V4 gates are false. No audio was generated or approved; no owner page or runtime route imports this packet. Six authored See/Recall/Hear/Type/Say/Write prompt/target activities, forms, speaking, exact-pair dictionary and device acceptance remain open.
+
+`build.py --check` detects source drift; `validate.py` independently checks current source order, IDs, archived evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural checks and self-check are not qualified review.

@@ -1,0 +1,435 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:26:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-24-26-draft.json",
+      "sha256": "81375e82aaf0b1fce1956eb8c5b3efda62a3d990789d20c904ae4d267a4179fc"
+    }
+  },
+  "sourceEnglishTitle": "Document Deck Repairs",
+  "sourceEnglishObjective": "Describe and record a repaired deck section",
+  "sourceEnglishSpeaking": "Ask for a photo of a deck repair before the crew covers it.",
+  "sourceSpanishReaderTitle": "Foto antes de cubrir",
+  "candidateObjective": "補修した野地板の範囲を説明し、写真と寸法で記録する。",
+  "candidateFocus": "～前に places the photo before covering. ～まで prohibits covering until inspection; ～た後 gives the after-repair photo sequence.",
+  "archivedForms": [
+    {
+      "base": "撮る",
+      "exampleJa": "作業員は補修の前後に写真を撮ります。",
+      "meaningEnglish": "to take",
+      "exampleEnglish": "The workers take a photo before and after the repair.",
+      "sourceInfinitiveSpanish": "tomar"
+    },
+    {
+      "base": "見せる",
+      "exampleJa": "作業員は損傷した範囲を職長に見せます。",
+      "meaningEnglish": "to show",
+      "exampleEnglish": "A worker shows the damaged area to the foreman.",
+      "sourceInfinitiveSpanish": "mostrar"
+    },
+    {
+      "base": "交換する",
+      "exampleJa": "作業員は損傷した合板を交換します。",
+      "meaningEnglish": "to replace",
+      "exampleEnglish": "The workers replace the damaged plywood.",
+      "sourceInfinitiveSpanish": "reemplazar"
+    },
+    {
+      "base": "測る",
+      "exampleJa": "作業員はその範囲を測り、寸法を伝えます。",
+      "meaningEnglish": "to measure",
+      "exampleEnglish": "A worker measures the section and gives the measurement.",
+      "sourceInfinitiveSpanish": "medir"
+    },
+    {
+      "base": "確認する",
+      "exampleJa": "職長は覆う前に補修した範囲を確認します。",
+      "meaningEnglish": "to check",
+      "exampleEnglish": "The foreman checks the repaired section before covering it.",
+      "sourceInfinitiveSpanish": "revisar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "損傷した範囲を見せてください。補修の前後に写真を撮り、寸法を伝えてください。私が確認するまで覆わないでください。",
+    "goal": "Ask for a photo of a deck repair before the crew covers it."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the current source scene: during tear-off, the crew finds deck damage; the foreman requests the area, before/after photos and a size measurement; workers replace damaged plywood; a photo is taken before covering; the foreman checks before covering; the photo records what will be hidden. Deck and sheathing require separate contextual Japanese senses, and the photo is documentation rather than proof of structural adequacy. Archived speaking adds a measurement request beyond the source speaking objective. Current curriculum has no authored verb-example list; archived forms remain conditional evidence. No selected learner/audio text or saved-progress identity is created.",
+  "sourceVerbExamples": null,
+  "cards": [
+    {
+      "id": "roofing:26:ja-en:card:1",
+      "legacySourceRef": "roofing:26:ja-en:cards:1",
+      "sourceSpanish": "Foto de la reparación",
+      "sourceEnglish": "repair photo",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "補修写真",
+      "archivedJapanese": "補修写真",
+      "archivedEnglish": "repair photo",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:card:2",
+      "legacySourceRef": "roofing:26:ja-en:cards:2",
+      "sourceSpanish": "Cubierta",
+      "sourceEnglish": "deck",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "野地板",
+      "archivedEnglish": "deck",
+      "reviewNote": "Deck here is the structural roof deck, not the whole roof covering; archived 野地板 needs a contextual deck versus sheathing decision before a dictionary face is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:card:3",
+      "legacySourceRef": "roofing:26:ja-en:cards:3",
+      "sourceSpanish": "Área cubierta",
+      "sourceEnglish": "covered area",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "覆われる範囲",
+      "archivedEnglish": "covered area",
+      "reviewNote": "Covered area means the area that will be covered after repair. Archived 覆われる範囲 may suggest an already covered zone; confirm timing and what remains visible in the record.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:card:4",
+      "legacySourceRef": "roofing:26:ja-en:cards:4",
+      "sourceSpanish": "Reparación",
+      "sourceEnglish": "repair",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "補修",
+      "archivedJapanese": "補修",
+      "archivedEnglish": "repair",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:card:5",
+      "legacySourceRef": "roofing:26:ja-en:cards:5",
+      "sourceSpanish": "Triplay",
+      "sourceEnglish": "plywood",
+      "sourceNoteSpanish": "también: madera contrachapada",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "合板",
+      "archivedJapanese": "合板",
+      "archivedEnglish": "plywood",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:card:6",
+      "legacySourceRef": "roofing:26:ja-en:cards:6",
+      "sourceSpanish": "Foto",
+      "sourceEnglish": "photo",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "写真",
+      "archivedJapanese": "写真",
+      "archivedEnglish": "photo",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:card:7",
+      "legacySourceRef": "roofing:26:ja-en:cards:7",
+      "sourceSpanish": "Área dañada",
+      "sourceEnglish": "damaged area",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "損傷した範囲",
+      "archivedJapanese": "損傷した範囲",
+      "archivedEnglish": "damaged area",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:card:8",
+      "legacySourceRef": "roofing:26:ja-en:cards:8",
+      "sourceSpanish": "Forro de techo",
+      "sourceEnglish": "sheathing",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "下地板",
+      "archivedEnglish": "sheathing",
+      "reviewNote": "Source distinguishes sheathing from deck in separate cards. Archived 下地板 may collapse them; qualified roofing/Japanese dictionary review must settle the product and structural senses.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:card:9",
+      "legacySourceRef": "roofing:26:ja-en:cards:9",
+      "sourceSpanish": "Medida",
+      "sourceEnglish": "measurement",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "寸法",
+      "archivedJapanese": "寸法",
+      "archivedEnglish": "measurement",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:card:10",
+      "legacySourceRef": "roofing:26:ja-en:cards:10",
+      "sourceSpanish": "Tomen una foto del área reparada antes de cubrirla.",
+      "sourceEnglish": "Take a photo of the repaired area before covering it.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "覆う前に補修した範囲の写真を撮ってください。",
+      "archivedEnglish": "Take a photo of the repaired area before covering it.",
+      "reviewNote": "Photograph before covering is the source instruction. Confirm that the photo is a documentation step, not evidence by itself that the repair is technically adequate.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:card:11",
+      "legacySourceRef": "roofing:26:ja-en:cards:11",
+      "sourceSpanish": "Muéstrenme el área dañada.",
+      "sourceEnglish": "Show me the damaged area.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "損傷した範囲を見せてください。",
+      "archivedJapanese": "損傷した範囲を見せてください。",
+      "archivedEnglish": "Show me the damaged area.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:card:12",
+      "legacySourceRef": "roofing:26:ja-en:cards:12",
+      "sourceSpanish": "Tomen una foto antes y después de la reparación.",
+      "sourceEnglish": "Take a photo before and after the repair.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "補修の前後に写真を撮ってください。",
+      "archivedJapanese": "補修の前後に写真を撮ってください。",
+      "archivedEnglish": "Take a photo before and after the repair.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:card:13",
+      "legacySourceRef": "roofing:26:ja-en:cards:13",
+      "sourceSpanish": "No lo cubran hasta que yo lo revise.",
+      "sourceEnglish": "Do not cover it until I check it.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "私が確認するまで覆わないでください。",
+      "archivedEnglish": "Do not cover it until I check it.",
+      "reviewNote": "Do not cover until I check it gives the foreman the check in this scene. Confirm inspection/authorization scope under the site process before scoring this construction instruction.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:card:14",
+      "legacySourceRef": "roofing:26:ja-en:cards:14",
+      "sourceSpanish": "¿Qué tan grande es la sección reparada?",
+      "sourceEnglish": "How big is the repaired section?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "補修した範囲はどのくらいの大きさですか。",
+      "archivedJapanese": "補修した範囲はどのくらいの大きさですか。",
+      "archivedEnglish": "How big is the repaired section?",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:26:ja-en:line:1",
+      "legacySourceRef": "roofing:26:ja-en:reader:1",
+      "sourceSpanish": "Durante el desmontaje, la cuadrilla encontró un área dañada en la cubierta.",
+      "sourceEnglish": "During the tear-off, the crew found a damaged area on the deck.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "既存屋根材の撤去中、作業班は野地板の損傷した範囲を見つけました。",
+      "archivedEnglish": "During the tear-off, the crew found a damaged area on the deck.",
+      "reviewNote": "Tear-off reveals a damaged deck section. Archived 野地板 is plausible but may narrow structural deck to one sheathing product; hold contextual material sense.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:line:2",
+      "legacySourceRef": "roofing:26:ja-en:reader:2",
+      "sourceSpanish": "El capataz dice: Muéstrenme el área dañada.",
+      "sourceEnglish": "The foreman says: Show me the damaged area.",
+      "selectedJapanese": null,
+      "candidateJapanese": "職長は「損傷した範囲を見せてください」と言います。",
+      "archivedJapanese": "職長は「損傷した範囲を見せてください」と言います。",
+      "archivedEnglish": "The foreman says: Show me the damaged area.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:line:3",
+      "legacySourceRef": "roofing:26:ja-en:reader:3",
+      "sourceSpanish": "Tomen una foto antes y después de la reparación.",
+      "sourceEnglish": "Take a photo before and after the repair.",
+      "selectedJapanese": null,
+      "candidateJapanese": "補修の前後に写真を撮ってください。",
+      "archivedJapanese": "補修の前後に写真を撮ってください。",
+      "archivedEnglish": "Take a photo before and after the repair.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:line:4",
+      "legacySourceRef": "roofing:26:ja-en:reader:4",
+      "sourceSpanish": "Los obreros reemplazan el triplay dañado.",
+      "sourceEnglish": "The workers replace the damaged plywood.",
+      "selectedJapanese": null,
+      "candidateJapanese": "作業員は損傷した合板を交換します。",
+      "archivedJapanese": "作業員は損傷した合板を交換します。",
+      "archivedEnglish": "The workers replace the damaged plywood.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:line:5",
+      "legacySourceRef": "roofing:26:ja-en:reader:5",
+      "sourceSpanish": "El capataz pregunta: ¿Qué tan grande es la sección reparada?",
+      "sourceEnglish": "The foreman asks: How big is the repaired section?",
+      "selectedJapanese": null,
+      "candidateJapanese": "職長は「補修した範囲はどのくらいの大きさですか」と尋ねます。",
+      "archivedJapanese": "職長は「補修した範囲はどのくらいの大きさですか」と尋ねます。",
+      "archivedEnglish": "The foreman asks: How big is the repaired section?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:line:6",
+      "legacySourceRef": "roofing:26:ja-en:reader:6",
+      "sourceSpanish": "Un obrero mide la sección y dice la medida.",
+      "sourceEnglish": "A worker measures the section and gives the measurement.",
+      "selectedJapanese": null,
+      "candidateJapanese": "作業員はその範囲を測り、寸法を伝えます。",
+      "archivedJapanese": "作業員はその範囲を測り、寸法を伝えます。",
+      "archivedEnglish": "A worker measures the section and gives the measurement.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:line:7",
+      "legacySourceRef": "roofing:26:ja-en:reader:7",
+      "sourceSpanish": "Tomen una foto del área reparada antes de cubrirla.",
+      "sourceEnglish": "Take a photo of the repaired area before covering it.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "覆う前に補修した範囲の写真を撮ってください。",
+      "archivedEnglish": "Take a photo of the repaired area before covering it.",
+      "reviewNote": "The photo-before-cover instruction is source-authored. Keep it as documentation, separate from any approval of repair adequacy or permission to cover.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:line:8",
+      "legacySourceRef": "roofing:26:ja-en:reader:8",
+      "sourceSpanish": "No lo cubran hasta que yo lo revise.",
+      "sourceEnglish": "Do not cover it until I check it.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "私が確認するまで覆わないでください。",
+      "archivedEnglish": "Do not cover it until I check it.",
+      "reviewNote": "The foreman says not to cover until he checks it; avoid converting this scene instruction into universal authorization or completed structural acceptance.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:26:ja-en:line:9",
+      "legacySourceRef": "roofing:26:ja-en:reader:9",
+      "sourceSpanish": "La foto de la reparación es el registro de lo que queda en el área cubierta.",
+      "sourceEnglish": "The repair photo is the record of what stays in the covered area.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "補修写真は、覆われる範囲に何が残るかを示す記録です。",
+      "archivedEnglish": "The repair photo is the record of what stays in the covered area.",
+      "reviewNote": "The repair photo records what remains in the covered area. Archived Japanese may imply the photo itself demonstrates the hidden condition or repair adequacy; confirm record versus proof sense.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the damaged deck section and the repair photo.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall deck, sheathing, plywood, measurement, and repair photo.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 野地板 from 下地板 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'How big is the repaired section?' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Ask a worker to show and document the deck repair.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write the photo and measurement sequence before covering.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

@@ -1,0 +1,449 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:29:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-27-30-draft.json",
+      "sha256": "bbded38ccbf62e844d27598d5da3565300b3e73afcce1b2f5cf54f52b674afdd"
+    }
+  },
+  "sourceEnglishTitle": "Report Open Items",
+  "sourceEnglishObjective": "Hand off remaining work clearly",
+  "sourceEnglishSpeaking": "Tell the crew lead what remains open and confirm tomorrow's first task.",
+  "sourceSpanishReaderTitle": "Pendientes para mañana",
+  "candidateObjective": "残っている作業を明確に引き継ぐ。",
+  "candidateFocus": "～の前に orders inspection before calling the job complete. ～てください gives handoff tasks, and ～まま marks an item left open.",
+  "archivedForms": [
+    {
+      "base": "仕上げる",
+      "exampleJa": "明日、煙突の横の区画を仕上げます。",
+      "meaningEnglish": "to finish",
+      "exampleEnglish": "Tomorrow we finish the section next to the chimney.",
+      "sourceInfinitiveSpanish": "terminar"
+    },
+    {
+      "base": "追加する",
+      "exampleJa": "この未対応項目をリストに追加します。",
+      "meaningEnglish": "to add",
+      "exampleEnglish": "We add this open item to the list.",
+      "sourceInfinitiveSpanish": "agregar"
+    },
+    {
+      "base": "保管する",
+      "exampleJa": "残った資材を安全な場所に保管します。",
+      "meaningEnglish": "to store / to put away",
+      "exampleEnglish": "We store the remaining materials in a safe place.",
+      "sourceInfinitiveSpanish": "guardar"
+    },
+    {
+      "base": "見て回る",
+      "exampleJa": "工事を完了とする前に屋根を見て回ります。",
+      "meaningEnglish": "to walk through / to inspect",
+      "exampleEnglish": "We walk the roof before we call the job complete.",
+      "sourceInfinitiveSpanish": "recorrer"
+    },
+    {
+      "base": "残る",
+      "exampleJa": "明日に残っている箇所はどこですか。",
+      "meaningEnglish": "to remain / to be left",
+      "exampleEnglish": "Which areas are still open for tomorrow?",
+      "sourceInfinitiveSpanish": "quedar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "明日に残っている箇所はどこですか。未対応項目を残工事リストに追加し、残った資材を保管してください。",
+    "goal": "Tell the crew lead what remains open and confirm tomorrow's first task."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the current end-of-day scene: crew packs tools; foreman asks for a roof walk before calling the job complete; a chimney-side section is unfinished; the crew adds it to a punch list; tomorrow's first task is to finish it; remaining materials are stored in a safe place; the list supports the handoff. Open/pending is not necessarily untouched, and a punch list is a record of remaining work rather than approval that a roof is complete. The roof walk and storage location require site-specific safety review. Current curriculum has no authored verb-example list; archived forms remain conditional evidence. No selected learner/audio text or progress identity is created.",
+  "sourceVerbExamples": null,
+  "cards": [
+    {
+      "id": "roofing:29:ja-en:card:1",
+      "legacySourceRef": "roofing:29:ja-en:cards:1",
+      "sourceSpanish": "Lista de pendientes",
+      "sourceEnglish": "punch list",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "残工事リスト",
+      "archivedEnglish": "punch list",
+      "reviewNote": "Punch list / lista de pendientes is a construction closeout record. Archived 残工事リスト may narrow it to remaining physical work; confirm site register, unresolved inspection and acceptance senses.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:card:2",
+      "legacySourceRef": "roofing:29:ja-en:cards:2",
+      "sourceSpanish": "Sin terminar",
+      "sourceEnglish": "unfinished",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "未完了",
+      "archivedJapanese": "未完了",
+      "archivedEnglish": "unfinished",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:card:3",
+      "legacySourceRef": "roofing:29:ja-en:cards:3",
+      "sourceSpanish": "Mañana",
+      "sourceEnglish": "tomorrow",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "明日",
+      "archivedJapanese": "明日",
+      "archivedEnglish": "tomorrow",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:card:4",
+      "legacySourceRef": "roofing:29:ja-en:cards:4",
+      "sourceSpanish": "Pendiente",
+      "sourceEnglish": "open item",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "未対応項目",
+      "archivedEnglish": "open item",
+      "reviewNote": "Open item / pendiente can mean unresolved or incomplete, not necessarily untouched. Archived 未対応項目 says not yet addressed; confirm status meaning in this scene.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:card:5",
+      "legacySourceRef": "roofing:29:ja-en:cards:5",
+      "sourceSpanish": "Terminado",
+      "sourceEnglish": "finished",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "完了",
+      "archivedJapanese": "完了",
+      "archivedEnglish": "finished",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:card:6",
+      "legacySourceRef": "roofing:29:ja-en:cards:6",
+      "sourceSpanish": "Materiales restantes",
+      "sourceEnglish": "remaining materials",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "残った資材",
+      "archivedJapanese": "残った資材",
+      "archivedEnglish": "remaining materials",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:card:7",
+      "legacySourceRef": "roofing:29:ja-en:cards:7",
+      "sourceSpanish": "Tarea",
+      "sourceEnglish": "task",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "作業",
+      "archivedJapanese": "作業",
+      "archivedEnglish": "task",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:card:8",
+      "legacySourceRef": "roofing:29:ja-en:cards:8",
+      "sourceSpanish": "Hoy",
+      "sourceEnglish": "today",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "今日",
+      "archivedJapanese": "今日",
+      "archivedEnglish": "today",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:card:9",
+      "legacySourceRef": "roofing:29:ja-en:cards:9",
+      "sourceSpanish": "Trabajo",
+      "sourceEnglish": "job",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "工事",
+      "archivedJapanese": "工事",
+      "archivedEnglish": "job",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:card:10",
+      "legacySourceRef": "roofing:29:ja-en:cards:10",
+      "sourceSpanish": "¿Qué áreas quedan pendientes para mañana?",
+      "sourceEnglish": "Which areas are still open for tomorrow?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "明日に残っている箇所はどこですか。",
+      "archivedEnglish": "Which areas are still open for tomorrow?",
+      "reviewNote": "Open areas for tomorrow refers to unfinished roof sections. Archived 残っている箇所 may omit the unresolved-work status; confirm exact handoff sense.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:card:11",
+      "legacySourceRef": "roofing:29:ja-en:cards:11",
+      "sourceSpanish": "Guarden los materiales restantes en un lugar seguro.",
+      "sourceEnglish": "Store the remaining materials in a safe place.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "残った資材を安全な場所に保管してください。",
+      "archivedEnglish": "Store the remaining materials in a safe place.",
+      "reviewNote": "Safe place is unspecified in the source. Keep the storage instruction scoped to the site's approved material location; do not invent a universal location or rule.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:card:12",
+      "legacySourceRef": "roofing:29:ja-en:cards:12",
+      "sourceSpanish": "Recorran el techo conmigo antes de dar el trabajo por terminado.",
+      "sourceEnglish": "Walk the roof with me before we call the job complete.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "工事を完了とする前に、一緒に屋根を見て回りましょう。",
+      "archivedEnglish": "Walk the roof with me before we call the job complete.",
+      "reviewNote": "Walking the roof at closeout is the source's scene instruction. Qualified fall-protection/access review must decide whether this phrase can be scored without site-specific controls.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:card:13",
+      "legacySourceRef": "roofing:29:ja-en:cards:13",
+      "sourceSpanish": "Esto sigue pendiente.",
+      "sourceEnglish": "This is still open.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "これはまだ未対応です。",
+      "archivedEnglish": "This is still open.",
+      "reviewNote": "This is still open means the chimney-side section remains unfinished. Archived 未対応 can imply never addressed; confirm status and dictionary sense.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:card:14",
+      "legacySourceRef": "roofing:29:ja-en:cards:14",
+      "sourceSpanish": "Mañana la primera tarea es terminar esta sección.",
+      "sourceEnglish": "Tomorrow the first task is to finish this section.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "明日の最初の作業はこの箇所を仕上げることです。",
+      "archivedJapanese": "明日の最初の作業はこの箇所を仕上げることです。",
+      "archivedEnglish": "Tomorrow the first task is to finish this section.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:card:15",
+      "legacySourceRef": "roofing:29:ja-en:cards:15",
+      "sourceSpanish": "Agréguenlo a la lista de pendientes.",
+      "sourceEnglish": "Add it to the punch list.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "残工事リストに追加してください。",
+      "archivedEnglish": "Add it to the punch list.",
+      "reviewNote": "Punch-list entry records the open work, not completed acceptance or authorization. Confirm Japanese list terminology and site closeout process.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:29:ja-en:line:1",
+      "legacySourceRef": "roofing:29:ja-en:reader:1",
+      "sourceSpanish": "Es el final del día y la cuadrilla recoge sus herramientas.",
+      "sourceEnglish": "It is the end of the day and the crew packs up its tools.",
+      "selectedJapanese": null,
+      "candidateJapanese": "一日の終わりに、作業班は道具を片づけます。",
+      "archivedJapanese": "一日の終わりに、作業班は道具を片づけます。",
+      "archivedEnglish": "It is the end of the day and the crew packs up its tools.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:line:2",
+      "legacySourceRef": "roofing:29:ja-en:reader:2",
+      "sourceSpanish": "Recorran el techo conmigo antes de dar el trabajo por terminado.",
+      "sourceEnglish": "Walk the roof with me before we call the job complete.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "工事を完了とする前に、一緒に屋根を見て回りましょう。",
+      "archivedEnglish": "Walk the roof with me before we call the job complete.",
+      "reviewNote": "End-of-day roof walk before declaring the job complete is source-authored. Qualified site/fall-protection review must keep the scene from implying unrestricted roof access.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:line:3",
+      "legacySourceRef": "roofing:29:ja-en:reader:3",
+      "sourceSpanish": "El capataz pregunta: ¿Qué áreas quedan pendientes para mañana?",
+      "sourceEnglish": "The foreman asks: Which areas are still open for tomorrow?",
+      "selectedJapanese": null,
+      "candidateJapanese": "職長は「明日に残っている箇所はどこですか」と尋ねます。",
+      "archivedJapanese": "職長は「明日に残っている箇所はどこですか」と尋ねます。",
+      "archivedEnglish": "The foreman asks: Which areas are still open for tomorrow?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:line:4",
+      "legacySourceRef": "roofing:29:ja-en:reader:4",
+      "sourceSpanish": "Una sección junto a la chimenea está sin terminar.",
+      "sourceEnglish": "One section next to the chimney is unfinished.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "煙突の横の一区画がまだ仕上がっていません。",
+      "archivedEnglish": "One section next to the chimney is unfinished.",
+      "reviewNote": "One chimney-side section is unfinished. Archived 仕上がっていません may imply finish-quality rather than work not complete; confirm state.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:line:5",
+      "legacySourceRef": "roofing:29:ja-en:reader:5",
+      "sourceSpanish": "Esto sigue pendiente.",
+      "sourceEnglish": "This is still open.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "これはまだ未対応です。",
+      "archivedEnglish": "This is still open.",
+      "reviewNote": "This is still open refers to that unfinished section. Archived 未対応 may imply no work has begun; confirm ongoing-status meaning.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:line:6",
+      "legacySourceRef": "roofing:29:ja-en:reader:6",
+      "sourceSpanish": "Agréguenlo a la lista de pendientes.",
+      "sourceEnglish": "Add it to the punch list.",
+      "selectedJapanese": null,
+      "candidateJapanese": "残工事リストに追加してください。",
+      "archivedJapanese": "残工事リストに追加してください。",
+      "archivedEnglish": "Add it to the punch list.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:line:7",
+      "legacySourceRef": "roofing:29:ja-en:reader:7",
+      "sourceSpanish": "Mañana la primera tarea es terminar esta sección.",
+      "sourceEnglish": "Tomorrow the first task is to finish this section.",
+      "selectedJapanese": null,
+      "candidateJapanese": "明日の最初の作業はこの箇所を仕上げることです。",
+      "archivedJapanese": "明日の最初の作業はこの箇所を仕上げることです。",
+      "archivedEnglish": "Tomorrow the first task is to finish this section.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:line:8",
+      "legacySourceRef": "roofing:29:ja-en:reader:8",
+      "sourceSpanish": "Guarden los materiales restantes en un lugar seguro.",
+      "sourceEnglish": "Store the remaining materials in a safe place.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "残った資材を安全な場所に保管してください。",
+      "archivedEnglish": "Store the remaining materials in a safe place.",
+      "reviewNote": "Safe material storage is source-authored but location and securing method are unspecified. Preserve the source without inventing universal site rules.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:29:ja-en:line:9",
+      "legacySourceRef": "roofing:29:ja-en:reader:9",
+      "sourceSpanish": "Con la lista de pendientes, todos saben qué hacer mañana.",
+      "sourceEnglish": "With the punch list, everyone knows what to do tomorrow.",
+      "selectedJapanese": null,
+      "candidateJapanese": "残工事リストがあれば、全員が明日の作業を把握できます。",
+      "archivedJapanese": "残工事リストがあれば、全員が明日の作業を把握できます。",
+      "archivedEnglish": "With the punch list, everyone knows what to do tomorrow.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the unfinished section beside the chimney.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall open item, punch list, remaining materials, and closeout.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 未完了 from 未対応 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'This is still open' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Hand off remaining work and the first task for tomorrow.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write the open item and where it is recorded.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

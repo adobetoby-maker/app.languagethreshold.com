@@ -1,0 +1,11 @@
+# Japanese Roofing Foundation 10 source review
+
+This inert packet pins all **12** current Spanish/English cards and **seven** aligned Reader turns for Roofing Foundation 10 with stable stage-local IDs and source hashes. The archived Japanese is conditional comparison material. No owner, learner, scoring, audio, offline, progress or independent V4 route imports this packet.
+
+Four Japanese candidates remain unset. Card 6's general **protection** is narrowed to **fall prevention** by archived `墜落防止`; the Reader separately specifies fall protection. Reader 1 adds an explicit construction-site setting to **in construction**. Reader 2 adds **equipment** to a fall protection inspection. Reader 7 replaces the source's question about the Spanish word `caída` with a Japanese term and an English gloss of **fall**. These card and Reader `candidateJapanese` faces are null. Every `selectedJapanese` and the audio script is null.
+
+The current objective teaches Spanish words resembling English and asking for help. The archived kanji-compound objective is a proposed Japanese adaptation, not a source-equivalent activity. Qualified Japanese, roofing, curriculum and dictionary reviewers must decide the adaptation and contextual terms before any scored answer is selected. The source's 911 line is retained without asserting a location absent from the source; it is not a claim that 911 is Japan's emergency number. The small ladder accident, request for help, ambulance and hospital remain direct teaching vocabulary.
+
+Archived See, Recall, Hear, Type, Say and Write strings are labels, not six authored prompt/answer activities. Contextual dictionary senses, forms, speaking, saved-item mapping, exact-pair learner/offline/browser/native acceptance and exact-text audio with distinct per-clip listening decisions remain open. Every review and release gate is false.
+
+Run `python3 content/japanese-roofing/review/foundation-10-source-audit-2026-11-18/build.py --check` and `python3 content/japanese-roofing/review/foundation-10-source-audit-2026-11-18/validate.py` from the app checkout. These checks establish source fidelity and closed gates only. Claude CLI 2.1.325 reported `loggedIn:false`; zero new Haiku, Opus or Fable calls and no qualified approval are claimed.

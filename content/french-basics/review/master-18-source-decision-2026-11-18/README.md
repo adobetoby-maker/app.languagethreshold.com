@@ -1,0 +1,11 @@
+# French 101 Master 18 — current-source decision
+
+This inert packet pins **20 current Spanish/English cards** and **12 aligned Reader turns** for *Tell what happened yesterday* in exact source order, under stable `master-french-basics:18` child IDs. Conditional French faces, six text-only mode anchors, three form topics and a speaking outline are review evidence. Every `selectedFrench` and audio script is null. Every review, learner, scoring, audio/listening, offline, progress and V4 gate is false.
+
+The archived rainy museum outing is a different scene. The current source describes yesterday's study, homework, store visit, park meal, messages, walk home, cafeteria meal, teacher conversation and final homework question. The museum draft remains separate and cannot inherit this lesson's saved items or recordings.
+
+Qualified French, source, curriculum and dictionary decisions remain for Spanish **preterite** versus French **passé composé**, singular *tarea* versus proposed plural *les devoirs*, grouped `la`/`las` article and object-pronoun senses, contextual `en` prepositions, *profesora* as a female teacher, possessive agreement in *sa sœur*, and the precise sense of walking home. The final question uses informal singular Spanish; proposed French informal singular needs register review. The source's elementary completed-past objective at Master stage also needs a progression decision. These are internal review notes; final learner material should teach the chosen vocabulary and grammar directly.
+
+The [decision packet](decision.json) contains source hashes, exact rows, conditional proposals and closed gates. [AI metadata](ai-assistance-metadata.json) records that Claude CLI 2.1.325 was logged out and made zero new Haiku, Opus or Fable calls. Run `python3 content/french-basics/review/master-18-source-decision-2026-11-18/build.py --check` and `python3 content/french-basics/review/master-18-source-decision-2026-11-18/validate.py` from the repository root. They verify source and structural fidelity, not qualified approval.
+
+Six final authored activities, contextual forms and speaking, saved-item mapping, exact-pair learner/offline/progress/V4 acceptance, exact-text audio technical checks and separate per-clip listening remain open. No owner page, runtime import, synthesis or progress change is part of this packet.

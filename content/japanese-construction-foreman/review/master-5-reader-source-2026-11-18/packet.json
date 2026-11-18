@@ -1,0 +1,278 @@
+{
+  "schema": 1,
+  "state": "source-only-reader-gap-review",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "lesson": 5,
+  "moduleId": "master-construction-foreman-ja-en",
+  "source": {
+    "readerPath": "public/lesson-content/es/master-construction-foreman.json",
+    "curriculumPath": "src/data/core60/es/master-construction-foreman.json",
+    "translationDraftPath": "content/japanese-construction-foreman/master-translation-4-6-draft.json",
+    "readerSHA256": "549b47cf51253f5c5ac4f19bf2fdae52fa93ae8ea996377cc32e0c0fab896d11",
+    "curriculumSHA256": "96f86e3e51ba346918f539810bcc996cb41ceaaf9268af02fa595c333800dce2",
+    "translationDraftSHA256": "8d6fa87b79df3f865ac182178bcee1ecf6554e46a8265e129f9162c2ac490588",
+    "sourceReaderTitleSpanish": "Una fosa bajo la zapata",
+    "sourceLessonTitleEnglish": "Old Septic Tank Under the New Footing",
+    "sourceObjectiveEnglish": "Tell the homeowner what the crew found, what it means for the footing, and propose options for a change order."
+  },
+  "historicalPrivateReader": {
+    "commitSHA": "9cb195e679f62b097f08d36b6814af4a56dbeaeb",
+    "path": "content/japanese-construction-foreman/master-original-reader-4-6-draft.json",
+    "sha256": "97e232a1864d8d21101cc860eea7fd40467e5059eb60f34a10ad2afb3ab53786",
+    "title": "An unexpected tank on the site",
+    "rows": [
+      {
+        "japanese": "掘削の途中で、パブロが図面にないタンクを見つけました。",
+        "english": "During excavation, Pablo found a tank that was not on the drawing."
+      },
+      {
+        "japanese": "職長は、見つかった場所と時刻を記録しました。",
+        "english": "The foreman recorded where and when it was found."
+      },
+      {
+        "japanese": "住宅所有者のモンテスさんに、発見したことを伝えました。",
+        "english": "He told Mrs. Montes, the homeowner, about the discovery."
+      },
+      {
+        "japanese": "「このタンクの用途は、まだ確認できていません」と説明しました。",
+        "english": "“We have not confirmed what this tank was used for,” he explained."
+      },
+      {
+        "japanese": "担当の技術者に、フーチングの図面と現場の状況を見てもらうことになりました。",
+        "english": "They arranged for the responsible engineer to review the footing drawing and site conditions."
+      },
+      {
+        "japanese": "モンテスさんは、費用と日程への影響を尋ねました。",
+        "english": "Mrs. Montes asked about effects on cost and schedule."
+      },
+      {
+        "japanese": "職長は「確認が終わってから選択肢を説明します」と答えました。",
+        "english": "The foreman answered, “I’ll explain the options after the checks are complete.”"
+      },
+      {
+        "japanese": "パブロは、次の連絡を待つ間、確認事項をメモしました。",
+        "english": "While waiting for the next update, Pablo wrote down the questions to resolve."
+      }
+    ],
+    "reuseDecision": null
+  },
+  "openDomainReview": [
+    {
+      "sourceLocation": "Reader 1–3",
+      "question": "Preserve the source-specific 418 Maple Lane home addition, broken septic tank lid, stopped excavation and taped-off/no-approach instruction; qualified construction safety and Japanese terminology review must choose exact wording.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 8–14",
+      "question": "The source attributes potential footing settlement, bearing-capacity confirmation, tank closure, licensed pumping, compacted fill/test and footing relocation to the engineer, health department or licensed company. Keep those roles and conditional options; qualified engineering/environmental-health review is needed.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 15–18",
+      "question": "Preserve Gabriela Montes’s deposit/cost concern, written estimate for each option and signed change order before work resumes; qualified contract/process terminology review is needed.",
+      "qualifiedDecision": null
+    }
+  ],
+  "rows": [
+    {
+      "id": "master-construction-foreman-ja-en:lesson:5:reader:line:1",
+      "sourceSpanish": "En la ampliación de la casa en 418 Maple Lane, Pablo Ortega trabajaba con la excavadora cuando el cucharón golpeó algo de concreto.",
+      "sourceEnglish": "At the home addition at 418 Maple Lane, Pablo Ortega was working with the excavator when the bucket hit something made of concrete.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:5:reader:line:2",
+      "sourceSpanish": "El capataz, Rubén Salas, detuvo la excavación y dijo: Pablo, deja de excavar ahí hasta que revisemos.",
+      "sourceEnglish": "The foreman, Rubén Salas, stopped the excavation and said: Pablo, stop digging there until we check it.",
+      "speaker": "The foreman, Rubén Salas, stopped the excavation and said",
+      "conditionalJapanesePhrase": "パブロさん、確認が終わるまで、そこでの掘削は中止してください。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:5:reader:line:3",
+      "sourceSpanish": "El hallazgo era una fosa séptica vieja de concreto, con una tapa rota, así que Rubén acordonó la zona y pidió que nadie se acercara ni se asomara.",
+      "sourceEnglish": "The find was an old concrete septic tank with a broken lid, so Rubén taped off the area and asked everyone not to go near it or look in.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:5:reader:line:4",
+      "sourceSpanish": "Rubén llamó a la dueña, Gabriela Montes, y le explicó: Cuando excavábamos esta mañana, Pablo encontró una fosa séptica vieja.",
+      "sourceEnglish": "Rubén called the owner, Gabriela Montes, and explained to her: When we were digging this morning, Pablo found an old septic tank.",
+      "speaker": "Rubén called the owner, Gabriela Montes, and explained to her",
+      "conditionalJapanesePhrase": "今朝、掘削作業をしていたときに、パブロが古い浄化槽を見つけました。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:5:reader:line:5",
+      "sourceSpanish": "Rubén: La fosa estaba justo donde va la zapata nueva.",
+      "sourceEnglish": "Rubén: The tank was right where the new footing goes.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": "その浄化槽は、ちょうど新しいフーチングを造る位置にありました。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:5:reader:line:6",
+      "sourceSpanish": "Gabriela: ¿Por qué nadie la encontró antes de empezar la obra?",
+      "sourceEnglish": "Gabriela: Why did nobody find it before the work started?",
+      "speaker": "Gabriela",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:5:reader:line:7",
+      "sourceSpanish": "Rubén: Nadie la vio antes porque no aparecía en los registros.",
+      "sourceEnglish": "Rubén: Nobody saw it before because it wasn't in the records.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": "物件の記録に載っていなかったので、これまで誰も気づきませんでした。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:5:reader:line:8",
+      "sourceSpanish": "Rubén: Los registros de la propiedad dicen que la casa se conectó al drenaje municipal hace años, y no mencionan ningún campo de drenaje.",
+      "sourceEnglish": "Rubén: The property records say the house was connected to the city sewer years ago, and they don't mention any drain field.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:5:reader:line:9",
+      "sourceSpanish": "Rubén: Una zapata encima de una fosa vieja podría hundirse, así que el ingeniero tiene que confirmar la capacidad portante del suelo.",
+      "sourceEnglish": "Rubén: A footing on top of an old tank could settle, so the engineer has to confirm the bearing capacity of the soil.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:5:reader:line:10",
+      "sourceSpanish": "Rubén: Voy a llamar al departamento de salud para saber cómo cerrar la fosa, y una compañía con licencia haría el bombeo.",
+      "sourceEnglish": "Rubén: I'm going to call the health department to find out how to close the tank, and a licensed company would do the pumping.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:5:reader:line:11",
+      "sourceSpanish": "Rubén: Podríamos sacarla y rellenar con material compactado, según indique el ingeniero.",
+      "sourceEnglish": "Rubén: We could remove it and backfill with compacted material, as the engineer specifies.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": "撤去したうえで、技術者の指定どおりに締め固めた材料で埋め戻す方法が考えられます。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:5:reader:line:12",
+      "sourceSpanish": "Rubén: El relleno compactado tendría que pasar una prueba de compactación antes de echar la zapata.",
+      "sourceEnglish": "Rubén: The compacted fill would have to pass a compaction test before we pour the footing.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:5:reader:line:13",
+      "sourceSpanish": "Rubén: Otra opción sería mover la zapata, si el ingeniero lo aprueba.",
+      "sourceEnglish": "Rubén: Another option would be to move the footing, if the engineer approves it.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": "もう一つの案としては、技術者の承認が得られれば、フーチングの位置を移すこともできます。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:5:reader:line:14",
+      "sourceSpanish": "Rubén: La reubicación de la zapata cambiaría un poco el plano, pero quizás costaría menos que sacar la fosa.",
+      "sourceEnglish": "Rubén: The footing relocation would change the plan a little, but it might cost less than removing the tank.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:5:reader:line:15",
+      "sourceSpanish": "Gabriela: Me preocupa mucho el costo adicional, porque ya pagué el primer depósito.",
+      "sourceEnglish": "Gabriela: I'm very worried about the additional cost, because I already paid the first deposit.",
+      "speaker": "Gabriela",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:5:reader:line:16",
+      "sourceSpanish": "Rubén: Entiendo su preocupación por el costo, señora Montes.",
+      "sourceEnglish": "Rubén: I understand your concern about the cost, Mrs. Montes.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": "モンテス様、費用についてのご心配はよく分かります。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:5:reader:line:17",
+      "sourceSpanish": "Rubén: Le doy un presupuesto por escrito de cada opción.",
+      "sourceEnglish": "Rubén: I'll give you a written estimate for each option.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": "それぞれの案について、見積書をお出しします。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:5:reader:line:18",
+      "sourceSpanish": "Rubén: Cuando usted elija una opción, preparamos la orden de cambio y usted la firma antes de seguir.",
+      "sourceEnglish": "Rubén: When you choose an option, we'll prepare the change order and you sign it before we continue.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    }
+  ],
+  "reviewGates": {
+    "qualifiedJapaneseReview": false,
+    "qualifiedSafetyReview": false,
+    "sourceTechnicalQuestionsResolved": false,
+    "sourceParity": false,
+    "dictionarySenses": false,
+    "sixAuthoredModes": false,
+    "speaking": false,
+    "audioText": false,
+    "audioListening": false,
+    "savedItemMigration": false,
+    "learnerRuntime": false,
+    "offline": false,
+    "progress": false,
+    "v4Native": false,
+    "qualifiedSepticEngineeringReview": false,
+    "qualifiedEnvironmentalHealthReview": false
+  }
+}

@@ -1,0 +1,9 @@
+# French 101 Master 9 — current-source decision
+
+This inert packet pins the current Spanish/English Master 9 shop lesson in exact order: 20 cards and 12 Reader turns, with stable `master-french-basics:9` child IDs. Conditional French faces, six text-only cues, seven forms and a speaking proposal are included for review. Every `selectedFrench` is null, and all review, learner, scoring, audio/listening, offline, progress, owner-route and V4 gates are false.
+
+The archived lamp-comparison redesign changes the source objective and English meanings, so it cannot replace this numbered lesson or inherit its progress key. Current source material teaches shopping and adjective agreement at Master stage; qualified curriculum review must decide that placement. The proposed French Reader demonstrates number agreement but lacks a visibly feminine adjective contrast. The source's **me / myself**, Spanish feminine **mochila** versus masculine French **sac à dos**, grouped **la**, and plural article/adjective faces need qualified French and dictionary decisions. Scoring variants, saved-item continuity, mode schema and original source checks remain unresolved. Hear has no recording or listening decision.
+
+The current source hashes, exact content, conditional candidate provenance and closed gates are in [decision.json](decision.json). [ai-assistance-metadata.json](ai-assistance-metadata.json) records prior private model evidence and the current CLI state. Run `python3 content/french-basics/review/master-9-source-decision-2026-11-18/validate.py` from the repository root. That validator checks source bytes, order, IDs, source links and closed gates; it does not approve French or audio.
+
+No owner page, learner import, scoring, audio registry, offline bundle, progress writer or V4 code is added.

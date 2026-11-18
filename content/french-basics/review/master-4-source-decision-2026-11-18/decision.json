@@ -1,0 +1,600 @@
+{
+  "schema": "lt.french101.source-decision.v1",
+  "packetKind": "inert-source-only-review",
+  "pairKey": "fr-en",
+  "stableLessonKey": "master-french-basics:4",
+  "stage": "master",
+  "lessonNumber": 4,
+  "reviewIdsAreSavedItemIds": false,
+  "sourceFiles": {
+    "core60": {
+      "path": "src/data/core60/es/master-spanish-basics.json",
+      "sha256": "27084a65c51ef96ab6b74dd969de1c4b38cd670be1c4b148e2b66f4d9bb15ede"
+    },
+    "practice": {
+      "path": "src/data/spanish-basics-practice.json",
+      "sha256": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe"
+    },
+    "divergentArchivedRedesign": {
+      "path": "content/review-archive/french-japanese-2026-11-15/french-101/master-4-6-redesign-draft.json",
+      "sha256": "bc12df06529ff0abae18d9bc10bd8e7b42a291adda719e12640c80f61e377bbf",
+      "useAsAlignedLesson": false
+    }
+  },
+  "privateProvenance": {
+    "path": "/Users/drive/lt-review/french101-lesson-teams-2026-11-14/french101-master4-normalized/flagged-owner-review-packet.json",
+    "sha256": "7514ae25d739e289224ee4d3109d9a3850f21558f4bac2cba4be862a7f2f28ec",
+    "requiredAtValidation": false,
+    "qualifiedReview": false
+  },
+  "sourceLesson": {
+    "title": "Identity or current condition?",
+    "objective": "Identity or current condition?: Use ser for identity, origin and characteristics.",
+    "focus": "Identity or current condition?",
+    "grammar": {
+      "focus": "Use ser for identity, origin and characteristics. Present forms: soy, eres, es, somos, son. A profession normally has no un or una after ser.",
+      "examples": [
+        {
+          "es": "Marta es estudiante de medicina.",
+          "en": "Marta is a medical student."
+        },
+        {
+          "es": "Hoy está cansada.",
+          "en": "Today she is tired."
+        }
+      ]
+    },
+    "speaking": "Role-play Una compañera cansada with a patient classmate. Practice identity or current condition?. Use this lesson's grammar, ask a related question, answer the partner, and confirm understanding. Keep language at beginner level; explain unfamiliar words in English when asked.",
+    "readerTitle": "Una compañera cansada"
+  },
+  "cards": [
+    {
+      "reviewId": "master-french-basics:4:card:1",
+      "order": 1,
+      "sourceSpanish": "estudiante",
+      "sourceEnglish": "student",
+      "kind": "term",
+      "conditionalFrench": "étudiant",
+      "candidateNote": "Étudiante is the feminine form.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:card:2",
+      "order": 2,
+      "sourceSpanish": "soy",
+      "sourceEnglish": "I am (identity)",
+      "kind": "term",
+      "conditionalFrench": "je suis",
+      "candidateNote": null,
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:card:3",
+      "order": 3,
+      "sourceSpanish": "clase",
+      "sourceEnglish": "class / classroom",
+      "kind": "term",
+      "conditionalFrench": "classe",
+      "candidateNote": null,
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:card:4",
+      "order": 4,
+      "sourceSpanish": "es",
+      "sourceEnglish": "is (identity)",
+      "kind": "term",
+      "conditionalFrench": "est",
+      "candidateNote": "The same French form as 'est' for a condition. The sentence shows the meaning.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:card:5",
+      "order": 5,
+      "sourceSpanish": "está",
+      "sourceEnglish": "is (condition/location)",
+      "kind": "term",
+      "conditionalFrench": "est",
+      "candidateNote": "The same spelling as 'est' for identity. The phrase or context tells you which meaning it has.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:card:6",
+      "order": 6,
+      "sourceSpanish": "la",
+      "sourceEnglish": "the / it / her (feminine)",
+      "kind": "term",
+      "conditionalFrench": "la",
+      "candidateNote": null,
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:card:7",
+      "order": 7,
+      "sourceSpanish": "en",
+      "sourceEnglish": "in / on / at",
+      "kind": "term",
+      "conditionalFrench": "dans / sur / à",
+      "candidateNote": "French chooses the preposition by context: à la bibliothèque; dans la classe; sur la table. En appears in étudiante en médecine.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:card:8",
+      "order": 8,
+      "sourceSpanish": "son",
+      "sourceEnglish": "are (identity)",
+      "kind": "term",
+      "conditionalFrench": "sont",
+      "candidateNote": "The same French form sont also means “are (condition/location)”; keep the two source cards distinct by order.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:card:9",
+      "order": 9,
+      "sourceSpanish": "están",
+      "sourceEnglish": "are (condition/location)",
+      "kind": "term",
+      "conditionalFrench": "sont",
+      "candidateNote": "The same spelling as 'sont' for identity.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:card:10",
+      "order": 10,
+      "sourceSpanish": "los",
+      "sourceEnglish": "the / them (masculine plural)",
+      "kind": "term",
+      "conditionalFrench": "les",
+      "candidateNote": "French les is used for both masculine and feminine plurals.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:card:11",
+      "order": 11,
+      "sourceSpanish": "somos",
+      "sourceEnglish": "we are (identity)",
+      "kind": "term",
+      "conditionalFrench": "nous sommes",
+      "candidateNote": null,
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:card:12",
+      "order": 12,
+      "sourceSpanish": "estudiantes",
+      "sourceEnglish": "students",
+      "kind": "term",
+      "conditionalFrench": "étudiants",
+      "candidateNote": "Étudiantes is the feminine plural form.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:card:13",
+      "order": 13,
+      "sourceSpanish": "Marta es estudiante de medicina.",
+      "sourceEnglish": "Marta is a medical student.",
+      "kind": "phrase",
+      "conditionalFrench": "Marta est étudiante en médecine.",
+      "candidateNote": "After être, a profession normally has no un/une: Marta est étudiante.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:card:14",
+      "order": 14,
+      "sourceSpanish": "Hoy está cansada.",
+      "sourceEnglish": "Today she is tired.",
+      "kind": "phrase",
+      "conditionalFrench": "Aujourd’hui, elle est fatiguée.",
+      "candidateNote": null,
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:card:15",
+      "order": 15,
+      "sourceSpanish": "La biblioteca es tranquila.",
+      "sourceEnglish": "The library is quiet.",
+      "kind": "phrase",
+      "conditionalFrench": "La bibliothèque est calme.",
+      "candidateNote": null,
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:card:16",
+      "order": 16,
+      "sourceSpanish": "Marta está en la biblioteca.",
+      "sourceEnglish": "Marta is in the library.",
+      "kind": "phrase",
+      "conditionalFrench": "Marta est à la bibliothèque.",
+      "candidateNote": "À la bibliothèque can mean at or in the library.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:card:17",
+      "order": 17,
+      "sourceSpanish": "Sus amigos son amables.",
+      "sourceEnglish": "Her friends are kind.",
+      "kind": "phrase",
+      "conditionalFrench": "Ses amis sont gentils.",
+      "candidateNote": "Ses can mean his or her; here the scene refers to Marta.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:card:18",
+      "order": 18,
+      "sourceSpanish": "Están contentos de ayudarla.",
+      "sourceEnglish": "They are happy to help her.",
+      "kind": "phrase",
+      "conditionalFrench": "Ils sont contents de l’aider.",
+      "candidateNote": "l’aider = to help her in this scene; elles sont contentes for an all-female group.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:card:19",
+      "order": 19,
+      "sourceSpanish": "Soy estudiante de español.",
+      "sourceEnglish": "I am a Spanish student.",
+      "kind": "phrase",
+      "conditionalFrench": "Je suis étudiant en espagnol.",
+      "candidateNote": "Étudiante en espagnol is the feminine form; this sentence means a student of the Spanish language.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:card:20",
+      "order": 20,
+      "sourceSpanish": "Mi profesora es de México.",
+      "sourceEnglish": "My teacher is from Mexico.",
+      "kind": "phrase",
+      "conditionalFrench": "Ma professeure est du Mexique.",
+      "candidateNote": "Origin uses être + de; du = de + le.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    }
+  ],
+  "reader": [
+    {
+      "reviewId": "master-french-basics:4:reader:1",
+      "order": 1,
+      "sourceSpanish": "Marta es estudiante de medicina.",
+      "sourceEnglish": "Marta is a medical student.",
+      "conditionalFrench": "Marta est étudiante en médecine.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:reader:2",
+      "order": 2,
+      "sourceSpanish": "Hoy está cansada.",
+      "sourceEnglish": "Today she is tired.",
+      "conditionalFrench": "Aujourd’hui, elle est fatiguée.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:reader:3",
+      "order": 3,
+      "sourceSpanish": "La biblioteca es tranquila.",
+      "sourceEnglish": "The library is quiet.",
+      "conditionalFrench": "La bibliothèque est calme.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:reader:4",
+      "order": 4,
+      "sourceSpanish": "Marta está en la biblioteca.",
+      "sourceEnglish": "Marta is in the library.",
+      "conditionalFrench": "Marta est à la bibliothèque.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:reader:5",
+      "order": 5,
+      "sourceSpanish": "Sus amigos son amables.",
+      "sourceEnglish": "Her friends are kind.",
+      "conditionalFrench": "Ses amis sont gentils.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:reader:6",
+      "order": 6,
+      "sourceSpanish": "Están contentos de ayudarla.",
+      "sourceEnglish": "They are happy to help her.",
+      "conditionalFrench": "Ils sont contents de l’aider.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:reader:7",
+      "order": 7,
+      "sourceSpanish": "Soy estudiante de español.",
+      "sourceEnglish": "I am a Spanish student.",
+      "conditionalFrench": "Je suis étudiant en espagnol.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:reader:8",
+      "order": 8,
+      "sourceSpanish": "Mi profesora es de México.",
+      "sourceEnglish": "My teacher is from Mexico.",
+      "conditionalFrench": "Ma professeure est du Mexique.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:reader:9",
+      "order": 9,
+      "sourceSpanish": "Luis es mi compañero.",
+      "sourceEnglish": "Luis is my classmate.",
+      "conditionalFrench": "Luis est mon camarade de classe.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:reader:10",
+      "order": 10,
+      "sourceSpanish": "Somos amigos.",
+      "sourceEnglish": "We are friends.",
+      "conditionalFrench": "Nous sommes amis.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:reader:11",
+      "order": 11,
+      "sourceSpanish": "La clase es pequeña.",
+      "sourceEnglish": "The class is small.",
+      "conditionalFrench": "La classe est petite.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    },
+    {
+      "reviewId": "master-french-basics:4:reader:12",
+      "order": 12,
+      "sourceSpanish": "Los estudiantes son amables.",
+      "sourceEnglish": "The students are kind.",
+      "conditionalFrench": "Les étudiants sont gentils.",
+      "selectedFrench": null,
+      "reviewed": false,
+      "savedItemId": null
+    }
+  ],
+  "conditionalModes": [
+    {
+      "mode": "see",
+      "readerReviewId": "master-french-basics:4:reader:1",
+      "promptCandidate": "Read and identify Marta’s role.",
+      "targetCandidate": "Marta est étudiante en médecine.",
+      "sourceEnglish": "Marta is a medical student.",
+      "selectedPrompt": null,
+      "selectedTarget": null,
+      "authoredForLearner": false,
+      "scoringEnabled": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "recall",
+      "readerReviewId": "master-french-basics:4:reader:2",
+      "promptCandidate": "Recall the French line: Today she is tired.",
+      "targetCandidate": "Aujourd’hui, elle est fatiguée.",
+      "sourceEnglish": "Today she is tired.",
+      "selectedPrompt": null,
+      "selectedTarget": null,
+      "authoredForLearner": false,
+      "scoringEnabled": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "hear",
+      "readerReviewId": "master-french-basics:4:reader:3",
+      "promptCandidate": "When exact-text audio is available, listen for the description of the library.",
+      "targetCandidate": "La bibliothèque est calme.",
+      "sourceEnglish": "The library is quiet.",
+      "selectedPrompt": null,
+      "selectedTarget": null,
+      "authoredForLearner": false,
+      "scoringEnabled": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "type",
+      "readerReviewId": "master-french-basics:4:reader:4",
+      "promptCandidate": "Type the French for: Marta is in the library. Use à la bibliothèque.",
+      "targetCandidate": "Marta est à la bibliothèque.",
+      "sourceEnglish": "Marta is in the library.",
+      "selectedPrompt": null,
+      "selectedTarget": null,
+      "authoredForLearner": false,
+      "scoringEnabled": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "say",
+      "readerReviewId": "master-french-basics:4:reader:10",
+      "promptCandidate": "Say in French: We are friends.",
+      "targetCandidate": "Nous sommes amis.",
+      "sourceEnglish": "We are friends.",
+      "selectedPrompt": null,
+      "selectedTarget": null,
+      "authoredForLearner": false,
+      "scoringEnabled": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "write",
+      "readerReviewId": "master-french-basics:4:reader:5",
+      "promptCandidate": "Write in French: Her friends are kind. In this scene, the friends are masculine or mixed.",
+      "targetCandidate": "Ses amis sont gentils.",
+      "sourceEnglish": "Her friends are kind.",
+      "selectedPrompt": null,
+      "selectedTarget": null,
+      "authoredForLearner": false,
+      "scoringEnabled": false,
+      "recordedAudio": false
+    }
+  ],
+  "conditionalForms": [
+    {
+      "readerReviewId": "master-french-basics:4:reader:1",
+      "sourceEnglish": "Marta is a medical student.",
+      "conditionalFrench": "Marta est étudiante en médecine.",
+      "candidateHint": null,
+      "selectedFrench": null,
+      "reviewed": false
+    },
+    {
+      "readerReviewId": "master-french-basics:4:reader:2",
+      "sourceEnglish": "Today she is tired.",
+      "conditionalFrench": "Aujourd’hui, elle est fatiguée.",
+      "candidateHint": null,
+      "selectedFrench": null,
+      "reviewed": false
+    },
+    {
+      "readerReviewId": "master-french-basics:4:reader:5",
+      "sourceEnglish": "Her friends are kind.",
+      "conditionalFrench": "Ses amis sont gentils.",
+      "candidateHint": "The Spanish source has amigos: the friends are masculine or mixed.",
+      "selectedFrench": null,
+      "reviewed": false
+    },
+    {
+      "readerReviewId": "master-french-basics:4:reader:7",
+      "sourceEnglish": "I am a Spanish student.",
+      "conditionalFrench": "Je suis étudiant en espagnol.",
+      "candidateHint": "A male speaker says étudiant; a female speaker says étudiante.",
+      "selectedFrench": null,
+      "reviewed": false
+    },
+    {
+      "readerReviewId": "master-french-basics:4:reader:8",
+      "sourceEnglish": "My teacher is from Mexico.",
+      "conditionalFrench": "Ma professeure est du Mexique.",
+      "candidateHint": "The Spanish source specifies a female teacher (profesora).",
+      "selectedFrench": null,
+      "reviewed": false
+    }
+  ],
+  "conditionalSpeaking": {
+    "candidate": "Role-play « Une camarade fatiguée » with a patient classmate. Practice identity versus current condition with être. Introduce Marta as a medical student, say where she is and how she feels today, then ask a related question such as « Tu es fatigué(e) aujourd’hui ? » (Are you tired today?; choose the spelling for the person addressed). Answer your partner and confirm understanding. Keep language at beginner level; explain unfamiliar words in English when asked.",
+    "selected": null,
+    "reviewed": false
+  },
+  "decisionsRequired": [
+    {
+      "scope": "curriculum-stage",
+      "detail": "Spanish Master 4 teaches ser identity/origin/characteristics against estar condition/location. French être collapses these surface forms; a French-specific explanation and stage decision are required."
+    },
+    {
+      "scope": "source-meaning",
+      "reviewIds": [
+        "master-french-basics:4:card:4",
+        "master-french-basics:4:card:5",
+        "master-french-basics:4:card:8",
+        "master-french-basics:4:card:9"
+      ],
+      "detail": "est and sont do not encode the Spanish ser/estar distinction without context."
+    },
+    {
+      "scope": "gender-and-dictionary",
+      "reviewIds": [
+        "master-french-basics:4:card:10"
+      ],
+      "detail": "Spanish masculine los is mapped conditionally to French les, which does not encode masculine gender; dictionary and saved-item senses need review."
+    },
+    {
+      "scope": "contextual-faces",
+      "reviewIds": [
+        "master-french-basics:4:card:3",
+        "master-french-basics:4:card:6",
+        "master-french-basics:4:card:7",
+        "master-french-basics:4:card:18",
+        "master-french-basics:4:card:19",
+        "master-french-basics:4:card:20"
+      ],
+      "detail": "Grouped English senses, gendered roles and object pronouns need exact contextual French faces and dictionary decisions."
+    },
+    {
+      "scope": "modes-forms-speaking",
+      "detail": "Six mode previews and five forms are conditional text candidates. Hear has no recording; speaking is not qualified or enabled."
+    },
+    {
+      "scope": "saved-items-and-progress",
+      "detail": "Review row IDs are archive IDs only; no learner saved-item mapping, progress migration or V4 parity decision exists."
+    },
+    {
+      "scope": "archived-redesign",
+      "detail": "The archived Maya/Léa leader scene diverges from current Spanish Master 4 and cannot be promoted as a parity lesson."
+    }
+  ],
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReviewed": false,
+    "qualifiedDomainReviewed": false,
+    "dictionaryReviewed": false,
+    "learnerRegistered": false,
+    "normalProjectionEnabled": false,
+    "scoringEnabled": false,
+    "readerEnabled": false,
+    "cardsEnabled": false,
+    "speakingEnabled": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineEnabled": false,
+    "progressEnabled": false,
+    "v4Enabled": false,
+    "savedItemIdsApproved": false
+  }
+}

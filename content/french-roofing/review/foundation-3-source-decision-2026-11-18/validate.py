@@ -10,7 +10,7 @@ root = Path(__file__).resolve().parents[4]
 data = json.loads(Path(__file__).with_name("decision.json").read_text())
 prefix = "foundation-roofing:3:fr-en"
 assert data["kind"] == "inert-source-decision"
-assert data["pair"] == {"target": "French", "native": "English"}
+assert data["pair"] == {"target": "English", "native": "French"}
 assert data["sourceModuleId"] == "foundation-roofing"
 assert data["archivedHeaderModuleId"] == "roofing"
 assert data["proposedStageLocalLessonId"] == prefix

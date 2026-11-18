@@ -1,0 +1,509 @@
+{
+  "schema": "french-roofing-core30-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:30",
+  "proposedPairId": "core-roofing:30:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-28-30-draft.json": "2bb6da1c523c1178274cfd531846de97433edcdd59483d2450cbd59104d0d007"
+  },
+  "orderedSourceRowsSha256": "1f44fadf5adbbaef771e83d0b8d386f62cf10c948dcdd3cadb2bd67a0110c675",
+  "sourceTitleEnglish": "Full Roofing Day",
+  "sourceObjectiveEnglish": "Lead a complete roofing day in Spanish",
+  "curriculumAdaptationNote": "Current source objective says lead a roofing day in Spanish; English target with French support needs a qualified English-learning objective, while exact source wording stays pinned.",
+  "sourceSpeakingEnglish": "Roleplay the day from morning brief through tear-off, installation checks, weather decision, and closeout.",
+  "sourceReaderTitleSpanish": "Un día completo de techo",
+  "cards": [
+    {
+      "id": "core-roofing:30:fr-en:card:1",
+      "legacySourceRef": "roofing:30:words:1",
+      "sourceSpanish": "Reunión informativa",
+      "sourceEnglish": "briefing",
+      "kind": "term",
+      "archivedFrenchEvidence": "la réunion d’équipe",
+      "conditionalFrench": "la réunion d’équipe",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:card:2",
+      "legacySourceRef": "roofing:30:words:2",
+      "sourceSpanish": "Desmontaje",
+      "sourceEnglish": "tear-off",
+      "kind": "term",
+      "archivedFrenchEvidence": "la dépose",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:card:3",
+      "legacySourceRef": "roofing:30:words:3",
+      "sourceSpanish": "Instalación",
+      "sourceEnglish": "install",
+      "kind": "term",
+      "archivedFrenchEvidence": "poser",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:card:4",
+      "legacySourceRef": "roofing:30:words:4",
+      "sourceSpanish": "Seguridad",
+      "sourceEnglish": "safety",
+      "kind": "term",
+      "archivedFrenchEvidence": "la sécurité",
+      "conditionalFrench": "la sécurité",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:card:5",
+      "legacySourceRef": "roofing:30:words:5",
+      "sourceSpanish": "Cierre de obra",
+      "sourceEnglish": "closeout",
+      "kind": "term",
+      "archivedFrenchEvidence": "la clôture du chantier",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:card:6",
+      "legacySourceRef": "roofing:30:words:6",
+      "sourceSpanish": "Jefe de cuadrilla",
+      "sourceEnglish": "crew lead",
+      "kind": "term",
+      "archivedFrenchEvidence": "le chef d’équipe",
+      "conditionalFrench": "le chef d’équipe",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:card:7",
+      "legacySourceRef": "roofing:30:words:7",
+      "sourceSpanish": "Sub-capa / Fieltro",
+      "sourceEnglish": "underlayment",
+      "kind": "term",
+      "archivedFrenchEvidence": "la sous-couche",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:card:8",
+      "legacySourceRef": "roofing:30:words:8",
+      "sourceSpanish": "Tapajuntas / Flashing",
+      "sourceEnglish": "flashing",
+      "kind": "term",
+      "archivedFrenchEvidence": "le solin",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:card:9",
+      "legacySourceRef": "roofing:30:words:9",
+      "sourceSpanish": "Lona",
+      "sourceEnglish": "tarp",
+      "kind": "term",
+      "archivedFrenchEvidence": "la bâche",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:card:10",
+      "legacySourceRef": "roofing:30:words:10",
+      "sourceSpanish": "Lista de pendientes",
+      "sourceEnglish": "punch list",
+      "kind": "term",
+      "archivedFrenchEvidence": "la liste des points à terminer",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:card:11",
+      "legacySourceRef": "roofing:30:words:11",
+      "sourceSpanish": "Repasemos el plan del techo de hoy antes de empezar.",
+      "sourceEnglish": "Let's review today's roof plan before we start.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Passons en revue le plan de toiture d’aujourd’hui avant de commencer.",
+      "conditionalFrench": "Passons en revue le plan de toiture d’aujourd’hui avant de commencer.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:card:12",
+      "legacySourceRef": "roofing:30:words:12",
+      "sourceSpanish": "Anclen el arnés antes de subir al techo.",
+      "sourceEnglish": "Tie off before you go on the roof.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Attachez-vous avant de monter sur le toit.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:card:13",
+      "legacySourceRef": "roofing:30:words:13",
+      "sourceSpanish": "Detengan el trabajo y bajen si cambia el tiempo.",
+      "sourceEnglish": "Stop work and come down if the weather changes.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Arrêtez le travail et descendez si la météo change.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:card:14",
+      "legacySourceRef": "roofing:30:words:14",
+      "sourceSpanish": "Recorran el techo conmigo antes de dar el trabajo por terminado.",
+      "sourceEnglish": "Walk the roof with me before we call the job complete.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Parcourons le toit ensemble avant de déclarer le chantier terminé.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:card:15",
+      "legacySourceRef": "roofing:30:words:15",
+      "sourceSpanish": "Primero el desmontaje, luego la instalación.",
+      "sourceEnglish": "Tear-off first, then installation.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "D’abord la dépose, puis la pose.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:card:16",
+      "legacySourceRef": "roofing:30:words:16",
+      "sourceSpanish": "La seguridad es lo primero hoy.",
+      "sourceEnglish": "Safety comes first today.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Aujourd’hui, la sécurité passe avant tout.",
+      "conditionalFrench": "Aujourd’hui, la sécurité passe avant tout.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:30:fr-en:reader:1",
+      "legacySourceRef": "roofing:30:passage:1",
+      "sourceSpanish": "Por la mañana, el capataz abre la reunión informativa: Repasemos el plan del techo de hoy antes de empezar.",
+      "sourceEnglish": "In the morning, the foreman opens the briefing: Let's review today's roof plan before we start.",
+      "archivedEnglishEvidence": "In the morning, the foreman opens the briefing: Let's review today's roof plan before we start.",
+      "archivedFrenchEvidence": "Le matin, le contremaître ouvre la réunion : « Passons en revue le plan de toiture d’aujourd’hui avant de commencer. »",
+      "conditionalFrench": "Le matin, le contremaître ouvre la réunion : « Passons en revue le plan de toiture d’aujourd’hui avant de commencer. »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:reader:2",
+      "legacySourceRef": "roofing:30:passage:2",
+      "sourceSpanish": "La seguridad es lo primero hoy.",
+      "sourceEnglish": "Safety comes first today.",
+      "archivedEnglishEvidence": "Safety comes first today.",
+      "archivedFrenchEvidence": "Aujourd’hui, la sécurité passe avant tout.",
+      "conditionalFrench": "Aujourd’hui, la sécurité passe avant tout.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:reader:3",
+      "legacySourceRef": "roofing:30:passage:3",
+      "sourceSpanish": "Anclen el arnés antes de subir al techo.",
+      "sourceEnglish": "Tie off before you go on the roof.",
+      "archivedEnglishEvidence": "Tie off before you go on the roof.",
+      "archivedFrenchEvidence": "Attachez-vous avant de monter sur le toit.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:reader:4",
+      "legacySourceRef": "roofing:30:passage:4",
+      "sourceSpanish": "Primero el desmontaje, luego la instalación.",
+      "sourceEnglish": "Tear-off first, then installation.",
+      "archivedEnglishEvidence": "Tear-off first, then installation.",
+      "archivedFrenchEvidence": "D’abord la dépose, puis la pose.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:reader:5",
+      "legacySourceRef": "roofing:30:passage:5",
+      "sourceSpanish": "Cuando la cubierta está lista, la cuadrilla pone la sub-capa y el tapajuntas, y el jefe de cuadrilla revisa cada paso.",
+      "sourceEnglish": "When the deck is ready, the crew puts down the underlayment and the flashing, and the crew lead checks each step.",
+      "archivedEnglishEvidence": "When the deck is ready, the crew puts down the underlayment and the flashing, and the crew lead checks each step.",
+      "archivedFrenchEvidence": "Quand le platelage est prêt, l’équipe pose la sous-couche et les solins; le chef d’équipe vérifie chaque étape.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:reader:6",
+      "legacySourceRef": "roofing:30:passage:6",
+      "sourceSpanish": "Por la tarde llega un aviso de tormenta, y el capataz ordena: Detengan el trabajo y bajen si cambia el tiempo.",
+      "sourceEnglish": "In the afternoon a storm warning arrives, and the foreman orders: Stop work and come down if the weather changes.",
+      "archivedEnglishEvidence": "In the afternoon a storm warning arrives, and the foreman orders: Stop work and come down if the weather changes.",
+      "archivedFrenchEvidence": "L’après-midi, une alerte d’orage arrive et le contremaître ordonne : « Arrêtez le travail et descendez si la météo change. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:reader:7",
+      "legacySourceRef": "roofing:30:passage:7",
+      "sourceSpanish": "La cuadrilla cubre con una lona la sección sin terminar.",
+      "sourceEnglish": "The crew covers the unfinished section with a tarp.",
+      "archivedEnglishEvidence": "Once conditions allow safe work under the approved plan, the crew covers the unfinished section with a tarp.",
+      "archivedFrenchEvidence": "L’équipe recouvre la section non terminée d’une bâche, selon le plan approuvé et seulement quand les conditions permettent une intervention sûre.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:reader:8",
+      "legacySourceRef": "roofing:30:passage:8",
+      "sourceSpanish": "Al final del día, el capataz pide: Recorran el techo conmigo antes de dar el trabajo por terminado.",
+      "sourceEnglish": "At the end of the day, the foreman asks: Walk the roof with me before we call the job complete.",
+      "archivedEnglishEvidence": "At the end of the day, the foreman asks: Walk the roof with me before we call the job complete.",
+      "archivedFrenchEvidence": "À la fin de la journée, le contremaître demande : « Parcourons le toit ensemble avant de déclarer le chantier terminé. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:reader:9",
+      "legacySourceRef": "roofing:30:passage:9",
+      "sourceSpanish": "Lo que falta queda en la lista de pendientes para el cierre de obra.",
+      "sourceEnglish": "Whatever is left stays on the punch list for the closeout.",
+      "archivedEnglishEvidence": "Whatever is left stays on the punch list for the closeout.",
+      "archivedFrenchEvidence": "Tout ce qui reste à faire demeure sur la liste des points à terminer pour la clôture.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "anclar",
+      "englishMeaning": "to tie off / to anchor",
+      "sourceSpanish": "Siempre anclamos el arnés antes de subir al techo.",
+      "sourceEnglish": "We always tie off the harness before going up on the roof."
+    },
+    {
+      "spanishInfinitive": "revisar",
+      "englishMeaning": "to check / to inspect",
+      "sourceSpanish": "El jefe de cuadrilla revisa cada paso de la instalación.",
+      "sourceEnglish": "The crew lead checks each step of the installation."
+    },
+    {
+      "spanishInfinitive": "detener",
+      "englishMeaning": "to stop",
+      "sourceSpanish": "Detengan el trabajo y bajen si cambia el tiempo.",
+      "sourceEnglish": "Stop work and come down if the weather changes."
+    },
+    {
+      "spanishInfinitive": "cubrir",
+      "englishMeaning": "to cover",
+      "sourceSpanish": "La cuadrilla cubre con una lona la sección sin terminar.",
+      "sourceEnglish": "The crew covers the unfinished section with a tarp."
+    },
+    {
+      "spanishInfinitive": "recorrer",
+      "englishMeaning": "to walk through / to go over (a roof, a site)",
+      "sourceSpanish": "Recorran el techo conmigo antes de dar el trabajo por terminado.",
+      "sourceEnglish": "Walk the roof with me before we call the job complete."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Diriger une journée de toiture complète",
+    "objectiveFrench": "Diriger en français un échange de chantier, de la réunion du matin à la clôture de la journée.",
+    "speakingFrenchInstruction": "Jouez la réunion du matin, la dépose, les contrôles de pose, une décision météo et le bilan final. Demandez confirmation au chef d’équipe et appliquez les plans de sécurité et de couverture temporaire approuvés; ne supposez pas qu’une bâche peut être posée pendant un orage.",
+    "speakingFrenchOpening": "Avant de commencer, passons en revue le plan de toiture, les rôles et les conditions météo.",
+    "grammarFocusFrench": "D’abord, puis, quand et avant de pour ordonner les étapes; impératif de sécurité; futur proche pour le bilan.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to tie off / to anchor",
+        "exampleEnglish": "We always tie off the harness before going up on the roof.",
+        "sourceInfinitiveSpanish": "anclar",
+        "infinitiveFrench": "s’attacher",
+        "exampleFrench": "Nous attachons toujours le harnais avant de monter sur le toit."
+      },
+      {
+        "meaningEnglish": "to check / to inspect",
+        "exampleEnglish": "The crew lead checks each step of the installation.",
+        "sourceInfinitiveSpanish": "revisar",
+        "infinitiveFrench": "vérifier",
+        "exampleFrench": "Le chef d’équipe vérifie chaque étape de la pose."
+      },
+      {
+        "meaningEnglish": "to stop",
+        "exampleEnglish": "Stop work and come down if the weather changes.",
+        "sourceInfinitiveSpanish": "detener",
+        "infinitiveFrench": "arrêter",
+        "exampleFrench": "Arrêtez le travail et descendez si la météo change."
+      },
+      {
+        "meaningEnglish": "to cover",
+        "exampleEnglish": "The crew covers the unfinished section with a tarp.",
+        "sourceInfinitiveSpanish": "cubrir",
+        "infinitiveFrench": "recouvrir",
+        "exampleFrench": "L’équipe recouvre la section non terminée d’une bâche, seulement quand le plan et les conditions le permettent.",
+        "exampleEnglishDisplay": "The crew covers the unfinished section with a tarp only when the plan and conditions permit it."
+      },
+      {
+        "meaningEnglish": "to walk through / to go over (a roof, a site)",
+        "exampleEnglish": "Walk the roof with me before we call the job complete.",
+        "sourceInfinitiveSpanish": "recorrer",
+        "infinitiveFrench": "parcourir",
+        "exampleFrench": "Parcourons le toit ensemble avant de déclarer le chantier terminé."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "The English source's Spanish-only objective and storm-to-tarp sequence require curriculum and qualified site-safety correction before release; the French display adapts both while preserving exact source fields.",
+      "Qualified fall-protection, temporary-cover and product review plus France/Québec language review remain open."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:30:fr-en:card:1",
+        "core-roofing:30:fr-en:reader:1"
+      ],
+      "question": "The current source objective literally says lead a complete roofing day in Spanish. The archived French objective changes the language to French, but English is the target for this pair. Keep exact source provenance and obtain a qualified English-learning capstone objective before learner use."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:30:fr-en:card:2",
+        "core-roofing:30:fr-en:card:3",
+        "core-roofing:30:fr-en:card:5",
+        "core-roofing:30:fr-en:card:15",
+        "core-roofing:30:fr-en:reader:4",
+        "core-roofing:30:fr-en:reader:9"
+      ],
+      "question": "Tear-off and closeout are trade process terms; the source has an install/instalación part-of-speech mismatch, while archived poser is a verb for a term labeled instalación. Confirm English target, French support and dictionary senses, and whether the tear-off/install sequence is job-specific rather than universal."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:30:fr-en:card:7",
+        "core-roofing:30:fr-en:card:8",
+        "core-roofing:30:fr-en:card:9",
+        "core-roofing:30:fr-en:reader:5"
+      ],
+      "question": "Underlayment, flashing, deck and tarp require roof-system/product scope; the Reader says the lead checks each step. Archived platelage, sous-couche and solin may be conditional but cannot select a specific assembly or inspection approval."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:30:fr-en:card:12",
+        "core-roofing:30:fr-en:reader:3"
+      ],
+      "question": "The source tie-off command mentions a harness without an approved anchor, fall-clearance or site system. Archived attachez-vous is broader and can obscure the tie-off requirement. Hold for qualified fall-protection and French terminology review."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:30:fr-en:card:13",
+        "core-roofing:30:fr-en:reader:6",
+        "core-roofing:30:fr-en:reader:7"
+      ],
+      "question": "The source storm warning is followed by a conditional order to stop and descend if weather changes, then an unfinished-section tarp action. Archived Reader 7 changes its English anchor by adding 'once conditions allow safe work under the approved plan'; preserve the current source exact text and hold the timing, weather stop and tarp access sequence for qualified safety/source review."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:30:fr-en:card:10",
+        "core-roofing:30:fr-en:card:14",
+        "core-roofing:30:fr-en:reader:8",
+        "core-roofing:30:fr-en:reader:9"
+      ],
+      "question": "Punch list/closeout and the final roof walk must remain open-item and day-end scene meanings, not unconditional roof access or completion certification. Archived speaking adds safety-plan and temporary-cover assertions beyond the source roleplay objective."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

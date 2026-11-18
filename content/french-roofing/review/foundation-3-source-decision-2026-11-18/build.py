@@ -75,7 +75,7 @@ for n, (es, en, old_fr, old_en) in enumerate(zip(source_reader["target"], source
 packet = {
     "schema": 1,
     "kind": "inert-source-decision",
-    "pair": {"target": "French", "native": "English"},
+    "pair": {"target": "English", "native": "French"},
     "sourceModuleId": "foundation-roofing",
     "archivedHeaderModuleId": "roofing",
     "proposedStageLocalLessonId": pair_id,

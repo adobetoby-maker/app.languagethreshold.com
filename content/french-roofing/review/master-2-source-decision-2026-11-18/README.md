@@ -1,0 +1,9 @@
+# French Roofing Master 2 — staggered joints source decision
+
+This inert packet pins **21 exact current Spanish/English cards**, **15 aligned Reader turns**, two current grammar examples, five current verb examples and source/archive hashes for *Why We Stagger Joints*. Proposed French-native/English-target `master-roofing:2:fr-en` IDs are review references only. Existing saved items and progress are untouched; there is no learner or V4 migration.
+
+The archived French is separate, unapproved evidence. Thirteen card faces and 11 Reader turns are held from conditional selection. The source explains the water path through aligned joints, the manufacturer-specific stagger pattern, courses and slots, underlayment, sealant strips and a chalk line. Several current English sentences make broad causal or service-life claims while archived French softens them or adds a product qualification. A qualified French/roofing/source review must resolve the exact teaching claims and the France/Québec trade vocabulary before selecting scored answers. The source grammar teaches Spanish impersonal *se* and *si* general truths; natural French grammar and six authored activity prompt/target pairs must be written for this exact lesson. These are internal review questions, separate from learner content.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, audio/listening, offline, saved-progress, browser and V4 gates are false. No audio was generated or approved; no owner page or runtime route imports this packet. Forms, speaking, exact-pair dictionary and device acceptance remain open.
+
+`build.py --check` detects source drift; `validate.py` independently checks current source order, IDs, archived evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural checks and self-check are not qualified review.

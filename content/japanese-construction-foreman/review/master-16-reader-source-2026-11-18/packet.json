@@ -1,0 +1,269 @@
+{
+  "schema": 1,
+  "state": "source-only-reader-gap-review",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "lesson": 16,
+  "moduleId": "master-construction-foreman-ja-en",
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false,
+  "source": {
+    "readerPath": "public/lesson-content/es/master-construction-foreman.json",
+    "curriculumPath": "src/data/core60/es/master-construction-foreman.json",
+    "translationDraftPath": "content/japanese-construction-foreman/master-translation-16-18-draft.json",
+    "readerSHA256": "549b47cf51253f5c5ac4f19bf2fdae52fa93ae8ea996377cc32e0c0fab896d11",
+    "curriculumSHA256": "96f86e3e51ba346918f539810bcc996cb41ceaaf9268af02fa595c333800dce2",
+    "translationDraftSHA256": "26df8b535afb74bfb88b800ac9a28b61973542ffa05d3e71370d49e9b91772e4",
+    "sourceReaderTitleSpanish": "Inspección del andamio norte",
+    "sourceLessonTitleEnglish": "Safety Compliance Officer Walks the Scaffold",
+    "sourceObjectiveEnglish": "Walk a safety compliance officer through scaffold inspections and records using formal, precise language.",
+    "sourceSpeakingEnglish": "You are the foreman, and the AI is compliance officer Inés Carrillo: walk her along the north-face scaffold and explain who inspects it, how often your safety plan requires it and where the records are, using formal usted and passive se (se inspecciona, se registra)."
+  },
+  "historicalPrivateReader": {
+    "lesson16OriginalReaderDraftPresent": false,
+    "reuseDecision": null
+  },
+  "openDomainReview": [
+    {
+      "sourceLocation": "Reader 1–6 and lesson speaking",
+      "question": "Keep Inés Carrillo's compliance-officer role and the company's own safety-plan inspection frequency attributed to this scene. Preserve Julio Paredes as both scaffold erector and designated competent person. Review the Japanese trade and role terms; do not turn the company policy into a universal legal frequency.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 6–12",
+      "question": "Preserve cross braces, top rail, midrail, toe board on open sides, inspection log and tag as distinct parts and records. Review technical Japanese and any locale-dependent scaffold terminology with a qualified scaffold specialist.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 13–18",
+      "question": "The green tag on section 3 lacks today's signature. Rubén bars access until the designated competent person inspects and signs; Julio then records and signs, and Rubén promises today's corrective-action record by email. Do not infer that tag color alone certifies safe access. Review the draft phrase's 'inspection supervisor' wording against the source's 'competent person'.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 3–5, 9–12 and 15–18; lesson grammar",
+      "question": "The compliance-officer exchange is formal, while the radio instruction to the crew is informal. Review Japanese register and source Spanish usted/passive se adaptation before selecting full Reader turns, authored mode targets or recording scripts.",
+      "qualifiedDecision": null
+    }
+  ],
+  "rows": [
+    {
+      "id": "master-construction-foreman-ja-en:lesson:16:reader:line:1",
+      "sourceSpanish": "La oficial de cumplimiento Inés Carrillo llega a la obra de acero de la calle Main para inspeccionar el andamio de la fachada norte.",
+      "sourceEnglish": "Compliance officer Inés Carrillo arrives at the steel job on Main Street to inspect the scaffold on the north face.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:16:reader:line:2",
+      "sourceSpanish": "El capataz, Rubén Ortega, la acompaña por la escalera de acceso hasta la primera plataforma.",
+      "sourceEnglish": "The foreman, Rubén Ortega, goes with her up the access ladder to the first platform.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:16:reader:line:3",
+      "sourceSpanish": "Inés: ¿Quién inspecciona este andamio y cuál es la frecuencia de inspección que exige su empresa?",
+      "sourceEnglish": "Inés: Who inspects this scaffold, and what inspection frequency does your company require?",
+      "speaker": "Inés",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:16:reader:line:4",
+      "sourceSpanish": "Rubén: Lo inspecciona Julio Paredes, nuestro andamiero y persona competente designada.",
+      "sourceEnglish": "Rubén: Julio Paredes inspects it; he is our scaffold erector and designated competent person.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:16:reader:line:5",
+      "sourceSpanish": "Rubén: Según nuestro plan de seguridad, se revisa antes de cada turno.",
+      "sourceEnglish": "Rubén: Under our safety plan, it's checked before every shift.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": "当社の安全計画に基づき、毎シフト前に点検されています。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:16:reader:line:6",
+      "sourceSpanish": "Rubén: En cada revisión se verifica que las crucetas estén completas y bien aseguradas.",
+      "sourceEnglish": "Rubén: At each check, it is verified that the cross braces are complete and properly secured.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:16:reader:line:7",
+      "sourceSpanish": "Inés empuja el barandal superior y luego revisa el barandal intermedio.",
+      "sourceEnglish": "Inés pushes on the top rail and then checks the midrail.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:16:reader:line:8",
+      "sourceSpanish": "Rubén: El rodapié se instala en todos los lados abiertos para que no caigan herramientas a la calle.",
+      "sourceEnglish": "Rubén: The toe board is installed on all open sides so that no tools fall to the street.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:16:reader:line:9",
+      "sourceSpanish": "Inés: ¿Dónde se guardan los registros de estas inspecciones?",
+      "sourceEnglish": "Inés: Where are the records of these inspections kept?",
+      "speaker": "Inés",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:16:reader:line:10",
+      "sourceSpanish": "Rubén: Los resultados se anotan en la bitácora y en la tarjeta.",
+      "sourceEnglish": "Rubén: The results are written in the log and on the tag.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": "結果は点検記録簿とタグに記入されます。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:16:reader:line:11",
+      "sourceSpanish": "Rubén: Aquí tiene la bitácora de inspecciones de este mes, oficial Carrillo.",
+      "sourceEnglish": "Rubén: Here is this month's inspection log, Officer Carrillo.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": "カリージョさん、こちらが今月の点検記録簿です。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:16:reader:line:12",
+      "sourceSpanish": "Rubén: ¿Desea ver los certificados de capacitación de los andamieros?",
+      "sourceEnglish": "Rubén: Would you like to see the scaffold erectors' training certificates?",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": "足場組立作業員の研修修了証をご覧になりますか。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:16:reader:line:13",
+      "sourceSpanish": "Inés revisa los certificados y después señala que la tarjeta verde del tramo 3 no tiene la firma de hoy.",
+      "sourceEnglish": "Inés reviews the certificates and then points out that the green tag on section 3 doesn't have today's signature.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:16:reader:line:14",
+      "sourceSpanish": "Rubén: Tiene razón; a esta tarjeta le falta la firma.",
+      "sourceEnglish": "Rubén: You're right; this tag is missing the signature.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": "ご指摘のとおりです。このタグには署名が入っていません。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:16:reader:line:15",
+      "sourceSpanish": "Rubén avisa por radio a la cuadrilla: Muchachos, no suban a este tramo hasta nuevo aviso.",
+      "sourceEnglish": "Rubén tells the crew over the radio: Guys, don't go up on this section until further notice.",
+      "speaker": "Rubén tells the crew over the radio",
+      "conditionalJapanesePhrase": "みんな、追って連絡があるまで、この部分の足場には上がらないで。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:16:reader:line:16",
+      "sourceSpanish": "Rubén: Nadie sube hasta que la persona competente lo revise y firme.",
+      "sourceEnglish": "Rubén: Nobody goes up until the competent person checks and signs it.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": "指名された点検責任者が点検し、署名するまで、誰も足場に上がりません。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:16:reader:line:17",
+      "sourceSpanish": "Julio inspecciona el tramo 3, anota el resultado en la bitácora y firma la tarjeta verde.",
+      "sourceEnglish": "Julio inspects section 3, writes the result in the log and signs the green tag.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:16:reader:line:18",
+      "sourceSpanish": "Rubén: La acción correctiva se documenta hoy y se la envío por correo.",
+      "sourceEnglish": "Rubén: The corrective action is documented today, and I'll email it to you.",
+      "speaker": "Rubén",
+      "conditionalJapanesePhrase": "是正措置は本日記録し、メールでお送りします。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    }
+  ],
+  "reviewGates": {
+    "qualifiedJapaneseReview": false,
+    "qualifiedConstructionReview": false,
+    "sourceTechnicalQuestionsResolved": false,
+    "sourceParity": false,
+    "dictionarySenses": false,
+    "sixAuthoredModes": false,
+    "forms": false,
+    "speaking": false,
+    "audioText": false,
+    "audioListening": false,
+    "savedItemMigration": false,
+    "ownerRoute": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "progress": false,
+    "v4Native": false
+  }
+}

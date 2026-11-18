@@ -1,0 +1,436 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:3:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-1-3-draft.json",
+      "sha256": "ec1dff1ce6f7e948ff078bef0f32fa7841a407d264d7d50b6e6827bc1c8932f5"
+    }
+  },
+  "sourceEnglishTitle": "Flashing & Valleys",
+  "sourceEnglishObjective": "Identify common water-entry details",
+  "sourceEnglishSpeaking": "Ask the lead to show you each flashing and valley location.",
+  "sourceSpanishReaderTitle": "Por dónde entra el agua",
+  "candidateObjective": "雨水が入りやすい屋根の接合部と水切りを特定する。",
+  "candidateFocus": "～のそばに locates flashing beside a wall; ～に沿って follows a valley. ～を見せてください requests a location, and ～がないか確認する asks to check for leaks.",
+  "archivedForms": [
+    {
+      "base": "確認する",
+      "exampleJa": "谷部に雨漏りがないか確認します。",
+      "meaningEnglish": "to check",
+      "exampleEnglish": "We check for leaks at the valley.",
+      "sourceInfinitiveSpanish": "revisar"
+    },
+    {
+      "base": "見せる",
+      "exampleJa": "作業員は水切り板金をどこに取り付けるか見せます。",
+      "meaningEnglish": "to show",
+      "exampleEnglish": "The worker shows where the flashing goes.",
+      "sourceInfinitiveSpanish": "mostrar"
+    },
+    {
+      "base": "シーリングする",
+      "exampleJa": "作業員は煙突の周囲をシーリングします。",
+      "meaningEnglish": "to seal",
+      "exampleEnglish": "They seal around the chimney.",
+      "sourceInfinitiveSpanish": "sellar"
+    },
+    {
+      "base": "敷く",
+      "exampleJa": "作業員は谷部に沿って自己粘着防水シートを敷きます。",
+      "meaningEnglish": "to put, to place",
+      "exampleEnglish": "They run ice and water shield up the valley.",
+      "sourceInfinitiveSpanish": "poner"
+    },
+    {
+      "base": "聞く",
+      "exampleJa": "職長は谷部がどこにあるか聞きます。",
+      "meaningEnglish": "to ask",
+      "exampleEnglish": "The foreman asks where the valleys are.",
+      "sourceInfinitiveSpanish": "preguntar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "この屋根の谷部はどこですか。水切り板金を見せてください。",
+    "goal": "Ask the lead to show you each flashing and valley location."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the source water-entry scene and exact flashing/valley/chimney meanings. Resolve Japanese flashing, step-flashing, shield material, roofing cement and sealant-only implications with qualified Japanese and roofing reviewers before selecting learner answers. The archived draft is evidence only; this packet creates no lesson, score, audio or progress identity.",
+  "cards": [
+    {
+      "id": "roofing:3:ja-en:card:1",
+      "legacySourceRef": "roofing:3:ja-en:cards:1",
+      "sourceSpanish": "Tapajuntas / Flashing",
+      "sourceEnglish": "flashing",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "水切り板金",
+      "archivedEnglish": "flashing",
+      "reviewNote": "Water-diverting flashing is broader than metal sheet flashing. Confirm 水切り板金 for this roof detail and regional trade register.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:card:2",
+      "legacySourceRef": "roofing:3:ja-en:cards:2",
+      "sourceSpanish": "Tapajuntas escalonado",
+      "sourceEnglish": "step flashing",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "段状水切り板金",
+      "archivedEnglish": "step flashing",
+      "reviewNote": "Confirm that 段状水切り板金 denotes individual step-flashing pieces at a wall, not a generic stepped flashing shape.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:card:3",
+      "legacySourceRef": "roofing:3:ja-en:cards:3",
+      "sourceSpanish": "Limahoya / Valle",
+      "sourceEnglish": "valley",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "谷部",
+      "archivedJapanese": "谷部",
+      "archivedEnglish": "valley",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:card:4",
+      "legacySourceRef": "roofing:3:ja-en:cards:4",
+      "sourceSpanish": "Membrana impermeable",
+      "sourceEnglish": "ice and water shield",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "自己粘着防水シート",
+      "archivedEnglish": "ice and water shield",
+      "reviewNote": "The English ice and water shield is a specific water-barrier category; 自己粘着防水シート asserts self-adhesion that the Spanish generic membrane does not say. Resolve product and source scope.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:card:5",
+      "legacySourceRef": "roofing:3:ja-en:cards:5",
+      "sourceSpanish": "Chimenea",
+      "sourceEnglish": "chimney",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "煙突",
+      "archivedJapanese": "煙突",
+      "archivedEnglish": "chimney",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:card:6",
+      "legacySourceRef": "roofing:3:ja-en:cards:6",
+      "sourceSpanish": "Pared",
+      "sourceEnglish": "wall",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "壁",
+      "archivedJapanese": "壁",
+      "archivedEnglish": "wall",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:card:7",
+      "legacySourceRef": "roofing:3:ja-en:cards:7",
+      "sourceSpanish": "Gotera",
+      "sourceEnglish": "leak",
+      "sourceNoteSpanish": "también: filtración",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "雨漏り",
+      "archivedJapanese": "雨漏り",
+      "archivedEnglish": "leak",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:card:8",
+      "legacySourceRef": "roofing:3:ja-en:cards:8",
+      "sourceSpanish": "Sellador",
+      "sourceEnglish": "sealant",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "シーリング材",
+      "archivedJapanese": "シーリング材",
+      "archivedEnglish": "sealant",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:card:9",
+      "legacySourceRef": "roofing:3:ja-en:cards:9",
+      "sourceSpanish": "Cemento plástico",
+      "sourceEnglish": "roofing cement",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根用アスファルトセメント",
+      "archivedEnglish": "roofing cement",
+      "reviewNote": "屋根用アスファルトセメント narrows roofing cement to asphalt cement. Confirm material and dictionary sense before selecting.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:card:10",
+      "legacySourceRef": "roofing:3:ja-en:cards:10",
+      "sourceSpanish": "Tapajuntas escalonado debajo de cada hilera.",
+      "sourceEnglish": "Step flashing under each shingle course.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "シングル材の各段の下に段状水切り板金を入れてください。",
+      "archivedEnglish": "Step flashing under each shingle course.",
+      "reviewNote": "The source says step flashing under each shingle course. This is an installation claim requiring qualified roofing/source review, including placement and shingle type.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:card:11",
+      "legacySourceRef": "roofing:3:ja-en:cards:11",
+      "sourceSpanish": "Pongan la membrana impermeable por la limahoya.",
+      "sourceEnglish": "Run ice and water shield up the valley.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "谷部に沿って自己粘着防水シートを敷いてください。",
+      "archivedEnglish": "Run ice and water shield up the valley.",
+      "reviewNote": "The Japanese conveys laying the membrane along the valley but may lose the English run ... up the valley directional extent. Resolve the installation meaning and shield material.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:card:12",
+      "legacySourceRef": "roofing:3:ja-en:cards:12",
+      "sourceSpanish": "Muéstrenme dónde va el tapajuntas.",
+      "sourceEnglish": "Show me where the flashing goes.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "水切り板金をどこに取り付けるか見せてください。",
+      "archivedEnglish": "Show me where the flashing goes.",
+      "reviewNote": "The broad flashing term inherits card 1's material and detail-scope question.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:card:13",
+      "legacySourceRef": "roofing:3:ja-en:cards:13",
+      "sourceSpanish": "¿Dónde están las limahoyas en este techo?",
+      "sourceEnglish": "Where are the valleys on this roof?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "この屋根の谷部はどこですか。",
+      "archivedJapanese": "この屋根の谷部はどこですか。",
+      "archivedEnglish": "Where are the valleys on this roof?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:card:14",
+      "legacySourceRef": "roofing:3:ja-en:cards:14",
+      "sourceSpanish": "Sellen alrededor de la chimenea.",
+      "sourceEnglish": "Seal around the chimney.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "煙突の周囲をシーリングしてください。",
+      "archivedEnglish": "Seal around the chimney.",
+      "reviewNote": "Seal around the chimney is potentially incomplete as a roof water-entry instruction. Keep it source-pinned and obtain qualified source/safety review before teaching an unqualified sealant-only action.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:card:15",
+      "legacySourceRef": "roofing:3:ja-en:cards:15",
+      "sourceSpanish": "Revisen si hay goteras en la limahoya.",
+      "sourceEnglish": "Check for leaks at the valley.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "谷部に雨漏りがないか確認してください。",
+      "archivedJapanese": "谷部に雨漏りがないか確認してください。",
+      "archivedEnglish": "Check for leaks at the valley.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:3:ja-en:line:1",
+      "legacySourceRef": "roofing:3:ja-en:reader:1",
+      "sourceSpanish": "El agua entra con frecuencia por las uniones del techo.",
+      "sourceEnglish": "Water often gets in at the joints of the roof.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "雨水は屋根の接合部から入り込むことがあります。",
+      "archivedEnglish": "Water often gets in at the joints of the roof.",
+      "reviewNote": "The source says water often gets in; ことがあります weakens this to mere possibility. Preserve frequency in a reviewed Japanese answer.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:line:2",
+      "legacySourceRef": "roofing:3:ja-en:reader:2",
+      "sourceSpanish": "Esas uniones están en las limahoyas, las chimeneas y las paredes.",
+      "sourceEnglish": "Those joints are at the valleys, the chimneys, and the walls.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "その接合部は谷部や煙突、壁のそばにあります。",
+      "archivedEnglish": "Those joints are at the valleys, the chimneys, and the walls.",
+      "reviewNote": "The source locates joints at valleys, chimneys and walls; the archived そば can mean only near them. Verify exact location and roof-detail sense.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:line:3",
+      "legacySourceRef": "roofing:3:ja-en:reader:3",
+      "sourceSpanish": "El tapajuntas ayuda a que el agua no pase.",
+      "sourceEnglish": "Flashing helps keep the water out.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "水切り板金は雨水の侵入を防ぐのに役立ちます。",
+      "archivedEnglish": "Flashing helps keep the water out.",
+      "reviewNote": "The flashing term inherits card 1's technical material and scope decision.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:line:4",
+      "legacySourceRef": "roofing:3:ja-en:reader:4",
+      "sourceSpanish": "Aquí hay tapajuntas escalonado junto a la pared.",
+      "sourceEnglish": "Here there is step flashing next to the wall.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ここでは壁のそばに段状水切り板金があります。",
+      "archivedEnglish": "Here there is step flashing next to the wall.",
+      "reviewNote": "The step-flashing term inherits card 2's exact wall-detail decision.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:line:5",
+      "legacySourceRef": "roofing:3:ja-en:reader:5",
+      "sourceSpanish": "El capataz pregunta: ¿Dónde están las limahoyas en este techo?",
+      "sourceEnglish": "The foreman asks: Where are the valleys on this roof?",
+      "selectedJapanese": null,
+      "candidateJapanese": "職長は「この屋根の谷部はどこですか」と聞きます。",
+      "archivedJapanese": "職長は「この屋根の谷部はどこですか」と聞きます。",
+      "archivedEnglish": "The foreman asks: Where are the valleys on this roof?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:line:6",
+      "legacySourceRef": "roofing:3:ja-en:reader:6",
+      "sourceSpanish": "Una obrera señala la limahoya del frente.",
+      "sourceEnglish": "A worker points to the valley at the front.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "作業員は手前の谷部を指します。",
+      "archivedEnglish": "A worker points to the valley at the front.",
+      "reviewNote": "The source's at the front can locate a valley on the roof plan; 手前 is relative to the speaker. Confirm the scene viewpoint.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:line:7",
+      "legacySourceRef": "roofing:3:ja-en:reader:7",
+      "sourceSpanish": "Muéstrenme dónde va el tapajuntas.",
+      "sourceEnglish": "Show me where the flashing goes.",
+      "selectedJapanese": null,
+      "candidateJapanese": "水切り板金をどこに取り付けるか見せてください。",
+      "archivedJapanese": "水切り板金をどこに取り付けるか見せてください。",
+      "archivedEnglish": "Show me where the flashing goes.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:3:ja-en:line:8",
+      "legacySourceRef": "roofing:3:ja-en:reader:8",
+      "sourceSpanish": "Revisen si hay goteras en la limahoya.",
+      "sourceEnglish": "Check for leaks at the valley.",
+      "selectedJapanese": null,
+      "candidateJapanese": "谷部に雨漏りがないか確認してください。",
+      "archivedJapanese": "谷部に雨漏りがないか確認してください。",
+      "archivedEnglish": "Check for leaks at the valley.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the valley and sidewall flashing in the reading.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall the terms for flashing, valley, and leak.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 谷部 from 雨漏り when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Show me where the flashing goes.' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Ask the crew lead to show each valley and flashing location.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write where the flashing is and what it helps prevent.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

@@ -1,0 +1,269 @@
+{
+  "schema": 1,
+  "state": "source-only-reader-gap-review",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "lesson": 18,
+  "moduleId": "master-construction-foreman-ja-en",
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false,
+  "source": {
+    "readerPath": "public/lesson-content/es/master-construction-foreman.json",
+    "curriculumPath": "src/data/core60/es/master-construction-foreman.json",
+    "translationDraftPath": "content/japanese-construction-foreman/master-translation-16-18-draft.json",
+    "readerSHA256": "549b47cf51253f5c5ac4f19bf2fdae52fa93ae8ea996377cc32e0c0fab896d11",
+    "curriculumSHA256": "96f86e3e51ba346918f539810bcc996cb41ceaaf9268af02fa595c333800dce2",
+    "translationDraftSHA256": "26df8b535afb74bfb88b800ac9a28b61973542ffa05d3e71370d49e9b91772e4",
+    "sourceReaderTitleSpanish": "La inspección se movió",
+    "sourceLessonTitleEnglish": "Inspection Moved: Calls, Texts and Voicemails",
+    "sourceObjectiveEnglish": "Reschedule by phone, text the crew and leave clear voicemails using polite phone and text conventions.",
+    "sourceSpeakingEnglish": "You are the foreman, and the AI is city scheduler Lorena Ibarra, then drywall sub Óscar Fuentes: confirm the new inspection window, read your crew text aloud and call Óscar, using le llamo de parte de, ¿me podría confirmar...? and ¿sería posible...?"
+  },
+  "historicalPrivateReader": {
+    "lesson18OriginalReaderDraftPresent": false,
+    "reuseDecision": null
+  },
+  "openDomainReview": [
+    {
+      "sourceLocation": "Reader 1–4; lesson title and speaking",
+      "question": "Preserve Lorena Ibarra as the city scheduler, the permit-office callback and the sick inspector moving the insulation inspection to tomorrow. The Japanese draft's introductory phrase names Miguel Rojas and a duplex, but that English sentence is not a current Reader turn; keep it separate from selected Reader text.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 5–11",
+      "question": "The confirmed arrival window remains tomorrow 8:00–12:00. Miguel requests before 10:00, but Lorena only promises a note, not a new confirmed time. Preserve confirmation number 4471 and Miguel's pending email confirmation. Review the Japanese distinctions between a request, a note and a confirmed appointment.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 12–18",
+      "question": "Preserve the group text, failed call and short voicemail, Óscar's already-loaded truck, the request to move drywall hanging until after inspection, and Óscar's day-after-tomorrow 7:00 commitment. Do not turn a proposed schedule into an earlier completed inspection or claim the truck was unloaded.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 2, 5, 7, 9, 11, 14, 16–18; lesson grammar",
+      "question": "Review polite permit-office phone register versus direct crew text and informal sub-contractor voicemail, the city/time phrasing, and Japanese adaptation of source le llamo de parte de, ¿me podría confirmar...? and ¿sería posible...? before selecting Reader turns or recording scripts.",
+      "qualifiedDecision": null
+    }
+  ],
+  "rows": [
+    {
+      "id": "master-construction-foreman-ja-en:lesson:18:reader:line:1",
+      "sourceSpanish": "Miguel devuelve una llamada perdida de la oficina de permisos, y contesta Lorena Ibarra, la programadora de la ciudad.",
+      "sourceEnglish": "Miguel returns a missed call from the permit office, and Lorena Ibarra, the city scheduler, answers.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:18:reader:line:2",
+      "sourceSpanish": "Miguel: Buenos días, le llamo de parte de Construcciones Rivera por la obra del dúplex.",
+      "sourceEnglish": "Miguel: Good morning, I'm calling on behalf of Rivera Construction about the duplex job.",
+      "speaker": "Miguel",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:18:reader:line:3",
+      "sourceSpanish": "Lorena explica que el inspector está enfermo y que la inspección de aislamiento pasa a mañana.",
+      "sourceEnglish": "Lorena explains that the inspector is sick and that the insulation inspection is moving to tomorrow.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:18:reader:line:4",
+      "sourceSpanish": "Lorena pide el número de permiso, y Miguel lo lee despacio, dígito por dígito.",
+      "sourceEnglish": "Lorena asks for the permit number, and Miguel reads it slowly, digit by digit.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:18:reader:line:5",
+      "sourceSpanish": "Miguel: ¿Me podría confirmar el horario de llegada del inspector?",
+      "sourceEnglish": "Miguel: Could you confirm the inspector's arrival window for me?",
+      "speaker": "Miguel",
+      "conditionalJapanesePhrase": "検査員の到着予定時間帯を確認していただけますでしょうか。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:18:reader:line:6",
+      "sourceSpanish": "Lorena: El inspector llega mañana entre las 8:00 y las 12:00.",
+      "sourceEnglish": "Lorena: The inspector arrives tomorrow between 8:00 and 12:00.",
+      "speaker": "Lorena",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:18:reader:line:7",
+      "sourceSpanish": "Miguel: ¿Sería posible que el inspector llegue antes de las 10:00?",
+      "sourceEnglish": "Miguel: Would it be possible for the inspector to arrive before 10:00?",
+      "speaker": "Miguel",
+      "conditionalJapanesePhrase": "検査員に10時前にご到着いただくことは可能でしょうか。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:18:reader:line:8",
+      "sourceSpanish": "Lorena: Voy a dejar una nota, pero la hora confirmada sigue siendo de 8:00 a 12:00.",
+      "sourceEnglish": "Lorena: I'll leave a note, but the confirmed time is still from 8:00 to 12:00.",
+      "speaker": "Lorena",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:18:reader:line:9",
+      "sourceSpanish": "Miguel: ¿Me podría dar el número de confirmación, por favor?",
+      "sourceEnglish": "Miguel: Could you give me the confirmation number, please?",
+      "speaker": "Miguel",
+      "conditionalJapanesePhrase": "確認番号をお伝えいただけますでしょうか。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:18:reader:line:10",
+      "sourceSpanish": "Lorena le da el número de confirmación 4471, y Miguel lo apunta en su libreta.",
+      "sourceEnglish": "Lorena gives him confirmation number 4471, and Miguel writes it down in his notebook.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:18:reader:line:11",
+      "sourceSpanish": "Miguel: Muchas gracias, Lorena; quedo pendiente de su confirmación por correo.",
+      "sourceEnglish": "Miguel: Thank you very much, Lorena; I'll look out for your email confirmation.",
+      "speaker": "Miguel",
+      "conditionalJapanesePhrase": "イバラさん、ありがとうございました。確認のメールをお待ちしております。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:18:reader:line:12",
+      "sourceSpanish": "Luego Miguel escribe en el chat del equipo: Equipo, la inspección se movió a mañana, de 8 a 12.",
+      "sourceEnglish": "Then Miguel writes in the crew group chat: Team, the inspection moved to tomorrow, from 8 to 12.",
+      "speaker": "Then Miguel writes in the crew group chat",
+      "conditionalJapanesePhrase": "みんな、検査は明日に変更。8:00〜12:00。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:18:reader:line:13",
+      "sourceSpanish": "Después llama a Óscar Fuentes, el subcontratista de tablaroca, pero la llamada se va al buzón de voz.",
+      "sourceEnglish": "Next he calls Óscar Fuentes, the drywall sub, but the call goes to his voice mailbox.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:18:reader:line:14",
+      "sourceSpanish": "Miguel deja un mensaje de voz claro y corto: Óscar, habla Miguel; llámame antes de salir con la troca.",
+      "sourceEnglish": "Miguel leaves a short, clear voicemail: Óscar, it's Miguel; call me before you head out with the truck.",
+      "speaker": "Miguel leaves a short, clear voicemail",
+      "conditionalJapanesePhrase": "オスカル、ミゲルだけど。トラックで出る前に電話して。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:18:reader:line:15",
+      "sourceSpanish": "Diez minutos después, Óscar devuelve la llamada desde su troca cargada.",
+      "sourceEnglish": "Ten minutes later, Óscar calls back from his loaded truck.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:18:reader:line:16",
+      "sourceSpanish": "Miguel: Lo siento, Óscar, sé que ya cargaste la troca.",
+      "sourceEnglish": "Miguel: Sorry, Óscar, I know you already loaded the truck.",
+      "speaker": "Miguel",
+      "conditionalJapanesePhrase": "ごめん、オスカル。もう荷積み済みなのは分かってる。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:18:reader:line:17",
+      "sourceSpanish": "Miguel: ¿Sería posible pasar la instalación de tablaroca a pasado mañana, después de la inspección?",
+      "sourceEnglish": "Miguel: Would it be possible to move the drywall hanging to the day after tomorrow, after the inspection?",
+      "speaker": "Miguel",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:18:reader:line:18",
+      "sourceSpanish": "Óscar: Está bien, Miguel; dejo el material en la troca y llego pasado mañana a las 7:00.",
+      "sourceEnglish": "Óscar: That's fine, Miguel; I'll leave the material on the truck and get there the day after tomorrow at 7:00.",
+      "speaker": "Óscar",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    }
+  ],
+  "reviewGates": {
+    "qualifiedJapaneseReview": false,
+    "qualifiedConstructionReview": false,
+    "sourceTechnicalQuestionsResolved": false,
+    "sourceParity": false,
+    "dictionarySenses": false,
+    "sixAuthoredModes": false,
+    "forms": false,
+    "speaking": false,
+    "audioText": false,
+    "audioListening": false,
+    "savedItemMigration": false,
+    "ownerRoute": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "progress": false,
+    "v4Native": false
+  }
+}

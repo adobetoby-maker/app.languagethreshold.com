@@ -1,0 +1,460 @@
+{
+  "schema": "french-roofing-core14-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:14",
+  "proposedPairId": "core-roofing:14:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-13-15-draft.json": "8d0c24caf1828662873ac4ec3be0c131ce9eb4a9523ee16a90b2af13de121a7a"
+  },
+  "orderedSourceRowsSha256": "a955e992fcd0bba40423f3eea4851ba3a6ef5d3d089f4faa8992bcdfb4a52913",
+  "sourceTitleEnglish": "Underlayment Overlap",
+  "sourceObjectiveEnglish": "Verify the specified underlayment overlap",
+  "sourceSpeakingEnglish": "Practice the guide's six-inch overlap phrase and verify it against the selected product instructions.",
+  "sourceReaderTitleSpanish": "Traslape de la sub-capa",
+  "cards": [
+    {
+      "id": "core-roofing:14:fr-en:card:1",
+      "legacySourceRef": "roofing:14:words:1",
+      "sourceSpanish": "Sub-capa / Fieltro",
+      "sourceEnglish": "underlayment",
+      "kind": "term",
+      "archivedFrenchEvidence": "la sous-couche",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:card:2",
+      "legacySourceRef": "roofing:14:words:2",
+      "sourceSpanish": "Traslape",
+      "sourceEnglish": "overlap",
+      "kind": "term",
+      "archivedFrenchEvidence": "le recouvrement",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:card:3",
+      "legacySourceRef": "roofing:14:words:3",
+      "sourceSpanish": "Sujetador",
+      "sourceEnglish": "fastener",
+      "kind": "term",
+      "archivedFrenchEvidence": "la fixation",
+      "conditionalFrench": "la fixation",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:card:4",
+      "legacySourceRef": "roofing:14:words:4",
+      "sourceSpanish": "Rollo",
+      "sourceEnglish": "roll",
+      "kind": "term",
+      "archivedFrenchEvidence": "le rouleau",
+      "conditionalFrench": "le rouleau",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:card:5",
+      "legacySourceRef": "roofing:14:words:5",
+      "sourceSpanish": "Papel de fieltro",
+      "sourceEnglish": "felt paper",
+      "kind": "term",
+      "archivedFrenchEvidence": "le feutre bitumé",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:card:6",
+      "legacySourceRef": "roofing:14:words:6",
+      "sourceSpanish": "Clavos con tapa plástica",
+      "sourceEnglish": "plastic cap nails",
+      "kind": "term",
+      "archivedFrenchEvidence": "les clous à rondelles de plastique",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:card:7",
+      "legacySourceRef": "roofing:14:words:7",
+      "sourceSpanish": "Arruga",
+      "sourceEnglish": "wrinkle",
+      "kind": "term",
+      "archivedFrenchEvidence": "le pli",
+      "conditionalFrench": "le pli",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:card:8",
+      "legacySourceRef": "roofing:14:words:8",
+      "sourceSpanish": "Pulgada",
+      "sourceEnglish": "inch",
+      "kind": "term",
+      "archivedFrenchEvidence": "le pouce",
+      "conditionalFrench": "le pouce",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:card:9",
+      "legacySourceRef": "roofing:14:words:9",
+      "sourceSpanish": "Instrucciones del fabricante",
+      "sourceEnglish": "manufacturer instructions",
+      "kind": "term",
+      "archivedFrenchEvidence": "les instructions du fabricant",
+      "conditionalFrench": "les instructions du fabricant",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:card:10",
+      "legacySourceRef": "roofing:14:words:10",
+      "sourceSpanish": "Seis pulgadas de traslape en la sub-capa.",
+      "sourceEnglish": "Six-inch overlap on the underlayment.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Un recouvrement de six pouces pour la sous-couche.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:card:11",
+      "legacySourceRef": "roofing:14:words:11",
+      "sourceSpanish": "Desenrollen la sub-capa bien recta.",
+      "sourceEnglish": "Roll out the underlayment straight.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Déroulez la sous-couche bien droit.",
+      "conditionalFrench": "Déroulez la sous-couche bien droit.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:card:12",
+      "legacySourceRef": "roofing:14:words:12",
+      "sourceSpanish": "Sin arrugas.",
+      "sourceEnglish": "No wrinkles.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Sans plis.",
+      "conditionalFrench": "Sans plis.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:card:13",
+      "legacySourceRef": "roofing:14:words:13",
+      "sourceSpanish": "¿El traslape está bien?",
+      "sourceEnglish": "Is the overlap correct?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Le recouvrement est-il correct ?",
+      "conditionalFrench": "Le recouvrement est-il correct ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:card:14",
+      "legacySourceRef": "roofing:14:words:14",
+      "sourceSpanish": "Sujeten la sub-capa con clavos de tapa plástica.",
+      "sourceEnglish": "Fasten the underlayment with plastic cap nails.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Fixez la sous-couche avec des clous à rondelles de plastique.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:14:fr-en:reader:1",
+      "legacySourceRef": "roofing:14:passage:1",
+      "sourceSpanish": "Ayer la cuadrilla limpió la cubierta.",
+      "sourceEnglish": "Yesterday the crew cleaned the deck.",
+      "archivedFrenchEvidence": "Hier, l’équipe a nettoyé le support de couverture.",
+      "conditionalFrench": "Hier, l’équipe a nettoyé le support de couverture.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:reader:2",
+      "legacySourceRef": "roofing:14:passage:2",
+      "sourceSpanish": "Hoy empiezan con la sub-capa.",
+      "sourceEnglish": "Today they start on the underlayment.",
+      "archivedFrenchEvidence": "Aujourd’hui, elle commence à poser la sous-couche.",
+      "conditionalFrench": "Aujourd’hui, elle commence à poser la sous-couche.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:reader:3",
+      "legacySourceRef": "roofing:14:passage:3",
+      "sourceSpanish": "Desenrollen la sub-capa bien recta.",
+      "sourceEnglish": "Roll out the underlayment nice and straight.",
+      "archivedFrenchEvidence": "Déroulez la sous-couche bien droit.",
+      "conditionalFrench": "Déroulez la sous-couche bien droit.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:reader:4",
+      "legacySourceRef": "roofing:14:passage:4",
+      "sourceSpanish": "Sin arrugas.",
+      "sourceEnglish": "No wrinkles.",
+      "archivedFrenchEvidence": "Sans plis.",
+      "conditionalFrench": "Sans plis.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:reader:5",
+      "legacySourceRef": "roofing:14:passage:5",
+      "sourceSpanish": "El capataz recuerda la guía: seis pulgadas de traslape en la sub-capa.",
+      "sourceEnglish": "The foreman recalls the guide: six-inch overlap on the underlayment.",
+      "archivedFrenchEvidence": "Le contremaître se souvient de l’exemple du guide : un recouvrement de six pouces pour la sous-couche.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:reader:6",
+      "legacySourceRef": "roofing:14:passage:6",
+      "sourceSpanish": "Pero también confirma con las instrucciones del fabricante.",
+      "sourceEnglish": "But he also confirms with the manufacturer's instructions.",
+      "archivedFrenchEvidence": "Mais il vérifie aussi les instructions du fabricant.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:reader:7",
+      "legacySourceRef": "roofing:14:passage:7",
+      "sourceSpanish": "¿El traslape está bien?",
+      "sourceEnglish": "Is the overlap correct?",
+      "archivedFrenchEvidence": "Le recouvrement est-il correct ?",
+      "conditionalFrench": "Le recouvrement est-il correct ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:reader:8",
+      "legacySourceRef": "roofing:14:passage:8",
+      "sourceSpanish": "Un obrero mide el traslape otra vez.",
+      "sourceEnglish": "A worker measures the overlap again.",
+      "archivedFrenchEvidence": "Un ouvrier mesure de nouveau le recouvrement.",
+      "conditionalFrench": "Un ouvrier mesure de nouveau le recouvrement.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:14:fr-en:reader:9",
+      "legacySourceRef": "roofing:14:passage:9",
+      "sourceSpanish": "Sujeten la sub-capa con clavos de tapa plástica.",
+      "sourceEnglish": "Fasten the underlayment with plastic cap nails.",
+      "archivedFrenchEvidence": "Fixez la sous-couche avec des clous à rondelles de plastique.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "desenrollar",
+      "englishMeaning": "to roll out",
+      "sourceSpanish": "Desenrollen la sub-capa bien recta.",
+      "sourceEnglish": "Roll out the underlayment nice and straight."
+    },
+    {
+      "spanishInfinitive": "sujetar",
+      "englishMeaning": "to fasten",
+      "sourceSpanish": "Sujeten la sub-capa con clavos de tapa plástica.",
+      "sourceEnglish": "Fasten the underlayment with plastic cap nails."
+    },
+    {
+      "spanishInfinitive": "medir",
+      "englishMeaning": "to measure",
+      "sourceSpanish": "Un obrero mide el traslape otra vez.",
+      "sourceEnglish": "A worker measures the overlap again."
+    },
+    {
+      "spanishInfinitive": "confirmar",
+      "englishMeaning": "to confirm",
+      "sourceSpanish": "El capataz confirma con las instrucciones del fabricante.",
+      "sourceEnglish": "The foreman confirms with the manufacturer's instructions."
+    },
+    {
+      "spanishInfinitive": "empezar",
+      "englishMeaning": "to start",
+      "sourceSpanish": "Hoy empiezan con la sub-capa.",
+      "sourceEnglish": "Today they start on the underlayment."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Vérifier le recouvrement de la sous-couche",
+    "objectiveFrench": "Employer la phrase de recouvrement du guide puis vérifier la mesure prévue pour le produit choisi.",
+    "speakingFrenchInstruction": "Rappelez le six pouces du guide comme exemple linguistique; demandez la largeur de recouvrement et le type de fixation réellement prescrits pour ce produit.",
+    "speakingFrenchOpening": "Le guide donne six pouces comme exemple. Quel recouvrement et quelles fixations notre sous-couche exige-t-elle ?",
+    "grammarFocusFrench": "Recouvrement et mesures en pouces dans le guide source; rappel d’un exemple versus consigne du fabricant; passé composé pour le chantier d’hier.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to roll out",
+        "exampleEnglish": "Roll out the underlayment nice and straight.",
+        "sourceInfinitiveSpanish": "desenrollar",
+        "infinitiveFrench": "dérouler",
+        "exampleFrench": "Déroulez la sous-couche bien droit."
+      },
+      {
+        "meaningEnglish": "to fasten",
+        "exampleEnglish": "Fasten the underlayment with plastic cap nails.",
+        "sourceInfinitiveSpanish": "sujetar",
+        "infinitiveFrench": "fixer",
+        "exampleFrench": "Fixez la sous-couche avec des clous à rondelles de plastique."
+      },
+      {
+        "meaningEnglish": "to measure",
+        "exampleEnglish": "A worker measures the overlap again.",
+        "sourceInfinitiveSpanish": "medir",
+        "infinitiveFrench": "mesurer",
+        "exampleFrench": "Un ouvrier mesure de nouveau le recouvrement."
+      },
+      {
+        "meaningEnglish": "to confirm",
+        "exampleEnglish": "The foreman confirms with the manufacturer's instructions.",
+        "sourceInfinitiveSpanish": "confirmar",
+        "infinitiveFrench": "confirmer",
+        "exampleFrench": "Le contremaître confirme en consultant les instructions du fabricant."
+      },
+      {
+        "meaningEnglish": "to start",
+        "exampleEnglish": "Today they start on the underlayment.",
+        "sourceInfinitiveSpanish": "empezar",
+        "infinitiveFrench": "commencer",
+        "exampleFrench": "Aujourd’hui, l’équipe commence à poser la sous-couche."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "France/Québec roofing terminology and site/product rules require qualified regional/trade review.",
+      "Confirm approved plans, manufacturer instructions and site safety controls; this scene is not a work procedure."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:14:fr-en:card:1",
+        "core-roofing:14:fr-en:card:5",
+        "core-roofing:14:fr-en:card:10"
+      ],
+      "question": "The source groups underlayment, sub-capa and felt, while the archive narrows felt paper to feutre bitumé. Confirm the product-specific French senses and whether the six-inch example refers to this layer before scoring."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:14:fr-en:card:2",
+        "core-roofing:14:fr-en:card:10",
+        "core-roofing:14:fr-en:reader:5",
+        "core-roofing:14:fr-en:reader:6"
+      ],
+      "question": "Six inches is attributed to the guide, then the foreman checks manufacturer instructions. Resolve the approved product overlap; retain the guide example as attributed speech, never a universal installation rule."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:14:fr-en:card:6",
+        "core-roofing:14:fr-en:card:14",
+        "core-roofing:14:fr-en:reader:9"
+      ],
+      "question": "Plastic cap nails are an explicit source fastening method, but archive clous à rondelles de plastique may name a different cap/washer form. Confirm the selected product fastener and French term before a scored imperative or audio script."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:14:fr-en:reader:5",
+        "core-roofing:14:fr-en:reader:6"
+      ],
+      "question": "Archived Reader 5 recasts the guide's six-inch phrase as an example; this is a safety-preserving explanation but changes the literal quotation. Qualified source and trade review should decide how to teach attribution while retaining exact meaning."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:14:fr-en:reader:1",
+        "core-roofing:14:fr-en:reader:9"
+      ],
+      "question": "Yesterday's deck cleanup and today's underlayment fastening are separate timepoints. Review deck/support de couverture and product-specific fastening before reusing the archive in speaking or mode targets."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

@@ -1,0 +1,9 @@
+# French Roofing Core 15 — valley protection source decision
+
+This inert packet pins **15 exact current Spanish/English cards**, **nine aligned Reader turns**, five source verb examples, and current-source/archive hashes for *Valley Protection*. Proposed `core-roofing:15:fr-en` IDs are review references only. The source header still says `roofing`; stage-local saved-item and progress identity require a deliberate migration before learner use.
+
+The archived French remains separate evidence. Ten card faces and six Reader turns are held from even conditional selection. A qualified reviewer must confirm the regional *limahoya/valley/noue* sense; the named ice-and-water shield versus generic Spanish membrane; leak, flashing and asphalt-shingle senses; backing/adhesive and roof deck wording; and the approved product procedure for cutting, peeling, placing and pressing membrane. The source asks whether the full valley is covered and to show protection before cover-up. Archived *entièrement protégée* may imply protection quality instead of complete coverage, and archived speaking adds a product-sheet request absent from the source objective. These are internal source/domain questions, separate from learner text.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, listening, offline, saved-progress, browser and V4 gates are false. No audio was generated or approved; no owner page or runtime route imports this packet. Six authored See/Recall/Hear/Type/Say/Write prompt/target activities, contextual forms, speaking, exact-pair dictionary and device acceptance remain open.
+
+`build.py --check` detects source drift; `validate.py` independently checks exact source order, IDs, archived evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural checks and self-check are not qualified review.

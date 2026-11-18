@@ -1,0 +1,9 @@
+# French Roofing Core 19 — step-flashing source decision
+
+This inert packet pins **14 exact current Spanish/English cards**, **eight aligned Reader turns**, five source verb examples, and current-source/archive hashes for *Step Flashing*. Proposed `core-roofing:19:fr-en` IDs are review references only. The source header still says `roofing`; stage-local saved-item and progress identity need a deliberate migration before learner use.
+
+The archived French is separate evidence. Thirteen card faces and six Reader turns are held from conditional selection. Step flashing, generic flashing, overlap, shingle course, sidewall and siding require distinct contextual French trade senses. The source card about flashing under each course is a fragment; the archived French turns it into an imperative. The Reader includes one-piece-per-course and bend-against-wall commands without an approved wall/roof detail or manufacturer instructions. The archived speaking adds showing approved detail and overlap beyond the source objective. These are internal source, dictionary and domain questions; no construction command is selected for learners.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, listening, offline, saved-progress, browser and V4 gates are false. No audio was generated or approved; no owner page or runtime route imports this packet. Six authored See/Recall/Hear/Type/Say/Write prompt/target activities, forms, speaking, exact-pair dictionary and device acceptance remain open.
+
+`build.py --check` detects source drift; `validate.py` independently checks current source order, IDs, archived evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural checks and self-check are not qualified review.

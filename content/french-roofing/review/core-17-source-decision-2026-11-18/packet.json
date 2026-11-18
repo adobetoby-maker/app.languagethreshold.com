@@ -1,0 +1,458 @@
+{
+  "schema": "french-roofing-core17-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:17",
+  "proposedPairId": "core-roofing:17:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-16-18-draft.json": "ccdf464e2f27eabede94177db95909e71cda055740712e1ab63dae16aa3e653d"
+  },
+  "orderedSourceRowsSha256": "1bef6f21f2bb173feddad5d9d590c4ab7f9a5f07b32c371aaa8c7c7e3200abba",
+  "sourceTitleEnglish": "Fastener Pattern",
+  "sourceObjectiveEnglish": "Confirm the manufacturer's fastener count and pattern",
+  "sourceSpeakingEnglish": "Practice 'Four nails per shingle' as a language example, then request the actual product pattern.",
+  "sourceReaderTitleSpanish": "El patrón de clavado",
+  "cards": [
+    {
+      "id": "core-roofing:17:fr-en:card:1",
+      "legacySourceRef": "roofing:17:words:1",
+      "sourceSpanish": "Patrón de clavado",
+      "sourceEnglish": "nail pattern",
+      "kind": "term",
+      "archivedFrenchEvidence": "le schéma de clouage",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:card:2",
+      "legacySourceRef": "roofing:17:words:2",
+      "sourceSpanish": "Teja asfáltica",
+      "sourceEnglish": "shingle",
+      "kind": "term",
+      "archivedFrenchEvidence": "le bardeau",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:card:3",
+      "legacySourceRef": "roofing:17:words:3",
+      "sourceSpanish": "Instrucciones del fabricante",
+      "sourceEnglish": "manufacturer instructions",
+      "kind": "term",
+      "archivedFrenchEvidence": "les instructions du fabricant",
+      "conditionalFrench": "les instructions du fabricant",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:card:4",
+      "legacySourceRef": "roofing:17:words:4",
+      "sourceSpanish": "Clavo",
+      "sourceEnglish": "nail",
+      "kind": "term",
+      "archivedFrenchEvidence": "le clou",
+      "conditionalFrench": "le clou",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:card:5",
+      "legacySourceRef": "roofing:17:words:5",
+      "sourceSpanish": "Sujetador",
+      "sourceEnglish": "fastener",
+      "kind": "term",
+      "archivedFrenchEvidence": "la fixation",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:card:6",
+      "legacySourceRef": "roofing:17:words:6",
+      "sourceSpanish": "Pistola de clavos",
+      "sourceEnglish": "nail gun",
+      "kind": "term",
+      "archivedFrenchEvidence": "la cloueuse",
+      "conditionalFrench": "la cloueuse",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:card:7",
+      "legacySourceRef": "roofing:17:words:7",
+      "sourceSpanish": "Envoltura",
+      "sourceEnglish": "wrapper",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’emballage",
+      "conditionalFrench": "l’emballage",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:card:8",
+      "legacySourceRef": "roofing:17:words:8",
+      "sourceSpanish": "Producto",
+      "sourceEnglish": "product",
+      "kind": "term",
+      "archivedFrenchEvidence": "le produit",
+      "conditionalFrench": "le produit",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:card:9",
+      "legacySourceRef": "roofing:17:words:9",
+      "sourceSpanish": "Cantidad de clavos",
+      "sourceEnglish": "number of nails",
+      "kind": "term",
+      "archivedFrenchEvidence": "le nombre de clous",
+      "conditionalFrench": "le nombre de clous",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:card:10",
+      "legacySourceRef": "roofing:17:words:10",
+      "sourceSpanish": "Cuatro clavos por teja.",
+      "sourceEnglish": "Four nails per shingle.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Quatre clous par bardeau.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:card:11",
+      "legacySourceRef": "roofing:17:words:11",
+      "sourceSpanish": "Revisen las instrucciones del producto antes de definir el patrón de clavado.",
+      "sourceEnglish": "Check the product instructions before setting the nail pattern.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Vérifiez les instructions du produit avant de définir le schéma de clouage.",
+      "conditionalFrench": "Vérifiez les instructions du produit avant de définir le schéma de clouage.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:card:12",
+      "legacySourceRef": "roofing:17:words:12",
+      "sourceSpanish": "¿Cuántos clavos necesita esta teja?",
+      "sourceEnglish": "How many nails does this shingle need?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Combien de clous faut-il pour ce bardeau ?",
+      "conditionalFrench": "Combien de clous faut-il pour ce bardeau ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:card:13",
+      "legacySourceRef": "roofing:17:words:13",
+      "sourceSpanish": "Lean la envoltura del paquete.",
+      "sourceEnglish": "Read the wrapper.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Lisez l’emballage.",
+      "conditionalFrench": "Lisez l’emballage.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:card:14",
+      "legacySourceRef": "roofing:17:words:14",
+      "sourceSpanish": "Usen el mismo patrón en cada teja.",
+      "sourceEnglish": "Use the same pattern on every shingle.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Utilisez le même schéma sur chaque bardeau.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:card:15",
+      "legacySourceRef": "roofing:17:words:15",
+      "sourceSpanish": "Necesito el patrón exacto de este producto.",
+      "sourceEnglish": "I need the exact pattern for this product.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Il me faut le schéma exact pour ce produit.",
+      "conditionalFrench": "Il me faut le schéma exact pour ce produit.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:17:fr-en:reader:1",
+      "legacySourceRef": "roofing:17:passage:1",
+      "sourceSpanish": "Hoy la cuadrilla abre un paquete nuevo de tejas asfálticas.",
+      "sourceEnglish": "Today the crew opens a new package of asphalt shingles.",
+      "archivedFrenchEvidence": "Aujourd’hui, l’équipe ouvre un nouveau paquet de bardeaux d’asphalte.",
+      "conditionalFrench": "Aujourd’hui, l’équipe ouvre un nouveau paquet de bardeaux d’asphalte.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:reader:2",
+      "legacySourceRef": "roofing:17:passage:2",
+      "sourceSpanish": "Un obrero pregunta: ¿Cuántos clavos necesita esta teja?",
+      "sourceEnglish": "A worker asks: How many nails does this shingle need?",
+      "archivedFrenchEvidence": "Un ouvrier demande : « Combien de clous faut-il pour ce bardeau ? »",
+      "conditionalFrench": "Un ouvrier demande : « Combien de clous faut-il pour ce bardeau ? »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:reader:3",
+      "legacySourceRef": "roofing:17:passage:3",
+      "sourceSpanish": "En el ejemplo de la guía son cuatro clavos por teja.",
+      "sourceEnglish": "In the guide's example it is four nails per shingle.",
+      "archivedFrenchEvidence": "Dans l’exemple du guide, il y en a quatre par bardeau.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:reader:4",
+      "legacySourceRef": "roofing:17:passage:4",
+      "sourceSpanish": "Pero cada fabricante da sus propias instrucciones.",
+      "sourceEnglish": "But every manufacturer gives its own instructions.",
+      "archivedFrenchEvidence": "Mais chaque fabricant donne ses propres instructions.",
+      "conditionalFrench": "Mais chaque fabricant donne ses propres instructions.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:reader:5",
+      "legacySourceRef": "roofing:17:passage:5",
+      "sourceSpanish": "Lean la envoltura del paquete.",
+      "sourceEnglish": "Read the wrapper on the package.",
+      "archivedFrenchEvidence": "Lisez l’emballage du paquet.",
+      "conditionalFrench": "Lisez l’emballage du paquet.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:reader:6",
+      "legacySourceRef": "roofing:17:passage:6",
+      "sourceSpanish": "Revisen las instrucciones del producto antes de definir el patrón de clavado.",
+      "sourceEnglish": "Check the product instructions before setting the nail pattern.",
+      "archivedFrenchEvidence": "Vérifiez les instructions du produit avant de définir le schéma de clouage.",
+      "conditionalFrench": "Vérifiez les instructions du produit avant de définir le schéma de clouage.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:reader:7",
+      "legacySourceRef": "roofing:17:passage:7",
+      "sourceSpanish": "Necesito el patrón exacto de este producto.",
+      "sourceEnglish": "I need the exact pattern for this product.",
+      "archivedFrenchEvidence": "Il me faut le schéma exact pour ce produit.",
+      "conditionalFrench": "Il me faut le schéma exact pour ce produit.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:17:fr-en:reader:8",
+      "legacySourceRef": "roofing:17:passage:8",
+      "sourceSpanish": "Después, usen el mismo patrón en cada teja.",
+      "sourceEnglish": "After that, use the same pattern on every shingle.",
+      "archivedFrenchEvidence": "Ensuite, utilisez le même schéma sur chaque bardeau.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "revisar",
+      "englishMeaning": "to check",
+      "sourceSpanish": "Revisen las instrucciones del producto antes de definir el patrón de clavado.",
+      "sourceEnglish": "Check the product instructions before setting the nail pattern."
+    },
+    {
+      "spanishInfinitive": "leer",
+      "englishMeaning": "to read",
+      "sourceSpanish": "Lean la envoltura del paquete.",
+      "sourceEnglish": "Read the wrapper on the package."
+    },
+    {
+      "spanishInfinitive": "necesitar",
+      "englishMeaning": "to need",
+      "sourceSpanish": "Necesito el patrón exacto de este producto.",
+      "sourceEnglish": "I need the exact pattern for this product."
+    },
+    {
+      "spanishInfinitive": "usar",
+      "englishMeaning": "to use",
+      "sourceSpanish": "Usen el mismo patrón en cada teja.",
+      "sourceEnglish": "Use the same pattern on every shingle."
+    },
+    {
+      "spanishInfinitive": "abrir",
+      "englishMeaning": "to open",
+      "sourceSpanish": "Hoy la cuadrilla abre un paquete nuevo de tejas asfálticas.",
+      "sourceEnglish": "Today the crew opens a new package of asphalt shingles."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Confirmer le schéma de fixation",
+    "objectiveFrench": "Demander le nombre et le schéma de fixations indiqués par le fabricant.",
+    "speakingFrenchInstruction": "Mentionnez les « quatre clous » du guide comme exemple de langue, puis demandez le nombre et le schéma exigés par ce produit.",
+    "speakingFrenchOpening": "Le guide donne quatre clous comme exemple. Que demande la notice de ce bardeau ?",
+    "grammarFocusFrench": "Combien de + nom; il faut + infinitif; distinguer exemple du guide et exigences du fabricant.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to check",
+        "exampleEnglish": "Check the product instructions before setting the nail pattern.",
+        "sourceInfinitiveSpanish": "revisar",
+        "infinitiveFrench": "vérifier",
+        "exampleFrench": "Vérifiez les instructions du produit avant de définir le schéma de clouage."
+      },
+      {
+        "meaningEnglish": "to read",
+        "exampleEnglish": "Read the wrapper on the package.",
+        "sourceInfinitiveSpanish": "leer",
+        "infinitiveFrench": "lire",
+        "exampleFrench": "Lisez l’emballage du paquet."
+      },
+      {
+        "meaningEnglish": "to need",
+        "exampleEnglish": "I need the exact pattern for this product.",
+        "sourceInfinitiveSpanish": "necesitar",
+        "infinitiveFrench": "avoir besoin de",
+        "exampleFrench": "Il me faut le schéma exact pour ce produit."
+      },
+      {
+        "meaningEnglish": "to use",
+        "exampleEnglish": "Use the same pattern on every shingle.",
+        "sourceInfinitiveSpanish": "usar",
+        "infinitiveFrench": "utiliser",
+        "exampleFrench": "Utilisez le même schéma sur chaque bardeau."
+      },
+      {
+        "meaningEnglish": "to open",
+        "exampleEnglish": "Today the crew opens a new package of asphalt shingles.",
+        "sourceInfinitiveSpanish": "abrir",
+        "infinitiveFrench": "ouvrir",
+        "exampleFrench": "Aujourd’hui, l’équipe ouvre un nouveau paquet de bardeaux d’asphalte."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "France/Québec roofing terminology and power-tool safety require qualified regional/trade review.",
+      "Confirm manufacturer nailing zones, fastener pattern, repair and tool settings; this scene is not a work procedure."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:17:fr-en:card:1",
+        "core-roofing:17:fr-en:card:5",
+        "core-roofing:17:fr-en:reader:6"
+      ],
+      "question": "Source nail pattern, fastener and product instructions need matching trade/dictionary senses. Archived schéma de clouage and fixation may not denote the same fastening detail; confirm product-specific terminology before scoring."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:17:fr-en:card:2",
+        "core-roofing:17:fr-en:reader:1"
+      ],
+      "question": "The Reader explicitly uses asphalt shingles while the card English says shingle; archived bardeau alone is broader. Confirm contextual dictionary sense and whether the card needs asphalt specificity."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:17:fr-en:card:10",
+        "core-roofing:17:fr-en:reader:3"
+      ],
+      "question": "Four nails per shingle is only the guide's attributed language example. Confirm the actual manufacturer's nail quantity, zones and pattern before any scored construction instruction or audio script."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:17:fr-en:card:14",
+        "core-roofing:17:fr-en:reader:8"
+      ],
+      "question": "The source says to use the same pattern on every shingle after confirming this product's instructions. Preserve that order and product scope; do not generalize the pattern across products or roof systems."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:17:fr-en:reader:5",
+        "core-roofing:17:fr-en:reader:6"
+      ],
+      "question": "The wrapper and product instructions are the source of the actual pattern. Verify regional packaging terminology and how the instruction is presented without implying the package alone resolves site-specific requirements."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

@@ -1,0 +1,464 @@
+{
+  "schema": "french-roofing-core16-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:16",
+  "proposedPairId": "core-roofing:16:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-16-18-draft.json": "ccdf464e2f27eabede94177db95909e71cda055740712e1ab63dae16aa3e653d"
+  },
+  "orderedSourceRowsSha256": "bd14cb89f626d81933bbf96d4fa4210a8244a9e63ada7b1dfbb52258b337fd1a",
+  "sourceTitleEnglish": "Nailing Zone",
+  "sourceObjectiveEnglish": "Correct nails placed outside the specified zone",
+  "sourceSpeakingEnglish": "Tell a worker 'Nail in the strip — not too high' and explain the correction.",
+  "sourceReaderTitleSpanish": "Clavos en la franja",
+  "cards": [
+    {
+      "id": "core-roofing:16:fr-en:card:1",
+      "legacySourceRef": "roofing:16:words:1",
+      "sourceSpanish": "Franja de clavado",
+      "sourceEnglish": "nailing strip",
+      "kind": "term",
+      "archivedFrenchEvidence": "la bande de clouage",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:card:2",
+      "legacySourceRef": "roofing:16:words:2",
+      "sourceSpanish": "Clavo muy alto",
+      "sourceEnglish": "high nail",
+      "kind": "term",
+      "archivedFrenchEvidence": "le clou placé trop haut",
+      "conditionalFrench": "le clou placé trop haut",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:card:3",
+      "legacySourceRef": "roofing:16:words:3",
+      "sourceSpanish": "Sujetador",
+      "sourceEnglish": "fastener",
+      "kind": "term",
+      "archivedFrenchEvidence": "la fixation",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:card:4",
+      "legacySourceRef": "roofing:16:words:4",
+      "sourceSpanish": "Clavo",
+      "sourceEnglish": "nail",
+      "kind": "term",
+      "archivedFrenchEvidence": "le clou",
+      "conditionalFrench": "le clou",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:card:5",
+      "legacySourceRef": "roofing:16:words:5",
+      "sourceSpanish": "Teja asfáltica",
+      "sourceEnglish": "shingle",
+      "kind": "term",
+      "archivedFrenchEvidence": "le bardeau",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:card:6",
+      "legacySourceRef": "roofing:16:words:6",
+      "sourceSpanish": "Pistola de clavos",
+      "sourceEnglish": "nail gun",
+      "kind": "term",
+      "archivedFrenchEvidence": "la cloueuse",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:card:7",
+      "legacySourceRef": "roofing:16:words:7",
+      "sourceSpanish": "Zona de clavado",
+      "sourceEnglish": "nailing zone",
+      "kind": "term",
+      "archivedFrenchEvidence": "la zone de clouage",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:card:8",
+      "legacySourceRef": "roofing:16:words:8",
+      "sourceSpanish": "Tira selladora",
+      "sourceEnglish": "sealant strip",
+      "kind": "term",
+      "archivedFrenchEvidence": "la bande adhésive",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:card:9",
+      "legacySourceRef": "roofing:16:words:9",
+      "sourceSpanish": "Lengüeta",
+      "sourceEnglish": "tab",
+      "kind": "term",
+      "archivedFrenchEvidence": "la patte du bardeau",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:card:10",
+      "legacySourceRef": "roofing:16:words:10",
+      "sourceSpanish": "Claven en la franja — no muy alto.",
+      "sourceEnglish": "Nail in the strip — not too high.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Clouez dans la bande, pas trop haut.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:card:11",
+      "legacySourceRef": "roofing:16:words:11",
+      "sourceSpanish": "Ese clavo está muy alto.",
+      "sourceEnglish": "That nail is too high.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Ce clou est trop haut.",
+      "conditionalFrench": "Ce clou est trop haut.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:card:12",
+      "legacySourceRef": "roofing:16:words:12",
+      "sourceSpanish": "Mantengan los clavos dentro de la zona de clavado.",
+      "sourceEnglish": "Keep the nails inside the nailing zone.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Gardez les clous dans la zone de clouage.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:card:13",
+      "legacySourceRef": "roofing:16:words:13",
+      "sourceSpanish": "Corrijan esta hilera.",
+      "sourceEnglish": "Fix this row.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Corrigez ce rang.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:card:14",
+      "legacySourceRef": "roofing:16:words:14",
+      "sourceSpanish": "Háganlo así.",
+      "sourceEnglish": "Do it like this.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Faites comme ceci.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:card:15",
+      "legacySourceRef": "roofing:16:words:15",
+      "sourceSpanish": "Muéstrenme dónde está la franja.",
+      "sourceEnglish": "Show me where the strip is.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Montrez-moi où se trouve la bande.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:16:fr-en:reader:1",
+      "legacySourceRef": "roofing:16:passage:1",
+      "sourceSpanish": "El capataz revisa las tejas asfálticas de la hilera nueva.",
+      "sourceEnglish": "The foreman checks the asphalt shingles in the new course.",
+      "archivedFrenchEvidence": "Le contremaître vérifie les bardeaux d’asphalte du nouveau rang.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:reader:2",
+      "legacySourceRef": "roofing:16:passage:2",
+      "sourceSpanish": "Ve un clavo muy alto, fuera de la franja de clavado.",
+      "sourceEnglish": "He sees a nail that is too high, outside the nailing strip.",
+      "archivedFrenchEvidence": "Il voit un clou placé trop haut, hors de la bande de clouage.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:reader:3",
+      "legacySourceRef": "roofing:16:passage:3",
+      "sourceSpanish": "Ese clavo está muy alto.",
+      "sourceEnglish": "That nail is too high.",
+      "archivedFrenchEvidence": "Ce clou est trop haut.",
+      "conditionalFrench": "Ce clou est trop haut.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:reader:4",
+      "legacySourceRef": "roofing:16:passage:4",
+      "sourceSpanish": "Muéstrenme dónde está la franja.",
+      "sourceEnglish": "Show me where the strip is.",
+      "archivedFrenchEvidence": "Montrez-moi où se trouve la bande.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:reader:5",
+      "legacySourceRef": "roofing:16:passage:5",
+      "sourceSpanish": "Mantengan los clavos dentro de la zona de clavado.",
+      "sourceEnglish": "Keep the nails inside the nailing zone.",
+      "archivedFrenchEvidence": "Gardez les clous dans la zone de clouage.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:reader:6",
+      "legacySourceRef": "roofing:16:passage:6",
+      "sourceSpanish": "Corrijan esta hilera.",
+      "sourceEnglish": "Fix this row.",
+      "archivedFrenchEvidence": "Corrigez ce rang.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:reader:7",
+      "legacySourceRef": "roofing:16:passage:7",
+      "sourceSpanish": "El capataz toma la pistola de clavos y dice: Háganlo así.",
+      "sourceEnglish": "The foreman takes the nail gun and says: Do it like this.",
+      "archivedFrenchEvidence": "Le contremaître prend la cloueuse et dit : « Faites comme ceci. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:16:fr-en:reader:8",
+      "legacySourceRef": "roofing:16:passage:8",
+      "sourceSpanish": "Después, Pedro revisa cada clavo con más cuidado.",
+      "sourceEnglish": "Afterward, Pedro checks each nail more carefully.",
+      "archivedFrenchEvidence": "Ensuite, Pedro vérifie chaque clou avec plus d’attention.",
+      "conditionalFrench": "Ensuite, Pedro vérifie chaque clou avec plus d’attention.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "clavar",
+      "englishMeaning": "to nail",
+      "sourceSpanish": "Pedro clava dentro de la franja de clavado.",
+      "sourceEnglish": "Pedro nails inside the nailing strip."
+    },
+    {
+      "spanishInfinitive": "revisar",
+      "englishMeaning": "to check",
+      "sourceSpanish": "El capataz revisa las tejas asfálticas de la hilera nueva.",
+      "sourceEnglish": "The foreman checks the asphalt shingles in the new course."
+    },
+    {
+      "spanishInfinitive": "corregir",
+      "englishMeaning": "to fix, to correct",
+      "sourceSpanish": "Pedro corrige el clavo alto en esta hilera.",
+      "sourceEnglish": "Pedro fixes the high nail in this row."
+    },
+    {
+      "spanishInfinitive": "mantener",
+      "englishMeaning": "to keep, to hold",
+      "sourceSpanish": "Los trabajadores mantienen los clavos dentro de la zona de clavado.",
+      "sourceEnglish": "The workers keep the nails inside the nailing zone."
+    },
+    {
+      "spanishInfinitive": "mostrar",
+      "englishMeaning": "to show",
+      "sourceSpanish": "El capataz muestra dónde está la franja.",
+      "sourceEnglish": "The foreman shows where the strip is."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Repérer la zone de clouage",
+    "objectiveFrench": "Signaler un clou hors de la zone prévue et demander une correction conforme au produit.",
+    "speakingFrenchInstruction": "Signalez un clou hors de la zone prévue. Demandez au responsable de montrer la zone de clouage du produit et la correction approuvée.",
+    "speakingFrenchOpening": "Arrêtons ce rang : ce clou semble trop haut. Où le fabricant indique-t-il la zone de clouage ?",
+    "grammarFocusFrench": "Impératif pluriel pour arrêter et demander une correction; trop + adjectif/adverbe; où se trouve pour localiser.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to nail",
+        "exampleEnglish": "Pedro nails inside the nailing strip.",
+        "sourceInfinitiveSpanish": "clavar",
+        "infinitiveFrench": "clouer",
+        "exampleFrench": "Pedro cloue dans la bande de clouage."
+      },
+      {
+        "meaningEnglish": "to check",
+        "exampleEnglish": "The foreman checks the asphalt shingles in the new course.",
+        "sourceInfinitiveSpanish": "revisar",
+        "infinitiveFrench": "vérifier",
+        "exampleFrench": "Le contremaître vérifie les bardeaux d’asphalte du nouveau rang."
+      },
+      {
+        "meaningEnglish": "to fix, to correct",
+        "exampleEnglish": "Pedro fixes the high nail in this row.",
+        "sourceInfinitiveSpanish": "corregir",
+        "infinitiveFrench": "corriger",
+        "exampleFrench": "Pedro corrige le clou placé trop haut dans ce rang."
+      },
+      {
+        "meaningEnglish": "to keep, to hold",
+        "exampleEnglish": "The workers keep the nails inside the nailing zone.",
+        "sourceInfinitiveSpanish": "mantener",
+        "infinitiveFrench": "garder",
+        "exampleFrench": "Les ouvriers gardent les clous dans la zone de clouage."
+      },
+      {
+        "meaningEnglish": "to show",
+        "exampleEnglish": "The foreman shows where the strip is.",
+        "sourceInfinitiveSpanish": "mostrar",
+        "infinitiveFrench": "montrer",
+        "exampleFrench": "Le contremaître montre où se trouve la bande."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "France/Québec roofing terminology and power-tool safety require qualified regional/trade review.",
+      "Confirm manufacturer nailing zones, fastener pattern, repair and tool settings; this scene is not a work procedure."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:16:fr-en:card:1",
+        "core-roofing:16:fr-en:card:7",
+        "core-roofing:16:fr-en:card:15",
+        "core-roofing:16:fr-en:reader:2",
+        "core-roofing:16:fr-en:reader:4"
+      ],
+      "question": "The source distinguishes nailing strip/franja from nailing zone/zona. Archived bande and zone may be product-specific marks rather than interchangeable. Confirm the exact product marking and dictionary senses before selecting location commands."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:16:fr-en:card:3",
+        "core-roofing:16:fr-en:card:5",
+        "core-roofing:16:fr-en:card:8",
+        "core-roofing:16:fr-en:card:9",
+        "core-roofing:16:fr-en:reader:1"
+      ],
+      "question": "Fastener, asphalt shingle, sealant strip and tab have component-specific meanings. Archived fixation, bardeau, bande adhésive and patte need qualified regional/trade review so a deck or dictionary entry does not conflate materials or components."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:16:fr-en:card:6",
+        "core-roofing:16:fr-en:card:10",
+        "core-roofing:16:fr-en:card:12",
+        "core-roofing:16:fr-en:card:13",
+        "core-roofing:16:fr-en:card:14",
+        "core-roofing:16:fr-en:reader:5",
+        "core-roofing:16:fr-en:reader:6",
+        "core-roofing:16:fr-en:reader:7"
+      ],
+      "question": "The source depicts a foreman using a nail gun and giving a corrective demonstration. Product nailing zone, repair method, fastener pattern and power-tool controls are not specified. Keep the archived imperatives and demonstration out of scored/audio commands until qualified product and safety review."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:16:fr-en:card:10",
+        "core-roofing:16:fr-en:card:13",
+        "core-roofing:16:fr-en:reader:6",
+        "core-roofing:16:fr-en:reader:7"
+      ],
+      "question": "Archived speaking says stop the course, show the manufacturer's zone and ask for approved correction; those are additional steps beyond the source speaking objective. Preserve the current source request and record the extra scene only as review evidence."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

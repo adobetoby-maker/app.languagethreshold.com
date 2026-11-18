@@ -1,0 +1,451 @@
+{
+  "schema": "french-roofing-core19-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:19",
+  "proposedPairId": "core-roofing:19:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-19-21-draft.json": "84fe1b8cc0f2be154426a659907fb7757bc9dad1c4566541324bc896c839fd7e"
+  },
+  "orderedSourceRowsSha256": "017a740a2d4d989a7042142fddce239585561964ac76dc1ddb7a17d0114cba16",
+  "sourceTitleEnglish": "Step Flashing",
+  "sourceObjectiveEnglish": "Coordinate sidewall flashing one course at a time",
+  "sourceSpeakingEnglish": "Ask the installer to describe the sidewall flashing sequence.",
+  "sourceReaderTitleSpanish": "Tapajuntas en la pared",
+  "cards": [
+    {
+      "id": "core-roofing:19:fr-en:card:1",
+      "legacySourceRef": "roofing:19:words:1",
+      "sourceSpanish": "Tapajuntas escalonado",
+      "sourceEnglish": "step flashing",
+      "kind": "term",
+      "archivedFrenchEvidence": "le solin à gradins",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:card:2",
+      "legacySourceRef": "roofing:19:words:2",
+      "sourceSpanish": "Pared",
+      "sourceEnglish": "wall",
+      "kind": "term",
+      "archivedFrenchEvidence": "le mur",
+      "conditionalFrench": "le mur",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:card:3",
+      "legacySourceRef": "roofing:19:words:3",
+      "sourceSpanish": "Hilera de tejas",
+      "sourceEnglish": "shingle course",
+      "kind": "term",
+      "archivedFrenchEvidence": "le rang de bardeaux",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:card:4",
+      "legacySourceRef": "roofing:19:words:4",
+      "sourceSpanish": "Pared lateral",
+      "sourceEnglish": "sidewall",
+      "kind": "term",
+      "archivedFrenchEvidence": "le mur latéral",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:card:5",
+      "legacySourceRef": "roofing:19:words:5",
+      "sourceSpanish": "Tapajuntas / Flashing",
+      "sourceEnglish": "flashing",
+      "kind": "term",
+      "archivedFrenchEvidence": "le solin",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:card:6",
+      "legacySourceRef": "roofing:19:words:6",
+      "sourceSpanish": "Revestimiento de pared",
+      "sourceEnglish": "siding",
+      "kind": "term",
+      "archivedFrenchEvidence": "le revêtement mural",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:card:7",
+      "legacySourceRef": "roofing:19:words:7",
+      "sourceSpanish": "Sellador",
+      "sourceEnglish": "sealant",
+      "kind": "term",
+      "archivedFrenchEvidence": "le produit d’étanchéité",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:card:8",
+      "legacySourceRef": "roofing:19:words:8",
+      "sourceSpanish": "Doblar",
+      "sourceEnglish": "bend",
+      "kind": "term",
+      "archivedFrenchEvidence": "plier",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:card:9",
+      "legacySourceRef": "roofing:19:words:9",
+      "sourceSpanish": "Traslape",
+      "sourceEnglish": "overlap",
+      "kind": "term",
+      "archivedFrenchEvidence": "le recouvrement",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:card:10",
+      "legacySourceRef": "roofing:19:words:10",
+      "sourceSpanish": "Tapajuntas escalonado debajo de cada hilera.",
+      "sourceEnglish": "Step flashing under each shingle course.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Posez un solin à gradins sous chaque rang de bardeaux.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:card:11",
+      "legacySourceRef": "roofing:19:words:11",
+      "sourceSpanish": "Instalen una pieza por cada hilera.",
+      "sourceEnglish": "Install one piece per course.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Posez une pièce par rang.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:card:12",
+      "legacySourceRef": "roofing:19:words:12",
+      "sourceSpanish": "Doblen el tapajuntas contra la pared.",
+      "sourceEnglish": "Bend the flashing against the wall.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Pliez le solin contre le mur.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:card:13",
+      "legacySourceRef": "roofing:19:words:13",
+      "sourceSpanish": "Expliquen la secuencia del tapajuntas de la pared lateral.",
+      "sourceEnglish": "Describe the sidewall flashing sequence.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Décrivez la séquence de pose du solin au mur latéral.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:card:14",
+      "legacySourceRef": "roofing:19:words:14",
+      "sourceSpanish": "Muéstrenme cómo se traslapa el tapajuntas.",
+      "sourceEnglish": "Show me how the flashing overlaps.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Montrez-moi comment les solins se recouvrent.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:19:fr-en:reader:1",
+      "legacySourceRef": "roofing:19:passage:1",
+      "sourceSpanish": "Hoy la cuadrilla trabaja en la pared lateral de la casa.",
+      "sourceEnglish": "Today the crew is working on the sidewall of the house.",
+      "archivedFrenchEvidence": "Aujourd’hui, l’équipe travaille le long du mur latéral de la maison.",
+      "conditionalFrench": "Aujourd’hui, l’équipe travaille le long du mur latéral de la maison.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:reader:2",
+      "legacySourceRef": "roofing:19:passage:2",
+      "sourceSpanish": "Aquí el techo se une con la pared.",
+      "sourceEnglish": "Here the roof meets the wall.",
+      "archivedFrenchEvidence": "À cet endroit, le toit rejoint le mur.",
+      "conditionalFrench": "À cet endroit, le toit rejoint le mur.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:reader:3",
+      "legacySourceRef": "roofing:19:passage:3",
+      "sourceSpanish": "El capataz les pide a los instaladores: Expliquen la secuencia del tapajuntas de la pared lateral.",
+      "sourceEnglish": "The foreman asks the installers: Explain the sidewall flashing sequence.",
+      "archivedFrenchEvidence": "Le contremaître demande aux couvreurs : « Expliquez la séquence de pose du solin au mur latéral. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:reader:4",
+      "legacySourceRef": "roofing:19:passage:4",
+      "sourceSpanish": "Ellos responden: tapajuntas escalonado debajo de cada hilera.",
+      "sourceEnglish": "They answer: step flashing under each course.",
+      "archivedFrenchEvidence": "Ils répondent : « Un solin à gradins sous chaque rang. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:reader:5",
+      "legacySourceRef": "roofing:19:passage:5",
+      "sourceSpanish": "Instalen una pieza por cada hilera.",
+      "sourceEnglish": "Install one piece per course.",
+      "archivedFrenchEvidence": "Posez une pièce par rang.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:reader:6",
+      "legacySourceRef": "roofing:19:passage:6",
+      "sourceSpanish": "Doblen el tapajuntas contra la pared.",
+      "sourceEnglish": "Bend the flashing against the wall.",
+      "archivedFrenchEvidence": "Pliez le solin contre le mur.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:reader:7",
+      "legacySourceRef": "roofing:19:passage:7",
+      "sourceSpanish": "Muéstrenme cómo se traslapa el tapajuntas.",
+      "sourceEnglish": "Show me how the flashing overlaps.",
+      "archivedFrenchEvidence": "Montrez-moi comment les solins se recouvrent.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:reader:8",
+      "legacySourceRef": "roofing:19:passage:8",
+      "sourceSpanish": "El capataz revisa cada pieza antes de colocar la siguiente hilera de tejas.",
+      "sourceEnglish": "The foreman checks each piece before placing the next course of shingles.",
+      "archivedFrenchEvidence": "Le contremaître vérifie chaque pièce avant de poser le rang de bardeaux suivant.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "instalar",
+      "englishMeaning": "to install",
+      "sourceSpanish": "Instalen una pieza por cada hilera.",
+      "sourceEnglish": "Install one piece per course."
+    },
+    {
+      "spanishInfinitive": "doblar",
+      "englishMeaning": "to bend",
+      "sourceSpanish": "Doblen el tapajuntas contra la pared.",
+      "sourceEnglish": "Bend the flashing against the wall."
+    },
+    {
+      "spanishInfinitive": "explicar",
+      "englishMeaning": "to explain",
+      "sourceSpanish": "El instalador explica la secuencia del tapajuntas.",
+      "sourceEnglish": "The installer explains the flashing sequence."
+    },
+    {
+      "spanishInfinitive": "mostrar",
+      "englishMeaning": "to show",
+      "sourceSpanish": "El instalador muestra cómo se traslapa el tapajuntas.",
+      "sourceEnglish": "The installer shows how the flashing overlaps."
+    },
+    {
+      "spanishInfinitive": "revisar",
+      "englishMeaning": "to check",
+      "sourceSpanish": "El capataz revisa cada pieza antes de colocar la siguiente hilera.",
+      "sourceEnglish": "The foreman checks each piece before placing the next course."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Décrire les solins du mur latéral",
+    "objectiveFrench": "Demander au couvreur de décrire le détail approuvé du solin le long du mur.",
+    "speakingFrenchInstruction": "Demandez au couvreur de décrire le raccord toit-mur et de montrer le recouvrement des solins sur le détail approuvé.",
+    "speakingFrenchOpening": "Pouvez-vous me montrer le détail approuvé du solin au mur latéral et son recouvrement ?",
+    "grammarFocusFrench": "Impératif pluriel pour demander une démonstration; chaque + nom; avant de + infinitif pour l’ordre de vérification.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to install",
+        "exampleEnglish": "Install one piece per course.",
+        "sourceInfinitiveSpanish": "instalar",
+        "infinitiveFrench": "poser",
+        "exampleFrench": "Posez une pièce par rang."
+      },
+      {
+        "meaningEnglish": "to bend",
+        "exampleEnglish": "Bend the flashing against the wall.",
+        "sourceInfinitiveSpanish": "doblar",
+        "infinitiveFrench": "plier",
+        "exampleFrench": "Pliez le solin contre le mur."
+      },
+      {
+        "meaningEnglish": "to explain",
+        "exampleEnglish": "The installer explains the flashing sequence.",
+        "sourceInfinitiveSpanish": "explicar",
+        "infinitiveFrench": "expliquer",
+        "exampleFrench": "Le couvreur explique la séquence de pose du solin."
+      },
+      {
+        "meaningEnglish": "to show",
+        "exampleEnglish": "The installer shows how the flashing overlaps.",
+        "sourceInfinitiveSpanish": "mostrar",
+        "infinitiveFrench": "montrer",
+        "exampleFrench": "Le couvreur montre comment les solins se recouvrent."
+      },
+      {
+        "meaningEnglish": "to check",
+        "exampleEnglish": "The foreman checks each piece before placing the next course.",
+        "sourceInfinitiveSpanish": "revisar",
+        "infinitiveFrench": "vérifier",
+        "exampleFrench": "Le contremaître vérifie chaque pièce avant de poser le rang suivant."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "France/Québec roofing terminology, site safety and product rules require qualified regional/trade review.",
+      "Confirm approved flashing details and fall-protection plan; this source scene is not a work procedure."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:19:fr-en:card:1",
+        "core-roofing:19:fr-en:card:5",
+        "core-roofing:19:fr-en:card:9",
+        "core-roofing:19:fr-en:reader:4",
+        "core-roofing:19:fr-en:reader:7"
+      ],
+      "question": "Step flashing, generic flashing and overlap need distinct French trade senses. Archived solin à gradins and solin may fit a regional product but the approved wall/roof detail and overlap are unspecified. Resolve senses with the qualified roofer and dictionary reviewer."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:19:fr-en:card:3",
+        "core-roofing:19:fr-en:card:4",
+        "core-roofing:19:fr-en:card:6",
+        "core-roofing:19:fr-en:reader:8"
+      ],
+      "question": "Shingle course, sidewall and siding are separate roof/wall components. Archived rang, mur latéral and revêtement mural need context so the next-course inspection does not imply a universal installation detail."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:19:fr-en:card:7",
+        "core-roofing:19:fr-en:card:8",
+        "core-roofing:19:fr-en:card:10",
+        "core-roofing:19:fr-en:card:11",
+        "core-roofing:19:fr-en:card:12",
+        "core-roofing:19:fr-en:reader:4",
+        "core-roofing:19:fr-en:reader:5",
+        "core-roofing:19:fr-en:reader:6"
+      ],
+      "question": "The source gives under-each-course, one-piece-per-course and bending instructions, but manufacturer and approved wall/roof detail are not specified. Sealant use and bend method likewise depend on product. No scored or audio construction command should be selected until qualified detail and safety review."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:19:fr-en:card:10",
+        "core-roofing:19:fr-en:card:13",
+        "core-roofing:19:fr-en:card:14",
+        "core-roofing:19:fr-en:reader:3",
+        "core-roofing:19:fr-en:reader:7"
+      ],
+      "question": "Source card 10 is a fragment about step flashing under each course; archived French converts it to an imperative. Source speaking asks the installer to describe the sequence, whereas archived speaking adds a request to show approved detail/overlap. Preserve exact source meaning and keep additions as review evidence."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

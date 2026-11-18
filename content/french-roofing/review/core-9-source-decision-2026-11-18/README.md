@@ -1,0 +1,9 @@
+# French Roofing Core 9 — debris and old nails source decision
+
+This inert packet pins **15 exact current Spanish/English cards**, **eight aligned Reader turns**, five source verb examples, and source/archive hashes for *Debris & Old Nails*. Proposed `core-roofing:9:fr-en` IDs are review references only. The source header still uses `roofing`; stage-local progress and saved-item identity need a deliberate migration before runtime use.
+
+The archived French remains separate evidence. Five card faces and three Reader turns are held from even conditional selection: the debris dumpster versus a generic waste bin, source shingles versus potentially material-specific *bardeaux*, structural roof deck versus broad *support*, and magnetic nail sweep versus general nail pickup. The source assigns workers to shingle and old-nail collection. The archive adds ground-zone isolation and cleanup confirmation; those safety notes should be reviewed separately, not silently converted into scored dialogue. A qualified roofing reviewer must determine the job's disposal and ground-control scope; gloves and a magnet alone are not a complete site-safety procedure.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, listening, offline, saved-progress, browser and V4 gates are false. No audio was generated or approved; no owner page or runtime route imports this packet. Six authored See/Recall/Hear/Type/Say/Write prompt/target activities, forms, speaking, exact-pair dictionary and device acceptance remain open.
+
+`build.py --check` detects source drift; `validate.py` independently checks current source order, IDs, archived evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural checks and self-check are not qualified review.

@@ -1,0 +1,459 @@
+{
+  "schema": "french-roofing-core12-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:12",
+  "proposedPairId": "core-roofing:12:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-10-12-draft.json": "cfaf60f90688d445f56132ab038af704a7e49a36fe95b7a53c5312e6225f02c0"
+  },
+  "orderedSourceRowsSha256": "3e3852e2f4b910fec2825704889a28a2b367fc32d67fa0d1c999a37d89cc781d",
+  "sourceTitleEnglish": "Joint Stagger",
+  "sourceObjectiveEnglish": "Communicate the job's stagger pattern",
+  "sourceSpeakingEnglish": "Use the guide's six-inch stagger phrase, then ask the lead to confirm the actual job specification.",
+  "sourceReaderTitleSpanish": "Juntas escalonadas",
+  "cards": [
+    {
+      "id": "core-roofing:12:fr-en:card:1",
+      "legacySourceRef": "roofing:12:words:1",
+      "sourceSpanish": "Junta",
+      "sourceEnglish": "joint",
+      "kind": "term",
+      "archivedFrenchEvidence": "le joint",
+      "conditionalFrench": "le joint",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:card:2",
+      "legacySourceRef": "roofing:12:words:2",
+      "sourceSpanish": "Escalonar",
+      "sourceEnglish": "stagger",
+      "kind": "term",
+      "archivedFrenchEvidence": "le décalage",
+      "conditionalFrench": "le décalage",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:card:3",
+      "legacySourceRef": "roofing:12:words:3",
+      "sourceSpanish": "Hilera",
+      "sourceEnglish": "course",
+      "kind": "term",
+      "archivedFrenchEvidence": "le rang",
+      "conditionalFrench": "le rang",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:card:4",
+      "legacySourceRef": "roofing:12:words:4",
+      "sourceSpanish": "Teja asfáltica",
+      "sourceEnglish": "shingle",
+      "kind": "term",
+      "archivedFrenchEvidence": "le bardeau",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:card:5",
+      "legacySourceRef": "roofing:12:words:5",
+      "sourceSpanish": "Patrón",
+      "sourceEnglish": "pattern",
+      "kind": "term",
+      "archivedFrenchEvidence": "le motif de pose",
+      "conditionalFrench": "le motif de pose",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:card:6",
+      "legacySourceRef": "roofing:12:words:6",
+      "sourceSpanish": "Pulgada",
+      "sourceEnglish": "inch",
+      "kind": "term",
+      "archivedFrenchEvidence": "le pouce",
+      "conditionalFrench": "le pouce",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:card:7",
+      "legacySourceRef": "roofing:12:words:7",
+      "sourceSpanish": "Alinear",
+      "sourceEnglish": "align",
+      "kind": "term",
+      "archivedFrenchEvidence": "aligner",
+      "conditionalFrench": "aligner",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:card:8",
+      "legacySourceRef": "roofing:12:words:8",
+      "sourceSpanish": "Especificación",
+      "sourceEnglish": "specification",
+      "kind": "term",
+      "archivedFrenchEvidence": "la spécification",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:card:9",
+      "legacySourceRef": "roofing:12:words:9",
+      "sourceSpanish": "Cortar",
+      "sourceEnglish": "cut",
+      "kind": "term",
+      "archivedFrenchEvidence": "couper",
+      "conditionalFrench": "couper",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:card:10",
+      "legacySourceRef": "roofing:12:words:10",
+      "sourceSpanish": "Escalonen las uniones seis pulgadas.",
+      "sourceEnglish": "Stagger the joints six inches.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Décalez les joints de six pouces.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:card:11",
+      "legacySourceRef": "roofing:12:words:11",
+      "sourceSpanish": "Las juntas no deben quedar alineadas.",
+      "sourceEnglish": "The joints must not line up.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Les joints ne doivent pas être alignés.",
+      "conditionalFrench": "Les joints ne doivent pas être alignés.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:card:12",
+      "legacySourceRef": "roofing:12:words:12",
+      "sourceSpanish": "¿Cuál es el escalonado de este trabajo?",
+      "sourceEnglish": "What is the stagger for this job?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Quel décalage est prévu pour ce chantier ?",
+      "conditionalFrench": "Quel décalage est prévu pour ce chantier ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:card:13",
+      "legacySourceRef": "roofing:12:words:13",
+      "sourceSpanish": "Por favor, confirmen la especificación del trabajo.",
+      "sourceEnglish": "Please confirm the job specification.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Veuillez confirmer la spécification du chantier.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:card:14",
+      "legacySourceRef": "roofing:12:words:14",
+      "sourceSpanish": "Revisen las juntas de la siguiente hilera.",
+      "sourceEnglish": "Check the joints on the next course.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Vérifiez les joints du rang suivant.",
+      "conditionalFrench": "Vérifiez les joints du rang suivant.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:12:fr-en:reader:1",
+      "legacySourceRef": "roofing:12:passage:1",
+      "sourceSpanish": "La cuadrilla ya tiene la primera hilera de tejas asfálticas.",
+      "sourceEnglish": "The crew already has the first course of asphalt shingles.",
+      "archivedFrenchEvidence": "L’équipe a déjà posé le premier rang de bardeaux d’asphalte.",
+      "conditionalFrench": "L’équipe a déjà posé le premier rang de bardeaux d’asphalte.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:reader:2",
+      "legacySourceRef": "roofing:12:passage:2",
+      "sourceSpanish": "Ahora cada hilera nueva necesita un patrón.",
+      "sourceEnglish": "Now each new course needs a pattern.",
+      "archivedFrenchEvidence": "Chaque nouveau rang doit maintenant suivre un motif de pose.",
+      "conditionalFrench": "Chaque nouveau rang doit maintenant suivre un motif de pose.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:reader:3",
+      "legacySourceRef": "roofing:12:passage:3",
+      "sourceSpanish": "Las juntas no deben quedar alineadas.",
+      "sourceEnglish": "The joints must not line up.",
+      "archivedFrenchEvidence": "Les joints ne doivent pas être alignés.",
+      "conditionalFrench": "Les joints ne doivent pas être alignés.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:reader:4",
+      "legacySourceRef": "roofing:12:passage:4",
+      "sourceSpanish": "La guía dice: escalonen las uniones seis pulgadas.",
+      "sourceEnglish": "The guide says: stagger the joints six inches.",
+      "archivedFrenchEvidence": "Le guide indique : « Décalez les joints de six pouces. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:reader:5",
+      "legacySourceRef": "roofing:12:passage:5",
+      "sourceSpanish": "Pero cada trabajo es diferente.",
+      "sourceEnglish": "But every job is different.",
+      "archivedFrenchEvidence": "Mais chaque chantier est différent.",
+      "conditionalFrench": "Mais chaque chantier est différent.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:reader:6",
+      "legacySourceRef": "roofing:12:passage:6",
+      "sourceSpanish": "Un obrero pregunta: ¿Cuál es el escalonado de este trabajo?",
+      "sourceEnglish": "A worker asks: What is the stagger for this job?",
+      "archivedFrenchEvidence": "Un ouvrier demande : « Quel décalage est prévu pour ce chantier ? »",
+      "conditionalFrench": "Un ouvrier demande : « Quel décalage est prévu pour ce chantier ? »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:reader:7",
+      "legacySourceRef": "roofing:12:passage:7",
+      "sourceSpanish": "El capataz llama a la oficina: Por favor, confirmen la especificación del trabajo.",
+      "sourceEnglish": "The foreman calls the office: Please confirm the job specification.",
+      "archivedFrenchEvidence": "Le contremaître appelle le bureau : « Veuillez confirmer la spécification du chantier. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:reader:8",
+      "legacySourceRef": "roofing:12:passage:8",
+      "sourceSpanish": "Mientras tanto, revisen las juntas de la siguiente hilera.",
+      "sourceEnglish": "Meanwhile, check the joints on the next course.",
+      "archivedFrenchEvidence": "Pendant ce temps, vérifiez les joints du rang suivant.",
+      "conditionalFrench": "Pendant ce temps, vérifiez les joints du rang suivant.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "escalonar",
+      "englishMeaning": "to stagger",
+      "sourceSpanish": "Escalonen las uniones seis pulgadas, según la guía.",
+      "sourceEnglish": "Stagger the joints six inches, according to the guide."
+    },
+    {
+      "spanishInfinitive": "revisar",
+      "englishMeaning": "to check",
+      "sourceSpanish": "Revisen las juntas de la siguiente hilera.",
+      "sourceEnglish": "Check the joints on the next course."
+    },
+    {
+      "spanishInfinitive": "confirmar",
+      "englishMeaning": "to confirm",
+      "sourceSpanish": "Por favor, confirmen la especificación del trabajo.",
+      "sourceEnglish": "Please confirm the job specification."
+    },
+    {
+      "spanishInfinitive": "alinear",
+      "englishMeaning": "to align",
+      "sourceSpanish": "Las juntas no se alinean en esta hilera.",
+      "sourceEnglish": "The joints do not line up in this course."
+    },
+    {
+      "spanishInfinitive": "cortar",
+      "englishMeaning": "to cut",
+      "sourceSpanish": "Corten la teja según el patrón del trabajo.",
+      "sourceEnglish": "Cut the shingle according to the job's pattern."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Confirmer le décalage des joints",
+    "objectiveFrench": "Employer la formule de décalage du guide puis confirmer la spécification réelle du chantier.",
+    "speakingFrenchInstruction": "Citez la phrase du guide « six pouces » comme exemple linguistique, puis demandez au chef d’équipe de confirmer le décalage réel et les instructions du fabricant.",
+    "speakingFrenchOpening": "Le guide donne un exemple de six pouces. Quel décalage est réellement prévu pour ce chantier ?",
+    "grammarFocusFrench": "Mesures en pouces dans le devis source; décaler / aligner; contraste entre exemple du guide et spécification du chantier.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to stagger",
+        "exampleEnglish": "Stagger the joints six inches, according to the guide.",
+        "sourceInfinitiveSpanish": "escalonar",
+        "infinitiveFrench": "décaler",
+        "exampleFrench": "Décalez les joints de six pouces, selon le guide."
+      },
+      {
+        "meaningEnglish": "to check",
+        "exampleEnglish": "Check the joints on the next course.",
+        "sourceInfinitiveSpanish": "revisar",
+        "infinitiveFrench": "vérifier",
+        "exampleFrench": "Vérifiez les joints du rang suivant."
+      },
+      {
+        "meaningEnglish": "to confirm",
+        "exampleEnglish": "Please confirm the job specification.",
+        "sourceInfinitiveSpanish": "confirmar",
+        "infinitiveFrench": "confirmer",
+        "exampleFrench": "Veuillez confirmer la spécification du chantier."
+      },
+      {
+        "meaningEnglish": "to align",
+        "exampleEnglish": "The joints do not line up in this course.",
+        "sourceInfinitiveSpanish": "alinear",
+        "infinitiveFrench": "aligner",
+        "exampleFrench": "Les joints ne sont pas alignés sur ce rang."
+      },
+      {
+        "meaningEnglish": "to cut",
+        "exampleEnglish": "Cut the shingle according to the job's pattern.",
+        "sourceInfinitiveSpanish": "cortar",
+        "infinitiveFrench": "couper",
+        "exampleFrench": "Coupez le bardeau selon le motif prévu pour ce chantier."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "France/Québec roofing terminology and site safety require qualified regional/trade review.",
+      "Confirm the approved plan, manufacturer instructions and weather/fall-protection controls; this scene is not a work procedure."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:12:fr-en:card:4",
+        "core-roofing:12:fr-en:reader:1"
+      ],
+      "question": "The source explicitly specifies asphalt shingles. Archived card bardeau omits asphalt while Reader includes bardeaux d’asphalte; choose a consistent regional material term before scored cards and speech."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:12:fr-en:card:10",
+        "core-roofing:12:fr-en:reader:4"
+      ],
+      "question": "Six inches is quoted as the guide's example, not a universal installation specification. The card is a bare imperative; ensure its context, audio and six authored modes cannot present it as the actual job requirement."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:12:fr-en:card:8",
+        "core-roofing:12:fr-en:card:13",
+        "core-roofing:12:fr-en:reader:7"
+      ],
+      "question": "Confirm the job specification with the lead/office before work. Archived spécification/chantier and contremaître need regional trade/register review; distinguish actual approved job or manufacturer requirement from the guide example."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:12:fr-en:card:2",
+        "core-roofing:12:fr-en:card:10",
+        "core-roofing:12:fr-en:card:12",
+        "core-roofing:12:fr-en:reader:4",
+        "core-roofing:12:fr-en:reader:6"
+      ],
+      "question": "Keep stagger as the joint-offset action and the job-specific offset measure, not a generic pattern name. Align noun/verb forms and measurement units across cards, Reader, speaking and modes."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:12:fr-en:card:3",
+        "core-roofing:12:fr-en:card:14",
+        "core-roofing:12:fr-en:reader:1",
+        "core-roofing:12:fr-en:reader:8"
+      ],
+      "question": "The source roofing course is a row of shingles. Verify regional French rang/rangée and starter-course usage for this material; do not silently treat a first course as a general roof tier."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:12:fr-en:card:10",
+        "core-roofing:12:fr-en:card:13",
+        "core-roofing:12:fr-en:reader:4",
+        "core-roofing:12:fr-en:reader:7"
+      ],
+      "question": "Source speaking asks for the guide's six-inch phrase followed by confirmation from the lead. Archived speaking adds manufacturer instructions; keep this as a separate domain note unless qualified source review approves its place in the lesson."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

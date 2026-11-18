@@ -1,0 +1,9 @@
+# French Roofing Core 12 — joint-stagger specification decision
+
+This inert packet pins **14 exact current Spanish/English cards**, **eight aligned Reader turns**, five source verb examples, and source/archive hashes for *Joint Stagger*. Proposed `core-roofing:12:fr-en` IDs are review references only. The source header still uses `roofing`; stage-local progress and saved-item identity need a deliberate migration before runtime use.
+
+The archived French remains separate evidence. Four card faces and two Reader turns are held from even conditional selection: asphalt-shingle specificity, regional job-specification/foreman terms, and the six-inch phrase that the source identifies as a **guide example**. The source requires asking the lead to confirm the actual job specification. A bare imperative card must not imply six inches is universal or approved for this job. Regional *rang*/*rangée* and *décalage* senses also need trade review before scoring. The archive adds manufacturer-instruction language to speaking; retain it as a separate domain note until source review resolves the lesson target.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, listening, offline, saved-progress, browser and V4 gates are false. No audio was generated or approved; no owner page or runtime route imports this packet. Six authored See/Recall/Hear/Type/Say/Write prompt/target activities, forms, speaking, exact-pair dictionary and device acceptance remain open.
+
+`build.py --check` detects source drift; `validate.py` independently checks current source order, IDs, archived evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural checks and self-check are not qualified review.

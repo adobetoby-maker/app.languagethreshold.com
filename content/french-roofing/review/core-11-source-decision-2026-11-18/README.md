@@ -1,0 +1,9 @@
+# French Roofing Core 11 — chalk line and first-course decision
+
+This inert packet pins **13 exact current Spanish/English cards**, **nine aligned Reader turns**, five source verb examples, and source/archive hashes for *First-Course Layout*. Proposed `core-roofing:11:fr-en` IDs are review references only. The source header still uses `roofing`; stage-local saved-item and progress identity need a deliberate decision before runtime use.
+
+The archived French is separate evidence. Six card faces and five Reader turns are held even from conditional selection. The source calls for a *chalk line* and describes workers stretching and snapping it. A French roofing reviewer must confirm *cordeau traceur* and the regional distinction from an ink line. *First course* and *starter strip* are distinct; *premier rang* and *bande de départ* require product-specific review. The source Reader says the foreman marks points on the plan; it does not decide whether those points are on a paper plan or field layout. The overhang measurement comes from the job plan; no number or universal dimension should be invented. Source speaking asks where to run the chalk line, while archived speaking adds product-method and overhang questions. Keep those as separate evidence until the lesson objective is settled.
+
+Every `selectedFrench` and `audioScript` is null, `reviewed:false`, and learner, scoring, listening, offline, progress, saved-item, browser and native V4 gates are false. No owner route, learner registration, audio synthesis, clip listening decision or progress migration is included. Six authored practice modes, contextual forms, speaking, dictionary senses and qualified source/French/roofing review remain. Claude CLI 2.1.325 reported `loggedIn:false`; no Haiku, Opus or Fable call was made.
+
+Run `python3 build.py --check` and `python3 validate.py` from this directory or with their repository paths.

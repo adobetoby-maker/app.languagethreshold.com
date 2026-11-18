@@ -1,0 +1,437 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:16:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-16-18-draft.json",
+      "sha256": "ef60bf977985351cfbfead1a89641d9d73440ad2f0e5fa43d33b1578184e9999"
+    }
+  },
+  "sourceEnglishTitle": "Nailing Zone",
+  "sourceEnglishObjective": "Correct nails placed outside the specified zone",
+  "sourceEnglishSpeaking": "Tell a worker 'Nail in the strip — not too high' and explain the correction.",
+  "sourceSpanishReaderTitle": "Clavos en la franja",
+  "candidateObjective": "指定された釘打ち帯から外れた釘を見つけ、位置を直すよう伝える。",
+  "candidateFocus": "～の中に and ～の外に contrast placement; ～すぎる describes a nail placed too high. ～てください gives an instruction and ～を見せてください requests a demonstration.",
+  "archivedForms": [
+    {
+      "base": "打つ",
+      "exampleJa": "ペドロは釘打ち帯の中に釘を打ちます。",
+      "meaningEnglish": "to nail",
+      "exampleEnglish": "Pedro nails inside the nailing strip.",
+      "sourceInfinitiveSpanish": "clavar"
+    },
+    {
+      "base": "確認する",
+      "exampleJa": "職長は新しい段のアスファルトシングル材を確認します。",
+      "meaningEnglish": "to check",
+      "exampleEnglish": "The foreman checks the asphalt shingles in the new course.",
+      "sourceInfinitiveSpanish": "revisar"
+    },
+    {
+      "base": "直す",
+      "exampleJa": "ペドロはこの段の高すぎる位置の釘を直します。",
+      "meaningEnglish": "to fix, to correct",
+      "exampleEnglish": "Pedro fixes the high nail in this row.",
+      "sourceInfinitiveSpanish": "corregir"
+    },
+    {
+      "base": "収める",
+      "exampleJa": "作業員は釘を釘打ち範囲の中に収めます。",
+      "meaningEnglish": "to keep, to hold",
+      "exampleEnglish": "The workers keep the nails inside the nailing zone.",
+      "sourceInfinitiveSpanish": "mantener"
+    },
+    {
+      "base": "見せる",
+      "exampleJa": "職長が釘打ち帯の位置を見せます。",
+      "meaningEnglish": "to show",
+      "exampleEnglish": "The foreman shows where the strip is.",
+      "sourceInfinitiveSpanish": "mostrar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "釘打ち帯の中に打ってください。その釘は位置が高すぎるので、この段を直してください。",
+    "goal": "Tell a worker 'Nail in the strip — not too high' and explain the correction."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the current source sequence: the foreman checks the new asphalt-shingle course, sees a high nail outside the nailing strip, asks to see the strip, directs the crew to keep nails in the nailing zone and fix the row, takes a nail gun, and Pedro checks the nails afterward. The source shows a high nail outside the nailing strip and instructs a correction, but the exact fastening area is product-specific. The Reader depicts the foreman taking a nail gun and saying “Do it like this” without a specified demonstration or safety controls. Hold strip/zone terminology and any implied procedure for source/roofing review. Archived forms and six mode labels remain conditional evidence; the current curriculum has no authored verb-example list. No selected learner/audio text or progress identity is created.",
+  "sourceVerbExamples": null,
+  "cards": [
+    {
+      "id": "roofing:16:ja-en:card:1",
+      "legacySourceRef": "roofing:16:ja-en:cards:1",
+      "sourceSpanish": "Franja de clavado",
+      "sourceEnglish": "nailing strip",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "釘打ち帯",
+      "archivedEnglish": "nailing strip",
+      "reviewNote": "The source's nailing strip is a product-specific fastening area. Confirm that archived 釘打ち帯 identifies this area and stays distinct from sealant strip.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:card:2",
+      "legacySourceRef": "roofing:16:ja-en:cards:2",
+      "sourceSpanish": "Clavo muy alto",
+      "sourceEnglish": "high nail",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "高すぎる位置に打たれた釘",
+      "archivedJapanese": "高すぎる位置に打たれた釘",
+      "archivedEnglish": "high nail",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:card:3",
+      "legacySourceRef": "roofing:16:ja-en:cards:3",
+      "sourceSpanish": "Sujetador",
+      "sourceEnglish": "fastener",
+      "sourceNoteSpanish": "también: elemento de fijación",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "固定具",
+      "archivedJapanese": "固定具",
+      "archivedEnglish": "fastener",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:card:4",
+      "legacySourceRef": "roofing:16:ja-en:cards:4",
+      "sourceSpanish": "Clavo",
+      "sourceEnglish": "nail",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "釘",
+      "archivedJapanese": "釘",
+      "archivedEnglish": "nail",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:card:5",
+      "legacySourceRef": "roofing:16:ja-en:cards:5",
+      "sourceSpanish": "Teja asfáltica",
+      "sourceEnglish": "shingle",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "シングル材",
+      "archivedJapanese": "シングル材",
+      "archivedEnglish": "shingle",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:card:6",
+      "legacySourceRef": "roofing:16:ja-en:cards:6",
+      "sourceSpanish": "Pistola de clavos",
+      "sourceEnglish": "nail gun",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "釘打ち機",
+      "archivedJapanese": "釘打ち機",
+      "archivedEnglish": "nail gun",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:card:7",
+      "legacySourceRef": "roofing:16:ja-en:cards:7",
+      "sourceSpanish": "Zona de clavado",
+      "sourceEnglish": "nailing zone",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "釘打ち範囲",
+      "archivedEnglish": "nailing zone",
+      "reviewNote": "Nailing zone is a product-specific fastening area; archived 釘打ち範囲 may be too broad without the manufacturer's shingle instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:card:8",
+      "legacySourceRef": "roofing:16:ja-en:cards:8",
+      "sourceSpanish": "Tira selladora",
+      "sourceEnglish": "sealant strip",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "粘着帯",
+      "archivedEnglish": "sealant strip",
+      "reviewNote": "Source sealant strip / tira selladora may differ from archived 粘着帯 (adhesive band). Confirm the product feature and Japanese trade term.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:card:9",
+      "legacySourceRef": "roofing:16:ja-en:cards:9",
+      "sourceSpanish": "Lengüeta",
+      "sourceEnglish": "tab",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "シングル材のタブ",
+      "archivedJapanese": "シングル材のタブ",
+      "archivedEnglish": "tab",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:card:10",
+      "legacySourceRef": "roofing:16:ja-en:cards:10",
+      "sourceSpanish": "Claven en la franja — no muy alto.",
+      "sourceEnglish": "Nail in the strip — not too high.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "釘打ち帯の中に打ってください。高すぎる位置には打たないでください。",
+      "archivedEnglish": "Nail in the strip — not too high.",
+      "reviewNote": "Source imperative 'Nail in the strip — not too high' needs the actual specified fastening zone; do not treat as a universal placement instruction.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:card:11",
+      "legacySourceRef": "roofing:16:ja-en:cards:11",
+      "sourceSpanish": "Ese clavo está muy alto.",
+      "sourceEnglish": "That nail is too high.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "その釘は位置が高すぎます。",
+      "archivedJapanese": "その釘は位置が高すぎます。",
+      "archivedEnglish": "That nail is too high.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:card:12",
+      "legacySourceRef": "roofing:16:ja-en:cards:12",
+      "sourceSpanish": "Mantengan los clavos dentro de la zona de clavado.",
+      "sourceEnglish": "Keep the nails inside the nailing zone.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "釘は釘打ち範囲の中に収めてください。",
+      "archivedEnglish": "Keep the nails inside the nailing zone.",
+      "reviewNote": "Source instruction to keep nails inside the nailing zone depends on the product specification. Confirm before selecting a Japanese imperative.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:card:13",
+      "legacySourceRef": "roofing:16:ja-en:cards:13",
+      "sourceSpanish": "Corrijan esta hilera.",
+      "sourceEnglish": "Fix this row.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "この段を直してください。",
+      "archivedJapanese": "この段を直してください。",
+      "archivedEnglish": "Fix this row.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:card:14",
+      "legacySourceRef": "roofing:16:ja-en:cards:14",
+      "sourceSpanish": "Háganlo así.",
+      "sourceEnglish": "Do it like this.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "このようにしてください。",
+      "archivedEnglish": "Do it like this.",
+      "reviewNote": "Source 'Do it like this' accompanies a nail-gun demonstration but does not describe the method or safety controls. Hold any instructional implication.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:card:15",
+      "legacySourceRef": "roofing:16:ja-en:cards:15",
+      "sourceSpanish": "Muéstrenme dónde está la franja.",
+      "sourceEnglish": "Show me where the strip is.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "釘打ち帯がどこにあるか見せてください。",
+      "archivedJapanese": "釘打ち帯がどこにあるか見せてください。",
+      "archivedEnglish": "Show me where the strip is.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:16:ja-en:line:1",
+      "legacySourceRef": "roofing:16:ja-en:reader:1",
+      "sourceSpanish": "El capataz revisa las tejas asfálticas de la hilera nueva.",
+      "sourceEnglish": "The foreman checks the asphalt shingles in the new course.",
+      "selectedJapanese": null,
+      "candidateJapanese": "職長は新しい段のアスファルトシングル材を確認します。",
+      "archivedJapanese": "職長は新しい段のアスファルトシングル材を確認します。",
+      "archivedEnglish": "The foreman checks the asphalt shingles in the new course.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:line:2",
+      "legacySourceRef": "roofing:16:ja-en:reader:2",
+      "sourceSpanish": "Ve un clavo muy alto, fuera de la franja de clavado.",
+      "sourceEnglish": "He sees a nail that is too high, outside the nailing strip.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "釘打ち帯の外側に、高すぎる位置の釘を見つけます。",
+      "archivedEnglish": "He sees a nail that is too high, outside the nailing strip.",
+      "reviewNote": "Outside-the-strip finding depends on the product's actual nailing strip position; confirm technical meaning.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:line:3",
+      "legacySourceRef": "roofing:16:ja-en:reader:3",
+      "sourceSpanish": "Ese clavo está muy alto.",
+      "sourceEnglish": "That nail is too high.",
+      "selectedJapanese": null,
+      "candidateJapanese": "その釘は位置が高すぎます。",
+      "archivedJapanese": "その釘は位置が高すぎます。",
+      "archivedEnglish": "That nail is too high.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:line:4",
+      "legacySourceRef": "roofing:16:ja-en:reader:4",
+      "sourceSpanish": "Muéstrenme dónde está la franja.",
+      "sourceEnglish": "Show me where the strip is.",
+      "selectedJapanese": null,
+      "candidateJapanese": "釘打ち帯がどこにあるか見せてください。",
+      "archivedJapanese": "釘打ち帯がどこにあるか見せてください。",
+      "archivedEnglish": "Show me where the strip is.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:line:5",
+      "legacySourceRef": "roofing:16:ja-en:reader:5",
+      "sourceSpanish": "Mantengan los clavos dentro de la zona de clavado.",
+      "sourceEnglish": "Keep the nails inside the nailing zone.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "釘は釘打ち範囲の中に収めてください。",
+      "archivedEnglish": "Keep the nails inside the nailing zone.",
+      "reviewNote": "Inherits the card 12 product-specific nailing-zone instruction; confirm before selecting an imperative.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:line:6",
+      "legacySourceRef": "roofing:16:ja-en:reader:6",
+      "sourceSpanish": "Corrijan esta hilera.",
+      "sourceEnglish": "Fix this row.",
+      "selectedJapanese": null,
+      "candidateJapanese": "この段を直してください。",
+      "archivedJapanese": "この段を直してください。",
+      "archivedEnglish": "Fix this row.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:line:7",
+      "legacySourceRef": "roofing:16:ja-en:reader:7",
+      "sourceSpanish": "El capataz toma la pistola de clavos y dice: Háganlo así.",
+      "sourceEnglish": "The foreman takes the nail gun and says: Do it like this.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "職長は釘打ち機を手に取り、「このようにしてください」と言います。",
+      "archivedEnglish": "The foreman takes the nail gun and says: Do it like this.",
+      "reviewNote": "Foreman takes a nail gun and says 'Do it like this' without a specified demonstration or safety controls. Preserve exact source, but do not select a procedural Japanese instruction.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:16:ja-en:line:8",
+      "legacySourceRef": "roofing:16:ja-en:reader:8",
+      "sourceSpanish": "Después, Pedro revisa cada clavo con más cuidado.",
+      "sourceEnglish": "Afterward, Pedro checks each nail more carefully.",
+      "selectedJapanese": null,
+      "candidateJapanese": "その後、ペドロは一本ずつ釘をより注意深く確認します。",
+      "archivedJapanese": "その後、ペドロは一本ずつ釘をより注意深く確認します。",
+      "archivedEnglish": "Afterward, Pedro checks each nail more carefully.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the nail placed outside the nailing strip.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall nailing strip, nail gun, and nailing zone.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 釘打ち帯 from 粘着帯 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'That nail is too high.' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Tell a worker to nail in the strip and explain the correction.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write what Pedro checks after the correction.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

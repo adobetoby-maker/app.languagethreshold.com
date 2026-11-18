@@ -1,0 +1,411 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:13:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-13-15-draft.json",
+      "sha256": "5c03a21e6efe798b23dfee50780a0cdddbaf82205f91c9954aef36ee8c2e5322"
+    }
+  },
+  "sourceEnglishTitle": "Drip Edge Sequence",
+  "sourceEnglishObjective": "Discuss edge placement with the installer",
+  "sourceEnglishSpeaking": "Ask the installer to explain the approved drip-edge sequence for this roof.",
+  "sourceSpanishReaderTitle": "Orden del goterón",
+  "candidateObjective": "軒先とケラバの水切り板金について、施工順序を作業員に確認する。",
+  "candidateFocus": "～の下に and ～の上に contrast placement; ～かどうか asks whether a condition holds. ～てから orders checking the manufacturer's instructions before answering.",
+  "archivedForms": [
+    {
+      "base": "施工する",
+      "exampleJa": "施工担当者はまず水切り板金を施工します。",
+      "meaningEnglish": "to install",
+      "exampleEnglish": "The installers install the drip edge first.",
+      "sourceInfinitiveSpanish": "instalar"
+    },
+    {
+      "base": "始める",
+      "exampleJa": "作業班は軒先から水切り板金の施工を始めます。",
+      "meaningEnglish": "to start",
+      "exampleEnglish": "The crew starts the drip edge at the eave.",
+      "sourceInfinitiveSpanish": "empezar"
+    },
+    {
+      "base": "切る",
+      "exampleJa": "施工担当者は角で水切り板金を切ります。",
+      "meaningEnglish": "to cut",
+      "exampleEnglish": "The installer cuts the drip edge at the corner.",
+      "sourceInfinitiveSpanish": "cortar"
+    },
+    {
+      "base": "説明する",
+      "exampleJa": "施工担当者は水切り板金の施工順序を説明します。",
+      "meaningEnglish": "to explain",
+      "exampleEnglish": "The installer explains the drip-edge sequence.",
+      "sourceInfinitiveSpanish": "explicar"
+    },
+    {
+      "base": "確認する",
+      "exampleJa": "施工担当者はメーカーの施工説明書を確認します。",
+      "meaningEnglish": "to check",
+      "exampleEnglish": "The installers check the manufacturer's instructions.",
+      "sourceInfinitiveSpanish": "revisar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "この屋根では水切り板金をどの順序で施工しますか。施工説明書に沿って説明してください。",
+    "goal": "Ask the installer to explain the approved drip-edge sequence for this roof."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the current source sequence: the crew plans drip-edge installation; the foreman asks the installers to explain the sequence and under/over underlayment placement; they check manufacturer instructions before answering; the plan specifies starting at the eave and cutting at the corner. The standalone source card says install drip edge first, but the Reader makes placement conditional on product instructions and the plan. Hold universal-order, material and cutting implications for source/roofing review. Archived forms and six mode labels remain conditional evidence; the current curriculum has no authored verb-example list. No selected learner/audio text or progress identity is created.",
+  "sourceVerbExamples": null,
+  "cards": [
+    {
+      "id": "roofing:13:ja-en:card:1",
+      "legacySourceRef": "roofing:13:ja-en:cards:1",
+      "sourceSpanish": "Goterón / Vierteaguas",
+      "sourceEnglish": "drip edge",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "水切り板金",
+      "archivedEnglish": "drip edge",
+      "reviewNote": "Source drip edge / goterón / vierteaguas is a specific roof-edge flashing; archived 水切り板金 may be broader. Confirm Japanese trade sense for this roof.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:13:ja-en:card:2",
+      "legacySourceRef": "roofing:13:ja-en:cards:2",
+      "sourceSpanish": "Alero",
+      "sourceEnglish": "eave",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "軒先",
+      "archivedJapanese": "軒先",
+      "archivedEnglish": "eave",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:13:ja-en:card:3",
+      "legacySourceRef": "roofing:13:ja-en:cards:3",
+      "sourceSpanish": "Borde de hastial",
+      "sourceEnglish": "rake",
+      "sourceNoteSpanish": "también: remate lateral",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "ケラバ",
+      "archivedJapanese": "ケラバ",
+      "archivedEnglish": "rake",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:13:ja-en:card:4",
+      "legacySourceRef": "roofing:13:ja-en:cards:4",
+      "sourceSpanish": "Sub-capa / Fieltro",
+      "sourceEnglish": "underlayment",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ルーフィング",
+      "archivedEnglish": "underlayment",
+      "reviewNote": "Source underlayment pairs sub-capa with felt/fieltro. Archived ルーフィング can name a specific roofing membrane rather than generic underlayment; confirm material and dictionary sense.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:13:ja-en:card:5",
+      "legacySourceRef": "roofing:13:ja-en:cards:5",
+      "sourceSpanish": "Borde",
+      "sourceEnglish": "edge",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "端",
+      "archivedJapanese": "端",
+      "archivedEnglish": "edge",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:13:ja-en:card:6",
+      "legacySourceRef": "roofing:13:ja-en:cards:6",
+      "sourceSpanish": "Secuencia",
+      "sourceEnglish": "sequence",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "順序",
+      "archivedJapanese": "順序",
+      "archivedEnglish": "sequence",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:13:ja-en:card:7",
+      "legacySourceRef": "roofing:13:ja-en:cards:7",
+      "sourceSpanish": "Traslape",
+      "sourceEnglish": "overlap",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "重なり",
+      "archivedJapanese": "重なり",
+      "archivedEnglish": "overlap",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:13:ja-en:card:8",
+      "legacySourceRef": "roofing:13:ja-en:cards:8",
+      "sourceSpanish": "Esquina",
+      "sourceEnglish": "corner",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "角",
+      "archivedJapanese": "角",
+      "archivedEnglish": "corner",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:13:ja-en:card:9",
+      "legacySourceRef": "roofing:13:ja-en:cards:9",
+      "sourceSpanish": "Instalar",
+      "sourceEnglish": "install",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "施工する",
+      "archivedJapanese": "施工する",
+      "archivedEnglish": "install",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:13:ja-en:card:10",
+      "legacySourceRef": "roofing:13:ja-en:cards:10",
+      "sourceSpanish": "Instalen el goterón primero.",
+      "sourceEnglish": "Install the drip edge first.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "まず水切り板金を施工してください。",
+      "archivedEnglish": "Install the drip edge first.",
+      "reviewNote": "Source card says install drip edge first, while the same lesson asks under versus over underlayment and has installers check manufacturer instructions. Hold a universal installation-order implication pending product/plan review.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:13:ja-en:card:11",
+      "legacySourceRef": "roofing:13:ja-en:cards:11",
+      "sourceSpanish": "¿El goterón va debajo o encima de la sub-capa?",
+      "sourceEnglish": "Does the drip edge go under or over the underlayment?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "水切り板金はルーフィングの下ですか、それとも上ですか。",
+      "archivedEnglish": "Does the drip edge go under or over the underlayment?",
+      "reviewNote": "Inherits drip-edge and underlayment material-scope questions; exact under/over placement depends on the approved roof assembly.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:13:ja-en:card:12",
+      "legacySourceRef": "roofing:13:ja-en:cards:12",
+      "sourceSpanish": "Empiecen el goterón en el alero.",
+      "sourceEnglish": "Start the drip edge at the eave.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "軒先から水切り板金の施工を始めてください。",
+      "archivedJapanese": "軒先から水切り板金の施工を始めてください。",
+      "archivedEnglish": "Start the drip edge at the eave.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:13:ja-en:card:13",
+      "legacySourceRef": "roofing:13:ja-en:cards:13",
+      "sourceSpanish": "Corten el goterón en la esquina.",
+      "sourceEnglish": "Cut the drip edge at the corner.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "角で水切り板金を切ってください。",
+      "archivedEnglish": "Cut the drip edge at the corner.",
+      "reviewNote": "Source says cut the drip edge at the corner, but the corner treatment is product/plan specific. Confirm the exact action before selecting a Japanese imperative.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:13:ja-en:card:14",
+      "legacySourceRef": "roofing:13:ja-en:cards:14",
+      "sourceSpanish": "Expliquen la secuencia del goterón para este techo.",
+      "sourceEnglish": "Explain the drip-edge sequence for this roof.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "この屋根の水切り板金の施工順序を説明してください。",
+      "archivedJapanese": "この屋根の水切り板金の施工順序を説明してください。",
+      "archivedEnglish": "Explain the drip-edge sequence for this roof.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:13:ja-en:line:1",
+      "legacySourceRef": "roofing:13:ja-en:reader:1",
+      "sourceSpanish": "Hoy la cuadrilla va a instalar el goterón.",
+      "sourceEnglish": "Today the crew is going to install the drip edge.",
+      "selectedJapanese": null,
+      "candidateJapanese": "今日、作業班は水切り板金を施工します。",
+      "archivedJapanese": "今日、作業班は水切り板金を施工します。",
+      "archivedEnglish": "Today the crew is going to install the drip edge.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:13:ja-en:line:2",
+      "legacySourceRef": "roofing:13:ja-en:reader:2",
+      "sourceSpanish": "Antes de empezar, el capataz habla con los instaladores.",
+      "sourceEnglish": "Before starting, the foreman talks to the installers.",
+      "selectedJapanese": null,
+      "candidateJapanese": "作業を始める前に、職長は施工担当者に話しかけます。",
+      "archivedJapanese": "作業を始める前に、職長は施工担当者に話しかけます。",
+      "archivedEnglish": "Before starting, the foreman talks to the installers.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:13:ja-en:line:3",
+      "legacySourceRef": "roofing:13:ja-en:reader:3",
+      "sourceSpanish": "Expliquen la secuencia del goterón para este techo.",
+      "sourceEnglish": "Explain the drip-edge sequence for this roof.",
+      "selectedJapanese": null,
+      "candidateJapanese": "この屋根の水切り板金の施工順序を説明してください。",
+      "archivedJapanese": "この屋根の水切り板金の施工順序を説明してください。",
+      "archivedEnglish": "Explain the drip-edge sequence for this roof.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:13:ja-en:line:4",
+      "legacySourceRef": "roofing:13:ja-en:reader:4",
+      "sourceSpanish": "¿El goterón va debajo o encima de la sub-capa?",
+      "sourceEnglish": "Does the drip edge go under or over the underlayment?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "水切り板金はルーフィングの下ですか、それとも上ですか。",
+      "archivedEnglish": "Does the drip edge go under or over the underlayment?",
+      "reviewNote": "Inherits card 11 under/over ambiguity. The installers check manufacturer instructions before answering; do not select a universal placement rule.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:13:ja-en:line:5",
+      "legacySourceRef": "roofing:13:ja-en:reader:5",
+      "sourceSpanish": "Los instaladores revisan las instrucciones del fabricante antes de contestar.",
+      "sourceEnglish": "The installers check the manufacturer's instructions before answering.",
+      "selectedJapanese": null,
+      "candidateJapanese": "施工担当者は答える前にメーカーの施工説明書を確認します。",
+      "archivedJapanese": "施工担当者は答える前にメーカーの施工説明書を確認します。",
+      "archivedEnglish": "The installers check the manufacturer's instructions before answering.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:13:ja-en:line:6",
+      "legacySourceRef": "roofing:13:ja-en:reader:6",
+      "sourceSpanish": "Según el plano, empiecen el goterón en el alero.",
+      "sourceEnglish": "According to the plan, start the drip edge at the eave.",
+      "selectedJapanese": null,
+      "candidateJapanese": "図面に従って、軒先から水切り板金の施工を始めてください。",
+      "archivedJapanese": "図面に従って、軒先から水切り板金の施工を始めてください。",
+      "archivedEnglish": "According to the plan, start the drip edge at the eave.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:13:ja-en:line:7",
+      "legacySourceRef": "roofing:13:ja-en:reader:7",
+      "sourceSpanish": "Corten el goterón en la esquina.",
+      "sourceEnglish": "Cut the drip edge at the corner.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "角で水切り板金を切ってください。",
+      "archivedEnglish": "Cut the drip edge at the corner.",
+      "reviewNote": "Inherits card 13 corner-cutting action. Confirm the plan/product-specific detail before selecting an imperative.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find where the plan says to start the drip edge.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall drip edge, eave, rake, and underlayment.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 軒先 from ケラバ when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Cut the drip edge at the corner.' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Ask the installer to explain the sequence for this roof.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write what the installers check before answering.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

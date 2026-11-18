@@ -1,0 +1,9 @@
+# French Roofing Core 28 — ground-cleanup source decision
+
+This inert packet pins **16 exact current Spanish/English cards**, **nine aligned Reader turns** and five source verb examples for *Ground Cleanup*. It records current-source/archive SHA-256 hashes and proposed `core-roofing:28:fr-en` row IDs only. The source header still says `roofing`; stage-local saved-item and progress identity need a deliberate decision before learner use.
+
+Seven archived card faces and five Reader turns are held from even conditional French selection. *Benne à déchets* and *descente pluviale* need regional trade and disposal-context review; *la cour* may narrow the source yard/patio. The archive's magnetic nail-sweep wording specifies a tool and process, while the source calls for picking up every nail. A magnet cannot itself establish that every nail was found or that the site is safe. The gutter check also needs a site-specific access and acceptance decision. Archived speaking adds accessible zones and plan confirmation beyond the current source objective; those additions stay separate evidence. These are internal source and domain questions, not learner text.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, listening, offline, saved-progress, browser and V4 gates are false. No audio was synthesized or approved; no route imports this packet. Six authored mode activities, forms, speaking, exact-pair dictionary, qualified French/source/roofing review and device acceptance remain open.
+
+`build.py --check` detects source drift; `validate.py` independently checks current source order, IDs, archived evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`, so this packet made zero Haiku, Opus or Fable calls. Structural checks and self-check are not qualified review.

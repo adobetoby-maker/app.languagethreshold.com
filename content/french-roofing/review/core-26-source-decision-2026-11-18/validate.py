@@ -11,7 +11,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 packet = json.loads((HERE / "packet.json").read_text())
 assert packet["schema"] == "french-roofing-core26-source-decision-v1"
-assert packet["pair"] == {"target": "French", "native": "English"}
+assert packet["pair"] == {"target": "English", "native": "French"}
 assert packet["stageId"] == "core-roofing" and packet["sourceHeaderModuleId"] == "roofing"
 assert packet["proposedLessonId"] == "core-roofing:26"
 assert packet["identityStatus"].startswith("proposal-only")

@@ -1,0 +1,461 @@
+{
+  "schema": "french-roofing-core27-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:27",
+  "proposedPairId": "core-roofing:27:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-25-27-draft.json": "f4e60539ac60e36a67ed93c6f09faabe531968f23d9e45b53b4375912bf66f29"
+  },
+  "orderedSourceRowsSha256": "6c57fc9b76df95bea28dc40f35e86e593050c76ee99c6dbdfe10807fab9266d2",
+  "sourceTitleEnglish": "Inspect Vents & Flashing",
+  "sourceObjectiveEnglish": "Check roof penetrations with the lead",
+  "sourceSpeakingEnglish": "Walk each penetration and ask the lead what has been checked.",
+  "sourceReaderTitleSpanish": "Penetraciones y tapajuntas",
+  "cards": [
+    {
+      "id": "core-roofing:27:fr-en:card:1",
+      "legacySourceRef": "roofing:27:words:1",
+      "sourceSpanish": "Ventilación (de caballete / de caja)",
+      "sourceEnglish": "vent",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’évent",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:card:2",
+      "legacySourceRef": "roofing:27:words:2",
+      "sourceSpanish": "Tapajuntas para tubo",
+      "sourceEnglish": "pipe boot",
+      "kind": "term",
+      "archivedFrenchEvidence": "le manchon d’étanchéité du tuyau",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:card:3",
+      "legacySourceRef": "roofing:27:words:3",
+      "sourceSpanish": "Tapajuntas / Flashing",
+      "sourceEnglish": "flashing",
+      "kind": "term",
+      "archivedFrenchEvidence": "le solin",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:card:4",
+      "legacySourceRef": "roofing:27:words:4",
+      "sourceSpanish": "Penetración",
+      "sourceEnglish": "penetration",
+      "kind": "term",
+      "archivedFrenchEvidence": "la traversée de toiture",
+      "conditionalFrench": "la traversée de toiture",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:card:5",
+      "legacySourceRef": "roofing:27:words:5",
+      "sourceSpanish": "Sellador",
+      "sourceEnglish": "sealant",
+      "kind": "term",
+      "archivedFrenchEvidence": "le produit d’étanchéité",
+      "conditionalFrench": "le produit d’étanchéité",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:card:6",
+      "legacySourceRef": "roofing:27:words:6",
+      "sourceSpanish": "Grieta",
+      "sourceEnglish": "crack",
+      "kind": "term",
+      "archivedFrenchEvidence": "la fissure",
+      "conditionalFrench": "la fissure",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:card:7",
+      "legacySourceRef": "roofing:27:words:7",
+      "sourceSpanish": "Gotera",
+      "sourceEnglish": "leak",
+      "kind": "term",
+      "archivedFrenchEvidence": "la fuite",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:card:8",
+      "legacySourceRef": "roofing:27:words:8",
+      "sourceSpanish": "Tragaluz",
+      "sourceEnglish": "skylight",
+      "kind": "term",
+      "archivedFrenchEvidence": "le puits de lumière",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:card:9",
+      "legacySourceRef": "roofing:27:words:9",
+      "sourceSpanish": "Chimenea",
+      "sourceEnglish": "chimney",
+      "kind": "term",
+      "archivedFrenchEvidence": "la cheminée",
+      "conditionalFrench": "la cheminée",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:card:10",
+      "legacySourceRef": "roofing:27:words:10",
+      "sourceSpanish": "Revisen el tapajuntas alrededor de esta ventilación.",
+      "sourceEnglish": "Check the flashing around this vent.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Vérifiez le solin autour de cet évent.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:card:11",
+      "legacySourceRef": "roofing:27:words:11",
+      "sourceSpanish": "Tomen una foto del tapajuntas alrededor de cada penetración.",
+      "sourceEnglish": "Take a photo of the flashing around each penetration.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Prenez une photo du solin autour de chaque traversée.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:card:12",
+      "legacySourceRef": "roofing:27:words:12",
+      "sourceSpanish": "Recorramos cada penetración juntos.",
+      "sourceEnglish": "Walk each penetration with me.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Parcourez chaque traversée avec moi.",
+      "conditionalFrench": "Parcourez chaque traversée avec moi.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:card:13",
+      "legacySourceRef": "roofing:27:words:13",
+      "sourceSpanish": "¿El tapajuntas para tubo está agrietado?",
+      "sourceEnglish": "Is the pipe boot cracked?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Le manchon du tuyau est-il fissuré ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:card:14",
+      "legacySourceRef": "roofing:27:words:14",
+      "sourceSpanish": "¿Qué han revisado ya?",
+      "sourceEnglish": "What have you already checked?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Qu’avez-vous déjà vérifié ?",
+      "conditionalFrench": "Qu’avez-vous déjà vérifié ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:card:15",
+      "legacySourceRef": "roofing:27:words:15",
+      "sourceSpanish": "Sellen los clavos expuestos.",
+      "sourceEnglish": "Seal the exposed nails.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Réalisez l’étanchéité des clous exposés.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:27:fr-en:reader:1",
+      "legacySourceRef": "roofing:27:passage:1",
+      "sourceSpanish": "Antes de terminar, el capataz quiere revisar todo lo que atraviesa el techo.",
+      "sourceEnglish": "Before finishing, the foreman wants to check everything that goes through the roof.",
+      "archivedFrenchEvidence": "Avant de terminer, le contremaître veut vérifier tous les éléments qui traversent le toit.",
+      "conditionalFrench": "Avant de terminer, le contremaître veut vérifier tous les éléments qui traversent le toit.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:reader:2",
+      "legacySourceRef": "roofing:27:passage:2",
+      "sourceSpanish": "Recorramos cada penetración juntos.",
+      "sourceEnglish": "Let's walk each penetration together.",
+      "archivedFrenchEvidence": "Parcourons chaque traversée de toiture ensemble.",
+      "conditionalFrench": "Parcourons chaque traversée de toiture ensemble.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:reader:3",
+      "legacySourceRef": "roofing:27:passage:3",
+      "sourceSpanish": "Le pregunta al jefe de cuadrilla: ¿Qué han revisado ya?",
+      "sourceEnglish": "He asks the crew lead: What have you already checked?",
+      "archivedFrenchEvidence": "Il demande au chef d’équipe : « Qu’avez-vous déjà vérifié ? »",
+      "conditionalFrench": "Il demande au chef d’équipe : « Qu’avez-vous déjà vérifié ? »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:reader:4",
+      "legacySourceRef": "roofing:27:passage:4",
+      "sourceSpanish": "Revisen el tapajuntas alrededor de esta ventilación.",
+      "sourceEnglish": "Check the flashing around this vent.",
+      "archivedFrenchEvidence": "Vérifiez le solin autour de cet évent.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:reader:5",
+      "legacySourceRef": "roofing:27:passage:5",
+      "sourceSpanish": "¿El tapajuntas para tubo está agrietado?",
+      "sourceEnglish": "Is the pipe boot cracked?",
+      "archivedFrenchEvidence": "Le manchon d’étanchéité du tuyau est-il fissuré ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:reader:6",
+      "legacySourceRef": "roofing:27:passage:6",
+      "sourceSpanish": "Si hay una grieta, el agua puede causar una gotera.",
+      "sourceEnglish": "If there is a crack, water can cause a leak.",
+      "archivedFrenchEvidence": "S’il y a une fissure, l’eau peut provoquer une fuite.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:reader:7",
+      "legacySourceRef": "roofing:27:passage:7",
+      "sourceSpanish": "Tomen una foto del tapajuntas alrededor de cada penetración.",
+      "sourceEnglish": "Take a photo of the flashing around each penetration.",
+      "archivedFrenchEvidence": "Prenez une photo du solin autour de chaque traversée.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:reader:8",
+      "legacySourceRef": "roofing:27:passage:8",
+      "sourceSpanish": "Sellen los clavos expuestos.",
+      "sourceEnglish": "Seal the exposed nails.",
+      "archivedFrenchEvidence": "Réalisez l’étanchéité des clous exposés.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "revisar",
+      "englishMeaning": "to check",
+      "sourceSpanish": "Revisen el tapajuntas alrededor de esta ventilación.",
+      "sourceEnglish": "Check the flashing around this vent."
+    },
+    {
+      "spanishInfinitive": "sellar",
+      "englishMeaning": "to seal",
+      "sourceSpanish": "Sellen los clavos expuestos.",
+      "sourceEnglish": "Seal the exposed nails."
+    },
+    {
+      "spanishInfinitive": "tomar",
+      "englishMeaning": "to take",
+      "sourceSpanish": "Tomen una foto del tapajuntas alrededor de cada penetración.",
+      "sourceEnglish": "Take a photo of the flashing around each penetration."
+    },
+    {
+      "spanishInfinitive": "recorrer",
+      "englishMeaning": "to walk through / to go over",
+      "sourceSpanish": "Recorremos cada penetración juntos.",
+      "sourceEnglish": "We walk through each penetration together."
+    },
+    {
+      "spanishInfinitive": "preguntar",
+      "englishMeaning": "to ask (a question)",
+      "sourceSpanish": "El capataz le pregunta al jefe de cuadrilla qué han revisado.",
+      "sourceEnglish": "The foreman asks the crew lead what they have checked."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Vérifier les évents et les solins",
+    "objectiveFrench": "Passer en revue les traversées de toiture avec le chef d’équipe et demander ce qui a été vérifié.",
+    "speakingFrenchInstruction": "Parcourez chaque traversée avec le chef d’équipe. Demandez ce qui a été inspecté et photographié, puis faites confirmer le détail approuvé pour les solins et les fixations exposées.",
+    "speakingFrenchOpening": "Pour chaque traversée de toiture, qu’avez-vous déjà vérifié et photographié ?",
+    "grammarFocusFrench": "Question au passé composé avec qu’avez-vous; si + présent pour décrire une fissure possible.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to check",
+        "exampleEnglish": "Check the flashing around this vent.",
+        "sourceInfinitiveSpanish": "revisar",
+        "infinitiveFrench": "vérifier",
+        "exampleFrench": "Vérifiez le solin autour de cet évent."
+      },
+      {
+        "meaningEnglish": "to seal",
+        "exampleEnglish": "Seal the exposed nails.",
+        "sourceInfinitiveSpanish": "sellar",
+        "infinitiveFrench": "réaliser l’étanchéité",
+        "exampleFrench": "Réalisez l’étanchéité des clous exposés."
+      },
+      {
+        "meaningEnglish": "to take",
+        "exampleEnglish": "Take a photo of the flashing around each penetration.",
+        "sourceInfinitiveSpanish": "tomar",
+        "infinitiveFrench": "prendre",
+        "exampleFrench": "Prenez une photo du solin autour de chaque traversée."
+      },
+      {
+        "meaningEnglish": "to walk through / to go over",
+        "exampleEnglish": "We walk through each penetration together.",
+        "sourceInfinitiveSpanish": "recorrer",
+        "infinitiveFrench": "parcourir",
+        "exampleFrench": "Nous parcourons chaque traversée ensemble."
+      },
+      {
+        "meaningEnglish": "to ask (a question)",
+        "exampleEnglish": "The foreman asks the crew lead what they have checked.",
+        "sourceInfinitiveSpanish": "preguntar",
+        "infinitiveFrench": "demander",
+        "exampleFrench": "Le contremaître demande au chef d’équipe ce qu’il a vérifié."
+      }
+    ],
+    "regionalNotesEnglish": [
+      "Qualified roofing/product review is required for penetration details, pipe boots, exposed fasteners and the source's 'Seal the exposed nails' instruction before release.",
+      "France/Québec terms for vent, pipe boot, flashing and skylight require regional technical review."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:27:fr-en:card:1",
+        "core-roofing:27:fr-en:card:10",
+        "core-roofing:27:fr-en:reader:4"
+      ],
+      "question": "The source vent term specifies ridge or box ventilation, while archived l’évent is generic. Confirm whether a French lesson face must preserve the subtype and how solin/tapajuntas around a vent is named for the selected roof assembly."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:27:fr-en:card:2",
+        "core-roofing:27:fr-en:card:3",
+        "core-roofing:27:fr-en:card:13",
+        "core-roofing:27:fr-en:reader:5"
+      ],
+      "question": "Pipe boot, flashing and cracked boot are material/detail-specific; archived manchon d’étanchéité and solin need qualified French/roofing terminology and the exact cracked-part referent before scoring."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:27:fr-en:card:7",
+        "core-roofing:27:fr-en:card:8",
+        "core-roofing:27:fr-en:reader:6"
+      ],
+      "question": "The source gotera/leak is a possible water-entry outcome from a crack, not proof of a present leak. Confirm fuite versus toiture-specific infiltration sense; confirm skylight/puits de lumière versus roof-window terminology in this source context."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:27:fr-en:card:11",
+        "core-roofing:27:fr-en:reader:7"
+      ],
+      "question": "The source requires a photo of flashing around each penetration. Confirm the inspection/documentation scope for the selected job; archived speaking additionally asks what was photographed and for approval of flashing/fastener details, which is not in the source speaking objective."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:27:fr-en:card:15",
+        "core-roofing:27:fr-en:reader:8"
+      ],
+      "question": "The source commands sealing exposed nails without identifying product or repair method. Confirm product-specific treatment and whether archived réalisez l’étanchéité preserves the intended action before selecting a scored safety instruction."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

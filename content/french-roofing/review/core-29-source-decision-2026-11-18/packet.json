@@ -1,0 +1,474 @@
+{
+  "schema": "french-roofing-core29-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourceHeaderModuleId": "roofing",
+  "proposedLessonId": "core-roofing:29",
+  "proposedPairId": "core-roofing:29:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/roofing-curriculum.ts": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5",
+    "src/data/roofing-lesson-words.ts": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53",
+    "src/data/roofing-lesson-passages.ts": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7",
+    "public/lesson-content/es/roofing.json": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/core-28-30-draft.json": "2bb6da1c523c1178274cfd531846de97433edcdd59483d2450cbd59104d0d007"
+  },
+  "orderedSourceRowsSha256": "4b6d9c21f2c5bb2da66e9704da799986afcedf0e94d48d90c9fb158258fc01e5",
+  "sourceTitleEnglish": "Report Open Items",
+  "sourceObjectiveEnglish": "Hand off remaining work clearly",
+  "sourceSpeakingEnglish": "Tell the crew lead what remains open and confirm tomorrow's first task.",
+  "sourceReaderTitleSpanish": "Pendientes para mañana",
+  "cards": [
+    {
+      "id": "core-roofing:29:fr-en:card:1",
+      "legacySourceRef": "roofing:29:words:1",
+      "sourceSpanish": "Lista de pendientes",
+      "sourceEnglish": "punch list",
+      "kind": "term",
+      "archivedFrenchEvidence": "la liste des points à terminer",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:card:2",
+      "legacySourceRef": "roofing:29:words:2",
+      "sourceSpanish": "Sin terminar",
+      "sourceEnglish": "unfinished",
+      "kind": "term",
+      "archivedFrenchEvidence": "inachevé",
+      "conditionalFrench": "inachevé",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:card:3",
+      "legacySourceRef": "roofing:29:words:3",
+      "sourceSpanish": "Mañana",
+      "sourceEnglish": "tomorrow",
+      "kind": "term",
+      "archivedFrenchEvidence": "demain",
+      "conditionalFrench": "demain",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:card:4",
+      "legacySourceRef": "roofing:29:words:4",
+      "sourceSpanish": "Pendiente",
+      "sourceEnglish": "open item",
+      "kind": "term",
+      "archivedFrenchEvidence": "le point en suspens",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:card:5",
+      "legacySourceRef": "roofing:29:words:5",
+      "sourceSpanish": "Terminado",
+      "sourceEnglish": "finished",
+      "kind": "term",
+      "archivedFrenchEvidence": "terminé",
+      "conditionalFrench": "terminé",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:card:6",
+      "legacySourceRef": "roofing:29:words:6",
+      "sourceSpanish": "Materiales restantes",
+      "sourceEnglish": "remaining materials",
+      "kind": "term",
+      "archivedFrenchEvidence": "les matériaux restants",
+      "conditionalFrench": "les matériaux restants",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:card:7",
+      "legacySourceRef": "roofing:29:words:7",
+      "sourceSpanish": "Tarea",
+      "sourceEnglish": "task",
+      "kind": "term",
+      "archivedFrenchEvidence": "la tâche",
+      "conditionalFrench": "la tâche",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:card:8",
+      "legacySourceRef": "roofing:29:words:8",
+      "sourceSpanish": "Hoy",
+      "sourceEnglish": "today",
+      "kind": "term",
+      "archivedFrenchEvidence": "aujourd’hui",
+      "conditionalFrench": "aujourd’hui",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:card:9",
+      "legacySourceRef": "roofing:29:words:9",
+      "sourceSpanish": "Trabajo",
+      "sourceEnglish": "job",
+      "kind": "term",
+      "archivedFrenchEvidence": "le chantier",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:card:10",
+      "legacySourceRef": "roofing:29:words:10",
+      "sourceSpanish": "¿Qué áreas quedan pendientes para mañana?",
+      "sourceEnglish": "Which areas are still open for tomorrow?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Quelles zones restent à terminer demain ?",
+      "conditionalFrench": "Quelles zones restent à terminer demain ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:card:11",
+      "legacySourceRef": "roofing:29:words:11",
+      "sourceSpanish": "Guarden los materiales restantes en un lugar seguro.",
+      "sourceEnglish": "Store the remaining materials in a safe place.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Rangez les matériaux restants dans un endroit sûr.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:card:12",
+      "legacySourceRef": "roofing:29:words:12",
+      "sourceSpanish": "Recorran el techo conmigo antes de dar el trabajo por terminado.",
+      "sourceEnglish": "Walk the roof with me before we call the job complete.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Parcourons le toit ensemble avant de déclarer le chantier terminé.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:card:13",
+      "legacySourceRef": "roofing:29:words:13",
+      "sourceSpanish": "Esto sigue pendiente.",
+      "sourceEnglish": "This is still open.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Ce point reste en suspens.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:card:14",
+      "legacySourceRef": "roofing:29:words:14",
+      "sourceSpanish": "Mañana la primera tarea es terminar esta sección.",
+      "sourceEnglish": "Tomorrow the first task is to finish this section.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Demain, la première tâche sera de terminer cette section.",
+      "conditionalFrench": "Demain, la première tâche sera de terminer cette section.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:card:15",
+      "legacySourceRef": "roofing:29:words:15",
+      "sourceSpanish": "Agréguenlo a la lista de pendientes.",
+      "sourceEnglish": "Add it to the punch list.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Ajoutez-le à la liste des points à terminer.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "core-roofing:29:fr-en:reader:1",
+      "legacySourceRef": "roofing:29:passage:1",
+      "sourceSpanish": "Es el final del día y la cuadrilla recoge sus herramientas.",
+      "sourceEnglish": "It is the end of the day and the crew packs up its tools.",
+      "archivedFrenchEvidence": "C’est la fin de la journée et l’équipe range ses outils.",
+      "conditionalFrench": "C’est la fin de la journée et l’équipe range ses outils.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:reader:2",
+      "legacySourceRef": "roofing:29:passage:2",
+      "sourceSpanish": "Recorran el techo conmigo antes de dar el trabajo por terminado.",
+      "sourceEnglish": "Walk the roof with me before we call the job complete.",
+      "archivedFrenchEvidence": "Parcourons le toit ensemble avant de déclarer le chantier terminé.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:reader:3",
+      "legacySourceRef": "roofing:29:passage:3",
+      "sourceSpanish": "El capataz pregunta: ¿Qué áreas quedan pendientes para mañana?",
+      "sourceEnglish": "The foreman asks: Which areas are still open for tomorrow?",
+      "archivedFrenchEvidence": "Le contremaître demande : « Quelles zones restent à terminer demain ? »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:reader:4",
+      "legacySourceRef": "roofing:29:passage:4",
+      "sourceSpanish": "Una sección junto a la chimenea está sin terminar.",
+      "sourceEnglish": "One section next to the chimney is unfinished.",
+      "archivedFrenchEvidence": "Une section près de la cheminée n’est pas terminée.",
+      "conditionalFrench": "Une section près de la cheminée n’est pas terminée.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:reader:5",
+      "legacySourceRef": "roofing:29:passage:5",
+      "sourceSpanish": "Esto sigue pendiente.",
+      "sourceEnglish": "This is still open.",
+      "archivedFrenchEvidence": "Ce point reste en suspens.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:reader:6",
+      "legacySourceRef": "roofing:29:passage:6",
+      "sourceSpanish": "Agréguenlo a la lista de pendientes.",
+      "sourceEnglish": "Add it to the punch list.",
+      "archivedFrenchEvidence": "Ajoutez-le à la liste des points à terminer.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:reader:7",
+      "legacySourceRef": "roofing:29:passage:7",
+      "sourceSpanish": "Mañana la primera tarea es terminar esta sección.",
+      "sourceEnglish": "Tomorrow the first task is to finish this section.",
+      "archivedFrenchEvidence": "Demain, la première tâche sera de terminer cette section.",
+      "conditionalFrench": "Demain, la première tâche sera de terminer cette section.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:reader:8",
+      "legacySourceRef": "roofing:29:passage:8",
+      "sourceSpanish": "Guarden los materiales restantes en un lugar seguro.",
+      "sourceEnglish": "Store the remaining materials in a safe place.",
+      "archivedFrenchEvidence": "Rangez les matériaux restants dans un endroit sûr.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:reader:9",
+      "legacySourceRef": "roofing:29:passage:9",
+      "sourceSpanish": "Con la lista de pendientes, todos saben qué hacer mañana.",
+      "sourceEnglish": "With the punch list, everyone knows what to do tomorrow.",
+      "archivedFrenchEvidence": "Grâce à cette liste, chacun sait ce qu’il devra faire demain.",
+      "conditionalFrench": "Grâce à cette liste, chacun sait ce qu’il devra faire demain.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "terminar",
+      "englishMeaning": "to finish",
+      "sourceSpanish": "Mañana terminamos la sección junto a la chimenea.",
+      "sourceEnglish": "Tomorrow we finish the section next to the chimney."
+    },
+    {
+      "spanishInfinitive": "agregar",
+      "englishMeaning": "to add",
+      "sourceSpanish": "Agregamos este pendiente a la lista.",
+      "sourceEnglish": "We add this open item to the list."
+    },
+    {
+      "spanishInfinitive": "guardar",
+      "englishMeaning": "to store / to put away",
+      "sourceSpanish": "Guardamos los materiales restantes en un lugar seguro.",
+      "sourceEnglish": "We store the remaining materials in a safe place."
+    },
+    {
+      "spanishInfinitive": "recorrer",
+      "englishMeaning": "to walk through / to inspect",
+      "sourceSpanish": "Recorremos el techo antes de dar el trabajo por terminado.",
+      "sourceEnglish": "We walk the roof before we call the job complete."
+    },
+    {
+      "spanishInfinitive": "quedar",
+      "englishMeaning": "to remain / to be left",
+      "sourceSpanish": "¿Qué áreas quedan pendientes para mañana?",
+      "sourceEnglish": "Which areas are still open for tomorrow?"
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Signaler les points à terminer",
+    "objectiveFrench": "Transmettre clairement les travaux restants et confirmer la première tâche du lendemain.",
+    "speakingFrenchInstruction": "Dressez avec le chef d’équipe la liste des points ouverts, vérifiez la zone non terminée et demandez quelle tâche commencera demain; faites confirmer le rangement prévu.",
+    "speakingFrenchOpening": "Quelles zones restent à terminer demain, et quelle sera la première tâche ?",
+    "grammarFocusFrench": "Rester à + infinitif; futur simple pour annoncer demain; question avec quelles zones.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to finish",
+        "exampleEnglish": "Tomorrow we finish the section next to the chimney.",
+        "sourceInfinitiveSpanish": "terminar",
+        "infinitiveFrench": "terminer",
+        "exampleFrench": "Demain, nous terminerons la section près de la cheminée."
+      },
+      {
+        "meaningEnglish": "to add",
+        "exampleEnglish": "We add this open item to the list.",
+        "sourceInfinitiveSpanish": "agregar",
+        "infinitiveFrench": "ajouter",
+        "exampleFrench": "Nous ajoutons ce point en suspens à la liste."
+      },
+      {
+        "meaningEnglish": "to store / to put away",
+        "exampleEnglish": "We store the remaining materials in a safe place.",
+        "sourceInfinitiveSpanish": "guardar",
+        "infinitiveFrench": "ranger",
+        "exampleFrench": "Nous rangeons les matériaux restants dans un endroit sûr."
+      },
+      {
+        "meaningEnglish": "to walk through / to inspect",
+        "exampleEnglish": "We walk the roof before we call the job complete.",
+        "sourceInfinitiveSpanish": "recorrer",
+        "infinitiveFrench": "parcourir",
+        "exampleFrench": "Nous parcourons le toit avant de déclarer le chantier terminé."
+      },
+      {
+        "meaningEnglish": "to remain / to be left",
+        "exampleEnglish": "Which areas are still open for tomorrow?",
+        "sourceInfinitiveSpanish": "quedar",
+        "infinitiveFrench": "rester",
+        "exampleFrench": "Quelles zones restent à terminer demain ?"
+      }
+    ],
+    "regionalNotesEnglish": [
+      "Qualified roofing/site review is required before calling any work complete or deciding material storage, access and overnight protection.",
+      "France/Québec terminology for punch list and closeout needs regional trade review."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "core-roofing:29:fr-en:card:1",
+        "core-roofing:29:fr-en:card:15",
+        "core-roofing:29:fr-en:reader:6"
+      ],
+      "question": "The source's punch list/lista de pendientes is a remaining-work list. The archived liste des points à terminer may fit, but France/Québec closeout terminology and the implied scope need qualified trade and regional dictionary review before a scored French term is selected."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:29:fr-en:card:4",
+        "core-roofing:29:fr-en:card:13",
+        "core-roofing:29:fr-en:reader:3",
+        "core-roofing:29:fr-en:reader:5"
+      ],
+      "question": "Open item/pendiente and areas still open mean unfinished work, not an unresolved technical question or physical opening. Check whether point en suspens and zones restent à terminer keep that same task/status sense in this site context."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:29:fr-en:card:9",
+        "core-roofing:29:fr-en:card:12",
+        "core-roofing:29:fr-en:reader:2"
+      ],
+      "question": "The source asks for a roof walk before declaring the job complete. Archived chantier and parcourons may preserve job and shared walk, but access/fall-protection, inspection authority and completion criteria are site-specific. Do not present the scene as permission to access or sign off a roof."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:29:fr-en:card:11",
+        "core-roofing:29:fr-en:reader:8"
+      ],
+      "question": "Store remaining materials in a safe place is the source instruction. The actual overnight storage, tie-down and roof-load plan are unspecified. Preserve the source's general meaning while keeping the site decision out of learner-facing assertions."
+    },
+    {
+      "affectedIds": [
+        "core-roofing:29:fr-en:card:10",
+        "core-roofing:29:fr-en:card:11",
+        "core-roofing:29:fr-en:reader:3"
+      ],
+      "question": "Archived speaking additionally asks to verify an unfinished area and confirm material storage; the current source speaking objective only asks to tell the crew lead what remains open and confirm tomorrow's first task. Keep those additions as unapproved evidence."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

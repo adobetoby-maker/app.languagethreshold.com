@@ -82,7 +82,7 @@ source_rows = {"cards": source_cards, "readerSpanish": passage["target"], "reade
 packet = {
     "schema": 1,
     "kind": "inert-source-decision",
-    "pair": {"target": "French", "native": "English"},
+    "pair": {"target": "English", "native": "French"},
     "sourceModuleId": "foundation-roofing",
     "archivedHeaderModuleId": "roofing",
     "proposedStageLocalLessonId": prefix,

@@ -79,7 +79,7 @@ source_rows = {"cards": words, "readerSpanish": passage["target"], "readerEnglis
 packet = {
     "schema": 1,
     "kind": "inert-source-decision",
-    "pair": {"target": "French", "native": "English"},
+    "pair": {"target": "English", "native": "French"},
     "stageId": "foundation-roofing",
     "proposedLessonId": prefix,
     "source": {key: {"path": path, "sha256": hashlib.sha256((ROOT / path).read_bytes()).hexdigest()}

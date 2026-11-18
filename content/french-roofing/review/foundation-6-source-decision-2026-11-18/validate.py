@@ -7,7 +7,7 @@ from pathlib import Path
 
 root = Path(__file__).resolve().parents[4]
 data = json.loads(Path(__file__).with_name("decision.json").read_text())
-assert data["pair"] == {"target": "French", "native": "English"}
+assert data["pair"] == {"target": "English", "native": "French"}
 assert data["sourceModuleId"] == "foundation-roofing"
 assert data["archivedHeaderModuleId"] == "roofing"
 assert data["proposedStageLocalLessonId"] == "foundation-roofing:6:fr-en"

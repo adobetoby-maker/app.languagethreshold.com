@@ -1,0 +1,9 @@
+# French Roofing Core 27 — vents and flashing source decision
+
+This inert packet pins **15 exact current Spanish/English cards**, **eight aligned Reader turns** and five source verb examples for *Inspect Vents & Flashing*. Source/archive hashes and proposed `core-roofing:27:fr-en` row IDs follow the native→target suffix convention (French support, English target); they are review references only. The source header still says `roofing`; stage-local saved-item and progress identity require a deliberate decision before learner use.
+
+The archived French is separate evidence. Nine card and five Reader French faces are held: generic *évent* loses ridge/box subtype, *pipe boot* and *flashing* need product-specific senses, *gotera* is a possible leak rather than a confirmed one, and the skylight term needs context. The source asks for a photo of the flashing around every penetration and commands sealing exposed nails without specifying a product or repair method. Archived speaking adds a detail-approval request beyond the current source objective. Qualified French, roofing/product, source and dictionary review must settle these before a scored answer or exact-text audio script is selected. These are internal review questions, separate from learner text.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, listening, offline, saved-progress, browser and V4 gates are false. No route imports this packet; no synthesis or listening approval occurred. Six authored See/Recall/Hear/Type/Say/Write activities, forms, speaking, contextual dictionary and exact-pair native acceptance remain open.
+
+`build.py --check` detects source drift; `validate.py` independently checks source order, IDs, archive evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural checks are not qualified review.

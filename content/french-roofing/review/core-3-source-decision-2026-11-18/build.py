@@ -66,7 +66,7 @@ def build() -> dict:
     rows = [[row["sourceSpanish"], row["sourceEnglish"]] for row in cards + reader]
     return {
         "schema": "french-roofing-core3-source-decision-v1",
-        "kind": "inert-source-decision", "pair": {"target": "French", "native": "English"},
+        "kind": "inert-source-decision", "pair": {"target": "English", "native": "French"},
         "stageId": "core-roofing", "sourceHeaderModuleId": "roofing",
         "proposedLessonId": "core-roofing:3", "proposedPairId": PAIR_ID,
         "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",

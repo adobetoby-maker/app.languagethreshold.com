@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[4]
 HERE = Path(__file__).resolve().parent
 packet = json.loads((HERE / "packet.json").read_text())
 assert packet["kind"] == "inert-source-decision"
-assert packet["pair"] == {"target": "French", "native": "English"}
+assert packet["pair"] == {"target": "English", "native": "French"}
 assert packet["stageId"] == "foundation-roofing"
 assert packet["proposedLessonId"] == "foundation-roofing:1:fr-en"
 

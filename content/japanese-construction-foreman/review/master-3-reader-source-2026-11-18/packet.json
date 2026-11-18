@@ -1,0 +1,276 @@
+{
+  "schema": 1,
+  "state": "source-only-reader-gap-review",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "lesson": 3,
+  "moduleId": "master-construction-foreman-ja-en",
+  "source": {
+    "readerPath": "public/lesson-content/es/master-construction-foreman.json",
+    "curriculumPath": "src/data/core60/es/master-construction-foreman.json",
+    "translationDraftPath": "content/japanese-construction-foreman/master-translation-1-3-draft.json",
+    "readerSHA256": "549b47cf51253f5c5ac4f19bf2fdae52fa93ae8ea996377cc32e0c0fab896d11",
+    "curriculumSHA256": "96f86e3e51ba346918f539810bcc996cb41ceaaf9268af02fa595c333800dce2",
+    "translationDraftSHA256": "f9c1a3111e725223d562a81b3b5f9c8b279c51de964da7c22b77099d2112e395",
+    "sourceReaderTitleSpanish": "Revisa tu arnés, Joaquín",
+    "sourceLessonTitleEnglish": "Teaching a New Laborer to Inspect a Harness",
+    "sourceObjectiveEnglish": "Train a new laborer to inspect a harness and lanyard step by step, then correct their teach-back."
+  },
+  "historicalPrivateReader": {
+    "commitSHA": "8901d11a61b295faa067a62f057502906ff403cf",
+    "path": "content/japanese-construction-foreman/master-original-reader-1-3-draft.json",
+    "sha256": "ad5856ada93586245aa6eed453ea3e722810d216dcc11dd5dfe499cbc6c0d657",
+    "title": "A practice inspection conversation",
+    "rows": [
+      {
+        "japanese": "新人のホアキンは、訓練用のハーネスとランヤードを持ってきました。",
+        "english": "Joaquín, a new worker, brought a training harness and lanyard."
+      },
+      {
+        "japanese": "職長は、点検表を机に置きました。",
+        "english": "The foreman placed an inspection checklist on the table."
+      },
+      {
+        "japanese": "「今日は点検の順番を言葉で説明してみましょう」と職長は言いました。",
+        "english": "“Today, let’s try explaining the inspection sequence in words,” the foreman said."
+      },
+      {
+        "japanese": "ホアキンは、ラベルについて書かれた欄を読み上げました。",
+        "english": "Joaquín read aloud the section about the label."
+      },
+      {
+        "japanese": "次に、縫い目について確認が必要だと気づきました。",
+        "english": "Next, he noticed that the stitching needed clarification."
+      },
+      {
+        "japanese": "点検タグの文字が読みにくかったので、二人は安全担当者への質問として記録しました。",
+        "english": "Because the inspection tag was hard to read, they recorded a question for the safety contact."
+      },
+      {
+        "japanese": "職長は、分からない点を推測しないようホアキンに伝えました。",
+        "english": "The foreman told Joaquín not to guess about what they did not know."
+      },
+      {
+        "japanese": "ホアキンは、自分の言葉で確認事項を説明し直しました。",
+        "english": "Joaquín restated the items to confirm in his own words."
+      }
+    ],
+    "reuseDecision": null
+  },
+  "openDomainReview": [
+    {
+      "sourceLocation": "Reader 9–12",
+      "question": "Verify the source-specific inspection tag, shock absorber and approved-anchor terminology and instructions with a qualified fall-protection reviewer; no general jobsite approval follows from this packet.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 17–18",
+      "question": "The source states a March 2022 manufacture date and an inspection tag signed this month, then Ernesto says everything is in order. Confirm how to present this scene as attributed dialogue without implying an independently verified equipment inspection.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "curriculum word 14",
+      "question": "Choose a precise Japanese equivalent or explanation for the source role competent person in this safety context.",
+      "qualifiedDecision": null
+    }
+  ],
+  "rows": [
+    {
+      "id": "master-construction-foreman-ja-en:lesson:3:reader:line:1",
+      "sourceSpanish": "En el patio de la renovación de una escuela, el capataz Ernesto Ruiz le da un arnés y una línea de vida a Joaquín Bernal, un ayudante nuevo, antes de que suba al techo.",
+      "sourceEnglish": "In the yard of a school renovation, foreman Ernesto Ruiz gives a harness and a lanyard to Joaquín Bernal, a new laborer, before he goes up to the roof.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:3:reader:line:2",
+      "sourceSpanish": "Ernesto: Revísalo completo antes de ponértelo.",
+      "sourceEnglish": "Ernesto: Check all of it before you put it on.",
+      "speaker": "Ernesto",
+      "conditionalJapanesePhrase": "着用する前に、全体を点検してください。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:3:reader:line:3",
+      "sourceSpanish": "Ernesto: Pasa las manos por todas las correas y busca desgaste, quemaduras o fibras raspadas.",
+      "sourceEnglish": "Ernesto: Run your hands along all the straps and look for wear, burns or frayed fibers.",
+      "speaker": "Ernesto",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:3:reader:line:4",
+      "sourceSpanish": "Ernesto: Revisa bien las costuras, porque ahí es donde el arnés aguanta la fuerza de una caída.",
+      "sourceEnglish": "Ernesto: Check the stitching carefully, because that's where the harness takes the force of a fall.",
+      "speaker": "Ernesto",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:3:reader:line:5",
+      "sourceSpanish": "Ernesto: No lo uses si tiene cortes o costuras sueltas.",
+      "sourceEnglish": "Ernesto: Don't use it if it has cuts or loose stitching.",
+      "speaker": "Ernesto",
+      "conditionalJapanesePhrase": "切れ目や縫い目のほつれがある場合は、使用しないでください。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:3:reader:line:6",
+      "sourceSpanish": "Ernesto: Busca el anillo D en la espalda y muévelo para ver que no esté doblado ni oxidado.",
+      "sourceEnglish": "Ernesto: Find the D-ring on the back and move it to see that it isn't bent or rusted.",
+      "speaker": "Ernesto",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:3:reader:line:7",
+      "sourceSpanish": "Ernesto: Abre y cierra cada hebilla para ver que trabe bien.",
+      "sourceEnglish": "Ernesto: Open and close each buckle to see that it locks properly.",
+      "speaker": "Ernesto",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:3:reader:line:8",
+      "sourceSpanish": "Ernesto: Si está dañado, entrégamelo y te doy otro.",
+      "sourceEnglish": "Ernesto: If it's damaged, hand it to me and I'll give you another one.",
+      "speaker": "Ernesto",
+      "conditionalJapanesePhrase": "破損していたら、私に渡してください。別のものを渡します。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:3:reader:line:9",
+      "sourceSpanish": "Ernesto: Busca también la etiqueta y la tarjeta de inspección; si la tarjeta está vencida, no te lo pongas y dámelo.",
+      "sourceEnglish": "Ernesto: Also look for the label and the inspection tag; if the tag is expired, don't put it on and give it to me.",
+      "speaker": "Ernesto",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:3:reader:line:10",
+      "sourceSpanish": "Ernesto: Ahora agarra la línea de vida y revisa el absorbedor de impacto; si está abierto o estirado, la línea queda fuera de servicio, así que entrégamela.",
+      "sourceEnglish": "Ernesto: Now grab the lanyard and check the shock absorber; if it's opened or stretched, the lanyard is out of service, so hand it to me.",
+      "speaker": "Ernesto",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:3:reader:line:11",
+      "sourceSpanish": "Ernesto: Toma el gancho de seguridad, ábrelo y suéltalo; el seguro del gancho debe cerrar y trabarse solo.",
+      "sourceEnglish": "Ernesto: Take the snap hook, open it and let go; the hook gate must close and lock on its own.",
+      "speaker": "Ernesto",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:3:reader:line:12",
+      "sourceSpanish": "Ernesto: Engánchalo solo a un punto de anclaje aprobado.",
+      "sourceEnglish": "Ernesto: Clip it only to an approved anchor point.",
+      "speaker": "Ernesto",
+      "conditionalJapanesePhrase": "承認済みの取付設備にだけ掛けてください。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:3:reader:line:13",
+      "sourceSpanish": "Ernesto: Muy bien, ahora explícamelo tú desde el principio.",
+      "sourceEnglish": "Ernesto: Very good, now you explain it to me from the start.",
+      "speaker": "Ernesto",
+      "conditionalJapanesePhrase": "よくできました。では最初から、今度はあなたが説明してください。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:3:reader:line:14",
+      "sourceSpanish": "Joaquín repite los pasos en voz alta y en orden, pero empieza a ponerse el arnés sin buscar la etiqueta.",
+      "sourceEnglish": "Joaquín repeats the steps out loud and in order, but he starts putting on the harness without looking for the label.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:3:reader:line:15",
+      "sourceSpanish": "Ernesto: Espera, te faltó revisar la etiqueta y la tarjeta de inspección.",
+      "sourceEnglish": "Ernesto: Wait, you missed checking the label and the inspection tag.",
+      "speaker": "Ernesto",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:3:reader:line:16",
+      "sourceSpanish": "Ernesto: Muéstrame la etiqueta y léeme la fecha.",
+      "sourceEnglish": "Ernesto: Show me the label and read me the date.",
+      "speaker": "Ernesto",
+      "conditionalJapanesePhrase": "ラベルを見せて、日付を読み上げてください。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:3:reader:line:17",
+      "sourceSpanish": "Joaquín: La fecha de fabricación es de marzo de 2022, y la tarjeta de inspección está firmada este mes por la persona competente.",
+      "sourceEnglish": "Joaquín: The manufacture date is March 2022, and the inspection tag was signed this month by the competent person.",
+      "speaker": "Joaquín",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:3:reader:line:18",
+      "sourceSpanish": "Ernesto: Todo está en orden, así que póntelo y ajústate bien las correas de las piernas.",
+      "sourceEnglish": "Ernesto: Everything is in order, so put it on and tighten your leg straps well.",
+      "speaker": "Ernesto",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    }
+  ],
+  "reviewGates": {
+    "qualifiedJapaneseReview": false,
+    "qualifiedFallProtectionReview": false,
+    "sourceTechnicalQuestionsResolved": false,
+    "sourceParity": false,
+    "dictionarySenses": false,
+    "sixAuthoredModes": false,
+    "speaking": false,
+    "audioText": false,
+    "audioListening": false,
+    "savedItemMigration": false,
+    "learnerRuntime": false,
+    "offline": false,
+    "progress": false,
+    "v4Native": false
+  }
+}

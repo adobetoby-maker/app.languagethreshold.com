@@ -1,0 +1,277 @@
+{
+  "schema": 1,
+  "state": "source-only-reader-gap-review",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "lesson": 4,
+  "moduleId": "master-construction-foreman-ja-en",
+  "source": {
+    "readerPath": "public/lesson-content/es/master-construction-foreman.json",
+    "curriculumPath": "src/data/core60/es/master-construction-foreman.json",
+    "translationDraftPath": "content/japanese-construction-foreman/master-translation-4-6-draft.json",
+    "readerSHA256": "549b47cf51253f5c5ac4f19bf2fdae52fa93ae8ea996377cc32e0c0fab896d11",
+    "curriculumSHA256": "96f86e3e51ba346918f539810bcc996cb41ceaaf9268af02fa595c333800dce2",
+    "translationDraftSHA256": "8d6fa87b79df3f865ac182178bcee1ecf6554e46a8265e129f9162c2ac490588",
+    "sourceReaderTitleSpanish": "La hoja técnica del grout",
+    "sourceLessonTitleEnglish": "Read the Grout Data Sheet Before Mixing",
+    "sourceObjectiveEnglish": "Read a grout data sheet with a mason and explain the mixing and safety steps it requires before work starts."
+  },
+  "historicalPrivateReader": {
+    "commitSHA": "9cb195e679f62b097f08d36b6814af4a56dbeaeb",
+    "path": "content/japanese-construction-foreman/master-original-reader-4-6-draft.json",
+    "sha256": "97e232a1864d8d21101cc860eea7fd40467e5059eb60f34a10ad2afb3ab53786",
+    "title": "Questions about a bag of grout",
+    "rows": [
+      {
+        "japanese": "朝、左官のエルネストがグラウトの袋を作業台に置きました。",
+        "english": "In the morning, Ernesto the mason placed a bag of grout on the workbench."
+      },
+      {
+        "japanese": "職長は製品のデータシートを開きました。",
+        "english": "The foreman opened the product data sheet."
+      },
+      {
+        "japanese": "二人は、練り混ぜ水の欄を探しました。",
+        "english": "Together they looked for the section on mixing water."
+      },
+      {
+        "japanese": "エルネストは、前の現場と同じ量でよいか質問しました。",
+        "english": "Ernesto asked whether the amount from his previous job would apply."
+      },
+      {
+        "japanese": "職長は「この製品の指示を確認してから答えましょう」と言いました。",
+        "english": "The foreman said, “Let’s check this product’s instructions before answering.”"
+      },
+      {
+        "japanese": "安全データシートも机の上に置いてありました。",
+        "english": "The safety data sheet was also on the table."
+      },
+      {
+        "japanese": "二人は、不明な点をメーカーへの質問としてメモしました。",
+        "english": "They wrote down their unanswered questions for the manufacturer."
+      },
+      {
+        "japanese": "作業を始める前に、確認した項目を読み合わせました。",
+        "english": "Before starting work, they reviewed the items they had confirmed."
+      }
+    ],
+    "reuseDecision": null
+  },
+  "openDomainReview": [
+    {
+      "sourceLocation": "Reader 1–4, 7–10, 14–18",
+      "question": "The source attributes exact mixing-water, mixing-time, temperature, working-time and wet-curing values to a product data sheet or manufacturer. Qualified grout/product review must verify how to teach these as source-specific instructions, not universal grout specifications.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 5–6",
+      "question": "Preserve direct silica-dust lung-harm and respirator vocabulary while qualified Japanese and construction-safety reviewers choose precise wording and PPE terminology.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 7–9, 12",
+      "question": "Keep the source contrast between 3 quarts per bag and Ernesto’s almost-a-gallon habit, and the no-extra-water instruction, without converting either to a general jobsite rule.",
+      "qualifiedDecision": null
+    }
+  ],
+  "rows": [
+    {
+      "id": "master-construction-foreman-ja-en:lesson:4:reader:line:1",
+      "sourceSpanish": "En el cuarto de máquinas de la ampliación del hospital, el capataz Daniel Ortiz y el albañil Ernesto Salgado preparan los sacos de grout sin contracción para la base de la bomba.",
+      "sourceEnglish": "In the mechanical room of the hospital addition, foreman Daniel Ortiz and mason Ernesto Salgado get the bags of non-shrink grout ready for the pump base.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:4:reader:line:2",
+      "sourceSpanish": "El grout tiene que llenar todo el espacio debajo de la placa base, así que no puede quedar ningún hueco.",
+      "sourceEnglish": "The grout has to fill the whole space under the base plate, so no gap can be left.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:4:reader:line:3",
+      "sourceSpanish": "Daniel: Antes de mezclar, hay que leer la hoja técnica completa.",
+      "sourceEnglish": "Daniel: Before mixing, we have to read the whole data sheet.",
+      "speaker": "Daniel",
+      "conditionalJapanesePhrase": "練り混ぜる前に、データシートを最後まで読む必要があります。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:4:reader:line:4",
+      "sourceSpanish": "Primero anotan el número de lote de los sacos en el reporte diario, por si luego hay algún problema con el material.",
+      "sourceEnglish": "First they write down the lot number of the bags in the daily report, in case there is a problem with the material later.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:4:reader:line:5",
+      "sourceSpanish": "Daniel abre también la hoja de seguridad y lee que el polvo de sílice del producto puede dañar los pulmones.",
+      "sourceEnglish": "Daniel also opens the safety data sheet and reads that the product's silica dust can damage the lungs.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:4:reader:line:6",
+      "sourceSpanish": "Daniel: Hay que ponerse el respirador antes de abrir los sacos.",
+      "sourceEnglish": "Daniel: You have to put on the respirator before opening the bags.",
+      "speaker": "Daniel",
+      "conditionalJapanesePhrase": "袋を開ける前に、呼吸用保護具を着用しなければなりません。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:4:reader:line:7",
+      "sourceSpanish": "La hoja técnica dice que el agua de mezclado es de 3 cuartos de galón por saco, pero Ernesto normalmente le echa casi un galón.",
+      "sourceEnglish": "The data sheet says the mixing water is 3 quarts per bag, but Ernesto normally adds almost a gallon.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:4:reader:line:8",
+      "sourceSpanish": "Daniel: Sé que usted le echa más agua, pero aquí manda la hoja.",
+      "sourceEnglish": "Daniel: I know you add more water, but here the sheet rules.",
+      "speaker": "Daniel",
+      "conditionalJapanesePhrase": "普段、水を多めに入れているのは知っていますが、ここではデータシートの指示が優先です。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:4:reader:line:9",
+      "sourceSpanish": "Daniel explica que con demasiada agua el grout pierde fuerza y puede encogerse debajo de la placa.",
+      "sourceEnglish": "Daniel explains that with too much water the grout loses strength and can shrink under the plate.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:4:reader:line:10",
+      "sourceSpanish": "Según la hoja técnica, el tiempo de mezclado en la mezcladora es de 5 minutos a velocidad baja.",
+      "sourceEnglish": "According to the data sheet, the mixing time in the mixer is 5 minutes at low speed.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:4:reader:line:11",
+      "sourceSpanish": "Ernesto pregunta cómo debe verse la consistencia y qué hacer si la mezcla sale espesa.",
+      "sourceEnglish": "Ernesto asks what the consistency should look like and what to do if the mix comes out thick.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:4:reader:line:12",
+      "sourceSpanish": "Daniel: Si queda muy espeso, no le agregue agua; llámeme.",
+      "sourceEnglish": "Daniel: If it comes out too thick, don't add water; call me.",
+      "speaker": "Daniel",
+      "conditionalJapanesePhrase": "練り上がりが硬すぎる場合は、水を加えずに私を呼んでください。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:4:reader:line:13",
+      "sourceSpanish": "Ernesto: ¿Qué dice la hoja sobre la temperatura ambiente?",
+      "sourceEnglish": "Ernesto: What does the sheet say about the ambient temperature?",
+      "speaker": "Ernesto",
+      "conditionalJapanesePhrase": "データシートには、周囲温度について何と書かれていますか。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:4:reader:line:14",
+      "sourceSpanish": "Daniel lee que la hoja pide trabajar entre 50 y 90 grados Fahrenheit, y el termómetro del cuarto marca 68 grados.",
+      "sourceEnglish": "Daniel reads that the sheet calls for working between 50 and 90 degrees Fahrenheit, and the room thermometer reads 68 degrees.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:4:reader:line:15",
+      "sourceSpanish": "Daniel: Antes de empezar, revisemos juntos el tiempo de trabajabilidad.",
+      "sourceEnglish": "Daniel: Before starting, let's go over the working time together.",
+      "speaker": "Daniel",
+      "conditionalJapanesePhrase": "始める前に、可使時間を一緒に確認しましょう。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:4:reader:line:16",
+      "sourceSpanish": "La hoja técnica indica un tiempo de trabajabilidad de 30 minutos, así que después de mezclar hay que vaciarlo de inmediato.",
+      "sourceEnglish": "The data sheet gives a working time of 30 minutes, so after mixing it has to be placed right away.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:4:reader:line:17",
+      "sourceSpanish": "Daniel: Después de vaciarlo, hay que mantenerlo húmedo según la hoja técnica.",
+      "sourceEnglish": "Daniel: After placing it, it has to be kept moist per the data sheet.",
+      "speaker": "Daniel",
+      "conditionalJapanesePhrase": "充填したあとは、データシートどおりに湿潤養生を行う必要があります。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:4:reader:line:18",
+      "sourceSpanish": "Ernesto está de acuerdo y anota que el curado húmedo dura 3 días, como dice el fabricante.",
+      "sourceEnglish": "Ernesto agrees and writes down that the wet curing lasts 3 days, as the manufacturer says.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    }
+  ],
+  "reviewGates": {
+    "qualifiedJapaneseReview": false,
+    "qualifiedGroutReview": false,
+    "qualifiedSafetyReview": false,
+    "sourceTechnicalQuestionsResolved": false,
+    "sourceParity": false,
+    "dictionarySenses": false,
+    "sixAuthoredModes": false,
+    "speaking": false,
+    "audioText": false,
+    "audioListening": false,
+    "savedItemMigration": false,
+    "learnerRuntime": false,
+    "offline": false,
+    "progress": false,
+    "v4Native": false
+  }
+}

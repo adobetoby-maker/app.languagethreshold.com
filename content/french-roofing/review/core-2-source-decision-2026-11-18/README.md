@@ -1,0 +1,9 @@
+# French Roofing Core 2 — source and layer/edge decisions
+
+This inert packet pins **14 exact current Spanish/English cards** and **seven aligned Reader turns** for *Deck, Underlayment & Edges*. `packet.json` includes source verb examples, file and ordered-row hashes, older French evidence, and proposed `core-roofing:2:fr-en` row IDs. `build.py --check` detects source drift; `validate.py` independently checks source order, IDs, archived evidence, 13 held faces, and closed gates. The proposal does not migrate the archive's `roofing` progress identity to `core-roofing`.
+
+Eight cards and five Reader turns have held French faces. Qualified French/roofing/source review must distinguish roof deck and sheathing, felt paper and synthetic underlayment, and drip edge/eave/rake terms by context and locale. The archived *feutre bitumé* may add a material specification absent from the generic felt-paper source card. The source command “Install the drip edge first” is preserved as source text, but installation sequence depends on the approved roof detail and manufacturer instructions. The archive changes Reader 7's foreman **order** into a request and expands the source speaking task from pointing out layers on a roof plan to confirming installation order; those changes need source and teaching decisions. All older French forms remain evidence only.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false`; all learner, scoring, audio/listening, offline, saved-progress, browser and V4 gates are false. Six authored mode prompt/target pairs, forms, speaking, dictionary senses, qualified review, saved-item mapping, and exact-pair web/native acceptance remain open. No audio was generated or approved, and no owner page or runtime route imports this packet.
+
+Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Direct source checking and structural validation are not qualified review.

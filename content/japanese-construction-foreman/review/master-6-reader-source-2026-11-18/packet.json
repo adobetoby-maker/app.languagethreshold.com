@@ -1,0 +1,279 @@
+{
+  "schema": 1,
+  "state": "source-only-reader-gap-review",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "lesson": 6,
+  "moduleId": "master-construction-foreman-ja-en",
+  "source": {
+    "readerPath": "public/lesson-content/es/master-construction-foreman.json",
+    "curriculumPath": "src/data/core60/es/master-construction-foreman.json",
+    "translationDraftPath": "content/japanese-construction-foreman/master-translation-4-6-draft.json",
+    "readerSHA256": "549b47cf51253f5c5ac4f19bf2fdae52fa93ae8ea996377cc32e0c0fab896d11",
+    "curriculumSHA256": "96f86e3e51ba346918f539810bcc996cb41ceaaf9268af02fa595c333800dce2",
+    "translationDraftSHA256": "8d6fa87b79df3f865ac182178bcee1ecf6554e46a8265e129f9162c2ac490588",
+    "sourceReaderTitleSpanish": "Ventanas atrasadas: ¿esperar o cambiar?",
+    "sourceLessonTitleEnglish": "Back-Ordered Windows: Substitute or Wait?",
+    "sourceObjectiveEnglish": "Compare waiting for the specified windows with a substitute and explain what each option will mean for the schedule."
+  },
+  "historicalPrivateReader": {
+    "commitSHA": "9cb195e679f62b097f08d36b6814af4a56dbeaeb",
+    "path": "content/japanese-construction-foreman/master-original-reader-4-6-draft.json",
+    "sha256": "97e232a1864d8d21101cc860eea7fd40467e5059eb60f34a10ad2afb3ab53786",
+    "title": "Questions about window delivery",
+    "rows": [
+      {
+        "japanese": "午後の会議で、エレナは窓の納期について尋ねました。",
+        "english": "At the afternoon meeting, Elena asked about the window lead time."
+      },
+      {
+        "japanese": "職長は、納入業者から届いた連絡を見せました。",
+        "english": "The foreman showed her the supplier’s update."
+      },
+      {
+        "japanese": "指定の窓は、予定より遅れる見込みです。",
+        "english": "The specified windows are expected later than planned."
+      },
+      {
+        "japanese": "代替品の提案もありますが、適合性はまだ確認中です。",
+        "english": "A substitute has also been proposed, but compliance is still being checked."
+      },
+      {
+        "japanese": "エレナは、内装仕上げへの影響が確定しているか尋ねました。",
+        "english": "Elena asked whether the effect on interior finishes was confirmed."
+      },
+      {
+        "japanese": "職長は「工程表を確認してからお伝えします」と答えました。",
+        "english": "The foreman answered, “I’ll check the schedule before giving you an update.”"
+      },
+      {
+        "japanese": "二人は、設計者への質問をリストにまとめました。",
+        "english": "They listed their questions for the architect."
+      },
+      {
+        "japanese": "会議の終わりに、未承認の案と確認済みの情報を分けて記録しました。",
+        "english": "At the end of the meeting, they recorded the unapproved proposal separately from confirmed information."
+      }
+    ],
+    "reuseDecision": null
+  },
+  "openDomainReview": [
+    {
+      "sourceLocation": "Reader 2, 5–9",
+      "question": "Preserve the specified-versus-substitute window distinction, supplier data-sheet attribution, U-factor, wind rating and bathroom tempered-glass requirement. A qualified Japanese/window-specification reviewer must settle exact terms and compliance implications; the draft does not establish equivalence.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 10–12",
+      "question": "Preserve the rough-opening measurement, flashing and building-envelope terms, with the manufacturer's detail attributed to Rafael. A qualified envelope/window reviewer must settle the exact Japanese technical senses; this scene is not a general installation procedure.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 13–18",
+      "question": "Preserve the stated critical-path/schedule comparison, architect's written approval before installation, temporary plastic covering and owner notice. A qualified construction/process reviewer must choose precise Japanese wording without turning the character's statements into independent advice.",
+      "qualifiedDecision": null
+    }
+  ],
+  "rows": [
+    {
+      "id": "master-construction-foreman-ja-en:lesson:6:reader:line:1",
+      "sourceSpanish": "El lunes en la mañana, Andrés Villalobos, el representante del proveedor, llama a Rafael, el capataz de unas casas adosadas en la calle Oak.",
+      "sourceEnglish": "On Monday morning, Andrés Villalobos, the supplier's rep, calls Rafael, the foreman of some townhouses on Oak Street.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:6:reader:line:2",
+      "sourceSpanish": "Andrés le explica que las ventanas especificadas están atrasadas y le ofrece un modelo sustituto de otra marca.",
+      "sourceEnglish": "Andrés explains to him that the specified windows are behind schedule and offers him a substitute model from another brand.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:6:reader:line:3",
+      "sourceSpanish": "Rafael: Andrés, ¿me puede mandar la cotización y el plazo de entrega?",
+      "sourceEnglish": "Rafael: Andrés, can you send me the quote and the lead time?",
+      "speaker": "Rafael",
+      "conditionalJapanesePhrase": "アンドレスさん、見積りと納期を送っていただけますか。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:6:reader:line:4",
+      "sourceSpanish": "Según la cotización de Andrés, el modelo sustituto llegará en 2 semanas, y Rafael llama a Elena Cruz, la gerente del proyecto.",
+      "sourceEnglish": "According to Andrés's quote, the substitute model will arrive in 2 weeks, and Rafael calls Elena Cruz, the project manager.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:6:reader:line:5",
+      "sourceSpanish": "Rafael: Según el proveedor, las ventanas especificadas van a tardar 6 semanas más.",
+      "sourceEnglish": "Rafael: According to the supplier, the specified windows will take 6 more weeks.",
+      "speaker": "Rafael",
+      "conditionalJapanesePhrase": "納入業者によると、指定の窓はあと6週間かかるそうです。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:6:reader:line:6",
+      "sourceSpanish": "Rafael: El sustituto llegará antes, pero hay que revisar si cumple.",
+      "sourceEnglish": "Rafael: The substitute will arrive sooner, but we have to check if it complies.",
+      "speaker": "Rafael",
+      "conditionalJapanesePhrase": "代替品のほうが早く届く見込みですが、適合しているかどうか確認が必要です。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:6:reader:line:7",
+      "sourceSpanish": "Elena: ¿El sustituto tiene el mismo factor U que el especificado?",
+      "sourceEnglish": "Elena: Does the substitute have the same U-factor as the specified one?",
+      "speaker": "Elena",
+      "conditionalJapanesePhrase": "代替品の熱貫流率（U値）は、指定品と同じですか。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:6:reader:line:8",
+      "sourceSpanish": "Rafael: Según la hoja técnica, el factor U es casi igual, pero la resistencia al viento no es tan alta como la del especificado.",
+      "sourceEnglish": "Rafael: According to the data sheet, the U-factor is almost the same, but the wind rating isn't as high as the specified one's.",
+      "speaker": "Rafael",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:6:reader:line:9",
+      "sourceSpanish": "Rafael: Además, según el plano, las ventanas de los baños llevan vidrio templado, y hay que confirmar que el sustituto también lo trae.",
+      "sourceEnglish": "Rafael: Also, according to the plans, the bathroom windows get tempered glass, and we have to confirm that the substitute comes with it too.",
+      "speaker": "Rafael",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:6:reader:line:10",
+      "sourceSpanish": "Rafael: El modelo sustituto mide un poco distinto, así que vamos a medir cada vano antes de pedir nada.",
+      "sourceEnglish": "Rafael: The substitute model measures a little differently, so we're going to measure each rough opening before ordering anything.",
+      "speaker": "Rafael",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:6:reader:line:11",
+      "sourceSpanish": "Elena: Si cambia el tamaño, ¿el botaguas también va a cambiar?",
+      "sourceEnglish": "Elena: If the size changes, is the flashing going to change too?",
+      "speaker": "Elena",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:6:reader:line:12",
+      "sourceSpanish": "Rafael: Sí, el botaguas tiene que seguir el detalle del fabricante, porque protege la envolvente del edificio contra el agua.",
+      "sourceEnglish": "Rafael: Yes, the flashing has to follow the manufacturer's detail, because it protects the building envelope against water.",
+      "speaker": "Rafael",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:6:reader:line:13",
+      "sourceSpanish": "Rafael: Elena, si esperamos, los acabados interiores van a empezar más tarde.",
+      "sourceEnglish": "Rafael: Elena, if we wait, the interior finishes will start later.",
+      "speaker": "Rafael",
+      "conditionalJapanesePhrase": "エレナさん、待つ場合は内装仕上げの開始が遅れます。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:6:reader:line:14",
+      "sourceSpanish": "Rafael: Las ventanas están en la ruta crítica, así que esperar nos va a atrasar más que la sustitución.",
+      "sourceEnglish": "Rafael: The windows are on the critical path, so waiting is going to delay us more than the substitution.",
+      "speaker": "Rafael",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:6:reader:line:15",
+      "sourceSpanish": "Elena: Sin la aprobación por escrito del arquitecto, no se instala nada.",
+      "sourceEnglish": "Elena: Without the architect's written approval, nothing gets installed.",
+      "speaker": "Elena",
+      "conditionalJapanesePhrase": "設計者の書面による承認がなければ、何も取り付けません。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:6:reader:line:16",
+      "sourceSpanish": "Rafael: Vamos a mandar hoy la solicitud de sustitución al arquitecto.",
+      "sourceEnglish": "Rafael: We're going to send the substitution request to the architect today.",
+      "speaker": "Rafael",
+      "conditionalJapanesePhrase": "本日、代替品承認申請を設計者に送る予定です。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:6:reader:line:17",
+      "sourceSpanish": "Rafael: Mientras tanto, vamos a tapar los vanos con plástico.",
+      "sourceEnglish": "Rafael: Meanwhile, we're going to cover the openings with plastic.",
+      "speaker": "Rafael",
+      "conditionalJapanesePhrase": "その間、開口部をビニールシートで覆っておきます。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:6:reader:line:18",
+      "sourceSpanish": "Elena: Bien, yo le voy a avisar al dueño que la fecha final dependerá de la respuesta del arquitecto.",
+      "sourceEnglish": "Elena: Good, I'm going to let the owner know that the final date will depend on the architect's answer.",
+      "speaker": "Elena",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "qualifiedReview": false
+    }
+  ],
+  "reviewGates": {
+    "qualifiedJapaneseReview": false,
+    "qualifiedConstructionReview": false,
+    "sourceTechnicalQuestionsResolved": false,
+    "sourceParity": false,
+    "dictionarySenses": false,
+    "sixAuthoredModes": false,
+    "forms": false,
+    "speaking": false,
+    "audioText": false,
+    "audioListening": false,
+    "savedItemMigration": false,
+    "learnerRuntime": false,
+    "offline": false,
+    "progress": false,
+    "v4Native": false,
+    "qualifiedWindowSpecificationReview": false,
+    "qualifiedEnvelopeReview": false
+  }
+}

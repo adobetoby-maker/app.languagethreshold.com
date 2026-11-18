@@ -1,0 +1,379 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:1:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-1-3-draft.json",
+      "sha256": "ec1dff1ce6f7e948ff078bef0f32fa7841a407d264d7d50b6e6827bc1c8932f5"
+    }
+  },
+  "sourceEnglishTitle": "Name the Roof System",
+  "sourceEnglishObjective": "Identify the job's roof system and main materials",
+  "sourceEnglishSpeaking": "Tell a crew member which roof system and materials today's job uses.",
+  "sourceSpanishReaderTitle": "Primer día en el techo",
+  "candidateObjective": "現場の屋根構成と主な材料を日本語で確認する。",
+  "candidateFocus": "この屋根は～です names the system; ～を使います names the material. 陸屋根 and 勾配屋根 distinguish flat and sloped roofs. ～ですか forms a polite question.",
+  "audioScript": null,
+  "curriculumAdaptationNote": "Pin the Spanish/English roof-system lesson exactly. Japanese roof-system, shingle, tile and deck terms need qualified technical and dictionary review. The archived Reader changes 'walks the roof' to 'looks around the roof'; keep the source action visible and obtain a roofing safety decision. This packet is review evidence only and creates no learner course, audio, score or progress identity.",
+  "cards": [
+    {
+      "id": "roofing:1:ja-en:card:1",
+      "legacySourceRef": "roofing:1:ja-en:cards:1",
+      "sourceSpanish": "Teja asfáltica",
+      "sourceEnglish": "shingle",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "シングル材",
+      "archivedEnglish": "shingle",
+      "reviewNote": "Source Spanish explicitly says asphalt shingle; archived シングル材 and English 'shingle' omit asphalt. Confirm the Japanese sense and source's broader English label.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:card:2",
+      "legacySourceRef": "roofing:1:ja-en:cards:2",
+      "sourceSpanish": "Teja (de barro/concreto)",
+      "sourceEnglish": "tile",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根瓦",
+      "archivedEnglish": "tile",
+      "reviewNote": "Source Spanish specifies clay/concrete tile; archived 屋根瓦 and English 'tile' omit those materials. A roofing dictionary reviewer must choose the intended sense.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:card:3",
+      "legacySourceRef": "roofing:1:ja-en:cards:3",
+      "sourceSpanish": "Lámina metálica",
+      "sourceEnglish": "metal panel",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "金属屋根パネル",
+      "archivedJapanese": "金属屋根パネル",
+      "archivedEnglish": "metal panel",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:card:4",
+      "legacySourceRef": "roofing:1:ja-en:cards:4",
+      "sourceSpanish": "Cubierta / Forro de techo",
+      "sourceEnglish": "roof deck",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根下地",
+      "archivedEnglish": "roof deck",
+      "reviewNote": "Source 'roof deck' has two Spanish alternatives (cubierta / forro de techo). Confirm whether 屋根下地 preserves the intended structural component.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:card:5",
+      "legacySourceRef": "roofing:1:ja-en:cards:5",
+      "sourceSpanish": "Techo",
+      "sourceEnglish": "roof",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "屋根",
+      "archivedJapanese": "屋根",
+      "archivedEnglish": "roof",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:card:6",
+      "legacySourceRef": "roofing:1:ja-en:cards:6",
+      "sourceSpanish": "Sistema de techo",
+      "sourceEnglish": "roof system",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根構成",
+      "archivedEnglish": "roof system",
+      "reviewNote": "Source 'roof system' may mean the assembled system; archived 屋根構成 means roof composition. Confirm technical equivalence.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:card:7",
+      "legacySourceRef": "roofing:1:ja-en:cards:7",
+      "sourceSpanish": "Techo plano",
+      "sourceEnglish": "flat roof",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "陸屋根",
+      "archivedJapanese": "陸屋根",
+      "archivedEnglish": "flat roof",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:card:8",
+      "legacySourceRef": "roofing:1:ja-en:cards:8",
+      "sourceSpanish": "Techo inclinado",
+      "sourceEnglish": "sloped roof",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "勾配屋根",
+      "archivedJapanese": "勾配屋根",
+      "archivedEnglish": "sloped roof",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:card:9",
+      "legacySourceRef": "roofing:1:ja-en:cards:9",
+      "sourceSpanish": "Pendiente del techo",
+      "sourceEnglish": "roof pitch",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "屋根勾配",
+      "archivedJapanese": "屋根勾配",
+      "archivedEnglish": "roof pitch",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:card:10",
+      "legacySourceRef": "roofing:1:ja-en:cards:10",
+      "sourceSpanish": "Tragaluz",
+      "sourceEnglish": "skylight",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "天窓",
+      "archivedJapanese": "天窓",
+      "archivedEnglish": "skylight",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:card:11",
+      "legacySourceRef": "roofing:1:ja-en:cards:11",
+      "sourceSpanish": "¿Qué material tiene este techo?",
+      "sourceEnglish": "What material does this roof have?",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "この屋根には何の材料を使いますか。",
+      "archivedEnglish": "What material does this roof have?",
+      "reviewNote": "Source asks what material this roof has; archived Japanese asks what material people use on this roof. Decide whether to preserve the source's possession question or teach the use question.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:card:12",
+      "legacySourceRef": "roofing:1:ja-en:cards:12",
+      "sourceSpanish": "Hoy vamos a instalar tejas asfálticas.",
+      "sourceEnglish": "Today we are installing asphalt shingles.",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "今日はアスファルトシングルを施工します。",
+      "archivedJapanese": "今日はアスファルトシングルを施工します。",
+      "archivedEnglish": "Today we are installing asphalt shingles.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:card:13",
+      "legacySourceRef": "roofing:1:ja-en:cards:13",
+      "sourceSpanish": "Este techo es de lámina metálica.",
+      "sourceEnglish": "This roof is metal panel.",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "この屋根は金属屋根パネルです。",
+      "archivedEnglish": "This roof is metal panel.",
+      "reviewNote": "Source identifies the roof as metal panel material; archived Japanese identifies the entire roof as a metal panel. Confirm roofing phrasing.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:card:14",
+      "legacySourceRef": "roofing:1:ja-en:cards:14",
+      "sourceSpanish": "¿El techo es plano o inclinado?",
+      "sourceEnglish": "Is the roof flat or sloped?",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "この屋根は陸屋根ですか、勾配屋根ですか。",
+      "archivedJapanese": "この屋根は陸屋根ですか、勾配屋根ですか。",
+      "archivedEnglish": "Is the roof flat or sloped?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:card:15",
+      "legacySourceRef": "roofing:1:ja-en:cards:15",
+      "sourceSpanish": "Revisen la pendiente del techo antes de empezar.",
+      "sourceEnglish": "Check the roof pitch before we start.",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "始める前に屋根勾配を確認してください。",
+      "archivedJapanese": "始める前に屋根勾配を確認してください。",
+      "archivedEnglish": "Check the roof pitch before we start.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:1:ja-en:line:1",
+      "legacySourceRef": "roofing:1:ja-en:reader:1",
+      "sourceSpanish": "Hoy es el primer día en la obra nueva.",
+      "sourceEnglish": "Today is the first day at the new job site.",
+      "selectedJapanese": null,
+      "candidateJapanese": "今日は新しい現場での初日です。",
+      "archivedJapanese": "今日は新しい現場での初日です。",
+      "archivedEnglish": "Today is the first day at the new job site.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:line:2",
+      "legacySourceRef": "roofing:1:ja-en:reader:2",
+      "sourceSpanish": "El capataz camina por el techo con la cuadrilla.",
+      "sourceEnglish": "The foreman walks the roof with the crew.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "職長は作業員と一緒に屋根を見て回ります。",
+      "archivedEnglish": "The foreman walks the roof with the crew.",
+      "reviewNote": "Source says the foreman walks the roof; archived Japanese says the foreman looks around the roof with workers. Confirm safety and action meaning before selecting.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:line:3",
+      "legacySourceRef": "roofing:1:ja-en:reader:3",
+      "sourceSpanish": "Este techo es inclinado, no es plano.",
+      "sourceEnglish": "This roof is sloped, not flat.",
+      "selectedJapanese": null,
+      "candidateJapanese": "この屋根は陸屋根ではなく、勾配屋根です。",
+      "archivedJapanese": "この屋根は陸屋根ではなく、勾配屋根です。",
+      "archivedEnglish": "This roof is sloped, not flat.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:line:4",
+      "legacySourceRef": "roofing:1:ja-en:reader:4",
+      "sourceSpanish": "Es un sistema de techo con tejas asfálticas.",
+      "sourceEnglish": "It is a roof system with asphalt shingles.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根構成にはアスファルトシングルを使います。",
+      "archivedEnglish": "It is a roof system with asphalt shingles.",
+      "reviewNote": "Source says it is a roof system with asphalt shingles; archived Japanese says asphalt shingles are used in the roof composition. Confirm equivalence.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:line:5",
+      "legacySourceRef": "roofing:1:ja-en:reader:5",
+      "sourceSpanish": "El capataz pregunta: ¿Qué material tiene este techo?",
+      "sourceEnglish": "The foreman asks: What material does this roof have?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "職長は「この屋根には何の材料を使いますか」と聞きます。",
+      "archivedEnglish": "The foreman asks: What material does this roof have?",
+      "reviewNote": "Source asks what material the roof has; archived Japanese asks what material is used. Coordinate with card 11.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:line:6",
+      "legacySourceRef": "roofing:1:ja-en:reader:6",
+      "sourceSpanish": "Un obrero mira el techo y contesta que son tejas asfálticas.",
+      "sourceEnglish": "A worker looks at the roof and answers that they are asphalt shingles.",
+      "selectedJapanese": null,
+      "candidateJapanese": "作業員は屋根を見て、アスファルトシングルだと答えます。",
+      "archivedJapanese": "作業員は屋根を見て、アスファルトシングルだと答えます。",
+      "archivedEnglish": "A worker looks at the roof and answers that they are asphalt shingles.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:line:7",
+      "legacySourceRef": "roofing:1:ja-en:reader:7",
+      "sourceSpanish": "También hay un tragaluz en la parte de atrás.",
+      "sourceEnglish": "There is also a skylight at the back.",
+      "selectedJapanese": null,
+      "candidateJapanese": "裏側には天窓もあります。",
+      "archivedJapanese": "裏側には天窓もあります。",
+      "archivedEnglish": "There is also a skylight at the back.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:1:ja-en:line:8",
+      "legacySourceRef": "roofing:1:ja-en:reader:8",
+      "sourceSpanish": "Revisen la pendiente del techo antes de empezar.",
+      "sourceEnglish": "Check the roof pitch before we start.",
+      "selectedJapanese": null,
+      "candidateJapanese": "始める前に屋根勾配を確認してください。",
+      "archivedJapanese": "始める前に屋根勾配を確認してください。",
+      "archivedEnglish": "Check the roof pitch before we start.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the roof type and material in the scene.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall the terms for roof deck, pitch, and skylight.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 陸屋根 from 勾配屋根 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Is the roof flat or sloped?' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Tell a crew member the roof type and covering material.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write two sentences identifying the roof type and its material.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

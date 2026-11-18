@@ -1,0 +1,437 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:8:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-7-9-draft.json",
+      "sha256": "ee8b5cf7f84737304290cb829d471df26484e25cd32c937fdbcacb63f5e91aaa"
+    }
+  },
+  "sourceEnglishTitle": "Protect the Sheathing",
+  "sourceEnglishObjective": "Ask workers to prevent and report deck damage",
+  "sourceEnglishSpeaking": "Stop a worker who is about to cover a soft panel and request a repair.",
+  "sourceSpanishReaderTitle": "Cuidado con la cubierta",
+  "candidateObjective": "柔らかい下地や損傷を見つけ、補修が必要だと伝える。",
+  "candidateFocus": "～ないでください tells someone not to cover a panel; ～たら知らせてください requests a report if a condition is found. ～前に identifies what must happen before work continues.",
+  "archivedForms": [
+    {
+      "base": "補修する",
+      "exampleJa": "作業班は今日、屋根下地を補修します。",
+      "meaningEnglish": "to repair",
+      "exampleEnglish": "The crew repairs the deck today.",
+      "sourceInfinitiveSpanish": "reparar"
+    },
+    {
+      "base": "印を付ける",
+      "exampleJa": "作業員は損傷した場所に印を付けます。",
+      "meaningEnglish": "to mark",
+      "exampleEnglish": "The worker marks the damaged area.",
+      "sourceInfinitiveSpanish": "marcar"
+    },
+    {
+      "base": "交換する",
+      "exampleJa": "今日、この合板を交換します。",
+      "meaningEnglish": "to replace",
+      "exampleEnglish": "We replace this plywood today.",
+      "sourceInfinitiveSpanish": "reemplazar"
+    },
+    {
+      "base": "覆う",
+      "exampleJa": "作業員は柔らかい板材を覆いません。",
+      "meaningEnglish": "to cover",
+      "exampleEnglish": "The worker does not cover the soft panel.",
+      "sourceInfinitiveSpanish": "cubrir"
+    },
+    {
+      "base": "伝える",
+      "exampleJa": "作業員は職長に伝えます。",
+      "meaningEnglish": "to tell, to let know",
+      "exampleEnglish": "The worker tells the foreman.",
+      "sourceInfinitiveSpanish": "avisar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "ここで止めてください。屋根下地が柔らかいので、補修が必要です。",
+    "goal": "Stop a worker who is about to cover a soft panel and request a repair."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the current tear-off scene: prevent sheathing damage, report soft or damaged structural deck, discover rotten wood by stepping on a panel, stop before covering, mark damage and replace plywood. Do not turn a soft structural panel into generic soft material or change felt rot to a visual guess. The source curriculum has no authored verb example list; archived forms remain conditional evidence. Archived draft is not selected learner/audio text and creates no score, saved-item or progress identity.",
+  "sourceVerbExamples": null,
+  "cards": [
+    {
+      "id": "roofing:8:ja-en:card:1",
+      "legacySourceRef": "roofing:8:ja-en:cards:1",
+      "sourceSpanish": "Forro de techo",
+      "sourceEnglish": "sheathing",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "野地板",
+      "archivedEnglish": "sheathing",
+      "reviewNote": "Archived 野地板 may narrow sheathing/forro de techo to structural roof boards. Confirm the roof assembly and Japanese trade term before selection.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:card:2",
+      "legacySourceRef": "roofing:8:ja-en:cards:2",
+      "sourceSpanish": "Cubierta blanda o podrida",
+      "sourceEnglish": "soft deck",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "柔らかくなった屋根下地",
+      "archivedEnglish": "soft deck",
+      "reviewNote": "The Spanish source says soft or rotten deck; archived 柔らかくなった屋根下地 may omit the rotten condition and may refer to underlayment rather than the structural deck.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:card:3",
+      "legacySourceRef": "roofing:8:ja-en:cards:3",
+      "sourceSpanish": "Daño",
+      "sourceEnglish": "damage",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "損傷",
+      "archivedJapanese": "損傷",
+      "archivedEnglish": "damage",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:card:4",
+      "legacySourceRef": "roofing:8:ja-en:cards:4",
+      "sourceSpanish": "Madera podrida",
+      "sourceEnglish": "rotten wood",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "腐った木材",
+      "archivedJapanese": "腐った木材",
+      "archivedEnglish": "rotten wood",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:card:5",
+      "legacySourceRef": "roofing:8:ja-en:cards:5",
+      "sourceSpanish": "Reparación",
+      "sourceEnglish": "repair",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "補修",
+      "archivedJapanese": "補修",
+      "archivedEnglish": "repair",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:card:6",
+      "legacySourceRef": "roofing:8:ja-en:cards:6",
+      "sourceSpanish": "Reemplazar",
+      "sourceEnglish": "replace",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "交換する",
+      "archivedJapanese": "交換する",
+      "archivedEnglish": "replace",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:card:7",
+      "legacySourceRef": "roofing:8:ja-en:cards:7",
+      "sourceSpanish": "Panel",
+      "sourceEnglish": "panel",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "板材",
+      "archivedEnglish": "panel",
+      "reviewNote": "Panel is archived as 板材 (board/material); confirm whether this preserves a deck panel rather than a loose board.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:card:8",
+      "legacySourceRef": "roofing:8:ja-en:cards:8",
+      "sourceSpanish": "Triplay",
+      "sourceEnglish": "plywood",
+      "sourceNoteSpanish": "también: madera contrachapada",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "合板",
+      "archivedJapanese": "合板",
+      "archivedEnglish": "plywood",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:card:9",
+      "legacySourceRef": "roofing:8:ja-en:cards:9",
+      "sourceSpanish": "Marcar",
+      "sourceEnglish": "mark",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "印を付ける",
+      "archivedJapanese": "印を付ける",
+      "archivedEnglish": "mark",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:card:10",
+      "legacySourceRef": "roofing:8:ja-en:cards:10",
+      "sourceSpanish": "No dañen el forro de techo.",
+      "sourceEnglish": "Don't damage the sheathing.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "野地板を傷つけないでください。",
+      "archivedEnglish": "Don't damage the sheathing.",
+      "reviewNote": "Inherits card 1's unresolved sheathing/野地板 scope for the no-damage instruction.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:card:11",
+      "legacySourceRef": "roofing:8:ja-en:cards:11",
+      "sourceSpanish": "Avísenme si la cubierta se siente blanda o dañada.",
+      "sourceEnglish": "Tell me if the deck feels soft or damaged.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根下地が柔らかいか、損傷していると感じたら知らせてください。",
+      "archivedEnglish": "Tell me if the deck feels soft or damaged.",
+      "reviewNote": "The source asks workers to report if the deck feels soft or damaged. Confirm 屋根下地 identifies the structural deck and preserves the condition, not a generic layer.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:card:12",
+      "legacySourceRef": "roofing:8:ja-en:cards:12",
+      "sourceSpanish": "Deténganse aquí; hay que reparar la cubierta antes de continuar.",
+      "sourceEnglish": "Stop here; the deck needs repair before we continue.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ここで止めてください。続ける前に屋根下地の補修が必要です。",
+      "archivedEnglish": "Stop here; the deck needs repair before we continue.",
+      "reviewNote": "The deck must be repaired before work continues. Confirm the precise structural-deck sense and hold the stop-work sequence.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:card:13",
+      "legacySourceRef": "roofing:8:ja-en:cards:13",
+      "sourceSpanish": "No cubran el panel blando.",
+      "sourceEnglish": "Do not cover the soft panel.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "柔らかい板材を覆わないでください。",
+      "archivedEnglish": "Do not cover the soft panel.",
+      "reviewNote": "The source bars covering the soft panel. Archived 板材 may weaken the deck-panel meaning; confirm the material before selecting a learner instruction.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:card:14",
+      "legacySourceRef": "roofing:8:ja-en:cards:14",
+      "sourceSpanish": "Marquen el área dañada.",
+      "sourceEnglish": "Mark the damaged area.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "損傷した場所に印を付けてください。",
+      "archivedJapanese": "損傷した場所に印を付けてください。",
+      "archivedEnglish": "Mark the damaged area.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:card:15",
+      "legacySourceRef": "roofing:8:ja-en:cards:15",
+      "sourceSpanish": "Hay que reemplazar este triplay.",
+      "sourceEnglish": "We need to replace this plywood.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "この合板を交換する必要があります。",
+      "archivedJapanese": "この合板を交換する必要があります。",
+      "archivedEnglish": "We need to replace this plywood.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:8:ja-en:line:1",
+      "legacySourceRef": "roofing:8:ja-en:reader:1",
+      "sourceSpanish": "La cuadrilla quita las tejas del techo.",
+      "sourceEnglish": "The crew removes the shingles from the roof.",
+      "selectedJapanese": null,
+      "candidateJapanese": "作業班は屋根からシングル材を撤去します。",
+      "archivedJapanese": "作業班は屋根からシングル材を撤去します。",
+      "archivedEnglish": "The crew removes the shingles from the roof.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:line:2",
+      "legacySourceRef": "roofing:8:ja-en:reader:2",
+      "sourceSpanish": "No dañen el forro de techo.",
+      "sourceEnglish": "Don't damage the sheathing.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "野地板を傷つけないでください。",
+      "archivedEnglish": "Don't damage the sheathing.",
+      "reviewNote": "Inherits card 10's sheathing/野地板 scope question.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:line:3",
+      "legacySourceRef": "roofing:8:ja-en:reader:3",
+      "sourceSpanish": "Avísenme si la cubierta se siente blanda o dañada.",
+      "sourceEnglish": "Tell me if the deck feels soft or damaged.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根下地が柔らかいか、損傷していると感じたら知らせてください。",
+      "archivedEnglish": "Tell me if the deck feels soft or damaged.",
+      "reviewNote": "Inherits card 11's structural deck and soft/damaged condition question.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:line:4",
+      "legacySourceRef": "roofing:8:ja-en:reader:4",
+      "sourceSpanish": "Un obrero pisa un panel y siente que la madera está podrida.",
+      "sourceEnglish": "A worker steps on a panel and feels that the wood is rotten.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "作業員が板材に足を乗せ、木材が腐っていると気づきます。",
+      "archivedEnglish": "A worker steps on a panel and feels that the wood is rotten.",
+      "reviewNote": "Source says a worker steps on a panel and feels that the wood is rotten. Archived 気づきます changes sensory discovery to noticing and needs Japanese/source review.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:line:5",
+      "legacySourceRef": "roofing:8:ja-en:reader:5",
+      "sourceSpanish": "El capataz dice: Deténganse aquí; hay que reparar la cubierta antes de continuar.",
+      "sourceEnglish": "The foreman says: Stop here; the deck needs repair before we continue.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "職長は「ここで止めてください。続ける前に屋根下地の補修が必要です」と言います。",
+      "archivedEnglish": "The foreman says: Stop here; the deck needs repair before we continue.",
+      "reviewNote": "Inherits card 12's stop-work and structural-deck repair requirement.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:line:6",
+      "legacySourceRef": "roofing:8:ja-en:reader:6",
+      "sourceSpanish": "No cubran el panel blando.",
+      "sourceEnglish": "Do not cover the soft panel.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "柔らかい板材を覆わないでください。",
+      "archivedEnglish": "Do not cover the soft panel.",
+      "reviewNote": "Inherits card 13's soft deck-panel meaning; do not turn this into a generic covering instruction.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:line:7",
+      "legacySourceRef": "roofing:8:ja-en:reader:7",
+      "sourceSpanish": "Marquen el área dañada.",
+      "sourceEnglish": "Mark the damaged area.",
+      "selectedJapanese": null,
+      "candidateJapanese": "損傷した場所に印を付けてください。",
+      "archivedJapanese": "損傷した場所に印を付けてください。",
+      "archivedEnglish": "Mark the damaged area.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:8:ja-en:line:8",
+      "legacySourceRef": "roofing:8:ja-en:reader:8",
+      "sourceSpanish": "Hay que reemplazar este triplay.",
+      "sourceEnglish": "We need to replace this plywood.",
+      "selectedJapanese": null,
+      "candidateJapanese": "この合板を交換する必要があります。",
+      "archivedJapanese": "この合板を交換する必要があります。",
+      "archivedEnglish": "We need to replace this plywood.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find what the worker notices in the deck panel.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall sheathing, damage, repair, and plywood.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 補修 from 交換 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Do not cover the soft panel.' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Stop a coworker and report the soft panel to the foreman.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write where the damage is and what must happen before continuing.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

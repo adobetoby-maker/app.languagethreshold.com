@@ -1,0 +1,462 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:6:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-4-6-draft.json",
+      "sha256": "db0666acc7b9cf7b8da6522e5caa97e0a65d1319341d43b0e35d43983050c4aa"
+    }
+  },
+  "sourceEnglishTitle": "Morning Crew Brief",
+  "sourceEnglishObjective": "Open the day with assignments and a clear plan",
+  "sourceEnglishSpeaking": "Run a two-minute morning brief covering work zones and material staging.",
+  "sourceSpanishReaderTitle": "Reunión de la mañana",
+  "candidateObjective": "作業区域、担当、資材の仮置き場所を朝の打ち合わせで確認する。",
+  "candidateFocus": "～前に sets a sequence; 誰が identifies the person responsible. ～を見せてください asks someone to show a location; ～があれば知らせてください invites a report.",
+  "archivedForms": [
+    {
+      "base": "率いる",
+      "exampleJa": "ルイスは撤去班を率います。",
+      "meaningEnglish": "to lead, to direct",
+      "exampleEnglish": "Luis leads the tear-off crew.",
+      "sourceInfinitiveSpanish": "dirigir"
+    },
+    {
+      "base": "理解する",
+      "exampleJa": "全員、計画を理解しましたか。",
+      "meaningEnglish": "to understand",
+      "exampleEnglish": "Does everyone understand the plan?",
+      "sourceInfinitiveSpanish": "entender"
+    },
+    {
+      "base": "ある",
+      "exampleJa": "一人ひとりに担当作業があります。",
+      "meaningEnglish": "to have",
+      "exampleEnglish": "Each person has an assignment.",
+      "sourceInfinitiveSpanish": "tener"
+    },
+    {
+      "base": "始める",
+      "exampleJa": "七時半に既存屋根材の撤去を始めます。",
+      "meaningEnglish": "to start, to begin",
+      "exampleEnglish": "We start the tear-off at 7:30.",
+      "sourceInfinitiveSpanish": "empezar"
+    },
+    {
+      "base": "見つける",
+      "exampleJa": "危険箇所を見つけたら知らせてください。",
+      "meaningEnglish": "to see",
+      "exampleEnglish": "Tell me if you see any hazard.",
+      "sourceInfinitiveSpanish": "ver"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "始める前に今日の計画を確認しましょう。資材はどこに仮置きしますか。",
+    "goal": "Run a two-minute morning brief covering work zones and material staging."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the 7:00 morning gathering, foreman question, Luis as crew lead, each person's assignment and work zone, material-staging location, any-hazard reporting, plan comprehension and questions before work. Keep crew lead and foreman distinct. The source does not establish universal job titles, temporary-only material storage or an approved safety/engineering plan. Archived forms and speaking remain unselected evidence. This packet creates no learner, audio, score or progress identity.",
+  "cards": [
+    {
+      "id": "roofing:6:ja-en:card:1",
+      "legacySourceRef": "roofing:6:ja-en:cards:1",
+      "sourceSpanish": "Jefe de cuadrilla",
+      "sourceEnglish": "crew lead",
+      "sourceNoteSpanish": "también: líder de cuadrilla",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "班長",
+      "archivedEnglish": "crew lead",
+      "reviewNote": "Crew lead / jefe de cuadrilla and foreman / capataz are distinct roles in this brief. Confirm 班長 against 職長 and company role hierarchy without promoting either as a universal job title.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:card:2",
+      "legacySourceRef": "roofing:6:ja-en:cards:2",
+      "sourceSpanish": "Área de acopio",
+      "sourceEnglish": "staging area",
+      "sourceNoteSpanish": "para materiales",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "資材仮置き場",
+      "archivedEnglish": "staging area",
+      "reviewNote": "Área de acopio / staging area may be a designated material storage/staging area, while archived 資材仮置き場 narrows to temporary placement. Confirm site meaning and Japanese trade term.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:card:3",
+      "legacySourceRef": "roofing:6:ja-en:cards:3",
+      "sourceSpanish": "Desmontaje",
+      "sourceEnglish": "tear-off",
+      "sourceNoteSpanish": "también: retiro del techo viejo",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "既存屋根材の撤去",
+      "archivedEnglish": "tear-off",
+      "reviewNote": "Desmontaje / tear-off includes removal of the existing roof in the source note; archived 既存屋根材の撤去 may narrow to roof materials rather than the whole old roof scope.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:card:4",
+      "legacySourceRef": "roofing:6:ja-en:cards:4",
+      "sourceSpanish": "Cuadrilla",
+      "sourceEnglish": "crew",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "作業班",
+      "archivedJapanese": "作業班",
+      "archivedEnglish": "crew",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:card:5",
+      "legacySourceRef": "roofing:6:ja-en:cards:5",
+      "sourceSpanish": "Capataz",
+      "sourceEnglish": "foreman",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "職長",
+      "archivedEnglish": "foreman",
+      "reviewNote": "Capataz / foreman must remain distinct from jefe de cuadrilla / crew lead. Confirm 職長 in this roofing crew hierarchy.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:card:6",
+      "legacySourceRef": "roofing:6:ja-en:cards:6",
+      "sourceSpanish": "Zona de trabajo",
+      "sourceEnglish": "work zone",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "作業区域",
+      "archivedJapanese": "作業区域",
+      "archivedEnglish": "work zone",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:card:7",
+      "legacySourceRef": "roofing:6:ja-en:cards:7",
+      "sourceSpanish": "Tarea",
+      "sourceEnglish": "assignment",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "担当作業",
+      "archivedJapanese": "担当作業",
+      "archivedEnglish": "assignment",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:card:8",
+      "legacySourceRef": "roofing:6:ja-en:cards:8",
+      "sourceSpanish": "Plan del techo",
+      "sourceEnglish": "roof plan",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根の施工計画",
+      "archivedEnglish": "roof plan",
+      "reviewNote": "Plan del techo / roof plan is today's crew/work plan; archived 屋根の施工計画 may imply only installation planning. Confirm scope.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:card:9",
+      "legacySourceRef": "roofing:6:ja-en:cards:9",
+      "sourceSpanish": "Peligro",
+      "sourceEnglish": "hazard",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "危険箇所",
+      "archivedEnglish": "hazard",
+      "reviewNote": "Peligro / hazard is any hazard, while archived 危険箇所 means a hazardous location. Confirm an inclusive Japanese term.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:card:10",
+      "legacySourceRef": "roofing:6:ja-en:cards:10",
+      "sourceSpanish": "Entrega",
+      "sourceEnglish": "delivery",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "納品",
+      "archivedJapanese": "納品",
+      "archivedEnglish": "delivery",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:card:11",
+      "legacySourceRef": "roofing:6:ja-en:cards:11",
+      "sourceSpanish": "Repasemos el plan del techo de hoy antes de empezar.",
+      "sourceEnglish": "Let's review today's roof plan before we start.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "始める前に今日の屋根の施工計画を確認しましょう。",
+      "archivedEnglish": "Let's review today's roof plan before we start.",
+      "reviewNote": "Preserve the source's review of today's roof plan before work starts; do not imply this brief substitutes for the site safety plan or engineering approval.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:card:12",
+      "legacySourceRef": "roofing:6:ja-en:cards:12",
+      "sourceSpanish": "¿Quién dirige la cuadrilla de desmontaje?",
+      "sourceEnglish": "Who is leading the tear-off crew?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "撤去班を率いるのは誰ですか。",
+      "archivedJapanese": "撤去班を率いるのは誰ですか。",
+      "archivedEnglish": "Who is leading the tear-off crew?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:card:13",
+      "legacySourceRef": "roofing:6:ja-en:cards:13",
+      "sourceSpanish": "Muéstrenme dónde van a colocar los materiales.",
+      "sourceEnglish": "Show me where you will stage the materials.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "資材をどこに仮置きするか見せてください。",
+      "archivedEnglish": "Show me where you will stage the materials.",
+      "reviewNote": "Source asks to show where materials will be staged, not necessarily stored temporarily; inherits staging-area term decision.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:card:14",
+      "legacySourceRef": "roofing:6:ja-en:cards:14",
+      "sourceSpanish": "Avísenme si ven algún peligro.",
+      "sourceEnglish": "Tell me if you see any hazard.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "危険箇所を見つけたら知らせてください。",
+      "archivedEnglish": "Tell me if you see any hazard.",
+      "reviewNote": "Any hazard may include conditions, actions or equipment, not only a hazardous spot; archived 危険箇所 narrows meaning.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:card:15",
+      "legacySourceRef": "roofing:6:ja-en:cards:15",
+      "sourceSpanish": "¿Todos entienden el plan?",
+      "sourceEnglish": "Does everyone understand the plan?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "全員、計画を理解しましたか。",
+      "archivedJapanese": "全員、計画を理解しましたか。",
+      "archivedEnglish": "Does everyone understand the plan?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:card:16",
+      "legacySourceRef": "roofing:6:ja-en:cards:16",
+      "sourceSpanish": "¿Hay preguntas antes de empezar?",
+      "sourceEnglish": "Any questions before we start?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "始める前に質問はありますか。",
+      "archivedJapanese": "始める前に質問はありますか。",
+      "archivedEnglish": "Any questions before we start?",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:6:ja-en:line:1",
+      "legacySourceRef": "roofing:6:ja-en:reader:1",
+      "sourceSpanish": "Son las 7:00 de la mañana y la cuadrilla se reúne.",
+      "sourceEnglish": "It is 7:00 in the morning and the crew gathers.",
+      "selectedJapanese": null,
+      "candidateJapanese": "朝七時に作業班が集まります。",
+      "archivedJapanese": "朝七時に作業班が集まります。",
+      "archivedEnglish": "It is 7:00 in the morning and the crew gathers.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:line:2",
+      "legacySourceRef": "roofing:6:ja-en:reader:2",
+      "sourceSpanish": "El capataz dice: Repasemos el plan del techo de hoy antes de empezar.",
+      "sourceEnglish": "The foreman says: Let's review today's roof plan before we start.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "職長は「始める前に今日の屋根の施工計画を確認しましょう」と言います。",
+      "archivedEnglish": "The foreman says: Let's review today's roof plan before we start.",
+      "reviewNote": "Today's roof plan may cover assignments and staging, not merely roof installation; inherits card 8/11 scope decision.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:line:3",
+      "legacySourceRef": "roofing:6:ja-en:reader:3",
+      "sourceSpanish": "El capataz pregunta: ¿Quién dirige la cuadrilla de desmontaje?",
+      "sourceEnglish": "The foreman asks: Who is leading the tear-off crew?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "職長は「撤去班を率いるのは誰ですか」と聞きます。",
+      "archivedEnglish": "The foreman asks: Who is leading the tear-off crew?",
+      "reviewNote": "Tear-off crew scope and foreman/crew-lead hierarchy require consistent Japanese role/term decisions.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:line:4",
+      "legacySourceRef": "roofing:6:ja-en:reader:4",
+      "sourceSpanish": "Luis, el jefe de cuadrilla, levanta la mano.",
+      "sourceEnglish": "Luis, the crew lead, raises his hand.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "班長のルイスが手を挙げます。",
+      "archivedEnglish": "Luis, the crew lead, raises his hand.",
+      "reviewNote": "Luis is the crew lead, distinct from the foreman; confirm 班長 role and register.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:line:5",
+      "legacySourceRef": "roofing:6:ja-en:reader:5",
+      "sourceSpanish": "Cada persona tiene una tarea en una zona de trabajo.",
+      "sourceEnglish": "Each person has a task in a work zone.",
+      "selectedJapanese": null,
+      "candidateJapanese": "一人ひとりに作業区域と担当作業があります。",
+      "archivedJapanese": "一人ひとりに作業区域と担当作業があります。",
+      "archivedEnglish": "Each person has a task in a work zone.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:line:6",
+      "legacySourceRef": "roofing:6:ja-en:reader:6",
+      "sourceSpanish": "Muéstrenme dónde van a colocar los materiales.",
+      "sourceEnglish": "Show me where you will stage the materials.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "資材をどこに仮置きするか見せてください。",
+      "archivedEnglish": "Show me where you will stage the materials.",
+      "reviewNote": "Where materials will be staged is not necessarily a temporary storage location; inherits card 2/13 decision.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:line:7",
+      "legacySourceRef": "roofing:6:ja-en:reader:7",
+      "sourceSpanish": "Avísenme si ven algún peligro.",
+      "sourceEnglish": "Tell me if you see any hazard.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "危険箇所を見つけたら知らせてください。",
+      "archivedEnglish": "Tell me if you see any hazard.",
+      "reviewNote": "Any hazard is broader than a hazardous spot; inherits card 9/14 decision.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:line:8",
+      "legacySourceRef": "roofing:6:ja-en:reader:8",
+      "sourceSpanish": "¿Todos entienden el plan?",
+      "sourceEnglish": "Does everyone understand the plan?",
+      "selectedJapanese": null,
+      "candidateJapanese": "全員、計画を理解しましたか。",
+      "archivedJapanese": "全員、計画を理解しましたか。",
+      "archivedEnglish": "Does everyone understand the plan?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:6:ja-en:line:9",
+      "legacySourceRef": "roofing:6:ja-en:reader:9",
+      "sourceSpanish": "¿Hay preguntas antes de empezar?",
+      "sourceEnglish": "Any questions before we start?",
+      "selectedJapanese": null,
+      "candidateJapanese": "始める前に質問はありますか。",
+      "archivedJapanese": "始める前に質問はありますか。",
+      "archivedEnglish": "Any questions before we start?",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the crew lead and each worker's assignment.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall work zone, staging area, and tear-off.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 班長 from 職長 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Does everyone understand the plan?' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Lead a brief about assignments and staging.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write a short morning brief naming the work zone and material staging area.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

@@ -1,0 +1,660 @@
+{
+  "schema": "french-roofing-master3-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "master-roofing",
+  "sourceHeaderModuleId": "master-roofing",
+  "proposedLessonId": "master-roofing:3",
+  "proposedPairId": "master-roofing:3:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/master-1-3-draft.json": "ba3ed0d30ff21635db9cf79b1441e3deae7a7916e12f2b264a957ff559f96cb9"
+  },
+  "orderedSourceRowsSha256": "59155f282268a9e007f599e15cc1efb629c5aa078110fd2d42bb1045fd8a3f14",
+  "sourceTitleEnglish": "Training a New Crew Member on Nailing",
+  "sourceObjectiveEnglish": "Coach a new roofer on nailing with clear commands, correcting mistakes without embarrassing them",
+  "sourceFocusEnglish": "Commands with object pronouns (clávalo aquí, no lo hundas)",
+  "sourceGrammarExamples": [
+    {
+      "es": "Clávalo aquí, en la zona de clavado.",
+      "en": "Nail it here, in the nailing zone."
+    },
+    {
+      "es": "No lo hundas; déjalo al ras.",
+      "en": "Don't sink it; leave it flush."
+    }
+  ],
+  "sourceLessonType": "Teach-back",
+  "sourceBlock": "A",
+  "sourceSpeakingEnglish": "You are training the AI, a new crew member, on the nail gun: show where to nail, check their work, and correct mistakes with commands like clávalo aquí and no lo hundas, keeping the tone supportive.",
+  "sourceReaderTitleSpanish": "Nail It Here, Not There",
+  "cards": [
+    {
+      "id": "master-roofing:3:fr-en:card:1",
+      "legacySourceRef": "master-roofing:3:words:1",
+      "sourceSpanish": "la pistola de clavos",
+      "sourceEnglish": "the nail gun",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "la cloueuse",
+      "conditionalFrench": "la cloueuse",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:2",
+      "legacySourceRef": "master-roofing:3:words:2",
+      "sourceSpanish": "la zona de clavado",
+      "sourceEnglish": "the nailing zone",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "la zone de clouage",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:3",
+      "legacySourceRef": "master-roofing:3:words:3",
+      "sourceSpanish": "el patrón de clavado",
+      "sourceEnglish": "the nail pattern",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "le motif de clouage",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:4",
+      "legacySourceRef": "master-roofing:3:words:4",
+      "sourceSpanish": "el clavo demasiado hundido",
+      "sourceEnglish": "the overdriven nail",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "le clou trop enfoncé",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:5",
+      "legacySourceRef": "master-roofing:3:words:5",
+      "sourceSpanish": "el clavo muy alto",
+      "sourceEnglish": "the high nail",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "le clou placé trop haut",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:6",
+      "legacySourceRef": "master-roofing:3:words:6",
+      "sourceSpanish": "la cabeza del clavo",
+      "sourceEnglish": "the nail head",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "la tête du clou",
+      "conditionalFrench": "la tête du clou",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:7",
+      "legacySourceRef": "master-roofing:3:words:7",
+      "sourceSpanish": "la presión de aire",
+      "sourceEnglish": "the air pressure",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "la pression d’air",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:8",
+      "legacySourceRef": "master-roofing:3:words:8",
+      "sourceSpanish": "el compresor",
+      "sourceEnglish": "the compressor",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "le compresseur",
+      "conditionalFrench": "le compresseur",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:9",
+      "legacySourceRef": "master-roofing:3:words:9",
+      "sourceSpanish": "la profundidad",
+      "sourceEnglish": "the depth",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "la profondeur",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:10",
+      "legacySourceRef": "master-roofing:3:words:10",
+      "sourceSpanish": "la manguera",
+      "sourceEnglish": "the hose",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "le tuyau d’air",
+      "conditionalFrench": "le tuyau d’air",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:11",
+      "legacySourceRef": "master-roofing:3:words:11",
+      "sourceSpanish": "el gatillo",
+      "sourceEnglish": "the trigger",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "la gâchette",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:12",
+      "legacySourceRef": "master-roofing:3:words:12",
+      "sourceSpanish": "al ras",
+      "sourceEnglish": "flush",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "à fleur",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:13",
+      "legacySourceRef": "master-roofing:3:words:13",
+      "sourceSpanish": "el agujero",
+      "sourceEnglish": "the hole",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "le trou",
+      "conditionalFrench": "le trou",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:14",
+      "legacySourceRef": "master-roofing:3:words:14",
+      "sourceSpanish": "Clávalo aquí, en la zona de clavado.",
+      "sourceEnglish": "Nail it here, in the nailing zone.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Cloue-le ici, dans la zone de clouage.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:15",
+      "legacySourceRef": "master-roofing:3:words:15",
+      "sourceSpanish": "No lo hundas.",
+      "sourceEnglish": "Don't sink it.",
+      "sourceNoteSpanish": "a nail sunk too deep cuts the shingle",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Ne l’enfonce pas trop.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:16",
+      "legacySourceRef": "master-roofing:3:words:16",
+      "sourceSpanish": "Bájale a la presión.",
+      "sourceEnglish": "Turn down the pressure.",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Baisse la pression.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:17",
+      "legacySourceRef": "master-roofing:3:words:17",
+      "sourceSpanish": "Sácalo y ponle otro.",
+      "sourceEnglish": "Pull it out and put in another one.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Retire-le et mets-en un autre.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:18",
+      "legacySourceRef": "master-roofing:3:words:18",
+      "sourceSpanish": "Fíjate bien en la cabeza del clavo.",
+      "sourceEnglish": "Look closely at the nail head.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Regarde bien la tête du clou.",
+      "conditionalFrench": "Regarde bien la tête du clou.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:19",
+      "legacySourceRef": "master-roofing:3:words:19",
+      "sourceSpanish": "No te preocupes, a todos nos pasó.",
+      "sourceEnglish": "Don't worry, it happened to all of us.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Ne t’inquiète pas, cela nous est tous arrivé.",
+      "conditionalFrench": "Ne t’inquiète pas, cela nous est tous arrivé.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:20",
+      "legacySourceRef": "master-roofing:3:words:20",
+      "sourceSpanish": "Revíselo usted también, por favor.",
+      "sourceEnglish": "Please check it yourself too.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Vérifiez-le vous-même également, s’il vous plaît.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:3:fr-en:reader:1",
+      "legacySourceRef": "master-roofing:3:passage:1",
+      "sourceSpanish": "Hoy Kevin usa la pistola de clavos por primera vez, y Rogelio se queda a su lado.",
+      "sourceEnglish": "Today Kevin uses the nail gun for the first time, and Rogelio stays at his side.",
+      "archivedFrenchEvidence": "Aujourd’hui, Kevin utilise la cloueuse pour la première fois et Rogelio reste près de lui.",
+      "conditionalFrench": "Aujourd’hui, Kevin utilise la cloueuse pour la première fois et Rogelio reste près de lui.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:reader:2",
+      "legacySourceRef": "master-roofing:3:passage:2",
+      "sourceSpanish": "Rogelio: Antes de empezar, revisa la manguera y el compresor, y no pongas el dedo en el gatillo.",
+      "sourceEnglish": "Rogelio: Before you start, check the hose and the compressor, and don't put your finger on the trigger.",
+      "archivedFrenchEvidence": "Rogelio : « Avant de commencer, vérifie le tuyau et le compresseur; ne garde pas le doigt sur la gâchette. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:reader:3",
+      "legacySourceRef": "master-roofing:3:passage:3",
+      "sourceSpanish": "Rogelio: Mira esta línea en la teja; esta es la zona de clavado.",
+      "sourceEnglish": "Rogelio: Look at this line on the shingle; this is the nailing zone.",
+      "archivedFrenchEvidence": "Rogelio : « Regarde cette ligne sur le bardeau : c’est la zone de clouage. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:reader:4",
+      "legacySourceRef": "master-roofing:3:passage:4",
+      "sourceSpanish": "Rogelio: Clávalo aquí, en la zona de clavado, y sigue el patrón de clavado del fabricante.",
+      "sourceEnglish": "Rogelio: Nail it here, in the nailing zone, and follow the manufacturer's nail pattern.",
+      "archivedFrenchEvidence": "Rogelio : « Cloue-le ici, dans la zone de clouage, et suis le motif du fabricant. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:reader:5",
+      "legacySourceRef": "master-roofing:3:passage:5",
+      "sourceSpanish": "Kevin clava la primera teja, pero un clavo queda muy alto.",
+      "sourceEnglish": "Kevin nails the first shingle, but one nail ends up too high.",
+      "archivedFrenchEvidence": "Kevin fixe le premier bardeau, mais un clou se retrouve trop haut.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:reader:6",
+      "legacySourceRef": "master-roofing:3:passage:6",
+      "sourceSpanish": "Rogelio: Ese clavo muy alto no agarra bien la teja de abajo; sácalo y ponle otro.",
+      "sourceEnglish": "Rogelio: That high nail doesn't hold the shingle below well; pull it out and put in another one.",
+      "archivedFrenchEvidence": "Rogelio : « Ce clou trop haut retient mal le bardeau du dessous; retire-le et mets-en un autre. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:reader:7",
+      "legacySourceRef": "master-roofing:3:passage:7",
+      "sourceSpanish": "Rogelio: Y el agujero, séllalo según las instrucciones del producto; no lo dejes abierto.",
+      "sourceEnglish": "Rogelio: And the hole, seal it according to the product instructions; don't leave it open.",
+      "archivedFrenchEvidence": "Rogelio : « Et pour le trou, suis les instructions du produit afin d’assurer l’étanchéité; ne le laisse pas ouvert. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:reader:8",
+      "legacySourceRef": "master-roofing:3:passage:8",
+      "sourceSpanish": "Luego Kevin dispara otro clavo, y la cabeza del clavo se hunde en la teja.",
+      "sourceEnglish": "Then Kevin fires another nail, and the nail head sinks into the shingle.",
+      "archivedFrenchEvidence": "Ensuite Kevin pose un autre clou, mais la tête s’enfonce dans le bardeau.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:reader:9",
+      "legacySourceRef": "master-roofing:3:passage:9",
+      "sourceSpanish": "Rogelio: Fíjate bien en la cabeza del clavo; tiene que quedar al ras, no más abajo.",
+      "sourceEnglish": "Rogelio: Look closely at the nail head; it has to sit flush, not lower.",
+      "archivedFrenchEvidence": "Rogelio : « Regarde bien la tête du clou; elle doit être à fleur, pas plus bas. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:reader:10",
+      "legacySourceRef": "master-roofing:3:passage:10",
+      "sourceSpanish": "Rogelio: Un clavo demasiado hundido corta la teja, y el viento la puede levantar.",
+      "sourceEnglish": "Rogelio: An overdriven nail cuts the shingle, and the wind can lift it.",
+      "archivedFrenchEvidence": "Rogelio : « Un clou trop enfoncé peut endommager le bardeau, que le vent risque alors de soulever. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:reader:11",
+      "legacySourceRef": "master-roofing:3:passage:11",
+      "sourceSpanish": "Rogelio: Bájale a la presión de aire un poco y prueba otra vez; no lo hundas.",
+      "sourceEnglish": "Rogelio: Turn the air pressure down a little and try again; don't sink it.",
+      "archivedFrenchEvidence": "Rogelio : « Baisse un peu la pression d’air et réessaie; ne l’enfonce pas trop. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:reader:12",
+      "legacySourceRef": "master-roofing:3:passage:12",
+      "sourceSpanish": "Rogelio: Si la profundidad cambia, avísame y lo ajustamos juntos.",
+      "sourceEnglish": "Rogelio: If the depth changes, let me know and we'll adjust it together.",
+      "archivedFrenchEvidence": "Rogelio : « Si la profondeur change, préviens-moi et nous ajusterons ensemble. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:reader:13",
+      "legacySourceRef": "master-roofing:3:passage:13",
+      "sourceSpanish": "Kevin se pone rojo, pero Rogelio le dice: No te preocupes, a todos nos pasó.",
+      "sourceEnglish": "Kevin turns red, but Rogelio tells him: Don't worry, it happened to all of us.",
+      "archivedFrenchEvidence": "Kevin rougit, mais Rogelio lui dit : « Ne t’inquiète pas, cela nous est tous arrivé. »",
+      "conditionalFrench": "Kevin rougit, mais Rogelio lui dit : « Ne t’inquiète pas, cela nous est tous arrivé. »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:reader:14",
+      "legacySourceRef": "master-roofing:3:passage:14",
+      "sourceSpanish": "Rogelio: Y la pistola, no la apuntes hacia nadie, ni en broma.",
+      "sourceEnglish": "Rogelio: And the gun, don't point it at anyone, not even as a joke.",
+      "archivedFrenchEvidence": "Rogelio : « Et ne pointe la cloueuse vers personne, même pour plaisanter. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:reader:15",
+      "legacySourceRef": "master-roofing:3:passage:15",
+      "sourceSpanish": "Más tarde llega don Ernesto, un trabajador nuevo con muchos años de experiencia en otra compañía.",
+      "sourceEnglish": "Later Don Ernesto arrives, a new worker with many years of experience at another company.",
+      "archivedFrenchEvidence": "Plus tard, M. Ernesto arrive; il est nouveau dans l’équipe mais a beaucoup d’expérience ailleurs.",
+      "conditionalFrench": "Plus tard, M. Ernesto arrive; il est nouveau dans l’équipe mais a beaucoup d’expérience ailleurs.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:reader:16",
+      "legacySourceRef": "master-roofing:3:passage:16",
+      "sourceSpanish": "Rogelio: Don Ernesto, aquí clavamos así; revíselo usted también, por favor.",
+      "sourceEnglish": "Rogelio: Don Ernesto, here we nail like this; please check it yourself too.",
+      "archivedFrenchEvidence": "Rogelio : « Monsieur Ernesto, ici nous clouons ainsi; vérifiez-le vous-même également, s’il vous plaît. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "clavar",
+      "englishMeaning": "to nail",
+      "sourceSpanish": "Clávalo aquí, en la zona de clavado.",
+      "sourceEnglish": "Nail it here, in the nailing zone."
+    },
+    {
+      "spanishInfinitive": "sacar",
+      "englishMeaning": "to pull out",
+      "sourceSpanish": "Sácalo y ponle otro.",
+      "sourceEnglish": "Pull it out and put in another one."
+    },
+    {
+      "spanishInfinitive": "hundir",
+      "englishMeaning": "to sink",
+      "sourceSpanish": "No lo hundas.",
+      "sourceEnglish": "Don't sink it."
+    },
+    {
+      "spanishInfinitive": "ajustar",
+      "englishMeaning": "to adjust",
+      "sourceSpanish": "Avísame y lo ajustamos juntos.",
+      "sourceEnglish": "Let me know and we'll adjust it together."
+    },
+    {
+      "spanishInfinitive": "apuntar",
+      "englishMeaning": "to point (aim)",
+      "sourceSpanish": "No la apuntes hacia nadie.",
+      "sourceEnglish": "Don't point it at anyone."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Former un nouvel ouvrier au clouage",
+    "objectiveFrench": "Corriger avec tact le clouage d’un nouvel ouvrier en utilisant des consignes claires et les détails du fabricant.",
+    "speakingFrenchInstruction": "Vous formez un nouvel ouvrier à la cloueuse. Demandez un arrêt et la vérification du modèle, du réglage et du motif approuvé avant une démonstration; corrigez sans humilier et ne proposez pas un réglage universel de pression ou une réparation improvisée.",
+    "speakingFrenchOpening": "Avant d’utiliser la cloueuse, montrons la zone de clouage indiquée par ce fabricant.",
+    "grammarFocusFrench": "Impératif affirmatif et négatif avec pronom objet : cloue-le ici; ne l’enfonce pas trop.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to nail",
+        "exampleEnglish": "Nail it here, in the nailing zone.",
+        "sourceInfinitiveSpanish": "clavar",
+        "infinitiveFrench": "clouer",
+        "exampleFrench": "Cloue-le ici, dans la zone de clouage."
+      },
+      {
+        "meaningEnglish": "to pull out",
+        "exampleEnglish": "Pull it out and put in another one.",
+        "sourceInfinitiveSpanish": "sacar",
+        "infinitiveFrench": "retirer",
+        "exampleFrench": "Retire-le et mets-en un autre."
+      },
+      {
+        "meaningEnglish": "to sink",
+        "exampleEnglish": "Don't sink it.",
+        "sourceInfinitiveSpanish": "hundir",
+        "infinitiveFrench": "enfoncer",
+        "exampleFrench": "Ne l’enfonce pas trop."
+      },
+      {
+        "meaningEnglish": "to adjust",
+        "exampleEnglish": "Let me know and we'll adjust it together.",
+        "sourceInfinitiveSpanish": "ajustar",
+        "infinitiveFrench": "ajuster",
+        "exampleFrench": "Préviens-moi et nous ajusterons ensemble."
+      },
+      {
+        "meaningEnglish": "to point (aim)",
+        "exampleEnglish": "Don't point it at anyone.",
+        "sourceInfinitiveSpanish": "apuntar",
+        "infinitiveFrench": "pointer",
+        "exampleFrench": "Ne la pointe vers personne."
+      }
+    ],
+    "reviewGapsEnglish": [
+      "Qualified roofing/product and power-tool safety review is required for pressure adjustment, high-nail removal, hole sealing and the nail-gun demonstration before release.",
+      "The English source assumes a particular fastener repair and nail-depth method; do not publish as a universal instruction. France/Québec nail-gun and shingle terms need regional review."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "master-roofing:3:fr-en:card:2",
+        "master-roofing:3:fr-en:card:3",
+        "master-roofing:3:fr-en:reader:3",
+        "master-roofing:3:fr-en:reader:4"
+      ],
+      "question": "The source locates a nailing zone on this shingle and requires the manufacturer's pattern. Confirm the product-specific nailing-zone and pattern terminology before selecting French commands."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:3:fr-en:card:4",
+        "master-roofing:3:fr-en:card:5",
+        "master-roofing:3:fr-en:card:12",
+        "master-roofing:3:fr-en:reader:5",
+        "master-roofing:3:fr-en:reader:6",
+        "master-roofing:3:fr-en:reader:8",
+        "master-roofing:3:fr-en:reader:9",
+        "master-roofing:3:fr-en:reader:10"
+      ],
+      "question": "High and overdriven nails are distinct defects. The archived French softens the source's claim that an overdriven nail cuts the shingle and wind can lift it; resolve source fidelity and product scope before scoring."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:3:fr-en:card:7",
+        "master-roofing:3:fr-en:card:9",
+        "master-roofing:3:fr-en:card:11",
+        "master-roofing:3:fr-en:card:14",
+        "master-roofing:3:fr-en:card:15",
+        "master-roofing:3:fr-en:card:16",
+        "master-roofing:3:fr-en:card:17",
+        "master-roofing:3:fr-en:reader:2",
+        "master-roofing:3:fr-en:reader:7",
+        "master-roofing:3:fr-en:reader:11",
+        "master-roofing:3:fr-en:reader:12",
+        "master-roofing:3:fr-en:reader:14"
+      ],
+      "question": "Nail-gun trigger, hose, compressor pressure, depth, replacement and hole-sealing instructions need qualified tool/product safety review. The source ties sealing to product instructions; avoid a universal repair rule."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:3:fr-en:card:20",
+        "master-roofing:3:fr-en:reader:16"
+      ],
+      "question": "The final instruction addresses an experienced older new hire politely. Check the French vous/register choice against the source role relationship and surrounding informal Kevin dialogue."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

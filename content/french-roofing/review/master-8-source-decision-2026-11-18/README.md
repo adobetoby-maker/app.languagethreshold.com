@@ -1,0 +1,9 @@
+# French Roofing Master 8 — unsafe request source decision
+
+This inert packet pins **21 exact current Spanish/English cards**, **16 aligned Reader turns**, two current grammar examples, five current verb examples, and source/archive hashes for *Saying No: Unsafe Request from the Homeowner*. Proposed French-native/English-target `master-roofing:8:fr-en` IDs are review references only; existing saved items and progress are untouched.
+
+Archived French remains separate, unapproved evidence. Thirteen card faces and 13 Reader turns are held from conditional selection. The source has Mrs. Flores press for rain work and omitted underlayment, Rogelio refuse, identify lightning and wet-roof risks, offer a tarp after the storm, and conditionally suggest a Friday finish. The archive adds safety and product qualifications and softens the date promise. Qualified French, roofing safety, manufacturer/product and consumer-contract review must resolve those differences before any scored answer or audio is selected. The source does not specify a site-specific reentry, metal-tool retrieval or temporary-cover plan. These questions stay in internal review notes, separate from learner text.
+
+Every `selectedFrench` and `audioScript` is null. `reviewed:false` and learner, scoring, audio/listening, offline, saved-progress, browser and V4 gates are false. The six archived mode descriptions do not supply authored prompt/target activities. Forms, speaking, exact-pair dictionary and device acceptance remain open. No synthesis, recording approval, owner page or runtime route imports this packet.
+
+`build.py --check` detects source drift; `validate.py` independently checks current source order, IDs, archived evidence and closed gates. Claude CLI 2.1.325 reported `loggedIn:false` and `authMethod:none`; this packet made zero Haiku, Opus or Fable calls. Structural checks and self-check are not qualified review.

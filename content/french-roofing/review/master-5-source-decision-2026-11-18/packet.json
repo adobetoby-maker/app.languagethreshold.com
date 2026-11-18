@@ -1,0 +1,655 @@
+{
+  "schema": "french-roofing-master5-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "master-roofing",
+  "sourceHeaderModuleId": "master-roofing",
+  "proposedLessonId": "master-roofing:5",
+  "proposedPairId": "master-roofing:5:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/master-4-6-draft.json": "5104d836f6b1020adc803ed96bd8dee5ee93f21251bc920394066dbe3159f3f9"
+  },
+  "orderedSourceRowsSha256": "2a605ee982d2c2a461cac83b2e5bd4103811bc8de223a8c8e82d6d4c60c87f73",
+  "sourceTitleEnglish": "Unexpected Rotten Deck: Change Order with the Homeowner",
+  "sourceObjectiveEnglish": "Tell a homeowner what you found under the old roof, propose the repair, and get a signed change order",
+  "sourceFocusEnglish": "Preterite vs imperfect; conditional for the proposal",
+  "sourceGrammarExamples": [
+    {
+      "es": "Cuando quitamos las tejas, encontramos madera podrida.",
+      "en": "When we removed the shingles, we found rotten wood."
+    },
+    {
+      "es": "La cubierta estaba blanda; cambiarla costaría más.",
+      "en": "The deck was soft; replacing it would cost more."
+    }
+  ],
+  "sourceLessonType": "Case",
+  "sourceBlock": "B",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the homeowner: describe what you found during the tear-off and what it looked like, propose the repair with its cost and extra time using the conditional, and ask for a signature on the change order.",
+  "sourceReaderTitleSpanish": "What We Found Under the Shingles",
+  "cards": [
+    {
+      "id": "master-roofing:5:fr-en:card:1",
+      "legacySourceRef": "master-roofing:5:words:1",
+      "sourceSpanish": "la cubierta blanda o podrida",
+      "sourceEnglish": "the soft or rotten deck",
+      "kind": "term",
+      "archivedFrenchEvidence": "le platelage mou ou pourri",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:2",
+      "legacySourceRef": "master-roofing:5:words:2",
+      "sourceSpanish": "la madera podrida",
+      "sourceEnglish": "the rotten wood",
+      "kind": "term",
+      "archivedFrenchEvidence": "le bois pourri",
+      "conditionalFrench": "le bois pourri",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:3",
+      "legacySourceRef": "master-roofing:5:words:3",
+      "sourceSpanish": "la orden de cambio",
+      "sourceEnglish": "the change order",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’avenant au contrat",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:4",
+      "legacySourceRef": "master-roofing:5:words:4",
+      "sourceSpanish": "el presupuesto",
+      "sourceEnglish": "the estimate",
+      "kind": "term",
+      "archivedFrenchEvidence": "le devis",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:5",
+      "legacySourceRef": "master-roofing:5:words:5",
+      "sourceSpanish": "el costo adicional",
+      "sourceEnglish": "the extra cost",
+      "kind": "term",
+      "archivedFrenchEvidence": "le coût supplémentaire",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:6",
+      "legacySourceRef": "master-roofing:5:words:6",
+      "sourceSpanish": "la hoja de triplay",
+      "sourceEnglish": "the sheet of plywood",
+      "kind": "term",
+      "archivedFrenchEvidence": "la feuille de contreplaqué",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:7",
+      "legacySourceRef": "master-roofing:5:words:7",
+      "sourceSpanish": "la firma",
+      "sourceEnglish": "the signature",
+      "kind": "term",
+      "archivedFrenchEvidence": "la signature",
+      "conditionalFrench": "la signature",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:8",
+      "legacySourceRef": "master-roofing:5:words:8",
+      "sourceSpanish": "el contrato",
+      "sourceEnglish": "the contract",
+      "kind": "term",
+      "archivedFrenchEvidence": "le contrat",
+      "conditionalFrench": "le contrat",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:9",
+      "legacySourceRef": "master-roofing:5:words:9",
+      "sourceSpanish": "la autorización",
+      "sourceEnglish": "the authorization",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’autorisation",
+      "conditionalFrench": "l’autorisation",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:10",
+      "legacySourceRef": "master-roofing:5:words:10",
+      "sourceSpanish": "la foto del daño",
+      "sourceEnglish": "the photo of the damage",
+      "kind": "term",
+      "archivedFrenchEvidence": "la photo des dommages",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:11",
+      "legacySourceRef": "master-roofing:5:words:11",
+      "sourceSpanish": "el desmontaje",
+      "sourceEnglish": "the tear-off",
+      "kind": "term",
+      "archivedFrenchEvidence": "la dépose",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:12",
+      "legacySourceRef": "master-roofing:5:words:12",
+      "sourceSpanish": "la viga",
+      "sourceEnglish": "the rafter",
+      "kind": "term",
+      "archivedFrenchEvidence": "le chevron",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:13",
+      "legacySourceRef": "master-roofing:5:words:13",
+      "sourceSpanish": "el día extra",
+      "sourceEnglish": "the extra day",
+      "kind": "term",
+      "archivedFrenchEvidence": "le jour supplémentaire",
+      "conditionalFrench": "le jour supplémentaire",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:14",
+      "legacySourceRef": "master-roofing:5:words:14",
+      "sourceSpanish": "el dueño de la casa",
+      "sourceEnglish": "the homeowner",
+      "kind": "term",
+      "archivedFrenchEvidence": "le propriétaire",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:15",
+      "legacySourceRef": "master-roofing:5:words:15",
+      "sourceSpanish": "Cuando quitamos las tejas, encontramos madera podrida.",
+      "sourceEnglish": "When we removed the shingles, we found rotten wood.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Quand nous avons retiré les bardeaux, nous avons trouvé du bois pourri.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:16",
+      "legacySourceRef": "master-roofing:5:words:16",
+      "sourceSpanish": "La cubierta estaba blanda en esta sección.",
+      "sourceEnglish": "The deck was soft in this section.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Le platelage était mou dans cette section.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:17",
+      "legacySourceRef": "master-roofing:5:words:17",
+      "sourceSpanish": "Le recomendaría cambiar tres hojas.",
+      "sourceEnglish": "I would recommend replacing three sheets.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Je recommanderais de remplacer trois panneaux.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:18",
+      "legacySourceRef": "master-roofing:5:words:18",
+      "sourceSpanish": "Costaría más y tomaría un día extra.",
+      "sourceEnglish": "It would cost more and take an extra day.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Cela coûterait plus cher et prendrait un jour de plus.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:19",
+      "legacySourceRef": "master-roofing:5:words:19",
+      "sourceSpanish": "¿Le muestro las fotos?",
+      "sourceEnglish": "Shall I show you the photos?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Puis-je vous montrer les photos ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:20",
+      "legacySourceRef": "master-roofing:5:words:20",
+      "sourceSpanish": "Necesito su firma en la orden de cambio.",
+      "sourceEnglish": "I need your signature on the change order.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "J’ai besoin de votre signature sur l’avenant.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:21",
+      "legacySourceRef": "master-roofing:5:words:21",
+      "sourceSpanish": "Oye, ven a ver esto.",
+      "sourceEnglish": "Hey, come look at this.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Venez voir ceci.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:5:fr-en:reader:1",
+      "legacySourceRef": "master-roofing:5:passage:1",
+      "sourceSpanish": "A las nueve de la mañana, la cuadrilla terminó el desmontaje del lado norte.",
+      "sourceEnglish": "At nine in the morning, the crew finished the tear-off on the north side.",
+      "archivedFrenchEvidence": "À neuf heures du matin, l’équipe a terminé la dépose du côté nord.",
+      "conditionalFrench": "À neuf heures du matin, l’équipe a terminé la dépose du côté nord.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:reader:2",
+      "legacySourceRef": "master-roofing:5:passage:2",
+      "sourceSpanish": "Kevin pisaba con cuidado cuando sintió que la cubierta se hundía.",
+      "sourceEnglish": "Kevin was stepping carefully when he felt the deck sinking.",
+      "archivedFrenchEvidence": "Kevin avançait prudemment quand il a senti le platelage s’affaisser.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:reader:3",
+      "legacySourceRef": "master-roofing:5:passage:3",
+      "sourceSpanish": "Kevin: Oye, ven a ver esto.",
+      "sourceEnglish": "Kevin: Hey, come look at this.",
+      "archivedFrenchEvidence": "Kevin : « Venez voir ceci. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:reader:4",
+      "legacySourceRef": "master-roofing:5:passage:4",
+      "sourceSpanish": "Rogelio revisó el área con la barreta: la madera estaba negra y húmeda, y una viga tenía manchas.",
+      "sourceEnglish": "Rogelio checked the area with the pry bar: the wood was black and damp, and a rafter had stains.",
+      "archivedFrenchEvidence": "Rogelio a examiné la zone avec un pied-de-biche : le bois était noir et humide, et un chevron était taché.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:reader:5",
+      "legacySourceRef": "master-roofing:5:passage:5",
+      "sourceSpanish": "Rogelio tomó fotos del daño y marcó la orilla con pintura.",
+      "sourceEnglish": "Rogelio took photos of the damage and marked the edge with paint.",
+      "archivedFrenchEvidence": "Rogelio a photographié les dommages et marqué le bord avec de la peinture.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:reader:6",
+      "legacySourceRef": "master-roofing:5:passage:6",
+      "sourceSpanish": "Después bajó a hablar con el dueño de la casa, el señor Ramírez.",
+      "sourceEnglish": "Then he went down to talk with the homeowner, Mr. Ramírez.",
+      "archivedFrenchEvidence": "Puis il est descendu parler au propriétaire, M. Ramírez.",
+      "conditionalFrench": "Puis il est descendu parler au propriétaire, M. Ramírez.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:reader:7",
+      "legacySourceRef": "master-roofing:5:passage:7",
+      "sourceSpanish": "Rogelio: Señor Ramírez, cuando quitamos las tejas, encontramos madera podrida.",
+      "sourceEnglish": "Rogelio: Mr. Ramírez, when we removed the shingles, we found rotten wood.",
+      "archivedFrenchEvidence": "Rogelio : « Monsieur Ramírez, quand nous avons retiré les bardeaux, nous avons trouvé du bois pourri. »",
+      "conditionalFrench": "Rogelio : « Monsieur Ramírez, quand nous avons retiré les bardeaux, nous avons trouvé du bois pourri. »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:reader:8",
+      "legacySourceRef": "master-roofing:5:passage:8",
+      "sourceSpanish": "Rogelio: La cubierta estaba blanda en esta sección, cerca de la chimenea, y parecía que el agua entraba desde hacía años.",
+      "sourceEnglish": "Rogelio: The deck was soft in this section, near the chimney, and it looked like water had been getting in for years.",
+      "archivedFrenchEvidence": "Rogelio : « Le platelage était mou ici, près de la cheminée; on aurait dit que l’eau s’infiltrait depuis des années. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:reader:9",
+      "legacySourceRef": "master-roofing:5:passage:9",
+      "sourceSpanish": "Rogelio: ¿Le muestro las fotos?",
+      "sourceEnglish": "Rogelio: Shall I show you the photos?",
+      "archivedFrenchEvidence": "Rogelio : « Puis-je vous montrer les photos ? »",
+      "conditionalFrench": "Rogelio : « Puis-je vous montrer les photos ? »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:reader:10",
+      "legacySourceRef": "master-roofing:5:passage:10",
+      "sourceSpanish": "Sr. Ramírez: Sí, por favor. ¿Y eso no estaba en el presupuesto?",
+      "sourceEnglish": "Mr. Ramírez: Yes, please. And that wasn't in the estimate?",
+      "archivedFrenchEvidence": "M. Ramírez : « Oui, s’il vous plaît. Ce n’était pas dans le devis ? »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:reader:11",
+      "legacySourceRef": "master-roofing:5:passage:11",
+      "sourceSpanish": "Rogelio: No, porque nadie podía verlo antes del desmontaje; para eso sirve la orden de cambio.",
+      "sourceEnglish": "Rogelio: No, because nobody could see it before the tear-off; that's what the change order is for.",
+      "archivedFrenchEvidence": "Rogelio : « Non, car personne ne pouvait le voir avant la dépose; c’est pour cela qu’il faut un avenant. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:reader:12",
+      "legacySourceRef": "master-roofing:5:passage:12",
+      "sourceSpanish": "Rogelio: Le recomendaría cambiar tres hojas de triplay y revisar la viga.",
+      "sourceEnglish": "Rogelio: I would recommend replacing three sheets of plywood and checking the rafter.",
+      "archivedFrenchEvidence": "Rogelio : « Je recommanderais de remplacer trois panneaux de contreplaqué et de faire vérifier le chevron. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:reader:13",
+      "legacySourceRef": "master-roofing:5:passage:13",
+      "sourceSpanish": "Rogelio: Costaría más y tomaría un día extra, y el costo adicional aparece aquí, por escrito, como dice el contrato.",
+      "sourceEnglish": "Rogelio: It would cost more and take an extra day, and the extra cost appears here, in writing, as the contract says.",
+      "archivedFrenchEvidence": "Rogelio : « Cela coûterait plus cher et prendrait un jour de plus; le coût supplémentaire est écrit ici, comme le prévoit le contrat. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:reader:14",
+      "legacySourceRef": "master-roofing:5:passage:14",
+      "sourceSpanish": "Rogelio: No podemos tapar madera podrida, porque los clavos nuevos no agarrarían bien.",
+      "sourceEnglish": "Rogelio: We can't cover rotten wood, because the new nails wouldn't hold well.",
+      "archivedFrenchEvidence": "Rogelio : « Nous ne pouvons pas recouvrir du bois pourri, car les nouvelles fixations risqueraient de mal tenir. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:reader:15",
+      "legacySourceRef": "master-roofing:5:passage:15",
+      "sourceSpanish": "Sr. Ramírez: Está bien, entonces hágalo.",
+      "sourceEnglish": "Mr. Ramírez: All right, then do it.",
+      "archivedFrenchEvidence": "M. Ramírez : « D’accord, faites-le. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:5:fr-en:reader:16",
+      "legacySourceRef": "master-roofing:5:passage:16",
+      "sourceSpanish": "Rogelio: Gracias; necesito su firma en la orden de cambio, porque sin su autorización no podemos empezar la reparación.",
+      "sourceEnglish": "Rogelio: Thank you; I need your signature on the change order, because without your authorization we can't start the repair.",
+      "archivedFrenchEvidence": "Rogelio : « Merci; j’ai besoin de votre signature sur l’avenant, car sans votre autorisation nous ne pouvons pas commencer la réparation. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "encontrar",
+      "englishMeaning": "to find",
+      "sourceSpanish": "Rogelio encuentra madera podrida cerca de la chimenea.",
+      "sourceEnglish": "Rogelio finds rotten wood near the chimney."
+    },
+    {
+      "spanishInfinitive": "quitar",
+      "englishMeaning": "to remove",
+      "sourceSpanish": "Cuando quitamos las tejas, encontramos madera podrida.",
+      "sourceEnglish": "When we removed the shingles, we found rotten wood."
+    },
+    {
+      "spanishInfinitive": "estar",
+      "englishMeaning": "to be (condition)",
+      "sourceSpanish": "La cubierta estaba blanda en esta sección.",
+      "sourceEnglish": "The deck was soft in this section."
+    },
+    {
+      "spanishInfinitive": "costar",
+      "englishMeaning": "to cost",
+      "sourceSpanish": "Costaría más y tomaría un día extra.",
+      "sourceEnglish": "It would cost more and take an extra day."
+    },
+    {
+      "spanishInfinitive": "recomendar",
+      "englishMeaning": "to recommend",
+      "sourceSpanish": "Le recomendaría cambiar tres hojas de triplay.",
+      "sourceEnglish": "I would recommend replacing three sheets of plywood."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Platelage abîmé : expliquer un avenant au propriétaire",
+    "objectiveFrench": "Décrire un dommage découvert sous la couverture, proposer une évaluation de réparation et demander l’autorisation écrite prévue au contrat.",
+    "speakingFrenchInstruction": "Vous êtes chef d’équipe et votre partenaire joue le propriétaire. Décrivez ce qui a été constaté, montrez les photos, demandez une évaluation compétente de la structure et expliquez le coût et le délai proposés; vérifiez les conditions du contrat avant toute autorisation de travaux supplémentaires.",
+    "speakingFrenchOpening": "Monsieur Ramírez, nous avons découvert du bois abîmé; puis-je vous montrer les photos et l’évaluation proposée ?",
+    "grammarFocusFrench": "Imparfait pour l’état constaté, passé composé pour la découverte; conditionnel pour une proposition non approuvée.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to find",
+        "exampleEnglish": "Rogelio finds rotten wood near the chimney.",
+        "sourceInfinitiveSpanish": "encontrar",
+        "infinitiveFrench": "trouver",
+        "exampleFrench": "Rogelio trouve du bois pourri près de la cheminée."
+      },
+      {
+        "meaningEnglish": "to remove",
+        "exampleEnglish": "When we removed the shingles, we found rotten wood.",
+        "sourceInfinitiveSpanish": "quitar",
+        "infinitiveFrench": "retirer",
+        "exampleFrench": "Quand nous avons retiré les bardeaux, nous avons trouvé du bois pourri."
+      },
+      {
+        "meaningEnglish": "to be (condition)",
+        "exampleEnglish": "The deck was soft in this section.",
+        "sourceInfinitiveSpanish": "estar",
+        "infinitiveFrench": "être",
+        "exampleFrench": "Le platelage était mou dans cette section."
+      },
+      {
+        "meaningEnglish": "to cost",
+        "exampleEnglish": "It would cost more and take an extra day.",
+        "sourceInfinitiveSpanish": "costar",
+        "infinitiveFrench": "coûter",
+        "exampleFrench": "Cela coûterait plus cher et prendrait un jour de plus."
+      },
+      {
+        "meaningEnglish": "to recommend",
+        "exampleEnglish": "I would recommend replacing three sheets of plywood.",
+        "sourceInfinitiveSpanish": "recomendar",
+        "infinitiveFrench": "recommander",
+        "exampleFrench": "Je recommanderais de remplacer trois panneaux de contreplaqué."
+      }
+    ],
+    "reviewGapsEnglish": [
+      "Qualified structural/roofing review is required before diagnosing rafter condition, prescribing three plywood sheets or asserting nail-holding capacity from this scene.",
+      "Qualified contract/consumer review is needed for change-order authorization, cost and signature claims; France/Québec legal and trade terms need regional review."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "master-roofing:5:fr-en:card:1",
+        "master-roofing:5:fr-en:card:6",
+        "master-roofing:5:fr-en:reader:2",
+        "master-roofing:5:fr-en:reader:4",
+        "master-roofing:5:fr-en:reader:12",
+        "master-roofing:5:fr-en:reader:14"
+      ],
+      "question": "Source describes soft or rotten structural deck, black and damp wood, a stained rafter and nail-holding concern. Review French deck/plywood/rafter/fastening terminology and distinguish observed damage from an engineering conclusion before selecting instruction."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:5:fr-en:card:3",
+        "master-roofing:5:fr-en:card:4",
+        "master-roofing:5:fr-en:card:5",
+        "master-roofing:5:fr-en:card:20",
+        "master-roofing:5:fr-en:reader:10",
+        "master-roofing:5:fr-en:reader:11",
+        "master-roofing:5:fr-en:reader:13",
+        "master-roofing:5:fr-en:reader:15",
+        "master-roofing:5:fr-en:reader:16"
+      ],
+      "question": "Source requires a written change order and signature before repair. Review locale-specific contract terminology and the sequence of spoken assent versus formal authorization; do not treat the homeowner’s verbal approval alone as a signed change order."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:5:fr-en:card:14",
+        "master-roofing:5:fr-en:card:21",
+        "master-roofing:5:fr-en:reader:3",
+        "master-roofing:5:fr-en:reader:6",
+        "master-roofing:5:fr-en:reader:7",
+        "master-roofing:5:fr-en:reader:10"
+      ],
+      "question": "The source addresses Mr. Ramírez, with informal crew speech in card 21/Reader 3 and polite homeowner speech elsewhere. Archived French makes the crew call formal. Review register, relationship and homeowner-specific noun sense."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:5:fr-en:card:15",
+        "master-roofing:5:fr-en:card:16",
+        "master-roofing:5:fr-en:card:17",
+        "master-roofing:5:fr-en:card:18",
+        "master-roofing:5:fr-en:reader:8",
+        "master-roofing:5:fr-en:reader:12",
+        "master-roofing:5:fr-en:reader:13"
+      ],
+      "question": "Keep completed tear-off discovery distinct from the pre-existing deck condition and conditional proposal for three plywood sheets, extra cost and one extra day. Author French grammar, forms, speaking and six scored prompt/target modes only after source and domain decisions."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive grammar and lesson steps are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

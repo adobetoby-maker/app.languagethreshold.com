@@ -1,0 +1,9 @@
+# French 101 Master 11 — current-source decision
+
+This inert packet pins all 20 current Spanish/English cards and 12 Reader turns in exact source order under stable `master-french-basics:11` child IDs. It separates the original shared-snack/preferences lesson from the archived two-order café substitution redesign, which has a different objective and cannot inherit saved items, progress or recordings.
+
+The source teaches **gustar** agreement with the liked item. A French **aimer** lesson instead agrees with the person who likes it. This is a curriculum decision, not a direct grammar translation. The short card faces **me / myself**, **you / yourself**, **la**, **los**, **las**, **in / on / at** and **no / not** require contextual dictionary and scoring senses. French **les** does not carry the source's masculine/feminine plural contrast. The source's **café** is both drink and place; the quiet-café question uses the place sense. The source's food vocabulary and preference dialogue remain direct.
+
+Clearer phrases have conditional French proposals for qualified review; every selected French answer and recording script is null. Six mode anchors contain source links but no selected prompts or targets. Form explanations, speaking, dictionary entries, saved-item reconciliation, exact-pair learner/offline/V4 acceptance and per-clip audio listening still need work. All review, owner-route, learner, scoring, audio/listening, offline, progress and V4 gates are false. No runtime or owner page imports this packet.
+
+Run `python3 content/french-basics/review/master-11-source-decision-2026-11-18/build.py --check` and `python3 content/french-basics/review/master-11-source-decision-2026-11-18/validate.py` from repository root. These checks establish source/structural fidelity only. Claude CLI 2.1.325 reported `loggedIn:false`; there were zero new Haiku, Opus or Fable calls, and no AI or human qualified approval is claimed.

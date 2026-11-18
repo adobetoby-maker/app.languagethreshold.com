@@ -1,0 +1,251 @@
+{
+  "schema": 1,
+  "state": "source-only-reader-gap-review",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "lesson": 13,
+  "moduleId": "master-construction-foreman-ja-en",
+  "source": {
+    "readerPath": "public/lesson-content/es/master-construction-foreman.json",
+    "curriculumPath": "src/data/core60/es/master-construction-foreman.json",
+    "translationDraftPath": "content/japanese-construction-foreman/master-translation-13-15-draft.json",
+    "readerSHA256": "549b47cf51253f5c5ac4f19bf2fdae52fa93ae8ea996377cc32e0c0fab896d11",
+    "curriculumSHA256": "96f86e3e51ba346918f539810bcc996cb41ceaaf9268af02fa595c333800dce2",
+    "translationDraftSHA256": "17aed8cd152d53481ea860987d6c4791449a4352965c28eda3d742700406ee6f",
+    "sourceReaderTitleSpanish": "La cronología del accidente",
+    "sourceLessonTitleEnglish": "Incident Report: Hand Injury at the Table Saw",
+    "sourceObjectiveEnglish": "Say and write the timeline of a table-saw injury with times and facts only, without guessing the cause.",
+    "sourceSpeakingEnglish": "You are the foreman, and the AI is safety manager Patricia León: walk her through the timeline of Samuel's table-saw injury in the past tense with time markers like a las 10:40, enseguida, unos minutos después and mientras esperábamos, giving facts only, no guesses."
+  },
+  "historicalPrivateReader": {
+    "lesson13OriginalReaderDraftPresent": false,
+    "reuseDecision": null
+  },
+  "openDomainReview": [
+    {
+      "sourceLocation": "Reader 1–5, 13–16",
+      "question": "Preserve Héctor Salas, Patricia León, the Ortiz house jobsite, only witness Tomás Ruiz, Samuel's 10:40 saw work and the fact that Héctor did not see the cut. Decide Japanese time narration and witness/statement register without inferring injury cause.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 6–12",
+      "question": "Preserve the reported palm cut and bleeding, Rosa Díaz's first-aid training and gauze pressure, the source's 911 request, ambulance wait, unplugging and out-of-service tag, transport to hospital, photo sequence, blade guard and riving knife. Qualified trade/clinical/source review must resolve terminology and the source locale before Japanese selection; do not add treatment or regulatory claims.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 13–17",
+      "question": "Keep the push stick observed on the floor without claiming it was used, the explicit unknown cause, Patricia's requested photos and Rosa's statement, and the source's no-use-until-investigation line. Decide Japanese attribution and audience-specific register without changing evidentiary certainty.",
+      "qualifiedDecision": null
+    }
+  ],
+  "rows": [
+    {
+      "id": "master-construction-foreman-ja-en:lesson:13:reader:line:1",
+      "sourceSpanish": "Soy Héctor Salas, capataz de la obra de la casa Ortiz, y ayer armé la cronología del accidente con Patricia León, la gerente de seguridad.",
+      "sourceEnglish": "I'm Héctor Salas, foreman of the Ortiz house build, and yesterday I put together the timeline of the accident with Patricia León, the safety manager.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:13:reader:line:2",
+      "sourceSpanish": "Patricia: Para el reporte de incidente necesito horas y hechos, no suposiciones.",
+      "sourceEnglish": "Patricia: For the incident report I need times and facts, not guesses.",
+      "speaker": "Patricia",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:13:reader:line:3",
+      "sourceSpanish": "A las 10:40, Samuel cortaba una tabla en la sierra.",
+      "sourceEnglish": "At 10:40, Samuel was cutting a board on the saw.",
+      "speaker": null,
+      "conditionalJapanesePhrase": "10時40分、サミュエルさんはテーブルソーで板を切っていました。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:13:reader:line:4",
+      "sourceSpanish": "Samuel gritó y Tomás Ruiz, el único testigo, apagó la sierra enseguida.",
+      "sourceEnglish": "Samuel shouted and Tomás Ruiz, the only witness, turned off the saw right away.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:13:reader:line:5",
+      "sourceSpanish": "Yo no vi el corte; llegué unos segundos después.",
+      "sourceEnglish": "I didn't see the cut; I got there a few seconds later.",
+      "speaker": null,
+      "conditionalJapanesePhrase": "けがをした瞬間は見ていません。私が着いたのは、その数秒後です。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:13:reader:line:6",
+      "sourceSpanish": "Rosa Díaz, la carpintera con entrenamiento en primeros auxilios, llegó corriendo al mismo tiempo que yo.",
+      "sourceEnglish": "Rosa Díaz, the carpenter with first-aid training, came running at the same time as me.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:13:reader:line:7",
+      "sourceSpanish": "Samuel tenía una cortada en la palma de la mano izquierda que sangraba mucho.",
+      "sourceEnglish": "Samuel had a cut on the palm of his left hand that was bleeding a lot.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:13:reader:line:8",
+      "sourceSpanish": "Enseguida, Rosa le aplicó presión directa con gasas del botiquín.",
+      "sourceEnglish": "Right away, Rosa applied direct pressure with gauze from the first-aid kit.",
+      "speaker": null,
+      "conditionalJapanesePhrase": "すぐに、ロサさんは救急箱のガーゼで傷口を直接押さえました。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:13:reader:line:9",
+      "sourceSpanish": "Rosa pidió que llamaran al 911, y mientras esperábamos la ambulancia, desconecté la sierra de mesa y le puse una etiqueta de fuera de servicio.",
+      "sourceEnglish": "Rosa asked someone to call 911, and while we were waiting for the ambulance, I unplugged the table saw and put an out-of-service tag on it.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:13:reader:line:10",
+      "sourceSpanish": "Unos minutos después, los paramédicos lo llevaron al hospital.",
+      "sourceEnglish": "A few minutes later, the paramedics took him to the hospital.",
+      "speaker": null,
+      "conditionalJapanesePhrase": "数分後、救急隊員がサミュエルさんを病院へ搬送しました。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:13:reader:line:11",
+      "sourceSpanish": "Después tomé fotos sin tocar el disco ni mover nada de la mesa.",
+      "sourceEnglish": "Afterward I took photos without touching the blade or moving anything on the table.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:13:reader:line:12",
+      "sourceSpanish": "En las fotos se ve la guarda en su lugar y la cuchilla divisora detrás del disco.",
+      "sourceEnglish": "In the photos you can see the blade guard in place and the riving knife behind the blade.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:13:reader:line:13",
+      "sourceSpanish": "El empujador estaba en el piso junto a la sierra, pero no sé si Samuel lo usó.",
+      "sourceEnglish": "The push stick was on the floor next to the saw, but I don't know if Samuel used it.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:13:reader:line:14",
+      "sourceSpanish": "Patricia: ¿Usted sabe por qué pasó?",
+      "sourceEnglish": "Patricia: Do you know why it happened?",
+      "speaker": "Patricia",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:13:reader:line:15",
+      "sourceSpanish": "Le contesté: No sé la causa; solo le digo lo que vi.",
+      "sourceEnglish": "I answered: I don't know the cause; I'm only telling you what I saw.",
+      "speaker": "I answered",
+      "conditionalJapanesePhrase": "原因は分かりません。私が見たことだけをお伝えします。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:13:reader:line:16",
+      "sourceSpanish": "Al final le prometí: Patricia, le mando hoy las fotos y la declaración de Rosa.",
+      "sourceEnglish": "At the end I promised her: Patricia, I'll send you the photos and Rosa's statement today.",
+      "speaker": "At the end I promised her",
+      "conditionalJapanesePhrase": "パトリシアさん、今日中に写真とロサさんの目撃証言の記録をお送りします。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:13:reader:line:17",
+      "sourceSpanish": "Luego avisé a la cuadrilla: Nadie usa la sierra hasta que termine la investigación.",
+      "sourceEnglish": "Then I told the crew: Nobody uses the saw until the investigation is finished.",
+      "speaker": "Then I told the crew",
+      "conditionalJapanesePhrase": "調査が終わるまで、このテーブルソーは使用禁止です。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    }
+  ],
+  "reviewGates": {
+    "qualifiedJapaneseReview": false,
+    "qualifiedConstructionReview": false,
+    "qualifiedClinicalReview": false,
+    "sourceTechnicalQuestionsResolved": false,
+    "sourceParity": false,
+    "dictionarySenses": false,
+    "sixAuthoredModes": false,
+    "forms": false,
+    "speaking": false,
+    "audioText": false,
+    "audioListening": false,
+    "savedItemMigration": false,
+    "ownerRoute": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "progress": false,
+    "v4Native": false
+  }
+}

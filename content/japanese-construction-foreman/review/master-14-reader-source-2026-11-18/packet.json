@@ -1,0 +1,265 @@
+{
+  "schema": 1,
+  "state": "source-only-reader-gap-review",
+  "target": "Japanese",
+  "native": "English",
+  "stage": "master",
+  "lesson": 14,
+  "moduleId": "master-construction-foreman-ja-en",
+  "source": {
+    "readerPath": "public/lesson-content/es/master-construction-foreman.json",
+    "curriculumPath": "src/data/core60/es/master-construction-foreman.json",
+    "translationDraftPath": "content/japanese-construction-foreman/master-translation-13-15-draft.json",
+    "readerSHA256": "549b47cf51253f5c5ac4f19bf2fdae52fa93ae8ea996377cc32e0c0fab896d11",
+    "curriculumSHA256": "96f86e3e51ba346918f539810bcc996cb41ceaaf9268af02fa595c333800dce2",
+    "translationDraftSHA256": "17aed8cd152d53481ea860987d6c4791449a4352965c28eda3d742700406ee6f",
+    "sourceReaderTitleSpanish": "El bulto que se resbaló",
+    "sourceLessonTitleEnglish": "Near Miss: The Rebar Bundle That Slipped",
+    "sourceObjectiveEnglish": "Talk through a near miss with the rigger and the laborer without blame and agree on what changes in the next lift."
+  },
+  "historicalPrivateReader": {
+    "lesson14OriginalReaderDraftPresent": false,
+    "reuseDecision": null
+  },
+  "openDomainReview": [
+    {
+      "sourceLocation": "Reader 1–3, 8–9 and 11",
+      "question": "Preserve the bridge abutment, slipped rebar bundle, wood blocking, 10-foot distance, no injury, single choker sling and unchecked center of gravity. Review Japanese rigging, wood-blocking and load-path terms with a qualified lifting specialist; do not replace the source account with a generic accident story.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 4–12 and 18",
+      "question": "Ramón asks Alma and Nicolás for the facts without blame, says the incident could have been serious, and thanks them for honest accounts. Review the conditional Japanese phrase fragments for natural register and near-miss meaning; none includes the full speaker-labeled Reader turn.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Reader 13–18",
+      "question": "The lift plan in this scene calls for two choker slings per bundle. Preserve the test lift, lower-and-rerig-if-unbalanced, tag-line distance, no one under the suspended load, and next-day crew report as the characters' agreed actions. Qualified lifting/safety review must not turn one scene's lift-plan detail into universal rigging instruction or imply suspended-load exclusion applies only once.",
+      "qualifiedDecision": null
+    },
+    {
+      "sourceLocation": "Lesson grammar and speaking",
+      "question": "The Spanish source teaches por poco, casi, podría haber and si clauses. Review Japanese counterfactual/conditional teaching and the non-accusatory speaking objective as a language adaptation before selecting scored modes or audio scripts.",
+      "qualifiedDecision": null
+    }
+  ],
+  "rows": [
+    {
+      "id": "master-construction-foreman-ja-en:lesson:14:reader:line:1",
+      "sourceSpanish": "Esta mañana, en el estribo del puente, un bulto de varilla se resbaló del aparejo durante un levante con la grúa.",
+      "sourceEnglish": "This morning, at the bridge abutment, a rebar bundle slipped out of the rigging during a crane lift.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:14:reader:line:2",
+      "sourceSpanish": "El bulto cayó sobre los polines, a unos 10 pies del ayudante Nicolás Herrera, y nadie salió herido.",
+      "sourceEnglish": "The bundle fell onto the wood blocking, about 10 feet from laborer Nicolás Herrera, and nobody was hurt.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:14:reader:line:3",
+      "sourceSpanish": "El capataz Ramón Ortega detiene todos los levantes para hablar del casi accidente con la maniobrista Alma Guzmán y con Nicolás.",
+      "sourceEnglish": "Foreman Ramón Ortega stops all lifts to talk about the near miss with rigger Alma Guzmán and with Nicolás.",
+      "speaker": null,
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:14:reader:line:4",
+      "sourceSpanish": "Ramón: Por poco te cae el bulto, Nicolás.",
+      "sourceEnglish": "Ramón: The bundle almost fell on you, Nicolás.",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": "ニコラス、鉄筋の束がそちらに落ちるところだった。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:14:reader:line:5",
+      "sourceSpanish": "Ramón: Podría haber sido grave; por eso lo estamos hablando.",
+      "sourceEnglish": "Ramón: It could have been serious; that's why we're talking about it.",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": "重大な事故になっていたかもしれない。だから今、こうして話している。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:14:reader:line:6",
+      "sourceSpanish": "Ramón: Aquí no buscamos culpables; buscamos qué cambiar.",
+      "sourceEnglish": "Ramón: We're not looking for someone to blame; we're looking for what to change.",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": "誰かを責めるためじゃない。何を変えるかを探しているんだ。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:14:reader:line:7",
+      "sourceSpanish": "Ramón: Alma, cuéntame cómo amarraste el bulto antes del levante.",
+      "sourceEnglish": "Ramón: Alma, tell me how you rigged the bundle before the lift.",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": "アルマ、吊り上げる前に束をどう玉掛けしたか教えてくれる？",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:14:reader:line:8",
+      "sourceSpanish": "Alma: Usé un solo estrobo en el centro del bulto, pero no revisé bien dónde estaba el centro de gravedad.",
+      "sourceEnglish": "Alma: I used a single choker sling in the middle of the bundle, but I didn't check carefully where the center of gravity was.",
+      "speaker": "Alma",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:14:reader:line:9",
+      "sourceSpanish": "Alma: Con un levante de prueba, podría haber visto que la carga se inclinaba hacia un lado.",
+      "sourceEnglish": "Alma: With a test lift, I could have seen that the load was tilting to one side.",
+      "speaker": "Alma",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:14:reader:line:10",
+      "sourceSpanish": "Ramón: Nicolás, ¿por qué caminabas por esa zona en ese momento?",
+      "sourceEnglish": "Ramón: Nicolás, why were you walking through that area at that moment?",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": "ニコラス、あの時、どうしてあの区域を通っていたのか教えてくれる？",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:14:reader:line:11",
+      "sourceSpanish": "Nicolás: Iba por más polines y no sabía que la trayectoria de la carga pasaba por ahí.",
+      "sourceEnglish": "Nicolás: I was going to get more wood blocking and I didn't know the load path went through there.",
+      "speaker": "Nicolás",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:14:reader:line:12",
+      "sourceSpanish": "Nicolás: Fue un susto muy fuerte, porque casi no vi venir el bulto.",
+      "sourceEnglish": "Nicolás: It was a really big scare, because I almost didn't see the bundle coming.",
+      "speaker": "Nicolás",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:14:reader:line:13",
+      "sourceSpanish": "Ramón: La primera de las medidas preventivas es que cada bulto llevará dos estrobos, como pide el plan de izaje.",
+      "sourceEnglish": "Ramón: The first of the preventive measures is that every bundle will have two choker slings, as the lift plan requires.",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:14:reader:line:14",
+      "sourceSpanish": "Alma: Si no está balanceada, la bajamos y la volvemos a amarrar.",
+      "sourceEnglish": "Alma: If it isn't balanced, we lower it and rig it again.",
+      "speaker": "Alma",
+      "conditionalJapanesePhrase": "バランスが取れていなければ、いったん下ろして掛け直す。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:14:reader:line:15",
+      "sourceSpanish": "Nicolás: Si yo llevo la cuerda guía, me quedo lejos de la trayectoria de la carga.",
+      "sourceEnglish": "Nicolás: If I hold the tag line, I stay far from the load path.",
+      "speaker": "Nicolás",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:14:reader:line:16",
+      "sourceSpanish": "Ramón: En el próximo levante, nadie pasará debajo de la carga suspendida.",
+      "sourceEnglish": "Ramón: On the next lift, nobody will walk under the suspended load.",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": "次の吊り上げでは、吊り荷の下を誰も通らない。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:14:reader:line:17",
+      "sourceSpanish": "Ramón: Voy a anotar las lecciones aprendidas en el reporte y las voy a compartir con toda la cuadrilla mañana.",
+      "sourceEnglish": "Ramón: I'm going to write the lessons learned in the report and share them with the whole crew tomorrow.",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": null,
+      "conditionalPhraseFromExactTermDraft": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    },
+    {
+      "id": "master-construction-foreman-ja-en:lesson:14:reader:line:18",
+      "sourceSpanish": "Ramón: Gracias a los dos por contarme lo que pasó con honestidad.",
+      "sourceEnglish": "Ramón: Thank you both for honestly telling me what happened.",
+      "speaker": "Ramón",
+      "conditionalJapanesePhrase": "二人とも、何があったのか正直に話してくれてありがとう。",
+      "conditionalPhraseFromExactTermDraft": true,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "qualifiedReview": false
+    }
+  ],
+  "reviewGates": {
+    "qualifiedJapaneseReview": false,
+    "qualifiedConstructionReview": false,
+    "sourceTechnicalQuestionsResolved": false,
+    "sourceParity": false,
+    "dictionarySenses": false,
+    "sixAuthoredModes": false,
+    "forms": false,
+    "speaking": false,
+    "audioText": false,
+    "audioListening": false,
+    "savedItemMigration": false,
+    "ownerRoute": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "progress": false,
+    "v4Native": false
+  }
+}

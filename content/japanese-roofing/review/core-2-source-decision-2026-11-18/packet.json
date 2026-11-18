@@ -1,0 +1,410 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:2:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-1-3-draft.json",
+      "sha256": "ec1dff1ce6f7e948ff078bef0f32fa7841a407d264d7d50b6e6827bc1c8932f5"
+    }
+  },
+  "sourceEnglishTitle": "Deck, Underlayment & Edges",
+  "sourceEnglishObjective": "Name the layers beneath the finished roof",
+  "sourceEnglishSpeaking": "Point out the deck, underlayment, and edge on a roof plan.",
+  "sourceSpanishReaderTitle": "Capas debajo del techo",
+  "candidateObjective": "仕上げ材の下にある屋根下地、防水層、端部の名称を言う。",
+  "candidateFocus": "～の上に marks a layer above another; ～の前に marks sequence. 軒先 is the lower eave edge, while けらば is the sloped gable edge. ～はどこに付きますか asks placement.",
+  "archivedForms": [
+    {
+      "base": "取り付ける",
+      "exampleJa": "まず水切り金物を取り付けてください。",
+      "meaningEnglish": "to install",
+      "exampleEnglish": "Install the drip edge first.",
+      "sourceInfinitiveSpanish": "instalar"
+    },
+    {
+      "base": "掃く",
+      "exampleJa": "ルーフィングの前に屋根下地を掃いてください。",
+      "meaningEnglish": "to sweep",
+      "exampleEnglish": "Sweep the deck before the underlayment.",
+      "sourceInfinitiveSpanish": "barrer"
+    },
+    {
+      "base": "広げる",
+      "exampleJa": "それから職長は「ルーフィングを広げてください」と指示します。",
+      "meaningEnglish": "to unroll",
+      "exampleEnglish": "Then the foreman orders: unroll the underlayment.",
+      "sourceInfinitiveSpanish": "desenrollar"
+    },
+    {
+      "base": "指す",
+      "exampleJa": "作業員は軒先を指します。",
+      "meaningEnglish": "to point out",
+      "exampleEnglish": "A worker points to the eave edge.",
+      "sourceInfinitiveSpanish": "señalar"
+    },
+    {
+      "base": "聞く",
+      "exampleJa": "職長は「水切り金物はどこに付きますか」と聞きます。",
+      "meaningEnglish": "to ask",
+      "exampleEnglish": "The foreman asks: Where does the drip edge go?",
+      "sourceInfinitiveSpanish": "preguntar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "屋根下地はここです。その上にルーフィングを敷きます。",
+    "goal": "Point out the deck, underlayment, and edge on a roof plan."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the source deck, underlayment and edge sequence as provenance. Confirm roof deck versus sheathing, synthetic material, rake edge, drip-edge terminology and edge-dependent installation order with qualified Japanese and roofing reviewers before selecting learner answers. The archived draft is evidence only; this packet creates no lesson, score, audio or progress identity.",
+  "cards": [
+    {
+      "id": "roofing:2:ja-en:card:1",
+      "legacySourceRef": "roofing:2:ja-en:cards:1",
+      "sourceSpanish": "Cubierta / Forro de techo",
+      "sourceEnglish": "roof deck",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根下地",
+      "archivedEnglish": "roof deck",
+      "reviewNote": "The source uses roof deck and later sheathing for related but potentially distinct assembly layers. Confirm that 屋根下地 identifies the intended deck, separately from card 5.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:2:ja-en:card:2",
+      "legacySourceRef": "roofing:2:ja-en:cards:2",
+      "sourceSpanish": "Sub-capa / Fieltro",
+      "sourceEnglish": "underlayment",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "ルーフィング",
+      "archivedJapanese": "ルーフィング",
+      "archivedEnglish": "underlayment",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:2:ja-en:card:3",
+      "legacySourceRef": "roofing:2:ja-en:cards:3",
+      "sourceSpanish": "Papel de fieltro",
+      "sourceEnglish": "felt paper",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "フェルトルーフィング",
+      "archivedJapanese": "フェルトルーフィング",
+      "archivedEnglish": "felt paper",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:2:ja-en:card:4",
+      "legacySourceRef": "roofing:2:ja-en:cards:4",
+      "sourceSpanish": "Goterón / Vierteaguas",
+      "sourceEnglish": "drip edge",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "水切り金物",
+      "archivedEnglish": "drip edge",
+      "reviewNote": "水切り金物 can be a broad flashing term. Confirm the exact drip-edge profile and roof-edge sense with a roofing terminology reviewer.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:2:ja-en:card:5",
+      "legacySourceRef": "roofing:2:ja-en:cards:5",
+      "sourceSpanish": "Forro de techo",
+      "sourceEnglish": "sheathing",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "下地板",
+      "archivedEnglish": "sheathing",
+      "reviewNote": "The source English sheathing and Spanish forro de techo overlap roof deck. Confirm the distinction from card 1 before fixing 下地板 as a dictionary answer.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:2:ja-en:card:6",
+      "legacySourceRef": "roofing:2:ja-en:cards:6",
+      "sourceSpanish": "Alero",
+      "sourceEnglish": "eave",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "軒先",
+      "archivedJapanese": "軒先",
+      "archivedEnglish": "eave",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:2:ja-en:card:7",
+      "legacySourceRef": "roofing:2:ja-en:cards:7",
+      "sourceSpanish": "Borde de hastial",
+      "sourceEnglish": "rake",
+      "sourceNoteSpanish": "también: remate lateral",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "けらば",
+      "archivedEnglish": "rake",
+      "reviewNote": "The source rake is a sloped gable edge. Confirm that けらば fits the intended roof geometry and locale.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:2:ja-en:card:8",
+      "legacySourceRef": "roofing:2:ja-en:cards:8",
+      "sourceSpanish": "Triplay",
+      "sourceEnglish": "plywood",
+      "sourceNoteSpanish": "también: madera contrachapada",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "合板",
+      "archivedJapanese": "合板",
+      "archivedEnglish": "plywood",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:2:ja-en:card:9",
+      "legacySourceRef": "roofing:2:ja-en:cards:9",
+      "sourceSpanish": "Sub-capa sintética",
+      "sourceEnglish": "synthetic underlayment",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "合成ルーフィング",
+      "archivedEnglish": "synthetic underlayment",
+      "reviewNote": "The source specifies synthetic underlayment. Confirm whether 合成ルーフィング communicates a synthetic material rather than a composite roof covering.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:2:ja-en:card:10",
+      "legacySourceRef": "roofing:2:ja-en:cards:10",
+      "sourceSpanish": "Instalen el goterón primero.",
+      "sourceEnglish": "Install the drip edge first.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "まず水切り金物を取り付けてください。",
+      "archivedEnglish": "Install the drip edge first.",
+      "reviewNote": "The source instructs installing the drip edge first without qualifying edge or layer sequence. Roofing practice can depend on edge and assembly; obtain a qualified source/safety decision before teaching this as universal.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:2:ja-en:card:11",
+      "legacySourceRef": "roofing:2:ja-en:cards:11",
+      "sourceSpanish": "Barran la cubierta antes de la sub-capa.",
+      "sourceEnglish": "Sweep the deck before underlayment.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "ルーフィングの前に屋根下地を掃いてください。",
+      "archivedJapanese": "ルーフィングの前に屋根下地を掃いてください。",
+      "archivedEnglish": "Sweep the deck before underlayment.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:2:ja-en:card:12",
+      "legacySourceRef": "roofing:2:ja-en:cards:12",
+      "sourceSpanish": "La cubierta tiene que estar seca y limpia.",
+      "sourceEnglish": "The deck must be dry and clean.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "屋根下地は乾いていて、きれいでなければなりません。",
+      "archivedJapanese": "屋根下地は乾いていて、きれいでなければなりません。",
+      "archivedEnglish": "The deck must be dry and clean.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:2:ja-en:card:13",
+      "legacySourceRef": "roofing:2:ja-en:cards:13",
+      "sourceSpanish": "Desenrollen la sub-capa.",
+      "sourceEnglish": "Roll out the underlayment.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "ルーフィングを広げてください。",
+      "archivedJapanese": "ルーフィングを広げてください。",
+      "archivedEnglish": "Roll out the underlayment.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:2:ja-en:card:14",
+      "legacySourceRef": "roofing:2:ja-en:cards:14",
+      "sourceSpanish": "¿Dónde va el goterón?",
+      "sourceEnglish": "Where does the drip edge go?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "水切り金物はどこに付きますか。",
+      "archivedEnglish": "Where does the drip edge go?",
+      "reviewNote": "The broad 水切り金物 candidate inherits card 4's exact drip-edge and edge-placement question.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:2:ja-en:line:1",
+      "legacySourceRef": "roofing:2:ja-en:reader:1",
+      "sourceSpanish": "La cuadrilla mira las capas debajo de las tejas.",
+      "sourceEnglish": "The crew looks at the layers under the shingles.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "作業員はシングル材の下にある層を見ます。",
+      "archivedEnglish": "The crew looks at the layers under the shingles.",
+      "reviewNote": "The source says shingles without specifying asphalt. Archived シングル材 has the same unresolved technical sense as Core 1.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:2:ja-en:line:2",
+      "legacySourceRef": "roofing:2:ja-en:reader:2",
+      "sourceSpanish": "Abajo está la cubierta, que es de triplay.",
+      "sourceEnglish": "At the bottom is the roof deck, which is plywood.",
+      "selectedJapanese": null,
+      "candidateJapanese": "一番下には合板の屋根下地があります。",
+      "archivedJapanese": "一番下には合板の屋根下地があります。",
+      "archivedEnglish": "At the bottom is the roof deck, which is plywood.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:2:ja-en:line:3",
+      "legacySourceRef": "roofing:2:ja-en:reader:3",
+      "sourceSpanish": "La cubierta tiene que estar seca y limpia.",
+      "sourceEnglish": "The deck has to be dry and clean.",
+      "selectedJapanese": null,
+      "candidateJapanese": "屋根下地は乾いていて、きれいでなければなりません。",
+      "archivedJapanese": "屋根下地は乾いていて、きれいでなければなりません。",
+      "archivedEnglish": "The deck has to be dry and clean.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:2:ja-en:line:4",
+      "legacySourceRef": "roofing:2:ja-en:reader:4",
+      "sourceSpanish": "Encima va la sub-capa, por ejemplo el papel de fieltro.",
+      "sourceEnglish": "The underlayment goes on top, for example felt paper.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "その上に、たとえばフェルトルーフィングを敷きます。",
+      "archivedEnglish": "The underlayment goes on top, for example felt paper.",
+      "reviewNote": "The source names underlayment as the layer on top, with felt paper as its example. The archived Japanese gives only a felt-roofing action and loses the explicit category/example distinction.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:2:ja-en:line:5",
+      "legacySourceRef": "roofing:2:ja-en:reader:5",
+      "sourceSpanish": "El capataz pregunta: ¿Dónde va el goterón?",
+      "sourceEnglish": "The foreman asks: Where does the drip edge go?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "職長は「水切り金物はどこに付きますか」と聞きます。",
+      "archivedEnglish": "The foreman asks: Where does the drip edge go?",
+      "reviewNote": "The archived broad 水切り金物 question inherits card 4's drip-edge sense decision.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:2:ja-en:line:6",
+      "legacySourceRef": "roofing:2:ja-en:reader:6",
+      "sourceSpanish": "Un obrero señala el borde del alero y el borde de hastial.",
+      "sourceEnglish": "A worker points to the eave edge and the rake edge.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "作業員は軒先とけらばの端を指します。",
+      "archivedEnglish": "A worker points to the eave edge and the rake edge.",
+      "reviewNote": "Confirm 軒先 and けらば for eave edge and rake edge in the current roof geometry before selecting the technical Reader line.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:2:ja-en:line:7",
+      "legacySourceRef": "roofing:2:ja-en:reader:7",
+      "sourceSpanish": "Luego el capataz ordena: desenrollen la sub-capa.",
+      "sourceEnglish": "Then the foreman orders: unroll the underlayment.",
+      "selectedJapanese": null,
+      "candidateJapanese": "それから職長は「ルーフィングを広げてください」と指示します。",
+      "archivedJapanese": "それから職長は「ルーフィングを広げてください」と指示します。",
+      "archivedEnglish": "Then the foreman orders: unroll the underlayment.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the deck and the layer above it.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall the terms for underlayment, eave, and rake.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 軒先 from けらば when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Where does the drip edge go?' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Point out the deck, underlayment, and roof edge on a plan.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Describe the deck and the layer placed above it.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

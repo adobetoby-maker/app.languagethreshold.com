@@ -1,0 +1,461 @@
+{
+  "schema": "french101-master17-source-decision-v1",
+  "pairKey": "French:English",
+  "courseId": "french-basics",
+  "moduleId": "master-french-basics",
+  "stage": "master",
+  "n": 17,
+  "stableLessonId": "master-french-basics:17",
+  "stablePairId": "master-french-basics:17:fr-en",
+  "sourceFilesSha256": {
+    "src/data/core60/es/master-spanish-basics.json": "27084a65c51ef96ab6b74dd969de1c4b38cd670be1c4b148e2b66f4d9bb15ede",
+    "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe",
+    "content/review-archive/french-japanese-2026-11-15/french-101/master-16-18-redesign-draft.json": "e7beef3838d3c56452eb135b68de488f532be6024acf2f46121b8ffa9225d6a0"
+  },
+  "sourceTitleEnglish": "Refer back without repeating",
+  "sourceObjectiveEnglish": "Refer back without repeating: Lo, la, los and las replace a direct object and agree with it: el libro → lo; las llaves → las.",
+  "sourceFocusEnglish": "Refer back without repeating",
+  "sourceSpeakingEnglish": "Role-play Un libro prestado with a patient classmate. Practice refer back without repeating. Use this lesson's grammar, ask a related question, answer the partner, and confirm understanding. Keep language at beginner level; explain unfamiliar words in English when asked.",
+  "sourceGrammarEnglish": {
+    "focus": "Lo, la, los and las replace a direct object and agree with it: el libro → lo; las llaves → las. Put the pronoun before a conjugated verb.",
+    "examples": [
+      {
+        "es": "Necesito el libro de Julia.",
+        "en": "I need Julia's book."
+      },
+      {
+        "es": "Ella lo tiene en su mochila.",
+        "en": "She has it in her backpack."
+      }
+    ]
+  },
+  "sourceReaderTitleSpanish": "Un libro prestado",
+  "cards": [
+    {
+      "id": "master-french-basics:17:card:1",
+      "sourceSpanish": "me",
+      "sourceEnglish": "me / myself",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish me covers object and reflexive uses. French me/moi varies by syntax; choose contextual examples rather than one answer."
+    },
+    {
+      "id": "master-french-basics:17:card:2",
+      "sourceSpanish": "mochila",
+      "sourceEnglish": "backpack",
+      "kind": "term",
+      "proposedFrench": "sac à dos",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source mochila is feminine; French sac à dos is masculine. Its object pronoun is le/l', not la."
+    },
+    {
+      "id": "master-french-basics:17:card:3",
+      "sourceSpanish": "libro",
+      "sourceEnglish": "book",
+      "kind": "term",
+      "proposedFrench": "livre",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:17:card:4",
+      "sourceSpanish": "clase",
+      "sourceEnglish": "class / classroom",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source clase groups class session and classroom. The Reader's después de clase means after class; cours is contextual."
+    },
+    {
+      "id": "master-french-basics:17:card:5",
+      "sourceSpanish": "el",
+      "sourceEnglish": "the (masculine singular)",
+      "kind": "term",
+      "proposedFrench": "le",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source el is masculine singular. French le elides to l' before a vowel and requires a noun context."
+    },
+    {
+      "id": "master-french-basics:17:card:6",
+      "sourceSpanish": "la",
+      "sourceEnglish": "the / it / her (feminine)",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source la groups feminine article, object it and person her. French la/l' and lui differ by grammatical role."
+    },
+    {
+      "id": "master-french-basics:17:card:7",
+      "sourceSpanish": "un",
+      "sourceEnglish": "a (masculine)",
+      "kind": "term",
+      "proposedFrench": "un",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source un is masculine singular; French un must agree with the chosen noun."
+    },
+    {
+      "id": "master-french-basics:17:card:8",
+      "sourceSpanish": "en",
+      "sourceEnglish": "in / on / at",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source en covers in/on/at; French dans, sur, à and au depend on the phrase."
+    },
+    {
+      "id": "master-french-basics:17:card:9",
+      "sourceSpanish": "y",
+      "sourceEnglish": "and",
+      "kind": "term",
+      "proposedFrench": "et",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:17:card:10",
+      "sourceSpanish": "tengo",
+      "sourceEnglish": "I have",
+      "kind": "term",
+      "proposedFrench": "j'ai",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish tengo is I have; French j'ai is a contextual conjugation, while source pronoun placement needs separate teaching."
+    },
+    {
+      "id": "master-french-basics:17:card:11",
+      "sourceSpanish": "necesito",
+      "sourceEnglish": "I need",
+      "kind": "term",
+      "proposedFrench": "j'ai besoin de",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish necesito is I need; French avoir besoin de changes the construction and contracts in du/des."
+    },
+    {
+      "id": "master-french-basics:17:card:12",
+      "sourceSpanish": "los",
+      "sourceEnglish": "the / them (masculine plural)",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source los is masculine plural article or object pronoun. French les does not encode that masculine contrast."
+    },
+    {
+      "id": "master-french-basics:17:card:13",
+      "sourceSpanish": "Necesito el libro de Julia.",
+      "sourceEnglish": "I need Julia's book.",
+      "kind": "phrase",
+      "proposedFrench": "J'ai besoin du livre de Julia.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:17:card:14",
+      "sourceSpanish": "Ella lo tiene en su mochila.",
+      "sourceEnglish": "She has it in her backpack.",
+      "kind": "phrase",
+      "proposedFrench": "Elle l'a dans son sac à dos.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish lo refers to masculine libro; French l' elides le before a and son agrees with masculine sac à dos."
+    },
+    {
+      "id": "master-french-basics:17:card:15",
+      "sourceSpanish": "Le pido el libro después de clase.",
+      "sourceEnglish": "I ask her for the book after class.",
+      "kind": "phrase",
+      "proposedFrench": "Je lui demande le livre après le cours.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish le is an indirect object for Julia; French lui, unlike la, marks the recipient. Après le cours keeps the class-session sense."
+    },
+    {
+      "id": "master-french-basics:17:card:16",
+      "sourceSpanish": "Julia me lo presta por un día.",
+      "sourceEnglish": "Julia lends it to me for one day.",
+      "kind": "phrase",
+      "proposedFrench": "Julia me le prête pour une journée.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish me lo and French me le preserve indirect recipient plus direct object order; por un día is duration, not purpose."
+    },
+    {
+      "id": "master-french-basics:17:card:17",
+      "sourceSpanish": "Lo leo en la biblioteca.",
+      "sourceEnglish": "I read it in the library.",
+      "kind": "phrase",
+      "proposedFrench": "Je le lis à la bibliothèque.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:17:card:18",
+      "sourceSpanish": "Después le devuelvo el libro.",
+      "sourceEnglish": "Afterward I return the book to her.",
+      "kind": "phrase",
+      "proposedFrench": "Ensuite, je lui rends le livre.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:17:card:19",
+      "sourceSpanish": "Busco el libro y lo encuentro.",
+      "sourceEnglish": "I look for the book and find it.",
+      "kind": "phrase",
+      "proposedFrench": "Je cherche le livre et je le trouve.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:17:card:20",
+      "sourceSpanish": "Tengo la mochila y la abro.",
+      "sourceEnglish": "I have the backpack and open it.",
+      "kind": "phrase",
+      "proposedFrench": "J'ai le sac à dos et je l'ouvre.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source feminine mochila becomes masculine sac à dos; French l' is elided le here, not evidence that both nouns share gender."
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-french-basics:17:reader:1",
+      "sourceSpanish": "Necesito el libro de Julia.",
+      "sourceEnglish": "I need Julia's book.",
+      "proposedFrench": "J'ai besoin du livre de Julia.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:17:reader:2",
+      "sourceSpanish": "Ella lo tiene en su mochila.",
+      "sourceEnglish": "She has it in her backpack.",
+      "proposedFrench": "Elle l'a dans son sac à dos.",
+      "selectedFrench": null,
+      "decisionNote": "French l' hides the book's masculine pronoun shape; show le livre → le → l' explicitly in grammar."
+    },
+    {
+      "id": "master-french-basics:17:reader:3",
+      "sourceSpanish": "Le pido el libro después de clase.",
+      "sourceEnglish": "I ask her for the book after class.",
+      "proposedFrench": "Je lui demande le livre après le cours.",
+      "selectedFrench": null,
+      "decisionNote": "Keep indirect lui for Julia distinct from direct le for the book."
+    },
+    {
+      "id": "master-french-basics:17:reader:4",
+      "sourceSpanish": "Julia me lo presta por un día.",
+      "sourceEnglish": "Julia lends it to me for one day.",
+      "proposedFrench": "Julia me le prête pour une journée.",
+      "selectedFrench": null,
+      "decisionNote": "French me le order is central to this lesson; validate the recipient and duration senses."
+    },
+    {
+      "id": "master-french-basics:17:reader:5",
+      "sourceSpanish": "Lo leo en la biblioteca.",
+      "sourceEnglish": "I read it in the library.",
+      "proposedFrench": "Je le lis à la bibliothèque.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:17:reader:6",
+      "sourceSpanish": "Después le devuelvo el libro.",
+      "sourceEnglish": "Afterward I return the book to her.",
+      "proposedFrench": "Ensuite, je lui rends le livre.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:17:reader:7",
+      "sourceSpanish": "Busco el libro y lo encuentro.",
+      "sourceEnglish": "I look for the book and find it.",
+      "proposedFrench": "Je cherche le livre et je le trouve.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:17:reader:8",
+      "sourceSpanish": "Tengo la mochila y la abro.",
+      "sourceEnglish": "I have the backpack and open it.",
+      "proposedFrench": "J'ai le sac à dos et je l'ouvre.",
+      "selectedFrench": null,
+      "decisionNote": "Spanish la marks feminine mochila, but French sac à dos requires le/l'. Keep the cross-language gender change visible."
+    },
+    {
+      "id": "master-french-basics:17:reader:9",
+      "sourceSpanish": "Compro los cuadernos y los guardo.",
+      "sourceEnglish": "I buy the notebooks and put them away.",
+      "proposedFrench": "J'achète les cahiers et je les range.",
+      "selectedFrench": null,
+      "decisionNote": "French les for notebooks is plural without Spanish masculine agreement; this contrast needs explicit explanation."
+    },
+    {
+      "id": "master-french-basics:17:reader:10",
+      "sourceSpanish": "Necesito las llaves, pero no las veo.",
+      "sourceEnglish": "I need the keys, but I do not see them.",
+      "proposedFrench": "J'ai besoin des clés, mais je ne les vois pas.",
+      "selectedFrench": null,
+      "decisionNote": "French les for keys is also plural without Spanish feminine agreement; include both noun contexts."
+    },
+    {
+      "id": "master-french-basics:17:reader:11",
+      "sourceSpanish": "Ana tiene el lápiz y lo usa.",
+      "sourceEnglish": "Ana has the pencil and uses it.",
+      "proposedFrench": "Ana a le crayon et elle l'utilise.",
+      "selectedFrench": null,
+      "decisionNote": "French l' elides masculine le before utilise; preserve the pencil antecedent."
+    },
+    {
+      "id": "master-french-basics:17:reader:12",
+      "sourceSpanish": "¿La tienes tú?",
+      "sourceEnglish": "Do you have it?",
+      "proposedFrench": "Tu l'as, toi ?",
+      "selectedFrench": null,
+      "decisionNote": "Spanish la is feminine, but its antecedent is not explicit in this isolated line. French l' also hides gender. Qualified source/curriculum review must select the referent before scoring."
+    }
+  ],
+  "conditionalModeEvidence": [
+    {
+      "mode": "See",
+      "sourceRef": "master-french-basics:17:reader:1",
+      "sourceEnglish": "I need Julia's book.",
+      "conditionalFrench": "J'ai besoin du livre de Julia.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Recall",
+      "sourceRef": "master-french-basics:17:reader:2",
+      "sourceEnglish": "She has it in her backpack.",
+      "conditionalFrench": "Elle l'a dans son sac à dos.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Hear",
+      "sourceRef": "master-french-basics:17:reader:4",
+      "sourceEnglish": "Julia lends it to me for one day.",
+      "conditionalFrench": "Julia me le prête pour une journée.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Type",
+      "sourceRef": "master-french-basics:17:reader:8",
+      "sourceEnglish": "I have the backpack and open it.",
+      "conditionalFrench": "J'ai le sac à dos et je l'ouvre.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Say",
+      "sourceRef": "master-french-basics:17:reader:10",
+      "sourceEnglish": "I need the keys, but I do not see them.",
+      "conditionalFrench": "J'ai besoin des clés, mais je ne les vois pas.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Write",
+      "sourceRef": "master-french-basics:17:reader:12",
+      "sourceEnglish": "Do you have it?",
+      "conditionalFrench": "Tu l'as, toi ?",
+      "readyForLearner": false,
+      "recordedAudio": false
+    }
+  ],
+  "conditionalFormEvidence": [
+    {
+      "sourceRefs": [
+        "master-french-basics:17:reader:1",
+        "master-french-basics:17:reader:2",
+        "master-french-basics:17:reader:5",
+        "master-french-basics:17:reader:7"
+      ],
+      "focus": "le/l' for the masculine book; direct object before the verb",
+      "readyForLearner": false
+    },
+    {
+      "sourceRefs": [
+        "master-french-basics:17:reader:3",
+        "master-french-basics:17:reader:4",
+        "master-french-basics:17:reader:6"
+      ],
+      "focus": "lui versus le; me le order and recipient",
+      "readyForLearner": false
+    },
+    {
+      "sourceRefs": [
+        "master-french-basics:17:reader:8",
+        "master-french-basics:17:reader:9",
+        "master-french-basics:17:reader:10",
+        "master-french-basics:17:reader:11",
+        "master-french-basics:17:reader:12"
+      ],
+      "focus": "cross-language noun gender, plural les, elision and antecedent clarity",
+      "readyForLearner": false
+    }
+  ],
+  "conditionalSpeakingEvidence": {
+    "sourceScene": "Un libro prestado",
+    "focus": "Borrow Julia's book, refer back to the book and other objects without repetition, and confirm the antecedent.",
+    "sourceRefs": [
+      "master-french-basics:17:reader:1",
+      "master-french-basics:17:reader:2",
+      "master-french-basics:17:reader:3",
+      "master-french-basics:17:reader:4",
+      "master-french-basics:17:reader:5",
+      "master-french-basics:17:reader:6",
+      "master-french-basics:17:reader:7",
+      "master-french-basics:17:reader:8",
+      "master-french-basics:17:reader:12"
+    ],
+    "readyForLearner": false
+  },
+  "archivedRedesign": {
+    "title": "Réparer une référence ambiguë",
+    "scene": "Deux organisatrices et deux dossiers sont mentionnés. Un pronom ambigu provoque une confusion sur le destinataire et l’objet.",
+    "separateFromCurrentSource": true,
+    "reason": "The archived Nadia/Camille folder-handoff and ambiguous-recipient repair change the source borrowed-book scene and direct-object objective; they cannot inherit this lesson's saved positions or recordings."
+  },
+  "sourceDecisions": [
+    "Source lo/la/los/las agreement needs French le/la/les and elision taught with explicit book, backpack, notebook and key antecedents. French les does not retain source plural gender.",
+    "Source direct-object objective also includes indirect le and me lo in the Reader; choose a clear progression for le/la/les versus lui and me le rather than silently changing the source objective.",
+    "Source final ¿La tienes tú? lacks an explicit antecedent in that line. Decide the intended feminine object before assigning a French answer or saved-item mapping.",
+    "Source class/classroom, mochila/sac à dos, in/on/at, and article/object-pronoun headwords need contextual dictionary senses; French grammatical gender and elision must be explicit.",
+    "The source places beginner direct-object pronouns at Master 17; qualified curriculum review must decide progression while preserving the stage-local progress identity."
+  ],
+  "selectedDecision": null,
+  "normalProjectionAllowed": false,
+  "audioScript": null,
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedCurriculumReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "nativeV4Registered": false
+  }
+}

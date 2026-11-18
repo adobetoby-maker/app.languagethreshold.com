@@ -1,0 +1,459 @@
+{
+  "schema": "french101-master18-source-decision-v1",
+  "pairKey": "French:English",
+  "courseId": "french-basics",
+  "moduleId": "master-french-basics",
+  "stage": "master",
+  "n": 18,
+  "stableLessonId": "master-french-basics:18",
+  "stablePairId": "master-french-basics:18:fr-en",
+  "sourceFilesSha256": {
+    "src/data/core60/es/master-spanish-basics.json": "27084a65c51ef96ab6b74dd969de1c4b38cd670be1c4b148e2b66f4d9bb15ede",
+    "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe",
+    "content/review-archive/french-japanese-2026-11-15/french-101/master-16-18-redesign-draft.json": "e7beef3838d3c56452eb135b68de488f532be6024acf2f46121b8ffa9225d6a0"
+  },
+  "sourceTitleEnglish": "Tell what happened yesterday",
+  "sourceObjectiveEnglish": "Tell what happened yesterday: The preterite reports completed past actions.",
+  "sourceFocusEnglish": "Tell what happened yesterday",
+  "sourceSpeakingEnglish": "Role-play Una tarde diferente with a patient classmate. Practice tell what happened yesterday. Use this lesson's grammar, ask a related question, answer the partner, and confirm understanding. Keep language at beginner level; explain unfamiliar words in English when asked.",
+  "sourceGrammarEnglish": {
+    "focus": "The preterite reports completed past actions. Regular -ar endings include -é, -aste, -ó, -amos, -aron; -er/-ir include -í, -iste, -ió, -imos, -ieron. Written accents matter.",
+    "examples": [
+      {
+        "es": "Ayer estudié con Julia.",
+        "en": "Yesterday I studied with Julia."
+      },
+      {
+        "es": "Terminamos la tarea a las cinco.",
+        "en": "We finished the homework at five."
+      }
+    ]
+  },
+  "sourceReaderTitleSpanish": "Una tarde diferente",
+  "cards": [
+    {
+      "id": "master-french-basics:18:card:1",
+      "sourceSpanish": "cuaderno",
+      "sourceEnglish": "notebook",
+      "kind": "term",
+      "proposedFrench": "cahier",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:18:card:2",
+      "sourceSpanish": "el",
+      "sourceEnglish": "the (masculine singular)",
+      "kind": "term",
+      "proposedFrench": "le",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "French le must be attached to a masculine noun and may elide; source el is a masculine singular article."
+    },
+    {
+      "id": "master-french-basics:18:card:3",
+      "sourceSpanish": "la",
+      "sourceEnglish": "the / it / her (feminine)",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish la groups feminine article, it and her; French la/l’ as article or object cannot be one context-free scored face."
+    },
+    {
+      "id": "master-french-basics:18:card:4",
+      "sourceSpanish": "un",
+      "sourceEnglish": "a (masculine)",
+      "kind": "term",
+      "proposedFrench": "un",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish un and French un align only with masculine nouns; contextual noun agreement remains required."
+    },
+    {
+      "id": "master-french-basics:18:card:5",
+      "sourceSpanish": "un cuaderno",
+      "sourceEnglish": "a notebook",
+      "kind": "term",
+      "proposedFrench": "un cahier",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:18:card:6",
+      "sourceSpanish": "en",
+      "sourceEnglish": "in / on / at",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source en groups in/on/at; French dans, sur, à or au depends on the phrase."
+    },
+    {
+      "id": "master-french-basics:18:card:7",
+      "sourceSpanish": "las",
+      "sourceEnglish": "the / them (feminine plural)",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish las groups feminine plural article and object them; French les is gender-neutral and role-dependent."
+    },
+    {
+      "id": "master-french-basics:18:card:8",
+      "sourceSpanish": "profesora",
+      "sourceEnglish": "female teacher",
+      "kind": "term",
+      "proposedFrench": "enseignante",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Professora marks a female teacher; French enseignante preserves gender, while professeure may be preferred by locale/register."
+    },
+    {
+      "id": "master-french-basics:18:card:9",
+      "sourceSpanish": "amigos",
+      "sourceEnglish": "friends",
+      "kind": "term",
+      "proposedFrench": "amis",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:18:card:10",
+      "sourceSpanish": "biblioteca",
+      "sourceEnglish": "library",
+      "kind": "term",
+      "proposedFrench": "bibliothèque",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:18:card:11",
+      "sourceSpanish": "casa",
+      "sourceEnglish": "house",
+      "kind": "term",
+      "proposedFrench": "maison",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:18:card:12",
+      "sourceSpanish": "con",
+      "sourceEnglish": "with",
+      "kind": "term",
+      "proposedFrench": "avec",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:18:card:13",
+      "sourceSpanish": "Ayer estudié con Julia.",
+      "sourceEnglish": "Yesterday I studied with Julia.",
+      "kind": "phrase",
+      "proposedFrench": "Hier, j’ai étudié avec Julia.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish preterite estudié uses a simple completed past; proposed French passé composé requires a curriculum decision."
+    },
+    {
+      "id": "master-french-basics:18:card:14",
+      "sourceSpanish": "Terminamos la tarea a las cinco.",
+      "sourceEnglish": "We finished the homework at five.",
+      "kind": "phrase",
+      "proposedFrench": "Nous avons terminé les devoirs à cinq heures.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source tarea is singular homework/task; les devoirs is natural homework usage but changes grammatical number."
+    },
+    {
+      "id": "master-french-basics:18:card:15",
+      "sourceSpanish": "Diego compró pan en la tienda.",
+      "sourceEnglish": "Diego bought bread at the store.",
+      "kind": "phrase",
+      "proposedFrench": "Diego a acheté du pain au magasin.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source en la tienda means at the store; au magasin is conditional for location and store sense."
+    },
+    {
+      "id": "master-french-basics:18:card:16",
+      "sourceSpanish": "Comimos en el parque.",
+      "sourceEnglish": "We ate in the park.",
+      "kind": "phrase",
+      "proposedFrench": "Nous avons mangé dans le parc.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source en el parque is in the park; dans le parc keeps interior sense, but au parc may be idiomatic by context."
+    },
+    {
+      "id": "master-french-basics:18:card:17",
+      "sourceSpanish": "Julia escribió un mensaje a su hermana.",
+      "sourceEnglish": "Julia wrote a message to her sister.",
+      "kind": "phrase",
+      "proposedFrench": "Julia a écrit un message à sa sœur.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "French sa agrees with sœur; source su does not mark the possessed noun’s gender."
+    },
+    {
+      "id": "master-french-basics:18:card:18",
+      "sourceSpanish": "Después caminamos a casa.",
+      "sourceEnglish": "Afterward we walked home.",
+      "kind": "phrase",
+      "proposedFrench": "Ensuite, nous sommes rentrés à pied.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Rentrer à pied preserves walking home but could imply return rather than simply walking toward home; qualify before selection."
+    },
+    {
+      "id": "master-french-basics:18:card:19",
+      "sourceSpanish": "Ayer estudié en la biblioteca.",
+      "sourceEnglish": "Yesterday I studied in the library.",
+      "kind": "phrase",
+      "proposedFrench": "Hier, j’ai étudié à la bibliothèque.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "French à la bibliothèque uses a locative preposition where source uses en; assess exact sense in context."
+    },
+    {
+      "id": "master-french-basics:18:card:20",
+      "sourceSpanish": "Ana compró un cuaderno.",
+      "sourceEnglish": "Ana bought a notebook.",
+      "kind": "phrase",
+      "proposedFrench": "Ana a acheté un cahier.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-french-basics:18:reader:1",
+      "sourceSpanish": "Ayer estudié con Julia.",
+      "sourceEnglish": "Yesterday I studied with Julia.",
+      "proposedFrench": "Hier, j’ai étudié avec Julia.",
+      "selectedFrench": null,
+      "decisionNote": "Source preterite versus French passé composé needs a curriculum decision; no answer is selected."
+    },
+    {
+      "id": "master-french-basics:18:reader:2",
+      "sourceSpanish": "Terminamos la tarea a las cinco.",
+      "sourceEnglish": "We finished the homework at five.",
+      "proposedFrench": "Nous avons terminé les devoirs à cinq heures.",
+      "selectedFrench": null,
+      "decisionNote": "Source singular tarea versus proposed plural devoirs needs meaning and saved-card review."
+    },
+    {
+      "id": "master-french-basics:18:reader:3",
+      "sourceSpanish": "Diego compró pan en la tienda.",
+      "sourceEnglish": "Diego bought bread at the store.",
+      "proposedFrench": "Diego a acheté du pain au magasin.",
+      "selectedFrench": null,
+      "decisionNote": "At the store is proposed au magasin, retaining the store rather than a new destination."
+    },
+    {
+      "id": "master-french-basics:18:reader:4",
+      "sourceSpanish": "Comimos en el parque.",
+      "sourceEnglish": "We ate in the park.",
+      "proposedFrench": "Nous avons mangé dans le parc.",
+      "selectedFrench": null,
+      "decisionNote": "Source in the park is proposed dans le parc; au parc is a contextual alternative."
+    },
+    {
+      "id": "master-french-basics:18:reader:5",
+      "sourceSpanish": "Julia escribió un mensaje a su hermana.",
+      "sourceEnglish": "Julia wrote a message to her sister.",
+      "proposedFrench": "Julia a écrit un message à sa sœur.",
+      "selectedFrench": null,
+      "decisionNote": "Sa agrees with sœur in French; source su is not gender-marked."
+    },
+    {
+      "id": "master-french-basics:18:reader:6",
+      "sourceSpanish": "Después caminamos a casa.",
+      "sourceEnglish": "Afterward we walked home.",
+      "proposedFrench": "Ensuite, nous sommes rentrés à pied.",
+      "selectedFrench": null,
+      "decisionNote": "Rentrer à pied retains walking home but adds return nuance; qualified choice required."
+    },
+    {
+      "id": "master-french-basics:18:reader:7",
+      "sourceSpanish": "Ayer estudié en la biblioteca.",
+      "sourceEnglish": "Yesterday I studied in the library.",
+      "proposedFrench": "Hier, j’ai étudié à la bibliothèque.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:18:reader:8",
+      "sourceSpanish": "Ana compró un cuaderno.",
+      "sourceEnglish": "Ana bought a notebook.",
+      "proposedFrench": "Ana a acheté un cahier.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:18:reader:9",
+      "sourceSpanish": "Comimos en la cafetería.",
+      "sourceEnglish": "We ate in the cafeteria.",
+      "proposedFrench": "Nous avons mangé à la cafétéria.",
+      "selectedFrench": null,
+      "decisionNote": "Source cafetería is cafeteria, not a café; cafétéria is a conditional locale choice."
+    },
+    {
+      "id": "master-french-basics:18:reader:10",
+      "sourceSpanish": "Luis escribió un mensaje.",
+      "sourceEnglish": "Luis wrote a message.",
+      "proposedFrench": "Luis a écrit un message.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:18:reader:11",
+      "sourceSpanish": "Mis amigos hablaron con la profesora.",
+      "sourceEnglish": "My friends spoke with the teacher.",
+      "proposedFrench": "Mes amis ont parlé avec l’enseignante.",
+      "selectedFrench": null,
+      "decisionNote": "Source profesora is female teacher; enseignante preserves gender; professeure is a contextual alternative."
+    },
+    {
+      "id": "master-french-basics:18:reader:12",
+      "sourceSpanish": "¿Terminaste la tarea ayer?",
+      "sourceEnglish": "Did you finish the homework yesterday?",
+      "proposedFrench": "As-tu terminé les devoirs hier ?",
+      "selectedFrench": null,
+      "decisionNote": "Source informal singular terminaste is proposed as informal singular as-tu; register needs review."
+    }
+  ],
+  "conditionalModeEvidence": [
+    {
+      "mode": "See",
+      "sourceRef": "master-french-basics:18:reader:1",
+      "sourceEnglish": "Yesterday I studied with Julia.",
+      "conditionalFrench": "Hier, j’ai étudié avec Julia.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Recall",
+      "sourceRef": "master-french-basics:18:reader:3",
+      "sourceEnglish": "Diego bought bread at the store.",
+      "conditionalFrench": "Diego a acheté du pain au magasin.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Hear",
+      "sourceRef": "master-french-basics:18:reader:5",
+      "sourceEnglish": "Julia wrote a message to her sister.",
+      "conditionalFrench": "Julia a écrit un message à sa sœur.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Type",
+      "sourceRef": "master-french-basics:18:reader:7",
+      "sourceEnglish": "Yesterday I studied in the library.",
+      "conditionalFrench": "Hier, j’ai étudié à la bibliothèque.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Say",
+      "sourceRef": "master-french-basics:18:reader:9",
+      "sourceEnglish": "We ate in the cafeteria.",
+      "conditionalFrench": "Nous avons mangé à la cafétéria.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Write",
+      "sourceRef": "master-french-basics:18:reader:12",
+      "sourceEnglish": "Did you finish the homework yesterday?",
+      "conditionalFrench": "As-tu terminé les devoirs hier ?",
+      "readyForLearner": false,
+      "recordedAudio": false
+    }
+  ],
+  "conditionalFormEvidence": [
+    {
+      "sourceRefs": [
+        "master-french-basics:18:reader:1",
+        "master-french-basics:18:reader:7",
+        "master-french-basics:18:reader:12"
+      ],
+      "focus": "completed-past narration and informal singular question",
+      "readyForLearner": false
+    },
+    {
+      "sourceRefs": [
+        "master-french-basics:18:reader:2",
+        "master-french-basics:18:reader:5",
+        "master-french-basics:18:reader:11"
+      ],
+      "focus": "past forms, homework number, possessive gender and teacher term",
+      "readyForLearner": false
+    },
+    {
+      "sourceRefs": [
+        "master-french-basics:18:reader:3",
+        "master-french-basics:18:reader:4",
+        "master-french-basics:18:reader:6",
+        "master-french-basics:18:reader:9"
+      ],
+      "focus": "store, park, cafeteria and walking home locatives",
+      "readyForLearner": false
+    }
+  ],
+  "conditionalSpeakingEvidence": {
+    "sourceScene": "Una tarde diferente",
+    "focus": "Tell a classmate in order what happened yesterday with Julia, Diego and Ana, then answer whether homework was finished.",
+    "sourceRefs": [
+      "master-french-basics:18:reader:1",
+      "master-french-basics:18:reader:2",
+      "master-french-basics:18:reader:3",
+      "master-french-basics:18:reader:4",
+      "master-french-basics:18:reader:5",
+      "master-french-basics:18:reader:6",
+      "master-french-basics:18:reader:7",
+      "master-french-basics:18:reader:8",
+      "master-french-basics:18:reader:12"
+    ],
+    "readyForLearner": false
+  },
+  "archivedRedesign": {
+    "title": "Raconter une sortie passée dans l’ordre",
+    "scene": "Une visite au musée a changé à cause de la pluie. Un ami demande quel événement est arrivé d’abord et pourquoi le groupe a modifié son trajet.",
+    "separateFromCurrentSource": true,
+    "reason": "The archived rainy museum outing changes the source yesterday-at-school events, characters and completed-past objective; it cannot inherit this lesson's saved positions or recordings."
+  },
+  "sourceDecisions": [
+    "The source objective teaches Spanish preterite for completed past actions; French passé composé is proposed only conditionally. Qualified curriculum review must decide the adaptation and Master-stage placement.",
+    "Source tarea is singular while natural French homework often uses plural les devoirs; choose a contextual phrase and dictionary/saved-item mapping.",
+    "Source la, las and en group senses that cannot map to a single context-free French scored answer; show articles, object pronouns, gender and locatives directly in final teaching.",
+    "Source profesora is a female teacher; qualify enseignante versus professeure by locale/register and preserve the female reference.",
+    "Source walk home, cafeteria, store, park and informal singular final question need exact meaning and register review before selecting French."
+  ],
+  "selectedDecision": null,
+  "normalProjectionAllowed": false,
+  "audioScript": null,
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedCurriculumReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "nativeV4Registered": false
+  }
+}

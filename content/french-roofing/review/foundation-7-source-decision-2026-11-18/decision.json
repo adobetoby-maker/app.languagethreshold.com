@@ -1,0 +1,399 @@
+{
+  "schema": 1,
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "sourceModuleId": "foundation-roofing",
+  "archivedHeaderModuleId": "roofing",
+  "proposedStageLocalLessonId": "foundation-roofing:7:fr-en",
+  "identityDecision": "All archived stages use moduleId roofing. Proposed pair-scoped row IDs are review evidence only; preserve existing saved items and account progress through a separately qualified migration before runtime use.",
+  "source": {
+    "curriculum": {
+      "path": "src/data/foundation-roofing-curriculum.ts",
+      "sha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/foundation-roofing.json",
+      "sha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/french-roofing/foundation-7-10-draft.json",
+      "sha256": "811b1206f51bfddc62499b35e87c329283c997d9cc2133eed030f62def123b80"
+    }
+  },
+  "sourceRowsSha256": "ccbec552a38bfdc94f02370ee71a9afc1a9af55d06cab680c4c6dd52bc57b818",
+  "sourceTitleEnglish": "Questions",
+  "sourceObjectiveEnglish": "Ask the questions you need on any job",
+  "sourceFocusEnglish": "qué, quién, dónde, cuándo, cuánto, cómo, por qué",
+  "sourceSpeakingEnglish": "Ask a new crew lead five questions: where things are, who is in charge, and when you start.",
+  "archivedFrenchFocusEnglish": "Question words (what, who, where, when, how much, how, why, which) and three ways to ask a question: rising intonation (Vous avez des questions ?), est-ce que (Est-ce que vous avez des questions ?), and inversion (Avez-vous des questions ?, Où est l'échelle ?)",
+  "cards": [
+    {
+      "proposedRowId": "foundation-roofing:7:fr-en:card:1",
+      "sourcePosition": 1,
+      "sourceSpanish": "qué",
+      "sourceEnglish": "what",
+      "kind": "term",
+      "archivedFrench": "qu'est-ce que",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": "The source headword 'what' is context-free. Archived qu'est-ce que is a question construction; standalone quoi and other syntax need contextual dictionary and mode decisions.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:7:fr-en:card:2",
+      "sourcePosition": 2,
+      "sourceSpanish": "quién",
+      "sourceEnglish": "who",
+      "kind": "term",
+      "archivedFrench": "qui",
+      "conditionalFrench": "qui",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:7:fr-en:card:3",
+      "sourcePosition": 3,
+      "sourceSpanish": "dónde",
+      "sourceEnglish": "where",
+      "kind": "term",
+      "archivedFrench": "où",
+      "conditionalFrench": "où",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:7:fr-en:card:4",
+      "sourcePosition": 4,
+      "sourceSpanish": "cuándo",
+      "sourceEnglish": "when",
+      "kind": "term",
+      "archivedFrench": "quand",
+      "conditionalFrench": "quand",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:7:fr-en:card:5",
+      "sourcePosition": 5,
+      "sourceSpanish": "cuánto",
+      "sourceEnglish": "how much, how many",
+      "kind": "term",
+      "archivedFrench": "combien de",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": "The source 'how much, how many' can stand alone. Archived combien de requires a following noun; select contextual forms together with Reader line 5.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:7:fr-en:card:6",
+      "sourcePosition": 6,
+      "sourceSpanish": "cómo",
+      "sourceEnglish": "how",
+      "kind": "term",
+      "archivedFrench": "comment",
+      "conditionalFrench": "comment",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:7:fr-en:card:7",
+      "sourcePosition": 7,
+      "sourceSpanish": "por qué",
+      "sourceEnglish": "why",
+      "kind": "term",
+      "archivedFrench": "pourquoi",
+      "conditionalFrench": "pourquoi",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:7:fr-en:card:8",
+      "sourcePosition": 8,
+      "sourceSpanish": "cuál",
+      "sourceEnglish": "which",
+      "kind": "term",
+      "archivedFrench": "quel, quelle",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": "The source 'which' is context-free. Archived quel, quelle shows only singular gender forms; plural forms and noun agreement need an authored activity and dictionary decision.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:7:fr-en:card:9",
+      "sourcePosition": 9,
+      "sourceSpanish": "¿Dónde está la escalera?",
+      "sourceEnglish": "Where is the ladder?",
+      "kind": "phrase",
+      "archivedFrench": "Où est l'échelle ?",
+      "conditionalFrench": "Où est l'échelle ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:7:fr-en:card:10",
+      "sourcePosition": 10,
+      "sourceSpanish": "¿Cuándo llega el material?",
+      "sourceEnglish": "When does the material arrive?",
+      "kind": "phrase",
+      "archivedFrench": "Quand les matériaux arrivent-ils ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": "The source says singular 'the material'. Archived les matériaux is plural; do not score or record it until number and construction-material sense are settled.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:7:fr-en:card:11",
+      "sourcePosition": 11,
+      "sourceSpanish": "¿Quién es el jefe?",
+      "sourceEnglish": "Who is the boss?",
+      "kind": "phrase",
+      "archivedFrench": "Qui est le chef ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": "The source 'boss' may refer to employer or crew lead. Archived chef needs a qualified role/register decision before selection.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:7:fr-en:card:12",
+      "sourcePosition": 12,
+      "sourceSpanish": "¿Por qué paramos?",
+      "sourceEnglish": "Why are we stopping?",
+      "kind": "phrase",
+      "archivedFrench": "Pourquoi on s'arrête ?",
+      "conditionalFrench": "Pourquoi on s'arrête ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "proposedRowId": "foundation-roofing:7:fr-en:line:1",
+      "sourcePosition": 1,
+      "sourceSpanish": "Hoy es mi primer día y tengo preguntas.",
+      "sourceEnglish": "Today is my first day and I have questions.",
+      "archivedFrench": "C'est mon premier jour et j'ai des questions.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": "The exact source begins 'Today is my first day'; the archived French omits today. Restore the time anchor before a selected answer or recording.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:7:fr-en:line:2",
+      "sourcePosition": 2,
+      "sourceSpanish": "¿Quién es el jefe?",
+      "sourceEnglish": "Who is the boss?",
+      "archivedFrench": "Qui est le chef ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": "Archived chef needs the same boss-versus-crew-lead role decision as card 11.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:7:fr-en:line:3",
+      "sourcePosition": 3,
+      "sourceSpanish": "¿Dónde está la escalera?",
+      "sourceEnglish": "Where is the ladder?",
+      "archivedFrench": "Où est l'échelle ?",
+      "conditionalFrench": "Où est l'échelle ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:7:fr-en:line:4",
+      "sourcePosition": 4,
+      "sourceSpanish": "¿Cuándo llega el material?",
+      "sourceEnglish": "When does the material arrive?",
+      "archivedFrench": "Quand les matériaux arrivent-ils ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": "The source says singular material; archived les matériaux is plural. Align this line with card 10 and the intended jobsite sense.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:7:fr-en:line:5",
+      "sourcePosition": 5,
+      "sourceSpanish": "¿Cuánto material necesitamos y cuál es el color de las tejas?",
+      "sourceEnglish": "How much material do we need and what color are the shingles?",
+      "archivedFrench": "Combien de matériaux est-ce qu'il nous faut, et quelle est la couleur des bardeaux ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": "Archived les matériaux changes source singular material, and bardeaux narrows shingles by material/locale. Qualified trade and French review must settle both before recording.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:7:fr-en:line:6",
+      "sourcePosition": 6,
+      "sourceSpanish": "¿Qué hago primero y cómo me pongo el arnés?",
+      "sourceEnglish": "What do I do first and how do I put on the harness?",
+      "archivedFrench": "Qu'est-ce que je fais en premier, et comment est-ce que je mets le harnais ?",
+      "conditionalFrench": "Qu'est-ce que je fais en premier, et comment est-ce que je mets le harnais ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:7:fr-en:line:7",
+      "sourcePosition": 7,
+      "sourceSpanish": "¿Por qué paramos a las once?",
+      "sourceEnglish": "Why are we stopping at eleven?",
+      "archivedFrench": "Pourquoi on s'arrête à onze heures ?",
+      "conditionalFrench": "Pourquoi on s'arrête à onze heures ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "infinitive": "llegar",
+      "native": "to arrive",
+      "forms": {
+        "yo": "llego",
+        "tú": "llegas",
+        "él_ella_usted": "llega",
+        "nosotros": "llegamos",
+        "ellos_ustedes": "llegan"
+      },
+      "example": {
+        "target": "¿Cuándo llega el material?",
+        "native": "When does the material arrive?"
+      }
+    },
+    {
+      "infinitive": "parar",
+      "native": "to stop",
+      "forms": {
+        "yo": "paro",
+        "tú": "paras",
+        "él_ella_usted": "para",
+        "nosotros": "paramos",
+        "ellos_ustedes": "paran"
+      },
+      "example": {
+        "target": "¿Por qué paramos a las once?",
+        "native": "Why are we stopping at eleven?"
+      }
+    },
+    {
+      "infinitive": "preguntar",
+      "native": "to ask",
+      "forms": {
+        "yo": "pregunto",
+        "tú": "preguntas",
+        "él_ella_usted": "pregunta",
+        "nosotros": "preguntamos",
+        "ellos_ustedes": "preguntan"
+      },
+      "example": {
+        "target": "Siempre pregunto cuando no entiendo.",
+        "native": "I always ask when I don't understand."
+      },
+      "note": "Use preguntar to ask a question; pedir is to ask for something."
+    }
+  ],
+  "archivedConditionalFrenchVerbExamples": [
+    {
+      "infinitiveFrench": "arriver",
+      "meaningEnglish": "to arrive",
+      "exampleFrench": "Quand les matériaux arrivent-ils ?",
+      "exampleEnglish": "When does the material arrive?"
+    },
+    {
+      "infinitiveFrench": "s'arrêter",
+      "meaningEnglish": "to stop",
+      "exampleFrench": "Pourquoi on s'arrête à onze heures ?",
+      "exampleEnglish": "Why are we stopping at eleven?"
+    },
+    {
+      "infinitiveFrench": "demander",
+      "meaningEnglish": "to ask",
+      "exampleFrench": "Je demande toujours quand je ne comprends pas.",
+      "exampleEnglish": "I always ask when I don't understand."
+    }
+  ],
+  "archivedSpeakingFrenchOpening": "Chef, où sont les outils ? Qui dirige l'équipe ? Quand est-ce que je commence ? Où est la bâche ? Combien de clous est-ce qu'il nous faut ?",
+  "privateCandidateCorrectionsForReview": {
+    "questionForms": "French question words and constructions require context: quoi, qu'est-ce que, combien, combien de, quel/quelle/quels/quelles.",
+    "reader1": "Aujourd'hui, c'est mon premier jour et j'ai des questions. This restores the source time anchor; it is not selected.",
+    "register": "The archive mixes formal inversion and spoken on/est-ce que. A qualified French reviewer should decide the lesson register and six authored prompts."
+  },
+  "modeEvidence": {
+    "see": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "speakingEvidence": {
+    "readyForLearner": false
+  },
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedFrench": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "stageIdentity": false,
+    "sixModes": false,
+    "speaking": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

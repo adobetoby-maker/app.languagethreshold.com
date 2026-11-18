@@ -1,0 +1,430 @@
+{
+  "schema": 1,
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "French",
+    "native": "English"
+  },
+  "sourceModuleId": "foundation-roofing",
+  "archivedHeaderModuleId": "roofing",
+  "proposedStageLocalLessonId": "foundation-roofing:6:fr-en",
+  "identityDecision": "The archived Foundation header uses roofing, also used for archived Core and Master. Proposed pair-scoped row IDs are review evidence only; preserve existing account progress and saved items through a separately qualified migration before runtime use.",
+  "source": {
+    "curriculum": {
+      "path": "src/data/foundation-roofing-curriculum.ts",
+      "sha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/foundation-roofing.json",
+      "sha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/french-roofing/foundation-4-6-draft.json",
+      "sha256": "1af9bb8d09d7b45260c84fef23d45b162c7078052f44522ec7622565d425b963"
+    }
+  },
+  "sourceRowsSha256": "7684375fe4bc53628ade9b911c1510a54f2a80e78b45ef2b631d3d7623e86b08",
+  "sourceTitleEnglish": "Present Tense",
+  "sourceObjectiveEnglish": "Say what you and the crew do every day with regular verbs",
+  "sourceFocusEnglish": "present tense of -ar, -er and -ir verbs for yo, tú, usted, nosotros, ellos",
+  "sourceSpeakingEnglish": "Describe a normal workday: when the crew arrives, what you do in the morning and afternoon.",
+  "archivedFrenchFocusEnglish": "present tense of regular -er verbs (travailler, monter, couper, clouer); spelling-change -er verbs (manger, nettoyer); regular habiter; time words le matin, l'après-midi, à midi, à six heures, à la fin de la journée",
+  "cards": [
+    {
+      "proposedRowId": "foundation-roofing:6:fr-en:card:1",
+      "sourcePosition": 1,
+      "sourceSpanish": "el trabajo",
+      "sourceEnglish": "the work, the job",
+      "kind": "term",
+      "archivedFrench": "le travail",
+      "archivedNoteEnglish": "Le boulot is informal in France. Quebec speakers often say la job.",
+      "conditionalFrench": "le travail",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:6:fr-en:card:2",
+      "sourcePosition": 2,
+      "sourceSpanish": "la mañana",
+      "sourceEnglish": "the morning",
+      "kind": "term",
+      "archivedFrench": "le matin",
+      "archivedNoteEnglish": null,
+      "conditionalFrench": "le matin",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:6:fr-en:card:3",
+      "sourcePosition": 3,
+      "sourceSpanish": "la tarde",
+      "sourceEnglish": "the afternoon",
+      "kind": "term",
+      "archivedFrench": "l'après-midi",
+      "archivedNoteEnglish": null,
+      "conditionalFrench": "l'après-midi",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:6:fr-en:card:4",
+      "sourcePosition": 4,
+      "sourceSpanish": "la cuadrilla",
+      "sourceEnglish": "the crew",
+      "kind": "term",
+      "archivedFrench": "l'équipe",
+      "archivedNoteEnglish": "Feminine noun: une équipe. The elided l' hides the gender.",
+      "conditionalFrench": "l'équipe",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:6:fr-en:card:5",
+      "sourcePosition": 5,
+      "sourceSpanish": "el compañero",
+      "sourceEnglish": "the coworker",
+      "kind": "term",
+      "archivedFrench": "le collègue",
+      "archivedNoteEnglish": "Use la collègue for a woman.",
+      "conditionalFrench": "le collègue",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:6:fr-en:card:6",
+      "sourcePosition": 6,
+      "sourceSpanish": "el día",
+      "sourceEnglish": "the day",
+      "kind": "term",
+      "archivedFrench": "la journée",
+      "archivedNoteEnglish": "La journée is the working day. Le jour is a day as a calendar unit.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": "Spanish el día and English the day include a calendar day; archived la journée focuses on a day's span or workday. Choose the card/dictionary sense before scoring.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:6:fr-en:card:7",
+      "sourcePosition": 7,
+      "sourceSpanish": "la semana",
+      "sourceEnglish": "the week",
+      "kind": "term",
+      "archivedFrench": "la semaine",
+      "archivedNoteEnglish": null,
+      "conditionalFrench": "la semaine",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:6:fr-en:card:8",
+      "sourcePosition": 8,
+      "sourceSpanish": "el almuerzo",
+      "sourceEnglish": "the lunch",
+      "kind": "term",
+      "archivedFrench": "le déjeuner",
+      "archivedNoteEnglish": "France: le déjeuner means lunch. Quebec, Belgium and Switzerland: le déjeuner means breakfast, and le dîner means lunch. Say à midi to avoid confusion.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": "Archived le déjeuner means lunch in France but breakfast in Quebec, Belgium and Switzerland. The course locale and corresponding Reader 5 must be decided together.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:6:fr-en:card:9",
+      "sourcePosition": 9,
+      "sourceSpanish": "Trabajo en techos.",
+      "sourceEnglish": "I work on roofs.",
+      "kind": "phrase",
+      "archivedFrench": "Je travaille sur les toits.",
+      "archivedNoteEnglish": null,
+      "conditionalFrench": "Je travaille sur les toits.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:6:fr-en:card:10",
+      "sourcePosition": 10,
+      "sourceSpanish": "Subimos a las siete.",
+      "sourceEnglish": "We go up at seven.",
+      "kind": "phrase",
+      "archivedFrench": "On monte à sept heures.",
+      "archivedNoteEnglish": null,
+      "conditionalFrench": "On monte à sept heures.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:6:fr-en:card:11",
+      "sourcePosition": 11,
+      "sourceSpanish": "¿Dónde vive usted?",
+      "sourceEnglish": "Where do you live?",
+      "kind": "phrase",
+      "archivedFrench": "Vous habitez où ?",
+      "archivedNoteEnglish": "Habiter is the everyday regular verb for where you live; Où habitez-vous ? is more formal.",
+      "conditionalFrench": "Vous habitez où ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:6:fr-en:card:12",
+      "sourcePosition": 12,
+      "sourceSpanish": "Limpiamos al final.",
+      "sourceEnglish": "We clean up at the end.",
+      "kind": "phrase",
+      "archivedFrench": "On nettoie à la fin.",
+      "archivedNoteEnglish": null,
+      "conditionalFrench": "On nettoie à la fin.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "proposedRowId": "foundation-roofing:6:fr-en:line:1",
+      "sourcePosition": 1,
+      "sourceSpanish": "Trabajo en techos cinco días a la semana.",
+      "sourceEnglish": "I work on roofs five days a week.",
+      "archivedFrench": "Je travaille sur les toits cinq jours par semaine.",
+      "conditionalFrench": "Je travaille sur les toits cinq jours par semaine.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:6:fr-en:line:2",
+      "sourcePosition": 2,
+      "sourceSpanish": "La cuadrilla llega a la obra a las seis de la mañana.",
+      "sourceEnglish": "The crew gets to the jobsite at six in the morning.",
+      "archivedFrench": "L'équipe arrive au chantier à six heures du matin.",
+      "conditionalFrench": "L'équipe arrive au chantier à six heures du matin.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:6:fr-en:line:3",
+      "sourcePosition": 3,
+      "sourceSpanish": "Subimos a las siete.",
+      "sourceEnglish": "We go up at seven.",
+      "archivedFrench": "On monte à sept heures.",
+      "conditionalFrench": "On monte à sept heures.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:6:fr-en:line:4",
+      "sourcePosition": 4,
+      "sourceSpanish": "Mi compañero corta las tejas y yo clavo.",
+      "sourceEnglish": "My coworker cuts the shingles and I nail.",
+      "archivedFrench": "Mon collègue coupe les bardeaux et moi, je cloue.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": "Spanish tejas, English shingles and archived bardeaux need a roof-material and locale decision; the Reader specifies cutting and nailing work, so preserve the exact source action.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:6:fr-en:line:5",
+      "sourcePosition": 5,
+      "sourceSpanish": "Comemos el almuerzo a las doce.",
+      "sourceEnglish": "We eat lunch at twelve.",
+      "archivedFrench": "On mange à midi.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": "The archive says only that the crew eats at noon; the source explicitly says they eat lunch at twelve. Decide the meal word and regional use with card 8.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:6:fr-en:line:6",
+      "sourcePosition": 6,
+      "sourceSpanish": "Por la tarde, la cuadrilla baja el material viejo.",
+      "sourceEnglish": "In the afternoon, the crew brings down the old material.",
+      "archivedFrench": "L'après-midi, l'équipe descend les vieux matériaux.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": "The archive uses plural old materials for source singular old material. Qualified roofing/French review should decide the mass or plural sense before selecting this line.",
+      "reviewed": false
+    },
+    {
+      "proposedRowId": "foundation-roofing:6:fr-en:line:7",
+      "sourcePosition": 7,
+      "sourceSpanish": "Limpiamos al final del día.",
+      "sourceEnglish": "We clean up at the end of the day.",
+      "archivedFrench": "On nettoie à la fin de la journée.",
+      "conditionalFrench": "On nettoie à la fin de la journée.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "infinitive": "trabajar",
+      "native": "to work",
+      "forms": {
+        "yo": "trabajo",
+        "tú": "trabajas",
+        "él_ella_usted": "trabaja",
+        "nosotros": "trabajamos",
+        "ellos_ustedes": "trabajan"
+      },
+      "example": {
+        "target": "Trabajo en techos cinco días a la semana.",
+        "native": "I work on roofs five days a week."
+      },
+      "note": "Regular -ar verb."
+    },
+    {
+      "infinitive": "comer",
+      "native": "to eat",
+      "forms": {
+        "yo": "como",
+        "tú": "comes",
+        "él_ella_usted": "come",
+        "nosotros": "comemos",
+        "ellos_ustedes": "comen"
+      },
+      "example": {
+        "target": "Comemos el almuerzo a las doce.",
+        "native": "We eat lunch at twelve."
+      },
+      "note": "Regular -er verb."
+    },
+    {
+      "infinitive": "vivir",
+      "native": "to live",
+      "forms": {
+        "yo": "vivo",
+        "tú": "vives",
+        "él_ella_usted": "vive",
+        "nosotros": "vivimos",
+        "ellos_ustedes": "viven"
+      },
+      "example": {
+        "target": "¿Dónde vive usted?",
+        "native": "Where do you live?"
+      },
+      "note": "Regular -ir verb."
+    },
+    {
+      "infinitive": "limpiar",
+      "native": "to clean",
+      "forms": {
+        "yo": "limpio",
+        "tú": "limpias",
+        "él_ella_usted": "limpia",
+        "nosotros": "limpiamos",
+        "ellos_ustedes": "limpian"
+      },
+      "example": {
+        "target": "Limpiamos al final del día.",
+        "native": "We clean up at the end of the day."
+      }
+    }
+  ],
+  "archivedConditionalFrenchVerbExamples": [
+    {
+      "infinitiveFrench": "travailler",
+      "meaningEnglish": "to work",
+      "exampleFrench": "Je travaille sur les toits cinq jours par semaine.",
+      "exampleEnglish": "I work on roofs five days a week."
+    },
+    {
+      "infinitiveFrench": "manger",
+      "meaningEnglish": "to eat",
+      "exampleFrench": "On mange à midi.",
+      "exampleEnglish": "We eat lunch at twelve."
+    },
+    {
+      "infinitiveFrench": "habiter",
+      "meaningEnglish": "to live",
+      "exampleFrench": "Vous habitez où ?",
+      "exampleEnglish": "Where do you live?"
+    },
+    {
+      "infinitiveFrench": "nettoyer",
+      "meaningEnglish": "to clean",
+      "exampleFrench": "On nettoie à la fin de la journée.",
+      "exampleEnglish": "We clean up at the end of the day."
+    }
+  ],
+  "archivedSpeakingFrenchOpening": "L'équipe arrive à six heures. Le matin, je cloue les bardeaux. On mange à midi.",
+  "curriculumDecision": "Current source teaches Spanish regular -ar/-er/-ir present forms. The archived French adapts this to -er verbs, including manger and nettoyer spelling changes; a qualified curriculum/French decision must preserve the intended progression without presenting Spanish conjugation as French.",
+  "modeEvidence": {
+    "see": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "speakingEvidence": {
+    "readyForLearner": false
+  },
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedFrench": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "stageIdentity": false,
+    "sixModes": false,
+    "speaking": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

@@ -1,0 +1,688 @@
+{
+  "schema": "french-roofing-master12-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "master-roofing",
+  "sourceHeaderModuleId": "master-roofing",
+  "proposedLessonId": "master-roofing:12",
+  "proposedPairId": "master-roofing:12:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/master-10-12-draft.json": "f1ea1e0f43fb36872017420a0350bfd8ca060c17128c735522ad56142f7fabbf"
+  },
+  "orderedSourceRowsSha256": "0c3a3d7a98a3c4d51ed87687a264d74d1f34a788d677d43a5db215eccc29ae3b",
+  "sourceTitleEnglish": "Register: Homeowner, Crew, Boss, Inspector",
+  "sourceObjectiveEnglish": "Deliver the same news to a crew member, a homeowner, your manager and an inspector in the right register",
+  "sourceFocusEnglish": "Usted / tú switching; softeners (quisiera)",
+  "sourceGrammarExamples": [
+    {
+      "es": "Mira, encontramos madera podrida.",
+      "en": "Look, we found rotten wood."
+    },
+    {
+      "es": "Disculpe, señora; quisiera comentarle algo que encontramos.",
+      "en": "Excuse me, ma'am; I'd like to mention something we found."
+    }
+  ],
+  "sourceLessonType": "Teach-back",
+  "sourceBlock": "C",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI will play the people you work with, one after another: tell each of them that you found rotten deck, switching between tú and usted and using softeners like quisiera and me gustaría.",
+  "sourceReaderTitleSpanish": "One Message, Four Ways",
+  "cards": [
+    {
+      "id": "master-roofing:12:fr-en:card:1",
+      "legacySourceRef": "master-roofing:12:words:1",
+      "sourceSpanish": "el trato de usted",
+      "sourceEnglish": "using usted with someone",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "vouvoyer quelqu’un",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:2",
+      "legacySourceRef": "master-roofing:12:words:2",
+      "sourceSpanish": "el tuteo",
+      "sourceEnglish": "using tú with someone",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "tutoyer quelqu’un",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:3",
+      "legacySourceRef": "master-roofing:12:words:3",
+      "sourceSpanish": "el título",
+      "sourceEnglish": "the title (form of address)",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le titre de civilité",
+      "conditionalFrench": "le titre de civilité",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:4",
+      "legacySourceRef": "master-roofing:12:words:4",
+      "sourceSpanish": "el tono",
+      "sourceEnglish": "the tone",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le ton",
+      "conditionalFrench": "le ton",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:5",
+      "legacySourceRef": "master-roofing:12:words:5",
+      "sourceSpanish": "la cortesía",
+      "sourceEnglish": "the courtesy",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la courtoisie",
+      "conditionalFrench": "la courtoisie",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:6",
+      "legacySourceRef": "master-roofing:12:words:6",
+      "sourceSpanish": "el mensaje",
+      "sourceEnglish": "the message",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le message",
+      "conditionalFrench": "le message",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:7",
+      "legacySourceRef": "master-roofing:12:words:7",
+      "sourceSpanish": "señor / señora",
+      "sourceEnglish": "sir / ma'am",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "monsieur / madame",
+      "conditionalFrench": "monsieur / madame",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:8",
+      "legacySourceRef": "master-roofing:12:words:8",
+      "sourceSpanish": "don / doña",
+      "sourceEnglish": "respectful title before a first name",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le titre respectueux devant un prénom",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:9",
+      "legacySourceRef": "master-roofing:12:words:9",
+      "sourceSpanish": "el gerente",
+      "sourceEnglish": "the manager",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le responsable",
+      "conditionalFrench": "le responsable",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:10",
+      "legacySourceRef": "master-roofing:12:words:10",
+      "sourceSpanish": "la formalidad",
+      "sourceEnglish": "the formality",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le degré de formalité",
+      "conditionalFrench": "le degré de formalité",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:11",
+      "legacySourceRef": "master-roofing:12:words:11",
+      "sourceSpanish": "la grosería",
+      "sourceEnglish": "the rudeness",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "l’impolitesse",
+      "conditionalFrench": "l’impolitesse",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:12",
+      "legacySourceRef": "master-roofing:12:words:12",
+      "sourceSpanish": "el apodo",
+      "sourceEnglish": "the nickname",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le surnom",
+      "conditionalFrench": "le surnom",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:13",
+      "legacySourceRef": "master-roofing:12:words:13",
+      "sourceSpanish": "la petición",
+      "sourceEnglish": "the request",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la demande",
+      "conditionalFrench": "la demande",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:14",
+      "legacySourceRef": "master-roofing:12:words:14",
+      "sourceSpanish": "la jerga",
+      "sourceEnglish": "the slang",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "l’argot",
+      "conditionalFrench": "l’argot",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:15",
+      "legacySourceRef": "master-roofing:12:words:15",
+      "sourceSpanish": "Mira, encontramos madera podrida.",
+      "sourceEnglish": "Look, we found rotten wood.",
+      "kind": "phrase",
+      "sourceNoteSpanish": "informal",
+      "archivedFrenchEvidence": "Regarde, nous avons trouvé du bois dégradé.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:16",
+      "legacySourceRef": "master-roofing:12:words:16",
+      "sourceSpanish": "Disculpe la molestia, señora.",
+      "sourceEnglish": "Sorry to bother you, ma'am.",
+      "kind": "phrase",
+      "sourceNoteSpanish": "formal",
+      "archivedFrenchEvidence": "Excusez-moi de vous déranger, madame.",
+      "conditionalFrench": "Excusez-moi de vous déranger, madame.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:17",
+      "legacySourceRef": "master-roofing:12:words:17",
+      "sourceSpanish": "Quisiera comentarle algo que encontramos.",
+      "sourceEnglish": "I'd like to mention something we found.",
+      "kind": "phrase",
+      "sourceNoteSpanish": "formal",
+      "archivedFrenchEvidence": "Je voudrais vous signaler ce que nous avons trouvé.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:18",
+      "legacySourceRef": "master-roofing:12:words:18",
+      "sourceSpanish": "¿Me permitiría mostrarle el área?",
+      "sourceEnglish": "Would you allow me to show you the area?",
+      "kind": "phrase",
+      "sourceNoteSpanish": "formal",
+      "archivedFrenchEvidence": "Pourriez-vous me permettre de vous montrer la zone ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:19",
+      "legacySourceRef": "master-roofing:12:words:19",
+      "sourceSpanish": "Le aviso que encontramos un problema.",
+      "sourceEnglish": "I'm letting you know that we found a problem.",
+      "kind": "phrase",
+      "sourceNoteSpanish": "formal",
+      "archivedFrenchEvidence": "Je vous informe que nous avons trouvé un problème.",
+      "conditionalFrench": "Je vous informe que nous avons trouvé un problème.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:20",
+      "legacySourceRef": "master-roofing:12:words:20",
+      "sourceSpanish": "Me gustaría que lo revisara usted.",
+      "sourceEnglish": "I'd like you to check it.",
+      "kind": "phrase",
+      "sourceNoteSpanish": "formal",
+      "archivedFrenchEvidence": "Je souhaiterais que vous l’examiniez.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:21",
+      "legacySourceRef": "master-roofing:12:words:21",
+      "sourceSpanish": "¿Le hablo de usted o de tú?",
+      "sourceEnglish": "Should I address you as usted or tú?",
+      "kind": "phrase",
+      "sourceNoteSpanish": "ask this when you are not sure",
+      "archivedFrenchEvidence": "Préférez-vous que je vous tutoie ou que je vous vouvoie ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:card:22",
+      "legacySourceRef": "master-roofing:12:words:22",
+      "sourceSpanish": "Háblame de tú, no hay problema.",
+      "sourceEnglish": "Use tú with me, no problem.",
+      "kind": "phrase",
+      "sourceNoteSpanish": "informal",
+      "archivedFrenchEvidence": "Vous pouvez me tutoyer, aucun problème.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:12:fr-en:reader:1",
+      "legacySourceRef": "master-roofing:12:passage:1",
+      "sourceSpanish": "Kevin quiere saber cómo hablar con cada persona en la obra, y Rogelio se lo explica con un ejemplo.",
+      "sourceEnglish": "Kevin wants to know how to talk to each person on the job, and Rogelio explains it to him with an example.",
+      "archivedFrenchEvidence": "Kevin veut savoir comment parler à chaque personne sur le chantier; Rogelio lui donne un exemple.",
+      "conditionalFrench": "Kevin veut savoir comment parler à chaque personne sur le chantier; Rogelio lui donne un exemple.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:reader:2",
+      "legacySourceRef": "master-roofing:12:passage:2",
+      "sourceSpanish": "Rogelio: El mensaje es el mismo, encontramos madera podrida, pero el tono cambia según la persona.",
+      "sourceEnglish": "Rogelio: The message is the same, we found rotten wood, but the tone changes depending on the person.",
+      "archivedFrenchEvidence": "Rogelio : « Le message reste le même : nous avons trouvé du bois dégradé; le ton change selon la personne. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:reader:3",
+      "legacySourceRef": "master-roofing:12:passage:3",
+      "sourceSpanish": "Rogelio: Con la cuadrilla usamos el tuteo, a veces un apodo, pero nunca una grosería.",
+      "sourceEnglish": "Rogelio: With the crew we use tú, sometimes a nickname, but never anything rude.",
+      "archivedFrenchEvidence": "Rogelio : « Avec les collègues proches, on peut se tutoyer, mais il faut respecter la préférence de chacun. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:reader:4",
+      "legacySourceRef": "master-roofing:12:passage:4",
+      "sourceSpanish": "Rogelio: A la cuadrilla le digo: Mira, encontramos madera podrida; sube y te enseño.",
+      "sourceEnglish": "Rogelio: To the crew I say: Look, we found rotten wood; come up and I'll show you.",
+      "archivedFrenchEvidence": "Rogelio : « À un collègue qui accepte le tutoiement, je dirais : Regarde, nous avons trouvé du bois dégradé; viens voir. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:reader:5",
+      "legacySourceRef": "master-roofing:12:passage:5",
+      "sourceSpanish": "Rogelio: Con la dueña de la casa uso el trato de usted y un título, señora o doña Carmen; con su esposo, señor.",
+      "sourceEnglish": "Rogelio: With the homeowner I use usted and a title, señora or doña Carmen; with her husband, señor.",
+      "archivedFrenchEvidence": "Rogelio : « Avec la propriétaire, je commence par vous et par madame, sauf si elle préfère autre chose. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:reader:6",
+      "legacySourceRef": "master-roofing:12:passage:6",
+      "sourceSpanish": "Rogelio: A ella le digo: Disculpe la molestia, señora; quisiera comentarle algo que encontramos.",
+      "sourceEnglish": "Rogelio: To her I say: Sorry to bother you, ma'am; I'd like to mention something we found.",
+      "archivedFrenchEvidence": "Rogelio : « Je dirais : Excusez-moi de vous déranger, madame; je voudrais vous signaler ce que nous avons trouvé. »",
+      "conditionalFrench": "Rogelio : « Je dirais : Excusez-moi de vous déranger, madame; je voudrais vous signaler ce que nous avons trouvé. »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:reader:7",
+      "legacySourceRef": "master-roofing:12:passage:7",
+      "sourceSpanish": "Rogelio: Y luego le pregunto: ¿Me permitiría mostrarle el área?",
+      "sourceEnglish": "Rogelio: And then I ask her: Would you allow me to show you the area?",
+      "archivedFrenchEvidence": "Rogelio : « Puis je demanderais : Pourriez-vous me permettre de vous montrer la zone ? »",
+      "conditionalFrench": "Rogelio : « Puis je demanderais : Pourriez-vous me permettre de vous montrer la zone ? »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:reader:8",
+      "legacySourceRef": "master-roofing:12:passage:8",
+      "sourceSpanish": "Rogelio: Con el gerente de la compañía también uso usted, pero voy directo al punto.",
+      "sourceEnglish": "Rogelio: With the company manager I also use usted, but I go straight to the point.",
+      "archivedFrenchEvidence": "Rogelio : « Avec mon responsable, je reste courtois et je vais droit au but. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:reader:9",
+      "legacySourceRef": "master-roofing:12:passage:9",
+      "sourceSpanish": "Rogelio: Le aviso que encontramos un problema en la cubierta, y le mando las fotos ahora.",
+      "sourceEnglish": "Rogelio: I'm letting you know that we found a problem in the deck, and I'm sending you the photos now.",
+      "archivedFrenchEvidence": "Rogelio : « Je vous informe que nous avons trouvé une zone de bois dégradé; je vous envoie les photos. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:reader:10",
+      "legacySourceRef": "master-roofing:12:passage:10",
+      "sourceSpanish": "Rogelio: Con el inspector hay más formalidad: nada de jerga y ninguna broma.",
+      "sourceEnglish": "Rogelio: With the inspector there's more formality: no slang and no jokes.",
+      "archivedFrenchEvidence": "Rogelio : « Avec l’inspecteur, j’évite l’argot et je présente les constats clairement. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:reader:11",
+      "legacySourceRef": "master-roofing:12:passage:11",
+      "sourceSpanish": "Rogelio: A él le diría: Me gustaría que lo revisara usted antes de cubrirlo.",
+      "sourceEnglish": "Rogelio: To him I would say: I'd like you to check it before we cover it.",
+      "archivedFrenchEvidence": "Rogelio : « Je souhaiterais que vous l’examiniez avant le recouvrement, selon la procédure prévue. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:reader:12",
+      "legacySourceRef": "master-roofing:12:passage:12",
+      "sourceSpanish": "Rogelio: Quisiera, me gustaría y podría son palabras que suavizan una petición.",
+      "sourceEnglish": "Rogelio: Quisiera, me gustaría and podría are words that soften a request.",
+      "archivedFrenchEvidence": "Rogelio : « Je voudrais, je souhaiterais et pourriez-vous atténuent une demande. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:reader:13",
+      "legacySourceRef": "master-roofing:12:passage:13",
+      "sourceSpanish": "Kevin: ¿Y si alguien de la cuadrilla es mayor, como don Ernesto?",
+      "sourceEnglish": "Kevin: And what if someone on the crew is older, like Don Ernesto?",
+      "archivedFrenchEvidence": "Kevin : « Et si un membre de l’équipe est plus âgé, comme Ernesto ? »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:reader:14",
+      "legacySourceRef": "master-roofing:12:passage:14",
+      "sourceSpanish": "Rogelio: Entonces pregúntale con cortesía: ¿Le hablo de usted o de tú?",
+      "sourceEnglish": "Rogelio: Then ask him politely: Should I address you as usted or tú?",
+      "archivedFrenchEvidence": "Rogelio : « Demande-lui poliment : Préférez-vous que je vous tutoie ou que je vous vouvoie ? »",
+      "conditionalFrench": "Rogelio : « Demande-lui poliment : Préférez-vous que je vous tutoie ou que je vous vouvoie ? »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:reader:15",
+      "legacySourceRef": "master-roofing:12:passage:15",
+      "sourceSpanish": "Rogelio: Muchos te van a decir: Háblame de tú, no hay problema.",
+      "sourceEnglish": "Rogelio: Many will tell you: Use tú with me, no problem.",
+      "archivedFrenchEvidence": "Rogelio : « Il peut répondre : Vous pouvez me tutoyer, aucun problème. »",
+      "conditionalFrench": "Rogelio : « Il peut répondre : Vous pouvez me tutoyer, aucun problème. »",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:12:fr-en:reader:16",
+      "legacySourceRef": "master-roofing:12:passage:16",
+      "sourceSpanish": "Rogelio: Pero si no estás seguro, empieza con usted, porque nadie se ofende por respeto.",
+      "sourceEnglish": "Rogelio: But if you're not sure, start with usted, because nobody gets offended by respect.",
+      "archivedFrenchEvidence": "Rogelio : « En cas de doute, commence par vous et adapte-toi à la préférence de la personne. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "hablar",
+      "englishMeaning": "to speak",
+      "sourceSpanish": "¿Le hablo de usted o de tú?",
+      "sourceEnglish": "Should I address you as usted or tú?"
+    },
+    {
+      "spanishInfinitive": "querer",
+      "englishMeaning": "to want",
+      "sourceSpanish": "Kevin quiere saber cómo hablar con cada persona.",
+      "sourceEnglish": "Kevin wants to know how to talk to each person."
+    },
+    {
+      "spanishInfinitive": "permitir",
+      "englishMeaning": "to allow",
+      "sourceSpanish": "¿Me permitiría mostrarle el área?",
+      "sourceEnglish": "Would you allow me to show you the area?"
+    },
+    {
+      "spanishInfinitive": "mostrar",
+      "englishMeaning": "to show",
+      "sourceSpanish": "Rogelio le muestra las fotos al gerente.",
+      "sourceEnglish": "Rogelio shows the photos to the manager."
+    },
+    {
+      "spanishInfinitive": "cambiar",
+      "englishMeaning": "to change",
+      "sourceSpanish": "El mensaje es el mismo, pero el tono cambia según la persona.",
+      "sourceEnglish": "The message is the same, but the tone changes depending on the person."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Adapter son registre : collègue, propriétaire, responsable, inspecteur",
+    "objectiveFrench": "Expliquer une même découverte à quatre interlocuteurs avec un ton adapté, sans présumer du tutoiement ni d’une approbation de l’inspecteur.",
+    "speakingFrenchInstruction": "Vous dirigez l’équipe et l’IA joue successivement un collègue, une propriétaire, votre responsable et un inspecteur. Annoncez une zone de bois dégradé avec le registre approprié, demandez la préférence de la personne pour tu ou vous si nécessaire et demandez une vérification avant recouvrement selon la procédure applicable.",
+    "speakingFrenchOpening": "J’ai repéré une zone de bois dégradé; je vais adapter mon explication à chaque personne.",
+    "grammarFocusFrench": "Tu et vous selon la relation; conditionnel de politesse : je voudrais, pourriez-vous.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to speak",
+        "exampleEnglish": "Should I address you as usted or tú?",
+        "sourceInfinitiveSpanish": "hablar",
+        "infinitiveFrench": "parler",
+        "exampleFrench": "Préférez-vous que je vous tutoie ou que je vous vouvoie ?"
+      },
+      {
+        "meaningEnglish": "to want",
+        "exampleEnglish": "Kevin wants to know how to talk to each person.",
+        "sourceInfinitiveSpanish": "querer",
+        "infinitiveFrench": "vouloir",
+        "exampleFrench": "Kevin veut savoir comment s’adresser à chacun."
+      },
+      {
+        "meaningEnglish": "to allow",
+        "exampleEnglish": "Would you allow me to show you the area?",
+        "sourceInfinitiveSpanish": "permitir",
+        "infinitiveFrench": "permettre",
+        "exampleFrench": "Pourriez-vous me permettre de vous montrer la zone ?"
+      },
+      {
+        "meaningEnglish": "to show",
+        "exampleEnglish": "Rogelio shows the photos to the manager.",
+        "sourceInfinitiveSpanish": "mostrar",
+        "infinitiveFrench": "montrer",
+        "exampleFrench": "Rogelio montre les photos au responsable."
+      },
+      {
+        "meaningEnglish": "to change",
+        "exampleEnglish": "The message is the same, but the tone changes depending on the person.",
+        "sourceInfinitiveSpanish": "cambiar",
+        "infinitiveFrench": "changer",
+        "exampleFrench": "Le message reste le même, mais le ton change selon la personne."
+      }
+    ],
+    "reviewGapsEnglish": [
+      "Qualified roofing/structural and local-code review required for rotten-deck inspection, whether covering must pause and who has authority to approve work.",
+      "Qualified France/Québec language and workplace-register review required for tu/vous, civilities and the source's doña/usted-specific examples; source claim that nobody is offended by formal address is not universal."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "master-roofing:12:fr-en:card:1",
+        "master-roofing:12:fr-en:card:2",
+        "master-roofing:12:fr-en:reader:2",
+        "master-roofing:12:fr-en:reader:3"
+      ],
+      "question": "Map the Spanish usted/tú contrast and doña/Don address forms into natural French vous/tu/register examples without claiming one-to-one equivalence. Obtain qualified France and Québec register review."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:12:fr-en:card:8",
+        "master-roofing:12:fr-en:reader:4",
+        "master-roofing:12:fr-en:reader:5"
+      ],
+      "question": "Check the homeowner quote and boss-facing cost/schedule report against the exact source. Maintain the speaker and audience for each register shift."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:12:fr-en:card:15",
+        "master-roofing:12:fr-en:card:17",
+        "master-roofing:12:fr-en:reader:8",
+        "master-roofing:12:fr-en:reader:9",
+        "master-roofing:12:fr-en:reader:10"
+      ],
+      "question": "The source refers to rotten roof deck and an inspection before covering. Archived French changes material/severity in places. Require qualified roofing and local-code review before selecting scored French."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:12:fr-en:card:18",
+        "master-roofing:12:fr-en:card:20",
+        "master-roofing:12:fr-en:reader:11",
+        "master-roofing:12:fr-en:reader:12",
+        "master-roofing:12:fr-en:reader:13"
+      ],
+      "question": "Review inspector questions, respectful answer and instructions without generalizing local inspection rules or approval."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:12:fr-en:card:21",
+        "master-roofing:12:fr-en:card:22",
+        "master-roofing:12:fr-en:reader:16"
+      ],
+      "question": "The source's broad claim that respect offends nobody needs contextual cultural review. Author French speaking and six mode prompt/target pairs separately."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive mode labels are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedLocaleReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

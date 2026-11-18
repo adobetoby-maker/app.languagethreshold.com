@@ -1,0 +1,680 @@
+{
+  "schema": "french-roofing-master13-source-decision-v1",
+  "kind": "inert-source-decision",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "master-roofing",
+  "sourceHeaderModuleId": "master-roofing",
+  "proposedLessonId": "master-roofing:13",
+  "proposedPairId": "master-roofing:13:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "sourceFileSha256": {
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/master-13-15-draft.json": "003f8f45edc1760c48d1d859613650c6dda9c68097ad33dddc5834ee1bfd390b"
+  },
+  "orderedSourceRowsSha256": "ddaf5fd09e3036dabf9a4cfc46932da9812d03d22640a1ca8def8240e0cb98ac",
+  "sourceTitleEnglish": "Fall Incident Report",
+  "sourceObjectiveEnglish": "Respond to a fall, then report what happened in order, by phone and in writing, with clear times",
+  "sourceFocusEnglish": "Past narration with time markers",
+  "sourceGrammarExamples": [
+    {
+      "es": "A las diez y cuarto, Julio bajaba a la escalera.",
+      "en": "At a quarter past ten, Julio was going down to the ladder."
+    },
+    {
+      "es": "Mientras bajaba, se le resbaló el pie y cayó.",
+      "en": "While he was coming down, his foot slipped and he fell."
+    }
+  ],
+  "sourceLessonType": "Case",
+  "sourceBlock": "D",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is your supervisor on the phone right after a worker fell: say what happened in order with times (a las, mientras, luego), what you did for the injured worker, and what happens next.",
+  "sourceReaderTitleSpanish": "Report: Fall from the Roof Edge",
+  "cards": [
+    {
+      "id": "master-roofing:13:fr-en:card:1",
+      "legacySourceRef": "master-roofing:13:words:1",
+      "sourceSpanish": "la caída",
+      "sourceEnglish": "the fall",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la chute",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:card:2",
+      "legacySourceRef": "master-roofing:13:words:2",
+      "sourceSpanish": "el reporte de incidente",
+      "sourceEnglish": "the incident report",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le rapport d’incident",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:card:3",
+      "legacySourceRef": "master-roofing:13:words:3",
+      "sourceSpanish": "los primeros auxilios",
+      "sourceEnglish": "the first aid",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "les premiers secours",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:card:4",
+      "legacySourceRef": "master-roofing:13:words:4",
+      "sourceSpanish": "la línea de vida",
+      "sourceEnglish": "the lifeline",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la ligne de vie",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:card:5",
+      "legacySourceRef": "master-roofing:13:words:5",
+      "sourceSpanish": "el anclaje de techo",
+      "sourceEnglish": "the roof anchor",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "l’ancrage de toiture",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:card:6",
+      "legacySourceRef": "master-roofing:13:words:6",
+      "sourceSpanish": "el arnés",
+      "sourceEnglish": "the harness",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le harnais",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:card:7",
+      "legacySourceRef": "master-roofing:13:words:7",
+      "sourceSpanish": "la eslinga",
+      "sourceEnglish": "the lanyard",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la longe",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:card:8",
+      "legacySourceRef": "master-roofing:13:words:8",
+      "sourceSpanish": "la escena",
+      "sourceEnglish": "the scene",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "les lieux de l’incident",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:card:9",
+      "legacySourceRef": "master-roofing:13:words:9",
+      "sourceSpanish": "el lesionado",
+      "sourceEnglish": "the injured person",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la personne blessée",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:card:10",
+      "legacySourceRef": "master-roofing:13:words:10",
+      "sourceSpanish": "los paramédicos",
+      "sourceEnglish": "the paramedics",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "les secouristes",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:card:11",
+      "legacySourceRef": "master-roofing:13:words:11",
+      "sourceSpanish": "el tobillo",
+      "sourceEnglish": "the ankle",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "la cheville",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:card:12",
+      "legacySourceRef": "master-roofing:13:words:12",
+      "sourceSpanish": "la escalera de extensión",
+      "sourceEnglish": "the extension ladder",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "l’échelle coulissante",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:card:13",
+      "legacySourceRef": "master-roofing:13:words:13",
+      "sourceSpanish": "la orilla del techo",
+      "sourceEnglish": "the roof edge",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "le bord du toit",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:card:14",
+      "legacySourceRef": "master-roofing:13:words:14",
+      "sourceSpanish": "la hora exacta",
+      "sourceEnglish": "the exact time",
+      "kind": "term",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "l’heure exacte",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:card:15",
+      "legacySourceRef": "master-roofing:13:words:15",
+      "sourceSpanish": "A las diez y cuarto, Julio estaba en la orilla del techo.",
+      "sourceEnglish": "At a quarter past ten, Julio was at the roof edge.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Vers dix heures quinze, Julio se trouvait près du bord du toit.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:card:16",
+      "legacySourceRef": "master-roofing:13:words:16",
+      "sourceSpanish": "Mientras bajaba, se le resbaló el pie.",
+      "sourceEnglish": "While he was coming down, his foot slipped.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Pendant qu’il descendait, son pied a glissé.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:card:17",
+      "legacySourceRef": "master-roofing:13:words:17",
+      "sourceSpanish": "Llamen al 911 ahora mismo.",
+      "sourceEnglish": "Call 911 right now.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Appelez les secours locaux tout de suite.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:card:18",
+      "legacySourceRef": "master-roofing:13:words:18",
+      "sourceSpanish": "No lo muevan; esperen a los paramédicos.",
+      "sourceEnglish": "Don't move him; wait for the paramedics.",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "Évitez de le déplacer, sauf danger immédiat ou consigne des secours.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:card:19",
+      "legacySourceRef": "master-roofing:13:words:19",
+      "sourceSpanish": "Tranquilo, ya viene la ayuda.",
+      "sourceEnglish": "Easy, help is on the way.",
+      "kind": "phrase",
+      "sourceNoteSpanish": "informal",
+      "archivedFrenchEvidence": "Reste calme, les secours arrivent.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:card:20",
+      "legacySourceRef": "master-roofing:13:words:20",
+      "sourceSpanish": "¿A qué hora pasó exactamente?",
+      "sourceEnglish": "What time exactly did it happen?",
+      "kind": "phrase",
+      "sourceNoteSpanish": null,
+      "archivedFrenchEvidence": "À quelle heure exactement est-ce arrivé ?",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:card:21",
+      "legacySourceRef": "master-roofing:13:words:21",
+      "sourceSpanish": "Le informo que tuvimos un accidente.",
+      "sourceEnglish": "I'm informing you that we had an accident.",
+      "kind": "phrase",
+      "sourceNoteSpanish": "formal",
+      "archivedFrenchEvidence": "Je vous informe qu’un accident s’est produit.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:13:fr-en:reader:1",
+      "legacySourceRef": "master-roofing:13:passage:1",
+      "sourceSpanish": "El martes, a las diez y cuarto, Julio estaba en la orilla del techo y bajaba a la escalera de extensión.",
+      "sourceEnglish": "On Tuesday, at a quarter past ten, Julio was at the roof edge and was going down to the extension ladder.",
+      "archivedFrenchEvidence": "Mardi, vers dix heures quinze, Julio se trouvait au bord du toit près de l’échelle coulissante.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:reader:2",
+      "legacySourceRef": "master-roofing:13:passage:2",
+      "sourceSpanish": "Mientras bajaba, se le resbaló el pie y cayó unos 8 pies hasta el pasto.",
+      "sourceEnglish": "While he was coming down, his foot slipped and he fell about 8 feet to the grass.",
+      "archivedFrenchEvidence": "Pendant qu’il descendait, son pied a glissé; il est tombé d’environ huit pieds sur l’herbe.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:reader:3",
+      "legacySourceRef": "master-roofing:13:passage:3",
+      "sourceSpanish": "En ese momento no tenía la eslinga conectada a la línea de vida, porque ya estaba saliendo del techo.",
+      "sourceEnglish": "At that moment he didn't have his lanyard connected to the lifeline, because he was already getting off the roof.",
+      "archivedFrenchEvidence": "La source indique que sa longe n’était pas reliée à la ligne de vie pendant le passage vers l’échelle; la cause reste à déterminer.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:reader:4",
+      "legacySourceRef": "master-roofing:13:passage:4",
+      "sourceSpanish": "Rogelio corrió hacia él y gritó: Llamen al 911 ahora mismo.",
+      "sourceEnglish": "Rogelio ran to him and shouted: Call 911 right now.",
+      "archivedFrenchEvidence": "Rogelio s’est approché et a demandé d’appeler immédiatement les secours locaux selon le protocole du chantier.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:reader:5",
+      "legacySourceRef": "master-roofing:13:passage:5",
+      "sourceSpanish": "Julio estaba consciente, pero le dolía mucho el tobillo.",
+      "sourceEnglish": "Julio was conscious, but his ankle hurt a lot.",
+      "archivedFrenchEvidence": "Julio était conscient et disait avoir très mal à la cheville.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:reader:6",
+      "legacySourceRef": "master-roofing:13:passage:6",
+      "sourceSpanish": "Rogelio: Tranquilo, ya viene la ayuda; no te muevas.",
+      "sourceEnglish": "Rogelio: Easy, help is on the way; don't move.",
+      "archivedFrenchEvidence": "Rogelio : « Reste calme; les secours arrivent. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:reader:7",
+      "legacySourceRef": "master-roofing:13:passage:7",
+      "sourceSpanish": "Rogelio a la cuadrilla: No lo muevan; esperen a los paramédicos.",
+      "sourceEnglish": "Rogelio to the crew: Don't move him; wait for the paramedics.",
+      "archivedFrenchEvidence": "Rogelio a demandé à l’équipe d’éviter de déplacer Julio, sauf danger immédiat ou consigne des secours.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:reader:8",
+      "legacySourceRef": "master-roofing:13:passage:8",
+      "sourceSpanish": "Kevin le dio primeros auxilios básicos, como aprendió en el curso, y Marcos cerró la escena con cinta de precaución.",
+      "sourceEnglish": "Kevin gave him basic first aid, as he learned in the course, and Marcos closed off the scene with caution tape.",
+      "archivedFrenchEvidence": "Kevin, formé aux premiers secours, a suivi sa formation; Marcos a empêché l’accès aux lieux.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:reader:9",
+      "legacySourceRef": "master-roofing:13:passage:9",
+      "sourceSpanish": "Los paramédicos llegaron a las diez y media y se llevaron al lesionado al hospital.",
+      "sourceEnglish": "The paramedics arrived at half past ten and took the injured man to the hospital.",
+      "archivedFrenchEvidence": "Les secouristes sont arrivés vers dix heures trente et ont transporté Julio à l’hôpital.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:reader:10",
+      "legacySourceRef": "master-roofing:13:passage:10",
+      "sourceSpanish": "Después, Rogelio llamó al supervisor: Le informo que tuvimos un accidente; Julio se cayó del techo y ya va al hospital.",
+      "sourceEnglish": "Afterwards, Rogelio called the supervisor: I'm informing you that we had an accident; Julio fell off the roof and he's on his way to the hospital.",
+      "archivedFrenchEvidence": "Ensuite, Rogelio a appelé son responsable : « Je vous informe qu’un accident s’est produit; Julio a chuté et les secours l’ont pris en charge. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:reader:11",
+      "legacySourceRef": "master-roofing:13:passage:11",
+      "sourceSpanish": "Supervisor: ¿A qué hora pasó exactamente?",
+      "sourceEnglish": "Supervisor: What time exactly did it happen?",
+      "archivedFrenchEvidence": "Le responsable : « À quelle heure exactement est-ce arrivé ? »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:reader:12",
+      "legacySourceRef": "master-roofing:13:passage:12",
+      "sourceSpanish": "Rogelio: No sé la hora exacta, pero fue entre las diez y cuarto y las diez y veinte.",
+      "sourceEnglish": "Rogelio: I don't know the exact time, but it was between a quarter past ten and twenty past ten.",
+      "archivedFrenchEvidence": "Rogelio : « Je ne connais pas l’heure exacte; je l’estime entre dix heures quinze et dix heures vingt. »",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:reader:13",
+      "legacySourceRef": "master-roofing:13:passage:13",
+      "sourceSpanish": "Esa tarde, Rogelio escribió el reporte de incidente sobre la caída: Hora: 10:15 aproximadamente.",
+      "sourceEnglish": "That afternoon, Rogelio wrote the incident report on the fall: Time: approximately 10:15.",
+      "archivedFrenchEvidence": "Cet après-midi-là, Rogelio a rédigé un rapport d’incident : heure estimée, vers 10 h 15.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:reader:14",
+      "legacySourceRef": "master-roofing:13:passage:14",
+      "sourceSpanish": "Descripción: El trabajador bajaba del techo a la escalera; mientras pasaba de uno a otro, perdió el equilibrio y cayó.",
+      "sourceEnglish": "Description: The worker was coming down from the roof to the ladder; while he was moving from one to the other, he lost his balance and fell.",
+      "archivedFrenchEvidence": "Description : Julio passait du toit vers l’échelle quand il a perdu l’équilibre et chuté.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:reader:15",
+      "legacySourceRef": "master-roofing:13:passage:15",
+      "sourceSpanish": "Causa probable: el arnés no estaba conectado a la línea de vida ni al anclaje de techo durante el paso a la escalera.",
+      "sourceEnglish": "Probable cause: the harness was not connected to the lifeline or to the roof anchor during the move to the ladder.",
+      "archivedFrenchEvidence": "Observation à vérifier : la connexion de la longe au système de protection pendant ce passage; ne pas attribuer de cause avant l’enquête.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:fr-en:reader:16",
+      "legacySourceRef": "master-roofing:13:passage:16",
+      "sourceSpanish": "Acción: mañana repasamos con toda la cuadrilla cómo pasar del techo a la escalera sin quedar desconectado.",
+      "sourceEnglish": "Action: tomorrow we go over with the whole crew how to get from the roof to the ladder without being disconnected.",
+      "archivedFrenchEvidence": "Suite prévue : conserver les faits, suivre l’enquête et revoir avec une personne qualifiée la méthode approuvée de passage du toit à l’échelle.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "spanishInfinitive": "bajar",
+      "englishMeaning": "to go down",
+      "sourceSpanish": "Julio estaba en la orilla del techo y bajaba a la escalera.",
+      "sourceEnglish": "Julio was at the roof edge and was going down to the ladder."
+    },
+    {
+      "spanishInfinitive": "resbalar",
+      "englishMeaning": "to slip",
+      "sourceSpanish": "Mientras bajaba, se le resbaló el pie.",
+      "sourceEnglish": "While he was coming down, his foot slipped."
+    },
+    {
+      "spanishInfinitive": "perder",
+      "englishMeaning": "to lose",
+      "sourceSpanish": "Perdió el equilibrio y cayó.",
+      "sourceEnglish": "He lost his balance and fell."
+    },
+    {
+      "spanishInfinitive": "gritar",
+      "englishMeaning": "to shout",
+      "sourceSpanish": "Rogelio corrió hacia él y gritó.",
+      "sourceEnglish": "Rogelio ran to him and shouted."
+    },
+    {
+      "spanishInfinitive": "escribir",
+      "englishMeaning": "to write",
+      "sourceSpanish": "Esa tarde, Rogelio escribió el reporte de incidente.",
+      "sourceEnglish": "That afternoon, Rogelio wrote the incident report."
+    }
+  ],
+  "archivedDraft": {
+    "titleFrench": "Signaler une chute avec une chronologie précise",
+    "objectiveFrench": "Réagir à une chute selon le protocole d’urgence, puis rapporter les faits observés dans l’ordre, au téléphone et par écrit.",
+    "speakingFrenchInstruction": "Vous dirigez l’équipe et votre responsable appelle après la chute. Indiquez d’abord que les secours locaux ont été contactés selon le protocole, puis rapportez uniquement les faits observés et les heures certaines ou estimées. Ne posez pas de diagnostic et ne concluez pas à une cause avant l’enquête.",
+    "speakingFrenchOpening": "Je vous informe qu’un collègue a chuté. Les secours ont été appelés selon le protocole du chantier.",
+    "grammarFocusFrench": "Passé composé et imparfait pour le récit; à, pendant que, puis et vers pour distinguer heure certaine et heure estimée.",
+    "verbExamples": [
+      {
+        "meaningEnglish": "to go down",
+        "exampleEnglish": "Julio was at the roof edge and was going down to the ladder.",
+        "sourceInfinitiveSpanish": "bajar",
+        "infinitiveFrench": "descendre",
+        "exampleFrench": "Julio se trouvait au bord du toit et descendait vers l’échelle."
+      },
+      {
+        "meaningEnglish": "to slip",
+        "exampleEnglish": "While he was coming down, his foot slipped.",
+        "sourceInfinitiveSpanish": "resbalar",
+        "infinitiveFrench": "glisser",
+        "exampleFrench": "Pendant qu’il descendait, son pied a glissé."
+      },
+      {
+        "meaningEnglish": "to lose",
+        "exampleEnglish": "He lost his balance and fell.",
+        "sourceInfinitiveSpanish": "perder",
+        "infinitiveFrench": "perdre",
+        "exampleFrench": "Il a perdu l’équilibre et est tombé."
+      },
+      {
+        "meaningEnglish": "to shout",
+        "exampleEnglish": "Rogelio ran to him and shouted.",
+        "sourceInfinitiveSpanish": "gritar",
+        "infinitiveFrench": "crier",
+        "exampleFrench": "Rogelio s’est approché et a crié pour demander de l’aide."
+      },
+      {
+        "meaningEnglish": "to write",
+        "exampleEnglish": "That afternoon, Rogelio wrote the incident report.",
+        "sourceInfinitiveSpanish": "escribir",
+        "infinitiveFrench": "rédiger",
+        "exampleFrench": "Cet après-midi-là, Rogelio a rédigé le rapport d’incident."
+      }
+    ],
+    "reviewGapsEnglish": [
+      "Qualified emergency-medical, occupational safety and fall-protection review required for response to a fall, moving an injured person, first aid, site control, transfer from roof to ladder and causal conclusions.",
+      "US 911 is exact source provenance only; qualified locale-specific review must establish emergency routing for France/Québec. Incident-reporting obligations and terminology need legal/workplace review."
+    ],
+    "status": "separate unapproved draft; no answer, audio or progress inheritance"
+  },
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "master-roofing:13:fr-en:card:1",
+        "master-roofing:13:fr-en:card:4",
+        "master-roofing:13:fr-en:card:5",
+        "master-roofing:13:fr-en:card:6",
+        "master-roofing:13:fr-en:card:7",
+        "master-roofing:13:fr-en:reader:3",
+        "master-roofing:13:fr-en:reader:15",
+        "master-roofing:13:fr-en:reader:16"
+      ],
+      "question": "Preserve the fall, lifeline, roof-anchor, harness and lanyard terms and the source's reported disconnected transition. The archived French changes the probable-cause claim into an unresolved observation. Qualified fall-protection and incident-review decisions must settle the causal wording and approved roof-to-ladder transfer before scored text is selected."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:13:fr-en:card:3",
+        "master-roofing:13:fr-en:card:9",
+        "master-roofing:13:fr-en:card:10",
+        "master-roofing:13:fr-en:card:17",
+        "master-roofing:13:fr-en:card:18",
+        "master-roofing:13:fr-en:reader:4",
+        "master-roofing:13:fr-en:reader:5",
+        "master-roofing:13:fr-en:reader:6",
+        "master-roofing:13:fr-en:reader:7",
+        "master-roofing:13:fr-en:reader:8",
+        "master-roofing:13:fr-en:reader:9"
+      ],
+      "question": "Teach first aid, injured person, paramedics and ankle directly. The source commands 911 and not moving Julio; the archived French substitutes locale-neutral routing and caveated movement. Qualified medical, emergency-response and France/Québec locale review must reconcile exact source meaning without inventing a universal procedure."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:13:fr-en:card:14",
+        "master-roofing:13:fr-en:card:15",
+        "master-roofing:13:fr-en:reader:1",
+        "master-roofing:13:fr-en:reader:2",
+        "master-roofing:13:fr-en:reader:9",
+        "master-roofing:13:fr-en:reader:12",
+        "master-roofing:13:fr-en:reader:13"
+      ],
+      "question": "Keep the incident timeline distinct: 10:15 start, about eight feet to grass, paramedics at 10:30, estimated 10:15–10:20 report interval. Archived French changes some exact times to approximate ones and retains feet; choose locale-aware measurement and time language without changing the source evidence."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:13:fr-en:card:2",
+        "master-roofing:13:fr-en:card:21",
+        "master-roofing:13:fr-en:reader:10",
+        "master-roofing:13:fr-en:reader:13",
+        "master-roofing:13:fr-en:reader:14",
+        "master-roofing:13:fr-en:reader:15"
+      ],
+      "question": "Separate observed incident facts from probable cause and official reporting requirements. The archived French deliberately softens the source's written probable-cause line. Qualified workplace/source review must determine the review-safe incident-report wording and French register."
+    }
+  ],
+  "selectedDecision": null,
+  "audioScope": null,
+  "modeEvidence": "Archive mode labels are not six authored prompt/target activity pairs",
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedRoofingReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "savedItemMapped": false,
+    "browserAccepted": false,
+    "nativeV4Registered": false
+  }
+}

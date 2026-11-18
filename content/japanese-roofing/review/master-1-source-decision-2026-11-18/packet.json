@@ -1,0 +1,716 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "master-roofing",
+  "lessonId": "master-roofing:1:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "sourceContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-1-3-draft.json",
+      "sha256": "8dcb2844a21b9fba3c9f843280296324e32d74d0307e9a43462f9b8c69236847"
+    }
+  },
+  "sourceEnglishTitle": "Explain the Roof System to a New Hire",
+  "sourceEnglishObjective": "Walk a new hire through every layer of the roof, in order, and say why each one is there",
+  "sourceEnglishSpeaking": "You are the crew lead and the AI is a new hire on day one: walk them from the deck to the ridge, name each layer in order, and explain why each one goes where it does using primero, luego, porque and por eso.",
+  "sourceSpanishReaderTitle": "From the Deck to the Ridge",
+  "sourceGrammarFocus": "Connectors for sequence and cause",
+  "sourceGrammarExamples": [
+    {
+      "es": "Empezamos abajo porque el agua corre hacia abajo.",
+      "en": "We start at the bottom because water runs downhill."
+    },
+    {
+      "es": "El agua corre hacia abajo; por eso empezamos abajo.",
+      "en": "Water runs downhill; that's why we start at the bottom."
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "infinitive": "explicar",
+      "native": "to explain",
+      "forms": {
+        "yo": "explico",
+        "tú": "explicas",
+        "él_ella_usted": "explica",
+        "nosotros": "explicamos",
+        "ellos_ustedes": "explican"
+      },
+      "example": {
+        "target": "Rogelio le explica el sistema de techo antes de subir.",
+        "native": "Rogelio explains the roof system to him before they go up."
+      },
+      "note": "Preterite: expliqué (c changes to qu), explicó."
+    },
+    {
+      "infinitive": "empezar",
+      "native": "to start",
+      "forms": {
+        "yo": "empiezo",
+        "tú": "empiezas",
+        "él_ella_usted": "empieza",
+        "nosotros": "empezamos",
+        "ellos_ustedes": "empiezan"
+      },
+      "example": {
+        "target": "Por eso empezamos desde abajo.",
+        "native": "That's why we start from the bottom."
+      },
+      "note": "Stem change e to ie, except in the nosotros form: empezamos."
+    },
+    {
+      "infinitive": "correr",
+      "native": "to run (water)",
+      "forms": {
+        "yo": "corro",
+        "tú": "corres",
+        "él_ella_usted": "corre",
+        "nosotros": "corremos",
+        "ellos_ustedes": "corren"
+      },
+      "example": {
+        "target": "El agua siempre corre hacia abajo.",
+        "native": "Water always runs downhill."
+      }
+    },
+    {
+      "infinitive": "cubrir",
+      "native": "to cover",
+      "forms": {
+        "yo": "cubro",
+        "tú": "cubres",
+        "él_ella_usted": "cubre",
+        "nosotros": "cubrimos",
+        "ellos_ustedes": "cubren"
+      },
+      "example": {
+        "target": "Cada hilera cubre la de abajo.",
+        "native": "Each course covers the one below."
+      },
+      "note": "Irregular participle: cubierto (covered)."
+    },
+    {
+      "infinitive": "poner",
+      "native": "to put",
+      "forms": {
+        "yo": "pongo",
+        "tú": "pones",
+        "él_ella_usted": "pone",
+        "nosotros": "ponemos",
+        "ellos_ustedes": "ponen"
+      },
+      "example": {
+        "target": "En el alero ponemos el goterón.",
+        "native": "At the eave we put the drip edge."
+      },
+      "note": "Irregular yo form: pongo."
+    }
+  ],
+  "candidateObjective": "新人に屋根の各層を順に示し、それぞれの役割を説明する。",
+  "candidateFocus": "まず、次に、最後に order the layers. ～ので and そのために connect a layer's position with its purpose; customer-facing questions use a more polite register.",
+  "archivedForms": [
+    {
+      "base": "説明する",
+      "exampleJa": "ロヘリオは屋根に上がる前にケビンに屋根の構成を説明します。",
+      "meaningEnglish": "to explain",
+      "exampleEnglish": "Rogelio explains the roof system to him before they go up.",
+      "sourceInfinitiveSpanish": "explicar"
+    },
+    {
+      "base": "始める",
+      "exampleJa": "そのため、下から始めます。",
+      "meaningEnglish": "to start",
+      "exampleEnglish": "That's why we start from the bottom.",
+      "sourceInfinitiveSpanish": "empezar"
+    },
+    {
+      "base": "流れる",
+      "exampleJa": "水は常に低い方へ流れます。",
+      "meaningEnglish": "to run (water)",
+      "exampleEnglish": "Water always runs downhill.",
+      "sourceInfinitiveSpanish": "correr"
+    },
+    {
+      "base": "覆う",
+      "exampleJa": "各段が下の段を覆います。",
+      "meaningEnglish": "to cover",
+      "exampleEnglish": "Each course covers the one below.",
+      "sourceInfinitiveSpanish": "cubrir"
+    },
+    {
+      "base": "取り付ける",
+      "exampleJa": "軒先には水切り板金を取り付けます。",
+      "meaningEnglish": "to put",
+      "exampleEnglish": "At the eave we put the drip edge.",
+      "sourceInfinitiveSpanish": "poner"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "まず野地板、次に下葺き材と防水膜、最後に棟換気材と棟包み材です。各層の役割を順に説明します。",
+    "goal": "Lead a new hire through the roof layers from deck to ridge. Name each layer in order and explain its role with natural Japanese sequencing such as まず and 次に."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Current Spanish/English Master source is pinned as evidence. Archived Japanese wording is conditional candidate evidence only; trade/product/safety and Japanese/dictionary review are pending. The source grammar and verb examples are included for parity, but no selected learner/audio text or saved progress identity is created.",
+  "cards": [
+    {
+      "id": "master-roofing:1:ja-en:card:1",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:1",
+      "sourceSpanish": "el sistema de techo",
+      "sourceEnglish": "the roof system",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "屋根の構成",
+      "archivedJapanese": "屋根の構成",
+      "archivedEnglish": "the roof system",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:card:2",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:2",
+      "sourceSpanish": "la cubierta",
+      "sourceEnglish": "the roof deck",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "野地板",
+      "archivedEnglish": "the roof deck",
+      "reviewNote": "Roof deck/野地板 is assembly-dependent; confirm this exact deck sense before use in scored roof-system instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:card:3",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:3",
+      "sourceSpanish": "la sub-capa",
+      "sourceEnglish": "the underlayment",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "下葺き材",
+      "archivedJapanese": "下葺き材",
+      "archivedEnglish": "the underlayment",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:card:4",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:4",
+      "sourceSpanish": "el goterón",
+      "sourceEnglish": "the drip edge",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "軒先の水切り板金",
+      "archivedEnglish": "the drip edge",
+      "reviewNote": "Drip-edge material, placement and relation to underlayment depend on the approved roof system and manufacturer; trade review required.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:card:5",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:5",
+      "sourceSpanish": "la hilera inicial",
+      "sourceEnglish": "the starter strip",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "スターター材",
+      "archivedJapanese": "スターター材",
+      "archivedEnglish": "the starter strip",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:card:6",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:6",
+      "sourceSpanish": "la teja asfáltica",
+      "sourceEnglish": "the asphalt shingle",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "アスファルトシングル材",
+      "archivedJapanese": "アスファルトシングル材",
+      "archivedEnglish": "the asphalt shingle",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:card:7",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:7",
+      "sourceSpanish": "la membrana impermeable",
+      "sourceEnglish": "the ice and water shield",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "アイス・アンド・ウォーター・シールド（防水膜）",
+      "archivedEnglish": "the ice and water shield",
+      "reviewNote": "Ice-and-water shield is a product class, not a universal installation prescription; confirm locale, scope and dictionary sense.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:card:8",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:8",
+      "sourceSpanish": "el tapajuntas",
+      "sourceEnglish": "the flashing",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "水切り板金",
+      "archivedEnglish": "the flashing",
+      "reviewNote": "Generic flashing has multiple forms; confirm selected Japanese sense for the chimney/wall context.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:card:9",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:9",
+      "sourceSpanish": "la limahoya",
+      "sourceEnglish": "the valley",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "谷部",
+      "archivedJapanese": "谷部",
+      "archivedEnglish": "the valley",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:card:10",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:10",
+      "sourceSpanish": "la cumbrera",
+      "sourceEnglish": "the ridge",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "棟",
+      "archivedJapanese": "棟",
+      "archivedEnglish": "the ridge",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:card:11",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:11",
+      "sourceSpanish": "el caballete",
+      "sourceEnglish": "the ridge cap",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "棟包み材",
+      "archivedEnglish": "the ridge cap",
+      "reviewNote": "Ridge cap product and installation sequence vary; confirm roof-system context.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:card:12",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:12",
+      "sourceSpanish": "la ventilación de caballete",
+      "sourceEnglish": "the ridge vent",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "棟換気材",
+      "archivedEnglish": "the ridge vent",
+      "reviewNote": "Ridge vent is not present on every roof design; confirm source lesson's assembly as a scene rather than a universal rule.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:card:13",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:13",
+      "sourceSpanish": "el alero",
+      "sourceEnglish": "the eave",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "軒先",
+      "archivedJapanese": "軒先",
+      "archivedEnglish": "the eave",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:card:14",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:14",
+      "sourceSpanish": "la capa",
+      "sourceEnglish": "the layer",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "層",
+      "archivedJapanese": "層",
+      "archivedEnglish": "the layer",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:card:15",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:15",
+      "sourceSpanish": "Primero va la cubierta y luego la sub-capa.",
+      "sourceEnglish": "First comes the deck, then the underlayment.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "まず野地板を敷き、次に下葺き材を敷きます。",
+      "archivedJapanese": "まず野地板を敷き、次に下葺き材を敷きます。",
+      "archivedEnglish": "First comes the deck, then the underlayment.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:card:16",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:16",
+      "sourceSpanish": "Cada capa tiene su trabajo.",
+      "sourceEnglish": "Each layer has its job.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "各層にはそれぞれ役割があります。",
+      "archivedJapanese": "各層にはそれぞれ役割があります。",
+      "archivedEnglish": "Each layer has its job.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:card:17",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:17",
+      "sourceSpanish": "El agua siempre corre hacia abajo.",
+      "sourceEnglish": "Water always runs downhill.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "水は常に低い方へ流れます。",
+      "archivedJapanese": "水は常に低い方へ流れます。",
+      "archivedEnglish": "Water always runs downhill.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:card:18",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:18",
+      "sourceSpanish": "Por eso empezamos desde abajo.",
+      "sourceEnglish": "That's why we start from the bottom.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "そのため、下から始めます。",
+      "archivedJapanese": "そのため、下から始めます。",
+      "archivedEnglish": "That's why we start from the bottom.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:card:19",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:19",
+      "sourceSpanish": "¿Me explico?",
+      "sourceEnglish": "Am I making sense?",
+      "sourceNoteSpanish": "a friendly check that the listener is following",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "説明は伝わっていますか。",
+      "archivedJapanese": "説明は伝わっていますか。",
+      "archivedEnglish": "Am I making sense?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:card:20",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:20",
+      "sourceSpanish": "Pregúntame lo que quieras.",
+      "sourceEnglish": "Ask me anything you want.",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "何でも質問してください。",
+      "archivedJapanese": "何でも質問してください。",
+      "archivedEnglish": "Ask me anything you want.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:card:21",
+      "legacySourceRef": "master-roofing:1:ja-en:cards:21",
+      "sourceSpanish": "Si tiene dudas, pregúnteme a mí.",
+      "sourceEnglish": "If you have questions, ask me.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "ご質問があれば、私にお尋ねください。",
+      "archivedJapanese": "ご質問があれば、私にお尋ねください。",
+      "archivedEnglish": "If you have questions, ask me.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:1:ja-en:line:1",
+      "legacySourceRef": "master-roofing:1:ja-en:reader:1",
+      "sourceSpanish": "Hoy es el primer día de Kevin en la cuadrilla, y Rogelio le explica el sistema de techo antes de subir.",
+      "sourceEnglish": "Today is Kevin's first day on the crew, and Rogelio explains the roof system to him before they go up.",
+      "selectedJapanese": null,
+      "candidateJapanese": "今日はケビンが作業班に入った初日で、ロヘリオが屋根に上がる前に屋根の構成を説明します。",
+      "archivedJapanese": "今日はケビンが作業班に入った初日で、ロヘリオが屋根に上がる前に屋根の構成を説明します。",
+      "archivedEnglish": "Today is Kevin's first day on the crew, and Rogelio explains the roof system to him before they go up.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:line:2",
+      "legacySourceRef": "master-roofing:1:ja-en:reader:2",
+      "sourceSpanish": "Rogelio: Cada capa tiene su trabajo, y todas trabajan juntas.",
+      "sourceEnglish": "Rogelio: Each layer has its job, and they all work together.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「各層にはそれぞれ役割があり、すべてが一緒に働きます。」",
+      "archivedJapanese": "ロヘリオ「各層にはそれぞれ役割があり、すべてが一緒に働きます。」",
+      "archivedEnglish": "Rogelio: Each layer has its job, and they all work together.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:line:3",
+      "legacySourceRef": "master-roofing:1:ja-en:reader:3",
+      "sourceSpanish": "Rogelio: Primero va la cubierta y luego la sub-capa.",
+      "sourceEnglish": "Rogelio: First comes the deck, then the underlayment.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「まず野地板を敷き、次に下葺き材を敷きます。」",
+      "archivedEnglish": "Rogelio: First comes the deck, then the underlayment.",
+      "reviewNote": "Layer order depends on roof-system details; the source teaches a scene, not a universal installation sequence.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:line:4",
+      "legacySourceRef": "master-roofing:1:ja-en:reader:4",
+      "sourceSpanish": "Rogelio: La cubierta es la base, así que tiene que estar firme y seca.",
+      "sourceEnglish": "Rogelio: The deck is the base, so it has to be solid and dry.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「野地板は土台なので、しっかりしていて乾いている必要があります。」",
+      "archivedEnglish": "Rogelio: The deck is the base, so it has to be solid and dry.",
+      "reviewNote": "Solid/dry deck conditions need product and site-specific confirmation before scored instruction.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:line:5",
+      "legacySourceRef": "master-roofing:1:ja-en:reader:5",
+      "sourceSpanish": "Rogelio: En el alero ponemos el goterón, porque el agua tiene que caer en la canaleta y no en la madera.",
+      "sourceEnglish": "Rogelio: At the eave we put the drip edge, because the water has to fall into the gutter and not onto the wood.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「軒先には水切り板金を取り付けます。水を木部ではなく雨どいに落とすためです。」",
+      "archivedEnglish": "Rogelio: At the eave we put the drip edge, because the water has to fall into the gutter and not onto the wood.",
+      "reviewNote": "Drip edge placement and gutter drainage depend on design and manufacturer; trade review required.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:line:6",
+      "legacySourceRef": "master-roofing:1:ja-en:reader:6",
+      "sourceSpanish": "Rogelio: En el alero y en la limahoya también va la membrana impermeable, porque ahí corre más agua.",
+      "sourceEnglish": "Rogelio: At the eave and in the valley the ice and water shield goes on too, because more water runs there.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「軒先と谷部にはアイス・アンド・ウォーター・シールドも敷きます。そこにはより多くの水が流れるからです。」",
+      "archivedEnglish": "Rogelio: At the eave and in the valley the ice and water shield goes on too, because more water runs there.",
+      "reviewNote": "Ice-and-water shield at eave/valley depends on climate, product and code; do not teach as universal.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:line:7",
+      "legacySourceRef": "master-roofing:1:ja-en:reader:7",
+      "sourceSpanish": "Kevin: ¿Y por qué no empezamos arriba, donde está la cumbrera?",
+      "sourceEnglish": "Kevin: And why don't we start at the top, where the ridge is?",
+      "selectedJapanese": null,
+      "candidateJapanese": "ケビン「なぜ棟のある上から始めないのですか。」",
+      "archivedJapanese": "ケビン「なぜ棟のある上から始めないのですか。」",
+      "archivedEnglish": "Kevin: And why don't we start at the top, where the ridge is?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:line:8",
+      "legacySourceRef": "master-roofing:1:ja-en:reader:8",
+      "sourceSpanish": "Rogelio: Porque el agua siempre corre hacia abajo.",
+      "sourceEnglish": "Rogelio: Because water always runs downhill.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「水は常に低い方へ流れるからです。」",
+      "archivedJapanese": "ロヘリオ「水は常に低い方へ流れるからです。」",
+      "archivedEnglish": "Rogelio: Because water always runs downhill.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:line:9",
+      "legacySourceRef": "master-roofing:1:ja-en:reader:9",
+      "sourceSpanish": "Rogelio: Por eso empezamos desde abajo: primero la hilera inicial y después las tejas asfálticas, una hilera encima de otra.",
+      "sourceEnglish": "Rogelio: That's why we start from the bottom: first the starter strip and then the asphalt shingles, one course on top of another.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「そのため下から始めます。まずスターター材、次にアスファルトシングル材を一段ずつ重ねます。」",
+      "archivedEnglish": "Rogelio: That's why we start from the bottom: first the starter strip and then the asphalt shingles, one course on top of another.",
+      "reviewNote": "Starter/shingle sequence and overlap are system-specific; trade review required.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:line:10",
+      "legacySourceRef": "master-roofing:1:ja-en:reader:10",
+      "sourceSpanish": "Rogelio: Cada hilera cubre la de abajo, así que el agua pasa por encima y nunca por debajo.",
+      "sourceEnglish": "Rogelio: Each course covers the one below, so the water runs over it and never under it.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「各段が下の段を覆うので、水はその上を流れ、下には入りません。」",
+      "archivedEnglish": "Rogelio: Each course covers the one below, so the water runs over it and never under it.",
+      "reviewNote": "Never under it is too absolute for actual roof performance; retain source wording as evidence and qualify before scoring.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:line:11",
+      "legacySourceRef": "master-roofing:1:ja-en:reader:11",
+      "sourceSpanish": "Rogelio: Alrededor de la chimenea y de las paredes ponemos el tapajuntas, porque esas uniones son los puntos débiles.",
+      "sourceEnglish": "Rogelio: Around the chimney and the walls we put flashing, because those joints are the weak points.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「煙突や壁の周りには水切り板金を取り付けます。その接合部は弱い箇所だからです。」",
+      "archivedEnglish": "Rogelio: Around the chimney and the walls we put flashing, because those joints are the weak points.",
+      "reviewNote": "Flashing details at chimney/wall are design-specific; trade review required.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:line:12",
+      "legacySourceRef": "master-roofing:1:ja-en:reader:12",
+      "sourceSpanish": "Rogelio: Al final, arriba de todo, va la ventilación de caballete y luego el caballete.",
+      "sourceEnglish": "Rogelio: At the end, at the very top, goes the ridge vent and then the ridge cap.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「最後に一番上へ棟換気材を取り付け、その上に棟包み材を取り付けます。」",
+      "archivedEnglish": "Rogelio: At the end, at the very top, goes the ridge vent and then the ridge cap.",
+      "reviewNote": "Ridge vent/cap sequence is system-specific; trade review required.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:line:13",
+      "legacySourceRef": "master-roofing:1:ja-en:reader:13",
+      "sourceSpanish": "Rogelio: El ático necesita respirar; por eso dejamos la ventilación en la cumbrera.",
+      "sourceEnglish": "Rogelio: The attic needs to breathe; that's why we leave the vent at the ridge.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「屋根裏には換気が必要なので、棟に換気材を設けます。」",
+      "archivedEnglish": "Rogelio: The attic needs to breathe; that's why we leave the vent at the ridge.",
+      "reviewNote": "Ridge ventilation design is not universal; trade review required.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:line:14",
+      "legacySourceRef": "master-roofing:1:ja-en:reader:14",
+      "sourceSpanish": "Rogelio: ¿Me explico?",
+      "sourceEnglish": "Rogelio: Am I making sense?",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「説明は伝わっていますか。」",
+      "archivedJapanese": "ロヘリオ「説明は伝わっていますか。」",
+      "archivedEnglish": "Rogelio: Am I making sense?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:line:15",
+      "legacySourceRef": "master-roofing:1:ja-en:reader:15",
+      "sourceSpanish": "Kevin: Sí, primero la base, luego la protección contra el agua y al final la ventilación.",
+      "sourceEnglish": "Kevin: Yes, first the base, then the protection against water, and at the end the ventilation.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ケビン「はい。まず土台、次に水からの保護、最後に換気ですね。」",
+      "archivedJapanese": "ケビン「はい。まず土台、次に水からの保護、最後に換気ですね。」",
+      "archivedEnglish": "Kevin: Yes, first the base, then the protection against water, and at the end the ventilation.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:line:16",
+      "legacySourceRef": "master-roofing:1:ja-en:reader:16",
+      "sourceSpanish": "Rogelio: Exacto, y si tienes dudas, pregúntame lo que quieras.",
+      "sourceEnglish": "Rogelio: Exactly, and if you have questions, ask me anything you want.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「その通りです。疑問があれば何でも質問してください。」",
+      "archivedJapanese": "ロヘリオ「その通りです。疑問があれば何でも質問してください。」",
+      "archivedEnglish": "Rogelio: Exactly, and if you have questions, ask me anything you want.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:1:ja-en:line:17",
+      "legacySourceRef": "master-roofing:1:ja-en:reader:17",
+      "sourceSpanish": "Rogelio: Con un cliente se dice así: Si tiene dudas, pregúnteme a mí.",
+      "sourceEnglish": "Rogelio: With a client you say it this way: If you have questions, ask me.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「お客様には『ご質問があれば、私にお尋ねください』と言います。」",
+      "archivedJapanese": "ロヘリオ「お客様には『ご質問があれば、私にお尋ねください』と言います。」",
+      "archivedEnglish": "Rogelio: With a client you say it this way: If you have questions, ask me.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Identify each roof layer from deck to ridge.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall deck, underlayment, drip edge, flashing, ridge vent, and ridge cap.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 野地板 from 下葺き材 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Each layer has its job' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Teach a new hire the layer order and why each layer is there.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write a customer-facing question invitation in polite Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

@@ -1,0 +1,695 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "master-roofing",
+  "lessonId": "master-roofing:3:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-1-3-draft.json",
+      "sha256": "8dcb2844a21b9fba3c9f843280296324e32d74d0307e9a43462f9b8c69236847"
+    }
+  },
+  "sourceEnglishTitle": "Training a New Crew Member on Nailing",
+  "sourceEnglishObjective": "Coach a new roofer on nailing with clear commands, correcting mistakes without embarrassing them",
+  "sourceEnglishSpeaking": "You are training the AI, a new crew member, on the nail gun: show where to nail, check their work, and correct mistakes with commands like clávalo aquí and no lo hundas, keeping the tone supportive.",
+  "sourceSpanishReaderTitle": "Nail It Here, Not There",
+  "sourceLessonType": "Teach-back",
+  "sourceBlock": "A",
+  "sourceGrammar": {
+    "focus": "Commands with object pronouns (clávalo aquí, no lo hundas)",
+    "examples": [
+      {
+        "es": "Clávalo aquí, en la zona de clavado.",
+        "en": "Nail it here, in the nailing zone."
+      },
+      {
+        "es": "No lo hundas; déjalo al ras.",
+        "en": "Don't sink it; leave it flush."
+      }
+    ]
+  },
+  "sourceVerbExamples": [
+    {
+      "infinitive": "clavar",
+      "native": "to nail",
+      "forms": {
+        "yo": "clavo",
+        "tú": "clavas",
+        "él_ella_usted": "clava",
+        "nosotros": "clavamos",
+        "ellos_ustedes": "clavan"
+      },
+      "example": {
+        "target": "Clávalo aquí, en la zona de clavado.",
+        "native": "Nail it here, in the nailing zone."
+      },
+      "note": "Tú command with a pronoun: clávalo; negative: no lo claves."
+    },
+    {
+      "infinitive": "sacar",
+      "native": "to pull out",
+      "forms": {
+        "yo": "saco",
+        "tú": "sacas",
+        "él_ella_usted": "saca",
+        "nosotros": "sacamos",
+        "ellos_ustedes": "sacan"
+      },
+      "example": {
+        "target": "Sácalo y ponle otro.",
+        "native": "Pull it out and put in another one."
+      },
+      "note": "Negative tú command: no lo saques (c changes to qu)."
+    },
+    {
+      "infinitive": "hundir",
+      "native": "to sink",
+      "forms": {
+        "yo": "hundo",
+        "tú": "hundes",
+        "él_ella_usted": "hunde",
+        "nosotros": "hundimos",
+        "ellos_ustedes": "hunden"
+      },
+      "example": {
+        "target": "No lo hundas.",
+        "native": "Don't sink it."
+      },
+      "note": "The negative tú command uses the subjunctive: no lo hundas."
+    },
+    {
+      "infinitive": "ajustar",
+      "native": "to adjust",
+      "forms": {
+        "yo": "ajusto",
+        "tú": "ajustas",
+        "él_ella_usted": "ajusta",
+        "nosotros": "ajustamos",
+        "ellos_ustedes": "ajustan"
+      },
+      "example": {
+        "target": "Avísame y lo ajustamos juntos.",
+        "native": "Let me know and we'll adjust it together."
+      },
+      "note": "Affirmative command: ajústalo; the pronoun is attached to the end."
+    },
+    {
+      "infinitive": "apuntar",
+      "native": "to point (aim)",
+      "forms": {
+        "yo": "apunto",
+        "tú": "apuntas",
+        "él_ella_usted": "apunta",
+        "nosotros": "apuntamos",
+        "ellos_ustedes": "apuntan"
+      },
+      "example": {
+        "target": "No la apuntes hacia nadie.",
+        "native": "Don't point it at anyone."
+      },
+      "note": "In a negative command the pronoun goes before the verb: no la apuntes."
+    }
+  ],
+  "candidateObjective": "新人に釘打ち位置を示し、間違いを直すよう支援的な言葉で伝える。",
+  "candidateFocus": "～てください gives a clear instruction, ～ないでください prohibits overdriving, and ～たら orders a correction after checking the nail head.",
+  "archivedForms": [
+    {
+      "base": "打つ",
+      "exampleJa": "ここ、釘打ち範囲の中に打ってください。",
+      "meaningEnglish": "to nail",
+      "exampleEnglish": "Nail it here, in the nailing zone.",
+      "sourceInfinitiveSpanish": "clavar"
+    },
+    {
+      "base": "抜く",
+      "exampleJa": "それを抜いて、別の釘を打ってください。",
+      "meaningEnglish": "to pull out",
+      "exampleEnglish": "Pull it out and put in another one.",
+      "sourceInfinitiveSpanish": "sacar"
+    },
+    {
+      "base": "深く打ち込む",
+      "exampleJa": "深く打ち込みすぎないでください。",
+      "meaningEnglish": "to sink",
+      "exampleEnglish": "Don't sink it.",
+      "sourceInfinitiveSpanish": "hundir"
+    },
+    {
+      "base": "調整する",
+      "exampleJa": "教えてください。一緒に調整しましょう。",
+      "meaningEnglish": "to adjust",
+      "exampleEnglish": "Let me know and we'll adjust it together.",
+      "sourceInfinitiveSpanish": "ajustar"
+    },
+    {
+      "base": "向ける",
+      "exampleJa": "釘打ち機を人に向けないでください。",
+      "meaningEnglish": "to point (aim)",
+      "exampleEnglish": "Don't point it at anyone.",
+      "sourceInfinitiveSpanish": "apuntar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "この線が釘打ち範囲です。ここに打ってください。釘の頭が沈んだら空気圧を調整しましょう。大丈夫です。一緒に確認します。",
+    "goal": "Coach a new crew member on nail placement and depth. Show the nailing zone, correct high and overdriven nails with clear Japanese requests, and keep a supportive tone."
+  },
+  "cards": [
+    {
+      "id": "master-roofing:3:ja-en:card:1",
+      "legacySourceRef": "master-roofing:3:ja-en:cards:1",
+      "sourceSpanish": "la pistola de clavos",
+      "sourceEnglish": "the nail gun",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "釘打ち機",
+      "archivedJapanese": "釘打ち機",
+      "archivedEnglish": "the nail gun",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:card:2",
+      "legacySourceRef": "master-roofing:3:ja-en:cards:2",
+      "sourceSpanish": "la zona de clavado",
+      "sourceEnglish": "the nailing zone",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "釘打ち範囲",
+      "archivedEnglish": "the nailing zone",
+      "reviewNote": "Confirm product-specific nailing zone and manufacturer pattern before scoring placement.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:card:3",
+      "legacySourceRef": "master-roofing:3:ja-en:cards:3",
+      "sourceSpanish": "el patrón de clavado",
+      "sourceEnglish": "the nail pattern",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "釘打ちパターン",
+      "archivedEnglish": "the nail pattern",
+      "reviewNote": "Nail pattern varies by product and site conditions; preserve manufacturer dependency.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:card:4",
+      "legacySourceRef": "master-roofing:3:ja-en:cards:4",
+      "sourceSpanish": "el clavo demasiado hundido",
+      "sourceEnglish": "the overdriven nail",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "深く打ち込みすぎた釘",
+      "archivedEnglish": "the overdriven nail",
+      "reviewNote": "Overdriven nail diagnosis and correction need qualified roofing review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:card:5",
+      "legacySourceRef": "master-roofing:3:ja-en:cards:5",
+      "sourceSpanish": "el clavo muy alto",
+      "sourceEnglish": "the high nail",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "高すぎる位置の釘",
+      "archivedEnglish": "the high nail",
+      "reviewNote": "High nail diagnosis and correction need qualified roofing review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:card:6",
+      "legacySourceRef": "master-roofing:3:ja-en:cards:6",
+      "sourceSpanish": "la cabeza del clavo",
+      "sourceEnglish": "the nail head",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "釘の頭",
+      "archivedJapanese": "釘の頭",
+      "archivedEnglish": "the nail head",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:card:7",
+      "legacySourceRef": "master-roofing:3:ja-en:cards:7",
+      "sourceSpanish": "la presión de aire",
+      "sourceEnglish": "the air pressure",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "空気圧",
+      "archivedJapanese": "空気圧",
+      "archivedEnglish": "the air pressure",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:card:8",
+      "legacySourceRef": "master-roofing:3:ja-en:cards:8",
+      "sourceSpanish": "el compresor",
+      "sourceEnglish": "the compressor",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "コンプレッサー",
+      "archivedJapanese": "コンプレッサー",
+      "archivedEnglish": "the compressor",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:card:9",
+      "legacySourceRef": "master-roofing:3:ja-en:cards:9",
+      "sourceSpanish": "la profundidad",
+      "sourceEnglish": "the depth",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "深さ",
+      "archivedJapanese": "深さ",
+      "archivedEnglish": "the depth",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:card:10",
+      "legacySourceRef": "master-roofing:3:ja-en:cards:10",
+      "sourceSpanish": "la manguera",
+      "sourceEnglish": "the hose",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "ホース",
+      "archivedJapanese": "ホース",
+      "archivedEnglish": "the hose",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:card:11",
+      "legacySourceRef": "master-roofing:3:ja-en:cards:11",
+      "sourceSpanish": "el gatillo",
+      "sourceEnglish": "the trigger",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "引き金",
+      "archivedJapanese": "引き金",
+      "archivedEnglish": "the trigger",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:card:12",
+      "legacySourceRef": "master-roofing:3:ja-en:cards:12",
+      "sourceSpanish": "al ras",
+      "sourceEnglish": "flush",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "面一",
+      "archivedEnglish": "flush",
+      "reviewNote": "Flush nail-head position must match selected product instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:card:13",
+      "legacySourceRef": "master-roofing:3:ja-en:cards:13",
+      "sourceSpanish": "el agujero",
+      "sourceEnglish": "the hole",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "穴",
+      "archivedJapanese": "穴",
+      "archivedEnglish": "the hole",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:card:14",
+      "legacySourceRef": "master-roofing:3:ja-en:cards:14",
+      "sourceSpanish": "Clávalo aquí, en la zona de clavado.",
+      "sourceEnglish": "Nail it here, in the nailing zone.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ここ、釘打ち範囲の中に打ってください。",
+      "archivedEnglish": "Nail it here, in the nailing zone.",
+      "reviewNote": "Placement command needs product-specific nailing zone and safe gun procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:card:15",
+      "legacySourceRef": "master-roofing:3:ja-en:cards:15",
+      "sourceSpanish": "No lo hundas.",
+      "sourceEnglish": "Don't sink it.",
+      "sourceNoteSpanish": "a nail sunk too deep cuts the shingle",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "深く打ち込みすぎないでください。",
+      "archivedEnglish": "Don't sink it.",
+      "reviewNote": "Do not score gun-depth correction before qualified tool/product review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:card:16",
+      "legacySourceRef": "master-roofing:3:ja-en:cards:16",
+      "sourceSpanish": "Bájale a la presión.",
+      "sourceEnglish": "Turn down the pressure.",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "空気圧を下げてください。",
+      "archivedEnglish": "Turn down the pressure.",
+      "reviewNote": "Air-pressure adjustment depends on tool and product instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:card:17",
+      "legacySourceRef": "master-roofing:3:ja-en:cards:17",
+      "sourceSpanish": "Sácalo y ponle otro.",
+      "sourceEnglish": "Pull it out and put in another one.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "それを抜いて、別の釘を打ってください。",
+      "archivedEnglish": "Pull it out and put in another one.",
+      "reviewNote": "High-nail removal and replacement need product-specific repair instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:card:18",
+      "legacySourceRef": "master-roofing:3:ja-en:cards:18",
+      "sourceSpanish": "Fíjate bien en la cabeza del clavo.",
+      "sourceEnglish": "Look closely at the nail head.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "釘の頭をよく見てください。",
+      "archivedJapanese": "釘の頭をよく見てください。",
+      "archivedEnglish": "Look closely at the nail head.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:card:19",
+      "legacySourceRef": "master-roofing:3:ja-en:cards:19",
+      "sourceSpanish": "No te preocupes, a todos nos pasó.",
+      "sourceEnglish": "Don't worry, it happened to all of us.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "大丈夫です。誰にでも起こることです。",
+      "archivedJapanese": "大丈夫です。誰にでも起こることです。",
+      "archivedEnglish": "Don't worry, it happened to all of us.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:card:20",
+      "legacySourceRef": "master-roofing:3:ja-en:cards:20",
+      "sourceSpanish": "Revíselo usted también, por favor.",
+      "sourceEnglish": "Please check it yourself too.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "ご自身でも確認してください。",
+      "archivedJapanese": "ご自身でも確認してください。",
+      "archivedEnglish": "Please check it yourself too.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:3:ja-en:line:1",
+      "legacySourceRef": "master-roofing:3:ja-en:reader:1",
+      "sourceSpanish": "Hoy Kevin usa la pistola de clavos por primera vez, y Rogelio se queda a su lado.",
+      "sourceEnglish": "Today Kevin uses the nail gun for the first time, and Rogelio stays at his side.",
+      "selectedJapanese": null,
+      "candidateJapanese": "今日、ケビンは初めて釘打ち機を使い、ロヘリオがそばで見守ります。",
+      "archivedJapanese": "今日、ケビンは初めて釘打ち機を使い、ロヘリオがそばで見守ります。",
+      "archivedEnglish": "Today Kevin uses the nail gun for the first time, and Rogelio stays at his side.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:line:2",
+      "legacySourceRef": "master-roofing:3:ja-en:reader:2",
+      "sourceSpanish": "Rogelio: Antes de empezar, revisa la manguera y el compresor, y no pongas el dedo en el gatillo.",
+      "sourceEnglish": "Rogelio: Before you start, check the hose and the compressor, and don't put your finger on the trigger.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「始める前にホースとコンプレッサーを確認し、引き金に指を掛けないでください。」",
+      "archivedEnglish": "Rogelio: Before you start, check the hose and the compressor, and don't put your finger on the trigger.",
+      "reviewNote": "Nail-gun handling instruction requires qualified tool/safety review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:line:3",
+      "legacySourceRef": "master-roofing:3:ja-en:reader:3",
+      "sourceSpanish": "Rogelio: Mira esta línea en la teja; esta es la zona de clavado.",
+      "sourceEnglish": "Rogelio: Look at this line on the shingle; this is the nailing zone.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「シングル材のこの線を見てください。ここが釘打ち範囲です。」",
+      "archivedJapanese": "ロヘリオ「シングル材のこの線を見てください。ここが釘打ち範囲です。」",
+      "archivedEnglish": "Rogelio: Look at this line on the shingle; this is the nailing zone.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:line:4",
+      "legacySourceRef": "master-roofing:3:ja-en:reader:4",
+      "sourceSpanish": "Rogelio: Clávalo aquí, en la zona de clavado, y sigue el patrón de clavado del fabricante.",
+      "sourceEnglish": "Rogelio: Nail it here, in the nailing zone, and follow the manufacturer's nail pattern.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「釘打ち範囲の中のここに打ち、メーカーの釘打ちパターンに従ってください。」",
+      "archivedEnglish": "Rogelio: Nail it here, in the nailing zone, and follow the manufacturer's nail pattern.",
+      "reviewNote": "Nailing zone and pattern are manufacturer-specific.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:line:5",
+      "legacySourceRef": "master-roofing:3:ja-en:reader:5",
+      "sourceSpanish": "Kevin clava la primera teja, pero un clavo queda muy alto.",
+      "sourceEnglish": "Kevin nails the first shingle, but one nail ends up too high.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ケビンは最初のシングル材に釘を打ちますが、一本は高すぎる位置に入ります。",
+      "archivedJapanese": "ケビンは最初のシングル材に釘を打ちますが、一本は高すぎる位置に入ります。",
+      "archivedEnglish": "Kevin nails the first shingle, but one nail ends up too high.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:line:6",
+      "legacySourceRef": "master-roofing:3:ja-en:reader:6",
+      "sourceSpanish": "Rogelio: Ese clavo muy alto no agarra bien la teja de abajo; sácalo y ponle otro.",
+      "sourceEnglish": "Rogelio: That high nail doesn't hold the shingle below well; pull it out and put in another one.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「その高すぎる位置の釘では、下のシングル材を十分に留められません。抜いて別の釘を打ってください。」",
+      "archivedEnglish": "Rogelio: That high nail doesn't hold the shingle below well; pull it out and put in another one.",
+      "reviewNote": "High-nail removal and replacement are product-specific.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:line:7",
+      "legacySourceRef": "master-roofing:3:ja-en:reader:7",
+      "sourceSpanish": "Rogelio: Y el agujero, séllalo según las instrucciones del producto; no lo dejes abierto.",
+      "sourceEnglish": "Rogelio: And the hole, seal it according to the product instructions; don't leave it open.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「穴は製品の説明書に従ってシーリングしてください。開いたままにしないでください。」",
+      "archivedEnglish": "Rogelio: And the hole, seal it according to the product instructions; don't leave it open.",
+      "reviewNote": "Hole sealing method must follow the actual selected product instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:line:8",
+      "legacySourceRef": "master-roofing:3:ja-en:reader:8",
+      "sourceSpanish": "Luego Kevin dispara otro clavo, y la cabeza del clavo se hunde en la teja.",
+      "sourceEnglish": "Then Kevin fires another nail, and the nail head sinks into the shingle.",
+      "selectedJapanese": null,
+      "candidateJapanese": "次にケビンが別の釘を打つと、釘の頭がシングル材に沈み込みます。",
+      "archivedJapanese": "次にケビンが別の釘を打つと、釘の頭がシングル材に沈み込みます。",
+      "archivedEnglish": "Then Kevin fires another nail, and the nail head sinks into the shingle.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:line:9",
+      "legacySourceRef": "master-roofing:3:ja-en:reader:9",
+      "sourceSpanish": "Rogelio: Fíjate bien en la cabeza del clavo; tiene que quedar al ras, no más abajo.",
+      "sourceEnglish": "Rogelio: Look closely at the nail head; it has to sit flush, not lower.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「釘の頭をよく見てください。表面と面一で、低くなってはいけません。」",
+      "archivedEnglish": "Rogelio: Look closely at the nail head; it has to sit flush, not lower.",
+      "reviewNote": "Flush target needs manufacturer/product confirmation.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:line:10",
+      "legacySourceRef": "master-roofing:3:ja-en:reader:10",
+      "sourceSpanish": "Rogelio: Un clavo demasiado hundido corta la teja, y el viento la puede levantar.",
+      "sourceEnglish": "Rogelio: An overdriven nail cuts the shingle, and the wind can lift it.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「深く打ち込みすぎた釘はシングル材を切り、風で持ち上がることがあります。」",
+      "archivedEnglish": "Rogelio: An overdriven nail cuts the shingle, and the wind can lift it.",
+      "reviewNote": "Wind uplift consequence is plausible but product/installation context matters.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:line:11",
+      "legacySourceRef": "master-roofing:3:ja-en:reader:11",
+      "sourceSpanish": "Rogelio: Bájale a la presión de aire un poco y prueba otra vez; no lo hundas.",
+      "sourceEnglish": "Rogelio: Turn the air pressure down a little and try again; don't sink it.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「空気圧を少し下げて、もう一度試してください。深く打ち込みすぎないでください。」",
+      "archivedEnglish": "Rogelio: Turn the air pressure down a little and try again; don't sink it.",
+      "reviewNote": "Air-pressure change is tool/product-specific.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:line:12",
+      "legacySourceRef": "master-roofing:3:ja-en:reader:12",
+      "sourceSpanish": "Rogelio: Si la profundidad cambia, avísame y lo ajustamos juntos.",
+      "sourceEnglish": "Rogelio: If the depth changes, let me know and we'll adjust it together.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「深さが変わったら教えてください。一緒に調整しましょう。」",
+      "archivedJapanese": "ロヘリオ「深さが変わったら教えてください。一緒に調整しましょう。」",
+      "archivedEnglish": "Rogelio: If the depth changes, let me know and we'll adjust it together.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:line:13",
+      "legacySourceRef": "master-roofing:3:ja-en:reader:13",
+      "sourceSpanish": "Kevin se pone rojo, pero Rogelio le dice: No te preocupes, a todos nos pasó.",
+      "sourceEnglish": "Kevin turns red, but Rogelio tells him: Don't worry, it happened to all of us.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ケビンは顔を赤らめますが、ロヘリオは「大丈夫です。誰にでも起こることです」と伝えます。",
+      "archivedJapanese": "ケビンは顔を赤らめますが、ロヘリオは「大丈夫です。誰にでも起こることです」と伝えます。",
+      "archivedEnglish": "Kevin turns red, but Rogelio tells him: Don't worry, it happened to all of us.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:line:14",
+      "legacySourceRef": "master-roofing:3:ja-en:reader:14",
+      "sourceSpanish": "Rogelio: Y la pistola, no la apuntes hacia nadie, ni en broma.",
+      "sourceEnglish": "Rogelio: And the gun, don't point it at anyone, not even as a joke.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「釘打ち機を人に向けないでください。冗談でもいけません。」",
+      "archivedEnglish": "Rogelio: And the gun, don't point it at anyone, not even as a joke.",
+      "reviewNote": "Gun direction is safety-critical; preserve meaning and qualified review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:line:15",
+      "legacySourceRef": "master-roofing:3:ja-en:reader:15",
+      "sourceSpanish": "Más tarde llega don Ernesto, un trabajador nuevo con muchos años de experiencia en otra compañía.",
+      "sourceEnglish": "Later Don Ernesto arrives, a new worker with many years of experience at another company.",
+      "selectedJapanese": null,
+      "candidateJapanese": "その後、別の会社で長年働いた新人のエルネストさんが来ます。",
+      "archivedJapanese": "その後、別の会社で長年働いた新人のエルネストさんが来ます。",
+      "archivedEnglish": "Later Don Ernesto arrives, a new worker with many years of experience at another company.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:ja-en:line:16",
+      "legacySourceRef": "master-roofing:3:ja-en:reader:16",
+      "sourceSpanish": "Rogelio: Don Ernesto, aquí clavamos así; revíselo usted también, por favor.",
+      "sourceEnglish": "Rogelio: Don Ernesto, here we nail like this; please check it yourself too.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「エルネストさん、ここではこのように釘を打ちます。ご自身でも確認してください。」",
+      "archivedJapanese": "ロヘリオ「エルネストさん、ここではこのように釘を打ちます。ご自身でも確認してください。」",
+      "archivedEnglish": "Rogelio: Don Ernesto, here we nail like this; please check it yourself too.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the nailing zone, high nail, and overdriven nail.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall nail gun, air pressure, trigger, and flush nail head.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 高すぎる位置の釘 from 深く打ち込みすぎた釘 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Don't sink it' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Coach a new roofer on nail placement with clear, supportive instructions.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write a correction for a high nail and a separate correction for an overdriven nail.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "curriculumAdaptationNote": "The scene teaches supportive correction of nail placement. Preserve the source distinction between high and overdriven nails, the product-specific nailing zone/pattern, hole sealing according to product instructions, and nail-gun handling. Do not turn the fictional tool adjustments into universal scored instructions. Archived Japanese is evidence only; grammar and five Spanish verbs are pinned separately. No selected learner/audio text or progress identity is created.",
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

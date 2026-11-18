@@ -1,0 +1,691 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "master-roofing",
+  "lessonId": "master-roofing:2:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "sourceContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-1-3-draft.json",
+      "sha256": "8dcb2844a21b9fba3c9f843280296324e32d74d0307e9a43462f9b8c69236847"
+    }
+  },
+  "sourceEnglishTitle": "Why We Stagger Joints",
+  "sourceEnglishObjective": "Explain why joints are staggered, using impersonal se and general rules with si",
+  "sourceEnglishSpeaking": "You are the crew lead and the AI is a new hire who wants to lay shingles faster: explain how water travels across the roof, why the joints are staggered, and what happens over time if they line up, using se and si.",
+  "sourceSpanishReaderTitle": "Water Finds the Joint",
+  "sourceGrammarFocus": "Impersonal se; si + present for general truths",
+  "sourceGrammarExamples": [
+    {
+      "es": "Se escalonan las juntas en cada hilera.",
+      "en": "The joints are staggered on every course."
+    },
+    {
+      "es": "Si las juntas se alinean, el agua se mete.",
+      "en": "If the joints line up, water gets in."
+    }
+  ],
+  "sourceVerbExamples": [
+    {
+      "infinitive": "escalonar",
+      "native": "to stagger",
+      "forms": {
+        "yo": "escalono",
+        "tú": "escalonas",
+        "él_ella_usted": "escalona",
+        "nosotros": "escalonamos",
+        "ellos_ustedes": "escalonan"
+      },
+      "example": {
+        "target": "Por eso se escalonan las juntas según el fabricante.",
+        "native": "That's why the joints are staggered according to the manufacturer."
+      },
+      "note": "Impersonal se with a plural noun: se escalonan las juntas."
+    },
+    {
+      "infinitive": "alinear",
+      "native": "to line up",
+      "forms": {
+        "yo": "alineo",
+        "tú": "alineas",
+        "él_ella_usted": "alinea",
+        "nosotros": "alineamos",
+        "ellos_ustedes": "alinean"
+      },
+      "example": {
+        "target": "Si las juntas se alinean, el agua se mete.",
+        "native": "If the joints line up, water gets in."
+      },
+      "note": "Si + present is used for a general truth: si se alinean, el agua se mete."
+    },
+    {
+      "infinitive": "buscar",
+      "native": "to look for",
+      "forms": {
+        "yo": "busco",
+        "tú": "buscas",
+        "él_ella_usted": "busca",
+        "nosotros": "buscamos",
+        "ellos_ustedes": "buscan"
+      },
+      "example": {
+        "target": "El agua busca el camino más fácil.",
+        "native": "Water looks for the easiest path."
+      }
+    },
+    {
+      "infinitive": "levantar",
+      "native": "to lift",
+      "forms": {
+        "yo": "levanto",
+        "tú": "levantas",
+        "él_ella_usted": "levanta",
+        "nosotros": "levantamos",
+        "ellos_ustedes": "levantan"
+      },
+      "example": {
+        "target": "El viento levanta las lengüetas si la tira selladora no pega bien.",
+        "native": "The wind lifts the tabs if the sealant strip doesn't stick well."
+      }
+    },
+    {
+      "infinitive": "revisar",
+      "native": "to check",
+      "forms": {
+        "yo": "reviso",
+        "tú": "revisas",
+        "él_ella_usted": "revisa",
+        "nosotros": "revisamos",
+        "ellos_ustedes": "revisan"
+      },
+      "example": {
+        "target": "Se revisa el patrón en cada hilera.",
+        "native": "The pattern is checked on every course."
+      },
+      "note": "Impersonal se with a singular noun: se revisa el patrón."
+    }
+  ],
+  "candidateObjective": "継ぎ目をずらす理由と水の流れを、一般条件の日本語で説明する。",
+  "candidateFocus": "～と and ～場合 express a general condition and result. ～によって attributes the pattern to the manufacturer; ～てはいけません states a site rule without a Spanish impersonal construction.",
+  "archivedForms": [
+    {
+      "base": "ずらす",
+      "exampleJa": "そのため、メーカーの指定に従って継ぎ目をずらします。",
+      "meaningEnglish": "to stagger",
+      "exampleEnglish": "That's why the joints are staggered according to the manufacturer.",
+      "sourceInfinitiveSpanish": "escalonar"
+    },
+    {
+      "base": "並ぶ",
+      "exampleJa": "継ぎ目が一直線に並ぶと、水が入ります。",
+      "meaningEnglish": "to line up",
+      "exampleEnglish": "If the joints line up, water gets in.",
+      "sourceInfinitiveSpanish": "alinear"
+    },
+    {
+      "base": "探す",
+      "exampleJa": "水は通りやすい道を探します。",
+      "meaningEnglish": "to look for",
+      "exampleEnglish": "Water looks for the easiest path.",
+      "sourceInfinitiveSpanish": "buscar"
+    },
+    {
+      "base": "持ち上げる",
+      "exampleJa": "粘着帯が十分に付かなければ、風がタブを持ち上げます。",
+      "meaningEnglish": "to lift",
+      "exampleEnglish": "The wind lifts the tabs if the sealant strip doesn't stick well.",
+      "sourceInfinitiveSpanish": "levantar"
+    },
+    {
+      "base": "確認する",
+      "exampleJa": "各段の配置パターンを確認します。",
+      "meaningEnglish": "to check",
+      "exampleEnglish": "The pattern is checked on every course.",
+      "sourceInfinitiveSpanish": "revisar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "継ぎ目が一直線に並ぶと、水が入りやすくなります。メーカーの指定に従って段ごとにずらし、配置パターンを確認します。",
+    "goal": "Explain to a new hire how water travels across the roof, why joints are staggered to the manufacturer's pattern, and what can happen over time if they line up."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Current Spanish/English Master source is pinned as evidence. Archived Japanese wording is conditional candidate evidence only; trade/product/safety and Japanese/dictionary review are pending. The source grammar and verb examples are included for parity, but no selected learner/audio text or saved progress identity is created.",
+  "cards": [
+    {
+      "id": "master-roofing:2:ja-en:card:1",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:1",
+      "sourceSpanish": "la junta",
+      "sourceEnglish": "the joint",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "継ぎ目",
+      "archivedJapanese": "継ぎ目",
+      "archivedEnglish": "the joint",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:card:2",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:2",
+      "sourceSpanish": "escalonar",
+      "sourceEnglish": "to stagger",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ずらす",
+      "archivedEnglish": "to stagger",
+      "reviewNote": "To stagger is a roofing layout action; confirm the verb and manufacturer-specific offset.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:card:3",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:3",
+      "sourceSpanish": "el traslape",
+      "sourceEnglish": "the overlap",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "重なり",
+      "archivedJapanese": "重なり",
+      "archivedEnglish": "the overlap",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:card:4",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:4",
+      "sourceSpanish": "la hilera",
+      "sourceEnglish": "the course (row of shingles)",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "シングル材の段",
+      "archivedEnglish": "the course (row of shingles)",
+      "reviewNote": "Course means a row of shingles, not a training course; dictionary sense needs approval.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:card:5",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:5",
+      "sourceSpanish": "la lengüeta",
+      "sourceEnglish": "the tab",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "タブ",
+      "archivedEnglish": "the tab",
+      "reviewNote": "Tab and slot apply to a particular shingle profile; confirm terminology and system context.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:card:6",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:6",
+      "sourceSpanish": "la ranura",
+      "sourceEnglish": "the slot (between tabs)",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "タブの間の溝",
+      "archivedEnglish": "the slot (between tabs)",
+      "reviewNote": "Slot between tabs is profile-specific; confirm exact Japanese noun and source design.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:card:7",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:7",
+      "sourceSpanish": "la gotera",
+      "sourceEnglish": "the leak",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "雨漏り",
+      "archivedJapanese": "雨漏り",
+      "archivedEnglish": "the leak",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:card:8",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:8",
+      "sourceSpanish": "el camino del agua",
+      "sourceEnglish": "the water path",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "水の通り道",
+      "archivedJapanese": "水の通り道",
+      "archivedEnglish": "the water path",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:card:9",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:9",
+      "sourceSpanish": "la humedad",
+      "sourceEnglish": "the moisture",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "湿気",
+      "archivedJapanese": "湿気",
+      "archivedEnglish": "the moisture",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:card:10",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:10",
+      "sourceSpanish": "la línea de tiza",
+      "sourceEnglish": "the chalk line",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "墨線",
+      "archivedEnglish": "the chalk line",
+      "reviewNote": "Chalk line/墨線 can describe a marked guideline; confirm roofing trade usage.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:card:11",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:11",
+      "sourceSpanish": "el patrón",
+      "sourceEnglish": "the pattern",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "配置パターン",
+      "archivedJapanese": "配置パターン",
+      "archivedEnglish": "the pattern",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:card:12",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:12",
+      "sourceSpanish": "la tira selladora",
+      "sourceEnglish": "the sealant strip",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "粘着帯",
+      "archivedEnglish": "the sealant strip",
+      "reviewNote": "Sealant strip and wind adhesion vary by product; confirm exact roofing sense.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:card:13",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:13",
+      "sourceSpanish": "con el tiempo",
+      "sourceEnglish": "over time",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "時間がたつと",
+      "archivedJapanese": "時間がたつと",
+      "archivedEnglish": "over time",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:card:14",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:14",
+      "sourceSpanish": "el viento",
+      "sourceEnglish": "the wind",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "風",
+      "archivedJapanese": "風",
+      "archivedEnglish": "the wind",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:card:15",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:15",
+      "sourceSpanish": "Si las juntas se alinean, el agua se mete.",
+      "sourceEnglish": "If the joints line up, water gets in.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "継ぎ目が一直線に並ぶと、水が入ります。",
+      "archivedJapanese": "継ぎ目が一直線に並ぶと、水が入ります。",
+      "archivedEnglish": "If the joints line up, water gets in.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:card:16",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:16",
+      "sourceSpanish": "Se escalonan las juntas según el fabricante.",
+      "sourceEnglish": "The joints are staggered according to the manufacturer.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "継ぎ目はメーカーの指定に従ってずらします。",
+      "archivedEnglish": "The joints are staggered according to the manufacturer.",
+      "reviewNote": "Manufacturer-specified staggering is an instruction; keep source specificity and await trade review.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:card:17",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:17",
+      "sourceSpanish": "El agua busca el camino más fácil.",
+      "sourceEnglish": "Water looks for the easiest path.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "水は通りやすい道を探します。",
+      "archivedJapanese": "水は通りやすい道を探します。",
+      "archivedEnglish": "Water looks for the easiest path.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:card:18",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:18",
+      "sourceSpanish": "Así no se ve la gotera hasta que es tarde.",
+      "sourceEnglish": "That way you don't see the leak until it's too late.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "そうすると、手遅れになるまで雨漏りに気づきません。",
+      "archivedJapanese": "そうすると、手遅れになるまで雨漏りに気づきません。",
+      "archivedEnglish": "That way you don't see the leak until it's too late.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:card:19",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:19",
+      "sourceSpanish": "Mira, te lo enseño.",
+      "sourceEnglish": "Look, I'll show you.",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "見てください。お見せします。",
+      "archivedJapanese": "見てください。お見せします。",
+      "archivedEnglish": "Look, I'll show you.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:card:20",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:20",
+      "sourceSpanish": "¿Le puedo explicar por qué?",
+      "sourceEnglish": "May I explain why?",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "理由を説明してもよろしいですか。",
+      "archivedJapanese": "理由を説明してもよろしいですか。",
+      "archivedEnglish": "May I explain why?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:card:21",
+      "legacySourceRef": "master-roofing:2:ja-en:cards:21",
+      "sourceSpanish": "Eso no se hace aquí.",
+      "sourceEnglish": "That's not done here.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "ここではそのようには施工しません。",
+      "archivedJapanese": "ここではそのようには施工しません。",
+      "archivedEnglish": "That's not done here.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:2:ja-en:line:1",
+      "legacySourceRef": "master-roofing:2:ja-en:reader:1",
+      "sourceSpanish": "Kevin mira el techo y pregunta por qué las juntas no van en línea recta.",
+      "sourceEnglish": "Kevin looks at the roof and asks why the joints don't go in a straight line.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ケビンは屋根を見て、なぜ継ぎ目が一直線に並んでいないのか尋ねます。",
+      "archivedJapanese": "ケビンは屋根を見て、なぜ継ぎ目が一直線に並んでいないのか尋ねます。",
+      "archivedEnglish": "Kevin looks at the roof and asks why the joints don't go in a straight line.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:line:2",
+      "legacySourceRef": "master-roofing:2:ja-en:reader:2",
+      "sourceSpanish": "Rogelio: Mira, te lo enseño con dos tejas.",
+      "sourceEnglish": "Rogelio: Look, I'll show you with two shingles.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「見てください。シングル材を二枚使ってお見せします。」",
+      "archivedJapanese": "ロヘリオ「見てください。シングル材を二枚使ってお見せします。」",
+      "archivedEnglish": "Rogelio: Look, I'll show you with two shingles.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:line:3",
+      "legacySourceRef": "master-roofing:2:ja-en:reader:3",
+      "sourceSpanish": "Rogelio: Si las juntas se alinean, el agua se mete.",
+      "sourceEnglish": "Rogelio: If the joints line up, water gets in.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「継ぎ目が一直線に並ぶと、水が入ります。」",
+      "archivedEnglish": "Rogelio: If the joints line up, water gets in.",
+      "reviewNote": "If joints line up, water gets in is a source generalization; avoid treating it as a universal failure prediction.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:line:4",
+      "legacySourceRef": "master-roofing:2:ja-en:reader:4",
+      "sourceSpanish": "Rogelio: El agua busca el camino más fácil, y una junta abierta es el camino más fácil.",
+      "sourceEnglish": "Rogelio: Water looks for the easiest path, and an open joint is the easiest path.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「水は通りやすい道を探します。開いた継ぎ目は最も通りやすい道です。」",
+      "archivedJapanese": "ロヘリオ「水は通りやすい道を探します。開いた継ぎ目は最も通りやすい道です。」",
+      "archivedEnglish": "Rogelio: Water looks for the easiest path, and an open joint is the easiest path.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:line:5",
+      "legacySourceRef": "master-roofing:2:ja-en:reader:5",
+      "sourceSpanish": "Rogelio: Por eso se escalonan las juntas según el fabricante, y nunca se hace a ojo.",
+      "sourceEnglish": "Rogelio: That's why the joints are staggered according to the manufacturer, and it's never done by eye.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「そのため、継ぎ目はメーカーの指定に従ってずらします。目分量で決めてはいけません。」",
+      "archivedEnglish": "Rogelio: That's why the joints are staggered according to the manufacturer, and it's never done by eye.",
+      "reviewNote": "Manufacturer offset governs; retain this condition explicitly in any final Japanese instruction.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:line:6",
+      "legacySourceRef": "master-roofing:2:ja-en:reader:6",
+      "sourceSpanish": "Rogelio: Si una hilera tapa la junta de abajo, el agua corre por encima de la teja y sigue su camino.",
+      "sourceEnglish": "Rogelio: If a course covers the joint below, the water runs over the shingle and keeps going on its way.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「上の段が下の継ぎ目を覆えば、水はシングル材の上を流れていきます。」",
+      "archivedEnglish": "Rogelio: If a course covers the joint below, the water runs over the shingle and keeps going on its way.",
+      "reviewNote": "Course overlap and water path depend on product design; trade review required.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:line:7",
+      "legacySourceRef": "master-roofing:2:ja-en:reader:7",
+      "sourceSpanish": "Rogelio: Pero si las ranuras quedan una encima de otra, el agua baja directo por la ranura hasta la sub-capa.",
+      "sourceEnglish": "Rogelio: But if the slots end up one on top of another, the water goes straight down the slot to the underlayment.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「しかし、溝が上下に重なると、水は溝を通って下葺き材へまっすぐ流れます。」",
+      "archivedEnglish": "Rogelio: But if the slots end up one on top of another, the water goes straight down the slot to the underlayment.",
+      "reviewNote": "Slots and underlayment describe a particular shingle system; confirm profile and wording.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:line:8",
+      "legacySourceRef": "master-roofing:2:ja-en:reader:8",
+      "sourceSpanish": "Rogelio: Con el tiempo, la humedad llega a la madera y la gotera aparece dentro de la casa.",
+      "sourceEnglish": "Rogelio: Over time, the moisture reaches the wood and the leak shows up inside the house.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「時間がたつと、湿気が木部に達し、家の中に雨漏りが現れます。」",
+      "archivedEnglish": "Rogelio: Over time, the moisture reaches the wood and the leak shows up inside the house.",
+      "reviewNote": "Moisture-to-interior leak timeline is illustrative; do not present as a fixed outcome.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:line:9",
+      "legacySourceRef": "master-roofing:2:ja-en:reader:9",
+      "sourceSpanish": "Rogelio: Así no se ve la gotera hasta que es tarde.",
+      "sourceEnglish": "Rogelio: That way you don't see the leak until it's too late.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「そうすると、手遅れになるまで雨漏りに気づきません。」",
+      "archivedEnglish": "Rogelio: That way you don't see the leak until it's too late.",
+      "reviewNote": "Too late is an absolute source phrase; confirm natural Japanese and risk framing.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:line:10",
+      "legacySourceRef": "master-roofing:2:ja-en:reader:10",
+      "sourceSpanish": "Rogelio: El viento también levanta las lengüetas si la tira selladora no pega bien.",
+      "sourceEnglish": "Rogelio: The wind also lifts the tabs if the sealant strip doesn't stick well.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「粘着帯が十分に付いていなければ、風がタブを持ち上げます。」",
+      "archivedEnglish": "Rogelio: The wind also lifts the tabs if the sealant strip doesn't stick well.",
+      "reviewNote": "Sealant-strip adhesion and wind uplift need product/conditions context.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:line:11",
+      "legacySourceRef": "master-roofing:2:ja-en:reader:11",
+      "sourceSpanish": "Rogelio: Por eso se revisa el patrón en cada hilera y se traza una línea de tiza cuando hace falta.",
+      "sourceEnglish": "Rogelio: That's why the pattern is checked on every course and a chalk line is snapped when it's needed.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「そのため、各段の配置パターンを確認し、必要なら墨線を引きます。」",
+      "archivedEnglish": "Rogelio: That's why the pattern is checked on every course and a chalk line is snapped when it's needed.",
+      "reviewNote": "Pattern check and chalk-line action are site/manufacturer instructions; trade review required.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:line:12",
+      "legacySourceRef": "master-roofing:2:ja-en:reader:12",
+      "sourceSpanish": "La dueña de la casa escucha desde el patio y también tiene una pregunta.",
+      "sourceEnglish": "The homeowner is listening from the yard and also has a question.",
+      "selectedJapanese": null,
+      "candidateJapanese": "庭で聞いていた家主にも質問があります。",
+      "archivedJapanese": "庭で聞いていた家主にも質問があります。",
+      "archivedEnglish": "The homeowner is listening from the yard and also has a question.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:line:13",
+      "legacySourceRef": "master-roofing:2:ja-en:reader:13",
+      "sourceSpanish": "Rogelio: Señora, ¿le puedo explicar por qué?",
+      "sourceEnglish": "Rogelio: Ma'am, may I explain why?",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「理由を説明してもよろしいですか。」",
+      "archivedJapanese": "ロヘリオ「理由を説明してもよろしいですか。」",
+      "archivedEnglish": "Rogelio: Ma'am, may I explain why?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:line:14",
+      "legacySourceRef": "master-roofing:2:ja-en:reader:14",
+      "sourceSpanish": "Rogelio: Si el traslape y las juntas están bien, el techo dura muchos años; si no, se filtra el agua.",
+      "sourceEnglish": "Rogelio: If the overlap and the joints are right, the roof lasts many years; if not, water seeps in.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「重なりと継ぎ目が適切なら屋根は長持ちしますが、そうでなければ水がしみ込みます。」",
+      "archivedEnglish": "Rogelio: If the overlap and the joints are right, the roof lasts many years; if not, water seeps in.",
+      "reviewNote": "Roof longevity claim is not guaranteed; confirm source meaning and consumer-facing claim before scoring.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:ja-en:line:15",
+      "legacySourceRef": "master-roofing:2:ja-en:reader:15",
+      "sourceSpanish": "Rogelio: Kevin, poner las juntas en línea recta es un error, y eso no se hace aquí.",
+      "sourceEnglish": "Rogelio: Kevin, putting the joints in a straight line is a mistake, and that's not done here.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「ケビン、継ぎ目を一直線に並べるのは誤りです。ここではそのようには施工しません。」",
+      "archivedEnglish": "Rogelio: Kevin, putting the joints in a straight line is a mistake, and that's not done here.",
+      "reviewNote": "Never align joints is system-specific; retain manufacturer specification and avoid universal prohibition.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find aligned joints, staggered joints, and the water path.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall joint, overlap, slot, chalk line, and sealant strip.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 継ぎ目 from 重なり when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'If the joints line up, water gets in' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Explain to a new hire why joints are staggered and what happens over time.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write a polite explanation to the homeowner using a condition and result.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

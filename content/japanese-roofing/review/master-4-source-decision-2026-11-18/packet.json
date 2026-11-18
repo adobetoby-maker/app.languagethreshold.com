@@ -1,0 +1,709 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "master-roofing",
+  "lessonId": "master-roofing:4:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-4-6-draft.json",
+      "sha256": "4b08dda641541c9bba9eaea7bddad381917015b877a3e9509028b607bc2de05c"
+    }
+  },
+  "sourceEnglishTitle": "Read the Manufacturer Sheet Before the Flashing Goes On",
+  "sourceEnglishObjective": "Read a manufacturer instruction sheet, find the key specs, and explain the steps to the crew",
+  "sourceEnglishSpeaking": "You are the crew lead and the AI is a crew member ready to install flashing from habit: read the key steps of the manufacturer sheet aloud, explain what has to happen before and after each step, and get agreement to follow the sheet.",
+  "sourceSpanishReaderTitle": "The Sheet Rules",
+  "sourceLessonType": "Document",
+  "sourceBlock": "A",
+  "sourceGrammar": {
+    "focus": "Antes de / después de + infinitive; hay que",
+    "examples": [
+      {
+        "es": "Antes de instalar el tapajuntas, hay que leer la hoja.",
+        "en": "Before installing the flashing, you have to read the sheet."
+      },
+      {
+        "es": "Después de leer cada paso, tenemos que revisar el material.",
+        "en": "After reading each step, we have to check the material."
+      }
+    ]
+  },
+  "sourceVerbExamples": [
+    {
+      "infinitive": "leer",
+      "native": "to read",
+      "forms": {
+        "yo": "leo",
+        "tú": "lees",
+        "él_ella_usted": "lee",
+        "nosotros": "leemos",
+        "ellos_ustedes": "leen"
+      },
+      "example": {
+        "target": "Rogelio lee en voz alta el paso 1 de las instrucciones del fabricante.",
+        "native": "Rogelio reads step 1 of the manufacturer instructions out loud."
+      },
+      "note": "Preterite: leí, leyó (i changes to y between vowels)."
+    },
+    {
+      "infinitive": "instalar",
+      "native": "to install",
+      "forms": {
+        "yo": "instalo",
+        "tú": "instalas",
+        "él_ella_usted": "instala",
+        "nosotros": "instalamos",
+        "ellos_ustedes": "instalan"
+      },
+      "example": {
+        "target": "Antes de instalar, hay que leer la hoja.",
+        "native": "Before installing, you have to read the sheet."
+      },
+      "note": "After antes de or después de, use the infinitive: antes de instalar."
+    },
+    {
+      "infinitive": "colocar",
+      "native": "to place",
+      "forms": {
+        "yo": "coloco",
+        "tú": "colocas",
+        "él_ella_usted": "coloca",
+        "nosotros": "colocamos",
+        "ellos_ustedes": "colocan"
+      },
+      "example": {
+        "target": "Rogelio coloca una pieza de tapajuntas escalonado en cada hilera.",
+        "native": "Rogelio places one piece of step flashing on each course."
+      },
+      "note": "Usted command in written instructions: coloque (c changes to qu)."
+    },
+    {
+      "infinitive": "fijar",
+      "native": "to fasten",
+      "forms": {
+        "yo": "fijo",
+        "tú": "fijas",
+        "él_ella_usted": "fija",
+        "nosotros": "fijamos",
+        "ellos_ustedes": "fijan"
+      },
+      "example": {
+        "target": "Fije cada pieza solo a la cubierta.",
+        "native": "Fasten each piece only to the deck."
+      },
+      "note": "Usted command in written instructions: fije."
+    },
+    {
+      "infinitive": "seguir",
+      "native": "to follow",
+      "forms": {
+        "yo": "sigo",
+        "tú": "sigues",
+        "él_ella_usted": "sigue",
+        "nosotros": "seguimos",
+        "ellos_ustedes": "siguen"
+      },
+      "example": {
+        "target": "Si no sigue estos pasos, el producto puede fallar.",
+        "native": "If you do not follow these steps, the product may fail."
+      },
+      "note": "Stem change e to i, and the yo form is sigo."
+    }
+  ],
+  "candidateObjective": "メーカーの施工仕様書から主要条件を読み取り、作業班に手順を説明する。",
+  "candidateFocus": "～前に orders reading before installation. ～に従って ties work to the specification; ～ではなく contrasts the written sheet with habit.",
+  "archivedForms": [
+    {
+      "base": "読む",
+      "exampleJa": "ロヘリオはメーカーの施工説明書の手順一を声に出して読みます。",
+      "meaningEnglish": "to read",
+      "exampleEnglish": "Rogelio reads step 1 of the manufacturer instructions out loud.",
+      "sourceInfinitiveSpanish": "leer"
+    },
+    {
+      "base": "施工する",
+      "exampleJa": "施工する前に仕様書を読まなければなりません。",
+      "meaningEnglish": "to install",
+      "exampleEnglish": "Before installing, you have to read the sheet.",
+      "sourceInfinitiveSpanish": "instalar"
+    },
+    {
+      "base": "取り付ける",
+      "exampleJa": "ロヘリオは各段に段差水切りを一枚ずつ取り付けます。",
+      "meaningEnglish": "to place",
+      "exampleEnglish": "Rogelio places one piece of step flashing on each course.",
+      "sourceInfinitiveSpanish": "colocar"
+    },
+    {
+      "base": "固定する",
+      "exampleJa": "各部材を野地板にのみ固定してください。",
+      "meaningEnglish": "to fasten",
+      "exampleEnglish": "Fasten each piece only to the deck.",
+      "sourceInfinitiveSpanish": "fijar"
+    },
+    {
+      "base": "従う",
+      "exampleJa": "この手順に従わないと、製品が機能しない場合があります。",
+      "meaningEnglish": "to follow",
+      "exampleEnglish": "If you do not follow these steps, the product may fail.",
+      "sourceInfinitiveSpanish": "seguir"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "まずメーカーの施工仕様書を読みましょう。各段に一枚ずつ段差水切りを取り付け、仕様書の最小重ね幅と指定固定具を確認してください。",
+    "goal": "Read the relevant manufacturer instructions before installing flashing. Explain the order, specified fasteners and overlap, and confirm that the crew will follow the sheet."
+  },
+  "cards": [
+    {
+      "id": "master-roofing:4:ja-en:card:1",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:1",
+      "sourceSpanish": "la hoja técnica",
+      "sourceEnglish": "the spec sheet",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "施工仕様書",
+      "archivedJapanese": "施工仕様書",
+      "archivedEnglish": "the spec sheet",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:card:2",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:2",
+      "sourceSpanish": "las instrucciones del fabricante",
+      "sourceEnglish": "the manufacturer instructions",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "メーカーの施工説明書",
+      "archivedJapanese": "メーカーの施工説明書",
+      "archivedEnglish": "the manufacturer instructions",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:card:3",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:3",
+      "sourceSpanish": "el tapajuntas escalonado",
+      "sourceEnglish": "the step flashing",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "段差水切り",
+      "archivedEnglish": "the step flashing",
+      "reviewNote": "Step flashing term and assembly are product/system specific.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:card:4",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:4",
+      "sourceSpanish": "el tapajuntas para tubo",
+      "sourceEnglish": "the pipe boot",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "配管貫通部用ブーツ",
+      "archivedEnglish": "the pipe boot",
+      "reviewNote": "Pipe boot scope needs contextual Japanese roofing sense.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:card:5",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:5",
+      "sourceSpanish": "el sujetador",
+      "sourceEnglish": "the fastener",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "固定具",
+      "archivedJapanese": "固定具",
+      "archivedEnglish": "the fastener",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:card:6",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:6",
+      "sourceSpanish": "la especificación",
+      "sourceEnglish": "the specification",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "仕様",
+      "archivedJapanese": "仕様",
+      "archivedEnglish": "the specification",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:card:7",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:7",
+      "sourceSpanish": "el traslape mínimo",
+      "sourceEnglish": "the minimum overlap",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "最小重ね幅",
+      "archivedEnglish": "the minimum overlap",
+      "reviewNote": "Minimum overlap is specified by the actual manufacturer sheet, not a universal value.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:card:8",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:8",
+      "sourceSpanish": "el sellador",
+      "sourceEnglish": "the sealant",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "シーリング材",
+      "archivedJapanese": "シーリング材",
+      "archivedEnglish": "the sealant",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:card:9",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:9",
+      "sourceSpanish": "la pared lateral",
+      "sourceEnglish": "the sidewall",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "外壁際",
+      "archivedJapanese": "外壁際",
+      "archivedEnglish": "the sidewall",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:card:10",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:10",
+      "sourceSpanish": "el revestimiento de pared",
+      "sourceEnglish": "the siding",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "外壁材",
+      "archivedJapanese": "外壁材",
+      "archivedEnglish": "the siding",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:card:11",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:11",
+      "sourceSpanish": "la advertencia",
+      "sourceEnglish": "the warning",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "警告",
+      "archivedJapanese": "警告",
+      "archivedEnglish": "the warning",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:card:12",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:12",
+      "sourceSpanish": "el paso",
+      "sourceEnglish": "the step (in a procedure)",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "手順",
+      "archivedJapanese": "手順",
+      "archivedEnglish": "the step (in a procedure)",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:card:13",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:13",
+      "sourceSpanish": "la costumbre",
+      "sourceEnglish": "the habit",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "習慣",
+      "archivedJapanese": "習慣",
+      "archivedEnglish": "the habit",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:card:14",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:14",
+      "sourceSpanish": "la chimenea",
+      "sourceEnglish": "the chimney",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "煙突",
+      "archivedJapanese": "煙突",
+      "archivedEnglish": "the chimney",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:card:15",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:15",
+      "sourceSpanish": "Antes de instalar, hay que leer la hoja.",
+      "sourceEnglish": "Before installing, you have to read the sheet.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "施工する前に仕様書を読まなければなりません。",
+      "archivedEnglish": "Before installing, you have to read the sheet.",
+      "reviewNote": "Do not treat a fictional sheet as a real manufacturer instruction.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:card:16",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:16",
+      "sourceSpanish": "La hoja manda, no la costumbre.",
+      "sourceEnglish": "The sheet rules, not habit.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "習慣ではなく仕様書に従います。",
+      "archivedEnglish": "The sheet rules, not habit.",
+      "reviewNote": "Manufacturer sheet controls this scene, but no actual product sheet is supplied.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:card:17",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:17",
+      "sourceSpanish": "¿Qué dice la hoja sobre el traslape?",
+      "sourceEnglish": "What does the sheet say about the overlap?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "重ね幅について仕様書には何と書いてありますか。",
+      "archivedEnglish": "What does the sheet say about the overlap?",
+      "reviewNote": "Overlap question requires actual product specification.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:card:18",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:18",
+      "sourceSpanish": "No lo hagas de memoria.",
+      "sourceEnglish": "Don't do it from memory.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "記憶だけで施工しないでください。",
+      "archivedJapanese": "記憶だけで施工しないでください。",
+      "archivedEnglish": "Don't do it from memory.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:card:19",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:19",
+      "sourceSpanish": "Así lo pide el fabricante.",
+      "sourceEnglish": "That's what the manufacturer asks for.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "それがメーカーの指定です。",
+      "archivedEnglish": "That's what the manufacturer asks for.",
+      "reviewNote": "Manufacturer requirement is simulated; qualified product review needed.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:card:20",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:20",
+      "sourceSpanish": "Oye, ¿tú ya lo leíste?",
+      "sourceEnglish": "Hey, have you already read it?",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "ねえ、もう読みましたか。",
+      "archivedJapanese": "ねえ、もう読みましたか。",
+      "archivedEnglish": "Hey, have you already read it?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:card:21",
+      "legacySourceRef": "master-roofing:4:ja-en:cards:21",
+      "sourceSpanish": "¿Me permite un momento, por favor?",
+      "sourceEnglish": "Could you give me a moment, please?",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "少々お時間をいただけますか。",
+      "archivedJapanese": "少々お時間をいただけますか。",
+      "archivedEnglish": "Could you give me a moment, please?",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:4:ja-en:line:1",
+      "legacySourceRef": "master-roofing:4:ja-en:reader:1",
+      "sourceSpanish": "Antes de poner el tapajuntas escalonado en la pared lateral, Rogelio saca la hoja técnica de la caja.",
+      "sourceEnglish": "Before putting the step flashing on the sidewall, Rogelio takes the spec sheet out of the box.",
+      "selectedJapanese": null,
+      "candidateJapanese": "外壁際に段差水切りを取り付ける前に、ロヘリオは箱から施工仕様書を取り出します。",
+      "archivedJapanese": "外壁際に段差水切りを取り付ける前に、ロヘリオは箱から施工仕様書を取り出します。",
+      "archivedEnglish": "Before putting the step flashing on the sidewall, Rogelio takes the spec sheet out of the box.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:line:2",
+      "legacySourceRef": "master-roofing:4:ja-en:reader:2",
+      "sourceSpanish": "Rogelio: Antes de instalar, hay que leer la hoja, aunque llevemos años haciendo esto.",
+      "sourceEnglish": "Rogelio: Before installing, you have to read the sheet, even if we've been doing this for years.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「長年この作業をしていても、施工する前に仕様書を読まなければなりません。」",
+      "archivedJapanese": "ロヘリオ「長年この作業をしていても、施工する前に仕様書を読まなければなりません。」",
+      "archivedEnglish": "Rogelio: Before installing, you have to read the sheet, even if we've been doing this for years.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:line:3",
+      "legacySourceRef": "master-roofing:4:ja-en:reader:3",
+      "sourceSpanish": "Rogelio: La hoja manda, no la costumbre.",
+      "sourceEnglish": "Rogelio: The sheet rules, not habit.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「習慣ではなく仕様書に従います。」",
+      "archivedJapanese": "ロヘリオ「習慣ではなく仕様書に従います。」",
+      "archivedEnglish": "Rogelio: The sheet rules, not habit.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:line:4",
+      "legacySourceRef": "master-roofing:4:ja-en:reader:4",
+      "sourceSpanish": "Rogelio lee en voz alta el paso 1 de las instrucciones del fabricante.",
+      "sourceEnglish": "Rogelio reads step 1 of the manufacturer instructions out loud.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオはメーカーの施工説明書の手順一を声に出して読みます。",
+      "archivedJapanese": "ロヘリオはメーカーの施工説明書の手順一を声に出して読みます。",
+      "archivedEnglish": "Rogelio reads step 1 of the manufacturer instructions out loud.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:line:5",
+      "legacySourceRef": "master-roofing:4:ja-en:reader:5",
+      "sourceSpanish": "Paso 1: Antes de colocar el tapajuntas, instale la sub-capa sobre la cubierta y súbala por la pared lateral según la especificación.",
+      "sourceEnglish": "Step 1: Before placing the flashing, install the underlayment over the deck and run it up the sidewall according to the specification.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "手順一「水切り板金を取り付ける前に、仕様に従って野地板の上に下葺き材を敷き、外壁際まで立ち上げます。」",
+      "archivedEnglish": "Step 1: Before placing the flashing, install the underlayment over the deck and run it up the sidewall according to the specification.",
+      "reviewNote": "This fictional sheet specifies underlayment and sidewall turn-up; do not generalize to all products.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:line:6",
+      "legacySourceRef": "master-roofing:4:ja-en:reader:6",
+      "sourceSpanish": "Paso 2: Coloque una pieza de tapajuntas escalonado en cada hilera, con el traslape mínimo que indica esta hoja.",
+      "sourceEnglish": "Step 2: Place one piece of step flashing on each course, with the minimum overlap this sheet indicates.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "手順二「各段に段差水切りを一枚ずつ取り付け、この仕様書に示された最小重ね幅を守ります。」",
+      "archivedEnglish": "Step 2: Place one piece of step flashing on each course, with the minimum overlap this sheet indicates.",
+      "reviewNote": "One piece per course and minimum overlap depend on actual product sheet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:line:7",
+      "legacySourceRef": "master-roofing:4:ja-en:reader:7",
+      "sourceSpanish": "Paso 3: Fije cada pieza solo a la cubierta, nunca a la pared, con el sujetador indicado.",
+      "sourceEnglish": "Step 3: Fasten each piece only to the deck, never to the wall, with the specified fastener.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "手順三「指定された固定具を使い、各部材を壁ではなく野地板にのみ固定します。」",
+      "archivedEnglish": "Step 3: Fasten each piece only to the deck, never to the wall, with the specified fastener.",
+      "reviewNote": "Deck-only fastening is a product-specific instruction; confirm system and approved attachment.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:line:8",
+      "legacySourceRef": "master-roofing:4:ja-en:reader:8",
+      "sourceSpanish": "Paso 4: Después de colocar el tapajuntas, el revestimiento de pared debe cubrirlo; no use sellador en lugar de tapajuntas.",
+      "sourceEnglish": "Step 4: After placing the flashing, the siding must cover it; do not use sealant instead of flashing.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "手順四「水切り板金を取り付けた後、外壁材で覆います。水切り板金の代わりにシーリング材を使わないでください。」",
+      "archivedEnglish": "Step 4: After placing the flashing, the siding must cover it; do not use sealant instead of flashing.",
+      "reviewNote": "Siding coverage and sealant prohibition are product-specific details.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:line:9",
+      "legacySourceRef": "master-roofing:4:ja-en:reader:9",
+      "sourceSpanish": "Advertencia: Si no sigue estos pasos, el producto puede fallar y el fabricante puede no cubrir el daño.",
+      "sourceEnglish": "Warning: If you do not follow these steps, the product may fail and the manufacturer may not cover the damage.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "警告「この手順に従わないと製品が機能せず、メーカーが損害を補償しない場合があります。」",
+      "archivedEnglish": "Warning: If you do not follow these steps, the product may fail and the manufacturer may not cover the damage.",
+      "reviewNote": "Warranty consequence depends on actual manufacturer terms.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:line:10",
+      "legacySourceRef": "master-roofing:4:ja-en:reader:10",
+      "sourceSpanish": "Kevin: Oye, ¿tú ya lo leíste todo?",
+      "sourceEnglish": "Kevin: Hey, have you already read all of it?",
+      "selectedJapanese": null,
+      "candidateJapanese": "ケビン「ねえ、もう全部読みましたか。」",
+      "archivedJapanese": "ケビン「ねえ、もう全部読みましたか。」",
+      "archivedEnglish": "Kevin: Hey, have you already read all of it?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:line:11",
+      "legacySourceRef": "master-roofing:4:ja-en:reader:11",
+      "sourceSpanish": "Rogelio: Sí, y tú también tienes que leerlo; no lo hagas de memoria.",
+      "sourceEnglish": "Rogelio: Yes, and you have to read it too; don't do it from memory.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「はい。あなたも読んでください。記憶だけで施工しないでください。」",
+      "archivedJapanese": "ロヘリオ「はい。あなたも読んでください。記憶だけで施工しないでください。」",
+      "archivedEnglish": "Rogelio: Yes, and you have to read it too; don't do it from memory.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:line:12",
+      "legacySourceRef": "master-roofing:4:ja-en:reader:12",
+      "sourceSpanish": "Rogelio: Después de leer cada paso, hay que revisar si el material del camión es el mismo de la hoja.",
+      "sourceEnglish": "Rogelio: After reading each step, you have to check whether the material on the truck is the same as on the sheet.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「各手順を読んだ後、トラックの資材が仕様書のものと同じか確認します。」",
+      "archivedEnglish": "Rogelio: After reading each step, you have to check whether the material on the truck is the same as on the sheet.",
+      "reviewNote": "Material matching must follow actual product sheet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:line:13",
+      "legacySourceRef": "master-roofing:4:ja-en:reader:13",
+      "sourceSpanish": "Rogelio: ¿Qué dice la hoja sobre el traslape?",
+      "sourceEnglish": "Rogelio: What does the sheet say about the overlap?",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「重ね幅について仕様書には何と書いてありますか。」",
+      "archivedJapanese": "ロヘリオ「重ね幅について仕様書には何と書いてありますか。」",
+      "archivedEnglish": "Rogelio: What does the sheet say about the overlap?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:line:14",
+      "legacySourceRef": "master-roofing:4:ja-en:reader:14",
+      "sourceSpanish": "Kevin: Dice que hay que usar el traslape mínimo de la hoja, y que la chimenea y el tapajuntas para tubo tienen otra sección.",
+      "sourceEnglish": "Kevin: It says you have to use the sheet's minimum overlap, and that the chimney and the pipe boot have another section.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ケビン「仕様書の最小重ね幅を使うと書いてあります。煙突と配管貫通部用ブーツには別の項目があります。」",
+      "archivedEnglish": "Kevin: It says you have to use the sheet's minimum overlap, and that the chimney and the pipe boot have another section.",
+      "reviewNote": "Chimney and pipe-boot sections are fictional sheet references.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:line:15",
+      "legacySourceRef": "master-roofing:4:ja-en:reader:15",
+      "sourceSpanish": "Luego el dueño de la casa pregunta cuándo empiezan, y Rogelio contesta: ¿Me permite un momento, por favor?",
+      "sourceEnglish": "Then the homeowner asks when they're starting, and Rogelio answers: Could you give me a moment, please?",
+      "selectedJapanese": null,
+      "candidateJapanese": "その後、家主が作業開始時刻を尋ね、ロヘリオは「少々お時間をいただけますか」と答えます。",
+      "archivedJapanese": "その後、家主が作業開始時刻を尋ね、ロヘリオは「少々お時間をいただけますか」と答えます。",
+      "archivedEnglish": "Then the homeowner asks when they're starting, and Rogelio answers: Could you give me a moment, please?",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:4:ja-en:line:16",
+      "legacySourceRef": "master-roofing:4:ja-en:reader:16",
+      "sourceSpanish": "Rogelio: Así lo pide el fabricante, y así lo hacemos.",
+      "sourceEnglish": "Rogelio: That's what the manufacturer asks for, and that's how we do it.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ロヘリオ「それがメーカーの指定です。そのとおりに施工します。」",
+      "archivedJapanese": "ロヘリオ「それがメーカーの指定です。そのとおりに施工します。」",
+      "archivedEnglish": "Rogelio: That's what the manufacturer asks for, and that's how we do it.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the spec sheet, step flashing, sidewall, and pipe boot.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall minimum overlap, specified fastener, siding, and sealant.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 最小重ね幅 from 固定具 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'The sheet rules, not habit' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Read the manufacturer sheet and explain its four steps to the crew.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write what material is checked against the sheet before installation.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "curriculumAdaptationNote": "The lesson describes a fictional manufacturer sheet, with underlayment, step flashing, fastening, siding and warranty sequence. Preserve every exact source step but do not present its product-specific details as universal installation advice. No actual manufacturer document or specifications are supplied, so qualified product/roofing and Japanese review must resolve selected instructions. Grammar and five Spanish verbs are pinned separately. No selected learner/audio text or progress identity is created.",
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

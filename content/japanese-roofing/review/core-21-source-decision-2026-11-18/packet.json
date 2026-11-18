@@ -1,0 +1,449 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:21:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-21-23-draft.json",
+      "sha256": "f6ac0838c706af85fb07f66f665c9e0fa49736cdb5dbeafd2030f22f33831739"
+    }
+  },
+  "sourceEnglishTitle": "Tie-Off Before Access",
+  "sourceEnglishObjective": "Give a clear fall-protection instruction",
+  "sourceEnglishSpeaking": "Tell the crew to tie off before roof access and ask them to point to the approved anchor.",
+  "sourceSpanishReaderTitle": "Anclarse antes de subir",
+  "candidateObjective": "屋根に上がる前の墜落防止用ハーネスの接続を明確に指示する。",
+  "candidateFocus": "～前に places the tie-off before roof access. ～ないでください prohibits an action; ～がなければ states the condition for not going up.",
+  "archivedForms": [
+    {
+      "base": "上がる",
+      "exampleJa": "ハーネスなしでは誰も上がらないでください。",
+      "meaningEnglish": "to go up, to climb",
+      "exampleEnglish": "Nobody goes up without a harness.",
+      "sourceInfinitiveSpanish": "subir"
+    },
+    {
+      "base": "確認する",
+      "exampleJa": "全員が屋根に上がる前にハーネスを確認します。",
+      "meaningEnglish": "to check, to inspect",
+      "exampleEnglish": "Everyone checks their harness before going up.",
+      "sourceInfinitiveSpanish": "revisar"
+    },
+    {
+      "base": "接続する",
+      "exampleJa": "屋根に上がる前にハーネスをアンカーに接続します。",
+      "meaningEnglish": "to anchor, to tie off",
+      "exampleEnglish": "We tie off the harness before going up on the roof.",
+      "sourceInfinitiveSpanish": "anclar"
+    },
+    {
+      "base": "見せる",
+      "exampleJa": "各自が承認されたアンカーを職長に見せます。",
+      "meaningEnglish": "to show",
+      "exampleEnglish": "Each person shows the approved anchor to the foreman.",
+      "sourceInfinitiveSpanish": "mostrar"
+    },
+    {
+      "base": "使う",
+      "exampleJa": "墜落防止は各自が正しく使って初めて機能します。",
+      "meaningEnglish": "to use",
+      "exampleEnglish": "Fall protection only works if each person uses it correctly.",
+      "sourceInfinitiveSpanish": "usar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "上がる前にハーネスを確認し、承認された屋根のアンカーに接続してください。アンカーを見せてください。",
+    "goal": "Tell the crew to tie off before roof access and ask them to point to the approved anchor."
+  },
+  "audioScript": null,
+  "internalSafetyReferences": [
+    {
+      "authority": "OSHA",
+      "url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.502",
+      "section": "1926.502(d)(15)-(16)",
+      "use": "Source review of anchorage and lower-level clearance; not learner-facing instruction"
+    },
+    {
+      "authority": "OSHA",
+      "url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926SubpartMAppC",
+      "section": "Appendix C, non-mandatory guidance",
+      "use": "Review of total fall-distance and inspection factors; not an approved site plan"
+    }
+  ],
+  "curriculumAdaptationNote": "Preserve the exact source sequence as evidence: foreman gathers the crew, identifies edge hazard, checks harness components, orders tie-off before roof access, asks for approved anchor, stops access if no anchor is visible, adds hard hat, and takes a thumbs-up. The source's isolated lanyard-length rule is incomplete for a personal fall-arrest system; OSHA guidance includes free-fall distance, deceleration, harness shift, worker height and safety margin in fall clearance. A harness alone and a thumbs-up do not establish a safe system or verified connection. All 14 card and nine Reader Japanese candidates remain unselected. Qualified roofing safety, Japanese and dictionary review must resolve a source correction before a learner-facing instruction or audio script is authored. Current curriculum has no authored verb-example list; archived forms and six mode labels remain conditional evidence. No progress identity is created.",
+  "sourceVerbExamples": null,
+  "cards": [
+    {
+      "id": "roofing:21:ja-en:card:1",
+      "legacySourceRef": "roofing:21:ja-en:cards:1",
+      "sourceSpanish": "Arnés",
+      "sourceEnglish": "harness",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "フルハーネス",
+      "archivedEnglish": "harness",
+      "reviewNote": "The source says harness, while archived フルハーネス narrows it to a full-body model. Confirm the intended personal fall-arrest equipment and dictionary sense before selecting a face.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:card:2",
+      "legacySourceRef": "roofing:21:ja-en:cards:2",
+      "sourceSpanish": "Anclarse",
+      "sourceEnglish": "tie-off",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "墜落防止用の接続",
+      "archivedEnglish": "tie-off",
+      "reviewNote": "Tie-off / anclarse is the act of connecting to an approved anchorage; archived 墜落防止用の接続 is a description, not necessarily the trade command. Qualified Japanese and fall-protection review required.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:card:3",
+      "legacySourceRef": "roofing:21:ja-en:cards:3",
+      "sourceSpanish": "Anclaje de techo",
+      "sourceEnglish": "roof anchor",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根のアンカー",
+      "archivedEnglish": "roof anchor",
+      "reviewNote": "Roof anchor / anclaje de techo names an approved attachment point in this scene. Archived 屋根のアンカー may imply any roof-mounted point; do not treat a visible point as approved.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:card:4",
+      "legacySourceRef": "roofing:21:ja-en:cards:4",
+      "sourceSpanish": "Eslinga",
+      "sourceEnglish": "lanyard",
+      "sourceNoteSpanish": "también: cuerda de seguridad",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ランヤード",
+      "archivedEnglish": "lanyard",
+      "reviewNote": "Lanyard / eslinga also has Spanish note cuerda de seguridad. Confirm archived ランヤード identifies the correct connector for the actual system; keep the note distinct from an interchangeable rope claim.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:card:5",
+      "legacySourceRef": "roofing:21:ja-en:cards:5",
+      "sourceSpanish": "Protección contra caídas",
+      "sourceEnglish": "fall protection",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "墜落防止",
+      "archivedEnglish": "fall protection",
+      "reviewNote": "Fall protection is a system-level term; archived 墜落防止 may imply prevention only. Distinguish prevention, restraint and arrest in the dictionary sense.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:card:6",
+      "legacySourceRef": "roofing:21:ja-en:cards:6",
+      "sourceSpanish": "Hebilla",
+      "sourceEnglish": "buckle",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "バックル",
+      "archivedEnglish": "buckle",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:card:7",
+      "legacySourceRef": "roofing:21:ja-en:cards:7",
+      "sourceSpanish": "Casco",
+      "sourceEnglish": "hard hat",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ヘルメット",
+      "archivedEnglish": "hard hat",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:card:8",
+      "legacySourceRef": "roofing:21:ja-en:cards:8",
+      "sourceSpanish": "Riesgo de caída",
+      "sourceEnglish": "fall hazard",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "墜落の危険",
+      "archivedEnglish": "fall hazard",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:card:9",
+      "legacySourceRef": "roofing:21:ja-en:cards:9",
+      "sourceSpanish": "Anclen el arnés antes de subir al techo.",
+      "sourceEnglish": "Tie off before you go on the roof.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根に上がる前にハーネスをアンカーに接続してください。",
+      "archivedEnglish": "Tie off before you go on the roof.",
+      "reviewNote": "The isolated command says tie off before roof access, but gives no approved anchor, method or access-point arrangement. Preserve the source without treating the archived Japanese as a complete safe-work instruction.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:card:10",
+      "legacySourceRef": "roofing:21:ja-en:cards:10",
+      "sourceSpanish": "Usen el ancla de techo — nada de improvisar.",
+      "sourceEnglish": "Use the roof anchor — don't freelance.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根のアンカーを使ってください。自己判断で別の場所に接続しないでください。",
+      "archivedEnglish": "Use the roof anchor — don't freelance.",
+      "reviewNote": "Use the roof anchor — don't freelance does not identify who approved the anchor or which connection is permitted. Archived 自己判断で別の場所に接続しないでください is plausible but remains an unreviewed safety command.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:card:11",
+      "legacySourceRef": "roofing:21:ja-en:cards:11",
+      "sourceSpanish": "La cuerda de vida corta — que no toquen el suelo si caen.",
+      "sourceEnglish": "Lanyard short enough you won't hit the ground.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "地面に接触しない長さのランヤードを使ってください。",
+      "archivedEnglish": "Lanyard short enough you won't hit the ground.",
+      "reviewNote": "The isolated lanyard-short-enough sentence is unsafe as a complete fall-clearance rule: system clearance depends on more than lanyard length. Hold source correction and all Japanese selection pending qualified fall-protection review.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:card:12",
+      "legacySourceRef": "roofing:21:ja-en:cards:12",
+      "sourceSpanish": "Muéstrenme el anclaje aprobado.",
+      "sourceEnglish": "Show me the approved anchor.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "承認されたアンカーを見せてください。",
+      "archivedEnglish": "Show me the approved anchor.",
+      "reviewNote": "Show me the approved anchor requires prior approval and a clear identification procedure. Archived 承認されたアンカー is unreviewed.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:card:13",
+      "legacySourceRef": "roofing:21:ja-en:cards:13",
+      "sourceSpanish": "Revisen su arnés antes de subir.",
+      "sourceEnglish": "Check your harness before you climb.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "上がる前にハーネスを確認してください。",
+      "archivedEnglish": "Check your harness before you climb.",
+      "reviewNote": "Check your harness before climbing omits inspection criteria and the full system. Hold as a source-attributed line, not an approved checklist.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:card:14",
+      "legacySourceRef": "roofing:21:ja-en:cards:14",
+      "sourceSpanish": "Nadie sube sin arnés.",
+      "sourceEnglish": "Nobody goes up without a harness.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ハーネスなしでは誰も上がらないでください。",
+      "archivedEnglish": "Nobody goes up without a harness.",
+      "reviewNote": "Nobody goes up without a harness could wrongly imply a harness alone is sufficient. Hold until the source describes a correctly connected fall-protection system and site-specific controls.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:21:ja-en:line:1",
+      "legacySourceRef": "roofing:21:ja-en:reader:1",
+      "sourceSpanish": "Antes de subir, el capataz reúne a la cuadrilla junto a la escalera.",
+      "sourceEnglish": "Before going up, the foreman gathers the crew next to the ladder.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根に上がる前に、職長ははしごの横に作業班を集めます。",
+      "archivedEnglish": "Before going up, the foreman gathers the crew next to the ladder.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:line:2",
+      "legacySourceRef": "roofing:21:ja-en:reader:2",
+      "sourceSpanish": "Nadie sube sin arnés, porque en el borde del techo hay riesgo de caída.",
+      "sourceEnglish": "Nobody goes up without a harness, because there is a fall hazard at the edge of the roof.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根の端には墜落の危険があるため、ハーネスなしでは誰も上がらないでください。",
+      "archivedEnglish": "Nobody goes up without a harness, because there is a fall hazard at the edge of the roof.",
+      "reviewNote": "Nobody goes up without a harness may imply the harness alone controls the edge hazard; preserve source and hold an unqualified safety instruction.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:line:3",
+      "legacySourceRef": "roofing:21:ja-en:reader:3",
+      "sourceSpanish": "Revisen su arnés antes de subir: la hebilla, la eslinga y las correas.",
+      "sourceEnglish": "Check your harness before you climb: the buckle, the lanyard, and the straps.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "上がる前に、バックル、ランヤード、ストラップを確認してください。",
+      "archivedEnglish": "Check your harness before you climb: the buckle, the lanyard, and the straps.",
+      "reviewNote": "Buckle, lanyard and straps are only a partial inspection list; the line does not establish equipment condition or an approved system.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:line:4",
+      "legacySourceRef": "roofing:21:ja-en:reader:4",
+      "sourceSpanish": "Anclen el arnés antes de subir al techo.",
+      "sourceEnglish": "Tie your harness off before you go up on the roof.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根に上がる前にハーネスをアンカーに接続してください。",
+      "archivedEnglish": "Tie your harness off before you go up on the roof.",
+      "reviewNote": "Tie off before roof access lacks the access-point, approved anchorage and connection procedure; do not turn it into a self-contained method.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:line:5",
+      "legacySourceRef": "roofing:21:ja-en:reader:5",
+      "sourceSpanish": "Muéstrenme el anclaje aprobado.",
+      "sourceEnglish": "Show me the approved anchor.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "承認されたアンカーを見せてください。",
+      "archivedEnglish": "Show me the approved anchor.",
+      "reviewNote": "Show me the approved anchor requires a prior competent approval decision; a visible anchor is not automatically approved.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:line:6",
+      "legacySourceRef": "roofing:21:ja-en:reader:6",
+      "sourceSpanish": "Si no ven un anclaje de techo, no suban y avísenme.",
+      "sourceEnglish": "If you don't see a roof anchor, don't go up and tell me.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根のアンカーが見つからなければ、上がらずに職長に伝えてください。",
+      "archivedEnglish": "If you don't see a roof anchor, don't go up and tell me.",
+      "reviewNote": "The stop-and-report instruction if no anchor is visible is useful source language but may not identify the approved access/anchor plan. Preserve the exact line, pending trade review.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:line:7",
+      "legacySourceRef": "roofing:21:ja-en:reader:7",
+      "sourceSpanish": "Pónganse también el casco.",
+      "sourceEnglish": "Put on your hard hat too.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ヘルメットも着用してください。",
+      "archivedEnglish": "Put on your hard hat too.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:line:8",
+      "legacySourceRef": "roofing:21:ja-en:reader:8",
+      "sourceSpanish": "La protección contra caídas solo sirve si cada persona la usa bien.",
+      "sourceEnglish": "Fall protection only works if each person uses it correctly.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "墜落防止は、各自が正しく使って初めて機能します。",
+      "archivedEnglish": "Fall protection only works if each person uses it correctly.",
+      "reviewNote": "Fall protection only works if used correctly is broad; distinguish the approved system and required inspection, clearance and rescue plan before learner promotion.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:21:ja-en:line:9",
+      "legacySourceRef": "roofing:21:ja-en:reader:9",
+      "sourceSpanish": "Después de anclarse, cada persona levanta el pulgar para avisar al capataz.",
+      "sourceEnglish": "After tying off, each person gives a thumbs up to let the foreman know.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "接続した後、各自が職長に親指を立てて合図します。",
+      "archivedEnglish": "After tying off, each person gives a thumbs up to let the foreman know.",
+      "reviewNote": "A thumbs-up after tying off is not a documented verification of the connection or system. Hold the source's implied sufficiency for qualified safety review.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Identify the harness, lanyard, buckle, and roof anchor.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall tie-off, roof anchor, and fall hazard.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish アンカー from ランヤード when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Check your harness before you climb' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Give a clear tie-off instruction before roof access.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write what the crew checks and shows before going up.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}
